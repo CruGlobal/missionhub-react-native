@@ -689,21 +689,30 @@ describe('lookupOrgCommunityCode', () => {
 
   const response = { id: orgId };
   const apiResponse = { type: 'successful', response };
+  const trackActionResponse = { type: 'track actions' };
 
   it('look up community by code', async () => {
     callApi.mockReturnValue(apiResponse);
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
 
     await store.dispatch(lookupOrgCommunityCode(code));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.LOOKUP_COMMUNITY_CODE, query);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SEARCH_COMMUNITY_WITH_CODE,
+    );
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, ownerQuery);
   });
 
   it('look up community by code no org returned', async () => {
     callApi.mockReturnValue({ type: 'error' });
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
 
     const result = await store.dispatch(lookupOrgCommunityCode(code));
 
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SEARCH_COMMUNITY_WITH_CODE,
+    );
     expect(result).toBe(null);
   });
 });
@@ -713,6 +722,7 @@ describe('joinCommunity', () => {
   const code = 'code';
   const url = 'url';
   const apiResponse = { type: 'api response' };
+  const trackActionResponse = { type: 'track action' };
   const attr = {
     organization_id: orgId,
     permission_id: ORG_PERMISSIONS.USER,
@@ -724,27 +734,34 @@ describe('joinCommunity', () => {
 
   beforeEach(() => {
     callApi.mockReturnValue(apiResponse);
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
   });
 
-  it('join community with code', () => {
+  it('join community with code', async () => {
     const attributes = { ...attr, community_code: code };
-    store.dispatch(joinCommunity(orgId, code));
+    await store.dispatch(joinCommunity(orgId, code));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.JOIN_COMMUNITY,
       {},
       { data: { ...data, attributes } },
     );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.JOIN_COMMUNITY_WITH_CODE,
+    );
   });
 
-  it('join community with url', () => {
+  it('join community with url', async () => {
     const attributes = { ...attr, community_url: url };
-    store.dispatch(joinCommunity(orgId, undefined, url));
+    await store.dispatch(joinCommunity(orgId, undefined, url));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.JOIN_COMMUNITY,
       {},
       { data: { ...data, attributes } },
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.JOIN_COMMUNITY_WITH_CODE,
     );
   });
 });

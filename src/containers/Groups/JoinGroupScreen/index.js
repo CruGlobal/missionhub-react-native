@@ -32,6 +32,7 @@ import {
 } from '../../../constants';
 import { setScrollGroups } from '../../../actions/swipe';
 import { trackActionWithoutData } from '../../../actions/analytics';
+
 import styles from './styles';
 
 @translate('groupsJoinGroup')
@@ -56,7 +57,6 @@ class JoinGroupScreen extends Component {
       state: { code },
       props: { t, dispatch },
     } = this;
-    /*dispatch(trackActionWithoutData(ACTIONS.SEARCH_COMMUNITY_WITH_CODE));*/
 
     codeInput.focus();
 
@@ -89,7 +89,7 @@ class JoinGroupScreen extends Component {
     const { dispatch } = this.props;
     const { community } = this.state;
     Keyboard.dismiss();
-    
+
     try {
       await dispatch(joinCommunity(community.id, community.community_code));
       this.joined();

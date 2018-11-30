@@ -425,6 +425,8 @@ export function lookupOrgCommunityCode(code) {
     const { response: org } = await dispatch(
       callApi(REQUESTS.LOOKUP_COMMUNITY_CODE, query),
     );
+    dispatch(trackActionWithoutData(ACTIONS.SEARCH_COMMUNITY_WITH_CODE));
+
     if (!org || !org.id) {
       return null;
     }
@@ -472,7 +474,7 @@ function getOwner(org) {
 }
 
 export function joinCommunity(orgId, code, url) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const myId = getState().auth.person.id;
     const attributes = {
       organization_id: orgId,
@@ -497,7 +499,12 @@ export function joinCommunity(orgId, code, url) {
         attributes,
       },
     };
-    return dispatch(callApi(REQUESTS.JOIN_COMMUNITY, {}, bodyData));
+    const results = await dispatch(
+      callApi(REQUESTS.JOIN_COMMUNITY, {}, bodyData),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.JOIN_COMMUNITY_WITH_CODE));
+
+    return results;
   };
 }
 
