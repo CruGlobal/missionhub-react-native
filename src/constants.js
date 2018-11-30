@@ -253,6 +253,82 @@ export const ACTIONS = {
     name: 'Community Selected After Join',
     key: 'cru.joincommunities',
   },
+  SEARCH_COMMUNITY_WITH_CODE: {
+    name: 'Search for Community With Code',
+    key: 'cru.codesearch',
+  },
+  JOIN_COMMUNITY_WITH_CODE: {
+    name: 'Join Community With Code',
+    key: 'cru.codejoin',
+  },
+  ADD_COMMUNITY_PHOTO: {
+    name: 'Add Photo for Community',
+    key: 'cru.communityphoto',
+  },
+  CREATE_COMMUNITY: {
+    name: 'Create Community',
+    key: 'cru.communitycreate',
+  },
+  CHALLENGE_CREATED: {
+    name: 'Challenge Created',
+    key: 'cru.challengecreated',
+  },
+  CHALLENGE_JOINED: {
+    name: 'Challenge Joined',
+    key: 'cru.challengejoined',
+  },
+  CHALLENGE_COMPLETED: {
+    name: 'Challenge Completed',
+    key: 'cru.challengecompleted',
+  },
+  CHALLENGE_DETAIL: {
+    name: 'Challenge Detail View',
+    key: 'cru.challengedetail',
+  },
+  MANAGE_MAKE_ADMIN: {
+    name: 'Make Admin',
+    key: 'cru.membersmakeadmin',
+  },
+  MANAGE_MAKE_OWNER: {
+    name: 'Make Owner',
+    key: 'cru.membersmakeowner',
+  },
+  MANAGE_REMOVE_ADMIN: {
+    name: 'Remove Admin',
+    key: 'cru.membersremoveadmin',
+  },
+  MANAGE_REMOVE_MEMBER: {
+    name: 'Remove Member',
+    key: 'cru.membersremovemember',
+  },
+  MANAGE_LEAVE_COMMUNITY: {
+    name: 'Leave Community',
+    key: 'cru.membersleave',
+  },
+  COMMUNITY_EDIT: {
+    name: 'Editting Community',
+    key: 'cru.communityedit',
+  },
+  COPY_CODE: {
+    name: 'Copy Community Code',
+    key: 'cru.copycode',
+  },
+  COPY_INVITE_URL: {
+    name: 'Copy Community Invite URL',
+    key: 'cru.copyinviteurl',
+  },
+  NEW_CODE: {
+    name: 'New Community Code',
+    key: 'cru.newcode',
+  },
+  NEW_INVITE_URL: {
+    name: 'New Community Invite URL',
+    key: 'cru.newinviteurl',
+  },
+  COMMUNITY_DELETE: {
+    name: 'Delete Community',
+    key: 'cru.communitydelete',
+  },
 };
 
 export const CONTACT_STEPS = 'Contact Steps';

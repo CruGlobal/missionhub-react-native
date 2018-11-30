@@ -9,9 +9,11 @@ import {
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
   REMOVE_ORGANIZATION_MEMBER,
+  ACTIONS,
   ORG_PERMISSIONS,
 } from '../../constants';
 import callApi, { REQUESTS } from '../api';
+import { trackActionWithoutData } from '../analytics';
 import {
   getMyOrganizations,
   getOrganizationsContactReports,
@@ -33,6 +35,7 @@ import {
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
 
+jest.mock('../analytics');
 jest.mock('../../selectors/organizations');
 jest.mock('../api');
 jest.mock('../person');
@@ -462,6 +465,7 @@ describe('getMyCommunities', () => {
 
 describe('transferOrgOwnership', () => {
   const apiResponse = { type: 'api response' };
+  const trackActionResponse = { type: 'track action' };
   const getMeResponse = { type: 'get me response' };
   const getPersonResponse = { type: 'get person response' };
   const orgId = '10292342';
@@ -469,6 +473,7 @@ describe('transferOrgOwnership', () => {
 
   beforeEach(() => {
     callApi.mockReturnValue(apiResponse);
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
     getMe.mockReturnValue(getMeResponse);
     getPersonDetails.mockReturnValue(getPersonResponse);
   });
@@ -486,11 +491,15 @@ describe('transferOrgOwnership', () => {
         },
       },
     );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.MANAGE_MAKE_OWNER,
+    );
     expect(getMe).toHaveBeenCalledWith();
     expect(getPersonDetails).toHaveBeenCalledWith(person_id, orgId);
 
     expect(store.getActions()).toEqual([
       apiResponse,
+      trackActionResponse,
       getMeResponse,
       getPersonResponse,
     ]);
@@ -498,6 +507,7 @@ describe('transferOrgOwnership', () => {
 });
 
 describe('addNewOrganization', () => {
+  const orgId = '123';
   const name = 'Fred';
   const bodyData = {
     data: {
@@ -508,25 +518,81 @@ describe('addNewOrganization', () => {
       },
     },
   };
-  const apiResponse = { type: 'api response' };
+  const apiResponse = { type: 'api response', response: { id: orgId } };
   const getMeResponse = { type: 'get me response' };
+  const trackActionResponse = { type: 'track action' };
 
   beforeEach(() => {
+    jest.clearAllMocks();
     callApi.mockReturnValue(apiResponse);
     getMe.mockReturnValue(getMeResponse);
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
   });
 
   it('adds organization with name', async () => {
     await store.dispatch(addNewOrganization(name));
 
+    expect(callApi).toHaveBeenCalledTimes(1);
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.ADD_NEW_ORGANIZATION,
       {},
       bodyData,
     );
+    expect(trackActionWithoutData).toHaveBeenCalledTimes(1);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CREATE_COMMUNITY,
+    );
     expect(getMe).toHaveBeenCalledWith();
 
-    expect(store.getActions()).toEqual([apiResponse, getMeResponse]);
+    expect(store.getActions()).toEqual([
+      apiResponse,
+      trackActionResponse,
+      getMeResponse,
+    ]);
+  });
+
+  it('adds organization with name and image', async () => {
+    const imageBodyData = new FormData();
+    const testImageData = {
+      uri: 'testuri',
+      fileType: 'image/jpeg',
+      fileName: 'filename',
+    };
+    imageBodyData.append('data[attributes][community_photo]', {
+      uri: testImageData.uri,
+      type: testImageData.fileType,
+      name: testImageData.fileName,
+    });
+
+    await store.dispatch(addNewOrganization(name, testImageData));
+
+    expect(callApi).toHaveBeenCalledTimes(2);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ADD_NEW_ORGANIZATION,
+      {},
+      bodyData,
+    );
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_ORGANIZATION_IMAGE,
+      { orgId },
+      imageBodyData,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledTimes(2);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CREATE_COMMUNITY,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ADD_COMMUNITY_PHOTO,
+    );
+    expect(getMe).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([
+      apiResponse,
+      trackActionResponse,
+      apiResponse,
+      trackActionResponse,
+      getMeResponse,
+    ]);
   });
 });
 
@@ -591,17 +657,22 @@ describe('updateOrganizationImage', () => {
 describe('deleteOrganization', () => {
   const orgId = '123';
   const apiResponse = { type: 'api response' };
+  const trackActionResponse = { type: 'track action' };
 
   beforeEach(() => {
     callApi.mockReturnValue(apiResponse);
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
   });
 
-  it('delete organization', () => {
-    store.dispatch(deleteOrganization(orgId));
+  it('delete organization', async () => {
+    await store.dispatch(deleteOrganization(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_ORGANIZATION, {
       orgId,
     });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.COMMUNITY_DELETE,
+    );
   });
 });
 
@@ -618,21 +689,30 @@ describe('lookupOrgCommunityCode', () => {
 
   const response = { id: orgId };
   const apiResponse = { type: 'successful', response };
+  const trackActionResponse = { type: 'track actions' };
 
   it('look up community by code', async () => {
     callApi.mockReturnValue(apiResponse);
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
 
     await store.dispatch(lookupOrgCommunityCode(code));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.LOOKUP_COMMUNITY_CODE, query);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SEARCH_COMMUNITY_WITH_CODE,
+    );
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, ownerQuery);
   });
 
   it('look up community by code no org returned', async () => {
     callApi.mockReturnValue({ type: 'error' });
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
 
     const result = await store.dispatch(lookupOrgCommunityCode(code));
 
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SEARCH_COMMUNITY_WITH_CODE,
+    );
     expect(result).toBe(null);
   });
 });
@@ -642,6 +722,7 @@ describe('joinCommunity', () => {
   const code = 'code';
   const url = 'url';
   const apiResponse = { type: 'api response' };
+  const trackActionResponse = { type: 'track action' };
   const attr = {
     organization_id: orgId,
     permission_id: ORG_PERMISSIONS.USER,
@@ -653,27 +734,34 @@ describe('joinCommunity', () => {
 
   beforeEach(() => {
     callApi.mockReturnValue(apiResponse);
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
   });
 
-  it('join community with code', () => {
+  it('join community with code', async () => {
     const attributes = { ...attr, community_code: code };
-    store.dispatch(joinCommunity(orgId, code));
+    await store.dispatch(joinCommunity(orgId, code));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.JOIN_COMMUNITY,
       {},
       { data: { ...data, attributes } },
     );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.JOIN_COMMUNITY_WITH_CODE,
+    );
   });
 
-  it('join community with url', () => {
+  it('join community with url', async () => {
     const attributes = { ...attr, community_url: url };
-    store.dispatch(joinCommunity(orgId, undefined, url));
+    await store.dispatch(joinCommunity(orgId, undefined, url));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.JOIN_COMMUNITY,
       {},
       { data: { ...data, attributes } },
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.JOIN_COMMUNITY_WITH_CODE,
     );
   });
 });
@@ -681,34 +769,40 @@ describe('joinCommunity', () => {
 describe('generateNewCode', () => {
   const orgId = '123';
   const apiResponse = { type: 'api response' };
+  const trackActionResponse = { type: 'track action' };
 
   beforeEach(() => {
     callApi.mockReturnValue(apiResponse);
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
   });
 
-  it('get new code for organization', () => {
-    store.dispatch(generateNewCode(orgId));
+  it('get new code for organization', async () => {
+    await store.dispatch(generateNewCode(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.ORGANIZATION_NEW_CODE, {
       orgId,
     });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NEW_CODE);
   });
 });
 
 describe('generateNewLink', () => {
   const orgId = '123';
   const apiResponse = { type: 'api response' };
+  const trackActionResponse = { type: 'track action' };
 
   beforeEach(() => {
     callApi.mockReturnValue(apiResponse);
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
   });
 
-  it('get new url for organization', () => {
-    store.dispatch(generateNewLink(orgId));
+  it('get new url for organization', async () => {
+    await store.dispatch(generateNewLink(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.ORGANIZATION_NEW_LINK, {
       orgId,
     });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NEW_INVITE_URL);
   });
 });
 

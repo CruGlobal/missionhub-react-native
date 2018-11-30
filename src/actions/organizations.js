@@ -5,12 +5,14 @@ import {
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
   REMOVE_ORGANIZATION_MEMBER,
+  ACTIONS,
   ORG_PERMISSIONS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
 import { getMe, getPersonDetails } from './person';
 import callApi, { REQUESTS } from './api';
+import { trackActionWithoutData } from './analytics';
 
 const getOrganizationsQuery = {
   limit: 100,
@@ -360,6 +362,7 @@ export function transferOrgOwnership(orgId, person_id) {
         },
       ),
     );
+    dispatch(trackActionWithoutData(ACTIONS.MANAGE_MAKE_OWNER));
 
     // After transfer, update auth person and other person with new org permissions
     dispatch(getMe());
@@ -389,10 +392,13 @@ export function addNewOrganization(name, imageData) {
     const results = await dispatch(
       callApi(REQUESTS.ADD_NEW_ORGANIZATION, query, bodyData),
     );
+    dispatch(trackActionWithoutData(ACTIONS.CREATE_COMMUNITY));
+
     if (imageData) {
       // After the org is created, update the image with the image data passed in
       const newOrgId = results.response.id;
-      dispatch(updateOrganizationImage(newOrgId, imageData));
+      await dispatch(updateOrganizationImage(newOrgId, imageData));
+      dispatch(trackActionWithoutData(ACTIONS.ADD_COMMUNITY_PHOTO));
     }
     // After the org is created, update auth person with new org permissions
     dispatch(getMe());
@@ -402,9 +408,14 @@ export function addNewOrganization(name, imageData) {
 }
 
 export function deleteOrganization(orgId) {
-  return dispatch => {
+  return async dispatch => {
     const query = { orgId };
-    return dispatch(callApi(REQUESTS.DELETE_ORGANIZATION, query));
+    const results = await dispatch(
+      callApi(REQUESTS.DELETE_ORGANIZATION, query),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.COMMUNITY_DELETE));
+
+    return results;
   };
 }
 
@@ -414,6 +425,8 @@ export function lookupOrgCommunityCode(code) {
     const { response: org } = await dispatch(
       callApi(REQUESTS.LOOKUP_COMMUNITY_CODE, query),
     );
+    dispatch(trackActionWithoutData(ACTIONS.SEARCH_COMMUNITY_WITH_CODE));
+
     if (!org || !org.id) {
       return null;
     }
@@ -461,7 +474,7 @@ function getOwner(org) {
 }
 
 export function joinCommunity(orgId, code, url) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const myId = getState().auth.person.id;
     const attributes = {
       organization_id: orgId,
@@ -486,19 +499,34 @@ export function joinCommunity(orgId, code, url) {
         attributes,
       },
     };
-    return dispatch(callApi(REQUESTS.JOIN_COMMUNITY, {}, bodyData));
+    const results = await dispatch(
+      callApi(REQUESTS.JOIN_COMMUNITY, {}, bodyData),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.JOIN_COMMUNITY_WITH_CODE));
+
+    return results;
   };
 }
 
 export function generateNewCode(orgId) {
-  return dispatch => {
-    return dispatch(callApi(REQUESTS.ORGANIZATION_NEW_CODE, { orgId }));
+  return async dispatch => {
+    const results = await dispatch(
+      callApi(REQUESTS.ORGANIZATION_NEW_CODE, { orgId }),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.NEW_CODE));
+
+    return results;
   };
 }
 
 export function generateNewLink(orgId) {
-  return dispatch => {
-    return dispatch(callApi(REQUESTS.ORGANIZATION_NEW_LINK, { orgId }));
+  return async dispatch => {
+    const results = await dispatch(
+      callApi(REQUESTS.ORGANIZATION_NEW_LINK, { orgId }),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.NEW_INVITE_URL));
+
+    return results;
   };
 }
 

@@ -193,5 +193,8 @@ describe('CreateGroupScreen', () => {
     expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
       organization: org,
     });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SELECT_CREATED_COMMUNITY,
+    );
   });
 });

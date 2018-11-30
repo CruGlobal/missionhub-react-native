@@ -31,11 +31,13 @@ class MemberOptionsMenu extends Component {
 
   makeAdmin = () => {
     const { dispatch, person, personOrgPermission } = this.props;
+
     dispatch(makeAdmin(person.id, personOrgPermission.id));
   };
 
   removeAsAdmin = () => {
     const { dispatch, person, personOrgPermission } = this.props;
+
     dispatch(removeAsAdmin(person.id, personOrgPermission.id));
   };
 

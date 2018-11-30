@@ -1,11 +1,12 @@
 import { formatApiDate } from '../utils/common';
 import { getFeed, reloadFeed, CHALLENGE } from '../utils/actions';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
-import { UPDATE_CHALLENGE } from '../constants';
+import { UPDATE_CHALLENGE, ACTIONS } from '../constants';
 
 import callApi, { REQUESTS } from './api';
 import { reloadGroupCelebrateFeed } from './celebration';
 import { navigatePush, navigateBack } from './navigation';
+import { trackActionWithoutData } from './analytics';
 
 export function getGroupChallengeFeed(orgId) {
   return dispatch => {
@@ -39,6 +40,7 @@ export function completeChallenge(item, orgId) {
         },
       }),
     );
+    dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_COMPLETED));
     dispatch(reloadGroupChallengeFeed(orgId));
     // After completing a challenge, reload the group celebrate feed with this new item
     dispatch(reloadGroupCelebrateFeed(orgId));
@@ -66,6 +68,7 @@ export function joinChallenge(item, orgId) {
         gifId: 0,
       }),
     );
+    dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_JOINED));
     dispatch(reloadGroupChallengeFeed(orgId));
     // After joining a challenge, reload the group celebrate feed with this new item
     dispatch(reloadGroupCelebrateFeed(orgId));
@@ -85,6 +88,7 @@ export function createChallenge(challenge, orgId) {
   };
   return async dispatch => {
     await dispatch(callApi(REQUESTS.CREATE_GROUP_CHALLENGE, query, bodyData));
+    dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_CREATED));
     return dispatch(reloadGroupChallengeFeed(orgId));
   };
 }
