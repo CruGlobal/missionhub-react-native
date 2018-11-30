@@ -4,25 +4,8 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
 Object {
   "code": "123456",
   "community": Object {
-    "contactReport": Object {
-      "membersCount": 17,
-    },
-    "name": "Test Community",
-    "owner": "Roge",
-  },
-  "errorMessage": "",
-}
-`;
-
-exports[`JoinGroupScreen onSearch should set community if input has 6 digits 1`] = `
-Object {
-  "code": "123456",
-  "community": Object {
-    "contactReport": Object {
-      "membersCount": 17,
-    },
-    "name": "Test Community",
-    "owner": "Roge",
+    "name": "test",
+    "type": "lookup",
   },
   "errorMessage": "",
 }
@@ -32,8 +15,7 @@ exports[`JoinGroupScreen onSearch should set error if input has < 6 digits 1`] =
 Object {
   "code": "123",
   "community": undefined,
-  "errorMessage": "Sorry, we couldn't find your community.
-Double check your code.",
+  "errorMessage": "",
 }
 `;
 
@@ -120,6 +102,7 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
         blurOnSubmit={false}
         maxLength={6}
         onChangeText={[Function]}
+        selectionColor="#ffffff"
         style={
           Object {
             "color": "#ffffff",
@@ -202,7 +185,15 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
       <Translate(GroupCardItem)
         group={
           Object {
-            "id": "1",
+            "community_code": "123456",
+            "contactReport": Object {
+              "memberCount": 2,
+            },
+            "id": "123",
+            "name": "Org Name",
+            "owner": Object {
+              "first_name": "Owner",
+            },
           }
         }
         onJoin={[Function]}
@@ -222,6 +213,7 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
         blurOnSubmit={false}
         maxLength={6}
         onChangeText={[Function]}
+        selectionColor="#ffffff"
         style={
           Object {
             "color": "#ffffff",
@@ -344,6 +336,7 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
         blurOnSubmit={false}
         maxLength={6}
         onChangeText={[Function]}
+        selectionColor="#ffffff"
         style={
           Object {
             "color": "#ffffff",

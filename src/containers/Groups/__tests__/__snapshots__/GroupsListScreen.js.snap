@@ -104,12 +104,10 @@ exports[`GroupsListScreen should render correctly 1`] = `
       data={
         Array [
           Object {
-            "contactReport": Object {},
             "id": "1",
             "name": "Test Org 1",
           },
           Object {
-            "contactReport": Object {},
             "id": "2",
             "name": "Test Org 2",
             "user_created": true,
@@ -143,7 +141,6 @@ exports[`GroupsListScreen should render item 1`] = `
 <Translate(GroupCardItem)
   group={
     Object {
-      "contactReport": Object {},
       "id": "1",
       "name": "test",
     }
@@ -268,12 +265,10 @@ exports[`should render null state 1`] = `
       data={
         Array [
           Object {
-            "contactReport": Object {},
             "id": "1",
             "name": "Test Org 1",
           },
           Object {
-            "contactReport": Object {},
             "id": "2",
             "name": "Test Org 2",
             "user_created": true,

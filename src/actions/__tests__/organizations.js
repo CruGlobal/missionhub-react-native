@@ -10,6 +10,7 @@ import {
   DEFAULT_PAGE_LIMIT,
   REMOVE_ORGANIZATION_MEMBER,
   ACTIONS,
+  ORG_PERMISSIONS,
 } from '../../constants';
 import callApi, { REQUESTS } from '../api';
 import { trackActionWithoutData } from '../analytics';
@@ -26,9 +27,11 @@ import {
   updateOrganization,
   updateOrganizationImage,
   deleteOrganization,
+  lookupOrgCommunityCode,
   generateNewCode,
   removeOrganizationMember,
   generateNewLink,
+  joinCommunity,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
 
@@ -669,6 +672,79 @@ describe('deleteOrganization', () => {
     });
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.COMMUNITY_DELETE,
+    );
+  });
+});
+
+describe('lookupOrgCommunityCode', () => {
+  const code = '123456';
+  const orgId = '123';
+  const query = { community_code: code };
+  const ownerQuery = {
+    filters: {
+      permissions: 'owner',
+      organization_ids: orgId,
+    },
+  };
+
+  const response = { id: orgId };
+  const apiResponse = { type: 'successful', response };
+
+  it('look up community by code', async () => {
+    callApi.mockReturnValue(apiResponse);
+
+    await store.dispatch(lookupOrgCommunityCode(code));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.LOOKUP_COMMUNITY_CODE, query);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, ownerQuery);
+  });
+
+  it('look up community by code no org returned', async () => {
+    callApi.mockReturnValue({ type: 'error' });
+
+    const result = await store.dispatch(lookupOrgCommunityCode(code));
+
+    expect(result).toBe(null);
+  });
+});
+
+describe('joinCommunity', () => {
+  const orgId = '123';
+  const code = 'code';
+  const url = 'url';
+  const apiResponse = { type: 'api response' };
+  const attr = {
+    organization_id: orgId,
+    permission_id: ORG_PERMISSIONS.USER,
+    person_id: myId,
+  };
+  const data = {
+    type: 'organizational_permission',
+  };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+  });
+
+  it('join community with code', () => {
+    const attributes = { ...attr, community_code: code };
+    store.dispatch(joinCommunity(orgId, code));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.JOIN_COMMUNITY,
+      {},
+      { data: { ...data, attributes } },
+    );
+  });
+
+  it('join community with url', () => {
+    const attributes = { ...attr, community_url: url };
+    store.dispatch(joinCommunity(orgId, undefined, url));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.JOIN_COMMUNITY,
+      {},
+      { data: { ...data, attributes } },
     );
   });
 });

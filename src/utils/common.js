@@ -116,6 +116,8 @@ export const getInitials = initials =>
     .trim()
     .substr(0, 2)
     .trim();
+export const getFirstNameAndLastInitial = (f, l) =>
+  `${f || ''} ${(l || '').charAt(0)}`.trim();
 export const intToStringLocale = num => parseInt(num).toLocaleString();
 
 // Disable the android back button

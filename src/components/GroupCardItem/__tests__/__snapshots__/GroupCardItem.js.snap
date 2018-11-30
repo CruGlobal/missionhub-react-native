@@ -60,7 +60,7 @@ exports[`GroupCardItem renders for join screen 1`] = `
           }
         }
       >
-        5 Members  ·  Roge (Owner)
+        Roge (Owner)
       </MyText>
     </Flex>
     <Flex
@@ -355,7 +355,9 @@ exports[`GroupCardItem renders with all report counts 1`] = `
           }
         }
       >
-        768 Contacts   ·   13 Unassigned
+        768 Contacts
+        <Dot />
+        13 Unassigned
       </MyText>
     </Flex>
   </Flex>
@@ -422,7 +424,9 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
           }
         }
       >
-        768 Contacts   ·   0 Unassigned
+        768 Contacts
+        <Dot />
+        0 Unassigned
       </MyText>
     </Flex>
   </Flex>
@@ -489,7 +493,9 @@ exports[`GroupCardItem renders with image url 1`] = `
           }
         }
       >
-        0 Contacts   ·   0 Unassigned
+        0 Contacts
+        <Dot />
+        0 Unassigned
       </MyText>
     </Flex>
   </Flex>
@@ -556,7 +562,9 @@ exports[`GroupCardItem renders with no report counts 1`] = `
           }
         }
       >
-        0 Contacts   ·   0 Unassigned
+        0 Contacts
+        <Dot />
+        0 Unassigned
       </MyText>
     </Flex>
   </Flex>
@@ -690,7 +698,9 @@ exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
           }
         }
       >
-        0 Contacts   ·   13 Unassigned
+        0 Contacts
+        <Dot />
+        13 Unassigned
       </MyText>
     </Flex>
   </Flex>
