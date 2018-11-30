@@ -292,7 +292,7 @@ export function updateOrgPermission(
 
 export function archiveOrgPermission(personId, orgPermissionId) {
   return async (dispatch, getState) => {
-    const results = dispatch(
+    const results = await dispatch(
       updatePerson({
         id: personId,
         orgPermission: {

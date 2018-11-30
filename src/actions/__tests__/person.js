@@ -48,6 +48,7 @@ jest.mock('../api');
 jest.mock('../navigation');
 jest.mock('../../selectors/people');
 jest.mock('../../selectors/organizations');
+jest.mock('../analytics');
 
 const myId = '1';
 
@@ -256,8 +257,10 @@ describe('makeAdmin', () => {
   const personId = '24234234';
   const orgPermissionId = '78978998';
 
-  it('sends a request with org permission level set', () => {
-    store.dispatch(makeAdmin(personId, orgPermissionId));
+  it('sends a request with org permission level set', async () => {
+    analytics.trackActionWithoutData.mockReturnValue({ type: 'track action' });
+
+    await store.dispatch(makeAdmin(personId, orgPermissionId));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
@@ -280,6 +283,9 @@ describe('makeAdmin', () => {
         ],
       },
     );
+    expect(analytics.trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.MANAGE_MAKE_ADMIN,
+    );
   });
 });
 
@@ -287,8 +293,10 @@ describe('removeAsAdmin', () => {
   const personId = '24234234';
   const orgPermissionId = '78978998';
 
-  it('sends a request with org permission level set', () => {
-    store.dispatch(removeAsAdmin(personId, orgPermissionId));
+  it('sends a request with org permission level set', async () => {
+    analytics.trackActionWithoutData.mockReturnValue({ type: 'track action' });
+
+    await store.dispatch(removeAsAdmin(personId, orgPermissionId));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
@@ -310,6 +318,9 @@ describe('removeAsAdmin', () => {
           },
         ],
       },
+    );
+    expect(analytics.trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.MANAGE_REMOVE_ADMIN,
     );
   });
 });
@@ -354,8 +365,10 @@ describe('archiveOrgPermission', () => {
   const date = '2018-01-01';
   MockDate.set(date);
 
-  it('sends a request with archive_date set', () => {
-    store.dispatch(archiveOrgPermission(personId, orgPermissionId));
+  it('sends a request with archive_date set', async () => {
+    analytics.trackActionWithoutData.mockReturnValue({ type: 'track action' });
+
+    await store.dispatch(archiveOrgPermission(personId, orgPermissionId));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
@@ -377,6 +390,9 @@ describe('archiveOrgPermission', () => {
           },
         ],
       },
+    );
+    expect(analytics.trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.MANAGE_REMOVE_MEMBER,
     );
   });
 });
