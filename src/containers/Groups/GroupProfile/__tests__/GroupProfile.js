@@ -219,7 +219,7 @@ describe('GroupProfile', () => {
       expect(Alert.alert).toHaveBeenCalled();
       //Manually call onPress
       Alert.alert.mock.calls[0][2][1].onPress();
-      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NEW_CODE);
+
       expect(generateNewCode).toHaveBeenCalledWith(orgId);
     });
 
@@ -234,9 +234,7 @@ describe('GroupProfile', () => {
       expect(Alert.alert).toHaveBeenCalled();
       //Manually call onPress
       Alert.alert.mock.calls[0][2][1].onPress();
-      expect(trackActionWithoutData).toHaveBeenCalledWith(
-        ACTIONS.NEW_INVITE_URL,
-      );
+
       expect(generateNewLink).toHaveBeenCalledWith(orgId);
     });
 
@@ -266,9 +264,6 @@ describe('GroupProfile', () => {
 
       await Alert.alert.mock.calls[0][2][1].onPress();
 
-      expect(trackActionWithoutData).toHaveBeenCalledWith(
-        ACTIONS.COMMUNITY_DELETE,
-      );
       expect(deleteOrganization).toHaveBeenCalledWith(orgId);
       expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
         startTab: 'groups',

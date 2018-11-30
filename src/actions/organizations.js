@@ -407,21 +407,36 @@ export function addNewOrganization(name, imageData) {
 }
 
 export function deleteOrganization(orgId) {
-  return dispatch => {
+  return async dispatch => {
     const query = { orgId };
-    return dispatch(callApi(REQUESTS.DELETE_ORGANIZATION, query));
+    const results = await dispatch(
+      callApi(REQUESTS.DELETE_ORGANIZATION, query),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.COMMUNITY_DELETE));
+
+    return results;
   };
 }
 
 export function generateNewCode(orgId) {
-  return dispatch => {
-    return dispatch(callApi(REQUESTS.ORGANIZATION_NEW_CODE, { orgId }));
+  return async dispatch => {
+    const results = await dispatch(
+      callApi(REQUESTS.ORGANIZATION_NEW_CODE, { orgId }),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.NEW_CODE));
+
+    return results;
   };
 }
 
 export function generateNewLink(orgId) {
-  return dispatch => {
-    return dispatch(callApi(REQUESTS.ORGANIZATION_NEW_LINK, { orgId }));
+  return async dispatch => {
+    const results = await dispatch(
+      callApi(REQUESTS.ORGANIZATION_NEW_LINK, { orgId }),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.NEW_INVITE_URL));
+
+    return results;
   };
 }
 
