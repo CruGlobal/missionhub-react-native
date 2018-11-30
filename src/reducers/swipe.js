@@ -6,6 +6,7 @@ import {
   SWIPE_REMINDER_JOURNEY,
   GROUP_ONBOARDING_CARD,
   GROUP_INVITE_INFO,
+  GROUP_TAB_SCROLL_ON_MOUNT,
 } from '../constants';
 import { exists } from '../utils/common';
 import { GROUP_ONBOARDING_TYPES } from '../containers/Groups/OnboardingCard';
@@ -25,6 +26,7 @@ const initialState = {
     [GROUP_ONBOARDING_TYPES.surveys]: true,
   },
   groupInviteInfo: true,
+  groupScrollOnMount: false,
 };
 
 function swipeReducer(state = initialState, action) {
@@ -39,6 +41,8 @@ function swipeReducer(state = initialState, action) {
       return { ...state, journey: false };
     case GROUP_INVITE_INFO:
       return { ...state, groupInviteInfo: false };
+    case GROUP_TAB_SCROLL_ON_MOUNT:
+      return { ...state, groupScrollOnMount: action.value };
     case GROUP_ONBOARDING_CARD:
       const target = action.target;
       if (!exists(state.groupOnboarding[target])) {

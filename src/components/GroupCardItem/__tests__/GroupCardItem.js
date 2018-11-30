@@ -154,7 +154,7 @@ describe('GroupCardItem', () => {
         contactReport: {
           memberCount,
         },
-        owner: 'Roge',
+        owner: { first_name: 'Roge' },
       },
       onJoin: jest.fn(),
     };

@@ -5,6 +5,8 @@ import {
   removeSwipeJourney,
   removeGroupOnboardingCard,
   removeGroupInviteInfo,
+  setScrollGroups,
+  resetScrollGroups,
 } from '../swipe';
 import {
   SWIPE_REMINDER_STEPS_HOME,
@@ -13,6 +15,7 @@ import {
   SWIPE_REMINDER_JOURNEY,
   GROUP_INVITE_INFO,
   GROUP_ONBOARDING_CARD,
+  GROUP_TAB_SCROLL_ON_MOUNT,
 } from '../../constants';
 
 describe('removeSwipeStepsHome', () => {
@@ -55,6 +58,24 @@ describe('removeGroupOnboardingCard', () => {
     expect(removeGroupOnboardingCard(target)).toEqual({
       type: GROUP_ONBOARDING_CARD,
       target,
+      value: false,
+    });
+  });
+});
+
+describe('setScrollGroups', () => {
+  it('should return setScrollGroups', () => {
+    expect(setScrollGroups()).toEqual({
+      type: GROUP_TAB_SCROLL_ON_MOUNT,
+      value: true,
+    });
+  });
+});
+
+describe('resetScrollGroups', () => {
+  it('should return resetScrollGroups', () => {
+    expect(resetScrollGroups()).toEqual({
+      type: GROUP_TAB_SCROLL_ON_MOUNT,
       value: false,
     });
   });

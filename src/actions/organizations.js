@@ -5,6 +5,7 @@ import {
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
   REMOVE_ORGANIZATION_MEMBER,
+  ORG_PERMISSIONS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
@@ -404,6 +405,88 @@ export function deleteOrganization(orgId) {
   return dispatch => {
     const query = { orgId };
     return dispatch(callApi(REQUESTS.DELETE_ORGANIZATION, query));
+  };
+}
+
+export function lookupOrgCommunityCode(code) {
+  return async dispatch => {
+    const query = { community_code: code };
+    const { response: org } = await dispatch(
+      callApi(REQUESTS.LOOKUP_COMMUNITY_CODE, query),
+    );
+    if (!org || !org.id) {
+      return null;
+    }
+
+    const orgWithOwner = await dispatch(getOwner(org));
+
+    // No need to get member count anymore since it's an authenticated route
+    // Leaving this code here in case we change that route to be unauthenticated
+    // get the report information and append it to the org
+    // const reportQuery = {
+    //   organization_ids: org.id,
+    //   period: 'P1W',
+    // };
+    // const { response: reports } = await dispatch(
+    //   callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, reportQuery),
+    // );
+
+    // const report = reports[0] || {};
+    // org.contactReport = {
+    //   contactsCount: report.contact_count,
+    //   unassignedCount: report.unassigned_count,
+    //   uncontactedCount: report.uncontacted_count,
+    //   memberCount: report.member_count,
+    // };
+
+    return orgWithOwner;
+  };
+}
+
+function getOwner(org) {
+  return async dispatch => {
+    // get the owner information and append it to the org
+    const ownerQuery = {
+      filters: {
+        permissions: 'owner',
+        organization_ids: org.id,
+      },
+    };
+    const { response: ownerResponse } = await dispatch(
+      callApi(REQUESTS.GET_PEOPLE_LIST, ownerQuery),
+    );
+    org.owner = ownerResponse[0];
+    return { ...org, owner: ownerResponse[0] };
+  };
+}
+
+export function joinCommunity(orgId, code, url) {
+  return (dispatch, getState) => {
+    const myId = getState().auth.person.id;
+    const attributes = {
+      organization_id: orgId,
+      permission_id: ORG_PERMISSIONS.USER,
+    };
+    if (code) {
+      attributes.community_code = code;
+    } else if (url) {
+      attributes.community_url = url;
+    } else {
+      return Promise.reject(
+        `Invalid Data from joinCommunity: must pass in a code or url`,
+      );
+    }
+    // This can be done through onboarding, so it's possible we won't have a person_id.
+    if (myId) {
+      attributes.person_id = myId;
+    }
+    const bodyData = {
+      data: {
+        type: 'organizational_permission',
+        attributes,
+      },
+    };
+    return dispatch(callApi(REQUESTS.JOIN_COMMUNITY, {}, bodyData));
   };
 }
 

@@ -7,6 +7,8 @@ import { Text, Flex, Card, Button } from '../common';
 import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.png';
 // TODO: Need the correct default image for user created communities
 import DEFAULT_USER_COMMUNITY_IMAGE from '../../../assets/images/impactBackground.png';
+import Dot from '../Dot';
+import { getFirstNameAndLastInitial } from '../../utils/common';
 
 import styles from './styles';
 
@@ -21,16 +23,50 @@ export default class GroupCardItem extends Component {
     onJoin(group);
   };
 
-  render() {
-    const { t, group, onPress, onJoin } = this.props;
-    const isUserCreated = group.user_created;
+  renderInfo() {
+    const { t, group, onJoin } = this.props;
     const owner = group.owner;
     const { contactsCount = 0, unassignedCount = 0, memberCount = 0 } =
       group.contactReport || {};
+
+    if (onJoin) {
+      return (
+        <Text style={styles.groupNumber}>
+          {owner
+            ? t('owner', {
+                name: getFirstNameAndLastInitial(
+                  owner.first_name,
+                  owner.last_name,
+                ),
+              })
+            : group.user_created
+              ? t('privateGroup')
+              : ''}
+        </Text>
+      );
+    }
+    if (group.user_created) {
+      return (
+        <Text style={styles.groupNumber}>
+          {t('numMembers', { count: memberCount })}
+        </Text>
+      );
+    }
+    return (
+      <Text style={styles.groupNumber}>
+        {t('numContacts', { count: contactsCount })}
+        <Dot />
+        {t('numUnassigned', { count: unassignedCount })}
+      </Text>
+    );
+  }
+
+  render() {
+    const { t, group, onPress, onJoin } = this.props;
     let source;
     if (group.community_photo_url) {
       source = { url: group.community_photo_url };
-    } else if (isUserCreated) {
+    } else if (group.user_created) {
       source = DEFAULT_USER_COMMUNITY_IMAGE;
     } else {
       source = DEFAULT_MISSIONHUB_IMAGE;
@@ -47,18 +83,7 @@ export default class GroupCardItem extends Component {
         <Flex justify="center" direction="row" style={styles.infoWrap}>
           <Flex value={1}>
             <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
-            <Text style={styles.groupNumber}>
-              {onJoin
-                ? `${t('numMembers', { count: memberCount })}  ·  ${t('owner', {
-                    name: owner,
-                  })}`
-                : isUserCreated
-                  ? t('numMembers', { count: memberCount })
-                  : `${t('numContacts', { count: contactsCount })}   ·   ${t(
-                      'numUnassigned',
-                      { count: unassignedCount },
-                    )}`}
-            </Text>
+            {this.renderInfo()}
           </Flex>
           {onJoin ? (
             <Flex direction="column" justify="center">
@@ -80,8 +105,8 @@ export default class GroupCardItem extends Component {
 GroupCardItem.propTypes = {
   group: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    owner: PropTypes.string,
-    contactReport: PropTypes.object.isRequired,
+    owner: PropTypes.object,
+    contactReport: PropTypes.object,
     user_created: PropTypes.bool,
   }).isRequired,
   onPress: PropTypes.func,

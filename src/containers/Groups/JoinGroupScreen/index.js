@@ -20,7 +20,18 @@ import GroupCardItem from '../../../components/GroupCardItem';
 import Header from '../../Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
-import { navigateBack } from '../../../actions/navigation';
+import { navigateBack, navigateReset } from '../../../actions/navigation';
+import {
+  lookupOrgCommunityCode,
+  joinCommunity,
+} from '../../../actions/organizations';
+import {
+  MAIN_TABS,
+  ACTIONS,
+  ERROR_PERSON_PART_OF_ORG,
+} from '../../../constants';
+import { setScrollGroups } from '../../../actions/swipe';
+import { trackActionWithoutData } from '../../../actions/analytics';
 
 import styles from './styles';
 
@@ -40,43 +51,70 @@ class JoinGroupScreen extends Component {
     });
   };
 
-  onSearch = () => {
+  onSearch = async () => {
     const {
       codeInput,
       state: { code },
-      props: { t },
+      props: { t, dispatch },
     } = this;
 
     codeInput.focus();
 
+    const errorState = {
+      errorMessage: t('communityNotFound'),
+      community: undefined,
+    };
+
     const text = (code || '').trim();
     if (!text || text.length < 6) {
-      this.setState({
-        errorMessage: t('communityNotFound'),
-        community: undefined,
-      });
+      this.setState(errorState);
       return;
     }
 
-    // TODO: search community by code
-    this.setState({
-      errorMessage: '',
-      community: {
-        name: 'Test Community',
-        owner: 'Roge',
-        contactReport: {
-          membersCount: 17,
-        },
-      },
-    });
+    try {
+      const org = await dispatch(lookupOrgCommunityCode(text));
+
+      if (!org) {
+        this.setState(errorState);
+        return;
+      }
+      this.setState({ errorMessage: '', community: org });
+    } catch (e) {
+      this.setState(errorState);
+      return;
+    }
   };
 
-  joinCommunity = () => {
+  joinCommunity = async () => {
+    const { dispatch } = this.props;
+    const { community } = this.state;
     Keyboard.dismiss();
-    // TODO: join community
-    /*dispatch(
-      trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY),
-    );*/
+
+    try {
+      await dispatch(joinCommunity(community.id, community.community_code));
+      this.joined();
+    } catch (error) {
+      // If the user is already part of the organization, just continue like normal
+      if (
+        error &&
+        error.apiError &&
+        error.apiError.errors &&
+        error.apiError.errors[0] &&
+        error.apiError.errors[0].detail === ERROR_PERSON_PART_OF_ORG
+      ) {
+        this.joined();
+      } else {
+        throw error;
+      }
+    }
+  };
+
+  joined = () => {
+    const { dispatch } = this.props;
+    dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
+
+    dispatch(setScrollGroups());
+    dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
   };
 
   navigateBack = () => this.props.dispatch(navigateBack());
@@ -138,6 +176,7 @@ class JoinGroupScreen extends Component {
               ref={this.ref}
               style={styles.input}
               onChangeText={this.onChangeCode}
+              selectionColor={theme.white}
               maxLength={6}
               value={code}
               autoFocus={true}

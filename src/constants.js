@@ -19,6 +19,7 @@ export const SWIPE_REMINDER_STEPS_REMINDER =
 export const SWIPE_REMINDER_JOURNEY = 'app/SWIPE_REMINDER_JOURNEY';
 export const GROUP_INVITE_INFO = 'app/GROUP_INVITE_INFO';
 export const GROUP_ONBOARDING_CARD = 'app/GROUP_ONBOARDING_CARD';
+export const GROUP_TAB_SCROLL_ON_MOUNT = 'app/GROUP_TAB_SCROLL_ON_MOUNT';
 export const LOAD_PERSON_DETAILS = 'app/LOAD_PERSON_DETAILS';
 export const LOAD_ORGANIZATIONS = 'app/LOAD_ORGANIZATIONS';
 export const UPDATE_PERSON_ATTRIBUTES = 'app/UPDATE_PERSON_ATTRIBUTES';
@@ -69,6 +70,8 @@ export const INVALID_GRANT = 'invalid_grant';
 export const NETWORK_REQUEST_FAILED = 'Network request failed';
 export const CANNOT_EDIT_FIRST_NAME =
   'You are not allowed to edit first names of other MissionHub users';
+export const ERROR_PERSON_PART_OF_ORG =
+  'this person already has permissions on this organization';
 export const MFA_REQUIRED = 'mfa_required';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';

@@ -6,6 +6,7 @@ import {
   SWIPE_REMINDER_JOURNEY,
   GROUP_ONBOARDING_CARD,
   GROUP_INVITE_INFO,
+  GROUP_TAB_SCROLL_ON_MOUNT,
 } from '../../constants';
 import { GROUP_ONBOARDING_TYPES } from '../../containers/Groups/OnboardingCard';
 
@@ -120,4 +121,26 @@ it('updates group invite info', () => {
     },
   );
   expect(state.groupInviteInfo).toBe(false);
+});
+
+it('updates group tab scroll to be true', () => {
+  const state = swipe(
+    {},
+    {
+      type: GROUP_TAB_SCROLL_ON_MOUNT,
+      value: true,
+    },
+  );
+  expect(state.groupScrollOnMount).toBe(true);
+});
+
+it('updates group tab scroll to be false', () => {
+  const state = swipe(
+    {},
+    {
+      type: GROUP_TAB_SCROLL_ON_MOUNT,
+      value: false,
+    },
+  );
+  expect(state.groupScrollOnMount).toBe(false);
 });
