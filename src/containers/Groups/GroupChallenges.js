@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import ChallengeFeed from '../ChallengeFeed';
-import EmptyChallengeFeed from '../../components/EmptyChallengeFeed';
 import {
   getGroupChallengeFeed,
   reloadGroupChallengeFeed,
@@ -72,20 +71,13 @@ export class GroupChallenges extends Component {
 
     return (
       <View style={{ flex: 1 }}>
-        {!this.isEmpty() ? (
-          <ChallengeFeed
-            organization={organization}
-            items={challengeItems}
-            loadMoreItemsCallback={this.loadItems}
-            refreshCallback={this.refreshItems}
-            refreshing={refreshing}
-          />
-        ) : (
-          <EmptyChallengeFeed
-            refreshCallback={this.refreshItems}
-            refreshing={refreshing}
-          />
-        )}
+        <ChallengeFeed
+          organization={organization}
+          items={challengeItems}
+          loadMoreItemsCallback={this.loadItems}
+          refreshCallback={this.refreshItems}
+          refreshing={refreshing}
+        />
         {isAdminOrOwner(myOrgPermissions) ? (
           <Flex align="stretch" justify="end">
             <Button
