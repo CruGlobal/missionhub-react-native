@@ -183,6 +183,7 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
           direction="column"
           style={
             Object {
+              "marginBottom": 38,
               "marginTop": 10,
             }
           }
@@ -489,6 +490,7 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
           direction="column"
           style={
             Object {
+              "marginBottom": 38,
               "marginTop": 10,
             }
           }
@@ -726,8 +728,9 @@ exports[`renders correctly with upgrade 1`] = `
                 },
                 null,
                 Object {
-                  "alignItems": "flex-start",
-                  "backgroundColor": "#52C5DC",
+                  "backgroundColor": "transparent",
+                  "borderColor": "#52C5DC",
+                  "borderWidth": 1,
                   "height": 48,
                   "margin": 8,
                   "width": 670,
@@ -847,8 +850,9 @@ exports[`renders correctly with upgrade 1`] = `
                 },
                 null,
                 Object {
-                  "alignItems": "flex-start",
-                  "backgroundColor": "#52C5DC",
+                  "backgroundColor": "transparent",
+                  "borderColor": "#52C5DC",
+                  "borderWidth": 1,
                   "height": 48,
                   "margin": 8,
                   "width": 670,
@@ -931,10 +935,13 @@ exports[`renders correctly with upgrade 1`] = `
           style={
             Array [
               Object {
+                "marginBottom": 38,
                 "marginTop": 10,
               },
               Object {
+                "flex": 1,
                 "flexDirection": "column",
+                "justifyContent": "flex-end",
               },
             ]
           }
@@ -1147,119 +1154,6 @@ exports[`renders correctly with upgrade 1`] = `
                 </Text>
               </View>
             </View>
-          </View>
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "alignItems": "flex-end",
-              "flex": 1,
-              "flexDirection": "row",
-            },
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#52C5DC",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "marginBottom": 20,
-                "marginRight": 10,
-                "paddingTop": 2,
-              },
-            ]
-          }
-        >
-          ALREADY A MEMBER?
-        </Text>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits="button"
-          accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 18,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "marginBottom": 20,
-                      "paddingTop": 2,
-                    },
-                  ],
-                ]
-              }
-            >
-              SIGN IN
-            </Text>
           </View>
         </View>
       </View>
@@ -1771,6 +1665,7 @@ exports[`renders correctly without upgrade 1`] = `
           style={
             Array [
               Object {
+                "marginBottom": 38,
                 "marginTop": 10,
               },
               Object {
