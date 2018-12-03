@@ -54,7 +54,6 @@ export function facebookLoginAction(accessToken, id, isUpgrade = false) {
     const upgradeToken = getState().auth.upgradeToken;
     const data = { fb_access_token: accessToken };
     if (isUpgrade) {
-      data.provider = 'client_token';
       data.client_token = upgradeToken;
     }
 

@@ -91,7 +91,6 @@ describe('facebookLoginWithUsernamePassword', () => {
   it('upgrades account', async () => {
     const data = {
       fb_access_token: fbAccessToken,
-      provider: 'client_token',
       client_token: upgradeToken,
     };
     mockFnWithParams(
