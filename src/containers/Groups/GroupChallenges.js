@@ -25,15 +25,6 @@ export class GroupChallenges extends Component {
     this.loadItems();
   }
 
-  isEmpty = () => {
-    const { challengeItems } = this.props;
-    // Data is separated into this format [ { data: [] (active challenges) }, { data: [] (past challenges) }]
-    // so we only load the items it they are both blank
-    return (
-      challengeItems[0].data.length === 0 && challengeItems[1].data.length === 0
-    );
-  };
-
   loadItems = () => {
     const { dispatch, organization } = this.props;
     dispatch(getGroupChallengeFeed(organization.id));

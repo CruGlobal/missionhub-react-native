@@ -10,7 +10,6 @@ import GLOBE from '../../../assets/images/globe.png';
 import JOURNEY from '../../../assets/images/ourJourney.png';
 import CONTACTS from '../../../assets/images/MemberContacts.png';
 import SURVEY from '../../../assets/images/curiousIcon.png';
-import ARROW from '../../../assets/images/challenge_bullseye.png';
 import { Flex, Text, Card, IconButton } from '../../components/common';
 import { removeGroupOnboardingCard } from '../../actions/swipe';
 
