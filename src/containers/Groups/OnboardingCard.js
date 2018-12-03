@@ -11,6 +11,7 @@ import GLOBE from '../../../assets/images/globe.png';
 import JOURNEY from '../../../assets/images/ourJourney.png';
 import CONTACTS from '../../../assets/images/MemberContacts.png';
 import SURVEY from '../../../assets/images/curiousIcon.png';
+import ARROW from '../../../assets/images/challenge_bullseye.png';
 import { Flex, Text, Card, IconButton } from '../../components/common';
 import { removeGroupOnboardingCard } from '../../actions/swipe';
 
@@ -22,8 +23,8 @@ class OnboardingCard extends Component {
     switch (this.props.type) {
       case GROUP_ONBOARDING_TYPES.celebrate:
         return HEARTS;
-      // case GROUP_ONBOARDING_TYPES.challenges:
-      //   return ARROW;
+      case GROUP_ONBOARDING_TYPES.challenges:
+        return ARROW;
       case GROUP_ONBOARDING_TYPES.impact:
         return GLOBE;
       case GROUP_ONBOARDING_TYPES.members:
