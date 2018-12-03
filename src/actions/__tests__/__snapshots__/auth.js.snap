@@ -36,7 +36,7 @@ Array [
     "actions": Array [
       Object {
         "params": Object {},
-        "routeName": "nav/LOGIN",
+        "routeName": "nav/LANDING",
         "type": "Navigation/NAVIGATE",
       },
     ],

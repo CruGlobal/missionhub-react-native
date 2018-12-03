@@ -6,12 +6,31 @@ import { translate } from 'react-i18next';
 import { LINKS } from '../../constants';
 import { isAndroid } from '../../utils/common';
 import SideMenu from '../../components/SideMenu';
-import { logout, upgradeAccount } from '../../actions/auth';
+import {
+  logout,
+  upgradeAccount,
+  upgradeAccountSignIn,
+} from '../../actions/auth';
 
 @translate('settingsMenu')
 export class SettingsMenu extends Component {
   render() {
     const { t, isFirstTime } = this.props;
+    const upgradeAccountItems = [
+      {
+        label: t('signIn'),
+        action: () => this.props.dispatch(upgradeAccountSignIn()),
+      },
+      {
+        label: t('signUp'),
+        action: () => this.props.dispatch(upgradeAccount()),
+      },
+    ];
+    const signOut = {
+      label: t('signOut'),
+      action: () => this.props.dispatch(logout()),
+    };
+
     const menuItems = [
       {
         label: t('about'),
@@ -34,17 +53,12 @@ export class SettingsMenu extends Component {
         label: t('terms'),
         action: () => Linking.openURL(LINKS.terms),
       },
-      {
-        label: isFirstTime ? t('signUp') : t('signOut'),
-        action: () => {
-          if (isFirstTime) {
-            this.props.dispatch(upgradeAccount());
-          } else {
-            this.props.dispatch(logout());
-          }
-        },
-      },
     ];
+    if (isFirstTime) {
+      menuItems.concat(upgradeAccountItems);
+    } else {
+      menuItems.push(signOut);
+    }
 
     return <SideMenu menuItems={menuItems} />;
   }

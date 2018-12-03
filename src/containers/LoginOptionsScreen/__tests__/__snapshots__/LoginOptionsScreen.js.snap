@@ -164,7 +164,7 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
               "paddingTop": 2,
             }
           }
-          name="communityCodeButton"
+          name="signUpLater"
           onPress={[Function]}
           pill={true}
           style={
@@ -177,35 +177,15 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
               "width": 670,
             }
           }
-          text="I HAVE A COMMUNITY CODE"
-        />
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "paddingTop": 2,
-            }
-          }
-          name="tryItNowButton"
-          onPress={[Function]}
-          pill={true}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#52C5DC",
-              "borderWidth": 1,
-              "height": 48,
-              "margin": 8,
-              "width": 670,
-            }
-          }
-          text="TRY IT NOW"
+          text="SIGN UP LATER"
         />
         <Flex
           direction="column"
+          style={
+            Object {
+              "marginTop": 10,
+            }
+          }
         >
           <MyText
             accessible={true}
@@ -215,7 +195,6 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
               Object {
                 "color": "#ffffff",
                 "fontSize": 12,
-                "marginTop": 10,
                 "paddingHorizontal": 3,
                 "textAlign": "center",
               }
@@ -235,7 +214,6 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
                   "fontSize": 12,
                   "fontWeight": "normal",
                   "letterSpacing": 0,
-                  "marginTop": 10,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                   "textDecorationLine": "underline",
@@ -253,7 +231,6 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
                 Object {
                   "color": "#ffffff",
                   "fontSize": 12,
-                  "marginTop": 10,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                 }
@@ -268,7 +245,6 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
                   "fontSize": 12,
                   "fontWeight": "normal",
                   "letterSpacing": 0,
-                  "marginTop": 10,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                   "textDecorationLine": "underline",
@@ -322,6 +298,9 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
         />
       </Flex>
     </Flex>
+    <Connect(BackButton)
+      absolute={true}
+    />
   </Flex>
   <LoadingWheel />
 </Flex>
@@ -491,7 +470,7 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
               "paddingTop": 2,
             }
           }
-          name="communityCodeButton"
+          name="signUpLater"
           onPress={[Function]}
           pill={true}
           style={
@@ -504,35 +483,15 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
               "width": 670,
             }
           }
-          text="I HAVE A COMMUNITY CODE"
-        />
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "paddingTop": 2,
-            }
-          }
-          name="tryItNowButton"
-          onPress={[Function]}
-          pill={true}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#52C5DC",
-              "borderWidth": 1,
-              "height": 48,
-              "margin": 8,
-              "width": 670,
-            }
-          }
-          text="TRY IT NOW"
+          text="SIGN UP LATER"
         />
         <Flex
           direction="column"
+          style={
+            Object {
+              "marginTop": 10,
+            }
+          }
         >
           <MyText
             accessible={true}
@@ -542,7 +501,6 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
               Object {
                 "color": "#ffffff",
                 "fontSize": 12,
-                "marginTop": 10,
                 "paddingHorizontal": 3,
                 "textAlign": "center",
               }
@@ -562,7 +520,6 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
                   "fontSize": 12,
                   "fontWeight": "normal",
                   "letterSpacing": 0,
-                  "marginTop": 10,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                   "textDecorationLine": "underline",
@@ -580,7 +537,6 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
                 Object {
                   "color": "#ffffff",
                   "fontSize": 12,
-                  "marginTop": 10,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                 }
@@ -595,7 +551,6 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
                   "fontSize": 12,
                   "fontWeight": "normal",
                   "letterSpacing": 0,
-                  "marginTop": 10,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                   "textDecorationLine": "underline",
@@ -649,6 +604,9 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
         />
       </Flex>
     </Flex>
+    <Connect(BackButton)
+      absolute={true}
+    />
   </Flex>
 </Flex>
 `;
@@ -970,99 +928,11 @@ exports[`renders correctly with upgrade 1`] = `
           </View>
         </View>
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits="button"
-          accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderColor": "#52C5DC",
-                  "borderWidth": 1,
-                  "height": 48,
-                  "margin": 8,
-                  "width": 670,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 18,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "paddingTop": 2,
-                    },
-                  ],
-                ]
-              }
-            >
-              I HAVE A COMMUNITY CODE
-            </Text>
-          </View>
-        </View>
-        <View
           style={
             Array [
-              Object {},
+              Object {
+                "marginTop": 10,
+              },
               Object {
                 "flexDirection": "column",
               },
@@ -1084,7 +954,6 @@ exports[`renders correctly with upgrade 1`] = `
                 Object {
                   "color": "#ffffff",
                   "fontSize": 12,
-                  "marginTop": 10,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                 },
@@ -1168,7 +1037,6 @@ exports[`renders correctly with upgrade 1`] = `
                           "fontSize": 12,
                           "fontWeight": "normal",
                           "letterSpacing": 0,
-                          "marginTop": 10,
                           "paddingHorizontal": 3,
                           "textAlign": "center",
                           "textDecorationLine": "underline",
@@ -1196,7 +1064,6 @@ exports[`renders correctly with upgrade 1`] = `
                   Object {
                     "color": "#ffffff",
                     "fontSize": 12,
-                    "marginTop": 10,
                     "paddingHorizontal": 3,
                     "textAlign": "center",
                   },
@@ -1268,7 +1135,6 @@ exports[`renders correctly with upgrade 1`] = `
                           "fontSize": 12,
                           "fontWeight": "normal",
                           "letterSpacing": 0,
-                          "marginTop": 10,
                           "paddingHorizontal": 3,
                           "textAlign": "center",
                           "textDecorationLine": "underline",
@@ -1395,6 +1261,99 @@ exports[`renders correctly with upgrade 1`] = `
               SIGN IN
             </Text>
           </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Array [
+            null,
+            Object {
+              "left": 5,
+              "position": "absolute",
+              "top": 25,
+            },
+          ],
+          Object {
+            "alignItems": "flex-start",
+            "alignSelf": "flex-start",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits="button"
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
         </View>
       </View>
     </View>
@@ -1804,104 +1763,16 @@ exports[`renders correctly without upgrade 1`] = `
                 ]
               }
             >
-              I HAVE A COMMUNITY CODE
-            </Text>
-          </View>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits="button"
-          accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderColor": "#52C5DC",
-                  "borderWidth": 1,
-                  "height": 48,
-                  "margin": 8,
-                  "width": 670,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 18,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "paddingTop": 2,
-                    },
-                  ],
-                ]
-              }
-            >
-              TRY IT NOW
+              SIGN UP LATER
             </Text>
           </View>
         </View>
         <View
           style={
             Array [
-              Object {},
+              Object {
+                "marginTop": 10,
+              },
               Object {
                 "flexDirection": "column",
               },
@@ -1923,7 +1794,6 @@ exports[`renders correctly without upgrade 1`] = `
                 Object {
                   "color": "#ffffff",
                   "fontSize": 12,
-                  "marginTop": 10,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                 },
@@ -2007,7 +1877,6 @@ exports[`renders correctly without upgrade 1`] = `
                           "fontSize": 12,
                           "fontWeight": "normal",
                           "letterSpacing": 0,
-                          "marginTop": 10,
                           "paddingHorizontal": 3,
                           "textAlign": "center",
                           "textDecorationLine": "underline",
@@ -2035,7 +1904,6 @@ exports[`renders correctly without upgrade 1`] = `
                   Object {
                     "color": "#ffffff",
                     "fontSize": 12,
-                    "marginTop": 10,
                     "paddingHorizontal": 3,
                     "textAlign": "center",
                   },
@@ -2107,7 +1975,6 @@ exports[`renders correctly without upgrade 1`] = `
                           "fontSize": 12,
                           "fontWeight": "normal",
                           "letterSpacing": 0,
-                          "marginTop": 10,
                           "paddingHorizontal": 3,
                           "textAlign": "center",
                           "textDecorationLine": "underline",
@@ -2234,6 +2101,99 @@ exports[`renders correctly without upgrade 1`] = `
               SIGN IN
             </Text>
           </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Array [
+            null,
+            Object {
+              "left": 5,
+              "position": "absolute",
+              "top": 25,
+            },
+          ],
+          Object {
+            "alignItems": "flex-start",
+            "alignSelf": "flex-start",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits="button"
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
         </View>
       </View>
     </View>

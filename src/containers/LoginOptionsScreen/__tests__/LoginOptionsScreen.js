@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 
 import LoginOptionsScreen from '..';
 
-import { JOIN_GROUP_SCREEN } from '../../Groups/JoinGroupScreen';
 import {
   createMockStore,
   testSnapshot,
@@ -13,7 +12,6 @@ import {
   renderShallow,
 } from '../../../../testUtils';
 import * as auth from '../../../actions/auth';
-import { navigatePush } from '../../../actions/navigation';
 
 let store;
 
@@ -84,14 +82,9 @@ describe('a login button is clicked', () => {
     expect(store.dispatch).toHaveBeenCalledTimes(1);
   });
 
-  it('try it now to be called', () => {
-    screen.find({ name: 'tryItNowButton' }).simulate('press');
+  it('sign up later to be called', () => {
+    screen.find({ name: 'signUpLater' }).simulate('press');
     expect(store.dispatch).toHaveBeenCalledTimes(2);
-  });
-
-  it('community code button to be called', () => {
-    screen.find({ name: 'communityCodeButton' }).simulate('press');
-    expect(navigatePush).toHaveBeenCalledWith(JOIN_GROUP_SCREEN, {});
   });
 
   it('navigate next to be called', () => {

@@ -43,6 +43,14 @@ class JoinGroupScreen extends Component {
     community: undefined,
   };
 
+  componentDidMount() {
+    // Pause before focus so that the other screen can disappear before the keyboard comes up
+    setTimeout(
+      () => this.codeInput && this.codeInput.focus && this.codeInput.focus(),
+      350,
+    );
+  }
+
   onChangeCode = code => {
     this.setState({ code: code.toUpperCase() }, () => {
       if (code.length >= 6) {
@@ -179,7 +187,7 @@ class JoinGroupScreen extends Component {
               selectionColor={theme.white}
               maxLength={6}
               value={code}
-              autoFocus={true}
+              autoFocus={false}
               blurOnSubmit={false}
             />
           </Flex>

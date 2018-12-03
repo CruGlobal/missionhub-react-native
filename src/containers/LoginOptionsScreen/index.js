@@ -16,9 +16,9 @@ import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { LINKS } from '../../constants';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
-import { JOIN_GROUP_SCREEN } from '../Groups/JoinGroupScreen';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
+import BackButton from '../BackButton';
 
 import styles from './styles';
 
@@ -42,10 +42,6 @@ class LoginOptionsScreen extends Component {
       upgradeAccount: this.props.upgradeAccount,
     });
   }
-
-  navToJoinGroup = () => {
-    this.navigateToNext(JOIN_GROUP_SCREEN);
-  };
 
   tryItNow() {
     this.props.dispatch(firstTime());
@@ -110,7 +106,9 @@ class LoginOptionsScreen extends Component {
                 name={'facebookButton'}
                 pill={true}
                 onPress={this.facebookLogin}
-                style={styles.facebookButton}
+                style={
+                  upgradeAccount ? styles.clearButton : styles.filledButton
+                }
                 buttonTextStyle={styles.buttonText}
               >
                 <Flex direction="row">
@@ -129,7 +127,9 @@ class LoginOptionsScreen extends Component {
                 name={'emailButton'}
                 pill={true}
                 onPress={this.emailSignUp}
-                style={styles.facebookButton}
+                style={
+                  upgradeAccount ? styles.clearButton : styles.filledButton
+                }
                 buttonTextStyle={styles.buttonText}
               >
                 <Flex direction="row">
@@ -144,25 +144,22 @@ class LoginOptionsScreen extends Component {
                   </Text>
                 </Flex>
               </Button>
-              <Button
-                name={'communityCodeButton'}
-                pill={true}
-                onPress={this.navToJoinGroup}
-                text={t('haveCode').toUpperCase()}
-                style={styles.tryButton}
-                buttonTextStyle={styles.buttonText}
-              />
               {upgradeAccount ? null : (
                 <Button
-                  name={'tryItNowButton'}
+                  name={'signUpLater'}
                   pill={true}
                   onPress={this.tryItNow}
-                  text={t('tryNow').toUpperCase()}
-                  style={styles.tryButton}
+                  text={t('signUpLater').toUpperCase()}
+                  style={styles.clearButton}
                   buttonTextStyle={styles.buttonText}
                 />
               )}
-              <Flex direction="column">
+              <Flex
+                value={upgradeAccount ? 1 : undefined}
+                justify={upgradeAccount ? 'end' : undefined}
+                direction="column"
+                style={styles.termsWrap}
+              >
                 <Text style={styles.termsText}>{t('terms')}</Text>
                 <Flex direction="row" align="center" justify="center">
                   <Button
@@ -182,17 +179,22 @@ class LoginOptionsScreen extends Component {
               </Flex>
             </Flex>
 
-            <Flex value={1} align="end" direction="row">
-              <Text style={styles.signInText}>{t('member').toUpperCase()}</Text>
-              <Button
-                name={'loginButton'}
-                text={t('signIn').toUpperCase()}
-                type="transparent"
-                onPress={this.login}
-                buttonTextStyle={styles.signInBtnText}
-              />
-            </Flex>
+            {upgradeAccount ? null : (
+              <Flex value={1} align="end" direction="row">
+                <Text style={styles.signInText}>
+                  {t('member').toUpperCase()}
+                </Text>
+                <Button
+                  name={'loginButton'}
+                  text={t('signIn').toUpperCase()}
+                  type="transparent"
+                  onPress={this.login}
+                  buttonTextStyle={styles.signInBtnText}
+                />
+              </Flex>
+            )}
           </Flex>
+          <BackButton absolute={true} />
         </Flex>
         {this.state.isLoading ? <LoadingWheel /> : null}
       </Flex>

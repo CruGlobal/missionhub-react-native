@@ -121,7 +121,8 @@ export default {
     terms: 'Terms of Service',
     privacy: 'Privacy Policy',
     signOut: 'Sign out',
-    signUp: 'Upgrade Account',
+    signIn: 'Sign In',
+    signUp: 'Sign Up',
   },
   login: {
     tagline1: 'Grow closer to God.',
@@ -133,7 +134,7 @@ export default {
   loginOptions: {
     facebookSignup: 'Sign up with Facebook',
     haveCode: 'I Have a Community Code',
-    tryNow: 'Try it now',
+    signUpLater: 'Sign up Later',
     emailSignUp: 'Sign up with Email',
     signIn: 'Sign In',
     terms: 'By creating your MissionHub account you agree to our',
@@ -683,5 +684,10 @@ export default {
     createNewCode: 'Are you sure you want to create a new Community Code?',
     createNewLink: 'Are you sure you want to create a new Community Link?',
     cannotBeUndone: 'This cannot be undone',
+  },
+  landing: {
+    getStarted: 'Get Started',
+    haveCode: 'I have a Community Code',
+    signIn: 'Sign In',
   },
 };

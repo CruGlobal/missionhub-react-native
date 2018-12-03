@@ -15,7 +15,7 @@ import {
   STEPS_TAB,
 } from '../constants';
 import { buildTrackingObj } from '../utils/common';
-import { LOGIN_SCREEN } from '../containers/LoginScreen';
+import { LANDING_SCREEN } from '../containers/LandingScreen';
 import {
   STAGE_ONBOARDING_SCREEN,
   STAGE_SCREEN,
@@ -52,7 +52,7 @@ export default function tracking({ dispatch, getState }) {
           break;
         }
 
-        if (topRoute.routeName === LOGIN_SCREEN) {
+        if (topRoute.routeName === LANDING_SCREEN) {
           newState = tabsState.activeLoginTab;
           break;
         }

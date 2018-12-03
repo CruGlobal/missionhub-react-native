@@ -98,7 +98,7 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
       }
     >
       <Input
-        autoFocus={true}
+        autoFocus={false}
         blurOnSubmit={false}
         maxLength={6}
         onChangeText={[Function]}
@@ -209,7 +209,7 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
       }
     >
       <Input
-        autoFocus={true}
+        autoFocus={false}
         blurOnSubmit={false}
         maxLength={6}
         onChangeText={[Function]}
@@ -332,7 +332,7 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
       }
     >
       <Input
-        autoFocus={true}
+        autoFocus={false}
         blurOnSubmit={false}
         maxLength={6}
         onChangeText={[Function]}

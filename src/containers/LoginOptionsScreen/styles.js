@@ -16,17 +16,17 @@ export default StyleSheet.create({
     backgroundColor: theme.primaryColor,
     paddingHorizontal: 30,
   },
-  facebookButton: {
+  icon: {
+    marginRight: 10,
+  },
+  filledButton: {
     backgroundColor: theme.secondaryColor,
     margin: 8,
     height: 48,
     alignItems: 'flex-start',
     width: theme.fullWidth - 80,
   },
-  icon: {
-    marginRight: 10,
-  },
-  tryButton: {
+  clearButton: {
     backgroundColor: theme.transparent,
     borderWidth: 1,
     borderColor: theme.secondaryColor,
@@ -54,18 +54,20 @@ export default StyleSheet.create({
     letterSpacing: 1.5,
     marginBottom: 20,
   },
+  termsWrap: {
+    marginTop: 10,
+    marginBottom: 38,
+  },
   termsText: {
     color: theme.white,
     fontSize: 12,
     textAlign: 'center',
-    marginTop: 10,
     paddingHorizontal: 3,
   },
   termsTextLink: {
     color: theme.white,
     fontSize: 12,
     textAlign: 'center',
-    marginTop: 10,
     paddingHorizontal: 3,
     textDecorationLine: 'underline',
     fontWeight: 'normal',
