@@ -5,8 +5,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import HEARTS from '../../../assets/images/celebrateHearts.png';
-// TODO: Include this once challenges are merged in
-// import ARROW from '../../../assets/images/celebrateHearts.png';
+import TARGET from '../../../assets/images/challengeTarget.png';
 import GLOBE from '../../../assets/images/globe.png';
 import JOURNEY from '../../../assets/images/ourJourney.png';
 import CONTACTS from '../../../assets/images/MemberContacts.png';
@@ -24,7 +23,7 @@ class OnboardingCard extends Component {
       case GROUP_ONBOARDING_TYPES.celebrate:
         return HEARTS;
       case GROUP_ONBOARDING_TYPES.challenges:
-        return ARROW;
+        return TARGET;
       case GROUP_ONBOARDING_TYPES.impact:
         return GLOBE;
       case GROUP_ONBOARDING_TYPES.members:
