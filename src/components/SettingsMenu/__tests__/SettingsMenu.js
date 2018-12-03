@@ -5,11 +5,18 @@ import { createMockStore, testSnapshotShallow } from '../../../../testUtils';
 
 import SettingsMenu from '..';
 
-const mockState = {
-  auth: { isFirstTime: false },
-};
-
-const store = createMockStore(mockState);
 it('renders correctly', () => {
+  const mockState = {
+    auth: { isFirstTime: false },
+  };
+  const store = createMockStore(mockState);
+  testSnapshotShallow(<SettingsMenu />, store);
+});
+
+it('renders correctly', () => {
+  const mockState = {
+    auth: { isFirstTime: true },
+  };
+  const store = createMockStore(mockState);
   testSnapshotShallow(<SettingsMenu />, store);
 });

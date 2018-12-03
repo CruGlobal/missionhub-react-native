@@ -32,3 +32,32 @@ exports[`renders correctly 1`] = `
   }
 />
 `;
+
+exports[`renders correctly 2`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "About",
+      },
+      Object {
+        "action": [Function],
+        "label": "Help",
+      },
+      Object {
+        "action": [Function],
+        "label": "Write a Review",
+      },
+      Object {
+        "action": [Function],
+        "label": "Privacy Policy",
+      },
+      Object {
+        "action": [Function],
+        "label": "Terms of Service",
+      },
+    ]
+  }
+/>
+`;
