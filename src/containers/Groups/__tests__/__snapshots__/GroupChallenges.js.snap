@@ -95,7 +95,49 @@ exports[`should render empty correctly 1`] = `
     }
   }
 >
-  <Translate(EmptyChallengeFeed)
+  <Connect(ChallengeFeed)
+    items={
+      Array [
+        Object {
+          "data": Array [],
+          "title": "",
+        },
+        Object {
+          "data": Array [],
+          "title": "Past Challenge",
+        },
+      ]
+    }
+    loadMoreItemsCallback={[Function]}
+    organization={
+      Object {
+        "challengeItems": Array [
+          Object {
+            "accepted_count": 5,
+            "completed_count": 3,
+            "creator_id": "person1",
+            "end_date": "2018-09-06T14:13:21Z",
+            "id": "1",
+            "organization_id": "123",
+            "title": "Read \\"There and Back Again\\"",
+          },
+          Object {
+            "accepted_count": 5,
+            "completed_count": 3,
+            "creator_id": "person1",
+            "end_date": "2018-09-06T14:13:21Z",
+            "id": "2",
+            "organization_id": "123",
+            "title": "Past Challenge",
+          },
+        ],
+        "challengePagination": Object {
+          "hasNextPage": true,
+          "page": 1,
+        },
+        "id": "123",
+      }
+    }
     refreshCallback={[Function]}
     refreshing={false}
   />

@@ -2,6 +2,7 @@
 
 exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
 <SectionList
+  ListHeaderComponent={[Function]}
   data={Array []}
   disableVirtualization={false}
   extraData={
