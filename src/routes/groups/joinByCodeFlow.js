@@ -8,6 +8,7 @@ import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { MAIN_TABS } from '../../constants';
 import { joinCommunity } from '../../actions/organizations';
+import { setScrollGroups } from '../../actions/swipe';
 
 export const JoinByCodeFlowScreens = {
   [JOIN_GROUP_SCREEN]: buildTrackedScreen(
@@ -15,6 +16,7 @@ export const JoinByCodeFlowScreens = {
       JoinGroupScreen,
       ({ communityId, communityCode }) => async dispatch => {
         await dispatch(joinCommunity(communityId, communityCode));
+        dispatch(setScrollGroups());
         dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
       },
     ),

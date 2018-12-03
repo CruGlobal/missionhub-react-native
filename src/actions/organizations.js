@@ -15,7 +15,6 @@ import { timeFilter } from '../utils/filters';
 import { getMe, getPersonDetails } from './person';
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
-import { setScrollGroups } from './swipe';
 
 const getOrganizationsQuery = {
   limit: 100,

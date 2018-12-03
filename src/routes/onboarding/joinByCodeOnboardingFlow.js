@@ -17,7 +17,7 @@ import WelcomeScreen from '../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../containers/SetupScreen';
 import SetupScreen from '../../containers/SetupScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
-import { joinCommunity } from '../../actions/organizations';
+import { joinCommunity, getMyOrganizations } from '../../actions/organizations';
 import {
   GROUP_SCREEN,
   USER_CREATED_GROUP_SCREEN,
@@ -45,6 +45,7 @@ export const JoinByCodeOnboardingFlowScreens = {
 
       const { community } = getState().personProfile;
       await dispatch(joinCommunity(community.id, community.community_code));
+      await dispatch(getMyOrganizations());
       if (!isAndroid) {
         dispatch(
           navigatePush(NOTIFICATION_PRIMER_SCREEN, {
@@ -55,7 +56,7 @@ export const JoinByCodeOnboardingFlowScreens = {
                     ? USER_CREATED_GROUP_SCREEN
                     : GROUP_SCREEN,
                   {
-                    community,
+                    organization: community,
                   },
                 ),
               );
