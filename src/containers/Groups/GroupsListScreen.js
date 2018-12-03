@@ -20,7 +20,7 @@ import NullStateComponent from '../../components/NullStateComponent';
 import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
-import { CREATE_GROUP_FLOW } from '../../routes/constants';
+import { JOIN_BY_CODE_FLOW } from '../../routes/constants';
 
 import {
   GROUP_SCREEN,
@@ -68,7 +68,7 @@ class GroupsListScreen extends Component {
   openMainMenu = () => this.props.dispatch(openMainMenu());
 
   join = () => {
-    this.props.dispatch(navigatePush(CREATE_GROUP_FLOW));
+    this.props.dispatch(navigatePush(JOIN_BY_CODE_FLOW));
   };
 
   create = () => {

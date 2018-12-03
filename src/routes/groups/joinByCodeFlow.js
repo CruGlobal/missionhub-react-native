@@ -7,18 +7,23 @@ import JoinGroupScreen, {
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { MAIN_TABS } from '../../constants';
+import { joinCommunity } from '../../actions/organizations';
 
-export const CreateGroupFlowScreens = {
+export const JoinByCodeFlowScreens = {
   [JOIN_GROUP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(JoinGroupScreen, () => dispatch =>
-      dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' })),
+    wrapNextAction(
+      JoinGroupScreen,
+      ({ communityId, communityCode }) => async dispatch => {
+        await dispatch(joinCommunity(communityId, communityCode));
+        dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
+      },
     ),
     buildTrackingObj('communities : join', 'communities', 'join'),
     { gesturesEnabled: true },
   ),
 };
-export const CreateGroupFlowNavigator = createStackNavigator(
-  CreateGroupFlowScreens,
+export const JoinByCodeFlowNavigator = createStackNavigator(
+  JoinByCodeFlowScreens,
   {
     navigationOptions: {
       header: null,

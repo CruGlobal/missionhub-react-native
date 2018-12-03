@@ -13,7 +13,7 @@ export function initialRoute({ auth, personProfile, people }) {
       return MAIN_TABS;
     }
 
-    return auth.person.user.pathway_stage_id
+    return auth.person.user.pathway_stage_id && !personProfile.communityId
       ? ADD_SOMEONE_SCREEN
       : GET_STARTED_SCREEN;
   }

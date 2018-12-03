@@ -93,6 +93,7 @@ it('resets onboarding person and sets completed to true', () => {
     hasCompletedOnboarding: true,
     personFirstName: '',
     personLastName: '',
+    community: {},
   });
 });
 

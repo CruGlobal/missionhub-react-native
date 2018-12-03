@@ -12,7 +12,7 @@ import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
 import { resetScrollGroups } from '../../../actions/swipe';
 import { ACTIONS } from '../../../constants';
-import { CREATE_GROUP_FLOW } from '../../../routes/constants';
+import { JOIN_BY_CODE_FLOW } from '../../../routes/constants';
 
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../actions/navigation', () => ({
@@ -183,7 +183,7 @@ describe('GroupsListScreen', () => {
       .props()
       .onPress();
 
-    expect(navigatePush).toHaveBeenCalledWith(CREATE_GROUP_FLOW);
+    expect(navigatePush).toHaveBeenCalledWith(JOIN_BY_CODE_FLOW);
   });
 
   it('navigates to create group screen', () => {

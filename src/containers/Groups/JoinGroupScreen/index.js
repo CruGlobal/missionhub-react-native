@@ -90,36 +90,16 @@ class JoinGroupScreen extends Component {
     }
   };
 
-  joinCommunity = async () => {
-    const { dispatch } = this.props;
+  joinCommunity = () => {
+    const { dispatch, next } = this.props;
     const { community } = this.state;
     Keyboard.dismiss();
 
-    try {
-      await dispatch(joinCommunity(community.id, community.community_code));
-      this.joined();
-    } catch (error) {
-      // If the user is already part of the organization, just continue like normal
-      if (
-        error &&
-        error.apiError &&
-        error.apiError.errors &&
-        error.apiError.errors[0] &&
-        error.apiError.errors[0].detail === ERROR_PERSON_PART_OF_ORG
-      ) {
-        this.joined();
-      } else {
-        throw error;
-      }
-    }
-  };
-
-  joined = () => {
-    const { dispatch, next } = this.props;
-    dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
-
-    dispatch(setScrollGroups());
-    dispatch(next());
+    dispatch(
+      next({
+        community,
+      }),
+    );
   };
 
   navigateBack = () => this.props.dispatch(navigateBack());

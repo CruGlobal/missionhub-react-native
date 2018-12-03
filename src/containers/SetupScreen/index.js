@@ -4,13 +4,11 @@ import { View, Keyboard } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { Button, Text, Flex, Input } from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
 import {
   createMyPerson,
   firstNameChanged,
   lastNameChanged,
 } from '../../actions/onboardingProfile';
-import { GET_STARTED_SCREEN } from '../GetStartedScreen';
 import { disableBack } from '../../utils/common';
 import TosPrivacy from '../../components/TosPrivacy';
 
@@ -27,14 +25,14 @@ class SetupScreen extends Component {
   }
 
   saveAndGoToGetStarted = () => {
-    if (this.props.firstName) {
+    const { dispatch, next, firstName, lastName } = this.props;
+
+    if (firstName) {
       Keyboard.dismiss();
-      this.props
-        .dispatch(createMyPerson(this.props.firstName, this.props.lastName))
-        .then(() => {
-          disableBack.remove();
-          this.props.dispatch(navigatePush(GET_STARTED_SCREEN));
-        });
+      this.props.dispatch(createMyPerson(firstName, lastName)).then(() => {
+        disableBack.remove();
+        dispatch(next());
+      });
     }
   };
 

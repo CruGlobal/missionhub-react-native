@@ -139,12 +139,19 @@ import StatusReason, {
   STATUS_REASON_SCREEN,
 } from './containers/StatusReasonScreen';
 import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
-import { buildTrackedScreen } from './routes/helpers';
+import { buildTrackedScreen, wrapNextScreen } from './routes/helpers';
 import {
-  CreateGroupFlowNavigator,
-  CreateGroupFlowScreens,
-} from './routes/groups/createGroupFlow';
-import { CREATE_GROUP_FLOW } from './routes/constants';
+  JOIN_BY_CODE_FLOW,
+  JOIN_BY_CODE_ONBOARDING_FLOW,
+} from './routes/constants';
+import {
+  JoinByCodeFlowNavigator,
+  JoinByCodeFlowScreens,
+} from './routes/groups/joinByCodeFlow';
+import {
+  JoinByCodeOnboardingFlowNavigator,
+  JoinByCodeOnboardingFlowScreens,
+} from './routes/onboarding/joinByCodeOnboardingFlow';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -293,11 +300,11 @@ const screens = {
     buildTrackingObj('auth : verification', 'auth'),
   ),
   [WELCOME_SCREEN]: buildTrackedScreen(
-    WelcomeScreen,
+    wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
     buildTrackingObj('onboarding : welcome', 'onboarding'),
   ),
   [SETUP_SCREEN]: buildTrackedScreen(
-    SetupScreen,
+    wrapNextScreen(SetupScreen, GET_STARTED_SCREEN),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [GET_STARTED_SCREEN]: buildTrackedScreen(
@@ -439,7 +446,8 @@ const screens = {
   ),
   [ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoute(MeCommunityPersonScreen),
   [MAIN_TABS]: MAIN_TABS_SCREEN,
-  [CREATE_GROUP_FLOW]: CreateGroupFlowNavigator,
+  [JOIN_BY_CODE_FLOW]: JoinByCodeFlowNavigator,
+  [JOIN_BY_CODE_ONBOARDING_FLOW]: JoinByCodeOnboardingFlowNavigator,
 };
 
 export const trackableScreens = {
@@ -447,7 +455,8 @@ export const trackableScreens = {
   ...tabs,
   ...GROUP_TABS,
   ...ALL_PERSON_TAB_ROUTES,
-  ...CreateGroupFlowScreens,
+  ...JoinByCodeFlowScreens,
+  ...JoinByCodeOnboardingFlowScreens,
 };
 
 export const MainStackRoutes = createStackNavigator(

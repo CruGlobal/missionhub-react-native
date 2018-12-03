@@ -22,7 +22,7 @@ class MainTabs extends Component {
 
 const mapStateToProps = ({ auth }, { navigation }) => ({
   startTab: (navigation.state.params || {}).startTab,
-  groups: auth.person.user.groups_feature,
+  groups: true || auth.person.user.groups_feature,
 });
 
 export default connect(mapStateToProps)(MainTabs);
