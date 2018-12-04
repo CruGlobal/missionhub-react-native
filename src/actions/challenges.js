@@ -133,7 +133,8 @@ export function getChallenge(challenge_id) {
   return async dispatch => {
     const query = {
       challenge_id,
-      include: 'accepted_community_challenges.person.full_name',
+      include:
+        'accepted_community_challenges.person.first_name,accepted_community_challenges.person.last_name',
     };
 
     const { response } = await dispatch(
