@@ -7,7 +7,8 @@ import ContactItem from '..';
 const organization = { id: '1', name: 'Test Org' };
 const contact = {
   id: '123',
-  full_name: 'Full Name',
+  first_name: 'First',
+  last_name: 'Last',
   reverse_contact_assignments: [{ organization }],
 };
 
@@ -36,6 +37,15 @@ it('render without touchable', () => {
     <ContactItem
       organization={organization}
       contact={{ ...contact, reverse_contact_assignments: [] }}
+    />,
+  );
+});
+
+it('render without last name', () => {
+  testSnapshotShallow(
+    <ContactItem
+      organization={organization}
+      contact={{ ...contact, last_name: null }}
     />,
   );
 });
