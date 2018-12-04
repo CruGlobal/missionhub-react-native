@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { Flex } from '../../components/common';
-import GroupMemberItem from '../../components/GroupMemberItem';
+import ContactItem from '../../components/ContactItem';
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
 import {
@@ -22,16 +22,14 @@ class ChallengeMembers extends Component {
 
   keyExtractor = i => i.id;
 
-  renderItem = ({ item }) => {
-    const { organization } = this.props;
-    return (
-      <GroupMemberItem
-        isUserCreatedOrg={organization.user_created}
-        person={item.person}
-        onSelect={this.handleSelect}
-      />
-    );
-  };
+  renderItem = ({ item }) => (
+    <ContactItem
+      organization={this.props.organization}
+      contact={item.person}
+      onSelect={this.handleSelect}
+      hideUnassigned={true}
+    />
+  );
 
   render() {
     const { members } = this.props;

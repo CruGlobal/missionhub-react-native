@@ -14,7 +14,7 @@ class ContactItem extends Component {
   };
 
   renderContent() {
-    const { contact, organization, t } = this.props;
+    const { contact, organization, t, hideUnassigned } = this.props;
     const isAssigned = (contact.reverse_contact_assignments || []).find(
       c => c.organization && c.organization.id === organization.id,
     );
@@ -27,7 +27,7 @@ class ContactItem extends Component {
             {contact.last_name ? ` ${contact.last_name}` : null}
           </Text>
         </Flex>
-        {isAssigned ? null : (
+        {isAssigned || hideUnassigned ? null : (
           <Text style={styles.unassigned}>{t('unassigned')}</Text>
         )}
       </Flex>
@@ -56,6 +56,7 @@ ContactItem.propTypes = {
   }).isRequired,
   organization: PropTypes.object.isRequired,
   onSelect: PropTypes.func,
+  hideUnassigned: PropTypes.bool,
 };
 
 export default ContactItem;
