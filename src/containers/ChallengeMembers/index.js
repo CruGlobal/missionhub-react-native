@@ -31,6 +31,7 @@ class ChallengeMembers extends Component {
         onSelect={this.handleSelect}
         hideUnassigned={true}
         nameTextStyle={styles.nameText}
+        lastNameAccentStyle={styles.lastNameAccent}
       />
     );
   };

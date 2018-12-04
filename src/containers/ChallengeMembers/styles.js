@@ -11,4 +11,7 @@ export default StyleSheet.create({
     color: theme.primaryColor,
     fontSize: 16,
   },
+  lastNameAccent: {
+    fontWeight: 'bold',
+  },
 });
