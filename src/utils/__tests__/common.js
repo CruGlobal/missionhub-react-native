@@ -1,4 +1,5 @@
 import { DrawerActions } from 'react-navigation';
+import Config from 'react-native-config';
 
 import {
   userIsJean,
@@ -21,6 +22,7 @@ import {
   getPersonEmailAddress,
   getStageIndex,
   getFirstNameAndLastInitial,
+  getCommunityUrl,
 } from '../common';
 import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../constants';
 
@@ -456,4 +458,14 @@ describe('getFirstNameAndLastInitial', () => {
     expect(getFirstNameAndLastInitial()).toEqual(''));
   it('get first and last name without last name', () =>
     expect(getFirstNameAndLastInitial('First')).toEqual('First'));
+});
+
+describe('getCommunityUrl', () => {
+  it('should create full url', () => {
+    Config.COMMUNITY_URL = 'https://missionhub.com/c/';
+    expect(getCommunityUrl('asdfasdf')).toEqual(
+      'https://missionhub.com/c/asdfasdf',
+    );
+  });
+  it('should handle null', () => expect(getCommunityUrl(null)).toEqual(''));
 });

@@ -338,9 +338,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
               "marginRight": 5,
             }
           }
-        >
-          undefinedundefined
-        </MyText>
+        />
       </Flex>
       <Button
         buttonTextStyle={
@@ -732,9 +730,7 @@ exports[`GroupProfile renders correctly 1`] = `
               "marginRight": 5,
             }
           }
-        >
-          undefinedundefined
-        </MyText>
+        />
       </Flex>
       <Button
         buttonTextStyle={
@@ -1121,9 +1117,7 @@ exports[`GroupProfile renders with image 1`] = `
               "marginRight": 5,
             }
           }
-        >
-          undefinedundefined
-        </MyText>
+        />
       </Flex>
       <Button
         buttonTextStyle={
@@ -1510,9 +1504,7 @@ exports[`GroupProfile renders without edit button 1`] = `
               "marginRight": 5,
             }
           }
-        >
-          undefinedundefined
-        </MyText>
+        />
       </Flex>
       <Button
         buttonTextStyle={
