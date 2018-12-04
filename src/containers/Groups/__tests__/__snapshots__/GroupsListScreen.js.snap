@@ -127,7 +127,6 @@ exports[`GroupsListScreen should render correctly 1`] = `
         Object {
           "backgroundColor": "#E6E8EC",
           "flex": 1,
-          "paddingVertical": 8,
         }
       }
       updateCellsBatchingPeriod={50}
@@ -288,7 +287,6 @@ exports[`should render null state 1`] = `
         Object {
           "backgroundColor": "#E6E8EC",
           "flex": 1,
-          "paddingVertical": 8,
         }
       }
       updateCellsBatchingPeriod={50}

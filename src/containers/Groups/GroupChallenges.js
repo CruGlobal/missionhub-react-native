@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import ChallengeFeed from '../ChallengeFeed';
-import EmptyChallengeFeed from '../../components/EmptyChallengeFeed';
 import {
   getGroupChallengeFeed,
   reloadGroupChallengeFeed,
@@ -25,13 +24,6 @@ export class GroupChallenges extends Component {
   componentDidMount() {
     this.loadItems();
   }
-
-  isEmpty = () => {
-    const { challengeItems } = this.props;
-    // Data is separated into this format [ { data: [] (active challenges) }, { data: [] (past challenges) }]
-    // so we only load the items it they are both blank
-    return challengeItems.every(section => section.data.length === 0);
-  };
 
   loadItems = () => {
     const { dispatch, organization } = this.props;
@@ -70,20 +62,13 @@ export class GroupChallenges extends Component {
 
     return (
       <View style={{ flex: 1 }}>
-        {!this.isEmpty() ? (
-          <ChallengeFeed
-            organization={organization}
-            items={challengeItems}
-            loadMoreItemsCallback={this.loadItems}
-            refreshCallback={this.refreshItems}
-            refreshing={refreshing}
-          />
-        ) : (
-          <EmptyChallengeFeed
-            refreshCallback={this.refreshItems}
-            refreshing={refreshing}
-          />
-        )}
+        <ChallengeFeed
+          organization={organization}
+          items={challengeItems}
+          loadMoreItemsCallback={this.loadItems}
+          refreshCallback={this.refreshItems}
+          refreshing={refreshing}
+        />
         {isAdminOrOwner(myOrgPermissions) ? (
           <Flex align="stretch" justify="end">
             <Button

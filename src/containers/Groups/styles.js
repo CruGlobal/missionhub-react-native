@@ -9,7 +9,6 @@ export default StyleSheet.create({
   },
   cardList: {
     flex: 1,
-    paddingVertical: 8,
     backgroundColor: theme.lightGrey,
   },
   cardSectionHeader: {

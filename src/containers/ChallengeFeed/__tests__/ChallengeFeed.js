@@ -139,6 +139,11 @@ describe('item action methods', () => {
   });
 });
 
+it('renders onboarding card as header', () => {
+  const renderedItem = component.instance().renderHeader();
+  expect(renderedItem).toMatchSnapshot();
+});
+
 it('renders section header', () => {
   const renderedItem = component
     .props()

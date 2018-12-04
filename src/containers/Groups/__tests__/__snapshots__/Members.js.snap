@@ -105,7 +105,6 @@ exports[`Members should render correctly 1`] = `
       Object {
         "backgroundColor": "#E6E8EC",
         "flex": 1,
-        "paddingVertical": 8,
       }
     }
     updateCellsBatchingPeriod={50}
