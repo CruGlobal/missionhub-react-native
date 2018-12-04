@@ -30,9 +30,7 @@ export class GroupChallenges extends Component {
     const { challengeItems } = this.props;
     // Data is separated into this format [ { data: [] (active challenges) }, { data: [] (past challenges) }]
     // so we only load the items it they are both blank
-    return (
-      challengeItems[0].data.length === 0 && challengeItems[1].data.length === 0
-    );
+    return challengeItems.every(section => section.data.length === 0);
   };
 
   loadItems = () => {
