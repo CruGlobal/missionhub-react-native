@@ -285,7 +285,7 @@ export function getSurveyUrl(surveyId) {
 }
 
 export function getCommunityUrl(link) {
-  return `${Config.COMMUNITY_URL}${link}`;
+  return link ? `${Config.COMMUNITY_URL}${link}` : '';
 }
 
 export function toast(text, duration) {
