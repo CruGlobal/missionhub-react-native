@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
@@ -20,7 +20,6 @@ class ContactItem extends Component {
       t,
       hideUnassigned,
       nameTextStyle = {},
-      lastNameAccentStyle = {},
     } = this.props;
     const isAssigned = (contact.reverse_contact_assignments || []).find(
       c => c.organization && c.organization.id === organization.id,
@@ -28,17 +27,11 @@ class ContactItem extends Component {
 
     return (
       <Flex align="center" direction="row" style={styles.row}>
-        <Flex value={1} justify="start" direction="row">
-          <Fragment>
-            <Text style={[styles.name, nameTextStyle]}>
-              {contact.first_name}
-            </Text>
-            {contact.last_name ? (
-              <Text style={[styles.name, nameTextStyle, lastNameAccentStyle]}>
-                {` ${contact.last_name}`}
-              </Text>
-            ) : null}
-          </Fragment>
+        <Flex value={1} justify="center" direction="column">
+          <Text style={[styles.name, nameTextStyle]}>
+            {contact.first_name}
+            {contact.last_name ? ` ${contact.last_name}` : null}
+          </Text>
         </Flex>
         {isAssigned || hideUnassigned ? null : (
           <Text style={styles.unassigned}>{t('unassigned')}</Text>
@@ -71,11 +64,6 @@ ContactItem.propTypes = {
   onSelect: PropTypes.func,
   hideUnassigned: PropTypes.bool,
   nameTextStyle: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object,
-    PropTypes.number,
-  ]),
-  lastNameAccentStyle: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object,
     PropTypes.number,
