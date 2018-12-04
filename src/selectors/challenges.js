@@ -25,18 +25,20 @@ export const challengesSelector = createSelector(
       { currentItems: [], pastItems: [] },
     );
 
-    return pastItems.length > 0
-      ? [
-          {
-            title: '',
-            data: currentItems,
-          },
-          {
-            title: i18n.t('challengeFeeds:past'),
-            data: pastItems,
-          },
-        ]
-      : [{ title: '', data: currentItems }];
+    return [
+      {
+        title: '',
+        data: currentItems,
+      },
+      ...(pastItems.length > 0
+        ? [
+            {
+              title: i18n.t('challengeFeeds:past'),
+              data: pastItems,
+            },
+          ]
+        : []),
+    ];
   },
 );
 
