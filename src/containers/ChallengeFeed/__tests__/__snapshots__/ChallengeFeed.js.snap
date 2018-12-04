@@ -124,6 +124,12 @@ exports[`renders item 1`] = `
 />
 `;
 
+exports[`renders onboarding card as header 1`] = `
+<Connect(Translate(OnboardingCard))
+  type="challenges"
+/>
+`;
+
 exports[`renders section header 1`] = `
 <Flex
   align="center"
