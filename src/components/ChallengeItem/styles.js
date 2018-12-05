@@ -4,11 +4,8 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   card: {
-    marginHorizontal: 20,
-    marginVertical: 5,
+    flexDirection: 'column',
     alignItems: 'stretch',
-    backgroundColor: theme.white,
-    borderRadius: 8,
   },
   detailButton: {
     flex: 1,

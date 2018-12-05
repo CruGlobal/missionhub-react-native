@@ -49,7 +49,7 @@ exports[`SurveyContacts should render correctly 1`] = `
 `;
 
 exports[`SurveyContacts should render item correctly 1`] = `
-<Translate(ContactItem)
+<Translate(PersonListItem)
   contact={
     Object {
       "id": "1",

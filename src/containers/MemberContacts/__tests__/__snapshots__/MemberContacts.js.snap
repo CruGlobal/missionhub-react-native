@@ -33,7 +33,7 @@ exports[`renders a list 1`] = `
 `;
 
 exports[`renders an item 1`] = `
-<Translate(ContactItem)
+<Translate(PersonListItem)
   contact={Object {}}
   organization={
     Object {
