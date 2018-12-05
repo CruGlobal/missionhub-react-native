@@ -14,6 +14,7 @@ import * as navigation from '../../../actions/navigation';
 import * as common from '../../../utils/common';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
+import { KEY_LOGIN_SCREEN } from '../../KeyLoginScreen';
 
 const store = createMockStore();
 
@@ -24,6 +25,14 @@ it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <WelcomeScreen navigation={createMockNavState()} />
+    </Provider>,
+  );
+});
+
+it('renders correctly for allow sign in', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <WelcomeScreen allowSignIn={true} navigation={createMockNavState()} />
     </Provider>,
   );
 });
@@ -53,6 +62,11 @@ describe('welcome screen methods', () => {
     component.navigateToNext();
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
     expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+  });
+
+  it('sign in', () => {
+    component.signIn();
+    expect(navigation.navigatePush).toHaveBeenCalledWith(KEY_LOGIN_SCREEN);
   });
 
   it('unmounts', () => {

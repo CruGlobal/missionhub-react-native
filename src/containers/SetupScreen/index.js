@@ -27,13 +27,14 @@ class SetupScreen extends Component {
   }
 
   saveAndGoToGetStarted = () => {
-    const { dispatch, firstName, lastName } = this.props;
-    if (firstName) {
+    if (this.props.firstName) {
       Keyboard.dismiss();
-      dispatch(createMyPerson(firstName, lastName)).then(() => {
-        disableBack.remove();
-        dispatch(navigatePush(GET_STARTED_SCREEN));
-      });
+      this.props
+        .dispatch(createMyPerson(this.props.firstName, this.props.lastName))
+        .then(() => {
+          disableBack.remove();
+          this.props.dispatch(navigatePush(GET_STARTED_SCREEN));
+        });
     }
   };
 
