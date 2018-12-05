@@ -127,7 +127,7 @@ class SurveyContacts extends Component {
     return (
       <PersonListItem
         organization={organization}
-        contact={item}
+        person={item}
         onSelect={this.handleSelect}
       />
     );
