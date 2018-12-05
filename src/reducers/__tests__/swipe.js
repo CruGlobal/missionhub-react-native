@@ -128,10 +128,10 @@ it('updates group tab scroll to be true', () => {
     {},
     {
       type: GROUP_TAB_SCROLL_ON_MOUNT,
-      value: true,
+      value: '123',
     },
   );
-  expect(state.groupScrollOnMount).toBe(true);
+  expect(state.groupScrollToId).toBe('123');
 });
 
 it('updates group tab scroll to be false', () => {
@@ -139,8 +139,8 @@ it('updates group tab scroll to be false', () => {
     {},
     {
       type: GROUP_TAB_SCROLL_ON_MOUNT,
-      value: false,
+      value: null,
     },
   );
-  expect(state.groupScrollOnMount).toBe(false);
+  expect(state.groupScrollToId).toBe(null);
 });

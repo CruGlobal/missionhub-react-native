@@ -146,20 +146,44 @@ describe('GroupsListScreen', () => {
     expect(instance.loadGroups).toHaveBeenCalled();
   });
 
-  it('should load groups and scroll to bottom on mount', async () => {
+  it('should load groups and scroll to index 0', async () => {
     const store = mockStore({
       organizations,
       auth,
-      swipe: { groupScrollOnMount: true },
+      swipe: { groupScrollToId: '1' },
     });
     component = renderShallow(<GroupsListScreen />, store);
     const instance = component.instance();
-    instance.flatList = { scrollToEnd: jest.fn() };
+    instance.flatList = { scrollToIndex: jest.fn() };
     instance.loadGroups = jest.fn();
     await instance.componentDidMount();
     expect(instance.loadGroups).toHaveBeenCalled();
     expect(resetScrollGroups).toHaveBeenCalled();
-    expect(instance.flatList.scrollToEnd).toHaveBeenCalled();
+    expect(instance.flatList.scrollToIndex).toHaveBeenCalledWith({
+      animated: true,
+      index: 0,
+      viewPosition: 0,
+    });
+  });
+
+  it('should load groups and scroll to index 1', async () => {
+    const store = mockStore({
+      organizations,
+      auth,
+      swipe: { groupScrollToId: '2' },
+    });
+    component = renderShallow(<GroupsListScreen />, store);
+    const instance = component.instance();
+    instance.flatList = { scrollToIndex: jest.fn() };
+    instance.loadGroups = jest.fn();
+    await instance.componentDidMount();
+    expect(instance.loadGroups).toHaveBeenCalled();
+    expect(resetScrollGroups).toHaveBeenCalled();
+    expect(instance.flatList.scrollToIndex).toHaveBeenCalledWith({
+      animated: true,
+      index: 1,
+      viewPosition: 0.5,
+    });
   });
 
   it('should refresh the list', () => {

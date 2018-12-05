@@ -31,11 +31,18 @@ class GroupsListScreen extends Component {
   state = { refreshing: false };
 
   async componentDidMount() {
-    const { scrollOnLoad, dispatch } = this.props;
     // Always load groups when this tab mounts
     await this.loadGroups();
-    if (scrollOnLoad) {
-      this.flatList && this.flatList.scrollToEnd();
+    const { orgs, dispatch, scrollToId } = this.props;
+    if (scrollToId) {
+      const index = orgs.findIndex(o => o.id === scrollToId);
+      this.flatList &&
+        this.flatList.scrollToIndex({
+          animated: true,
+          index,
+          // Put the new org in the top of the list if already there or the center
+          viewPosition: index === 0 ? 0 : 0.5,
+        });
       dispatch(resetScrollGroups());
     }
   }
@@ -153,7 +160,7 @@ class GroupsListScreen extends Component {
 
 const mapStateToProps = ({ organizations, auth, swipe }) => ({
   orgs: communitiesSelector({ organizations, auth }),
-  scrollOnLoad: swipe.groupScrollOnMount,
+  scrollToId: swipe.groupScrollToId,
 });
 
 export default connect(mapStateToProps)(GroupsListScreen);
