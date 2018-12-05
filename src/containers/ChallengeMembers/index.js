@@ -27,7 +27,7 @@ class ChallengeMembers extends Component {
     return (
       <PersonListItem
         organization={organization}
-        contact={item.person}
+        person={item.person}
         onSelect={this.handleSelect}
         hideUnassigned={true}
         nameTextStyle={styles.nameText}

@@ -15,14 +15,14 @@ class PersonListItem extends Component {
 
   renderContent() {
     const {
-      contact,
+      person,
       organization,
       t,
       hideUnassigned,
       nameTextStyle = {},
       lastNameAccentStyle = {},
     } = this.props;
-    const isAssigned = (contact.reverse_contact_assignments || []).find(
+    const isAssigned = (person.reverse_contact_assignments || []).find(
       c => c.organization && c.organization.id === organization.id,
     );
 
@@ -31,11 +31,11 @@ class PersonListItem extends Component {
         <Flex value={1} justify="start" direction="row">
           <Fragment>
             <Text style={[styles.name, nameTextStyle]}>
-              {contact.first_name}
+              {person.first_name}
             </Text>
-            {contact.last_name ? (
+            {person.last_name ? (
               <Text style={[styles.name, nameTextStyle, lastNameAccentStyle]}>
-                {` ${contact.last_name}`}
+                {` ${person.last_name}`}
               </Text>
             ) : null}
           </Fragment>
@@ -61,7 +61,7 @@ class PersonListItem extends Component {
 }
 
 PersonListItem.propTypes = {
-  contact: PropTypes.shape({
+  person: PropTypes.shape({
     id: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
     last_name: PropTypes.string,
