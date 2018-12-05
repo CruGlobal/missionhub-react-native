@@ -1,4 +1,5 @@
 import { removeHiddenOrgs } from '../selectorUtils';
+import { GLOBAL_ORG_ID } from '../../constants';
 
 const org1 = { id: '1' };
 const org2 = { id: '2' };
@@ -14,6 +15,17 @@ it('removes hidden orgs', () => {
   expect(
     removeHiddenOrgs(orgs, {
       user: { hidden_organizations: [org1.id, org3.id] },
+    }),
+  ).toEqual([org2]);
+});
+
+it('hides global org', () => {
+  expect(
+    removeHiddenOrgs([{ id: GLOBAL_ORG_ID }, ...orgs], {
+      user: {
+        hidden_organizations: [org1.id, org3.id],
+        hide_global_community: true,
+      },
     }),
   ).toEqual([org2]);
 });
