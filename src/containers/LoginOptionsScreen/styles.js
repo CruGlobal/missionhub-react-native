@@ -8,6 +8,16 @@ export default StyleSheet.create({
     backgroundColor: theme.primaryColor,
     justifyContent: 'center',
   },
+  headerText: {
+    color: theme.secondaryColor,
+    fontSize: 48,
+  },
+  descriptionText: {
+    color: theme.white,
+    paddingVertical: 10,
+    fontSize: 24,
+    lineHeight: 32,
+  },
   text: {
     color: theme.white,
     fontSize: 16,

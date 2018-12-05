@@ -13,6 +13,7 @@ import {
 } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
+import PEOPLE from '../../../assets/images/MemberContacts_light.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { onSuccessfulLogin } from '../../actions/login';
@@ -83,6 +84,18 @@ class LoginOptionsScreen extends Component {
     });
   };
 
+  renderHeader = () => (
+    <Flex align="center" justify="center">
+      <Image source={PEOPLE} />
+      <Text type="header" style={styles.headerText}>
+        HEADER
+      </Text>
+      <Text style={styles.descriptionText}>DESCRIPTION</Text>
+    </Flex>
+  );
+
+  renderLogoHeader = () => <Image source={LOGO} />;
+
   render() {
     const { t, upgradeAccount } = this.props;
 
@@ -90,7 +103,7 @@ class LoginOptionsScreen extends Component {
       <Flex style={styles.container}>
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
-            <Image source={LOGO} />
+            {this.renderHeader()}
           </Flex>
           <Flex
             value={1.2}
@@ -100,25 +113,6 @@ class LoginOptionsScreen extends Component {
             style={styles.buttonWrapper}
           >
             <Flex value={4} direction="column" self="stretch" align="center">
-              <Button
-                name={'facebookButton'}
-                pill={true}
-                onPress={this.facebookLogin}
-                style={styles.clearButton}
-                buttonTextStyle={styles.buttonText}
-              >
-                <Flex direction="row">
-                  <Icon
-                    name="facebookIcon"
-                    size={21}
-                    type="MissionHub"
-                    style={styles.icon}
-                  />
-                  <Text style={styles.buttonText}>
-                    {t('facebookSignup').toUpperCase()}
-                  </Text>
-                </Flex>
-              </Button>
               <Button
                 name={'emailButton'}
                 pill={true}
@@ -135,6 +129,25 @@ class LoginOptionsScreen extends Component {
                   />
                   <Text style={styles.buttonText}>
                     {t('emailSignUp').toUpperCase()}
+                  </Text>
+                </Flex>
+              </Button>
+              <Button
+                name={'facebookButton'}
+                pill={true}
+                onPress={this.facebookLogin}
+                style={styles.clearButton}
+                buttonTextStyle={styles.buttonText}
+              >
+                <Flex direction="row">
+                  <Icon
+                    name="facebookIcon"
+                    size={21}
+                    type="MissionHub"
+                    style={styles.icon}
+                  />
+                  <Text style={styles.buttonText}>
+                    {t('facebookSignup').toUpperCase()}
                   </Text>
                 </Flex>
               </Button>

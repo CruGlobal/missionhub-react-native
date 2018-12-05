@@ -25,6 +25,7 @@ import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from './GroupScreen';
 import styles from './styles';
 import { JOIN_GROUP_SCREEN } from './JoinGroupScreen';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
+import { LOGIN_OPTIONS_SCREEN } from '../LoginOptionsScreen';
 
 @translate('groupsList')
 class GroupsListScreen extends Component {
@@ -64,7 +65,7 @@ class GroupsListScreen extends Component {
   };
 
   create = () => {
-    this.props.dispatch(navigatePush(CREATE_GROUP_SCREEN));
+    this.props.dispatch(navigatePush(LOGIN_OPTIONS_SCREEN));
   };
 
   keyExtractor = i => i.id;
