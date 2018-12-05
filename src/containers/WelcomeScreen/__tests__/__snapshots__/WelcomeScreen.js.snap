@@ -23,7 +23,7 @@ exports[`renders correctly 1`] = `
         Object {},
         Object {
           "alignItems": "flex-start",
-          "flex": 4,
+          "flex": 3,
           "justifyContent": "center",
         },
       ]

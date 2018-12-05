@@ -102,6 +102,7 @@ export default {
     tos: 'Terms of Service',
     privacy: 'Privacy Policy',
     and: 'and',
+    signIn: 'Sign In',
   },
   error: {
     error: 'Error',
@@ -124,13 +125,11 @@ export default {
     help: 'Help',
     review: 'Write a Review',
     signOut: 'Sign out',
-    signIn: 'Sign In',
     signUp: 'Sign Up',
   },
   login: {
     tagline1: 'Grow closer to God.',
     tagline2: 'Help others experience Him.',
-    signIn: 'Sign In',
     getStarted: 'Get Started',
     member: 'Already a Member?',
   },
@@ -139,7 +138,6 @@ export default {
     haveCode: 'I Have a Community Code',
     signUpLater: 'Sign up Later',
     emailSignUp: 'Sign up with Email',
-    signIn: 'Sign In',
     member: 'Already a Member?',
   },
   keyLogin: {
@@ -162,6 +160,7 @@ export default {
   },
   welcome: {
     getStarted: `Let's Get Started`,
+    tryItNow: 'Try It Now',
     welcome: 'welcome!',
     welcomeDescription:
       'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
@@ -688,7 +687,6 @@ export default {
   landing: {
     tryItNow: 'Try It Now',
     haveCode: 'I have a Community Code',
-    signIn: 'Sign In',
     member: 'Already a Member?',
   },
 };
