@@ -119,5 +119,6 @@ it('resets state on logout', () => {
     hasCompletedOnboarding: false,
     personFirstName: '',
     personLastName: '',
+    community: {},
   });
 });

@@ -44,7 +44,11 @@ describe('welcome screen methods', () => {
 
   beforeEach(() => {
     const screen = shallow(
-      <WelcomeScreen navigation={createMockNavState()} dispatch={jest.fn()} next={next} />,
+      <WelcomeScreen
+        navigation={createMockNavState()}
+        dispatch={jest.fn()}
+        next={next}
+      />,
       {
         context: { store },
       },
@@ -66,6 +70,8 @@ describe('welcome screen methods', () => {
   });
 
   it('sign in', () => {
+    navigation.navigatePush = jest.fn();
+
     component.signIn();
     expect(navigation.navigatePush).toHaveBeenCalledWith(KEY_LOGIN_SCREEN);
   });

@@ -10,12 +10,7 @@ import {
   testSnapshotShallow,
 } from '../../../../../testUtils';
 import { navigateBack } from '../../../../actions/navigation';
-import { ACTIONS, ERROR_PERSON_PART_OF_ORG } from '../../../../constants';
-import {
-  lookupOrgCommunityCode,
-  joinCommunity,
-} from '../../../../actions/organizations';
-import { trackActionWithoutData } from '../../../../actions/analytics';
+import { lookupOrgCommunityCode } from '../../../../actions/organizations';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
@@ -147,72 +142,7 @@ describe('JoinGroupScreen', () => {
       .props()
       .onJoin();
 
-    expect(joinCommunity).toHaveBeenCalledWith(
-      mockCommunity.id,
-      mockCommunity.community_code,
-    );
-    expect(mockNext).toHaveBeenCalled();
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.SELECT_JOINED_COMMUNITY,
-    );
-  });
-
-  it('should join community with error code already present', async () => {
-    const component = buildScreen();
-    const instance = component.instance();
-
-    instance.joined = jest.fn();
-
-    component.setState({ community: mockCommunity });
-    component.update();
-
-    joinCommunity.mockImplementation(() => {
-      return async () =>
-        await Promise.reject({
-          apiError: { errors: [{ detail: ERROR_PERSON_PART_OF_ORG }] },
-        });
-    });
-
-    await component
-      .childAt(1)
-      .childAt(0)
-      .childAt(0)
-      .props()
-      .onJoin();
-
-    expect(joinCommunity).toHaveBeenCalledWith(
-      mockCommunity.id,
-      mockCommunity.community_code,
-    );
-    expect(instance.joined).toHaveBeenCalled();
-  });
-
-  it('should join community with error code unknown error', async () => {
-    const component = buildScreen();
-    const instance = component.instance();
-
-    instance.joined = jest.fn();
-
-    component.setState({ community: mockCommunity });
-    component.update();
-
-    const someError = {
-      apiError: { errors: [{ detail: 'some error' }] },
-    };
-    joinCommunity.mockImplementation(() => {
-      return async () => await Promise.reject(someError);
-    });
-
-    try {
-      await component
-        .childAt(1)
-        .childAt(0)
-        .childAt(0)
-        .props()
-        .onJoin();
-    } catch (e) {
-      expect(e).toEqual(someError);
-    }
+    expect(mockNext).toHaveBeenCalledWith({ community: mockCommunity });
   });
 
   it('should call navigate back', () => {

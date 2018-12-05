@@ -2,7 +2,7 @@ import { createStackNavigator } from 'react-navigation';
 import i18next from 'i18next';
 
 import { navigatePush, navigateReset } from '../../actions/navigation';
-import { firstTime } from '../../actions/auth';
+import { firstTime, loadHome } from '../../actions/auth';
 import {
   completeOnboarding,
   stashCommunityToJoin,
@@ -17,7 +17,7 @@ import WelcomeScreen from '../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../containers/SetupScreen';
 import SetupScreen from '../../containers/SetupScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
-import { joinCommunity, getMyOrganizations } from '../../actions/organizations';
+import { joinCommunity } from '../../actions/organizations';
 import {
   GROUP_SCREEN,
   USER_CREATED_GROUP_SCREEN,
@@ -45,30 +45,29 @@ export const JoinByCodeOnboardingFlowScreens = {
 
       const { community } = getState().personProfile;
       await dispatch(joinCommunity(community.id, community.community_code));
-      await dispatch(getMyOrganizations());
+      await dispatch(loadHome());
+
       if (!isAndroid) {
-        dispatch(
-          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-            onComplete: () => {
-              dispatch(
-                navigateReset(
-                  community.user_created
-                    ? USER_CREATED_GROUP_SCREEN
-                    : GROUP_SCREEN,
-                  {
-                    organization: community,
-                  },
-                ),
-              );
-            },
-            descriptionText: i18next.t(
-              'notificationPrimer:onboardingDescription',
-            ),
-          }),
+        await new Promise(resolve =>
+          dispatch(
+            navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+              onComplete: resolve,
+              descriptionText: i18next.t(
+                'notificationPrimer:onboardingDescription',
+              ),
+            }),
+          ),
         );
-      } else {
-        // TODO: go somewhere
       }
+
+      dispatch(
+        navigateReset(
+          community.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN,
+          {
+            organization: community,
+          },
+        ),
+      );
       dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
     }),
     buildTrackingObj('onboarding : name', 'onboarding'),

@@ -124,21 +124,6 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
       }
     />
   </ScrollView>
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      style={
-        Object {
-          "width": 750,
-        }
-      }
-      text="SEARCH"
-      type="secondary"
-    />
-  </Flex>
 </Component>
 `;
 
@@ -235,21 +220,6 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
       }
     />
   </ScrollView>
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      style={
-        Object {
-          "width": 750,
-        }
-      }
-      text="SEARCH"
-      type="secondary"
-    />
-  </Flex>
 </Component>
 `;
 
@@ -358,20 +328,5 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
       }
     />
   </ScrollView>
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      style={
-        Object {
-          "width": 750,
-        }
-      }
-      text="SEARCH"
-      type="secondary"
-    />
-  </Flex>
 </Component>
 `;

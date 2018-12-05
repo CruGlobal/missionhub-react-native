@@ -21,7 +21,6 @@ import BackButton from '../BackButton';
 import TosPrivacy from '../../components/TosPrivacy';
 
 import styles from './styles';
-import { JOIN_BY_CODE_ONBOARDING_FLOW } from '../../routes/constants';
 
 @translate('loginOptions')
 class LoginOptionsScreen extends Component {

@@ -10,25 +10,13 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import {
-  Flex,
-  Text,
-  Input,
-  IconButton,
-  Button,
-} from '../../../components/common';
+import { Flex, Text, Input, IconButton } from '../../../components/common';
 import GroupCardItem from '../../../components/GroupCardItem';
 import Header from '../../Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
 import { navigateBack } from '../../../actions/navigation';
-import {
-  lookupOrgCommunityCode,
-  joinCommunity,
-} from '../../../actions/organizations';
-import { ACTIONS, ERROR_PERSON_PART_OF_ORG } from '../../../constants';
-import { setScrollGroups } from '../../../actions/swipe';
-import { trackActionWithoutData } from '../../../actions/analytics';
+import { lookupOrgCommunityCode } from '../../../actions/organizations';
 
 import styles from './styles';
 
@@ -90,7 +78,7 @@ class JoinGroupScreen extends Component {
     }
   };
 
-  joinCommunity = () => {
+  navigateNext = () => {
     const { dispatch, next } = this.props;
     const { community } = this.state;
     Keyboard.dismiss();
@@ -128,7 +116,7 @@ class JoinGroupScreen extends Component {
   renderGroupCard() {
     const { community } = this.state;
 
-    return <GroupCardItem group={community} onJoin={this.joinCommunity} />;
+    return <GroupCardItem group={community} onJoin={this.navigateNext} />;
   }
 
   render() {
@@ -173,15 +161,6 @@ class JoinGroupScreen extends Component {
             style={styles.flex}
           />
         </ScrollView>
-
-        <Flex align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.onSearch}
-            text={t('search').toUpperCase()}
-            style={styles.searchButton}
-          />
-        </Flex>
       </View>
     );
   }

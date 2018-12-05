@@ -8,7 +8,6 @@ import {
   ACTIONS,
   ORG_PERMISSIONS,
   ERROR_PERSON_PART_OF_ORG,
-  ACTIONS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
@@ -500,10 +499,7 @@ export function joinCommunity(orgId, code, url) {
         `Invalid Data from joinCommunity: must pass in a code or url`,
       );
     }
-    // This can be done through onboarding, so it's possible we won't have a person_id.
-    if (myId) {
-      attributes.person_id = myId;
-    }
+    attributes.person_id = myId;
     const bodyData = {
       data: {
         type: 'organizational_permission',
@@ -512,7 +508,7 @@ export function joinCommunity(orgId, code, url) {
     };
 
     try {
-      dispatch(callApi(REQUESTS.JOIN_COMMUNITY, {}, bodyData));
+      await dispatch(callApi(REQUESTS.JOIN_COMMUNITY, {}, bodyData));
     } catch (error) {
       // If the user is already part of the organization, just continue like normal
       if (
@@ -529,8 +525,6 @@ export function joinCommunity(orgId, code, url) {
     }
 
     dispatch(trackActionWithoutData(ACTIONS.JOIN_COMMUNITY_WITH_CODE));
-
-    return results;
   };
 }
 
