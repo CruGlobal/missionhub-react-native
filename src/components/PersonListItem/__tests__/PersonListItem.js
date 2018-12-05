@@ -2,7 +2,7 @@ import React from 'react';
 
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 
-import ContactItem from '..';
+import PersonListItem from '..';
 
 const organization = { id: '1', name: 'Test Org' };
 const contact = {
@@ -14,7 +14,7 @@ const contact = {
 
 it('render assigned contact', () => {
   testSnapshotShallow(
-    <ContactItem
+    <PersonListItem
       onSelect={jest.fn()}
       organization={organization}
       contact={contact}
@@ -24,7 +24,7 @@ it('render assigned contact', () => {
 
 it('render unassigned contact', () => {
   testSnapshotShallow(
-    <ContactItem
+    <PersonListItem
       onSelect={jest.fn()}
       organization={organization}
       contact={{ ...contact, reverse_contact_assignments: [] }}
@@ -34,7 +34,7 @@ it('render unassigned contact', () => {
 
 it('render without touchable', () => {
   testSnapshotShallow(
-    <ContactItem
+    <PersonListItem
       organization={organization}
       contact={{ ...contact, reverse_contact_assignments: [] }}
     />,
@@ -43,7 +43,7 @@ it('render without touchable', () => {
 
 it('render without last name', () => {
   testSnapshotShallow(
-    <ContactItem
+    <PersonListItem
       organization={organization}
       contact={{ ...contact, last_name: null }}
     />,
@@ -54,7 +54,7 @@ it('calls onSelect prop', () => {
   const onSelect = jest.fn();
 
   renderShallow(
-    <ContactItem
+    <PersonListItem
       onSelect={onSelect}
       organization={organization}
       contact={contact}

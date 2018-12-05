@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { Flex } from '../../components/common';
-import ContactItem from '../../components/ContactItem';
+import PersonListItem from '../../components/PersonListItem';
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
 import {
@@ -25,7 +25,7 @@ class ChallengeMembers extends Component {
   renderItem = ({ item }) => {
     const { organization } = this.props;
     return (
-      <ContactItem
+      <PersonListItem
         organization={organization}
         contact={item.person}
         onSelect={this.handleSelect}

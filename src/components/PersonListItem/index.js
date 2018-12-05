@@ -7,7 +7,7 @@ import { Flex, Text, Touchable } from '../common';
 import styles from './styles';
 
 @translate('groupItem')
-class ContactItem extends Component {
+class PersonListItem extends Component {
   handleSelect = () => {
     const { onSelect, contact } = this.props;
     onSelect && onSelect(contact);
@@ -60,7 +60,7 @@ class ContactItem extends Component {
   }
 }
 
-ContactItem.propTypes = {
+PersonListItem.propTypes = {
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
@@ -82,4 +82,4 @@ ContactItem.propTypes = {
   ]),
 };
 
-export default ContactItem;
+export default PersonListItem;
