@@ -12,6 +12,7 @@ import {
   unassignedFilter,
   thirtyDaysFilter,
 } from '../../utils/filters';
+import { buildTrackingObj } from '../../utils/common';
 import Header from '../Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';

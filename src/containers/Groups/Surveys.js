@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, RefreshControl } from '../../components/common';
-import { refresh } from '../../utils/common';
+import { refresh, buildTrackingObj } from '../../utils/common';
 import GroupSurveyItem from '../../components/GroupSurveyItem';
 import LoadMore from '../../components/LoadMore';
 import { navigatePush } from '../../actions/navigation';
