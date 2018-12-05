@@ -55,6 +55,11 @@ describe('CelebrateItem', () => {
     );
   };
 
+  it('renders event with no subject name (global community event)', () =>
+    testEvent({
+      ...baseEvent,
+    }));
+
   it('renders event for subject=me, liked=true, like count>0', () => {
     event = {
       ...baseEvent,

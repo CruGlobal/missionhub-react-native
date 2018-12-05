@@ -219,20 +219,22 @@ class CelebrateItem extends Component {
             <Text style={styles.description}>{this.renderMessage()}</Text>
             {this.renderChallengeLink()}
           </Flex>
-          <Flex direction={'column'} align="start">
-            <Flex direction={'row'} align="center">
-              <Text style={styles.likeCount}>
-                {displayLikeCount ? likes_count : null}
-              </Text>
-              <Button
-                name="likeActiveIcon"
-                onPress={this.onPressLikeIcon}
-                style={[styles.icon]}
-              >
-                <Image source={liked ? BLUE_HEART : GREY_HEART} />
-              </Button>
+          {subject_person && (
+            <Flex direction={'column'} align="start">
+              <Flex direction={'row'} align="center">
+                <Text style={styles.likeCount}>
+                  {displayLikeCount ? likes_count : null}
+                </Text>
+                <Button
+                  name="likeActiveIcon"
+                  onPress={this.onPressLikeIcon}
+                  style={[styles.icon]}
+                >
+                  <Image source={liked ? BLUE_HEART : GREY_HEART} />
+                </Button>
+              </Flex>
             </Flex>
-          </Flex>
+          )}
         </Flex>
       </Card>
     );
