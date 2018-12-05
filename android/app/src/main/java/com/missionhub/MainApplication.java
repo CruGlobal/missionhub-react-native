@@ -9,6 +9,8 @@ import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
 import com.facebook.react.ReactApplication;
 import com.imagepicker.ImagePickerPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.links.RNFirebaseLinksPackage;
 import com.entria.views.RNViewOverflowPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.microsoft.codepush.react.CodePush;
@@ -58,6 +60,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new ImagePickerPackage(),
+            new RNFirebasePackage(),
+            new RNFirebaseLinksPackage(),
             new RNViewOverflowPackage(),
             new RNDeviceInfo(),
             new CodePush("", getApplicationContext(), BuildConfig.DEBUG),

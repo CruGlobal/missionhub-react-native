@@ -25,9 +25,13 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Firebase Deep Link</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb233292170040365</string>
+				<string>com.missionhub</string>
 			</array>
 		</dict>
 	</array>

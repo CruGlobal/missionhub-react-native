@@ -28,6 +28,7 @@ import { initialRoute } from './actions/navigationInit';
 import { navigateReset } from './actions/navigation';
 import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
+import { setupFirebaseDynamicLinks } from './actions/deepLink';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -51,6 +52,7 @@ export default class App extends Component {
     this.checkOldAppToken();
     store.dispatch(navigateReset(initialRoute(store.getState())));
     store.dispatch(configureNotificationHandler());
+    store.dispatch(setupFirebaseDynamicLinks());
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
   };

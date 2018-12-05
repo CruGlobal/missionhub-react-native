@@ -1,0 +1,6 @@
+framework module Pods_MissionHub {
+  umbrella header "Pods-MissionHub-umbrella.h"
+
+  export *
+  module * { export * }
+}
