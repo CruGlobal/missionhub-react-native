@@ -1,8 +1,8 @@
 import { MainRoutes } from '../AppRoutes';
-import { LOGIN_SCREEN } from '../containers/LoginScreen';
+import { LANDING_SCREEN } from '../containers/LandingScreen';
 
 const initialState = MainRoutes.router.getStateForAction(
-  MainRoutes.router.getActionForPathAndParams(LOGIN_SCREEN),
+  MainRoutes.router.getActionForPathAndParams(LANDING_SCREEN),
 );
 
 export default function navReducer(state = initialState, action) {

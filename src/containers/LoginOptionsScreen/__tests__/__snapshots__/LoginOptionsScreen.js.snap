@@ -61,8 +61,9 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
           pill={true}
           style={
             Object {
-              "alignItems": "flex-start",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
               "height": 48,
               "margin": 8,
               "width": 670,
@@ -115,8 +116,9 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
           pill={true}
           style={
             Object {
-              "alignItems": "flex-start",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
               "height": 48,
               "margin": 8,
               "width": 670,
@@ -164,7 +166,7 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
               "paddingTop": 2,
             }
           }
-          name="communityCodeButton"
+          name="signUpLater"
           onPress={[Function]}
           pill={true}
           style={
@@ -177,109 +179,16 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
               "width": 670,
             }
           }
-          text="I HAVE A COMMUNITY CODE"
+          text="SIGN UP LATER"
         />
-        <Button
-          buttonTextStyle={
+        <Translate(TosPrivacy)
+          flexProps={
             Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "paddingTop": 2,
+              "justify": undefined,
+              "value": undefined,
             }
           }
-          name="tryItNowButton"
-          onPress={[Function]}
-          pill={true}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#52C5DC",
-              "borderWidth": 1,
-              "height": 48,
-              "margin": 8,
-              "width": 670,
-            }
-          }
-          text="TRY IT NOW"
         />
-        <Flex
-          direction="column"
-        >
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-                "marginTop": 10,
-                "paddingHorizontal": 3,
-                "textAlign": "center",
-              }
-            }
-          >
-            By creating your MissionHub account you agree to our
-          </MyText>
-          <Flex
-            align="center"
-            direction="row"
-            justify="center"
-          >
-            <Button
-              buttonTextStyle={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0,
-                  "marginTop": 10,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                }
-              }
-              onPress={[Function]}
-              text="Terms of Service"
-              type="transparent"
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "marginTop": 10,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                }
-              }
-            >
-              and
-            </MyText>
-            <Button
-              buttonTextStyle={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0,
-                  "marginTop": 10,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                }
-              }
-              onPress={[Function]}
-              text="Privacy Policy"
-              type="transparent"
-            />
-          </Flex>
-        </Flex>
       </Flex>
       <Flex
         align="end"
@@ -322,6 +231,9 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
         />
       </Flex>
     </Flex>
+    <Connect(BackButton)
+      absolute={true}
+    />
   </Flex>
   <LoadingWheel />
 </Flex>
@@ -388,8 +300,9 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
           pill={true}
           style={
             Object {
-              "alignItems": "flex-start",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
               "height": 48,
               "margin": 8,
               "width": 670,
@@ -442,8 +355,9 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
           pill={true}
           style={
             Object {
-              "alignItems": "flex-start",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
               "height": 48,
               "margin": 8,
               "width": 670,
@@ -491,7 +405,7 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
               "paddingTop": 2,
             }
           }
-          name="communityCodeButton"
+          name="signUpLater"
           onPress={[Function]}
           pill={true}
           style={
@@ -504,109 +418,16 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
               "width": 670,
             }
           }
-          text="I HAVE A COMMUNITY CODE"
+          text="SIGN UP LATER"
         />
-        <Button
-          buttonTextStyle={
+        <Translate(TosPrivacy)
+          flexProps={
             Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "paddingTop": 2,
+              "justify": undefined,
+              "value": undefined,
             }
           }
-          name="tryItNowButton"
-          onPress={[Function]}
-          pill={true}
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#52C5DC",
-              "borderWidth": 1,
-              "height": 48,
-              "margin": 8,
-              "width": 670,
-            }
-          }
-          text="TRY IT NOW"
         />
-        <Flex
-          direction="column"
-        >
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-                "marginTop": 10,
-                "paddingHorizontal": 3,
-                "textAlign": "center",
-              }
-            }
-          >
-            By creating your MissionHub account you agree to our
-          </MyText>
-          <Flex
-            align="center"
-            direction="row"
-            justify="center"
-          >
-            <Button
-              buttonTextStyle={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0,
-                  "marginTop": 10,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                }
-              }
-              onPress={[Function]}
-              text="Terms of Service"
-              type="transparent"
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "marginTop": 10,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                }
-              }
-            >
-              and
-            </MyText>
-            <Button
-              buttonTextStyle={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0,
-                  "marginTop": 10,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                }
-              }
-              onPress={[Function]}
-              text="Privacy Policy"
-              type="transparent"
-            />
-          </Flex>
-        </Flex>
       </Flex>
       <Flex
         align="end"
@@ -649,6 +470,9 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
         />
       </Flex>
     </Flex>
+    <Connect(BackButton)
+      absolute={true}
+    />
   </Flex>
 </Flex>
 `;
@@ -768,8 +592,9 @@ exports[`renders correctly with upgrade 1`] = `
                 },
                 null,
                 Object {
-                  "alignItems": "flex-start",
-                  "backgroundColor": "#52C5DC",
+                  "backgroundColor": "transparent",
+                  "borderColor": "#52C5DC",
+                  "borderWidth": 1,
                   "height": 48,
                   "margin": 8,
                   "width": 670,
@@ -889,8 +714,9 @@ exports[`renders correctly with upgrade 1`] = `
                 },
                 null,
                 Object {
-                  "alignItems": "flex-start",
-                  "backgroundColor": "#52C5DC",
+                  "backgroundColor": "transparent",
+                  "borderColor": "#52C5DC",
+                  "borderWidth": 1,
                   "height": 48,
                   "margin": 8,
                   "width": 670,
@@ -970,101 +796,16 @@ exports[`renders correctly with upgrade 1`] = `
           </View>
         </View>
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits="button"
-          accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderColor": "#52C5DC",
-                  "borderWidth": 1,
-                  "height": 48,
-                  "margin": 8,
-                  "width": 670,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 18,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "paddingTop": 2,
-                    },
-                  ],
-                ]
-              }
-            >
-              I HAVE A COMMUNITY CODE
-            </Text>
-          </View>
-        </View>
-        <View
           style={
             Array [
-              Object {},
               Object {
+                "marginBottom": 38,
+                "marginTop": 10,
+              },
+              Object {
+                "flex": 1,
                 "flexDirection": "column",
+                "justifyContent": "flex-end",
               },
             ]
           }
@@ -1084,7 +825,6 @@ exports[`renders correctly with upgrade 1`] = `
                 Object {
                   "color": "#ffffff",
                   "fontSize": 12,
-                  "marginTop": 10,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                 },
@@ -1168,7 +908,6 @@ exports[`renders correctly with upgrade 1`] = `
                           "fontSize": 12,
                           "fontWeight": "normal",
                           "letterSpacing": 0,
-                          "marginTop": 10,
                           "paddingHorizontal": 3,
                           "textAlign": "center",
                           "textDecorationLine": "underline",
@@ -1196,7 +935,6 @@ exports[`renders correctly with upgrade 1`] = `
                   Object {
                     "color": "#ffffff",
                     "fontSize": 12,
-                    "marginTop": 10,
                     "paddingHorizontal": 3,
                     "textAlign": "center",
                   },
@@ -1268,7 +1006,6 @@ exports[`renders correctly with upgrade 1`] = `
                           "fontSize": 12,
                           "fontWeight": "normal",
                           "letterSpacing": 0,
-                          "marginTop": 10,
                           "paddingHorizontal": 3,
                           "textAlign": "center",
                           "textDecorationLine": "underline",
@@ -1284,117 +1021,97 @@ exports[`renders correctly with upgrade 1`] = `
           </View>
         </View>
       </View>
-      <View
-        style={
+    </View>
+    <View
+      style={
+        Array [
           Array [
-            Object {},
+            null,
             Object {
-              "alignItems": "flex-end",
-              "flex": 1,
-              "flexDirection": "row",
+              "left": 5,
+              "position": "absolute",
+              "top": 25,
             },
-          ]
+          ],
+          Object {
+            "alignItems": "flex-start",
+            "alignSelf": "flex-start",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits="button"
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
         }
+        testID={undefined}
+        tvParallaxProperties={undefined}
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "backgroundColor": "transparent",
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#52C5DC",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "marginBottom": 20,
-                "marginRight": 10,
-                "paddingTop": 2,
-              },
+              null,
+              Object {},
+              null,
             ]
           }
         >
-          ALREADY A MEMBER?
-        </Text>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits="button"
-          accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <View
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": undefined,
+                  "fontSize": 12,
                 },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 18,
                   },
                   Array [
                     Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 18,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
+                      "margin": 10,
                     },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "marginBottom": 20,
-                      "paddingTop": 2,
-                    },
+                    Object {},
                   ],
-                ]
-              }
-            >
-              SIGN IN
-            </Text>
-          </View>
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
         </View>
       </View>
     </View>
@@ -1517,8 +1234,9 @@ exports[`renders correctly without upgrade 1`] = `
                 },
                 null,
                 Object {
-                  "alignItems": "flex-start",
-                  "backgroundColor": "#52C5DC",
+                  "backgroundColor": "transparent",
+                  "borderColor": "#52C5DC",
+                  "borderWidth": 1,
                   "height": 48,
                   "margin": 8,
                   "width": 670,
@@ -1638,8 +1356,9 @@ exports[`renders correctly without upgrade 1`] = `
                 },
                 null,
                 Object {
-                  "alignItems": "flex-start",
-                  "backgroundColor": "#52C5DC",
+                  "backgroundColor": "transparent",
+                  "borderColor": "#52C5DC",
+                  "borderWidth": 1,
                   "height": 48,
                   "margin": 8,
                   "width": 670,
@@ -1804,104 +1523,17 @@ exports[`renders correctly without upgrade 1`] = `
                 ]
               }
             >
-              I HAVE A COMMUNITY CODE
-            </Text>
-          </View>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits="button"
-          accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderColor": "#52C5DC",
-                  "borderWidth": 1,
-                  "height": 48,
-                  "margin": 8,
-                  "width": 670,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 18,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "paddingTop": 2,
-                    },
-                  ],
-                ]
-              }
-            >
-              TRY IT NOW
+              SIGN UP LATER
             </Text>
           </View>
         </View>
         <View
           style={
             Array [
-              Object {},
+              Object {
+                "marginBottom": 38,
+                "marginTop": 10,
+              },
               Object {
                 "flexDirection": "column",
               },
@@ -1923,7 +1555,6 @@ exports[`renders correctly without upgrade 1`] = `
                 Object {
                   "color": "#ffffff",
                   "fontSize": 12,
-                  "marginTop": 10,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                 },
@@ -2007,7 +1638,6 @@ exports[`renders correctly without upgrade 1`] = `
                           "fontSize": 12,
                           "fontWeight": "normal",
                           "letterSpacing": 0,
-                          "marginTop": 10,
                           "paddingHorizontal": 3,
                           "textAlign": "center",
                           "textDecorationLine": "underline",
@@ -2035,7 +1665,6 @@ exports[`renders correctly without upgrade 1`] = `
                   Object {
                     "color": "#ffffff",
                     "fontSize": 12,
-                    "marginTop": 10,
                     "paddingHorizontal": 3,
                     "textAlign": "center",
                   },
@@ -2107,7 +1736,6 @@ exports[`renders correctly without upgrade 1`] = `
                           "fontSize": 12,
                           "fontWeight": "normal",
                           "letterSpacing": 0,
-                          "marginTop": 10,
                           "paddingHorizontal": 3,
                           "textAlign": "center",
                           "textDecorationLine": "underline",
@@ -2234,6 +1862,99 @@ exports[`renders correctly without upgrade 1`] = `
               SIGN IN
             </Text>
           </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Array [
+            null,
+            Object {
+              "left": 5,
+              "position": "absolute",
+              "top": 25,
+            },
+          ],
+          Object {
+            "alignItems": "flex-start",
+            "alignSelf": "flex-start",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits="button"
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
         </View>
       </View>
     </View>

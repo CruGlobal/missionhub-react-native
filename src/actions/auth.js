@@ -7,7 +7,7 @@ import randomString from 'random-string';
 import i18next from 'i18next';
 
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, OPEN_URL } from '../constants';
-import { LOGIN_SCREEN } from '../containers/LoginScreen';
+import { LANDING_SCREEN } from '../containers/LandingScreen';
 import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
 import { THE_KEY_URL } from '../api/utils';
 import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
@@ -146,7 +146,7 @@ export function logout(forcedLogout = false) {
     dispatch(
       forcedLogout
         ? navigateReset(KEY_LOGIN_SCREEN, { forcedLogout })
-        : navigateReset(LOGIN_SCREEN),
+        : navigateReset(LANDING_SCREEN),
     );
   };
 }
@@ -154,6 +154,12 @@ export function logout(forcedLogout = false) {
 export function upgradeAccount() {
   return dispatch => {
     dispatch(navigatePush(LOGIN_OPTIONS_SCREEN, { upgradeAccount: true }));
+  };
+}
+
+export function upgradeAccountSignIn() {
+  return dispatch => {
+    dispatch(navigatePush(KEY_LOGIN_SCREEN, { upgradeAccount: true }));
   };
 }
 

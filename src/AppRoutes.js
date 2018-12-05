@@ -6,7 +6,7 @@ import {
 } from 'react-navigation';
 import i18next from 'i18next';
 
-import LoginScreen, { LOGIN_SCREEN } from './containers/LoginScreen';
+import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
 import KeyLoginScreen, { KEY_LOGIN_SCREEN } from './containers/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
@@ -451,7 +451,7 @@ export const trackableScreens = {
 export const MainStackRoutes = createStackNavigator(
   {
     ...screens,
-    [LOGIN_SCREEN]: { screen: LoginScreen },
+    [LANDING_SCREEN]: { screen: LandingScreen },
     [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
     [PERSON_SELECT_STEP_SCREEN]: {
       screen: PersonSelectStepScreen,

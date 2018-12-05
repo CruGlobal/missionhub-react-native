@@ -97,6 +97,12 @@ export default {
       '{{assignedContactName}} was unassigned from {{assignedToName}}',
     assignToMe: 'Assign to me',
     copyMessage: 'Copied',
+    terms: 'By creating your MissionHub account you agree to our',
+    termsTrial: 'By creating your MissionHub trial account you agree to our',
+    tos: 'Terms of Service',
+    privacy: 'Privacy Policy',
+    and: 'and',
+    signIn: 'Sign In',
   },
   error: {
     error: 'Error',
@@ -118,29 +124,21 @@ export default {
     about: 'About',
     help: 'Help',
     review: 'Write a Review',
-    terms: 'Terms of Service',
-    privacy: 'Privacy Policy',
     signOut: 'Sign out',
-    signUp: 'Upgrade Account',
+    signUp: 'Sign Up',
   },
   login: {
     tagline1: 'Grow closer to God.',
     tagline2: 'Help others experience Him.',
-    signIn: 'Sign In',
     getStarted: 'Get Started',
     member: 'Already a Member?',
   },
   loginOptions: {
     facebookSignup: 'Sign up with Facebook',
     haveCode: 'I Have a Community Code',
-    tryNow: 'Try it now',
+    signUpLater: 'Sign up Later',
     emailSignUp: 'Sign up with Email',
-    signIn: 'Sign In',
-    terms: 'By creating your MissionHub account you agree to our',
     member: 'Already a Member?',
-    tos: 'Terms of Service',
-    privacy: 'Privacy Policy',
-    and: 'and',
   },
   keyLogin: {
     invalidCredentialsMessage: 'Your Email or Password is Incorrect',
@@ -161,13 +159,15 @@ export default {
     mfaIncorrect: 'Incorrect verification code',
   },
   welcome: {
+    getStarted: `Let's Get Started`,
+    tryItNow: 'Try It Now',
     welcome: 'welcome!',
     welcomeDescription:
       'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
   },
   setup: {
     firstThing: '-first things first-',
-    namePrompt: "what's your name?",
+    namePrompt: 'what is your name?',
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
@@ -680,5 +680,10 @@ export default {
     createNewCode: 'Are you sure you want to create a new Community Code?',
     createNewLink: 'Are you sure you want to create a new Community Link?',
     cannotBeUndone: 'This cannot be undone',
+  },
+  landing: {
+    tryItNow: 'Try It Now',
+    haveCode: 'I have a Community Code',
+    member: 'Already a Member?',
   },
 };

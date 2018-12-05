@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image, Linking } from 'react-native';
+import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { firstTime, openKeyURL } from '../../actions/auth';
@@ -13,12 +13,12 @@ import {
 } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
-import { LINKS } from '../../constants';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
-import { JOIN_GROUP_SCREEN } from '../Groups/JoinGroupScreen';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
+import BackButton from '../BackButton';
+import TosPrivacy from '../../components/TosPrivacy';
 
 import styles from './styles';
 
@@ -42,10 +42,6 @@ class LoginOptionsScreen extends Component {
       upgradeAccount: this.props.upgradeAccount,
     });
   }
-
-  navToJoinGroup = () => {
-    this.navigateToNext(JOIN_GROUP_SCREEN);
-  };
 
   tryItNow() {
     this.props.dispatch(firstTime());
@@ -87,8 +83,6 @@ class LoginOptionsScreen extends Component {
     });
   };
 
-  openTermsLink = () => Linking.openURL(LINKS.terms);
-
   render() {
     const { t, upgradeAccount } = this.props;
 
@@ -110,7 +104,7 @@ class LoginOptionsScreen extends Component {
                 name={'facebookButton'}
                 pill={true}
                 onPress={this.facebookLogin}
-                style={styles.facebookButton}
+                style={styles.clearButton}
                 buttonTextStyle={styles.buttonText}
               >
                 <Flex direction="row">
@@ -129,7 +123,7 @@ class LoginOptionsScreen extends Component {
                 name={'emailButton'}
                 pill={true}
                 onPress={this.emailSignUp}
-                style={styles.facebookButton}
+                style={styles.clearButton}
                 buttonTextStyle={styles.buttonText}
               >
                 <Flex direction="row">
@@ -144,55 +138,40 @@ class LoginOptionsScreen extends Component {
                   </Text>
                 </Flex>
               </Button>
-              <Button
-                name={'communityCodeButton'}
-                pill={true}
-                onPress={this.navToJoinGroup}
-                text={t('haveCode').toUpperCase()}
-                style={styles.tryButton}
-                buttonTextStyle={styles.buttonText}
-              />
               {upgradeAccount ? null : (
                 <Button
-                  name={'tryItNowButton'}
+                  name={'signUpLater'}
                   pill={true}
                   onPress={this.tryItNow}
-                  text={t('tryNow').toUpperCase()}
-                  style={styles.tryButton}
+                  text={t('signUpLater').toUpperCase()}
+                  style={styles.clearButton}
                   buttonTextStyle={styles.buttonText}
                 />
               )}
-              <Flex direction="column">
-                <Text style={styles.termsText}>{t('terms')}</Text>
-                <Flex direction="row" align="center" justify="center">
-                  <Button
-                    text={t('tos')}
-                    type="transparent"
-                    onPress={this.openTermsLink}
-                    buttonTextStyle={styles.termsTextLink}
-                  />
-                  <Text style={styles.termsText}>{t('and')}</Text>
-                  <Button
-                    text={t('privacy')}
-                    type="transparent"
-                    onPress={this.openTermsLink}
-                    buttonTextStyle={styles.termsTextLink}
-                  />
-                </Flex>
-              </Flex>
-            </Flex>
-
-            <Flex value={1} align="end" direction="row">
-              <Text style={styles.signInText}>{t('member').toUpperCase()}</Text>
-              <Button
-                name={'loginButton'}
-                text={t('signIn').toUpperCase()}
-                type="transparent"
-                onPress={this.login}
-                buttonTextStyle={styles.signInBtnText}
+              <TosPrivacy
+                flexProps={{
+                  value: upgradeAccount ? 1 : undefined,
+                  justify: upgradeAccount ? 'end' : undefined,
+                }}
               />
             </Flex>
+
+            {upgradeAccount ? null : (
+              <Flex value={1} align="end" direction="row">
+                <Text style={styles.signInText}>
+                  {t('member').toUpperCase()}
+                </Text>
+                <Button
+                  name={'loginButton'}
+                  text={t('signIn').toUpperCase()}
+                  type="transparent"
+                  onPress={this.login}
+                  buttonTextStyle={styles.signInBtnText}
+                />
+              </Flex>
+            )}
           </Flex>
+          <BackButton absolute={true} />
         </Flex>
         {this.state.isLoading ? <LoadingWheel /> : null}
       </Flex>

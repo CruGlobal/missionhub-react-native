@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, View, Image } from 'react-native';
+import { Keyboard, View } from 'react-native';
 import { translate } from 'react-i18next';
 
 import {
@@ -12,10 +12,9 @@ import {
 } from '../../components/common';
 import Input from '../../components/Input/index';
 import { keyLogin, openKeyURL } from '../../actions/auth';
-import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, MFA_REQUIRED } from '../../constants';
-import { isiPhoneX, keyboardShow, keyboardHide } from '../../utils/common';
+import { isiPhoneX } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 import BackButton from '../BackButton';
@@ -27,34 +26,11 @@ import styles from './styles';
 
 @translate('keyLogin')
 class KeyLoginScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      email: '',
-      password: '',
-      errorMessage: '',
-      logo: true,
-      isLoading: false,
-    };
-  }
-
-  componentDidMount() {
-    this.keyboardShowListener = keyboardShow(this._hideLogo);
-    this.keyboardHideListener = keyboardHide(this._showLogo);
-  }
-
-  componentWillUnmount() {
-    this.keyboardShowListener.remove();
-    this.keyboardHideListener.remove();
-  }
-
-  _hideLogo = () => {
-    this.setState({ logo: false });
-  };
-
-  _showLogo = () => {
-    this.setState({ logo: true });
+  state = {
+    email: '',
+    password: '',
+    errorMessage: '',
+    isLoading: false,
   };
 
   emailChanged = email => {
@@ -164,15 +140,17 @@ class KeyLoginScreen extends Component {
         ) : (
           <BackButton style={{ marginLeft: 5, marginTop }} />
         )}
-        {this.state.logo ? (
-          <Flex value={1} align="center" justify="center">
-            {this.props.forcedLogout ? (
-              <Text style={styles.header}>{t('forcedLogout:message')}</Text>
-            ) : (
-              <Image source={LOGO} resizeMode="contain" />
-            )}
-          </Flex>
-        ) : null}
+        <Flex align="center" justify="center">
+          {this.props.forcedLogout ? (
+            <Text style={styles.forcedLogoutHeader}>
+              {t('forcedLogout:message')}
+            </Text>
+          ) : (
+            <Text type="header" style={styles.header}>
+              {t('signIn')}
+            </Text>
+          )}
+        </Flex>
 
         <Flex value={3} style={{ padding: 30 }}>
           <View>
@@ -212,7 +190,9 @@ class KeyLoginScreen extends Component {
               onPress={this.handleForgotPassword}
             />
           </View>
-          {!this.state.email && !this.state.password ? (
+        </Flex>
+        {!this.state.email && !this.state.password ? (
+          <Flex value={1} align="stretch" justify="center" align="center">
             <Button
               name={'facebookButton'}
               pill={true}
@@ -232,8 +212,8 @@ class KeyLoginScreen extends Component {
                 </Text>
               </Flex>
             </Button>
-          ) : null}
-        </Flex>
+          </Flex>
+        ) : null}
 
         {!this.state.email && !this.state.password ? null : (
           <Flex align="stretch" justify="end">

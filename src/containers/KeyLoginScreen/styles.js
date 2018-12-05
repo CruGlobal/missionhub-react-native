@@ -14,13 +14,17 @@ export default StyleSheet.create({
     color: theme.secondaryColor,
     fontSize: 12,
   },
-  header: {
+  forcedLogoutHeader: {
     fontSize: 24,
     textAlign: 'left',
     paddingRight: 80,
     paddingLeft: 30,
     color: theme.white,
     lineHeight: 32,
+  },
+  header: {
+    color: theme.secondaryColor,
+    fontSize: 48,
   },
   errorBar: {
     backgroundColor: '#FF5532',

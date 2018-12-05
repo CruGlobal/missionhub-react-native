@@ -6,26 +6,16 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.primaryColor,
-    paddingHorizontal: 60,
+    justifyContent: 'center',
   },
-  descriptionText: {
-    color: theme.white,
-    textAlign: 'left',
-    paddingVertical: 10,
-    fontSize: 24,
-    lineHeight: 32,
+  imageWrap: {
+    // half the screen size, minus half the image size puts the image in the middle of the screen
+    marginTop: theme.fullHeight / 2 - 45,
   },
-  headerText: {
-    color: theme.secondaryColor,
-    fontSize: 48,
+  buttonWrapper: {
+    paddingHorizontal: 30,
   },
-  filledButton: {
-    backgroundColor: theme.secondaryColor,
-    margin: 8,
-    height: 48,
-    width: theme.fullWidth - 80,
-  },
-  clearButton: {
+  button: {
     backgroundColor: theme.transparent,
     borderWidth: 1,
     borderColor: theme.secondaryColor,
@@ -39,5 +29,18 @@ export default StyleSheet.create({
     fontSize: 14,
     paddingTop: 2,
     letterSpacing: 1.5,
+  },
+  memberText: {
+    fontSize: 14,
+    color: theme.secondaryColor,
+    fontWeight: '500',
+    paddingTop: 2,
+    letterSpacing: 1.5,
+    marginRight: 10,
+    marginBottom: 20,
+  },
+  signInBtnText: {
+    marginRight: 10,
+    marginBottom: 20,
   },
 });

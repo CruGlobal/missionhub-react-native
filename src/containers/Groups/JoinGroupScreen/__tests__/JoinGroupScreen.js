@@ -39,6 +39,8 @@ jest.mock('../../../../actions/analytics', () => ({
   trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
 }));
 
+global.setTimeout = jest.fn();
+
 const mockStore = configureStore([thunk]);
 let store = mockStore();
 
@@ -51,10 +53,12 @@ const mockCommunity = {
 };
 
 function buildScreen(props) {
-  return renderShallow(
+  const component = renderShallow(
     <JoinGroupScreen navigation={createMockNavState()} {...props} />,
     store,
   );
+  component.instance().codeInput = { focus: jest.fn() };
+  return component;
 }
 
 function buildScreenInstance(props) {
@@ -87,6 +91,13 @@ describe('JoinGroupScreen', () => {
     component.update();
 
     expect(component).toMatchSnapshot();
+  });
+
+  it('mounts and then focuses', () => {
+    const instance = buildScreenInstance();
+    instance.componentDidMount();
+
+    expect(global.setTimeout).toHaveBeenCalledWith(expect.any(Function), 350);
   });
 
   describe('onSearch', () => {

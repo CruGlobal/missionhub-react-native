@@ -22,6 +22,7 @@ import {
   codeLogin,
   logout,
   upgradeAccount,
+  upgradeAccountSignIn,
   openKeyURL,
 } from '../auth';
 import { mockFnWithParams } from '../../../testUtils';
@@ -31,6 +32,7 @@ import { getTimezoneString } from '../auth';
 import { refreshAnonymousLogin } from '../auth';
 import { deletePushToken } from '../notifications';
 import * as onboardingProfile from '../onboardingProfile';
+import { KEY_LOGIN_SCREEN } from '../../containers/KeyLoginScreen';
 
 jest.mock('../../actions/notifications');
 
@@ -299,6 +301,12 @@ describe('on upgrade account', () => {
     await store.dispatch(upgradeAccount());
 
     expect(store.getActions()).toEqual([{ type: LOGIN_OPTIONS_SCREEN }]);
+  });
+
+  it('should navigate to key login page', async () => {
+    await store.dispatch(upgradeAccountSignIn());
+
+    expect(store.getActions()).toEqual([{ type: KEY_LOGIN_SCREEN }]);
   });
 });
 

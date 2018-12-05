@@ -12,6 +12,7 @@ import {
 } from '../../actions/onboardingProfile';
 import { GET_STARTED_SCREEN } from '../GetStartedScreen';
 import { disableBack } from '../../utils/common';
+import TosPrivacy from '../../components/TosPrivacy';
 
 import styles from './styles';
 
@@ -28,7 +29,6 @@ class SetupScreen extends Component {
   saveAndGoToGetStarted = () => {
     if (this.props.firstName) {
       Keyboard.dismiss();
-
       this.props
         .dispatch(createMyPerson(this.props.firstName, this.props.lastName))
         .then(() => {
@@ -53,12 +53,8 @@ class SetupScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Flex value={1} />
-        <Flex value={2} style={{ alignItems: 'center' }}>
+        <Flex value={2} justify="end" align="center">
           <Text type="header" style={styles.header}>
-            {t('firstThing')}
-          </Text>
-          <Text type="header" style={styles.headerTwo}>
             {t('namePrompt')}
           </Text>
         </Flex>
@@ -81,7 +77,7 @@ class SetupScreen extends Component {
             />
           </View>
 
-          <View style={{ paddingTop: 30 }}>
+          <View style={{ paddingVertical: 30 }}>
             <Input
               ref={this.lastNameRef}
               onChangeText={this.updateLastName}
@@ -92,6 +88,7 @@ class SetupScreen extends Component {
               blurOnSubmit={true}
             />
           </View>
+          <TosPrivacy trial={true} />
         </Flex>
 
         <Flex value={1} align="stretch" justify="end">
