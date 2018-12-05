@@ -5,7 +5,7 @@ import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import PersonListItem from '..';
 
 const organization = { id: '1', name: 'Test Org' };
-const contact = {
+const person = {
   id: '123',
   first_name: 'First',
   last_name: 'Last',
@@ -17,7 +17,7 @@ it('render assigned contact', () => {
     <PersonListItem
       onSelect={jest.fn()}
       organization={organization}
-      contact={contact}
+      person={person}
     />,
   );
 });
@@ -27,7 +27,7 @@ it('render unassigned contact', () => {
     <PersonListItem
       onSelect={jest.fn()}
       organization={organization}
-      contact={{ ...contact, reverse_contact_assignments: [] }}
+      person={{ ...person, reverse_contact_assignments: [] }}
     />,
   );
 });
@@ -36,7 +36,7 @@ it('render without touchable', () => {
   testSnapshotShallow(
     <PersonListItem
       organization={organization}
-      contact={{ ...contact, reverse_contact_assignments: [] }}
+      person={{ ...person, reverse_contact_assignments: [] }}
     />,
   );
 });
@@ -45,7 +45,7 @@ it('render without last name', () => {
   testSnapshotShallow(
     <PersonListItem
       organization={organization}
-      contact={{ ...contact, last_name: null }}
+      person={{ ...person, last_name: null }}
     />,
   );
 });
@@ -57,7 +57,7 @@ it('calls onSelect prop', () => {
     <PersonListItem
       onSelect={onSelect}
       organization={organization}
-      contact={contact}
+      person={person}
     />,
   )
     .instance()
