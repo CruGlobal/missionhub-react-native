@@ -31,6 +31,12 @@ exports[`should save loaded orgs 1`] = `
 Object {
   "all": Array [
     Object {
+      "community": true,
+      "id": "_global",
+      "name": "MissionHub Community",
+      "user_created": true,
+    },
+    Object {
       "id": "123",
     },
     Object {

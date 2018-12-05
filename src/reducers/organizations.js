@@ -11,6 +11,7 @@ import {
   LOAD_PERSON_DETAILS,
   REMOVE_ORGANIZATION_MEMBER,
   UPDATE_CHALLENGE,
+  GLOBAL_ORG_ID,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -32,7 +33,15 @@ function organizationsReducer(state = initialState, action) {
     case LOAD_ORGANIZATIONS:
       return {
         ...state,
-        all: action.orgs,
+        all: [
+          {
+            id: GLOBAL_ORG_ID,
+            name: 'MissionHub Community',
+            community: true,
+            user_created: true,
+          },
+          ...action.orgs,
+        ],
       };
     case GET_ORGANIZATIONS_CONTACTS_REPORT:
       const { reports } = action;
@@ -42,6 +51,22 @@ function organizationsReducer(state = initialState, action) {
           const contactReport = (reports || []).find(r => r.id === o.id);
           return contactReport ? { ...o, contactReport } : o;
         }),
+      };
+    case REQUESTS.GET_USERS_REPORT.SUCCESS:
+      return {
+        ...state,
+        all: state.all.map(
+          o =>
+            o.id === GLOBAL_ORG_ID
+              ? {
+                  ...o,
+                  contactReport: {
+                    ...o.contactReport,
+                    memberCount: action.results.response.users_count,
+                  },
+                }
+              : o,
+        ),
       };
     case GET_ORGANIZATION_SURVEYS:
       const { orgId: surveyOrgId, query: surveyQuery, surveys } = action;
@@ -65,6 +90,7 @@ function organizationsReducer(state = initialState, action) {
         surveysPagination: getPagination(action, allSurveys.length),
       };
     case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
+    case REQUESTS.GET_GLOBAL_CELEBRATE_FEED.SUCCESS:
     case REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS:
       const isChallenge =
         action.type === REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS;
@@ -135,9 +161,9 @@ function organizationsReducer(state = initialState, action) {
               : o,
         ),
       };
-    case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
+    case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS: //TODO: do this for global org
       return toggleCelebrationLike(action, state, true);
-    case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
+    case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS: //TODO: do this for global org
       return toggleCelebrationLike(action, state, false);
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;

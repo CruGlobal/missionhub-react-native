@@ -6511,10 +6511,12 @@ Object {
       },
     ],
   },
+  "isGlobalOrg": false,
   "isMe": true,
   "isOrgImpact": false,
   "isPersonalMinistryMe": false,
   "isUserCreatedOrg": undefined,
+  "myId": "2",
 }
 `;
 
@@ -6593,10 +6595,12 @@ Object {
       },
     ],
   },
+  "isGlobalOrg": undefined,
   "isMe": true,
   "isOrgImpact": false,
   "isPersonalMinistryMe": true,
   "isUserCreatedOrg": undefined,
+  "myId": "1",
 }
 `;
 

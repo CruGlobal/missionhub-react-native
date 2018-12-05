@@ -59,10 +59,15 @@ class CelebrateItem extends Component {
     const {
       adjective_attribute_value,
       changed_attribute_name,
-      subject_person: { first_name, last_name },
+      subject_person,
     } = event;
 
-    const name = `${getFirstNameAndLastInitial(first_name, last_name)}.`;
+    const name = subject_person
+      ? `${getFirstNameAndLastInitial(
+          subject_person.first_name,
+          subject_person.last_name,
+        )}.`
+      : event.subject_person_name;
 
     switch (event.celebrateable_type) {
       case completedStep:
@@ -198,7 +203,8 @@ class CelebrateItem extends Component {
       likes_count,
       liked,
     } = event;
-    const displayLikeCount = likes_count > 0 && subject_person.id === myId;
+    const displayLikeCount =
+      likes_count > 0 && subject_person && subject_person.id === myId;
 
     return (
       <Card>

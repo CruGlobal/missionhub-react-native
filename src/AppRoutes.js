@@ -105,8 +105,10 @@ import GroupsListScreen from './containers/Groups/GroupsListScreen';
 import {
   groupScreenTabNavigator,
   userCreatedScreenTabNavigator,
+  globalScreenTabNavigator,
   GROUP_SCREEN,
   USER_CREATED_GROUP_SCREEN,
+  GLOBAL_GROUP_SCREEN,
   GROUP_TABS,
 } from './containers/Groups/GroupScreen';
 import SurveyContacts, {
@@ -373,6 +375,14 @@ const screens = {
   [USER_CREATED_GROUP_SCREEN]: buildTrackedScreen(
     userCreatedScreenTabNavigator,
     buildTrackingObj('communities : community', 'communities', 'community'),
+  ),
+  [GLOBAL_GROUP_SCREEN]: buildTrackedScreen(
+    globalScreenTabNavigator,
+    buildTrackingObj(
+      'communities : global community',
+      'communities',
+      'global community',
+    ),
   ),
   [GROUPS_SURVEY_CONTACTS]: buildTrackedScreen(
     SurveyContacts,

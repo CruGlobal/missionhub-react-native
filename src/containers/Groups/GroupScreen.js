@@ -187,6 +187,7 @@ const tabs = [
 
 export const CRU_TABS = [tabs[0], ...tabs.slice(2, 6)];
 export const USER_CREATED_TABS = tabs.slice(0, 4);
+export const GLOBAL_TABS = [tabs[0], tabs[3]];
 
 export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
   CRU_TABS,
@@ -196,9 +197,14 @@ export const userCreatedScreenTabNavigator = generateSwipeTabMenuNavigator(
   USER_CREATED_TABS,
   GroupScreen,
 );
+export const globalScreenTabNavigator = generateSwipeTabMenuNavigator(
+  GLOBAL_TABS,
+  GroupScreen,
+);
 
 export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
 export const USER_CREATED_GROUP_SCREEN = 'nav/USER_CREATED_GROUP_SCREEN';
+export const GLOBAL_GROUP_SCREEN = 'nav/GLOBAL_GROUP_SCREEN';
 
 export const GROUP_TABS = {
   [GROUP_CELEBRATE]: {

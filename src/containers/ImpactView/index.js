@@ -9,7 +9,7 @@ import {
   getImpactSummary,
 } from '../../actions/impact';
 import { Flex, Text, Button, Icon } from '../../components/common';
-import { INTERACTION_TYPES } from '../../constants';
+import { INTERACTION_TYPES, GLOBAL_ORG_ID } from '../../constants';
 import {
   impactInteractionsSelector,
   impactSummarySelector,
@@ -61,12 +61,17 @@ export class ImpactView extends Component {
       organization = {},
       isPersonalMinistryMe,
       isUserCreatedOrg,
+      myId,
+      isGlobalOrg,
     } = this.props;
 
     // We don't scope summary sentence by org unless we are only scoping by org (person is not specified)
     // The summary sentence should include what the user has done in all of their orgs
     dispatch(
-      getImpactSummary(person.id, person.id ? undefined : organization.id),
+      getImpactSummary(
+        isGlobalOrg ? myId : person.id,
+        person.id || isGlobalOrg ? undefined : organization.id,
+      ),
     );
     if (isPersonalMinistryMe || isUserCreatedOrg) {
       dispatch(getImpactSummary()); // Get global impact by calling without person or org
@@ -217,10 +222,11 @@ export class ImpactView extends Component {
       isUserCreatedOrg,
       isOrgImpact,
       organization,
+      isGlobalOrg,
     } = this.props;
 
     const showGlobalImpact =
-      isPersonalMinistryMe || (isUserCreatedOrg && isOrgImpact);
+      isPersonalMinistryMe || (isUserCreatedOrg && isOrgImpact) || isGlobalOrg;
     const showInteractionReport = !isPersonalMinistryMe && !isUserCreatedOrg;
 
     return (
@@ -264,10 +270,12 @@ export const mapStateToProps = (
   { impact, auth },
   { person = {}, organization },
 ) => {
-  const isMe = person.id === auth.person.id;
+  const myId = auth.person.id;
+  const isMe = person.id === myId;
+  const isGlobalOrg = organization && organization.id === GLOBAL_ORG_ID;
 
   return {
-    isMe,
+    isMe: isMe || isGlobalOrg,
     isPersonalMinistryMe:
       isMe && (!organization || (organization && !organization.id)),
     isOrgImpact: !person.id,
@@ -275,13 +283,18 @@ export const mapStateToProps = (
     // Impact summary isn't scoped by org unless showing org summary. See above comment
     impact: impactSummarySelector(
       { impact },
-      { person, organization: person.id ? undefined : organization },
+      {
+        person: isGlobalOrg ? { id: myId } : person,
+        organization: person.id || isGlobalOrg ? undefined : organization,
+      },
     ),
     interactions: impactInteractionsSelector(
       { impact },
       { person, organization },
     ),
     globalImpact: impactSummarySelector({ impact }),
+    isGlobalOrg,
+    myId,
   };
 };
 
