@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 
 import { Text, Flex, Card, Button } from '../common';
 import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.png';
-// TODO: Need the correct default image for user created communities
-import DEFAULT_USER_COMMUNITY_IMAGE from '../../../assets/images/impactBackground.png';
 import Dot from '../Dot';
 import { getFirstNameAndLastInitial } from '../../utils/common';
 
@@ -67,7 +65,7 @@ export default class GroupCardItem extends Component {
     if (group.community_photo_url) {
       source = { url: group.community_photo_url };
     } else if (group.user_created) {
-      source = DEFAULT_USER_COMMUNITY_IMAGE;
+      source = undefined;
     } else {
       source = DEFAULT_MISSIONHUB_IMAGE;
     }
@@ -79,7 +77,14 @@ export default class GroupCardItem extends Component {
         onPress={onPress ? this.handlePress : undefined}
         style={styles.card}
       >
-        <Image source={source} resizeMode="cover" style={styles.image} />
+        <Image
+          source={source}
+          resizeMode="cover"
+          style={[
+            styles.image,
+            group.user_created ? styles.userCreatedImage : undefined,
+          ]}
+        />
         <Flex justify="center" direction="row" style={styles.infoWrap}>
           <Flex value={1}>
             <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
