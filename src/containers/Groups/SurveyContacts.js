@@ -95,6 +95,13 @@ class SurveyContacts extends Component {
     dispatch(
       navToPersonScreen(person, organization, {
         onAssign: this.handleRefreshSearchList,
+        trackingObj: buildTrackingObj(
+          'communities : surveys : respondants : contact',
+          'communities',
+          'surveys',
+          'respondants',
+          'contact',
+        ),
       }),
     );
   };

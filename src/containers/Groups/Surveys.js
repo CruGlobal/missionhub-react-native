@@ -39,7 +39,18 @@ class Surveys extends Component {
 
   handleSelect = survey => {
     const { dispatch, organization } = this.props;
-    dispatch(navigatePush(GROUPS_SURVEY_CONTACTS, { organization, survey }));
+    dispatch(
+      navigatePush(GROUPS_SURVEY_CONTACTS, {
+        organization,
+        survey,
+        trackingObj: buildTrackingObj(
+          'communities : surveys : respondants',
+          'communities',
+          'surveys',
+          'respondants',
+        ),
+      }),
+    );
   };
 
   handleLoadMore = () => {
