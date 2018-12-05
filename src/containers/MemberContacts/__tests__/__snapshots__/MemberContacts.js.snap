@@ -34,13 +34,13 @@ exports[`renders a list 1`] = `
 
 exports[`renders an item 1`] = `
 <Translate(PersonListItem)
-  contact={Object {}}
   organization={
     Object {
       "id": "100",
       "name": "Roge's org",
     }
   }
+  person={Object {}}
 />
 `;
 

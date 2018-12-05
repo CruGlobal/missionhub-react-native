@@ -119,7 +119,7 @@ class Contacts extends Component {
   renderItem = ({ item }) => (
     <PersonListItem
       organization={this.props.organization}
-      contact={item}
+      person={item}
       onSelect={this.handleSelect}
     />
   );
