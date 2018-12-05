@@ -6617,7 +6617,7 @@ Object {
   "impact": Object {},
   "interactions": Object {},
   "isGlobalCommunity": true,
-  "isMe": true,
+  "isMe": false,
   "isOrgImpact": true,
   "isPersonalMinistryMe": false,
   "isUserCreatedOrg": undefined,

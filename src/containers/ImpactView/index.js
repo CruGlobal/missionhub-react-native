@@ -113,17 +113,19 @@ export class ImpactView extends Component {
       organization = {},
       isMe,
       isUserCreatedOrg,
+      isGlobalCommunity,
     } = this.props;
     const initiator = global
       ? '$t(users)'
-      : isMe
+      : isMe || isGlobalCommunity
         ? '$t(you)'
         : person.id
           ? person.first_name
           : '$t(we)';
     const context = count =>
       count === 0 ? (global ? 'emptyGlobal' : 'empty') : '';
-    const isSpecificContact = !global && !isMe && person.id;
+    const isSpecificContact =
+      !global && !isMe && !isGlobalCommunity && person.id;
     const hideStageSentence =
       !global && isUserCreatedOrg && pathway_moved_count === 0;
 
@@ -278,7 +280,7 @@ export const mapStateToProps = (
     organization && organization.id === GLOBAL_COMMUNITY_ID;
 
   return {
-    isMe: isMe || isGlobalCommunity,
+    isMe,
     isPersonalMinistryMe:
       isMe && (!organization || (organization && !organization.id)),
     isOrgImpact: !person.id,
