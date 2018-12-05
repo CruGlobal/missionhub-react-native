@@ -9,7 +9,7 @@ Object {
         "memberCount": 100000,
         "some_prop": "Roge",
       },
-      "id": "_global",
+      "id": "_global_community_id",
       "name": "MissionHub Community",
       "user_created": true,
     },
@@ -53,7 +53,7 @@ Object {
   "all": Array [
     Object {
       "community": true,
-      "id": "_global",
+      "id": "_global_community_id",
       "name": "MissionHub Community",
       "user_created": true,
     },

@@ -62,15 +62,15 @@ export class ImpactView extends Component {
       isPersonalMinistryMe,
       isUserCreatedOrg,
       myId,
-      isGlobalOrg,
+      isGlobalCommunity,
     } = this.props;
 
     // We don't scope summary sentence by org unless we are only scoping by org (person is not specified)
     // The summary sentence should include what the user has done in all of their orgs
     dispatch(
       getImpactSummary(
-        isGlobalOrg ? myId : person.id,
-        person.id || isGlobalOrg ? undefined : organization.id,
+        isGlobalCommunity ? myId : person.id,
+        person.id || isGlobalCommunity ? undefined : organization.id,
       ),
     );
     if (isPersonalMinistryMe || isUserCreatedOrg) {
@@ -222,11 +222,13 @@ export class ImpactView extends Component {
       isUserCreatedOrg,
       isOrgImpact,
       organization,
-      isGlobalOrg,
+      isGlobalCommunity,
     } = this.props;
 
     const showGlobalImpact =
-      isPersonalMinistryMe || (isUserCreatedOrg && isOrgImpact) || isGlobalOrg;
+      isPersonalMinistryMe ||
+      (isUserCreatedOrg && isOrgImpact) ||
+      isGlobalCommunity;
     const showInteractionReport = !isPersonalMinistryMe && !isUserCreatedOrg;
 
     return (
@@ -272,10 +274,11 @@ export const mapStateToProps = (
 ) => {
   const myId = auth.person.id;
   const isMe = person.id === myId;
-  const isGlobalOrg = organization && organization.id === GLOBAL_COMMUNITY_ID;
+  const isGlobalCommunity =
+    organization && organization.id === GLOBAL_COMMUNITY_ID;
 
   return {
-    isMe: isMe || isGlobalOrg,
+    isMe: isMe || isGlobalCommunity,
     isPersonalMinistryMe:
       isMe && (!organization || (organization && !organization.id)),
     isOrgImpact: !person.id,
@@ -284,8 +287,8 @@ export const mapStateToProps = (
     impact: impactSummarySelector(
       { impact },
       {
-        person: isGlobalOrg ? { id: myId } : person,
-        organization: person.id || isGlobalOrg ? undefined : organization,
+        person: isGlobalCommunity ? { id: myId } : person,
+        organization: person.id || isGlobalCommunity ? undefined : organization,
       },
     ),
     interactions: impactInteractionsSelector(
@@ -293,7 +296,7 @@ export const mapStateToProps = (
       { person, organization },
     ),
     globalImpact: impactSummarySelector({ impact }),
-    isGlobalOrg,
+    isGlobalCommunity,
     myId,
   };
 };
