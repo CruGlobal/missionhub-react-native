@@ -38,7 +38,7 @@ exports[`Contacts should render correctly 1`] = `
 `;
 
 exports[`Contacts should render item 1`] = `
-<Translate(ContactItem)
+<Translate(PersonListItem)
   contact={
     Object {
       "id": "1",
