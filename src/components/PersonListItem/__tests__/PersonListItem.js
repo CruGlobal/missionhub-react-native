@@ -2,40 +2,50 @@ import React from 'react';
 
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 
-import ContactItem from '..';
+import PersonListItem from '..';
 
 const organization = { id: '1', name: 'Test Org' };
-const contact = {
+const person = {
   id: '123',
-  full_name: 'Full Name',
+  first_name: 'First',
+  last_name: 'Last',
   reverse_contact_assignments: [{ organization }],
 };
 
 it('render assigned contact', () => {
   testSnapshotShallow(
-    <ContactItem
+    <PersonListItem
       onSelect={jest.fn()}
       organization={organization}
-      contact={contact}
+      person={person}
     />,
   );
 });
 
 it('render unassigned contact', () => {
   testSnapshotShallow(
-    <ContactItem
+    <PersonListItem
       onSelect={jest.fn()}
       organization={organization}
-      contact={{ ...contact, reverse_contact_assignments: [] }}
+      person={{ ...person, reverse_contact_assignments: [] }}
     />,
   );
 });
 
 it('render without touchable', () => {
   testSnapshotShallow(
-    <ContactItem
+    <PersonListItem
       organization={organization}
-      contact={{ ...contact, reverse_contact_assignments: [] }}
+      person={{ ...person, reverse_contact_assignments: [] }}
+    />,
+  );
+});
+
+it('render without last name', () => {
+  testSnapshotShallow(
+    <PersonListItem
+      organization={organization}
+      person={{ ...person, last_name: null }}
     />,
   );
 });
@@ -44,10 +54,10 @@ it('calls onSelect prop', () => {
   const onSelect = jest.fn();
 
   renderShallow(
-    <ContactItem
+    <PersonListItem
       onSelect={onSelect}
       organization={organization}
-      contact={contact}
+      person={person}
     />,
   )
     .instance()

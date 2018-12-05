@@ -573,9 +573,6 @@ export default {
   groupsSurveyContacts: {
     searchPlaceholder: 'Search Contacts',
   },
-  contactItem: {
-    unassigned: 'Unassigned',
-  },
   datePicker: {
     date: 'Date',
   },

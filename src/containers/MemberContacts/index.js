@@ -6,7 +6,7 @@ import { FlatList } from 'react-native';
 
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
-import ContactItem from '../../components/ContactItem';
+import PersonListItem from '../../components/PersonListItem';
 import { personSelector } from '../../selectors/people';
 
 import styles from './styles';
@@ -17,7 +17,7 @@ class MemberContacts extends Component {
 
   renderItem = ({ item }) => {
     const { organization } = this.props;
-    return <ContactItem contact={item.person} organization={organization} />;
+    return <PersonListItem contact={item.person} organization={organization} />;
   };
 
   keyExtractor = p => p.id;

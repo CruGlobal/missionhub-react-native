@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { navigatePush } from '../../actions/navigation';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
-import ContactItem from '../../components/ContactItem';
+import PersonListItem from '../../components/PersonListItem';
 import {
   searchRemoveFilter,
   unassignedFilter,
@@ -125,7 +125,7 @@ class SurveyContacts extends Component {
     const { organization } = this.props;
 
     return (
-      <ContactItem
+      <PersonListItem
         organization={organization}
         contact={item}
         onSelect={this.handleSelect}
