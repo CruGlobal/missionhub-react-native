@@ -10,6 +10,7 @@ import {
   REMOVE_ORGANIZATION_MEMBER,
   LOAD_PERSON_DETAILS,
   UPDATE_CHALLENGE,
+  GLOBAL_ORG_ID,
 } from '../../constants';
 
 const org1Id = '123';
@@ -949,4 +950,35 @@ describe('UPDATE_CHALLENGE', () => {
   );
 
   expect(state.all[0].challengeItems).toEqual([challengeResult]);
+});
+
+describe('GET_USERS_REPORT.SUCCESS', () => {
+  it('adds users count to global org', () => {
+    expect(
+      organizations(
+        {
+          all: [
+            {
+              id: GLOBAL_ORG_ID,
+              name: 'MissionHub Community',
+              community: true,
+              user_created: true,
+              contactReport: {
+                some_prop: 'Roge',
+              },
+            },
+            { id: '1', name: "Roger's community" },
+          ],
+        },
+        {
+          type: REQUESTS.GET_USERS_REPORT.SUCCESS,
+          results: {
+            response: {
+              users_count: 100000,
+            },
+          },
+        },
+      ),
+    ).toMatchSnapshot();
+  });
 });

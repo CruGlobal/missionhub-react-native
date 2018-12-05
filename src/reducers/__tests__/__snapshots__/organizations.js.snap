@@ -1,5 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`GET_USERS_REPORT.SUCCESS adds users count to global org 1`] = `
+Object {
+  "all": Array [
+    Object {
+      "community": true,
+      "contactReport": Object {
+        "memberCount": 100000,
+        "some_prop": "Roge",
+      },
+      "id": "_global",
+      "name": "MissionHub Community",
+      "user_created": true,
+    },
+    Object {
+      "id": "1",
+      "name": "Roger's community",
+    },
+  ],
+}
+`;
+
 exports[`should load contact reports for all organizations 1`] = `
 Object {
   "all": Array [

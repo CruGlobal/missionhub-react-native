@@ -6604,6 +6604,27 @@ Object {
 }
 `;
 
+exports[`ImpactView mapStateToProps should provide the necessary props when viewing global org 1`] = `
+Object {
+  "globalImpact": Object {
+    "id": "global-2018",
+    "pathway_moved_count": 50,
+    "receivers_count": 5,
+    "step_owners_count": 200,
+    "steps_count": 10,
+    "type": "impact_report",
+  },
+  "impact": Object {},
+  "interactions": Object {},
+  "isGlobalOrg": true,
+  "isMe": true,
+  "isOrgImpact": true,
+  "isPersonalMinistryMe": false,
+  "isUserCreatedOrg": undefined,
+  "myId": "2",
+}
+`;
+
 exports[`ImpactView user created member impact renders empty state 1`] = `
 <ScrollView
   bounces={false}
