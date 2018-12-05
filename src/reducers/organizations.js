@@ -161,9 +161,9 @@ function organizationsReducer(state = initialState, action) {
               : o,
         ),
       };
-    case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS: //TODO: do this for global org
+    case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
       return toggleCelebrationLike(action, state, true);
-    case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS: //TODO: do this for global org
+    case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
       return toggleCelebrationLike(action, state, false);
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;
