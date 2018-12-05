@@ -47,7 +47,7 @@ class WelcomeScreen extends Component {
           <Button
             type="secondary"
             onPress={this.navigateToNext}
-            text={t('ok').toUpperCase()}
+            text={t('getStarted').toUpperCase()}
             style={{ width: theme.fullWidth }}
           />
         </Flex>

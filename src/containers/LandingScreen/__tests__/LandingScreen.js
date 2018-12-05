@@ -12,8 +12,11 @@ import {
   renderShallow,
 } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
-import { LOGIN_OPTIONS_SCREEN } from '../../LoginOptionsScreen';
 import { KEY_LOGIN_SCREEN } from '../../KeyLoginScreen';
+import { WELCOME_SCREEN } from '../../WelcomeScreen';
+import { firstTime } from '../../../actions/auth';
+
+jest.mock('../../../actions/auth');
 
 let store;
 
@@ -44,8 +47,9 @@ describe('a button is clicked', () => {
   });
 
   it('get started to be called', () => {
-    screen.find({ name: 'getStartedButton' }).simulate('press');
-    expect(navigatePush).toHaveBeenCalledWith(LOGIN_OPTIONS_SCREEN);
+    screen.find({ name: 'tryItNowButton' }).simulate('press');
+    expect(firstTime).toHaveBeenCalled();
+    expect(navigatePush).toHaveBeenCalledWith(WELCOME_SCREEN);
   });
 
   it('community code to be called', () => {

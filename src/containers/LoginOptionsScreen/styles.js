@@ -54,25 +54,6 @@ export default StyleSheet.create({
     letterSpacing: 1.5,
     marginBottom: 20,
   },
-  termsWrap: {
-    marginTop: 10,
-    marginBottom: 38,
-  },
-  termsText: {
-    color: theme.white,
-    fontSize: 12,
-    textAlign: 'center',
-    paddingHorizontal: 3,
-  },
-  termsTextLink: {
-    color: theme.white,
-    fontSize: 12,
-    textAlign: 'center',
-    paddingHorizontal: 3,
-    textDecorationLine: 'underline',
-    fontWeight: 'normal',
-    letterSpacing: 0,
-  },
   onboardText: {
     color: theme.secondaryColor,
     textAlign: 'center',

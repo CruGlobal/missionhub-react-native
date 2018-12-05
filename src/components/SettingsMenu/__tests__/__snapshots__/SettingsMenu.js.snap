@@ -57,6 +57,14 @@ exports[`renders correctly 2`] = `
         "action": [Function],
         "label": "Terms of Service",
       },
+      Object {
+        "action": [Function],
+        "label": "Sign In",
+      },
+      Object {
+        "action": [Function],
+        "label": "Sign Up",
+      },
     ]
   }
 />

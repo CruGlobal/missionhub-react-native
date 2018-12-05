@@ -50,15 +50,11 @@ export class SettingsMenu extends Component {
         action: () => Linking.openURL(LINKS.privacy),
       },
       {
-        label: t('terms'),
+        label: t('tos'),
         action: () => Linking.openURL(LINKS.terms),
       },
+      ...(isFirstTime ? upgradeAccountItems : [signOut]),
     ];
-    if (isFirstTime) {
-      menuItems.concat(upgradeAccountItems);
-    } else {
-      menuItems.push(signOut);
-    }
 
     return <SideMenu menuItems={menuItems} />;
   }

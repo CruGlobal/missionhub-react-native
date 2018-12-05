@@ -61,8 +61,9 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
           pill={true}
           style={
             Object {
-              "alignItems": "flex-start",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
               "height": 48,
               "margin": 8,
               "width": 670,
@@ -115,8 +116,9 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
           pill={true}
           style={
             Object {
-              "alignItems": "flex-start",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
               "height": 48,
               "margin": 8,
               "width": 670,
@@ -179,84 +181,14 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
           }
           text="SIGN UP LATER"
         />
-        <Flex
-          direction="column"
-          style={
+        <Translate(TosPrivacy)
+          flexProps={
             Object {
-              "marginBottom": 38,
-              "marginTop": 10,
+              "justify": undefined,
+              "value": undefined,
             }
           }
-        >
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-                "paddingHorizontal": 3,
-                "textAlign": "center",
-              }
-            }
-          >
-            By creating your MissionHub account you agree to our
-          </MyText>
-          <Flex
-            align="center"
-            direction="row"
-            justify="center"
-          >
-            <Button
-              buttonTextStyle={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                }
-              }
-              onPress={[Function]}
-              text="Terms of Service"
-              type="transparent"
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                }
-              }
-            >
-              and
-            </MyText>
-            <Button
-              buttonTextStyle={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                }
-              }
-              onPress={[Function]}
-              text="Privacy Policy"
-              type="transparent"
-            />
-          </Flex>
-        </Flex>
+        />
       </Flex>
       <Flex
         align="end"
@@ -368,8 +300,9 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
           pill={true}
           style={
             Object {
-              "alignItems": "flex-start",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
               "height": 48,
               "margin": 8,
               "width": 670,
@@ -422,8 +355,9 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
           pill={true}
           style={
             Object {
-              "alignItems": "flex-start",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
               "height": 48,
               "margin": 8,
               "width": 670,
@@ -486,84 +420,14 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
           }
           text="SIGN UP LATER"
         />
-        <Flex
-          direction="column"
-          style={
+        <Translate(TosPrivacy)
+          flexProps={
             Object {
-              "marginBottom": 38,
-              "marginTop": 10,
+              "justify": undefined,
+              "value": undefined,
             }
           }
-        >
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-                "paddingHorizontal": 3,
-                "textAlign": "center",
-              }
-            }
-          >
-            By creating your MissionHub account you agree to our
-          </MyText>
-          <Flex
-            align="center"
-            direction="row"
-            justify="center"
-          >
-            <Button
-              buttonTextStyle={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                }
-              }
-              onPress={[Function]}
-              text="Terms of Service"
-              type="transparent"
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                }
-              }
-            >
-              and
-            </MyText>
-            <Button
-              buttonTextStyle={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 12,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0,
-                  "paddingHorizontal": 3,
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                }
-              }
-              onPress={[Function]}
-              text="Privacy Policy"
-              type="transparent"
-            />
-          </Flex>
-        </Flex>
+        />
       </Flex>
       <Flex
         align="end"
@@ -1370,8 +1234,9 @@ exports[`renders correctly without upgrade 1`] = `
                 },
                 null,
                 Object {
-                  "alignItems": "flex-start",
-                  "backgroundColor": "#52C5DC",
+                  "backgroundColor": "transparent",
+                  "borderColor": "#52C5DC",
+                  "borderWidth": 1,
                   "height": 48,
                   "margin": 8,
                   "width": 670,
@@ -1491,8 +1356,9 @@ exports[`renders correctly without upgrade 1`] = `
                 },
                 null,
                 Object {
-                  "alignItems": "flex-start",
-                  "backgroundColor": "#52C5DC",
+                  "backgroundColor": "transparent",
+                  "borderColor": "#52C5DC",
+                  "borderWidth": 1,
                   "height": 48,
                   "margin": 8,
                   "width": 670,

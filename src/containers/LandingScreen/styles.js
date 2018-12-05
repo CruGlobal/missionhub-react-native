@@ -30,4 +30,17 @@ export default StyleSheet.create({
     paddingTop: 2,
     letterSpacing: 1.5,
   },
+  memberText: {
+    fontSize: 14,
+    color: theme.secondaryColor,
+    fontWeight: '500',
+    paddingTop: 2,
+    letterSpacing: 1.5,
+    marginRight: 10,
+    marginBottom: 20,
+  },
+  signInBtnText: {
+    marginRight: 10,
+    marginBottom: 20,
+  },
 });

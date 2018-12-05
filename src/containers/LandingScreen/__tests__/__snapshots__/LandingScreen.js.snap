@@ -56,7 +56,7 @@ exports[`renders correctly 1`] = `
           Object {
             "alignItems": "center",
             "alignSelf": "stretch",
-            "flex": 4,
+            "flex": 2,
             "flexDirection": "column",
             "justifyContent": "center",
           },
@@ -149,7 +149,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            GET STARTED
+            TRY IT NOW
           </Text>
         </View>
       </View>
@@ -243,6 +243,44 @@ exports[`renders correctly 1`] = `
           </Text>
         </View>
       </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "flex-end",
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "marginBottom": 20,
+              "marginRight": 10,
+              "paddingTop": 2,
+            },
+          ]
+        }
+      >
+        ALREADY A MEMBER?
+      </Text>
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
@@ -272,28 +310,11 @@ exports[`renders correctly 1`] = `
           style={
             Array [
               Object {
-                "alignItems": "center",
                 "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
               },
               null,
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-                "height": 48,
-                "margin": 8,
-                "width": 670,
-              },
-              Object {
-                "borderRadius": 50,
-              },
+              Object {},
+              null,
             ]
           }
         >
@@ -318,13 +339,19 @@ exports[`renders correctly 1`] = `
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "paddingTop": 2,
-                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "paddingTop": 2,
+                    },
+                    Object {
+                      "marginBottom": 20,
+                      "marginRight": 10,
+                    },
+                  ],
                 ],
               ]
             }

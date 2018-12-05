@@ -155,7 +155,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          OK
+          LET'S GET STARTED
         </Text>
       </View>
     </View>

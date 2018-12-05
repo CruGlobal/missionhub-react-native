@@ -3,19 +3,21 @@ import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 
-import { Button, Flex } from '../../components/common';
+import { Button, Flex, Text } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { JOIN_GROUP_SCREEN } from '../Groups/JoinGroupScreen';
-import { LOGIN_OPTIONS_SCREEN } from '../LoginOptionsScreen';
+import { WELCOME_SCREEN } from '../WelcomeScreen';
+import { firstTime } from '../../actions/auth';
 
 import styles from './styles';
 
 @translate('landing')
 class LandingScreen extends Component {
-  getStarted = () => {
-    this.props.dispatch(navigatePush(LOGIN_OPTIONS_SCREEN));
+  tryItNow = () => {
+    this.props.dispatch(firstTime());
+    this.props.dispatch(navigatePush(WELCOME_SCREEN));
   };
 
   communityCode = () => {
@@ -42,17 +44,17 @@ class LandingScreen extends Component {
           style={styles.buttonWrapper}
         >
           <Flex
-            value={4}
+            value={2}
             direction="column"
             justify="center"
             self="stretch"
             align="center"
           >
             <Button
-              name={'getStartedButton'}
+              name={'tryItNowButton'}
               pill={true}
-              onPress={this.getStarted}
-              text={t('getStarted').toUpperCase()}
+              onPress={this.tryItNow}
+              text={t('tryItNow').toUpperCase()}
               style={styles.button}
               buttonTextStyle={styles.buttonText}
             />
@@ -64,13 +66,15 @@ class LandingScreen extends Component {
               style={styles.button}
               buttonTextStyle={styles.buttonText}
             />
+          </Flex>
+          <Flex align="end" direction="row">
+            <Text style={styles.memberText}>{t('member').toUpperCase()}</Text>
             <Button
               name={'signInButton'}
-              pill={true}
-              onPress={this.signIn}
               text={t('signIn').toUpperCase()}
-              style={styles.button}
-              buttonTextStyle={styles.buttonText}
+              type="transparent"
+              onPress={this.signIn}
+              buttonTextStyle={[styles.buttonText, styles.signInBtnText]}
             />
           </Flex>
         </Flex>
