@@ -1,5 +1,14 @@
-export function removeHiddenOrgs(orgs, authUser) {
-  const hidden_orgs = authUser.user.hidden_organizations;
+import { GLOBAL_COMMUNITY_ID } from '../constants';
 
-  return hidden_orgs ? orgs.filter(org => !hidden_orgs.includes(org.id)) : orgs;
+export function removeHiddenOrgs(
+  orgs,
+  { user: { hidden_organizations, hide_global_community } },
+) {
+  const visibleOrgs = hidden_organizations
+    ? orgs.filter(org => !hidden_organizations.includes(org.id))
+    : orgs;
+
+  return hide_global_community
+    ? visibleOrgs.filter(org => org.id !== GLOBAL_COMMUNITY_ID)
+    : visibleOrgs;
 }

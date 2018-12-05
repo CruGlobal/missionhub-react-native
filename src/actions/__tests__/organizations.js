@@ -459,7 +459,8 @@ describe('getMyCommunities', () => {
     expect(actions[1].type).toEqual(LOAD_ORGANIZATIONS);
     // Another api call, then GET_ORGANIZATIONS_CONTACTS_REPORT
     expect(actions[2]).toEqual(response);
-    expect(actions[3].type).toEqual(GET_ORGANIZATIONS_CONTACTS_REPORT);
+    expect(actions[3]).toEqual(response);
+    expect(actions[4].type).toEqual(GET_ORGANIZATIONS_CONTACTS_REPORT);
   });
 });
 
