@@ -18,6 +18,7 @@ import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
+import Header from '../Header';
 import BackButton from '../BackButton';
 import TosPrivacy from '../../components/TosPrivacy';
 
@@ -85,7 +86,7 @@ class LoginOptionsScreen extends Component {
   };
 
   renderHeader = () => (
-    <Flex align="center" justify="center">
+    <Flex value={1} align="center" justify="center">
       <Image source={PEOPLE} />
       <Text type="header" style={styles.headerText}>
         HEADER
@@ -101,6 +102,7 @@ class LoginOptionsScreen extends Component {
 
     return (
       <Flex style={styles.container}>
+        <Header left={<BackButton />} />
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
             {this.renderHeader()}
@@ -151,16 +153,6 @@ class LoginOptionsScreen extends Component {
                   </Text>
                 </Flex>
               </Button>
-              {upgradeAccount ? null : (
-                <Button
-                  name={'signUpLater'}
-                  pill={true}
-                  onPress={this.tryItNow}
-                  text={t('signUpLater').toUpperCase()}
-                  style={styles.clearButton}
-                  buttonTextStyle={styles.buttonText}
-                />
-              )}
               <TosPrivacy
                 flexProps={{
                   value: upgradeAccount ? 1 : undefined,
@@ -168,23 +160,17 @@ class LoginOptionsScreen extends Component {
                 }}
               />
             </Flex>
-
-            {upgradeAccount ? null : (
-              <Flex value={1} align="end" direction="row">
-                <Text style={styles.signInText}>
-                  {t('member').toUpperCase()}
-                </Text>
-                <Button
-                  name={'loginButton'}
-                  text={t('signIn').toUpperCase()}
-                  type="transparent"
-                  onPress={this.login}
-                  buttonTextStyle={styles.signInBtnText}
-                />
-              </Flex>
-            )}
+            <Flex value={1} align="end" direction="row">
+              <Text style={styles.signInText}>{t('member').toUpperCase()}</Text>
+              <Button
+                name={'loginButton'}
+                text={t('signIn').toUpperCase()}
+                type="transparent"
+                onPress={this.login}
+                buttonTextStyle={styles.signInBtnText}
+              />
+            </Flex>
           </Flex>
-          <BackButton absolute={true} />
         </Flex>
         {this.state.isLoading ? <LoadingWheel /> : null}
       </Flex>
