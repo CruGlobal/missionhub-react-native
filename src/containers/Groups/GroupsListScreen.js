@@ -19,7 +19,7 @@ import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
-import { ACTIONS, GLOBAL_ORG_ID } from '../../constants';
+import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
 
 import {
   GROUP_SCREEN,
@@ -52,7 +52,7 @@ class GroupsListScreen extends Component {
     const { dispatch } = this.props;
     dispatch(
       navigatePush(
-        organization.id === GLOBAL_ORG_ID
+        organization.id === GLOBAL_COMMUNITY_ID
           ? GLOBAL_GROUP_SCREEN
           : organization.user_created
             ? USER_CREATED_GROUP_SCREEN

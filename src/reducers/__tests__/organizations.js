@@ -10,7 +10,7 @@ import {
   REMOVE_ORGANIZATION_MEMBER,
   LOAD_PERSON_DETAILS,
   UPDATE_CHALLENGE,
-  GLOBAL_ORG_ID,
+  GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 
 const org1Id = '123';
@@ -959,7 +959,7 @@ describe('GET_USERS_REPORT.SUCCESS', () => {
         {
           all: [
             {
-              id: GLOBAL_ORG_ID,
+              id: GLOBAL_COMMUNITY_ID,
               name: 'MissionHub Community',
               community: true,
               user_created: true,

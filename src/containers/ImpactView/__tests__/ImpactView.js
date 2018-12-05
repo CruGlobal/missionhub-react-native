@@ -2,7 +2,7 @@ import 'react-native';
 import React from 'react';
 
 import { testSnapshotShallow } from '../../../../testUtils';
-import { GLOBAL_ORG_ID } from '../../../constants';
+import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 import { ImpactView, mapStateToProps } from '..';
 
@@ -159,7 +159,7 @@ describe('ImpactView', () => {
             },
           },
           {
-            organization: { id: GLOBAL_ORG_ID },
+            organization: { id: GLOBAL_COMMUNITY_ID },
           },
         ),
       ).toMatchSnapshot();

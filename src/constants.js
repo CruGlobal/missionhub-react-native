@@ -46,7 +46,7 @@ export const GET_ORGANIZATION_SURVEYS = 'app/GET_ORGANIZATION_SURVEYS';
 export const RESET_CELEBRATION_PAGINATION = 'app/RESET_CELEBRATION_PAGINATION';
 export const RESET_CHALLENGE_PAGINATION = 'app/RESET_CHALLENGE_PAGINATION';
 
-export const GLOBAL_ORG_ID = '_global';
+export const GLOBAL_COMMUNITY_ID = '_global_community_id';
 
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';

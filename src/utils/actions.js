@@ -2,7 +2,7 @@ import {
   DEFAULT_PAGE_LIMIT,
   RESET_CHALLENGE_PAGINATION,
   RESET_CELEBRATION_PAGINATION,
-  GLOBAL_ORG_ID,
+  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import callApi, { REQUESTS } from '../actions/api';
 import { organizationSelector } from '../selectors/organizations';
@@ -21,7 +21,7 @@ const getOrg = (orgId, getState) =>
 const getFeedType = (type, orgId) =>
   type === CHALLENGE
     ? REQUESTS.GET_GROUP_CHALLENGE_FEED
-    : orgId === GLOBAL_ORG_ID
+    : orgId === GLOBAL_COMMUNITY_ID
       ? REQUESTS.GET_GLOBAL_CELEBRATE_FEED
       : REQUESTS.GET_GROUP_CELEBRATE_FEED;
 

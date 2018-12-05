@@ -1,4 +1,4 @@
-import { GLOBAL_ORG_ID } from '../constants';
+import { GLOBAL_COMMUNITY_ID } from '../constants';
 
 export function removeHiddenOrgs(
   orgs,
@@ -9,6 +9,6 @@ export function removeHiddenOrgs(
     : orgs;
 
   return hide_global_community
-    ? visibleOrgs.filter(org => org.id !== GLOBAL_ORG_ID)
+    ? visibleOrgs.filter(org => org.id !== GLOBAL_COMMUNITY_ID)
     : visibleOrgs;
 }

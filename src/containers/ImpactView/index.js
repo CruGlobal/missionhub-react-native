@@ -9,7 +9,7 @@ import {
   getImpactSummary,
 } from '../../actions/impact';
 import { Flex, Text, Button, Icon } from '../../components/common';
-import { INTERACTION_TYPES, GLOBAL_ORG_ID } from '../../constants';
+import { INTERACTION_TYPES, GLOBAL_COMMUNITY_ID } from '../../constants';
 import {
   impactInteractionsSelector,
   impactSummarySelector,
@@ -272,7 +272,7 @@ export const mapStateToProps = (
 ) => {
   const myId = auth.person.id;
   const isMe = person.id === myId;
-  const isGlobalOrg = organization && organization.id === GLOBAL_ORG_ID;
+  const isGlobalOrg = organization && organization.id === GLOBAL_COMMUNITY_ID;
 
   return {
     isMe: isMe || isGlobalOrg,

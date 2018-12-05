@@ -11,7 +11,7 @@ import {
   LOAD_PERSON_DETAILS,
   REMOVE_ORGANIZATION_MEMBER,
   UPDATE_CHALLENGE,
-  GLOBAL_ORG_ID,
+  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -35,7 +35,7 @@ function organizationsReducer(state = initialState, action) {
         ...state,
         all: [
           {
-            id: GLOBAL_ORG_ID,
+            id: GLOBAL_COMMUNITY_ID,
             name: 'MissionHub Community',
             community: true,
             user_created: true,
@@ -57,7 +57,7 @@ function organizationsReducer(state = initialState, action) {
         ...state,
         all: state.all.map(
           o =>
-            o.id === GLOBAL_ORG_ID
+            o.id === GLOBAL_COMMUNITY_ID
               ? {
                   ...o,
                   contactReport: {
