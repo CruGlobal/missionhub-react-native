@@ -3,6 +3,11 @@
 exports[`GroupCardItem renders for join screen 1`] = `
 <Card
   onPress={[Function]}
+  style={
+    Object {
+      "borderRadius": 4,
+    }
+  }
 >
   <Image
     resizeMode="cover"
@@ -12,10 +17,14 @@ exports[`GroupCardItem renders for join screen 1`] = `
       }
     }
     style={
-      Object {
-        "height": 200,
-        "width": "100%",
-      }
+      Array [
+        Object {
+          "borderRadius": 4,
+          "height": 200,
+          "width": "100%",
+        },
+        undefined,
+      ]
     }
   />
   <Flex
@@ -24,6 +33,8 @@ exports[`GroupCardItem renders for join screen 1`] = `
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "borderBottomLeftRadius": 4,
+        "borderBottomRightRadius": 4,
         "bottom": 0,
         "left": 0,
         "padding": 13,
@@ -97,19 +108,25 @@ exports[`GroupCardItem renders for join screen 1`] = `
 exports[`GroupCardItem renders user created group 1`] = `
 <Card
   onPress={[Function]}
+  style={
+    Object {
+      "borderRadius": 4,
+    }
+  }
 >
   <Image
     resizeMode="cover"
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
     style={
-      Object {
-        "height": 200,
-        "width": "100%",
-      }
+      Array [
+        Object {
+          "borderRadius": 4,
+          "height": 200,
+          "width": "100%",
+        },
+        Object {
+          "backgroundColor": "#005A7F",
+        },
+      ]
     }
   />
   <Flex
@@ -118,6 +135,8 @@ exports[`GroupCardItem renders user created group 1`] = `
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "borderBottomLeftRadius": 4,
+        "borderBottomRightRadius": 4,
         "bottom": 0,
         "left": 0,
         "padding": 13,
@@ -164,19 +183,25 @@ exports[`GroupCardItem renders user created group 1`] = `
 exports[`GroupCardItem renders user created group with member count 1`] = `
 <Card
   onPress={[Function]}
+  style={
+    Object {
+      "borderRadius": 4,
+    }
+  }
 >
   <Image
     resizeMode="cover"
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
     style={
-      Object {
-        "height": 200,
-        "width": "100%",
-      }
+      Array [
+        Object {
+          "borderRadius": 4,
+          "height": 200,
+          "width": "100%",
+        },
+        Object {
+          "backgroundColor": "#005A7F",
+        },
+      ]
     }
   />
   <Flex
@@ -185,6 +210,8 @@ exports[`GroupCardItem renders user created group with member count 1`] = `
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "borderBottomLeftRadius": 4,
+        "borderBottomRightRadius": 4,
         "bottom": 0,
         "left": 0,
         "padding": 13,
@@ -231,19 +258,25 @@ exports[`GroupCardItem renders user created group with member count 1`] = `
 exports[`GroupCardItem renders user created group with singular member count 1`] = `
 <Card
   onPress={[Function]}
+  style={
+    Object {
+      "borderRadius": 4,
+    }
+  }
 >
   <Image
     resizeMode="cover"
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
     style={
-      Object {
-        "height": 200,
-        "width": "100%",
-      }
+      Array [
+        Object {
+          "borderRadius": 4,
+          "height": 200,
+          "width": "100%",
+        },
+        Object {
+          "backgroundColor": "#005A7F",
+        },
+      ]
     }
   />
   <Flex
@@ -252,6 +285,8 @@ exports[`GroupCardItem renders user created group with singular member count 1`]
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "borderBottomLeftRadius": 4,
+        "borderBottomRightRadius": 4,
         "bottom": 0,
         "left": 0,
         "padding": 13,
@@ -298,6 +333,11 @@ exports[`GroupCardItem renders user created group with singular member count 1`]
 exports[`GroupCardItem renders with all report counts 1`] = `
 <Card
   onPress={[Function]}
+  style={
+    Object {
+      "borderRadius": 4,
+    }
+  }
 >
   <Image
     resizeMode="cover"
@@ -307,10 +347,14 @@ exports[`GroupCardItem renders with all report counts 1`] = `
       }
     }
     style={
-      Object {
-        "height": 200,
-        "width": "100%",
-      }
+      Array [
+        Object {
+          "borderRadius": 4,
+          "height": 200,
+          "width": "100%",
+        },
+        undefined,
+      ]
     }
   />
   <Flex
@@ -319,6 +363,8 @@ exports[`GroupCardItem renders with all report counts 1`] = `
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "borderBottomLeftRadius": 4,
+        "borderBottomRightRadius": 4,
         "bottom": 0,
         "left": 0,
         "padding": 13,
@@ -367,6 +413,11 @@ exports[`GroupCardItem renders with all report counts 1`] = `
 exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
 <Card
   onPress={[Function]}
+  style={
+    Object {
+      "borderRadius": 4,
+    }
+  }
 >
   <Image
     resizeMode="cover"
@@ -376,10 +427,14 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
       }
     }
     style={
-      Object {
-        "height": 200,
-        "width": "100%",
-      }
+      Array [
+        Object {
+          "borderRadius": 4,
+          "height": 200,
+          "width": "100%",
+        },
+        undefined,
+      ]
     }
   />
   <Flex
@@ -388,6 +443,8 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "borderBottomLeftRadius": 4,
+        "borderBottomRightRadius": 4,
         "bottom": 0,
         "left": 0,
         "padding": 13,
@@ -436,6 +493,11 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
 exports[`GroupCardItem renders with image url 1`] = `
 <Card
   onPress={[Function]}
+  style={
+    Object {
+      "borderRadius": 4,
+    }
+  }
 >
   <Image
     resizeMode="cover"
@@ -445,10 +507,14 @@ exports[`GroupCardItem renders with image url 1`] = `
       }
     }
     style={
-      Object {
-        "height": 200,
-        "width": "100%",
-      }
+      Array [
+        Object {
+          "borderRadius": 4,
+          "height": 200,
+          "width": "100%",
+        },
+        undefined,
+      ]
     }
   />
   <Flex
@@ -457,6 +523,8 @@ exports[`GroupCardItem renders with image url 1`] = `
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "borderBottomLeftRadius": 4,
+        "borderBottomRightRadius": 4,
         "bottom": 0,
         "left": 0,
         "padding": 13,
@@ -505,6 +573,11 @@ exports[`GroupCardItem renders with image url 1`] = `
 exports[`GroupCardItem renders with no report counts 1`] = `
 <Card
   onPress={[Function]}
+  style={
+    Object {
+      "borderRadius": 4,
+    }
+  }
 >
   <Image
     resizeMode="cover"
@@ -514,10 +587,14 @@ exports[`GroupCardItem renders with no report counts 1`] = `
       }
     }
     style={
-      Object {
-        "height": 200,
-        "width": "100%",
-      }
+      Array [
+        Object {
+          "borderRadius": 4,
+          "height": 200,
+          "width": "100%",
+        },
+        undefined,
+      ]
     }
   />
   <Flex
@@ -526,6 +603,8 @@ exports[`GroupCardItem renders with no report counts 1`] = `
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "borderBottomLeftRadius": 4,
+        "borderBottomRightRadius": 4,
         "bottom": 0,
         "left": 0,
         "padding": 13,
@@ -574,19 +653,25 @@ exports[`GroupCardItem renders with no report counts 1`] = `
 exports[`GroupCardItem renders with no report counts for user created org 1`] = `
 <Card
   onPress={[Function]}
+  style={
+    Object {
+      "borderRadius": 4,
+    }
+  }
 >
   <Image
     resizeMode="cover"
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
     style={
-      Object {
-        "height": 200,
-        "width": "100%",
-      }
+      Array [
+        Object {
+          "borderRadius": 4,
+          "height": 200,
+          "width": "100%",
+        },
+        Object {
+          "backgroundColor": "#005A7F",
+        },
+      ]
     }
   />
   <Flex
@@ -595,6 +680,8 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "borderBottomLeftRadius": 4,
+        "borderBottomRightRadius": 4,
         "bottom": 0,
         "left": 0,
         "padding": 13,
@@ -641,6 +728,11 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
 exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
 <Card
   onPress={[Function]}
+  style={
+    Object {
+      "borderRadius": 4,
+    }
+  }
 >
   <Image
     resizeMode="cover"
@@ -650,10 +742,14 @@ exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
       }
     }
     style={
-      Object {
-        "height": 200,
-        "width": "100%",
-      }
+      Array [
+        Object {
+          "borderRadius": 4,
+          "height": 200,
+          "width": "100%",
+        },
+        undefined,
+      ]
     }
   />
   <Flex
@@ -662,6 +758,8 @@ exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "borderBottomLeftRadius": 4,
+        "borderBottomRightRadius": 4,
         "bottom": 0,
         "left": 0,
         "padding": 13,
