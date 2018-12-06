@@ -8,19 +8,19 @@ export default StyleSheet.create({
     backgroundColor: theme.primaryColor,
     justifyContent: 'center',
   },
+  headerContainer: {
+    paddingHorizontal: 48,
+  },
   headerText: {
     color: theme.secondaryColor,
-    fontSize: 48,
+    fontSize: 36,
   },
   descriptionText: {
     color: theme.white,
     paddingVertical: 10,
-    fontSize: 24,
-    lineHeight: 32,
-  },
-  text: {
-    color: theme.white,
     fontSize: 16,
+    lineHeight: 24,
+    textAlign: 'center',
   },
   buttonWrapper: {
     backgroundColor: theme.primaryColor,
@@ -29,13 +29,6 @@ export default StyleSheet.create({
   icon: {
     marginRight: 10,
   },
-  filledButton: {
-    backgroundColor: theme.secondaryColor,
-    margin: 8,
-    height: 48,
-    alignItems: 'flex-start',
-    width: theme.fullWidth - 80,
-  },
   clearButton: {
     backgroundColor: theme.transparent,
     borderWidth: 1,
@@ -43,11 +36,6 @@ export default StyleSheet.create({
     margin: 8,
     width: theme.fullWidth - 80,
     height: 48,
-  },
-  // Give this a bigger clickable area
-  signInButton: {
-    padding: 15,
-    paddingHorizontal: 30,
   },
   buttonText: {
     color: theme.white,
@@ -63,28 +51,6 @@ export default StyleSheet.create({
     paddingTop: 2,
     letterSpacing: 1.5,
     marginBottom: 20,
-  },
-  onboardText: {
-    color: theme.secondaryColor,
-    textAlign: 'center',
-    padding: 15,
-    fontSize: 16,
-    paddingHorizontal: 40,
-  },
-  onboardHeader: {
-    fontSize: 42,
-    color: theme.primaryColor,
-    textAlign: 'center',
-    paddingHorizontal: 70,
-  },
-  onboardWrap: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.white,
-    width: theme.fullWidth,
-  },
-  onboardImage: {
-    width: theme.fullWidth,
   },
   signInText: {
     fontSize: 14,

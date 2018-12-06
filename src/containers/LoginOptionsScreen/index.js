@@ -85,15 +85,25 @@ class LoginOptionsScreen extends Component {
     });
   };
 
-  renderHeader = () => (
-    <Flex value={1} align="center" justify="center">
-      <Image source={PEOPLE} />
-      <Text type="header" style={styles.headerText}>
-        HEADER
-      </Text>
-      <Text style={styles.descriptionText}>DESCRIPTION</Text>
-    </Flex>
-  );
+  renderHeader = () => {
+    const { t } = this.props;
+    return (
+      <Flex
+        value={1}
+        align="center"
+        justify="center"
+        style={styles.headerContainer}
+      >
+        <Image source={PEOPLE} />
+        <Text type="header" style={styles.headerText}>
+          {t('createCommunityTitle').toUpperCase()}
+        </Text>
+        <Text style={styles.descriptionText}>
+          {t('createCommunityDescription')}
+        </Text>
+      </Flex>
+    );
+  };
 
   renderLogoHeader = () => <Image source={LOGO} />;
 
