@@ -40,13 +40,15 @@ class GroupsListScreen extends Component {
     const { orgs, dispatch, scrollToId } = this.props;
     if (scrollToId) {
       const index = orgs.findIndex(o => o.id === scrollToId);
-      this.flatList &&
-        this.flatList.scrollToIndex({
-          animated: true,
-          index,
-          // Put the new org in the top of the list if already there or the center
-          viewPosition: index === 0 ? 0 : 0.5,
-        });
+      if (index >= 0) {
+        this.flatList &&
+          this.flatList.scrollToIndex({
+            animated: true,
+            index,
+            // Put the new org in the top of the list if already there or the center
+            viewPosition: index === 0 ? 0 : 0.5,
+          });
+      }
       dispatch(resetScrollGroups());
     }
   }

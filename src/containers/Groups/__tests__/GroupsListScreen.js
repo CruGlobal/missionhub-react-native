@@ -186,6 +186,22 @@ describe('GroupsListScreen', () => {
     });
   });
 
+  it('should load groups and not scroll to index', async () => {
+    const store = mockStore({
+      organizations,
+      auth,
+      swipe: { groupScrollToId: 'doesnt exist' },
+    });
+    component = renderShallow(<GroupsListScreen />, store);
+    const instance = component.instance();
+    instance.flatList = { scrollToIndex: jest.fn() };
+    instance.loadGroups = jest.fn();
+    await instance.componentDidMount();
+    expect(instance.loadGroups).toHaveBeenCalled();
+    expect(instance.flatList.scrollToIndex).toHaveBeenCalledTimes(0);
+    expect(resetScrollGroups).toHaveBeenCalled();
+  });
+
   it('should refresh the list', () => {
     const instance = component.instance();
     common.refresh = jest.fn();
