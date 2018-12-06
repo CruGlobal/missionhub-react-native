@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import { translate } from 'react-i18next';
+import i18Next from 'i18next';
+import PropTypes from 'prop-types';
 
 import { firstTime, openKeyURL } from '../../actions/auth';
 import {
@@ -23,6 +25,19 @@ import BackButton from '../BackButton';
 import TosPrivacy from '../../components/TosPrivacy';
 
 import styles from './styles';
+
+export const LOGIN_TYPES = {
+  CREATE_COMMUNITY: 'login/CREATE_COMMUNITY',
+  UPGRADEACCOUNT: 'login/UPGRADE_ACCOUNT',
+};
+
+const headerContentOptions = {
+  [LOGIN_TYPES.CREATE_COMMUNITY]: {
+    image: PEOPLE,
+    title: i18Next.t('createCommunityTitle'),
+    description: i18Next.t('createCommunityDescription'),
+  },
+};
 
 @translate('loginOptions')
 class LoginOptionsScreen extends Component {
@@ -69,10 +84,10 @@ class LoginOptionsScreen extends Component {
   }
 
   facebookLogin = () => {
-    const { dispatch, upgradeAccount } = this.props;
+    const { dispatch, loginType } = this.props;
     dispatch(
       facebookLoginWithUsernamePassword(
-        upgradeAccount || false,
+        loginType === LOGIN_TYPES.UPGRADEACCOUNT,
         this.startLoad,
         onSuccessfulLogin,
       ),
@@ -108,14 +123,16 @@ class LoginOptionsScreen extends Component {
   renderLogoHeader = () => <Image source={LOGO} />;
 
   render() {
-    const { t, upgradeAccount } = this.props;
+    const { t, loginType } = this.props;
+
+    const headerContent = headerContentOptions[loginType];
 
     return (
       <Flex style={styles.container}>
         <Header left={<BackButton />} />
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
-            {this.renderHeader()}
+            {headerContent ? this.renderHeader() : this.renderLogoHeader()}
           </Flex>
           <Flex
             value={1.2}
@@ -163,12 +180,7 @@ class LoginOptionsScreen extends Component {
                   </Text>
                 </Flex>
               </Button>
-              <TosPrivacy
-                flexProps={{
-                  value: upgradeAccount ? 1 : undefined,
-                  justify: upgradeAccount ? 'end' : undefined,
-                }}
-              />
+              <TosPrivacy />
             </Flex>
             <Flex value={1} align="end" direction="row">
               <Text style={styles.signInText}>{t('member').toUpperCase()}</Text>
@@ -187,6 +199,10 @@ class LoginOptionsScreen extends Component {
     );
   }
 }
+
+LoginOptionsScreen.propTypes = {
+  loginType: PropTypes.string,
+};
 
 const mapStateToProps = (_, { navigation }) => ({
   ...(navigation.state.params || {}),

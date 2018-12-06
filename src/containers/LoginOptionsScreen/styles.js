@@ -14,6 +14,7 @@ export default StyleSheet.create({
   headerText: {
     color: theme.secondaryColor,
     fontSize: 36,
+    letterSpacing: 2,
   },
   descriptionText: {
     color: theme.white,
