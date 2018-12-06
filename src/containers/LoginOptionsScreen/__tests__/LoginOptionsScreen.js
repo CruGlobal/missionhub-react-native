@@ -8,7 +8,6 @@ import LoginOptionsScreen, { LOGIN_TYPES } from '..';
 
 import { KEY_LOGIN_SCREEN } from '../../KeyLoginScreen';
 import {
-  createMockStore,
   testSnapshot,
   createMockNavState,
   renderShallow,
