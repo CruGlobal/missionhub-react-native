@@ -19,9 +19,13 @@ import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
 
-import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from './GroupScreen';
+import {
+  GROUP_SCREEN,
+  USER_CREATED_GROUP_SCREEN,
+  GLOBAL_GROUP_SCREEN,
+} from './GroupScreen';
 import styles from './styles';
 import { JOIN_GROUP_SCREEN } from './JoinGroupScreen';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -55,7 +59,11 @@ class GroupsListScreen extends Component {
     const { dispatch } = this.props;
     dispatch(
       navigatePush(
-        organization.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN,
+        organization.id === GLOBAL_COMMUNITY_ID
+          ? GLOBAL_GROUP_SCREEN
+          : organization.user_created
+            ? USER_CREATED_GROUP_SCREEN
+            : GROUP_SCREEN,
         {
           organization,
         },

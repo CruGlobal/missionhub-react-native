@@ -26,6 +26,7 @@ const getOrganizationsQuery = {
 export function getMyCommunities() {
   return async dispatch => {
     await dispatch(getMyOrganizations());
+    dispatch(getUsersReport());
     return dispatch(getOrganizationsContactReports());
   };
 }
@@ -79,6 +80,10 @@ export function getOrganizationsContactReports() {
     });
     return response;
   };
+}
+
+export function getUsersReport() {
+  return dispatch => dispatch(callApi(REQUESTS.GET_USERS_REPORT));
 }
 
 export function getOrganizationContacts(orgId, name, pagination, filters = {}) {

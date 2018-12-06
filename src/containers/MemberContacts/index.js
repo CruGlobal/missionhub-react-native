@@ -17,7 +17,7 @@ class MemberContacts extends Component {
 
   renderItem = ({ item }) => {
     const { organization } = this.props;
-    return <PersonListItem contact={item.person} organization={organization} />;
+    return <PersonListItem person={item.person} organization={organization} />;
   };
 
   keyExtractor = p => p.id;
