@@ -1862,7 +1862,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6292;
+				CURRENT_PROJECT_VERSION = 6495;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
