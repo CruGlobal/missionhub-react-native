@@ -2,10 +2,19 @@ import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
 
+const borderRadius = 4;
+
 export default StyleSheet.create({
+  card: {
+    borderRadius,
+  },
   image: {
     width: '100%',
     height: 200,
+    borderRadius,
+  },
+  userCreatedImage: {
+    backgroundColor: theme.accentColor,
   },
   infoWrap: {
     position: 'absolute',
@@ -14,6 +23,8 @@ export default StyleSheet.create({
     right: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     padding: 13,
+    borderBottomLeftRadius: borderRadius,
+    borderBottomRightRadius: borderRadius,
   },
   groupName: {
     fontSize: 14,

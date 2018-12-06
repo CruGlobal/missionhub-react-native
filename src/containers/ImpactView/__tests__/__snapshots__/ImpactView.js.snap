@@ -6511,10 +6511,12 @@ Object {
       },
     ],
   },
+  "isGlobalCommunity": false,
   "isMe": true,
   "isOrgImpact": false,
   "isPersonalMinistryMe": false,
   "isUserCreatedOrg": undefined,
+  "myId": "2",
 }
 `;
 
@@ -6593,10 +6595,33 @@ Object {
       },
     ],
   },
+  "isGlobalCommunity": undefined,
   "isMe": true,
   "isOrgImpact": false,
   "isPersonalMinistryMe": true,
   "isUserCreatedOrg": undefined,
+  "myId": "1",
+}
+`;
+
+exports[`ImpactView mapStateToProps should provide the necessary props when viewing global org 1`] = `
+Object {
+  "globalImpact": Object {
+    "id": "global-2018",
+    "pathway_moved_count": 50,
+    "receivers_count": 5,
+    "step_owners_count": 200,
+    "steps_count": 10,
+    "type": "impact_report",
+  },
+  "impact": Object {},
+  "interactions": Object {},
+  "isGlobalCommunity": true,
+  "isMe": false,
+  "isOrgImpact": true,
+  "isPersonalMinistryMe": false,
+  "isUserCreatedOrg": undefined,
+  "myId": "2",
 }
 `;
 

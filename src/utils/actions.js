@@ -2,6 +2,7 @@ import {
   DEFAULT_PAGE_LIMIT,
   RESET_CHALLENGE_PAGINATION,
   RESET_CELEBRATION_PAGINATION,
+  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import callApi, { REQUESTS } from '../actions/api';
 import { organizationSelector } from '../selectors/organizations';
@@ -17,10 +18,12 @@ const getOrg = (orgId, getState) =>
     { orgId: orgId },
   );
 
-const getFeedType = type =>
+const getFeedType = (type, orgId) =>
   type === CHALLENGE
     ? REQUESTS.GET_GROUP_CHALLENGE_FEED
-    : REQUESTS.GET_GROUP_CELEBRATE_FEED;
+    : orgId === GLOBAL_COMMUNITY_ID
+      ? REQUESTS.GET_GLOBAL_CELEBRATE_FEED
+      : REQUESTS.GET_GROUP_CELEBRATE_FEED;
 
 const getPaginationType = type =>
   type === CHALLENGE ? 'challengePagination' : 'celebratePagination';
@@ -65,7 +68,7 @@ export function getFeed(type, orgId, personId = null) {
     }
     const query = buildQuery(type, orgId, page, personId);
 
-    return dispatch(callApi(getFeedType(type), query));
+    return dispatch(callApi(getFeedType(type, orgId), query));
   };
 }
 

@@ -50,16 +50,16 @@ exports[`SurveyContacts should render correctly 1`] = `
 
 exports[`SurveyContacts should render item correctly 1`] = `
 <Translate(PersonListItem)
-  contact={
-    Object {
-      "id": "1",
-    }
-  }
   onSelect={[Function]}
   organization={
     Object {
       "id": "1",
       "name": "Test Org",
+    }
+  }
+  person={
+    Object {
+      "id": "1",
     }
   }
 />

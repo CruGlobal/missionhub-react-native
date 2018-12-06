@@ -176,6 +176,9 @@ export default {
   GET_GROUP_CELEBRATE_FEED: {
     endpoint: `${ORG_URL}/:orgId/celebration_items`,
   },
+  GET_GLOBAL_CELEBRATE_FEED: {
+    endpoint: `${API_URL}/global_celebration_items`,
+  },
   LIKE_CELEBRATE_ITEM: {
     endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/like`,
     method: 'post',
@@ -241,6 +244,9 @@ export default {
   },
   GET_ORGANIZATION_INTERACTIONS_REPORT: {
     endpoint: `${API_URL}/reports/organizations`,
+  },
+  GET_USERS_REPORT: {
+    endpoint: `${API_URL}/reports/users`,
   },
   SET_PUSH_TOKEN: {
     endpoint: `${API_URL}/push_notification_device_tokens`,

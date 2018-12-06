@@ -2,6 +2,7 @@ import 'react-native';
 import React from 'react';
 
 import { testSnapshotShallow } from '../../../../testUtils';
+import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 import { ImpactView, mapStateToProps } from '..';
 
@@ -136,6 +137,29 @@ describe('ImpactView', () => {
           {
             person,
             organization,
+          },
+        ),
+      ).toMatchSnapshot();
+    });
+    it('should provide the necessary props when viewing global org', () => {
+      expect(
+        mapStateToProps(
+          {
+            impact: {
+              summary: {
+                [`${me.id}-`]: myImpact,
+                '-': globalImpact,
+              },
+              interactions: {
+                [`${me.id}-`]: personInteractions,
+              },
+            },
+            auth: {
+              person,
+            },
+          },
+          {
+            organization: { id: GLOBAL_COMMUNITY_ID },
           },
         ),
       ).toMatchSnapshot();
