@@ -20,6 +20,7 @@ import NullStateComponent from '../../components/NullStateComponent';
 import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
+import { LOGIN_OPTIONS_SCREEN, LOGIN_TYPES } from '../LoginOptionsScreen';
 
 import {
   GROUP_SCREEN,
@@ -29,7 +30,6 @@ import {
 import styles from './styles';
 import { JOIN_GROUP_SCREEN } from './JoinGroupScreen';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
-import { LOGIN_OPTIONS_SCREEN, LOGIN_TYPES } from '../LoginOptionsScreen';
 
 @translate('groupsList')
 class GroupsListScreen extends Component {

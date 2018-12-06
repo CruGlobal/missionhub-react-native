@@ -55,18 +55,16 @@ class LoginOptionsScreen extends Component {
   }
 
   login() {
-    this.navigateToNext(KEY_LOGIN_SCREEN, {
-      upgradeAccount: this.props.loginType === LOGIN_TYPES.UPGRADE_ACCOUNT,
-    });
+    this.props.dispatch(
+      navigatePush(KEY_LOGIN_SCREEN, {
+        upgradeAccount: this.props.loginType === LOGIN_TYPES.UPGRADE_ACCOUNT,
+      }),
+    );
   }
 
   tryItNow() {
     this.props.dispatch(firstTime());
-    this.navigateToNext(WELCOME_SCREEN);
-  }
-
-  navigateToNext(nextScreen, props = {}) {
-    this.props.dispatch(navigatePush(nextScreen, props));
+    this.props.dispatch(navigatePush(WELCOME_SCREEN));
   }
 
   startLoad = () => {
@@ -74,30 +72,31 @@ class LoginOptionsScreen extends Component {
   };
 
   emailSignUp() {
-    this.props.dispatch(
+    const { dispatch, loginType } = this.props;
+    dispatch(
       openKeyURL(
         'login?action=signup',
         this.startLoad,
-        this.props.upgradeAccount,
+        loginType === LOGIN_TYPES.UPGRADE_ACCOUNT,
       ),
     );
   }
 
-  facebookLogin = () => {
+  facebookLogin = async () => {
     const { dispatch, loginType } = this.props;
-    dispatch(
+    const result = await dispatch(
       facebookLoginWithUsernamePassword(
-        loginType === LOGIN_TYPES.UPGRADEACCOUNT,
+        loginType === LOGIN_TYPES.UPGRADE_ACCOUNT,
         this.startLoad,
         onSuccessfulLogin,
       ),
-    ).then(result => {
-      if (result) {
-        this.setState({ isLoading: true });
-      } else {
-        this.setState({ isLoading: false });
-      }
-    });
+    );
+
+    if (result) {
+      this.setState({ isLoading: true });
+    } else {
+      this.setState({ isLoading: false });
+    }
   };
 
   renderHeader = () => {

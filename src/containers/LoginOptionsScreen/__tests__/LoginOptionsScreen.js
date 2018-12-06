@@ -1,28 +1,29 @@
 import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
-import LoginOptionsScreen from '..';
+import LoginOptionsScreen, { LOGIN_TYPES } from '..';
 
+import { KEY_LOGIN_SCREEN } from '../../KeyLoginScreen';
 import {
   createMockStore,
   testSnapshot,
   createMockNavState,
   renderShallow,
 } from '../../../../testUtils';
-import * as auth from '../../../actions/auth';
+import { openKeyURL } from '../../../actions/auth';
+import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
+import { onSuccessfulLogin } from '../../../actions/login';
+import { navigatePush } from '../../../actions/navigation';
 
 let store;
 
-jest.mock('../../../actions/auth', () => ({
-  facebookLoginAction: jest.fn().mockReturnValue({ type: 'test' }),
-  keyLogin: jest.fn().mockReturnValue({ type: 'test' }),
-  firstTime: jest.fn(),
-  openKeyURL: jest.fn(),
-}));
-jest.mock('../../../actions/navigation', () => ({
-  navigatePush: jest.fn().mockReturnValue({ type: 'navigate push' }),
-}));
+jest.mock('../../../actions/auth');
+jest.mock('../../../actions/login');
+jest.mock('../../../actions/facebook');
+jest.mock('../../../actions/navigation');
 jest.mock('react-native-fbsdk', () => ({
   LoginManager: {
     logInWithReadPermissions: jest
@@ -39,10 +40,10 @@ jest.mock('react-native-fbsdk', () => ({
 }));
 
 beforeEach(() => {
-  store = createMockStore();
+  store = configureStore([thunk])();
 });
 
-it('renders correctly without upgrade', () => {
+it('renders correctly with logo', () => {
   testSnapshot(
     <Provider store={store}>
       <LoginOptionsScreen navigation={createMockNavState({})} />
@@ -50,12 +51,12 @@ it('renders correctly without upgrade', () => {
   );
 });
 
-it('renders correctly with upgrade', () => {
+it('renders correctly for Create Community', () => {
   testSnapshot(
     <Provider store={store}>
       <LoginOptionsScreen
         navigation={createMockNavState({
-          upgradeAccount: true,
+          loginType: LOGIN_TYPES.CREATE_COMMUNITY,
         })}
       />
     </Provider>,
@@ -64,45 +65,41 @@ it('renders correctly with upgrade', () => {
 
 describe('a login button is clicked', () => {
   let screen;
+  const navigateResponse = { type: 'navigate push' };
+  const openKeyResponse = { type: 'open key' };
+  const facebookLoginResponse = { type: 'facebook login' };
+  const successfulLoginResponse = { type: 'successful login' };
 
   beforeEach(() => {
+    navigatePush.mockReturnValue(navigateResponse);
     screen = renderShallow(
-      <LoginOptionsScreen
-        navigation={createMockNavState({
-          upgradeAccount: false,
-        })}
-      />,
+      <LoginOptionsScreen navigation={createMockNavState({})} />,
       store,
     );
   });
 
   it('login to be called', () => {
     screen.find({ name: 'loginButton' }).simulate('press');
-    expect(store.dispatch).toHaveBeenCalledTimes(1);
-  });
 
-  it('sign up later to be called', () => {
-    screen.find({ name: 'signUpLater' }).simulate('press');
-    expect(store.dispatch).toHaveBeenCalledTimes(2);
-  });
-
-  it('navigate next to be called', () => {
-    screen.instance().navigateToNext();
-    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    expect(navigatePush).toHaveBeenCalledWith(KEY_LOGIN_SCREEN, {
+      upgradeAccount: false,
+    });
+    expect(store.getActions()).toEqual([navigateResponse]);
   });
 
   describe('email signup button is pressed', () => {
     beforeEach(() => {
+      openKeyURL.mockReturnValue(openKeyResponse);
       screen.find({ name: 'emailButton' }).simulate('press');
     });
 
     it('open key login to be called', () => {
-      expect(store.dispatch).toHaveBeenCalledTimes(1);
-      expect(auth.openKeyURL).toHaveBeenCalledWith(
+      expect(openKeyURL).toHaveBeenCalledWith(
         'login?action=signup',
         screen.instance().startLoad,
         false,
       );
+      expect(store.getActions()).toEqual([openKeyResponse]);
     });
     it('loading wheel to be rendered', () => {
       screen.instance().startLoad();
@@ -112,12 +109,18 @@ describe('a login button is clicked', () => {
   });
 
   describe('facebook signup button is pressed', () => {
-    beforeEach(() => {
-      screen.find({ name: 'facebookButton' }).simulate('press');
+    beforeEach(async () => {
+      facebookLoginWithUsernamePassword.mockReturnValue(facebookLoginResponse);
+      onSuccessfulLogin.mockReturnValue(successfulLoginResponse);
+      await screen.find({ name: 'facebookButton' }).simulate('press');
     });
 
-    it('facebook login to not be called', () => {
-      expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
+    it('facebook login to be called', () => {
+      expect(facebookLoginWithUsernamePassword).toHaveBeenCalledWith(
+        false,
+        screen.instance().startLoad,
+        onSuccessfulLogin,
+      );
     });
     it('loading wheel to be rendered', () => {
       screen.update();

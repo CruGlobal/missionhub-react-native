@@ -11,6 +11,7 @@ import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { JOIN_GROUP_SCREEN } from '../JoinGroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
+import { LOGIN_OPTIONS_SCREEN, LOGIN_TYPES } from '../../LoginOptionsScreen';
 import { resetScrollGroups } from '../../../actions/swipe';
 import { ACTIONS } from '../../../constants';
 
@@ -40,7 +41,7 @@ const organizations = {
     },
   ],
 };
-const auth = {};
+const auth = { isFirstTime: false };
 const swipe = {};
 const store = mockStore({ organizations, auth, swipe });
 
@@ -195,5 +196,25 @@ describe('GroupsListScreen', () => {
       .onPress();
 
     expect(navigatePush).toHaveBeenCalledWith(CREATE_GROUP_SCREEN);
+  });
+
+  it('navigates to Login Options Screen if not signed in', () => {
+    const store = mockStore({
+      organizations,
+      auth: { isFirstTime: true },
+      swipe,
+    });
+    component = renderShallow(<GroupsListScreen />, store);
+
+    component
+      .childAt(1)
+      .childAt(1)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(navigatePush).toHaveBeenCalledWith(LOGIN_OPTIONS_SCREEN, {
+      loginType: LOGIN_TYPES.CREATE_COMMUNITY,
+    });
   });
 });
