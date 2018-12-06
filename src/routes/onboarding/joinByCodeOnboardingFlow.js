@@ -43,7 +43,7 @@ export const JoinByCodeOnboardingFlowScreens = {
       dispatch(firstTime());
       dispatch(completeOnboarding());
 
-      const { community } = getState().personProfile;
+      const { community } = getState().profile;
       await dispatch(joinCommunity(community.id, community.community_code));
       await dispatch(loadHome());
 

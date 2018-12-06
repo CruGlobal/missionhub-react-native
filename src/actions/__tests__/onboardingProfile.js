@@ -9,6 +9,7 @@ import {
   createPerson,
   resetPerson,
   completeOnboarding,
+  stashCommunityToJoin,
 } from '../onboardingProfile';
 import {
   COMPLETE_ONBOARDING,
@@ -17,6 +18,7 @@ import {
   PERSON_FIRST_NAME_CHANGED,
   PERSON_LAST_NAME_CHANGED,
   RESET_ONBOARDING_PERSON,
+  STASH_COMMUNITY_TO_JOIN,
 } from '../../constants';
 import callApi, { REQUESTS } from '../api';
 
@@ -121,6 +123,15 @@ describe('resetPerson', () => {
   it('should return the correct action', () => {
     expect(resetPerson()).toEqual({
       type: RESET_ONBOARDING_PERSON,
+    });
+  });
+});
+
+describe('stashCommunityToJoin', () => {
+  it('should return the correct action', () => {
+    expect(stashCommunityToJoin({ community: { id: '1' } })).toEqual({
+      type: STASH_COMMUNITY_TO_JOIN,
+      community: { id: '1' },
     });
   });
 });

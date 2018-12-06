@@ -5,7 +5,6 @@ import {
   RESET_ONBOARDING_PERSON,
   COMPLETE_ONBOARDING,
   LOGOUT,
-  STASH_COMMUNITY_TO_JOIN,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 
@@ -13,7 +12,6 @@ const initialPersonProfileState = {
   hasCompletedOnboarding: false,
   personFirstName: '',
   personLastName: '',
-  community: {},
 };
 
 function personProfileReducer(state = initialPersonProfileState, action) {
@@ -51,9 +49,6 @@ function personProfileReducer(state = initialPersonProfileState, action) {
         ...state,
         hasCompletedOnboarding: true,
       };
-    case STASH_COMMUNITY_TO_JOIN:
-      const { community } = action;
-      return { ...state, community };
     case LOGOUT:
       return initialPersonProfileState;
     default:

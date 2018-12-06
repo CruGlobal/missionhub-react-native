@@ -24,15 +24,14 @@ class SetupScreen extends Component {
     disableBack.remove();
   }
 
-  saveAndGoToGetStarted = () => {
+  saveAndGoToGetStarted = async () => {
     const { dispatch, next, firstName, lastName } = this.props;
 
     if (firstName) {
       Keyboard.dismiss();
-      this.props.dispatch(createMyPerson(firstName, lastName)).then(() => {
-        disableBack.remove();
-        dispatch(next());
-      });
+      await dispatch(createMyPerson(firstName, lastName));
+      disableBack.remove();
+      dispatch(next());
     }
   };
 

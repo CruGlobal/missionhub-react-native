@@ -23,8 +23,6 @@ let myPerson;
 const updateStatusResult = { type: 'now logged in' };
 const trackActionWithoutDataResult = { type: 'tracked plain action' };
 
-jest.mock('react-native-omniture');
-
 describe('onSuccessfulLogin', () => {
   beforeEach(() => {
     store = mockStore({

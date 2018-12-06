@@ -93,7 +93,6 @@ it('resets onboarding person and sets completed to true', () => {
     hasCompletedOnboarding: true,
     personFirstName: '',
     personLastName: '',
-    community: {},
   });
 });
 
@@ -119,6 +118,5 @@ it('resets state on logout', () => {
     hasCompletedOnboarding: false,
     personFirstName: '',
     personLastName: '',
-    community: {},
   });
 });
