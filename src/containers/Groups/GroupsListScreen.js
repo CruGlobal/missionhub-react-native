@@ -73,10 +73,13 @@ class GroupsListScreen extends Component {
   };
 
   create = () => {
-    this.props.dispatch(
-      navigatePush(LOGIN_OPTIONS_SCREEN, {
-        loginType: LOGIN_TYPES.CREATE_COMMUNITY,
-      }),
+    const { dispatch, isFirstTime } = this.props;
+    dispatch(
+      isFirstTime
+        ? navigatePush(LOGIN_OPTIONS_SCREEN, {
+            loginType: LOGIN_TYPES.CREATE_COMMUNITY,
+          })
+        : navigatePush(CREATE_GROUP_SCREEN),
     );
   };
 
@@ -167,6 +170,7 @@ class GroupsListScreen extends Component {
 const mapStateToProps = ({ organizations, auth, swipe }) => ({
   orgs: communitiesSelector({ organizations, auth }),
   scrollOnLoad: swipe.groupScrollOnMount,
+  isFirstTime: auth.isFirstTime,
 });
 
 export default connect(mapStateToProps)(GroupsListScreen);
