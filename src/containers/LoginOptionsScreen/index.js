@@ -28,7 +28,7 @@ import styles from './styles';
 
 export const LOGIN_TYPES = {
   CREATE_COMMUNITY: 'login/CREATE_COMMUNITY',
-  UPGRADEACCOUNT: 'login/UPGRADE_ACCOUNT',
+  UPGRADE_ACCOUNT: 'login/UPGRADE_ACCOUNT',
 };
 
 const headerContentOptions = {
@@ -56,7 +56,7 @@ class LoginOptionsScreen extends Component {
 
   login() {
     this.navigateToNext(KEY_LOGIN_SCREEN, {
-      upgradeAccount: this.props.upgradeAccount,
+      upgradeAccount: this.props.loginType === LOGIN_TYPES.UPGRADE_ACCOUNT,
     });
   }
 
