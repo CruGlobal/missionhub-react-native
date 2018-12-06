@@ -14,7 +14,12 @@ import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScre
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen';
 import { hasReminderStepsSelector } from '../selectors/steps';
+import { organizationSelector } from '../selectors/organizations';
 import { navToPersonScreen } from '../actions/person';
+import {
+  GROUP_SCREEN,
+  USER_CREATED_GROUP_SCREEN,
+} from '../containers/Groups/GroupScreen';
 
 import { getPersonDetails } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
@@ -108,7 +113,10 @@ function handleNotification(notification) {
       return;
     }
 
-    const { person: me } = getState().auth;
+    const {
+      auth: { person: me },
+      organizations,
+    } = getState();
 
     const { screen, person, organization } = parseNotificationData(
       notification,
@@ -136,6 +144,29 @@ function handleNotification(notification) {
             organization: { id: organization },
             onComplete: () => dispatch(navigateReset(MAIN_TABS)),
           }),
+        );
+      case 'celebrate':
+        const storedOrg = organizationSelector(
+          {
+            organizations,
+          },
+          {
+            orgId: organization,
+          },
+        );
+
+        return (
+          storedOrg &&
+          dispatch(
+            navigatePush(
+              storedOrg.user_created //todo combine with logic used in GroupsListScreen?
+                ? USER_CREATED_GROUP_SCREEN
+                : GROUP_SCREEN,
+              {
+                organization: storedOrg,
+              },
+            ),
+          )
         );
     }
   };
