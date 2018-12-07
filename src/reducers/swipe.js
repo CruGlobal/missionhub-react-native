@@ -26,7 +26,7 @@ const initialState = {
     [GROUP_ONBOARDING_TYPES.surveys]: true,
   },
   groupInviteInfo: true,
-  groupScrollOnMount: false,
+  groupScrollToId: null,
 };
 
 function swipeReducer(state = initialState, action) {
@@ -42,7 +42,7 @@ function swipeReducer(state = initialState, action) {
     case GROUP_INVITE_INFO:
       return { ...state, groupInviteInfo: false };
     case GROUP_TAB_SCROLL_ON_MOUNT:
-      return { ...state, groupScrollOnMount: action.value };
+      return { ...state, groupScrollToId: action.value };
     case GROUP_ONBOARDING_CARD:
       const target = action.target;
       if (!exists(state.groupOnboarding[target])) {

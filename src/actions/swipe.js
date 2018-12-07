@@ -26,9 +26,9 @@ export function removeGroupOnboardingCard(target) {
 export function removeGroupInviteInfo() {
   return { type: GROUP_INVITE_INFO };
 }
-export function setScrollGroups() {
-  return { type: GROUP_TAB_SCROLL_ON_MOUNT, value: true };
+export function setScrollGroups(orgId) {
+  return { type: GROUP_TAB_SCROLL_ON_MOUNT, value: orgId };
 }
 export function resetScrollGroups() {
-  return { type: GROUP_TAB_SCROLL_ON_MOUNT, value: false };
+  return { type: GROUP_TAB_SCROLL_ON_MOUNT, value: null };
 }
