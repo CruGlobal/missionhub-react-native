@@ -36,7 +36,10 @@ beforeEach(() => {
 
 it('should render correctly', () => {
   const component = testSnapshotShallow(
-    <SwipeTabMenu tabs={tabs} navigation={{ state: { index: 0 } }} />,
+    <SwipeTabMenu
+      tabs={tabs}
+      navigation={{ state: { index: 0, params: {} } }}
+    />,
   );
 
   // Render update from manual onLayout callback with new rendered element size
@@ -52,7 +55,7 @@ it('should render light version correctly', () => {
   const component = testSnapshotShallow(
     <SwipeTabMenu
       tabs={tabs}
-      navigation={{ state: { index: 0 } }}
+      navigation={{ state: { index: 0, params: {} } }}
       isLight={true}
     />,
   );
@@ -69,7 +72,10 @@ it('should render light version correctly', () => {
 it('should render second tab based off of previousIndex', () => {
   // Navigation state may have just been changed to 0 but we should render with an offset since we will be transitioning from tab 1
   const component = renderShallow(
-    <SwipeTabMenu tabs={tabs} navigation={{ state: { index: 0 } }} />,
+    <SwipeTabMenu
+      tabs={tabs}
+      navigation={{ state: { index: 0, params: {} } }}
+    />,
   );
 
   component.setState({ maxMenuItemWidth: 80, previousIndex: 1 });
@@ -80,7 +86,10 @@ it('should render second tab based off of previousIndex', () => {
 it('should navigate on press', () => {
   common.isAndroid = true;
   const component = renderShallow(
-    <SwipeTabMenu tabs={tabs} navigation={{ state: { index: 0 } }} />,
+    <SwipeTabMenu
+      tabs={tabs}
+      navigation={{ state: { index: 0, params: {} } }}
+    />,
   );
 
   component
@@ -95,7 +104,10 @@ it('should navigate on press', () => {
 it('should navigate on end of swipe scroll', () => {
   common.isAndroid = true;
   const component = renderShallow(
-    <SwipeTabMenu tabs={tabs} navigation={{ state: { index: 0 } }} />,
+    <SwipeTabMenu
+      tabs={tabs}
+      navigation={{ state: { index: 0, params: {} } }}
+    />,
   );
 
   component.setState({ maxMenuItemWidth: 80, previousIndex: 1 });
@@ -113,7 +125,10 @@ it('should navigate on end of swipe scroll', () => {
 it('should scroll on navigation state update', () => {
   common.isAndroid = true;
   const component = renderShallow(
-    <SwipeTabMenu tabs={tabs} navigation={{ state: { index: 1 } }} />,
+    <SwipeTabMenu
+      tabs={tabs}
+      navigation={{ state: { index: 1, params: {} } }}
+    />,
   );
 
   const scrollToMock = jest.fn();
@@ -147,7 +162,7 @@ describe('generateSwipeTabMenuNavigator', () => {
       createMaterialTopTabNavigator.mock.calls[0][1].tabBarComponent;
 
     testSnapshotShallow(
-      <TabBarComponent navigation={{ state: { index: 0 } }} />,
+      <TabBarComponent navigation={{ state: { index: 0, params: {} } }} />,
     );
   });
 });

@@ -13,6 +13,7 @@ exports[`generateSwipeTabMenuNavigator should create a new navigator 1`] = `
       Object {
         "state": Object {
           "index": 0,
+          "params": Object {},
         },
       }
     }
@@ -22,6 +23,7 @@ exports[`generateSwipeTabMenuNavigator should create a new navigator 1`] = `
       Object {
         "state": Object {
           "index": 0,
+          "params": Object {},
         },
       }
     }
