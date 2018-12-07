@@ -31,7 +31,7 @@
 			<string>Firebase Deep Link</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.missionhub</string>
+				<string>fb233292170040365</string>
 			</array>
 		</dict>
 	</array>
