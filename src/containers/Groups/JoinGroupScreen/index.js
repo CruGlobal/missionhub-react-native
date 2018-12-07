@@ -119,9 +119,10 @@ class JoinGroupScreen extends Component {
 
   joined = () => {
     const { dispatch } = this.props;
+    const { community } = this.state;
     dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
 
-    dispatch(setScrollGroups());
+    dispatch(setScrollGroups(community.id));
     dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
   };
 

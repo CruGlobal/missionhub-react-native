@@ -60,6 +60,7 @@ describe('getMyOrganizations', () => {
     filters: {
       descendants: false,
     },
+    sort: 'name',
   };
   const org1 = { id: '1' };
   const org2 = { id: '2' };

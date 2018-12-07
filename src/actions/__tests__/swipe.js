@@ -65,9 +65,10 @@ describe('removeGroupOnboardingCard', () => {
 
 describe('setScrollGroups', () => {
   it('should return setScrollGroups', () => {
-    expect(setScrollGroups()).toEqual({
+    const orgId = '123';
+    expect(setScrollGroups(orgId)).toEqual({
       type: GROUP_TAB_SCROLL_ON_MOUNT,
-      value: true,
+      value: orgId,
     });
   });
 });
@@ -76,7 +77,7 @@ describe('resetScrollGroups', () => {
   it('should return resetScrollGroups', () => {
     expect(resetScrollGroups()).toEqual({
       type: GROUP_TAB_SCROLL_ON_MOUNT,
-      value: false,
+      value: null,
     });
   });
 });
