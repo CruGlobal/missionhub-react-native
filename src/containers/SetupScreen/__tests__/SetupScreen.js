@@ -14,13 +14,15 @@ import callApi, { REQUESTS } from '../../../actions/api';
 const store = configureStore([thunk])({ profile: {} });
 const next = jest.fn(() => ({ type: 'testNext' }));
 
+const firstName = 'TestFname';
+const lastName = 'TestLname';
+
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/api');
 
 beforeEach(() => {
   store.clearActions();
-  callApi.mockClear();
-  next.mockClear();
+  jest.clearAllMocks();
 });
 
 it('renders correctly', () => {
@@ -41,12 +43,12 @@ describe('setup screen methods', () => {
   }));
   instance.lastName = { focus: jest.fn() };
   it('calls first name changed', () => {
-    instance.updateFirstName('test');
-    expect(profile.firstNameChanged).toHaveBeenCalledWith('test');
+    instance.updateFirstName(firstName);
+    expect(profile.firstNameChanged).toHaveBeenCalledWith(firstName);
   });
   it('calls last name changed', () => {
-    instance.updateLastName('test');
-    expect(profile.lastNameChanged).toHaveBeenCalledWith('test');
+    instance.updateLastName(lastName);
+    expect(profile.lastNameChanged).toHaveBeenCalledWith(lastName);
   });
   it('calls on submit editing', () => {
     instance.onSubmitEditing();
@@ -55,7 +57,7 @@ describe('setup screen methods', () => {
   describe('saveAndGoToGetStarted', () => {
     it('creates person and calls next', async () => {
       callApi.mockReturnValue(() => Promise.resolve({ person_id: '123' }));
-      const store = configureStore([thunk])({ profile: { firstName: 'Test' } });
+      const store = configureStore([thunk])({ profile: { firstName } });
       const instance = renderShallow(
         <SetupScreen next={next} />,
         store,
@@ -66,7 +68,7 @@ describe('setup screen methods', () => {
       expect(callApi).toHaveBeenCalledWith(
         REQUESTS.CREATE_MY_PERSON,
         {},
-        expect.objectContaining({ first_name: 'Test' }),
+        expect.objectContaining({ first_name: firstName }),
       );
       expect(next).toHaveBeenCalled();
       expect(store.getActions()).toEqual([{ type: 'testNext' }]);

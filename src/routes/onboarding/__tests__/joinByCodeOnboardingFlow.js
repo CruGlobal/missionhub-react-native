@@ -6,7 +6,11 @@ import { JOIN_GROUP_SCREEN } from '../../../containers/Groups/JoinGroupScreen';
 import { JoinByCodeOnboardingFlowScreens } from '../joinByCodeOnboardingFlow';
 import { renderShallow } from '../../../../testUtils';
 import callApi, { REQUESTS } from '../../../actions/api';
-import { STASH_COMMUNITY_TO_JOIN } from '../../../constants';
+import {
+  COMPLETE_ONBOARDING,
+  FIRST_TIME,
+  STASH_COMMUNITY_TO_JOIN,
+} from '../../../constants';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import * as navigationActions from '../../../actions/navigation';
@@ -88,8 +92,8 @@ describe('SetupScreen next', () => {
       {
         data: {
           attributes: {
-            community_code: '123456',
-            organization_id: '1',
+            community_code: community.community_code,
+            organization_id: community.id,
             permission_id: 4,
             person_id: '1',
           },
@@ -99,8 +103,8 @@ describe('SetupScreen next', () => {
     );
 
     expect(store.getActions()).toEqual([
-      { type: 'app/FIRST_TIME' },
-      { type: 'app/COMPLETE_ONBOARDING' },
+      { type: FIRST_TIME },
+      { type: COMPLETE_ONBOARDING },
       {
         actions: [
           {

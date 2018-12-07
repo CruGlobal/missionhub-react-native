@@ -5,21 +5,23 @@ import thunk from 'redux-thunk';
 import { JOIN_GROUP_SCREEN } from '../../../containers/Groups/JoinGroupScreen';
 import { JoinByCodeFlowScreens } from '../joinByCodeFlow';
 import { renderShallow } from '../../../../testUtils';
-import callApi, { REQUESTS } from '../../../actions/api';
+import { joinCommunity } from '../../../actions/organizations';
 import { GROUP_TAB_SCROLL_ON_MOUNT } from '../../../constants';
 
 jest.mock('../../../actions/api');
+jest.mock('../../../actions/organizations');
 
 const store = configureStore([thunk])({ auth: { person: { id: '1' } } });
 
+const community = { id: '1', community_code: '123456' };
+
 beforeEach(() => {
   store.clearActions();
-  callApi.mockClear();
 });
 
 describe('JoinGroupScreen next', () => {
   it('should fire required next actions', async () => {
-    callApi.mockReturnValue(() => Promise.resolve());
+    joinCommunity.mockReturnValue(() => Promise.resolve());
 
     const WrappedJoinGroupScreen =
       JoinByCodeFlowScreens[JOIN_GROUP_SCREEN].screen;
@@ -27,26 +29,15 @@ describe('JoinGroupScreen next', () => {
     await store.dispatch(
       renderShallow(<WrappedJoinGroupScreen />, store)
         .instance()
-        .props.next({ communityId: '1', communityCode: '123456' }),
+        .props.next({ community }),
     );
 
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.JOIN_COMMUNITY,
-      {},
-      {
-        data: {
-          attributes: {
-            community_code: '123456',
-            organization_id: '1',
-            permission_id: 4,
-            person_id: '1',
-          },
-          type: 'organizational_permission',
-        },
-      },
+    expect(joinCommunity).toHaveBeenCalledWith(
+      community.id,
+      community.community_code,
     );
     expect(store.getActions()).toEqual([
-      { type: GROUP_TAB_SCROLL_ON_MOUNT, value: true },
+      { type: GROUP_TAB_SCROLL_ON_MOUNT, value: '1' },
       {
         actions: [
           {

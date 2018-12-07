@@ -45,20 +45,21 @@ export const JoinByCodeOnboardingFlowScreens = {
 
       const { community } = getState().profile;
       await dispatch(joinCommunity(community.id, community.community_code));
-      await dispatch(loadHome());
 
-      if (!isAndroid) {
-        await new Promise(resolve =>
-          dispatch(
-            navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-              onComplete: resolve,
-              descriptionText: i18next.t(
-                'notificationPrimer:onboardingDescription',
-              ),
-            }),
-          ),
-        );
-      }
+      const notificationScreensPromise = isAndroid
+        ? Promise.resolve()
+        : new Promise(resolve =>
+            dispatch(
+              navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+                onComplete: resolve,
+                descriptionText: i18next.t(
+                  'notificationPrimer:onboardingDescription',
+                ),
+              }),
+            ),
+          );
+
+      await Promise.all([dispatch(loadHome()), notificationScreensPromise]);
 
       dispatch(
         navigateReset(

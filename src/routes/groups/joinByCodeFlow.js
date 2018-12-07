@@ -12,14 +12,11 @@ import { setScrollGroups } from '../../actions/swipe';
 
 export const JoinByCodeFlowScreens = {
   [JOIN_GROUP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      JoinGroupScreen,
-      ({ communityId, communityCode }) => async dispatch => {
-        await dispatch(joinCommunity(communityId, communityCode));
-        dispatch(setScrollGroups());
-        dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
-      },
-    ),
+    wrapNextAction(JoinGroupScreen, ({ community }) => async dispatch => {
+      await dispatch(joinCommunity(community.id, community.community_code));
+      dispatch(setScrollGroups(community.id));
+      dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
+    }),
     buildTrackingObj('communities : join', 'communities', 'join'),
     { gesturesEnabled: true },
   ),
