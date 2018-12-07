@@ -197,7 +197,7 @@ const tabs = {
   ),
   [GROUPS_TAB]: buildTrackedScreen(
     GroupsListScreen,
-    buildTrackingObj('groups', 'groups'),
+    buildTrackingObj('communities', 'communities'),
     {
       tabBarLabel: navItem('groups'),
     },
