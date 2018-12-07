@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import i18Next from 'i18next';
 import PropTypes from 'prop-types';
 
-import { firstTime, openKeyURL } from '../../actions/auth';
+import { openKeyURL } from '../../actions/auth';
 import {
   Text,
   Button,
@@ -17,7 +17,6 @@ import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import PEOPLE from '../../../assets/images/MemberContacts_light.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
-import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 import Header from '../Header';
@@ -26,13 +25,13 @@ import TosPrivacy from '../../components/TosPrivacy';
 
 import styles from './styles';
 
-export const LOGIN_TYPES = {
+export const SIGNUP_TYPES = {
   CREATE_COMMUNITY: 'login/CREATE_COMMUNITY',
-  UPGRADE_ACCOUNT: 'login/UPGRADE_ACCOUNT',
+  SETTINGS_MENU: 'login/SIDE_MENU',
 };
 
 const headerContentOptions = {
-  [LOGIN_TYPES.CREATE_COMMUNITY]: {
+  [SIGNUP_TYPES.CREATE_COMMUNITY]: {
     image: PEOPLE,
     title: i18Next.t('createCommunityTitle'),
     description: i18Next.t('createCommunityDescription'),
@@ -40,53 +39,34 @@ const headerContentOptions = {
 };
 
 @translate('loginOptions')
-class LoginOptionsScreen extends Component {
-  constructor(props) {
-    super(props);
+class UpgradeAccountScreen extends Component {
+  state = {
+    activeSlide: 0,
+    isLoading: false,
+  };
 
-    this.state = {
-      activeSlide: 0,
-      isLoading: false,
-    };
-
-    this.login = this.login.bind(this);
-    this.tryItNow = this.tryItNow.bind(this);
-    this.emailSignUp = this.emailSignUp.bind(this);
-  }
-
-  login() {
+  login = () => {
     this.props.dispatch(
       navigatePush(KEY_LOGIN_SCREEN, {
-        upgradeAccount: this.props.loginType === LOGIN_TYPES.UPGRADE_ACCOUNT,
+        upgradeAccount: true,
       }),
     );
-  }
-
-  tryItNow() {
-    this.props.dispatch(firstTime());
-    this.props.dispatch(navigatePush(WELCOME_SCREEN));
-  }
+  };
 
   startLoad = () => {
     this.setState({ isLoading: true });
   };
 
-  emailSignUp() {
-    const { dispatch, loginType } = this.props;
-    dispatch(
-      openKeyURL(
-        'login?action=signup',
-        this.startLoad,
-        loginType === LOGIN_TYPES.UPGRADE_ACCOUNT,
-      ),
+  emailSignUp = () => {
+    this.props.dispatch(
+      openKeyURL('login?action=signup', this.startLoad, true),
     );
-  }
+  };
 
   facebookLogin = async () => {
-    const { dispatch, loginType } = this.props;
-    const result = await dispatch(
+    const result = await this.props.dispatch(
       facebookLoginWithUsernamePassword(
-        loginType === LOGIN_TYPES.UPGRADE_ACCOUNT,
+        true,
         this.startLoad,
         onSuccessfulLogin,
       ),
@@ -122,9 +102,9 @@ class LoginOptionsScreen extends Component {
   renderLogoHeader = () => <Image source={LOGO} />;
 
   render() {
-    const { t, loginType } = this.props;
+    const { t, signupType } = this.props;
 
-    const headerContent = headerContentOptions[loginType];
+    const headerContent = headerContentOptions[signupType];
 
     return (
       <Flex style={styles.container}>
@@ -199,13 +179,13 @@ class LoginOptionsScreen extends Component {
   }
 }
 
-LoginOptionsScreen.propTypes = {
-  loginType: PropTypes.string,
+UpgradeAccountScreen.propTypes = {
+  signupType: PropTypes.string,
 };
 
 const mapStateToProps = (_, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 
-export default connect(mapStateToProps)(LoginOptionsScreen);
-export const LOGIN_OPTIONS_SCREEN = 'nav/LOGIN_OPTIONS';
+export default connect(mapStateToProps)(UpgradeAccountScreen);
+export const UPGRADE_ACCOUNT_SCREEN = 'nav/UPGRADE_ACCOUNT';

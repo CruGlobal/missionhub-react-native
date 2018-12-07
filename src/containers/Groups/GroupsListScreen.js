@@ -12,6 +12,7 @@ import {
   Button,
   Flex,
 } from '../../components/common';
+import { upgradeAccount } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, refresh } from '../../utils/common';
@@ -20,7 +21,7 @@ import NullStateComponent from '../../components/NullStateComponent';
 import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
-import { LOGIN_OPTIONS_SCREEN, LOGIN_TYPES } from '../LoginOptionsScreen';
+import { SIGNUP_TYPES } from '../UpgradeAccountScreen';
 
 import {
   GROUP_SCREEN,
@@ -76,9 +77,7 @@ class GroupsListScreen extends Component {
     const { dispatch, isFirstTime } = this.props;
     dispatch(
       isFirstTime
-        ? navigatePush(LOGIN_OPTIONS_SCREEN, {
-            loginType: LOGIN_TYPES.CREATE_COMMUNITY,
-          })
+        ? upgradeAccount(SIGNUP_TYPES.CREATE_COMMUNITY)
         : navigatePush(CREATE_GROUP_SCREEN),
     );
   };

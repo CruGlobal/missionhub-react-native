@@ -8,10 +8,7 @@ import i18next from 'i18next';
 
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, OPEN_URL } from '../constants';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
-import {
-  LOGIN_OPTIONS_SCREEN,
-  LOGIN_TYPES,
-} from '../containers/LoginOptionsScreen';
+import { UPGRADE_ACCOUNT_SCREEN } from '../containers/UpgradeAccountScreen';
 import { THE_KEY_URL } from '../api/utils';
 import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
 
@@ -154,11 +151,11 @@ export function logout(forcedLogout = false) {
   };
 }
 
-export function upgradeAccount() {
+export function upgradeAccount(signupType) {
   return dispatch => {
     dispatch(
-      navigatePush(LOGIN_OPTIONS_SCREEN, {
-        loginType: LOGIN_TYPES.UPGRADE_ACCOUNT,
+      navigatePush(UPGRADE_ACCOUNT_SCREEN, {
+        signupType,
       }),
     );
   };
