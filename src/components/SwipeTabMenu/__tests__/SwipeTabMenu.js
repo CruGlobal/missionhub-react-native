@@ -143,6 +143,45 @@ it('should scroll on navigation state update', () => {
   expect(scrollToMock).toHaveBeenCalledWith({ x: 80, y: 0, animated: true });
 });
 
+describe('componentDidMount', () => {
+  it('should do nothing if initialTab is undefined', () => {
+    renderShallow(
+      <SwipeTabMenu
+        tabs={tabs}
+        navigation={{ state: { index: 0, params: { initialTab: undefined } } }}
+      />,
+    );
+
+    expect(navigatePush).not.toHaveBeenCalled();
+  });
+
+  it('should do nothing if specified initialTab is not found', () => {
+    renderShallow(
+      <SwipeTabMenu
+        tabs={tabs}
+        navigation={{ state: { index: 0, params: { initialTab: 'some tab' } } }}
+      />,
+    );
+
+    expect(navigatePush).not.toHaveBeenCalled();
+  });
+
+  it('should navigate to specified initialTab if found', () => {
+    const initialTab = tabs[1].navigationAction;
+
+    renderShallow(
+      <SwipeTabMenu
+        tabs={tabs}
+        navigation={{
+          state: { index: 0, params: { initialTab } },
+        }}
+      />,
+    );
+
+    expect(navigatePush).toHaveBeenCalledWith(initialTab);
+  });
+});
+
 describe('generateSwipeTabMenuNavigator', () => {
   it('should create a new navigator', () => {
     generateSwipeTabMenuNavigator(tabs, <Text>Header Component</Text>);
