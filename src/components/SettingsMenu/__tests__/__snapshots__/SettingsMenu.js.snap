@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`renders correctly for authenticated user 1`] = `
 <Connect(SideMenu)
   menuItems={
     Array [
@@ -33,7 +33,7 @@ exports[`renders correctly 1`] = `
 />
 `;
 
-exports[`renders correctly 2`] = `
+exports[`renders correctly for try it now user 1`] = `
 <Connect(SideMenu)
   menuItems={
     Array [

@@ -5,7 +5,7 @@ import { createMockStore, testSnapshotShallow } from '../../../../testUtils';
 
 import SettingsMenu from '..';
 
-it('renders correctly', () => {
+it('renders correctly for authenticated user', () => {
   const mockState = {
     auth: { isFirstTime: false },
   };
@@ -13,7 +13,7 @@ it('renders correctly', () => {
   testSnapshotShallow(<SettingsMenu />, store);
 });
 
-it('renders correctly', () => {
+it('renders correctly for try it now user', () => {
   const mockState = {
     auth: { isFirstTime: true },
   };

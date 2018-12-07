@@ -11,6 +11,7 @@ import {
   upgradeAccount,
   upgradeAccountSignIn,
 } from '../../actions/auth';
+import { SIGNUP_TYPES } from '../../containers/UpgradeAccountScreen';
 
 @translate('settingsMenu')
 export class SettingsMenu extends Component {
@@ -23,7 +24,8 @@ export class SettingsMenu extends Component {
       },
       {
         label: t('signUp'),
-        action: () => this.props.dispatch(upgradeAccount()),
+        action: () =>
+          this.props.dispatch(upgradeAccount(SIGNUP_TYPES.SETTINGS_MENU)),
       },
     ];
     const signOut = {

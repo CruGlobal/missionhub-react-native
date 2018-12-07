@@ -21,6 +21,7 @@ const getOrganizationsQuery = {
   filters: {
     descendants: false,
   },
+  sort: 'name',
 };
 
 export function getMyCommunities() {

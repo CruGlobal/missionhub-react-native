@@ -3,6 +3,7 @@ import configureStore from 'redux-mock-store';
 
 import GroupsListScreen from '../GroupsListScreen';
 import { renderShallow } from '../../../../testUtils';
+import { upgradeAccount } from '../../../actions/auth';
 import { navigatePush } from '../../../actions/navigation';
 import { getMyCommunities } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
@@ -10,11 +11,13 @@ import { communitiesSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
+import { SIGNUP_TYPES } from '../../UpgradeAccountScreen';
 import { resetScrollGroups } from '../../../actions/swipe';
 import { ACTIONS } from '../../../constants';
 import { JOIN_BY_CODE_FLOW } from '../../../routes/constants';
 
 jest.mock('../../../selectors/organizations');
+jest.mock('../../../actions/auth');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
@@ -40,7 +43,7 @@ const organizations = {
     },
   ],
 };
-const auth = {};
+const auth = { isFirstTime: false };
 const swipe = {};
 const store = mockStore({ organizations, auth, swipe });
 
@@ -146,20 +149,60 @@ describe('GroupsListScreen', () => {
     expect(instance.loadGroups).toHaveBeenCalled();
   });
 
-  it('should load groups and scroll to bottom on mount', async () => {
+  it('should load groups and scroll to index 0', async () => {
     const store = mockStore({
       organizations,
       auth,
-      swipe: { groupScrollOnMount: true },
+      swipe: { groupScrollToId: '1' },
     });
     component = renderShallow(<GroupsListScreen />, store);
     const instance = component.instance();
-    instance.flatList = { scrollToEnd: jest.fn() };
+    instance.flatList = { scrollToIndex: jest.fn() };
     instance.loadGroups = jest.fn();
     await instance.componentDidMount();
     expect(instance.loadGroups).toHaveBeenCalled();
     expect(resetScrollGroups).toHaveBeenCalled();
-    expect(instance.flatList.scrollToEnd).toHaveBeenCalled();
+    expect(instance.flatList.scrollToIndex).toHaveBeenCalledWith({
+      animated: true,
+      index: 0,
+      viewPosition: 0,
+    });
+  });
+
+  it('should load groups and scroll to index 1', async () => {
+    const store = mockStore({
+      organizations,
+      auth,
+      swipe: { groupScrollToId: '2' },
+    });
+    component = renderShallow(<GroupsListScreen />, store);
+    const instance = component.instance();
+    instance.flatList = { scrollToIndex: jest.fn() };
+    instance.loadGroups = jest.fn();
+    await instance.componentDidMount();
+    expect(instance.loadGroups).toHaveBeenCalled();
+    expect(resetScrollGroups).toHaveBeenCalled();
+    expect(instance.flatList.scrollToIndex).toHaveBeenCalledWith({
+      animated: true,
+      index: 1,
+      viewPosition: 0.5,
+    });
+  });
+
+  it('should load groups and not scroll to index', async () => {
+    const store = mockStore({
+      organizations,
+      auth,
+      swipe: { groupScrollToId: 'doesnt exist' },
+    });
+    component = renderShallow(<GroupsListScreen />, store);
+    const instance = component.instance();
+    instance.flatList = { scrollToIndex: jest.fn() };
+    instance.loadGroups = jest.fn();
+    await instance.componentDidMount();
+    expect(instance.loadGroups).toHaveBeenCalled();
+    expect(instance.flatList.scrollToIndex).toHaveBeenCalledTimes(0);
+    expect(resetScrollGroups).toHaveBeenCalled();
   });
 
   it('should refresh the list', () => {
@@ -195,5 +238,26 @@ describe('GroupsListScreen', () => {
       .onPress();
 
     expect(navigatePush).toHaveBeenCalledWith(CREATE_GROUP_SCREEN);
+  });
+
+  it('navigates to Login Options Screen if not signed in', () => {
+    const store = mockStore({
+      organizations,
+      auth: { isFirstTime: true },
+      swipe,
+    });
+    const upgradeAccountResponse = { type: 'upgrade account' };
+    upgradeAccount.mockReturnValue(upgradeAccountResponse);
+
+    component = renderShallow(<GroupsListScreen />, store);
+
+    component
+      .childAt(1)
+      .childAt(1)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(upgradeAccount).toHaveBeenCalledWith(SIGNUP_TYPES.CREATE_COMMUNITY);
   });
 });

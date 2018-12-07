@@ -12,6 +12,7 @@ import {
   Button,
   Flex,
 } from '../../components/common';
+import { upgradeAccount } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, refresh } from '../../utils/common';
@@ -21,6 +22,7 @@ import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
 import { JOIN_BY_CODE_FLOW } from '../../routes/constants';
+import { SIGNUP_TYPES } from '../UpgradeAccountScreen';
 
 import {
   GROUP_SCREEN,
@@ -35,11 +37,20 @@ class GroupsListScreen extends Component {
   state = { refreshing: false };
 
   async componentDidMount() {
-    const { scrollOnLoad, dispatch } = this.props;
     // Always load groups when this tab mounts
     await this.loadGroups();
-    if (scrollOnLoad) {
-      this.flatList && this.flatList.scrollToEnd();
+    const { orgs, dispatch, scrollToId } = this.props;
+    if (scrollToId) {
+      const index = orgs.findIndex(o => o.id === scrollToId);
+      if (index >= 0) {
+        this.flatList &&
+          this.flatList.scrollToIndex({
+            animated: true,
+            index,
+            // Put the new org in the top of the list if already there or the center
+            viewPosition: index === 0 ? 0 : 0.5,
+          });
+      }
       dispatch(resetScrollGroups());
     }
   }
@@ -72,7 +83,12 @@ class GroupsListScreen extends Component {
   };
 
   create = () => {
-    this.props.dispatch(navigatePush(CREATE_GROUP_SCREEN));
+    const { dispatch, isFirstTime } = this.props;
+    dispatch(
+      isFirstTime
+        ? upgradeAccount(SIGNUP_TYPES.CREATE_COMMUNITY)
+        : navigatePush(CREATE_GROUP_SCREEN),
+    );
   };
 
   keyExtractor = i => i.id;
@@ -161,7 +177,8 @@ class GroupsListScreen extends Component {
 
 const mapStateToProps = ({ organizations, auth, swipe }) => ({
   orgs: communitiesSelector({ organizations, auth }),
-  scrollOnLoad: swipe.groupScrollOnMount,
+  isFirstTime: auth.isFirstTime,
+  scrollToId: swipe.groupScrollToId,
 });
 
 export default connect(mapStateToProps)(GroupsListScreen);
