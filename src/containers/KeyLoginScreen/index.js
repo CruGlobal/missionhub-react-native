@@ -56,13 +56,21 @@ class KeyLoginScreen extends Component {
   };
 
   login = async () => {
-    const { dispatch, upgradeAccount } = this.props;
+    const { dispatch, upgradeAccount, destinationAfterUpgrade } = this.props;
     const { email, password } = this.state;
 
     this.setState({ errorMessage: '', isLoading: true });
 
     try {
-      await dispatch(keyLogin(email, password, null, upgradeAccount));
+      await dispatch(
+        keyLogin(
+          email,
+          password,
+          null,
+          upgradeAccount,
+          destinationAfterUpgrade,
+        ),
+      );
       Keyboard.dismiss();
     } catch (error) {
       const apiError = error.apiError;
@@ -98,12 +106,13 @@ class KeyLoginScreen extends Component {
   };
 
   facebookLogin = () => {
-    const { dispatch, upgradeAccount } = this.props;
+    const { dispatch, upgradeAccount, destinationAfterUpgrade } = this.props;
+
     dispatch(
       facebookLoginWithUsernamePassword(
         upgradeAccount || false,
         this.startLoad,
-        onSuccessfulLogin,
+        () => onSuccessfulLogin(destinationAfterUpgrade),
       ),
     ).then(result => {
       if (result) {
