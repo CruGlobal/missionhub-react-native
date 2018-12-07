@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import LoginOptionsScreen, { LOGIN_TYPES } from '..';
+import UpgradeAccountScreen, { SIGNUP_TYPES } from '..';
 
 import { KEY_LOGIN_SCREEN } from '../../KeyLoginScreen';
 import {
@@ -45,7 +45,7 @@ beforeEach(() => {
 it('renders correctly with logo', () => {
   testSnapshot(
     <Provider store={store}>
-      <LoginOptionsScreen navigation={createMockNavState({})} />
+      <UpgradeAccountScreen navigation={createMockNavState({})} />
     </Provider>,
   );
 });
@@ -53,9 +53,9 @@ it('renders correctly with logo', () => {
 it('renders correctly for Create Community', () => {
   testSnapshot(
     <Provider store={store}>
-      <LoginOptionsScreen
+      <UpgradeAccountScreen
         navigation={createMockNavState({
-          loginType: LOGIN_TYPES.CREATE_COMMUNITY,
+          signupType: SIGNUP_TYPES.CREATE_COMMUNITY,
         })}
       />
     </Provider>,
@@ -72,7 +72,7 @@ describe('a login button is clicked', () => {
   beforeEach(() => {
     navigatePush.mockReturnValue(navigateResponse);
     screen = renderShallow(
-      <LoginOptionsScreen navigation={createMockNavState({})} />,
+      <UpgradeAccountScreen navigation={createMockNavState({})} />,
       store,
     );
   });
@@ -81,7 +81,7 @@ describe('a login button is clicked', () => {
     screen.find({ name: 'loginButton' }).simulate('press');
 
     expect(navigatePush).toHaveBeenCalledWith(KEY_LOGIN_SCREEN, {
-      upgradeAccount: false,
+      upgradeAccount: true,
     });
     expect(store.getActions()).toEqual([navigateResponse]);
   });
@@ -96,7 +96,7 @@ describe('a login button is clicked', () => {
       expect(openKeyURL).toHaveBeenCalledWith(
         'login?action=signup',
         screen.instance().startLoad,
-        false,
+        true,
       );
       expect(store.getActions()).toEqual([openKeyResponse]);
     });
@@ -116,7 +116,7 @@ describe('a login button is clicked', () => {
 
     it('facebook login to be called', () => {
       expect(facebookLoginWithUsernamePassword).toHaveBeenCalledWith(
-        false,
+        true,
         screen.instance().startLoad,
         onSuccessfulLogin,
       );

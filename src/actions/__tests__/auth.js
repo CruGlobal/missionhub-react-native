@@ -26,10 +26,7 @@ import {
   openKeyURL,
 } from '../auth';
 import { mockFnWithParams } from '../../../testUtils';
-import {
-  LOGIN_OPTIONS_SCREEN,
-  LOGIN_TYPES,
-} from '../../containers/LoginOptionsScreen';
+import { UPGRADE_ACCOUNT_SCREEN } from '../../containers/UpgradeAccountScreen';
 import { OPEN_URL } from '../../constants';
 import { getTimezoneString } from '../auth';
 import { refreshAnonymousLogin } from '../auth';
@@ -301,12 +298,17 @@ describe('on upgrade account', () => {
   });
 
   it('should navigate to login options page', async () => {
-    await store.dispatch(upgradeAccount());
+    const signupType = 'sign up';
 
-    expect(navigation.navigatePush).toHaveBeenCalledWith(LOGIN_OPTIONS_SCREEN, {
-      loginType: LOGIN_TYPES.UPGRADE_ACCOUNT,
-    });
-    expect(store.getActions()).toEqual([{ type: LOGIN_OPTIONS_SCREEN }]);
+    await store.dispatch(upgradeAccount(signupType));
+
+    expect(navigation.navigatePush).toHaveBeenCalledWith(
+      UPGRADE_ACCOUNT_SCREEN,
+      {
+        signupType,
+      },
+    );
+    expect(store.getActions()).toEqual([{ type: UPGRADE_ACCOUNT_SCREEN }]);
   });
 
   it('should navigate to key login page', async () => {
