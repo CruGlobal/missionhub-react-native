@@ -73,7 +73,7 @@ export class GroupScreen extends Component {
 }
 
 const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
-const GROUP_CHALLENGES = 'nav/GROUP_CHALLENGES';
+export const GROUP_CHALLENGES = 'nav/GROUP_CHALLENGES';
 const GROUP_MEMBERS = 'nav/GROUP_MEMBERS';
 const GROUP_IMPACT = 'nav/GROUP_IMPACT';
 const GROUP_CONTACTS = 'nav/GROUP_CONTACTS';
@@ -162,6 +162,10 @@ export const userCreatedScreenTabNavigator = generateSwipeTabMenuNavigator(
 
 export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
 export const USER_CREATED_GROUP_SCREEN = 'nav/USER_CREATED_GROUP_SCREEN';
+
+export function getScreenForOrg(org) {
+  return org.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN;
+}
 
 export const GROUP_TABS = {
   [GROUP_CELEBRATE]: {

@@ -14,7 +14,12 @@ import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScre
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen';
 import { hasReminderStepsSelector } from '../selectors/steps';
+import { organizationSelector } from '../selectors/organizations';
 import { navToPersonScreen } from '../actions/person';
+import {
+  getScreenForOrg,
+  GROUP_CHALLENGES,
+} from '../containers/Groups/GroupScreen';
 
 import { getPersonDetails } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
@@ -137,6 +142,34 @@ function handleNotification(notification) {
             onComplete: () => dispatch(navigateReset(MAIN_TABS)),
           }),
         );
+      case 'celebrate':
+        return dispatch(navigateToOrg(organization));
+      case 'community_challenges':
+        return dispatch(navigateToOrg(organization, GROUP_CHALLENGES));
+    }
+  };
+}
+
+function navigateToOrg(organization, initialTab) {
+  return (dispatch, getState) => {
+    const { organizations } = getState();
+
+    const storedOrg = organizationSelector(
+      {
+        organizations,
+      },
+      {
+        orgId: organization,
+      },
+    );
+
+    if (storedOrg) {
+      return dispatch(
+        navigatePush(getScreenForOrg(storedOrg), {
+          organization: storedOrg,
+          initialTab,
+        }),
+      );
     }
   };
 }
