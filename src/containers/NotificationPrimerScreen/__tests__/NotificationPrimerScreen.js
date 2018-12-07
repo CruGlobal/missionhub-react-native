@@ -52,6 +52,18 @@ it('renders correctly for onboarding', () => {
   );
 });
 
+it('renders correctly without description passed in', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <NotificationPrimerScreen
+        navigation={createMockNavState({
+          onComplete: jest.fn(),
+        })}
+      />
+    </Provider>,
+  );
+});
+
 it('renders correctly for focused step', () => {
   testSnapshot(
     <Provider store={store}>
