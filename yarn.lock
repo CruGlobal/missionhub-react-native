@@ -7248,10 +7248,9 @@ react-native-drawer-layout@1.3.2:
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
 
-react-native-fabric@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/react-native-fabric/-/react-native-fabric-0.5.1.tgz#e5eb65c56196355b41f230c14adcc9c4bcf60dda"
-  integrity sha512-NKYXiH8w/DjNXoozko1twjAd5F8shL/UiTVx/PQ8QNaasWpbxlXgeJ5exhDSIcDXao0AUdcPWJunYdSCjq208g==
+react-native-fabric@CruGlobal/react-native-fabric:
+  version "0.5.2"
+  resolved "https://codeload.github.com/CruGlobal/react-native-fabric/tar.gz/834af311c18afa34022fb2ac281fda082f866b98"
 
 react-native-fbsdk@^0.8.0:
   version "0.8.0"

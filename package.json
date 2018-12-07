@@ -52,7 +52,7 @@
     "react-native-config": "^0.11.5",
     "react-native-default-preference": "^1.3.1",
     "react-native-device-info": "^0.21.5",
-    "react-native-fabric": "^0.5.1",
+    "react-native-fabric": "CruGlobal/react-native-fabric",
     "react-native-fbsdk": "^0.8.0",
     "react-native-firebase": "^5.1.0",
     "react-native-omniture": "https://github.com/CruGlobal/react-native-omniture",
