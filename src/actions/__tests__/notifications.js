@@ -25,6 +25,7 @@ import * as common from '../../utils/common';
 import callApi, { REQUESTS } from '../api';
 import { getPersonDetails, navToPersonScreen } from '../person';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
+import { organizationSelector } from '../../selectors/organizations';
 
 jest.mock('../person');
 jest.mock('../api');
@@ -33,6 +34,7 @@ jest.mock('react-native-config', () => ({
   GCM_SENDER_ID: 'Test GCM Sender ID',
   APNS_MODE: 'APNS',
 }));
+jest.mock('../../selectors/organizations');
 
 const mockStore = configureStore([thunk]);
 const store = mockStore({
@@ -254,12 +256,17 @@ describe('askNotificationPermissions', () => {
 
   describe('onNotification', () => {
     const person = { id: '1', type: 'person' };
+    const organization = { id: '234234' };
+    const organizations = {
+      someProp: 'hello, Roge',
+    };
 
     const store = mockStore({
       auth: {
         isJean: true,
         person,
       },
+      organizations,
     });
 
     const finish = jest.fn();
@@ -348,6 +355,86 @@ describe('askNotificationPermissions', () => {
       });
       store.getActions()[0].params.onComplete();
       expect(store.getActions()).toMatchSnapshot();
+    });
+
+    describe('celebrate', () => {
+      it('should look for stored org', () => {
+        testNotification({
+          screen: 'celebrate',
+          organization_id: organization.id,
+        });
+
+        expect(organizationSelector).toHaveBeenCalledWith(
+          {
+            organizations,
+          },
+          {
+            orgId: organization.id,
+          },
+        );
+      });
+
+      it('should deep link to group screen', () => {
+        organizationSelector.mockReturnValue(organization);
+
+        testNotification({
+          screen: 'celebrate',
+          organization_id: organization.id,
+        });
+
+        expect(store.getActions()).toMatchSnapshot();
+      });
+
+      it('should do nothing if org is not found', () => {
+        organizationSelector.mockReturnValue(null);
+
+        testNotification({
+          screen: 'celebrate',
+          organization_id: organization.id,
+        });
+
+        expect(store.getActions()).toMatchSnapshot();
+      });
+    });
+
+    describe('community_challenges', () => {
+      it('should look for stored org', () => {
+        testNotification({
+          screen: 'community_challenges',
+          organization_id: organization.id,
+        });
+
+        expect(organizationSelector).toHaveBeenCalledWith(
+          {
+            organizations,
+          },
+          {
+            orgId: organization.id,
+          },
+        );
+      });
+
+      it('should deep link to challenges tab', () => {
+        organizationSelector.mockReturnValue(organization);
+
+        testNotification({
+          screen: 'community_challenges',
+          organization_id: organization.id,
+        });
+
+        expect(store.getActions()).toMatchSnapshot();
+      });
+
+      it('should do nothing if org is not found', () => {
+        organizationSelector.mockReturnValue(null);
+
+        testNotification({
+          screen: 'community_challenges',
+          organization_id: organization.id,
+        });
+
+        expect(store.getActions()).toMatchSnapshot();
+      });
     });
   });
 });
