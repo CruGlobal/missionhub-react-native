@@ -64,9 +64,9 @@ import SearchPeopleFilterScreen, {
 import SearchPeopleFilterRefineScreen, {
   SEARCH_REFINE_SCREEN,
 } from './containers/SearchPeopleFilterRefineScreen';
-import LoginOptionsScreen, {
-  LOGIN_OPTIONS_SCREEN,
-} from './containers/LoginOptionsScreen';
+import UpgradeAccountScreen, {
+  UPGRADE_ACCOUNT_SCREEN,
+} from './containers/UpgradeAccountScreen';
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
@@ -284,8 +284,8 @@ const buildPersonScreenRoute = screen =>
   );
 
 const screens = {
-  [LOGIN_OPTIONS_SCREEN]: buildTrackedScreen(
-    LoginOptionsScreen,
+  [UPGRADE_ACCOUNT_SCREEN]: buildTrackedScreen(
+    UpgradeAccountScreen,
     buildTrackingObj('auth', 'auth'),
   ),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(

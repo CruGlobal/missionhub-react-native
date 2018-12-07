@@ -3,6 +3,7 @@ import configureStore from 'redux-mock-store';
 
 import GroupsListScreen from '../GroupsListScreen';
 import { renderShallow } from '../../../../testUtils';
+import { upgradeAccount } from '../../../actions/auth';
 import { navigatePush } from '../../../actions/navigation';
 import { getMyCommunities } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
@@ -11,10 +12,12 @@ import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { JOIN_GROUP_SCREEN } from '../JoinGroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
+import { SIGNUP_TYPES } from '../../UpgradeAccountScreen';
 import { resetScrollGroups } from '../../../actions/swipe';
 import { ACTIONS } from '../../../constants';
 
 jest.mock('../../../selectors/organizations');
+jest.mock('../../../actions/auth');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
@@ -40,7 +43,7 @@ const organizations = {
     },
   ],
 };
-const auth = {};
+const auth = { isFirstTime: false };
 const swipe = {};
 const store = mockStore({ organizations, auth, swipe });
 
@@ -235,5 +238,26 @@ describe('GroupsListScreen', () => {
       .onPress();
 
     expect(navigatePush).toHaveBeenCalledWith(CREATE_GROUP_SCREEN);
+  });
+
+  it('navigates to Login Options Screen if not signed in', () => {
+    const store = mockStore({
+      organizations,
+      auth: { isFirstTime: true },
+      swipe,
+    });
+    const upgradeAccountResponse = { type: 'upgrade account' };
+    upgradeAccount.mockReturnValue(upgradeAccountResponse);
+
+    component = renderShallow(<GroupsListScreen />, store);
+
+    component
+      .childAt(1)
+      .childAt(1)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(upgradeAccount).toHaveBeenCalledWith(SIGNUP_TYPES.CREATE_COMMUNITY);
   });
 });

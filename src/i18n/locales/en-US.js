@@ -139,6 +139,8 @@ export default {
     signUpLater: 'Sign up Later',
     emailSignUp: 'Sign up with Email',
     member: 'Already a Member?',
+    createCommunityTitle: 'Create a Community',
+    createCommunityDescription: 'Sign Up to create a MissionHub community.',
   },
   keyLogin: {
     invalidCredentialsMessage: 'Your Email or Password is Incorrect',

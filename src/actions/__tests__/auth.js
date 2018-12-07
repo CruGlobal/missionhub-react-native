@@ -26,7 +26,7 @@ import {
   openKeyURL,
 } from '../auth';
 import { mockFnWithParams } from '../../../testUtils';
-import { LOGIN_OPTIONS_SCREEN } from '../../containers/LoginOptionsScreen';
+import { UPGRADE_ACCOUNT_SCREEN } from '../../containers/UpgradeAccountScreen';
 import { OPEN_URL } from '../../constants';
 import { getTimezoneString } from '../auth';
 import { refreshAnonymousLogin } from '../auth';
@@ -294,13 +294,21 @@ describe('logout', () => {
 
 describe('on upgrade account', () => {
   beforeEach(() => {
-    navigation.navigatePush = screen => ({ type: screen });
+    navigation.navigatePush = jest.fn(screen => ({ type: screen }));
   });
 
   it('should navigate to login options page', async () => {
-    await store.dispatch(upgradeAccount());
+    const signupType = 'sign up';
 
-    expect(store.getActions()).toEqual([{ type: LOGIN_OPTIONS_SCREEN }]);
+    await store.dispatch(upgradeAccount(signupType));
+
+    expect(navigation.navigatePush).toHaveBeenCalledWith(
+      UPGRADE_ACCOUNT_SCREEN,
+      {
+        signupType,
+      },
+    );
+    expect(store.getActions()).toEqual([{ type: UPGRADE_ACCOUNT_SCREEN }]);
   });
 
   it('should navigate to key login page', async () => {

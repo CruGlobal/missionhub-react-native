@@ -12,6 +12,7 @@ import {
   Button,
   Flex,
 } from '../../components/common';
+import { upgradeAccount } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, refresh } from '../../utils/common';
@@ -20,6 +21,7 @@ import NullStateComponent from '../../components/NullStateComponent';
 import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
+import { SIGNUP_TYPES } from '../UpgradeAccountScreen';
 
 import {
   GROUP_SCREEN,
@@ -81,7 +83,12 @@ class GroupsListScreen extends Component {
   };
 
   create = () => {
-    this.props.dispatch(navigatePush(CREATE_GROUP_SCREEN));
+    const { dispatch, isFirstTime } = this.props;
+    dispatch(
+      isFirstTime
+        ? upgradeAccount(SIGNUP_TYPES.CREATE_COMMUNITY)
+        : navigatePush(CREATE_GROUP_SCREEN),
+    );
   };
 
   keyExtractor = i => i.id;
@@ -170,6 +177,7 @@ class GroupsListScreen extends Component {
 
 const mapStateToProps = ({ organizations, auth, swipe }) => ({
   orgs: communitiesSelector({ organizations, auth }),
+  isFirstTime: auth.isFirstTime,
   scrollToId: swipe.groupScrollToId,
 });
 
