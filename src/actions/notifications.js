@@ -17,8 +17,8 @@ import { hasReminderStepsSelector } from '../selectors/steps';
 import { organizationSelector } from '../selectors/organizations';
 import { navToPersonScreen } from '../actions/person';
 import {
-  GROUP_SCREEN,
-  USER_CREATED_GROUP_SCREEN,
+  getScreenForOrg,
+  GROUP_CHALLENGES,
 } from '../containers/Groups/GroupScreen';
 
 import { getPersonDetails } from './person';
@@ -113,10 +113,7 @@ function handleNotification(notification) {
       return;
     }
 
-    const {
-      auth: { person: me },
-      organizations,
-    } = getState();
+    const { person: me } = getState().auth;
 
     const { screen, person, organization } = parseNotificationData(
       notification,
@@ -146,28 +143,33 @@ function handleNotification(notification) {
           }),
         );
       case 'celebrate':
-        const storedOrg = organizationSelector(
-          {
-            organizations,
-          },
-          {
-            orgId: organization,
-          },
-        );
+        return dispatch(navigateToOrg(organization));
+      case 'community_challenges':
+        return dispatch(navigateToOrg(organization, GROUP_CHALLENGES));
+    }
+  };
+}
 
-        return (
-          storedOrg &&
-          dispatch(
-            navigatePush(
-              storedOrg.user_created //todo combine with logic used in GroupsListScreen?
-                ? USER_CREATED_GROUP_SCREEN
-                : GROUP_SCREEN,
-              {
-                organization: storedOrg,
-              },
-            ),
-          )
-        );
+function navigateToOrg(organization, initialTab) {
+  return (dispatch, getState) => {
+    const { organizations } = getState();
+
+    const storedOrg = organizationSelector(
+      {
+        organizations,
+      },
+      {
+        orgId: organization,
+      },
+    );
+
+    if (storedOrg) {
+      return dispatch(
+        navigatePush(getScreenForOrg(storedOrg), {
+          organization: storedOrg,
+          initialTab,
+        }),
+      );
     }
   };
 }
