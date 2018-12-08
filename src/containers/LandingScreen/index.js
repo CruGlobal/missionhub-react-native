@@ -4,12 +4,15 @@ import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { Button, Flex, Text } from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateReset } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { firstTime } from '../../actions/auth';
-import { JOIN_BY_CODE_ONBOARDING_FLOW } from '../../routes/constants';
+import {
+  DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
+  JOIN_BY_CODE_ONBOARDING_FLOW,
+} from '../../routes/constants';
 
 import styles from './styles';
 
@@ -21,7 +24,13 @@ class LandingScreen extends Component {
   };
 
   communityCode = () => {
-    this.props.dispatch(navigatePush(JOIN_BY_CODE_ONBOARDING_FLOW));
+    // TODO: switch back. For testing only
+    // this.props.dispatch(navigatePush(JOIN_BY_CODE_ONBOARDING_FLOW));
+    this.props.dispatch(
+      navigateReset(DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW, {
+        communityUrlCode: '4PS4EfHCY66bo-wXYgjXVA',
+      }),
+    );
   };
 
   signIn = () => {

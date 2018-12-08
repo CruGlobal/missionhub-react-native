@@ -429,12 +429,12 @@ export function deleteOrganization(orgId) {
 export function lookupOrgCommunityCode(code) {
   return async (dispatch, getState) => {
     const query = { community_code: code };
-    const { response: org } = await dispatch(
+    const { response: org = {} } = await dispatch(
       callApi(REQUESTS.LOOKUP_COMMUNITY_CODE, query),
     );
     dispatch(trackActionWithoutData(ACTIONS.SEARCH_COMMUNITY_WITH_CODE));
 
-    if (!org || !org.id) {
+    if (!org.id) {
       return null;
     }
 
@@ -459,6 +459,28 @@ export function lookupOrgCommunityCode(code) {
       //   uncontactedCount: report.uncontacted_count,
       //   memberCount: report.member_count,
       // };
+
+      return orgWithOwner;
+    }
+
+    return org;
+  };
+}
+
+export function lookupOrgCommunityUrl(urlCode) {
+  return async (dispatch, getState) => {
+    const query = { community_url: urlCode };
+    const { response: org = {} } = await dispatch(
+      callApi(REQUESTS.LOOKUP_COMMUNITY_URL, query),
+    );
+    // dispatch(trackActionWithoutData(ACTIONS.SEARCH_COMMUNITY_WITH_CODE)); // TODO: implement Url version
+
+    if (!org.id) {
+      return null;
+    }
+
+    if (getState().auth.token) {
+      const orgWithOwner = await dispatch(getOwner(org));
 
       return orgWithOwner;
     }

@@ -1,6 +1,9 @@
 import firebase from 'react-native-firebase';
 
 import { isAuthenticated } from '../utils/common';
+import { DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW } from '../routes/constants';
+
+import { navigateReset } from './navigation';
 
 export const setupFirebaseDynamicLinks = () => (dispatch, getState) => {
   firebase.links().onLink(onFirebaseLink(dispatch, getState));
@@ -29,13 +32,18 @@ const handleJoinCommunityDeepLink = (dispatch, url, hasAuth) => {
 
   if (communityUrlCode) {
     if (hasAuth) {
-      dispatch({ type: 'testJoinCommunityUrlAuthAction', communityUrlCode });
-      // TODO: nav to authenticated join community flow  which consists of:
-      // 1. nav to you were invited screen
-      // 2. join community
-      // 3. nav to community
+      dispatch(
+        navigateReset(DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW, {
+          communityUrlCode,
+        }),
+      );
     } else {
-      dispatch({ type: 'testJoinCommunityUrlNoAuthAction', communityUrlCode });
+      dispatch(
+        // TODO: wrong flow
+        navigateReset(DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW, {
+          communityUrlCode,
+        }),
+      );
       // TODO: nav to unauthenticated join community flow  which consists of:
       // 1. nav to you were invited screen
       // 2. nav to sign in/register
