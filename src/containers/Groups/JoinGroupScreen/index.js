@@ -74,7 +74,6 @@ class JoinGroupScreen extends Component {
       this.setState({ errorMessage: '', community: org });
     } catch (e) {
       this.setState(errorState);
-      return;
     }
   };
 
@@ -167,7 +166,7 @@ class JoinGroupScreen extends Component {
 }
 
 JoinGroupScreen.propTypes = {
-  next: PropTypes.func,
+  next: PropTypes.func.isRequired,
 };
 
 export default connect()(JoinGroupScreen);

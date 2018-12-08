@@ -144,6 +144,10 @@ export default {
     endpoint: `${ORG_URL}/find_by_code`,
     anonymousOptional: true,
   },
+  LOOKUP_COMMUNITY_URL: {
+    endpoint: `${ORG_URL}/find_by_url`,
+    anonymousOptional: true,
+  },
   JOIN_COMMUNITY: {
     endpoint: `${API_URL}/organizational_permissions`,
     anonymousOptional: true,

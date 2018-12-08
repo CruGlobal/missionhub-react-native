@@ -141,6 +141,7 @@ import StatusReason, {
 import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
 import { buildTrackedScreen, wrapNextScreen } from './routes/helpers';
 import {
+  DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
 } from './routes/constants';
@@ -152,6 +153,10 @@ import {
   JoinByCodeOnboardingFlowNavigator,
   JoinByCodeOnboardingFlowScreens,
 } from './routes/onboarding/joinByCodeOnboardingFlow';
+import {
+  DeepLinkJoinCommunityAuthenticatedNavigator,
+  DeepLinkJoinCommunityAuthenticatedScreens,
+} from './routes/deepLink/deepLinkJoinCommunityAuthenticated';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -448,6 +453,7 @@ const screens = {
   [MAIN_TABS]: MAIN_TABS_SCREEN,
   [JOIN_BY_CODE_FLOW]: JoinByCodeFlowNavigator,
   [JOIN_BY_CODE_ONBOARDING_FLOW]: JoinByCodeOnboardingFlowNavigator,
+  [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,
 };
 
 export const trackableScreens = {
@@ -457,6 +463,7 @@ export const trackableScreens = {
   ...ALL_PERSON_TAB_ROUTES,
   ...JoinByCodeFlowScreens,
   ...JoinByCodeOnboardingFlowScreens,
+  ...DeepLinkJoinCommunityAuthenticatedScreens,
 };
 
 export const MainStackRoutes = createStackNavigator(
