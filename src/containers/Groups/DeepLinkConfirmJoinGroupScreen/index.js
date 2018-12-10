@@ -24,7 +24,7 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
     const { dispatch, t, communityUrlCode } = this.props;
 
     const errorState = {
-      errorMessage: t('communityNotFound'),
+      errorMessage: t('communityNotFoundLink'),
       community: undefined,
     };
 
@@ -57,7 +57,7 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
     return (
       <Flex align="center" justify="center">
         <Image resizeMode="contain" source={GROUP_ICON} style={styles.image} />
-        <Text style={styles.text}>{t('enterCode')}</Text>
+        <Text style={styles.text}>{t('findingCommunity')}</Text>
       </Flex>
     );
   }
@@ -96,7 +96,12 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
           shadow={false}
           title={t('joinCommunity')}
         />
-        <Flex align="center" justify="end" style={styles.imageWrap}>
+        <Flex
+          value={1}
+          align="center"
+          justify="center"
+          style={styles.imageWrap}
+        >
           {errorMessage
             ? this.renderError()
             : community
