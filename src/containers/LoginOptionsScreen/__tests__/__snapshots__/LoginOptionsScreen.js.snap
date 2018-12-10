@@ -766,6 +766,7 @@ exports[`renders correctly with upgrade 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
+                    Object {},
                   ]
                 }
               >
@@ -887,6 +888,7 @@ exports[`renders correctly with upgrade 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
+                    Object {},
                   ]
                 }
               >
@@ -1425,6 +1427,7 @@ exports[`renders correctly without upgrade 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
+                    Object {},
                   ]
                 }
               >
@@ -1546,6 +1549,7 @@ exports[`renders correctly without upgrade 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
+                    Object {},
                   ]
                 }
               >
