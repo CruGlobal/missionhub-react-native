@@ -11,6 +11,7 @@ import {
   REMOVE_ORGANIZATION_MEMBER,
   ACTIONS,
   ORG_PERMISSIONS,
+  ERROR_PERSON_PART_OF_ORG,
 } from '../../constants';
 import callApi, { REQUESTS } from '../api';
 import { trackActionWithoutData } from '../analytics';
@@ -46,7 +47,7 @@ const myId = '1';
 
 const mockStore = configureStore([thunk]);
 let store;
-const auth = { person: { user: {}, id: myId } };
+const auth = { person: { user: {}, id: myId }, token: 'something' };
 
 beforeEach(() => {
   store = mockStore({ auth });
@@ -765,6 +766,28 @@ describe('joinCommunity', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.JOIN_COMMUNITY_WITH_CODE,
     );
+  });
+
+  it('should swallow API error if the user is already member', async () => {
+    callApi.mockReturnValue(() =>
+      Promise.reject({
+        apiError: { errors: [{ detail: ERROR_PERSON_PART_OF_ORG }] },
+      }),
+    );
+    await store.dispatch(joinCommunity(orgId, code));
+
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.JOIN_COMMUNITY_WITH_CODE,
+    );
+  });
+
+  it('should pass on API error if the error is unrelated to preexisting membership ', () => {
+    callApi.mockReturnValue(() =>
+      Promise.reject({
+        apiError: { errors: [{ detail: 'some error' }] },
+      }),
+    );
+    expect(store.dispatch(joinCommunity(orgId, code))).rejects.toThrow();
   });
 });
 

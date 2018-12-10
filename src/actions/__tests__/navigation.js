@@ -60,6 +60,7 @@ describe('navigateReset', () => {
     });
     expect(StackActions.reset).toHaveBeenCalledWith({
       index: 0,
+      key: null,
       actions: ['newRouterState'],
     });
   });
@@ -72,6 +73,7 @@ describe('navigateReset', () => {
     });
     expect(StackActions.reset).toHaveBeenCalledWith({
       index: 0,
+      key: null,
       actions: ['newRouterState'],
     });
   });

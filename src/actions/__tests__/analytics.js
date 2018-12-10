@@ -28,7 +28,6 @@ const mockTracker = {
   },
 };
 
-jest.mock('react-native-omniture');
 jest.mock('@ringierag/snowplow-reactjs-native-tracker', () => ({
   Emitter: jest.fn(),
   Tracker: jest.fn(() => mockTracker),

@@ -8,6 +8,7 @@ import {
   PERSON_FIRST_NAME_CHANGED,
   PERSON_LAST_NAME_CHANGED,
   RESET_ONBOARDING_PERSON,
+  STASH_COMMUNITY_TO_JOIN,
   UPDATE_ONBOARDING_PERSON,
   ACTIONS,
 } from '../constants';
@@ -106,6 +107,10 @@ export function updateOnboardingPerson(data) {
 
 export function resetPerson() {
   return { type: RESET_ONBOARDING_PERSON };
+}
+
+export function stashCommunityToJoin({ community }) {
+  return { type: STASH_COMMUNITY_TO_JOIN, community };
 }
 
 export function skipOnboardingComplete() {
