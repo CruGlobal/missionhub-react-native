@@ -7,6 +7,7 @@ import {
   REMOVE_ORGANIZATION_MEMBER,
   ACTIONS,
   ORG_PERMISSIONS,
+  ERROR_PERSON_PART_OF_ORG,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
@@ -426,7 +427,7 @@ export function deleteOrganization(orgId) {
 }
 
 export function lookupOrgCommunityCode(code) {
-  return async dispatch => {
+  return async (dispatch, getState) => {
     const query = { community_code: code };
     const { response: org } = await dispatch(
       callApi(REQUESTS.LOOKUP_COMMUNITY_CODE, query),
@@ -437,28 +438,32 @@ export function lookupOrgCommunityCode(code) {
       return null;
     }
 
-    const orgWithOwner = await dispatch(getOwner(org));
+    if (getState().auth.token) {
+      const orgWithOwner = await dispatch(getOwner(org));
 
-    // No need to get member count anymore since it's an authenticated route
-    // Leaving this code here in case we change that route to be unauthenticated
-    // get the report information and append it to the org
-    // const reportQuery = {
-    //   organization_ids: org.id,
-    //   period: 'P1W',
-    // };
-    // const { response: reports } = await dispatch(
-    //   callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, reportQuery),
-    // );
+      // No need to get member count anymore since it's an authenticated route
+      // Leaving this code here in case we change that route to be unauthenticated
+      // get the report information and append it to the org
+      // const reportQuery = {
+      //   organization_ids: org.id,
+      //   period: 'P1W',
+      // };
+      // const { response: reports } = await dispatch(
+      //   callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, reportQuery),
+      // );
 
-    // const report = reports[0] || {};
-    // org.contactReport = {
-    //   contactsCount: report.contact_count,
-    //   unassignedCount: report.unassigned_count,
-    //   uncontactedCount: report.uncontacted_count,
-    //   memberCount: report.member_count,
-    // };
+      // const report = reports[0] || {};
+      // org.contactReport = {
+      //   contactsCount: report.contact_count,
+      //   unassignedCount: report.unassigned_count,
+      //   uncontactedCount: report.uncontacted_count,
+      //   memberCount: report.member_count,
+      // };
 
-    return orgWithOwner;
+      return orgWithOwner;
+    }
+
+    return org;
   };
 }
 
@@ -495,22 +500,32 @@ export function joinCommunity(orgId, code, url) {
         `Invalid Data from joinCommunity: must pass in a code or url`,
       );
     }
-    // This can be done through onboarding, so it's possible we won't have a person_id.
-    if (myId) {
-      attributes.person_id = myId;
-    }
+    attributes.person_id = myId;
     const bodyData = {
       data: {
         type: 'organizational_permission',
         attributes,
       },
     };
-    const results = await dispatch(
-      callApi(REQUESTS.JOIN_COMMUNITY, {}, bodyData),
-    );
-    dispatch(trackActionWithoutData(ACTIONS.JOIN_COMMUNITY_WITH_CODE));
 
-    return results;
+    try {
+      await dispatch(callApi(REQUESTS.JOIN_COMMUNITY, {}, bodyData));
+    } catch (error) {
+      // If the user is already part of the organization, just continue like normal
+      if (
+        !(
+          error &&
+          error.apiError &&
+          error.apiError.errors &&
+          error.apiError.errors[0] &&
+          error.apiError.errors[0].detail === ERROR_PERSON_PART_OF_ORG
+        )
+      ) {
+        throw error;
+      }
+    }
+
+    dispatch(trackActionWithoutData(ACTIONS.JOIN_COMMUNITY_WITH_CODE));
   };
 }
 

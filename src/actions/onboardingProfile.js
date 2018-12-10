@@ -8,11 +8,18 @@ import {
   PERSON_FIRST_NAME_CHANGED,
   PERSON_LAST_NAME_CHANGED,
   RESET_ONBOARDING_PERSON,
+  STASH_COMMUNITY_TO_JOIN,
   UPDATE_ONBOARDING_PERSON,
+  ACTIONS,
 } from '../constants';
+import { isAndroid, buildTrackingObj } from '../utils/common';
+import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
+import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 
 import callApi, { REQUESTS } from './api';
 import { updatePerson } from './person';
+import { navigatePush } from './navigation';
+import { trackActionWithoutData } from './analytics';
 
 /*
 A user is considered to have completed onboarding once they've:
@@ -100,4 +107,34 @@ export function updateOnboardingPerson(data) {
 
 export function resetPerson() {
   return { type: RESET_ONBOARDING_PERSON };
+}
+
+export function stashCommunityToJoin({ community }) {
+  return { type: STASH_COMMUNITY_TO_JOIN, community };
+}
+
+export function skipOnboardingComplete() {
+  return dispatch => {
+    dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
+    dispatch(completeOnboarding());
+    dispatch(
+      navigatePush(CELEBRATION_SCREEN, {
+        trackingObj: buildTrackingObj('onboarding : complete', 'onboarding'),
+      }),
+    );
+  };
+}
+
+export function skipOnboarding() {
+  return dispatch => {
+    // Android doesn't need a primer for notifications the way iOS does
+    if (!isAndroid) {
+      return dispatch(
+        navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+          onComplete: () => dispatch(skipOnboardingComplete()),
+        }),
+      );
+    }
+    return dispatch(skipOnboardingComplete());
+  };
 }

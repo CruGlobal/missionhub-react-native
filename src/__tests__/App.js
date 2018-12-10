@@ -23,7 +23,6 @@ jest.mock('../AppNavigator', () => ({ AppNavigator: 'mockAppNavigator' }));
 jest.mock('react-native-default-preference', () => ({
   get: jest.fn().mockReturnValue(Promise.reject()),
 }));
-jest.mock('react-native-omniture');
 global.window = {};
 
 const logoutResponse = { type: 'logged out' };

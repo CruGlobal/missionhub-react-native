@@ -18,6 +18,8 @@ import { KEY_LOGIN_SCREEN } from '../../KeyLoginScreen';
 
 const store = createMockStore();
 
+const next = jest.fn();
+
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/analytics');
 
@@ -42,7 +44,11 @@ describe('welcome screen methods', () => {
 
   beforeEach(() => {
     const screen = shallow(
-      <WelcomeScreen navigation={createMockNavState()} dispatch={jest.fn()} />,
+      <WelcomeScreen
+        navigation={createMockNavState()}
+        dispatch={jest.fn()}
+        next={next}
+      />,
       {
         context: { store },
       },
@@ -56,15 +62,16 @@ describe('welcome screen methods', () => {
   });
 
   it('navigates', () => {
-    navigation.navigatePush = jest.fn();
     common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
     component.navigateToNext();
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
-    expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+    expect(next).toHaveBeenCalledTimes(1);
   });
 
   it('sign in', () => {
+    navigation.navigatePush = jest.fn();
+
     component.signIn();
     expect(navigation.navigatePush).toHaveBeenCalledWith(KEY_LOGIN_SCREEN);
   });

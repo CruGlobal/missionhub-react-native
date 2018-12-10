@@ -1,4 +1,6 @@
 import { Crashlytics } from 'react-native-fabric';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import {
   firstNameChanged,
@@ -9,6 +11,9 @@ import {
   createPerson,
   resetPerson,
   completeOnboarding,
+  stashCommunityToJoin,
+  skipOnboarding,
+  skipOnboardingComplete,
 } from '../onboardingProfile';
 import {
   COMPLETE_ONBOARDING,
@@ -17,14 +22,27 @@ import {
   PERSON_FIRST_NAME_CHANGED,
   PERSON_LAST_NAME_CHANGED,
   RESET_ONBOARDING_PERSON,
+  STASH_COMMUNITY_TO_JOIN,
 } from '../../constants';
+import * as common from '../../utils/common';
 import callApi, { REQUESTS } from '../api';
+import { navigatePush } from '../navigation';
+import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 
 jest.mock('../api');
+jest.mock('../navigation', () => ({
+  navigatePush: jest.fn(() => ({ type: 'push' })),
+}));
+jest.mock('../analytics', () => ({
+  trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
+}));
+
+let store = configureStore([thunk])();
 
 const dispatch = jest.fn(response => Promise.resolve(response));
 
 beforeEach(() => {
+  common.isAndroid = false;
   dispatch.mockClear();
   callApi.mockClear();
 });
@@ -122,5 +140,42 @@ describe('resetPerson', () => {
     expect(resetPerson()).toEqual({
       type: RESET_ONBOARDING_PERSON,
     });
+  });
+});
+
+describe('stashCommunityToJoin', () => {
+  it('should return the correct action', () => {
+    expect(stashCommunityToJoin({ community: { id: '1' } })).toEqual({
+      type: STASH_COMMUNITY_TO_JOIN,
+      community: { id: '1' },
+    });
+  });
+});
+
+const skipCompleteActions = [
+  { type: 'track' },
+  { type: COMPLETE_ONBOARDING },
+  { type: 'push' },
+];
+
+describe('skip onboarding complete', () => {
+  it('skipOnboardingComplete', () => {
+    store.dispatch(skipOnboardingComplete());
+    expect(store.getActions()).toEqual(skipCompleteActions);
+  });
+});
+
+describe('skip onboarding', () => {
+  it('skipOnboarding', () => {
+    store.dispatch(skipOnboarding());
+    expect(navigatePush).toHaveBeenCalledWith(NOTIFICATION_PRIMER_SCREEN, {
+      onComplete: expect.any(Function),
+    });
+  });
+  it('skipOnboarding android', () => {
+    store = configureStore([thunk])();
+    common.isAndroid = true;
+    store.dispatch(skipOnboarding());
+    expect(store.getActions()).toEqual(skipCompleteActions);
   });
 });

@@ -1,5 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`askNotificationPermissions onNotification celebrate should deep link to group screen 1`] = `
+Array [
+  Object {
+    "params": Object {
+      "initialTab": undefined,
+      "organization": Object {
+        "id": "234234",
+      },
+    },
+    "routeName": "nav/GROUP_SCREEN",
+    "type": "Navigation/NAVIGATE",
+  },
+  Object {
+    "type": "app/REQUEST_NOTIFICATIONS",
+  },
+]
+`;
+
+exports[`askNotificationPermissions onNotification celebrate should do nothing if org is not found 1`] = `
+Array [
+  Object {
+    "type": "app/REQUEST_NOTIFICATIONS",
+  },
+]
+`;
+
+exports[`askNotificationPermissions onNotification community_challenges should deep link to challenges tab 1`] = `
+Array [
+  Object {
+    "params": Object {
+      "initialTab": "nav/GROUP_CHALLENGES",
+      "organization": Object {
+        "id": "234234",
+      },
+    },
+    "routeName": "nav/GROUP_SCREEN",
+    "type": "Navigation/NAVIGATE",
+  },
+  Object {
+    "type": "app/REQUEST_NOTIFICATIONS",
+  },
+]
+`;
+
+exports[`askNotificationPermissions onNotification community_challenges should do nothing if org is not found 1`] = `
+Array [
+  Object {
+    "type": "app/REQUEST_NOTIFICATIONS",
+  },
+]
+`;
+
 exports[`askNotificationPermissions onNotification should deep link to ME user's contact screen 1`] = `
 Array [
   Object {
@@ -35,6 +87,7 @@ Array [
       },
     ],
     "index": 0,
+    "key": null,
     "type": "Navigation/RESET",
   },
 ]
@@ -87,6 +140,7 @@ Array [
       },
     ],
     "index": 0,
+    "key": null,
     "type": "Navigation/RESET",
   },
   Object {
@@ -106,6 +160,7 @@ Array [
       },
     ],
     "index": 0,
+    "key": null,
     "type": "Navigation/RESET",
   },
   Object {

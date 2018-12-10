@@ -125,6 +125,7 @@ exports[`renders drilldown item correctly 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
+            Object {},
           ]
         }
       >

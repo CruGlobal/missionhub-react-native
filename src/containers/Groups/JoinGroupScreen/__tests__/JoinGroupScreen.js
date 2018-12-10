@@ -9,17 +9,8 @@ import {
   createMockNavState,
   testSnapshotShallow,
 } from '../../../../../testUtils';
-import { navigateBack, navigateReset } from '../../../../actions/navigation';
-import {
-  MAIN_TABS,
-  ACTIONS,
-  ERROR_PERSON_PART_OF_ORG,
-} from '../../../../constants';
-import {
-  lookupOrgCommunityCode,
-  joinCommunity,
-} from '../../../../actions/organizations';
-import { trackActionWithoutData } from '../../../../actions/analytics';
+import { navigateBack } from '../../../../actions/navigation';
+import { lookupOrgCommunityCode } from '../../../../actions/organizations';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
@@ -52,9 +43,15 @@ const mockCommunity = {
   contactReport: { memberCount: 2 },
 };
 
+const mockNext = jest.fn(() => ({ type: 'nextTest' }));
+
 function buildScreen(props) {
   const component = renderShallow(
-    <JoinGroupScreen navigation={createMockNavState()} {...props} />,
+    <JoinGroupScreen
+      navigation={createMockNavState()}
+      {...props}
+      next={mockNext}
+    />,
     store,
   );
   component.instance().codeInput = { focus: jest.fn() };
@@ -145,74 +142,7 @@ describe('JoinGroupScreen', () => {
       .props()
       .onJoin();
 
-    expect(joinCommunity).toHaveBeenCalledWith(
-      mockCommunity.id,
-      mockCommunity.community_code,
-    );
-    expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
-      startTab: 'groups',
-    });
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.SELECT_JOINED_COMMUNITY,
-    );
-  });
-
-  it('should join community with error code already present', async () => {
-    const component = buildScreen();
-    const instance = component.instance();
-
-    instance.joined = jest.fn();
-
-    component.setState({ community: mockCommunity });
-    component.update();
-
-    joinCommunity.mockImplementation(() => {
-      return async () =>
-        await Promise.reject({
-          apiError: { errors: [{ detail: ERROR_PERSON_PART_OF_ORG }] },
-        });
-    });
-
-    await component
-      .childAt(1)
-      .childAt(0)
-      .childAt(0)
-      .props()
-      .onJoin();
-
-    expect(joinCommunity).toHaveBeenCalledWith(
-      mockCommunity.id,
-      mockCommunity.community_code,
-    );
-    expect(instance.joined).toHaveBeenCalled();
-  });
-
-  it('should join community with error code unknown error', async () => {
-    const component = buildScreen();
-    const instance = component.instance();
-
-    instance.joined = jest.fn();
-
-    component.setState({ community: mockCommunity });
-    component.update();
-
-    const someError = {
-      apiError: { errors: [{ detail: 'some error' }] },
-    };
-    joinCommunity.mockImplementation(() => {
-      return async () => await Promise.reject(someError);
-    });
-
-    try {
-      await component
-        .childAt(1)
-        .childAt(0)
-        .childAt(0)
-        .props()
-        .onJoin();
-    } catch (e) {
-      expect(e).toEqual(someError);
-    }
+    expect(mockNext).toHaveBeenCalledWith({ community: mockCommunity });
   });
 
   it('should call navigate back', () => {

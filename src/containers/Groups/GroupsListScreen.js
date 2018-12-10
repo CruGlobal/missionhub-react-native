@@ -20,16 +20,12 @@ import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
-import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
+import { ACTIONS } from '../../constants';
+import { JOIN_BY_CODE_FLOW } from '../../routes/constants';
 import { SIGNUP_TYPES } from '../UpgradeAccountScreen';
 
-import {
-  GROUP_SCREEN,
-  USER_CREATED_GROUP_SCREEN,
-  GLOBAL_GROUP_SCREEN,
-} from './GroupScreen';
+import { getScreenForOrg } from './GroupScreen';
 import styles from './styles';
-import { JOIN_GROUP_SCREEN } from './JoinGroupScreen';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
 
 @translate('groupsList')
@@ -62,16 +58,9 @@ class GroupsListScreen extends Component {
   handlePress = organization => {
     const { dispatch } = this.props;
     dispatch(
-      navigatePush(
-        organization.id === GLOBAL_COMMUNITY_ID
-          ? GLOBAL_GROUP_SCREEN
-          : organization.user_created
-            ? USER_CREATED_GROUP_SCREEN
-            : GROUP_SCREEN,
-        {
-          organization,
-        },
-      ),
+      navigatePush(getScreenForOrg(organization), {
+        organization,
+      }),
     );
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
@@ -79,15 +68,17 @@ class GroupsListScreen extends Component {
   openMainMenu = () => this.props.dispatch(openMainMenu());
 
   join = () => {
-    this.props.dispatch(navigatePush(JOIN_GROUP_SCREEN));
+    this.props.dispatch(navigatePush(JOIN_BY_CODE_FLOW));
   };
 
   create = () => {
     const { dispatch, isFirstTime } = this.props;
+    const screen = CREATE_GROUP_SCREEN;
+
     dispatch(
       isFirstTime
-        ? upgradeAccount(SIGNUP_TYPES.CREATE_COMMUNITY)
-        : navigatePush(CREATE_GROUP_SCREEN),
+        ? upgradeAccount(SIGNUP_TYPES.CREATE_COMMUNITY, screen)
+        : navigatePush(screen),
     );
   };
 

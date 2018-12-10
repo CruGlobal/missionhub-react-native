@@ -45,7 +45,7 @@ class CelebrationScreen extends Component {
   }
 
   static shuffleGif() {
-    const id = Math.floor(Math.random() * 6);
+    const id = Math.floor(Math.random() * 5);
     return CelebrationScreen.getGif(id);
   }
 
@@ -54,14 +54,12 @@ class CelebrationScreen extends Component {
       case 0:
         return require('./gifs/ArrowWhite.gif');
       case 1:
-        return require('./gifs/ClinkWhite.gif');
-      case 2:
         return require('./gifs/DinoWhite.gif');
-      case 3:
+      case 2:
         return require('./gifs/FireworksWhite.gif');
-      case 4:
+      case 3:
         return require('./gifs/NarwhalWhite.gif');
-      case 5:
+      case 4:
         return require('./gifs/PartyWhite.gif');
       default:
         return undefined;

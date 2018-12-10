@@ -28,9 +28,27 @@ export function navigateReset(screen, props = {}) {
     dispatch(
       StackActions.reset({
         index: 0,
+        key: null, // Reset root stack navigator
         actions: [
           NavigationActions.navigate({ routeName: screen, params: props }),
         ],
+      }),
+    );
+  };
+}
+
+export function navigateNestedReset(...screens) {
+  const actions = screens.reduce(
+    (actionsAccumulator, routeName) =>
+      actionsAccumulator.concat([NavigationActions.navigate({ routeName })]),
+    [],
+  );
+
+  return dispatch => {
+    dispatch(
+      StackActions.reset({
+        index: actions.length - 1,
+        actions,
       }),
     );
   };

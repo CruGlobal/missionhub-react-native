@@ -14,7 +14,7 @@ import IconButton from '../../components/IconButton';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { buildTrackingObj, disableBack } from '../../utils/common';
 import { getOrganizationMembers } from '../../actions/organizations';
-import { MAIN_TABS } from '../../constants';
+import { GLOBAL_COMMUNITY_ID, MAIN_TABS } from '../../constants';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
@@ -110,7 +110,7 @@ export class GroupScreen extends Component {
 }
 
 const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
-const GROUP_CHALLENGES = 'nav/GROUP_CHALLENGES';
+export const GROUP_CHALLENGES = 'nav/GROUP_CHALLENGES';
 const GROUP_MEMBERS = 'nav/GROUP_MEMBERS';
 const GROUP_IMPACT = 'nav/GROUP_IMPACT';
 const GROUP_CONTACTS = 'nav/GROUP_CONTACTS';
@@ -205,6 +205,14 @@ export const globalScreenTabNavigator = generateSwipeTabMenuNavigator(
 export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
 export const USER_CREATED_GROUP_SCREEN = 'nav/USER_CREATED_GROUP_SCREEN';
 export const GLOBAL_GROUP_SCREEN = 'nav/GLOBAL_GROUP_SCREEN';
+
+export function getScreenForOrg(org) {
+  return org.id === GLOBAL_COMMUNITY_ID
+    ? GLOBAL_GROUP_SCREEN
+    : org.user_created
+      ? USER_CREATED_GROUP_SCREEN
+      : GROUP_SCREEN;
+}
 
 export const GROUP_TABS = {
   [GROUP_CELEBRATE]: {

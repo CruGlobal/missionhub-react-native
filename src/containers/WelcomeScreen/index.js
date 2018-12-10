@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { navigatePush } from '../../actions/navigation';
 import theme from '../../theme';
 import { Flex, Text, Button } from '../../components/common';
-import { SETUP_SCREEN } from '../SetupScreen';
 import { disableBack } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
+import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
 
@@ -27,10 +26,11 @@ class WelcomeScreen extends Component {
   }
 
   navigateToNext = () => {
+    const { dispatch, next } = this.props;
     // Remove the back handler when moving forward
     disableBack.remove();
 
-    this.props.dispatch(navigatePush(SETUP_SCREEN));
+    dispatch(next());
   };
 
   signIn = () => {
@@ -85,6 +85,7 @@ class WelcomeScreen extends Component {
 }
 
 WelcomeScreen.propTypes = {
+  next: PropTypes.func,
   allowSignIn: PropTypes.bool,
 };
 
