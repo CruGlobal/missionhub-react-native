@@ -54,7 +54,6 @@ export const CREATE_STEP = 'createStep';
 
 export const STEPS_TAB = 'StepsTab';
 export const PEOPLE_TAB = 'PeopleTab';
-export const IMPACT_TAB = 'ImpactTab';
 export const GROUPS_TAB = 'GroupsTab';
 
 export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';

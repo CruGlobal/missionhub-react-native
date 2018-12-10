@@ -3,7 +3,6 @@ import { DrawerActions } from 'react-navigation';
 import { trackState } from '../actions/analytics';
 import { trackableScreens } from '../AppRoutes';
 import {
-  IMPACT_TAB,
   MAIN_MENU_DRAWER,
   MAIN_TAB_CHANGED,
   MAIN_TABS,
@@ -11,8 +10,9 @@ import {
   NAVIGATE_FORWARD,
   NAVIGATE_POP,
   NAVIGATE_RESET,
-  PEOPLE_TAB,
   STEPS_TAB,
+  PEOPLE_TAB,
+  GROUPS_TAB,
 } from '../constants';
 import { buildTrackingObj } from '../utils/common';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
@@ -36,7 +36,7 @@ export default function tracking({ dispatch, getState }) {
         if (
           action.routeName === STEPS_TAB ||
           action.routeName === PEOPLE_TAB ||
-          action.routeName === IMPACT_TAB
+          action.routeName === GROUPS_TAB
         ) {
           dispatch({ type: MAIN_TAB_CHANGED, newActiveTab: newState });
         }

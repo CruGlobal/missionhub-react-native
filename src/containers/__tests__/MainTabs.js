@@ -14,7 +14,10 @@ import MainTabs from '../../containers/MainTabs';
 
 jest.mock('../../selectors/organizations');
 
-const mockState = {
+const store = createMockStore({
+  auth: {
+    isFirstTime: false,
+  },
   steps: {
     mine: null,
     reminders: [],
@@ -43,19 +46,11 @@ const mockState = {
   organizations: {
     all: [],
   },
-};
-const store = createMockStore({
-  ...mockState,
-  auth: { person: { user: { groups_feature: false } } },
-});
-const groupsStore = createMockStore({
-  ...mockState,
-  auth: { person: { user: { groups_feature: true } } },
 });
 
 communitiesSelector.mockReturnValue([]);
 
-it('renders home screen with tab bar with impact tab correctly', () => {
+it('renders home screen with tab bar with steps tab selected correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <MainTabs navigation={createMockNavState({})} />
@@ -63,17 +58,9 @@ it('renders home screen with tab bar with impact tab correctly', () => {
   );
 });
 
-it('renders home screen with tab bar with groups tab correctly', () => {
-  testSnapshot(
-    <Provider store={groupsStore}>
-      <MainTabs navigation={createMockNavState({})} />
-    </Provider>,
-  );
-});
-
 it('renders home screen with tab bar with groups tab selected correctly', () => {
   testSnapshot(
-    <Provider store={groupsStore}>
+    <Provider store={store}>
       <MainTabs navigation={createMockNavState({ startTab: 'groups' })} />
     </Provider>,
   );
