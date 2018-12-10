@@ -1,7 +1,10 @@
 import firebase from 'react-native-firebase';
 
 import { isAuthenticated } from '../utils/common';
-import { DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW } from '../routes/constants';
+import {
+  DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
+  DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
+} from '../routes/constants';
 
 import { navigateReset } from './navigation';
 
@@ -38,13 +41,11 @@ const handleJoinCommunityDeepLink = (dispatch, url, hasAuth) => {
         }),
       );
     } else {
-      dispatch({ type: 'testJoinCommunityUrlNoAuthAction', communityUrlCode });
-      // TODO: nav to unauthenticated join community flow  which consists of:
-      // 1. nav to you were invited screen
-      // 2. nav to sign in/register
-      // 3. nav to name onboarding if needed (depends on previous step)
-      // 4. join community
-      // 5. nav to community
+      dispatch(
+        navigateReset(DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW, {
+          communityUrlCode,
+        }),
+      );
     }
   }
 };
