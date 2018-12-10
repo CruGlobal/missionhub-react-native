@@ -1,4 +1,6 @@
 import { Crashlytics } from 'react-native-fabric';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import {
   firstNameChanged,
@@ -9,6 +11,8 @@ import {
   createPerson,
   resetPerson,
   completeOnboarding,
+  skipOnboarding,
+  skipOnboardingComplete,
 } from '../onboardingProfile';
 import {
   COMPLETE_ONBOARDING,
@@ -18,13 +22,25 @@ import {
   PERSON_LAST_NAME_CHANGED,
   RESET_ONBOARDING_PERSON,
 } from '../../constants';
+import * as common from '../../utils/common';
 import callApi, { REQUESTS } from '../api';
+import { navigatePush } from '../navigation';
+import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 
 jest.mock('../api');
+jest.mock('../navigation', () => ({
+  navigatePush: jest.fn(() => ({ type: 'push' })),
+}));
+jest.mock('../analytics', () => ({
+  trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
+}));
+
+let store = configureStore([thunk])();
 
 const dispatch = jest.fn(response => Promise.resolve(response));
 
 beforeEach(() => {
+  common.isAndroid = false;
   dispatch.mockClear();
   callApi.mockClear();
 });
@@ -122,5 +138,33 @@ describe('resetPerson', () => {
     expect(resetPerson()).toEqual({
       type: RESET_ONBOARDING_PERSON,
     });
+  });
+});
+
+const skipCompleteActions = [
+  { type: 'track' },
+  { type: COMPLETE_ONBOARDING },
+  { type: 'push' },
+];
+
+describe('skip onboarding complete', () => {
+  it('skipOnboardingComplete', () => {
+    store.dispatch(skipOnboardingComplete());
+    expect(store.getActions()).toEqual(skipCompleteActions);
+  });
+});
+
+describe('skip onboarding', () => {
+  it('skipOnboarding', () => {
+    store.dispatch(skipOnboarding());
+    expect(navigatePush).toHaveBeenCalledWith(NOTIFICATION_PRIMER_SCREEN, {
+      onComplete: expect.any(Function),
+    });
+  });
+  it('skipOnboarding android', () => {
+    store = configureStore([thunk])();
+    common.isAndroid = true;
+    store.dispatch(skipOnboarding());
+    expect(store.getActions()).toEqual(skipCompleteActions);
   });
 });
