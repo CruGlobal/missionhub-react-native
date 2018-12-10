@@ -99,6 +99,10 @@
 		<string>icomoon.ttf</string>
 		<string>SourceSansPro-ExtraLight.ttf</string>
 		<string>SourceSansPro-Light.ttf</string>
+		<string>AntDesign.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
@@ -123,5 +127,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CodePushDeploymentKey</key>
+	<string>deployment-key-here</string>
 </dict>
 </plist>
