@@ -24,13 +24,7 @@ class LandingScreen extends Component {
   };
 
   communityCode = () => {
-    // TODO: switch back. For testing only
-    // this.props.dispatch(navigatePush(JOIN_BY_CODE_ONBOARDING_FLOW));
-    this.props.dispatch(
-      navigateReset(DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW, {
-        communityUrlCode: '4PS4EfHCY66bo-wXYgjXVA',
-      }),
-    );
+    this.props.dispatch(navigatePush(JOIN_BY_CODE_ONBOARDING_FLOW));
   };
 
   signIn = () => {

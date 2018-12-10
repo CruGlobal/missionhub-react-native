@@ -14,8 +14,8 @@ export const DeepLinkJoinCommunityAuthenticatedScreens = {
   [DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       DeepLinkConfirmJoinGroupScreen,
-      ({ communityId, communityCode }) => async dispatch => {
-        await dispatch(joinCommunity(communityId, communityCode));
+      ({ community: { id, community_url } }) => async dispatch => {
+        await dispatch(joinCommunity(id, null, community_url));
         dispatch(setScrollGroups());
         dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' })); // TODO: wrong place. go into group screen
       },
