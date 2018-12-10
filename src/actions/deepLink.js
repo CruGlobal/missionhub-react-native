@@ -38,12 +38,7 @@ const handleJoinCommunityDeepLink = (dispatch, url, hasAuth) => {
         }),
       );
     } else {
-      dispatch(
-        // TODO: wrong flow
-        navigateReset(DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW, {
-          communityUrlCode,
-        }),
-      );
+      dispatch({ type: 'testJoinCommunityUrlNoAuthAction', communityUrlCode });
       // TODO: nav to unauthenticated join community flow  which consists of:
       // 1. nav to you were invited screen
       // 2. nav to sign in/register
