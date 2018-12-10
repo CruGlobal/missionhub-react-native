@@ -45,7 +45,6 @@ import AddContactScreen, {
 import NotificationPrimerScreen, {
   NOTIFICATION_PRIMER_SCREEN,
 } from './containers/NotificationPrimerScreen';
-import ImpactScreen from './containers/ImpactScreen';
 import SetupPersonScreen, {
   SETUP_PERSON_SCREEN,
 } from './containers/SetupPersonScreen';
@@ -93,13 +92,7 @@ import PersonSideMenu from './components/PersonSideMenu';
 import { Flex, Icon, Text } from './components/common';
 import theme from './theme';
 import MainTabs from './containers/MainTabs';
-import {
-  IMPACT_TAB,
-  MAIN_TABS,
-  PEOPLE_TAB,
-  STEPS_TAB,
-  GROUPS_TAB,
-} from './constants';
+import { MAIN_TABS, PEOPLE_TAB, STEPS_TAB, GROUPS_TAB } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
 import {

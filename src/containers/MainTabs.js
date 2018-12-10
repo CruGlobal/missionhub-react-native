@@ -13,7 +13,7 @@ class MainTabs extends Component {
   }
 }
 
-const mapStateToProps = ({ auth }, { navigation }) => ({
+const mapStateToProps = (_, { navigation }) => ({
   startTab: (navigation.state.params || {}).startTab,
 });
 
