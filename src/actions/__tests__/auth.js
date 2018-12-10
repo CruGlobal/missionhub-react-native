@@ -62,6 +62,7 @@ const mockImplementation = implementation => {
 };
 
 const onSuccessfulLoginResult = { type: 'onSuccessfulLogin' };
+const destinationAfterUpgrade = 'screen after upgrade';
 
 beforeEach(() => {
   store = mockStore({
@@ -75,7 +76,12 @@ beforeEach(() => {
     },
   });
 
-  mockFnWithParams(login, 'onSuccessfulLogin', onSuccessfulLoginResult);
+  mockFnWithParams(
+    login,
+    'onSuccessfulLogin',
+    onSuccessfulLoginResult,
+    destinationAfterUpgrade,
+  );
 });
 
 describe('the key', () => {
@@ -115,61 +121,73 @@ describe('the key', () => {
 
   describe('key login', () => {
     it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then handle successful login', () => {
-      return store.dispatch(keyLogin(email, password)).then(() => {
-        expect(callApi.default).toHaveBeenCalledWith(
-          REQUESTS.KEY_LOGIN,
-          {},
-          data,
-        );
-        expect(callApi.default).toHaveBeenCalledWith(
-          REQUESTS.KEY_GET_TICKET,
-          {},
-          {},
-        );
-        expect(callApi.default).toHaveBeenCalledWith(
-          REQUESTS.TICKET_LOGIN,
-          {},
-          { code: ticket },
-        );
+      return store
+        .dispatch(
+          keyLogin(email, password, null, null, destinationAfterUpgrade),
+        )
+        .then(() => {
+          expect(callApi.default).toHaveBeenCalledWith(
+            REQUESTS.KEY_LOGIN,
+            {},
+            data,
+          );
+          expect(callApi.default).toHaveBeenCalledWith(
+            REQUESTS.KEY_GET_TICKET,
+            {},
+            {},
+          );
+          expect(callApi.default).toHaveBeenCalledWith(
+            REQUESTS.TICKET_LOGIN,
+            {},
+            { code: ticket },
+          );
 
-        expect(store.getActions()).toEqual([onSuccessfulLoginResult]);
-      });
+          expect(store.getActions()).toEqual([onSuccessfulLoginResult]);
+        });
     });
 
     it('should login to the key, get a key ticket, then send the key ticket to Missionhub API with client token, then handle successful login', () => {
-      return store.dispatch(keyLogin(email, password, null, true)).then(() => {
-        expect(callApi.default).toHaveBeenCalledWith(
-          REQUESTS.KEY_LOGIN,
-          {},
-          data,
-        );
-        expect(callApi.default).toHaveBeenCalledWith(
-          REQUESTS.KEY_GET_TICKET,
-          {},
-          {},
-        );
-        expect(callApi.default).toHaveBeenCalledWith(
-          REQUESTS.TICKET_LOGIN,
-          {},
-          { code: ticket, client_token: upgradeToken },
-        );
+      return store
+        .dispatch(
+          keyLogin(email, password, null, true, destinationAfterUpgrade),
+        )
+        .then(() => {
+          expect(callApi.default).toHaveBeenCalledWith(
+            REQUESTS.KEY_LOGIN,
+            {},
+            data,
+          );
+          expect(callApi.default).toHaveBeenCalledWith(
+            REQUESTS.KEY_GET_TICKET,
+            {},
+            {},
+          );
+          expect(callApi.default).toHaveBeenCalledWith(
+            REQUESTS.TICKET_LOGIN,
+            {},
+            { code: ticket, client_token: upgradeToken },
+          );
 
-        expect(store.getActions()).toEqual([onSuccessfulLoginResult]);
-      });
+          expect(store.getActions()).toEqual([onSuccessfulLoginResult]);
+        });
     });
 
     it('should send mfa code if passed', () => {
       const mfaCode = '123456';
 
-      return store.dispatch(keyLogin(email, password, mfaCode)).then(() => {
-        expect(callApi.default).toHaveBeenCalledWith(
-          REQUESTS.KEY_LOGIN,
-          {},
-          `${data}&thekey_mfa_token=${mfaCode}`,
-        );
+      return store
+        .dispatch(
+          keyLogin(email, password, mfaCode, null, destinationAfterUpgrade),
+        )
+        .then(() => {
+          expect(callApi.default).toHaveBeenCalledWith(
+            REQUESTS.KEY_LOGIN,
+            {},
+            `${data}&thekey_mfa_token=${mfaCode}`,
+          );
 
-        expect(store.getActions()).toEqual([onSuccessfulLoginResult]);
-      });
+          expect(store.getActions()).toEqual([onSuccessfulLoginResult]);
+        });
     });
   });
 

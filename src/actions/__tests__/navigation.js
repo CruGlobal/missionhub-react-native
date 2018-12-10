@@ -16,6 +16,7 @@ import {
   navigateBack,
   navigateReset,
   navigateReplace,
+  navigateNestedReset,
 } from '../navigation';
 
 const routeName = 'screenName';
@@ -72,6 +73,24 @@ describe('navigateReset', () => {
     expect(StackActions.reset).toHaveBeenCalledWith({
       index: 0,
       actions: ['newRouterState'],
+    });
+  });
+});
+
+describe('navigateNestedReset', () => {
+  const screen1 = 'roger';
+  const screen2 = 'the dummy';
+
+  it('should reset to a nested navigate stack', () => {
+    NavigationActions.navigate.mockImplementation(({ routeName }) => ({
+      routeName,
+    }));
+
+    navigateNestedReset(screen1, screen2)(jest.fn());
+
+    expect(StackActions.reset).toHaveBeenCalledWith({
+      index: 1,
+      actions: [{ routeName: screen1 }, { routeName: screen2 }],
     });
   });
 });

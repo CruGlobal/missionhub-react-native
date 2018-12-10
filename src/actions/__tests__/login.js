@@ -59,6 +59,18 @@ describe('onSuccessfulLogin', () => {
       'contact_assignments',
     );
     navigation.navigateReset = screen => ({ type: screen });
+    navigation.navigateNestedReset = (...screens) => ({ type: screens });
+  });
+
+  it('should navigate to create community with main tabs nested', async () => {
+    const screen = 'hello world';
+
+    await store.dispatch(onSuccessfulLogin(screen));
+
+    expect(store.getActions()).toEqual([
+      updateStatusResult,
+      { type: [MAIN_TABS, screen] },
+    ]);
   });
 
   it('should navigate to Get Started', async () => {

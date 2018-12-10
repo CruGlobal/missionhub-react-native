@@ -25,7 +25,12 @@ import {
 } from './organizations';
 import { resetPerson } from './onboardingProfile';
 
-export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
+export function openKeyURL(
+  baseURL,
+  onReturn,
+  upgradeAccount = false,
+  destinationAfterUpgrade,
+) {
   return dispatch => {
     global.Buffer = global.Buffer || Buffer.Buffer;
 
@@ -48,12 +53,14 @@ export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
       Linking.removeEventListener('url', onLinkBack);
       const code = event.url.split('code=')[1];
       onReturn();
+
       return dispatch(
         createAccountAndLogin(
           code,
           codeVerifier,
           redirectUri,
           upgradeAccount ? upgradeAccount : null,
+          destinationAfterUpgrade,
         ),
       );
     }
@@ -65,9 +72,16 @@ export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
   };
 }
 
-export function createAccountAndLogin(code, verifier, redirectUri, isUpgrade) {
+export function createAccountAndLogin(
+  code,
+  verifier,
+  redirectUri,
+  isUpgrade,
+  destinationAfterUpgrade,
+) {
   const data = `grant_type=authorization_code&client_id=${THE_KEY_CLIENT_ID}&code=${code}&code_verifier=${verifier}&redirect_uri=${redirectUri}`;
-  return getTokenAndLogin(data, isUpgrade);
+
+  return getTokenAndLogin(data, isUpgrade, destinationAfterUpgrade);
 }
 
 export function refreshAccessToken() {
@@ -81,7 +95,13 @@ export function refreshAccessToken() {
   };
 }
 
-export function keyLogin(email, password, mfaCode, isUpgrade = false) {
+export function keyLogin(
+  email,
+  password,
+  mfaCode,
+  isUpgrade = false,
+  destinationAfterUpgrade,
+) {
   let data =
     `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended` +
     `&username=${encodeURIComponent(email)}&password=${encodeURIComponent(
@@ -92,15 +112,15 @@ export function keyLogin(email, password, mfaCode, isUpgrade = false) {
     data = `${data}&thekey_mfa_token=${mfaCode}`;
   }
 
-  return getTokenAndLogin(data, isUpgrade);
+  return getTokenAndLogin(data, isUpgrade, destinationAfterUpgrade);
 }
 
-function getTokenAndLogin(data, isUpgrade) {
+function getTokenAndLogin(data, isUpgrade, destinationAfterUpgrade) {
   return async dispatch => {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
     await dispatch(getTicketAndLogin(isUpgrade));
 
-    return dispatch(onSuccessfulLogin());
+    return dispatch(onSuccessfulLogin(destinationAfterUpgrade));
   };
 }
 
@@ -151,11 +171,12 @@ export function logout(forcedLogout = false) {
   };
 }
 
-export function upgradeAccount(signupType) {
+export function upgradeAccount(signupType, destinationAfterUpgrade) {
   return dispatch => {
     dispatch(
       navigatePush(UPGRADE_ACCOUNT_SCREEN, {
         signupType,
+        destinationAfterUpgrade,
       }),
     );
   };
