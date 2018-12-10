@@ -4,15 +4,12 @@ import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { Button, Flex, Text } from '../../components/common';
-import { navigatePush, navigateReset } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { firstTime } from '../../actions/auth';
-import {
-  DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
-  JOIN_BY_CODE_ONBOARDING_FLOW,
-} from '../../routes/constants';
+import { JOIN_BY_CODE_ONBOARDING_FLOW } from '../../routes/constants';
 
 import styles from './styles';
 
