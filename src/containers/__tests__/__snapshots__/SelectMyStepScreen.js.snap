@@ -12,6 +12,7 @@ exports[`renders correctly for onboarding 1`] = `
   createStepTracking={
     Object {
       "level3": "steps",
+      "level4": undefined,
       "name": "onboarding : self : steps : create",
       "section": "onboarding",
       "subsection": "self",
@@ -37,6 +38,7 @@ exports[`renders correctly with back button 1`] = `
   createStepTracking={
     Object {
       "level3": "steps",
+      "level4": undefined,
       "name": "people : self : steps : create",
       "section": "people",
       "subsection": "self",
@@ -62,6 +64,7 @@ exports[`renders correctly without back button 1`] = `
   createStepTracking={
     Object {
       "level3": "steps",
+      "level4": undefined,
       "name": "people : self : steps : create",
       "section": "people",
       "subsection": "self",

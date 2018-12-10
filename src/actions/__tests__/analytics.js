@@ -133,6 +133,7 @@ describe('trackState', () => {
   const section = 'section';
   const subsection = 'subsection';
   const level3 = 'level 3';
+  const level4 = 'level 4';
   let expectedUpdatedContext;
 
   let trackingObj;
@@ -143,6 +144,7 @@ describe('trackState', () => {
       [ANALYTICS.SITE_SECTION]: section,
       [ANALYTICS.SITE_SUBSECTION]: subsection,
       [ANALYTICS.SITE_SUB_SECTION_3]: level3,
+      [ANALYTICS.SITE_SUB_SECTION_4]: level4,
       [ANALYTICS.MCID]: mcId,
       [ANALYTICS.SSO_GUID]: ssoGuid,
       [ANALYTICS.GR_MASTER_PERSON_ID]: grMasterPersonId,
@@ -153,6 +155,7 @@ describe('trackState', () => {
       section: section,
       subsection: subsection,
       level3: level3,
+      level4: level4,
     };
   });
 
@@ -270,6 +273,8 @@ describe('trackState', () => {
           [ANALYTICS.SITE_SECTION]: trackingObj.section,
           [ANALYTICS.SITE_SUBSECTION]: trackingObj.subsection,
           [ANALYTICS.SITE_SUB_SECTION_3]: trackingObj.level3,
+          [ANALYTICS.SITE_SUB_SECTION_4]: level4,
+
           [ANALYTICS.MCID]: mcid,
         },
         type: ANALYTICS_CONTEXT_CHANGED,
