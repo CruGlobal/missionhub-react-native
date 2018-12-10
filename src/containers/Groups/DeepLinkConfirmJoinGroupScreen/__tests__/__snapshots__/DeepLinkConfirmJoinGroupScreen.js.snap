@@ -6,8 +6,6 @@ exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
     Object {
       "backgroundColor": "#007398",
       "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
     }
   }
 >
@@ -24,13 +22,14 @@ exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
   />
   <Flex
     align="center"
-    justify="end"
+    justify="center"
     style={
       Object {
         "marginTop": 5,
         "minHeight": 400.2,
       }
     }
+    value={1}
   >
     <Flex
       align="center"
@@ -50,7 +49,7 @@ exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
         }
       >
         Sorry, we couldn't find your community.
-Double check your code.
+Double check your link.
       </MyText>
     </Flex>
   </Flex>
@@ -63,8 +62,6 @@ exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
     Object {
       "backgroundColor": "#007398",
       "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
     }
   }
 >
@@ -81,13 +78,14 @@ exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
   />
   <Flex
     align="center"
-    justify="end"
+    justify="center"
     style={
       Object {
         "marginTop": 5,
         "minHeight": 400.2,
       }
     }
+    value={1}
   >
     <Flex
       align="center"
@@ -107,7 +105,7 @@ exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
         }
       >
         Sorry, we couldn't find your community.
-Double check your code.
+Double check your link.
       </MyText>
     </Flex>
   </Flex>
@@ -120,8 +118,6 @@ exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
     Object {
       "backgroundColor": "#007398",
       "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
     }
   }
 >
@@ -138,13 +134,14 @@ exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
   />
   <Flex
     align="center"
-    justify="end"
+    justify="center"
     style={
       Object {
         "marginTop": 5,
         "minHeight": 400.2,
       }
     }
+    value={1}
   >
     <Flex
       align="center"
@@ -164,7 +161,7 @@ exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
         }
       >
         Sorry, we couldn't find your community.
-Double check your code.
+Double check your link.
       </MyText>
     </Flex>
   </Flex>
