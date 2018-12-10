@@ -1,8 +1,14 @@
 import { createStackNavigator } from 'react-navigation';
 
+import { navigatePush } from '../../actions/navigation';
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { joinCommunity } from '../../actions/organizations';
 import { setScrollGroups } from '../../actions/swipe';
+import { firstTime, loadHome } from '../../actions/auth';
+import {
+  completeOnboarding,
+  stashCommunityToJoin,
+} from '../../actions/onboardingProfile';
 import DeepLinkConfirmJoinGroupScreen, {
   DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN,
 } from '../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
@@ -18,15 +24,19 @@ import {
 
 export const DeepLinkJoinCommunityUnauthenticatedScreens = {
   [DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN]: buildTrackedScreen(
-    DeepLinkConfirmJoinGroupScreen,
-    ({ community }) => async dispatch => {
-      await dispatch(
-        joinCommunity(community.id, null, community.community_url),
-      );
-      dispatch(setScrollGroups());
-    },
+    wrapNextAction(
+      DeepLinkConfirmJoinGroupScreen,
+      ({ community }) => async dispatch => {
+        dispatch(stashCommunityToJoin({ community }));
+        dispatch(navigatePush(WELCOME_SCREEN, { allowSignIn: true }));
+      },
+    ),
   ),
-  [WELCOME_SCREEN]: buildTrackedScreen(WelcomeScreen, () => {}),
+  [WELCOME_SCREEN]: buildTrackedScreen(
+    wrapNextAction(WelcomeScreen, ({ signin }) => dispatch => {
+      dispatch(navigatePush(signin ? KEY_LOGIN_SCREEN : SETUP_SCREEN));
+    }),
+  ),
   [SETUP_SCREEN]: buildTrackedScreen(SetupScreen, () => {}),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(KeyLoginScreen, () => {}),
 };
