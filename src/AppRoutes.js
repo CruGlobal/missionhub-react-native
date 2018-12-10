@@ -190,13 +190,6 @@ const tabs = {
       tabBarLabel: navItem('people'),
     },
   ),
-  [IMPACT_TAB]: buildTrackedScreen(
-    ImpactScreen,
-    buildTrackingObj('impact', 'impact'),
-    {
-      tabBarLabel: navItem('impact'),
-    },
-  ),
   [GROUPS_TAB]: buildTrackedScreen(
     GroupsListScreen,
     buildTrackingObj('groups', 'groups'),
@@ -206,51 +199,38 @@ const tabs = {
   ),
 };
 
-const createTabs = (tabKey, tabPath, initialRouteName) => {
-  return createBottomTabNavigator(
-    {
-      StepsTab: tabs.StepsTab,
-      PeopleTab: tabs.PeopleTab,
-      [tabKey]: tabs[tabKey],
-    },
-    {
-      tabBarOptions: {
-        showIcon: false,
-        showLabel: true,
-        style: {
-          backgroundColor: theme.white,
-          paddingTop: 4,
-        },
-        activeTintColor: theme.primaryColor,
-        inactiveTintColor: theme.inactiveColor,
-        indicatorStyle: { backgroundColor: 'transparent' },
-        upperCaseLabel: false,
+const createTabs = initialRouteName => {
+  return createBottomTabNavigator(tabs, {
+    tabBarOptions: {
+      showIcon: false,
+      showLabel: true,
+      style: {
+        backgroundColor: theme.white,
+        paddingTop: 4,
+      },
+      activeTintColor: theme.primaryColor,
+      inactiveTintColor: theme.inactiveColor,
+      indicatorStyle: { backgroundColor: 'transparent' },
+      upperCaseLabel: false,
 
-        // Android
-        scrollEnabled: false,
-      },
-      swipeEnabled: false,
-      animationEnabled: false,
-      lazy: true,
-      paths: {
-        StepsTab: '/steps',
-        PeopleTab: '/people',
-        [tabKey]: tabPath,
-      },
-      initialRouteName,
+      // Android
+      scrollEnabled: false,
     },
-  );
+    swipeEnabled: false,
+    animationEnabled: false,
+    lazy: true,
+    paths: {
+      [STEPS_TAB]: '/steps',
+      [PEOPLE_TAB]: '/people',
+      [GROUPS_TAB]: '/groups',
+    },
+    initialRouteName,
+  });
 };
 
-export const MainTabBar = createTabs(IMPACT_TAB, '/impact');
-
-export const MainTabBarGroups = createTabs(GROUPS_TAB, '/groups');
+export const MainTabBarStartSteps = createTabs(STEPS_TAB);
 // Create another set of tabs with a different default tab
-export const MainTabBarGroupsStartGroups = createTabs(
-  GROUPS_TAB,
-  '/groups',
-  GROUPS_TAB,
-);
+export const MainTabBarStartGroups = createTabs(GROUPS_TAB);
 
 export const MAIN_TABS_SCREEN = buildTrackedScreen(
   createDrawerNavigator(
