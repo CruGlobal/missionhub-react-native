@@ -122,6 +122,7 @@ exports[`StageScreen renders correctly with back button 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
+              Object {},
             ]
           }
         >

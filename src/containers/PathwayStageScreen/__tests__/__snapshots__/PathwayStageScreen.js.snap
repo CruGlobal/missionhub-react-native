@@ -122,6 +122,7 @@ exports[`renders back button correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
+              Object {},
             ]
           }
         >
