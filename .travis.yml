@@ -59,7 +59,7 @@ matrix:
         - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
         - wget -qO- https://deb.nodesource.com/setup_8.x | sudo bash -
         - sudo apt-get install nodejs
-        - echo yes | sdkmanager "build-tools;26.0.1" # Android platform required by app
+        - echo yes | sdkmanager "build-tools;28.0.3" # Android platform required by app
         - echo yes | sdkmanager "build-tools;25.0.3" # Android platform required by some dependency
         - echo yes | sdkmanager "build-tools;23.0.1" # Android platform required by some dependency
 
