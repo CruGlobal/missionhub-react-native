@@ -19,6 +19,25 @@ export class SwipeTabMenu extends Component {
   };
   scrollView = undefined;
 
+  componentDidMount() {
+    const {
+      tabs,
+      navigation: {
+        state: {
+          params: { initialTab },
+        },
+      },
+    } = this.props;
+
+    if (initialTab) {
+      const initialIndex = tabs.findIndex(
+        tab => tab.navigationAction === initialTab,
+      );
+
+      initialIndex !== -1 && this.navigateToTab(initialIndex);
+    }
+  }
+
   componentDidUpdate() {
     this.scrollToTab(this.props.navigation.state.index, false);
   }

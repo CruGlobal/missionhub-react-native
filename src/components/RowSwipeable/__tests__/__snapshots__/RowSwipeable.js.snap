@@ -142,6 +142,7 @@ exports[`renders edit action correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
+              Object {},
             ]
           }
         >
@@ -342,6 +343,7 @@ exports[`renders remove/complete actions correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
+              Object {},
             ]
           }
         >
@@ -435,6 +437,7 @@ exports[`renders remove/complete actions correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
+              Object {},
             ]
           }
         >
