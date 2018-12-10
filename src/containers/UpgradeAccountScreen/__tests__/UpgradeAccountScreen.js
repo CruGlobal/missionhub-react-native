@@ -68,11 +68,14 @@ describe('a login button is clicked', () => {
   const openKeyResponse = { type: 'open key' };
   const facebookLoginResponse = { type: 'facebook login' };
   const successfulLoginResponse = { type: 'successful login' };
+  const destinationAfterUpgrade = 'some screen';
 
   beforeEach(() => {
     navigatePush.mockReturnValue(navigateResponse);
     screen = renderShallow(
-      <UpgradeAccountScreen navigation={createMockNavState({})} />,
+      <UpgradeAccountScreen
+        navigation={createMockNavState({ destinationAfterUpgrade })}
+      />,
       store,
     );
   });
@@ -82,6 +85,7 @@ describe('a login button is clicked', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(KEY_LOGIN_SCREEN, {
       upgradeAccount: true,
+      destinationAfterUpgrade,
     });
     expect(store.getActions()).toEqual([navigateResponse]);
   });
@@ -97,6 +101,7 @@ describe('a login button is clicked', () => {
         'login?action=signup',
         screen.instance().startLoad,
         true,
+        destinationAfterUpgrade,
       );
       expect(store.getActions()).toEqual([openKeyResponse]);
     });
@@ -118,7 +123,7 @@ describe('a login button is clicked', () => {
       expect(facebookLoginWithUsernamePassword).toHaveBeenCalledWith(
         true,
         screen.instance().startLoad,
-        onSuccessfulLogin,
+        expect.any(Function),
       );
     });
     it('loading wheel to be rendered', () => {

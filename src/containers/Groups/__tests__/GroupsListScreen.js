@@ -258,6 +258,9 @@ describe('GroupsListScreen', () => {
       .props()
       .onPress();
 
-    expect(upgradeAccount).toHaveBeenCalledWith(SIGNUP_TYPES.CREATE_COMMUNITY);
+    expect(upgradeAccount).toHaveBeenCalledWith(
+      SIGNUP_TYPES.CREATE_COMMUNITY,
+      CREATE_GROUP_SCREEN,
+    );
   });
 });

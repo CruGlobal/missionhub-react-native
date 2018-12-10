@@ -84,10 +84,12 @@ class GroupsListScreen extends Component {
 
   create = () => {
     const { dispatch, isFirstTime } = this.props;
+    const screen = CREATE_GROUP_SCREEN;
+
     dispatch(
       isFirstTime
-        ? upgradeAccount(SIGNUP_TYPES.CREATE_COMMUNITY)
-        : navigatePush(CREATE_GROUP_SCREEN),
+        ? upgradeAccount(SIGNUP_TYPES.CREATE_COMMUNITY, screen)
+        : navigatePush(screen),
     );
   };
 

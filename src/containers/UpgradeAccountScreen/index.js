@@ -46,9 +46,12 @@ class UpgradeAccountScreen extends Component {
   };
 
   login = () => {
-    this.props.dispatch(
+    const { dispatch, destinationAfterUpgrade } = this.props;
+
+    dispatch(
       navigatePush(KEY_LOGIN_SCREEN, {
         upgradeAccount: true,
+        destinationAfterUpgrade,
       }),
     );
   };
@@ -58,17 +61,24 @@ class UpgradeAccountScreen extends Component {
   };
 
   emailSignUp = () => {
-    this.props.dispatch(
-      openKeyURL('login?action=signup', this.startLoad, true),
+    const { dispatch, destinationAfterUpgrade } = this.props;
+
+    dispatch(
+      openKeyURL(
+        'login?action=signup',
+        this.startLoad,
+        true,
+        destinationAfterUpgrade,
+      ),
     );
   };
 
   facebookLogin = async () => {
-    const result = await this.props.dispatch(
-      facebookLoginWithUsernamePassword(
-        true,
-        this.startLoad,
-        onSuccessfulLogin,
+    const { dispatch, destinationAfterUpgrade } = this.props;
+
+    const result = await dispatch(
+      facebookLoginWithUsernamePassword(true, this.startLoad, () =>
+        onSuccessfulLogin(destinationAfterUpgrade),
       ),
     );
 

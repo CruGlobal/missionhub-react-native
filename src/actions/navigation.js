@@ -37,6 +37,23 @@ export function navigateReset(screen, props = {}) {
   };
 }
 
+export function navigateNestedReset(...screens) {
+  const actions = screens.reduce(
+    (actionsAccumulator, routeName) =>
+      actionsAccumulator.concat([NavigationActions.navigate({ routeName })]),
+    [],
+  );
+
+  return dispatch => {
+    dispatch(
+      StackActions.reset({
+        index: actions.length - 1,
+        actions,
+      }),
+    );
+  };
+}
+
 // The reset home and reset login are handled by the login/logout auth actions
 
 export function navigateReplace(screen, props = {}) {
