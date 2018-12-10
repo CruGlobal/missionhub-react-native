@@ -543,6 +543,7 @@ exports[`renders correctly for Create Community 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
+                  Object {},
                 ]
               }
             >
@@ -780,6 +781,7 @@ exports[`renders correctly for Create Community 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
+                    Object {},
                   ]
                 }
               >
@@ -902,6 +904,7 @@ exports[`renders correctly for Create Community 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
+                    Object {},
                   ]
                 }
               >
@@ -1405,6 +1408,7 @@ exports[`renders correctly with logo 1`] = `
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
+                  Object {},
                 ]
               }
             >
@@ -1581,6 +1585,7 @@ exports[`renders correctly with logo 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
+                    Object {},
                   ]
                 }
               >
@@ -1703,6 +1708,7 @@ exports[`renders correctly with logo 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
+                    Object {},
                   ]
                 }
               >

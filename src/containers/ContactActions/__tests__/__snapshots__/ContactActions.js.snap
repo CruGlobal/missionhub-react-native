@@ -120,6 +120,7 @@ exports[`renders dummy view 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                 },
+                Object {},
               ]
             }
           >
@@ -238,6 +239,7 @@ exports[`renders dummy view 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                 },
+                Object {},
               ]
             }
           >
@@ -356,6 +358,7 @@ exports[`renders dummy view 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                 },
+                Object {},
               ]
             }
           >
@@ -474,6 +477,7 @@ exports[`renders dummy view 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                 },
+                Object {},
               ]
             }
           >
@@ -592,6 +596,7 @@ exports[`renders dummy view 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                 },
+                Object {},
               ]
             }
           >
@@ -710,6 +715,7 @@ exports[`renders dummy view 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                 },
+                Object {},
               ]
             }
           >

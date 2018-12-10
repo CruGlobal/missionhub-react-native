@@ -1289,6 +1289,7 @@ exports[`renders correctly 1`] = `
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
+              Object {},
             ]
           }
         >
@@ -1635,6 +1636,7 @@ exports[`renders correctly 1`] = `
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                 },
+                Object {},
               ]
             }
           >
@@ -2032,6 +2034,7 @@ Please sign in so we know it's you.
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                 },
+                Object {},
               ]
             }
           >
