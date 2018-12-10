@@ -619,6 +619,9 @@ export default {
     search: 'Search',
     communityNotFound:
       "Sorry, we couldn't find your community.\nDouble check your code.",
+    communityNotFoundLink:
+      "Sorry, we couldn't find your community.\nDouble check your link.",
+    findingCommunity: 'Finding your new community...',
   },
   shareSurveyMenu: {
     shareMessage: '{{name}} {{url}}',
