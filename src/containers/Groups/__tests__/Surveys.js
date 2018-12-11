@@ -94,7 +94,6 @@ describe('Surveys', () => {
     const instance = renderShallow(component, store).instance();
     instance.handleSelect({ id: '1' });
     expect(navigatePush).toHaveBeenCalled();
-    expect(common.buildTrackingObj).toHaveBeenCalled();
   });
 
   it('should handleLoadMore correctly', () => {

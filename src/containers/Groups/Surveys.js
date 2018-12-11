@@ -43,12 +43,6 @@ class Surveys extends Component {
       navigatePush(GROUPS_SURVEY_CONTACTS, {
         organization,
         survey,
-        trackingObj: buildTrackingObj(
-          'communities : surveys : respondants',
-          'communities',
-          'surveys',
-          'respondants',
-        ),
       }),
     );
   };
