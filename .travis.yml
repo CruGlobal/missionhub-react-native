@@ -1,6 +1,7 @@
 matrix:
   include:
-    - language: node_js
+    - name: 'JS lint, test, i18n, and Codepush'
+      language: node_js
       node_js:
         - '9'
       script:
@@ -17,11 +18,12 @@ matrix:
           yarn run codepush-android-staging --token "$APPCENTER_TOKEN" --description "#$TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT_RANGE | $TRAVIS_COMMIT_MESSAGE";
           fi
       cache:
-        yarn: true
+        - yarn
 
-    - language: objective-c
+    - name: 'iOS Testflight Build'
+      language: objective-c
       if: branch = master and type = push
-      xcode_project: ios/Missionhub.xcodeproj
+      xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
       osx_image: xcode9.2
       env:
@@ -35,8 +37,14 @@ matrix:
         - bundler install
       script:
         - fastlane ios beta
+      cache:
+        - yarn
+        - cocoapods
+        - directories:
+            - /home/travis/.rvm/
 
-    - language: android
+    - name: 'Android Beta Build'
+      language: android
       android:
         components:
           - tools
@@ -70,9 +78,14 @@ matrix:
         - bundler install
       script:
         - fastlane android beta
+      cache:
+        - yarn
+        - directories:
+            - /home/travis/.rvm/
 
-    - language: objective-c
-      xcode_project: godtools.xcworkspace
+    - name: 'Fastlane release'
+      language: objective-c
+      xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
       osx_image: xcode9.2
       if: tag =~ ^v(\d+\.){1,}\d+
@@ -85,6 +98,9 @@ matrix:
         - cd ../android
         - bundler install
         - fastlane android release
+      cache:
+        - directories:
+            - /home/travis/.rvm/
 
 env:
   global:
