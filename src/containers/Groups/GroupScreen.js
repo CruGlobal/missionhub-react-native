@@ -217,37 +217,44 @@ export function getScreenForOrg(org) {
 export const GROUP_TABS = {
   [GROUP_CELEBRATE]: {
     tracking: buildTrackingObj(
-      'communities : group : celebrate',
+      'communities : celebration',
       'communities',
-      'community',
+      'celebration',
+    ),
+  },
+  [GROUP_CHALLENGES]: {
+    tracking: buildTrackingObj(
+      'communities : challenges',
+      'communities',
+      'challenges',
     ),
   },
   [GROUP_MEMBERS]: {
     tracking: buildTrackingObj(
-      'communities : group : members',
+      'communities : members',
       'communities',
-      'community',
+      'members',
     ),
   },
   [GROUP_IMPACT]: {
     tracking: buildTrackingObj(
-      'communities : group : impact',
+      'communities : our impact',
       'communities',
-      'community',
+      'our impact',
     ),
   },
   [GROUP_CONTACTS]: {
     tracking: buildTrackingObj(
-      'communities : group : contacts',
+      'communities : contacts',
       'communities',
-      'community',
+      'contacts',
     ),
   },
   [GROUP_SURVEYS]: {
     tracking: buildTrackingObj(
-      'communities : group : surveys',
+      'communities : surveys',
       'communities',
-      'community',
+      'surveys',
     ),
   },
 };

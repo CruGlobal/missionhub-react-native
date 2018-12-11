@@ -12,6 +12,7 @@ import {
   unassignedFilter,
   thirtyDaysFilter,
 } from '../../utils/filters';
+import { buildTrackingObj } from '../../utils/common';
 import Header from '../Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
@@ -95,6 +96,13 @@ class SurveyContacts extends Component {
     dispatch(
       navToPersonScreen(person, organization, {
         onAssign: this.handleRefreshSearchList,
+        trackingObj: buildTrackingObj(
+          'communities : surveys : respondants : contact',
+          'communities',
+          'surveys',
+          'respondants',
+          'contact',
+        ),
       }),
     );
   };

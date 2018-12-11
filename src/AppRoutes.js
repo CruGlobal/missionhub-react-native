@@ -192,7 +192,7 @@ const tabs = {
   ),
   [GROUPS_TAB]: buildTrackedScreen(
     GroupsListScreen,
-    buildTrackingObj('groups', 'groups'),
+    buildTrackingObj('communities', 'communities'),
     {
       tabBarLabel: navItem('groups'),
     },
@@ -367,9 +367,10 @@ const screens = {
   [GROUPS_SURVEY_CONTACTS]: buildTrackedScreen(
     SurveyContacts,
     buildTrackingObj(
-      'communities : community : survey contacts',
+      'communities : surveys : respondants',
       'communities',
-      'community',
+      'surveys',
+      'respondants',
     ),
     { gesturesEnabled: true },
   ),

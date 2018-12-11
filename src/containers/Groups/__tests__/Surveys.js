@@ -17,7 +17,7 @@ jest.mock('../../../actions/surveys', () => ({
   getOrgSurveys: jest.fn(() => ({ type: 'test' })),
   getOrgSurveysNextPage: jest.fn(() => ({ type: 'test' })),
 }));
-common.refresh = jest.fn();
+jest.mock('../../../utils/common');
 
 const surveys = [
   {
@@ -88,6 +88,9 @@ describe('Surveys', () => {
   });
 
   it('should handleSelect correctly', () => {
+    const buildTrackingResult = { name: 'screen name' };
+    common.buildTrackingObj.mockReturnValue(buildTrackingResult);
+
     const instance = renderShallow(component, store).instance();
     instance.handleSelect({ id: '1' });
     expect(navigatePush).toHaveBeenCalled();

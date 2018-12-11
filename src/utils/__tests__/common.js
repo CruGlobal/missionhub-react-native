@@ -2,6 +2,7 @@ import { DrawerActions } from 'react-navigation';
 import Config from 'react-native-config';
 
 import {
+  buildTrackingObj,
   userIsJean,
   orgIsPersonalMinistry,
   orgIsUserCreated,
@@ -34,6 +35,22 @@ jest.mock('react-navigation', () => ({
 
 const id = '123';
 const first_name = 'Roger';
+
+describe('buildTrackingObj', () => {
+  const name = 'screen name';
+  const section = 'section';
+  const subsection = 'subsection';
+  const level3 = 'level3';
+  const level4 = 'level4';
+
+  expect(buildTrackingObj(name, section, subsection, level3, level4)).toEqual({
+    name,
+    section,
+    subsection,
+    level3,
+    level4,
+  });
+});
 
 describe('userIsJean', () => {
   const caseyPermissions = [
