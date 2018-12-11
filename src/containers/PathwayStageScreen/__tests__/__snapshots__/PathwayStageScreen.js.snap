@@ -17,7 +17,6 @@ exports[`renders back button correctly 1`] = `
   }
 >
   <Image
-    resizeMode="contain"
     source={
       Object {
         "testUri": "../../../assets/images/landscapeStagesImage.png",
@@ -26,13 +25,13 @@ exports[`renders back button correctly 1`] = `
     style={
       Array [
         Object {
-          "bottom": -20,
-          "height": 340.875,
+          "bottom": -100,
+          "height": 275,
           "position": "absolute",
-          "width": 3710,
         },
         Object {
-          "left": -120,
+          "left": -150,
+          "width": 2360,
         },
       ]
     }
@@ -721,7 +720,6 @@ exports[`renders correctly 1`] = `
   }
 >
   <Image
-    resizeMode="contain"
     source={
       Object {
         "testUri": "../../../assets/images/landscapeStagesImage.png",
@@ -730,13 +728,13 @@ exports[`renders correctly 1`] = `
     style={
       Array [
         Object {
-          "bottom": -20,
-          "height": 340.875,
+          "bottom": -100,
+          "height": 275,
           "position": "absolute",
-          "width": 3710,
         },
         Object {
-          "left": -120,
+          "left": -150,
+          "width": 2360,
         },
       ]
     }
@@ -1331,7 +1329,6 @@ exports[`renders correctly without stages 1`] = `
   }
 >
   <Image
-    resizeMode="contain"
     source={
       Object {
         "testUri": "../../../assets/images/landscapeStagesImage.png",
@@ -1340,13 +1337,13 @@ exports[`renders correctly without stages 1`] = `
     style={
       Array [
         Object {
-          "bottom": -20,
-          "height": 340.875,
+          "bottom": -100,
+          "height": 275,
           "position": "absolute",
-          "width": 3710,
         },
         Object {
-          "left": -120,
+          "left": -150,
+          "width": 395,
         },
       ]
     }
@@ -1397,7 +1394,6 @@ exports[`renders firstItem correctly 1`] = `
   }
 >
   <Image
-    resizeMode="contain"
     source={
       Object {
         "testUri": "../../../assets/images/landscapeStagesImage.png",
@@ -1406,13 +1402,13 @@ exports[`renders firstItem correctly 1`] = `
     style={
       Array [
         Object {
-          "bottom": -20,
-          "height": 340.875,
+          "bottom": -100,
+          "height": 275,
           "position": "absolute",
-          "width": 3710,
         },
         Object {
-          "left": -120,
+          "left": -150,
+          "width": 2360,
         },
       ]
     }

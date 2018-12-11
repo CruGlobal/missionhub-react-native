@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { BackHandler, Platform, Keyboard } from 'react-native';
 import { DrawerActions } from 'react-navigation';
-import * as DeviceInfo from 'react-native-device-info';
+import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 import Config from 'react-native-config';
 
@@ -28,7 +28,7 @@ export const shuffleArray = arr => {
 };
 
 export const isAndroid = Platform.OS === 'android';
-export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';
+export const hasNotch = () => DeviceInfo.hasNotch();
 export const locale = DeviceInfo.getDeviceLocale();
 
 export const getAnalyticsSubsection = (personId, myId) =>

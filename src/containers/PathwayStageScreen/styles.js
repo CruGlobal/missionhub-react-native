@@ -2,11 +2,18 @@ import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
 
-const screenMargin = 60;
-const stageWidth = theme.fullWidth - screenMargin * 2;
-const stageMargin = theme.fullWidth / 30;
-const carouselWidth = screenMargin * 2 + stageWidth * 5 + stageMargin * 8;
-const overScrollMargin = 120;
+export const screenMargin = 60;
+export const sliderWidth = theme.fullWidth;
+export const stageWidth = theme.fullWidth - screenMargin * 2;
+export const stageMargin = theme.fullWidth / 30;
+export const overScrollMargin = 150;
+export const getLandscapeWidth = stages =>
+  stageWidth * stages +
+  stageMargin * (stages - 1) +
+  screenMargin * 2 +
+  overScrollMargin * 2;
+
+const landscapeHeight = 275;
 
 export default StyleSheet.create({
   container: {
@@ -51,8 +58,8 @@ export default StyleSheet.create({
   },
   footerImage: {
     position: 'absolute',
-    bottom: -20,
-    height: 0.4545 * theme.fullWidth,
-    width: carouselWidth + overScrollMargin * 2,
+    bottom: -100,
+    // height: 0.4 * theme.fullWidth,
+    height: landscapeHeight,
   },
 });
