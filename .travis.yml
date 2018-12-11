@@ -25,7 +25,7 @@ matrix:
       if: branch = master and type = push
       xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
-      osx_image: xcode9.2
+      osx_image: xcode10.1
       env:
         - ENVFILE=.env.production
       install:
@@ -87,7 +87,7 @@ matrix:
       language: objective-c
       xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
-      osx_image: xcode9.2
+      osx_image: xcode10.1
       if: tag =~ ^v(\d+\.){1,}\d+
       before_install:
         - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
