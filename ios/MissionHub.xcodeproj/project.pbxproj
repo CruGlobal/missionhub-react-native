@@ -35,7 +35,7 @@
 		61001658A68449B1826145A4 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF878C8F4E13424EBEB08505 /* libRNDeviceInfo.a */; };
 		63CCD346A5A94B92885F6266 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11EED27DCE4942CAAD01A388 /* libReactNativeConfig.a */; };
 		7D05064221B06A2A00840FB1 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
-		7D386A57219FEA6B00DA4A18 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		7D386A57219FEA6B00DA4A18 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		7D3BD3260324477BA89E88A6 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 558D776D127C41A297B33FFD /* EvilIcons.ttf */; };
 		7D747F827F2D4DD1A42BE6C4 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00698ADCD1D14CA4AA7ED311 /* libCodePush.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -1601,7 +1601,7 @@
 				FA45FFEB1FFE7DD100153E56 /* ADBMobileConfig.json in Resources */,
 				E9C86B0837B54AF5A72E3354 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				5CAB4F9E946B4554BF76FDE1 /* SourceSansPro-Light.ttf in Resources */,
-				7D386A57219FEA6B00DA4A18 /* (null) in Resources */,
+				7D386A57219FEA6B00DA4A18 /* BuildFile in Resources */,
 				156F31E96367427A96657BB4 /* AntDesign.ttf in Resources */,
 				33B0386D53CE49739F5D9211 /* FontAwesome5_Brands.ttf in Resources */,
 				9F46605033FE4372B99088CC /* FontAwesome5_Regular.ttf in Resources */,
@@ -1803,7 +1803,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6248;
+				CURRENT_PROJECT_VERSION = 6777;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1893,7 +1893,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6495;
+				CURRENT_PROJECT_VERSION = 6777;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = DQ48D9BF2V;
 				FRAMEWORK_SEARCH_PATHS = (
