@@ -8,8 +8,6 @@ import { Flex, Text, Button } from '../../components/common';
 import { disableBack } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
-import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
-import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
 

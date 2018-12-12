@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 import { NavigationActions, StackActions } from 'react-navigation';
 
 import { setupFirebaseDynamicLinks } from '../deepLink';
-import { navigateReset } from '../navigation';
 import { DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW } from '../../routes/constants';
 
 jest.mock('react-native-firebase', () => ({

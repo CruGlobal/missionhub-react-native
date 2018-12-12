@@ -25,7 +25,7 @@ export function onSuccessfulLogin(onComplete) {
     if (onComplete) {
       return onComplete();
     }
-    console.log('here');
+
     let nextScreen;
 
     if (mePerson.user.pathway_stage_id) {

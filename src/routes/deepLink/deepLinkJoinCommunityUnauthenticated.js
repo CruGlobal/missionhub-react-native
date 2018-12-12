@@ -5,7 +5,6 @@ import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj, isAndroid } from '../../utils/common';
 import { navigatePush, navigateReset } from '../../actions/navigation';
 import { joinCommunity } from '../../actions/organizations';
-import { setScrollGroups } from '../../actions/swipe';
 import { firstTime, loadHome } from '../../actions/auth';
 import {
   completeOnboarding,
@@ -19,9 +18,7 @@ import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import KeyLoginScreen, {
   KEY_LOGIN_SCREEN,
 } from '../../containers/KeyLoginScreen';
-import NotificationPrimerScreen, {
-  NOTIFICATION_PRIMER_SCREEN,
-} from '../../containers/NotificationPrimerScreen';
+import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 import {
   GROUP_SCREEN,
   USER_CREATED_GROUP_SCREEN,
@@ -38,22 +35,26 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
         dispatch(navigatePush(WELCOME_SCREEN, { allowSignIn: true }));
       },
     ),
+    buildTrackingObj('communities : join', 'communities', 'join'),
   ),
   [WELCOME_SCREEN]: buildTrackedScreen(
     wrapNextAction(WelcomeScreen, ({ signin }) => dispatch => {
       dispatch(navigatePush(signin ? KEY_LOGIN_SCREEN : SETUP_SCREEN));
     }),
+    buildTrackingObj('onboarding : welcome', 'onboarding'),
   ),
   [SETUP_SCREEN]: buildTrackedScreen(
     wrapNextAction(SetupScreen, () => (dispatch, getState) => {
       dispatch(firstTime());
       joinCommunityAndFinishOnboarding(dispatch, getState, false);
     }),
+    buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(
     wrapNextAction(KeyLoginScreen, () => (dispatch, getState) => {
       joinCommunityAndFinishOnboarding(dispatch, getState, true);
     }),
+    buildTrackingObj('auth : sign in', 'auth'),
   ),
 };
 export const DeepLinkJoinCommunityUnauthenticatedNavigator = createStackNavigator(

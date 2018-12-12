@@ -10,7 +10,6 @@ import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { firstTime } from '../../actions/auth';
 import { JOIN_BY_CODE_ONBOARDING_FLOW } from '../../routes/constants';
-import { DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW } from '../../routes/constants';
 
 import styles from './styles';
 
@@ -26,12 +25,7 @@ class LandingScreen extends Component {
   };
 
   signIn = () => {
-    this.props.dispatch(
-      //TODO: switch this back
-      navigatePush(DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW, {
-        communityUrlCode: '4PS4EfHCY66bo-wXYgjXVA',
-      }),
-    );
+    this.props.dispatch(navigatePush(KEY_LOGIN_SCREEN));
   };
 
   render() {
