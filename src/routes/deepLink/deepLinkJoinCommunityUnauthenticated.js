@@ -44,15 +44,16 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     buildTrackingObj('onboarding : welcome', 'onboarding'),
   ),
   [SETUP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SetupScreen, () => (dispatch, getState) => {
+    wrapNextAction(SetupScreen, () => async (dispatch, getState) => {
       dispatch(firstTime());
-      joinCommunityAndFinishOnboarding(dispatch, getState, false);
+      dispatch(completeOnboarding());
+      await joinCommunityAndFinish(dispatch, getState, false);
     }),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(
-    wrapNextAction(KeyLoginScreen, () => (dispatch, getState) => {
-      joinCommunityAndFinishOnboarding(dispatch, getState, true);
+    wrapNextAction(KeyLoginScreen, () => async (dispatch, getState) => {
+      await joinCommunityAndFinish(dispatch, getState, true);
     }),
     buildTrackingObj('auth : sign in', 'auth'),
   ),
@@ -66,15 +67,9 @@ export const DeepLinkJoinCommunityUnauthenticatedNavigator = createStackNavigato
   },
 );
 
-const joinCommunityAndFinishOnboarding = async (
-  dispatch,
-  getState,
-  isSignIn,
-) => {
-  dispatch(completeOnboarding());
-
+const joinCommunityAndFinish = async (dispatch, getState, isSignIn) => {
   const { community } = getState().profile;
-  await dispatch(joinCommunity(community.id, community.community_code));
+  await dispatch(joinCommunity(community.id, null, community.community_url));
 
   const notificationScreensPromise =
     isAndroid || isSignIn
