@@ -45,6 +45,11 @@ class KeyLoginScreen extends Component {
     this.setState({ isLoading: true });
   };
 
+  navigateToNext = () => {
+    const { dispatch, next } = this.props;
+    dispatch(next());
+  };
+
   handleForgotPassword = () => {
     this.props.dispatch(
       openKeyURL(
@@ -56,7 +61,7 @@ class KeyLoginScreen extends Component {
   };
 
   login = async () => {
-    const { dispatch, upgradeAccount, destinationAfterUpgrade } = this.props;
+    const { dispatch, upgradeAccount, next } = this.props;
     const { email, password } = this.state;
 
     this.setState({ errorMessage: '', isLoading: true });
@@ -68,7 +73,7 @@ class KeyLoginScreen extends Component {
           password,
           null,
           upgradeAccount,
-          destinationAfterUpgrade,
+          next ? this.navigateToNext : null,
         ),
       );
       Keyboard.dismiss();
@@ -106,13 +111,13 @@ class KeyLoginScreen extends Component {
   };
 
   facebookLogin = () => {
-    const { dispatch, upgradeAccount, destinationAfterUpgrade } = this.props;
+    const { dispatch, upgradeAccount, next } = this.props;
 
     dispatch(
       facebookLoginWithUsernamePassword(
         upgradeAccount || false,
         this.startLoad,
-        () => onSuccessfulLogin(destinationAfterUpgrade),
+        () => onSuccessfulLogin(next ? this.navigateToNext : null),
       ),
     ).then(result => {
       if (result) {

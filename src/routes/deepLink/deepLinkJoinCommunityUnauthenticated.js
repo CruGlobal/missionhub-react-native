@@ -1,4 +1,5 @@
 import { createStackNavigator } from 'react-navigation';
+import i18next from 'i18next';
 
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj, isAndroid } from '../../utils/common';
@@ -32,7 +33,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
   [DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       DeepLinkConfirmJoinGroupScreen,
-      ({ community }) => async dispatch => {
+      ({ community }) => dispatch => {
         dispatch(stashCommunityToJoin({ community }));
         dispatch(navigatePush(WELCOME_SCREEN, { allowSignIn: true }));
       },
@@ -44,15 +45,14 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     }),
   ),
   [SETUP_SCREEN]: buildTrackedScreen(
-    SetupScreen,
-    () => (dispatch, getState) => {
+    wrapNextAction(SetupScreen, () => (dispatch, getState) => {
       dispatch(firstTime());
-      joinCommunityAndFinishOnboarding(dispatch, getState);
-    },
+      joinCommunityAndFinishOnboarding(dispatch, getState, false);
+    }),
   ),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(
     wrapNextAction(KeyLoginScreen, () => (dispatch, getState) => {
-      joinCommunityAndFinishOnboarding(dispatch, getState);
+      joinCommunityAndFinishOnboarding(dispatch, getState, true);
     }),
   ),
 };
@@ -65,24 +65,29 @@ export const DeepLinkJoinCommunityUnauthenticatedNavigator = createStackNavigato
   },
 );
 
-const joinCommunityAndFinishOnboarding = async (dispatch, getState) => {
+const joinCommunityAndFinishOnboarding = async (
+  dispatch,
+  getState,
+  isSignIn,
+) => {
   dispatch(completeOnboarding());
 
   const { community } = getState().profile;
   await dispatch(joinCommunity(community.id, community.community_code));
 
-  const notificationScreensPromise = isAndroid
-    ? Promise.resolve()
-    : new Promise(resolve =>
-        dispatch(
-          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-            onComplete: resolve,
-            descriptionText: i18next.t(
-              'notificationPrimer:onboardingDescription',
-            ),
-          }),
-        ),
-      );
+  const notificationScreensPromise =
+    isAndroid || isSignIn
+      ? Promise.resolve()
+      : new Promise(resolve =>
+          dispatch(
+            navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+              onComplete: resolve,
+              descriptionText: i18next.t(
+                'notificationPrimer:onboardingDescription',
+              ),
+            }),
+          ),
+        );
 
   await Promise.all([dispatch(loadHome()), notificationScreensPromise]);
 

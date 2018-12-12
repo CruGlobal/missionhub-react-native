@@ -29,7 +29,7 @@ export function openKeyURL(
   baseURL,
   onReturn,
   upgradeAccount = false,
-  destinationAfterUpgrade,
+  onComplete,
 ) {
   return dispatch => {
     global.Buffer = global.Buffer || Buffer.Buffer;
@@ -60,7 +60,7 @@ export function openKeyURL(
           codeVerifier,
           redirectUri,
           upgradeAccount ? upgradeAccount : null,
-          destinationAfterUpgrade,
+          onComplete,
         ),
       );
     }
@@ -77,11 +77,11 @@ export function createAccountAndLogin(
   verifier,
   redirectUri,
   isUpgrade,
-  destinationAfterUpgrade,
+  onComplete,
 ) {
   const data = `grant_type=authorization_code&client_id=${THE_KEY_CLIENT_ID}&code=${code}&code_verifier=${verifier}&redirect_uri=${redirectUri}`;
 
-  return getTokenAndLogin(data, isUpgrade, destinationAfterUpgrade);
+  return getTokenAndLogin(data, isUpgrade, onComplete);
 }
 
 export function refreshAccessToken() {
@@ -100,7 +100,7 @@ export function keyLogin(
   password,
   mfaCode,
   isUpgrade = false,
-  destinationAfterUpgrade,
+  onComplete,
 ) {
   let data =
     `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended` +
@@ -112,15 +112,15 @@ export function keyLogin(
     data = `${data}&thekey_mfa_token=${mfaCode}`;
   }
 
-  return getTokenAndLogin(data, isUpgrade, destinationAfterUpgrade);
+  return getTokenAndLogin(data, isUpgrade, onComplete);
 }
 
-function getTokenAndLogin(data, isUpgrade, destinationAfterUpgrade) {
+function getTokenAndLogin(data, isUpgrade, onComplete) {
   return async dispatch => {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
     await dispatch(getTicketAndLogin(isUpgrade));
 
-    return dispatch(onSuccessfulLogin(destinationAfterUpgrade));
+    return dispatch(onSuccessfulLogin(onComplete));
   };
 }
 
@@ -171,12 +171,12 @@ export function logout(forcedLogout = false) {
   };
 }
 
-export function upgradeAccount(signupType, destinationAfterUpgrade) {
+export function upgradeAccount(signupType, onComplete) {
   return dispatch => {
     dispatch(
       navigatePush(UPGRADE_ACCOUNT_SCREEN, {
         signupType,
-        destinationAfterUpgrade,
+        onComplete,
       }),
     );
   };
