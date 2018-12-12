@@ -356,7 +356,6 @@ exports[`renders cru org contact without stage correctly 1`] = `
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
           ]
         }
       >

@@ -154,7 +154,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                         },
-                        Object {},
                       ]
                     }
                   >
@@ -601,7 +600,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
             ]
           }
         >
@@ -700,7 +698,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
             ]
           }
         >
@@ -799,7 +796,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
             ]
           }
         >
@@ -988,7 +984,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                         },
-                        Object {},
                       ]
                     }
                   >
@@ -1235,7 +1230,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
             ]
           }
         >
@@ -1334,7 +1328,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
             ]
           }
         >
@@ -1433,7 +1426,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
             ]
           }
         >

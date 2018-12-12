@@ -571,7 +571,6 @@ exports[`renders with an organization correctly 1`] = `
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
-                    Object {},
                   ]
                 }
               >
