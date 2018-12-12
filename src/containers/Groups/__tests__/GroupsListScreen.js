@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store';
 import GroupsListScreen from '../GroupsListScreen';
 import { renderShallow } from '../../../../testUtils';
 import { upgradeAccount } from '../../../actions/auth';
-import { navigatePush } from '../../../actions/navigation';
+import { navigatePush, navigateNestedReset } from '../../../actions/navigation';
 import { getMyCommunities } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { communitiesSelector } from '../../../selectors/organizations';
@@ -240,7 +240,7 @@ describe('GroupsListScreen', () => {
     expect(navigatePush).toHaveBeenCalledWith(CREATE_GROUP_SCREEN);
   });
 
-  it('navigates to Login Options Screen if not signed in', () => {
+  it('navigates to Upgrade Account Screen if not signed in', () => {
     const store = mockStore({
       organizations,
       auth: { isFirstTime: true },
@@ -260,7 +260,7 @@ describe('GroupsListScreen', () => {
 
     expect(upgradeAccount).toHaveBeenCalledWith(
       SIGNUP_TYPES.CREATE_COMMUNITY,
-      CREATE_GROUP_SCREEN,
+      expect.any(Function),
     );
   });
 });

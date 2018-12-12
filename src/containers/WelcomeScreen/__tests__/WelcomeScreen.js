@@ -43,6 +43,8 @@ describe('welcome screen methods', () => {
   let component;
 
   beforeEach(() => {
+    jest.clearAllMocks();
+
     const screen = shallow(
       <WelcomeScreen
         navigation={createMockNavState()}
@@ -67,13 +69,13 @@ describe('welcome screen methods', () => {
     component.navigateToNext();
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledTimes(1);
+    expect(next).toHaveBeenCalledWith({ signin: false });
   });
 
   it('sign in', () => {
-    navigation.navigatePush = jest.fn();
-
     component.signIn();
-    expect(navigation.navigatePush).toHaveBeenCalledWith(KEY_LOGIN_SCREEN);
+    expect(next).toHaveBeenCalledTimes(1);
+    expect(next).toHaveBeenCalledWith({ signin: true });
   });
 
   it('unmounts', () => {
