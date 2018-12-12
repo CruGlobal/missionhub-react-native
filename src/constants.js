@@ -54,7 +54,6 @@ export const CREATE_STEP = 'createStep';
 
 export const STEPS_TAB = 'StepsTab';
 export const PEOPLE_TAB = 'PeopleTab';
-export const IMPACT_TAB = 'ImpactTab';
 export const GROUPS_TAB = 'GroupsTab';
 
 export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';
@@ -115,6 +114,7 @@ export const ANALYTICS = {
   SITE_SECTION: 'cru.sitesection',
   SITE_SUBSECTION: 'cru.sitesubsection',
   SITE_SUB_SECTION_3: 'cru.subsectionlevel3',
+  SITE_SUB_SECTION_4: 'cru.subsectionlevel4',
   CONTENT_AUDIENCE_TARGET: 'cru.contentaudiencetarget',
   CONTENT_TOPIC: 'cru.contenttopic',
   LOGGED_IN_STATUS: 'cru.loggedinstatus',

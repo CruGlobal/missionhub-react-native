@@ -33,6 +33,7 @@ import {
   removeOrganizationMember,
   generateNewLink,
   joinCommunity,
+  lookupOrgCommunityUrl,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
 
@@ -716,6 +717,47 @@ describe('lookupOrgCommunityCode', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SEARCH_COMMUNITY_WITH_CODE,
     );
+    expect(result).toBe(null);
+  });
+});
+
+describe('lookupOrgCommunityUrl', () => {
+  const urlCode = '1234567890123456';
+  const orgId = '123';
+  const query = { community_url: urlCode };
+  const ownerQuery = {
+    filters: {
+      permissions: 'owner',
+      organization_ids: orgId,
+    },
+  };
+
+  const response = { id: orgId };
+  const apiResponse = { type: 'successful', response };
+  const trackActionResponse = { type: 'track actions' };
+
+  it('look up community by url code', async () => {
+    callApi.mockReturnValue(apiResponse);
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
+
+    await store.dispatch(lookupOrgCommunityUrl(urlCode));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.LOOKUP_COMMUNITY_URL, query);
+    // expect(trackActionWithoutData).toHaveBeenCalledWith(
+    //   ACTIONS.SEARCH_COMMUNITY_WITH_CODE,
+    // );
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, ownerQuery);
+  });
+
+  it('look up community by url code no org returned', async () => {
+    callApi.mockReturnValue({ type: 'error' });
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
+
+    const result = await store.dispatch(lookupOrgCommunityUrl(urlCode));
+
+    // expect(trackActionWithoutData).toHaveBeenCalledWith(
+    //   ACTIONS.SEARCH_COMMUNITY_WITH_CODE,
+    // );
     expect(result).toBe(null);
   });
 });
