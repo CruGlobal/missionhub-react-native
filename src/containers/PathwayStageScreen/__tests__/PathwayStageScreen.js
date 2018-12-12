@@ -24,6 +24,7 @@ jest.mock('react-native-device-info');
 
 const mockProps = {
   onSelect: jest.fn(),
+  onScrollToStage: jest.fn(),
   section: 'section',
   subsection: 'subsection',
 };

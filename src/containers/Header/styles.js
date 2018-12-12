@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
-import { isAndroid, isiPhoneX } from '../../utils/common';
+import { isAndroid, hasNotch } from '../../utils/common';
 
 function getMarginTop() {
-  return isiPhoneX() ? 17 : 0;
+  return hasNotch() ? 17 : 0;
 }
 
 export default StyleSheet.create({
@@ -44,7 +44,7 @@ export default StyleSheet.create({
   },
   // HeaderTwoLine styles
   headerTwoLine: {
-    marginTop: isiPhoneX() ? 8 : 2,
+    marginTop: hasNotch() ? 8 : 2,
     paddingHorizontal: 10,
   },
   headerTwoLine1: {

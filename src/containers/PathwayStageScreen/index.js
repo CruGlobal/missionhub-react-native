@@ -12,21 +12,21 @@ import CURIOUS from '../../../assets/images/curiousIcon.png';
 import FORGIVEN from '../../../assets/images/forgivenIcon.png';
 import GROWING from '../../../assets/images/growingIcon.png';
 import GUIDING from '../../../assets/images/guidingIcon.png';
+import NOTSURE from '../../../assets/images/notsureIcon.png';
 import { getStages } from '../../actions/stages';
-import theme from '../../theme';
 import { trackAction, trackState } from '../../actions/analytics';
 import { buildTrackingObj, disableBack } from '../../utils/common';
 import { ACTIONS } from '../../constants';
 
-import styles from './styles';
+import styles, {
+  sliderWidth,
+  stageWidth,
+  stageMargin,
+  overScrollMargin,
+  getLandscapeWidth,
+} from './styles';
 
-const screenMargin = 60;
-const sliderWidth = theme.fullWidth;
-const stageWidth = theme.fullWidth - screenMargin * 2;
-const stageMargin = theme.fullWidth / 30;
-const overScrollMargin = 120;
-
-const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING];
+const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
 const fallbackIndex = 0;
 
@@ -126,21 +126,27 @@ class PathwayStageScreen extends Component {
   }
 
   render() {
+    const { enableBackButton, questionText, stages, firstItem } = this.props;
     const leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Image
-          resizeMode="contain"
           source={LANDSCAPE}
-          style={[styles.footerImage, { left: leftMargin }]}
+          style={[
+            styles.footerImage,
+            {
+              left: leftMargin,
+              width: getLandscapeWidth((stages || []).length),
+            },
+          ]}
         />
-        {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
-        <Text style={styles.title}>{this.props.questionText}</Text>
-        {this.props.stages ? (
+        {enableBackButton ? <BackButton absolute={true} /> : null}
+        <Text style={styles.title}>{questionText}</Text>
+        {stages ? (
           <Carousel
-            firstItem={this.props.firstItem || fallbackIndex}
-            data={this.props.stages}
+            firstItem={firstItem || fallbackIndex}
+            data={stages}
             inactiveSlideOpacity={1}
             inactiveSlideScale={1}
             renderItem={this.renderStage}
