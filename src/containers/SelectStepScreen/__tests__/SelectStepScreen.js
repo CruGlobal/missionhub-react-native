@@ -41,6 +41,10 @@ const auth = {
   },
 };
 
+const org = { id: 2 };
+
+const receiverId = '1';
+
 const steps = {
   suggestedForOthers: {
     [contactStageId]: suggestions,
@@ -57,7 +61,10 @@ let onComplete = jest.fn();
 let createStepTracking = {};
 let enableBackButton = false;
 
-const createComponent = () => {
+const createComponent = async () => {
+  getStepSuggestions.mockReturnValue(
+    Promise.resolve({ response: suggestions }),
+  );
   component = renderShallow(
     <SelectStepScreen
       isMe={false}
@@ -66,13 +73,14 @@ const createComponent = () => {
       onComplete={onComplete}
       personFirstName={testName}
       enableBackButton={enableBackButton}
-      receiverId={1}
-      organization={{ id: 2 }}
+      receiverId={receiverId}
+      organization={org}
     />,
     store,
   );
   parallaxProps = component.find('ParallaxScrollView').props();
   instance = component.instance();
+  await Promise.resolve();
 };
 
 describe('mapStateToProps', () => {
@@ -126,8 +134,8 @@ describe('mapStateToProps', () => {
 });
 
 describe('SelectStepScreen', () => {
-  beforeEach(() => {
-    createComponent();
+  beforeEach(async () => {
+    await createComponent();
   });
 
   it('renders correctly', () => {
@@ -155,15 +163,9 @@ describe('SelectStepScreen', () => {
 });
 
 describe('componentDidMount', () => {
-  it('should not call getStepSuggestions if Redux has suggestions', () => {
-    createComponent();
-
-    expect(getStepSuggestions).not.toHaveBeenCalled();
-  });
-
-  it('should call getStepSuggestions if Redux has no suggestions', () => {
+  it('should call getStepSuggestions every time component mounts', async () => {
     store = createMockStore({ auth, steps: { suggestedForOthers: {} } });
-    createComponent();
+    await createComponent();
 
     expect(getStepSuggestions).toHaveBeenCalled();
     store = createMockStore({ auth, steps });
@@ -171,8 +173,8 @@ describe('componentDidMount', () => {
 });
 
 describe('renderSaveButton', () => {
-  it('should render save button', () => {
-    createComponent();
+  it('should render save button', async () => {
+    await createComponent();
 
     component.instance().handleSelectStep({ id: '1' });
     component.update();
@@ -181,9 +183,9 @@ describe('renderSaveButton', () => {
 });
 
 describe('renderBackButton', () => {
-  it('should render back button', () => {
+  it('should render back button', async () => {
     enableBackButton = true;
-    createComponent();
+    await createComponent();
 
     expect(component).toMatchSnapshot();
     enableBackButton = false;
@@ -191,11 +193,11 @@ describe('renderBackButton', () => {
 });
 
 describe('Navigation', () => {
-  it('navigates to add step screen', () => {
+  it('navigates to add step screen', async () => {
     navigation.navigatePush = jest.fn();
-    createStepTracking = 'this is a test tracking property';
+    createStepTracking = { test: 'this is a test tracking property' };
     onComplete = jest.fn();
-    createComponent();
+    await createComponent();
 
     instance.handleCreateStep();
 
@@ -210,8 +212,8 @@ describe('Navigation', () => {
 });
 
 describe('handleLoadSteps', () => {
-  beforeAll(() => {
-    createComponent();
+  beforeAll(async () => {
+    await createComponent();
   });
 
   it('Initially displays four suggestions', () => {
@@ -238,7 +240,7 @@ describe('saveAllSteps', () => {
   it('should add the selected steps', async () => {
     onComplete = jest.fn();
     addSteps.mockReturnValue(Promise.resolve());
-    createComponent();
+    await createComponent();
 
     instance.handleSelectStep({ id: '1' });
     instance.handleSelectStep({ id: '3' });
@@ -258,8 +260,8 @@ describe('saveAllSteps', () => {
           selected: true,
         },
       ],
-      1,
-      { id: 2 },
+      receiverId,
+      org,
     );
     expect(onComplete).toHaveBeenCalled();
   });

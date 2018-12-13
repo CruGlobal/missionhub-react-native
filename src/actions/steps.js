@@ -200,9 +200,10 @@ function challengeCompleteAction(step, screen) {
 
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then(
       challengeCompleteResult => {
-        const subsection = getAnalyticsSubsection(step.receiver.id, myId);
+        const receiver = step.receiver || {};
+        const subsection = getAnalyticsSubsection(receiver.id, myId);
 
-        dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
+        dispatch({ type: COMPLETED_STEP_COUNT, userId: receiver.id });
         dispatch(refreshImpact(step.organization && step.organization.id));
         dispatch(
           navigatePush(ADD_STEP_SCREEN, {
@@ -224,8 +225,8 @@ function challengeCompleteAction(step, screen) {
                 );
               }
 
-              const count = getState().steps.userStepCount[step.receiver.id];
-              const isMe = myId === `${step.receiver.id}`;
+              const count = getState().steps.userStepCount[receiver.id];
+              const isMe = myId === `${receiver.id}`;
 
               const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
               const subsection = isMe ? 'self' : 'person';
@@ -236,10 +237,32 @@ function challengeCompleteAction(step, screen) {
                 'steps',
               );
 
-              if (count % 3 === 0) {
+              let isPersonNotSure = false;
+
+              // Check if the person we're completing the step for is on the "not sure" stage
+              // If they are, always send them through the stage update flow.
+              if (!isMe) {
+                const receiverAssignment = (
+                  receiver.reverse_contact_assignments || []
+                ).find(
+                  a =>
+                    a && a.assigned_to ? `${a.assigned_to.id}` === myId : false,
+                );
+                const stageId =
+                  receiverAssignment && receiverAssignment.pathway_stage_id;
+                const stagesObj = getState().stages.stagesObj;
+                if (
+                  stagesObj[stageId] &&
+                  stagesObj[stageId].name_i18n === 'notsure_name'
+                ) {
+                  isPersonNotSure = true;
+                }
+              }
+
+              if (isPersonNotSure || count % 3 === 0) {
                 dispatch(
                   getPersonDetails(
-                    step.receiver.id,
+                    receiver.id,
                     step.organization && step.organization.id,
                   ),
                 ).then(personDetailResults => {
@@ -281,16 +304,23 @@ function challengeCompleteAction(step, screen) {
                     firstItem: firstItemIndex,
                     enableBackButton: false,
                     noNav: true,
-                    questionText: isMe
-                      ? i18next.t('selectStage:completed3StepsMe')
-                      : i18next.t('selectStage:completed3Steps', {
-                          name: step.receiver.first_name,
-                        }),
                   };
                   if (!isMe) {
+                    stageProps.questionText = i18next.t(
+                      isPersonNotSure
+                        ? 'selectStage:completed1Step'
+                        : 'selectStage:completed3Steps',
+                      {
+                        name: step.receiver.first_name,
+                      },
+                    );
                     stageProps.contactAssignmentId =
                       assignment && assignment.id;
                     stageProps.name = step.receiver.first_name;
+                  } else {
+                    stageProps.questionText = i18next.t(
+                      'selectStage:completed3StepsMe',
+                    );
                   }
 
                   dispatch(navigatePush(nextStageScreen, stageProps));
