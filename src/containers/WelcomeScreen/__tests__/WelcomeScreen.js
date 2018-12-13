@@ -10,11 +10,9 @@ import {
   createMockStore,
   createMockNavState,
 } from '../../../../testUtils';
-import * as navigation from '../../../actions/navigation';
 import * as common from '../../../utils/common';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
-import { KEY_LOGIN_SCREEN } from '../../KeyLoginScreen';
 
 const store = createMockStore();
 

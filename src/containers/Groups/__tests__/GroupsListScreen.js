@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store';
 import GroupsListScreen from '../GroupsListScreen';
 import { renderShallow } from '../../../../testUtils';
 import { upgradeAccount } from '../../../actions/auth';
-import { navigatePush, navigateNestedReset } from '../../../actions/navigation';
+import { navigatePush } from '../../../actions/navigation';
 import { getMyCommunities } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { communitiesSelector } from '../../../selectors/organizations';
