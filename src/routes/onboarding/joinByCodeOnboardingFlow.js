@@ -6,6 +6,9 @@ import { firstTime, loadHome } from '../../actions/auth';
 import {
   completeOnboarding,
   stashCommunityToJoin,
+  joinStashedCommunuity,
+  showNotificationPrompt,
+  landOnStashedCommunityScreen,
 } from '../../actions/onboardingProfile';
 import JoinGroupScreen, {
   JOIN_GROUP_SCREEN,
@@ -42,34 +45,10 @@ export const JoinByCodeOnboardingFlowScreens = {
     wrapNextAction(SetupScreen, () => async (dispatch, getState) => {
       dispatch(firstTime());
       dispatch(completeOnboarding());
-
-      const { community } = getState().profile;
-      await dispatch(joinCommunity(community.id, community.community_code));
-
-      const notificationScreensPromise = isAndroid
-        ? Promise.resolve()
-        : new Promise(resolve =>
-            dispatch(
-              navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-                onComplete: resolve,
-                descriptionText: i18next.t(
-                  'notificationPrimer:onboardingDescription',
-                ),
-              }),
-            ),
-          );
-
-      await Promise.all([dispatch(loadHome()), notificationScreensPromise]);
-
-      dispatch(
-        navigateReset(
-          community.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN,
-          {
-            organization: community,
-          },
-        ),
-      );
-      dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
+      await dispatch(joinStashedCommunuity());
+      await dispatch(showNotificationPrompt());
+      await dispatch(loadHome());
+      dispatch(landOnStashedCommunityScreen());
     }),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),

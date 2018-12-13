@@ -1,5 +1,4 @@
 import { createStackNavigator } from 'react-navigation';
-import i18next from 'i18next';
 
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj, isAndroid } from '../../utils/common';
@@ -9,6 +8,9 @@ import { firstTime, loadHome } from '../../actions/auth';
 import {
   completeOnboarding,
   stashCommunityToJoin,
+  joinStashedCommunuity,
+  showNotificationPrompt,
+  landOnStashedCommunityScreen,
 } from '../../actions/onboardingProfile';
 import DeepLinkConfirmJoinGroupScreen, {
   DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN,
@@ -19,10 +21,6 @@ import KeyLoginScreen, {
   KEY_LOGIN_SCREEN,
 } from '../../containers/KeyLoginScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
-import {
-  GROUP_SCREEN,
-  USER_CREATED_GROUP_SCREEN,
-} from '../../containers/Groups/GroupScreen';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 
@@ -47,13 +45,18 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     wrapNextAction(SetupScreen, () => async (dispatch, getState) => {
       dispatch(firstTime());
       dispatch(completeOnboarding());
-      await joinCommunityAndFinish(dispatch, getState, false);
+      await dispatch(joinStashedCommunuity());
+      await dispatch(showNotificationPrompt());
+      await dispatch(loadHome());
+      dispatch(landOnStashedCommunityScreen());
     }),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(
     wrapNextAction(KeyLoginScreen, () => async (dispatch, getState) => {
-      await joinCommunityAndFinish(dispatch, getState, true);
+      await dispatch(joinStashedCommunuity());
+      await dispatch(loadHome());
+      dispatch(landOnStashedCommunityScreen());
     }),
     buildTrackingObj('auth : sign in', 'auth'),
   ),
@@ -66,34 +69,3 @@ export const DeepLinkJoinCommunityUnauthenticatedNavigator = createStackNavigato
     },
   },
 );
-
-const joinCommunityAndFinish = async (dispatch, getState, isSignIn) => {
-  const { community } = getState().profile;
-  await dispatch(joinCommunity(community.id, null, community.community_url));
-
-  const notificationScreensPromise =
-    isAndroid || isSignIn
-      ? Promise.resolve()
-      : new Promise(resolve =>
-          dispatch(
-            navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-              onComplete: resolve,
-              descriptionText: i18next.t(
-                'notificationPrimer:onboardingDescription',
-              ),
-            }),
-          ),
-        );
-
-  await Promise.all([dispatch(loadHome()), notificationScreensPromise]);
-
-  dispatch(
-    navigateReset(
-      community.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN,
-      {
-        organization: community,
-      },
-    ),
-  );
-  dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
-};

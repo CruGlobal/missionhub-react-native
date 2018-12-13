@@ -1,5 +1,6 @@
 import uuidv4 from 'uuid/v4';
 import { Crashlytics } from 'react-native-fabric';
+import i18next from 'i18next';
 
 import {
   COMPLETE_ONBOARDING,
@@ -15,11 +16,16 @@ import {
 import { isAndroid, buildTrackingObj } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
+import {
+  GROUP_SCREEN,
+  USER_CREATED_GROUP_SCREEN,
+} from '../containers/Groups/GroupScreen';
 
 import callApi, { REQUESTS } from './api';
 import { updatePerson } from './person';
-import { navigatePush } from './navigation';
+import { navigatePush, navigateReset } from './navigation';
 import { trackActionWithoutData } from './analytics';
+import { joinCommunity } from './organizations';
 
 /*
 A user is considered to have completed onboarding once they've:
@@ -136,5 +142,50 @@ export function skipOnboarding() {
       );
     }
     return dispatch(skipOnboardingComplete());
+  };
+}
+
+export function joinStashedCommunuity() {
+  return async (dispatch, getState) => {
+    const { community } = getState().profile;
+    await dispatch(
+      joinCommunity(
+        community.id,
+        community.community_code,
+        community.community_url,
+      ),
+    );
+  };
+}
+
+export function showNotificationPrompt() {
+  return async dispatch => {
+    if (isAndroid) {
+      await new Promise(resolve =>
+        dispatch(
+          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+            onComplete: resolve,
+            descriptionText: i18next.t(
+              'notificationPrimer:onboardingDescription',
+            ),
+          }),
+        ),
+      );
+    }
+  };
+}
+
+export function landOnStashedCommunityScreen() {
+  return (dispatch, getState) => {
+    const { community } = getState().profile;
+    dispatch(
+      navigateReset(
+        community.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN,
+        {
+          organization: community,
+        },
+      ),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
   };
 }

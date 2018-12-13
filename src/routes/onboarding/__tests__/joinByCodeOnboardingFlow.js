@@ -5,6 +5,14 @@ import thunk from 'redux-thunk';
 import { JOIN_GROUP_SCREEN } from '../../../containers/Groups/JoinGroupScreen';
 import { JoinByCodeOnboardingFlowScreens } from '../joinByCodeOnboardingFlow';
 import { renderShallow } from '../../../../testUtils';
+import { firstTime, loadHome } from '../../../actions/auth';
+import {
+  completeOnboarding,
+  stashCommunityToJoin,
+  joinStashedCommunuity,
+  showNotificationPrompt,
+  landOnStashedCommunityScreen,
+} from '../../../actions/onboardingProfile';
 import callApi, { REQUESTS } from '../../../actions/api';
 import {
   COMPLETE_ONBOARDING,
@@ -17,6 +25,9 @@ import * as navigationActions from '../../../actions/navigation';
 import { GROUP_SCREEN } from '../../../containers/Groups/GroupScreen';
 
 jest.mock('../../../actions/api');
+jest.mock('../../../actions/auth');
+jest.mock('../../../actions/onboardingProfile');
+jest.mock('../../../actions/navigation');
 
 const community = { id: '1', community_code: '123456' };
 
@@ -30,11 +41,14 @@ const store = configureStore([thunk])({
 
 beforeEach(() => {
   store.clearActions();
-  callApi.mockClear();
+  jest.clearAllMocks();
+  navigationActions.navigatePush.mockReturnValue(() => Promise.resolve());
 });
 
 describe('JoinGroupScreen next', () => {
   it('should fire required next actions', async () => {
+    stashCommunityToJoin.mockReturnValue(() => Promise.resolve());
+
     const Component = JoinByCodeOnboardingFlowScreens[JOIN_GROUP_SCREEN].screen;
 
     await store.dispatch(
@@ -45,13 +59,8 @@ describe('JoinGroupScreen next', () => {
         }),
     );
 
-    expect(store.getActions()).toEqual([
-      {
-        type: STASH_COMMUNITY_TO_JOIN,
-        community,
-      },
-      { params: {}, routeName: WELCOME_SCREEN, type: 'Navigation/NAVIGATE' },
-    ]);
+    expect(stashCommunityToJoin).toHaveBeenCalledWith({ community });
+    expect(navigationActions.navigatePush).toHaveBeenCalledWith(WELCOME_SCREEN);
   });
 });
 
@@ -65,18 +74,21 @@ describe('WelcomeScreen next', () => {
         .props.next(),
     );
 
-    expect(store.getActions()).toEqual([
-      { params: {}, routeName: SETUP_SCREEN, type: 'Navigation/NAVIGATE' },
-    ]);
+    expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+      SETUP_SCREEN,
+      {},
+    );
   });
 });
 
 describe('SetupScreen next', () => {
   it('should fire required next actions', async () => {
-    callApi.mockReturnValue(() => Promise.resolve());
-    navigationActions.navigatePush = jest.fn((_, { onComplete }) =>
-      onComplete(),
-    );
+    firstTime.mockReturnValue(() => Promise.resolve());
+    completeOnboarding.mockReturnValue(() => Promise.resolve());
+    joinStashedCommunuity.mockReturnValue(() => Promise.resolve());
+    showNotificationPrompt.mockReturnValue(() => Promise.resolve());
+    loadHome.mockReturnValue(() => Promise.resolve());
+    landOnStashedCommunityScreen.mockReturnValue(() => Promise.resolve());
 
     const Component = JoinByCodeOnboardingFlowScreens[SETUP_SCREEN].screen;
 
@@ -86,37 +98,11 @@ describe('SetupScreen next', () => {
         .props.next(),
     );
 
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.JOIN_COMMUNITY,
-      {},
-      {
-        data: {
-          attributes: {
-            community_code: community.community_code,
-            organization_id: community.id,
-            permission_id: 4,
-            person_id: '1',
-          },
-          type: 'organizational_permission',
-        },
-      },
-    );
-
-    expect(store.getActions()).toEqual([
-      { type: FIRST_TIME },
-      { type: COMPLETE_ONBOARDING },
-      {
-        actions: [
-          {
-            params: { organization: community },
-            routeName: GROUP_SCREEN,
-            type: 'Navigation/NAVIGATE',
-          },
-        ],
-        index: 0,
-        key: null,
-        type: 'Navigation/RESET',
-      },
-    ]);
+    expect(firstTime).toHaveBeenCalled();
+    expect(completeOnboarding).toHaveBeenCalled();
+    expect(joinStashedCommunuity).toHaveBeenCalled();
+    expect(showNotificationPrompt).toHaveBeenCalled();
+    expect(loadHome).toHaveBeenCalled();
+    expect(landOnStashedCommunityScreen).toHaveBeenCalled();
   });
 });
