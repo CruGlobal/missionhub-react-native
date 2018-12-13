@@ -187,7 +187,7 @@ const tabs = [
 
 export const CRU_TABS = [tabs[0], ...tabs.slice(2, 6)];
 export const USER_CREATED_TABS = tabs.slice(0, 4);
-export const GLOBAL_TABS = [tabs[0], tabs[3]];
+export const GLOBAL_TABS = [tabs[0], tabs[1], tabs[3]];
 
 export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
   CRU_TABS,

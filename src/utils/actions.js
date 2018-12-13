@@ -40,7 +40,12 @@ function buildQuery(type, orgId, page, personId) {
       ? { filters: { subject_person_ids: personId } }
       : {}),
     ...(type === CHALLENGE
-      ? { filters: { organization_ids: orgId }, sort: '-active,-created_at' }
+      ? {
+          filters: {
+            organization_ids: orgId === GLOBAL_COMMUNITY_ID ? 'null' : orgId,
+          },
+          sort: '-active,-created_at',
+        }
       : {}),
   };
 }

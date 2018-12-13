@@ -601,6 +601,38 @@ describe('REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS', () => {
     });
   });
 
+  it('should recognize null organization_ids as global community', () => {
+    const newItems = [{ id: 'roge' }, { id: 'roger' }];
+
+    const state = organizations(
+      {
+        all: [
+          {
+            id: GLOBAL_COMMUNITY_ID,
+          },
+        ],
+      },
+      {
+        type: REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS,
+        query: {
+          filters: { organization_ids: 'null' },
+          page: {
+            limit: DEFAULT_PAGE_LIMIT,
+            offset: DEFAULT_PAGE_LIMIT,
+          },
+        },
+        meta: {
+          total: 1,
+        },
+        results: {
+          response: newItems,
+        },
+      },
+    );
+
+    expect(state).toMatchSnapshot();
+  });
+
   it('should do nothing if query page is less than current page', () => {
     const state = organizations(
       {

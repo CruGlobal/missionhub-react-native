@@ -97,7 +97,9 @@ function organizationsReducer(state = initialState, action) {
       const cQuery = action.query;
       const newItems = action.results.response;
       const cOrgId = isChallenge
-        ? cQuery.filters.organization_ids
+        ? cQuery.filters.organization_ids === 'null'
+          ? GLOBAL_COMMUNITY_ID
+          : cQuery.filters.organization_ids
         : cQuery.orgId;
       const curOrg = state.all.find(o => o.id === cOrgId);
       if (!curOrg) {
