@@ -190,6 +190,12 @@ function buildChallengeData(attributes) {
   };
 }
 
+function getReverseContactAssigment(person, myId) {
+  return (person.reverse_contact_assignments || []).find(
+    a => a && a.assigned_to && `${a.assigned_to.id}` === myId,
+  );
+}
+
 function challengeCompleteAction(step, screen) {
   return (dispatch, getState) => {
     const query = { challenge_id: step.id };
@@ -201,10 +207,11 @@ function challengeCompleteAction(step, screen) {
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then(
       challengeCompleteResult => {
         const receiver = step.receiver || {};
+        const stepOrg = step.organization || {};
         const subsection = getAnalyticsSubsection(receiver.id, myId);
 
         dispatch({ type: COMPLETED_STEP_COUNT, userId: receiver.id });
-        dispatch(refreshImpact(step.organization && step.organization.id));
+        dispatch(refreshImpact(stepOrg.id));
         dispatch(
           navigatePush(ADD_STEP_SCREEN, {
             trackingObj: buildTrackingObj(
@@ -242,14 +249,9 @@ function challengeCompleteAction(step, screen) {
               // Check if the person we're completing the step for is on the "not sure" stage
               // If they are, always send them through the stage update flow.
               if (!isMe) {
-                const receiverAssignment = (
-                  receiver.reverse_contact_assignments || []
-                ).find(
-                  a =>
-                    a && a.assigned_to ? `${a.assigned_to.id}` === myId : false,
-                );
-                const stageId =
-                  receiverAssignment && receiverAssignment.pathway_stage_id;
+                const receiverAssignment =
+                  getReverseContactAssigment(receiver, myId) || {};
+                const stageId = receiverAssignment.pathway_stage_id;
                 const stagesObj = getState().stages.stagesObj;
                 if (
                   stagesObj[stageId] &&
@@ -260,71 +262,59 @@ function challengeCompleteAction(step, screen) {
               }
 
               if (isPersonNotSure || count % 3 === 0) {
-                dispatch(
-                  getPersonDetails(
-                    receiver.id,
-                    step.organization && step.organization.id,
-                  ),
-                ).then(personDetailResults => {
-                  const assignment = (
-                    personDetailResults.person.reverse_contact_assignments || []
-                  ).find(
-                    a =>
-                      a && a.assigned_to
-                        ? `${a.assigned_to.id}` === myId
-                        : false,
-                  );
+                dispatch(getPersonDetails(receiver.id, stepOrg.id)).then(
+                  personDetailResults => {
+                    const assignment =
+                      getReverseContactAssigment(
+                        personDetailResults.person,
+                        myId,
+                      ) || {};
 
-                  const firstItemIndex = getStageIndex(
-                    getState().stages.stages,
-                    assignment && assignment.pathway_stage_id,
-                  );
+                    const firstItemIndex = getStageIndex(
+                      getState().stages.stages,
+                      assignment.pathway_stage_id,
+                    );
 
-                  const stageProps = {
-                    section: 'people',
-                    subsection: subsection,
-                    onComplete: () => {
-                      dispatch(
-                        navigatePush(CELEBRATION_SCREEN, {
-                          onComplete: () => {
-                            dispatch(navigateBack(3));
-                          },
-                          trackingObj: celebrationTrackingObj,
-                        }),
-                      );
+                    const stageProps = {
+                      section: 'people',
+                      subsection: subsection,
+                      onComplete: () => {
+                        dispatch(
+                          navigatePush(CELEBRATION_SCREEN, {
+                            onComplete: () => {
+                              dispatch(navigateBack(3));
+                            },
+                            trackingObj: celebrationTrackingObj,
+                          }),
+                        );
 
-                      dispatch(
-                        reloadJourney(
-                          step.receiver.id,
-                          step.organization && step.organization.id,
-                        ),
-                      );
-                    },
-                    contactId: isMe ? myId : step.receiver.id,
-                    firstItem: firstItemIndex,
-                    enableBackButton: false,
-                    noNav: true,
-                  };
-                  if (!isMe) {
-                    stageProps.questionText = i18next.t(
-                      isPersonNotSure
-                        ? 'selectStage:completed1Step'
-                        : 'selectStage:completed3Steps',
-                      {
-                        name: step.receiver.first_name,
+                        dispatch(reloadJourney(receiver.id, stepOrg.id));
                       },
-                    );
-                    stageProps.contactAssignmentId =
-                      assignment && assignment.id;
-                    stageProps.name = step.receiver.first_name;
-                  } else {
-                    stageProps.questionText = i18next.t(
-                      'selectStage:completed3StepsMe',
-                    );
-                  }
+                      contactId: isMe ? myId : receiver.id,
+                      firstItem: firstItemIndex,
+                      enableBackButton: false,
+                      noNav: true,
+                    };
+                    if (!isMe) {
+                      stageProps.questionText = i18next.t(
+                        isPersonNotSure
+                          ? 'selectStage:completed1Step'
+                          : 'selectStage:completed3Steps',
+                        {
+                          name: receiver.first_name,
+                        },
+                      );
+                      stageProps.contactAssignmentId = assignment.id;
+                      stageProps.name = receiver.first_name;
+                    } else {
+                      stageProps.questionText = i18next.t(
+                        'selectStage:completed3StepsMe',
+                      );
+                    }
 
-                  dispatch(navigatePush(nextStageScreen, stageProps));
-                });
+                    dispatch(navigatePush(nextStageScreen, stageProps));
+                  },
+                );
               } else {
                 dispatch(
                   navigatePush(CELEBRATION_SCREEN, {
