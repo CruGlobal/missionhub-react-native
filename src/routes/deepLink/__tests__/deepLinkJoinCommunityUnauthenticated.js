@@ -4,27 +4,19 @@ import thunk from 'redux-thunk';
 
 import { DeepLinkJoinCommunityUnauthenticatedScreens } from '../deepLinkJoinCommunityUnauthenticated';
 import { renderShallow } from '../../../../testUtils';
-import callApi, { REQUESTS } from '../../../actions/api';
 import * as navigationActions from '../../../actions/navigation';
 import * as common from '../../../utils/common';
-import { joinCommunity } from '../../../actions/organizations';
 import { firstTime, loadHome } from '../../../actions/auth';
 import {
   completeOnboarding,
   stashCommunityToJoin,
-  joinStashedCommunuity,
+  joinStashedCommunity,
   showNotificationPrompt,
   landOnStashedCommunityScreen,
 } from '../../../actions/onboardingProfile';
-import {
-  STASH_COMMUNITY_TO_JOIN,
-  FIRST_TIME,
-  COMPLETE_ONBOARDING,
-} from '../../../constants';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
 import { KEY_LOGIN_SCREEN } from '../../../containers/KeyLoginScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
-import { GROUP_SCREEN } from '../../../containers/Groups/GroupScreen';
 import { DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN } from '../../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
 
 jest.mock('../../../actions/api');
@@ -46,7 +38,6 @@ const store = configureStore([thunk])({
 beforeEach(() => {
   store.clearActions();
   jest.clearAllMocks();
-  callApi.mockReturnValue(() => Promise.resolve());
   navigationActions.navigatePush.mockReturnValue(() => Promise.resolve());
 });
 
@@ -136,7 +127,7 @@ describe('SetupScreen next', () => {
   it('should fire required next actions', async () => {
     firstTime.mockReturnValue(() => Promise.resolve());
     completeOnboarding.mockReturnValue(() => Promise.resolve());
-    joinStashedCommunuity.mockReturnValue(() => Promise.resolve());
+    joinStashedCommunity.mockReturnValue(() => Promise.resolve());
     showNotificationPrompt.mockReturnValue(() => Promise.resolve());
     loadHome.mockReturnValue(() => Promise.resolve());
     landOnStashedCommunityScreen.mockReturnValue(() => Promise.resolve());
@@ -159,7 +150,7 @@ describe('SetupScreen next', () => {
 
     expect(firstTime).toHaveBeenCalled();
     expect(completeOnboarding).toHaveBeenCalled();
-    expect(joinStashedCommunuity).toHaveBeenCalled();
+    expect(joinStashedCommunity).toHaveBeenCalled();
     expect(showNotificationPrompt).toHaveBeenCalled();
     expect(loadHome).toHaveBeenCalled();
     expect(landOnStashedCommunityScreen).toHaveBeenCalled();
@@ -168,7 +159,7 @@ describe('SetupScreen next', () => {
 
 describe('KeyLoginScreen next', () => {
   it('should fire required next actions', async () => {
-    joinStashedCommunuity.mockReturnValue(() => Promise.resolve());
+    joinStashedCommunity.mockReturnValue(() => Promise.resolve());
     loadHome.mockReturnValue(() => Promise.resolve());
     landOnStashedCommunityScreen.mockReturnValue(() => Promise.resolve());
 
@@ -188,7 +179,7 @@ describe('KeyLoginScreen next', () => {
         .props.next(),
     );
 
-    expect(joinStashedCommunuity).toHaveBeenCalled();
+    expect(joinStashedCommunity).toHaveBeenCalled();
     expect(loadHome).toHaveBeenCalled();
     expect(landOnStashedCommunityScreen).toHaveBeenCalled();
   });

@@ -9,20 +9,13 @@ import { firstTime, loadHome } from '../../../actions/auth';
 import {
   completeOnboarding,
   stashCommunityToJoin,
-  joinStashedCommunuity,
+  joinStashedCommunity,
   showNotificationPrompt,
   landOnStashedCommunityScreen,
 } from '../../../actions/onboardingProfile';
-import callApi, { REQUESTS } from '../../../actions/api';
-import {
-  COMPLETE_ONBOARDING,
-  FIRST_TIME,
-  STASH_COMMUNITY_TO_JOIN,
-} from '../../../constants';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import * as navigationActions from '../../../actions/navigation';
-import { GROUP_SCREEN } from '../../../containers/Groups/GroupScreen';
 
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/auth');
@@ -76,7 +69,7 @@ describe('WelcomeScreen next', () => {
 
     expect(navigationActions.navigatePush).toHaveBeenCalledWith(
       SETUP_SCREEN,
-      {},
+      undefined,
     );
   });
 });
@@ -85,7 +78,7 @@ describe('SetupScreen next', () => {
   it('should fire required next actions', async () => {
     firstTime.mockReturnValue(() => Promise.resolve());
     completeOnboarding.mockReturnValue(() => Promise.resolve());
-    joinStashedCommunuity.mockReturnValue(() => Promise.resolve());
+    joinStashedCommunity.mockReturnValue(() => Promise.resolve());
     showNotificationPrompt.mockReturnValue(() => Promise.resolve());
     loadHome.mockReturnValue(() => Promise.resolve());
     landOnStashedCommunityScreen.mockReturnValue(() => Promise.resolve());
@@ -100,7 +93,7 @@ describe('SetupScreen next', () => {
 
     expect(firstTime).toHaveBeenCalled();
     expect(completeOnboarding).toHaveBeenCalled();
-    expect(joinStashedCommunuity).toHaveBeenCalled();
+    expect(joinStashedCommunity).toHaveBeenCalled();
     expect(showNotificationPrompt).toHaveBeenCalled();
     expect(loadHome).toHaveBeenCalled();
     expect(landOnStashedCommunityScreen).toHaveBeenCalled();

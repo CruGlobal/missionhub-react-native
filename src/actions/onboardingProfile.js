@@ -145,7 +145,7 @@ export function skipOnboarding() {
   };
 }
 
-export function joinStashedCommunuity() {
+export function joinStashedCommunity() {
   return async (dispatch, getState) => {
     const { community } = getState().profile;
     await dispatch(
@@ -160,7 +160,7 @@ export function joinStashedCommunuity() {
 
 export function showNotificationPrompt() {
   return async dispatch => {
-    if (isAndroid) {
+    if (!isAndroid) {
       await new Promise(resolve =>
         dispatch(
           navigatePush(NOTIFICATION_PRIMER_SCREEN, {

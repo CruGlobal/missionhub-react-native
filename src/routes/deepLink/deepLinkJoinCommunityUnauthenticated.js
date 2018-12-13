@@ -1,14 +1,13 @@
 import { createStackNavigator } from 'react-navigation';
 
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
-import { buildTrackingObj, isAndroid } from '../../utils/common';
-import { navigatePush, navigateReset } from '../../actions/navigation';
-import { joinCommunity } from '../../actions/organizations';
+import { buildTrackingObj } from '../../utils/common';
+import { navigatePush } from '../../actions/navigation';
 import { firstTime, loadHome } from '../../actions/auth';
 import {
   completeOnboarding,
   stashCommunityToJoin,
-  joinStashedCommunuity,
+  joinStashedCommunity,
   showNotificationPrompt,
   landOnStashedCommunityScreen,
 } from '../../actions/onboardingProfile';
@@ -20,9 +19,6 @@ import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import KeyLoginScreen, {
   KEY_LOGIN_SCREEN,
 } from '../../containers/KeyLoginScreen';
-import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
-import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
 
 export const DeepLinkJoinCommunityUnauthenticatedScreens = {
   [DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN]: buildTrackedScreen(
@@ -42,10 +38,10 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     buildTrackingObj('onboarding : welcome', 'onboarding'),
   ),
   [SETUP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SetupScreen, () => async (dispatch, getState) => {
+    wrapNextAction(SetupScreen, () => async dispatch => {
       dispatch(firstTime());
       dispatch(completeOnboarding());
-      await dispatch(joinStashedCommunuity());
+      await dispatch(joinStashedCommunity());
       await dispatch(showNotificationPrompt());
       await dispatch(loadHome());
       dispatch(landOnStashedCommunityScreen());
@@ -53,8 +49,8 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(
-    wrapNextAction(KeyLoginScreen, () => async (dispatch, getState) => {
-      await dispatch(joinStashedCommunuity());
+    wrapNextAction(KeyLoginScreen, () => async dispatch => {
+      await dispatch(joinStashedCommunity());
       await dispatch(loadHome());
       dispatch(landOnStashedCommunityScreen());
     }),
