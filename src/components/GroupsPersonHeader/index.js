@@ -21,6 +21,7 @@ import { Flex } from '../common';
 import { openCommunicationLink } from '../../actions/misc';
 
 import styles from './styles';
+import Button from '../Button/index';
 
 @translate()
 export default class GroupsPersonHeader extends Component {
@@ -233,12 +234,13 @@ export default class GroupsPersonHeader extends Component {
       person,
       organization,
       isVisible,
+      isCruOrg,
     } = this.props;
     if (isVisible === false) {
       return null;
     }
 
-    return (
+    return isCruOrg ? (
       <Flex>
         {contactAssignment || myId === person.id ? null : (
           <AssignToMeButton person={person} organization={organization} />
@@ -247,6 +249,8 @@ export default class GroupsPersonHeader extends Component {
           {buttons}
         </Flex>
       </Flex>
+    ) : (
+      <Flex>{contactAssignment || myId === person.id ? <Button /> : null}</Flex>
     );
   }
 }
