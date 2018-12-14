@@ -11,22 +11,30 @@ export const peopleByOrgSelector = createSelector(
         ...org,
         people: Object.values(org.people)
           .filter(person => isAssignedToMeInOrganization(person, org, authUser))
-          .sort((a, b) => {
-            // Sort people in org by first name, then last name
-            // Keep "ME" person in front
-            if (a.id === authUser.id) {
-              return -1;
-            }
-            if (b.id === authUser.id) {
-              return 1;
-            }
-            return (
-              a.first_name.localeCompare(b.first_name) ||
-              a.last_name.localeCompare(b.last_name)
-            );
-          }),
+          .sort((a, b) => sortPeople(a, b, authUser)),
       }))
       .filter(o => o.people && (o.id === 'personal' || o.people.length > 0)),
+);
+
+export const allAssignedPeopleSelector = createSelector(
+  ({ people }) => people.allByOrg,
+  ({ auth }) => auth.person,
+  (orgs, authUser) => {
+    let allPeople = {};
+    removeHiddenOrgs(Object.values(orgs), authUser).forEach(org => {
+      const assigned = Object.values(org.people)
+        .filter(person => isAssignedToMeInOrganization(person, org, authUser))
+        .forEach(person => {
+          allPeople[person.id] = {
+            ...(allPeople[person.id] || {}),
+            ...person,
+          };
+        });
+    });
+    return (Object.values(allPeople) || []).sort((a, b) =>
+      sortPeople(a, b, authUser),
+    );
+  },
 );
 
 const isAssignedToMeInOrganization = (person, org, appUserPerson) => {
@@ -76,6 +84,21 @@ const sortWithPersonalInFront = (orgs, sortFn) =>
     }
     return sortFn(a, b);
   });
+
+const sortPeople = (a, b, authUser) => {
+  // Sort people in org by first name, then last name
+  // Keep "ME" person in front
+  if (a.id === authUser.id) {
+    return -1;
+  }
+  if (b.id === authUser.id) {
+    return 1;
+  }
+  return (
+    a.first_name.localeCompare(b.first_name) ||
+    a.last_name.localeCompare(b.last_name)
+  );
+};
 
 export const personSelector = createSelector(
   ({ people }) => people.allByOrg,

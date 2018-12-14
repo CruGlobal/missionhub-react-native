@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { getMyPeople } from '../../actions/people';
-import { peopleByOrgSelector } from '../../selectors/people';
+import {
+  peopleByOrgSelector,
+  allAssignedPeopleSelector,
+} from '../../selectors/people';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { getStagesIfNotExists } from '../../actions/stages';
 import { IconButton } from '../../components/common';
@@ -72,7 +75,7 @@ export class PeopleScreen extends Component {
   }
 
   render() {
-    const { orgs, isJean, t } = this.props;
+    const { items, isJean, t } = this.props;
     return (
       <View style={styles.pageContainer}>
         <Header
@@ -104,7 +107,7 @@ export class PeopleScreen extends Component {
         />
         <PeopleList
           sections={isJean}
-          items={orgs}
+          items={items}
           onSelect={this.handleRowSelect}
           onAddContact={this.handleAddContact}
           onRefresh={this.handleRefresh}
@@ -115,9 +118,14 @@ export class PeopleScreen extends Component {
   }
 }
 
-export const mapStateToProps = ({ auth, people }) => ({
-  isJean: auth.isJean,
-  orgs: peopleByOrgSelector({ people, auth }),
-});
+export const mapStateToProps = ({ auth, people }) => {
+  const { isJean } = auth;
+  return {
+    isJean,
+    items: isJean
+      ? peopleByOrgSelector({ people, auth })
+      : allAssignedPeopleSelector({ people, auth }),
+  };
+};
 
 export default connect(mapStateToProps)(PeopleScreen);
