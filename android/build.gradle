@@ -5,6 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'https://dl.bintray.com/android/android-tools' } // TODO: remove when pulling google-services from the google() repo works again https://stackoverflow.com/a/53709401/665224
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
