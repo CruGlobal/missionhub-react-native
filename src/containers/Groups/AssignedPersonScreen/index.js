@@ -239,7 +239,9 @@ export class AssignedPersonScreen extends Component {
           self="stretch"
         >
           <Text style={styles.name}>{name}</Text>
-          <PathwayStageDisplay orgId={organization.id} person={person} />
+          {isCruOrg ? (
+            <PathwayStageDisplay orgId={organization.id} person={person} />
+          ) : null}
           <GroupsPersonHeader
             isVisible={!keyboardVisible}
             isMember={isMember}
