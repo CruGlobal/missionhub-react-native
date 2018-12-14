@@ -20,9 +20,9 @@ export const allAssignedPeopleSelector = createSelector(
   ({ people }) => people.allByOrg,
   ({ auth }) => auth.person,
   (orgs, authUser) => {
-    let allPeople = {};
+    const allPeople = {};
     removeHiddenOrgs(Object.values(orgs), authUser).forEach(org => {
-      const assigned = Object.values(org.people)
+      Object.values(org.people)
         .filter(person => isAssignedToMeInOrganization(person, org, authUser))
         .forEach(person => {
           allPeople[person.id] = {
