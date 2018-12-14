@@ -8,8 +8,6 @@ import { Flex, Text, Button } from '../../components/common';
 import { disableBack } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
-import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
-import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
 
@@ -25,17 +23,16 @@ class WelcomeScreen extends Component {
     disableBack.remove();
   }
 
-  navigateToNext = () => {
+  navigateToNext = (signin = false) => {
     const { dispatch, next } = this.props;
     // Remove the back handler when moving forward
     disableBack.remove();
 
-    dispatch(next());
+    dispatch(next({ signin }));
   };
 
   signIn = () => {
-    // TODO: Need to pass props to let this screen know the user needs to join a community after signing in
-    this.props.dispatch(navigatePush(KEY_LOGIN_SCREEN));
+    this.navigateToNext(true);
   };
 
   render() {

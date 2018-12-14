@@ -1,6 +1,7 @@
 import { Crashlytics } from 'react-native-fabric';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import i18next from 'i18next';
 
 import {
   firstNameChanged,
@@ -14,7 +15,12 @@ import {
   stashCommunityToJoin,
   skipOnboarding,
   skipOnboardingComplete,
+  joinStashedCommunity,
+  showNotificationPrompt,
+  landOnStashedCommunityScreen,
 } from '../onboardingProfile';
+import { joinCommunity } from '../organizations';
+import { trackActionWithoutData } from '../analytics';
 import {
   COMPLETE_ONBOARDING,
   FIRST_NAME_CHANGED,
@@ -23,19 +29,26 @@ import {
   PERSON_LAST_NAME_CHANGED,
   RESET_ONBOARDING_PERSON,
   STASH_COMMUNITY_TO_JOIN,
+  ACTIONS,
 } from '../../constants';
 import * as common from '../../utils/common';
 import callApi, { REQUESTS } from '../api';
-import { navigatePush } from '../navigation';
+import { navigatePush, navigateReset } from '../navigation';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
+import {
+  GROUP_SCREEN,
+  USER_CREATED_GROUP_SCREEN,
+} from '../../containers/Groups/GroupScreen';
 
 jest.mock('../api');
 jest.mock('../navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'push' })),
+  navigateReset: jest.fn(() => ({ type: 'reset' })),
 }));
 jest.mock('../analytics', () => ({
   trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
 }));
+jest.mock('../organizations');
 
 let store = configureStore([thunk])();
 
@@ -43,8 +56,7 @@ const dispatch = jest.fn(response => Promise.resolve(response));
 
 beforeEach(() => {
   common.isAndroid = false;
-  dispatch.mockClear();
-  callApi.mockClear();
+  jest.clearAllMocks();
 });
 
 describe('completeOnboarding', () => {
@@ -177,5 +189,108 @@ describe('skip onboarding', () => {
     common.isAndroid = true;
     store.dispatch(skipOnboarding());
     expect(store.getActions()).toEqual(skipCompleteActions);
+  });
+});
+
+describe('join stashed community', () => {
+  it('joinStashedCommunuity', async () => {
+    joinCommunity.mockReturnValue(() => Promise.resolve());
+
+    const community = {
+      id: '1',
+      community_code: '123456',
+      community_url: 'abcdef',
+    };
+
+    store = configureStore([thunk])({
+      profile: {
+        community,
+      },
+    });
+
+    await store.dispatch(joinStashedCommunity());
+
+    expect(joinCommunity).toHaveBeenCalledWith(
+      community.id,
+      community.community_code,
+      community.community_url,
+    );
+  });
+});
+
+describe('show notification prompt', () => {
+  it('showNotificationPrompt shows notification prompt for iOS', async () => {
+    navigatePush.mockImplementation((_, { onComplete }) => onComplete());
+
+    store = configureStore([thunk])();
+    common.isAndroid = false;
+
+    await store.dispatch(showNotificationPrompt());
+
+    expect(navigatePush).toHaveBeenCalledWith(NOTIFICATION_PRIMER_SCREEN, {
+      onComplete: expect.any(Function),
+      descriptionText: i18next.t('notificationPrimer:onboardingDescription'),
+    });
+  });
+
+  it('showNotificationPrompt does not show notification prompt for Android', async () => {
+    navigatePush.mockImplementation((_, { onComplete }) => onComplete());
+
+    store = configureStore([thunk])();
+    common.isAndroid = true;
+
+    await store.dispatch(showNotificationPrompt());
+
+    expect(navigatePush).not.toHaveBeenCalled();
+  });
+});
+
+describe('land on stashed community screen', () => {
+  it('landOnStashedCommunityScreen navigates to GroupScreen', async () => {
+    const community = {
+      id: '1',
+      community_code: '123456',
+      community_url: 'abcdef',
+      user_created: false,
+    };
+
+    store = configureStore([thunk])({
+      profile: {
+        community,
+      },
+    });
+
+    await store.dispatch(landOnStashedCommunityScreen());
+
+    expect(navigateReset).toHaveBeenCalledWith(GROUP_SCREEN, {
+      organization: community,
+    });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SELECT_JOINED_COMMUNITY,
+    );
+  });
+
+  it('landOnStashedCommunityScreen navigates to UserCreatedGroupScreen', async () => {
+    const community = {
+      id: '1',
+      community_code: '123456',
+      community_url: 'abcdef',
+      user_created: true,
+    };
+
+    store = configureStore([thunk])({
+      profile: {
+        community,
+      },
+    });
+
+    await store.dispatch(landOnStashedCommunityScreen());
+
+    expect(navigateReset).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
+      organization: community,
+    });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SELECT_JOINED_COMMUNITY,
+    );
   });
 });

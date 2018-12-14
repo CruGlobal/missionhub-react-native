@@ -6,11 +6,11 @@ import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { ACTIONS, MAIN_TABS } from '../constants';
 
 import { getMe } from './person';
-import { navigateReset, navigateNestedReset } from './navigation';
+import { navigateReset } from './navigation';
 import { logInAnalytics, trackActionWithoutData } from './analytics';
 import { completeOnboarding } from './onboardingProfile';
 
-export function onSuccessfulLogin(destinationAfterUpgrade) {
+export function onSuccessfulLogin(onComplete) {
   return async (dispatch, getState) => {
     dispatch(logInAnalytics());
 
@@ -22,8 +22,8 @@ export function onSuccessfulLogin(destinationAfterUpgrade) {
     const mePerson = await dispatch(getMe('contact_assignments'));
     RNOmniture.syncIdentifier(mePerson.global_registry_mdm_id);
 
-    if (destinationAfterUpgrade) {
-      return dispatch(navigateNestedReset(MAIN_TABS, destinationAfterUpgrade));
+    if (onComplete) {
+      return onComplete();
     }
 
     let nextScreen;

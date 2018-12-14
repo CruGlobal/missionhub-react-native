@@ -60,15 +60,13 @@ describe('onSuccessfulLogin', () => {
     navigation.navigateNestedReset = (...screens) => ({ type: screens });
   });
 
-  it('should navigate to create community with main tabs nested', async () => {
-    const screen = 'hello world';
+  it('should call onComplete if it exists', async () => {
+    const onComplete = jest.fn();
 
-    await store.dispatch(onSuccessfulLogin(screen));
+    await store.dispatch(onSuccessfulLogin(onComplete));
 
-    expect(store.getActions()).toEqual([
-      updateStatusResult,
-      { type: [MAIN_TABS, screen] },
-    ]);
+    expect(onComplete).toHaveBeenCalledWith();
+    expect(store.getActions()).toEqual([updateStatusResult]);
   });
 
   it('should navigate to Get Started', async () => {

@@ -240,7 +240,7 @@ describe('GroupsListScreen', () => {
     expect(navigatePush).toHaveBeenCalledWith(CREATE_GROUP_SCREEN);
   });
 
-  it('navigates to Login Options Screen if not signed in', () => {
+  it('navigates to Upgrade Account Screen if not signed in', () => {
     const store = mockStore({
       organizations,
       auth: { isFirstTime: true },
@@ -260,7 +260,7 @@ describe('GroupsListScreen', () => {
 
     expect(upgradeAccount).toHaveBeenCalledWith(
       SIGNUP_TYPES.CREATE_COMMUNITY,
-      CREATE_GROUP_SCREEN,
+      expect.any(Function),
     );
   });
 });
