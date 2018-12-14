@@ -16,7 +16,11 @@ import { Flex, Button } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
-import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
+import {
+  buildTrackingObj,
+  getAnalyticsSubsection,
+  orgIsCru,
+} from '../../utils/common';
 import { promptToAssign } from '../../utils/promptToAssign';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
@@ -127,11 +131,21 @@ class ContactSteps extends Component {
   }
 
   async handleAssign() {
-    const { dispatch, person, organization, myId } = this.props;
+    const {
+      dispatch,
+      person,
+      organization,
+      myId,
+      showAssignPrompt,
+    } = this.props;
 
-    if (await promptToAssign()) {
-      dispatch(assignContactAndPickStage(person, organization, myId));
+    if (showAssignPrompt) {
+      if (!(await promptToAssign())) {
+        return;
+      }
     }
+
+    dispatch(assignContactAndPickStage(person, organization, myId));
   }
 
   handleCreateStep = () => {
@@ -235,6 +249,7 @@ const mapStateToProps = (
     ) || navPerson;
 
   return {
+    showAssignPrompt: orgIsCru(organization),
     showBump: swipe.stepsContact,
     myId: auth.person.id,
     steps:
