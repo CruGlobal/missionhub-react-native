@@ -115,7 +115,7 @@ describe('Contact', () => {
       <AssignedPersonScreen
         {...props}
         pathwayStage={{ name: 'stage 4' }}
-        organization={{ ...organization, user_created: true }}
+        isCruOrg={false}
       />,
     );
   });
