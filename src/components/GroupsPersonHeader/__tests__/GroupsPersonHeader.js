@@ -68,9 +68,24 @@ beforeEach(() => {
 });
 
 describe('is self', () => {
-  it('renders', () => {
+  it('renders for Cru Community', () => {
     testSnapshotShallow(
-      <GroupsPersonHeader {...props} myId={person.id} isMember={true} />,
+      <GroupsPersonHeader
+        {...props}
+        myId={person.id}
+        isMember={true}
+        isCruOrg={true}
+      />,
+    );
+  });
+  it('renders for User Created Community', () => {
+    testSnapshotShallow(
+      <GroupsPersonHeader
+        {...props}
+        myId={person.id}
+        isMember={true}
+        isCruOrg={false}
+      />,
     );
   });
 
@@ -121,7 +136,7 @@ describe('isMember', () => {
     );
   });
 
-  it('renders no contact buttons for User-Created Org', () => {
+  it('renders null with no contact assignment for User-Created Org', () => {
     testSnapshotShallow(
       <GroupsPersonHeader {...props} isMember={true} isCruOrg={false} />,
     );
@@ -133,11 +148,22 @@ describe('isMember', () => {
       getPersonPhoneNumber.mockReturnValue(phoneNumber);
     });
 
-    it('renders', () => {
+    it('renders for Cru Community', () => {
       testSnapshotShallow(
         <GroupsPersonHeader
           {...props}
           isMember={true}
+          contactAssignment={contactAssignment}
+        />,
+      );
+    });
+
+    it('renders for User-Created Community', () => {
+      testSnapshotShallow(
+        <GroupsPersonHeader
+          {...props}
+          isMember={true}
+          isCruOrg={false}
           contactAssignment={contactAssignment}
         />,
       );
@@ -250,7 +276,12 @@ describe('isContact', () => {
 
     it('renders no contact buttons if not Cru Org', () => {
       testSnapshotShallow(
-        <GroupsPersonHeader {...props} isMember={false} isCruOrg={false} />,
+        <GroupsPersonHeader
+          {...props}
+          isMember={false}
+          isCruOrg={false}
+          contactAssignment={contactAssignment}
+        />,
       );
     });
 
