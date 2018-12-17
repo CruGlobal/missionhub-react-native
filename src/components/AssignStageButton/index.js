@@ -5,15 +5,6 @@ import { translate } from 'react-i18next';
 
 import { Button } from '../common';
 import {
-  assignContactAndPickStage,
-  loadStepsAndJourney,
-} from '../../actions/misc';
-import { navigatePush } from '../../actions/navigation';
-import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
-import { getStageIndex } from '../../utils/common';
-import { PERSON_STAGE_SCREEN } from '../../containers/PersonStageScreen';
-import { STAGE_SCREEN } from '../../containers/StageScreen';
-import {
   contactAssignmentSelector,
   personSelector,
 } from '../../selectors/people';

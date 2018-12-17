@@ -22,7 +22,6 @@ import { Flex } from '../common';
 import { openCommunicationLink } from '../../actions/misc';
 
 import styles from './styles';
-import Button from '../Button/index';
 
 @translate()
 export default class GroupsPersonHeader extends Component {
@@ -234,10 +233,6 @@ export default class GroupsPersonHeader extends Component {
         wrapperStyle={flexStyle}
       />
     );
-  }
-
-  renderStageButton() {
-    return <Button onPress={() => {}} pill={true} />;
   }
 
   render() {

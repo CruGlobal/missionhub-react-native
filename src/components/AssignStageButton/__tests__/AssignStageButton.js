@@ -2,11 +2,8 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
-import {
-  contactAssignmentSelector,
-  personSelector,
-} from '../../../selectors/people';
+import { testSnapshotShallow } from '../../../../testUtils';
+import { contactAssignmentSelector } from '../../../selectors/people';
 
 import AssignStageButton from '..';
 
