@@ -21,6 +21,28 @@ Object {
 }
 `;
 
+exports[`REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS should recognize null organization_ids as global community 1`] = `
+Object {
+  "all": Array [
+    Object {
+      "challengeItems": Array [
+        Object {
+          "id": "roge",
+        },
+        Object {
+          "id": "roger",
+        },
+      ],
+      "challengePagination": Object {
+        "hasNextPage": false,
+        "page": 2,
+      },
+      "id": "_global_community_id",
+    },
+  ],
+}
+`;
+
 exports[`should load contact reports for all organizations 1`] = `
 Object {
   "all": Array [
