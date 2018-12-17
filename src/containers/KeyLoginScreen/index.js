@@ -15,7 +15,7 @@ import { keyLogin, openKeyURL } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, MFA_REQUIRED } from '../../constants';
-import { isiPhoneX, keyboardShow, keyboardHide } from '../../utils/common';
+import { hasNotch, keyboardShow, keyboardHide } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 import BackButton from '../BackButton';
@@ -154,7 +154,7 @@ class KeyLoginScreen extends Component {
 
   render() {
     const { t, forcedLogout } = this.props;
-    const marginTop = isiPhoneX() ? 50 : 25;
+    const marginTop = hasNotch() ? 50 : 25;
 
     return (
       <View style={styles.container}>
