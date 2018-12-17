@@ -45,8 +45,7 @@ class PersonSideMenu extends Component {
             style: 'destructive',
             onPress: () => {
               this.deleteOnUnmount = true;
-              dispatch(DrawerActions.closeDrawer());
-              dispatch(navigateBack()); // Navigate back since the contact is no longer in our list
+              dispatch(navigateBack(2)); // Navigate back since the contact is no longer in our list
             },
           },
         ],
