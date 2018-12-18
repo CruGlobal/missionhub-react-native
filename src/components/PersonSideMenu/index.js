@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { Alert } from 'react-native';
 import { DrawerActions } from 'react-navigation';
-import PropTypes from 'prop-types';
 
 import { deleteContactAssignment } from '../../actions/person';
 import SideMenu from '../../components/SideMenu';
@@ -17,7 +16,6 @@ import {
   personSelector,
 } from '../../selectors/people';
 import {
-  isMissionhubUser,
   showAssignButton,
   showUnassignButton,
   showDeleteButton,

@@ -64,13 +64,13 @@ beforeEach(() => jest.clearAllMocks());
 
 let component;
 
-const createComponent = () => {
+const createComponent = (extraProps = {}) => {
   component = renderShallow(
     <PersonSideMenu
       navigation={createMockNavState({
         person,
         organization,
-        isCruOrg: true,
+        ...extraProps,
       })}
     />,
     store,
@@ -86,7 +86,7 @@ describe('PersonSideMenu', () => {
       createComponent();
 
       expect(component).toMatchSnapshot();
-      testEditClick(component, true);
+      testEditClick(component);
       navigatePush.mockClear();
       testUnassignClick(component);
     });
@@ -96,8 +96,16 @@ describe('PersonSideMenu', () => {
       createComponent();
 
       expect(component).toMatchSnapshot();
-      testEditClick(component, true);
+      testEditClick(component);
       testAssignClick(component);
+    });
+
+    it('renders user-created correctly', () => {
+      const newOrg = { ...organization, user_created: true };
+      createComponent({ organization: newOrg });
+
+      expect(component).toMatchSnapshot();
+      testEditClick(component, newOrg);
     });
 
     it('should navigate back 2 on submit reason', () => {
@@ -180,13 +188,13 @@ describe('PersonSideMenu', () => {
   });
 });
 
-function testEditClick(component) {
+function testEditClick(component, org = organization) {
   const props = component.props();
   props.menuItems.filter(item => item.label === 'Edit')[0].action();
   expect(navigatePush).toHaveBeenCalledTimes(1);
   expect(navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
     person,
-    organization,
+    organization: org,
     onComplete: expect.any(Function),
   });
 }

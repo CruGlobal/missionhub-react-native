@@ -50,3 +50,16 @@ exports[`PersonSideMenu person has org permission renders unassign correctly 1`]
   }
 />
 `;
+
+exports[`PersonSideMenu person has org permission renders user-created correctly 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+    ]
+  }
+/>
+`;
