@@ -21,6 +21,7 @@ import {
   showAssignButton,
   showUnassignButton,
   showDeleteButton,
+  orgIsCru,
 } from '../../utils/common';
 
 @translate('contactSideMenu')
@@ -137,12 +138,8 @@ class PersonSideMenu extends Component {
   }
 }
 
-PersonSideMenu.propTypes = {
-  isCruOrg: PropTypes.bool,
-};
-
 const mapStateToProps = ({ auth, people }, { navigation }) => {
-  const navParams = navigation.state.params;
+  const navParams = navigation.state.params || {};
   const orgId = navParams.organization && navParams.organization.id;
   const person =
     personSelector({ people }, { personId: navParams.person.id, orgId }) ||
@@ -153,13 +150,13 @@ const mapStateToProps = ({ auth, people }, { navigation }) => {
   });
 
   return {
-    ...(navigation.state.params || {}),
+    ...navParams,
     person,
     personIsCurrentUser: navigation.state.params.person.id === auth.person.id,
     myId: auth.person.id,
     contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
     orgPermission: orgPermission,
-    isMissionhubUser: isMissionhubUser(orgPermission),
+    isCruOrg: orgIsCru(navParams.organization),
   };
 };
 
