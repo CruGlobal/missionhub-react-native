@@ -1,6 +1,5 @@
 import React from 'react';
 import { Alert } from 'react-native';
-import { DrawerActions } from 'react-navigation';
 
 import PersonSideMenu from '..';
 
@@ -151,8 +150,7 @@ describe('PersonSideMenu', () => {
       //Manually call onPress
       Alert.alert.mock.calls[0][2][1].onPress();
       expect(component.instance().deleteOnUnmount).toEqual(true);
-      expect(DrawerActions.closeDrawer).toHaveBeenCalled();
-      expect(navigateBack).toHaveBeenCalledTimes(1);
+      expect(navigateBack).toHaveBeenCalledWith(2);
     });
 
     describe('componentWillUnmount', () => {
