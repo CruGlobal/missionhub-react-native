@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { Alert } from 'react-native';
-import { DrawerActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 
 import { deleteContactAssignment } from '../../actions/person';
@@ -45,8 +44,7 @@ class PersonSideMenu extends Component {
             style: 'destructive',
             onPress: () => {
               this.deleteOnUnmount = true;
-              dispatch(DrawerActions.closeDrawer());
-              dispatch(navigateBack()); // Navigate back since the contact is no longer in our list
+              dispatch(navigateBack(2)); // Navigate back since the contact is no longer in our list
             },
           },
         ],
