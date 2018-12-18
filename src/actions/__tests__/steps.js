@@ -28,6 +28,7 @@ import {
   CUSTOM_STEP_TYPE,
 } from '../../constants';
 import { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
+import { personSelector } from '../../selectors/people';
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -41,6 +42,7 @@ common.formatApiDate = jest.fn().mockReturnValue(mockDate);
 jest.mock('../api');
 jest.mock('../impact');
 jest.mock('../celebration');
+jest.mock('../../selectors/people');
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -208,12 +210,15 @@ describe('addSteps', () => {
 });
 
 describe('complete challenge', () => {
+  const receiver = { id: receiverId };
+  const reverseAssignment = { assigned_to: { id: personId } };
+
   const stepId = 34556;
   const stepOrgId = '555';
   const step = {
     id: stepId,
     organization: { id: stepOrgId },
-    receiver: { id: receiverId },
+    receiver,
   };
 
   const challengeCompleteQuery = { challenge_id: stepId };
@@ -236,6 +241,10 @@ describe('complete challenge', () => {
 
   const impactResponse = { type: 'test impact' };
   const celebrateResponse = { type: 'test celebrate' };
+  const personSelectorResponse = {
+    ...receiver,
+    reverse_contact_assignments: [reverseAssignment],
+  };
 
   const screen = 'contact steps';
 
@@ -258,6 +267,9 @@ describe('complete challenge', () => {
         ],
       },
       steps: { userStepCount: { [receiverId]: 2 } },
+      people: {
+        allByOrg: {},
+      },
     });
 
     mockFnWithParams(
@@ -271,6 +283,7 @@ describe('complete challenge', () => {
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
     refreshImpact.mockReturnValue(impactResponse);
     reloadGroupCelebrateFeed.mockReturnValue(celebrateResponse);
+    personSelector.mockReturnValue(personSelectorResponse);
   });
 
   it('completes step', async () => {

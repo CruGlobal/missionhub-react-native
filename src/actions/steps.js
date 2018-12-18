@@ -18,6 +18,7 @@ import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
+import { personSelector } from '../selectors/people';
 
 import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';
@@ -201,13 +202,19 @@ function challengeCompleteAction(step, screen) {
     const query = { challenge_id: step.id };
     const data = buildChallengeData({ completed_at: formatApiDate() });
     const {
-      person: { id: myId },
-    } = getState().auth;
+      auth: {
+        person: { id: myId },
+      },
+      people,
+    } = getState();
 
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then(
       challengeCompleteResult => {
-        const receiver = step.receiver || {};
         const stepOrg = step.organization || {};
+        const receiver = personSelector(
+          { people },
+          { personId: step.receiver.id, orgId: stepOrg.id },
+        );
         const subsection = getAnalyticsSubsection(receiver.id, myId);
 
         dispatch({ type: COMPLETED_STEP_COUNT, userId: receiver.id });
