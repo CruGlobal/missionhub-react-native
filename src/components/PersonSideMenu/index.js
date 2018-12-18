@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { Alert } from 'react-native';
-import PropTypes from 'prop-types';
 
 import { deleteContactAssignment } from '../../actions/person';
 import SideMenu from '../../components/SideMenu';
@@ -16,10 +15,10 @@ import {
   personSelector,
 } from '../../selectors/people';
 import {
-  isMissionhubUser,
   showAssignButton,
   showUnassignButton,
   showDeleteButton,
+  orgIsCru,
 } from '../../utils/common';
 
 @translate('contactSideMenu')
@@ -135,12 +134,8 @@ class PersonSideMenu extends Component {
   }
 }
 
-PersonSideMenu.propTypes = {
-  isCruOrg: PropTypes.bool,
-};
-
 const mapStateToProps = ({ auth, people }, { navigation }) => {
-  const navParams = navigation.state.params;
+  const navParams = navigation.state.params || {};
   const orgId = navParams.organization && navParams.organization.id;
   const person =
     personSelector({ people }, { personId: navParams.person.id, orgId }) ||
@@ -151,13 +146,13 @@ const mapStateToProps = ({ auth, people }, { navigation }) => {
   });
 
   return {
-    ...(navigation.state.params || {}),
+    ...navParams,
     person,
     personIsCurrentUser: navigation.state.params.person.id === auth.person.id,
     myId: auth.person.id,
     contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
     orgPermission: orgPermission,
-    isMissionhubUser: isMissionhubUser(orgPermission),
+    isCruOrg: orgIsCru(navParams.organization),
   };
 };
 
