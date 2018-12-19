@@ -2,6 +2,7 @@
 
 exports[`MemberCelebrate renders correctly 1`] = `
 <Connect(CelebrateFeed)
+  isMemberFeed={true}
   items={
     Array [
       Object {

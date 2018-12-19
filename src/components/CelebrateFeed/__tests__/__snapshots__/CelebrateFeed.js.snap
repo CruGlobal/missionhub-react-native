@@ -1,8 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Member Feed rendering renders correctly for member feed 1`] = `
+exports[`Community Feed rendering renders correctly for community feed 1`] = `
 <SectionList
   ListHeaderComponent={[Function]}
+  data={Array []}
+  disableVirtualization={false}
+  extraData={
+    Object {
+      "isListScrolled": false,
+    }
+  }
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onRefresh={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshing={false}
+  renderItem={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={50}
+  sections={
+    Array [
+      Object {
+        "data": Array [
+          Object {
+            "adjective_attribute_value": "2",
+            "celebrateable_type": "accepted_challenge",
+            "changed_attribute_value": "2018-03-01 12:00:00",
+            "id": "1",
+            "likes_count": 0,
+            "subject_person_name": "Roge Dog",
+          },
+          Object {
+            "adjective_attribute_value": "4",
+            "celebrateable_type": "interaction",
+            "changed_attribute_value": "2018-03-01 12:00:00",
+            "id": "2",
+            "likes_count": 0,
+            "subject_person_name": "DG With me?",
+          },
+        ],
+        "date": "2018-03-01 12:00:00",
+      },
+      Object {
+        "data": Array [
+          Object {
+            "adjective_attribute_value": "1",
+            "celebrateable_type": "accepted_challenge",
+            "changed_attribute_value": "2018-01-01 12:00:00",
+            "id": "4",
+            "likes_count": 11,
+            "subject_person_name": "Roge Dog",
+          },
+          Object {
+            "adjective_attribute_value": "5",
+            "celebrateable_type": "interaction",
+            "changed_attribute_value": "2018-01-01 12:00:00",
+            "id": "3",
+            "likes_count": 42,
+            "subject_person_name": "DG With me?",
+          },
+        ],
+        "date": "2018-01-01 12:00:00",
+      },
+    ]
+  }
+  stickySectionHeadersEnabled={true}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
+exports[`Member Feed rendering renders correctly for member feed 1`] = `
+<SectionList
+  ListHeaderComponent={null}
   data={Array []}
   disableVirtualization={false}
   extraData={
