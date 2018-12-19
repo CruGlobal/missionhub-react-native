@@ -16,6 +16,7 @@ import {
   getStageIndex,
 } from '../../utils/common';
 import AssignToMeButton from '../AssignToMeButton/index';
+import AssignStageButton from '../AssignStageButton';
 import CenteredIconButtonWithText from '../CenteredIconButtonWithText';
 import { Flex } from '../common';
 import { openCommunicationLink } from '../../actions/misc';
@@ -43,32 +44,29 @@ export default class GroupsPersonHeader extends Component {
       : [...personStageButton, ...statusButton, ...contactButtons];
   }
 
-  getSelfStageButton() {
+  selectSelfStage = () => {
     const { dispatch, person, organization, myStageId, stages } = this.props;
 
-    const onClick = () =>
-      dispatch(
-        navigatePush(STAGE_SCREEN, {
-          onComplete: stage => {
-            dispatch(
-              updatePersonAttributes(person.id, {
-                user: { pathway_stage_id: stage.id },
-              }),
-            );
-            dispatch(loadStepsAndJourney(person, organization));
-          },
-          firstItem: getStageIndex(stages, myStageId),
-          contactId: person.id,
-          section: 'people',
-          subsection: 'self',
-          enableBackButton: true,
-        }),
-      );
+    dispatch(
+      navigatePush(STAGE_SCREEN, {
+        onComplete: stage => {
+          dispatch(
+            updatePersonAttributes(person.id, {
+              user: { pathway_stage_id: stage.id },
+            }),
+          );
+          dispatch(loadStepsAndJourney(person, organization));
+        },
+        firstItem: getStageIndex(stages, myStageId),
+        contactId: person.id,
+        section: 'people',
+        subsection: 'self',
+        enableBackButton: true,
+      }),
+    );
+  };
 
-    return this.getStageButton(onClick, myStageId);
-  }
-
-  getPersonStageButton() {
+  selectPersonStage = () => {
     const {
       contactAssignment,
       dispatch,
@@ -81,35 +79,47 @@ export default class GroupsPersonHeader extends Component {
       contactAssignment &&
       getStageIndex(stages, contactAssignment.pathway_stage_id);
 
-    const onClick = () =>
-      dispatch(
-        navigatePush(PERSON_STAGE_SCREEN, {
-          onComplete: stage => {
-            contactAssignment
-              ? dispatch(
-                  updatePersonAttributes(person.id, {
-                    reverse_contact_assignments: person.reverse_contact_assignments.map(
-                      assignment =>
-                        assignment.id === contactAssignment.id
-                          ? { ...assignment, pathway_stage_id: stage.id }
-                          : assignment,
-                    ),
-                  }),
-                )
-              : dispatch(getPersonDetails(person.id, organization.id));
-            dispatch(loadStepsAndJourney(person, organization));
-          },
-          firstItem: firstItemIndex,
-          name: person.first_name,
-          contactId: person.id,
-          contactAssignmentId: contactAssignment && contactAssignment.id,
-          orgId: organization.id,
-          section: 'people',
-          subsection: 'person',
-        }),
-      );
+    dispatch(
+      navigatePush(PERSON_STAGE_SCREEN, {
+        onComplete: stage => {
+          contactAssignment
+            ? dispatch(
+                updatePersonAttributes(person.id, {
+                  reverse_contact_assignments: person.reverse_contact_assignments.map(
+                    assignment =>
+                      assignment.id === contactAssignment.id
+                        ? { ...assignment, pathway_stage_id: stage.id }
+                        : assignment,
+                  ),
+                }),
+              )
+            : dispatch(getPersonDetails(person.id, organization.id));
+          dispatch(loadStepsAndJourney(person, organization));
+        },
+        firstItem: firstItemIndex,
+        name: person.first_name,
+        contactId: person.id,
+        contactAssignmentId: contactAssignment && contactAssignment.id,
+        orgId: organization.id,
+        section: 'people',
+        subsection: 'person',
+      }),
+    );
+  };
 
-    return this.getStageButton(onClick, contactAssignment.pathway_stage_id);
+  getSelfStageButton() {
+    const { myStageId } = this.props;
+
+    return this.getStageButton(this.selectSelfStage, myStageId);
+  }
+
+  getPersonStageButton() {
+    const { contactAssignment } = this.props;
+
+    return this.getStageButton(
+      this.selectPersonStage,
+      contactAssignment.pathway_stage_id,
+    );
   }
 
   getStageButton(onClick, stageId) {
@@ -233,12 +243,13 @@ export default class GroupsPersonHeader extends Component {
       person,
       organization,
       isVisible,
+      isCruOrg,
     } = this.props;
     if (isVisible === false) {
       return null;
     }
 
-    return (
+    return isCruOrg ? (
       <Flex>
         {contactAssignment || myId === person.id ? null : (
           <AssignToMeButton person={person} organization={organization} />
@@ -246,6 +257,17 @@ export default class GroupsPersonHeader extends Component {
         <Flex align="center" justify="center" direction="row">
           {buttons}
         </Flex>
+      </Flex>
+    ) : (
+      <Flex>
+        {contactAssignment || myId === person.id ? (
+          <AssignStageButton
+            person={person}
+            organization={organization}
+            selectMyStage={this.selectSelfStage}
+            selectPersonStage={this.selectPersonStage}
+          />
+        ) : null}
       </Flex>
     );
   }
