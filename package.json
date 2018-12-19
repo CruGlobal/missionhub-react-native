@@ -14,6 +14,7 @@
     "test:c": "npm run test:coverage",
     "test:s": "npm run test:snapshot",
     "ios": "react-native run-ios",
+    "ios:pod": "cd ios && pod install",
     "lint": "eslint ./*.js ./src ./__tests__",
     "lint:fix": "eslint ./*.js ./src ./__tests__ --fix",
     "prettier:check": "prettier '{{src,bin,testUtils,__{tests,mocks}__}/**/*.{js,json},./*.{js,json,yml}}' --list-different",
@@ -70,6 +71,7 @@
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
+    "rollbar-react-native": "^0.3.3",
     "stacktrace-js": "^2.0.0",
     "uuid": "^3.2.1"
   },
@@ -106,7 +108,8 @@
       "<rootDir>/__mock__/react-native-device-info.js",
       "<rootDir>/__mock__/react-native-fabric.js",
       "<rootDir>/__mock__/react-native-code-push.js",
-      "<rootDir>/__mock__/react-native-firebase.js"
+      "<rootDir>/__mock__/react-native-firebase.js",
+      "<rootDir>/__mock__/rollbar-react-native.js"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

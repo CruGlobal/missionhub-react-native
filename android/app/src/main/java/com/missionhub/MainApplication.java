@@ -10,6 +10,7 @@ import com.crashlytics.android.core.CrashlyticsCore;
 import com.facebook.react.ReactApplication;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.links.RNFirebaseLinksPackage;
+import com.rollbar.RollbarReactNative;
 import com.entria.views.RNViewOverflowPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.microsoft.codepush.react.CodePush;
@@ -48,7 +49,7 @@ public class MainApplication extends Application implements ReactApplication {
       protected String getJSBundleFile() {
       return CodePush.getJSBundleFile();
     }
-    
+
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -60,6 +61,7 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new RNFirebasePackage(),
             new RNFirebaseLinksPackage(),
+            RollbarReactNative.getPackage(),
             new RNViewOverflowPackage(),
             new RNDeviceInfo(),
             new CodePush("", getApplicationContext(), BuildConfig.DEBUG),
@@ -99,6 +101,9 @@ public class MainApplication extends Application implements ReactApplication {
     AppEventsLogger.activateApp(this);
 
     SoLoader.init(this, /* native exopackage */ false);
+
+    // TODO: figure out how to distinguish between the beta and production release tracks
+    RollbarReactNative.init(this, BuildConfig.ROLLBAR_ACCESS_TOKEN, BuildConfig.DEBUG ? "development" : "production");
   }
 
   // Need to do this for Android versions <5.0

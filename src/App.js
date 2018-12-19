@@ -11,6 +11,7 @@ import Config from 'react-native-config';
 import { Crashlytics } from 'react-native-fabric';
 import StackTrace from 'stacktrace-js';
 
+import { rollbar } from './utils/rollbar.config';
 import { store, persistor } from './store';
 import i18n from './i18n';
 import './utils/globals';
@@ -96,69 +97,65 @@ export default class App extends Component {
     ErrorUtils.setGlobalHandler(this.handleError);
   }
 
-  handleError(e) {
-    let crashlyticsError;
+  async handleError(e) {
+    let errorToReport;
     const { apiError } = e;
 
     if (apiError) {
-      if (apiError.errors && apiError.errors[0] && apiError.errors[0].detail) {
-        const errorDetail = apiError.errors[0].detail;
-        if (
-          errorDetail === EXPIRED_ACCESS_TOKEN ||
-          errorDetail === INVALID_ACCESS_TOKEN
-        ) {
-          return;
-        }
+      if (
+        apiError.errors &&
+        apiError.errors[0] &&
+        apiError.errors[0].detail &&
+        (apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN ||
+          apiError.errors[0].detail === INVALID_ACCESS_TOKEN)
+      ) {
+        return;
       } else if (apiError.error === INVALID_GRANT) {
         return;
       } else if (apiError.message === NETWORK_REQUEST_FAILED) {
         this.showOfflineAlert();
+        return;
       } else {
         this.showApiErrorAlert(e.key);
-        crashlyticsError = {
+        errorToReport = {
           title: `API Error: ${e.key} ${e.method.toUpperCase()} ${e.endpoint}`,
           message: `\n\nQuery Params:\n${JSON.stringify(
             e.query,
             null,
             2,
           )}\n\nResponse:\n${JSON.stringify(e.apiError, null, 2)}`,
-          shiftFrame: false,
-          stackTracePromise: StackTrace.fromError(apiError.error, {
-            offline: true,
-          }),
         };
       }
     } else if (e.message) {
-      crashlyticsError = {
+      errorToReport = {
         title: e.message.split('\n')[0],
         message: e.message,
-        shiftFrame: false,
-        stackTracePromise: StackTrace.fromError(e, { offline: true }),
+        originalError: e,
       };
     } else {
-      crashlyticsError = {
+      errorToReport = {
         title: 'Unknown Error',
         message: JSON.stringify(e),
-        shiftFrame: true,
-        stackTracePromise: StackTrace.get({ offline: true }),
       };
     }
 
-    if (crashlyticsError) {
-      LOG(e);
+    LOG(e);
 
-      if (!__DEV__) {
-        crashlyticsError.stackTracePromise.then(stackFrames => {
-          if (crashlyticsError.shiftFrame) {
-            stackFrames.shift();
-          }
-          Crashlytics.recordCustomExceptionName(
-            crashlyticsError.title,
-            crashlyticsError.message,
-            stackFrames,
-          );
-        });
-      }
+    if (!__DEV__) {
+      const stackFrames = errorToReport.originalError
+        ? await StackTrace.fromError(errorToReport.originalError, {
+            offline: true,
+          })
+        : (await StackTrace.get({ offline: true })).slice(1);
+
+      Crashlytics.recordCustomExceptionName(
+        errorToReport.title,
+        errorToReport.message,
+        stackFrames,
+      );
+      rollbar.error(`${errorToReport.title}\n${errorToReport.message}`, {
+        stackTrace: stackFrames,
+      });
     }
   }
 
