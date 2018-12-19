@@ -68,24 +68,9 @@ beforeEach(() => {
   );
 });
 
-describe('Community Feed rendering', () => {
-  it('renders correctly for community feed', () => {
-    expect(component).toMatchSnapshot();
-  });
-});
-
 describe('Member Feed rendering', () => {
   it('renders correctly for member feed', () => {
-    expect(
-      renderShallow(
-        <CelebrateFeed
-          items={celebrationItems}
-          organization={organization}
-          isMemberFeed={true}
-        />,
-        store,
-      ),
-    ).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 });
 
