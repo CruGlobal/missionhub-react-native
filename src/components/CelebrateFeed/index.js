@@ -66,12 +66,12 @@ class CelebrateFeed extends Component {
   );
 
   render() {
-    const { items, refreshing } = this.props;
+    const { items, refreshing, isMemberFeed } = this.props;
 
     return (
       <SectionList
         sections={items}
-        ListHeaderComponent={this.renderHeader}
+        ListHeaderComponent={isMemberFeed ? null : this.renderHeader}
         renderSectionHeader={this.renderSectionHeader}
         renderItem={this.renderItem}
         keyExtractor={this.keyExtractor}
@@ -91,6 +91,7 @@ CelebrateFeed.propTypes = {
   organization: PropTypes.object.isRequired,
   myId: PropTypes.string.isRequired,
   refreshing: PropTypes.bool,
+  isMemberFeed: PropTypes.bool,
 };
 
 export const mapStateToProps = ({ auth }) => ({
