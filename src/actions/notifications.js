@@ -117,7 +117,8 @@ function handleNotification(notification) {
 
     const notificationData = parseNotificationData(notification);
     const { screen, person } = notificationData;
-    const organization = `${notificationData.organization}`;
+    const organization =
+      notificationData.organization && `${notificationData.organization}`;
 
     switch (screen) {
       case 'home':
