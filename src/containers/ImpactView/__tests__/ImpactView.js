@@ -90,6 +90,7 @@ const personInteractions = {
   ],
 };
 const organization = { id: '34', _type: 'organization', name: 'Test Org' };
+const userCreatedOrg = { ...organization, user_created: true };
 
 describe('ImpactView', () => {
   describe('mapStateToProps', () => {
@@ -209,6 +210,7 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={me}
+          organization={organization}
           isMe={true}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
@@ -232,6 +234,7 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={me}
+          organization={organization}
           isMe={true}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
@@ -257,6 +260,7 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={me}
+          organization={organization}
           isMe={true}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
@@ -274,6 +278,7 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={me}
+          organization={userCreatedOrg}
           isMe={true}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
@@ -297,6 +302,7 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={me}
+          organization={userCreatedOrg}
           isMe={true}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
@@ -322,6 +328,7 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={me}
+          organization={userCreatedOrg}
           isMe={true}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
@@ -339,6 +346,7 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={person}
+          organization={organization}
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
@@ -357,6 +365,7 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={person}
+          organization={organization}
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
@@ -376,6 +385,7 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={person}
+          organization={organization}
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
@@ -392,6 +402,7 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={person}
+          organization={userCreatedOrg}
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
@@ -410,6 +421,7 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={person}
+          organization={userCreatedOrg}
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
@@ -429,6 +441,7 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={person}
+          organization={userCreatedOrg}
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
@@ -493,7 +506,6 @@ describe('ImpactView', () => {
     });
   });
   describe('user-created group impact', () => {
-    const userCreatedOrg = { ...organization, user_created: true };
     it('renders empty state', () => {
       testSnapshotShallow(
         <ImpactView

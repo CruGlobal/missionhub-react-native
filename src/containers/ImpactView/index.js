@@ -217,6 +217,7 @@ export class ImpactView extends Component {
       isUserCreatedOrg,
       isOrgImpact,
       organization,
+      person,
     } = this.props;
 
     const showGlobalImpact =
@@ -225,7 +226,7 @@ export class ImpactView extends Component {
 
     return (
       <ScrollView style={styles.container} bounces={false}>
-        {organization ? (
+        {organization && !person ? (
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
         ) : null}
         <Flex style={styles.topSection}>
