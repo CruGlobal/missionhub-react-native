@@ -28,7 +28,6 @@ import {
   CUSTOM_STEP_TYPE,
 } from '../../constants';
 import { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
-import { personSelector } from '../../selectors/people';
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -211,7 +210,6 @@ describe('addSteps', () => {
 
 describe('complete challenge', () => {
   const receiver = { id: receiverId };
-  const reverseAssignment = { assigned_to: { id: personId } };
 
   const stepId = 34556;
   const stepOrgId = '555';
@@ -241,10 +239,6 @@ describe('complete challenge', () => {
 
   const impactResponse = { type: 'test impact' };
   const celebrateResponse = { type: 'test celebrate' };
-  const personSelectorResponse = {
-    ...receiver,
-    reverse_contact_assignments: [reverseAssignment],
-  };
 
   const screen = 'contact steps';
 
@@ -267,9 +261,6 @@ describe('complete challenge', () => {
         ],
       },
       steps: { userStepCount: { [receiverId]: 2 } },
-      people: {
-        allByOrg: {},
-      },
     });
 
     mockFnWithParams(
@@ -283,7 +274,6 @@ describe('complete challenge', () => {
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
     refreshImpact.mockReturnValue(impactResponse);
     reloadGroupCelebrateFeed.mockReturnValue(celebrateResponse);
-    personSelector.mockReturnValue(personSelectorResponse);
   });
 
   it('completes step', async () => {
