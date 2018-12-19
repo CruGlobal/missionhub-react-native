@@ -264,7 +264,7 @@ function challengeCompleteAction(step, screen) {
                   ) || {};
                 const stageId = assignment.pathway_stage_id;
 
-                const questionText = isMe
+                let questionText = isMe
                   ? i18next.t('selectStage:completed3StepsMe')
                   : i18next.t('selectStage:completed3Steps', {
                       name: receiver.first_name,

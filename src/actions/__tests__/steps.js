@@ -41,7 +41,6 @@ common.formatApiDate = jest.fn().mockReturnValue(mockDate);
 jest.mock('../api');
 jest.mock('../impact');
 jest.mock('../celebration');
-jest.mock('../../selectors/people');
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -209,14 +208,12 @@ describe('addSteps', () => {
 });
 
 describe('complete challenge', () => {
-  const receiver = { id: receiverId };
-
   const stepId = 34556;
   const stepOrgId = '555';
   const step = {
     id: stepId,
     organization: { id: stepOrgId },
-    receiver,
+    receiver: { id: receiverId },
   };
 
   const challengeCompleteQuery = { challenge_id: stepId };
