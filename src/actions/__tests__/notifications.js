@@ -256,7 +256,8 @@ describe('askNotificationPermissions', () => {
 
   describe('onNotification', () => {
     const person = { id: '1', type: 'person' };
-    const organization = { id: '234234' };
+    const organization = { id: 234234 };
+    const storedOrganization = { id: `${234234}` };
     const organizations = {
       someProp: 'hello, Roge',
     };
@@ -369,13 +370,13 @@ describe('askNotificationPermissions', () => {
             organizations,
           },
           {
-            orgId: organization.id,
+            orgId: storedOrganization.id,
           },
         );
       });
 
       it('should deep link to group screen', () => {
-        organizationSelector.mockReturnValue(organization);
+        organizationSelector.mockReturnValue(storedOrganization);
 
         testNotification({
           screen: 'celebrate',
@@ -409,13 +410,13 @@ describe('askNotificationPermissions', () => {
             organizations,
           },
           {
-            orgId: organization.id,
+            orgId: storedOrganization.id,
           },
         );
       });
 
       it('should deep link to challenges tab', () => {
-        organizationSelector.mockReturnValue(organization);
+        organizationSelector.mockReturnValue(storedOrganization);
 
         testNotification({
           screen: 'community_challenges',
