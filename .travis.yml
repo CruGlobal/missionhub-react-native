@@ -23,14 +23,14 @@ matrix:
           yarn run codepush-android-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.android.js --description "#$TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT_RANGE | $TRAVIS_COMMIT_MESSAGE";
 
           curl https://api.rollbar.com/api/1/sourcemap \
-          -F access_token=$ROLLBAR_ACCESS_TOKEN \
+          -F access_token=$ROLLBAR_POST_SERVER_ITEM_TOKEN \
           -F version=$TRAVIS_COMMIT.ios \
           -F minified_url=http://reactnativehost/main.jsbundle \
           -F source_map=@sourcemap.ios.js \
           -F index.js=@index.js
 
           curl https://api.rollbar.com/api/1/sourcemap \
-          -F access_token=$ROLLBAR_ACCESS_TOKEN \
+          -F access_token=$ROLLBAR_POST_SERVER_ITEM_TOKEN \
           -F version=$TRAVIS_COMMIT.android \
           -F minified_url=http://reactnativehost/main.jsbundle \
           -F source_map=@sourcemap.android.js \
