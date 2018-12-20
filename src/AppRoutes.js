@@ -138,6 +138,7 @@ import {
   DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
+  COMPLETE_STEP_FLOW,
 } from './routes/constants';
 import {
   JoinByCodeFlowNavigator,
@@ -155,6 +156,10 @@ import {
   DeepLinkJoinCommunityUnauthenticatedNavigator,
   DeepLinkJoinCommunityUnauthenticatedScreens,
 } from './routes/deepLink/deepLinkJoinCommunityUnauthenticated';
+import {
+  CompleteStepFlowNavigator,
+  CompleteStepFlowScreens,
+} from './routes/steps/completeStepFlow';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -434,6 +439,7 @@ const screens = {
   [JOIN_BY_CODE_ONBOARDING_FLOW]: JoinByCodeOnboardingFlowNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityUnauthenticatedNavigator,
+  [COMPLETE_STEP_FLOW]: CompleteStepFlowNavigator,
 };
 
 export const trackableScreens = {
@@ -445,6 +451,7 @@ export const trackableScreens = {
   ...JoinByCodeOnboardingFlowScreens,
   ...DeepLinkJoinCommunityAuthenticatedScreens,
   ...DeepLinkJoinCommunityUnauthenticatedScreens,
+  ...CompleteStepFlowScreens,
 };
 
 export const MainStackRoutes = createStackNavigator(

@@ -198,7 +198,7 @@ function getReverseContactAssigment(person, myId) {
 }
 
 function challengeCompleteAction(step, screen) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = buildChallengeData({ completed_at: formatApiDate() });
     const {
@@ -207,15 +207,20 @@ function challengeCompleteAction(step, screen) {
       },
     } = getState();
 
-    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then(
-      challengeCompleteResult => {
-        const stepOrg = step.organization || {};
-        const receiver = step.receiver || {};
+    await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
 
-        const subsection = getAnalyticsSubsection(receiver.id, myId);
+    const stepOrg = step.organization || {};
+    const receiver = step.receiver || {};
 
-        dispatch({ type: COMPLETED_STEP_COUNT, userId: receiver.id });
-        dispatch(refreshImpact(stepOrg.id));
+    const subsection = getAnalyticsSubsection(receiver.id, myId);
+
+    dispatch({ type: COMPLETED_STEP_COUNT, userId: receiver.id });
+    dispatch(refreshImpact(stepOrg.id));
+  };
+}
+
+/*
+
         dispatch(
           navigatePush(ADD_STEP_SCREEN, {
             trackingObj: buildTrackingObj(
@@ -330,6 +335,7 @@ function challengeCompleteAction(step, screen) {
     );
   };
 }
+*/
 
 function celebrateAndComplete(numTimesBack, trackingObj) {
   return dispatch => {
