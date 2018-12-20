@@ -13,17 +13,17 @@ import {
 import { isCustomStep } from '../utils/common';
 
 /* testing only */
-export const emitterCallback = (error, response) => {
-  if (error) {
-    return Promise.reject({
-      snowplowError: error,
-    });
-  } else if (response && response.status !== 200) {
-    return Promise.reject({
-      snowplowError: response,
-    });
-  }
-};
+// export const emitterCallback = (error, response) => {
+//   if (error) {
+//     return Promise.reject({
+//       snowplowError: error,
+//     });
+//   } else if (response && response.status !== 200) {
+//     return Promise.reject({
+//       snowplowError: response,
+//     });
+//   }
+// };
 
 /*const em = new Emitter(
   Config.SNOWPLOW_URL,

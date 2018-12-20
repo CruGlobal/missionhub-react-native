@@ -57,10 +57,13 @@ class GetStartedScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ profile }, { navigation }) => ({
-  id: navigation.state.params ? navigation.state.params.id : '',
-  firstName: profile.firstName,
-});
+const mapStateToProps = ({ profile }, { navigation }) => {
+  const navParams = navigation.state.params || {};
+  return {
+    id: navParams.id || '',
+    firstName: profile.firstName,
+  };
+};
 
 export default connect(mapStateToProps)(GetStartedScreen);
 export const GET_STARTED_SCREEN = 'nav/GET_STARTED';

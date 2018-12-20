@@ -110,7 +110,7 @@ export function updateChallenge(challenge) {
   }
   const bodyData = { data: { attributes } };
   return async dispatch => {
-    const { response } = await dispatch(
+    const { response = {} } = await dispatch(
       callApi(REQUESTS.UPDATE_GROUP_CHALLENGE, query, bodyData),
     );
     return dispatch({
