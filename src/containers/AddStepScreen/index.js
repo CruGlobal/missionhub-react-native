@@ -59,8 +59,7 @@ class AddStepScreen extends Component {
     if (this.props.type === STEP_NOTE) {
       disableBack.remove();
     }
-
-    this.props.onComplete(text);
+    this.props.next({ text });
     if (this.props.type !== STEP_NOTE) {
       this.props.dispatch(navigateBack());
     }
@@ -157,7 +156,7 @@ class AddStepScreen extends Component {
 }
 
 AddStepScreen.propTypes = {
-  onComplete: PropTypes.func.isRequired,
+  next: PropTypes.func.isRequired,
   type: PropTypes.oneOf([
     'journey',
     'editJourney',

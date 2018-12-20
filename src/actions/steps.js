@@ -19,6 +19,7 @@ import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
+import { COMPLETE_STEP_FLOW } from '../routes/constants';
 
 import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';
@@ -209,13 +210,14 @@ function challengeCompleteAction(step, screen) {
 
     await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
 
-    const stepOrg = step.organization || {};
-    const receiver = step.receiver || {};
+    const { receiver = {}, organization = {} } = step;
 
     const subsection = getAnalyticsSubsection(receiver.id, myId);
 
     dispatch({ type: COMPLETED_STEP_COUNT, userId: receiver.id });
-    dispatch(refreshImpact(stepOrg.id));
+    dispatch(refreshImpact(organization.id));
+
+    dispatch(navigatePush(COMPLETE_STEP_FLOW, { receiver, organization }));
   };
 }
 

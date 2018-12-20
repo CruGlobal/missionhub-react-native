@@ -23,19 +23,29 @@ import CelebrationScreen, {
 
 export const CompleteStepFlowScreens = {
   [ADD_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(AddStepScreen, () => dispatch => {}, { type: STEP_NOTE }),
+    wrapNextAction(
+      AddStepScreen,
+      ({ text, receiver, organization }) => dispatch => {
+        console.log(text);
+        console.log(receiver);
+        console.log(organization);
+
+        dispatch(navigatePush(STAGE_SCREEN));
+      },
+      { type: STEP_NOTE },
+    ),
     buildTrackingObj(),
   ),
   [STAGE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(WelcomeScreen, ({ signin }) => dispatch => {}),
+    wrapNextAction(StageScreen, ({ signin }) => dispatch => {}),
     buildTrackingObj(),
   ),
   [PERSON_STAGE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SetupScreen, () => async dispatch => {}),
+    wrapNextAction(PersonStageScreen, () => async dispatch => {}),
     buildTrackingObj(),
   ),
   [CELEBRATION_SCREEN]: buildTrackedScreen(
-    wrapNextAction(KeyLoginScreen, () => async dispatch => {}),
+    wrapNextAction(CelebrationScreen, () => async dispatch => {}),
     buildTrackingObj(),
   ),
 };
