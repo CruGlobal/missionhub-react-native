@@ -1,5 +1,10 @@
 import { REQUESTS } from '../actions/api';
-import { LOGOUT, TOGGLE_STEP_FOCUS, COMPLETED_STEP_COUNT } from '../constants';
+import {
+  LOGOUT,
+  TOGGLE_STEP_FOCUS,
+  COMPLETED_STEP_COUNT,
+  RESET_STEP_COUNT,
+} from '../constants';
 import { getPagination } from '../utils/common';
 
 const initialState = {
@@ -73,6 +78,14 @@ export default function stepsReducer(state = initialState, action) {
         userStepCount: {
           ...state.userStepCount,
           [action.userId]: currentCount + 1,
+        },
+      };
+    case RESET_STEP_COUNT:
+      return {
+        ...state,
+        userStepCount: {
+          ...state.userStepCount,
+          [action.userId]: 0,
         },
       };
     case LOGOUT:

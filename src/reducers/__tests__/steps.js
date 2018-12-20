@@ -1,6 +1,10 @@
 import { REQUESTS } from '../../actions/api';
 import steps from '../steps';
-import { COMPLETED_STEP_COUNT, TOGGLE_STEP_FOCUS } from '../../constants';
+import {
+  COMPLETED_STEP_COUNT,
+  TOGGLE_STEP_FOCUS,
+  RESET_STEP_COUNT,
+} from '../../constants';
 
 it('loads step suggestions for me', () => {
   const stageId = 5;
@@ -88,6 +92,14 @@ it('creates a new user step count', () => {
     userId: 1,
   });
   expect(state.userStepCount[1]).toBe(1);
+});
+
+it('resets a user step count', () => {
+  const state = steps(undefined, {
+    type: RESET_STEP_COUNT,
+    userId: 1,
+  });
+  expect(state.userStepCount[1]).toBe(0);
 });
 
 it('increments existing user step count', () => {
