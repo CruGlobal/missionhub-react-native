@@ -9,17 +9,12 @@ matrix:
       before_script:
         - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
       script:
-        - yarn run test:coverage --maxWorkers=4
-        - yarn run lint
         - yarn run prettier:check
       notifications:
         email: false
       after_success:
-        - bash <(curl -s https://codecov.io/bash)
         - |
-          if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-            yarn run onesky:upload;
-            yarn run onesky:download;
+          if true; then
             yarn run codepush-ios-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.ios.js --description "#$TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT_RANGE | $TRAVIS_COMMIT_MESSAGE";
             yarn run codepush-android-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.android.js --description "#$TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT_RANGE | $TRAVIS_COMMIT_MESSAGE";
 
@@ -37,89 +32,6 @@ matrix:
           fi
       cache:
         - yarn
-
-    - name: 'iOS Testflight Build'
-      language: objective-c
-      if: branch = master and type = push
-      xcode_workspace: ios/MissionHub.xcworkspace
-      os: osx
-      osx_image: xcode10.1
-      env:
-        - ENVFILE=.env.production
-      install:
-        - brew install yarn
-        - yarn install
-        - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
-        - (cd ios && bundler install)
-      before_script:
-        - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
-        - yarn run onesky:download
-      script:
-        - (cd ios && fastlane ios beta)
-      cache:
-        - yarn
-        - cocoapods
-        - directories:
-            - /home/travis/.rvm/
-
-    - name: 'Android Beta Build'
-      language: android
-      android:
-        components:
-          - tools
-          - build-tools-28.0.3
-          - platform-tools
-          - tools
-
-          - android-26
-
-          - extra-google-google_play_services
-
-        licenses:
-          - android-sdk-license-.+
-
-      if: branch = master and type = push
-      env:
-        - ENVFILE=.env.production
-      before_install:
-        - git fetch --unshallow
-        - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
-        - wget -qO- https://deb.nodesource.com/setup_8.x | sudo bash -
-        - sudo apt-get install nodejs
-        - echo yes | sdkmanager "build-tools;28.0.3" # Android platform required by app
-        - echo yes | sdkmanager "build-tools;25.0.3" # Android platform required by some dependency
-        - echo yes | sdkmanager "build-tools;23.0.1" # Android platform required by some dependency
-
-      install:
-        - yarn install
-        - (cd android && bundler install)
-      before_script:
-        - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
-        - yarn run onesky:download
-      script:
-        - (cd android && fastlane android beta)
-      cache:
-        - yarn
-        - directories:
-            - /home/travis/.rvm/
-
-    - name: 'Fastlane release'
-      language: objective-c
-      xcode_workspace: ios/MissionHub.xcworkspace
-      os: osx
-      osx_image: xcode10.1
-      if: tag =~ ^v(\d+\.){1,}\d+
-      before_install:
-        - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
-      install:
-        - (cd ios && bundler install)
-        - (cd android && bundler install)
-      script:
-        - (cd ios && fastlane ios release submit:true auto_release:false)
-        - (cd android && fastlane android release)
-      cache:
-        - directories:
-            - /home/travis/.rvm/
 
 env:
   global:
