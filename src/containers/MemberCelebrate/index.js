@@ -51,7 +51,6 @@ class MemberCelebrate extends Component {
         items={celebrateItems}
         loadMoreItemsCallback={this.loadItems}
         refreshCallback={this.refreshItems}
-        isMemberFeed={true}
       />
     );
   }
