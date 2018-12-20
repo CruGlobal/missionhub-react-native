@@ -11,6 +11,7 @@ import { LOGIN_SCREEN } from '../containers/LoginScreen';
 import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
 import { THE_KEY_URL } from '../api/utils';
 import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
+import { rollbar } from '../utils/rollbar.config';
 
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
@@ -148,6 +149,7 @@ export function logout(forcedLogout = false) {
         ? navigateReset(KEY_LOGIN_SCREEN, { forcedLogout })
         : navigateReset(LOGIN_SCREEN),
     );
+    rollbar.clearPerson();
   };
 }
 

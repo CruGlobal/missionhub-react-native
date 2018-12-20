@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -35,8 +34,8 @@
 		61001658A68449B1826145A4 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF878C8F4E13424EBEB08505 /* libRNDeviceInfo.a */; };
 		63CCD346A5A94B92885F6266 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11EED27DCE4942CAAD01A388 /* libReactNativeConfig.a */; };
 		7D05064221B06A2A00840FB1 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
-		7D386A57219FEA6B00DA4A18 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		7D3BD3260324477BA89E88A6 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 558D776D127C41A297B33FFD /* EvilIcons.ttf */; };
+		7D73457321CA3651002487B8 /* libRollbarReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D73455621CA339C002487B8 /* libRollbarReactNative.a */; };
 		7D747F827F2D4DD1A42BE6C4 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00698ADCD1D14CA4AA7ED311 /* libCodePush.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8970A4C9B56E430D84B8827F /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8A29F917364902BB6E80AB /* libRCTFBSDK.a */; };
@@ -276,6 +275,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNViewOverflow;
 		};
+		7D73455521CA339C002487B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D73451D21CA339C002487B8 /* RollbarReactNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RollbarReactNative;
+		};
 		7D865511208BC7B70091C4E5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24FDDA7C2D9541CBB0E45E2F /* CodePush.xcodeproj */;
@@ -504,6 +510,7 @@
 		73B545ED11DA4EDCB6B31336 /* libSMXCrashlytics.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSMXCrashlytics.a; sourceTree = "<group>"; };
 		7738039AC342446C93268C78 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7D73451D21CA339C002487B8 /* RollbarReactNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RollbarReactNative.xcodeproj; path = "../node_modules/rollbar-react-native/ios/RollbarReactNative.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		833396B4FBFE4B5F8EFD1351 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		89A4476C6DBC4FF48FC5DAC0 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
@@ -561,6 +568,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D73457321CA3651002487B8 /* libRollbarReactNative.a in Frameworks */,
 				7D05064221B06A2A00840FB1 /* libRCTWebSocket.a in Frameworks */,
 				FA45FFF01FFE7E7300153E56 /* AdobeMobileLibrary.a in Frameworks */,
 				FA45FFEF1FFE7E0900153E56 /* libsqlite3.0.tbd in Frameworks */,
@@ -798,6 +806,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7D73451E21CA339C002487B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7D73455621CA339C002487B8 /* libRollbarReactNative.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7D86550D208BC7B70091C4E5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -819,6 +835,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7D73451D21CA339C002487B8 /* RollbarReactNative.xcodeproj */,
 				937F2B7A1FD9926B00915D3A /* RCTPushNotification.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -1180,6 +1197,10 @@
 					ProjectRef = FC1B506E97324D8AACEE7053 /* RNViewOverflow.xcodeproj */;
 				},
 				{
+					ProductGroup = 7D73451E21CA339C002487B8 /* Products */;
+					ProjectRef = 7D73451D21CA339C002487B8 /* RollbarReactNative.xcodeproj */;
+				},
+				{
 					ProductGroup = AEBAD8B52016376A00BF8AD7 /* Products */;
 					ProjectRef = 5E558AFB09024F108756A4D1 /* SMXCrashlytics.xcodeproj */;
 				},
@@ -1387,6 +1408,13 @@
 			fileType = archive.ar;
 			path = libRNViewOverflow.a;
 			remoteRef = 7D695AF1219FA99B0038B0D6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7D73455621CA339C002487B8 /* libRollbarReactNative.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRollbarReactNative.a;
+			remoteRef = 7D73455521CA339C002487B8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		7D865512208BC7B70091C4E5 /* libCodePush.a */ = {
@@ -1601,7 +1629,6 @@
 				FA45FFEB1FFE7DD100153E56 /* ADBMobileConfig.json in Resources */,
 				E9C86B0837B54AF5A72E3354 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				5CAB4F9E946B4554BF76FDE1 /* SourceSansPro-Light.ttf in Resources */,
-				7D386A57219FEA6B00DA4A18 /* BuildFile in Resources */,
 				156F31E96367427A96657BB4 /* AntDesign.ttf in Resources */,
 				33B0386D53CE49739F5D9211 /* FontAwesome5_Brands.ttf in Resources */,
 				9F46605033FE4372B99088CC /* FontAwesome5_Regular.ttf in Resources */,
@@ -1823,6 +1850,7 @@
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-view-overflow/ios",
+					"$(SRCROOT)/../node_modules/rollbar-react-native/ios/rollbar-ios/Rollbar/",
 				);
 				INFOPLIST_FILE = MissionHub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1913,6 +1941,7 @@
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-view-overflow/ios",
+					"$(SRCROOT)/../node_modules/rollbar-react-native/ios/rollbar-ios/Rollbar/",
 				);
 				INFOPLIST_FILE = MissionHub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
