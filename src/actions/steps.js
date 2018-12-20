@@ -3,6 +3,7 @@ import i18next from 'i18next';
 import {
   TOGGLE_STEP_FOCUS,
   COMPLETED_STEP_COUNT,
+  RESET_STEP_COUNT,
   STEP_NOTE,
   ACTIONS,
   DEFAULT_PAGE_LIMIT,
@@ -190,20 +191,31 @@ function buildChallengeData(attributes) {
   };
 }
 
+function getReverseContactAssigment(person, myId) {
+  return (person.reverse_contact_assignments || []).find(
+    a => a && a.assigned_to && `${a.assigned_to.id}` === myId,
+  );
+}
+
 function challengeCompleteAction(step, screen) {
   return (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = buildChallengeData({ completed_at: formatApiDate() });
     const {
-      person: { id: myId },
-    } = getState().auth;
+      auth: {
+        person: { id: myId },
+      },
+    } = getState();
 
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then(
       challengeCompleteResult => {
-        const subsection = getAnalyticsSubsection(step.receiver.id, myId);
+        const stepOrg = step.organization || {};
+        const receiver = step.receiver || {};
 
-        dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
-        dispatch(refreshImpact(step.organization && step.organization.id));
+        const subsection = getAnalyticsSubsection(receiver.id, myId);
+
+        dispatch({ type: COMPLETED_STEP_COUNT, userId: receiver.id });
+        dispatch(refreshImpact(stepOrg.id));
         dispatch(
           navigatePush(ADD_STEP_SCREEN, {
             trackingObj: buildTrackingObj(
@@ -213,7 +225,7 @@ function challengeCompleteAction(step, screen) {
               'steps',
             ),
             type: STEP_NOTE,
-            onComplete: text => {
+            onComplete: async text => {
               if (text) {
                 dispatch(updateChallengeNote(step, text)).then(() =>
                   dispatch(
@@ -224,8 +236,8 @@ function challengeCompleteAction(step, screen) {
                 );
               }
 
-              const count = getState().steps.userStepCount[step.receiver.id];
-              const isMe = myId === `${step.receiver.id}`;
+              const count = getState().steps.userStepCount[receiver.id];
+              const isMe = myId === `${receiver.id}`;
 
               const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
               const subsection = isMe ? 'self' : 'person';
@@ -236,74 +248,72 @@ function challengeCompleteAction(step, screen) {
                 'steps',
               );
 
-              if (count % 3 === 0) {
-                dispatch(
-                  getPersonDetails(
-                    step.receiver.id,
-                    step.organization && step.organization.id,
-                  ),
-                ).then(personDetailResults => {
-                  const assignment = (
-                    personDetailResults.person.reverse_contact_assignments || []
-                  ).find(
-                    a =>
-                      a && a.assigned_to
-                        ? `${a.assigned_to.id}` === myId
-                        : false,
-                  );
+              const hasHitCount = count % 3 === 0;
 
-                  const firstItemIndex = getStageIndex(
-                    getState().stages.stages,
-                    assignment && assignment.pathway_stage_id,
-                  );
-
-                  const stageProps = {
-                    section: 'people',
-                    subsection: subsection,
-                    onComplete: () => {
-                      dispatch(
-                        navigatePush(CELEBRATION_SCREEN, {
-                          onComplete: () => {
-                            dispatch(navigateBack(3));
-                          },
-                          trackingObj: celebrationTrackingObj,
-                        }),
-                      );
-
-                      dispatch(
-                        reloadJourney(
-                          step.receiver.id,
-                          step.organization && step.organization.id,
-                        ),
-                      );
-                    },
-                    contactId: isMe ? myId : step.receiver.id,
-                    firstItem: firstItemIndex,
-                    enableBackButton: false,
-                    noNav: true,
-                    questionText: isMe
-                      ? i18next.t('selectStage:completed3StepsMe')
-                      : i18next.t('selectStage:completed3Steps', {
-                          name: step.receiver.first_name,
-                        }),
-                  };
-                  if (!isMe) {
-                    stageProps.contactAssignmentId =
-                      assignment && assignment.id;
-                    stageProps.name = step.receiver.first_name;
-                  }
-
-                  dispatch(navigatePush(nextStageScreen, stageProps));
-                });
-              } else {
-                dispatch(
-                  navigatePush(CELEBRATION_SCREEN, {
-                    onComplete: () => {
-                      dispatch(navigateBack(2));
-                    },
-                    trackingObj: celebrationTrackingObj,
-                  }),
+              // If it is the other person and they haven't hit the count, we need to get more details
+              // about them before we can decide if we need to do the stage selection for them
+              if (!isMe || hasHitCount) {
+                const personDetailResults = await dispatch(
+                  getPersonDetails(receiver.id, stepOrg.id),
                 );
+
+                const assignment =
+                  getReverseContactAssigment(
+                    personDetailResults.person,
+                    myId,
+                  ) || {};
+                const stageId = assignment.pathway_stage_id;
+
+                let questionText = isMe
+                  ? i18next.t('selectStage:completed3StepsMe')
+                  : i18next.t('selectStage:completed3Steps', {
+                      name: receiver.first_name,
+                    });
+
+                // If the person hasn't hit the count and they're NOT on the "not sure" stage
+                // Send them through to celebrate and complete
+                if (!hasHitCount) {
+                  const stagesObj = getState().stages.stagesObj;
+                  if ((stagesObj[stageId] || {}).name_i18n !== 'notsure_name') {
+                    dispatch(celebrateAndComplete(2, celebrationTrackingObj));
+                    return;
+                  }
+                  // Reset the user's step count so we don't show the wrong message once they hit 3 completed steps
+                  dispatch({ type: RESET_STEP_COUNT, userId: receiver.id });
+                  questionText = i18next.t('selectStage:completed1Step', {
+                    name: receiver.first_name,
+                  });
+                }
+
+                const firstItemIndex = getStageIndex(
+                  getState().stages.stages,
+                  stageId,
+                );
+
+                const stageProps = {
+                  section: 'people',
+                  subsection: subsection,
+                  onComplete: () => {
+                    dispatch(celebrateAndComplete(3, celebrationTrackingObj));
+
+                    dispatch(reloadJourney(receiver.id, stepOrg.id));
+                  },
+                  firstItem: firstItemIndex,
+                  enableBackButton: false,
+                  noNav: true,
+                  questionText,
+                  ...(isMe
+                    ? { contactId: myId }
+                    : {
+                        contactId: receiver.id,
+                        contactAssignmentId: assignment.id,
+                        name: receiver.first_name,
+                      }),
+                };
+
+                dispatch(navigatePush(nextStageScreen, stageProps));
+              } else {
+                dispatch(celebrateAndComplete(2, celebrationTrackingObj));
               }
             },
           }),
@@ -317,6 +327,17 @@ function challengeCompleteAction(step, screen) {
 
         return challengeCompleteResult;
       },
+    );
+  };
+}
+
+function celebrateAndComplete(numTimesBack, trackingObj) {
+  return dispatch => {
+    dispatch(
+      navigatePush(CELEBRATION_SCREEN, {
+        onComplete: () => dispatch(navigateBack(numTimesBack)),
+        trackingObj,
+      }),
     );
   };
 }

@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
-import { isiPhoneX } from '../../utils/common';
+import { hasNotch } from '../../utils/common';
 
 export default StyleSheet.create({
   container: {
@@ -28,14 +28,14 @@ export default StyleSheet.create({
   },
   errorBar: {
     backgroundColor: '#FF5532',
-    height: isiPhoneX() ? 85 : 60,
+    height: hasNotch() ? 85 : 60,
     justifyContent: 'center',
     alignItems: 'center',
   },
   errorMessage: {
     color: theme.white,
     fontSize: 16,
-    marginTop: isiPhoneX() ? 28 : 12,
+    marginTop: hasNotch() ? 28 : 12,
   },
   facebookButton: {
     backgroundColor: theme.transparent,

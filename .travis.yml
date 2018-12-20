@@ -1,6 +1,7 @@
 matrix:
   include:
-    - language: node_js
+    - name: 'JS lint, test, i18n, and Codepush'
+      language: node_js
       node_js:
         - '9'
       script:
@@ -17,13 +18,14 @@ matrix:
           yarn run codepush-android-staging --token "$APPCENTER_TOKEN" --description "#$TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT_RANGE | $TRAVIS_COMMIT_MESSAGE";
           fi
       cache:
-        yarn: true
+        - yarn
 
-    - language: objective-c
+    - name: 'iOS Testflight Build'
+      language: objective-c
       if: branch = master and type = push
-      xcode_project: ios/Missionhub.xcodeproj
+      xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
-      osx_image: xcode9.2
+      osx_image: xcode10.1
       env:
         - ENVFILE=.env.production
       install:
@@ -35,12 +37,18 @@ matrix:
         - bundler install
       script:
         - fastlane ios beta
+      cache:
+        - yarn
+        - cocoapods
+        - directories:
+            - /home/travis/.rvm/
 
-    - language: android
+    - name: 'Android Beta Build'
+      language: android
       android:
         components:
           - tools
-          - build-tools-26.0.1
+          - build-tools-28.0.3
           - platform-tools
           - tools
 
@@ -59,7 +67,7 @@ matrix:
         - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
         - wget -qO- https://deb.nodesource.com/setup_8.x | sudo bash -
         - sudo apt-get install nodejs
-        - echo yes | sdkmanager "build-tools;26.0.1" # Android platform required by app
+        - echo yes | sdkmanager "build-tools;28.0.3" # Android platform required by app
         - echo yes | sdkmanager "build-tools;25.0.3" # Android platform required by some dependency
         - echo yes | sdkmanager "build-tools;23.0.1" # Android platform required by some dependency
 
@@ -70,11 +78,16 @@ matrix:
         - bundler install
       script:
         - fastlane android beta
+      cache:
+        - yarn
+        - directories:
+            - /home/travis/.rvm/
 
-    - language: objective-c
-      xcode_project: godtools.xcworkspace
+    - name: 'Fastlane release'
+      language: objective-c
+      xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
-      osx_image: xcode9.2
+      osx_image: xcode10.1
       if: tag =~ ^v(\d+\.){1,}\d+
       before_install:
         - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
@@ -85,6 +98,9 @@ matrix:
         - cd ../android
         - bundler install
         - fastlane android release
+      cache:
+        - directories:
+            - /home/travis/.rvm/
 
 env:
   global:

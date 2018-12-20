@@ -115,9 +115,10 @@ function handleNotification(notification) {
 
     const { person: me } = getState().auth;
 
-    const { screen, person, organization } = parseNotificationData(
-      notification,
-    );
+    const notificationData = parseNotificationData(notification);
+    const { screen, person } = notificationData;
+    const organization =
+      notificationData.organization && `${notificationData.organization}`;
 
     switch (screen) {
       case 'home':

@@ -210,6 +210,8 @@ export default {
       'Which stage best describes where {{name}} is on their journey?',
     completed3Steps:
       'You completed 3 steps with {{name}}. Any changes spiritually?',
+    completed1Step:
+      'You completed a step with {{name}}. Any changes spiritually?',
     completed3StepsMe:
       'You completed 3 of your steps. Any changes spiritually?',
     iAmHere: 'I AM HERE',

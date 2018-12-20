@@ -1,7 +1,7 @@
 import { Dimensions } from 'react-native';
 import Color from 'color';
 
-import { exists, isAndroid, isiPhoneX } from './utils/common';
+import { exists, isAndroid, hasNotch } from './utils/common';
 
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window');
 
@@ -75,7 +75,7 @@ const BACKGROUND = COLORS.LIGHT_BLUE;
 const ACCENT = COLORS.ACCENT_BLUE;
 
 const iPhoneHeaderHeight = 65;
-const notchHeight = isiPhoneX() ? 20 : 0;
+const notchHeight = hasNotch() ? 20 : 0;
 
 export default {
   // base theme

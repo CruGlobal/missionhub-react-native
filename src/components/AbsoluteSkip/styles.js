@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
-import { isiPhoneX } from '../../utils/common';
+import { hasNotch } from '../../utils/common';
 
 export default StyleSheet.create({
   skipWrap: {
     position: 'absolute',
-    top: 15 + (isiPhoneX() ? 40 : 20),
+    top: 15 + (hasNotch() ? 40 : 20),
     right: 10,
   },
   skipBtn: {

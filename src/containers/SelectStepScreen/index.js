@@ -52,12 +52,10 @@ class SelectStepScreen extends Component {
       disableBack.add();
     }
 
-    if (!suggestions) {
-      const { response } = await dispatch(
-        getStepSuggestions(isMe, contactStageId),
-      );
-      suggestions = response;
-    }
+    const { response } = await dispatch(
+      getStepSuggestions(isMe, contactStageId),
+    );
+    suggestions = response;
     this.setState({ suggestions: shuffleArray(suggestions) });
 
     this.handleLoadSteps();

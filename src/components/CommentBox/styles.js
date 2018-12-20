@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
-import { isiPhoneX } from '../../utils/common';
+import { hasNotch } from '../../utils/common';
 
 export default StyleSheet.create({
   container: {
@@ -10,7 +10,7 @@ export default StyleSheet.create({
     borderTopColor: theme.grey1,
     borderTopWidth: theme.separatorHeight,
     paddingTop: 5,
-    paddingBottom: isiPhoneX() ? 25 : 5,
+    paddingBottom: hasNotch() ? 25 : 5,
   },
   actionSelectionWrap: {
     backgroundColor: theme.primaryColor,
