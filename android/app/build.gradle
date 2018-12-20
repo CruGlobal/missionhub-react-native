@@ -115,11 +115,10 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.missionhub"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 26
         versionName "4.2.7"
         versionCode grgit.log(includes:['HEAD']).size() + 363
@@ -161,6 +160,7 @@ android {
 
 dependencies {
     compile project(':react-native-firebase')
+    compile project(':rollbar-react-native')
     compile project(':react-native-view-overflow')
     compile project(':react-native-code-push')
     compile project(':react-native-config')

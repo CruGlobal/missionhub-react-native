@@ -55,7 +55,7 @@ describe('lastNameChanged', () => {
 
 describe('createMyPerson', () => {
   it('should send the correct API request', async () => {
-    callApi.mockReturnValue({ person_id: 123456 });
+    callApi.mockReturnValue({ person_id: '123456' });
     await createMyPerson('Roger', 'Goers')(dispatch);
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.CREATE_MY_PERSON,

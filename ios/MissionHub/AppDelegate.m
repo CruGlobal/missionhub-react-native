@@ -13,6 +13,9 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#include "TargetConditionals.h"
+#import "ReactNativeConfig.h"
+#import <RollbarReactNative/RollbarReactNative.h>
 // PushNotificationIOS
 #import <React/RCTPushNotificationManager.h>
 #import <React/RCTLinkingManager.h>
@@ -68,6 +71,22 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
 
   [self configureAdobeAnalytics];
   [ADBMobile collectLifecycleData];
+
+  // Rollbar config
+  #if TARGET_OS_SIMULATOR
+    NSString *environment = @"development";
+  #else
+    NSURL *receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+    NSString *receiptURLString = [receiptURL path];
+    BOOL isRunningTestFlightBeta =  ([receiptURLString rangeOfString:@"sandboxReceipt"].location != NSNotFound);
+    NSString *environment = isRunningTestFlightBeta ? @"testflight" : @"production";
+  #endif
+  
+  RollbarConfiguration *config = [RollbarConfiguration configuration];
+  config.environment = environment;
+  
+  NSString *rollbarAccessToken = [ReactNativeConfig envFor:@"ROLLBAR_ACCESS_TOKEN"];
+  [RollbarReactNative initWithAccessToken:rollbarAccessToken configuration:config];
 
   return YES;
 }
