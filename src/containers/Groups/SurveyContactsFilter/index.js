@@ -130,7 +130,7 @@ export class SurveyContactsFilter extends Component {
     //then add all answer filters from item
     let newFilters = filters;
     filterKeys.forEach(k => {
-      if (newFilters[k].isAnswer) {
+      if (newFilters[k] && newFilters[k].isAnswer) {
         delete newFilters[k];
       }
     });
