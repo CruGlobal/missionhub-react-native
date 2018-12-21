@@ -1,5 +1,11 @@
 import moment from 'moment';
-import { BackHandler, Platform, Keyboard } from 'react-native';
+import {
+  ToastAndroid,
+  BackHandler,
+  Platform,
+  Keyboard,
+  Clipboard,
+} from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
@@ -12,6 +18,7 @@ import {
   INTERACTION_TYPES,
   DEFAULT_PAGE_LIMIT,
 } from '../constants';
+import i18n from '../i18n';
 
 export const shuffleArray = arr => {
   let i, temporaryValue, randomIndex;
@@ -35,11 +42,18 @@ export const getAnalyticsSubsection = (personId, myId) =>
   personId === myId ? 'self' : 'person';
 export const openMainMenu = () =>
   DrawerActions.openDrawer({ drawer: MAIN_MENU_DRAWER });
-export const buildTrackingObj = (name, section, subsection, level3) => ({
+export const buildTrackingObj = (
   name,
   section,
   subsection,
   level3,
+  level4,
+) => ({
+  name,
+  section,
+  subsection,
+  level3,
+  level4,
 });
 
 export const isFunction = fn => typeof fn === 'function';
@@ -77,18 +91,20 @@ export const orgIsUserCreated = org => !!(org && org.user_created);
 export const orgIsCru = org =>
   org && !orgIsPersonalMinistry(org) && !orgIsUserCreated(org);
 
-const MHUB_PERMISSIONS = [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.USER];
-export const isMissionhubUser = orgPermission =>
+const MHUB_PERMISSIONS = [
+  ORG_PERMISSIONS.OWNER,
+  ORG_PERMISSIONS.ADMIN,
+  ORG_PERMISSIONS.USER,
+];
+export const hasOrgPermissions = orgPermission =>
   !!orgPermission && MHUB_PERMISSIONS.includes(orgPermission.permission_id);
-export const isAdminForOrg = orgPermission =>
-  !!orgPermission && orgPermission.permission_id === ORG_PERMISSIONS.ADMIN;
-export function isMemberForOrg(orgPermission) {
-  return (
-    !!orgPermission &&
-    (orgPermission.permission_id === ORG_PERMISSIONS.ADMIN ||
-      orgPermission.permission_id === ORG_PERMISSIONS.USER)
+export const isAdminOrOwner = orgPermission =>
+  !!orgPermission &&
+  [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
+    orgPermission.permission_id,
   );
-}
+export const isOwner = orgPermission =>
+  !!orgPermission && orgPermission.permission_id === ORG_PERMISSIONS.OWNER;
 
 export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
 
@@ -107,6 +123,8 @@ export const getInitials = initials =>
     .trim()
     .substr(0, 2)
     .trim();
+export const getFirstNameAndLastInitial = (f, l) =>
+  `${f || ''} ${(l || '').charAt(0)}`.trim();
 export const intToStringLocale = num => parseInt(num).toLocaleString();
 
 // Disable the android back button
@@ -271,4 +289,21 @@ export function keyboardHide(handler) {
 
 export function getSurveyUrl(surveyId) {
   return `${Config.SURVEY_URL}${surveyId}`;
+}
+
+export function getCommunityUrl(link) {
+  return link ? `${Config.COMMUNITY_URL}${link}` : '';
+}
+
+export function toast(text, duration) {
+  if (isAndroid) {
+    const toastDuration =
+      duration === 'long' ? ToastAndroid.LONG : ToastAndroid.SHORT;
+    ToastAndroid.show(text, toastDuration);
+  }
+}
+
+export function copyText(string) {
+  Clipboard.setString(string);
+  toast(i18n.t('copyMessage'));
 }

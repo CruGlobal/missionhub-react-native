@@ -34,6 +34,10 @@ it('renders button text correctly', () => {
   renderAndTest({ buttonText: 'Click me' });
 });
 
+it('renders skip button correctly', () => {
+  renderAndTest({ onSkip: jest.fn() });
+});
+
 it('renders icon correctly', () => {
   renderAndTest({
     iconPath: require('../../../../assets/images/footprints.png'),

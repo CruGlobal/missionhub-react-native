@@ -222,7 +222,7 @@ describe('handleCreateStep', () => {
     });
   });
 
-  it('assigns the contact to me', async () => {
+  it('assigns the contact to me with prompt', async () => {
     contactAssignmentSelector.mockReturnValue(null);
     promptToAssign.mockReturnValue(Promise.resolve(true));
     createComponent(false, mockPerson);
@@ -234,6 +234,22 @@ describe('handleCreateStep', () => {
       undefined,
       myId,
     );
+  });
+
+  it('assigns the contact to me without prompt', async () => {
+    const mockOrg = { id: '1111', user_created: true };
+    contactAssignmentSelector.mockReturnValue(null);
+    promptToAssign.mockReturnValue(Promise.resolve(true));
+    createComponent(false, mockPerson, mockOrg);
+
+    await component.handleCreateStep();
+
+    expect(assignContactAndPickStage).toHaveBeenCalledWith(
+      mockPerson,
+      mockOrg,
+      myId,
+    );
+    expect(promptToAssign).not.toHaveBeenCalled();
   });
 });
 

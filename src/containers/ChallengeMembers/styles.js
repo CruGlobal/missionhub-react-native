@@ -7,4 +7,11 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
+  nameText: {
+    color: theme.primaryColor,
+    fontSize: 16,
+  },
+  lastNameAccent: {
+    fontWeight: 'bold',
+  },
 });

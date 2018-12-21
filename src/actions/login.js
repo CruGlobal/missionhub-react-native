@@ -11,7 +11,7 @@ import { navigateReset } from './navigation';
 import { logInAnalytics, trackActionWithoutData } from './analytics';
 import { completeOnboarding } from './onboardingProfile';
 
-export function onSuccessfulLogin() {
+export function onSuccessfulLogin(onComplete) {
   return async (dispatch, getState) => {
     dispatch(logInAnalytics());
 
@@ -23,6 +23,10 @@ export function onSuccessfulLogin() {
 
     const mePerson = await dispatch(getMe('contact_assignments'));
     RNOmniture.syncIdentifier(mePerson.global_registry_mdm_id);
+
+    if (onComplete) {
+      return onComplete();
+    }
 
     let nextScreen;
 

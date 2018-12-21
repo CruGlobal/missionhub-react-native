@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateGroupScreen renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Create Community"
+  />
+  <ScrollView
+    keyboardShouldPersistTaps="handled"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Translate(ImagePicker)
+      onSelectImage={[Function]}
+    >
+      <Flex
+        align="center"
+        justify="center"
+        style={
+          Object {
+            "backgroundColor": "#005A7F",
+            "borderRadius": 4,
+            "marginHorizontal": 20,
+            "marginTop": 5,
+            "minHeight": 400.2,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/cameraIcon.png",
+            }
+          }
+        />
+      </Flex>
+    </Translate(ImagePicker)>
+    <KeyboardAvoidingView
+      enabled={true}
+      keyboardVerticalOffset={60}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <Flex
+        style={
+          Object {
+            "marginTop": 5,
+            "paddingHorizontal": 30,
+            "paddingTop": 10,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#66D9F0",
+              "fontSize": 24,
+              "marginBottom": 5,
+              "textAlign": "center",
+            }
+          }
+          type="header"
+        >
+          Community Name
+        </MyText>
+        <Input
+          autoCorrect={true}
+          autoFocus={true}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder=""
+          returnKeyType="done"
+          selectionColor="#ffffff"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+          value=""
+        />
+      </Flex>
+    </KeyboardAvoidingView>
+  </ScrollView>
+  <Flex
+    align="stretch"
+    justify="end"
+  >
+    <Button
+      disabled={true}
+      onPress={[Function]}
+      style={
+        Object {
+          "width": 750,
+        }
+      }
+      text="CREATE COMMUNITY"
+      type="secondary"
+    />
+  </Flex>
+</Component>
+`;
+
+exports[`CreateGroupScreen should update the image 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Create Community"
+  />
+  <ScrollView
+    keyboardShouldPersistTaps="handled"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Translate(ImagePicker)
+      onSelectImage={[Function]}
+    >
+      <Flex
+        align="center"
+        justify="center"
+        style={
+          Object {
+            "backgroundColor": "#005A7F",
+            "borderRadius": 4,
+            "marginHorizontal": 20,
+            "marginTop": 5,
+            "minHeight": 400.2,
+          }
+        }
+      >
+        <Image
+          resizeMode="cover"
+          source={
+            Object {
+              "uri": "testuri",
+            }
+          }
+          style={
+            Object {
+              "borderRadius": 4,
+              "height": 400.2,
+              "width": "100%",
+            }
+          }
+        />
+      </Flex>
+    </Translate(ImagePicker)>
+    <KeyboardAvoidingView
+      enabled={true}
+      keyboardVerticalOffset={60}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <Flex
+        style={
+          Object {
+            "marginTop": 5,
+            "paddingHorizontal": 30,
+            "paddingTop": 10,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#66D9F0",
+              "fontSize": 24,
+              "marginBottom": 5,
+              "textAlign": "center",
+            }
+          }
+          type="header"
+        >
+          Community Name
+        </MyText>
+        <Input
+          autoCorrect={true}
+          autoFocus={true}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder=""
+          returnKeyType="done"
+          selectionColor="#ffffff"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+          value=""
+        />
+      </Flex>
+    </KeyboardAvoidingView>
+  </ScrollView>
+  <Flex
+    align="stretch"
+    justify="end"
+  >
+    <Button
+      disabled={true}
+      onPress={[Function]}
+      style={
+        Object {
+          "width": 750,
+        }
+      }
+      text="CREATE COMMUNITY"
+      type="secondary"
+    />
+  </Flex>
+</Component>
+`;

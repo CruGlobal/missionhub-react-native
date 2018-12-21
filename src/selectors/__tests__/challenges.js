@@ -55,6 +55,28 @@ const challengeItems = [
   },
 ];
 
+const currentOnlyItems = [
+  {
+    id: '1',
+    creator_id: 'person1',
+    organization_id: orgId,
+    title: 'Read "There and Back Again"',
+    end_date: '2018-09-26T14:13:21Z',
+    accepted_count: 5,
+    completed_count: 3,
+  },
+  {
+    id: '2',
+    creator_id: 'person2',
+    organization_id: orgId,
+    title: 'Invite a neighbor over for mince pie.',
+    end_date: '2018-09-16T14:13:21Z',
+    accepted_count: 5,
+    completed_count: 3,
+    accepted_at: '2018-09-06T14:13:21Z',
+  },
+];
+
 const organizations = {
   all: [
     {
@@ -103,6 +125,12 @@ const acceptedChallenges = [
 describe('challengesSelector', () => {
   it('sorts challenge items into sections by active or past', () => {
     expect(challengesSelector({ challengeItems })).toMatchSnapshot();
+  });
+
+  it('hides past challenges section if no past challenges', () => {
+    expect(
+      challengesSelector({ challengeItems: currentOnlyItems }),
+    ).toMatchSnapshot();
   });
 });
 

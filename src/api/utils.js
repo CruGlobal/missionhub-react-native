@@ -5,7 +5,7 @@ import Config from 'react-native-config';
 const API_VERSION = 'v4';
 
 export const BASE_URL = Config.API_BASE_URL;
-export const API_URL = `${BASE_URL}/apis/${API_VERSION}/`;
+export const API_URL = `${BASE_URL}/apis/${API_VERSION}`;
 export const THE_KEY_URL = Config.THE_KEY_URL;
 
 const DEFAULT_HEADERS = {
@@ -86,7 +86,7 @@ function defaultObject(method, obj = {}, data) {
   if (data) {
     newObj.body = obj.stringify === false ? data : JSON.stringify(data);
   }
-  delete obj.stringify;
+  delete newObj.stringify;
 
   return newObj;
 }
