@@ -46,9 +46,17 @@ describe('menu items and links', () => {
 
     const items = component.props().menuItems;
 
-    await items[0].action();
-    expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(LINKS.about);
-    expect(ReactNative.Linking.openURL).toHaveBeenCalledWith(LINKS.about);
+    const testUrl = async (index, url) => {
+      await items[index].action();
+      expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
+      expect(ReactNative.Linking.openURL).toHaveBeenCalledWith(url);
+    };
+
+    await testUrl(0, LINKS.about);
+    await testUrl(1, LINKS.help);
+    await testUrl(2, LINKS.appleStore);
+    await testUrl(3, LINKS.privacy);
+    await testUrl(4, LINKS.terms);
   });
 
   it('should not open link if it is not supported', async () => {
