@@ -116,6 +116,8 @@ export default {
     privacy: 'Privacy Policy',
     signOut: 'Sign out',
     signUp: 'Upgrade Account',
+    cannotOpenUrl: 'Cannot open URL',
+    pleaseVisit: 'Sorry, we could not open that URL. Please visit {{url}}',
   },
   login: {
     tagline1: 'Grow closer to God.',

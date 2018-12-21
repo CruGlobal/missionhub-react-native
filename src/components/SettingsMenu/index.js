@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Linking } from 'react-native';
+import { Alert, Linking } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -10,39 +10,46 @@ import { logout, upgradeAccount } from '../../actions/auth';
 
 @translate('settingsMenu')
 export class SettingsMenu extends Component {
+  openUrl = async url => {
+    const { t } = this.props;
+    const supported = await Linking.canOpenURL(url);
+    if (!supported) {
+      // Can't handle url
+      Alert.alert(t('cannotOpenUrl'), t('pleaseVisit', { url }));
+      return;
+    }
+
+    Linking.openURL(url);
+  };
+
   render() {
-    const { t, isFirstTime } = this.props;
+    const { t, dispatch, isFirstTime } = this.props;
     const menuItems = [
       {
         label: t('about'),
-        action: () => Linking.openURL(LINKS.about),
+        action: () => this.openUrl(LINKS.about),
       },
       {
         label: t('help'),
-        action: () => Linking.openURL(LINKS.help),
+        action: () => this.openUrl(LINKS.help),
       },
       {
         label: t('review'),
         action: () =>
-          Linking.openURL(isAndroid ? LINKS.playStore : LINKS.appleStore),
+          this.openUrl(isAndroid ? LINKS.playStore : LINKS.appleStore),
       },
       {
         label: t('privacy'),
-        action: () => Linking.openURL(LINKS.privacy),
+        action: () => this.openUrl(LINKS.privacy),
       },
       {
         label: t('terms'),
-        action: () => Linking.openURL(LINKS.terms),
+        action: () => this.openUrl(LINKS.terms),
       },
       {
         label: isFirstTime ? t('signUp') : t('signOut'),
-        action: () => {
-          if (isFirstTime) {
-            this.props.dispatch(upgradeAccount());
-          } else {
-            this.props.dispatch(logout());
-          }
-        },
+        action: () =>
+          isFirstTime ? dispatch(upgradeAccount()) : dispatch(logout()),
       },
     ];
 
