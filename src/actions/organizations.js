@@ -167,7 +167,7 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
 //filters[answers][questionId][]=answerTexts
 function getAnswersFromFilters(filters) {
   const arrFilters = Object.keys(filters).map(k => filters[k]);
-  const answers = arrFilters.filter(f => f.isAnswer);
+  const answers = arrFilters.filter(f => f && f.isAnswer);
   if (answers.length === 0) {
     return null;
   }

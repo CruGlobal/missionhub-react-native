@@ -17,7 +17,7 @@ export const getFilterOptions = (t, filters, questions = [], labels = []) => {
   );
   const questionFilters = Object.keys(filters)
     .map(f => filters[f])
-    .filter(f => f.isAnswer);
+    .filter(f => f && f.isAnswer);
 
   return {
     questions: {
