@@ -51,22 +51,47 @@ class AddStepScreen extends Component {
   };
 
   saveStep() {
+    const {
+      type,
+      dispatch,
+      next,
+      onComplete,
+      stepId,
+      personId,
+      orgId,
+    } = this.props;
     Keyboard.dismiss();
     const text = (this.state.step || '').trim();
     if (!text) {
       return;
     }
-    if (this.props.type === STEP_NOTE) {
+    if (type === STEP_NOTE) {
       disableBack.remove();
+      dispatch(next({ text, stepId, personId, orgId }));
+      return;
     }
-    this.props.next({ text });
-    if (this.props.type !== STEP_NOTE) {
-      this.props.dispatch(navigateBack());
-    }
+
+    onComplete(text);
+    dispatch(navigateBack());
   }
 
   skip() {
+    const {
+      type,
+      dispatch,
+      next,
+      onComplete,
+      stepId,
+      personId,
+      orgId,
+    } = this.props;
     Keyboard.dismiss();
+
+    if (type === STEP_NOTE) {
+      dispatch(next({ text: null, stepId, personId, orgId }));
+      return;
+    }
+
     this.props.onComplete(null);
     if (this.props.type === 'interaction') {
       this.props.dispatch(navigateBack());
@@ -156,7 +181,8 @@ class AddStepScreen extends Component {
 }
 
 AddStepScreen.propTypes = {
-  next: PropTypes.func.isRequired,
+  next: PropTypes.func,
+  onComplete: PropTypes.func,
   type: PropTypes.oneOf([
     'journey',
     'editJourney',
@@ -167,6 +193,9 @@ AddStepScreen.propTypes = {
   isEdit: PropTypes.bool,
   hideSkip: PropTypes.bool,
   text: PropTypes.string,
+  stepId: PropTypes.string,
+  personId: PropTypes.string,
+  orgId: PropTypes.string,
 };
 
 const mapStateToProps = (reduxState, { navigation }) => ({

@@ -152,9 +152,9 @@ export function setStepFocus(step, isFocus) {
   };
 }
 
-export function updateChallengeNote(step, note) {
+export function updateChallengeNote(stepId, note) {
   return dispatch => {
-    const query = { challenge_id: step.id };
+    const query = { challenge_id: stepId };
     const data = buildChallengeData({ note });
 
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
@@ -192,15 +192,15 @@ function buildChallengeData(attributes) {
   };
 }
 
-function getReverseContactAssigment(person, myId) {
-  return (person.reverse_contact_assignments || []).find(
-    a => a && a.assigned_to && `${a.assigned_to.id}` === myId,
-  );
-}
-
 function challengeCompleteAction(step, screen) {
   return async (dispatch, getState) => {
-    const query = { challenge_id: step.id };
+    const {
+      id: stepId,
+      receiver: { id: personId },
+      organization: { id: orgId },
+    } = step;
+
+    const query = { challenge_id: stepId };
     const data = buildChallengeData({ completed_at: formatApiDate() });
     const {
       auth: {
@@ -210,14 +210,12 @@ function challengeCompleteAction(step, screen) {
 
     await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
 
-    const { receiver = {}, organization = {} } = step;
+    const subsection = getAnalyticsSubsection(personId, myId);
 
-    const subsection = getAnalyticsSubsection(receiver.id, myId);
+    dispatch({ type: COMPLETED_STEP_COUNT, userId: personId });
+    dispatch(refreshImpact(orgId));
 
-    dispatch({ type: COMPLETED_STEP_COUNT, userId: receiver.id });
-    dispatch(refreshImpact(organization.id));
-
-    dispatch(navigatePush(COMPLETE_STEP_FLOW, { receiver, organization }));
+    dispatch(navigatePush(COMPLETE_STEP_FLOW, { stepId, personId, orgId }));
   };
 }
 
@@ -233,27 +231,15 @@ function challengeCompleteAction(step, screen) {
             ),
             type: STEP_NOTE,
             onComplete: async text => {
-              if (text) {
-                dispatch(updateChallengeNote(step, text)).then(() =>
-                  dispatch(
-                    trackAction(ACTIONS.INTERACTION.name, {
-                      [ACTIONS.INTERACTION.COMMENT]: null,
-                    }),
-                  ),
-                );
-              }
 
-              const count = getState().steps.userStepCount[receiver.id];
-              const isMe = myId === `${receiver.id}`;
 
-              const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
-              const subsection = isMe ? 'self' : 'person';
-              const celebrationTrackingObj = buildTrackingObj(
-                `people : ${subsection} : steps : gif`,
-                'people',
-                subsection,
-                'steps',
-              );
+
+ const celebrationTrackingObj = buildTrackingObj(
+ `people : ${subsection} : steps : gif`,
+ 'people',
+ subsection,
+ 'steps',
+ );
 
               const hasHitCount = count % 3 === 0;
 
