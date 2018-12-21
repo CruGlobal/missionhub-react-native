@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { MainTabBar, MainTabBarGroups } from '../AppRoutes';
+import { MainTabBarStartSteps, MainTabBarStartGroups } from '../AppRoutes';
 
 class MainTabs extends Component {
   render() {
-    return this.props.groups ? <MainTabBarGroups /> : <MainTabBar />;
+    return this.props.startTab === 'groups' ? (
+      <MainTabBarStartGroups />
+    ) : (
+      <MainTabBarStartSteps />
+    );
   }
 }
 
-const mapStateToProps = ({ auth }) => ({
-  groups: auth.person.user.groups_feature,
+const mapStateToProps = (_, { navigation }) => ({
+  startTab: (navigation.state.params || {}).startTab,
 });
 
 export default connect(mapStateToProps)(MainTabs);

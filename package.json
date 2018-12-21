@@ -14,6 +14,7 @@
     "test:c": "npm run test:coverage",
     "test:s": "npm run test:snapshot",
     "ios": "react-native run-ios",
+    "ios:pod": "cd ios && pod install",
     "lint": "eslint ./*.js ./src ./__tests__",
     "lint:fix": "eslint ./*.js ./src ./__tests__ --fix",
     "prettier:check": "prettier '{{src,bin,testUtils,__{tests,mocks}__}/**/*.{js,json},./*.{js,json,yml}}' --list-different",
@@ -22,6 +23,7 @@
     "android:install:dev": "adb install android/app/build/outputs/apk/app-debug.apk",
     "android:install:release": "adb install android/app/build/outputs/apk/app-release.apk",
     "android:build": "react-native run-android --variant=release",
+    "android:bundleReleaseAssets": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
     "codepush-ios-staging": "appcenter codepush release-react -a Cru/MissionHub-iOS --plist-file ios/MissionHub/Info.plist",
     "codepush-android-staging": "appcenter codepush release-react -a Cru/MissionHub-Android",
     "onesky:upload": "babel-node ./bin/oneskyUpload.js",
@@ -55,6 +57,7 @@
     "react-native-device-info": "^0.24.3",
     "react-native-fabric": "CruGlobal/react-native-fabric",
     "react-native-fbsdk": "^0.8.0",
+    "react-native-image-picker": "^0.27.1",
     "react-native-firebase": "^5.1.0",
     "react-native-omniture": "https://github.com/CruGlobal/react-native-omniture",
     "react-native-parallax-scroll-view": "^0.21.0",
@@ -70,12 +73,13 @@
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
+    "rollbar-react-native": "^0.3.3",
     "stacktrace-js": "^2.0.0",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
     "@brainly/onesky-utils": "^1.2.0",
-    "appcenter-cli": "^1.0.17",
+    "appcenter-cli": "^1.1.9",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.3",
@@ -106,7 +110,9 @@
       "<rootDir>/__mock__/react-native-device-info.js",
       "<rootDir>/__mock__/react-native-fabric.js",
       "<rootDir>/__mock__/react-native-code-push.js",
-      "<rootDir>/__mock__/react-native-firebase.js"
+      "<rootDir>/__mock__/react-native-firebase.js",
+      "<rootDir>/__mock__/rollbar-react-native.js",
+      "<rootDir>/__mock__/react-native-omniture.js"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

@@ -1,0 +1,453 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders tos and privacy 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginBottom": 38,
+        "marginTop": 10,
+      },
+      Object {
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 12,
+          "paddingHorizontal": 3,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    By creating your MissionHub account you agree to our
+  </Text>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                  "textDecorationLine": "underline",
+                },
+              ],
+            ]
+          }
+        >
+          Terms of Service
+        </Text>
+      </View>
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+            "paddingHorizontal": 3,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      and
+    </Text>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                  "textDecorationLine": "underline",
+                },
+              ],
+            ]
+          }
+        >
+          Privacy Policy
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders trial tos and privacy 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginBottom": 38,
+        "marginTop": 10,
+      },
+      Object {
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 12,
+          "paddingHorizontal": 3,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    By creating your MissionHub trial account you agree to our
+  </Text>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                  "textDecorationLine": "underline",
+                },
+              ],
+            ]
+          }
+        >
+          Terms of Service
+        </Text>
+      </View>
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+            "paddingHorizontal": 3,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      and
+    </Text>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                  "textDecorationLine": "underline",
+                },
+              ],
+            ]
+          }
+        >
+          Privacy Policy
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

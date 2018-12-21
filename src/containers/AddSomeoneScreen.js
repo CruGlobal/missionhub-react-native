@@ -5,6 +5,7 @@ import { translate } from 'react-i18next';
 
 import { navigatePush } from '../actions/navigation';
 import { disableBack } from '../utils/common';
+import { skipOnboarding } from '../actions/onboardingProfile';
 
 import { SETUP_PERSON_SCREEN } from './SetupPersonScreen';
 import IconMessageScreen from './IconMessageScreen';
@@ -25,6 +26,8 @@ class AddSomeoneScreen extends Component {
     Keyboard.dismiss();
   };
 
+  skip = () => this.props.dispatch(skipOnboarding());
+
   render() {
     const { t } = this.props;
 
@@ -34,6 +37,7 @@ class AddSomeoneScreen extends Component {
         onComplete={this.handleNavigate}
         buttonText={t('addSomeone').toUpperCase()}
         iconPath={require('../../assets/images/add_someone.png')}
+        onSkip={this.skip}
       />
     );
   }

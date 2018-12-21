@@ -22,16 +22,21 @@ exports[`a login button is clicked facebook login button is pressed loading whee
   <Flex
     align="center"
     justify="center"
-    value={1}
   >
-    <Image
-      resizeMode="contain"
-      source={
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
         Object {
-          "testUri": "../../../assets/images/missionHubLogoWords.png",
+          "color": "#52C5DC",
+          "fontSize": 48,
         }
       }
-    />
+      type="header"
+    >
+      Sign In
+    </MyText>
   </Flex>
   <Flex
     style={
@@ -118,6 +123,12 @@ exports[`a login button is clicked facebook login button is pressed loading whee
         type="transparent"
       />
     </Component>
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
     <Button
       buttonTextStyle={
         Object {
@@ -200,16 +211,21 @@ exports[`a login button is clicked forgot password button is pressed loading whe
   <Flex
     align="center"
     justify="center"
-    value={1}
   >
-    <Image
-      resizeMode="contain"
-      source={
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
         Object {
-          "testUri": "../../../assets/images/missionHubLogoWords.png",
+          "color": "#52C5DC",
+          "fontSize": 48,
         }
       }
-    />
+      type="header"
+    >
+      Sign In
+    </MyText>
   </Flex>
   <Flex
     style={
@@ -296,6 +312,12 @@ exports[`a login button is clicked forgot password button is pressed loading whe
         type="transparent"
       />
     </Component>
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
     <Button
       buttonTextStyle={
         Object {
@@ -378,16 +400,21 @@ exports[`a login button is clicked key login button is pressed loading wheel app
   <Flex
     align="center"
     justify="center"
-    value={1}
   >
-    <Image
-      resizeMode="contain"
-      source={
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
         Object {
-          "testUri": "../../../assets/images/missionHubLogoWords.png",
+          "color": "#52C5DC",
+          "fontSize": 48,
         }
       }
-    />
+      type="header"
+    >
+      Sign In
+    </MyText>
   </Flex>
   <Flex
     style={
@@ -512,16 +539,21 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
   <Flex
     align="center"
     justify="center"
-    value={1}
   >
-    <Image
-      resizeMode="contain"
-      source={
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
         Object {
-          "testUri": "../../../assets/images/missionHubLogoWords.png",
+          "color": "#52C5DC",
+          "fontSize": 48,
         }
       }
-    />
+      type="header"
+    >
+      Sign In
+    </MyText>
   </Flex>
   <Flex
     style={
@@ -608,6 +640,12 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
         type="transparent"
       />
     </Component>
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
     <Button
       buttonTextStyle={
         Object {
@@ -714,16 +752,21 @@ exports[`a login button is clicked key login button is pressed shows email verif
   <Flex
     align="center"
     justify="center"
-    value={1}
   >
-    <Image
-      resizeMode="contain"
-      source={
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
         Object {
-          "testUri": "../../../assets/images/missionHubLogoWords.png",
+          "color": "#52C5DC",
+          "fontSize": 48,
         }
       }
-    />
+      type="header"
+    >
+      Sign In
+    </MyText>
   </Flex>
   <Flex
     style={
@@ -872,16 +915,21 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
   <Flex
     align="center"
     justify="center"
-    value={1}
   >
-    <Image
-      resizeMode="contain"
-      source={
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
         Object {
-          "testUri": "../../../assets/images/missionHubLogoWords.png",
+          "color": "#52C5DC",
+          "fontSize": 48,
         }
       }
-    />
+      type="header"
+    >
+      Sign In
+    </MyText>
   </Flex>
   <Flex
     style={
@@ -1030,16 +1078,21 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
   <Flex
     align="center"
     justify="center"
-    value={1}
   >
-    <Image
-      resizeMode="contain"
-      source={
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
         Object {
-          "testUri": "../../../assets/images/missionHubLogoWords.png",
+          "color": "#52C5DC",
+          "fontSize": 48,
         }
       }
-    />
+      type="header"
+    >
+      Sign In
+    </MyText>
   </Flex>
   <Flex
     style={
@@ -1251,20 +1304,32 @@ exports[`renders correctly 1`] = `
         Object {},
         Object {
           "alignItems": "center",
-          "flex": 1,
           "justifyContent": "center",
         },
       ]
     }
   >
-    <Image
-      resizeMode="contain"
-      source={
-        Object {
-          "testUri": "../../../assets/images/missionHubLogoWords.png",
-        }
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "AmaticSC-Bold",
+          },
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 48,
+          },
+        ]
       }
-    />
+    >
+      sign in
+    </Text>
   </View>
   <View
     style={
@@ -1468,6 +1533,19 @@ exports[`renders correctly 1`] = `
         </View>
       </View>
     </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -1562,7 +1640,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -1619,7 +1697,6 @@ exports[`renders correctly for forced logout 1`] = `
         Object {},
         Object {
           "alignItems": "center",
-          "flex": 1,
           "justifyContent": "center",
         },
       ]
@@ -1854,6 +1931,19 @@ Please sign in so we know it's you.
         </View>
       </View>
     </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -1948,7 +2038,7 @@ Please sign in so we know it's you.
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}

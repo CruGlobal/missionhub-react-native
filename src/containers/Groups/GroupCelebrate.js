@@ -4,7 +4,6 @@ import { translate } from 'react-i18next';
 import moment from 'moment';
 
 import CelebrateFeed from '../../components/CelebrateFeed';
-import EmptyCelebrateFeed from '../../components/EmptyCelebrateFeed';
 import {
   getGroupCelebrateFeed,
   reloadGroupCelebrateFeed,
@@ -52,16 +51,11 @@ export class GroupCelebrate extends Component {
     const { refreshing } = this.state;
     const { celebrateItems, organization } = this.props;
 
-    return celebrateItems.length !== 0 ? (
+    return (
       <CelebrateFeed
         organization={organization}
         items={celebrateItems}
         loadMoreItemsCallback={this.loadItems}
-        refreshCallback={this.refreshItems}
-        refreshing={refreshing}
-      />
-    ) : (
-      <EmptyCelebrateFeed
         refreshCallback={this.refreshItems}
         refreshing={refreshing}
       />
@@ -79,7 +73,7 @@ export const mapStateToProps = ({ organizations }, { organization }) => {
 
   return {
     celebrateItems,
-    pagination: selectorOrg.celebratePagination,
+    pagination: selectorOrg && selectorOrg.celebratePagination,
   };
 };
 

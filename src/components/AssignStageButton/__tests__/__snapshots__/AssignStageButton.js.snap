@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly for me 1`] = `
+<Button
+  buttonTextStyle={
+    Object {
+      "fontSize": 14,
+    }
+  }
+  onPress={[MockFunction]}
+  style={
+    Array [
+      Object {
+        "alignSelf": "center",
+        "borderRadius": 25,
+        "marginVertical": 8,
+        "minWidth": 200,
+        "paddingVertical": 8,
+      },
+      Object {
+        "backgroundColor": "#52C5DC",
+      },
+    ]
+  }
+  text="STAGE NAME"
+  type="transparent"
+/>
+`;
+
+exports[`renders correctly for me without stage 1`] = `
+<Button
+  buttonTextStyle={
+    Object {
+      "fontSize": 14,
+    }
+  }
+  onPress={[MockFunction]}
+  style={
+    Array [
+      Object {
+        "alignSelf": "center",
+        "borderRadius": 25,
+        "marginVertical": 8,
+        "minWidth": 200,
+        "paddingVertical": 8,
+      },
+      Object {
+        "backgroundColor": "#FF5532",
+      },
+    ]
+  }
+  text="SELECT STAGE"
+  type="transparent"
+/>
+`;
+
+exports[`renders correctly for other 1`] = `
+<Button
+  buttonTextStyle={
+    Object {
+      "fontSize": 14,
+    }
+  }
+  onPress={[MockFunction]}
+  style={
+    Array [
+      Object {
+        "alignSelf": "center",
+        "borderRadius": 25,
+        "marginVertical": 8,
+        "minWidth": 200,
+        "paddingVertical": 8,
+      },
+      Object {
+        "backgroundColor": "#52C5DC",
+      },
+    ]
+  }
+  text="STAGE NAME"
+  type="transparent"
+/>
+`;
+
+exports[`renders correctly for other without stage 1`] = `
+<Button
+  buttonTextStyle={
+    Object {
+      "fontSize": 14,
+    }
+  }
+  onPress={[MockFunction]}
+  style={
+    Array [
+      Object {
+        "alignSelf": "center",
+        "borderRadius": 25,
+        "marginVertical": 8,
+        "minWidth": 200,
+        "paddingVertical": 8,
+      },
+      Object {
+        "backgroundColor": "#FF5532",
+      },
+    ]
+  }
+  text="SELECT STAGE"
+  type="transparent"
+/>
+`;

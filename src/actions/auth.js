@@ -7,10 +7,11 @@ import randomString from 'random-string';
 import i18next from 'i18next';
 
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, OPEN_URL } from '../constants';
-import { LOGIN_SCREEN } from '../containers/LoginScreen';
-import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
+import { LANDING_SCREEN } from '../containers/LandingScreen';
+import { UPGRADE_ACCOUNT_SCREEN } from '../containers/UpgradeAccountScreen';
 import { THE_KEY_URL } from '../api/utils';
 import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
+import { rollbar } from '../utils/rollbar.config';
 
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
@@ -25,7 +26,12 @@ import {
 } from './organizations';
 import { resetPerson } from './onboardingProfile';
 
-export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
+export function openKeyURL(
+  baseURL,
+  onReturn,
+  upgradeAccount = false,
+  onComplete,
+) {
   return dispatch => {
     global.Buffer = global.Buffer || Buffer.Buffer;
 
@@ -48,12 +54,14 @@ export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
       Linking.removeEventListener('url', onLinkBack);
       const code = event.url.split('code=')[1];
       onReturn();
+
       return dispatch(
         createAccountAndLogin(
           code,
           codeVerifier,
           redirectUri,
           upgradeAccount ? upgradeAccount : null,
+          onComplete,
         ),
       );
     }
@@ -65,9 +73,16 @@ export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
   };
 }
 
-export function createAccountAndLogin(code, verifier, redirectUri, isUpgrade) {
+export function createAccountAndLogin(
+  code,
+  verifier,
+  redirectUri,
+  isUpgrade,
+  onComplete,
+) {
   const data = `grant_type=authorization_code&client_id=${THE_KEY_CLIENT_ID}&code=${code}&code_verifier=${verifier}&redirect_uri=${redirectUri}`;
-  return getTokenAndLogin(data, isUpgrade);
+
+  return getTokenAndLogin(data, isUpgrade, onComplete);
 }
 
 export function refreshAccessToken() {
@@ -81,7 +96,13 @@ export function refreshAccessToken() {
   };
 }
 
-export function keyLogin(email, password, mfaCode, isUpgrade = false) {
+export function keyLogin(
+  email,
+  password,
+  mfaCode,
+  isUpgrade = false,
+  onComplete,
+) {
   let data =
     `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended` +
     `&username=${encodeURIComponent(email)}&password=${encodeURIComponent(
@@ -92,15 +113,15 @@ export function keyLogin(email, password, mfaCode, isUpgrade = false) {
     data = `${data}&thekey_mfa_token=${mfaCode}`;
   }
 
-  return getTokenAndLogin(data, isUpgrade);
+  return getTokenAndLogin(data, isUpgrade, onComplete);
 }
 
-function getTokenAndLogin(data, isUpgrade) {
+function getTokenAndLogin(data, isUpgrade, onComplete) {
   return async dispatch => {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
     await dispatch(getTicketAndLogin(isUpgrade));
 
-    return dispatch(onSuccessfulLogin());
+    return dispatch(onSuccessfulLogin(onComplete));
   };
 }
 
@@ -146,14 +167,26 @@ export function logout(forcedLogout = false) {
     dispatch(
       forcedLogout
         ? navigateReset(KEY_LOGIN_SCREEN, { forcedLogout })
-        : navigateReset(LOGIN_SCREEN),
+        : navigateReset(LANDING_SCREEN),
     );
   };
 }
 
-export function upgradeAccount() {
+export function upgradeAccount(signupType, onComplete) {
   return dispatch => {
-    dispatch(navigatePush(LOGIN_OPTIONS_SCREEN, { upgradeAccount: true }));
+    dispatch(
+      navigatePush(UPGRADE_ACCOUNT_SCREEN, {
+        signupType,
+        onComplete,
+      }),
+    );
+    rollbar.clearPerson();
+  };
+}
+
+export function upgradeAccountSignIn() {
+  return dispatch => {
+    dispatch(navigatePush(KEY_LOGIN_SCREEN, { upgradeAccount: true }));
   };
 }
 

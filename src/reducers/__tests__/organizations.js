@@ -6,7 +6,11 @@ import {
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
   DEFAULT_PAGE_LIMIT,
+  UPDATE_PERSON_ATTRIBUTES,
+  REMOVE_ORGANIZATION_MEMBER,
+  LOAD_PERSON_DETAILS,
   UPDATE_CHALLENGE,
+  GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 
 const org1Id = '123';
@@ -509,7 +513,7 @@ it('loads members for org with paging', () => {
         },
         organization_id: orgId,
         filters: {
-          permissions: 'admin,user',
+          permissions: 'owner,admin,user',
         },
         include: 'contact_assignments,organizational_permissions',
       },
@@ -597,6 +601,38 @@ describe('REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS', () => {
     });
   });
 
+  it('should recognize null organization_ids as global community', () => {
+    const newItems = [{ id: 'roge' }, { id: 'roger' }];
+
+    const state = organizations(
+      {
+        all: [
+          {
+            id: GLOBAL_COMMUNITY_ID,
+          },
+        ],
+      },
+      {
+        type: REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS,
+        query: {
+          filters: { organization_ids: 'null' },
+          page: {
+            limit: DEFAULT_PAGE_LIMIT,
+            offset: DEFAULT_PAGE_LIMIT,
+          },
+        },
+        meta: {
+          total: 1,
+        },
+        results: {
+          response: newItems,
+        },
+      },
+    );
+
+    expect(state).toMatchSnapshot();
+  });
+
   it('should do nothing if query page is less than current page', () => {
     const state = organizations(
       {
@@ -630,6 +666,278 @@ describe('REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS', () => {
     );
 
     expect(state.all[0].challengeItems).toEqual([]);
+  });
+});
+
+describe('update organization in line', () => {
+  const orgId = '1';
+  const org = {
+    id: orgId,
+    name: 'old name',
+    community_photo_url: 'old photo url',
+    community_code: 'old code',
+  };
+  it('updates the organization name', () => {
+    const name = 'new name';
+    const state = organizations(
+      { all: [org] },
+      {
+        type: REQUESTS.UPDATE_ORGANIZATION.SUCCESS,
+        results: {
+          response: { ...org, name },
+        },
+      },
+    );
+
+    expect(state.all[0].name).toEqual(name);
+  });
+  it('updates the organization photo url', () => {
+    const community_photo_url = 'new photo url';
+    const state = organizations(
+      { all: [org] },
+      {
+        type: REQUESTS.UPDATE_ORGANIZATION_IMAGE.SUCCESS,
+        results: {
+          response: { ...org, community_photo_url },
+        },
+      },
+    );
+
+    expect(state.all[0].community_photo_url).toEqual(community_photo_url);
+  });
+  it('updates the organization code', () => {
+    const community_code = 'new code';
+    const state = organizations(
+      { all: [org] },
+      {
+        type: REQUESTS.ORGANIZATION_NEW_CODE.SUCCESS,
+        results: {
+          response: { ...org, community_code },
+        },
+      },
+    );
+
+    expect(state.all[0].community_code).toEqual(community_code);
+  });
+  it('updates the organization url', () => {
+    const community_url = 'new url';
+    const state = organizations(
+      { all: [org] },
+      {
+        type: REQUESTS.ORGANIZATION_NEW_LINK.SUCCESS,
+        results: {
+          response: { ...org, community_url },
+        },
+      },
+    );
+
+    expect(state.all[0].community_url).toEqual(community_url);
+  });
+});
+
+describe('UPDATE_PERSON_ATTRIBUTES', () => {
+  it('should update attributes of a member in all orgs ', () => {
+    const orgPermission1 = { id: '7777', permission_id: '1' };
+    const orgPermission2 = { id: '8888', permission_id: '1' };
+    const orgPermission3 = { id: '9999', permission_id: '1' };
+    const orgPermission1New = { ...orgPermission1, permission_id: '2' };
+
+    const person1 = {
+      id: '111',
+      organizational_permissions: [orgPermission1, orgPermission2],
+    };
+    const person2 = {
+      id: '222',
+      organizational_permissions: [orgPermission3],
+    };
+    const person1New = {
+      ...person1,
+      organizational_permissions: [orgPermission1New, orgPermission2],
+    };
+
+    const state = organizations(
+      {
+        all: [
+          {
+            id: org1Id,
+            members: [person1, person2],
+          },
+          {
+            id: org2Id,
+            members: [person1],
+          },
+        ],
+      },
+      {
+        type: UPDATE_PERSON_ATTRIBUTES,
+        updatedPersonAttributes: {
+          id: person1.id,
+          organizational_permissions: [orgPermission1New, orgPermission2],
+        },
+      },
+    );
+
+    expect(state.all).toEqual([
+      {
+        id: org1Id,
+        members: [person1New, person2],
+      },
+      {
+        id: org2Id,
+        members: [person1New],
+      },
+    ]);
+  });
+});
+
+describe('LOAD_PERSON_DETAILS', () => {
+  it('should update attributes of a member in all orgs ', () => {
+    const orgPermission1 = { id: '7777', permission_id: '1' };
+    const orgPermission2 = { id: '8888', permission_id: '1' };
+    const orgPermission3 = { id: '9999', permission_id: '1' };
+    const orgPermission1New = { ...orgPermission1, permission_id: '2' };
+
+    const person1 = {
+      id: '111',
+      organizational_permissions: [orgPermission1, orgPermission2],
+    };
+    const person2 = {
+      id: '222',
+      organizational_permissions: [orgPermission3],
+    };
+    const person1New = {
+      ...person1,
+      organizational_permissions: [orgPermission1New, orgPermission2],
+    };
+
+    const state = organizations(
+      {
+        all: [
+          {
+            id: org1Id,
+            members: [person1, person2],
+          },
+          {
+            id: org2Id,
+            members: [person1],
+          },
+        ],
+      },
+      {
+        type: LOAD_PERSON_DETAILS,
+        person: {
+          id: person1.id,
+          organizational_permissions: [orgPermission1New, orgPermission2],
+        },
+      },
+    );
+
+    expect(state.all).toEqual([
+      {
+        id: org1Id,
+        members: [person1New, person2],
+      },
+      {
+        id: org2Id,
+        members: [person1New],
+      },
+    ]);
+  });
+});
+
+describe('REQUESTS.GET_ME', () => {
+  it('should update attributes of a member in all orgs ', () => {
+    const orgPermission1 = { id: '7777', permission_id: '1' };
+    const orgPermission2 = { id: '8888', permission_id: '1' };
+    const orgPermission3 = { id: '9999', permission_id: '1' };
+    const orgPermission1New = { ...orgPermission1, permission_id: '2' };
+
+    const person1 = {
+      id: '111',
+      organizational_permissions: [orgPermission1, orgPermission2],
+    };
+    const person2 = {
+      id: '222',
+      organizational_permissions: [orgPermission3],
+    };
+    const person1New = {
+      ...person1,
+      organizational_permissions: [orgPermission1New, orgPermission2],
+    };
+
+    const state = organizations(
+      {
+        all: [
+          {
+            id: org1Id,
+            members: [person1, person2],
+          },
+          {
+            id: org2Id,
+            members: [person1],
+          },
+        ],
+      },
+      {
+        type: REQUESTS.GET_ME.SUCCESS,
+        results: {
+          response: {
+            id: person1.id,
+            organizational_permissions: [orgPermission1New, orgPermission2],
+          },
+        },
+      },
+    );
+
+    expect(state.all).toEqual([
+      {
+        id: org1Id,
+        members: [person1New, person2],
+      },
+      {
+        id: org2Id,
+        members: [person1New],
+      },
+    ]);
+  });
+});
+
+describe('REMOVE_ORGANIZATION_MEMBER', () => {
+  it('should remove member', () => {
+    const personId = '2542342';
+    const orgId = '980789879';
+    const otherPerson = { id: '42324' };
+    const initialState = {
+      all: [
+        {
+          id: '1',
+          members: [{ id: personId }],
+        },
+        {
+          id: orgId,
+          members: [otherPerson, { id: personId }],
+        },
+      ],
+    };
+
+    const result = organizations(initialState, {
+      type: REMOVE_ORGANIZATION_MEMBER,
+      personId,
+      orgId,
+    });
+
+    expect(result).toEqual({
+      all: [
+        {
+          id: '1',
+          members: [{ id: personId }],
+        },
+        {
+          id: orgId,
+          members: [otherPerson],
+        },
+      ],
+    });
   });
 });
 
@@ -674,4 +982,35 @@ describe('UPDATE_CHALLENGE', () => {
   );
 
   expect(state.all[0].challengeItems).toEqual([challengeResult]);
+});
+
+describe('GET_USERS_REPORT.SUCCESS', () => {
+  it('adds users count to global org', () => {
+    expect(
+      organizations(
+        {
+          all: [
+            {
+              id: GLOBAL_COMMUNITY_ID,
+              name: 'MissionHub Community',
+              community: true,
+              user_created: true,
+              contactReport: {
+                some_prop: 'Roge',
+              },
+            },
+            { id: '1', name: "Roger's community" },
+          ],
+        },
+        {
+          type: REQUESTS.GET_USERS_REPORT.SUCCESS,
+          results: {
+            response: {
+              users_count: 100000,
+            },
+          },
+        },
+      ),
+    ).toMatchSnapshot();
+  });
 });

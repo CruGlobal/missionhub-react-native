@@ -13,8 +13,9 @@ import {
   DELETE_PERSON,
   ACTIONS,
   LOAD_PERSON_DETAILS,
+  ORG_PERMISSIONS,
 } from '../constants';
-import { isMemberForOrg, exists } from '../utils/common';
+import { hasOrgPermissions, exists } from '../utils/common';
 import {
   personSelector,
   orgPermissionSelector,
@@ -209,6 +210,17 @@ export function updatePerson(data) {
                     },
                   ]
                 : []),
+              ...(data.orgPermission && data.orgPermission.archive_date
+                ? [
+                    {
+                      type: 'organizational_permission',
+                      id: data.orgPermission.id,
+                      attributes: {
+                        archive_date: data.orgPermission.archive_date,
+                      },
+                    },
+                  ]
+                : []),
             ],
           }
         : {}),
@@ -233,6 +245,70 @@ export function updatePerson(data) {
         phone_numbers: person.phone_numbers,
         organizational_permissions: person.organizational_permissions,
       }),
+    );
+
+    return results;
+  };
+}
+
+export function makeAdmin(personId, orgPermissionId) {
+  return async dispatch => {
+    const results = await dispatch(
+      updateOrgPermission(personId, orgPermissionId, ORG_PERMISSIONS.ADMIN),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.MANAGE_MAKE_ADMIN));
+
+    return results;
+  };
+}
+
+export function removeAsAdmin(personId, orgPermissionId) {
+  return async dispatch => {
+    const results = await dispatch(
+      updateOrgPermission(personId, orgPermissionId, ORG_PERMISSIONS.USER),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.MANAGE_REMOVE_ADMIN));
+
+    return results;
+  };
+}
+
+export function updateOrgPermission(
+  personId,
+  orgPermissionId,
+  permissionLevel,
+) {
+  return dispatch => {
+    const data = {
+      id: personId,
+      orgPermission: {
+        id: orgPermissionId,
+        permission_id: permissionLevel,
+      },
+    };
+    return dispatch(updatePerson(data));
+  };
+}
+
+export function archiveOrgPermission(personId, orgPermissionId) {
+  return async (dispatch, getState) => {
+    const results = await dispatch(
+      updatePerson({
+        id: personId,
+        orgPermission: {
+          id: orgPermissionId,
+          archive_date: new Date().toISOString(),
+        },
+      }),
+    );
+
+    const myId = getState().auth.person.id;
+    dispatch(
+      trackActionWithoutData(
+        personId === myId
+          ? ACTIONS.MANAGE_LEAVE_COMMUNITY
+          : ACTIONS.MANAGE_REMOVE_MEMBER,
+      ),
     );
 
     return results;
@@ -370,7 +446,7 @@ export function getPersonScreenRoute(
 ) {
   const isMe = person.id === mePerson.id;
 
-  const isMember = isMemberForOrg(
+  const isMember = hasOrgPermissions(
     orgPermissionSelector(null, {
       person: person,
       organization,

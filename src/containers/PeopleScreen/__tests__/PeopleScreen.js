@@ -4,7 +4,10 @@ import React from 'react';
 import { PeopleScreen, mapStateToProps } from '..';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
-import { peopleByOrgSelector } from '../../../selectors/people';
+import {
+  peopleByOrgSelector,
+  allAssignedPeopleSelector,
+} from '../../../selectors/people';
 import * as common from '../../../utils/common';
 import { navToPersonScreen } from '../../../actions/person';
 
@@ -58,9 +61,24 @@ const orgs = [
   },
 ];
 
+const people = [
+  {
+    id: 1,
+    type: 'person',
+  },
+  {
+    id: 2,
+    type: 'person',
+  },
+  {
+    id: 3,
+    type: 'person',
+  },
+];
+
 const props = {
   isJean: true,
-  orgs: orgs,
+  items: orgs,
   dispatch: jest.fn(response => Promise.resolve(response)),
 };
 
@@ -68,7 +86,7 @@ jest.mock('react-native-device-info');
 
 describe('PeopleScreen', () => {
   describe('mapStateToProps', () => {
-    it('should provide the necessary props', () => {
+    it('should provide the necessary props for Jean', () => {
       peopleByOrgSelector.mockReturnValue(orgs);
       expect(
         mapStateToProps({
@@ -78,15 +96,31 @@ describe('PeopleScreen', () => {
           people: {},
         }),
       ).toMatchSnapshot();
+      expect(peopleByOrgSelector).toHaveBeenCalled();
+    });
+    it('should provide the necessary props for Casey', () => {
+      allAssignedPeopleSelector.mockReturnValue(people);
+      expect(
+        mapStateToProps({
+          auth: {
+            isJean: false,
+          },
+          people: {},
+        }),
+      ).toMatchSnapshot();
+      expect(allAssignedPeopleSelector).toHaveBeenCalled();
     });
   });
   it('renders correctly as Casey', () => {
-    testSnapshotShallow(<PeopleScreen {...props} isJean={false} />);
+    testSnapshotShallow(
+      <PeopleScreen {...props} isJean={false} items={people} />,
+    );
   });
 
   it('renders correctly as Jean', () => {
-    testSnapshotShallow(<PeopleScreen {...props} isJean={true} />);
+    testSnapshotShallow(<PeopleScreen {...props} isJean={true} items={orgs} />);
   });
+
   it('should open main menu', () => {
     const instance = renderShallow(<PeopleScreen {...props} />).instance();
     common.openMainMenu = jest.fn();

@@ -61,12 +61,6 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
             Array [
               [Function],
             ],
-            Array [
-              [Function],
-            ],
-            Array [
-              [Function],
-            ],
           ],
         }
       }
@@ -99,7 +93,87 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
 </Component>
 `;
 
-exports[`Contact should render AssignedPersonScreen correctly with stage 1`] = `
+exports[`Contact should render AssignedPersonScreen correctly with stage for User-Created Community 1`] = `
+<View>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    right={
+      <IconButton
+        name="moreIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Test Org"
+  />
+  <Flex
+    align="center"
+    justify="center"
+    self="stretch"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "paddingVertical": 10,
+        },
+        undefined,
+      ]
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+        }
+      }
+    >
+      TEST PERSON
+    </MyText>
+    <Translate(GroupsPersonHeader)
+      dispatch={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+          ],
+        }
+      }
+      isCruOrg={false}
+      isMember={true}
+      isVisible={true}
+      myId="1000"
+      organization={
+        Object {
+          "id": "1",
+          "name": "Test Org",
+        }
+      }
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+      stages={
+        Array [
+          Object {
+            "id": "3",
+            "name": "stage 3",
+          },
+        ]
+      }
+    />
+  </Flex>
+</View>
+`;
+
+exports[`Contact should render AssignedPersonScreen correctly with stage for cru community 1`] = `
 <View>
   <Connect(Header)
     left={<Connect(BackButton) />}
@@ -153,9 +227,6 @@ exports[`Contact should render AssignedPersonScreen correctly with stage 1`] = `
       dispatch={
         [MockFunction] {
           "calls": Array [
-            Array [
-              [Function],
-            ],
             Array [
               [Function],
             ],

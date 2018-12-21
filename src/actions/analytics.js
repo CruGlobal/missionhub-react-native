@@ -166,6 +166,7 @@ function addTrackingObjToContext(trackingObj, analytics, auth) {
     [ANALYTICS.SITE_SECTION]: newTrackingObj.section,
     [ANALYTICS.SITE_SUBSECTION]: newTrackingObj.subsection,
     [ANALYTICS.SITE_SUB_SECTION_3]: newTrackingObj.level3,
+    [ANALYTICS.SITE_SUB_SECTION_4]: newTrackingObj.level4,
     [ANALYTICS.GR_MASTER_PERSON_ID]: auth.person.global_registry_mdm_id,
   };
 }

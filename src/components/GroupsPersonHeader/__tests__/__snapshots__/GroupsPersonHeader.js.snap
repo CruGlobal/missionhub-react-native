@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`is self renders 1`] = `
+exports[`is self renders for Cru Community 1`] = `
 <Flex>
   <Flex
     align="center"
@@ -24,6 +24,26 @@ exports[`is self renders 1`] = `
       }
     />
   </Flex>
+</Flex>
+`;
+
+exports[`is self renders for User Created Community 1`] = `
+<Flex>
+  <Connect(Translate(AssignStageButton))
+    organization={
+      Object {
+        "id": "50",
+      }
+    }
+    person={
+      Object {
+        "first_name": "Roge",
+        "id": "1002",
+      }
+    }
+    selectMyStage={[Function]}
+    selectPersonStage={[Function]}
+  />
 </Flex>
 `;
 
@@ -66,7 +86,7 @@ exports[`isContact with contact assignment does not render status button if cont
 
 exports[`isContact with contact assignment renders no contact buttons if not Cru Org 1`] = `
 <Flex>
-  <Connect(Translate(AssignToMeButton))
+  <Connect(Translate(AssignStageButton))
     organization={
       Object {
         "id": "50",
@@ -78,11 +98,8 @@ exports[`isContact with contact assignment renders no contact buttons if not Cru
         "id": "1002",
       }
     }
-  />
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
+    selectMyStage={[Function]}
+    selectPersonStage={[Function]}
   />
 </Flex>
 `;
@@ -153,7 +170,7 @@ exports[`isContact with no contact assignment renders with no contact assignment
 </Flex>
 `;
 
-exports[`isMember has contact info and contact assignment renders 1`] = `
+exports[`isMember has contact info and contact assignment renders for Cru Community 1`] = `
 <Flex>
   <Flex
     align="center"
@@ -193,9 +210,9 @@ exports[`isMember has contact info and contact assignment renders 1`] = `
 </Flex>
 `;
 
-exports[`isMember renders no contact buttons for User-Created Org 1`] = `
+exports[`isMember has contact info and contact assignment renders for User-Created Community 1`] = `
 <Flex>
-  <Connect(Translate(AssignToMeButton))
+  <Connect(Translate(AssignStageButton))
     organization={
       Object {
         "id": "50",
@@ -207,16 +224,15 @@ exports[`isMember renders no contact buttons for User-Created Org 1`] = `
         "id": "1002",
       }
     }
-  />
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
+    selectMyStage={[Function]}
+    selectPersonStage={[Function]}
   />
 </Flex>
 `;
 
 exports[`isMember renders null because its not supposed to be visible 1`] = `""`;
+
+exports[`isMember renders null with no contact assignment for User-Created Org 1`] = `<Flex />`;
 
 exports[`isMember renders with no contact assignment and no contact info 1`] = `
 <Flex>

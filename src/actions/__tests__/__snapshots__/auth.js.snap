@@ -19,6 +19,7 @@ Array [
       },
     ],
     "index": 0,
+    "key": null,
     "type": "Navigation/RESET",
   },
 ]
@@ -36,11 +37,12 @@ Array [
     "actions": Array [
       Object {
         "params": Object {},
-        "routeName": "nav/LOGIN",
+        "routeName": "nav/LANDING",
         "type": "Navigation/NAVIGATE",
       },
     ],
     "index": 0,
+    "key": null,
     "type": "Navigation/RESET",
   },
 ]

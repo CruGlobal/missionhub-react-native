@@ -1,6 +1,10 @@
 rootProject.name = 'MissionHub'
 include ':react-native-firebase'
 project(':react-native-firebase').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-firebase/android')
+include ':rollbar-react-native'
+project(':rollbar-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/rollbar-react-native/android')
+include ':react-native-image-picker'
+project(':react-native-image-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-picker/android')
 include ':react-native-view-overflow'
 project(':react-native-view-overflow').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-view-overflow/android')
 include ':react-native-code-push'

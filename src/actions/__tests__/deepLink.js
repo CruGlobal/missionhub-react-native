@@ -1,8 +1,13 @@
 import firebase from 'react-native-firebase';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { NavigationActions, StackActions } from 'react-navigation';
 
 import { setupFirebaseDynamicLinks } from '../deepLink';
+import {
+  DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
+  DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
+} from '../../routes/constants';
 
 jest.mock('react-native-firebase', () => ({
   links: jest.fn(),
@@ -39,10 +44,18 @@ describe('setupFirebaseDynamicLinks', () => {
         auth: false,
         initialLink: true,
         expectedActions: [
-          {
-            type: 'testJoinCommunityUrlNoAuthAction',
-            communityUrlCode: '1234567890123456',
-          },
+          StackActions.reset({
+            index: 0,
+            key: null,
+            actions: [
+              NavigationActions.navigate({
+                routeName: DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
+                params: {
+                  communityUrlCode: '1234567890123456',
+                },
+              }),
+            ],
+          }),
         ],
       }));
     it('should handle a link that was opened while the app was running', async () =>
@@ -50,10 +63,18 @@ describe('setupFirebaseDynamicLinks', () => {
         auth: false,
         initialLink: false,
         expectedActions: [
-          {
-            type: 'testJoinCommunityUrlNoAuthAction',
-            communityUrlCode: '1234567890123456',
-          },
+          StackActions.reset({
+            index: 0,
+            key: null,
+            actions: [
+              NavigationActions.navigate({
+                routeName: DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
+                params: {
+                  communityUrlCode: '1234567890123456',
+                },
+              }),
+            ],
+          }),
         ],
       }));
   });
@@ -63,10 +84,18 @@ describe('setupFirebaseDynamicLinks', () => {
         auth: true,
         initialLink: true,
         expectedActions: [
-          {
-            type: 'testJoinCommunityUrlAuthAction',
-            communityUrlCode: '1234567890123456',
-          },
+          StackActions.reset({
+            index: 0,
+            key: null,
+            actions: [
+              NavigationActions.navigate({
+                routeName: DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
+                params: {
+                  communityUrlCode: '1234567890123456',
+                },
+              }),
+            ],
+          }),
         ],
       }));
     it('should handle a link that was opened while the app was running', async () =>
@@ -74,10 +103,18 @@ describe('setupFirebaseDynamicLinks', () => {
         auth: true,
         initialLink: false,
         expectedActions: [
-          {
-            type: 'testJoinCommunityUrlAuthAction',
-            communityUrlCode: '1234567890123456',
-          },
+          StackActions.reset({
+            index: 0,
+            key: null,
+            actions: [
+              NavigationActions.navigate({
+                routeName: DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
+                params: {
+                  communityUrlCode: '1234567890123456',
+                },
+              }),
+            ],
+          }),
         ],
       }));
   });

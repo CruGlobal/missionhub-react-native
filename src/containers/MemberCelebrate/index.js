@@ -4,7 +4,6 @@ import { translate } from 'react-i18next';
 import moment from 'moment';
 
 import CelebrateFeed from '../../components/CelebrateFeed';
-import EmptyCelebrateFeed from '../../components/EmptyCelebrateFeed';
 import {
   getGroupCelebrateFeed,
   reloadGroupCelebrateFeed,
@@ -42,7 +41,7 @@ class MemberCelebrate extends Component {
     dispatch(reloadGroupCelebrateFeed(organization.id, person.id));
   };
 
-  renderList() {
+  render() {
     const { organization, celebrateItems } = this.props;
 
     return (
@@ -53,20 +52,6 @@ class MemberCelebrate extends Component {
         refreshCallback={this.refreshItems}
       />
     );
-  }
-
-  renderEmptyView() {
-    const { person } = this.props;
-
-    return <EmptyCelebrateFeed person={person} />;
-  }
-
-  render() {
-    const { celebrateItems } = this.props;
-
-    return celebrateItems.length === 0
-      ? this.renderEmptyView()
-      : this.renderList();
   }
 }
 

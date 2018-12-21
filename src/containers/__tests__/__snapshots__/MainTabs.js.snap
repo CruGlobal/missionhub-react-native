@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders home screen with tab bar with groups tab correctly 1`] = `
+exports[`renders home screen with tab bar with groups tab selected correctly 1`] = `
 <View
   style={
     Object {
@@ -65,9 +65,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
                     "paddingTop": 20,
                   },
                   undefined,
-                  Object {
-                    "elevation": 4,
-                  },
+                  null,
                 ],
                 Object {
                   "flexDirection": "row",
@@ -160,7 +158,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
                       ]
                     }
                   >
-                    
+                    
                   </Text>
                 </View>
               </View>
@@ -200,7 +198,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
                   ]
                 }
               >
-                STEPS OF FAITH
+                COMMUNITIES
               </Text>
             </View>
             <View
@@ -222,12 +220,9 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
           <View
             style={
               Array [
+                Object {},
                 Object {
-                  "flex": 1,
-                },
-                Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
+                  "flexDirection": "row",
                 },
               ]
             }
@@ -237,80 +232,283 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
                 Array [
                   Object {},
                   Object {
-                    "flex": 2,
-                  },
-                ]
-              }
-            />
-            <View
-              style={
-                Array [
-                  Object {},
-                  Object {
-                    "flex": 10,
+                    "flex": 1,
                   },
                 ]
               }
             >
-              <Image
-                resizeMode="contain"
-                source={
-                  Object {
-                    "testUri": "../../../assets/gifs/HappyBlueLoop.gif",
-                  }
-                }
+              <View
+                accessibilityComponentType={undefined}
+                accessibilityLabel={undefined}
+                accessibilityTraits="button"
+                accessible={true}
+                collapsable={undefined}
+                hasTVPreferredFocus={undefined}
+                hitSlop={undefined}
+                isTVSelectable={true}
+                nativeID={undefined}
+                onLayout={undefined}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
-                    "flex": 1,
-                    "width": 750,
+                    "opacity": 1,
                   }
                 }
-              />
+                testID={undefined}
+                tvParallaxProperties={undefined}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                      null,
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "alignSelf": "stretch",
+                          "backgroundColor": "#005A7F",
+                          "justifyContent": "center",
+                          "paddingVertical": 13,
+                        },
+                        Object {
+                          "borderRightColor": "#007398",
+                          "borderRightWidth": 1,
+                        },
+                      ],
+                      null,
+                    ]
+                  }
+                >
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#ffffff",
+                            "fontSize": 18,
+                            "fontWeight": "500",
+                            "letterSpacing": 1.5,
+                            "textAlign": "center",
+                          },
+                          Object {
+                            "color": "#ffffff",
+                            "fontSize": 12,
+                            "fontWeight": "bold",
+                          },
+                        ],
+                      ]
+                    }
+                  >
+                    JOIN A COMMUNITY
+                  </Text>
+                </View>
+              </View>
             </View>
             <View
               style={
                 Array [
                   Object {},
                   Object {
-                    "flex": 2,
+                    "flex": 1,
                   },
                 ]
               }
             >
-              <Text
+              <View
+                accessibilityComponentType={undefined}
+                accessibilityLabel={undefined}
+                accessibilityTraits="button"
                 accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
+                collapsable={undefined}
+                hasTVPreferredFocus={undefined}
+                hitSlop={undefined}
+                isTVSelectable={true}
+                nativeID={undefined}
+                onLayout={undefined}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID={undefined}
+                tvParallaxProperties={undefined}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                      null,
+                      Object {
+                        "alignItems": "center",
+                        "alignSelf": "stretch",
+                        "backgroundColor": "#005A7F",
+                        "justifyContent": "center",
+                        "paddingVertical": 13,
+                      },
+                      null,
+                    ]
+                  }
+                >
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#ffffff",
+                            "fontSize": 18,
+                            "fontWeight": "500",
+                            "letterSpacing": 1.5,
+                            "textAlign": "center",
+                          },
+                          Object {
+                            "color": "#ffffff",
+                            "fontSize": 12,
+                            "fontWeight": "bold",
+                          },
+                        ],
+                      ]
+                    }
+                  >
+                    CREATE A COMMUNITY
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <RCTScrollView
+            contentContainerStyle={
+              Object {
+                "flex": 1,
+              }
+            }
+            refreshControl={
+              <MyRefreshControl
+                colors={
+                  Array [
+                    "#ffffff",
+                    "#52C5DC",
+                  ]
+                }
+                onRefresh={[Function]}
+                progressBackgroundColor="#007398"
+                refreshing={false}
+                tintColor="#007398"
+              />
+            }
+          >
+            <RCTRefreshControl />
+            <View>
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "backgroundColor": "#ffffff",
                     },
                     Object {
-                      "fontFamily": "AmaticSC-Bold",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 64,
-                      "paddingVertical": 0,
+                      "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                     },
                   ]
                 }
               >
-                loading
-              </Text>
+                <Image
+                  resizeMode="contain"
+                  source={
+                    Object {
+                      "testUri": "../../../assets/images/MemberContacts.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "flexShrink": 1,
+                    }
+                  }
+                />
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "AmaticSC-Bold",
+                      },
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "paddingTop": 10,
+                      },
+                    ]
+                  }
+                >
+                  communities
+                </Text>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "paddingHorizontal": 70,
+                        "paddingVertical": 10,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Your communities will show up here.
+                </Text>
+              </View>
             </View>
-            <View
-              style={
-                Array [
-                  Object {},
-                  Object {
-                    "flex": 2,
-                  },
-                ]
-              }
-            />
-          </View>
+          </RCTScrollView>
         </View>
       </View>
     </View>
@@ -395,7 +593,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
                   "fontSize": 24,
                 },
                 Object {
-                  "color": "#007398",
+                  "color": "#A0A2A6",
                 },
               ],
               Object {
@@ -407,7 +605,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -422,7 +620,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#007398",
+                "color": "#A0A2A6",
                 "fontSize": 14,
               },
             ]
@@ -506,7 +704,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -593,7 +791,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
                   "fontSize": 24,
                 },
                 Object {
-                  "color": "#A0A2A6",
+                  "color": "#007398",
                 },
               ],
               Object {
@@ -605,7 +803,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -620,7 +818,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#A0A2A6",
+                "color": "#007398",
                 "fontSize": 14,
               },
             ]
@@ -634,7 +832,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
 </View>
 `;
 
-exports[`renders home screen with tab bar with impact tab correctly 1`] = `
+exports[`renders home screen with tab bar with steps tab selected correctly 1`] = `
 <View
   style={
     Object {
@@ -794,7 +992,7 @@ exports[`renders home screen with tab bar with impact tab correctly 1`] = `
                       ]
                     }
                   >
-                    
+                    
                   </Text>
                 </View>
               </View>
@@ -1041,7 +1239,7 @@ exports[`renders home screen with tab bar with impact tab correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -1140,7 +1338,7 @@ exports[`renders home screen with tab bar with impact tab correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -1260,7 +1458,7 @@ exports[`renders home screen with tab bar with impact tab correctly 1`] = `
             ]
           }
         >
-          Impact
+          Communities
         </Text>
       </View>
     </View>

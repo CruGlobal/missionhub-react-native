@@ -45,8 +45,7 @@ describe('OnboardingCard', () => {
     );
   });
 
-  // TODO: Enable this when the challenges are merged in
-  xit('render challenges card', () => {
+  it('render challenges card', () => {
     const store = createMockStore({
       swipe: { groupOnboarding },
     });
@@ -56,7 +55,7 @@ describe('OnboardingCard', () => {
     );
   });
 
-  xit('render challenges card hidden', () => {
+  it('render challenges card hidden', () => {
     const store = createMockStore({
       swipe: {
         groupOnboarding: {

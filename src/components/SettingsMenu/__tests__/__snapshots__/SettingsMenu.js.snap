@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`renders correctly for authenticated user 1`] = `
 <Connect(SideMenu)
   menuItems={
     Array [
@@ -27,6 +27,43 @@ exports[`renders correctly 1`] = `
       Object {
         "action": [Function],
         "label": "Sign out",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`renders correctly for try it now user 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "About",
+      },
+      Object {
+        "action": [Function],
+        "label": "Help",
+      },
+      Object {
+        "action": [Function],
+        "label": "Write a Review",
+      },
+      Object {
+        "action": [Function],
+        "label": "Privacy Policy",
+      },
+      Object {
+        "action": [Function],
+        "label": "Terms of Service",
+      },
+      Object {
+        "action": [Function],
+        "label": "Sign In",
+      },
+      Object {
+        "action": [Function],
+        "label": "Sign Up",
       },
     ]
   }

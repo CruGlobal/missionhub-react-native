@@ -2,7 +2,7 @@ import { NavigationActions } from 'react-navigation';
 
 import nav from '../nav';
 import { UNASSIGNED_PERSON_SCREEN } from '../../containers/Groups/UnassignedPersonScreen';
-import { LOGIN_SCREEN } from '../../containers/LoginScreen';
+import { LANDING_SCREEN } from '../../containers/LandingScreen';
 
 describe('navReducer', () => {
   it('should get state for nav action', () => {
@@ -18,7 +18,7 @@ describe('navReducer', () => {
         isTransitioning: true,
         routes: [
           expect.objectContaining({
-            routeName: LOGIN_SCREEN,
+            routeName: LANDING_SCREEN,
           }),
           expect.objectContaining(newRoute),
         ],

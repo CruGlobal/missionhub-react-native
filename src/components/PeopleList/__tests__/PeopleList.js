@@ -55,9 +55,24 @@ const orgs = [
   },
 ];
 
+const people = [
+  {
+    id: 1,
+    type: 'person',
+  },
+  {
+    id: 2,
+    type: 'person',
+  },
+  {
+    id: 3,
+    type: 'person',
+  },
+];
+
 it('renders correctly as Casey', () => {
   testSnapshotShallow(
-    <PeopleList sections={false} items={orgs} onSelect={jest.fn()} />,
+    <PeopleList sections={false} items={people} onSelect={jest.fn()} />,
   );
 });
 

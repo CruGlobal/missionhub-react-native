@@ -11,6 +11,7 @@ import { navigatePush } from '../../../actions/navigation';
 import { navToPersonScreen } from '../../../actions/person';
 import * as organizations from '../../../actions/organizations';
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from '../SurveyContactsFilter';
+import { buildTrackingObj } from '../../../utils/common';
 
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
@@ -19,6 +20,7 @@ jest.mock('../../../actions/person', () => ({
   navToPersonScreen: jest.fn(() => ({ type: 'test' })),
 }));
 jest.mock('../../../actions/organizations');
+jest.mock('../../../utils/common');
 
 const store = createMockStore({});
 const organization = { id: '1', name: 'Test Org' };
@@ -105,6 +107,9 @@ describe('SurveyContacts', () => {
   });
 
   it('should handleSelect correctly', () => {
+    const buildTrackingResult = { name: 'screen name' };
+    buildTrackingObj.mockReturnValue(buildTrackingResult);
+
     const person = people[0];
     const screen = renderShallow(component, store);
     const listItem = screen
@@ -116,7 +121,9 @@ describe('SurveyContacts', () => {
 
     expect(navToPersonScreen).toHaveBeenCalledWith(person, organization, {
       onAssign: screen.instance().handleRefreshSearchList,
+      trackingObj: buildTrackingResult,
     });
+    expect(buildTrackingObj).toHaveBeenCalled();
   });
 
   it('should render item correctly', () => {

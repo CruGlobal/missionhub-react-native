@@ -3,19 +3,31 @@ import configureStore from 'redux-mock-store';
 
 import GroupsListScreen from '../GroupsListScreen';
 import { renderShallow } from '../../../../testUtils';
+import { upgradeAccount } from '../../../actions/auth';
 import { navigatePush } from '../../../actions/navigation';
 import { getMyCommunities } from '../../../actions/organizations';
+import { trackActionWithoutData } from '../../../actions/analytics';
 import { communitiesSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
+import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
+import { SIGNUP_TYPES } from '../../UpgradeAccountScreen';
+import { resetScrollGroups } from '../../../actions/swipe';
+import { ACTIONS } from '../../../constants';
+import { JOIN_BY_CODE_FLOW } from '../../../routes/constants';
 
 jest.mock('../../../selectors/organizations');
+jest.mock('../../../actions/auth');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
 jest.mock('../../../actions/organizations', () => ({
   getMyCommunities: jest.fn(() => ({ type: 'test' })),
 }));
+jest.mock('../../../actions/swipe', () => ({
+  resetScrollGroups: jest.fn(() => ({ type: 'reset' })),
+}));
+jest.mock('../../../actions/analytics');
 
 const mockStore = configureStore();
 const organizations = {
@@ -31,15 +43,21 @@ const organizations = {
     },
   ],
 };
-const auth = {};
-const store = mockStore({ organizations, auth });
+const auth = { isFirstTime: false };
+const swipe = {};
+const store = mockStore({ organizations, auth, swipe });
 
-communitiesSelector.mockReturnValue(organizations.all);
+beforeEach(() => {
+  navigatePush.mockReturnValue({ type: 'test' });
+  getMyCommunities.mockReturnValue({ type: 'test' });
+  trackActionWithoutData.mockReturnValue({ type: 'test' });
+  communitiesSelector.mockReturnValue(organizations.all);
+});
 
 it('should render null state', () => {
   const component = renderShallow(
     <GroupsListScreen />,
-    mockStore({ organizations: { all: [] }, auth }),
+    mockStore({ organizations: { all: [] }, auth, swipe }),
   );
   expect(component).toMatchSnapshot();
 });
@@ -58,7 +76,7 @@ describe('GroupsListScreen', () => {
     it('navigates to groups screen', () => {
       const organization = organizations.all[0];
       const item = component
-        .childAt(1)
+        .childAt(2)
         .childAt(0)
         .props()
         .renderItem({ item: organization });
@@ -69,12 +87,15 @@ describe('GroupsListScreen', () => {
         organizations,
         auth,
       });
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.SELECT_COMMUNITY,
+      );
     });
 
     it('navigates to user created org screen', () => {
       const organization = organizations.all[1];
       const item = component
-        .childAt(1)
+        .childAt(2)
         .childAt(0)
         .props()
         .renderItem({ item: organization });
@@ -87,6 +108,9 @@ describe('GroupsListScreen', () => {
         organizations,
         auth,
       });
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.SELECT_COMMUNITY,
+      );
     });
   });
 
@@ -107,7 +131,7 @@ describe('GroupsListScreen', () => {
   it('should render item', () => {
     const instance = component.instance();
     const renderedItem = instance.renderItem({
-      item: { id: '1', name: 'test', contactReport: {} },
+      item: { id: '1', name: 'test' },
     });
     expect(renderedItem).toMatchSnapshot();
   });
@@ -116,6 +140,69 @@ describe('GroupsListScreen', () => {
     const instance = component.instance();
     instance.loadGroups();
     expect(getMyCommunities).toHaveBeenCalled();
+  });
+
+  it('should load groups on mount', async () => {
+    const instance = component.instance();
+    instance.loadGroups = jest.fn();
+    await instance.componentDidMount();
+    expect(instance.loadGroups).toHaveBeenCalled();
+  });
+
+  it('should load groups and scroll to index 0', async () => {
+    const store = mockStore({
+      organizations,
+      auth,
+      swipe: { groupScrollToId: '1' },
+    });
+    component = renderShallow(<GroupsListScreen />, store);
+    const instance = component.instance();
+    instance.flatList = { scrollToIndex: jest.fn() };
+    instance.loadGroups = jest.fn();
+    await instance.componentDidMount();
+    expect(instance.loadGroups).toHaveBeenCalled();
+    expect(resetScrollGroups).toHaveBeenCalled();
+    expect(instance.flatList.scrollToIndex).toHaveBeenCalledWith({
+      animated: true,
+      index: 0,
+      viewPosition: 0,
+    });
+  });
+
+  it('should load groups and scroll to index 1', async () => {
+    const store = mockStore({
+      organizations,
+      auth,
+      swipe: { groupScrollToId: '2' },
+    });
+    component = renderShallow(<GroupsListScreen />, store);
+    const instance = component.instance();
+    instance.flatList = { scrollToIndex: jest.fn() };
+    instance.loadGroups = jest.fn();
+    await instance.componentDidMount();
+    expect(instance.loadGroups).toHaveBeenCalled();
+    expect(resetScrollGroups).toHaveBeenCalled();
+    expect(instance.flatList.scrollToIndex).toHaveBeenCalledWith({
+      animated: true,
+      index: 1,
+      viewPosition: 0.5,
+    });
+  });
+
+  it('should load groups and not scroll to index', async () => {
+    const store = mockStore({
+      organizations,
+      auth,
+      swipe: { groupScrollToId: 'doesnt exist' },
+    });
+    component = renderShallow(<GroupsListScreen />, store);
+    const instance = component.instance();
+    instance.flatList = { scrollToIndex: jest.fn() };
+    instance.loadGroups = jest.fn();
+    await instance.componentDidMount();
+    expect(instance.loadGroups).toHaveBeenCalled();
+    expect(instance.flatList.scrollToIndex).toHaveBeenCalledTimes(0);
+    expect(resetScrollGroups).toHaveBeenCalled();
   });
 
   it('should refresh the list', () => {
@@ -129,5 +216,51 @@ describe('GroupsListScreen', () => {
     const instance = component.instance();
     const renderedItem = instance.renderNull();
     expect(renderedItem).toMatchSnapshot();
+  });
+
+  it('navigates to join group screen', () => {
+    component
+      .childAt(1)
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(navigatePush).toHaveBeenCalledWith(JOIN_BY_CODE_FLOW);
+  });
+
+  it('navigates to create group screen', () => {
+    component
+      .childAt(1)
+      .childAt(1)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(navigatePush).toHaveBeenCalledWith(CREATE_GROUP_SCREEN);
+  });
+
+  it('navigates to Upgrade Account Screen if not signed in', () => {
+    const store = mockStore({
+      organizations,
+      auth: { isFirstTime: true },
+      swipe,
+    });
+    const upgradeAccountResponse = { type: 'upgrade account' };
+    upgradeAccount.mockReturnValue(upgradeAccountResponse);
+
+    component = renderShallow(<GroupsListScreen />, store);
+
+    component
+      .childAt(1)
+      .childAt(1)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(upgradeAccount).toHaveBeenCalledWith(
+      SIGNUP_TYPES.CREATE_COMMUNITY,
+      expect.any(Function),
+    );
   });
 });

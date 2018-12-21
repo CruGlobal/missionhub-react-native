@@ -16,8 +16,69 @@ exports[`GroupsListScreen should render correctly 1`] = `
         type="MissionHub"
       />
     }
+    shadow={false}
     title="COMMUNITIES"
   />
+  <Flex
+    direction="row"
+  >
+    <Flex
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "#005A7F",
+              "justifyContent": "center",
+              "paddingVertical": 13,
+            },
+            Object {
+              "borderRightColor": "#007398",
+              "borderRightWidth": 1,
+            },
+          ]
+        }
+        text="JOIN A COMMUNITY"
+        type="transparent"
+      />
+    </Flex>
+    <Flex
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "#005A7F",
+            "justifyContent": "center",
+            "paddingVertical": 13,
+          }
+        }
+        text="CREATE A COMMUNITY"
+        type="transparent"
+      />
+    </Flex>
+  </Flex>
   <ScrollView
     contentContainerStyle={
       Object {
@@ -66,7 +127,6 @@ exports[`GroupsListScreen should render correctly 1`] = `
         Object {
           "backgroundColor": "#E6E8EC",
           "flex": 1,
-          "paddingVertical": 8,
         }
       }
       updateCellsBatchingPeriod={50}
@@ -80,7 +140,6 @@ exports[`GroupsListScreen should render item 1`] = `
 <Translate(GroupCardItem)
   group={
     Object {
-      "contactReport": Object {},
       "id": "1",
       "name": "test",
     }
@@ -117,8 +176,69 @@ exports[`should render null state 1`] = `
         type="MissionHub"
       />
     }
+    shadow={false}
     title="COMMUNITIES"
   />
+  <Flex
+    direction="row"
+  >
+    <Flex
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "#005A7F",
+              "justifyContent": "center",
+              "paddingVertical": 13,
+            },
+            Object {
+              "borderRightColor": "#007398",
+              "borderRightWidth": 1,
+            },
+          ]
+        }
+        text="JOIN A COMMUNITY"
+        type="transparent"
+      />
+    </Flex>
+    <Flex
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "#005A7F",
+            "justifyContent": "center",
+            "paddingVertical": 13,
+          }
+        }
+        text="CREATE A COMMUNITY"
+        type="transparent"
+      />
+    </Flex>
+  </Flex>
   <ScrollView
     contentContainerStyle={
       Object {
@@ -167,7 +287,6 @@ exports[`should render null state 1`] = `
         Object {
           "backgroundColor": "#E6E8EC",
           "flex": 1,
-          "paddingVertical": 8,
         }
       }
       updateCellsBatchingPeriod={50}

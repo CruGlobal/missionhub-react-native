@@ -1,5 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`GET_USERS_REPORT.SUCCESS adds users count to global org 1`] = `
+Object {
+  "all": Array [
+    Object {
+      "community": true,
+      "contactReport": Object {
+        "memberCount": 100000,
+        "some_prop": "Roge",
+      },
+      "id": "_global_community_id",
+      "name": "MissionHub Community",
+      "user_created": true,
+    },
+    Object {
+      "id": "1",
+      "name": "Roger's community",
+    },
+  ],
+}
+`;
+
+exports[`REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS should recognize null organization_ids as global community 1`] = `
+Object {
+  "all": Array [
+    Object {
+      "challengeItems": Array [
+        Object {
+          "id": "roge",
+        },
+        Object {
+          "id": "roger",
+        },
+      ],
+      "challengePagination": Object {
+        "hasNextPage": false,
+        "page": 2,
+      },
+      "id": "_global_community_id",
+    },
+  ],
+}
+`;
+
 exports[`should load contact reports for all organizations 1`] = `
 Object {
   "all": Array [
@@ -30,6 +73,12 @@ Object {
 exports[`should save loaded orgs 1`] = `
 Object {
   "all": Array [
+    Object {
+      "community": true,
+      "id": "_global_community_id",
+      "name": "MissionHub Community",
+      "user_created": true,
+    },
     Object {
       "id": "123",
     },
