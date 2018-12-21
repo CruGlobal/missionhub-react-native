@@ -1,9 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PeopleScreen mapStateToProps should provide the necessary props 1`] = `
+exports[`PeopleScreen mapStateToProps should provide the necessary props for Casey 1`] = `
+Object {
+  "isJean": false,
+  "items": Array [
+    Object {
+      "id": 1,
+      "type": "person",
+    },
+    Object {
+      "id": 2,
+      "type": "person",
+    },
+    Object {
+      "id": 3,
+      "type": "person",
+    },
+  ],
+}
+`;
+
+exports[`PeopleScreen mapStateToProps should provide the necessary props for Jean 1`] = `
 Object {
   "isJean": true,
-  "orgs": Array [
+  "items": Array [
     Object {
       "id": "personal",
       "people": Array [
@@ -80,44 +100,16 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
     items={
       Array [
         Object {
-          "id": "personal",
-          "people": Array [
-            Object {
-              "id": 1,
-              "type": "person",
-            },
-            Object {
-              "id": 2,
-              "type": "person",
-            },
-            Object {
-              "id": 3,
-              "type": "person",
-            },
-          ],
-          "type": "organization",
+          "id": 1,
+          "type": "person",
         },
         Object {
-          "id": 10,
-          "name": "org 1",
-          "people": Array [
-            Object {
-              "id": 11,
-              "type": "person",
-            },
-          ],
-          "type": "organization",
+          "id": 2,
+          "type": "person",
         },
         Object {
-          "id": 20,
-          "name": "org 2",
-          "people": Array [
-            Object {
-              "id": 21,
-              "type": "person",
-            },
-          ],
-          "type": "organization",
+          "id": 3,
+          "type": "person",
         },
       ]
     }

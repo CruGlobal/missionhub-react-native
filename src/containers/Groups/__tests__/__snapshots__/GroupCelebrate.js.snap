@@ -66,7 +66,35 @@ exports[`should render correctly 1`] = `
 `;
 
 exports[`should render empty correctly 1`] = `
-<Translate(EmptyCelebrateFeed)
+<Connect(CelebrateFeed)
+  items={Array []}
+  loadMoreItemsCallback={[Function]}
+  organization={
+    Object {
+      "celebrateItems": Array [
+        Object {
+          "celebrateable_type": "interaction",
+          "changed_attribute_value": "2018-06-11 00:00:00 UTC",
+          "id": "10",
+        },
+        Object {
+          "celebrateable_type": "accepted_challenge",
+          "changed_attribute_value": "2018-06-10 00:00:00 UTC",
+          "id": "20",
+        },
+        Object {
+          "celebrateable_type": "contact_assignment",
+          "changed_attribute_value": "2018-06-10 00:00:00 UTC",
+          "id": "30",
+        },
+      ],
+      "celebratePagination": Object {
+        "hasNextPage": true,
+        "page": 1,
+      },
+      "id": "1",
+    }
+  }
   refreshCallback={[Function]}
   refreshing={false}
 />

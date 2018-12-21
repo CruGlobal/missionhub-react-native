@@ -30,10 +30,14 @@ export const challengesSelector = createSelector(
         title: '',
         data: currentItems,
       },
-      {
-        title: i18n.t('challengeFeeds:past'),
-        data: pastItems,
-      },
+      ...(pastItems.length > 0
+        ? [
+            {
+              title: i18n.t('challengeFeeds:past'),
+              data: pastItems,
+            },
+          ]
+        : []),
     ];
   },
 );

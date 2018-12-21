@@ -7,15 +7,20 @@ import {
   createMockStore,
   renderShallow,
 } from '../../../../testUtils';
+import { MAIN_TABS } from '../../../constants';
+import * as common from '../../../utils/common';
 import { ADD_CONTACT_SCREEN } from '../../AddContactScreen';
-import { navigatePush } from '../../../actions/navigation';
+import { navigatePush, navigateReset } from '../../../actions/navigation';
+import { GROUP_PROFILE } from '../GroupProfile';
 
 jest.mock('../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
   navigatePush: jest.fn(),
+  navigateReset: jest.fn(),
 }));
 
 const organization = { id: '5', name: 'Test  Org', user_created: false };
+const userOrg = { ...organization, user_created: true };
 
 describe('GroupScreen', () => {
   const createHeader = org => (
@@ -31,7 +36,7 @@ describe('GroupScreen', () => {
   });
 
   it('should render header correctly for user_created org', () => {
-    testSnapshotShallow(createHeader({ ...organization, user_created: true }));
+    testSnapshotShallow(createHeader(userOrg));
   });
 
   it('should render Cru Community tabs correctly', () => {
@@ -58,5 +63,69 @@ describe('GroupScreen', () => {
       onComplete: expect.anything(),
       organization,
     });
+  });
+
+  it('should handle profile button correctly', () => {
+    const instance = renderShallow(
+      <GroupScreen
+        navigation={createMockNavState({
+          organization: userOrg,
+        })}
+        store={createMockStore()}
+      />,
+    ).instance();
+
+    instance.handleProfile();
+
+    expect(navigatePush).toHaveBeenCalledWith(GROUP_PROFILE, {
+      organization: userOrg,
+    });
+  });
+
+  it('should handle go back correctly', () => {
+    const component = renderShallow(
+      <GroupScreen
+        navigation={createMockNavState({
+          organization,
+        })}
+        store={createMockStore()}
+      />,
+    );
+
+    component.props().left.props.onPress();
+
+    expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
+      startTab: 'groups',
+    });
+  });
+
+  it('calls disable back add', () => {
+    const instance = renderShallow(
+      <GroupScreen
+        navigation={createMockNavState({
+          organization,
+        })}
+        store={createMockStore()}
+      />,
+    ).instance();
+
+    common.disableBack = { add: jest.fn() };
+    instance.componentDidMount();
+    expect(common.disableBack.add).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls disable back remove', () => {
+    const instance = renderShallow(
+      <GroupScreen
+        navigation={createMockNavState({
+          organization,
+        })}
+        store={createMockStore()}
+      />,
+    ).instance();
+
+    common.disableBack = { remove: jest.fn() };
+    instance.componentWillUnmount();
+    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
   });
 });

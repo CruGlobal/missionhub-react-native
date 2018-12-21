@@ -136,7 +136,7 @@ export default class PeopleList extends Component {
         </ScrollView>
       );
     }
-    return this.renderList(items[0].people);
+    return this.renderList(items);
   }
 }
 

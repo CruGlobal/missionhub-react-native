@@ -12,15 +12,12 @@ import { Button, IconButton } from '../../components/common';
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
 import { trackActionWithoutData } from '../../actions/analytics';
-import {
-  ACTIONS,
-  ORG_PERMISSIONS,
-  CANNOT_EDIT_FIRST_NAME,
-} from '../../constants';
+import { ACTIONS, CANNOT_EDIT_FIRST_NAME } from '../../constants';
 import { orgPermissionSelector } from '../../selectors/people';
 import {
   getPersonEmailAddress,
   getPersonPhoneNumber,
+  hasOrgPermissions,
 } from '../../utils/common';
 
 import styles from './styles';
@@ -65,9 +62,7 @@ class AddContactScreen extends Component {
     // For new User/Admin people, the name, email, and permissions are required fields
     if (
       (!saveData.email || !saveData.firstName) &&
-      saveData.orgPermission &&
-      (saveData.orgPermission.permission_id === ORG_PERMISSIONS.USER ||
-        saveData.orgPermission.permission_id === ORG_PERMISSIONS.ADMIN)
+      hasOrgPermissions(saveData.orgPermission)
     ) {
       Alert.alert(t('alertBlankEmail'), t('alertPermissionsMustHaveEmail'));
       return;

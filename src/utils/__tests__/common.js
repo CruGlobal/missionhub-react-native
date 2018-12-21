@@ -1,12 +1,15 @@
 import { DrawerActions } from 'react-navigation';
+import Config from 'react-native-config';
 
 import {
+  buildTrackingObj,
   userIsJean,
   orgIsPersonalMinistry,
   orgIsUserCreated,
   orgIsCru,
-  isMissionhubUser,
-  isAdminForOrg,
+  hasOrgPermissions,
+  isAdminOrOwner,
+  isOwner,
   openMainMenu,
   getIconName,
   shuffleArray,
@@ -19,6 +22,8 @@ import {
   getPersonPhoneNumber,
   getPersonEmailAddress,
   getStageIndex,
+  getFirstNameAndLastInitial,
+  getCommunityUrl,
 } from '../common';
 import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../constants';
 
@@ -30,6 +35,22 @@ jest.mock('react-navigation', () => ({
 
 const id = '123';
 const first_name = 'Roger';
+
+describe('buildTrackingObj', () => {
+  const name = 'screen name';
+  const section = 'section';
+  const subsection = 'subsection';
+  const level3 = 'level3';
+  const level4 = 'level4';
+
+  expect(buildTrackingObj(name, section, subsection, level3, level4)).toEqual({
+    name,
+    section,
+    subsection,
+    level3,
+    level4,
+  });
+});
 
 describe('userIsJean', () => {
   const caseyPermissions = [
@@ -96,33 +117,57 @@ describe('orgIsCru', () => {
   });
 });
 
-describe('isMissionhubUser', () => {
+describe('hasOrgPermissions', () => {
   it('should return true for admins', () => {
-    expect(isMissionhubUser({ permission_id: 1 })).toEqual(true);
+    expect(hasOrgPermissions({ permission_id: 1 })).toEqual(true);
+  });
+  it('should return true for owners', () => {
+    expect(hasOrgPermissions({ permission_id: 3 })).toEqual(true);
   });
   it('should return true for users', () => {
-    expect(isMissionhubUser({ permission_id: 4 })).toEqual(true);
+    expect(hasOrgPermissions({ permission_id: 4 })).toEqual(true);
   });
   it('should return false for contacts', () => {
-    expect(isMissionhubUser({ permission_id: 2 })).toEqual(false);
+    expect(hasOrgPermissions({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
-    expect(isMissionhubUser()).toEqual(false);
+    expect(hasOrgPermissions()).toEqual(false);
   });
 });
 
-describe('isAdminForOrg', () => {
+describe('isAdminOrOwner', () => {
   it('should return true for admins', () => {
-    expect(isAdminForOrg({ permission_id: 1 })).toEqual(true);
+    expect(isAdminOrOwner({ permission_id: 1 })).toEqual(true);
+  });
+  it('should return true for owners', () => {
+    expect(isAdminOrOwner({ permission_id: 3 })).toEqual(true);
   });
   it('should return false for users', () => {
-    expect(isAdminForOrg({ permission_id: 4 })).toEqual(false);
+    expect(isAdminOrOwner({ permission_id: 4 })).toEqual(false);
   });
   it('should return false for contacts', () => {
-    expect(isAdminForOrg({ permission_id: 2 })).toEqual(false);
+    expect(isAdminOrOwner({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
-    expect(isAdminForOrg()).toEqual(false);
+    expect(isAdminOrOwner()).toEqual(false);
+  });
+});
+
+describe('isOwner', () => {
+  it('should return false for admins', () => {
+    expect(isOwner({ permission_id: 1 })).toEqual(false);
+  });
+  it('should return true for owners', () => {
+    expect(isOwner({ permission_id: 3 })).toEqual(true);
+  });
+  it('should return false for users', () => {
+    expect(isOwner({ permission_id: 4 })).toEqual(false);
+  });
+  it('should return false for contacts', () => {
+    expect(isOwner({ permission_id: 2 })).toEqual(false);
+  });
+  it('should return false if there is no org permission', () => {
+    expect(isOwner()).toEqual(false);
   });
 });
 
@@ -421,4 +466,23 @@ describe('getStageIndex', () => {
 
   it('returns undefined if not found', () =>
     expect(getStageIndex([stageOne, stageTwo], '3')).toBe(undefined));
+});
+
+describe('getFirstNameAndLastInitial', () => {
+  it('get first and last name', () =>
+    expect(getFirstNameAndLastInitial('First', 'Last')).toEqual('First L'));
+  it('get first and last name without names', () =>
+    expect(getFirstNameAndLastInitial()).toEqual(''));
+  it('get first and last name without last name', () =>
+    expect(getFirstNameAndLastInitial('First')).toEqual('First'));
+});
+
+describe('getCommunityUrl', () => {
+  it('should create full url', () => {
+    Config.COMMUNITY_URL = 'https://missionhub.com/c/';
+    expect(getCommunityUrl('asdfasdf')).toEqual(
+      'https://missionhub.com/c/asdfasdf',
+    );
+  });
+  it('should handle null', () => expect(getCommunityUrl(null)).toEqual(''));
 });

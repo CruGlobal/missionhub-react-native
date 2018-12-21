@@ -5,9 +5,14 @@ import PropTypes from 'prop-types';
 
 import { Flex, Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
+import OnboardingCard, {
+  GROUP_ONBOARDING_TYPES,
+} from '../Groups/OnboardingCard';
 import { navigatePush } from '../../actions/navigation';
-import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
 import { completeChallenge, joinChallenge } from '../../actions/challenges';
+import { trackActionWithoutData } from '../../actions/analytics';
+import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
+import { ACTIONS } from '../../constants';
 
 import styles from './styles';
 
@@ -81,7 +86,12 @@ class ChallengeFeed extends Component {
         orgId: organization.id,
       }),
     );
+    dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_DETAIL));
   };
+
+  renderHeader = () => (
+    <OnboardingCard type={GROUP_ONBOARDING_TYPES.challenges} />
+  );
 
   render() {
     const { items, refreshing } = this.props;
@@ -89,6 +99,7 @@ class ChallengeFeed extends Component {
     return (
       <SectionList
         sections={items}
+        ListHeaderComponent={this.renderHeader}
         renderSectionHeader={this.renderSectionHeader}
         renderItem={this.renderItem}
         keyExtractor={this.keyExtractor}

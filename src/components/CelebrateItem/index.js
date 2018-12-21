@@ -21,6 +21,7 @@ import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen'
 import { trackActionWithoutData } from '../../actions/analytics';
 import GREY_HEART from '../../../assets/images/heart-grey.png';
 import BLUE_HEART from '../../../assets/images/heart-blue.png';
+import { getFirstNameAndLastInitial } from '../../utils/common';
 
 import styles from './styles';
 
@@ -53,10 +54,20 @@ class CelebrateItem extends Component {
       completedInteraction,
       completedStep,
       acceptedCommunityChallenge,
+      createdCommunity,
     } = CELEBRATEABLE_TYPES;
-    const { adjective_attribute_value, changed_attribute_name } = event;
+    const {
+      adjective_attribute_value,
+      changed_attribute_name,
+      subject_person,
+    } = event;
 
-    const name = event.subject_person_name.split(' ')[0];
+    const name = subject_person
+      ? `${getFirstNameAndLastInitial(
+          subject_person.first_name,
+          subject_person.last_name,
+        )}.`
+      : event.subject_person_name;
 
     switch (event.celebrateable_type) {
       case completedStep:
@@ -65,7 +76,16 @@ class CelebrateItem extends Component {
         return this.buildInteractionMessage(t, adjective_attribute_value, name);
       case acceptedCommunityChallenge:
         return this.buildChallengeMessage(t, changed_attribute_name, name);
+      case createdCommunity:
+        return this.buildCreateCommunityMessage(t, event, name);
     }
+  }
+
+  buildCreateCommunityMessage(t, event, name) {
+    const {
+      organization: { name: communityName },
+    } = event;
+    return t('communityCreated', { initiator: name, communityName });
   }
 
   buildChallengeMessage(t, type, name) {
@@ -183,11 +203,12 @@ class CelebrateItem extends Component {
       likes_count,
       liked,
     } = event;
-    const displayLikeCount = likes_count > 0 && subject_person.id === myId;
+    const displayLikeCount =
+      likes_count > 0 && subject_person && subject_person.id === myId;
 
     return (
-      <Card style={styles.card}>
-        <Flex value={1} direction={'row'}>
+      <Card>
+        <Flex value={1} direction={'row'} style={styles.content}>
           <Flex value={1} direction={'column'}>
             <Text style={styles.name}>{subject_person_name.toUpperCase()}</Text>
             <DateComponent
@@ -198,20 +219,22 @@ class CelebrateItem extends Component {
             <Text style={styles.description}>{this.renderMessage()}</Text>
             {this.renderChallengeLink()}
           </Flex>
-          <Flex direction={'column'} align="start">
-            <Flex direction={'row'} align="center">
-              <Text style={styles.likeCount}>
-                {displayLikeCount ? likes_count : null}
-              </Text>
-              <Button
-                name="likeActiveIcon"
-                onPress={this.onPressLikeIcon}
-                style={[styles.icon]}
-              >
-                <Image source={liked ? BLUE_HEART : GREY_HEART} />
-              </Button>
+          {subject_person && (
+            <Flex direction={'column'} align="start">
+              <Flex direction={'row'} align="center">
+                <Text style={styles.likeCount}>
+                  {displayLikeCount ? likes_count : null}
+                </Text>
+                <Button
+                  name="likeActiveIcon"
+                  onPress={this.onPressLikeIcon}
+                  style={[styles.icon]}
+                >
+                  <Image source={liked ? BLUE_HEART : GREY_HEART} />
+                </Button>
+              </Flex>
             </Flex>
-          </Flex>
+          )}
         </Flex>
       </Card>
     );

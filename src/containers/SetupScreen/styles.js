@@ -14,11 +14,27 @@ export default StyleSheet.create({
     fontSize: 12,
   },
   header: {
-    color: theme.white,
-    fontSize: 24,
-  },
-  headerTwo: {
     color: theme.secondaryColor,
     fontSize: 36,
+    marginBottom: 10,
+  },
+  termsWrap: {
+    marginTop: 10,
+    marginBottom: 38,
+  },
+  termsText: {
+    color: theme.white,
+    fontSize: 12,
+    textAlign: 'center',
+    paddingHorizontal: 3,
+  },
+  termsTextLink: {
+    color: theme.white,
+    fontSize: 12,
+    textAlign: 'center',
+    paddingHorizontal: 3,
+    textDecorationLine: 'underline',
+    fontWeight: 'normal',
+    letterSpacing: 0,
   },
 });

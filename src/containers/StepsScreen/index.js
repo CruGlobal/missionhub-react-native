@@ -12,7 +12,6 @@ import { loadHome } from '../../actions/auth';
 import {
   showReminderScreen,
   showWelcomeNotification,
-  toast,
 } from '../../actions/notifications';
 import {
   getMySteps,
@@ -38,7 +37,7 @@ import RowSwipeable from '../../components/RowSwipeable';
 import FooterLoading from '../../components/FooterLoading';
 import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
-import { openMainMenu, refresh } from '../../utils/common';
+import { openMainMenu, refresh, toast } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { navToPersonScreen } from '../../actions/person';
@@ -115,7 +114,7 @@ export class StepsScreen extends Component {
       return;
     }
 
-    dispatch(toast(t('reminderAddedToast')));
+    toast(t('reminderAddedToast'));
 
     if (!this.hasReminders()) {
       dispatch(showReminderScreen(t('notificationPrimer:focusDescription')));

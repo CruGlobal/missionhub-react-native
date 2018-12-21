@@ -1,5 +1,6 @@
 import {
   peopleByOrgSelector,
+  allAssignedPeopleSelector,
   personSelector,
   contactAssignmentSelector,
   orgPermissionSelector,
@@ -174,6 +175,12 @@ describe('peopleByOrgSelector', () => {
         },
       }),
     ).toMatchSnapshot();
+  });
+});
+
+describe('allAssignedPeopleSelector', () => {
+  it('should take the allByOrg object and transform it into a single array', () => {
+    expect(allAssignedPeopleSelector({ people, auth })).toMatchSnapshot();
   });
 });
 

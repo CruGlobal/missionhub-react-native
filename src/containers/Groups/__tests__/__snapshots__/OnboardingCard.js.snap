@@ -7,6 +7,8 @@ exports[`OnboardingCard render celebrate card 1`] = `
       "backgroundColor": "#ffffff",
       "borderRadius": 0,
       "marginBottom": 5,
+      "marginHorizontal": 0,
+      "marginVertical": 0,
       "position": "relative",
     }
   }
@@ -101,6 +103,109 @@ exports[`OnboardingCard render celebrate card 1`] = `
 
 exports[`OnboardingCard render celebrate card hidden 1`] = `""`;
 
+exports[`OnboardingCard render challenges card 1`] = `
+<Card
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 0,
+      "marginBottom": 5,
+      "marginHorizontal": 0,
+      "marginVertical": 0,
+      "position": "relative",
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "padding": 25,
+        "paddingTop": 35,
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/challengeTarget.png",
+        }
+      }
+      style={
+        Object {
+          "height": 60,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 42,
+          "paddingTop": 5,
+          "textAlign": "center",
+        }
+      }
+      type="header"
+    >
+      Challenge One Another
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 16,
+          "paddingHorizontal": 40,
+          "paddingVertical": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      Create a community challenge everyone can join.
+    </MyText>
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 10,
+      }
+    }
+  >
+    <IconButton
+      hitSlop={
+        Object {
+          "bottom": 10,
+          "left": 10,
+          "right": 10,
+          "top": 10,
+        }
+      }
+      name="deleteIcon"
+      onPress={[Function]}
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 12,
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+</Card>
+`;
+
+exports[`OnboardingCard render challenges card hidden 1`] = `""`;
+
 exports[`OnboardingCard render contacts card 1`] = `
 <Card
   style={
@@ -108,6 +213,8 @@ exports[`OnboardingCard render contacts card 1`] = `
       "backgroundColor": "#ffffff",
       "borderRadius": 0,
       "marginBottom": 5,
+      "marginHorizontal": 0,
+      "marginVertical": 0,
       "position": "relative",
     }
   }
@@ -209,6 +316,8 @@ exports[`OnboardingCard render impact card 1`] = `
       "backgroundColor": "#ffffff",
       "borderRadius": 0,
       "marginBottom": 5,
+      "marginHorizontal": 0,
+      "marginVertical": 0,
       "position": "relative",
     }
   }
@@ -310,6 +419,8 @@ exports[`OnboardingCard render members card 1`] = `
       "backgroundColor": "#ffffff",
       "borderRadius": 0,
       "marginBottom": 5,
+      "marginHorizontal": 0,
+      "marginVertical": 0,
       "position": "relative",
     }
   }
@@ -411,6 +522,8 @@ exports[`OnboardingCard render surveys card 1`] = `
       "backgroundColor": "#ffffff",
       "borderRadius": 0,
       "marginBottom": 5,
+      "marginHorizontal": 0,
+      "marginVertical": 0,
       "position": "relative",
     }
   }

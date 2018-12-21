@@ -3,7 +3,7 @@ import lodashForEach from 'lodash/forEach';
 import { JsonApiDataStore } from 'jsonapi-datastore';
 
 import { exists } from '../utils/common';
-import { URL_ENCODED } from '../constants';
+import { URL_ENCODED, URL_FORM_DATA } from '../constants';
 
 import request from './utils';
 import apiRoutes from './routes';
@@ -40,7 +40,7 @@ lodashForEach(apiRoutes, (routeData, key) => {
       const extra = merge({}, { headers: authHeader }, routeData.extra);
 
       // Merge some default data from the routes with the data passed in
-      const data = isUrlEncoded(routeData) ? d : merge({}, routeData.data, d);
+      const data = dontMergeData(routeData) ? d : merge({}, routeData.data, d);
       const query = merge({}, routeData.query, q);
 
       // Get the endpoint either from the query, or the routeData
@@ -103,12 +103,10 @@ lodashForEach(apiRoutes, (routeData, key) => {
     });
 });
 
-const isUrlEncoded = routeData => {
-  return (
-    routeData.extra &&
-    routeData.extra.headers &&
-    routeData.extra.headers['Content-Type'] === URL_ENCODED
-  );
-};
+const dontMergeData = routeData =>
+  routeData.extra &&
+  routeData.extra.headers &&
+  (routeData.extra.headers['Content-Type'] === URL_ENCODED ||
+    routeData.extra.headers['Content-Type'] === URL_FORM_DATA);
 
 export default API_CALLS;

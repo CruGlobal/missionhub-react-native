@@ -20,10 +20,25 @@ const mockStore = configureStore();
 let store;
 
 const myId = '123';
+const mePerson = {
+  id: myId,
+  first_name: 'John',
+  last_name: 'Smith',
+};
 const otherId = '456';
+const otherPerson = {
+  id: otherId,
+  first_name: 'John',
+  last_name: 'Smith',
+};
+
 const trackActionResult = { type: 'tracked plain action' };
 
 let event;
+const baseEvent = {
+  subject_person_name: 'John Smith',
+  changed_attribute_value: '2004-04-04 00:00:00 UTC',
+};
 
 beforeEach(() => {
   store = mockStore();
@@ -40,13 +55,15 @@ describe('CelebrateItem', () => {
     );
   };
 
+  it('renders event with no subject name (global community event)', () =>
+    testEvent({
+      ...baseEvent,
+    }));
+
   it('renders event for subject=me, liked=true, like count>0', () => {
     event = {
-      subject_person_name: 'John Smith',
-      subject_person: {
-        id: myId,
-      },
-      changed_attribute_value: '2004-04-04 00:00:00 UTC',
+      ...baseEvent,
+      subject_person: mePerson,
       likes_count: 1,
       liked: true,
     };
@@ -55,11 +72,8 @@ describe('CelebrateItem', () => {
 
   it('renders event for subject=me, liked=false, like count>0', () => {
     event = {
-      subject_person_name: 'John Smith',
-      subject_person: {
-        id: myId,
-      },
-      changed_attribute_value: '2004-04-04 00:00:00 UTC',
+      ...baseEvent,
+      subject_person: mePerson,
       likes_count: 1,
       liked: false,
     };
@@ -68,11 +82,8 @@ describe('CelebrateItem', () => {
 
   it('renders event for subject=me, liked=false, like count=0', () => {
     event = {
-      subject_person_name: 'John Smith',
-      subject_person: {
-        id: myId,
-      },
-      changed_attribute_value: '2004-04-04 00:00:00 UTC',
+      ...baseEvent,
+      subject_person: mePerson,
       likes_count: 0,
       liked: false,
     };
@@ -81,11 +92,8 @@ describe('CelebrateItem', () => {
 
   it('renders event for subject=other, liked=true, like count>0', () => {
     event = {
-      subject_person_name: 'John Smith',
-      subject_person: {
-        id: otherId,
-      },
-      changed_attribute_value: '2004-04-04 00:00:00 UTC',
+      ...baseEvent,
+      subject_person: otherPerson,
       likes_count: 1,
       liked: true,
     };
@@ -94,11 +102,8 @@ describe('CelebrateItem', () => {
 
   it('renders event for subject=other, liked=false, like count=0', () => {
     event = {
-      subject_person_name: 'John Smith',
-      subject_person: {
-        id: otherId,
-      },
-      changed_attribute_value: '2004-04-04 00:00:00 UTC',
+      ...baseEvent,
+      subject_person: otherPerson,
       likes_count: 0,
       liked: false,
     };
@@ -106,19 +111,16 @@ describe('CelebrateItem', () => {
   });
 
   describe('message', () => {
-    const baseEvent = {
-      subject_person_name: 'John Smith',
-      subject_person: {
-        id: myId,
-      },
-      changed_attribute_value: '2004-04-04 00:00:00 UTC',
+    const messageBaseEvent = {
+      ...baseEvent,
+      subject_person: mePerson,
       likes_count: 0,
       liked: false,
     };
 
     it('renders step of faith event with stage', () => {
       event = {
-        ...baseEvent,
+        ...messageBaseEvent,
         celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
         adjective_attribute_value: '3',
       };
@@ -127,7 +129,7 @@ describe('CelebrateItem', () => {
 
     it('renders step of faith event without stage', () => {
       event = {
-        ...baseEvent,
+        ...messageBaseEvent,
         celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
       };
       testEvent(event);
@@ -135,7 +137,7 @@ describe('CelebrateItem', () => {
 
     it('renders personal decision interaction event', () => {
       event = {
-        ...baseEvent,
+        ...messageBaseEvent,
         celebrateable_type: CELEBRATEABLE_TYPES.completedInteraction,
         adjective_attribute_value:
           INTERACTION_TYPES.MHInteractionTypePersonalDecision.id,
@@ -145,7 +147,7 @@ describe('CelebrateItem', () => {
 
     it('renders something cool happened event', () => {
       event = {
-        ...baseEvent,
+        ...messageBaseEvent,
         celebrateable_type: CELEBRATEABLE_TYPES.completedInteraction,
         adjective_attribute_value:
           INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
@@ -155,7 +157,7 @@ describe('CelebrateItem', () => {
 
     it('renders other interaction event', () => {
       event = {
-        ...baseEvent,
+        ...messageBaseEvent,
         celebrateable_type: CELEBRATEABLE_TYPES.completedInteraction,
         adjective_attribute_value:
           INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
@@ -165,7 +167,7 @@ describe('CelebrateItem', () => {
 
     it('renders accepted challenge event', () => {
       event = {
-        ...baseEvent,
+        ...messageBaseEvent,
         celebrateable_type: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
         changed_attribute_name: CELEBRATEABLE_TYPES.challengeItemTypes.accepted,
         object_description: 'Invite a friend to church',
@@ -175,11 +177,22 @@ describe('CelebrateItem', () => {
 
     it('renders completed challenge event', () => {
       event = {
-        ...baseEvent,
+        ...messageBaseEvent,
         celebrateable_type: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
         changed_attribute_name:
           CELEBRATEABLE_TYPES.challengeItemTypes.completed,
         object_description: 'Invite a friend to church',
+      };
+      testEvent(event);
+    });
+
+    it('renders created community event', () => {
+      event = {
+        ...messageBaseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.createdCommunity,
+        organization: {
+          name: 'Celebration Community',
+        },
       };
       testEvent(event);
     });
@@ -189,12 +202,8 @@ describe('CelebrateItem', () => {
 describe('onPressLikeIcon', () => {
   it('calls onToggleLike prop for unliked item', () => {
     event = {
-      id: '1',
-      subject_person_name: 'John Smith',
-      subject_person: {
-        id: otherId,
-      },
-      changed_attribute_value: '2004-04-04 00:00:00 UTC',
+      ...baseEvent,
+      subject_person: otherPerson,
       likes_count: 0,
       liked: false,
     };
@@ -215,12 +224,8 @@ describe('onPressLikeIcon', () => {
 
   it('calls onToggleLike prop for liked item', () => {
     event = {
-      id: '1',
-      subject_person_name: 'John Smith',
-      subject_person: {
-        id: otherId,
-      },
-      changed_attribute_value: '2004-04-04 00:00:00 UTC',
+      ...baseEvent,
+      subject_person: otherPerson,
       likes_count: 0,
       liked: true,
     };

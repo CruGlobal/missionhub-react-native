@@ -1,0 +1,332 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JoinGroupScreen onSearch should set community after entering 6th digit 1`] = `
+Object {
+  "code": "123456",
+  "community": Object {
+    "name": "test",
+    "type": "lookup",
+  },
+  "errorMessage": "",
+}
+`;
+
+exports[`JoinGroupScreen onSearch should set error if input has < 6 digits 1`] = `
+Object {
+  "code": "123",
+  "community": undefined,
+  "errorMessage": "",
+}
+`;
+
+exports[`JoinGroupScreen renders error correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Join a Community"
+  />
+  <ScrollView
+    keyboardShouldPersistTaps="handled"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="end"
+      style={
+        Object {
+          "marginTop": 5,
+          "minHeight": 400.2,
+        }
+      }
+    >
+      <Flex
+        align="center"
+        justify="center"
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../assets/images/MemberContacts_light.png",
+            }
+          }
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 16,
+              "padding": 4,
+              "textAlign": "center",
+            }
+          }
+        >
+          Enter your Community Code
+        </MyText>
+      </Flex>
+    </Flex>
+    <Flex
+      style={
+        Object {
+          "marginTop": 5,
+          "paddingHorizontal": 30,
+          "paddingTop": 10,
+        }
+      }
+    >
+      <Input
+        autoFocus={false}
+        blurOnSubmit={false}
+        maxLength={6}
+        onChangeText={[Function]}
+        selectionColor="#ffffff"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 36,
+            "padding": 8,
+            "textAlign": "center",
+          }
+        }
+        value=""
+      />
+    </Flex>
+    <KeyboardAvoidingView
+      enabled={true}
+      keyboardVerticalOffset={60}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </ScrollView>
+</Component>
+`;
+
+exports[`JoinGroupScreen renders group card correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Join a Community"
+  />
+  <ScrollView
+    keyboardShouldPersistTaps="handled"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="end"
+      style={
+        Object {
+          "marginTop": 5,
+          "minHeight": 400.2,
+        }
+      }
+    >
+      <Translate(GroupCardItem)
+        group={
+          Object {
+            "community_code": "123456",
+            "contactReport": Object {
+              "memberCount": 2,
+            },
+            "id": "123",
+            "name": "Org Name",
+            "owner": Object {
+              "first_name": "Owner",
+            },
+          }
+        }
+        onJoin={[Function]}
+      />
+    </Flex>
+    <Flex
+      style={
+        Object {
+          "marginTop": 5,
+          "paddingHorizontal": 30,
+          "paddingTop": 10,
+        }
+      }
+    >
+      <Input
+        autoFocus={false}
+        blurOnSubmit={false}
+        maxLength={6}
+        onChangeText={[Function]}
+        selectionColor="#ffffff"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 36,
+            "padding": 8,
+            "textAlign": "center",
+          }
+        }
+        value=""
+      />
+    </Flex>
+    <KeyboardAvoidingView
+      enabled={true}
+      keyboardVerticalOffset={60}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </ScrollView>
+</Component>
+`;
+
+exports[`JoinGroupScreen renders start correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Join a Community"
+  />
+  <ScrollView
+    keyboardShouldPersistTaps="handled"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="end"
+      style={
+        Object {
+          "marginTop": 5,
+          "minHeight": 400.2,
+        }
+      }
+    >
+      <Flex
+        align="center"
+        justify="center"
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../assets/images/MemberContacts_light.png",
+            }
+          }
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 16,
+              "padding": 4,
+              "textAlign": "center",
+            }
+          }
+        >
+          Enter your Community Code
+        </MyText>
+      </Flex>
+    </Flex>
+    <Flex
+      style={
+        Object {
+          "marginTop": 5,
+          "paddingHorizontal": 30,
+          "paddingTop": 10,
+        }
+      }
+    >
+      <Input
+        autoFocus={false}
+        blurOnSubmit={false}
+        maxLength={6}
+        onChangeText={[Function]}
+        selectionColor="#ffffff"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 36,
+            "padding": 8,
+            "textAlign": "center",
+          }
+        }
+        value=""
+      />
+    </Flex>
+    <KeyboardAvoidingView
+      enabled={true}
+      keyboardVerticalOffset={60}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </ScrollView>
+</Component>
+`;

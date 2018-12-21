@@ -1,8 +1,12 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
+import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Text, Flex, Dot, Card } from '../common';
+import { Text, Flex, Card, Button } from '../common';
+import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.png';
+import Dot from '../Dot';
+import { getFirstNameAndLastInitial } from '../../utils/common';
 
 import styles from './styles';
 
@@ -12,48 +16,91 @@ export default class GroupCardItem extends Component {
     const { onPress, group } = this.props;
     onPress(group);
   };
+  handleJoin = () => {
+    const { onJoin, group } = this.props;
+    onJoin(group);
+  };
+
+  renderInfo() {
+    const { t, group, onJoin } = this.props;
+    const owner = group.owner;
+    const { contactsCount = 0, unassignedCount = 0, memberCount = 0 } =
+      group.contactReport || {};
+
+    if (onJoin) {
+      return (
+        <Text style={styles.groupNumber}>
+          {owner
+            ? t('owner', {
+                name: getFirstNameAndLastInitial(
+                  owner.first_name,
+                  owner.last_name,
+                ),
+              })
+            : group.user_created
+              ? t('privateGroup')
+              : ''}
+        </Text>
+      );
+    }
+    if (group.user_created) {
+      return (
+        <Text style={styles.groupNumber}>
+          {t('numMembers', { count: memberCount })}
+        </Text>
+      );
+    }
+    return (
+      <Text style={styles.groupNumber}>
+        {t('numContacts', { count: contactsCount })}
+        <Dot />
+        {t('numUnassigned', { count: unassignedCount })}
+      </Text>
+    );
+  }
 
   render() {
-    const { t, group } = this.props;
-    const { contactsCount, unassignedCount, uncontactedCount } =
-      group.contactReport || {};
-    const { user_created } = group;
+    const { t, group, onPress, onJoin } = this.props;
+    let source;
+    if (group.community_photo_url) {
+      source = { url: group.community_photo_url };
+    } else if (group.user_created) {
+      source = undefined;
+    } else {
+      source = DEFAULT_MISSIONHUB_IMAGE;
+    }
 
+    //not passing a value for onPress to Card makes the card unclickable.
+    //In some cases we want to prevent clicking on GroupCardItem.
     return (
-      <Card onPress={this.handlePress} style={styles.card}>
-        <Flex>
-          <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
-          <Flex align="center" direction="row" style={styles.contactRow}>
-            {!user_created ? (
-              contactsCount ? (
-                <Fragment>
-                  <Text style={styles.contacts}>
-                    {t('numContacts', { number: contactsCount })}
-                  </Text>
-                  {unassignedCount ? (
-                    <Fragment>
-                      <Dot />
-                      <Text style={styles.unassigned}>
-                        {t('numUnassigned', {
-                          number: unassignedCount,
-                        })}
-                      </Text>
-                    </Fragment>
-                  ) : null}
-                  {uncontactedCount ? (
-                    <Fragment>
-                      <Dot />
-                      <Text style={styles.unassigned}>
-                        {t('numUncontacted', {
-                          number: uncontactedCount,
-                        })}
-                      </Text>
-                    </Fragment>
-                  ) : null}
-                </Fragment>
-              ) : null
-            ) : null}
+      <Card
+        onPress={onPress ? this.handlePress : undefined}
+        style={styles.card}
+      >
+        <Image
+          source={source}
+          resizeMode="cover"
+          style={[
+            styles.image,
+            group.user_created ? styles.userCreatedImage : undefined,
+          ]}
+        />
+        <Flex justify="center" direction="row" style={styles.infoWrap}>
+          <Flex value={1}>
+            <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
+            {this.renderInfo()}
           </Flex>
+          {onJoin ? (
+            <Flex direction="column" justify="center">
+              <Button
+                type="transparent"
+                style={[styles.joinButton]}
+                buttonTextStyle={styles.joinButtonText}
+                text={t('join').toUpperCase()}
+                onPress={this.handleJoin}
+              />
+            </Flex>
+          ) : null}
         </Flex>
       </Card>
     );
@@ -63,7 +110,10 @@ export default class GroupCardItem extends Component {
 GroupCardItem.propTypes = {
   group: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    contactReport: PropTypes.object.isRequired,
+    owner: PropTypes.object,
+    contactReport: PropTypes.object,
     user_created: PropTypes.bool,
   }).isRequired,
+  onPress: PropTypes.func,
+  onJoin: PropTypes.func,
 };

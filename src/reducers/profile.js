@@ -1,9 +1,15 @@
-import { LOGOUT, FIRST_NAME_CHANGED, LAST_NAME_CHANGED } from '../constants';
+import {
+  LOGOUT,
+  FIRST_NAME_CHANGED,
+  LAST_NAME_CHANGED,
+  STASH_COMMUNITY_TO_JOIN,
+} from '../constants';
 import { REQUESTS } from '../actions/api';
 
 const initialProfileState = {
   firstName: '',
   lastName: '',
+  community: {},
 };
 
 function profileReducer(state = initialProfileState, action) {
@@ -38,6 +44,9 @@ function profileReducer(state = initialProfileState, action) {
         firstName: results.first_name,
         lastName: results.last_name,
       };
+    case STASH_COMMUNITY_TO_JOIN:
+      const { community } = action;
+      return { ...state, community };
     case LOGOUT:
       return initialProfileState;
     default:

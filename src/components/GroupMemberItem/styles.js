@@ -3,14 +3,10 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  row: {
-    paddingVertical: 16,
-    paddingLeft: 24,
-    paddingRight: 13,
-    width: theme.fullWidth,
-    backgroundColor: theme.white,
-    borderBottomColor: theme.separatorColor,
-    borderBottomWidth: theme.separatorHeight,
+  content: {
+    paddingVertical: 10,
+    paddingLeft: 16,
+    paddingRight: 0,
   },
   detailsWrap: {
     marginTop: 1,
@@ -20,11 +16,11 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: theme.primaryColor,
   },
-  assigned: {
+  detailText: {
     fontSize: 14,
     color: theme.grey1,
   },
-  uncontacted: {
+  detailTextRed: {
     fontSize: 14,
     color: theme.red,
   },

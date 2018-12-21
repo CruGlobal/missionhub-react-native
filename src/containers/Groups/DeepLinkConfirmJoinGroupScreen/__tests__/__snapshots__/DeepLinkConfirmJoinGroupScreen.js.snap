@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Join a Community"
+  />
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "marginTop": 5,
+        "minHeight": 400.2,
+      }
+    }
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "padding": 4,
+            "textAlign": "center",
+          }
+        }
+      >
+        Sorry, we couldn't find your community.
+Double check your link.
+      </MyText>
+    </Flex>
+  </Flex>
+</Component>
+`;
+
+exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Join a Community"
+  />
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "marginTop": 5,
+        "minHeight": 400.2,
+      }
+    }
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "padding": 4,
+            "textAlign": "center",
+          }
+        }
+      >
+        Sorry, we couldn't find your community.
+Double check your link.
+      </MyText>
+    </Flex>
+  </Flex>
+</Component>
+`;
+
+exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Join a Community"
+  />
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "marginTop": 5,
+        "minHeight": 400.2,
+      }
+    }
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "padding": 4,
+            "textAlign": "center",
+          }
+        }
+      >
+        Sorry, we couldn't find your community.
+Double check your link.
+      </MyText>
+    </Flex>
+  </Flex>
+</Component>
+`;

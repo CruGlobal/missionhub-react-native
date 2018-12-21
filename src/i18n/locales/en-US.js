@@ -19,6 +19,7 @@ export default {
       member: 'Member',
       user: 'User',
       admin: 'Admin',
+      owner: 'Owner',
     },
     gender: {
       male: 'Male',
@@ -75,8 +76,13 @@ export default {
       yesterday: 'Yesterday',
     },
     steps: {},
+    yes: 'Yes',
+    no: 'No',
+    copy: 'Copy',
+    edit: 'Edit',
     done: 'Done',
     next: 'Next',
+    skip: 'Skip',
     ok: 'Ok',
     logout: 'Logout',
     me: 'Me',
@@ -91,6 +97,13 @@ export default {
     contactUnassignment:
       '{{assignedContactName}} was unassigned from {{assignedToName}}',
     assignToMe: 'Assign to me',
+    copyMessage: 'Copied',
+    terms: 'By creating your MissionHub account you agree to our',
+    termsTrial: 'By creating your MissionHub trial account you agree to our',
+    tos: 'Terms of Service',
+    privacy: 'Privacy Policy',
+    and: 'and',
+    signIn: 'Sign In',
   },
   error: {
     error: 'Error',
@@ -112,28 +125,23 @@ export default {
     about: 'About',
     help: 'Help',
     review: 'Write a Review',
-    terms: 'Terms of Service',
-    privacy: 'Privacy Policy',
     signOut: 'Sign out',
-    signUp: 'Upgrade Account',
+    signUp: 'Sign Up',
   },
   login: {
     tagline1: 'Grow closer to God.',
     tagline2: 'Help others experience Him.',
-    signIn: 'Sign In',
     getStarted: 'Get Started',
     member: 'Already a Member?',
   },
   loginOptions: {
     facebookSignup: 'Sign up with Facebook',
-    tryNow: 'Try it now',
+    haveCode: 'I Have a Community Code',
+    signUpLater: 'Sign up Later',
     emailSignUp: 'Sign up with Email',
-    signIn: 'Sign In',
-    terms: 'By creating your MissionHub account you agree to our',
     member: 'Already a Member?',
-    tos: 'Terms of Service',
-    privacy: 'Privacy Policy',
-    and: 'and',
+    createCommunityTitle: 'Create a Community',
+    createCommunityDescription: 'Sign Up to create a MissionHub community.',
   },
   keyLogin: {
     invalidCredentialsMessage: 'Your Email or Password is Incorrect',
@@ -154,13 +162,15 @@ export default {
     mfaIncorrect: 'Incorrect verification code',
   },
   welcome: {
+    getStarted: `Let's Get Started`,
+    tryItNow: 'Try It Now',
     welcome: 'welcome!',
     welcomeDescription:
       'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
   },
   setup: {
     firstThing: '-first things first-',
-    namePrompt: "what's your name?",
+    namePrompt: 'what is your name?',
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
@@ -178,7 +188,6 @@ export default {
   addStep: {
     header: 'My Step of Faith',
     createStep: 'Create Step',
-    skip: 'SKIP',
     journeyHeader: 'What did you see God do?',
     editJourneyHeader: 'Edit your comment',
     addJourney: 'Add to Our Journey',
@@ -446,6 +455,8 @@ export default {
   groupsList: {
     header: 'Communities',
     groupsNull: 'Your communities will show up here.',
+    joinCommunity: 'Join a Community',
+    createCommunity: 'Create a Community',
   },
   celebrateFeeds: {
     title: '',
@@ -465,6 +476,7 @@ export default {
       '{{initiator}} saw something cool happen with someone.',
     challengeAccepted: '{{initiator}} accepted a Challenge:',
     challengeCompleted: '{{initiator}} completed a Challenge:',
+    communityCreated: '{{initiator}} created {{communityName}}!',
   },
   challengeFeeds: {
     past: 'Past Challenges',
@@ -513,6 +525,41 @@ export default {
   },
   groupsMembers: {
     invite: 'Send Invite',
+    sendInviteMessage: 'Join me on MissionHub. Click here to join: {{url}}',
+    invited: `Anyone you've invited to {{orgName}} will show up here when they join.`,
+  },
+  groupMemberOptions: {
+    ownerLeaveCommunityErrorMessage:
+      'You must assign a new owner to {{orgName}} before you go',
+    leaveCommunity: {
+      optionTitle: 'Leave Community',
+      modalTitle: 'Are you sure you want to leave {{communityName}}?',
+      confirmButtonText: 'OK',
+    },
+    makeAdmin: {
+      optionTitle: 'Make Admin',
+      modalTitle: 'Want to make {{personName}} an admin?',
+      modalDescription:
+        'Admins can remove members, promote members to admins, and create challenges.',
+      confirmButtonText: 'Yes',
+    },
+    removeAdmin: {
+      optionTitle: 'Remove as Admin',
+      modalTitle: 'Remove {{personName}} as admin?',
+      confirmButtonText: 'Remove',
+    },
+    makeOwner: {
+      optionTitle: 'Make Owner',
+      modalTitle: 'Make {{personName}} the owner?',
+      modalDescription:
+        'You will lose ownership of this community but would still have admin privileges',
+      confirmButtonText: 'Yes',
+    },
+    removeMember: {
+      optionTitle: 'Remove Member',
+      modalTitle: 'Remove {{personName}} from {{communityName}}?',
+      confirmButtonText: 'Remove',
+    },
   },
   groupsImpact: {
     title: '',
@@ -529,9 +576,6 @@ export default {
   },
   groupsSurveyContacts: {
     searchPlaceholder: 'Search Contacts',
-  },
-  contactItem: {
-    unassigned: 'Unassigned',
   },
   datePicker: {
     date: 'Date',
@@ -554,11 +598,32 @@ export default {
     note: '{{initiator}} added a note about {{receiver}}',
   },
   groupItem: {
-    numContacts: '{{number}} Contacts',
-    numAssigned: '{{number}} Assigned',
-    numUnassigned: '{{number}} Unassigned',
+    numContacts: '{{count}} Contact',
+    numContacts_plural: '{{count}} Contacts',
+    numAssigned: '{{count}} Assigned',
+    numUnassigned: '{{count}} Unassigned',
     unassigned: 'Unassigned',
-    numUncontacted: '{{number}} Uncontacted',
+    numUncontacted: '{{count}} Uncontacted',
+    numMembers: '{{count}} Member',
+    numMembers_plural: '{{count}} Members',
+    owner: '{{name}} (Owner)',
+    join: 'Join',
+    selectStage: 'Select Stage',
+    privateGroup: 'Private Group',
+  },
+  groupsCreateGroup: {
+    createCommunity: 'Create Community',
+    name: 'Community Name',
+  },
+  groupsJoinGroup: {
+    joinCommunity: 'Join a Community',
+    enterCode: 'Enter your Community Code',
+    search: 'Search',
+    communityNotFound:
+      "Sorry, we couldn't find your community.\nDouble check your code.",
+    communityNotFoundLink:
+      "Sorry, we couldn't find your community.\nDouble check your link.",
+    findingCommunity: 'Finding your new community...',
   },
   shareSurveyMenu: {
     shareMessage: '{{name}} {{url}}',
@@ -595,5 +660,37 @@ export default {
     done: 'Done',
     placeholder: 'Admin note',
     important: `Anything important the admins at {{organization}} should know?`,
+  },
+  imagePicker: {
+    selectImage: 'Select Image',
+    cancel: 'Cancel',
+    takePhoto: 'Take Photo',
+    chooseFromLibrary: 'Choose from Library...',
+    deniedTitle: 'Permission Denied',
+    deniedText:
+      'To be able to take pictures with your camera and choose images from your library.',
+    reTryTitle: 'Re-Try',
+    okTitle: `I'm sure`,
+    errorHeader: 'Error',
+    errorBody:
+      'There was an error processing your request. Please try again later.',
+  },
+  groupProfile: {
+    created: 'Created',
+    members: 'Members',
+    code: 'Community Code',
+    link: 'Community Link',
+    newCode: 'New Code',
+    newLink: 'New Link',
+    info: 'Anyone who has this code or link will be able to join your group.',
+    deleteCommunity: 'Delete Community?',
+    createNewCode: 'Are you sure you want to create a new Community Code?',
+    createNewLink: 'Are you sure you want to create a new Community Link?',
+    cannotBeUndone: 'This cannot be undone',
+  },
+  landing: {
+    tryItNow: 'Try It Now',
+    haveCode: 'I have a Community Code',
+    member: 'Already a Member?',
   },
 };
