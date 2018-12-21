@@ -17,11 +17,14 @@ export const SWIPE_REMINDER_STEPS_CONTACT = 'app/SWIPE_REMINDER_STEPS_CONTACT';
 export const SWIPE_REMINDER_STEPS_REMINDER =
   'app/SWIPE_REMINDER_STEPS_REMINDER';
 export const SWIPE_REMINDER_JOURNEY = 'app/SWIPE_REMINDER_JOURNEY';
+export const GROUP_INVITE_INFO = 'app/GROUP_INVITE_INFO';
 export const GROUP_ONBOARDING_CARD = 'app/GROUP_ONBOARDING_CARD';
+export const GROUP_TAB_SCROLL_ON_MOUNT = 'app/GROUP_TAB_SCROLL_ON_MOUNT';
 export const LOAD_PERSON_DETAILS = 'app/LOAD_PERSON_DETAILS';
 export const LOAD_ORGANIZATIONS = 'app/LOAD_ORGANIZATIONS';
 export const UPDATE_PERSON_ATTRIBUTES = 'app/UPDATE_PERSON_ATTRIBUTES';
 export const DELETE_PERSON = 'app/DELETE_PERSON';
+export const REMOVE_ORGANIZATION_MEMBER = 'app/REMOVE_ORGANIZATION_MEMBER';
 export const UPDATE_JOURNEY_ITEMS = 'app/UPDATE_JOURNEY_ITEMS';
 export const UPDATE_PEOPLE_INTERACTION_REPORT =
   'app/UPDATE_PEOPLE_INTERACTION_REPORT';
@@ -32,6 +35,7 @@ export const RESET_STEP_COUNT = 'app/RESET_STEP_COUNT';
 export const UPDATE_STAGES = 'app/UPDATE_STAGES';
 export const UPDATE_ONBOARDING_PERSON = 'app/UPDATE_ONBOARDING_PERSON';
 export const RESET_ONBOARDING_PERSON = 'app/RESET_ONBOARDING_PERSON';
+export const STASH_COMMUNITY_TO_JOIN = 'app/STASH_COMMUNITY_TO_JOIN';
 export const FILTERED_CHALLENGES = 'app/FILTERED_CHALLENGES';
 export const UPDATE_CHALLENGE = 'app/UPDATE_CHALLENGE';
 export const COMPLETE_ONBOARDING = 'app/COMPLETE_ONBOARDING';
@@ -44,12 +48,13 @@ export const GET_ORGANIZATION_SURVEYS = 'app/GET_ORGANIZATION_SURVEYS';
 export const RESET_CELEBRATION_PAGINATION = 'app/RESET_CELEBRATION_PAGINATION';
 export const RESET_CHALLENGE_PAGINATION = 'app/RESET_CHALLENGE_PAGINATION';
 
+export const GLOBAL_COMMUNITY_ID = '_global_community_id';
+
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';
 
 export const STEPS_TAB = 'StepsTab';
 export const PEOPLE_TAB = 'PeopleTab';
-export const IMPACT_TAB = 'ImpactTab';
 export const GROUPS_TAB = 'GroupsTab';
 
 export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';
@@ -68,9 +73,12 @@ export const INVALID_GRANT = 'invalid_grant';
 export const NETWORK_REQUEST_FAILED = 'Network request failed';
 export const CANNOT_EDIT_FIRST_NAME =
   'You are not allowed to edit first names of other MissionHub users';
+export const ERROR_PERSON_PART_OF_ORG =
+  'this person already has permissions on this organization';
 export const MFA_REQUIRED = 'mfa_required';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
+export const URL_FORM_DATA = 'multipart/form-data';
 export const THE_KEY_CLIENT_ID = Config.THE_KEY_CLIENT_ID;
 
 export const CASEY = 'casey';
@@ -91,6 +99,7 @@ export const ORG_PERMISSIONS = {
   ADMIN: 1,
   USER: 4,
   CONTACT: 2,
+  OWNER: 3,
 };
 export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
@@ -106,6 +115,7 @@ export const ANALYTICS = {
   SITE_SECTION: 'cru.sitesection',
   SITE_SUBSECTION: 'cru.sitesubsection',
   SITE_SUB_SECTION_3: 'cru.subsectionlevel3',
+  SITE_SUB_SECTION_4: 'cru.subsectionlevel4',
   CONTENT_AUDIENCE_TARGET: 'cru.contentaudiencetarget',
   CONTENT_TOPIC: 'cru.contenttopic',
   LOGGED_IN_STATUS: 'cru.loggedinstatus',
@@ -235,6 +245,94 @@ export const ACTIONS = {
     name: 'Assigned to Me',
     key: 'cru.assignedtome',
   },
+  SELECT_COMMUNITY: {
+    name: 'Community Selected',
+    key: 'cru.selectcommunities',
+  },
+  SELECT_CREATED_COMMUNITY: {
+    name: 'Community Selected After Create',
+    key: 'cru.createcommunities',
+  },
+  SELECT_JOINED_COMMUNITY: {
+    name: 'Community Selected After Join',
+    key: 'cru.joincommunities',
+  },
+  SEARCH_COMMUNITY_WITH_CODE: {
+    name: 'Search for Community With Code',
+    key: 'cru.codesearch',
+  },
+  JOIN_COMMUNITY_WITH_CODE: {
+    name: 'Join Community With Code',
+    key: 'cru.codejoin',
+  },
+  ADD_COMMUNITY_PHOTO: {
+    name: 'Add Photo for Community',
+    key: 'cru.communityphoto',
+  },
+  CREATE_COMMUNITY: {
+    name: 'Create Community',
+    key: 'cru.communitycreate',
+  },
+  CHALLENGE_CREATED: {
+    name: 'Challenge Created',
+    key: 'cru.challengecreated',
+  },
+  CHALLENGE_JOINED: {
+    name: 'Challenge Joined',
+    key: 'cru.challengejoined',
+  },
+  CHALLENGE_COMPLETED: {
+    name: 'Challenge Completed',
+    key: 'cru.challengecompleted',
+  },
+  CHALLENGE_DETAIL: {
+    name: 'Challenge Detail View',
+    key: 'cru.challengedetail',
+  },
+  MANAGE_MAKE_ADMIN: {
+    name: 'Make Admin',
+    key: 'cru.membersmakeadmin',
+  },
+  MANAGE_MAKE_OWNER: {
+    name: 'Make Owner',
+    key: 'cru.membersmakeowner',
+  },
+  MANAGE_REMOVE_ADMIN: {
+    name: 'Remove Admin',
+    key: 'cru.membersremoveadmin',
+  },
+  MANAGE_REMOVE_MEMBER: {
+    name: 'Remove Member',
+    key: 'cru.membersremovemember',
+  },
+  MANAGE_LEAVE_COMMUNITY: {
+    name: 'Leave Community',
+    key: 'cru.membersleave',
+  },
+  COMMUNITY_EDIT: {
+    name: 'Editting Community',
+    key: 'cru.communityedit',
+  },
+  COPY_CODE: {
+    name: 'Copy Community Code',
+    key: 'cru.copycode',
+  },
+  COPY_INVITE_URL: {
+    name: 'Copy Community Invite URL',
+    key: 'cru.copyinviteurl',
+  },
+  NEW_CODE: {
+    name: 'New Community Code',
+    key: 'cru.newcode',
+  },
+  NEW_INVITE_URL: {
+    name: 'New Community Invite URL',
+    key: 'cru.newinviteurl',
+  },
+  COMMUNITY_DELETE: {
+    name: 'Delete Community',
+    key: 'cru.communitydelete',
+  },
 };
 
 export const CONTACT_STEPS = 'Contact Steps';
@@ -324,4 +422,5 @@ export const CELEBRATEABLE_TYPES = {
     accepted: 'accepted_at',
     completed: 'completed_at',
   },
+  createdCommunity: 'organization',
 };

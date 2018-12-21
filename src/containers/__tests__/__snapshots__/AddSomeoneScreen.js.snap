@@ -12,5 +12,6 @@ exports[`renders correctly 1`] = `
 
 Take a moment and pray. Who do you want to take steps of faith with?"
   onComplete={[Function]}
+  onSkip={[Function]}
 />
 `;

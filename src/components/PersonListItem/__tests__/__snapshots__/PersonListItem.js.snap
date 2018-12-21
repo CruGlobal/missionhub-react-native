@@ -1,0 +1,252 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render assigned contact 1`] = `
+<TouchableIOS
+  highlight={true}
+  onPress={[Function]}
+>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+        "width": 750,
+      }
+    }
+  >
+    <Flex
+      direction="row"
+      justify="start"
+      value={1}
+    >
+      <React.Fragment>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 13,
+              },
+              Object {},
+            ]
+          }
+        >
+          First
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 13,
+              },
+              Object {},
+              Object {},
+            ]
+          }
+        >
+           Last
+        </MyText>
+      </React.Fragment>
+    </Flex>
+  </Flex>
+</TouchableIOS>
+`;
+
+exports[`render unassigned contact 1`] = `
+<TouchableIOS
+  highlight={true}
+  onPress={[Function]}
+>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+        "width": 750,
+      }
+    }
+  >
+    <Flex
+      direction="row"
+      justify="start"
+      value={1}
+    >
+      <React.Fragment>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 13,
+              },
+              Object {},
+            ]
+          }
+        >
+          First
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 13,
+              },
+              Object {},
+              Object {},
+            ]
+          }
+        >
+           Last
+        </MyText>
+      </React.Fragment>
+    </Flex>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#FF5532",
+          "fontSize": 13,
+        }
+      }
+    >
+      Unassigned
+    </MyText>
+  </Flex>
+</TouchableIOS>
+`;
+
+exports[`render without last name 1`] = `
+<Flex
+  align="center"
+  direction="row"
+  style={
+    Object {
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 16,
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    direction="row"
+    justify="start"
+    value={1}
+  >
+    <React.Fragment>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 13,
+            },
+            Object {},
+          ]
+        }
+      >
+        First
+      </MyText>
+    </React.Fragment>
+  </Flex>
+</Flex>
+`;
+
+exports[`render without touchable 1`] = `
+<Flex
+  align="center"
+  direction="row"
+  style={
+    Object {
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 16,
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    direction="row"
+    justify="start"
+    value={1}
+  >
+    <React.Fragment>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 13,
+            },
+            Object {},
+          ]
+        }
+      >
+        First
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 13,
+            },
+            Object {},
+            Object {},
+          ]
+        }
+      >
+         Last
+      </MyText>
+    </React.Fragment>
+  </Flex>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#FF5532",
+        "fontSize": 13,
+      }
+    }
+  >
+    Unassigned
+  </MyText>
+</Flex>
+`;

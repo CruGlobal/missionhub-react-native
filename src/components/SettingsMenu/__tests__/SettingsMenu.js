@@ -11,17 +11,28 @@ import i18n from '../../../i18n';
 
 import SettingsMenu from '..';
 
-const mockState = {
-  auth: { isFirstTime: false },
-};
+it('renders correctly for authenticated user', () => {
+  const mockState = {
+    auth: { isFirstTime: false },
+  };
+  const store = createMockStore(mockState);
+  testSnapshotShallow(<SettingsMenu />, store);
+});
 
-const store = createMockStore(mockState);
-it('renders correctly', () => {
+it('renders correctly for try it now user', () => {
+  const mockState = {
+    auth: { isFirstTime: true },
+  };
+  const store = createMockStore(mockState);
   testSnapshotShallow(<SettingsMenu />, store);
 });
 
 describe('menu items and links', () => {
   let component;
+  const mockState = {
+    auth: { isFirstTime: false },
+  };
+  const store = createMockStore(mockState);
 
   beforeEach(() => {
     ReactNative.Linking.openURL = jest.fn();
@@ -34,8 +45,8 @@ describe('menu items and links', () => {
     expect(items[0].label).toEqual(i18n.t('settingsMenu:about'));
     expect(items[1].label).toEqual(i18n.t('settingsMenu:help'));
     expect(items[2].label).toEqual(i18n.t('settingsMenu:review'));
-    expect(items[3].label).toEqual(i18n.t('settingsMenu:privacy'));
-    expect(items[4].label).toEqual(i18n.t('settingsMenu:terms'));
+    expect(items[3].label).toEqual(i18n.t('privacy'));
+    expect(items[4].label).toEqual(i18n.t('tos'));
     expect(items[5].label).toEqual(i18n.t('settingsMenu:signOut'));
   });
 

@@ -4,10 +4,16 @@ import {
   GET_ORGANIZATION_PEOPLE,
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
+  REMOVE_ORGANIZATION_MEMBER,
+  ACTIONS,
+  ORG_PERMISSIONS,
+  ERROR_PERSON_PART_OF_ORG,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
+import { getMe, getPersonDetails } from './person';
 import callApi, { REQUESTS } from './api';
+import { trackActionWithoutData } from './analytics';
 
 const getOrganizationsQuery = {
   limit: 100,
@@ -15,11 +21,13 @@ const getOrganizationsQuery = {
   filters: {
     descendants: false,
   },
+  sort: 'name',
 };
 
 export function getMyCommunities() {
   return async dispatch => {
     await dispatch(getMyOrganizations());
+    dispatch(getUsersReport());
     return dispatch(getOrganizationsContactReports());
   };
 }
@@ -68,10 +76,15 @@ export function getOrganizationsContactReports() {
         contactsCount: r.contact_count,
         unassignedCount: r.unassigned_count,
         uncontactedCount: r.uncontacted_count,
+        memberCount: r.member_count,
       })),
     });
     return response;
   };
+}
+
+export function getUsersReport() {
+  return dispatch => dispatch(callApi(REQUESTS.GET_USERS_REPORT));
 }
 
 export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
@@ -169,10 +182,10 @@ export function getOrganizationMembers(orgId, query = {}) {
   const newQuery = {
     ...query,
     filters: {
-      permissions: 'admin,user',
+      permissions: 'owner,admin,user',
       organization_ids: orgId,
     },
-    include: 'organizational_permissions',
+    include: 'organizational_permissions,reverse_contact_assignments',
   };
   return async dispatch => {
     const { response: members, meta } = await dispatch(
@@ -248,7 +261,7 @@ export function addNewPerson(data) {
     } = getState().auth;
     if (!data || !data.firstName) {
       return Promise.reject(
-        `Invalid Data from addNewContact: no data or no firstName passed in`,
+        `Invalid Data from addNewPerson: no data or no firstName passed in`,
       );
     }
     const included = [];
@@ -298,5 +311,272 @@ export function addNewPerson(data) {
     };
     const query = {};
     return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, query, bodyData));
+  };
+}
+
+export function updateOrganization(orgId, data) {
+  return dispatch => {
+    if (!data) {
+      return Promise.reject(
+        `Invalid Data from updateOrganization: no data passed in`,
+      );
+    }
+    const bodyData = {
+      data: {
+        type: 'organization',
+        attributes: {
+          name: data.name,
+        },
+      },
+    };
+    const query = { orgId };
+    return dispatch(callApi(REQUESTS.UPDATE_ORGANIZATION, query, bodyData));
+  };
+}
+
+export function updateOrganizationImage(orgId, imageData) {
+  return dispatch => {
+    if (!imageData) {
+      return Promise.reject(
+        `Invalid Data from updateOrganizationImage: no image data passed in`,
+      );
+    }
+
+    const data = new FormData();
+
+    data.append('data[attributes][community_photo]', {
+      uri: imageData.uri,
+      type: imageData.fileType,
+      name: imageData.fileName,
+    });
+    return dispatch(
+      callApi(REQUESTS.UPDATE_ORGANIZATION_IMAGE, { orgId }, data),
+    );
+  };
+}
+
+export function transferOrgOwnership(orgId, person_id) {
+  return async dispatch => {
+    const { response } = await dispatch(
+      callApi(
+        REQUESTS.TRANSFER_ORG_OWNERSHIP,
+        { orgId },
+        {
+          data: {
+            type: 'organization_ownership_transfer',
+            attributes: { person_id },
+          },
+        },
+      ),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.MANAGE_MAKE_OWNER));
+
+    // After transfer, update auth person and other person with new org permissions
+    dispatch(getMe());
+    dispatch(getPersonDetails(person_id, orgId));
+
+    return response;
+  };
+}
+
+export function addNewOrganization(name, imageData) {
+  return async dispatch => {
+    if (!name) {
+      return Promise.reject(
+        `Invalid Data from addNewOrganization: no org name passed in`,
+      );
+    }
+    const bodyData = {
+      data: {
+        type: 'organization',
+        attributes: {
+          name,
+          user_created: true,
+        },
+      },
+    };
+    const query = {};
+    const results = await dispatch(
+      callApi(REQUESTS.ADD_NEW_ORGANIZATION, query, bodyData),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.CREATE_COMMUNITY));
+
+    if (imageData) {
+      // After the org is created, update the image with the image data passed in
+      const newOrgId = results.response.id;
+      await dispatch(updateOrganizationImage(newOrgId, imageData));
+      dispatch(trackActionWithoutData(ACTIONS.ADD_COMMUNITY_PHOTO));
+    }
+    // After the org is created, update auth person with new org permissions
+    dispatch(getMe());
+
+    return results;
+  };
+}
+
+export function deleteOrganization(orgId) {
+  return async dispatch => {
+    const query = { orgId };
+    const results = await dispatch(
+      callApi(REQUESTS.DELETE_ORGANIZATION, query),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.COMMUNITY_DELETE));
+
+    return results;
+  };
+}
+
+export function lookupOrgCommunityCode(code) {
+  return async (dispatch, getState) => {
+    const query = { community_code: code };
+    const { response: org = {} } = await dispatch(
+      callApi(REQUESTS.LOOKUP_COMMUNITY_CODE, query),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.SEARCH_COMMUNITY_WITH_CODE));
+
+    if (!org.id) {
+      return null;
+    }
+
+    if (getState().auth.token) {
+      const orgWithOwner = await dispatch(getOwner(org));
+
+      // No need to get member count anymore since it's an authenticated route
+      // Leaving this code here in case we change that route to be unauthenticated
+      // get the report information and append it to the org
+      // const reportQuery = {
+      //   organization_ids: org.id,
+      //   period: 'P1W',
+      // };
+      // const { response: reports } = await dispatch(
+      //   callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, reportQuery),
+      // );
+
+      // const report = reports[0] || {};
+      // org.contactReport = {
+      //   contactsCount: report.contact_count,
+      //   unassignedCount: report.unassigned_count,
+      //   uncontactedCount: report.uncontacted_count,
+      //   memberCount: report.member_count,
+      // };
+
+      return orgWithOwner;
+    }
+
+    return org;
+  };
+}
+
+export function lookupOrgCommunityUrl(urlCode) {
+  return async (dispatch, getState) => {
+    const query = { community_url: urlCode };
+    const { response: org = {} } = await dispatch(
+      callApi(REQUESTS.LOOKUP_COMMUNITY_URL, query),
+    );
+    // dispatch(trackActionWithoutData(ACTIONS.SEARCH_COMMUNITY_WITH_CODE)); // TODO: implement Url version
+
+    if (!org.id) {
+      return null;
+    }
+
+    if (getState().auth.token) {
+      const orgWithOwner = await dispatch(getOwner(org));
+
+      return orgWithOwner;
+    }
+
+    return org;
+  };
+}
+
+function getOwner(org) {
+  return async dispatch => {
+    // get the owner information and append it to the org
+    const ownerQuery = {
+      filters: {
+        permissions: 'owner',
+        organization_ids: org.id,
+      },
+    };
+    const { response: ownerResponse } = await dispatch(
+      callApi(REQUESTS.GET_PEOPLE_LIST, ownerQuery),
+    );
+    org.owner = ownerResponse[0];
+    return { ...org, owner: ownerResponse[0] };
+  };
+}
+
+export function joinCommunity(orgId, code, url) {
+  return async (dispatch, getState) => {
+    const myId = getState().auth.person.id;
+    const attributes = {
+      organization_id: orgId,
+      permission_id: ORG_PERMISSIONS.USER,
+    };
+    if (code) {
+      attributes.community_code = code;
+    } else if (url) {
+      attributes.community_url = url;
+    } else {
+      return Promise.reject(
+        `Invalid Data from joinCommunity: must pass in a code or url`,
+      );
+    }
+    attributes.person_id = myId;
+    const bodyData = {
+      data: {
+        type: 'organizational_permission',
+        attributes,
+      },
+    };
+
+    try {
+      await dispatch(callApi(REQUESTS.JOIN_COMMUNITY, {}, bodyData));
+    } catch (error) {
+      // If the user is already part of the organization, just continue like normal
+      if (
+        !(
+          error &&
+          error.apiError &&
+          error.apiError.errors &&
+          error.apiError.errors[0] &&
+          error.apiError.errors[0].detail === ERROR_PERSON_PART_OF_ORG
+        )
+      ) {
+        throw error;
+      }
+    }
+
+    dispatch(trackActionWithoutData(ACTIONS.JOIN_COMMUNITY_WITH_CODE));
+  };
+}
+
+export function generateNewCode(orgId) {
+  return async dispatch => {
+    const results = await dispatch(
+      callApi(REQUESTS.ORGANIZATION_NEW_CODE, { orgId }),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.NEW_CODE));
+
+    return results;
+  };
+}
+
+export function generateNewLink(orgId) {
+  return async dispatch => {
+    const results = await dispatch(
+      callApi(REQUESTS.ORGANIZATION_NEW_LINK, { orgId }),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.NEW_INVITE_URL));
+
+    return results;
+  };
+}
+
+export function removeOrganizationMember(personId, orgId) {
+  return {
+    type: REMOVE_ORGANIZATION_MEMBER,
+    personId,
+    orgId,
   };
 }

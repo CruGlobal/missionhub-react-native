@@ -76,7 +76,11 @@ export default function callApi(requestObject, query = {}, data = {}) {
 
       // If there is a method that uses data, call it here
       if (METHODS_WITH_DATA.includes(action.method)) {
-        if (!action.anonymous && !newQuery.access_token) {
+        if (
+          !action.anonymous &&
+          !newQuery.access_token &&
+          !action.anonymousOptional
+        ) {
           return throwErr(
             `There is no token and route is not anonymous: ${JSON.stringify({
               action,

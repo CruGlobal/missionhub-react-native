@@ -4,11 +4,8 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   card: {
-    marginHorizontal: 20,
-    marginVertical: 5,
+    flexDirection: 'column',
     alignItems: 'stretch',
-    backgroundColor: theme.white,
-    borderRadius: 8,
   },
   detailButton: {
     flex: 1,
@@ -28,11 +25,15 @@ export default StyleSheet.create({
     backgroundColor: theme.secondaryColor,
     paddingVertical: 8,
     height: undefined, // Need this to override the normal button styles
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
   },
   completeButton: {
     backgroundColor: theme.green,
     paddingVertical: 8,
     height: undefined, // Need this to override the normal button styles
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
   },
   joinCompleteButtonText: {
     fontSize: 14,

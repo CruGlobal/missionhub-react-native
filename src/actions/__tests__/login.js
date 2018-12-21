@@ -23,8 +23,6 @@ let myPerson;
 const updateStatusResult = { type: 'now logged in' };
 const trackActionWithoutDataResult = { type: 'tracked plain action' };
 
-jest.mock('react-native-omniture');
-
 describe('onSuccessfulLogin', () => {
   beforeEach(() => {
     store = mockStore({
@@ -59,6 +57,16 @@ describe('onSuccessfulLogin', () => {
       'contact_assignments',
     );
     navigation.navigateReset = screen => ({ type: screen });
+    navigation.navigateNestedReset = (...screens) => ({ type: screens });
+  });
+
+  it('should call onComplete if it exists', async () => {
+    const onComplete = jest.fn();
+
+    await store.dispatch(onSuccessfulLogin(onComplete));
+
+    expect(onComplete).toHaveBeenCalledWith();
+    expect(store.getActions()).toEqual([updateStatusResult]);
   });
 
   it('should navigate to Get Started', async () => {

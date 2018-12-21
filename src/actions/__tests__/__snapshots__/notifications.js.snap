@@ -87,6 +87,7 @@ Array [
       },
     ],
     "index": 0,
+    "key": null,
     "type": "Navigation/RESET",
   },
 ]
@@ -139,6 +140,7 @@ Array [
       },
     ],
     "index": 0,
+    "key": null,
     "type": "Navigation/RESET",
   },
   Object {
@@ -158,6 +160,7 @@ Array [
       },
     ],
     "index": 0,
+    "key": null,
     "type": "Navigation/RESET",
   },
   Object {

@@ -3,10 +3,21 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import theme from '../../theme';
-import { createMockStore, testSnapshot } from '../../../testUtils';
-import { MainTabBar, MainTabBarGroups, navItem } from '../../AppRoutes';
+import {
+  createMockStore,
+  testSnapshot,
+  createMockNavState,
+} from '../../../testUtils';
+import { navItem } from '../..//AppRoutes';
+import { communitiesSelector } from '../../selectors/organizations';
+import MainTabs from '../../containers/MainTabs';
+
+jest.mock('../../selectors/organizations');
 
 const store = createMockStore({
+  auth: {
+    isFirstTime: false,
+  },
   steps: {
     mine: null,
     reminders: [],
@@ -32,20 +43,25 @@ const store = createMockStore({
     stepsReminder: false, // Never show on the reminders anymore
     journey: true,
   },
+  organizations: {
+    all: [],
+  },
 });
 
-it('renders home screen with tab bar with impact tab correctly', () => {
+communitiesSelector.mockReturnValue([]);
+
+it('renders home screen with tab bar with steps tab selected correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <MainTabBar />
+      <MainTabs navigation={createMockNavState({})} />
     </Provider>,
   );
 });
 
-it('renders home screen with tab bar with groups tab correctly', () => {
+it('renders home screen with tab bar with groups tab selected correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <MainTabBarGroups />
+      <MainTabs navigation={createMockNavState({ startTab: 'groups' })} />
     </Provider>,
   );
 });

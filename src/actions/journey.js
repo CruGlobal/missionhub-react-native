@@ -1,5 +1,5 @@
 import { UPDATE_JOURNEY_ITEMS } from '../constants';
-import { isAdminForOrg } from '../utils/common';
+import { isAdminOrOwner } from '../utils/common';
 
 import callApi, { REQUESTS } from './api';
 
@@ -20,7 +20,7 @@ export function getGroupJourney(personId, orgId) {
       const orgPermission = (me.organizational_permissions || []).find(
         o => o.organization_id === orgId,
       );
-      const isAdmin = isAdminForOrg(orgPermission);
+      const isAdmin = isAdminOrOwner(orgPermission);
       let include =
         'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,' +
         'all.survey,all.person,all.contact_assignment,all.contact_unassignment,all.assigned_to,all.assigned_by,' +

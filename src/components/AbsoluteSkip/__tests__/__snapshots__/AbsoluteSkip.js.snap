@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render skip 1`] = `
+<Flex
+  style={
+    Object {
+      "position": "absolute",
+      "right": 10,
+      "top": 35,
+    }
+  }
+>
+  <Button
+    buttonTextStyle={
+      Object {
+        "color": "#ffffff",
+      }
+    }
+    onPress={[MockFunction]}
+    style={
+      Object {
+        "padding": 15,
+      }
+    }
+    text="SKIP"
+    type="transparent"
+  />
+</Flex>
+`;

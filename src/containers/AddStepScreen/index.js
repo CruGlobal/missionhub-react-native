@@ -116,7 +116,7 @@ class AddStepScreen extends Component {
             <Button
               type="transparent"
               onPress={this.skip}
-              text={t('skip')}
+              text={t('skip').toUpperCase()}
               style={styles.skipBtn}
               buttonTextStyle={styles.skipBtnText}
             />

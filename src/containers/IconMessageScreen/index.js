@@ -5,12 +5,13 @@ import PropTypes from 'prop-types';
 
 import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
+import AbsoluteSkip from '../../components/AbsoluteSkip';
 
 import styles from './styles';
 
 class IconMessageScreen extends Component {
   render() {
-    const { mainText, buttonText, iconPath } = this.props;
+    const { onSkip, mainText, buttonText, iconPath } = this.props;
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
@@ -27,6 +28,7 @@ class IconMessageScreen extends Component {
             style={{ width: theme.fullWidth }}
           />
         </Flex>
+        {onSkip ? <AbsoluteSkip onSkip={onSkip} /> : null}
       </Flex>
     );
   }
@@ -37,6 +39,7 @@ IconMessageScreen.propTypes = {
   mainText: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
   iconPath: PropTypes.any,
+  onSkip: PropTypes.func,
 };
 
 export default connect()(IconMessageScreen);

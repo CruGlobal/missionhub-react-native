@@ -54,7 +54,11 @@ class ChallengeStats extends Component {
 ChallengeStats.propTypes = {
   challenge: PropTypes.object.isRequired,
   small: PropTypes.bool,
-  style: PropTypes.number,
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array,
+  ]),
 };
 
 export default ChallengeStats;
