@@ -23,6 +23,7 @@
     "android:install:dev": "adb install android/app/build/outputs/apk/app-debug.apk",
     "android:install:release": "adb install android/app/build/outputs/apk/app-release.apk",
     "android:build": "react-native run-android --variant=release",
+    "android:bundleReleaseAssets": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
     "codepush-ios-staging": "appcenter codepush release-react -a Cru/MissionHub-iOS --plist-file ios/MissionHub/Info.plist",
     "codepush-android-staging": "appcenter codepush release-react -a Cru/MissionHub-Android",
     "onesky:upload": "babel-node ./bin/oneskyUpload.js",
