@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 import callApi, { REQUESTS } from '../api';
 import { getJourney, reloadJourney, getGroupJourney } from '../journey';
-import { isAdminForOrg } from '../../utils/common';
+import { isAdminOrOwner } from '../../utils/common';
 
 jest.mock('../api');
 jest.mock('../../utils/common');
@@ -216,12 +216,12 @@ describe('get group journey', () => {
       },
     });
 
-    isAdminForOrg.mockReturnValue(isAdmin);
+    isAdminOrOwner.mockReturnValue(isAdmin);
 
     expect(
       await store.dispatch(getGroupJourney(personId, orgId)),
     ).toMatchSnapshot();
-    expect(isAdminForOrg).toHaveBeenCalledWith(orgPermissions);
+    expect(isAdminOrOwner).toHaveBeenCalledWith(orgPermissions);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON_FEED, {
       include: isAdmin
         ? 'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,' +

@@ -79,6 +79,7 @@ const props = {
 };
 
 beforeEach(() => {
+  jest.clearAllMocks();
   contactAssignmentSelector.mockReturnValue(contactAssignment);
 });
 
@@ -103,9 +104,19 @@ describe('Contact', () => {
     testSnapshotShallow(<AssignedPersonScreen {...props} />);
   });
 
-  it('should render AssignedPersonScreen correctly with stage', () => {
+  it('should render AssignedPersonScreen correctly with stage for cru community', () => {
     testSnapshotShallow(
       <AssignedPersonScreen {...props} pathwayStage={{ name: 'stage 4' }} />,
+    );
+  });
+
+  it('should render AssignedPersonScreen correctly with stage for User-Created Community', () => {
+    testSnapshotShallow(
+      <AssignedPersonScreen
+        {...props}
+        pathwayStage={{ name: 'stage 4' }}
+        isCruOrg={false}
+      />,
     );
   });
 

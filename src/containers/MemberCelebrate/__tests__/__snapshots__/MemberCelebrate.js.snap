@@ -32,11 +32,14 @@ exports[`MemberCelebrate renders correctly 1`] = `
 `;
 
 exports[`MemberCelebrate renders empty feed correctly 1`] = `
-<Translate(EmptyCelebrateFeed)
-  person={
+<Connect(CelebrateFeed)
+  items={Array []}
+  loadMoreItemsCallback={[Function]}
+  organization={
     Object {
-      "id": "1",
+      "id": "123",
     }
   }
+  refreshCallback={[Function]}
 />
 `;

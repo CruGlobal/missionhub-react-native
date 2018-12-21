@@ -38,17 +38,17 @@ exports[`Contacts should render correctly 1`] = `
 `;
 
 exports[`Contacts should render item 1`] = `
-<Translate(ContactItem)
-  contact={
-    Object {
-      "id": "1",
-    }
-  }
+<Translate(PersonListItem)
   onSelect={[Function]}
   organization={
     Object {
       "id": "1",
       "name": "Test Org",
+    }
+  }
+  person={
+    Object {
+      "id": "1",
     }
   }
 />

@@ -1,9 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Members calls render item 1`] = `
-<Translate(GroupMemberItem)
-  isUserCreatedOrg={undefined}
+<Connect(Translate(GroupMemberItem))
+  myOrgPermission={
+    Object {
+      "organization_id": "1",
+      "permission_id": 4,
+    }
+  }
   onSelect={[Function]}
+  organization={
+    Object {
+      "id": "1",
+      "members": Array [
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 1",
+          "id": "1",
+        },
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 2",
+          "id": "2",
+        },
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 3",
+          "id": "3",
+        },
+      ],
+      "name": "Test Org",
+    }
+  }
   person={
     Object {
       "contact_assignments": Array [],
@@ -18,63 +46,6 @@ exports[`Members renderHeader match snapshot 1`] = `
 <Connect(Translate(OnboardingCard))
   type="members"
 />
-`;
-
-exports[`Members should mount with send invite 1`] = `
-<Flex
-  value={1}
->
-  <FlatList
-    ListFooterComponent={
-      <Translate(LoadMore)
-        onPress={[Function]}
-      />
-    }
-    ListHeaderComponent={[Function]}
-    data={Array []}
-    disableVirtualization={false}
-    horizontal={false}
-    initialNumToRender={10}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    numColumns={1}
-    onEndReachedThreshold={2}
-    refreshControl={
-      <MyRefreshControl
-        colors={
-          Array [
-            "#ffffff",
-            "#52C5DC",
-          ]
-        }
-        onRefresh={[Function]}
-        progressBackgroundColor="#007398"
-        refreshing={false}
-        tintColor="#007398"
-      />
-    }
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
-      }
-    }
-    updateCellsBatchingPeriod={50}
-    windowSize={21}
-  />
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      text="SEND INVITE"
-      type="secondary"
-    />
-  </Flex>
-</Flex>
 `;
 
 exports[`Members should render correctly 1`] = `
@@ -132,12 +103,22 @@ exports[`Members should render correctly 1`] = `
     scrollEventThrottle={50}
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "#E6E8EC",
         "flex": 1,
       }
     }
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />
+  <Flex
+    align="stretch"
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      text="SEND INVITE"
+      type="secondary"
+    />
+  </Flex>
 </Flex>
 `;

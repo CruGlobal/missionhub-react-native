@@ -1,18 +1,18 @@
 import React from 'react';
 import {
-  createStackNavigator,
   createBottomTabNavigator,
   createDrawerNavigator,
+  createStackNavigator,
 } from 'react-navigation';
 import i18next from 'i18next';
 
-import LoginScreen, { LOGIN_SCREEN } from './containers/LoginScreen';
+import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
 import KeyLoginScreen, { KEY_LOGIN_SCREEN } from './containers/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
 import SelectMyStepScreen, {
-  SELECT_MY_STEP_SCREEN,
   SELECT_MY_STEP_ONBOARDING_SCREEN,
+  SELECT_MY_STEP_SCREEN,
 } from './containers/SelectMyStepScreen';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
@@ -30,8 +30,8 @@ import GetStartedScreen, {
   GET_STARTED_SCREEN,
 } from './containers/GetStartedScreen';
 import StageScreen, {
-  STAGE_SCREEN,
   STAGE_ONBOARDING_SCREEN,
+  STAGE_SCREEN,
 } from './containers/StageScreen';
 import StageSuccessScreen, {
   STAGE_SUCCESS_SCREEN,
@@ -45,7 +45,6 @@ import AddContactScreen, {
 import NotificationPrimerScreen, {
   NOTIFICATION_PRIMER_SCREEN,
 } from './containers/NotificationPrimerScreen';
-import ImpactScreen from './containers/ImpactScreen';
 import SetupPersonScreen, {
   SETUP_PERSON_SCREEN,
 } from './containers/SetupPersonScreen';
@@ -64,49 +63,45 @@ import SearchPeopleFilterScreen, {
 import SearchPeopleFilterRefineScreen, {
   SEARCH_REFINE_SCREEN,
 } from './containers/SearchPeopleFilterRefineScreen';
-import LoginOptionsScreen, {
-  LOGIN_OPTIONS_SCREEN,
-} from './containers/LoginOptionsScreen';
+import UpgradeAccountScreen, {
+  UPGRADE_ACCOUNT_SCREEN,
+} from './containers/UpgradeAccountScreen';
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
 import {
+  ALL_PERSON_TAB_ROUTES,
+  CONTACT_PERSON_SCREEN,
   ContactPersonScreen,
-  IsUserCreatedMemberPersonScreen,
+  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
+  IS_GROUPS_MEMBER_PERSON_SCREEN,
+  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
+  IsGroupsMeCommunityPersonScreen,
   IsGroupsMemberPersonScreen,
+  IsUserCreatedMemberPersonScreen,
+  ME_COMMUNITY_PERSON_SCREEN,
+  ME_PERSONAL_PERSON_SCREEN,
+  MeCommunityPersonScreen,
+  MEMBER_PERSON_SCREEN,
   MemberPersonScreen,
   MePersonalPersonScreen,
-  IsGroupsMeCommunityPersonScreen,
-  MeCommunityPersonScreen,
-  CONTACT_PERSON_SCREEN,
-  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
-  IS_GROUPS_MEMBER_PERSON_SCREEN,
-  MEMBER_PERSON_SCREEN,
-  ME_PERSONAL_PERSON_SCREEN,
-  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
-  ME_COMMUNITY_PERSON_SCREEN,
-  ALL_PERSON_TAB_ROUTES,
 } from './containers/Groups/AssignedPersonScreen';
 import SettingsMenu from './components/SettingsMenu';
 import PersonSideMenu from './components/PersonSideMenu';
 import { Flex, Icon, Text } from './components/common';
 import theme from './theme';
 import MainTabs from './containers/MainTabs';
-import {
-  IMPACT_TAB,
-  MAIN_TABS,
-  PEOPLE_TAB,
-  STEPS_TAB,
-  GROUPS_TAB,
-} from './constants';
+import { MAIN_TABS, PEOPLE_TAB, STEPS_TAB, GROUPS_TAB } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
 import {
   groupScreenTabNavigator,
   userCreatedScreenTabNavigator,
+  globalScreenTabNavigator,
   GROUP_SCREEN,
   USER_CREATED_GROUP_SCREEN,
+  GLOBAL_GROUP_SCREEN,
   GROUP_TABS,
 } from './containers/Groups/GroupScreen';
 import SurveyContacts, {
@@ -124,6 +119,9 @@ import SurveyQuestionsFilter, {
 import ContactsFilter, {
   SEARCH_CONTACTS_FILTER_SCREEN,
 } from './containers/Groups/ContactsFilter';
+import CreateGroupScreen, {
+  CREATE_GROUP_SCREEN,
+} from './containers/Groups/CreateGroupScreen';
 import StatusSelect, {
   STATUS_SELECT_SCREEN,
 } from './containers/StatusSelectScreen';
@@ -133,6 +131,30 @@ import StatusComplete, {
 import StatusReason, {
   STATUS_REASON_SCREEN,
 } from './containers/StatusReasonScreen';
+import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
+import { buildTrackedScreen, wrapNextScreen } from './routes/helpers';
+import {
+  DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
+  DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
+  JOIN_BY_CODE_FLOW,
+  JOIN_BY_CODE_ONBOARDING_FLOW,
+} from './routes/constants';
+import {
+  JoinByCodeFlowNavigator,
+  JoinByCodeFlowScreens,
+} from './routes/groups/joinByCodeFlow';
+import {
+  JoinByCodeOnboardingFlowNavigator,
+  JoinByCodeOnboardingFlowScreens,
+} from './routes/onboarding/joinByCodeOnboardingFlow';
+import {
+  DeepLinkJoinCommunityAuthenticatedNavigator,
+  DeepLinkJoinCommunityAuthenticatedScreens,
+} from './routes/deepLink/deepLinkJoinCommunityAuthenticated';
+import {
+  DeepLinkJoinCommunityUnauthenticatedNavigator,
+  DeepLinkJoinCommunityUnauthenticatedScreens,
+} from './routes/deepLink/deepLinkJoinCommunityUnauthenticated';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -161,14 +183,6 @@ export const navItem = name => ({ tintColor }) => (
   </Flex>
 );
 
-const buildTrackedScreen = (screen, tracking, navOptions) => {
-  return {
-    screen: screen,
-    tracking: tracking,
-    navigationOptions: navOptions,
-  };
-};
-
 export const stepsTab = buildTrackingObj('steps', 'steps');
 const tabs = {
   [STEPS_TAB]: buildTrackedScreen(StepsScreen, stepsTab, {
@@ -181,60 +195,47 @@ const tabs = {
       tabBarLabel: navItem('people'),
     },
   ),
-  [IMPACT_TAB]: buildTrackedScreen(
-    ImpactScreen,
-    buildTrackingObj('impact', 'impact'),
-    {
-      tabBarLabel: navItem('impact'),
-    },
-  ),
   [GROUPS_TAB]: buildTrackedScreen(
     GroupsListScreen,
-    buildTrackingObj('groups', 'groups'),
+    buildTrackingObj('communities', 'communities'),
     {
       tabBarLabel: navItem('groups'),
     },
   ),
 };
 
-const createTabs = (tabKey, tabPath) => {
-  return createBottomTabNavigator(
-    {
-      StepsTab: tabs.StepsTab,
-      PeopleTab: tabs.PeopleTab,
-      [tabKey]: tabs[tabKey],
-    },
-    {
-      tabBarOptions: {
-        showIcon: false,
-        showLabel: true,
-        style: {
-          backgroundColor: theme.white,
-          paddingTop: 4,
-        },
-        activeTintColor: theme.primaryColor,
-        inactiveTintColor: theme.inactiveColor,
-        indicatorStyle: { backgroundColor: 'transparent' },
-        upperCaseLabel: false,
+const createTabs = initialRouteName => {
+  return createBottomTabNavigator(tabs, {
+    tabBarOptions: {
+      showIcon: false,
+      showLabel: true,
+      style: {
+        backgroundColor: theme.white,
+        paddingTop: 4,
+      },
+      activeTintColor: theme.primaryColor,
+      inactiveTintColor: theme.inactiveColor,
+      indicatorStyle: { backgroundColor: 'transparent' },
+      upperCaseLabel: false,
 
-        // Android
-        scrollEnabled: false,
-      },
-      swipeEnabled: false,
-      animationEnabled: false,
-      lazy: true,
-      paths: {
-        StepsTab: '/steps',
-        PeopleTab: '/people',
-        [tabKey]: tabPath,
-      },
+      // Android
+      scrollEnabled: false,
     },
-  );
+    swipeEnabled: false,
+    animationEnabled: false,
+    lazy: true,
+    paths: {
+      [STEPS_TAB]: '/steps',
+      [PEOPLE_TAB]: '/people',
+      [GROUPS_TAB]: '/groups',
+    },
+    initialRouteName,
+  });
 };
 
-export const MainTabBar = createTabs(IMPACT_TAB, '/impact');
-
-export const MainTabBarGroups = createTabs(GROUPS_TAB, '/groups');
+export const MainTabBarStartSteps = createTabs(STEPS_TAB);
+// Create another set of tabs with a different default tab
+export const MainTabBarStartGroups = createTabs(GROUPS_TAB);
 
 export const MAIN_TABS_SCREEN = buildTrackedScreen(
   createDrawerNavigator(
@@ -268,8 +269,8 @@ const buildPersonScreenRoute = screen =>
   );
 
 const screens = {
-  [LOGIN_OPTIONS_SCREEN]: buildTrackedScreen(
-    LoginOptionsScreen,
+  [UPGRADE_ACCOUNT_SCREEN]: buildTrackedScreen(
+    UpgradeAccountScreen,
     buildTrackingObj('auth', 'auth'),
   ),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(
@@ -282,11 +283,11 @@ const screens = {
     buildTrackingObj('auth : verification', 'auth'),
   ),
   [WELCOME_SCREEN]: buildTrackedScreen(
-    WelcomeScreen,
+    wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
     buildTrackingObj('onboarding : welcome', 'onboarding'),
   ),
   [SETUP_SCREEN]: buildTrackedScreen(
-    SetupScreen,
+    wrapNextScreen(SetupScreen, GET_STARTED_SCREEN),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [GET_STARTED_SCREEN]: buildTrackedScreen(
@@ -360,16 +361,23 @@ const screens = {
     userCreatedScreenTabNavigator,
     buildTrackingObj('communities : community', 'communities', 'community'),
   ),
+  [GLOBAL_GROUP_SCREEN]: buildTrackedScreen(
+    globalScreenTabNavigator,
+    buildTrackingObj(
+      'communities : global community',
+      'communities',
+      'global community',
+    ),
+  ),
   [GROUPS_SURVEY_CONTACTS]: buildTrackedScreen(
     SurveyContacts,
     buildTrackingObj(
-      'communities : community : survey contacts',
+      'communities : surveys : respondants',
       'communities',
-      'community',
+      'surveys',
+      'respondants',
     ),
-    {
-      gesturesEnabled: true,
-    },
+    { gesturesEnabled: true },
   ),
   [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     SurveyContactsFilter,
@@ -387,9 +395,7 @@ const screens = {
       'communities',
       'community',
     ),
-    {
-      gesturesEnabled: true,
-    },
+    { gesturesEnabled: true },
   ),
   [SEARCH_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     ContactsFilter,
@@ -398,9 +404,12 @@ const screens = {
       'communities',
       'community',
     ),
-    {
-      gesturesEnabled: true,
-    },
+    { gesturesEnabled: true },
+  ),
+  [CREATE_GROUP_SCREEN]: buildTrackedScreen(
+    CreateGroupScreen,
+    buildTrackingObj('communities : create', 'communities', 'create'),
+    { gesturesEnabled: true },
   ),
   [UNASSIGNED_PERSON_SCREEN]: buildTrackedScreen(
     UnassignedPersonScreen,
@@ -421,6 +430,10 @@ const screens = {
   ),
   [ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoute(MeCommunityPersonScreen),
   [MAIN_TABS]: MAIN_TABS_SCREEN,
+  [JOIN_BY_CODE_FLOW]: JoinByCodeFlowNavigator,
+  [JOIN_BY_CODE_ONBOARDING_FLOW]: JoinByCodeOnboardingFlowNavigator,
+  [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,
+  [DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityUnauthenticatedNavigator,
 };
 
 export const trackableScreens = {
@@ -428,12 +441,16 @@ export const trackableScreens = {
   ...tabs,
   ...GROUP_TABS,
   ...ALL_PERSON_TAB_ROUTES,
+  ...JoinByCodeFlowScreens,
+  ...JoinByCodeOnboardingFlowScreens,
+  ...DeepLinkJoinCommunityAuthenticatedScreens,
+  ...DeepLinkJoinCommunityUnauthenticatedScreens,
 };
 
 export const MainStackRoutes = createStackNavigator(
   {
     ...screens,
-    [LOGIN_SCREEN]: { screen: LoginScreen },
+    [LANDING_SCREEN]: { screen: LandingScreen },
     [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
     [PERSON_SELECT_STEP_SCREEN]: {
       screen: PersonSelectStepScreen,
@@ -471,6 +488,7 @@ export const MainStackRoutes = createStackNavigator(
       screen: StatusReason,
       navigationOptions: { gesturesEnabled: true },
     },
+    [GROUP_PROFILE]: { screen: GroupProfile },
   },
   {
     initialRouteName: MAIN_TABS,

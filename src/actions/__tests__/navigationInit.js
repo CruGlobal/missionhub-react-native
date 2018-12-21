@@ -2,7 +2,7 @@ import { MAIN_TABS } from '../../constants';
 import { ADD_SOMEONE_SCREEN } from '../../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';
 import { initialRoute } from '../navigationInit';
-import { LOGIN_SCREEN } from '../../containers/LoginScreen';
+import { LANDING_SCREEN } from '../../containers/LandingScreen';
 
 const token =
   'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
@@ -21,7 +21,7 @@ describe('initialRoute', () => {
             token: null,
           },
         },
-        LOGIN_SCREEN,
+        LANDING_SCREEN,
       );
     });
   });

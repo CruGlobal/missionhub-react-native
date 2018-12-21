@@ -34,7 +34,7 @@ class GroupSurveyItem extends Component {
               <Text direction="row" align="center">
                 {survey.contacts_count ? (
                   <Text style={[styles.text, styles.contacts]}>
-                    {t('numContacts', { number: survey.contacts_count })}
+                    {t('numContacts', { count: survey.contacts_count })}
                   </Text>
                 ) : null}
                 {survey.unassigned_contacts_count ? (
@@ -42,7 +42,7 @@ class GroupSurveyItem extends Component {
                     <Dot style={styles.text} />
                     <Text style={[styles.text, styles.unassigned]}>
                       {t('numUnassigned', {
-                        number: survey.unassigned_contacts_count,
+                        count: survey.unassigned_contacts_count,
                       })}
                     </Text>
                   </Text>
@@ -52,7 +52,7 @@ class GroupSurveyItem extends Component {
                     <Dot style={styles.text} />
                     <Text style={[styles.text, styles.uncontacted]}>
                       {t('numUncontacted', {
-                        number: survey.uncontacted_contacts_count,
+                        count: survey.uncontacted_contacts_count,
                       })}
                     </Text>
                   </Text>

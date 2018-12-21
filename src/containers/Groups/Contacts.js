@@ -8,7 +8,7 @@ import { navigatePush } from '../../actions/navigation';
 import { getOrganizationContacts } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import SearchList from '../../components/SearchList';
-import ContactItem from '../../components/ContactItem';
+import PersonListItem from '../../components/PersonListItem';
 import { searchRemoveFilter } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
 
@@ -117,9 +117,9 @@ class Contacts extends Component {
   listRef = c => (this.searchList = c);
 
   renderItem = ({ item }) => (
-    <ContactItem
+    <PersonListItem
       organization={this.props.organization}
-      contact={item}
+      person={item}
       onSelect={this.handleSelect}
     />
   );

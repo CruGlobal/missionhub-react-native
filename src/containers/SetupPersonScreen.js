@@ -11,10 +11,12 @@ import {
   personLastNameChanged,
   createPerson,
   updateOnboardingPerson,
+  skipOnboarding,
 } from '../actions/onboardingProfile';
 import { disableBack } from '../utils/common';
 import { trackActionWithoutData } from '../actions/analytics';
 import { ACTIONS } from '../constants';
+import AbsoluteSkip from '../components/AbsoluteSkip';
 
 import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
 import styles from './SetupScreen/styles';
@@ -74,6 +76,8 @@ class SetupPersonScreen extends Component {
 
   lastNameRef = c => (this.personLastName = c);
 
+  skip = () => this.props.dispatch(skipOnboarding());
+
   render() {
     const { t, personFirstName, personLastName } = this.props;
 
@@ -122,6 +126,7 @@ class SetupPersonScreen extends Component {
             text={t('next').toUpperCase()}
           />
         </Flex>
+        <AbsoluteSkip onSkip={this.skip} />
       </View>
     );
   }

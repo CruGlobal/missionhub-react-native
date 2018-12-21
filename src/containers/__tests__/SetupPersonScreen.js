@@ -123,4 +123,11 @@ describe('setup person screen methods', () => {
 
     expect(profile.personLastNameChanged).toHaveBeenCalledWith(val);
   });
+
+  it('calls skip', () => {
+    profile.skipOnboarding = jest.fn(() => ({ type: 'skip' }));
+    component.skip();
+
+    expect(profile.skipOnboarding).toHaveBeenCalled();
+  });
 });

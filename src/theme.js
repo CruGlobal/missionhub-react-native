@@ -108,6 +108,7 @@ export default {
   fullHeight: deviceHeight,
   convert: colorConvert,
   impactBlue: COLORS.IMPACT_BLUE,
+  grey: COLORS.GREY,
   grey1: '#B2B0B2',
   grey2: '#4E4C4E',
   lightGrey: COLORS.LIGHT_GREY,

@@ -15,14 +15,22 @@ class PopupMenu extends Component {
     const { t, actions } = this.props;
     const options = actions.map(o => o.text).concat(t('cancel'));
 
-    ActionSheetIOS.showActionSheetWithOptions(
-      { options, cancelButtonIndex: options.length - 1 },
-      buttonIndex => {
-        if (actions[buttonIndex] && isFunction(actions[buttonIndex].onPress)) {
-          actions[buttonIndex].onPress();
-        }
-      },
-    );
+    let destructiveButtonIndex = actions.findIndex(o => o.destructive);
+    if (destructiveButtonIndex < 0) {
+      destructiveButtonIndex = undefined;
+    }
+
+    const params = {
+      options,
+      cancelButtonIndex: options.length - 1,
+      destructiveButtonIndex,
+    };
+
+    ActionSheetIOS.showActionSheetWithOptions(params, buttonIndex => {
+      if (actions[buttonIndex] && isFunction(actions[buttonIndex].onPress)) {
+        actions[buttonIndex].onPress();
+      }
+    });
   };
 
   render() {

@@ -9,7 +9,7 @@ import {
   getImpactSummary,
 } from '../../actions/impact';
 import { Flex, Text, Button, Icon } from '../../components/common';
-import { INTERACTION_TYPES } from '../../constants';
+import { INTERACTION_TYPES, GLOBAL_COMMUNITY_ID } from '../../constants';
 import {
   impactInteractionsSelector,
   impactSummarySelector,
@@ -61,12 +61,17 @@ export class ImpactView extends Component {
       organization = {},
       isPersonalMinistryMe,
       isUserCreatedOrg,
+      myId,
+      isGlobalCommunity,
     } = this.props;
 
     // We don't scope summary sentence by org unless we are only scoping by org (person is not specified)
     // The summary sentence should include what the user has done in all of their orgs
     dispatch(
-      getImpactSummary(person.id, person.id ? undefined : organization.id),
+      getImpactSummary(
+        isGlobalCommunity ? myId : person.id,
+        person.id || isGlobalCommunity ? undefined : organization.id,
+      ),
     );
     if (isPersonalMinistryMe || isUserCreatedOrg) {
       dispatch(getImpactSummary()); // Get global impact by calling without person or org
@@ -108,17 +113,19 @@ export class ImpactView extends Component {
       organization = {},
       isMe,
       isUserCreatedOrg,
+      isGlobalCommunity,
     } = this.props;
     const initiator = global
       ? '$t(users)'
-      : isMe
+      : isMe || isGlobalCommunity
         ? '$t(you)'
         : person.id
           ? person.first_name
           : '$t(we)';
     const context = count =>
       count === 0 ? (global ? 'emptyGlobal' : 'empty') : '';
-    const isSpecificContact = !global && !isMe && person.id;
+    const isSpecificContact =
+      !global && !isMe && !isGlobalCommunity && person.id;
     const hideStageSentence =
       !global && isUserCreatedOrg && pathway_moved_count === 0;
 
@@ -217,10 +224,13 @@ export class ImpactView extends Component {
       isUserCreatedOrg,
       isOrgImpact,
       organization,
+      isGlobalCommunity,
     } = this.props;
 
     const showGlobalImpact =
-      isPersonalMinistryMe || (isUserCreatedOrg && isOrgImpact);
+      isPersonalMinistryMe ||
+      (isUserCreatedOrg && isOrgImpact) ||
+      isGlobalCommunity;
     const showInteractionReport = !isPersonalMinistryMe && !isUserCreatedOrg;
 
     return (
@@ -264,7 +274,10 @@ export const mapStateToProps = (
   { impact, auth },
   { person = {}, organization },
 ) => {
-  const isMe = person.id === auth.person.id;
+  const myId = auth.person.id;
+  const isMe = person.id === myId;
+  const isGlobalCommunity =
+    organization && organization.id === GLOBAL_COMMUNITY_ID;
 
   return {
     isMe,
@@ -275,13 +288,18 @@ export const mapStateToProps = (
     // Impact summary isn't scoped by org unless showing org summary. See above comment
     impact: impactSummarySelector(
       { impact },
-      { person, organization: person.id ? undefined : organization },
+      {
+        person: isGlobalCommunity ? { id: myId } : person,
+        organization: person.id || isGlobalCommunity ? undefined : organization,
+      },
     ),
     interactions: impactInteractionsSelector(
       { impact },
       { person, organization },
     ),
     globalImpact: impactSummarySelector({ impact }),
+    isGlobalCommunity,
+    myId,
   };
 };
 

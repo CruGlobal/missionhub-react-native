@@ -6,12 +6,33 @@ import { translate } from 'react-i18next';
 import { LINKS } from '../../constants';
 import { isAndroid } from '../../utils/common';
 import SideMenu from '../../components/SideMenu';
-import { logout, upgradeAccount } from '../../actions/auth';
+import {
+  logout,
+  upgradeAccount,
+  upgradeAccountSignIn,
+} from '../../actions/auth';
+import { SIGNUP_TYPES } from '../../containers/UpgradeAccountScreen';
 
 @translate('settingsMenu')
 export class SettingsMenu extends Component {
   render() {
     const { t, isFirstTime } = this.props;
+    const upgradeAccountItems = [
+      {
+        label: t('signIn'),
+        action: () => this.props.dispatch(upgradeAccountSignIn()),
+      },
+      {
+        label: t('signUp'),
+        action: () =>
+          this.props.dispatch(upgradeAccount(SIGNUP_TYPES.SETTINGS_MENU)),
+      },
+    ];
+    const signOut = {
+      label: t('signOut'),
+      action: () => this.props.dispatch(logout()),
+    };
+
     const menuItems = [
       {
         label: t('about'),
@@ -31,19 +52,10 @@ export class SettingsMenu extends Component {
         action: () => Linking.openURL(LINKS.privacy),
       },
       {
-        label: t('terms'),
+        label: t('tos'),
         action: () => Linking.openURL(LINKS.terms),
       },
-      {
-        label: isFirstTime ? t('signUp') : t('signOut'),
-        action: () => {
-          if (isFirstTime) {
-            this.props.dispatch(upgradeAccount());
-          } else {
-            this.props.dispatch(logout());
-          }
-        },
-      },
+      ...(isFirstTime ? upgradeAccountItems : [signOut]),
     ];
 
     return <SideMenu menuItems={menuItems} />;

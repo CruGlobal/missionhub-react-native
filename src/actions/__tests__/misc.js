@@ -24,7 +24,7 @@ import {
   contactAssignmentSelector,
   orgPermissionSelector,
 } from '../../selectors/people';
-import { isMemberForOrg } from '../../utils/common';
+import { hasOrgPermissions } from '../../utils/common';
 
 jest.mock('../analytics');
 jest.mock('../steps');
@@ -44,7 +44,7 @@ const navigatePushResult = { type: 'navigated forward' };
 const navigateReplaceResult = { type: 'route replaced' };
 const updatePersonAttributesResult = { type: 'updated person' };
 const createContactAssignmentResult = () => Promise.resolve({ person });
-const isMemberForOrgResult = false;
+const hasOrgPermissionsResult = false;
 
 const groups_feature = true;
 const myId = '111';
@@ -81,7 +81,7 @@ beforeEach(() => {
   createContactAssignment.mockReturnValue(createContactAssignmentResult);
   getPersonScreenRoute.mockReturnValue(CONTACT_PERSON_SCREEN);
   orgPermissionSelector.mockReturnValue(orgPermission);
-  isMemberForOrg.mockReturnValue(isMemberForOrgResult);
+  hasOrgPermissions.mockReturnValue(hasOrgPermissionsResult);
 
   navigatePush.mockImplementation((_, props) => {
     props.onComplete(stage);

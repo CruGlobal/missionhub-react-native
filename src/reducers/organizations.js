@@ -7,7 +7,11 @@ import {
   RESET_CHALLENGE_PAGINATION,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
+  UPDATE_PERSON_ATTRIBUTES,
+  LOAD_PERSON_DETAILS,
+  REMOVE_ORGANIZATION_MEMBER,
   UPDATE_CHALLENGE,
+  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -29,7 +33,15 @@ function organizationsReducer(state = initialState, action) {
     case LOAD_ORGANIZATIONS:
       return {
         ...state,
-        all: action.orgs,
+        all: [
+          {
+            id: GLOBAL_COMMUNITY_ID,
+            name: 'MissionHub Community',
+            community: true,
+            user_created: true,
+          },
+          ...action.orgs,
+        ],
       };
     case GET_ORGANIZATIONS_CONTACTS_REPORT:
       const { reports } = action;
@@ -39,6 +51,22 @@ function organizationsReducer(state = initialState, action) {
           const contactReport = (reports || []).find(r => r.id === o.id);
           return contactReport ? { ...o, contactReport } : o;
         }),
+      };
+    case REQUESTS.GET_USERS_REPORT.SUCCESS:
+      return {
+        ...state,
+        all: state.all.map(
+          o =>
+            o.id === GLOBAL_COMMUNITY_ID
+              ? {
+                  ...o,
+                  contactReport: {
+                    ...o.contactReport,
+                    memberCount: action.results.response.users_count,
+                  },
+                }
+              : o,
+        ),
       };
     case GET_ORGANIZATION_SURVEYS:
       const { orgId: surveyOrgId, query: surveyQuery, surveys } = action;
@@ -62,13 +90,16 @@ function organizationsReducer(state = initialState, action) {
         surveysPagination: getPagination(action, allSurveys.length),
       };
     case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
+    case REQUESTS.GET_GLOBAL_CELEBRATE_FEED.SUCCESS:
     case REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS:
       const isChallenge =
         action.type === REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS;
       const cQuery = action.query;
       const newItems = action.results.response;
       const cOrgId = isChallenge
-        ? cQuery.filters.organization_ids
+        ? cQuery.filters.organization_ids === 'null'
+          ? GLOBAL_COMMUNITY_ID
+          : cQuery.filters.organization_ids
         : cQuery.orgId;
       const curOrg = state.all.find(o => o.id === cOrgId);
       if (!curOrg) {
@@ -156,6 +187,48 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         membersPagination: getPagination(action, allMembers.length),
       };
+    case REQUESTS.UPDATE_ORGANIZATION.SUCCESS:
+    case REQUESTS.UPDATE_ORGANIZATION_IMAGE.SUCCESS:
+    case REQUESTS.ORGANIZATION_NEW_CODE.SUCCESS:
+    case REQUESTS.ORGANIZATION_NEW_LINK.SUCCESS:
+      const {
+        results: { response: updatedOrgResponse },
+      } = action;
+
+      return {
+        ...state,
+        all: state.all.map(
+          o =>
+            o.id === updatedOrgResponse.id
+              ? {
+                  ...o,
+                  // Update certain fields from the response
+                  name: updatedOrgResponse.name,
+                  community_photo_url: updatedOrgResponse.community_photo_url,
+                  community_code: updatedOrgResponse.community_code,
+                  community_url: updatedOrgResponse.community_url,
+                }
+              : o,
+        ),
+      };
+    case UPDATE_PERSON_ATTRIBUTES:
+      return updateAllPersonInstances(action.updatedPersonAttributes, state);
+    case LOAD_PERSON_DETAILS:
+      return updateAllPersonInstances(action.person, state);
+    case REQUESTS.GET_ME.SUCCESS:
+      return updateAllPersonInstances(action.results.response, state);
+    case REMOVE_ORGANIZATION_MEMBER:
+      const { personId, orgId } = action;
+
+      return {
+        ...state,
+        all: state.all.map(
+          o =>
+            o.id === orgId
+              ? { ...o, members: o.members.filter(m => m.id !== personId) }
+              : o,
+        ),
+      };
     case UPDATE_CHALLENGE:
       return updateChallenge(action, state);
     case LOGOUT:
@@ -184,6 +257,24 @@ function toggleCelebrationLike(action, state, liked) {
   return {
     ...state,
     all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+  };
+}
+
+function updateAllPersonInstances(updatedPerson, state) {
+  return {
+    ...state,
+    all: state.all.map(
+      org =>
+        org.members
+          ? {
+              ...org,
+              members: org.members.map(
+                m =>
+                  m.id === updatedPerson.id ? { ...m, ...updatedPerson } : m,
+              ),
+            }
+          : org,
+    ),
   };
 }
 

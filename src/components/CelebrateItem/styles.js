@@ -3,18 +3,8 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  container: {
-    paddingRight: 30,
-  },
-  card: {
-    marginHorizontal: 16,
-    marginVertical: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
+  content: {
     padding: 16,
-    backgroundColor: theme.white,
-    borderBottomColor: theme.separatorColor,
-    borderBottomWidth: theme.separatorHeight,
   },
   icon: {
     margin: 0,

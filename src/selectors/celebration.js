@@ -55,6 +55,7 @@ const filterCelebrationFeedItems = items => {
     completedStep,
     validInteractionTypes,
     acceptedCommunityChallenge,
+    createdCommunity,
   } = CELEBRATEABLE_TYPES;
 
   return items.filter(item => {
@@ -65,6 +66,7 @@ const filterCelebrationFeedItems = items => {
         );
       case completedStep:
       case acceptedCommunityChallenge:
+      case createdCommunity:
         return true;
       default:
         return false;

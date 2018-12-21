@@ -1,22 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CelebrateItem message renders accepted challenge event 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -58,7 +50,7 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
           }
         }
       >
-        John accepted a Challenge:
+        John S. accepted a Challenge:
       </MyText>
       <Flex
         direction="row"
@@ -130,22 +122,14 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
 `;
 
 exports[`CelebrateItem message renders completed challenge event 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -187,7 +171,7 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
           }
         }
       >
-        John completed a Challenge:
+        John S. completed a Challenge:
       </MyText>
       <Flex
         direction="row"
@@ -258,23 +242,15 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
 </Card>
 `;
 
-exports[`CelebrateItem message renders other interaction event 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+exports[`CelebrateItem message renders created community event 1`] = `
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -316,7 +292,106 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
           }
         }
       >
-        John had a Spiritual Conversation.
+        John S. created Celebration Community!
+      </MyText>
+    </Flex>
+    <Flex
+      align="start"
+      direction="column"
+    >
+      <Flex
+        align="center"
+        direction="row"
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 14,
+            }
+          }
+        />
+        <Button
+          name="likeActiveIcon"
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "height": 24,
+                "margin": 0,
+                "width": 24,
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/heart-grey.png",
+              }
+            }
+          />
+        </Button>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`CelebrateItem message renders other interaction event 1`] = `
+<Card>
+  <Flex
+    direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
+    value={1}
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        JOHN SMITH
+      </MyText>
+      <Translate(DateComponent)
+        date="2004-04-04 00:00:00 UTC"
+        format="LT"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+            "paddingTop": 12,
+          }
+        }
+      >
+        John S. had a Spiritual Conversation.
       </MyText>
     </Flex>
     <Flex
@@ -366,22 +441,14 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
 `;
 
 exports[`CelebrateItem message renders personal decision interaction event 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -423,7 +490,7 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
           }
         }
       >
-        John saw someone make a Personal Decision.
+        John S. saw someone make a Personal Decision.
       </MyText>
     </Flex>
     <Flex
@@ -473,22 +540,14 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
 `;
 
 exports[`CelebrateItem message renders something cool happened event 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -530,7 +589,7 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
           }
         }
       >
-        John saw something cool happen with someone.
+        John S. saw something cool happen with someone.
       </MyText>
     </Flex>
     <Flex
@@ -580,22 +639,14 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
 `;
 
 exports[`CelebrateItem message renders step of faith event with stage 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -637,7 +688,7 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
           }
         }
       >
-        John completed a Step of Faith with a Forgiven person.
+        John S. completed a Step of Faith with a Forgiven person.
       </MyText>
     </Flex>
     <Flex
@@ -687,22 +738,14 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
 `;
 
 exports[`CelebrateItem message renders step of faith event without stage 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -744,7 +787,7 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
           }
         }
       >
-        John completed a Step of Faith with someone.
+        John S. completed a Step of Faith with someone.
       </MyText>
     </Flex>
     <Flex
@@ -794,22 +837,14 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
 `;
 
 exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -899,22 +934,14 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
 `;
 
 exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -1006,22 +1033,14 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
 `;
 
 exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -1113,22 +1132,14 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
 `;
 
 exports[`CelebrateItem renders event for subject=other, liked=false, like count=0 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -1218,22 +1229,14 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
 `;
 
 exports[`CelebrateItem renders event for subject=other, liked=true, like count>0 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -1317,6 +1320,61 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
           />
         </Button>
       </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`CelebrateItem renders event with no subject name (global community event) 1`] = `
+<Card>
+  <Flex
+    direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
+    value={1}
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        JOHN SMITH
+      </MyText>
+      <Translate(DateComponent)
+        date="2004-04-04 00:00:00 UTC"
+        format="LT"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+            "paddingTop": 12,
+          }
+        }
+      />
     </Flex>
   </Flex>
 </Card>
