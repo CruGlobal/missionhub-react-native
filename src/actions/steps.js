@@ -196,7 +196,7 @@ function challengeCompleteAction(step, screen) {
   return async (dispatch, getState) => {
     const {
       id: stepId,
-      receiver: { id: personId },
+      receiver: person,
       organization: { id: orgId },
     } = step;
 
@@ -210,12 +210,12 @@ function challengeCompleteAction(step, screen) {
 
     await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
 
-    const subsection = getAnalyticsSubsection(personId, myId);
+    const subsection = getAnalyticsSubsection(person.id, myId);
 
-    dispatch({ type: COMPLETED_STEP_COUNT, userId: personId });
+    dispatch({ type: COMPLETED_STEP_COUNT, userId: person.id });
     dispatch(refreshImpact(orgId));
 
-    dispatch(navigatePush(COMPLETE_STEP_FLOW, { stepId, personId, orgId }));
+    dispatch(navigatePush(COMPLETE_STEP_FLOW, { stepId, person, orgId }));
   };
 }
 

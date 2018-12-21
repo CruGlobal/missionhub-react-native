@@ -27,7 +27,7 @@ export const CompleteStepFlowScreens = {
   [ADD_STEP_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       AddStepScreen,
-      ({ text, stepId, personId, orgId }) => async (dispatch, getState) => {
+      ({ text, stepId, person, orgId }) => async (dispatch, getState) => {
         if (text) {
           await dispatch(updateChallengeNote(stepId, text));
           dispatch(
@@ -37,19 +37,17 @@ export const CompleteStepFlowScreens = {
           );
         }
 
-        const { stages, stagesObj } = getState().stages;
-        const stageId = getStageId();
+        const {
+          stages: { stages, stagesObj },
+          auth,
+          steps,
+        } = getState();
+        const personId = person.id;
+
+        const hasHitCount = hasHitThreeSteps(steps.userStepCount[personId]);
         const isMe = myId === personId;
-        const hasHitCount = hasHitThreeSteps(
-          getState().steps.userStepCount[personId],
-        );
-        const hasNotSureStage = await hasNotSureStage(
-          isMe,
-          myId,
-          personId,
-          orgId,
-          getState,
-        );
+        const stageId = getStageId(isMe, myId, personId, orgId, auth);
+        const hasNotSureStage = await hasNotSureStage(stagesObj, stageId);
         const firstItemIndex = getStageIndex(stages, stageId);
         const subsection = isMe ? 'self' : 'person';
 
@@ -70,7 +68,7 @@ export const CompleteStepFlowScreens = {
         } else if (!isMe && hasHitCount) {
           nextStageScreen = PERSON_STAGE_SCREEN;
           questionText = i18next.t('selectStage:completed3Steps', {
-            name: receiver.first_name,
+            name: person.first_name,
           });
         } else {
           return;
@@ -89,7 +87,7 @@ export const CompleteStepFlowScreens = {
               : {
                   contactId: personId,
                   contactAssignmentId: assignment.id,
-                  name: receiver.first_name,
+                  name: person.first_name,
                 }),
           }),
         );
