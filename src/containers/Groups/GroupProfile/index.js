@@ -320,7 +320,7 @@ GroupProfile.propTypes = {
 };
 
 const mapStateToProps = ({ auth, organizations }, { navigation }) => {
-  const { organization } = navigation.state.params || {};
+  const { organization = {} } = navigation.state.params || {};
   const selectorOrg =
     organizationSelector({ organizations }, { orgId: organization.id }) || {};
   const { members = [], contactReport = {} } = selectorOrg;
