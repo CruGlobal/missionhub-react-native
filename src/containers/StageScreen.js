@@ -21,9 +21,11 @@ class StageScreen extends Component {
   };
 
   complete(stage) {
-    const { onComplete, noNav, dispatch } = this.props;
+    const { onComplete, next, noNav, dispatch } = this.props;
 
-    if (onComplete) {
+    if (next) {
+      dispatch(next({ stage }));
+    } else if (onComplete) {
       onComplete(stage);
       if (!noNav) {
         dispatch(
@@ -81,6 +83,7 @@ class StageScreen extends Component {
 }
 
 StageScreen.propTypes = {
+  next: PropTypes.func,
   onComplete: PropTypes.func,
   contactId: PropTypes.string,
   questionText: PropTypes.string,

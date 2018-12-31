@@ -58,34 +58,46 @@ class PersonStageScreen extends Component {
   };
 
   complete(stage) {
-    const { onComplete, noNav, dispatch, contactId, orgId, name } = this.props;
+    const {
+      onComplete,
+      next,
+      noNav,
+      dispatch,
+      contactId,
+      orgId,
+      name,
+    } = this.props;
 
-    onComplete(stage);
-    if (!noNav) {
-      dispatch(
-        navigatePush(PERSON_SELECT_STEP_SCREEN, {
-          onSaveNewSteps: () => {
-            onComplete(stage);
-            dispatch(navigateBack(2));
-          },
-          contactStage: stage,
-          createStepTracking: buildTrackingObj(
-            'people : person : steps : create',
-            'people',
-            'person',
-            'steps',
-          ),
-          contactName: name,
-          contactId: contactId,
-          organization: { id: orgId },
-          trackingObj: buildTrackingObj(
-            'people : person : steps : add',
-            'people',
-            'person',
-            'steps',
-          ),
-        }),
-      );
+    if (next) {
+      dispatch(next({ stage }));
+    } else if (onComplete) {
+      onComplete(stage);
+      if (!noNav) {
+        dispatch(
+          navigatePush(PERSON_SELECT_STEP_SCREEN, {
+            onSaveNewSteps: () => {
+              onComplete(stage);
+              dispatch(navigateBack(2));
+            },
+            contactStage: stage,
+            createStepTracking: buildTrackingObj(
+              'people : person : steps : create',
+              'people',
+              'person',
+              'steps',
+            ),
+            contactName: name,
+            contactId: contactId,
+            organization: { id: orgId },
+            trackingObj: buildTrackingObj(
+              'people : person : steps : add',
+              'people',
+              'person',
+              'steps',
+            ),
+          }),
+        );
+      }
     }
   }
 
