@@ -71,13 +71,13 @@ class SelectStepScreen extends Component {
     const { suggestionIndex } = this.state;
     const { suggestions, isMe } = this.props;
 
-    if (suggestionIndex >= suggestions.length) {
+    if (suggestionIndex >= (suggestions || []).length) {
       return;
     }
 
     let suggestionIndexMax = suggestionIndex + 4;
-    if (suggestionIndexMax > suggestions.length) {
-      suggestionIndexMax = suggestions.length;
+    if (suggestionIndexMax > (suggestions || []).length) {
+      suggestionIndexMax = (suggestions || []).length;
     }
 
     let newSuggestions = suggestions.slice(suggestionIndex, suggestionIndexMax);
