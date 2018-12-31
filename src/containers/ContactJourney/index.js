@@ -188,10 +188,9 @@ ContactJourney.propTypes = {
 
 const mapStateToProps = (
   { auth, swipe, journey },
-  { person, organization },
+  { person = {}, organization = {} },
 ) => {
-  const organizationId =
-    organization && organization.id ? organization.id : 'personal';
+  const organizationId = organization.id || 'personal';
   const journeyOrg = journey[organizationId];
   const journeyItems = journeyOrg ? journeyOrg[person.id] : undefined;
 

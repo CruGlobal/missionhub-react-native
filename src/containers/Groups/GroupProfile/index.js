@@ -322,7 +322,8 @@ GroupProfile.propTypes = {
 const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   const { organization = {} } = navigation.state.params || {};
   const selectorOrg =
-    organizationSelector({ organizations }, { orgId: organization.id }) || {};
+    organizationSelector({ organizations }, { orgId: organization.id }) ||
+    organization;
   const { members = [], contactReport = {} } = selectorOrg;
   const owner = members.find(({ organizational_permissions = [] }) =>
     organizational_permissions.find(

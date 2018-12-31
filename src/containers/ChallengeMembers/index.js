@@ -60,7 +60,7 @@ export const mapStateToProps = (
   { organizations },
   { challengeId, orgId, completed },
 ) => {
-  const selectorOrg = organizationSelector({ organizations }, { orgId });
+  const selectorOrg = organizationSelector({ organizations }, { orgId }) || {};
 
   const selectorChallenge = communityChallengeSelector(
     { organizations },

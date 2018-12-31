@@ -272,19 +272,17 @@ ImpactView.propTypes = {
 
 export const mapStateToProps = (
   { impact, auth },
-  { person = {}, organization },
+  { person = {}, organization = {} },
 ) => {
   const myId = auth.person.id;
   const isMe = person.id === myId;
-  const isGlobalCommunity =
-    organization && organization.id === GLOBAL_COMMUNITY_ID;
+  const isGlobalCommunity = organization.id === GLOBAL_COMMUNITY_ID;
 
   return {
     isMe,
-    isPersonalMinistryMe:
-      isMe && (!organization || (organization && !organization.id)),
+    isPersonalMinistryMe: isMe && !organization.id,
     isOrgImpact: !person.id,
-    isUserCreatedOrg: organization && organization.user_created,
+    isUserCreatedOrg: organization.user_created,
     // Impact summary isn't scoped by org unless showing org summary. See above comment
     impact: impactSummarySelector(
       { impact },
