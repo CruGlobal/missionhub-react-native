@@ -1,10 +1,14 @@
 import 'react-native';
 import React from 'react';
+import MockDate from 'mockdate';
 
 import { testSnapshotShallow } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 import { ImpactView, mapStateToProps } from '..';
+
+const mockDate = '2018-09-12 12:00:00 PM GMT+0';
+MockDate.set(mockDate);
 
 const dispatch = jest.fn(response => Promise.resolve(response));
 
@@ -104,7 +108,7 @@ describe('ImpactView', () => {
                 '-': globalImpact,
               },
               interactions: {
-                [`${me.id}-`]: personInteractions,
+                [`${me.id}-${organization.id}`]: personInteractions,
               },
             },
             auth: {
@@ -113,6 +117,7 @@ describe('ImpactView', () => {
           },
           {
             person: me,
+            organization,
           },
         ),
       ).toMatchSnapshot();

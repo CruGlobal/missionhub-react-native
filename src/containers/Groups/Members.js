@@ -119,10 +119,7 @@ Members.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (
-  { auth, organizations, swipe },
-  { organization = {} },
-) => {
+const mapStateToProps = ({ auth, organizations, swipe }, { organization }) => {
   const selectorOrg =
     organizationSelector({ organizations }, { orgId: organization.id }) ||
     organization;

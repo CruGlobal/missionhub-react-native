@@ -17,6 +17,7 @@ import {
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
+import { orgIsPersonalMinistry } from '../../utils/common';
 
 import styles from './styles';
 
@@ -270,25 +271,22 @@ ImpactView.propTypes = {
   organization: PropTypes.object,
 };
 
-export const mapStateToProps = (
-  { impact, auth },
-  { person = {}, organization = {} },
-) => {
+export const mapStateToProps = ({ impact, auth }, { person, organization }) => {
+  const orgId = (organization && organization.id) || 'personal';
+  const personId = (person && person.id) || undefined;
   const myId = auth.person.id;
-  const isMe = person.id === myId;
-  const isGlobalCommunity = organization.id === GLOBAL_COMMUNITY_ID;
+  const isMe = personId === myId;
+  const isGlobalCommunity = orgId === GLOBAL_COMMUNITY_ID;
 
   return {
     isMe,
-    isPersonalMinistryMe: isMe && !organization.id,
-    isOrgImpact: !person.id,
-    isUserCreatedOrg: organization.user_created,
+    isPersonalMinistryMe: isMe && orgIsPersonalMinistry(organization),
     // Impact summary isn't scoped by org unless showing org summary. See above comment
     impact: impactSummarySelector(
       { impact },
       {
         person: isGlobalCommunity ? { id: myId } : person,
-        organization: person.id || isGlobalCommunity ? undefined : organization,
+        organization: personId || isGlobalCommunity ? undefined : organization,
       },
     ),
     interactions: impactInteractionsSelector(

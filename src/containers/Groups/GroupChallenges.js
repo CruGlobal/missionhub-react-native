@@ -83,13 +83,11 @@ export class GroupChallenges extends Component {
   }
 }
 
-export const mapStateToProps = (
-  { auth, organizations },
-  { organization = {} },
-) => {
+export const mapStateToProps = ({ auth, organizations }, { organization }) => {
+  const orgId = (organization && organization.id) || 'personal';
+
   const selectorOrg =
-    organizationSelector({ organizations }, { orgId: organization.id }) ||
-    organization;
+    organizationSelector({ organizations }, { orgId }) || organization;
 
   const challengeItems = challengesSelector({
     challengeItems: (selectorOrg || {}).challengeItems || [],
@@ -100,7 +98,7 @@ export const mapStateToProps = (
     pagination: selectorOrg.challengePagination,
     myOrgPermissions: orgPermissionSelector(null, {
       person: auth.person,
-      organization: { id: organization.id },
+      organization: { id: orgId },
     }),
   };
 };

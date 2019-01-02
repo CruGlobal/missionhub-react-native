@@ -281,14 +281,17 @@ AddContactFields.propTypes = {
   isGroupInvite: PropTypes.bool,
 };
 
-const mapStateToProps = ({ auth }, { person = {}, organization = {} }) => ({
+const mapStateToProps = ({ auth }, { person, organization }) => ({
   myOrgPermissions:
+    organization &&
     organization.id &&
     orgPermissionSelector(null, {
       person: auth.person,
       organization: { id: organization.id },
     }),
   orgPermission:
+    person &&
+    organization &&
     organization.id &&
     orgPermissionSelector(null, {
       person,

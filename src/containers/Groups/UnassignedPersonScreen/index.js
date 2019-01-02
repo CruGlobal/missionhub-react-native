@@ -62,13 +62,13 @@ UnassignedPersonScreen.propTypes = {
 
 const mapStateToProps = ({ auth, people, organizations }, { navigation }) => {
   const navParams = navigation.state.params || {};
-  const { person: navPerson = {}, organization: navOrg = {} } = navParams;
+  const { person: navPerson, organization: navOrg } = navParams;
+  const orgId = (navOrg && navOrg.id) || 'personal';
+  const personId = (navPerson && navPerson.id) || undefined;
 
   const organization =
-    organizationSelector({ organizations }, { orgId: navOrg.id }) || navOrg;
-  const person =
-    personSelector({ people }, { personId: navPerson.id, orgId: navOrg.id }) ||
-    navPerson;
+    organizationSelector({ organizations }, { orgId }) || navOrg;
+  const person = personSelector({ people }, { personId, orgId }) || navPerson;
 
   return {
     ...(navParams || {}),

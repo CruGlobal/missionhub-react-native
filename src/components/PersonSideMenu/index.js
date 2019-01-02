@@ -136,11 +136,12 @@ class PersonSideMenu extends Component {
 
 const mapStateToProps = ({ auth, people }, { navigation }) => {
   const navParams = navigation.state.params || {};
-  const { person: navPerson = {}, organization: navOrg = {} } = navParams;
-  const orgId = navOrg.id;
+  const { person: navPerson, organization: navOrg } = navParams;
+  const orgId = (navOrg && navOrg.id) || undefined;
+  const personId = (navPerson && navPerson.id) || undefined;
+  const myId = auth.person.id;
 
-  const person =
-    personSelector({ people }, { personId: navPerson.id, orgId }) || navPerson;
+  const person = personSelector({ people }, { personId, orgId }) || navPerson;
   const orgPermission = orgPermissionSelector(null, {
     person,
     organization: { id: orgId },
@@ -149,8 +150,8 @@ const mapStateToProps = ({ auth, people }, { navigation }) => {
   return {
     ...navParams,
     person,
-    personIsCurrentUser: navigation.state.params.person.id === auth.person.id,
-    myId: auth.person.id,
+    personIsCurrentUser: personId === myId,
+    myId,
     contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
     orgPermission,
     isCruOrg: orgIsCru(navOrg),

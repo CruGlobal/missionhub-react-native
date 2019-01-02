@@ -49,12 +49,14 @@ AssignStageButton.propTypes = {
 
 const mapStateToProps = (
   { people, auth, stages },
-  { person = {}, organization = {} },
+  { person, organization },
 ) => {
+  const personId = (person && person.id) || undefined;
+  const orgId = (organization && organization.id) || undefined;
   const authPerson = auth.person;
   const stagesList = stages.stages || [];
 
-  if (authPerson.id === person.id) {
+  if (authPerson.id === personId) {
     return {
       isMe: true,
       pathwayStage: stagesList.find(
@@ -64,13 +66,10 @@ const mapStateToProps = (
   }
 
   const loadedPerson =
-    personSelector(
-      { people },
-      { personId: person.id, orgId: organization.id },
-    ) || person;
+    personSelector({ people }, { personId, orgId }) || person;
   const contactAssignment = contactAssignmentSelector(
     { auth },
-    { person: loadedPerson, orgId: organization.id },
+    { person: loadedPerson, orgId },
   );
 
   return {
