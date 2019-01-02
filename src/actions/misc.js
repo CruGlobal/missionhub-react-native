@@ -30,7 +30,7 @@ export function openCommunicationLink(url, action) {
             dispatch(trackActionWithoutData(action));
           })
           .catch(err => {
-            if (url.includes('telprompt')) {
+            if ((url || '').includes('telprompt')) {
               // telprompt was cancelled and Linking openURL method sees this as an error
               // it is not a true error so ignore it to prevent apps crashing
             } else {

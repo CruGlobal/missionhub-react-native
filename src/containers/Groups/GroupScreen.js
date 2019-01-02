@@ -29,7 +29,7 @@ export class GroupScreen extends Component {
     super(props);
 
     this.state = {
-      organization: props.navigation.state.params.organization || {},
+      organization: (props.navigation.state.params || {}).organization || {},
     };
   }
 

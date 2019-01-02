@@ -11,7 +11,7 @@ import {
   logInAnalytics,
   trackActionWithoutData,
   trackSearchFilter,
-  emitterCallback,
+  // emitterCallback,
 } from '../analytics';
 import {
   ACTIONS,
@@ -281,27 +281,27 @@ describe('trackState', () => {
     ]);
   });
 
-  xdescribe('emitterCallback', () => {
-    beforeEach(() => expect.assertions(2)); //afterEach callback
+  // xdescribe('emitterCallback', () => {
+  //   beforeEach(() => expect.assertions(2)); //afterEach callback
 
-    it('should return a rejected promise if an error is returned', async () => {
-      const errorObj = { error: 'some error' };
-      try {
-        await emitterCallback(errorObj);
-      } catch (error) {
-        expect(error).toEqual({ snowplowError: errorObj });
-      }
-    });
+  //   it('should return a rejected promise if an error is returned', async () => {
+  //     const errorObj = { error: 'some error' };
+  //     try {
+  //       await emitterCallback(errorObj);
+  //     } catch (error) {
+  //       expect(error).toEqual({ snowplowError: errorObj });
+  //     }
+  //   });
 
-    it('should return a rejected promise if a response code other than 200 is returned', async () => {
-      const responseObj = { response: 'some response', status: 400 };
-      try {
-        await emitterCallback(responseObj);
-      } catch (error) {
-        expect(error).toEqual({ snowplowError: responseObj });
-      }
-    });
-  });
+  //   it('should return a rejected promise if a response code other than 200 is returned', async () => {
+  //     const responseObj = { response: 'some response', status: 400 };
+  //     try {
+  //       await emitterCallback(responseObj);
+  //     } catch (error) {
+  //       expect(error).toEqual({ snowplowError: responseObj });
+  //     }
+  //   });
+  // });
 });
 
 describe('trackStepsAdded', () => {

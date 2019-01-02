@@ -126,6 +126,8 @@ export default {
     help: 'Help',
     review: 'Write a Review',
     signOut: 'Sign out',
+    cannotOpenUrl: 'Cannot open URL',
+    pleaseVisit: 'Sorry, we could not open that URL. Please visit {{url}}',
     signUp: 'Sign Up',
   },
   login: {
