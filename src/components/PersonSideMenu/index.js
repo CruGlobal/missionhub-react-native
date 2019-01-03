@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { Alert } from 'react-native';
+import PropTypes from 'prop-types';
 
 import { deleteContactAssignment } from '../../actions/person';
 import SideMenu from '../../components/SideMenu';
