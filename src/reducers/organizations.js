@@ -279,7 +279,7 @@ function updateAllPersonInstances(updatedPerson, state) {
 }
 
 function updateChallenge(action, state) {
-  const { challenge } = action;
+  const { challenge = {} } = action;
   const orgId =
     (challenge.organization && challenge.organization.id) || undefined;
 
