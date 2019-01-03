@@ -134,11 +134,16 @@ class PersonSideMenu extends Component {
   }
 }
 
+PersonSideMenu.propTypes = {
+  person: PropTypes.object.isRequired,
+  organization: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = ({ auth, people }, { navigation }) => {
   const navParams = navigation.state.params || {};
-  const { person: navPerson, organization: navOrg } = navParams;
-  const orgId = (navOrg && navOrg.id) || undefined;
-  const personId = (navPerson && navPerson.id) || undefined;
+  const { person: navPerson = {}, organization: navOrg = {} } = navParams;
+  const orgId = navOrg.id;
+  const personId = navPerson.id;
   const myId = auth.person.id;
 
   const person = personSelector({ people }, { personId, orgId }) || navPerson;

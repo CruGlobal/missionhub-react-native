@@ -276,9 +276,9 @@ export const mapStateToProps = (
   { navigation },
 ) => {
   const navParams = navigation.state.params || {};
-  const { person: navPerson, organization: navOrg } = navParams;
-  const orgId = (navOrg && navOrg.id) || 'personal';
-  const personId = (navPerson && navPerson.id) || undefined;
+  const { person: navPerson = {}, organization: navOrg = {} } = navParams;
+  const orgId = navOrg.id || 'personal';
+  const personId = navPerson.id;
 
   const organization =
     organizationSelector({ organizations }, { orgId }) || navOrg;

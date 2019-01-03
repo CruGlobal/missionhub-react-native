@@ -63,12 +63,10 @@ export class GroupCelebrate extends Component {
   }
 }
 
-export const mapStateToProps = ({ organizations }, { organization }) => {
+export const mapStateToProps = ({ organizations }, { organization = {} }) => {
   const selectorOrg =
-    organizationSelector(
-      { organizations },
-      { orgId: (organization && organization.id) || undefined },
-    ) || organization;
+    organizationSelector({ organizations }, { orgId: organization.id }) ||
+    organization;
 
   const celebrateItems = celebrationSelector({
     celebrateItems: selectorOrg.celebrateItems || [],

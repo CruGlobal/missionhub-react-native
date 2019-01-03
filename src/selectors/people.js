@@ -106,7 +106,7 @@ export const personSelector = createSelector(
   (_, { personId }) => personId,
   (orgs, orgId, personId) => {
     const org = orgs[orgId || 'personal'];
-    return org && org.people[personId];
+    return (org && org.people[personId]) || {};
   },
 );
 

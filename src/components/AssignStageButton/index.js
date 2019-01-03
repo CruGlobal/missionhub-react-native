@@ -49,10 +49,10 @@ AssignStageButton.propTypes = {
 
 const mapStateToProps = (
   { people, auth, stages },
-  { person, organization },
+  { person = {}, organization = {} },
 ) => {
-  const personId = (person && person.id) || undefined;
-  const orgId = (organization && organization.id) || undefined;
+  const personId = person.id;
+  const orgId = organization.id;
   const authPerson = auth.person;
   const stagesList = stages.stages || [];
 
