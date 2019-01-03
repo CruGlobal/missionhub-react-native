@@ -7,8 +7,7 @@ import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 import { ImpactView, mapStateToProps } from '..';
 
-const mockDate = '2018-09-12 12:00:00 PM GMT+0';
-MockDate.set(mockDate);
+MockDate.set('2018-09-12 12:00:00 PM GMT+0');
 
 const dispatch = jest.fn(response => Promise.resolve(response));
 
