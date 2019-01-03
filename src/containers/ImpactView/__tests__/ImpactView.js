@@ -1,10 +1,13 @@
 import 'react-native';
 import React from 'react';
+import MockDate from 'mockdate';
 
 import { testSnapshotShallow } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 import { ImpactView, mapStateToProps } from '..';
+
+MockDate.set('2018-09-12 12:00:00 PM GMT+0');
 
 const dispatch = jest.fn(response => Promise.resolve(response));
 
