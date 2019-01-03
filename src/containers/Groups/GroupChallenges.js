@@ -83,8 +83,11 @@ export class GroupChallenges extends Component {
   }
 }
 
-export const mapStateToProps = ({ auth, organizations }, { organization }) => {
-  const orgId = (organization && organization.id) || 'personal';
+export const mapStateToProps = (
+  { auth, organizations },
+  { organization = {} },
+) => {
+  const orgId = organization.id || 'personal';
 
   const selectorOrg =
     organizationSelector({ organizations }, { orgId }) || organization;

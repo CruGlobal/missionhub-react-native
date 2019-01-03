@@ -320,8 +320,8 @@ GroupProfile.propTypes = {
 };
 
 const mapStateToProps = ({ auth, organizations }, { navigation }) => {
-  const { organization } = navigation.state.params || {};
-  const orgId = (organization && organization.id) || undefined;
+  const { organization = {} } = navigation.state.params || {};
+  const orgId = organization.id;
 
   const selectorOrg =
     organizationSelector({ organizations }, { orgId }) || organization;

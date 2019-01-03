@@ -119,17 +119,20 @@ Members.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ auth, organizations, swipe }, { organization }) => {
+const mapStateToProps = (
+  { auth, organizations, swipe },
+  { organization = {} },
+) => {
+  const orgId = organization.id;
   const selectorOrg =
-    organizationSelector({ organizations }, { orgId: organization.id }) ||
-    organization;
+    organizationSelector({ organizations }, { orgId }) || organization;
   return {
     groupInviteInfo: swipe.groupInviteInfo,
     members: selectorOrg.members || [],
     pagination: organizations.membersPagination,
     myOrgPermission: orgPermissionSelector(null, {
       person: auth.person,
-      organization: { id: organization.id },
+      organization: { id: orgId },
     }),
     organization: selectorOrg,
   };

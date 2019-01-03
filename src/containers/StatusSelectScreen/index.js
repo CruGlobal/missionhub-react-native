@@ -130,8 +130,8 @@ StatusSelectScreen.propTypes = {
 
 export const mapStateToProps = ({ auth, people }, { navigation }) => {
   const navParams = navigation.state.params || {};
-  const { person: navPerson, organization: navOrg } = navParams;
-  const orgId = navOrg && navOrg.id;
+  const { person: navPerson = {}, organization: navOrg = {} } = navParams;
+  const orgId = navOrg.id;
   const person =
     personSelector({ people }, { personId: navPerson.id, orgId }) || navPerson;
   const organization = navOrg;
