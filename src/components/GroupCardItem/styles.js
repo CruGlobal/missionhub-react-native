@@ -7,6 +7,7 @@ const borderRadius = 4;
 export default StyleSheet.create({
   card: {
     borderRadius,
+    height: 200,
   },
   image: {
     width: '100%',
