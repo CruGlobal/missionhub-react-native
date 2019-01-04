@@ -320,20 +320,22 @@ GroupProfile.propTypes = {
 };
 
 const mapStateToProps = ({ auth, organizations }, { navigation }) => {
-  const { organization } = navigation.state.params || {};
+  const { organization = {} } = navigation.state.params || {};
+  const orgId = organization.id;
+
   const selectorOrg =
-    organizationSelector({ organizations }, { orgId: organization.id }) || {};
+    organizationSelector({ organizations }, { orgId }) || organization;
   const { members = [], contactReport = {} } = selectorOrg;
   const owner = members.find(({ organizational_permissions = [] }) =>
     organizational_permissions.find(
       orgPermission =>
-        orgPermission.organization_id === organization.id &&
+        orgPermission.organization_id === orgId &&
         orgPermission.permission_id === ORG_PERMISSIONS.OWNER,
     ),
   );
   const myOrgPerm = orgPermissionSelector(null, {
     person: auth.person,
-    organization: { id: organization.id },
+    organization: { id: orgId },
   });
   return {
     membersLength: contactReport.memberCount || 0,

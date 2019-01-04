@@ -275,31 +275,29 @@ export const mapStateToProps = (
   { people, auth, stages, organizations },
   { navigation },
 ) => {
-  const navParams = navigation.state.params;
+  const navParams = navigation.state.params || {};
   const { person: navPerson = {}, organization: navOrg = {} } = navParams;
+  const orgId = navOrg.id || 'personal';
+  const personId = navPerson.id;
 
   const organization =
-    organizationSelector({ organizations }, { orgId: navOrg.id }) || navOrg;
-
-  const person =
-    personSelector({ people }, { personId: navPerson.id, orgId: navOrg.id }) ||
-    navPerson;
-
+    organizationSelector({ organizations }, { orgId }) || navOrg;
+  const person = personSelector({ people }, { personId, orgId }) || navPerson;
   const contactAssignment = contactAssignmentSelector(
     { auth },
-    { person, orgId: organization.id },
+    { person, orgId },
   );
   const authPerson = auth.person;
 
   return {
-    ...(navParams || {}),
+    ...navParams,
     contactAssignment,
     person,
     organization,
     stages: stages.stages,
     myId: authPerson.id,
     myStageId: authPerson.user.pathway_stage_id,
-    isCruOrg: orgIsCru(navParams.organization),
+    isCruOrg: orgIsCru(organization),
   };
 };
 

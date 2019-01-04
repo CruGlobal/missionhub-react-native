@@ -67,6 +67,9 @@ export class SearchPeopleScreen extends Component {
     people.forEach(p => {
       if (p && p.organizational_permissions) {
         p.organizational_permissions.forEach(o => {
+          if (!o) {
+            return;
+          }
           if (o.organization && o.organization.id) {
             orgPeople.push({
               ...p,
