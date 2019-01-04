@@ -4,9 +4,13 @@ exports[`GroupCardItem renders for join screen 1`] = `
 <Card
   onPress={[Function]}
   style={
-    Object {
-      "borderRadius": 4,
-    }
+    Array [
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+      },
+      undefined,
+    ]
   }
 >
   <Image
@@ -17,14 +21,11 @@ exports[`GroupCardItem renders for join screen 1`] = `
       }
     }
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 200,
-          "width": "100%",
-        },
-        undefined,
-      ]
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+        "width": "100%",
+      }
     }
   />
   <Flex
@@ -109,24 +110,25 @@ exports[`GroupCardItem renders user created group 1`] = `
 <Card
   onPress={[Function]}
   style={
-    Object {
-      "borderRadius": 4,
-    }
+    Array [
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+      },
+      Object {
+        "backgroundColor": "#005A7F",
+      },
+    ]
   }
 >
   <Image
     resizeMode="cover"
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 200,
-          "width": "100%",
-        },
-        Object {
-          "backgroundColor": "#005A7F",
-        },
-      ]
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+        "width": "100%",
+      }
     }
   />
   <Flex
@@ -184,24 +186,25 @@ exports[`GroupCardItem renders user created group with member count 1`] = `
 <Card
   onPress={[Function]}
   style={
-    Object {
-      "borderRadius": 4,
-    }
+    Array [
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+      },
+      Object {
+        "backgroundColor": "#005A7F",
+      },
+    ]
   }
 >
   <Image
     resizeMode="cover"
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 200,
-          "width": "100%",
-        },
-        Object {
-          "backgroundColor": "#005A7F",
-        },
-      ]
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+        "width": "100%",
+      }
     }
   />
   <Flex
@@ -259,24 +262,25 @@ exports[`GroupCardItem renders user created group with singular member count 1`]
 <Card
   onPress={[Function]}
   style={
-    Object {
-      "borderRadius": 4,
-    }
+    Array [
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+      },
+      Object {
+        "backgroundColor": "#005A7F",
+      },
+    ]
   }
 >
   <Image
     resizeMode="cover"
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 200,
-          "width": "100%",
-        },
-        Object {
-          "backgroundColor": "#005A7F",
-        },
-      ]
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+        "width": "100%",
+      }
     }
   />
   <Flex
@@ -334,9 +338,13 @@ exports[`GroupCardItem renders with all report counts 1`] = `
 <Card
   onPress={[Function]}
   style={
-    Object {
-      "borderRadius": 4,
-    }
+    Array [
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+      },
+      undefined,
+    ]
   }
 >
   <Image
@@ -347,14 +355,11 @@ exports[`GroupCardItem renders with all report counts 1`] = `
       }
     }
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 200,
-          "width": "100%",
-        },
-        undefined,
-      ]
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+        "width": "100%",
+      }
     }
   />
   <Flex
@@ -414,9 +419,13 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
 <Card
   onPress={[Function]}
   style={
-    Object {
-      "borderRadius": 4,
-    }
+    Array [
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+      },
+      undefined,
+    ]
   }
 >
   <Image
@@ -427,14 +436,11 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
       }
     }
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 200,
-          "width": "100%",
-        },
-        undefined,
-      ]
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+        "width": "100%",
+      }
     }
   />
   <Flex
@@ -494,27 +500,28 @@ exports[`GroupCardItem renders with image url 1`] = `
 <Card
   onPress={[Function]}
   style={
-    Object {
-      "borderRadius": 4,
-    }
+    Array [
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+      },
+      undefined,
+    ]
   }
 >
   <Image
     resizeMode="cover"
     source={
       Object {
-        "url": "https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg",
+        "uri": "https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg",
       }
     }
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 200,
-          "width": "100%",
-        },
-        undefined,
-      ]
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+        "width": "100%",
+      }
     }
   />
   <Flex
@@ -574,9 +581,13 @@ exports[`GroupCardItem renders with no report counts 1`] = `
 <Card
   onPress={[Function]}
   style={
-    Object {
-      "borderRadius": 4,
-    }
+    Array [
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+      },
+      undefined,
+    ]
   }
 >
   <Image
@@ -587,14 +598,11 @@ exports[`GroupCardItem renders with no report counts 1`] = `
       }
     }
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 200,
-          "width": "100%",
-        },
-        undefined,
-      ]
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+        "width": "100%",
+      }
     }
   />
   <Flex
@@ -654,24 +662,25 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
 <Card
   onPress={[Function]}
   style={
-    Object {
-      "borderRadius": 4,
-    }
+    Array [
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+      },
+      Object {
+        "backgroundColor": "#005A7F",
+      },
+    ]
   }
 >
   <Image
     resizeMode="cover"
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 200,
-          "width": "100%",
-        },
-        Object {
-          "backgroundColor": "#005A7F",
-        },
-      ]
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+        "width": "100%",
+      }
     }
   />
   <Flex
@@ -729,9 +738,13 @@ exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
 <Card
   onPress={[Function]}
   style={
-    Object {
-      "borderRadius": 4,
-    }
+    Array [
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+      },
+      undefined,
+    ]
   }
 >
   <Image
@@ -742,14 +755,11 @@ exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
       }
     }
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 200,
-          "width": "100%",
-        },
-        undefined,
-      ]
+      Object {
+        "borderRadius": 4,
+        "height": 200,
+        "width": "100%",
+      }
     }
   />
   <Flex

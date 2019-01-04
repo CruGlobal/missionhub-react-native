@@ -65,7 +65,7 @@ export default class GroupCardItem extends Component {
     if (group.community_photo_url) {
       source = { uri: group.community_photo_url };
     } else if (group.user_created) {
-      source = null;
+      source = undefined;
     } else {
       source = DEFAULT_MISSIONHUB_IMAGE;
     }
@@ -80,7 +80,7 @@ export default class GroupCardItem extends Component {
           group.user_created ? styles.userCreatedImage : undefined,
         ]}
       >
-        <Image source={source} resizeMode="cover" style={[styles.image]} />
+        <Image source={source} resizeMode="cover" style={styles.image} />
         <Flex justify="center" direction="row" style={styles.infoWrap}>
           <Flex value={1}>
             <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
