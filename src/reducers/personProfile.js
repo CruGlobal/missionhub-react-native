@@ -5,11 +5,13 @@ import {
   RESET_ONBOARDING_PERSON,
   COMPLETE_ONBOARDING,
   LOGOUT,
+  HAS_NOT_CREATED_STEP,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 
 const initialPersonProfileState = {
   hasCompletedOnboarding: false,
+  hasNotCreatedStep: false,
   personFirstName: '',
   personLastName: '',
 };
@@ -42,12 +44,23 @@ function personProfileReducer(state = initialPersonProfileState, action) {
     case RESET_ONBOARDING_PERSON:
       return {
         ...initialPersonProfileState,
+        hasNotCreatedStep: state.hasNotCreatedStep,
         hasCompletedOnboarding: true,
       };
     case COMPLETE_ONBOARDING:
       return {
         ...state,
         hasCompletedOnboarding: true,
+      };
+    case HAS_NOT_CREATED_STEP:
+      return {
+        ...state,
+        hasNotCreatedStep: true,
+      };
+    case REQUESTS.ADD_CHALLENGES.SUCCESS:
+      return {
+        ...state,
+        hasNotCreatedStep: false,
       };
     case LOGOUT:
       return initialPersonProfileState;

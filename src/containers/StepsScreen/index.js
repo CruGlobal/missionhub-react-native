@@ -41,6 +41,7 @@ import { openMainMenu, refresh, toast } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { navToPersonScreen } from '../../actions/person';
+import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 
 import styles from './styles';
 
@@ -329,6 +330,7 @@ export class StepsScreen extends Component {
           {this.renderReminders()}
           {this.renderList()}
         </ScrollView>
+        <TakeAStepWithSomeoneButton />
       </View>
     );
   }

@@ -155,6 +155,7 @@ exports[`renders android correctly 1`] = `
         windowSize={21}
       />
     </ScrollView>
+    <Connect(Translate(TakeAStepWithSomeoneButton)) />
   </Component>
 </Component>
 `;

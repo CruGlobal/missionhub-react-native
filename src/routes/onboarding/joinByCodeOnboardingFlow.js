@@ -18,6 +18,7 @@ import { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import WelcomeScreen from '../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../containers/SetupScreen';
 import SetupScreen from '../../containers/SetupScreen';
+import { HAS_NOT_CREATED_STEP } from '../../constants';
 
 export const JoinByCodeOnboardingFlowScreens = {
   [JOIN_GROUP_SCREEN]: buildTrackedScreen(
@@ -39,6 +40,7 @@ export const JoinByCodeOnboardingFlowScreens = {
       await dispatch(joinStashedCommunity());
       await dispatch(showNotificationPrompt());
       await dispatch(loadHome());
+      dispatch({ type: HAS_NOT_CREATED_STEP });
       dispatch(landOnStashedCommunityScreen());
     }),
     buildTrackingObj('onboarding : name', 'onboarding'),

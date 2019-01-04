@@ -311,6 +311,7 @@ exports[`StepsScreen renders correctly with max reminders 1`] = `
         windowSize={21}
       />
     </ScrollView>
+    <Connect(Translate(TakeAStepWithSomeoneButton)) />
   </Component>
 </Component>
 `;
@@ -470,6 +471,7 @@ exports[`StepsScreen renders empty screen correctly 1`] = `
         </MyText>
       </Flex>
     </ScrollView>
+    <Connect(Translate(TakeAStepWithSomeoneButton)) />
   </Component>
 </Component>
 `;
@@ -663,6 +665,7 @@ exports[`StepsScreen renders screen with steps correctly 1`] = `
         windowSize={21}
       />
     </ScrollView>
+    <Connect(Translate(TakeAStepWithSomeoneButton)) />
   </Component>
 </Component>
 `;

@@ -19,6 +19,7 @@ import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import KeyLoginScreen, {
   KEY_LOGIN_SCREEN,
 } from '../../containers/KeyLoginScreen';
+import { HAS_NOT_CREATED_STEP } from '../../constants';
 
 export const DeepLinkJoinCommunityUnauthenticatedScreens = {
   [DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN]: buildTrackedScreen(
@@ -44,6 +45,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
       await dispatch(joinStashedCommunity());
       await dispatch(showNotificationPrompt());
       await dispatch(loadHome());
+      dispatch({ type: HAS_NOT_CREATED_STEP });
       dispatch(landOnStashedCommunityScreen());
     }),
     buildTrackingObj('onboarding : name', 'onboarding'),

@@ -7,6 +7,7 @@ import {
   RESET_ONBOARDING_PERSON,
   LOGOUT,
   COMPLETE_ONBOARDING,
+  HAS_NOT_CREATED_STEP,
 } from '../../constants';
 
 const person = {
@@ -84,15 +85,39 @@ it('updates last name', () => {
   expect(state.personLastName).toBe(lastName);
 });
 
-it('resets onboarding person and sets completed to true', () => {
-  const state = personProfile(undefined, {
-    type: RESET_ONBOARDING_PERSON,
-  });
+it('resets onboarding person (but not hasNotCreatedStep) and sets completed to true', () => {
+  const state = personProfile(
+    { hasNotCreatedStep: true },
+    {
+      type: RESET_ONBOARDING_PERSON,
+    },
+  );
 
   expect(state).toEqual({
     hasCompletedOnboarding: true,
+    hasNotCreatedStep: true,
     personFirstName: '',
     personLastName: '',
+  });
+});
+
+it('marks user as having not completed a step', () => {
+  const state = { hasNotCreatedStep: false };
+
+  expect(personProfile(state, { type: HAS_NOT_CREATED_STEP })).toEqual({
+    ...state,
+    hasNotCreatedStep: true,
+  });
+});
+
+it('marks user as having completed a step', () => {
+  const state = { hasNotCreatedStep: true };
+
+  expect(
+    personProfile(state, { type: REQUESTS.ADD_CHALLENGES.SUCCESS }),
+  ).toEqual({
+    ...state,
+    hasNotCreatedStep: false,
   });
 });
 
@@ -116,6 +141,7 @@ it('resets state on logout', () => {
 
   expect(state).toEqual({
     hasCompletedOnboarding: false,
+    hasNotCreatedStep: false,
     personFirstName: '',
     personLastName: '',
   });

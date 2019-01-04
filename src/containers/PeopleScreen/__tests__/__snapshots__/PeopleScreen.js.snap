@@ -119,6 +119,7 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
     refreshing={false}
     sections={false}
   />
+  <Connect(Translate(TakeAStepWithSomeoneButton)) />
 </Component>
 `;
 
@@ -200,5 +201,6 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
     refreshing={false}
     sections={true}
   />
+  <Connect(Translate(TakeAStepWithSomeoneButton)) />
 </Component>
 `;

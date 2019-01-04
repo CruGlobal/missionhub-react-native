@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly for someone who has created a step 1`] = `""`;
+
+exports[`renders correctly for someone who has not created a step 1`] = `
+<Button
+  text="TAKE A STEP WITH SOMEONE"
+  type="secondary"
+/>
+`;

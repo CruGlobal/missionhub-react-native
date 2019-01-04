@@ -17,6 +17,7 @@ import { openMainMenu, refresh } from '../../utils/common';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
 import { navToPersonScreen } from '../../actions/person';
+import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 
 import styles from './styles';
 
@@ -113,6 +114,7 @@ export class PeopleScreen extends Component {
           onRefresh={this.handleRefresh}
           refreshing={this.state.refreshing}
         />
+        <TakeAStepWithSomeoneButton />
       </View>
     );
   }
