@@ -36,12 +36,10 @@ class CelebrateItem extends Component {
 
   onPressChallengeLink = () => {
     const { dispatch, event } = this.props;
-    const {
-      adjective_attribute_value: challengeId,
-      organization: { id: orgId },
-    } = event;
+    const { adjective_attribute_value: challengeId, organization } = event;
+    const orgId = organization && organization.id;
 
-    if (orgId !== GLOBAL_COMMUNITY_ID) {
+    if (orgId && orgId !== GLOBAL_COMMUNITY_ID) {
       dispatch(
         navigatePush(CHALLENGE_DETAIL_SCREEN, {
           challengeId,
