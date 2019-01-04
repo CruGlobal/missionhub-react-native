@@ -15,6 +15,7 @@ import {
   INTERACTION_TYPES,
   CELEBRATEABLE_TYPES,
   ACTIONS,
+  GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 import { navigatePush } from '../../actions/navigation';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
@@ -35,17 +36,17 @@ class CelebrateItem extends Component {
 
   onPressChallengeLink = () => {
     const { dispatch, event } = this.props;
-    const {
-      adjective_attribute_value: challengeId,
-      organization: { id: orgId },
-    } = event;
+    const { adjective_attribute_value: challengeId, organization } = event;
+    const orgId = organization && organization.id;
 
-    dispatch(
-      navigatePush(CHALLENGE_DETAIL_SCREEN, {
-        challengeId,
-        orgId,
-      }),
-    );
+    if (orgId && orgId !== GLOBAL_COMMUNITY_ID) {
+      dispatch(
+        navigatePush(CHALLENGE_DETAIL_SCREEN, {
+          challengeId,
+          orgId,
+        }),
+      );
+    }
   };
 
   renderMessage() {
