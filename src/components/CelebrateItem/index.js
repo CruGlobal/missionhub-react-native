@@ -15,6 +15,7 @@ import {
   INTERACTION_TYPES,
   CELEBRATEABLE_TYPES,
   ACTIONS,
+  GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 import { navigatePush } from '../../actions/navigation';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
@@ -40,12 +41,14 @@ class CelebrateItem extends Component {
       organization: { id: orgId },
     } = event;
 
-    dispatch(
-      navigatePush(CHALLENGE_DETAIL_SCREEN, {
-        challengeId,
-        orgId,
-      }),
-    );
+    if (orgId !== GLOBAL_COMMUNITY_ID) {
+      dispatch(
+        navigatePush(CHALLENGE_DETAIL_SCREEN, {
+          challengeId,
+          orgId,
+        }),
+      );
+    }
   };
 
   renderMessage() {
