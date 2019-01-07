@@ -173,11 +173,10 @@ export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   );
 
   const acceptedChallenge =
-    (challenge.accepted_community_challenges &&
-      challenge.accepted_community_challenges.find(
-        c => c.person && c.person.id === myId,
-      )) ||
-    {};
+    challenge.accepted_community_challenges &&
+    challenge.accepted_community_challenges.find(
+      c => c.person && c.person.id === myId,
+    );
 
   const myOrgPerm = orgPermissionSelector(null, {
     person: auth.person,
