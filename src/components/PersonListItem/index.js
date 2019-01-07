@@ -9,8 +9,8 @@ import styles from './styles';
 @translate('groupItem')
 class PersonListItem extends Component {
   handleSelect = () => {
-    const { onSelect, contact } = this.props;
-    onSelect && onSelect(contact);
+    const { onSelect, person } = this.props;
+    onSelect && onSelect(person);
   };
 
   renderContent() {
