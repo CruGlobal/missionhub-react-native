@@ -23,7 +23,7 @@ class PersonListItem extends Component {
       lastNameAccentStyle = {},
     } = this.props;
     const isAssigned = (person.reverse_contact_assignments || []).find(
-      c => c.organization && c.organization.id === organization.id,
+      c => c && c.organization && c.organization.id === organization.id,
     );
 
     return (

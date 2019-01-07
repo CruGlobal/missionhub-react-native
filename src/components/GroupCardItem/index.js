@@ -63,7 +63,7 @@ export default class GroupCardItem extends Component {
     const { t, group, onPress, onJoin } = this.props;
     let source;
     if (group.community_photo_url) {
-      source = { url: group.community_photo_url };
+      source = { uri: group.community_photo_url };
     } else if (group.user_created) {
       source = undefined;
     } else {
@@ -75,16 +75,12 @@ export default class GroupCardItem extends Component {
     return (
       <Card
         onPress={onPress ? this.handlePress : undefined}
-        style={styles.card}
+        style={[
+          styles.card,
+          group.user_created ? styles.userCreatedImage : undefined,
+        ]}
       >
-        <Image
-          source={source}
-          resizeMode="cover"
-          style={[
-            styles.image,
-            group.user_created ? styles.userCreatedImage : undefined,
-          ]}
-        />
+        <Image source={source} resizeMode="cover" style={styles.image} />
         <Flex justify="center" direction="row" style={styles.infoWrap}>
           <Flex value={1}>
             <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>

@@ -95,6 +95,9 @@ function loadContactsFromSteps(state, action) {
 
   const { allByOrg } = state;
   response.forEach(s => {
+    if (!s) {
+      return;
+    }
     const orgId = (s.organization && s.organization.id) || 'personal';
     const receiver = s.receiver;
     if (!receiver) {

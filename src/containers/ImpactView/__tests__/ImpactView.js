@@ -107,7 +107,7 @@ describe('ImpactView', () => {
                 '-': globalImpact,
               },
               interactions: {
-                [`${me.id}-`]: personInteractions,
+                [`${me.id}-${organization.id}`]: personInteractions,
               },
             },
             auth: {
@@ -116,6 +116,7 @@ describe('ImpactView', () => {
           },
           {
             person: me,
+            organization,
           },
         ),
       ).toMatchSnapshot();

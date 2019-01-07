@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { Alert } from 'react-native';
+import PropTypes from 'prop-types';
 
 import { deleteContactAssignment } from '../../actions/person';
 import SideMenu from '../../components/SideMenu';
@@ -134,25 +135,32 @@ class PersonSideMenu extends Component {
   }
 }
 
+PersonSideMenu.propTypes = {
+  person: PropTypes.object.isRequired,
+  organization: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = ({ auth, people }, { navigation }) => {
   const navParams = navigation.state.params || {};
-  const orgId = navParams.organization && navParams.organization.id;
-  const person =
-    personSelector({ people }, { personId: navParams.person.id, orgId }) ||
-    navParams.person;
+  const { person: navPerson = {}, organization: navOrg = {} } = navParams;
+  const orgId = navOrg.id;
+  const personId = navPerson.id;
+  const myId = auth.person.id;
+
+  const person = personSelector({ people }, { personId, orgId }) || navPerson;
   const orgPermission = orgPermissionSelector(null, {
     person,
-    organization: navParams.organization,
+    organization: { id: orgId },
   });
 
   return {
     ...navParams,
     person,
-    personIsCurrentUser: navParams.person.id === auth.person.id,
-    myId: auth.person.id,
+    personIsCurrentUser: personId === myId,
+    myId,
     contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
     orgPermission,
-    isCruOrg: orgIsCru(navParams.organization),
+    isCruOrg: orgIsCru(navOrg),
   };
 };
 
