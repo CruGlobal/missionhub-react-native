@@ -167,14 +167,16 @@ export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   const { challengeId, orgId } = navParams;
   const myId = auth.person.id;
 
-  const selectorChallenge = communityChallengeSelector(
+  const challenge = communityChallengeSelector(
     { organizations },
     { orgId, challengeId },
   );
 
-  const acceptedChallenge = selectorChallenge.accepted_community_challenges.find(
-    c => c.person && c.person.id === myId,
-  );
+  const acceptedChallenge =
+    challenge.accepted_community_challenges &&
+    challenge.accepted_community_challenges.find(
+      c => c.person && c.person.id === myId,
+    );
 
   const myOrgPerm = orgPermissionSelector(null, {
     person: auth.person,
@@ -186,7 +188,7 @@ export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   return {
     ...navParams,
     myId,
-    challenge: selectorChallenge,
+    challenge,
     acceptedChallenge,
     canEditChallenges,
   };
