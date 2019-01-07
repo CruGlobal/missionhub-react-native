@@ -195,7 +195,6 @@ class GroupProfile extends Component {
                 size={20}
                 iconProps={{ style: styles.menu }}
               />
-              ;
             </Flex>
           ) : (
             <Flex direction="row" align="center" style={styles.rowWrap}>
