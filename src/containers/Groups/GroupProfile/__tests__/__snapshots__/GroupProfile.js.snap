@@ -106,7 +106,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
         }
         size={20}
       />
-      ;
     </Flex>
     <Flex
       align="center"
