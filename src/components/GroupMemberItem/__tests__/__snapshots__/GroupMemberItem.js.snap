@@ -39,7 +39,7 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
@@ -126,7 +126,7 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
@@ -213,7 +213,7 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
@@ -326,7 +326,7 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
@@ -439,7 +439,7 @@ exports[`render contacts count cru org should render 0 assigned 1`] = `
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
@@ -526,7 +526,7 @@ exports[`render contacts count cru org should render 0 uncontacted 1`] = `
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
@@ -590,7 +590,7 @@ exports[`render contacts count cru org should render assigned and uncontacted 1`
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
@@ -677,7 +677,7 @@ exports[`render contacts count user created org should render no stage, admin pe
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
@@ -688,36 +688,13 @@ exports[`render contacts count user created org should render no stage, admin pe
             ellipsizeMode="tail"
             style={
               Object {
-                "color": "#FF5532",
+                "color": "#B2B0B2",
                 "fontSize": 14,
               }
             }
           >
-            Select Stage
+            Admin
           </MyText>
-          <React.Fragment>
-            <Dot
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
-              }
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
-              }
-            >
-              Admin
-            </MyText>
-          </React.Fragment>
         </React.Fragment>
       </Flex>
     </Flex>
@@ -764,25 +741,11 @@ exports[`render contacts count user created org should render no stage, member p
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#FF5532",
-                "fontSize": 14,
-              }
-            }
-          >
-            Select Stage
-          </MyText>
-        </React.Fragment>
+        <React.Fragment />
       </Flex>
     </Flex>
   </Flex>
@@ -828,7 +791,7 @@ exports[`render contacts count user created org should render no stage, owner pe
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
@@ -839,36 +802,13 @@ exports[`render contacts count user created org should render no stage, owner pe
             ellipsizeMode="tail"
             style={
               Object {
-                "color": "#FF5532",
+                "color": "#B2B0B2",
                 "fontSize": 14,
               }
             }
           >
-            Select Stage
+            Owner
           </MyText>
-          <React.Fragment>
-            <Dot
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
-              }
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
-              }
-            >
-              Owner
-            </MyText>
-          </React.Fragment>
         </React.Fragment>
       </Flex>
     </Flex>
@@ -915,7 +855,7 @@ exports[`render contacts count user created org should render stage, admin permi
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
@@ -933,29 +873,27 @@ exports[`render contacts count user created org should render stage, admin permi
           >
             Uninterested
           </MyText>
-          <React.Fragment>
-            <Dot
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
+          <Dot
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
               }
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
+            }
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
               }
-            >
-              Admin
-            </MyText>
-          </React.Fragment>
+            }
+          >
+            Admin
+          </MyText>
         </React.Fragment>
       </Flex>
     </Flex>
@@ -1002,7 +940,7 @@ exports[`render contacts count user created org should render stage, member perm
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
@@ -1066,7 +1004,7 @@ exports[`render contacts count user created org should render stage, owner permi
         direction="row"
         style={
           Object {
-            "marginTop": 1,
+            "height": 16,
           }
         }
       >
@@ -1084,29 +1022,27 @@ exports[`render contacts count user created org should render stage, owner permi
           >
             Uninterested
           </MyText>
-          <React.Fragment>
-            <Dot
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
+          <Dot
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
               }
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
+            }
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
               }
-            >
-              Owner
-            </MyText>
-          </React.Fragment>
+            }
+          >
+            Owner
+          </MyText>
         </React.Fragment>
       </Flex>
     </Flex>

@@ -32,7 +32,7 @@ class GroupMemberItem extends Component {
   };
 
   renderUserCreatedDetails = isMe => {
-    const { t, stagesObj, me, person } = this.props;
+    const { stagesObj, me, person } = this.props;
 
     let stage = null;
 
@@ -55,13 +55,13 @@ class GroupMemberItem extends Component {
     const permissionText = this.orgPermissionText();
 
     return (
-      <Flex style={styles.detailWrap} direction="row">
+      <Fragment>
         {stage ? <Text style={styles.detailText}>{stage.name}</Text> : null}
         {stage && permissionText ? <Dot style={styles.detailText} /> : null}
         {permissionText ? (
           <Text style={styles.detailText}>{this.orgPermissionText()}</Text>
         ) : null}
-      </Flex>
+      </Fragment>
     );
   };
 
@@ -69,7 +69,7 @@ class GroupMemberItem extends Component {
     const { t, person } = this.props;
 
     return (
-      <Flex style={styles.detailWrap} direction="row">
+      <Fragment>
         <Text style={styles.detailText}>
           {t('numAssigned', { count: person.contact_count || 0 })}
         </Text>
@@ -83,7 +83,7 @@ class GroupMemberItem extends Component {
             </Text>
           </Fragment>
         ) : null}
-      </Flex>
+      </Fragment>
     );
   };
 
