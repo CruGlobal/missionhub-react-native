@@ -55,19 +55,13 @@ class GroupMemberItem extends Component {
     const permissionText = this.orgPermissionText();
 
     return (
-      <Fragment>
-        {stage ? (
-          <Text style={styles.detailText}>{stage.name}</Text>
-        ) : (
-          <Text style={styles.detailTextRed}>{t('selectStage')}</Text>
-        )}
+      <Flex style={styles.detailWrap} direction="row">
+        {stage ? <Text style={styles.detailText}>{stage.name}</Text> : null}
+        {stage && permissionText ? <Dot style={styles.detailText} /> : null}
         {permissionText ? (
-          <Fragment>
-            <Dot style={styles.detailText} />
-            <Text style={styles.detailText}>{this.orgPermissionText()}</Text>
-          </Fragment>
+          <Text style={styles.detailText}>{this.orgPermissionText()}</Text>
         ) : null}
-      </Fragment>
+      </Flex>
     );
   };
 
@@ -75,7 +69,7 @@ class GroupMemberItem extends Component {
     const { t, person } = this.props;
 
     return (
-      <Fragment>
+      <Flex style={styles.detailWrap} direction="row">
         <Text style={styles.detailText}>
           {t('numAssigned', { count: person.contact_count || 0 })}
         </Text>
@@ -89,7 +83,7 @@ class GroupMemberItem extends Component {
             </Text>
           </Fragment>
         ) : null}
-      </Fragment>
+      </Flex>
     );
   };
 

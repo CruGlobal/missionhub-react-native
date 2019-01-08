@@ -9,7 +9,7 @@ export default StyleSheet.create({
     paddingRight: 0,
   },
   detailsWrap: {
-    marginTop: 1,
+    height: 16,
   },
   name: {
     fontSize: 16,
