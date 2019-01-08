@@ -10,11 +10,13 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -37,11 +39,6 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment>
           <MyText
@@ -97,11 +94,13 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -124,11 +123,6 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment>
           <MyText
@@ -184,11 +178,13 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -211,11 +207,6 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment>
           <MyText
@@ -297,11 +288,13 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -324,11 +317,6 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment>
           <MyText
@@ -410,11 +398,13 @@ exports[`render contacts count cru org should render 0 assigned 1`] = `
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -437,11 +427,6 @@ exports[`render contacts count cru org should render 0 assigned 1`] = `
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment>
           <MyText
@@ -497,11 +482,13 @@ exports[`render contacts count cru org should render 0 uncontacted 1`] = `
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -524,11 +511,6 @@ exports[`render contacts count cru org should render 0 uncontacted 1`] = `
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment>
           <MyText
@@ -561,11 +543,13 @@ exports[`render contacts count cru org should render assigned and uncontacted 1`
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -588,11 +572,6 @@ exports[`render contacts count cru org should render assigned and uncontacted 1`
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment>
           <MyText
@@ -648,11 +627,13 @@ exports[`render contacts count user created org should render no stage, admin pe
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -675,11 +656,6 @@ exports[`render contacts count user created org should render no stage, admin pe
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment>
           <MyText
@@ -712,11 +688,13 @@ exports[`render contacts count user created org should render no stage, member p
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -739,11 +717,6 @@ exports[`render contacts count user created org should render no stage, member p
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment />
       </Flex>
@@ -762,11 +735,13 @@ exports[`render contacts count user created org should render no stage, owner pe
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -789,11 +764,6 @@ exports[`render contacts count user created org should render no stage, owner pe
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment>
           <MyText
@@ -826,11 +796,13 @@ exports[`render contacts count user created org should render stage, admin permi
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -853,11 +825,6 @@ exports[`render contacts count user created org should render stage, admin permi
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment>
           <MyText
@@ -911,11 +878,13 @@ exports[`render contacts count user created org should render stage, member perm
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -938,11 +907,6 @@ exports[`render contacts count user created org should render stage, member perm
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment>
           <MyText
@@ -975,11 +939,13 @@ exports[`render contacts count user created org should render stage, owner permi
     justify="center"
     style={
       Object {
+        "height": 50,
         "paddingLeft": 16,
         "paddingRight": 0,
         "paddingVertical": 10,
       }
     }
+    value={1}
   >
     <Flex
       direction="column"
@@ -1002,11 +968,6 @@ exports[`render contacts count user created org should render stage, owner permi
       <Flex
         align="center"
         direction="row"
-        style={
-          Object {
-            "height": 16,
-          }
-        }
       >
         <React.Fragment>
           <MyText
