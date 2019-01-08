@@ -80,11 +80,6 @@ exports[`GroupsListScreen should render correctly 1`] = `
     </Flex>
   </Flex>
   <ScrollView
-    contentContainerStyle={
-      Object {
-        "flex": 1,
-      }
-    }
     refreshControl={
       <MyRefreshControl
         colors={
@@ -98,6 +93,11 @@ exports[`GroupsListScreen should render correctly 1`] = `
         refreshing={false}
         tintColor="#007398"
       />
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
     }
   >
     <FlatList
@@ -240,11 +240,6 @@ exports[`should render null state 1`] = `
     </Flex>
   </Flex>
   <ScrollView
-    contentContainerStyle={
-      Object {
-        "flex": 1,
-      }
-    }
     refreshControl={
       <MyRefreshControl
         colors={
@@ -258,6 +253,11 @@ exports[`should render null state 1`] = `
         refreshing={false}
         tintColor="#007398"
       />
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
     }
   >
     <FlatList
