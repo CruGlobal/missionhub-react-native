@@ -106,6 +106,7 @@ class GroupMemberItem extends Component {
     return (
       <Card onPress={this.handleSelect}>
         <Flex
+          value={1}
           justify="center"
           align="center"
           direction="row"
@@ -113,7 +114,7 @@ class GroupMemberItem extends Component {
         >
           <Flex value={1} direction="column">
             <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
-            <Flex align="center" direction="row" style={styles.detailsWrap}>
+            <Flex align="center" direction="row">
               {isUserCreatedOrg
                 ? this.renderUserCreatedDetails(isMe)
                 : this.renderCruDetails()}
