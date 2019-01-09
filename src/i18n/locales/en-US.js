@@ -503,7 +503,7 @@ export default {
     addHeader: 'New Challenge',
     add: 'Create Challenge',
     save: 'Save Changes',
-    titlePlaceholder: 'Name Your Challenge',
+    titlePlaceholder: 'Describe Your Challenge',
     titleLabel: 'Challenge',
     datePlaceholder: 'End Date (Required)',
     dateLabel: 'End Date',
