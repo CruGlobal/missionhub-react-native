@@ -51,7 +51,7 @@ class UpgradeAccountScreen extends Component {
     dispatch(
       navigatePush(KEY_LOGIN_SCREEN, {
         upgradeAccount: true,
-        onComplete,
+        next: onComplete,
       }),
     );
   };

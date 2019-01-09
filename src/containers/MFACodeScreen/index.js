@@ -20,19 +20,19 @@ class MFACodeScreen extends Component {
   };
 
   completeMfa = async () => {
-    const { email, password, upgradeAccount } = this.props;
+    const { email, password, upgradeAccount, next } = this.props;
     const { dispatch, t } = this.props;
 
     this.setState({ isLoading: true });
 
     try {
       await dispatch(
-        keyLogin(email, password, this.state.mfaCode, upgradeAccount),
+        keyLogin(email, password, this.state.mfaCode, upgradeAccount, next),
       );
       Keyboard.dismiss();
     } catch (error) {
       if (error && error.apiError['thekey_authn_error'] === MFA_REQUIRED) {
-        Alert.alert(t('mfaIncorrect'), t('ok'));
+        Alert.alert(t('mfaIncorrect'));
         return;
       }
 
