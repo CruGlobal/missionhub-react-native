@@ -164,7 +164,7 @@ describe('getOrganizationsContactReports', () => {
     expect(removeHiddenOrgs).toHaveBeenCalledWith(orgs, auth.person);
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
-      { period: 'P1W', organization_ids: `${orgs[1].id},${orgs[3].id},` },
+      { period: 'P1W', organization_ids: `${orgs[1].id},${orgs[3].id}` },
     );
     expect(store.getActions()).toEqual([
       contactReportsResponse,

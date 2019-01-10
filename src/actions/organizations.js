@@ -78,13 +78,10 @@ export function getOrganizationsContactReports() {
       return;
     }
 
-    const organization_ids = visibleOrgs.reduce(
-      (accumulator, current) =>
-        current.community && current.id !== GLOBAL_COMMUNITY_ID
-          ? `${accumulator}${current.id},`
-          : accumulator,
-      '',
-    );
+    const organization_ids = visibleOrgs
+      .filter(org => org.community && org.id !== GLOBAL_COMMUNITY_ID)
+      .map(org => org.id)
+      .join(',');
 
     const { response } = await dispatch(
       callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, {
