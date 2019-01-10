@@ -421,7 +421,7 @@ export default {
     steps: 'Steps',
     people: 'People',
     impact: 'Impact',
-    groups: 'Communities',
+    group: 'Communities',
   },
   groupTabs: {
     celebrate: 'Celebrate',
