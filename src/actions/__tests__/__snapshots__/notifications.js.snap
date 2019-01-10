@@ -169,6 +169,34 @@ Array [
 ]
 `;
 
+exports[`askNotificationPermissions onNotification userInteraction = false on Android, should do nothing 1`] = `
+Array [
+  Object {
+    "type": "app/REQUEST_NOTIFICATIONS",
+  },
+]
+`;
+
+exports[`askNotificationPermissions onNotification userInteraction = false on iOS, should call iOS finish 1`] = `
+Array [
+  Object {
+    "actions": Array [
+      Object {
+        "params": Object {},
+        "routeName": "nav/MAIN_TABS",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": null,
+    "type": "Navigation/RESET",
+  },
+  Object {
+    "type": "app/REQUEST_NOTIFICATIONS",
+  },
+]
+`;
+
 exports[`askNotificationPermissions onRegister should update notification token for android devices 1`] = `
 Array [
   Array [

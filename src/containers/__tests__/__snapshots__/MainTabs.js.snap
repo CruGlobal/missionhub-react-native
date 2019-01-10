@@ -411,11 +411,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
             </View>
           </View>
           <RCTScrollView
-            contentContainerStyle={
-              Object {
-                "flex": 1,
-              }
-            }
             refreshControl={
               <MyRefreshControl
                 colors={
@@ -429,6 +424,11 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                 refreshing={false}
                 tintColor="#007398"
               />
+            }
+            style={
+              Object {
+                "flex": 1,
+              }
             }
           >
             <RCTRefreshControl />

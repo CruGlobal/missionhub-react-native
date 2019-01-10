@@ -12,7 +12,7 @@ import { navigatePush } from '../../actions/navigation';
 import { completeChallenge, joinChallenge } from '../../actions/challenges';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
 
 import styles from './styles';
 
@@ -80,13 +80,16 @@ class ChallengeFeed extends Component {
 
   handleSelectRow = challenge => {
     const { dispatch, organization } = this.props;
-    dispatch(
-      navigatePush(CHALLENGE_DETAIL_SCREEN, {
-        challengeId: challenge.id,
-        orgId: organization.id,
-      }),
-    );
-    dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_DETAIL));
+
+    if (organization.id !== GLOBAL_COMMUNITY_ID) {
+      dispatch(
+        navigatePush(CHALLENGE_DETAIL_SCREEN, {
+          challengeId: challenge.id,
+          orgId: organization.id,
+        }),
+      );
+      dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_DETAIL));
+    }
   };
 
   renderHeader = () => (

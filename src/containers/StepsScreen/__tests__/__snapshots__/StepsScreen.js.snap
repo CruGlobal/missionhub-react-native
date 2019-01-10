@@ -470,6 +470,7 @@ exports[`StepsScreen renders empty screen correctly 1`] = `
         </MyText>
       </Flex>
     </ScrollView>
+    <Connect(Translate(TakeAStepWithSomeoneButton)) />
   </Component>
 </Component>
 `;

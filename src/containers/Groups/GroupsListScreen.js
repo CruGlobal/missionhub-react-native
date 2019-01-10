@@ -152,7 +152,7 @@ class GroupsListScreen extends Component {
           </Flex>
         </Flex>
         <ScrollView
-          contentContainerStyle={{ flex: 1 }}
+          style={{ flex: 1 }}
           refreshControl={
             <RefreshControl
               refreshing={this.state.refreshing}

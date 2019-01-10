@@ -105,6 +105,9 @@ export default {
     and: 'and',
     signIn: 'Sign In',
   },
+  mainTabs: {
+    takeAStepWithSomeone: 'Take a Step With Someone',
+  },
   error: {
     error: 'Error',
     unexpectedErrorMessage: 'There was an unexpected error.',
@@ -503,7 +506,7 @@ export default {
     addHeader: 'New Challenge',
     add: 'Create Challenge',
     save: 'Save Changes',
-    titlePlaceholder: 'Name Your Challenge',
+    titlePlaceholder: 'Describe Your Challenge',
     titleLabel: 'Challenge',
     datePlaceholder: 'End Date (Required)',
     dateLabel: 'End Date',

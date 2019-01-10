@@ -41,6 +41,7 @@ import { openMainMenu, refresh, toast } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { navToPersonScreen } from '../../actions/person';
+import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 
 import styles from './styles';
 
@@ -304,6 +305,8 @@ export class StepsScreen extends Component {
   }
 
   renderSteps() {
+    const { steps } = this.props;
+
     return (
       <View style={{ flex: 1 }}>
         {this.renderFocusPrompt()}
@@ -322,13 +325,14 @@ export class StepsScreen extends Component {
             {
               // Flex the white background to the bottom when there's only a few steps
               // Don't do it all the time because it causes the top to be static
-              flex: this.props.steps.length < 5 ? 1 : undefined,
+              flex: steps.length < 5 ? 1 : undefined,
             },
           ]}
         >
           {this.renderReminders()}
           {this.renderList()}
         </ScrollView>
+        {steps.length === 0 ? <TakeAStepWithSomeoneButton /> : null}
       </View>
     );
   }

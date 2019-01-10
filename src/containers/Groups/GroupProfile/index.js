@@ -21,6 +21,7 @@ import {
   isAdminOrOwner,
   isOwner,
   getCommunityUrl,
+  orgIsUserCreated,
 } from '../../../utils/common';
 import { navigateBack, navigateReset } from '../../../actions/navigation';
 import {
@@ -164,14 +165,7 @@ class GroupProfile extends Component {
   }
 
   render() {
-    const {
-      t,
-      organization,
-      membersLength,
-      owner,
-      canEdit,
-      isOwner,
-    } = this.props;
+    const { t, organization, membersLength, owner, canEdit } = this.props;
     const { editing, name } = this.state;
     return (
       <SafeAreaView style={styles.container}>
@@ -201,7 +195,6 @@ class GroupProfile extends Component {
                 size={20}
                 iconProps={{ style: styles.menu }}
               />
-              ;
             </Flex>
           ) : (
             <Flex direction="row" align="center" style={styles.rowWrap}>
@@ -234,7 +227,7 @@ class GroupProfile extends Component {
               <Text style={styles.label}>{t('code')}</Text>
               <Text style={styles.codeText}>{organization.community_code}</Text>
             </Flex>
-            {editing && isOwner ? (
+            {editing ? (
               <Button
                 style={[styles.btn, styles.newBtn]}
                 buttonTextStyle={styles.btnText}
@@ -260,7 +253,7 @@ class GroupProfile extends Component {
                 {getCommunityUrl(organization.community_url)}
               </Text>
             </Flex>
-            {editing && isOwner ? (
+            {editing ? (
               <Button
                 style={[styles.btn, styles.newBtn]}
                 buttonTextStyle={styles.btnText}
@@ -341,8 +334,9 @@ const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     membersLength: contactReport.memberCount || 0,
     owner: owner || {},
     organization: selectorOrg,
-    canEdit: isAdminOrOwner(myOrgPerm),
-    isOwner: isOwner(myOrgPerm),
+    canEdit:
+      isOwner(myOrgPerm) ||
+      (!orgIsUserCreated(selectorOrg) && isAdminOrOwner(myOrgPerm)),
   };
 };
 
