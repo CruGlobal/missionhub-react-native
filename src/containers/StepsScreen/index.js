@@ -325,7 +325,7 @@ export class StepsScreen extends Component {
             {
               // Flex the white background to the bottom when there's only a few steps
               // Don't do it all the time because it causes the top to be static
-              flex: steps < 5 ? 1 : undefined,
+              flex: steps.length < 5 ? 1 : undefined,
             },
           ]}
         >
