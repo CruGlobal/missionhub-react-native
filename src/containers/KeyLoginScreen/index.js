@@ -91,7 +91,12 @@ class KeyLoginScreen extends Component {
         errorMessage = i18n.t('keyLogin:verifyEmailMessage');
       } else if (apiError['thekey_authn_error'] === MFA_REQUIRED) {
         dispatch(
-          navigatePush(MFA_CODE_SCREEN, { email, password, upgradeAccount }),
+          navigatePush(MFA_CODE_SCREEN, {
+            email,
+            password,
+            upgradeAccount,
+            next: next ? this.navigateToNext : null,
+          }),
         );
         this.setState({ email: '', password: '' });
         return;
