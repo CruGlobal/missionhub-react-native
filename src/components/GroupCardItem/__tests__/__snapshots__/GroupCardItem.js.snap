@@ -132,7 +132,7 @@ exports[`GroupCardItem renders user created group 1`] = `
           "height": 200,
         },
         Object {
-          "backgroundColor": "#007398",
+          "backgroundColor": "#005A7F",
         },
       ]
     }
@@ -207,7 +207,7 @@ exports[`GroupCardItem renders user created group with member count 1`] = `
           "height": 200,
         },
         Object {
-          "backgroundColor": "#007398",
+          "backgroundColor": "#005A7F",
         },
       ]
     }
@@ -282,7 +282,7 @@ exports[`GroupCardItem renders user created group with singular member count 1`]
           "height": 200,
         },
         Object {
-          "backgroundColor": "#007398",
+          "backgroundColor": "#005A7F",
         },
       ]
     }
@@ -717,7 +717,7 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
           "height": 200,
         },
         Object {
-          "backgroundColor": "#007398",
+          "backgroundColor": "#005A7F",
         },
       ]
     }

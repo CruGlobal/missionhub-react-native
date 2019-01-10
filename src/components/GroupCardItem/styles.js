@@ -13,7 +13,7 @@ export default StyleSheet.create({
     borderRadius,
   },
   userCreatedContent: {
-    backgroundColor: theme.primaryColor,
+    backgroundColor: theme.accentColor,
   },
   image: {
     width: '100%',
