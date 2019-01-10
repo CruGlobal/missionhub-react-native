@@ -161,8 +161,8 @@ export function refreshAnonymousLogin() {
 }
 
 export function logout(forcedLogout = false) {
-  return dispatch => {
-    dispatch(deletePushToken());
+  return async dispatch => {
+    await dispatch(deletePushToken());
     dispatch({ type: LOGOUT });
     dispatch(
       forcedLogout

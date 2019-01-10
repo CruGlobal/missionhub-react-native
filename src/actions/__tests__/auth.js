@@ -294,18 +294,18 @@ describe('refreshAnonymousLogin', () => {
 });
 
 describe('logout', () => {
-  it('should perform the needed actions for signing out', () => {
+  it('should perform the needed actions for signing out', async () => {
     deletePushToken.mockReturnValue({
       type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS,
     });
-    store.dispatch(logout());
+    await store.dispatch(logout());
     expect(store.getActions()).toMatchSnapshot();
   });
-  it('should perform the needed actions for forced signing out', () => {
+  it('should perform the needed actions for forced signing out', async () => {
     deletePushToken.mockReturnValue({
       type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS,
     });
-    store.dispatch(logout(true));
+    await store.dispatch(logout(true));
     expect(store.getActions()).toMatchSnapshot();
   });
 });
