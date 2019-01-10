@@ -111,6 +111,18 @@ describe('PeopleScreen', () => {
       expect(allAssignedPeopleSelector).toHaveBeenCalled();
     });
   });
+
+  it('renders empty correctly', () => {
+    testSnapshotShallow(
+      <PeopleScreen
+        {...props}
+        isJean={false}
+        items={[{ id: 'me person' }]}
+        hasNoContacts={true}
+      />,
+    );
+  });
+
   it('renders correctly as Casey', () => {
     testSnapshotShallow(
       <PeopleScreen {...props} isJean={false} items={people} />,

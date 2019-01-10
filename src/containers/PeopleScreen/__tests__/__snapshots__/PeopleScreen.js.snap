@@ -2,6 +2,7 @@
 
 exports[`PeopleScreen mapStateToProps should provide the necessary props for Casey 1`] = `
 Object {
+  "hasNoContacts": false,
   "isJean": false,
   "items": Array [
     Object {
@@ -22,6 +23,7 @@ Object {
 
 exports[`PeopleScreen mapStateToProps should provide the necessary props for Jean 1`] = `
 Object {
+  "hasNoContacts": false,
   "isJean": true,
   "items": Array [
     Object {
@@ -200,5 +202,51 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
     refreshing={false}
     sections={true}
   />
+</Component>
+`;
+
+exports[`PeopleScreen renders empty correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    right={
+      <IconButton
+        name="addContactIcon"
+        onPress={[Function]}
+        size={24}
+        type="MissionHub"
+      />
+    }
+    shadow={true}
+    title="PEOPLE"
+  />
+  <Translate(PeopleList)
+    items={
+      Array [
+        Object {
+          "id": "me person",
+        },
+      ]
+    }
+    onAddContact={[Function]}
+    onRefresh={[Function]}
+    onSelect={[Function]}
+    refreshing={false}
+    sections={false}
+  />
+  <Connect(Translate(TakeAStepWithSomeoneButton)) />
 </Component>
 `;

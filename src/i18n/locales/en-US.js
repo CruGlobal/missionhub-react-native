@@ -105,6 +105,9 @@ export default {
     and: 'and',
     signIn: 'Sign In',
   },
+  mainTabs: {
+    takeAStepWithSomeone: 'Take a Step With Someone',
+  },
   error: {
     error: 'Error',
     unexpectedErrorMessage: 'There was an unexpected error.',

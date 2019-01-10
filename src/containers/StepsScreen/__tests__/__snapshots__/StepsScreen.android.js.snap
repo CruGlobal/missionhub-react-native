@@ -32,7 +32,7 @@ exports[`renders android correctly 1`] = `
             "backgroundColor": "#ffffff",
           },
           Object {
-            "flex": 1,
+            "flex": undefined,
           },
         ]
       }
