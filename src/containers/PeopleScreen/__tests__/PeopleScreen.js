@@ -98,8 +98,42 @@ describe('PeopleScreen', () => {
       ).toMatchSnapshot();
       expect(peopleByOrgSelector).toHaveBeenCalled();
     });
+    it('should provide the necessary props for Jean with no contacts', () => {
+      peopleByOrgSelector.mockReturnValue([
+        {
+          id: 'personal',
+          type: 'organization',
+          people: [
+            {
+              id: 'me person',
+            },
+          ],
+        },
+      ]);
+      expect(
+        mapStateToProps({
+          auth: {
+            isJean: true,
+          },
+          people: {},
+        }),
+      ).toMatchSnapshot();
+      expect(peopleByOrgSelector).toHaveBeenCalled();
+    });
     it('should provide the necessary props for Casey', () => {
       allAssignedPeopleSelector.mockReturnValue(people);
+      expect(
+        mapStateToProps({
+          auth: {
+            isJean: false,
+          },
+          people: {},
+        }),
+      ).toMatchSnapshot();
+      expect(allAssignedPeopleSelector).toHaveBeenCalled();
+    });
+    it('should provide necessary props for Casey with no steps', () => {
+      allAssignedPeopleSelector.mockReturnValue([{ id: 'me person' }]);
       expect(
         mapStateToProps({
           auth: {

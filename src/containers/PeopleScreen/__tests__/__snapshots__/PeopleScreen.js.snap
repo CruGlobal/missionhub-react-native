@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PeopleScreen mapStateToProps should provide necessary props for Casey with no steps 1`] = `
+Object {
+  "hasNoContacts": true,
+  "isJean": false,
+  "items": Array [
+    Object {
+      "id": "me person",
+    },
+  ],
+}
+`;
+
 exports[`PeopleScreen mapStateToProps should provide the necessary props for Casey 1`] = `
 Object {
   "hasNoContacts": false,
@@ -62,6 +74,24 @@ Object {
         Object {
           "id": 21,
           "type": "person",
+        },
+      ],
+      "type": "organization",
+    },
+  ],
+}
+`;
+
+exports[`PeopleScreen mapStateToProps should provide the necessary props for Jean with no contacts 1`] = `
+Object {
+  "hasNoContacts": true,
+  "isJean": true,
+  "items": Array [
+    Object {
+      "id": "personal",
+      "people": Array [
+        Object {
+          "id": "me person",
         },
       ],
       "type": "organization",
