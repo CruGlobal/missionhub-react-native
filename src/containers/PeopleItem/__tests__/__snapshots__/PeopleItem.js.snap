@@ -360,7 +360,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
