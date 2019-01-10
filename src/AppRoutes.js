@@ -199,7 +199,7 @@ const tabs = {
     GroupsListScreen,
     buildTrackingObj('communities', 'communities'),
     {
-      tabBarLabel: navItem('groups'),
+      tabBarLabel: navItem('group'),
     },
   ),
 };
