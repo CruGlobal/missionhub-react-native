@@ -7,7 +7,7 @@ import {
   createMockStore,
   renderShallow,
 } from '../../../../testUtils';
-import { MAIN_TABS } from '../../../constants';
+import { MAIN_TABS, GLOBAL_COMMUNITY_ID } from '../../../constants';
 import * as common from '../../../utils/common';
 import { ADD_CONTACT_SCREEN } from '../../AddContactScreen';
 import { navigatePush, navigateReset } from '../../../actions/navigation';
@@ -30,6 +30,17 @@ describe('GroupScreen', () => {
       })}
     />
   );
+
+  it('should render header correctly for global community', () => {
+    testSnapshotShallow(
+      createHeader({
+        id: GLOBAL_COMMUNITY_ID,
+        name: 'MissionHub Community',
+        community: true,
+        user_created: true,
+      }),
+    );
+  });
 
   it('should render header correctly', () => {
     testSnapshotShallow(createHeader(organization));

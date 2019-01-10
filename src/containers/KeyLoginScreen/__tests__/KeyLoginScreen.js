@@ -203,6 +203,7 @@ describe('a login button is clicked', () => {
           email: credentials.email,
           password: credentials.password,
           upgradeAccount: true,
+          next: null,
         });
       });
 
