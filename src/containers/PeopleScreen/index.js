@@ -17,6 +17,7 @@ import { openMainMenu, refresh } from '../../utils/common';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
 import { navToPersonScreen } from '../../actions/person';
+import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 
 import styles from './styles';
 
@@ -75,7 +76,7 @@ export class PeopleScreen extends Component {
   }
 
   render() {
-    const { items, isJean, t } = this.props;
+    const { items, isJean, t, hasNoContacts } = this.props;
     return (
       <View style={styles.pageContainer}>
         <Header
@@ -113,6 +114,7 @@ export class PeopleScreen extends Component {
           onRefresh={this.handleRefresh}
           refreshing={this.state.refreshing}
         />
+        {hasNoContacts ? <TakeAStepWithSomeoneButton /> : null}
       </View>
     );
   }
@@ -120,11 +122,18 @@ export class PeopleScreen extends Component {
 
 export const mapStateToProps = ({ auth, people }) => {
   const { isJean } = auth;
+  const items = isJean
+    ? peopleByOrgSelector({ people, auth })
+    : allAssignedPeopleSelector({ people, auth });
+
+  const hasNoContacts = isJean
+    ? items.length === 1 && items[0].people.length === 1
+    : items.length === 1;
+
   return {
     isJean,
-    items: isJean
-      ? peopleByOrgSelector({ people, auth })
-      : allAssignedPeopleSelector({ people, auth }),
+    items,
+    hasNoContacts,
   };
 };
 
