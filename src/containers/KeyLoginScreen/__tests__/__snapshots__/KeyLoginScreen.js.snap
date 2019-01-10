@@ -1640,7 +1640,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -2038,7 +2038,7 @@ Please sign in so we know it's you.
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}

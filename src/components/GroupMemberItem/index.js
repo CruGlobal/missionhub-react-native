@@ -32,7 +32,7 @@ class GroupMemberItem extends Component {
   };
 
   renderUserCreatedDetails = isMe => {
-    const { t, stagesObj, me, person } = this.props;
+    const { stagesObj, me, person } = this.props;
 
     let stage = null;
 
@@ -56,16 +56,10 @@ class GroupMemberItem extends Component {
 
     return (
       <Fragment>
-        {stage ? (
-          <Text style={styles.detailText}>{stage.name}</Text>
-        ) : (
-          <Text style={styles.detailTextRed}>{t('selectStage')}</Text>
-        )}
+        {stage ? <Text style={styles.detailText}>{stage.name}</Text> : null}
+        {stage && permissionText ? <Dot style={styles.detailText} /> : null}
         {permissionText ? (
-          <Fragment>
-            <Dot style={styles.detailText} />
-            <Text style={styles.detailText}>{this.orgPermissionText()}</Text>
-          </Fragment>
+          <Text style={styles.detailText}>{this.orgPermissionText()}</Text>
         ) : null}
       </Fragment>
     );
@@ -112,6 +106,7 @@ class GroupMemberItem extends Component {
     return (
       <Card onPress={this.handleSelect}>
         <Flex
+          value={1}
           justify="center"
           align="center"
           direction="row"
@@ -119,7 +114,7 @@ class GroupMemberItem extends Component {
         >
           <Flex value={1} direction="column">
             <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
-            <Flex align="center" direction="row" style={styles.detailsWrap}>
+            <Flex align="center" direction="row">
               {isUserCreatedOrg
                 ? this.renderUserCreatedDetails(isMe)
                 : this.renderCruDetails()}
