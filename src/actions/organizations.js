@@ -8,6 +8,7 @@ import {
   ACTIONS,
   ORG_PERMISSIONS,
   ERROR_PERSON_PART_OF_ORG,
+  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
@@ -64,9 +65,22 @@ export function getMyOrganizations() {
 }
 
 export function getOrganizationsContactReports() {
-  return async dispatch => {
+  return async (dispatch, getState) => {
+    const organizations = getState().organizations.all;
+
+    const organization_ids = organizations.reduce(
+      (accumulator, current) =>
+        current.community && current.id !== GLOBAL_COMMUNITY_ID
+          ? `${accumulator}${current.id},`
+          : accumulator,
+      '',
+    );
+
     const { response } = await dispatch(
-      callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, { period: 'P1W' }),
+      callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, {
+        period: 'P1W',
+        organization_ids,
+      }),
     );
 
     dispatch({
