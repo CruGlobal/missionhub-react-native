@@ -67,10 +67,7 @@ describe('onSubmit', () => {
 
     await clickLoginButton();
 
-    expect(Alert.alert).toHaveBeenCalledWith(
-      i18n.t('mfaLogin:mfaIncorrect'),
-      i18n.t('ok'),
-    );
+    expect(Alert.alert).toHaveBeenCalledWith(i18n.t('mfaLogin:mfaIncorrect'));
   });
 
   it('it throws unexpected errors', async () => {

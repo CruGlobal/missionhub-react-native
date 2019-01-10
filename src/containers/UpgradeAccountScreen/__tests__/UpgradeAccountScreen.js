@@ -83,7 +83,7 @@ describe('a login button is clicked', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(KEY_LOGIN_SCREEN, {
       upgradeAccount: true,
-      onComplete,
+      next: onComplete,
     });
     expect(store.getActions()).toEqual([navigateResponse]);
   });
