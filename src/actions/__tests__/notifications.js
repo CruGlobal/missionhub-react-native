@@ -294,11 +294,25 @@ describe('askNotificationPermissions', () => {
       return await deepLinkComplete;
     }
 
-    it("should do nothing if user hasn't opened the notification; also it should call iOS finish", async () => {
-      await testNotification({ screen: 'home' }, false);
-      expect(finish).toHaveBeenCalledWith(
-        PushNotificationIOS.FetchResult.NoData,
-      );
+    describe('userInteraction = false', () => {
+      it('on iOS, should call iOS finish', async () => {
+        common.isAndroid = false;
+
+        await testNotification({ screen: 'home' }, false);
+
+        expect(finish).toHaveBeenCalledWith(
+          PushNotificationIOS.FetchResult.NoData,
+        );
+        expect(store.getActions()).toMatchSnapshot();
+      });
+
+      it('on Android, should do nothing', async () => {
+        common.isAndroid = true;
+
+        await testNotification({ screen: 'home' }, false);
+
+        expect(store.getActions()).toMatchSnapshot();
+      });
     });
 
     it('should deep link to home screen', () => {
