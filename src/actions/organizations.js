@@ -11,6 +11,7 @@ import {
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
+import { removeHiddenOrgs } from '../selectors/selectorUtils';
 
 import { getMe, getPersonDetails } from './person';
 import callApi, { REQUESTS } from './api';
@@ -66,13 +67,18 @@ export function getMyOrganizations() {
 
 export function getOrganizationsContactReports() {
   return async (dispatch, getState) => {
-    const organizations = getState().organizations.all;
+    const {
+      organizations,
+      auth: { person },
+    } = getState();
 
-    if (organizations.length === 0) {
+    const visibleOrgs = removeHiddenOrgs(organizations.all, person);
+
+    if (visibleOrgs.length === 0) {
       return;
     }
 
-    const organization_ids = organizations.reduce(
+    const organization_ids = visibleOrgs.reduce(
       (accumulator, current) =>
         current.community && current.id !== GLOBAL_COMMUNITY_ID
           ? `${accumulator}${current.id},`
