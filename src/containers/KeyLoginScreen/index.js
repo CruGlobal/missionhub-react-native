@@ -14,7 +14,7 @@ import Input from '../../components/Input/index';
 import { keyLogin, openKeyURL } from '../../actions/auth';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, MFA_REQUIRED } from '../../constants';
-import { hasNotch } from '../../utils/common';
+import { hasNotch, isAndroid } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 import BackButton from '../BackButton';
@@ -31,6 +31,47 @@ class KeyLoginScreen extends Component {
     password: '',
     errorMessage: '',
     isLoading: false,
+    logo: true,
+  };
+
+  componentDidMount() {
+    if (isAndroid) {
+      this.keyboardDidShowListener = Keyboard.addListener(
+        'keyboardDidShow',
+        this._hideLogo,
+      );
+      this.keyboardDidHideListener = Keyboard.addListener(
+        'keyboardDidHide',
+        this._showLogo,
+      );
+    } else {
+      this.keyboardWillShowListener = Keyboard.addListener(
+        'keyboardWillShow',
+        this._hideLogo,
+      );
+      this.keyboardWillHideListener = Keyboard.addListener(
+        'keyboardWillHide',
+        this._showLogo,
+      );
+    }
+  }
+
+  componentWillUnmount() {
+    if (isAndroid) {
+      this.keyboardDidShowListener.remove();
+      this.keyboardDidHideListener.remove();
+    } else {
+      this.keyboardWillShowListener.remove();
+      this.keyboardWillHideListener.remove();
+    }
+  }
+
+  _hideLogo = () => {
+    this.setState({ logo: false });
+  };
+
+  _showLogo = () => {
+    this.setState({ logo: true });
   };
 
   emailChanged = email => {
@@ -160,18 +201,20 @@ class KeyLoginScreen extends Component {
           <BackButton style={{ marginLeft: 5, marginTop }} />
         )}
         <Flex align="center" justify="center">
-          {this.props.forcedLogout ? (
-            <Text style={styles.forcedLogoutHeader}>
-              {t('forcedLogout:message')}
-            </Text>
-          ) : (
-            <Text type="header" style={styles.header}>
-              {t('signIn')}
-            </Text>
-          )}
+          {this.state.logo ? (
+            this.props.forcedLogout ? (
+              <Text style={styles.forcedLogoutHeader}>
+                {t('forcedLogout:message')}
+              </Text>
+            ) : (
+              <Text type="header" style={styles.header}>
+                {t('signIn')}
+              </Text>
+            )
+          ) : null}
         </Flex>
 
-        <Flex value={3} style={{ padding: 30 }}>
+        <Flex value={3} style={{ paddingVertical: 10, paddingHorizontal: 30 }}>
           <View>
             <Text style={styles.label}>{t('emailLabel')}</Text>
             <Input
@@ -188,7 +231,7 @@ class KeyLoginScreen extends Component {
             />
           </View>
 
-          <View style={{ paddingVertical: 30 }}>
+          <View style={{ paddingVertical: 15 }}>
             <Text style={styles.label}>{t('passwordLabel')}</Text>
             <Input
               secureTextEntry={true}

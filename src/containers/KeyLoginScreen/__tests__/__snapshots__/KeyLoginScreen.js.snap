@@ -41,7 +41,8 @@ exports[`a login button is clicked facebook login button is pressed loading whee
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -75,7 +76,7 @@ exports[`a login button is clicked facebook login button is pressed loading whee
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -230,7 +231,8 @@ exports[`a login button is clicked forgot password button is pressed loading whe
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -264,7 +266,7 @@ exports[`a login button is clicked forgot password button is pressed loading whe
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -419,7 +421,8 @@ exports[`a login button is clicked key login button is pressed loading wheel app
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -453,7 +456,7 @@ exports[`a login button is clicked key login button is pressed loading wheel app
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -558,7 +561,8 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -592,7 +596,7 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -771,7 +775,8 @@ exports[`a login button is clicked key login button is pressed shows email verif
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -805,7 +810,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -934,7 +939,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -968,7 +974,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -1097,7 +1103,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -1131,7 +1138,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -1335,7 +1342,8 @@ exports[`renders correctly 1`] = `
     style={
       Array [
         Object {
-          "padding": 30,
+          "paddingHorizontal": 30,
+          "paddingVertical": 10,
         },
         Object {
           "flex": 3,
@@ -1401,7 +1409,7 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -1733,7 +1741,8 @@ Please sign in so we know it's you.
     style={
       Array [
         Object {
-          "padding": 30,
+          "paddingHorizontal": 30,
+          "paddingVertical": 10,
         },
         Object {
           "flex": 3,
@@ -1799,7 +1808,7 @@ Please sign in so we know it's you.
     <View
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
