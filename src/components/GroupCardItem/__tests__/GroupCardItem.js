@@ -180,6 +180,7 @@ describe('GroupCardItem', () => {
     );
 
     component
+      .childAt(0)
       .childAt(1)
       .childAt(1)
       .childAt(0)
