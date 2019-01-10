@@ -12,6 +12,7 @@ import {
   ACTIONS,
   ORG_PERMISSIONS,
   ERROR_PERSON_PART_OF_ORG,
+  GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 import callApi, { REQUESTS } from '../api';
 import { trackActionWithoutData } from '../analytics';
@@ -36,11 +37,13 @@ import {
   lookupOrgCommunityUrl,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
+import { removeHiddenOrgs } from '../../selectors/selectorUtils';
 
 jest.mock('../analytics');
 jest.mock('../../selectors/organizations');
 jest.mock('../api');
 jest.mock('../person');
+jest.mock('../../selectors/selectorUtils');
 
 global.FormData = require('FormData');
 
@@ -51,7 +54,7 @@ let store;
 const auth = { person: { user: {}, id: myId }, token: 'something' };
 
 beforeEach(() => {
-  store = mockStore({ auth });
+  store = mockStore({ auth, organizations: { all: [] } });
   callApi.mockClear();
 });
 
@@ -110,6 +113,12 @@ describe('getMyOrganizations', () => {
 });
 
 describe('getOrganizationsContactReports', () => {
+  const orgs = [
+    { id: GLOBAL_COMMUNITY_ID, community: true },
+    { id: '123', community: true },
+    { id: 'non community', community: false },
+    { id: '456', community: true },
+  ];
   const contactReportsResponse = {
     type: 'successful',
     response: [
@@ -146,13 +155,16 @@ describe('getOrganizationsContactReports', () => {
   };
 
   it('should get contact reports and dispatch to API', async () => {
+    store = mockStore({ auth, organizations: { all: orgs } });
     callApi.mockReturnValue(contactReportsResponse);
+    removeHiddenOrgs.mockReturnValue(orgs);
 
     await store.dispatch(getOrganizationsContactReports());
 
+    expect(removeHiddenOrgs).toHaveBeenCalledWith(orgs, auth.person);
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
-      { period: 'P1W' },
+      { period: 'P1W', organization_ids: `${orgs[1].id},${orgs[3].id},` },
     );
     expect(store.getActions()).toEqual([
       contactReportsResponse,
