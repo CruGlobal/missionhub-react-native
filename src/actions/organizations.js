@@ -68,6 +68,10 @@ export function getOrganizationsContactReports() {
   return async (dispatch, getState) => {
     const organizations = getState().organizations.all;
 
+    if (organizations.length === 0) {
+      return;
+    }
+
     const organization_ids = organizations.reduce(
       (accumulator, current) =>
         current.community && current.id !== GLOBAL_COMMUNITY_ID
