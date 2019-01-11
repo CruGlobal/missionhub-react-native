@@ -16,6 +16,7 @@ import { ACTIONS, MFA_REQUIRED } from '../../../constants';
 import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
 import { navigatePush } from '../../../actions/navigation';
 import { MFA_CODE_SCREEN } from '../../MFACodeScreen';
+import * as common from '../../../utils/common';
 
 let store;
 
@@ -63,6 +64,36 @@ it('renders correctly for forced logout', () => {
       <KeyLoginScreen navigation={createMockNavState({})} forcedLogout={true} />
     </Provider>,
   );
+});
+
+describe('Android', () => {
+  beforeEach(() => (common.isAndroid = true));
+
+  it('should hide sign in logo when the keyboard comes up', () => {
+    const component = renderShallow(
+      <KeyLoginScreen navigation={createMockNavState({})} />,
+    );
+
+    component.instance().keyboardDidShowListener.listener();
+
+    component.update();
+    expect(component).toMatchSnapshot();
+  });
+});
+
+describe('iOS', () => {
+  beforeEach(() => (common.isAndroid = false));
+
+  it('should hide sign in logo when the keyboard comes up', () => {
+    const component = renderShallow(
+      <KeyLoginScreen navigation={createMockNavState({})} />,
+    );
+
+    component.instance().keyboardWillShowListener.listener();
+
+    component.update();
+    expect(component).toMatchSnapshot();
+  });
 });
 
 describe('a login button is clicked', () => {
