@@ -166,7 +166,7 @@ export default class JourneyItem extends Component {
       _type === 'contact_assignment' ||
       _type === 'contact_unassignment'
     ) {
-      iconType = 'journeyWarning';
+      iconType = 'statusIcon';
     }
 
     if (!iconType) {

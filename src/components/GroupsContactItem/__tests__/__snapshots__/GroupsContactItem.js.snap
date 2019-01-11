@@ -616,7 +616,7 @@ exports[`renders contact assignment item 1`] = `
     value={1}
   >
     <Icon
-      name="journeyWarning"
+      name="statusIcon"
       size={32}
       style={
         Object {
@@ -701,7 +701,7 @@ exports[`renders contact unassignment item 1`] = `
     value={1}
   >
     <Icon
-      name="journeyWarning"
+      name="statusIcon"
       size={32}
       style={
         Object {
@@ -786,7 +786,7 @@ exports[`renders contact unassignment item with note 1`] = `
     value={1}
   >
     <Icon
-      name="journeyWarning"
+      name="statusIcon"
       size={32}
       style={
         Object {

@@ -118,7 +118,7 @@ exports[`isContact with contact assignment renders status button if contact is p
       text="Stage"
     />
     <CenteredIconButtonWithText
-      icon="journeyWarning"
+      icon="statusIcon"
       key="some key"
       onClick={[Function]}
       text="Status"
