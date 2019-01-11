@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AppState } from 'react-native';
 import { Provider } from 'react-redux';
-import { I18nextProvider } from 'react-i18next';
+import i18n from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
 import DefaultPreference from 'react-native-default-preference';
 import { Alert } from 'react-native';
@@ -11,9 +11,9 @@ import Config from 'react-native-config';
 import { Crashlytics } from 'react-native-fabric';
 import StackTrace from 'stacktrace-js';
 
+import './i18n';
 import { rollbar } from './utils/rollbar.config';
 import { store, persistor } from './store';
-import i18n from './i18n';
 import './utils/globals';
 import LoadingScreen from './containers/LoadingScreen';
 import AppWithNavigationState from './AppNavigator';
@@ -213,18 +213,16 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <I18nextProvider i18n={i18n}>
-          <PersistGate
-            loading={<LoadingScreen />}
-            onBeforeLift={this.onBeforeLift}
-            persistor={persistor}
-          >
-            {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
-            <PlatformKeyboardAvoidingView>
-              <AppWithNavigationState />
-            </PlatformKeyboardAvoidingView>
-          </PersistGate>
-        </I18nextProvider>
+        <PersistGate
+          loading={<LoadingScreen />}
+          onBeforeLift={this.onBeforeLift}
+          persistor={persistor}
+        >
+          {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
+          <PlatformKeyboardAvoidingView>
+            <AppWithNavigationState />
+          </PlatformKeyboardAvoidingView>
+        </PersistGate>
       </Provider>
     );
   }
