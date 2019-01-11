@@ -187,9 +187,9 @@ export const getIconName = (type, interaction_type_id) => {
   } else if (type === 'answer_sheet') {
     return 'surveyIcon';
   } else if (type === 'contact_assignment') {
-    return 'journeyWarning';
+    return 'statusIcon';
   } else if (type === 'contact_unassignment') {
-    return 'journeyWarning';
+    return 'statusIcon';
   } else if (type === 'interaction') {
     const interaction = interactionsArr.find(i => i.id === interaction_type_id);
     if (interaction) {
