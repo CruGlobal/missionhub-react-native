@@ -3,7 +3,7 @@ import { createStackNavigator } from 'react-navigation';
 import { navigateReset } from '../../actions/navigation';
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
-import { joinCommunity, getMyCommunities } from '../../actions/organizations';
+import { joinCommunity } from '../../actions/organizations';
 import { setScrollGroups } from '../../actions/swipe';
 import { loadHome } from '../../actions/auth';
 import DeepLinkConfirmJoinGroupScreen, {
