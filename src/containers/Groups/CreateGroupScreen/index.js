@@ -41,7 +41,6 @@ class CreateGroupScreen extends Component {
   state = {
     name: '',
     imageData: null,
-    saving: false,
   };
 
   onChangeText = text => this.setState({ name: text });
@@ -55,16 +54,11 @@ class CreateGroupScreen extends Component {
       return Promise.resolve();
     }
 
-    try {
-      this.setState({ saving: true });
-      const results = await dispatch(addNewOrganization(text, imageData));
-      const newOrgId = results.response.id;
-      // Load the list of communities
-      await dispatch(getMyCommunities());
-      this.getNewOrg(newOrgId);
-    } finally {
-      this.setState({ saving: false });
-    }
+    const results = await dispatch(addNewOrganization(text, imageData));
+    const newOrgId = results.response.id;
+    // Load the list of communities
+    await dispatch(getMyCommunities());
+    this.getNewOrg(newOrgId);
   };
 
   getNewOrg = orgId => {
@@ -103,7 +97,7 @@ class CreateGroupScreen extends Component {
 
   render() {
     const { t } = this.props;
-    const { name, saving } = this.state;
+    const { name } = this.state;
 
     return (
       <View style={styles.container}>
@@ -152,7 +146,7 @@ class CreateGroupScreen extends Component {
         <Flex align="stretch" justify="end">
           <Button
             type="secondary"
-            disabled={!name || saving}
+            disabled={!name}
             onPress={this.createCommunity}
             text={t('createCommunity').toUpperCase()}
             style={styles.createButton}
