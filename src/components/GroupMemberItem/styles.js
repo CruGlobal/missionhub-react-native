@@ -7,6 +7,7 @@ export default StyleSheet.create({
     paddingVertical: 10,
     paddingLeft: 16,
     paddingRight: 0,
+    height: 50,
   },
   detailsWrap: {
     marginTop: 1,

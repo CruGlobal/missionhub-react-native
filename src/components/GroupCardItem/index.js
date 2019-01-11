@@ -75,28 +75,35 @@ export default class GroupCardItem extends Component {
     return (
       <Card
         onPress={onPress ? this.handlePress : undefined}
-        style={[
-          styles.card,
-          group.user_created ? styles.userCreatedImage : undefined,
-        ]}
+        style={styles.card}
       >
-        <Image source={source} resizeMode="cover" style={styles.image} />
-        <Flex justify="center" direction="row" style={styles.infoWrap}>
-          <Flex value={1}>
-            <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
-            {this.renderInfo()}
-          </Flex>
-          {onJoin ? (
-            <Flex direction="column" justify="center">
-              <Button
-                type="transparent"
-                style={[styles.joinButton]}
-                buttonTextStyle={styles.joinButtonText}
-                text={t('join').toUpperCase()}
-                onPress={this.handleJoin}
-              />
-            </Flex>
+        <Flex
+          value={1}
+          style={[
+            styles.content,
+            group.user_created ? styles.userCreatedContent : undefined,
+          ]}
+        >
+          {source ? (
+            <Image source={source} resizeMode="cover" style={styles.image} />
           ) : null}
+          <Flex justify="center" direction="row" style={styles.infoWrap}>
+            <Flex value={1}>
+              <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
+              {this.renderInfo()}
+            </Flex>
+            {onJoin ? (
+              <Flex direction="column" justify="center">
+                <Button
+                  type="transparent"
+                  style={[styles.joinButton]}
+                  buttonTextStyle={styles.joinButtonText}
+                  text={t('join').toUpperCase()}
+                  onPress={this.handleJoin}
+                />
+              </Flex>
+            ) : null}
+          </Flex>
         </Flex>
       </Card>
     );

@@ -107,9 +107,7 @@ export function configureNotificationHandler() {
 
 function handleNotification(notification) {
   return async (dispatch, getState) => {
-    if (!notification.userInteraction) {
-      // notification was not opened by the user from the notification area
-      // so we do not need to navigate anywhere
+    if (isAndroid && !notification.userInteraction) {
       return;
     }
 

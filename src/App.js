@@ -153,9 +153,11 @@ export default class App extends Component {
         errorToReport.message,
         stackFrames,
       );
-      rollbar.error(`${errorToReport.title}\n${errorToReport.message}`, {
-        stackTrace: stackFrames,
-      });
+
+      rollbar.error(
+        errorToReport.originalError ||
+          Error(`${errorToReport.title}\n${errorToReport.message}`),
+      );
     }
   }
 

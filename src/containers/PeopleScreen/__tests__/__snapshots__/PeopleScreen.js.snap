@@ -1,7 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PeopleScreen mapStateToProps should provide necessary props for Casey with no steps 1`] = `
+Object {
+  "hasNoContacts": true,
+  "isJean": false,
+  "items": Array [
+    Object {
+      "id": "me person",
+    },
+  ],
+}
+`;
+
 exports[`PeopleScreen mapStateToProps should provide the necessary props for Casey 1`] = `
 Object {
+  "hasNoContacts": false,
   "isJean": false,
   "items": Array [
     Object {
@@ -22,6 +35,7 @@ Object {
 
 exports[`PeopleScreen mapStateToProps should provide the necessary props for Jean 1`] = `
 Object {
+  "hasNoContacts": false,
   "isJean": true,
   "items": Array [
     Object {
@@ -60,6 +74,24 @@ Object {
         Object {
           "id": 21,
           "type": "person",
+        },
+      ],
+      "type": "organization",
+    },
+  ],
+}
+`;
+
+exports[`PeopleScreen mapStateToProps should provide the necessary props for Jean with no contacts 1`] = `
+Object {
+  "hasNoContacts": true,
+  "isJean": true,
+  "items": Array [
+    Object {
+      "id": "personal",
+      "people": Array [
+        Object {
+          "id": "me person",
         },
       ],
       "type": "organization",
@@ -200,5 +232,51 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
     refreshing={false}
     sections={true}
   />
+</Component>
+`;
+
+exports[`PeopleScreen renders empty correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    right={
+      <IconButton
+        name="addContactIcon"
+        onPress={[Function]}
+        size={24}
+        type="MissionHub"
+      />
+    }
+    shadow={true}
+    title="PEOPLE"
+  />
+  <Translate(PeopleList)
+    items={
+      Array [
+        Object {
+          "id": "me person",
+        },
+      ]
+    }
+    onAddContact={[Function]}
+    onRefresh={[Function]}
+    onSelect={[Function]}
+    refreshing={false}
+    sections={false}
+  />
+  <Connect(Translate(TakeAStepWithSomeoneButton)) />
 </Component>
 `;
