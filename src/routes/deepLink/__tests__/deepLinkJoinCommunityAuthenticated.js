@@ -5,11 +5,13 @@ import thunk from 'redux-thunk';
 import { DeepLinkJoinCommunityAuthenticatedScreens } from '../deepLinkJoinCommunityAuthenticated';
 import { renderShallow } from '../../../../testUtils';
 import callApi from '../../../actions/api';
+import { loadHome } from '../../../actions/auth';
 import { GROUP_TAB_SCROLL_ON_MOUNT } from '../../../constants';
 import { GROUP_SCREEN } from '../../../containers/Groups/GroupScreen';
 import { DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN } from '../../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
 
 jest.mock('../../../actions/api');
+jest.mock('../../../actions/auth');
 
 const community = { id: '1', community_url: '1234567890123456' };
 
@@ -21,10 +23,14 @@ const store = configureStore([thunk])({
   },
 });
 
+const loadHomeResponse = { type: 'load home' };
+
 beforeEach(() => {
   store.clearActions();
   callApi.mockClear();
+  loadHome.mockClear();
   callApi.mockReturnValue(() => Promise.resolve());
+  loadHome.mockReturnValue(loadHomeResponse);
 });
 
 describe('JoinGroupScreen next', () => {
@@ -50,9 +56,10 @@ describe('JoinGroupScreen next', () => {
     );
 
     expect(store.getActions()).toEqual([
+      loadHomeResponse,
       {
         type: GROUP_TAB_SCROLL_ON_MOUNT,
-        value: undefined,
+        value: '1',
       },
       {
         actions: [

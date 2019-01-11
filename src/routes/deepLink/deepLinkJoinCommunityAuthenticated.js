@@ -5,6 +5,7 @@ import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { joinCommunity } from '../../actions/organizations';
 import { setScrollGroups } from '../../actions/swipe';
+import { loadHome } from '../../actions/auth';
 import DeepLinkConfirmJoinGroupScreen, {
   DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN,
 } from '../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
@@ -21,7 +22,8 @@ export const DeepLinkJoinCommunityAuthenticatedScreens = {
         await dispatch(
           joinCommunity(community.id, null, community.community_url),
         );
-        dispatch(setScrollGroups());
+        await dispatch(loadHome());
+        dispatch(setScrollGroups(community.id));
         dispatch(
           navigateReset(
             community.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN,
