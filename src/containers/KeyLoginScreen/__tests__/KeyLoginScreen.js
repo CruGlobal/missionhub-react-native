@@ -79,6 +79,19 @@ describe('Android', () => {
     component.update();
     expect(component).toMatchSnapshot();
   });
+
+  it('should remove the listeners on unmount', () => {
+    const instance = renderShallow(
+      <KeyLoginScreen navigation={createMockNavState({})} />,
+    ).instance();
+    instance.keyboardDidShowListener.remove = jest.fn();
+    instance.keyboardDidHideListener.remove = jest.fn();
+
+    instance.componentWillUnmount();
+
+    expect(instance.keyboardDidShowListener.remove).toHaveBeenCalled();
+    expect(instance.keyboardDidHideListener.remove).toHaveBeenCalled();
+  });
 });
 
 describe('iOS', () => {
@@ -93,6 +106,19 @@ describe('iOS', () => {
 
     component.update();
     expect(component).toMatchSnapshot();
+  });
+
+  it('should remove the listeners on unmount', () => {
+    const instance = renderShallow(
+      <KeyLoginScreen navigation={createMockNavState({})} />,
+    ).instance();
+    instance.keyboardWillShowListener.remove = jest.fn();
+    instance.keyboardWillHideListener.remove = jest.fn();
+
+    instance.componentWillUnmount();
+
+    expect(instance.keyboardWillShowListener.remove).toHaveBeenCalled();
+    expect(instance.keyboardWillHideListener.remove).toHaveBeenCalled();
   });
 });
 
