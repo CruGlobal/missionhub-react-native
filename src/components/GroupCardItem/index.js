@@ -5,8 +5,10 @@ import PropTypes from 'prop-types';
 
 import { Text, Flex, Card, Button } from '../common';
 import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.png';
+import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
 import Dot from '../Dot';
 import { getFirstNameAndLastInitial } from '../../utils/common';
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
 
 import styles from './styles';
 
@@ -64,6 +66,8 @@ export default class GroupCardItem extends Component {
     let source;
     if (group.community_photo_url) {
       source = { uri: group.community_photo_url };
+    } else if (group.id === GLOBAL_COMMUNITY_ID) {
+      source = GLOBAL_COMMUNITY_IMAGE;
     } else if (group.user_created) {
       source = undefined;
     } else {
@@ -81,7 +85,9 @@ export default class GroupCardItem extends Component {
           value={1}
           style={[
             styles.content,
-            group.user_created ? styles.userCreatedContent : undefined,
+            group.user_created && group.id !== GLOBAL_COMMUNITY_ID
+              ? styles.userCreatedContent
+              : undefined,
           ]}
         >
           {source ? (
