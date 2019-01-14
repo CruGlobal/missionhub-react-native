@@ -198,7 +198,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                   ]
                 }
               >
-                COMMUNITIES
+                COMMUNITIES [BETA]
               </Text>
             </View>
             <View
@@ -480,7 +480,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                     ]
                   }
                 >
-                  communities
+                  communities [beta]
                 </Text>
                 <Text
                   accessible={true}
