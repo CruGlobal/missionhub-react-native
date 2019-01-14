@@ -19,7 +19,7 @@ import {
 
 import styles from './styles';
 
-const API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE =
+export const API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE =
   'Permission You must log in for admin or owner permissions';
 
 @translate('groupMemberOptions')

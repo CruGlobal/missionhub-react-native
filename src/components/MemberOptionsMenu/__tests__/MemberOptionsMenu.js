@@ -4,7 +4,9 @@ import i18next from 'i18next';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import MemberOptionsMenu from '..';
+import MemberOptionsMenu, {
+  API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE,
+} from '..';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import {
@@ -157,7 +159,6 @@ describe('confirm screen', () => {
 
   describe('Make Admin', () => {
     const makeAdminResponse = { type: 'make admin' };
-    makeAdmin.mockReturnValue(makeAdminResponse);
 
     beforeEach(() => {
       props = {
@@ -178,6 +179,8 @@ describe('confirm screen', () => {
     });
 
     it('displays confirm screen', () => {
+      makeAdmin.mockReturnValue(makeAdminResponse);
+
       screen.props().actions[0].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(
@@ -200,10 +203,34 @@ describe('confirm screen', () => {
     });
 
     it('calls makeAdmin action', async () => {
+      makeAdmin.mockReturnValue(makeAdminResponse);
+
       await screen.instance().makeAdmin();
 
       expect(store.getActions()).toEqual([makeAdminResponse]);
       expect(makeAdmin).toHaveBeenCalledWith(otherId, personOrgPermission.id);
+    });
+
+    it('shows error message for Try It Now users', async () => {
+      makeAdmin.mockReturnValue(() =>
+        Promise.reject({
+          apiError: {
+            errors: [
+              {
+                detail: {
+                  permission_id: [API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE],
+                },
+              },
+            ],
+          },
+        }),
+      );
+
+      await screen.instance().makeAdmin();
+
+      expect(Alert.alert).toHaveBeenCalledWith(
+        i18next.t('groupMemberOptions:tryItNowAdminOwnerErrorMessage'),
+      );
     });
   });
 
