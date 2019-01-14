@@ -22,10 +22,6 @@ import styles from './styles';
 const API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE =
   'Permission You must log in for admin or owner permissions';
 
-const USER_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE =
-  'This Member has not yet created an account. ' +
-  'Once they sign up, you can try this again.';
-
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
   leaveCommunity = async () => {
@@ -40,7 +36,7 @@ class MemberOptionsMenu extends Component {
     action,
     errorDetailKeyFunction,
   ) => {
-    const { dispatch } = this.props;
+    const { dispatch, t } = this.props;
 
     try {
       await dispatch(action);
@@ -56,7 +52,7 @@ class MemberOptionsMenu extends Component {
           API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE,
         )
       ) {
-        return Alert.alert(USER_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE);
+        return Alert.alert(t('tryItNowAdminOwnerErrorMessage'));
       }
 
       throw error;
