@@ -152,7 +152,6 @@ const myImpact = {
 export const CONTACT_PERSON_TABS = [personSteps, personNotes, personJourney];
 export const IS_USER_CREATED_MEMBER_PERSON_TABS = [
   memberCelebrate,
-  ...CONTACT_PERSON_TABS,
   memberImpact,
 ];
 export const IS_GROUPS_MEMBER_PERSON_TABS = [

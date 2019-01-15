@@ -565,6 +565,9 @@ export default {
       modalTitle: 'Remove {{personName}} from {{communityName}}?',
       confirmButtonText: 'Remove',
     },
+    tryItNowAdminOwnerErrorMessage:
+      'This Member has not yet created an account. ' +
+      'Once they sign up, you can try this again.',
   },
   groupsImpact: {
     title: '',

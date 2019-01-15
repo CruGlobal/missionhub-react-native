@@ -19,6 +19,9 @@ import {
 
 import styles from './styles';
 
+export const API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE =
+  'Permission You must log in for admin or owner permissions';
+
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
   leaveCommunity = async () => {
@@ -29,10 +32,40 @@ class MemberOptionsMenu extends Component {
     dispatch(navigateBack());
   };
 
-  makeAdmin = () => {
-    const { dispatch, person, personOrgPermission } = this.props;
+  updatePermissionHandleTryItNowError = async (
+    action,
+    tryItNowErrorMessageFunction,
+  ) => {
+    const { dispatch, t } = this.props;
 
-    dispatch(makeAdmin(person.id, personOrgPermission.id));
+    try {
+      await dispatch(action);
+    } catch (error) {
+      const errorDetail =
+        error.apiError &&
+        error.apiError.errors &&
+        error.apiError.errors[0].detail;
+      const errorMessage =
+        errorDetail && tryItNowErrorMessageFunction(errorDetail);
+
+      if (
+        errorMessage &&
+        errorMessage.includes(API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE)
+      ) {
+        return Alert.alert(t('tryItNowAdminOwnerErrorMessage'));
+      }
+
+      throw error;
+    }
+  };
+
+  makeAdmin = () => {
+    const { person, personOrgPermission } = this.props;
+
+    return this.updatePermissionHandleTryItNowError(
+      makeAdmin(person.id, personOrgPermission.id),
+      errorDetail => errorDetail.permission_id && errorDetail.permission_id[0],
+    );
   };
 
   removeAsAdmin = () => {
@@ -42,9 +75,12 @@ class MemberOptionsMenu extends Component {
   };
 
   makeOwner = () => {
-    const { dispatch, organization, person } = this.props;
+    const { organization, person } = this.props;
 
-    dispatch(transferOrgOwnership(organization.id, person.id));
+    return this.updatePermissionHandleTryItNowError(
+      transferOrgOwnership(organization.id, person.id),
+      errorDetail => errorDetail,
+    );
   };
 
   removeFromCommunity = async () => {
