@@ -130,6 +130,28 @@ describe('MemberOptionsMenu', () => {
         otherId,
       );
     });
+
+    it('shows error message for Try It Now users', async () => {
+      transferOrgOwnership.mockReturnValue(() =>
+        Promise.reject({
+          apiError: {
+            errors: [
+              {
+                detail: 'blah ' + API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE,
+              },
+            ],
+          },
+        }),
+      );
+
+      await renderShallow(<MemberOptionsMenu {...props} />)
+        .instance()
+        .makeOwner();
+
+      expect(Alert.alert).toHaveBeenCalledWith(
+        i18next.t('groupMemberOptions:tryItNowAdminOwnerErrorMessage'),
+      );
+    });
   });
 
   it('renders for owner looking at admin', () => {
