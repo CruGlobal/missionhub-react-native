@@ -34,7 +34,7 @@ class MemberOptionsMenu extends Component {
 
   updatePermissionHandleTryItNowError = async (
     action,
-    errorDetailKeyFunction,
+    tryItNowErrorMessageFunction,
   ) => {
     const { dispatch, t } = this.props;
 
@@ -45,11 +45,12 @@ class MemberOptionsMenu extends Component {
         error.apiError &&
         error.apiError.errors &&
         error.apiError.errors[0].detail;
-      const expectedError = errorDetail && errorDetailKeyFunction(errorDetail);
+      const errorMessage =
+        errorDetail && tryItNowErrorMessageFunction(errorDetail);
 
       if (
-        expectedError &&
-        expectedError.includes(API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE)
+        errorMessage &&
+        errorMessage.includes(API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE)
       ) {
         return Alert.alert(t('tryItNowAdminOwnerErrorMessage'));
       }
