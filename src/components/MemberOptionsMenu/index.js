@@ -45,12 +45,11 @@ class MemberOptionsMenu extends Component {
         error.apiError &&
         error.apiError.errors &&
         error.apiError.errors[0].detail;
+      const expectedError = errorDetail && errorDetailKeyFunction(errorDetail);
 
       if (
-        errorDetail &&
-        errorDetailKeyFunction(errorDetail).includes(
-          API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE,
-        )
+        expectedError &&
+        expectedError.includes(API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE)
       ) {
         return Alert.alert(t('tryItNowAdminOwnerErrorMessage'));
       }

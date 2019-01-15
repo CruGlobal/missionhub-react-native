@@ -152,6 +152,28 @@ describe('MemberOptionsMenu', () => {
         i18next.t('groupMemberOptions:tryItNowAdminOwnerErrorMessage'),
       );
     });
+
+    it('throws unexpected errors', async () => {
+      expect.assertions(1);
+      const error = {
+        apiError: {
+          errors: [
+            {
+              detail: 'SCOTTTTYYYYYYYYYYYYYYYYYYYYYY',
+            },
+          ],
+        },
+      };
+      transferOrgOwnership.mockReturnValue(() => Promise.reject(error));
+
+      try {
+        await renderShallow(<MemberOptionsMenu {...props} />)
+          .instance()
+          .makeOwner();
+      } catch (e) {
+        expect(e).toEqual(error);
+      }
+    });
   });
 
   it('renders for owner looking at admin', () => {
@@ -253,6 +275,26 @@ describe('confirm screen', () => {
       expect(Alert.alert).toHaveBeenCalledWith(
         i18next.t('groupMemberOptions:tryItNowAdminOwnerErrorMessage'),
       );
+    });
+
+    it('throws unexpected errors', async () => {
+      expect.assertions(1);
+      const error = {
+        apiError: {
+          errors: [
+            {
+              detail: 'SCOTTTTYYYYYYYYYYYYYYYYYYYYYY',
+            },
+          ],
+        },
+      };
+      makeAdmin.mockReturnValue(() => Promise.reject(error));
+
+      try {
+        await screen.instance().makeAdmin();
+      } catch (e) {
+        expect(e).toEqual(error);
+      }
     });
   });
 
