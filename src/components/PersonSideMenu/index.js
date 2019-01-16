@@ -20,6 +20,7 @@ import {
   showUnassignButton,
   showDeleteButton,
   orgIsCru,
+  orgIsUserCreated,
 } from '../../utils/common';
 
 @translate('contactSideMenu')
@@ -70,6 +71,7 @@ class PersonSideMenu extends Component {
       t,
       dispatch,
       isCruOrg,
+      isUserCreated,
       personIsCurrentUser,
       myId,
       person,
@@ -91,17 +93,19 @@ class PersonSideMenu extends Component {
     );
 
     const menuItems = [
-      {
-        label: t('edit'),
-        action: () =>
-          dispatch(
-            navigatePush(ADD_CONTACT_SCREEN, {
-              person,
-              organization,
-              onComplete: () => dispatch(navigateBack()),
-            }),
-          ),
-      },
+      !isUserCreated
+        ? {
+            label: t('edit'),
+            action: () =>
+              dispatch(
+                navigatePush(ADD_CONTACT_SCREEN, {
+                  person,
+                  organization,
+                  onComplete: () => dispatch(navigateBack()),
+                }),
+              ),
+          }
+        : null,
       showDelete
         ? {
             label: t('delete'),
@@ -138,6 +142,8 @@ class PersonSideMenu extends Component {
 PersonSideMenu.propTypes = {
   person: PropTypes.object.isRequired,
   organization: PropTypes.object.isRequired,
+  isCruOrg: PropTypes.bool.isRequired,
+  isUserCreated: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = ({ auth, people }, { navigation }) => {
@@ -161,6 +167,7 @@ const mapStateToProps = ({ auth, people }, { navigation }) => {
     contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
     orgPermission,
     isCruOrg: orgIsCru(navOrg),
+    isUserCreated: orgIsUserCreated(navOrg),
   };
 };
 

@@ -104,7 +104,6 @@ describe('PersonSideMenu', () => {
       createComponent({ organization: newOrg });
 
       expect(component).toMatchSnapshot();
-      testEditClick(component, newOrg);
     });
 
     it('should navigate back 2 on submit reason', () => {
