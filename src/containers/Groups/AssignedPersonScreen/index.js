@@ -155,7 +155,9 @@ export const IS_USER_CREATED_MEMBER_PERSON_TABS = [
   memberImpact,
 ];
 export const IS_GROUPS_MEMBER_PERSON_TABS = [
-  ...IS_USER_CREATED_MEMBER_PERSON_TABS,
+  memberCelebrate,
+  ...CONTACT_PERSON_TABS,
+  memberImpact,
   assignedContacts,
 ];
 const MEMBER_PERSON_TABS = [...CONTACT_PERSON_TABS, memberImpact];
