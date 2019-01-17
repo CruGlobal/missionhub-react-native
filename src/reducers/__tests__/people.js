@@ -179,6 +179,7 @@ it('should save new people in new org', () => {
 
   expect(state.allByOrg).toEqual({
     [org1Id]: {
+      id: org1Id,
       people: {
         [person1Id]: newPerson1,
         [person2Id]: newPerson2,
