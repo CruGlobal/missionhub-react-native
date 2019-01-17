@@ -7,6 +7,7 @@ import App from './src/App';
 YellowBox.ignoreWarnings([
   'Warning: isMounted(...) is deprecated',
   'Module RCTImageLoader',
+  'Class RCTCxxModule',
 ]);
 
 AppRegistry.registerComponent('MissionHub', () => App);
