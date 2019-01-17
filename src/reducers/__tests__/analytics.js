@@ -9,7 +9,7 @@ import { REQUESTS } from '../../actions/api';
 
 const guid = '340ba6de-ff51-408c-ab54-9a512acb35ff';
 
-jest.mock('../../i18n', () => ({
+jest.mock('i18next', () => ({
   language: 'fr-FR',
   t: jest.fn(),
 }));

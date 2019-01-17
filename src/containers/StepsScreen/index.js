@@ -305,7 +305,7 @@ export class StepsScreen extends Component {
   }
 
   renderSteps() {
-    const { steps } = this.props;
+    const { steps, reminders } = this.props;
 
     return (
       <View style={{ flex: 1 }}>
@@ -332,7 +332,9 @@ export class StepsScreen extends Component {
           {this.renderReminders()}
           {this.renderList()}
         </ScrollView>
-        {steps.length === 0 ? <TakeAStepWithSomeoneButton /> : null}
+        {steps.length > 0 || reminders.length > 0 ? null : (
+          <TakeAStepWithSomeoneButton />
+        )}
       </View>
     );
   }

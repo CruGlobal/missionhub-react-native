@@ -131,6 +131,18 @@ describe('StepsScreen', () => {
     expect(component).toMatchSnapshot();
   });
 
+  it('renders with no steps (focused or unfocused) correctly', () => {
+    component = createComponent({ ...propsWithoutSteps, reminders: [] });
+    component = stopLoad(component);
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders with no focused steps', () => {
+    component = createComponent({ ...propsWithSteps, reminders: [] });
+    component = stopLoad(component);
+    expect(component).toMatchSnapshot();
+  });
+
   it('renders screen with steps correctly', () => {
     component = createComponent(propsWithSteps);
     component = stopLoad(component);

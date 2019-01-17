@@ -31,14 +31,14 @@ class MFACodeScreen extends Component {
       );
       Keyboard.dismiss();
     } catch (error) {
+      this.setState({ isLoading: false });
+
       if (error && error.apiError['thekey_authn_error'] === MFA_REQUIRED) {
         Alert.alert(t('mfaIncorrect'));
         return;
       }
 
       throw error;
-    } finally {
-      this.setState({ isLoading: false });
     }
   };
 
