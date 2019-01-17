@@ -6,7 +6,6 @@ import Adapter from 'enzyme-adapter-react-16/build/index';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import '../../../i18n';
 import { getPersonNote, savePersonNote } from '../../../actions/person';
 
 import { ContactNotes } from '..';
