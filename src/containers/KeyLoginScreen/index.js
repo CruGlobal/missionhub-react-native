@@ -119,6 +119,8 @@ class KeyLoginScreen extends Component {
       );
       Keyboard.dismiss();
     } catch (error) {
+      this.setState({ isLoading: false });
+
       const apiError = error.apiError;
       let errorMessage;
       let action;
@@ -151,8 +153,6 @@ class KeyLoginScreen extends Component {
       }
 
       dispatch(trackActionWithoutData(action));
-    } finally {
-      this.setState({ isLoading: false });
     }
   };
 
