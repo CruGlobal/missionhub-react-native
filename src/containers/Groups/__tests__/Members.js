@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alert, Share } from 'react-native';
+import i18n from 'i18next';
 
 import Members from '../Members';
 import {
@@ -14,7 +15,6 @@ import {
   getOrganizationMembersNextPage,
 } from '../../../actions/organizations';
 import { ORG_PERMISSIONS } from '../../../constants';
-import i18n from '../../../i18n';
 import { removeGroupInviteInfo } from '../../../actions/swipe';
 
 jest.mock('../../../actions/organizations', () => ({
