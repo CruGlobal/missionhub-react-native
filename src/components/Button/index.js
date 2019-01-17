@@ -20,13 +20,15 @@ export default class Button extends Component {
 
   componentWillUnmount() {
     // Make sure to clear the timeout when the Button unmounts
+    clearTimeout(this.clickDisableTimeout);
     this.setClickDisableTimeout = () => {};
   }
 
   setClickDisableTimeout = () => {
-    setTimeout(() => {
-      this.setState({ clickedDisabled: false });
-    }, 400);
+    this.clickDisableTimeout = setTimeout(
+      () => this.setState({ clickedDisabled: false }),
+      400,
+    );
   };
 
   handlePress = async (...args) => {
