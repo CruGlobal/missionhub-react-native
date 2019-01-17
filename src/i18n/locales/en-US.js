@@ -482,6 +482,8 @@ export default {
     challengeAccepted: '{{initiator}} accepted a Challenge:',
     challengeCompleted: '{{initiator}} completed a Challenge:',
     communityCreated: '{{initiator}} created {{communityName}}!',
+    joinedCommunity:
+      '{{initiator}} joined {{communityName}}! Now you can see and celebrate the steps of faith they are taking.',
   },
   challengeFeeds: {
     past: 'Past Challenges',

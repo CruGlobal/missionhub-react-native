@@ -95,13 +95,19 @@ Array [
   Object {
     "data": Array [
       Object {
+        "celebrateable_type": "organizational_permission",
+        "changed_attribute_name": "created_at",
+        "changed_attribute_value": "2016-12-25 00:09:00 UTC",
+        "id": "11",
+      },
+      Object {
         "celebrateable_type": "organization",
         "changed_attribute_name": "created_at",
         "changed_attribute_value": "2016-12-25 00:02:00 UTC",
         "id": "10",
       },
     ],
-    "date": "2016-12-25 00:02:00 UTC",
+    "date": "2016-12-25 00:09:00 UTC",
     "id": 6,
   },
 ]
@@ -202,13 +208,19 @@ Array [
   Object {
     "data": Array [
       Object {
+        "celebrateable_type": "organizational_permission",
+        "changed_attribute_name": "created_at",
+        "changed_attribute_value": "2016-12-25 00:09:00 UTC",
+        "id": "11",
+      },
+      Object {
         "celebrateable_type": "organization",
         "changed_attribute_name": "created_at",
         "changed_attribute_value": "2016-12-25 00:02:00 UTC",
         "id": "10",
       },
     ],
-    "date": "2016-12-25 00:02:00 UTC",
+    "date": "2016-12-25 00:09:00 UTC",
     "id": 6,
   },
 ]

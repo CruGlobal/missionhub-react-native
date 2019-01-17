@@ -423,4 +423,5 @@ export const CELEBRATEABLE_TYPES = {
     completed: 'completed_at',
   },
   createdCommunity: 'organization',
+  joinedCommunity: 'organizational_permission',
 };
