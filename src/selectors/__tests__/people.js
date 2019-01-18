@@ -95,6 +95,11 @@ const organizationTwo = {
         { ...reverse_contact_assignment, organization: { id: '200' } },
       ],
     },
+    [auth.person.id]: {
+      id: auth.person.id,
+      type: 'person',
+      first_name: 'ME in an org',
+    },
   },
 };
 
