@@ -8,7 +8,7 @@ export function reloadJourney(personId, orgId) {
     const org = getState().journey[orgId ? orgId : 'personal'];
     const personFeed = org && org[personId];
     // If personFeed has been loaded, we need to reload it. If it has not, wait for ContactJourney screen to lazy load it
-    return personFeed && (await dispatch(getJourney(personId, orgId)));
+    personFeed && (await dispatch(getJourney(personId, orgId)));
   };
 }
 

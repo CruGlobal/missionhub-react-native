@@ -134,9 +134,7 @@ export const searchRemoveFilter = async (
   if (defaultFilterKeys.includes(key)) {
     newState.defaultResults = [];
   }
-  return await new Promise(resolve =>
-    scope.setState(newState, () => resolve()),
-  );
+  await new Promise(resolve => scope.setState(newState, () => resolve()));
 };
 
 const DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ss[Z]';

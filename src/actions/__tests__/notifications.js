@@ -291,7 +291,7 @@ describe('askNotificationPermissions', () => {
       );
       store.dispatch(configureNotificationHandler());
       store.dispatch(requestNativePermissions());
-      return await deepLinkComplete;
+      await deepLinkComplete;
     }
 
     describe('userInteraction = false', () => {
