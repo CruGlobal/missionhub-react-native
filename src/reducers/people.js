@@ -71,7 +71,7 @@ export default function peopleReducer(state = initialState, action) {
 function loadPeople(state, action) {
   const { response, orgId } = action;
 
-  const org = state.allByOrg[orgId] || {};
+  const org = state.allByOrg[orgId] || { id: orgId };
   const allPeople = org.people || {};
   response.forEach(person => {
     const existing = allPeople[person.id];
