@@ -69,7 +69,7 @@ class PersonStageScreen extends Component {
     } = this.props;
 
     if (next) {
-      dispatch(next({ stage }));
+      dispatch(next({ stage, contactId, name, orgId }));
     } else if (onComplete) {
       onComplete(stage);
       if (!noNav) {

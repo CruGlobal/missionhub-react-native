@@ -5,6 +5,7 @@ import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj, getStageIndex } from '../../utils/common';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { firstTime, loadHome } from '../../actions/auth';
+import { reloadJourney } from '../../actions/journey';
 import {
   completeOnboarding,
   stashCommunityToJoin,
@@ -21,6 +22,12 @@ import StageScreen, { STAGE_SCREEN } from '../../containers/StageScreen';
 import PersonStageScreen, {
   PERSON_STAGE_SCREEN,
 } from '../../containers/PersonStageScreen';
+import SelectMyStepScreen, {
+  SELECT_MY_STEP_SCREEN,
+} from '../../containers/SelectMyStepScreen';
+import PersonSelectStepScreen, {
+  PERSON_SELECT_STEP_SCREEN,
+} from '../../containers/PersonSelectStepScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
@@ -56,7 +63,6 @@ export const CompleteStepFlowScreens = {
           authPerson,
         );
         const stageId = getStageId(isMe, assignment, authPerson);
-        console.log(stageId);
 
         const hasHitCount = hasHitThreeSteps(steps, personId);
         const isNotSure = hasNotSureStage(stagesObj, stageId);
@@ -100,6 +106,7 @@ export const CompleteStepFlowScreens = {
             enableBackButton: false,
             noNav: true,
             questionText,
+            orgId,
             ...(isMe
               ? { contactId: authPerson.id }
               : {
@@ -114,15 +121,45 @@ export const CompleteStepFlowScreens = {
     buildTrackingObj(),
   ),
   [STAGE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(StageScreen, ({ signin }) => dispatch => {}),
+    wrapNextAction(StageScreen, ({ stage, personId, orgId }) => dispatch => {
+      dispatch(reloadJourney(personId, orgId));
+      return dispatch(
+        navigatePush(SELECT_MY_STEP_SCREEN, {
+          enableBackButton: true,
+          contactStage: stage,
+        }),
+      );
+    }),
     buildTrackingObj(),
   ),
   [PERSON_STAGE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(PersonStageScreen, () => async dispatch => {}),
+    wrapNextAction(
+      PersonStageScreen,
+      ({ stage, contactId, name, orgId }) => dispatch => {
+        dispatch(reloadJourney(personId, orgId));
+        dispatch(
+          navigatePush(PERSON_SELECT_STEP_SCREEN, {
+            contactStage: stage,
+            contactId,
+            contactName: name,
+          }),
+        );
+      },
+    ),
     buildTrackingObj(),
   ),
+  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
+    wrapNextAction(SelectMyStepScreen, () => dispatch => {
+      return dispatch(navigatePush(CELEBRATION_SCREEN));
+    }),
+  ),
+  [PERSON_STAGE_SCREEN]: buildTrackedScreen(
+    wrapNextAction(PersonSelectStepScreen, () => dispatch => {
+      return dispatch(navigatePush(CELEBRATION_SCREEN));
+    }),
+  ),
   [CELEBRATION_SCREEN]: buildTrackedScreen(
-    wrapNextAction(CelebrationScreen, () => async dispatch => {}),
+    wrapNextAction(CelebrationScreen, () => dispatch => {}),
     buildTrackingObj(),
   ),
 };
