@@ -105,7 +105,7 @@ class PathwayStageScreen extends Component {
 
   renderStage({ item, index }) {
     const { firstItem, activeButtonText, buttonText } = this.props;
-    const isActive = firstItem && firstItem === index;
+    const isActive = firstItem >= 0 && firstItem === index;
     return (
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>

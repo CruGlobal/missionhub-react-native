@@ -29,7 +29,7 @@ export const CompleteStepFlowScreens = {
   [ADD_STEP_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       AddStepScreen,
-      ({ text, stepId, person, orgId }) => async (dispatch, getState) => {
+      ({ text, stepId, personId, orgId }) => async (dispatch, getState) => {
         if (text) {
           await dispatch(updateChallengeNote(stepId, text));
           dispatch(
@@ -44,45 +44,52 @@ export const CompleteStepFlowScreens = {
           auth: { person: authPerson },
           steps,
         } = getState();
-        const personId = person.id;
 
-        const hasHitCount = hasHitThreeSteps(steps.userStepCount[personId]);
-        const isMe = authPerson.id === personId;
-        const assignment = await getReverseAssignment(
-          dispatch,
+        const isMe = personId === authPerson.id;
+        const person = isMe
+          ? authPerson
+          : (await dispatch(getPersonDetails(personId, orgId))).person;
+        const assignment = await getReverseContactAssignment(
           isMe,
-          personId,
+          person,
           orgId,
           authPerson,
         );
         const stageId = getStageId(isMe, assignment, authPerson);
+        console.log(stageId);
+
+        const hasHitCount = hasHitThreeSteps(steps, personId);
         const isNotSure = hasNotSureStage(stagesObj, stageId);
 
         // If person hasn't hit the count and they're NOT on the "not sure" stage
         // Send them through to celebrate and complete
         if (!hasHitCount && !isNotSure) {
-          dispatch(navigatePush(CELEBRATION_SCREEN));
+          return dispatch(navigatePush(CELEBRATION_SCREEN));
         }
 
         const firstItemIndex = getStageIndex(stages, stageId);
         const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
         const subsection = isMe ? 'self' : 'person';
+        const questionText = isMe
+          ? isNotSure
+            ? i18next.t('selectStage:meQuestion', {
+                name: authPerson.first_name,
+              })
+            : i18next.t('selectStage:completed3StepsMe')
+          : isNotSure
+            ? i18next.t('selectStage:completed1Step', {
+                name: person.first_name,
+              })
+            : i18next.t('selectStage:completed3Steps', {
+                name: person.first_name,
+              });
 
-        let questionText;
-        if (isMe && hasHitCount) {
-          questionText = i18next.t('selectStage:completed3StepsMe');
-        } else if (!isMe && isNotSure) {
+        if (!isNotSure) {
           // Reset the user's step count so we don't show the wrong message once they hit 3 completed steps
-          dispatch({ type: RESET_STEP_COUNT, userId: personId });
-          questionText = i18next.t('selectStage:completed1Step', {
-            name: person.first_name,
+          dispatch({
+            type: RESET_STEP_COUNT,
+            userId: personId,
           });
-        } else if (!isMe && hasHitCount) {
-          questionText = i18next.t('selectStage:completed3Steps', {
-            name: person.first_name,
-          });
-        } else {
-          return;
         }
 
         dispatch(
@@ -98,7 +105,6 @@ export const CompleteStepFlowScreens = {
               : {
                   contactId: personId,
                   contactAssignmentId: assignment.id,
-                  name: person.first_name,
                 }),
           }),
         );
@@ -129,40 +135,27 @@ export const CompleteStepFlowNavigator = createStackNavigator(
   },
 );
 
-function getReverseContactAssigment(person, myId) {
-  return (person.reverse_contact_assignments || []).find(
-    a => a && a.assigned_to && `${a.assigned_to.id}` === myId,
-  );
-}
-
-function hasHitThreeSteps(stepsCount) {
-  return stepsCount % 3 === 0;
-}
-
-async function getReverseAssignment(
-  dispatch,
-  isMe,
-  personId,
-  orgId,
-  authPerson,
-) {
-  if (!isMe) {
-    const personDetailResults = await dispatch(
-      getPersonDetails(personId, orgId),
-    );
-
-    return (
-      getReverseContactAssigment(personDetailResults.person, authPerson.id) ||
-      {}
-    );
-  }
-  return null;
+async function getReverseContactAssignment(isMe, person, orgId, authPerson) {
+  return isMe
+    ? null
+    : ((person && person.reverse_contact_assignments) || []).find(
+        a =>
+          a &&
+          ((a.organization && a.organization.id === orgId) ||
+            (!a.organization && (!orgId || orgId === 'personal'))) &&
+          a.assigned_to &&
+          a.assigned_to.id === authPerson.id,
+      ) || null;
 }
 
 function getStageId(isMe, assignment, authPerson) {
   return isMe
     ? authPerson.user.pathway_stage_id
-    : assignment.pathway_stage_id || null;
+    : (assignment && assignment.pathway_stage_id) || null;
+}
+
+function hasHitThreeSteps(steps, personId) {
+  return steps.userStepCount[personId] % 3 === 0;
 }
 
 function hasNotSureStage(stagesObj, stageId) {

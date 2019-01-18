@@ -216,7 +216,7 @@ function challengeCompleteAction(step, screen) {
     dispatch(
       navigatePush(COMPLETE_STEP_FLOW, {
         stepId,
-        person: receiver,
+        personId: receiverId,
         orgId,
       }),
     );

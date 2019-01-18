@@ -57,18 +57,20 @@ class AddStepScreen extends Component {
       next,
       onComplete,
       stepId,
-      person,
+      personId,
       orgId,
     } = this.props;
     Keyboard.dismiss();
+
     const text = (this.state.step || '').trim();
     if (!text) {
       return;
     }
     if (type === STEP_NOTE) {
       disableBack.remove();
-      dispatch(next({ text, stepId, person, orgId }));
-      return;
+      if (next) {
+        return dispatch(next({ text, stepId, personId, orgId }));
+      }
     }
 
     onComplete(text);
@@ -82,14 +84,13 @@ class AddStepScreen extends Component {
       next,
       onComplete,
       stepId,
-      person,
+      personId,
       orgId,
     } = this.props;
     Keyboard.dismiss();
 
-    if (type === STEP_NOTE) {
-      dispatch(next({ text: null, stepId, person, orgId }));
-      return;
+    if (type === STEP_NOTE && next) {
+      return dispatch(next({ text: null, stepId, personId, orgId }));
     }
 
     this.props.onComplete(null);
@@ -194,7 +195,7 @@ AddStepScreen.propTypes = {
   hideSkip: PropTypes.bool,
   text: PropTypes.string,
   stepId: PropTypes.string,
-  person: PropTypes.object,
+  personId: PropTypes.string,
   orgId: PropTypes.string,
 };
 
