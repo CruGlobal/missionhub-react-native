@@ -82,7 +82,7 @@ class SurveyContacts extends Component {
 
     await this.setState({ pagination });
 
-    return await this.handleLoadMore(text);
+    return this.handleLoadMore(text);
   };
 
   handleRefreshSearchList = () => {

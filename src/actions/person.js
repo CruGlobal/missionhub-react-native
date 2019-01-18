@@ -111,18 +111,16 @@ export function getPersonNote(personId, myId) {
   return async dispatch => {
     const query = { person_id: personId, include: 'person_notes' };
 
-    return await dispatch(callApi(REQUESTS.GET_PERSON_NOTE, query)).then(
-      results => {
-        const person = results.find('person', personId);
-        if (person && person.person_notes) {
-          const notes = person.person_notes;
-          return notes.find(element => {
-            return element.user_id == myId;
-          });
-        }
-        return Promise.reject(`Person Not Found in getPersonNote`);
-      },
-    );
+    await dispatch(callApi(REQUESTS.GET_PERSON_NOTE, query)).then(results => {
+      const person = results.find('person', personId);
+      if (person && person.person_notes) {
+        const notes = person.person_notes;
+        return notes.find(element => {
+          return element.user_id == myId;
+        });
+      }
+      return Promise.reject(`Person Not Found in getPersonNote`);
+    });
   };
 }
 
