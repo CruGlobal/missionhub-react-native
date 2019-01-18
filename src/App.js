@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { AppState } from 'react-native';
+import React, { Component, Fragment } from 'react';
+import { AppState, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import i18n from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
@@ -30,6 +30,7 @@ import { navigateReset } from './actions/navigation';
 import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
+import { COLORS } from './theme';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -212,18 +213,24 @@ export default class App extends Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <PersistGate
-          loading={<LoadingScreen />}
-          onBeforeLift={this.onBeforeLift}
-          persistor={persistor}
-        >
-          {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
-          <PlatformKeyboardAvoidingView>
-            <AppWithNavigationState />
-          </PlatformKeyboardAvoidingView>
-        </PersistGate>
-      </Provider>
+      <Fragment>
+        <StatusBar
+          backgroundColor={COLORS.DARK_BLUE}
+          barStyle="light-content"
+        />
+        <Provider store={store}>
+          <PersistGate
+            loading={<LoadingScreen />}
+            onBeforeLift={this.onBeforeLift}
+            persistor={persistor}
+          >
+            {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
+            <PlatformKeyboardAvoidingView>
+              <AppWithNavigationState />
+            </PlatformKeyboardAvoidingView>
+          </PersistGate>
+        </Provider>
+      </Fragment>
     );
   }
 }
