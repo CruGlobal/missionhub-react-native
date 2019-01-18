@@ -42,8 +42,8 @@ export class SideMenu extends Component {
             size={20}
           />
         </Flex>
-        {menuItems.map(({ label, action, selected }, index) => (
-          <Flex key={index} style={styles.buttonContainer}>
+        {menuItems.map(({ label, action, selected }) => (
+          <Flex key={label} style={styles.buttonContainer}>
             <Button
               style={styles.button}
               buttonTextStyle={[
