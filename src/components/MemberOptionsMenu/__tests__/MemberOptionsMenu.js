@@ -36,6 +36,8 @@ const mockStore = configureStore([thunk]);
 let props;
 let store;
 
+beforeEach(() => jest.clearAllMocks());
+
 const test = () => {
   testSnapshotShallow(<MemberOptionsMenu {...props} />);
 };
@@ -375,22 +377,38 @@ describe('Leave Community', () => {
     store = mockStore();
   });
 
-  it('sends api request to archive my permission', async () => {
-    archiveOrgPermission.mockReturnValue(() => Promise.resolve());
-    getMyCommunities.mockReturnValue(getMyCommunitiesResult);
+  it('sets flag to archive my permission on unmount', async () => {
     navigateBack.mockReturnValue(navigateBackResult);
     const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
 
     await screen.instance().leaveCommunity();
 
-    expect(store.getActions()).toEqual([
-      getMyCommunitiesResult,
-      navigateBackResult,
-    ]);
+    expect(store.getActions()).toEqual([navigateBackResult]);
+  });
+
+  it('sends api request to archive my permission on unmount if leaveCommunityOnUnmount flag set', async () => {
+    archiveOrgPermission.mockReturnValue(() => Promise.resolve());
+    getMyCommunities.mockReturnValue(getMyCommunitiesResult);
+    const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
+
+    screen.instance().leaveCommunityOnUnmount = true;
+    await screen.instance().componentWillUnmount();
+
+    expect(store.getActions()).toEqual([getMyCommunitiesResult]);
     expect(archiveOrgPermission).toHaveBeenCalledWith(
       myId,
       personOrgPermission.id,
     );
+  });
+
+  it('does nothing on unmount if leaveCommunityOnUnmount flag unset', async () => {
+    const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
+
+    await screen.instance().componentWillUnmount();
+
+    expect(store.getActions()).toEqual([]);
+    expect(archiveOrgPermission).not.toHaveBeenCalled();
+    expect(getMyCommunities).not.toHaveBeenCalled();
   });
 });
 
