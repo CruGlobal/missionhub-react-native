@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "REACT_DEBUGGER=\"open -g 'rndebugger://set-debugger-loc?port=8081' ||\" react-native start",
     "open": "open ios/MissionHub.xcworkspace/",
     "test": "jest",
     "test:watch": "jest --watch",
