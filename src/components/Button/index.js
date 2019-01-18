@@ -14,39 +14,44 @@ const getTypeStyle = type =>
   exists(styles[type]) ? styles[type] : styles.button;
 
 export default class Button extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      clickedDisabled: false,
-    };
-
-    // Debounce this function so it doesn't get called too quickly in succession
-    this.handlePressDb = debounce(this.handlePress.bind(this), 25);
-  }
+  state = {
+    clickedDisabled: false,
+  };
 
   componentWillUnmount() {
     // Make sure to clear the timeout when the Button unmounts
     clearTimeout(this.clickDisableTimeout);
+    this.setClickDisableTimeout = () => {};
   }
 
-  handlePress(...args) {
+  setClickDisableTimeout = () => {
+    this.clickDisableTimeout = setTimeout(
+      () => this.setState({ clickedDisabled: false }),
+      400,
+    );
+  };
+
+  handlePress = async (...args) => {
     const { pressProps, onPress } = this.props;
     // Prevent the user from being able to click twice
     this.setState({ clickedDisabled: true });
-    // Re-enable the button after the timeout
-    this.clickDisableTimeout = setTimeout(() => {
-      this.setState({ clickedDisabled: false });
-    }, 400);
 
-    // If pressProps are passed in, use those when calling the `onPress` method
-    if (pressProps) {
-      onPress.apply(null, pressProps);
-    } else {
-      // Call the users click function with all the normal click parameters
-      onPress(...args);
+    try {
+      // If pressProps are passed in, use those when calling the `onPress` method
+      if (pressProps) {
+        await onPress.apply(null, pressProps);
+      } else {
+        // Call the users click function with all the normal click parameters
+        await onPress(...args);
+      }
+    } finally {
+      // Re-enable the button after the timeout after any promises in the handler complete
+      this.setClickDisableTimeout();
     }
-  }
+  };
+
+  // Debounce this function so it doesn't get called too quickly in succession
+  handlePressDb = debounce(this.handlePress, 25);
 
   render() {
     const {

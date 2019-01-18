@@ -25,13 +25,13 @@ describe('organizationSelector', () => {
     expect(result).toEqual(orgTwo);
   });
 
-  it('should not return an org when undefined is passed', () => {
+  it('should return an empty org when undefined is passed', () => {
     const result = organizationSelector(
       { organizations },
       { orgId: undefined },
     );
 
-    expect(result).toBe(undefined);
+    expect(result).toEqual({});
   });
 });
 

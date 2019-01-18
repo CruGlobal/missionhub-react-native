@@ -4,6 +4,7 @@ import * as RNOmniture from 'react-native-omniture';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { ACTIONS, MAIN_TABS } from '../constants';
+import { rollbar } from '../utils/rollbar.config';
 
 import { getMe } from './person';
 import { navigateReset } from './navigation';
@@ -18,6 +19,7 @@ export function onSuccessfulLogin(onComplete) {
       person: { id: personId },
     } = getState().auth;
     Crashlytics.setUserIdentifier(personId);
+    rollbar.setPerson(personId);
 
     const mePerson = await dispatch(getMe('contact_assignments'));
     RNOmniture.syncIdentifier(mePerson.global_registry_mdm_id);

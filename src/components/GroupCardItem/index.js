@@ -5,8 +5,10 @@ import PropTypes from 'prop-types';
 
 import { Text, Flex, Card, Button } from '../common';
 import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.png';
+import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
 import Dot from '../Dot';
 import { getFirstNameAndLastInitial } from '../../utils/common';
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
 
 import styles from './styles';
 
@@ -63,7 +65,9 @@ export default class GroupCardItem extends Component {
     const { t, group, onPress, onJoin } = this.props;
     let source;
     if (group.community_photo_url) {
-      source = { url: group.community_photo_url };
+      source = { uri: group.community_photo_url };
+    } else if (group.id === GLOBAL_COMMUNITY_ID) {
+      source = GLOBAL_COMMUNITY_IMAGE;
     } else if (group.user_created) {
       source = undefined;
     } else {
@@ -77,30 +81,35 @@ export default class GroupCardItem extends Component {
         onPress={onPress ? this.handlePress : undefined}
         style={styles.card}
       >
-        <Image
-          source={source}
-          resizeMode="cover"
+        <Flex
+          value={1}
           style={[
-            styles.image,
-            group.user_created ? styles.userCreatedImage : undefined,
+            styles.content,
+            group.user_created && group.id !== GLOBAL_COMMUNITY_ID
+              ? styles.userCreatedContent
+              : undefined,
           ]}
-        />
-        <Flex justify="center" direction="row" style={styles.infoWrap}>
-          <Flex value={1}>
-            <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
-            {this.renderInfo()}
-          </Flex>
-          {onJoin ? (
-            <Flex direction="column" justify="center">
-              <Button
-                type="transparent"
-                style={[styles.joinButton]}
-                buttonTextStyle={styles.joinButtonText}
-                text={t('join').toUpperCase()}
-                onPress={this.handleJoin}
-              />
-            </Flex>
+        >
+          {source ? (
+            <Image source={source} resizeMode="cover" style={styles.image} />
           ) : null}
+          <Flex justify="center" direction="row" style={styles.infoWrap}>
+            <Flex value={1}>
+              <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
+              {this.renderInfo()}
+            </Flex>
+            {onJoin ? (
+              <Flex direction="column" justify="center">
+                <Button
+                  type="transparent"
+                  style={[styles.joinButton]}
+                  buttonTextStyle={styles.joinButtonText}
+                  text={t('join').toUpperCase()}
+                  onPress={this.handleJoin}
+                />
+              </Flex>
+            ) : null}
+          </Flex>
         </Flex>
       </Card>
     );

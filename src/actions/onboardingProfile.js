@@ -13,6 +13,7 @@ import {
   UPDATE_ONBOARDING_PERSON,
   ACTIONS,
 } from '../constants';
+import { rollbar } from '../utils/rollbar.config';
 import { isAndroid, buildTrackingObj } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
@@ -59,7 +60,8 @@ export function createMyPerson(firstName, lastName) {
 
   return async dispatch => {
     const me = await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
-    Crashlytics.setUserIdentifier(`${me.person_id}`);
+    Crashlytics.setUserIdentifier(me.person_id);
+    rollbar.setPerson(me.person_id);
     return me;
   };
 }

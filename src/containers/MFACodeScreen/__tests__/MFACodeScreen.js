@@ -2,6 +2,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Alert } from 'react-native';
+import i18n from 'i18next';
 
 import { renderShallow } from '../../../../testUtils';
 
@@ -9,7 +10,6 @@ import MFACodeScreen from '..';
 
 import { keyLogin } from '../../../actions/auth';
 import { MFA_REQUIRED } from '../../../constants';
-import i18n from '../../../i18n';
 
 jest.mock('../../../actions/auth');
 
@@ -67,10 +67,7 @@ describe('onSubmit', () => {
 
     await clickLoginButton();
 
-    expect(Alert.alert).toHaveBeenCalledWith(
-      i18n.t('mfaLogin:mfaIncorrect'),
-      i18n.t('ok'),
-    );
+    expect(Alert.alert).toHaveBeenCalledWith(i18n.t('mfaLogin:mfaIncorrect'));
   });
 
   it('it throws unexpected errors', async () => {

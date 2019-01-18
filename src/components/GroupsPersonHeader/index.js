@@ -205,7 +205,7 @@ export default class GroupsPersonHeader extends Component {
 
   getStatusButton() {
     const { dispatch, person, organization, t } = this.props;
-    return this.button('journeyWarning', t('statusSelect:header'), () =>
+    return this.button('statusIcon', t('statusSelect:header'), () =>
       dispatch(navigatePush(STATUS_SELECT_SCREEN, { person, organization })),
     );
   }

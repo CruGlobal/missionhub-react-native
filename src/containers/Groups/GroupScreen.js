@@ -29,7 +29,7 @@ export class GroupScreen extends Component {
     super(props);
 
     this.state = {
-      organization: props.navigation.state.params.organization || {},
+      organization: (props.navigation.state.params || {}).organization || {},
     };
   }
 
@@ -73,6 +73,11 @@ export class GroupScreen extends Component {
 
   renderAddContactIcon() {
     const { organization } = this.state;
+
+    if (organization.id === GLOBAL_COMMUNITY_ID) {
+      return null;
+    }
+
     return !organization.user_created ? (
       <IconButton
         name="addContactIcon"

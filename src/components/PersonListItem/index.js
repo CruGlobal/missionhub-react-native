@@ -9,8 +9,8 @@ import styles from './styles';
 @translate('groupItem')
 class PersonListItem extends Component {
   handleSelect = () => {
-    const { onSelect, contact } = this.props;
-    onSelect && onSelect(contact);
+    const { onSelect, person } = this.props;
+    onSelect && onSelect(person);
   };
 
   renderContent() {
@@ -23,7 +23,7 @@ class PersonListItem extends Component {
       lastNameAccentStyle = {},
     } = this.props;
     const isAssigned = (person.reverse_contact_assignments || []).find(
-      c => c.organization && c.organization.id === organization.id,
+      c => c && c.organization && c.organization.id === organization.id,
     );
 
     return (

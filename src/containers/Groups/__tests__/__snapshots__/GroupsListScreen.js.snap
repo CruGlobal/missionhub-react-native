@@ -17,7 +17,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
       />
     }
     shadow={false}
-    title="COMMUNITIES"
+    title="COMMUNITIES [BETA]"
   />
   <Flex
     direction="row"
@@ -80,11 +80,6 @@ exports[`GroupsListScreen should render correctly 1`] = `
     </Flex>
   </Flex>
   <ScrollView
-    contentContainerStyle={
-      Object {
-        "flex": 1,
-      }
-    }
     refreshControl={
       <MyRefreshControl
         colors={
@@ -98,6 +93,11 @@ exports[`GroupsListScreen should render correctly 1`] = `
         refreshing={false}
         tintColor="#007398"
       />
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
     }
   >
     <FlatList
@@ -151,7 +151,7 @@ exports[`GroupsListScreen should render item 1`] = `
 exports[`GroupsListScreen should render null 1`] = `
 <NullStateComponent
   descriptionText="Your communities will show up here."
-  headerText="COMMUNITIES"
+  headerText="COMMUNITIES [BETA]"
   imageSource={
     Object {
       "testUri": "../../../assets/images/MemberContacts.png",
@@ -177,7 +177,7 @@ exports[`should render null state 1`] = `
       />
     }
     shadow={false}
-    title="COMMUNITIES"
+    title="COMMUNITIES [BETA]"
   />
   <Flex
     direction="row"
@@ -240,11 +240,6 @@ exports[`should render null state 1`] = `
     </Flex>
   </Flex>
   <ScrollView
-    contentContainerStyle={
-      Object {
-        "flex": 1,
-      }
-    }
     refreshControl={
       <MyRefreshControl
         colors={
@@ -258,6 +253,11 @@ exports[`should render null state 1`] = `
         refreshing={false}
         tintColor="#007398"
       />
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
     }
   >
     <FlatList

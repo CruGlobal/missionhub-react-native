@@ -105,6 +105,9 @@ export default {
     and: 'and',
     signIn: 'Sign In',
   },
+  mainTabs: {
+    takeAStepWithSomeone: 'Take a Step With Someone',
+  },
   error: {
     error: 'Error',
     unexpectedErrorMessage: 'There was an unexpected error.',
@@ -126,6 +129,8 @@ export default {
     help: 'Help',
     review: 'Write a Review',
     signOut: 'Sign out',
+    cannotOpenUrl: 'Cannot open URL',
+    pleaseVisit: 'Sorry, we could not open that URL. Please visit {{url}}',
     signUp: 'Sign Up',
   },
   login: {
@@ -416,7 +421,7 @@ export default {
     steps: 'Steps',
     people: 'People',
     impact: 'Impact',
-    groups: 'Communities',
+    group: 'Communities',
   },
   groupTabs: {
     celebrate: 'Celebrate',
@@ -453,7 +458,7 @@ export default {
       "We'll send you notifications like this on Wednesdays and Sundays to help you keep these important steps in focus.",
   },
   groupsList: {
-    header: 'Communities',
+    header: 'Communities [Beta]',
     groupsNull: 'Your communities will show up here.',
     joinCommunity: 'Join a Community',
     createCommunity: 'Create a Community',
@@ -501,7 +506,7 @@ export default {
     addHeader: 'New Challenge',
     add: 'Create Challenge',
     save: 'Save Changes',
-    titlePlaceholder: 'Name Your Challenge',
+    titlePlaceholder: 'Describe Your Challenge',
     titleLabel: 'Challenge',
     datePlaceholder: 'End Date (Required)',
     dateLabel: 'End Date',
@@ -560,6 +565,9 @@ export default {
       modalTitle: 'Remove {{personName}} from {{communityName}}?',
       confirmButtonText: 'Remove',
     },
+    tryItNowAdminOwnerErrorMessage:
+      'This Member has not yet created an account. ' +
+      'Once they sign up, you can try this again.',
   },
   groupsImpact: {
     title: '',

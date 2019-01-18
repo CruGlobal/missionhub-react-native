@@ -204,7 +204,7 @@ const tabs = {
     GroupsListScreen,
     buildTrackingObj('communities', 'communities'),
     {
-      tabBarLabel: navItem('groups'),
+      tabBarLabel: navItem('group'),
     },
   ),
 };
@@ -270,7 +270,7 @@ const buildPersonScreenRoute = screen =>
       },
     ),
     buildTrackingObj('person', 'person'),
-    { gesturesEnabled: isAndroid ? false : true },
+    { gesturesEnabled: !isAndroid },
   );
 
 const screens = {

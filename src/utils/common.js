@@ -10,6 +10,7 @@ import { DrawerActions } from 'react-navigation';
 import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 import Config from 'react-native-config';
+import i18n from 'i18next';
 
 import {
   CUSTOM_STEP_TYPE,
@@ -18,7 +19,6 @@ import {
   INTERACTION_TYPES,
   DEFAULT_PAGE_LIMIT,
 } from '../constants';
-import i18n from '../i18n';
 
 export const shuffleArray = arr => {
   let i, temporaryValue, randomIndex;
@@ -187,9 +187,9 @@ export const getIconName = (type, interaction_type_id) => {
   } else if (type === 'answer_sheet') {
     return 'surveyIcon';
   } else if (type === 'contact_assignment') {
-    return 'journeyWarning';
+    return 'statusIcon';
   } else if (type === 'contact_unassignment') {
-    return 'journeyWarning';
+    return 'statusIcon';
   } else if (type === 'interaction') {
     const interaction = interactionsArr.find(i => i.id === interaction_type_id);
     if (interaction) {

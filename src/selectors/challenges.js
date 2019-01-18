@@ -1,7 +1,6 @@
 import { createSelector } from 'reselect';
 import moment from 'moment';
-
-import i18n from '../i18n';
+import i18n from 'i18next';
 
 import { organizationSelector } from './organizations';
 
@@ -48,7 +47,9 @@ export const communityChallengeSelector = createSelector(
   (_, { challengeId }) => challengeId,
   (org, challengeId) => {
     const challenge = org.challengeItems.find(c => c.id === challengeId);
-    return challenge && { ...challenge, isPast: challengeIsPast(challenge) };
+    return (
+      (challenge && { ...challenge, isPast: challengeIsPast(challenge) }) || {}
+    );
   },
 );
 

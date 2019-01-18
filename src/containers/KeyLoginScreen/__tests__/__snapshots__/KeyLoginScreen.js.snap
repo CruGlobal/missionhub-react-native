@@ -1,5 +1,179 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Android should hide sign in logo when the keyboard comes up 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Connect(BackButton)
+    style={
+      Object {
+        "marginLeft": 5,
+        "marginTop": 25,
+      }
+    }
+  />
+  <Flex
+    align="center"
+    justify="center"
+  />
+  <Flex
+    style={
+      Object {
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
+      }
+    }
+    value={3}
+  >
+    <Component>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Email
+      </MyText>
+      <Input
+        autoCapitalize="none"
+        blurOnSubmit={false}
+        keyboardType="email-address"
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Email"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        value=""
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "paddingVertical": 15,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Password
+      </MyText>
+      <Input
+        blurOnSubmit={true}
+        onChangeText={[Function]}
+        placeholder="Password"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        secureTextEntry={true}
+        value=""
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 16,
+            "fontWeight": "normal",
+            "letterSpacing": 0,
+            "paddingVertical": 10,
+            "textAlign": "left",
+          }
+        }
+        name="forgotPasswordButton"
+        onPress={[Function]}
+        style={
+          Object {
+            "width": 130,
+          }
+        }
+        text="Forgot Password?"
+        type="transparent"
+      />
+    </Component>
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Button
+      buttonTextStyle={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "letterSpacing": 1.5,
+          "paddingTop": 2,
+        }
+      }
+      name="facebookButton"
+      onPress={[Function]}
+      pill={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderColor": "#52C5DC",
+          "borderWidth": 1,
+          "height": 48,
+          "margin": 8,
+          "width": 670,
+        }
+      }
+    >
+      <Flex
+        direction="row"
+      >
+        <Icon
+          name="facebookIcon"
+          size={21}
+          style={
+            Object {
+              "marginRight": 10,
+            }
+          }
+          type="MissionHub"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+        >
+          LOG IN WITH FACEBOOK
+        </MyText>
+      </Flex>
+    </Button>
+  </Flex>
+</Component>
+`;
+
 exports[`a login button is clicked facebook login button is pressed loading wheel appears 1`] = `
 <Component
   style={
@@ -41,7 +215,8 @@ exports[`a login button is clicked facebook login button is pressed loading whee
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -75,7 +250,7 @@ exports[`a login button is clicked facebook login button is pressed loading whee
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -230,7 +405,8 @@ exports[`a login button is clicked forgot password button is pressed loading whe
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -264,7 +440,7 @@ exports[`a login button is clicked forgot password button is pressed loading whe
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -419,7 +595,8 @@ exports[`a login button is clicked key login button is pressed loading wheel app
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -453,7 +630,7 @@ exports[`a login button is clicked key login button is pressed loading wheel app
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -558,7 +735,8 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -592,7 +770,7 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -771,7 +949,8 @@ exports[`a login button is clicked key login button is pressed shows email verif
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -805,7 +984,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -934,7 +1113,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -968,7 +1148,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -1097,7 +1277,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
   <Flex
     style={
       Object {
-        "padding": 30,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
     value={3}
@@ -1131,7 +1312,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     <Component
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -1190,6 +1371,180 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       text="LOGIN"
       type="secondary"
     />
+  </Flex>
+</Component>
+`;
+
+exports[`iOS should hide sign in logo when the keyboard comes up 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Connect(BackButton)
+    style={
+      Object {
+        "marginLeft": 5,
+        "marginTop": 25,
+      }
+    }
+  />
+  <Flex
+    align="center"
+    justify="center"
+  />
+  <Flex
+    style={
+      Object {
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
+      }
+    }
+    value={3}
+  >
+    <Component>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Email
+      </MyText>
+      <Input
+        autoCapitalize="none"
+        blurOnSubmit={false}
+        keyboardType="email-address"
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Email"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        value=""
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "paddingVertical": 15,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Password
+      </MyText>
+      <Input
+        blurOnSubmit={true}
+        onChangeText={[Function]}
+        placeholder="Password"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        secureTextEntry={true}
+        value=""
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 16,
+            "fontWeight": "normal",
+            "letterSpacing": 0,
+            "paddingVertical": 10,
+            "textAlign": "left",
+          }
+        }
+        name="forgotPasswordButton"
+        onPress={[Function]}
+        style={
+          Object {
+            "width": 130,
+          }
+        }
+        text="Forgot Password?"
+        type="transparent"
+      />
+    </Component>
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Button
+      buttonTextStyle={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "letterSpacing": 1.5,
+          "paddingTop": 2,
+        }
+      }
+      name="facebookButton"
+      onPress={[Function]}
+      pill={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderColor": "#52C5DC",
+          "borderWidth": 1,
+          "height": 48,
+          "margin": 8,
+          "width": 670,
+        }
+      }
+    >
+      <Flex
+        direction="row"
+      >
+        <Icon
+          name="facebookIcon"
+          size={21}
+          style={
+            Object {
+              "marginRight": 10,
+            }
+          }
+          type="MissionHub"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+        >
+          LOG IN WITH FACEBOOK
+        </MyText>
+      </Flex>
+    </Button>
   </Flex>
 </Component>
 `;
@@ -1335,7 +1690,8 @@ exports[`renders correctly 1`] = `
     style={
       Array [
         Object {
-          "padding": 30,
+          "paddingHorizontal": 30,
+          "paddingVertical": 10,
         },
         Object {
           "flex": 3,
@@ -1401,7 +1757,7 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -1640,7 +1996,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -1733,7 +2089,8 @@ Please sign in so we know it's you.
     style={
       Array [
         Object {
-          "padding": 30,
+          "paddingHorizontal": 30,
+          "paddingVertical": 10,
         },
         Object {
           "flex": 3,
@@ -1799,7 +2156,7 @@ Please sign in so we know it's you.
     <View
       style={
         Object {
-          "paddingVertical": 30,
+          "paddingVertical": 15,
         }
       }
     >
@@ -2038,7 +2395,7 @@ Please sign in so we know it's you.
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}

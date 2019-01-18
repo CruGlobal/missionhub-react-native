@@ -6595,10 +6595,10 @@ Object {
       },
     ],
   },
-  "isGlobalCommunity": undefined,
+  "isGlobalCommunity": false,
   "isMe": true,
   "isOrgImpact": false,
-  "isPersonalMinistryMe": true,
+  "isPersonalMinistryMe": false,
   "isUserCreatedOrg": undefined,
   "myId": "1",
 }

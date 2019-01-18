@@ -29,7 +29,7 @@ export class PeopleItem extends Component {
     const { me, dispatch, person, organization } = this.props;
 
     const contactAssignment = (person.reverse_contact_assignments || []).find(
-      a => a.assigned_to.id === me.id,
+      a => a.assigned_to && a.assigned_to.id === me.id,
     );
     const contactAssignmentId = contactAssignment && contactAssignment.id;
 

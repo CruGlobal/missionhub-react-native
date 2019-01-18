@@ -8,13 +8,17 @@ export default StyleSheet.create({
   card: {
     borderRadius,
   },
-  image: {
-    width: '100%',
+  content: {
     height: 200,
     borderRadius,
   },
-  userCreatedImage: {
+  userCreatedContent: {
     backgroundColor: theme.accentColor,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    borderRadius,
   },
   infoWrap: {
     position: 'absolute',

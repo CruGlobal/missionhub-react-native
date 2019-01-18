@@ -45,11 +45,12 @@ class PathwayStageScreen extends Component {
 
   async componentWillMount() {
     await this.props.dispatch(getStages());
+    const { firstItem, stages } = this.props;
 
-    const initialIndex = this.props.firstItem
-      ? this.props.firstItem
-      : fallbackIndex;
-    this.trackStageState(this.props.stages[initialIndex].id);
+    const initialIndex = firstItem || fallbackIndex;
+    if (stages[initialIndex]) {
+      this.trackStageState(stages[initialIndex].id);
+    }
     Keyboard.dismiss();
   }
 
@@ -87,7 +88,10 @@ class PathwayStageScreen extends Component {
   }
 
   handleSnapToItem(index) {
-    this.trackStageState(this.props.stages[index].id);
+    const { stages } = this.props;
+    if (stages[index]) {
+      this.trackStageState(stages[index].id);
+    }
   }
 
   trackStageState(number) {

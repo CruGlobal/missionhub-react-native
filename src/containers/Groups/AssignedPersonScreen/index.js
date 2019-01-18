@@ -152,11 +152,12 @@ const myImpact = {
 export const CONTACT_PERSON_TABS = [personSteps, personNotes, personJourney];
 export const IS_USER_CREATED_MEMBER_PERSON_TABS = [
   memberCelebrate,
-  ...CONTACT_PERSON_TABS,
   memberImpact,
 ];
 export const IS_GROUPS_MEMBER_PERSON_TABS = [
-  ...IS_USER_CREATED_MEMBER_PERSON_TABS,
+  memberCelebrate,
+  ...CONTACT_PERSON_TABS,
+  memberImpact,
   assignedContacts,
 ];
 const MEMBER_PERSON_TABS = [...CONTACT_PERSON_TABS, memberImpact];
@@ -275,16 +276,14 @@ export const mapStateToProps = (
   { people, auth, stages, organizations },
   { navigation },
 ) => {
-  const navParams = navigation.state.params;
+  const navParams = navigation.state.params || {};
   const { person: navPerson = {}, organization: navOrg = {} } = navParams;
+  const orgId = navOrg.id || 'personal';
+  const personId = navPerson.id;
 
   const organization =
-    organizationSelector({ organizations }, { orgId: navOrg.id }) || navOrg;
-
-  const person =
-    personSelector({ people }, { personId: navPerson.id, orgId: navOrg.id }) ||
-    navPerson;
-
+    organizationSelector({ organizations }, { orgId }) || navOrg;
+  const person = personSelector({ people }, { personId, orgId }) || navPerson;
   const contactAssignment = contactAssignmentSelector(
     { auth },
     { person, orgId: organization.id },
@@ -292,14 +291,14 @@ export const mapStateToProps = (
   const authPerson = auth.person;
 
   return {
-    ...(navParams || {}),
+    ...navParams,
     contactAssignment,
     person,
     organization,
     stages: stages.stages,
     myId: authPerson.id,
     myStageId: authPerson.user.pathway_stage_id,
-    isCruOrg: orgIsCru(navParams.organization),
+    isCruOrg: orgIsCru(organization),
   };
 };
 

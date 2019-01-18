@@ -11,6 +11,7 @@ import { LANDING_SCREEN } from '../containers/LandingScreen';
 import { UPGRADE_ACCOUNT_SCREEN } from '../containers/UpgradeAccountScreen';
 import { THE_KEY_URL } from '../api/utils';
 import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
+import { rollbar } from '../utils/rollbar.config';
 
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
@@ -19,10 +20,7 @@ import { getStagesIfNotExists } from './stages';
 import { getMySteps } from './steps';
 import callApi, { REQUESTS } from './api';
 import { onSuccessfulLogin } from './login';
-import {
-  getMyOrganizations,
-  getOrganizationsContactReports,
-} from './organizations';
+import { getMyCommunities } from './organizations';
 import { resetPerson } from './onboardingProfile';
 
 export function openKeyURL(
@@ -160,8 +158,8 @@ export function refreshAnonymousLogin() {
 }
 
 export function logout(forcedLogout = false) {
-  return dispatch => {
-    dispatch(deletePushToken());
+  return async dispatch => {
+    await dispatch(deletePushToken());
     dispatch({ type: LOGOUT });
     dispatch(
       forcedLogout
@@ -179,6 +177,7 @@ export function upgradeAccount(signupType, onComplete) {
         onComplete,
       }),
     );
+    rollbar.clearPerson();
   };
 }
 
@@ -227,8 +226,7 @@ export function loadHome() {
     }
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
     dispatch(getMe());
-    dispatch(getMyOrganizations());
-    dispatch(getOrganizationsContactReports());
+    dispatch(getMyCommunities());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
     dispatch(resetPerson());

@@ -216,14 +216,11 @@ AddContactScreen.propTypes = {
 
 const mapStateToProps = ({ auth }, { navigation }) => {
   const navProps = navigation.state.params || {};
-  const person = navProps.person;
-  const organization = navProps.organization;
+  const { person = {}, organization = {} } = navProps;
   return {
     me: auth.person,
     isJean: auth.isJean,
     personOrgPermission:
-      person &&
-      organization &&
       organization.id &&
       orgPermissionSelector(null, {
         person,

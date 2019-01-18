@@ -785,7 +785,7 @@ exports[`renders correctly for Create Community 1`] = `
                   ]
                 }
               >
-                
+                
               </Text>
               <Text
                 accessible={true}
@@ -908,7 +908,7 @@ exports[`renders correctly for Create Community 1`] = `
                   ]
                 }
               >
-                
+                
               </Text>
               <Text
                 accessible={true}
@@ -1589,7 +1589,7 @@ exports[`renders correctly with logo 1`] = `
                   ]
                 }
               >
-                
+                
               </Text>
               <Text
                 accessible={true}
@@ -1712,7 +1712,7 @@ exports[`renders correctly with logo 1`] = `
                   ]
                 }
               >
-                
+                
               </Text>
               <Text
                 accessible={true}

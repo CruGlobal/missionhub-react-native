@@ -21,6 +21,7 @@ import {
   isAdminOrOwner,
   isOwner,
   getCommunityUrl,
+  orgIsUserCreated,
 } from '../../../utils/common';
 import { navigateBack, navigateReset } from '../../../actions/navigation';
 import {
@@ -164,14 +165,7 @@ class GroupProfile extends Component {
   }
 
   render() {
-    const {
-      t,
-      organization,
-      membersLength,
-      owner,
-      canEdit,
-      isOwner,
-    } = this.props;
+    const { t, organization, membersLength, owner, canEdit } = this.props;
     const { editing, name } = this.state;
     return (
       <SafeAreaView style={styles.container}>
@@ -201,7 +195,6 @@ class GroupProfile extends Component {
                 size={20}
                 iconProps={{ style: styles.menu }}
               />
-              ;
             </Flex>
           ) : (
             <Flex direction="row" align="center" style={styles.rowWrap}>
@@ -234,7 +227,7 @@ class GroupProfile extends Component {
               <Text style={styles.label}>{t('code')}</Text>
               <Text style={styles.codeText}>{organization.community_code}</Text>
             </Flex>
-            {editing && isOwner ? (
+            {editing ? (
               <Button
                 style={[styles.btn, styles.newBtn]}
                 buttonTextStyle={styles.btnText}
@@ -260,7 +253,7 @@ class GroupProfile extends Component {
                 {getCommunityUrl(organization.community_url)}
               </Text>
             </Flex>
-            {editing && isOwner ? (
+            {editing ? (
               <Button
                 style={[styles.btn, styles.newBtn]}
                 buttonTextStyle={styles.btnText}
@@ -320,27 +313,30 @@ GroupProfile.propTypes = {
 };
 
 const mapStateToProps = ({ auth, organizations }, { navigation }) => {
-  const { organization } = navigation.state.params || {};
+  const { organization = {} } = navigation.state.params || {};
+  const orgId = organization.id;
+
   const selectorOrg =
-    organizationSelector({ organizations }, { orgId: organization.id }) || {};
+    organizationSelector({ organizations }, { orgId }) || organization;
   const { members = [], contactReport = {} } = selectorOrg;
   const owner = members.find(({ organizational_permissions = [] }) =>
     organizational_permissions.find(
       orgPermission =>
-        orgPermission.organization_id === organization.id &&
+        orgPermission.organization_id === orgId &&
         orgPermission.permission_id === ORG_PERMISSIONS.OWNER,
     ),
   );
   const myOrgPerm = orgPermissionSelector(null, {
     person: auth.person,
-    organization: { id: organization.id },
+    organization: { id: orgId },
   });
   return {
     membersLength: contactReport.memberCount || 0,
     owner: owner || {},
     organization: selectorOrg,
-    canEdit: isAdminOrOwner(myOrgPerm),
-    isOwner: isOwner(myOrgPerm),
+    canEdit:
+      isOwner(myOrgPerm) ||
+      (!orgIsUserCreated(selectorOrg) && isAdminOrOwner(myOrgPerm)),
   };
 };
 

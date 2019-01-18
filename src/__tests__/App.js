@@ -54,9 +54,7 @@ const lastTwoArgs = [
 
 const stackFrames = [{ id: '1' }, { id: '2' }];
 const shiftedStackFrames = [stackFrames[1]];
-const stacktraceResponse = new Promise(resolve => {
-  resolve(stackFrames);
-});
+const stacktraceResponse = Promise.resolve(stackFrames);
 
 beforeEach(() =>
   (ReactNative.Alert.alert = jest
@@ -172,7 +170,7 @@ describe('__DEV__ === false', () => {
         null,
         2,
       )}\n\nResponse:\n${JSON.stringify(apiError.apiError, null, 2)}`,
-      stackFrames,
+      shiftedStackFrames,
     );
   });
 
@@ -189,8 +187,6 @@ describe('__DEV__ === false', () => {
       stackFrames,
     );
   });
-
-  test({ apiError: {}, key: 'ADD_NEW_PERSON', method: '', message: '' });
 
   it('Sends Crashlytics report for unknown error', async () => {
     const unknownError = { key: 'test', method: '' };

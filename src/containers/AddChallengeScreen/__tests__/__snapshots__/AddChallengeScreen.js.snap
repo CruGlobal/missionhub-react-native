@@ -98,7 +98,7 @@ exports[`renders correctly 1`] = `
       blurOnSubmit={true}
       multiline={false}
       onChangeText={[Function]}
-      placeholder="Name Your Challenge"
+      placeholder="Describe Your Challenge"
       placeholderTextColor="#ffffff"
       returnKeyType="done"
       selectionColor="#ffffff"
@@ -647,7 +647,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
@@ -728,7 +728,7 @@ exports[`renders edit challenge correctly 1`] = `
       autoFocus={false}
       blurOnSubmit={true}
       onChangeText={[Function]}
-      placeholder="Name Your Challenge"
+      placeholder="Describe Your Challenge"
       placeholderTextColor="#ffffff"
       returnKeyType="done"
       selectionColor="#ffffff"

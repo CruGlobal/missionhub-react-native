@@ -17,7 +17,7 @@ exports[`renders contact_assignment correctly 1`] = `
     value={1}
   >
     <Icon
-      name="journeyWarning"
+      name="statusIcon"
       size={32}
       style={
         Array [
@@ -89,7 +89,7 @@ exports[`renders contact_unassignment correctly 1`] = `
     value={1}
   >
     <Icon
-      name="journeyWarning"
+      name="statusIcon"
       size={32}
       style={
         Array [

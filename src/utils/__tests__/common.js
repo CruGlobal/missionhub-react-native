@@ -212,7 +212,9 @@ describe('shuffleArray', () => {
   const inArray = ['Alpha', 'Bravo', 'Charlie', 'Delta'];
   const expectedOutArray = ['Alpha', 'Delta', 'Bravo', 'Charlie'];
 
-  Math.random = jest.fn().mockReturnValue(0.5);
+  beforeEach(() => {
+    Math.random = jest.fn().mockReturnValue(0.5);
+  });
 
   it('reorders array and calls random for each item', () => {
     expect(shuffleArray(inArray)).toEqual(expectedOutArray);

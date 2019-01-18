@@ -78,6 +78,22 @@ exports[`GroupScreen should render header correctly 1`] = `
 />
 `;
 
+exports[`GroupScreen should render header correctly for global community 1`] = `
+<Connect(Header)
+  left={
+    <IconButton
+      name="homeIcon"
+      onPress={[Function]}
+      size={24}
+      type="MissionHub"
+    />
+  }
+  right={null}
+  shadow={false}
+  title="MissionHub Community"
+/>
+`;
+
 exports[`GroupScreen should render header correctly for user_created org 1`] = `
 <Connect(Header)
   left={

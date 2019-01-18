@@ -3,6 +3,7 @@ import React from 'react';
 import GroupCardItem from '..';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 const contactsCount = 768;
 const unassignedCount = 13;
@@ -26,6 +27,19 @@ const test = () => {
 
 describe('GroupCardItem', () => {
   it('renders with no report counts', () => {
+    test();
+  });
+
+  it('renders for global community', () => {
+    props = {
+      ...props,
+      group: {
+        ...group,
+        id: GLOBAL_COMMUNITY_ID,
+        user_created: true,
+      },
+    };
+
     test();
   });
 
@@ -180,6 +194,7 @@ describe('GroupCardItem', () => {
     );
 
     component
+      .childAt(0)
       .childAt(1)
       .childAt(1)
       .childAt(0)

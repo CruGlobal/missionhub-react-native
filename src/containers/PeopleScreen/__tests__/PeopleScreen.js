@@ -98,6 +98,28 @@ describe('PeopleScreen', () => {
       ).toMatchSnapshot();
       expect(peopleByOrgSelector).toHaveBeenCalled();
     });
+    it('should provide the necessary props for Jean with no contacts', () => {
+      peopleByOrgSelector.mockReturnValue([
+        {
+          id: 'personal',
+          type: 'organization',
+          people: [
+            {
+              id: 'me person',
+            },
+          ],
+        },
+      ]);
+      expect(
+        mapStateToProps({
+          auth: {
+            isJean: true,
+          },
+          people: {},
+        }),
+      ).toMatchSnapshot();
+      expect(peopleByOrgSelector).toHaveBeenCalled();
+    });
     it('should provide the necessary props for Casey', () => {
       allAssignedPeopleSelector.mockReturnValue(people);
       expect(
@@ -110,7 +132,31 @@ describe('PeopleScreen', () => {
       ).toMatchSnapshot();
       expect(allAssignedPeopleSelector).toHaveBeenCalled();
     });
+    it('should provide necessary props for Casey with no steps', () => {
+      allAssignedPeopleSelector.mockReturnValue([{ id: 'me person' }]);
+      expect(
+        mapStateToProps({
+          auth: {
+            isJean: false,
+          },
+          people: {},
+        }),
+      ).toMatchSnapshot();
+      expect(allAssignedPeopleSelector).toHaveBeenCalled();
+    });
   });
+
+  it('renders empty correctly', () => {
+    testSnapshotShallow(
+      <PeopleScreen
+        {...props}
+        isJean={false}
+        items={[{ id: 'me person' }]}
+        hasNoContacts={true}
+      />,
+    );
+  });
+
   it('renders correctly as Casey', () => {
     testSnapshotShallow(
       <PeopleScreen {...props} isJean={false} items={people} />,

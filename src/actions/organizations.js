@@ -8,8 +8,10 @@ import {
   ACTIONS,
   ORG_PERMISSIONS,
   ERROR_PERSON_PART_OF_ORG,
+  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
+import { removeHiddenOrgs } from '../selectors/selectorUtils';
 
 import { getMe, getPersonDetails } from './person';
 import callApi, { REQUESTS } from './api';
@@ -64,9 +66,28 @@ export function getMyOrganizations() {
 }
 
 export function getOrganizationsContactReports() {
-  return async dispatch => {
+  return async (dispatch, getState) => {
+    const {
+      organizations,
+      auth: { person },
+    } = getState();
+
+    const visibleOrgs = removeHiddenOrgs(organizations.all, person);
+
+    if (visibleOrgs.length === 0) {
+      return;
+    }
+
+    const organization_ids = visibleOrgs
+      .filter(org => org.community && org.id !== GLOBAL_COMMUNITY_ID)
+      .map(org => org.id)
+      .join(',');
+
     const { response } = await dispatch(
-      callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, { period: 'P1W' }),
+      callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, {
+        period: 'P1W',
+        organization_ids,
+      }),
     );
 
     dispatch({
@@ -167,7 +188,7 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
 //filters[answers][questionId][]=answerTexts
 function getAnswersFromFilters(filters) {
   const arrFilters = Object.keys(filters).map(k => filters[k]);
-  const answers = arrFilters.filter(f => f.isAnswer);
+  const answers = arrFilters.filter(f => f && f.isAnswer);
   if (answers.length === 0) {
     return null;
   }
