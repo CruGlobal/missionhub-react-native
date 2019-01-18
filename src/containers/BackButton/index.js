@@ -9,7 +9,7 @@ import IconButton from '../../components/IconButton';
 
 import styles from './styles';
 
-export class BackButton extends Component {
+class BackButton extends Component {
   onPress = () => {
     const { dispatch, customNavigate } = this.props;
 

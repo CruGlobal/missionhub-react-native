@@ -3,7 +3,7 @@ import Adapter from 'enzyme-adapter-react-16/build/index';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
 
-import { BackButton } from '..';
+import BackButton from '..';
 
 import { createMockStore } from '../../../../testUtils';
 import * as navigation from '../../../actions/navigation';
