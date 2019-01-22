@@ -1,4 +1,3 @@
-import { Crashlytics } from 'react-native-fabric';
 import * as RNOmniture from 'react-native-omniture';
 
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
@@ -18,7 +17,6 @@ export function onSuccessfulLogin(onComplete) {
     const {
       person: { id: personId },
     } = getState().auth;
-    Crashlytics.setUserIdentifier(personId);
     rollbar.setPerson(personId);
 
     const mePerson = await dispatch(getMe('contact_assignments'));

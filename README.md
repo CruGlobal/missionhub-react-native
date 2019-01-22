@@ -61,13 +61,6 @@ For iOS, you can run change the scheme to a `Release` version and run the applic
 For Android, to build to a local device, check that there is a device connected by running `adb devices`, then you can run `yarn run android:build`. Make sure you've uninstalled any existing MissionHub application on the device first. This will create the apk at this location: `/android/app/build/outputs/apk/app-release.apk`
 
 
-## Deploying to Crashlytics
-
-For iOS, use the Fabric application that you can download and follow the steps on there for deployments. Click into the `com.missionhub` iOS project, click the Tab for Archives. This is where you can manage all prior and current archives to distribute. In XCode, change your build target to either a plugged in device, or the "Generic iOS Device" target, increment the build number, then click on Product -> Archive. An archive will now build and you will get an alert from Fabric saying that a new build is ready to be released. Click "Distribute" in the Fabric popup and select who you want to send the release to.
-
-For Android, after you have followed the steps above to create a build file, you do everything else through Android Studio. There is a Fabric plugin for Android Studio, login with your account that has access to release builds. Select the `com.missionhub` project, go to Crashlytics, hit "Next". You'll see a list of crashes/releases, go to the Share tab, in the bottom right there is a button to "Upload a file". Select this, then navigate to the release apk (`/android/app/build/outputs/apk/app-release.apk`)
-
-
 ## Notes
 
 iOS builds can only be run on a Mac.
