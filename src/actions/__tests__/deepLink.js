@@ -58,7 +58,7 @@ describe('setupFirebaseDynamicLinks', () => {
           }),
         ],
       }));
-    it('should handle a link that was opened while the app was running', () =>
+    it('should handle a link that was opened while the app was running ', () =>
       test({
         auth: false,
         initialLink: false,
