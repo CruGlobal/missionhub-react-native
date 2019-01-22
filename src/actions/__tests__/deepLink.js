@@ -79,7 +79,7 @@ describe('setupFirebaseDynamicLinks', () => {
       }));
   });
   describe('authenticated', () => {
-    it('should handle a link that launched the app', async () =>
+    it('should handle a link that launched the app ', async () =>
       await test({
         auth: true,
         initialLink: true,
