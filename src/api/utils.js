@@ -33,7 +33,7 @@ const ERROR_CODES = [
 ];
 const JSON_CONTENT_TYPE = ['application/json', 'application/vnd.api+json'];
 
-function handleResponse(response) {
+async function handleResponse(response) {
   if (!response) {
     return null;
   }
@@ -52,10 +52,11 @@ function handleResponse(response) {
 
   // We need to use response.text() and JSON.parse(t) for responses because we are getting data back with
   // a content-type of 'application/vnd.api+json' which needs to be handled like this
-  return response.text().then(t => ({
-    jsonResponse: t ? JSON.parse(t) : null,
+  const text = await response.text();
+  return {
+    jsonResponse: text ? JSON.parse(text) : null,
     sessionHeader: response.headers.get('X-MH-Session'),
-  }));
+  };
 }
 
 function createUrl(url = '', params) {
@@ -91,10 +92,11 @@ function defaultObject(method, obj = {}, data) {
   return newObj;
 }
 
-export default function request(type, url, query, data, extra) {
+export default async function request(type, url, query, data, extra) {
   const newUrl = createUrl(url, query);
   const newObject = defaultObject(type, extra, data);
   APILOG('REQUEST', newObject.method, newUrl, newObject);
 
-  return fetch(newUrl, newObject).then(handleResponse);
+  const response = await fetch(newUrl, newObject);
+  return await handleResponse(response);
 }
