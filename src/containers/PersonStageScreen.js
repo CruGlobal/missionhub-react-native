@@ -203,7 +203,7 @@ PersonStageScreen.defaultProps = {
   enableBackButton: true,
 };
 
-const mapStateToProps = ({ personProfile, auth }, { navigation }) => {
+const mapStateToProps = ({ personProfile, auth }, { navigation, next }) => {
   const navProps = navigation.state.params || {};
 
   return {
@@ -212,7 +212,7 @@ const mapStateToProps = ({ personProfile, auth }, { navigation }) => {
     personId: personProfile.id,
     contactAssignmentId: navProps.onComplete
       ? navProps.contactAssignmentId
-      : personProfile.contactAssignmentId, // onComplete currently seems to be used as a flag to indicate if we are in onboarding or not
+      : navProps.contactAssignmentId || personProfile.contactAssignmentId, // onComplete currently seems to be used as a flag to indicate if we are in onboarding or not
     myId: auth.person.id,
   };
 };

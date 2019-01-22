@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { buildTrackingObj } from '../utils/common';
 
@@ -13,7 +14,12 @@ class SelectMyStepScreen extends Component {
   }
 
   handleNavigate = () => {
-    this.props.onSaveNewSteps();
+    const { dispatch, next, onSaveNewSteps } = this.props;
+    if (next) {
+      dispatch(next());
+    } else if (onSaveNewSteps) {
+      onSaveNewSteps();
+    }
   };
 
   render() {
@@ -50,6 +56,13 @@ class SelectMyStepScreen extends Component {
     );
   }
 }
+
+SelectMyStepScreen.propTypes = {
+  next: PropTypes.func,
+  onSaveNewSteps: PropTypes.func,
+  enableBackButton: PropTypes.bool,
+  contactStage: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = ({ auth }, { navigation }) => ({
   ...(navigation.state.params || {}),

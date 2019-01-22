@@ -127,6 +127,7 @@ export const CompleteStepFlowScreens = {
         navigatePush(SELECT_MY_STEP_SCREEN, {
           enableBackButton: true,
           contactStage: stage,
+          organization: { id: orgId },
         }),
       );
     }),
@@ -141,6 +142,7 @@ export const CompleteStepFlowScreens = {
           navigatePush(PERSON_SELECT_STEP_SCREEN, {
             contactStage: stage,
             contactId,
+            organization: { id: orgId },
             contactName: name,
           }),
         );
@@ -153,7 +155,7 @@ export const CompleteStepFlowScreens = {
       return dispatch(navigatePush(CELEBRATION_SCREEN));
     }),
   ),
-  [PERSON_STAGE_SCREEN]: buildTrackedScreen(
+  [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
     wrapNextAction(PersonSelectStepScreen, () => dispatch => {
       return dispatch(navigatePush(CELEBRATION_SCREEN));
     }),
