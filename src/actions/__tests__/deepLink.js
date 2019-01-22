@@ -39,7 +39,7 @@ const test = async ({
 
 describe('setupFirebaseDynamicLinks', () => {
   describe('unauthenticated', () => {
-    it('should handle a link that launched the app', () =>
+    it('should handle a link that launched the app ', () =>
       test({
         auth: false,
         initialLink: true,
