@@ -35,6 +35,7 @@ import { navigateToPostAuthScreen } from './actions/auth/auth';
   deploymentKey: isAndroid
     ? Config.CODEPUSH_ANDROID_KEY
     : Config.CODEPUSH_IOS_KEY,
+  checkFrequency: codePush.CheckFrequency.ON_APP_START,
 })
 export default class App extends Component {
   showingErrorModal = false;
@@ -42,7 +43,7 @@ export default class App extends Component {
     appState: AppState.currentState,
   };
 
-  constructor(props) {
+  constructor(props: Readonly<{}>) {
     super(props);
     this.initializeErrorHandling();
   }
@@ -60,7 +61,7 @@ export default class App extends Component {
     const iOSKey = 'org.cru.missionhub.clientIdKey'; // key from the old iOS app
     const androidKey = 'account.guest.secret'; // key from the old android app
 
-    const getKey = async key => {
+    const getKey = async (key: string) => {
       const value = await DefaultPreference.get(key);
       if (value) {
         try {
@@ -86,14 +87,20 @@ export default class App extends Component {
   }
 
   initializeErrorHandling() {
-    window.onunhandledrejection = ({ reason }) => {
+    window.onunhandledrejection = ({ reason }: PromiseRejectionEvent) => {
       this.handleError(reason);
     };
 
     ErrorUtils.setGlobalHandler(this.handleError);
   }
 
-  handleError(e) {
+  handleError(e: {
+    apiError: any;
+    key?: string;
+    method?: string;
+    endpoint?: string;
+    query?: any;
+  }) {
     const { apiError } = e;
 
     if (apiError) {
@@ -113,7 +120,7 @@ export default class App extends Component {
       } else {
         rollbar.error(
           Error(
-            `API Error: ${e.key} ${e.method.toUpperCase()} ${
+            `API Error: ${e.key} ${(e.method || '').toUpperCase()} ${
               e.endpoint
             }\n\nQuery Params:\n${JSON.stringify(
               e.query,
@@ -129,7 +136,7 @@ export default class App extends Component {
       rollbar.error(Error(`Unknown Error:\n${JSON.stringify(e, null, 2)}`));
     }
 
-    LOG(e);
+    global.LOG(e);
   }
 
   showOfflineAlert = () => {
@@ -139,7 +146,7 @@ export default class App extends Component {
     );
   };
 
-  showAlert = (title, message) => {
+  showAlert = (title: string, message: string) => {
     if (!this.showingErrorModal) {
       this.showingErrorModal = true;
 
@@ -156,7 +163,7 @@ export default class App extends Component {
     AppState.removeEventListener('change', this.handleAppStateChange);
   }
 
-  handleAppStateChange = nextAppState => {
+  handleAppStateChange = (nextAppState: string) => {
     if (
       this.state.appState.match(/inactive|background/) &&
       nextAppState === 'active'
