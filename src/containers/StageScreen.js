@@ -24,8 +24,10 @@ class StageScreen extends Component {
     const { onComplete, next, contactId, orgId, noNav, dispatch } = this.props;
 
     if (next) {
-      dispatch(next({ stage, personId: contactId, orgId }));
-    } else if (onComplete) {
+      return dispatch(next({ stage, orgId }));
+    }
+
+    if (onComplete) {
       onComplete(stage);
       if (!noNav) {
         dispatch(

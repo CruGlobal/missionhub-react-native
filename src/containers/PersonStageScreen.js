@@ -69,8 +69,10 @@ class PersonStageScreen extends Component {
     } = this.props;
 
     if (next) {
-      dispatch(next({ stage, contactId, name, orgId }));
-    } else if (onComplete) {
+      return dispatch(next({ stage, contactId, name, orgId }));
+    }
+
+    if (onComplete) {
       onComplete(stage);
       if (!noNav) {
         dispatch(
@@ -102,6 +104,16 @@ class PersonStageScreen extends Component {
   }
 
   handleSelectStage = async (stage, isAlreadySelected) => {
+    const { dispatch, contactAssignmentId, next, onComplete } = this.props;
+
+    if (next) {
+      if (!isAlreadySelected) {
+        await dispatch(updateUserStage(contactAssignmentId, stage.id));
+      }
+
+      return this.complete(stage);
+    }
+
     if (this.props.onComplete) {
       if (isAlreadySelected) {
         this.complete(stage);

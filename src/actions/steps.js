@@ -194,30 +194,42 @@ function buildChallengeData(attributes) {
 
 function challengeCompleteAction(step, screen) {
   return async (dispatch, getState) => {
+    const {
+      auth: {
+        person: { id: myId },
+      },
+    } = getState();
     const { id: stepId, receiver, organization } = step;
     const receiverId = (receiver && receiver.id) || null;
     const orgId = (organization && organization.id) || null;
 
     const query = { challenge_id: stepId };
     const data = buildChallengeData({ completed_at: formatApiDate() });
-    const {
-      auth: {
-        person: { id: myId },
-      },
-    } = getState();
 
     await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
-
-    const subsection = getAnalyticsSubsection(receiverId, myId);
-
     dispatch({ type: COMPLETED_STEP_COUNT, userId: receiverId });
     dispatch(refreshImpact(orgId));
+
+    const subsection = getAnalyticsSubsection(receiverId, myId);
 
     dispatch(
       navigatePush(COMPLETE_STEP_FLOW, {
         stepId,
         personId: receiverId,
         orgId,
+        type: STEP_NOTE,
+        trackingObj: buildTrackingObj(
+          `people: ${subsection} : steps : complete comment`,
+          'people',
+          subsection,
+          'steps',
+        ),
+      }),
+    );
+
+    dispatch(
+      trackAction(`${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`, {
+        [ACTIONS.STEP_COMPLETED.key]: null,
       }),
     );
   };
