@@ -166,9 +166,9 @@ dependencies {
     // // This is for multidex support for Android versions <5.0
     compile 'com.android.support:multidex:1.0.3'
 
-    compile 'com.google.android.gms:play-services-base:16.0.1'
-    compile 'com.google.firebase:firebase-core:16.0.5'
-    compile 'com.google.firebase:firebase-invites:16.0.5'
+    compile 'com.google.android.gms:play-services-base:16.1.0'
+    compile 'com.google.firebase:firebase-core:16.0.6'
+    compile 'com.google.firebase:firebase-invites:16.0.6'
 }
 
 // Run this once to be able to run the application with BUCK
@@ -179,3 +179,5 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
 
 apply plugin: 'com.google.gms.google-services' // For Firebase
+
+com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true // Waiting on a fix here: https://github.com/google/play-services-plugins/issues/30. Workaround from here: https://github.com/invertase/react-native-firebase/issues/1676#issuecomment-441243419.
