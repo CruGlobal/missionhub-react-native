@@ -2,7 +2,11 @@ import { createStackNavigator, StackActions } from 'react-navigation';
 import i18next from 'i18next';
 
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
-import { buildTrackingObj, getStageIndex } from '../../utils/common';
+import {
+  buildTrackingObj,
+  getStageIndex,
+  getAnalyticsSubsection,
+} from '../../utils/common';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { reloadJourney } from '../../actions/journey';
 import { updateChallengeNote } from '../../actions/steps';
@@ -68,7 +72,7 @@ export const CompleteStepFlowScreens = {
 
         const firstItemIndex = getStageIndex(stages, stageId);
         const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
-        const subsection = isMe ? 'self' : 'person';
+        const subsection = getAnalyticsSubsection(personId, myId);
         const name = isMe ? authPerson.first_name : person.first_name;
         const questionText = isMe
           ? isNotSure
@@ -170,12 +174,30 @@ export const CompleteStepFlowScreens = {
   ),
   [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
     wrapNextAction(SelectMyStepScreen, () => dispatch => {
-      dispatch(navigatePush(CELEBRATION_SCREEN));
+      dispatch(
+        navigatePush(CELEBRATION_SCREEN, {
+          trackingObj: buildTrackingObj(
+            `people : self : steps : gif`,
+            'people',
+            'self',
+            'steps',
+          ),
+        }),
+      );
     }),
   ),
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
     wrapNextAction(PersonSelectStepScreen, () => dispatch => {
-      dispatch(navigatePush(CELEBRATION_SCREEN));
+      dispatch(
+        navigatePush(CELEBRATION_SCREEN, {
+          trackingObj: buildTrackingObj(
+            `people : person : steps : gif`,
+            'people',
+            'person',
+            'steps',
+          ),
+        }),
+      );
     }),
   ),
   [CELEBRATION_SCREEN]: buildTrackedScreen(
