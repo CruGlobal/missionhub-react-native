@@ -14,7 +14,7 @@ import {
 } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
-import { orgPermissionSelector } from '../../selectors/people';
+import { orgPermissionSelector, membersSelector } from '../../selectors/people';
 import { removeGroupInviteInfo } from '../../actions/swipe';
 
 import styles from './styles';
@@ -120,21 +120,21 @@ Members.propTypes = {
 };
 
 const mapStateToProps = (
-  { auth, organizations, swipe },
+  { auth, organizations, swipe, people },
   { organization = {} },
 ) => {
   const orgId = organization.id;
-  const selectorOrg =
-    organizationSelector({ organizations }, { orgId }) || organization;
+
   return {
     groupInviteInfo: swipe.groupInviteInfo,
-    members: selectorOrg.members || [],
-    pagination: organizations.membersPagination,
+    members: membersSelector({ people }, { orgId }),
+    pagination: people.membersPagination,
     myOrgPermission: orgPermissionSelector(null, {
       person: auth.person,
       organization: { id: orgId },
     }),
-    organization: selectorOrg,
+    organization:
+      organizationSelector({ organizations }, { orgId }) || organization,
   };
 };
 

@@ -252,6 +252,8 @@ export function getOrganizationMembers(orgId, query = {}) {
       type: GET_ORGANIZATION_PEOPLE,
       orgId,
       response: membersWithCounts,
+      query: newQuery,
+      meta,
     });
 
     return membersWithCounts;
@@ -260,7 +262,7 @@ export function getOrganizationMembers(orgId, query = {}) {
 
 export function getOrganizationMembersNextPage(orgId) {
   return (dispatch, getState) => {
-    const { page, hasNextPage } = getState().organizations.membersPagination;
+    const { page, hasNextPage } = getState().people.membersPagination;
     if (!hasNextPage) {
       // Does not have more data
       return Promise.resolve();

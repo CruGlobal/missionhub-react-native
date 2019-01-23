@@ -2,14 +2,10 @@ import {
   LOGOUT,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
-  GET_ORGANIZATION_MEMBERS,
   RESET_CELEBRATION_PAGINATION,
   RESET_CHALLENGE_PAGINATION,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
-  UPDATE_PERSON_ATTRIBUTES,
-  LOAD_PERSON_DETAILS,
-  REMOVE_ORGANIZATION_MEMBER,
   UPDATE_CHALLENGE,
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
@@ -167,26 +163,6 @@ function organizationsReducer(state = initialState, action) {
       return toggleCelebrationLike(action, state, true);
     case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
       return toggleCelebrationLike(action, state, false);
-    case GET_ORGANIZATION_MEMBERS:
-      const { orgId: memberOrgId, query: memberQuery, members } = action;
-      const currentMemberOrg = state.all.find(o => o.id === memberOrgId);
-      if (!currentMemberOrg) {
-        return state; // Return if the organization does not exist
-      }
-      const existingMembers = currentMemberOrg.members || [];
-      const allMembers =
-        memberQuery.page && memberQuery.page.offset > 0
-          ? [...existingMembers, ...members]
-          : members;
-      return {
-        ...state,
-        all: memberOrgId
-          ? state.all.map(
-              o => (o.id === memberOrgId ? { ...o, members: allMembers } : o),
-            )
-          : state.all,
-        membersPagination: getPagination(action, allMembers.length),
-      };
     case REQUESTS.UPDATE_ORGANIZATION.SUCCESS:
     case REQUESTS.UPDATE_ORGANIZATION_IMAGE.SUCCESS:
     case REQUESTS.ORGANIZATION_NEW_CODE.SUCCESS:
@@ -208,24 +184,6 @@ function organizationsReducer(state = initialState, action) {
                   community_code: updatedOrgResponse.community_code,
                   community_url: updatedOrgResponse.community_url,
                 }
-              : o,
-        ),
-      };
-    case UPDATE_PERSON_ATTRIBUTES:
-      return updateAllPersonInstances(action.updatedPersonAttributes, state);
-    case LOAD_PERSON_DETAILS:
-      return updateAllPersonInstances(action.person, state);
-    case REQUESTS.GET_ME.SUCCESS:
-      return updateAllPersonInstances(action.results.response, state);
-    case REMOVE_ORGANIZATION_MEMBER:
-      const { personId, orgId } = action;
-
-      return {
-        ...state,
-        all: state.all.map(
-          o =>
-            o.id === orgId
-              ? { ...o, members: o.members.filter(m => m.id !== personId) }
               : o,
         ),
       };
@@ -257,24 +215,6 @@ function toggleCelebrationLike(action, state, liked) {
   return {
     ...state,
     all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
-  };
-}
-
-function updateAllPersonInstances(updatedPerson, state) {
-  return {
-    ...state,
-    all: state.all.map(
-      org =>
-        org.members
-          ? {
-              ...org,
-              members: org.members.map(
-                m =>
-                  m.id === updatedPerson.id ? { ...m, ...updatedPerson } : m,
-              ),
-            }
-          : org,
-    ),
   };
 }
 

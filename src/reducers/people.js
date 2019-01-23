@@ -6,11 +6,17 @@ import {
   LOAD_PERSON_DETAILS,
   UPDATE_PERSON_ATTRIBUTES,
   GET_ORGANIZATION_PEOPLE,
+  REMOVE_ORGANIZATION_MEMBER,
 } from '../constants';
+import { getPagination } from '../utils/common';
 
 const initialState = {
   allByOrg: {
     personal: { id: 'personal', people: {} },
+  },
+  membersPagination: {
+    hasNextPage: true,
+    page: 1,
   },
 };
 
@@ -63,6 +69,23 @@ export default function peopleReducer(state = initialState, action) {
         ...state,
         allByOrg: action.orgs,
       };
+    case REQUESTS.GET_ME.SUCCESS:
+      return {
+        ...state,
+        allByOrg: updateAllPersonInstances(
+          state.allByOrg,
+          action.results.response,
+        ),
+      };
+    case REMOVE_ORGANIZATION_MEMBER:
+      return {
+        ...state,
+        allByOrg: deletePersonInOrg(
+          state.allByOrg,
+          action.personId,
+          action.orgId,
+        ),
+      };
     default:
       return state;
   }
@@ -87,6 +110,7 @@ function loadPeople(state, action) {
         people: allPeople,
       },
     },
+    membersPagination: getPagination(action, Object.values(allPeople).length),
   };
 }
 

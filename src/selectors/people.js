@@ -1,5 +1,7 @@
 import { createSelector } from 'reselect';
 
+import { hasOrgPermissions } from '../utils/common';
+
 import { removeHiddenOrgs } from './selectorUtils';
 
 export const peopleByOrgSelector = createSelector(
@@ -136,6 +138,24 @@ export const orgPermissionSelector = createSelector(
   (person, organization) =>
     organization &&
     (person.organizational_permissions || []).find(
-      orgPermission => orgPermission.organization_id === organization.id,
+      orgPermission => orgPermission.organization_id === organization.id, //todo reuse
     ),
+);
+
+export const membersSelector = createSelector(
+  ({ people }) => people.allByOrg,
+  (_, { orgId }) => orgId,
+  (orgs, orgId) => {
+    const org = orgs[orgId];
+
+    return org
+      ? Object.values(org.people).filter(person =>
+          person.organizational_permissions.find(
+            orgPermission =>
+              orgPermission.organization_id === org.id &&
+              hasOrgPermissions(orgPermission),
+          ),
+        )
+      : [];
+  },
 );
