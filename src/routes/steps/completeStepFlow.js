@@ -1,4 +1,8 @@
-import { createStackNavigator } from 'react-navigation';
+import {
+  createStackNavigator,
+  NavigationActions,
+  StackActions,
+} from 'react-navigation';
 import i18next from 'i18next';
 
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
@@ -187,7 +191,10 @@ export const CompleteStepFlowScreens = {
     }),
   ),
   [CELEBRATION_SCREEN]: buildTrackedScreen(
-    wrapNextAction(CelebrationScreen, () => dispatch => {}),
+    wrapNextAction(CelebrationScreen, () => dispatch => {
+      dispatch(StackActions.popToTop());
+      dispatch(navigateBack());
+    }),
     buildTrackingObj(),
   ),
 };
