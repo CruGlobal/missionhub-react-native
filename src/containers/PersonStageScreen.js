@@ -57,7 +57,7 @@ class PersonStageScreen extends Component {
     }
   };
 
-  complete(stage) {
+  complete(stage, isAlreadySelected) {
     const {
       onComplete,
       next,
@@ -69,7 +69,9 @@ class PersonStageScreen extends Component {
     } = this.props;
 
     if (next) {
-      return dispatch(next({ stage, contactId, name, orgId }));
+      return dispatch(
+        next({ stage, contactId, name, orgId, isAlreadySelected }),
+      );
     }
 
     if (onComplete) {
@@ -111,7 +113,7 @@ class PersonStageScreen extends Component {
         await dispatch(updateUserStage(contactAssignmentId, stage.id));
       }
 
-      return this.complete(stage);
+      return this.complete(stage, isAlreadySelected);
     }
 
     if (this.props.onComplete) {

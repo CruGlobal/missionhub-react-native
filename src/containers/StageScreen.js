@@ -20,11 +20,11 @@ class StageScreen extends Component {
     });
   };
 
-  complete(stage) {
+  complete(stage, isAlreadySelected) {
     const { onComplete, next, contactId, orgId, noNav, dispatch } = this.props;
 
     if (next) {
-      return dispatch(next({ stage, orgId }));
+      return dispatch(next({ stage, contactId, orgId, isAlreadySelected }));
     }
 
     if (onComplete) {
@@ -46,14 +46,12 @@ class StageScreen extends Component {
     }
   }
 
-  handleSelectStage = (stage, isAlreadySelected) => {
-    if (isAlreadySelected) {
-      this.complete(stage);
-    } else {
-      this.props.dispatch(selectMyStage(stage.id)).then(() => {
-        this.complete(stage);
-      });
+  handleSelectStage = async (stage, isAlreadySelected) => {
+    if (!isAlreadySelected) {
+      await this.props.dispatch(selectMyStage(stage.id));
     }
+
+    this.complete(stage, isAlreadySelected);
   };
 
   render() {

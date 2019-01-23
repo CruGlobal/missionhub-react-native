@@ -70,6 +70,7 @@ export const CompleteStepFlowScreens = {
         // If person hasn't hit the count and they're NOT on the "not sure" stage
         // Send them through to celebrate and complete
         if (!hasHitCount && !isNotSure) {
+          dispatch(reloadJourney(personId, orgId));
           return dispatch(navigatePush(CELEBRATION_SCREEN));
         }
 
@@ -121,57 +122,69 @@ export const CompleteStepFlowScreens = {
     ),
   ),
   [STAGE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(StageScreen, ({ stage, orgId }) => dispatch => {
-      return dispatch(
-        navigatePush(SELECT_MY_STEP_SCREEN, {
-          enableBackButton: true,
-          contactStage: stage,
-          organization: { id: orgId },
-        }),
-      );
-    }),
+    wrapNextAction(
+      StageScreen,
+      ({ stage, contactId, orgId, isAlreadySelected }) => dispatch => {
+        dispatch(reloadJourney(contactId, orgId));
+
+        const nextScreen = isAlreadySelected
+          ? CELEBRATION_SCREEN
+          : SELECT_MY_STEP_SCREEN;
+        const nextProps = isAlreadySelected
+          ? {}
+          : {
+              enableBackButton: true,
+              contactStage: stage,
+              organization: { id: orgId },
+            };
+
+        dispatch(navigatePush(nextScreen, nextProps));
+      },
+    ),
   ),
   [PERSON_STAGE_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       PersonStageScreen,
-      ({ stage, contactId, name, orgId }) => dispatch => {
-        dispatch(
-          navigatePush(PERSON_SELECT_STEP_SCREEN, {
-            contactStage: stage,
-            contactId,
-            organization: { id: orgId },
-            contactName: name,
-            createStepTracking: buildTrackingObj(
-              'people : person : steps : create',
-              'people',
-              'person',
-              'steps',
-            ),
-            trackingObj: buildTrackingObj(
-              'people : person : steps : add',
-              'people',
-              'person',
-              'steps',
-            ),
-          }),
-        );
+      ({ stage, contactId, name, orgId, isAlreadySelected }) => dispatch => {
+        dispatch(reloadJourney(contactId, orgId));
+
+        const nextScreen = isAlreadySelected
+          ? CELEBRATION_SCREEN
+          : PERSON_SELECT_STEP_SCREEN;
+        const nextProps = isAlreadySelected
+          ? {}
+          : {
+              contactStage: stage,
+              contactId,
+              organization: { id: orgId },
+              contactName: name,
+              createStepTracking: buildTrackingObj(
+                'people : person : steps : create',
+                'people',
+                'person',
+                'steps',
+              ),
+              trackingObj: buildTrackingObj(
+                'people : person : steps : add',
+                'people',
+                'person',
+                'steps',
+              ),
+            };
+
+        dispatch(navigatePush(nextScreen, nextProps));
       },
     ),
   ),
   [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SelectMyStepScreen, ({ personId, orgId }) => dispatch => {
-      dispatch(reloadJourney(personId, orgId));
-      return dispatch(navigatePush(CELEBRATION_SCREEN));
+    wrapNextAction(SelectMyStepScreen, () => dispatch => {
+      dispatch(navigatePush(CELEBRATION_SCREEN));
     }),
   ),
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      PersonSelectStepScreen,
-      ({ contactId, orgId }) => dispatch => {
-        dispatch(reloadJourney(contactId, orgId));
-        return dispatch(navigatePush(CELEBRATION_SCREEN));
-      },
-    ),
+    wrapNextAction(PersonSelectStepScreen, () => dispatch => {
+      dispatch(navigatePush(CELEBRATION_SCREEN));
+    }),
   ),
   [CELEBRATION_SCREEN]: buildTrackedScreen(
     wrapNextAction(CelebrationScreen, () => dispatch => {}),

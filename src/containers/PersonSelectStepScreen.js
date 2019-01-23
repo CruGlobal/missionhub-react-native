@@ -14,16 +14,10 @@ class PersonSelectStepScreen extends Component {
   }
 
   handleNavigate = () => {
-    const {
-      dispatch,
-      next,
-      onSaveNewSteps,
-      contactId,
-      organization,
-    } = this.props;
+    const { dispatch, next, onSaveNewSteps } = this.props;
 
     if (next) {
-      dispatch(next({ contactId, orgId: organization.id }));
+      dispatch(next());
     } else if (onSaveNewSteps) {
       onSaveNewSteps();
     }
