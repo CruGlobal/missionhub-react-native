@@ -106,7 +106,7 @@ class PersonStageScreen extends Component {
   }
 
   handleSelectStage = async (stage, isAlreadySelected) => {
-    const { dispatch, contactAssignmentId, next, onComplete } = this.props;
+    const { dispatch, contactAssignmentId, next } = this.props;
 
     if (next) {
       if (!isAlreadySelected) {
@@ -217,7 +217,7 @@ PersonStageScreen.defaultProps = {
   enableBackButton: true,
 };
 
-const mapStateToProps = ({ personProfile, auth }, { navigation, next }) => {
+const mapStateToProps = ({ personProfile, auth }, { navigation }) => {
   const navProps = navigation.state.params || {};
 
   return {

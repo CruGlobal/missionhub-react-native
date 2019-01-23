@@ -37,9 +37,8 @@ class CelebrationScreen extends Component {
 
   navigateToNext() {
     const { dispatch, onComplete, next, nextScreen } = this.props;
-
     disableBack.remove();
-    console.log(this.props);
+
     if (next) {
       dispatch(next());
     } else if (onComplete) {

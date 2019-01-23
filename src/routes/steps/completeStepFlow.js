@@ -1,26 +1,14 @@
-import {
-  createStackNavigator,
-  NavigationActions,
-  StackActions,
-} from 'react-navigation';
+import { createStackNavigator, StackActions } from 'react-navigation';
 import i18next from 'i18next';
 
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj, getStageIndex } from '../../utils/common';
 import { navigatePush, navigateBack } from '../../actions/navigation';
-import { firstTime, loadHome } from '../../actions/auth';
 import { reloadJourney } from '../../actions/journey';
-import {
-  completeOnboarding,
-  stashCommunityToJoin,
-  joinStashedCommunity,
-  showNotificationPrompt,
-  landOnStashedCommunityScreen,
-} from '../../actions/onboardingProfile';
 import { updateChallengeNote } from '../../actions/steps';
 import { getPersonDetails } from '../../actions/person';
-import { trackAction, trackStepsAdded } from '../../actions/analytics';
-import { STEP_NOTE, RESET_STEP_COUNT, ACTIONS } from '../../constants';
+import { trackAction } from '../../actions/analytics';
+import { RESET_STEP_COUNT, ACTIONS } from '../../constants';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import StageScreen, { STAGE_SCREEN } from '../../containers/StageScreen';
 import PersonStageScreen, {
@@ -207,7 +195,7 @@ export const CompleteStepFlowNavigator = createStackNavigator(
   },
 );
 
-async function getReverseContactAssignment(isMe, person, orgId, authPerson) {
+function getReverseContactAssignment(isMe, person, orgId, authPerson) {
   return isMe
     ? null
     : ((person && person.reverse_contact_assignments) || []).find(

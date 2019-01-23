@@ -3,7 +3,6 @@ import i18next from 'i18next';
 import {
   TOGGLE_STEP_FOCUS,
   COMPLETED_STEP_COUNT,
-  RESET_STEP_COUNT,
   STEP_NOTE,
   ACTIONS,
   DEFAULT_PAGE_LIMIT,
@@ -13,20 +12,13 @@ import {
   formatApiDate,
   getAnalyticsSubsection,
   isCustomStep,
-  getStageIndex,
 } from '../utils/common';
-import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
-import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
-import { STAGE_SCREEN } from '../containers/StageScreen';
-import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { COMPLETE_STEP_FLOW } from '../routes/constants';
 
 import { refreshImpact } from './impact';
-import { getPersonDetails } from './person';
-import { navigatePush, navigateBack } from './navigation';
+import { navigatePush } from './navigation';
 import callApi, { REQUESTS } from './api';
 import { trackAction, trackStepsAdded } from './analytics';
-import { reloadJourney } from './journey';
 import { reloadGroupCelebrateFeed } from './celebration';
 
 export function getStepSuggestions(isMe, contactStageId) {
@@ -230,17 +222,6 @@ function challengeCompleteAction(step, screen) {
     dispatch(
       trackAction(`${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`, {
         [ACTIONS.STEP_COMPLETED.key]: null,
-      }),
-    );
-  };
-}
-
-function celebrateAndComplete(numTimesBack, trackingObj) {
-  return dispatch => {
-    dispatch(
-      navigatePush(CELEBRATION_SCREEN, {
-        onComplete: () => dispatch(navigateBack(numTimesBack)),
-        trackingObj,
       }),
     );
   };

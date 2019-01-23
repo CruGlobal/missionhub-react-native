@@ -93,9 +93,9 @@ class AddStepScreen extends Component {
       return dispatch(next({ text: null, stepId, personId, orgId }));
     }
 
-    this.props.onComplete(null);
-    if (this.props.type === 'interaction') {
-      this.props.dispatch(navigateBack());
+    onComplete(null);
+    if (type === 'interaction') {
+      dispatch(navigateBack());
     }
   }
 
