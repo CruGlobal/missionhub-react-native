@@ -47,6 +47,9 @@ import TrackTabChange from '../TrackTabChange';
 
 import styles from './styles';
 
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
+
 const MAX_REMINDERS = 3;
 
 function isCloseToBottom({ layoutMeasurement, contentOffset, contentSize }) {
@@ -323,6 +326,29 @@ export class StepsScreen extends Component {
           }
           title={t('title').toUpperCase()}
         />
+        <Query
+          query={gql`
+            {
+              rates(currency: "USD") {
+                currency
+                rate
+              }
+            }
+          `}
+        >
+          {({ loading, error, data }) => {
+            if (loading) return <Text>Loading...</Text>;
+            if (error) return <Text>Error :(</Text>;
+
+            return data.rates.map(({ currency, rate }) => (
+              <View key={currency}>
+                <Text>
+                  {currency}: {rate}
+                </Text>
+              </View>
+            ));
+          }}
+        </Query>
         {steps ? this.renderSteps() : <LoadingGuy />}
       </View>
     );
