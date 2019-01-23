@@ -11,8 +11,6 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
 #include "TargetConditionals.h"
 #import "ReactNativeConfig.h"
 #import <RollbarReactNative/RollbarReactNative.h>
@@ -39,8 +37,7 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
 {
   [[FBSDKApplicationDelegate sharedInstance] application:application
                            didFinishLaunchingWithOptions:launchOptions];
-  [Fabric with:@[[Crashlytics class]]];
-  
+
   [FIRApp configure]; // Firebase
 
   if (@available(iOS 10, *)) {
