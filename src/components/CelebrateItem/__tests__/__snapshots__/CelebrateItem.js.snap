@@ -1382,7 +1382,7 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
 </Card>
 `;
 
-exports[`CelebrateItem renders event with no subject name (global community event) 1`] = `
+exports[`CelebrateItem renders event with no subject person (global community event) 1`] = `
 <Card>
   <Flex
     direction="row"

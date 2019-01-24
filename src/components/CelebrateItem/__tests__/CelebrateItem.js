@@ -55,7 +55,7 @@ describe('CelebrateItem', () => {
     );
   };
 
-  it('renders event with no subject name (global community event)', () =>
+  it('renders event with no subject person (global community event)', () =>
     testEvent({
       ...baseEvent,
     }));
