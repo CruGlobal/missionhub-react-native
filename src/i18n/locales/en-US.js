@@ -482,6 +482,8 @@ export default {
     challengeAccepted: '{{initiator}} accepted a Challenge:',
     challengeCompleted: '{{initiator}} completed a Challenge:',
     communityCreated: '{{initiator}} created {{communityName}}!',
+    missionHubUser: 'MissionHub user',
+    aMissionHubUser: 'A MissionHub user',
   },
   challengeFeeds: {
     past: 'Past Challenges',

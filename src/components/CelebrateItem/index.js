@@ -68,7 +68,9 @@ class CelebrateItem extends Component {
           subject_person.first_name,
           subject_person.last_name,
         )}.`
-      : event.subject_person_name;
+      : event.subject_person_name
+        ? event.subject_person_name
+        : t('aMissionHubUser');
 
     switch (event.celebrateable_type) {
       case completedStep:
@@ -196,7 +198,7 @@ class CelebrateItem extends Component {
   }
 
   render() {
-    const { myId, event } = this.props;
+    const { myId, event, t } = this.props;
     const {
       changed_attribute_value,
       subject_person_name,
@@ -211,7 +213,12 @@ class CelebrateItem extends Component {
       <Card>
         <Flex value={1} direction={'row'} style={styles.content}>
           <Flex value={1} direction={'column'}>
-            <Text style={styles.name}>{subject_person_name.toUpperCase()}</Text>
+            <Text style={styles.name}>
+              {(subject_person_name
+                ? subject_person_name
+                : t('missionHubUser')
+              ).toUpperCase()}
+            </Text>
             <DateComponent
               style={styles.time}
               date={changed_attribute_value}
