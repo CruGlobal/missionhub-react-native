@@ -1,7 +1,10 @@
+/* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Keyboard, View } from 'react-native';
 import { translate } from 'react-i18next';
+import i18n from 'i18next';
 
 import {
   Button,
@@ -18,7 +21,6 @@ import { hasNotch, isAndroid } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 import BackButton from '../BackButton';
-import i18n from '../../i18n';
 import { navigatePush } from '../../actions/navigation';
 import { MFA_CODE_SCREEN } from '../MFACodeScreen';
 
@@ -119,6 +121,8 @@ class KeyLoginScreen extends Component {
       );
       Keyboard.dismiss();
     } catch (error) {
+      this.setState({ isLoading: false });
+
       const apiError = error.apiError;
       let errorMessage;
       let action;
@@ -151,8 +155,6 @@ class KeyLoginScreen extends Component {
       }
 
       dispatch(trackActionWithoutData(action));
-    } finally {
-      this.setState({ isLoading: false });
     }
   };
 

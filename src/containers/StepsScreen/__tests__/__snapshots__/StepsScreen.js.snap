@@ -470,7 +470,6 @@ exports[`StepsScreen renders empty screen correctly 1`] = `
         </MyText>
       </Flex>
     </ScrollView>
-    <Connect(Translate(TakeAStepWithSomeoneButton)) />
   </Component>
 </Component>
 `;
@@ -664,6 +663,344 @@ exports[`StepsScreen renders screen with steps correctly 1`] = `
         windowSize={21}
       />
     </ScrollView>
+  </Component>
+</Component>
+`;
+
+exports[`StepsScreen renders with no focused steps 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <Component
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="center"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#66D9F0",
+            "width": 750,
+          },
+          Object {
+            "paddingHorizontal": 27,
+            "paddingVertical": 32,
+          },
+        ]
+      }
+    >
+      <Icon
+        name="starGroupIcon"
+        size={45}
+        type="MissionHub"
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 36,
+            "textAlign": "center",
+          }
+        }
+        type="header"
+      >
+        FOCUS YOUR WEEK
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 16,
+            "textAlign": "center",
+          }
+        }
+      >
+        Star up to three steps and get weekly handcrafted reminders.
+      </MyText>
+    </Flex>
+    <ScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <MyRefreshControl
+          colors={
+            Array [
+              "#ffffff",
+              "#52C5DC",
+            ]
+          }
+          onRefresh={[Function]}
+          progressBackgroundColor="#007398"
+          refreshing={false}
+          tintColor="#007398"
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <FlatList
+        ListFooterComponent={null}
+        bounces={false}
+        data={
+          Array [
+            Object {
+              "id": 2,
+              "organization": Object {
+                "id": "222",
+              },
+              "receiver": Object {
+                "id": "22",
+              },
+            },
+            Object {
+              "id": 3,
+              "organization": Object {
+                "id": "333",
+              },
+              "receiver": Object {
+                "id": "33",
+              },
+            },
+          ]
+        }
+        disableVirtualization={false}
+        extraData={
+          Object {
+            "hideStars": false,
+          }
+        }
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onEndReachedThreshold={2}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "overflow": "scroll",
+              "paddingBottom": undefined,
+            },
+            Object {
+              "paddingBottom": 40,
+            },
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        windowSize={21}
+      />
+    </ScrollView>
+  </Component>
+</Component>
+`;
+
+exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <Component
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="center"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#66D9F0",
+            "width": 750,
+          },
+          Object {
+            "paddingHorizontal": 27,
+            "paddingVertical": 32,
+          },
+        ]
+      }
+    >
+      <Icon
+        name="starGroupIcon"
+        size={45}
+        type="MissionHub"
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 36,
+            "textAlign": "center",
+          }
+        }
+        type="header"
+      >
+        FOCUS YOUR WEEK
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 16,
+            "textAlign": "center",
+          }
+        }
+      >
+        Star up to three steps and get weekly handcrafted reminders.
+      </MyText>
+    </Flex>
+    <ScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <MyRefreshControl
+          colors={
+            Array [
+              "#ffffff",
+              "#52C5DC",
+            ]
+          }
+          onRefresh={[Function]}
+          progressBackgroundColor="#007398"
+          refreshing={false}
+          tintColor="#007398"
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <Flex
+        align="center"
+        justify="center"
+        value={1}
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/footprints.png",
+            }
+          }
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 42,
+              "paddingTop": 10,
+            }
+          }
+          type="header"
+        >
+          STEPS OF FAITH
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "paddingHorizontal": 70,
+              "paddingVertical": 10,
+              "textAlign": "center",
+            }
+          }
+        >
+          You don't have any steps of faith.
+Choose a person in People view and add some new steps.
+        </MyText>
+      </Flex>
+    </ScrollView>
+    <Connect(Translate(TakeAStepWithSomeoneButton)) />
   </Component>
 </Component>
 `;

@@ -1,3 +1,5 @@
+/* eslint max-lines: 0 */
+
 import React from 'react';
 import {
   createBottomTabNavigator,
@@ -265,7 +267,7 @@ const buildPersonScreenRoute = screen =>
       },
     ),
     buildTrackingObj('person', 'person'),
-    { gesturesEnabled: isAndroid ? false : true },
+    { gesturesEnabled: !isAndroid },
   );
 
 const screens = {

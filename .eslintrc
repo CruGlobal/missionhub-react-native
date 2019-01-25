@@ -37,6 +37,7 @@
     "react/jsx-uses-vars": 2,
     "react/jsx-uses-react": 2,
     "react/jsx-no-bind": 2,
+    "react/no-array-index-key": 2,
     "import/no-unresolved": 2,
     "import/named": 2,
     "import/default": 2,
@@ -45,7 +46,30 @@
     "no-unused-vars": 2,
     "curly": 2,
     "require-await": 2,
-    "prefer-const": 2
+    "prefer-const": 2,
+    "no-unneeded-ternary": 2,
+    "max-params": 2,
+    "max-lines": [
+      2,
+      {
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "complexity": [
+      2,
+      {
+        "max": 10
+      }
+    ],
+    "max-lines-per-function": [
+      2,
+      {
+        "max": 60,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ]
   },
   "settings": {
     "import/resolver": {

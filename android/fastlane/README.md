@@ -20,7 +20,7 @@ or alternatively using `brew cask install fastlane`
 ```
 fastlane android beta
 ```
-Submit a new Beta Build to Crashlytics Beta
+Submit a new Beta Build to Google Play Internal Test Track
 ### android cru_build_app
 ```
 fastlane android cru_build_app

@@ -1,3 +1,5 @@
+/* eslint complexity: 0 */
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Alert } from 'react-native';
@@ -20,15 +22,23 @@ import {
 import styles from './styles';
 
 export const API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE =
-  'Permission You must log in for admin or owner permissions';
+  'You must log in for admin or owner permissions';
 
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
-  leaveCommunity = async () => {
-    const { dispatch, person, personOrgPermission } = this.props;
+  async componentWillUnmount() {
+    if (this.leaveCommunityOnUnmount) {
+      const { dispatch, person, personOrgPermission } = this.props;
 
-    await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
-    dispatch(getMyCommunities());
+      await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
+      dispatch(getMyCommunities());
+    }
+  }
+
+  leaveCommunity = () => {
+    const { dispatch } = this.props;
+
+    this.leaveCommunityOnUnmount = true;
     dispatch(navigateBack());
   };
 

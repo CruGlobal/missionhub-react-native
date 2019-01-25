@@ -1,3 +1,5 @@
+/* eslint max-lines: 0, max-params: 0 */
+
 import moment from 'moment';
 import {
   ToastAndroid,
@@ -10,6 +12,7 @@ import { DrawerActions } from 'react-navigation';
 import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 import Config from 'react-native-config';
+import i18n from 'i18next';
 
 import {
   CUSTOM_STEP_TYPE,
@@ -18,7 +21,6 @@ import {
   INTERACTION_TYPES,
   DEFAULT_PAGE_LIMIT,
 } from '../constants';
-import i18n from '../i18n';
 
 export const shuffleArray = arr => {
   let i, temporaryValue, randomIndex;

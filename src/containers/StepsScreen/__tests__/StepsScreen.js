@@ -1,3 +1,5 @@
+/* eslint max-lines: 0, max-lines-per-function: 0 */
+
 import { ScrollView } from 'react-native';
 import React from 'react';
 import i18next from 'i18next';
@@ -127,6 +129,18 @@ describe('StepsScreen', () => {
 
   it('renders empty screen correctly', () => {
     component = createComponent(propsWithoutSteps);
+    component = stopLoad(component);
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders with no steps (focused or unfocused) correctly', () => {
+    component = createComponent({ ...propsWithoutSteps, reminders: [] });
+    component = stopLoad(component);
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders with no focused steps', () => {
+    component = createComponent({ ...propsWithSteps, reminders: [] });
     component = stopLoad(component);
     expect(component).toMatchSnapshot();
   });

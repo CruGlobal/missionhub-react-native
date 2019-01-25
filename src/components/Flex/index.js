@@ -1,3 +1,5 @@
+/* eslint complexity: 0, max-lines-per-function: 0 */
+
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';

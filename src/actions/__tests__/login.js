@@ -1,6 +1,7 @@
+/* eslint max-lines-per-function: 0 */
+
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { Crashlytics } from 'react-native-fabric';
 import * as RNOmniture from 'react-native-omniture';
 
 import * as person from '../person';
@@ -12,6 +13,7 @@ import { ADD_SOMEONE_SCREEN } from '../../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';
 import { MAIN_TABS, ACTIONS } from '../../constants';
 import * as onboardingProfile from '../onboardingProfile';
+import { rollbar } from '../../utils/rollbar.config';
 
 const mockStore = configureStore([thunk]);
 const personId = '593348';
@@ -112,10 +114,10 @@ describe('onSuccessfulLogin', () => {
     ]);
   });
 
-  it('should set Fabric user id', async () => {
+  it('should set Rollbar user id', async () => {
     await store.dispatch(onSuccessfulLogin());
 
-    expect(Crashlytics.setUserIdentifier).toHaveBeenCalledWith(`${personId}`);
+    expect(rollbar.setPerson).toHaveBeenCalledWith(`${personId}`);
   });
 
   it('should track global registry master person id', async () => {

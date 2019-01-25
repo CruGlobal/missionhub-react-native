@@ -21,7 +21,15 @@ export default class Button extends Component {
   componentWillUnmount() {
     // Make sure to clear the timeout when the Button unmounts
     clearTimeout(this.clickDisableTimeout);
+    this.setClickDisableTimeout = () => {};
   }
+
+  setClickDisableTimeout = () => {
+    this.clickDisableTimeout = setTimeout(
+      () => this.setState({ clickedDisabled: false }),
+      400,
+    );
+  };
 
   handlePress = async (...args) => {
     const { pressProps, onPress } = this.props;
@@ -38,9 +46,7 @@ export default class Button extends Component {
       }
     } finally {
       // Re-enable the button after the timeout after any promises in the handler complete
-      this.clickDisableTimeout = setTimeout(() => {
-        this.setState({ clickedDisabled: false });
-      }, 400);
+      this.setClickDisableTimeout();
     }
   };
 

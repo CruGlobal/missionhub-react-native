@@ -1,3 +1,5 @@
+/* eslint complexity: 0, max-lines-per-function: 0 */
+
 import { FIRST_TIME, LOGOUT, UPDATE_STAGES, UPDATE_TOKEN } from '../constants';
 import { userIsJean } from '../utils/common';
 import { REQUESTS } from '../actions/api';

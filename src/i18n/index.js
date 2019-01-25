@@ -1,8 +1,7 @@
 import i18n from 'i18next';
 import { reactI18nextModule } from 'react-i18next';
+import DeviceInfo from 'react-native-device-info';
 import mapValues from 'lodash/mapValues';
-
-import { locale } from '../utils/common';
 
 import translations from './locales/translations.json';
 import en_US from './locales/en-US.js';
@@ -10,12 +9,12 @@ import en_US from './locales/en-US.js';
 const languageDetector = {
   type: 'languageDetector',
   async: false,
-  detect: () => locale,
+  detect: () => DeviceInfo.getDeviceLocale(),
   init: () => {},
   cacheUserLanguage: () => {},
 };
 
-export default i18n
+i18n
   .use(languageDetector)
   .use(reactI18nextModule)
   .init({

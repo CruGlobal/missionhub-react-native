@@ -7,7 +7,8 @@ import {
   renderShallow,
 } from '../../../../testUtils';
 import { LINKS } from '../../../constants';
-import i18n from '../../../i18n';
+
+import i18n from 'i18next';
 
 import SettingsMenu from '..';
 

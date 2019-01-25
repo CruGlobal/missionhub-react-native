@@ -1,3 +1,5 @@
+/* eslint max-params: 0, max-lines-per-function: 0 */
+
 import { ACTIONS } from '../constants';
 
 import callApi, { REQUESTS } from './api';

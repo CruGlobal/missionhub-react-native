@@ -5,9 +5,6 @@ import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-// Need to import for all translation screens to work properly
-import '../src/i18n';
-
 Enzyme.configure({ adapter: new Adapter() });
 
 export const createMockStore = (state = {}) => {

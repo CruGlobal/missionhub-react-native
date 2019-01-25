@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 0 */
+
 import React from 'react';
 import { DrawerActions } from 'react-navigation';
 import { shallow } from 'enzyme/build/index';
