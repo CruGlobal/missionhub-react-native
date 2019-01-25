@@ -61,6 +61,12 @@ const celebrateItems = [
     changed_attribute_name: 'created_at',
     changed_attribute_value: '2016-12-25 00:02:00 UTC',
   },
+  {
+    id: '11',
+    celebrateable_type: 'organizational_permission',
+    changed_attribute_name: 'created_at',
+    changed_attribute_value: '2016-12-25 00:09:00 UTC',
+  },
 ];
 
 const invalidItems = [

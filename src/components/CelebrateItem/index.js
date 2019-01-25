@@ -56,6 +56,7 @@ class CelebrateItem extends Component {
       completedStep,
       acceptedCommunityChallenge,
       createdCommunity,
+      joinedCommunity,
     } = CELEBRATEABLE_TYPES;
     const {
       adjective_attribute_value,
@@ -79,7 +80,16 @@ class CelebrateItem extends Component {
         return this.buildChallengeMessage(t, changed_attribute_name, name);
       case createdCommunity:
         return this.buildCreateCommunityMessage(t, event, name);
+      case joinedCommunity:
+        return this.buildJoinedCommunityMessage(t, event, name);
     }
+  }
+
+  buildJoinedCommunityMessage(t, event, name) {
+    const {
+      organization: { name: communityName },
+    } = event;
+    return t('joinedCommunity', { initiator: name, communityName });
   }
 
   buildCreateCommunityMessage(t, event, name) {
