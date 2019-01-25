@@ -1,3 +1,5 @@
+/* eslint max-lines: 0, max-lines-per-function: 0 */
+
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockDate from 'mockdate';

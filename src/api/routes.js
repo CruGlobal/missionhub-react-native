@@ -1,3 +1,5 @@
+/* eslint max-lines: 0 */
+
 import { URL_ENCODED, URL_FORM_DATA } from '../constants';
 
 import { API_URL, THE_KEY_URL } from './utils';

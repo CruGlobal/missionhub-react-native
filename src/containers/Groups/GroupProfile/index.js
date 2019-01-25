@@ -1,3 +1,5 @@
+/* eslint max-lines: 0, max-lines-per-function: 0 */
+
 import React, { Component } from 'react';
 import { Alert, SafeAreaView, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';

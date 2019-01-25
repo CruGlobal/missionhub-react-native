@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 0 */
+
 import React from 'react';
 
 import GroupCardItem from '..';

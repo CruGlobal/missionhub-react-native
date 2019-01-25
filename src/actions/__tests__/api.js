@@ -1,3 +1,5 @@
+/* eslint max-params: 0 */
+
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 

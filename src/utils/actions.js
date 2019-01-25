@@ -1,3 +1,5 @@
+/* eslint max-params: 0 */
+
 import {
   DEFAULT_PAGE_LIMIT,
   RESET_CHALLENGE_PAGINATION,
