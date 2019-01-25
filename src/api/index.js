@@ -1,3 +1,5 @@
+/* eslint complexity: 0, max-lines-per-function: 0 */
+
 import merge from 'lodash/merge';
 import lodashForEach from 'lodash/forEach';
 import { JsonApiDataStore } from 'jsonapi-datastore';

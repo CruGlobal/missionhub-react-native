@@ -1,3 +1,5 @@
+/* eslint max-params: 0, max-lines-per-function: 0 */
+
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
