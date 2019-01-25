@@ -1,3 +1,5 @@
+/* eslint max-lines: 0, max-lines-per-function: 0 */
+
 import { ScrollView } from 'react-native';
 import React from 'react';
 import i18next from 'i18next';

@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 0 */
+
 import {
   searchHandleToggle,
   searchSelectFilter,

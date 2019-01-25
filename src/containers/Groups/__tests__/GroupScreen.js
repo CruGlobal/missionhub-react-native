@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 0 */
+
 import React from 'react';
 
 import { GroupScreen, CRU_TABS, USER_CREATED_TABS } from '../GroupScreen';

@@ -1,3 +1,5 @@
+/* eslint max-params: 0, max-lines-per-function: 0 */
+
 import { Linking } from 'react-native';
 
 import { contactAssignmentSelector } from '../selectors/people';

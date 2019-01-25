@@ -1,3 +1,5 @@
+/* eslint max-lines: 0, max-lines-per-function: 0 */
+
 import React from 'react';
 import { Animated, TimePickerAndroid, DatePickerAndroid } from 'react-native';
 import MockDate from 'mockdate';

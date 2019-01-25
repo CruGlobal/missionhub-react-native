@@ -1,3 +1,5 @@
+/* eslint max-lines: 0 */
+
 import { DrawerActions } from 'react-navigation';
 import Config from 'react-native-config';
 

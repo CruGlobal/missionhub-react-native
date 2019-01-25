@@ -1,3 +1,5 @@
+/* eslint complexity: 0 */
+
 import { PushNotificationIOS } from 'react-native';
 import PushNotification from 'react-native-push-notification';
 import Config from 'react-native-config';

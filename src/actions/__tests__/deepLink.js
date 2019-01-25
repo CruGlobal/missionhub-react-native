@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 0 */
+
 import firebase from 'react-native-firebase';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';

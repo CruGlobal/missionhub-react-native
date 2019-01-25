@@ -1,3 +1,5 @@
+/* eslint complexity: 0 */
+
 import { REQUESTS } from '../actions/api';
 import {
   DELETE_PERSON,

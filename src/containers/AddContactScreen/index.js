@@ -1,3 +1,5 @@
+/* eslint complexity: 0, max-lines-per-function: 0 */
+
 import React, { Component } from 'react';
 import { View, ScrollView, Alert } from 'react-native';
 import { connect } from 'react-redux';

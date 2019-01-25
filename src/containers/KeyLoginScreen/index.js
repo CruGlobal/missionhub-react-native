@@ -1,3 +1,5 @@
+/* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Keyboard, View } from 'react-native';
