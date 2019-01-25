@@ -1,3 +1,5 @@
+/* eslint max-params: 0 */
+
 import { UPDATE_JOURNEY_ITEMS } from '../constants';
 import { isAdminOrOwner } from '../utils/common';
 
