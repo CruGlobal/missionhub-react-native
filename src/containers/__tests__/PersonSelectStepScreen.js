@@ -20,6 +20,18 @@ const mockState = {
     },
   },
 };
+const mockSaveSteps = jest.fn();
+const mockNext = jest.fn();
+
+const navProps = {
+  contactName: 'Ron',
+  contactId: contactId,
+  contactStage: { id: 2 },
+  contact: { id: contactId },
+  onSaveNewSteps: mockSaveSteps,
+  createStepTracking: {},
+  organization,
+};
 
 const store = createMockStore(mockState);
 
@@ -28,17 +40,7 @@ jest.mock('../../selectors/people');
 
 it('renders correctly', () => {
   testSnapshotShallow(
-    <PersonSelectStepScreen
-      navigation={createMockNavState({
-        contactName: 'Ron',
-        contactId: contactId,
-        contactStage: { id: 2 },
-        contact: { id: contactId },
-        onSaveNewSteps: jest.fn(),
-        createStepTracking: {},
-        organization,
-      })}
-    />,
+    <PersonSelectStepScreen navigation={createMockNavState(navProps)} />,
     store,
   );
 });
@@ -47,15 +49,43 @@ it('allows for undefined organization', () => {
   renderShallow(
     <PersonSelectStepScreen
       navigation={createMockNavState({
-        contactName: 'Ron',
-        contactId: contactId,
-        contactStage: { id: 2 },
-        contact: { id: contactId },
-        onSaveNewSteps: jest.fn(),
-        createStepTracking: {},
+        ...navProps,
         organization: undefined,
       })}
     />,
     store,
   );
+});
+
+describe('handleNavigate', () => {
+  let screen;
+  let component;
+
+  it('runs onSaveNewSteps', () => {
+    screen = renderShallow(
+      <PersonSelectStepScreen navigation={createMockNavState(navProps)} />,
+      store,
+    );
+
+    screen.props().onComplete();
+
+    expect(mockSaveSteps).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs next', () => {
+    screen = renderShallow(
+      <PersonSelectStepScreen
+        navigation={createMockNavState({
+          ...navProps,
+          onSaveNewSteps: undefined,
+          next: mockNext,
+        })}
+      />,
+      store,
+    );
+
+    screen.props().onComplete();
+
+    expect(mockNext).toHaveBeenCalledTimes(1);
+  });
 });

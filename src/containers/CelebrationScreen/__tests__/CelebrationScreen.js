@@ -1,19 +1,20 @@
 import 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 
 import {
   createMockStore,
   createMockNavState,
   testSnapshot,
+  renderShallow,
 } from '../../../../testUtils';
 
 import CelebrationScreen from '..';
 
 import * as navigation from '../../../actions/navigation';
 import * as common from '../../../utils/common';
+import { MAIN_TABS } from '../../../constants';
+import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen';
 
 const store = createMockStore();
 
@@ -33,48 +34,69 @@ it('renders correctly', () => {
 
 describe('celebration screen methods', () => {
   let component;
+  let screen;
   const mockComplete = jest.fn();
-  beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    const screen = shallow(
-      <CelebrationScreen
-        navigation={createMockNavState({
-          onComplete: mockComplete,
-        })}
-      />,
-      { context: { store } },
-    );
+  const mockNext = jest.fn();
 
-    component = screen.dive().instance();
-  });
+  describe('navigateToNext', () => {
+    it('runs onComplete', () => {
+      screen = renderShallow(
+        <CelebrationScreen
+          navigation={createMockNavState({
+            onComplete: mockComplete,
+          })}
+        />,
+        store,
+      );
+      component = screen.instance();
 
-  it('runs onComplete', () => {
-    component.navigateToNext();
-    expect(mockComplete).toHaveBeenCalledTimes(1);
-  });
-});
+      component.navigateToNext();
+      expect(mockComplete).toHaveBeenCalledTimes(1);
+    });
 
-describe('celebration screen methods without onComplete', () => {
-  let component;
-  beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    const screen = shallow(
-      <CelebrationScreen navigation={createMockNavState()} />,
-      { context: { store } },
-    );
+    it('runs next', () => {
+      screen = renderShallow(
+        <CelebrationScreen
+          navigation={createMockNavState({
+            next: mockNext,
+          })}
+        />,
+        store,
+      );
+      component = screen.instance();
 
-    component = screen.dive().instance();
-  });
+      component.navigateToNext();
+      expect(mockNext).toHaveBeenCalledTimes(1);
+    });
 
-  it('does a reset', () => {
-    navigation.navigateReset = jest.fn();
-    component.navigateToNext();
-    expect(navigation.navigateReset).toHaveBeenCalledTimes(1);
-  });
+    it('runs navigateReset with MAIN_TABS', () => {
+      screen = renderShallow(
+        <CelebrationScreen navigation={createMockNavState()} />,
+        store,
+      );
+      component = screen.instance();
 
-  it('unmounts', () => {
-    common.disableBack = { remove: jest.fn() };
-    component.componentWillUnmount();
-    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
+      navigation.navigateReset = jest.fn();
+
+      component.navigateToNext();
+      expect(navigation.navigateReset).toHaveBeenCalledWith(MAIN_TABS);
+    });
+
+    it('runs navigateReset with next screen', () => {
+      screen = renderShallow(
+        <CelebrationScreen
+          navigation={createMockNavState({ nextScreen: CONTACT_PERSON_SCREEN })}
+        />,
+        store,
+      );
+      component = screen.instance();
+
+      navigation.navigateReset = jest.fn();
+
+      component.navigateToNext();
+      expect(navigation.navigateReset).toHaveBeenCalledWith(
+        CONTACT_PERSON_SCREEN,
+      );
+    });
   });
 });

@@ -6,6 +6,7 @@ import {
   createMockNavState,
   createMockStore,
   testSnapshotShallow,
+  renderShallow,
 } from '../../../testUtils';
 
 jest.mock('react-native-device-info');
@@ -26,6 +27,16 @@ const store = createMockStore({
   },
 });
 
+const mockSaveSteps = jest.fn();
+const mockNext = jest.fn();
+
+const navProps = {
+  onSaveNewSteps: mockSaveSteps,
+  enableBackButton: false,
+  onboarding: false,
+  contactStage: { id: 4 },
+};
+
 let enableBackButton;
 let isOnboarding;
 
@@ -33,10 +44,9 @@ const test = () => {
   testSnapshotShallow(
     <SelectMyStepScreen
       navigation={createMockNavState({
-        onSaveNewSteps: jest.fn(),
-        enableBackButton: enableBackButton,
+        ...navProps,
+        enableBackButton,
         onboarding: isOnboarding,
-        contactStage: { id: 4 },
       })}
     />,
     store,
@@ -60,4 +70,36 @@ it('renders correctly for onboarding', () => {
   isOnboarding = true;
 
   test();
+});
+
+describe('SelectMyStepScreen methods', () => {
+  describe('handleNavigate', () => {
+    it('runs onSaveNewSteps', () => {
+      const screen = renderShallow(
+        <SelectMyStepScreen navigation={createMockNavState(navProps)} />,
+        store,
+      );
+
+      screen.props().onComplete();
+
+      expect(mockSaveSteps).toHaveBeenCalledTimes(1);
+    });
+
+    it('runs next', () => {
+      const screen = renderShallow(
+        <SelectMyStepScreen
+          navigation={createMockNavState({
+            ...navProps,
+            onSaveNewSteps: undefined,
+            next: mockNext,
+          })}
+        />,
+        store,
+      );
+
+      screen.props().onComplete();
+
+      expect(mockNext).toHaveBeenCalledTimes(1);
+    });
+  });
 });

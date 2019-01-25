@@ -211,7 +211,7 @@ function challengeCompleteAction(step, screen) {
         orgId,
         type: STEP_NOTE,
         trackingObj: buildTrackingObj(
-          `people: ${subsection} : steps : complete comment`,
+          `people : ${subsection} : steps : complete comment`,
           'people',
           subsection,
           'steps',

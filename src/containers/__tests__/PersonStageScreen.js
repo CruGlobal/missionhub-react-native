@@ -213,3 +213,37 @@ describe('person stage screen methods', () => {
     expect(mockComplete).toHaveBeenCalledTimes(1);
   });
 });
+
+describe('person stage screen methods with next', () => {
+  let component;
+  const mockNext = jest.fn();
+  selectStage.updateUserStage = jest.fn();
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+    component = buildScreen(
+      {
+        ...mockNavState,
+        next: mockNext,
+      },
+      store,
+    );
+  });
+
+  it('runs select stage with new stage', async () => {
+    await component.handleSelectStage(mockStage, false);
+
+    expect(selectStage.updateUserStage).toHaveBeenCalledWith(
+      mockNavState.contactAssignmentId,
+      mockStage.id,
+    );
+    expect(mockNext).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs select stage with old stage', async () => {
+    await component.handleSelectStage(mockStage, true);
+
+    expect(selectStage.updateUserStage).not.toHaveBeenCalled();
+    expect(mockNext).toHaveBeenCalledTimes(1);
+  });
+});

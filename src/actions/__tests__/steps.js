@@ -27,6 +27,7 @@ import {
   TOGGLE_STEP_FOCUS,
   CUSTOM_STEP_TYPE,
 } from '../../constants';
+import { COMPLETE_STEP_FLOW } from '../../routes/constants';
 import { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 
 const mockStore = configureStore([thunk]);
@@ -41,6 +42,7 @@ common.formatApiDate = jest.fn().mockReturnValue(mockDate);
 jest.mock('../api');
 jest.mock('../impact');
 jest.mock('../celebration');
+jest.mock('../analytics');
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -233,10 +235,8 @@ describe('complete challenge', () => {
   };
 
   const trackActionResult = { type: 'tracked action' };
-
   const impactResponse = { type: 'test impact' };
   const celebrateResponse = { type: 'test celebrate' };
-
   const screen = 'contact steps';
 
   beforeEach(() => {
@@ -260,14 +260,7 @@ describe('complete challenge', () => {
       steps: { userStepCount: { [receiverId]: 2 } },
     });
 
-    mockFnWithParams(
-      analytics,
-      'trackAction',
-      trackActionResult,
-      `${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`,
-      { [ACTIONS.STEP_COMPLETED.key]: null },
-    );
-
+    analytics.trackAction.mockReturnValue(trackActionResult);
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
     refreshImpact.mockReturnValue(impactResponse);
     reloadGroupCelebrateFeed.mockReturnValue(celebrateResponse);
@@ -276,29 +269,31 @@ describe('complete challenge', () => {
   it('completes step', async () => {
     await store.dispatch(completeStep(step, screen));
     expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CHALLENGE_COMPLETE,
+      challengeCompleteQuery,
+      data,
+    );
+    expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_MY_CHALLENGES,
       stepsQuery,
     );
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.CHALLENGE_COMPLETE,
-      challengeCompleteQuery,
-      data,
-    );
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.CHALLENGE_COMPLETE,
-      challengeCompleteQuery,
-      data,
+    expect(analytics.trackAction).toHaveBeenCalledWith(
+      `${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`,
+      { [ACTIONS.STEP_COMPLETED.key]: null },
     );
     expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(stepOrgId);
+
     expect(store.getActions()).toEqual([
       { type: COMPLETED_STEP_COUNT, userId: receiverId },
       impactResponse,
       {
         type: NAVIGATE_FORWARD,
-        routeName: ADD_STEP_SCREEN,
+        routeName: COMPLETE_STEP_FLOW,
         params: {
           type: STEP_NOTE,
-          onComplete: expect.anything(),
+          personId: receiverId,
+          stepId,
+          orgId: stepOrgId,
           trackingObj: buildTrackingObj(
             'people : person : steps : complete comment',
             'people',
@@ -335,10 +330,12 @@ describe('complete challenge', () => {
       impactResponse,
       {
         type: NAVIGATE_FORWARD,
-        routeName: ADD_STEP_SCREEN,
+        routeName: COMPLETE_STEP_FLOW,
         params: {
           type: STEP_NOTE,
-          onComplete: expect.anything(),
+          personId: receiverId,
+          stepId,
+          orgId: null,
           trackingObj: buildTrackingObj(
             'people : person : steps : complete comment',
             'people',
@@ -367,10 +364,12 @@ describe('complete challenge', () => {
       impactResponse,
       {
         type: NAVIGATE_FORWARD,
-        routeName: ADD_STEP_SCREEN,
+        routeName: COMPLETE_STEP_FLOW,
         params: {
           type: STEP_NOTE,
-          onComplete: expect.anything(),
+          personId: receiverId,
+          stepId,
+          orgId: stepOrgId,
           trackingObj: buildTrackingObj(
             'people : person : steps : complete comment',
             'people',

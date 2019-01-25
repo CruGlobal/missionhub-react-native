@@ -1,6 +1,5 @@
 import { Alert } from 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 
@@ -10,6 +9,7 @@ import {
   createMockNavState,
   testSnapshot,
   createMockStore,
+  renderShallow,
 } from '../../../../testUtils';
 import { CREATE_STEP, STEP_NOTE } from '../../../constants';
 import * as common from '../../../utils/common';
@@ -106,8 +106,7 @@ describe('add step methods', () => {
   let component;
   const mockComplete = jest.fn();
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    const screen = shallow(
+    const screen = renderShallow(
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: mockComplete,
@@ -116,14 +115,10 @@ describe('add step methods', () => {
           text: 'Comment',
         })}
       />,
-      { context: { store } },
+      store,
     );
 
-    component = screen
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+    component = screen.instance();
   });
 
   it('saves a step', () => {
@@ -133,37 +128,99 @@ describe('add step methods', () => {
 });
 
 describe('add step methods for stepNote', () => {
-  let component;
+  let screen;
   const mockComplete = jest.fn();
-  beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    const screen = shallow(
-      <AddStepScreen
-        navigation={createMockNavState({
-          onComplete: mockComplete,
-          type: STEP_NOTE,
-          text: 'Comment',
-        })}
-      />,
-      { context: { store } },
-    );
+  const mockNext = jest.fn();
+  common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
-    component = screen
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+  describe('stepNote with onComplete', () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
+
+      screen = renderShallow(
+        <AddStepScreen
+          navigation={createMockNavState({
+            onComplete: mockComplete,
+            type: STEP_NOTE,
+            text: 'Comment',
+          })}
+        />,
+        store,
+      );
+
+      expect(common.disableBack.add).toHaveBeenCalledTimes(1);
+    });
+
+    it('runs skip', () => {
+      screen
+        .childAt(0)
+        .childAt(0)
+        .simulate('press');
+
+      expect(mockComplete).toHaveBeenCalledTimes(1);
+    });
+
+    it('runs saveStep', () => {
+      screen
+        .find('Input')
+        .props()
+        .onChangeText('test');
+
+      screen.update();
+
+      screen
+        .childAt(3)
+        .childAt(0)
+        .simulate('press');
+
+      expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
+      expect(mockComplete).toHaveBeenCalledTimes(1);
+    });
   });
 
-  it('runs skip', () => {
-    component.skip();
-    expect(mockComplete).toHaveBeenCalledTimes(1);
-  });
+  describe('stepNote with next', () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
 
-  it('runs skip', () => {
-    common.disableBack = { remove: jest.fn() };
-    component.componentWillUnmount();
-    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
+      screen = renderShallow(
+        <AddStepScreen
+          navigation={createMockNavState({
+            next: mockNext,
+            type: STEP_NOTE,
+            text: 'Comment',
+          })}
+        />,
+        store,
+      );
+
+      expect(common.disableBack.add).toHaveBeenCalledTimes(1);
+    });
+
+    it('runs skip', () => {
+      screen
+        .childAt(0)
+        .childAt(0)
+        .simulate('press');
+
+      expect(mockNext).toHaveBeenCalledTimes(1);
+    });
+
+    it('runs saveStep', () => {
+      screen
+        .find('Input')
+        .props()
+        .onChangeText('test');
+
+      screen.update();
+
+      screen
+        .childAt(3)
+        .childAt(0)
+        .simulate('press');
+
+      expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
+      expect(mockNext).toHaveBeenCalledTimes(1);
+    });
   });
 });
 
@@ -171,22 +228,17 @@ describe('add step methods without edit', () => {
   let component;
   const mockComplete = jest.fn();
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    const screen = shallow(
+    const screen = renderShallow(
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: mockComplete,
           type: 'journey',
         })}
       />,
-      { context: { store } },
+      store,
     );
 
-    component = screen
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+    component = screen.instance();
   });
 
   it('doesnt save a step', () => {
@@ -202,22 +254,17 @@ describe('Caps create step at 255 characters', () => {
   const { makeShorter } = locale.addStep;
 
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    const screen = shallow(
+    const screen = renderShallow(
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: mockComplete,
           type: CREATE_STEP,
         })}
       />,
-      { context: { store } },
+      store,
     );
 
-    component = screen
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+    component = screen.instance();
   });
 
   const twoFiftyFour =
