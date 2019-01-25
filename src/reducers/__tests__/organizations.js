@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 0, max-lines: 0 */
+
 import organizations from '../organizations';
 import { REQUESTS } from '../../actions/api';
 import {

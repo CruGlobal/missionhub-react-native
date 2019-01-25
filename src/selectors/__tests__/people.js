@@ -1,3 +1,5 @@
+/* eslint max-lines: 0, max-lines-per-function: 0 */
+
 import {
   peopleByOrgSelector,
   allAssignedPeopleSelector,

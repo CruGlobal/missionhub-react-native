@@ -1,3 +1,5 @@
+/* eslint complexity: 0, max-lines-per-function: 0 */
+
 import lodashForEach from 'lodash/forEach';
 
 import API_CALLS from '../api';
