@@ -486,6 +486,8 @@ export default {
     communityCreated: '{{initiator}} created {{communityName}}!',
     joinedCommunity:
       '{{initiator}} joined {{communityName}}! Now you can see and celebrate the steps of faith they are taking.',
+    missionHubUser: 'MissionHub user',
+    aMissionHubUser: 'A MissionHub user',
   },
   challengeFeeds: {
     past: 'Past Challenges',

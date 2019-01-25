@@ -57,10 +57,17 @@ describe('CelebrateItem', () => {
     );
   };
 
-  it('renders event with no subject name (global community event)', () =>
+  it('renders event with no subject person (global community event)', () =>
     testEvent({
       ...baseEvent,
     }));
+
+  it('renders event with no subject person name', () => {
+    testEvent({
+      ...baseEvent,
+      subject_person_name: null,
+    });
+  });
 
   it('renders event for subject=me, liked=true, like count>0', () => {
     event = {
@@ -119,6 +126,17 @@ describe('CelebrateItem', () => {
       likes_count: 0,
       liked: false,
     };
+
+    it('renders event with no subject person name', () => {
+      event = {
+        ...messageBaseEvent,
+        subject_person: null,
+        subject_person_name: null,
+        celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
+        adjective_attribute_value: '3',
+      };
+      testEvent(event);
+    });
 
     it('renders step of faith event with stage', () => {
       event = {
