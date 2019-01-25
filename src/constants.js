@@ -1,3 +1,5 @@
+/* eslint max-lines: 0 */
+
 import Config from 'react-native-config';
 
 export const LOGOUT = 'app/LOGOUT';

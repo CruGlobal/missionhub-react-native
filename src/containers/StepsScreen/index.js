@@ -1,3 +1,5 @@
+/* eslint max-lines: 0 */
+
 import React, { Component } from 'react';
 import { View, Image, ScrollView, FlatList } from 'react-native';
 import { connect } from 'react-redux';

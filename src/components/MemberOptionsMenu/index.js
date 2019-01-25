@@ -1,3 +1,5 @@
+/* eslint complexity: 0 */
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Alert } from 'react-native';
