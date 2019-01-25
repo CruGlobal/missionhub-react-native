@@ -216,6 +216,17 @@ describe('CelebrateItem', () => {
       };
       testEvent(event);
     });
+
+    it('renders joined community event', () => {
+      event = {
+        ...messageBaseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.joinedCommunity,
+        organization: {
+          name: 'Celebration Community',
+        },
+      };
+      testEvent(event);
+    });
   });
 });
 

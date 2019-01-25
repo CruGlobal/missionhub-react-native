@@ -398,6 +398,105 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
 </Card>
 `;
 
+exports[`CelebrateItem message renders joined community event 1`] = `
+<Card>
+  <Flex
+    direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
+    value={1}
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        JOHN SMITH
+      </MyText>
+      <Translate(DateComponent)
+        date="2004-04-04 00:00:00 UTC"
+        format="LT"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+            "paddingTop": 12,
+          }
+        }
+      >
+        John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
+      </MyText>
+    </Flex>
+    <Flex
+      align="start"
+      direction="column"
+    >
+      <Flex
+        align="center"
+        direction="row"
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 14,
+            }
+          }
+        />
+        <Button
+          name="likeActiveIcon"
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "height": 24,
+                "margin": 0,
+                "width": 24,
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/heart-grey.png",
+              }
+            }
+          />
+        </Button>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
 exports[`CelebrateItem message renders other interaction event 1`] = `
 <Card>
   <Flex
