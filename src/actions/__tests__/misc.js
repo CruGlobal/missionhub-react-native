@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 0 */
+
 import ReactNative from 'react-native';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
