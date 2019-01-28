@@ -217,7 +217,6 @@ describe('person stage screen methods', () => {
 describe('person stage screen methods with next', () => {
   let component;
   const mockNext = jest.fn();
-  selectStage.updateUserStage = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -230,7 +229,9 @@ describe('person stage screen methods with next', () => {
     );
   });
 
-  it('runs select stage with new stage', async () => {
+  it('runs select stage with stage not previously selected', async () => {
+    selectStage.updateUserStage = jest.fn();
+
     await component.handleSelectStage(mockStage, false);
 
     expect(selectStage.updateUserStage).toHaveBeenCalledWith(
@@ -240,7 +241,9 @@ describe('person stage screen methods with next', () => {
     expect(mockNext).toHaveBeenCalledTimes(1);
   });
 
-  it('runs select stage with old stage', async () => {
+  it('runs select stage with stage previously selected', async () => {
+    selectStage.updateUserStage = jest.fn();
+
     await component.handleSelectStage(mockStage, true);
 
     expect(selectStage.updateUserStage).not.toHaveBeenCalled();
