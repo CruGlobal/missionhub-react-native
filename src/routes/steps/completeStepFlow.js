@@ -72,7 +72,7 @@ export const CompleteStepFlowScreens = {
 
         const firstItemIndex = getStageIndex(stages, stageId);
         const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
-        const subsection = getAnalyticsSubsection(personId, myId);
+        const subsection = getAnalyticsSubsection(personId, authPerson.id);
         const name = isMe ? authPerson.first_name : person.first_name;
         const questionText = isMe
           ? isNotSure
