@@ -221,38 +221,40 @@ class CelebrateItem extends Component {
 
     return (
       <Card>
-        <Flex value={1} direction={'row'} style={styles.content}>
-          <Flex value={1} direction={'column'}>
-            <Text style={styles.name}>
-              {(subject_person_name
-                ? subject_person_name
-                : t('missionHubUser')
-              ).toUpperCase()}
-            </Text>
-            <DateComponent
-              style={styles.time}
-              date={changed_attribute_value}
-              format={'LT'}
-            />
-            <Text style={styles.description}>{this.renderMessage()}</Text>
-            {this.renderChallengeLink()}
-          </Flex>
-          {subject_person && (
-            <Flex direction={'column'} align="start">
-              <Flex direction={'row'} align="center">
-                <Text style={styles.likeCount}>
-                  {displayLikeCount ? likes_count : null}
-                </Text>
-                <Button
-                  name="likeActiveIcon"
-                  onPress={this.onPressLikeIcon}
-                  style={[styles.icon]}
-                >
-                  <Image source={liked ? BLUE_HEART : GREY_HEART} />
-                </Button>
-              </Flex>
+        <Flex value={1} direction={'column'} style={styles.content}>
+          <Flex value={1} direction={'row'}>
+            <Flex value={1} direction={'column'}>
+              <Text style={styles.name}>
+                {(subject_person_name
+                  ? subject_person_name
+                  : t('missionHubUser')
+                ).toUpperCase()}
+              </Text>
+              <DateComponent
+                style={styles.time}
+                date={changed_attribute_value}
+                format={'LT'}
+              />
             </Flex>
-          )}
+            {subject_person && (
+              <Flex direction={'column'} align="start">
+                <Flex direction={'row'} align="center">
+                  <Text style={styles.likeCount}>
+                    {displayLikeCount ? likes_count : null}
+                  </Text>
+                  <Button
+                    name="likeActiveIcon"
+                    onPress={this.onPressLikeIcon}
+                    style={[styles.icon]}
+                  >
+                    <Image source={liked ? BLUE_HEART : GREY_HEART} />
+                  </Button>
+                </Flex>
+              </Flex>
+            )}
+          </Flex>
+          <Text style={styles.description}>{this.renderMessage()}</Text>
+          {this.renderChallengeLink()}
         </Flex>
       </Card>
     );
