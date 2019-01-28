@@ -23,6 +23,7 @@ export default StyleSheet.create({
   description: {
     paddingTop: 12,
     fontSize: 14,
+    minHeight: 70,
   },
   likeCount: {
     fontSize: 14,

@@ -46,6 +46,7 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -167,6 +168,7 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -288,6 +290,7 @@ exports[`CelebrateItem message renders created community event 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -387,6 +390,7 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -444,6 +448,7 @@ exports[`CelebrateItem message renders joined community event 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -543,6 +548,7 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -642,6 +648,7 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -741,6 +748,7 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -840,6 +848,7 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -939,6 +948,7 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -1038,6 +1048,7 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -1135,6 +1146,7 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -1234,6 +1246,7 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -1333,6 +1346,7 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -1430,6 +1444,7 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -1527,6 +1542,7 @@ exports[`CelebrateItem renders event with no subject person (global community ev
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -1582,6 +1598,7 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
