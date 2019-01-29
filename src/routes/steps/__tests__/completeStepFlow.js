@@ -15,6 +15,7 @@ import { reloadJourney } from '../../../actions/journey';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../../../containers/StageScreen';
+import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
@@ -68,6 +69,29 @@ const baseState = {
 
 const stepId = '11';
 const orgId = '123';
+const contactAssignmentId = '22';
+
+const reverseContactAssignment = {
+  id: contactAssignmentId,
+  organization: {
+    id: orgId,
+  },
+  assigned_to: {
+    id: myId,
+  },
+  pathway_stage_id: 0,
+};
+const otherPerson = {
+  id: otherId,
+  first_name: otherName,
+  reverse_contact_assignments: [reverseContactAssignment],
+};
+const otherPersonNotSure = {
+  ...otherPerson,
+  reverse_contact_assignments: [
+    { ...reverseContactAssignment, pathway_stage_id: 1 },
+  ],
+};
 
 const text = 'text';
 
@@ -84,7 +108,7 @@ beforeEach(() => {
 describe('AddStepScreen next', () => {
   const updateNoteResponse = { type: 'update challenge note' };
   const trackActionResponse = { type: 'track action' };
-  const getPersonResponse = { type: 'get person details' };
+  const getPersonResponse = { type: 'get person details', person: {} };
   const reloadJourneyResponse = { type: 'reload journey' };
 
   beforeEach(() => {
@@ -193,7 +217,7 @@ describe('AddStepScreen next', () => {
         });
       });
 
-      it('should fire required next actions, ', async () => {
+      it('should fire required next actions', async () => {
         const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
 
         await store.dispatch(
@@ -258,7 +282,7 @@ describe('AddStepScreen next', () => {
           },
         });
       });
-      it('should fire required next actions, ', async () => {
+      it('should fire required next actions', async () => {
         const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
 
         await store.dispatch(
@@ -312,18 +336,236 @@ describe('AddStepScreen next', () => {
   });
 
   describe('not isMe', () => {
-    const personId = '222';
-
     describe('stage is not "Not Sure" and has not completed 3 steps', () => {
-      it('should fire required next actions, ', async () => {});
+      beforeEach(() => {
+        store = configureStore([thunk])(baseState);
+        getPersonDetails.mockReturnValue({
+          ...getPersonResponse,
+          person: otherPerson,
+        });
+      });
+
+      it('should fire required next actions', async () => {
+        const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
+
+        await store.dispatch(
+          renderShallow(
+            <Component
+              navigation={{
+                state: {
+                  params: {
+                    stepId,
+                    personId: otherId,
+                    orgId,
+                    type: STEP_NOTE,
+                  },
+                },
+              }}
+            />,
+            store,
+          )
+            .instance()
+            .props.next({
+              text,
+              stepId,
+              personId: otherId,
+              orgId,
+            }),
+        );
+
+        expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
+        expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
+          [ACTIONS.INTERACTION.COMMENT]: null,
+        });
+        expect(getPersonDetails).toHaveBeenCalledWith(otherId, orgId);
+        expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
+        expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+          CELEBRATION_SCREEN,
+        );
+      });
+
+      it('should fire required next actions without note', async () => {
+        const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
+
+        await store.dispatch(
+          renderShallow(
+            <Component
+              navigation={{
+                state: {
+                  params: {
+                    stepId,
+                    personId: otherId,
+                    orgId,
+                    type: STEP_NOTE,
+                  },
+                },
+              }}
+            />,
+            store,
+          )
+            .instance()
+            .props.next({
+              text: null,
+              stepId,
+              personId: otherId,
+              orgId,
+            }),
+        );
+
+        expect(updateChallengeNote).not.toHaveBeenCalled();
+        expect(trackAction).not.toHaveBeenCalled();
+        expect(getPersonDetails).toHaveBeenCalledWith(otherId, orgId);
+        expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
+        expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+          CELEBRATION_SCREEN,
+        );
+      });
     });
 
     describe('stage is "Not Sure"', () => {
-      it('should fire required next actions, ', async () => {});
+      beforeEach(() => {
+        store = configureStore([thunk])({
+          ...baseState,
+          auth: {
+            ...baseState.auth,
+            person: {
+              ...baseState.auth.person,
+              user: {
+                pathway_stage_id: 1,
+              },
+            },
+          },
+        });
+        getPersonDetails.mockReturnValue({
+          ...getPersonResponse,
+          person: otherPersonNotSure,
+        });
+      });
+
+      it('should fire required next actions', async () => {
+        const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
+
+        await store.dispatch(
+          renderShallow(
+            <Component
+              navigation={{
+                state: {
+                  params: {
+                    stepId,
+                    personId: otherId,
+                    orgId,
+                    type: STEP_NOTE,
+                  },
+                },
+              }}
+            />,
+            store,
+          )
+            .instance()
+            .props.next({
+              text,
+              stepId,
+              personId: otherId,
+              orgId,
+            }),
+        );
+
+        expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
+        expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
+          [ACTIONS.INTERACTION.COMMENT]: null,
+        });
+        expect(getPersonDetails).toHaveBeenCalledWith(otherId, orgId);
+        expect(reloadJourney).not.toHaveBeenCalled();
+        expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+          PERSON_STAGE_SCREEN,
+          {
+            section: 'people',
+            subsection: 'person',
+            firstItem: 1,
+            enableBackButton: false,
+            noNav: true,
+            questionText: i18next.t('selectStage:completed1Step', {
+              name: otherName,
+            }),
+            orgId,
+            contactId: otherId,
+            contactAssignmentId,
+            name: otherName,
+          },
+        );
+      });
     });
 
     describe('has completed 3 steps', () => {
-      it('should fire required next actions, ', async () => {});
+      beforeEach(() => {
+        store = configureStore([thunk])({
+          ...baseState,
+          steps: {
+            ...baseState.steps,
+            userStepCount: {
+              ...baseState.steps.userStepCount,
+              [otherId]: 3,
+            },
+          },
+        });
+        getPersonDetails.mockReturnValue({
+          ...getPersonResponse,
+          person: otherPerson,
+        });
+      });
+
+      it('should fire required next actions', async () => {
+        const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
+
+        await store.dispatch(
+          renderShallow(
+            <Component
+              navigation={{
+                state: {
+                  params: {
+                    stepId,
+                    personId: otherId,
+                    orgId,
+                    type: STEP_NOTE,
+                  },
+                },
+              }}
+            />,
+            store,
+          )
+            .instance()
+            .props.next({
+              text,
+              stepId,
+              personId: otherId,
+              orgId,
+            }),
+        );
+
+        expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
+        expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
+          [ACTIONS.INTERACTION.COMMENT]: null,
+        });
+        expect(getPersonDetails).toHaveBeenCalledWith(otherId, orgId);
+        expect(reloadJourney).not.toHaveBeenCalled();
+        expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+          PERSON_STAGE_SCREEN,
+          {
+            section: 'people',
+            subsection: 'person',
+            firstItem: 0,
+            enableBackButton: false,
+            noNav: true,
+            questionText: i18next.t('selectStage:completed3Steps', {
+              name: otherName,
+            }),
+            orgId,
+            contactId: otherId,
+            contactAssignmentId,
+            name: otherName,
+          },
+        );
+      });
     });
   });
 });
