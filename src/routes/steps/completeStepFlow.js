@@ -205,7 +205,6 @@ export const CompleteStepFlowScreens = {
       dispatch(StackActions.popToTop());
       dispatch(navigateBack());
     }),
-    buildTrackingObj(),
   ),
 };
 export const CompleteStepFlowNavigator = createStackNavigator(

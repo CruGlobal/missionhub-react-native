@@ -2,9 +2,11 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import i18next from 'i18next';
+import * as reactNavigation from 'react-navigation';
 
 import { STEP_NOTE, ACTIONS } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
+import { buildTrackingObj } from '../../../utils/common';
 import { CompleteStepFlowScreens } from '../completeStepFlow';
 import * as navigationActions from '../../../actions/navigation';
 import { updateChallengeNote } from '../../../actions/steps';
@@ -16,6 +18,8 @@ import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../../../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
+import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
+import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
@@ -28,6 +32,34 @@ const otherId = '222';
 const myName = 'Me';
 const otherName = 'Other';
 const myStageId = 0;
+const stepId = '11';
+const orgId = '123';
+const contactAssignmentId = '22';
+
+const stage = { id: 1 };
+const reverseContactAssignment = {
+  id: contactAssignmentId,
+  organization: {
+    id: orgId,
+  },
+  assigned_to: {
+    id: myId,
+  },
+  pathway_stage_id: 0,
+};
+const otherPerson = {
+  id: otherId,
+  first_name: otherName,
+  reverse_contact_assignments: [reverseContactAssignment],
+};
+const otherPersonNotSure = {
+  ...otherPerson,
+  reverse_contact_assignments: [
+    { ...reverseContactAssignment, pathway_stage_id: 1 },
+  ],
+};
+
+const navigatePushResponse = { type: 'navigate push' };
 
 const baseState = {
   stages: {
@@ -65,37 +97,9 @@ const baseState = {
       [otherId]: 1,
     },
   },
+  profile: { firstName: myName },
+  personProfile: { firstName: otherName },
 };
-
-const stepId = '11';
-const orgId = '123';
-const contactAssignmentId = '22';
-
-const reverseContactAssignment = {
-  id: contactAssignmentId,
-  organization: {
-    id: orgId,
-  },
-  assigned_to: {
-    id: myId,
-  },
-  pathway_stage_id: 0,
-};
-const otherPerson = {
-  id: otherId,
-  first_name: otherName,
-  reverse_contact_assignments: [reverseContactAssignment],
-};
-const otherPersonNotSure = {
-  ...otherPerson,
-  reverse_contact_assignments: [
-    { ...reverseContactAssignment, pathway_stage_id: 1 },
-  ],
-};
-
-const text = 'text';
-
-const navigatePushResponse = { type: 'navigate push' };
 
 let store = configureStore([thunk])(baseState);
 
@@ -106,6 +110,8 @@ beforeEach(() => {
 });
 
 describe('AddStepScreen next', () => {
+  const text = 'text';
+
   const updateNoteResponse = { type: 'update challenge note' };
   const trackActionResponse = { type: 'track action' };
   const getPersonResponse = { type: 'get person details', person: {} };
@@ -570,12 +576,336 @@ describe('AddStepScreen next', () => {
   });
 });
 
-describe('StageScreen next', () => {});
+describe('StageScreen next', () => {
+  beforeEach(() => {
+    store = configureStore([thunk])(baseState);
+  });
 
-describe('PersonStageScreen next', () => {});
+  describe('isAlreadySelected', () => {
+    it('should fire required next actions', () => {
+      const Component = CompleteStepFlowScreens[STAGE_SCREEN].screen;
 
-describe('SelectMyStepScreen next', () => {});
+      store.dispatch(
+        renderShallow(
+          <Component
+            navigation={{
+              state: {
+                params: {
+                  section: 'people',
+                  subsection: 'self',
+                  firstItem: 0,
+                  enableBackButton: false,
+                  noNav: true,
+                  questionText: i18next.t('selectStage:meQuestion', {
+                    name: myName,
+                  }),
+                  orgId,
+                  contactId: myId,
+                },
+              },
+            }}
+          />,
+          store,
+        )
+          .instance()
+          .props.next({
+            stage,
+            contactId: myId,
+            orgId,
+            isAlreadySelected: true,
+          }),
+      );
 
-describe('PersonSelectStepScreen next', () => {});
+      expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
+      expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+        CELEBRATION_SCREEN,
+        {},
+      );
+    });
+  });
 
-describe('CelebrationScreen next', () => {});
+  describe('not isAlreadySelected', () => {
+    it('should fire required next actions', () => {
+      const Component = CompleteStepFlowScreens[STAGE_SCREEN].screen;
+
+      store.dispatch(
+        renderShallow(
+          <Component
+            navigation={{
+              state: {
+                params: {
+                  section: 'people',
+                  subsection: 'self',
+                  firstItem: 0,
+                  enableBackButton: false,
+                  noNav: true,
+                  questionText: i18next.t('selectStage:meQuestion', {
+                    name: myName,
+                  }),
+                  orgId,
+                  contactId: myId,
+                },
+              },
+            }}
+          />,
+          store,
+        )
+          .instance()
+          .props.next({
+            stage,
+            contactId: myId,
+            orgId,
+            isAlreadySelected: false,
+          }),
+      );
+
+      expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
+      expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+        SELECT_MY_STEP_SCREEN,
+        {
+          enableBackButton: true,
+          contactStage: stage,
+          organization: { id: orgId },
+        },
+      );
+    });
+  });
+});
+
+describe('PersonStageScreen next', () => {
+  beforeEach(() => {
+    store = configureStore([thunk])(baseState);
+  });
+
+  describe('isAlreadySelected', () => {
+    it('should fire required next actions', () => {
+      const Component = CompleteStepFlowScreens[PERSON_STAGE_SCREEN].screen;
+
+      store.dispatch(
+        renderShallow(
+          <Component
+            navigation={{
+              state: {
+                params: {
+                  section: 'people',
+                  subsection: 'person',
+                  firstItem: 0,
+                  enableBackButton: false,
+                  noNav: true,
+                  questionText: i18next.t('selectStage:completed3Steps', {
+                    name: otherName,
+                  }),
+                  orgId,
+                  contactId: otherId,
+                  contactAssignmentId,
+                  name: otherName,
+                },
+              },
+            }}
+          />,
+          store,
+        )
+          .instance()
+          .props.next({
+            stage,
+            contactId: otherId,
+            name: otherName,
+            orgId,
+            isAlreadySelected: true,
+          }),
+      );
+
+      expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
+      expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+        CELEBRATION_SCREEN,
+        {},
+      );
+    });
+  });
+
+  describe('not isAlreadySelected', () => {
+    it('should fire required next actions', () => {
+      const Component = CompleteStepFlowScreens[PERSON_STAGE_SCREEN].screen;
+
+      store.dispatch(
+        renderShallow(
+          <Component
+            navigation={{
+              state: {
+                params: {
+                  section: 'people',
+                  subsection: 'person',
+                  firstItem: 0,
+                  enableBackButton: false,
+                  noNav: true,
+                  questionText: i18next.t('selectStage:completed3Steps', {
+                    name: otherName,
+                  }),
+                  orgId,
+                  contactId: otherId,
+                  contactAssignmentId,
+                  name: otherName,
+                },
+              },
+            }}
+          />,
+          store,
+        )
+          .instance()
+          .props.next({
+            stage,
+            contactId: otherId,
+            name: otherName,
+            orgId,
+            isAlreadySelected: false,
+          }),
+      );
+
+      expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
+      expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+        PERSON_SELECT_STEP_SCREEN,
+        {
+          contactStage: stage,
+          contactId: otherId,
+          organization: { id: orgId },
+          contactName: otherName,
+          createStepTracking: buildTrackingObj(
+            'people : person : steps : create',
+            'people',
+            'person',
+            'steps',
+          ),
+          trackingObj: buildTrackingObj(
+            'people : person : steps : add',
+            'people',
+            'person',
+            'steps',
+          ),
+        },
+      );
+    });
+  });
+});
+
+describe('SelectMyStepScreen next', () => {
+  beforeEach(() => {
+    store = configureStore([thunk])(baseState);
+  });
+
+  it('should fire required next actions', () => {
+    const Component = CompleteStepFlowScreens[SELECT_MY_STEP_SCREEN].screen;
+
+    store.dispatch(
+      renderShallow(
+        <Component
+          navigation={{
+            state: {
+              params: {
+                enableBackButton: true,
+                contactStage: stage,
+                organization: { id: orgId },
+              },
+            },
+          }}
+        />,
+        store,
+      )
+        .instance()
+        .props.next({}),
+    );
+
+    expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+      CELEBRATION_SCREEN,
+      {
+        trackingObj: buildTrackingObj(
+          `people : self : steps : gif`,
+          'people',
+          'self',
+          'steps',
+        ),
+      },
+    );
+  });
+});
+
+describe('PersonSelectStepScreen next', () => {
+  beforeEach(() => {
+    store = configureStore([thunk])(baseState);
+  });
+
+  it('should fire required next actions', () => {
+    const Component = CompleteStepFlowScreens[PERSON_SELECT_STEP_SCREEN].screen;
+
+    store.dispatch(
+      renderShallow(
+        <Component
+          navigation={{
+            state: {
+              params: {
+                contactStage: stage,
+                contactId: otherId,
+                organization: { id: orgId },
+                contactName: otherName,
+                createStepTracking: buildTrackingObj(
+                  'people : person : steps : create',
+                  'people',
+                  'person',
+                  'steps',
+                ),
+                trackingObj: buildTrackingObj(
+                  'people : person : steps : add',
+                  'people',
+                  'person',
+                  'steps',
+                ),
+              },
+            },
+          }}
+        />,
+        store,
+      )
+        .instance()
+        .props.next({}),
+    );
+
+    expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+      CELEBRATION_SCREEN,
+      {
+        trackingObj: buildTrackingObj(
+          `people : person : steps : gif`,
+          'people',
+          'person',
+          'steps',
+        ),
+      },
+    );
+  });
+});
+
+describe('CelebrationScreen next', () => {
+  const popToTopResponse = { type: 'pop to top of stack' };
+  const navigateBackResponse = { type: 'navigate back' };
+
+  beforeEach(() => {
+    beforeEach(() => {
+      store = configureStore([thunk])(baseState);
+    });
+    reactNavigation.StackActions.popToTop = jest
+      .fn()
+      .mockReturnValue(popToTopResponse);
+    navigationActions.navigateBack.mockReturnValue(navigateBackResponse);
+  });
+
+  it('should fire required next actions', () => {
+    const Component = CompleteStepFlowScreens[CELEBRATION_SCREEN].screen;
+
+    store.dispatch(
+      renderShallow(<Component navigation={{ state: { params: {} } }} />, store)
+        .instance()
+        .props.next({}),
+    );
+
+    expect(reactNavigation.StackActions.popToTop).toHaveBeenCalledTimes(1);
+    expect(navigationActions.navigateBack).toHaveBeenCalledTimes(1);
+  });
+});
