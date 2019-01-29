@@ -5,14 +5,13 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven { url 'https://dl.bintray.com/android/android-tools' } // TODO: remove when pulling google-services from the google() repo works again https://stackoverflow.com/a/53709401/665224
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.3.0'
 
         classpath 'org.ajoberstar:gradle-git:1.7.2'
 
-        classpath 'com.google.gms:google-services:4.1.0' // For Firebase
+        classpath 'com.google.gms:google-services:4.2.0' // For Firebase
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -35,7 +34,7 @@ allprojects {
 
     configurations.all {
         resolutionStrategy.force(
-            'com.google.firebase:firebase-invites:16.0.5',
+            'com.google.code.findbugs:jsr305:3.0.2', // Encountered build error without this. Workaround from: https://stackoverflow.com/a/37357786/665224
         )
     }
 }
