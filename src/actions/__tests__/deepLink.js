@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 0 */
+
 import firebase from 'react-native-firebase';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -58,7 +60,7 @@ describe('setupFirebaseDynamicLinks', () => {
           }),
         ],
       }));
-    it('should handle a link that was opened while the app was running', async () =>
+    it('should handle a link that was opened while the app was running ', async () =>
       await test({
         auth: false,
         initialLink: false,
@@ -79,7 +81,7 @@ describe('setupFirebaseDynamicLinks', () => {
       }));
   });
   describe('authenticated', () => {
-    it('should handle a link that launched the app', async () =>
+    it('should handle a link that launched the app ', async () =>
       await test({
         auth: true,
         initialLink: true,

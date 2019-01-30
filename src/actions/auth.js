@@ -1,3 +1,5 @@
+/* eslint max-params: 0 */
+
 import Buffer from 'buffer';
 
 import base64url from 'base64-url';

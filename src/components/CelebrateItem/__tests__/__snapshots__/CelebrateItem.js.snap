@@ -46,6 +46,7 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -167,6 +168,7 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -288,11 +290,170 @@ exports[`CelebrateItem message renders created community event 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
       >
         John S. created Celebration Community!
+      </MyText>
+    </Flex>
+    <Flex
+      align="start"
+      direction="column"
+    >
+      <Flex
+        align="center"
+        direction="row"
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 14,
+            }
+          }
+        />
+        <Button
+          name="likeActiveIcon"
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "height": 24,
+                "margin": 0,
+                "width": 24,
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/heart-grey.png",
+              }
+            }
+          />
+        </Button>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`CelebrateItem message renders event with no subject person name 1`] = `
+<Card>
+  <Flex
+    direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
+    value={1}
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        MISSIONHUB USER
+      </MyText>
+      <Translate(DateComponent)
+        date="2004-04-04 00:00:00 UTC"
+        format="LT"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+            "minHeight": 70,
+            "paddingTop": 12,
+          }
+        }
+      >
+        A MissionHub user completed a Step of Faith with a Forgiven person.
+      </MyText>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`CelebrateItem message renders joined community event 1`] = `
+<Card>
+  <Flex
+    direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
+    value={1}
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        JOHN SMITH
+      </MyText>
+      <Translate(DateComponent)
+        date="2004-04-04 00:00:00 UTC"
+        format="LT"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+            "minHeight": 70,
+            "paddingTop": 12,
+          }
+        }
+      >
+        John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
       </MyText>
     </Flex>
     <Flex
@@ -387,6 +548,7 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -486,6 +648,7 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -585,6 +748,7 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -684,6 +848,7 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -783,6 +948,7 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -882,6 +1048,7 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -979,6 +1146,7 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -1078,6 +1246,7 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -1177,6 +1346,7 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -1274,6 +1444,7 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }
@@ -1325,7 +1496,7 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
 </Card>
 `;
 
-exports[`CelebrateItem renders event with no subject name (global community event) 1`] = `
+exports[`CelebrateItem renders event with no subject person (global community event) 1`] = `
 <Card>
   <Flex
     direction="row"
@@ -1371,6 +1542,63 @@ exports[`CelebrateItem renders event with no subject name (global community even
         style={
           Object {
             "fontSize": 14,
+            "minHeight": 70,
+            "paddingTop": 12,
+          }
+        }
+      />
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`CelebrateItem renders event with no subject person name 1`] = `
+<Card>
+  <Flex
+    direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
+    value={1}
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        MISSIONHUB USER
+      </MyText>
+      <Translate(DateComponent)
+        date="2004-04-04 00:00:00 UTC"
+        format="LT"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+            "minHeight": 70,
             "paddingTop": 12,
           }
         }

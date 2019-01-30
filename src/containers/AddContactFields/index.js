@@ -1,3 +1,5 @@
+/* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
+
 import React, { Component, Fragment } from 'react';
 import { KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';

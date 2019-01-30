@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 0 */
+
 import React from 'react';
 import { Provider } from 'react-redux';
 import MockDate from 'mockdate';

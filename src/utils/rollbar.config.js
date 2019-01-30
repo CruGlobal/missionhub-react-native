@@ -6,6 +6,7 @@ import DeviceInfo from 'react-native-device-info';
 const codeVersion = `${Config.TRAVIS_COMMIT || 'development'}.${Platform.OS}`;
 
 const config = new Configuration(Config.ROLLBAR_ACCESS_TOKEN, {
+  enabled: !__DEV__,
   payload: {
     appVersion: DeviceInfo.getBuildNumber(),
     codeBundleId: codeVersion,

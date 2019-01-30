@@ -1,3 +1,5 @@
+/* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
+
 import {
   LOGOUT,
   GET_ORGANIZATIONS_CONTACTS_REPORT,

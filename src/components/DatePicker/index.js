@@ -1,3 +1,5 @@
+/* eslint max-lines: 0, max-lines-per-function: 0, max-params: 0 */
+
 // Based off of https://github.com/xgfe/react-native-datepicker v1.7.2
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

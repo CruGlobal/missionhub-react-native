@@ -1,3 +1,5 @@
+/* eslint max-lines: 0, max-lines-per-function: 0 */
+
 import {
   peopleByOrgSelector,
   allAssignedPeopleSelector,
@@ -94,6 +96,11 @@ const organizationTwo = {
       reverse_contact_assignments: [
         { ...reverse_contact_assignment, organization: { id: '200' } },
       ],
+    },
+    [auth.person.id]: {
+      id: auth.person.id,
+      type: 'person',
+      first_name: 'ME in an org',
     },
   },
 };

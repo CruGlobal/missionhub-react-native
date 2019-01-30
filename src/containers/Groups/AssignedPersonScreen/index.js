@@ -1,3 +1,5 @@
+/* eslint max-lines: 0 */
+
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import i18next from 'i18next';
