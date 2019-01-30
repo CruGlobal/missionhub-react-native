@@ -144,13 +144,14 @@ export default class App extends Component {
   };
 
   showApiErrorAlert = key => {
-    const specificError = i18n.t([
-      `error:${key}`,
-      'error:unexpectedErrorMessage',
-    ]);
-    const errorMessage = `${specificError} ${i18n.t('error:baseErrorMessage')}`;
+    //Only show alert if a specific message could be found
+    if (i18n.exists(`error:${key}`)) {
+      const errorMessage = `${i18n.t(`error:${key}`)} ${i18n.t(
+        'error:baseErrorMessage',
+      )}`;
 
-    this.showAlert(i18n.t('error:error'), errorMessage);
+      this.showAlert(i18n.t('error:error'), errorMessage);
+    }
   };
 
   showAlert = (title, message) => {

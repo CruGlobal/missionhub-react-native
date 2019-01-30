@@ -37,12 +37,7 @@ jest.mock('../store', () => ({
 }));
 
 const { youreOffline, connectToInternet } = locale.offline;
-const {
-  error,
-  unexpectedErrorMessage,
-  baseErrorMessage,
-  ADD_NEW_PERSON,
-} = locale.error;
+const { error, baseErrorMessage, ADD_NEW_PERSON } = locale.error;
 
 const lastTwoArgs = [
   [{ text: 'Ok', onPress: expect.anything() }],
@@ -100,14 +95,10 @@ it('should show specific error message if request has it', () => {
   );
 });
 
-it('should show generic error message if request does not have it', () => {
+it('should not show error message if request does not have it', () => {
   test({ apiError: {}, key: 'test', method: '', message: '' });
 
-  expect(ReactNative.Alert.alert).toHaveBeenCalledWith(
-    error,
-    `${unexpectedErrorMessage} ${baseErrorMessage}`,
-    ...lastTwoArgs,
-  );
+  expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
 });
 
 it('should not show alert if not ApiError', () => {
