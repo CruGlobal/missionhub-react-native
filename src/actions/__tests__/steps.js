@@ -28,7 +28,6 @@ import {
   CUSTOM_STEP_TYPE,
 } from '../../constants';
 import { COMPLETE_STEP_FLOW } from '../../routes/constants';
-import { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 
 const mockStore = configureStore([thunk]);
 let store;

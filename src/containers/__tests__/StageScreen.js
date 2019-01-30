@@ -8,13 +8,11 @@ import thunk from 'redux-thunk';
 import StageScreen from '../StageScreen';
 import {
   createMockNavState,
-  mockFnWithParams,
   renderShallow,
   testSnapshot,
 } from '../../../testUtils';
 import * as selectStage from '../../actions/selectStage';
 import * as navigation from '../../actions/navigation';
-import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
 
 jest.mock('react-native-device-info');
 

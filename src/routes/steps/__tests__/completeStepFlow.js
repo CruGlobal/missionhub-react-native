@@ -13,7 +13,6 @@ import { updateChallengeNote } from '../../../actions/steps';
 import { getPersonDetails } from '../../../actions/person';
 import { trackAction } from '../../../actions/analytics';
 import { reloadJourney } from '../../../actions/journey';
-
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../../../containers/StageScreen';
@@ -114,7 +113,7 @@ describe('AddStepScreen next', () => {
 
   const updateNoteResponse = { type: 'update challenge note' };
   const trackActionResponse = { type: 'track action' };
-  const getPersonResponse = { type: 'get person details', person: {} };
+  const getPersonResponse = { type: 'get person details', person: otherPerson };
   const reloadJourneyResponse = { type: 'reload journey' };
 
   beforeEach(() => {
@@ -363,15 +362,9 @@ describe('AddStepScreen next', () => {
   });
 
   describe('not isMe', () => {
-    const getOtherPersonResponse = {
-      ...getPersonResponse,
-      person: otherPerson,
-    };
-
     describe('stage is not "Not Sure" and has not completed 3 steps', () => {
       beforeEach(() => {
         store = configureStore([thunk])(baseState);
-        getPersonDetails.mockReturnValue(getOtherPersonResponse);
       });
 
       it('should fire required next actions', async () => {
@@ -414,7 +407,7 @@ describe('AddStepScreen next', () => {
         expect(store.getActions()).toEqual([
           updateNoteResponse,
           trackActionResponse,
-          getOtherPersonResponse,
+          getPersonResponse,
           reloadJourneyResponse,
           navigatePushResponse,
         ]);
@@ -456,7 +449,7 @@ describe('AddStepScreen next', () => {
           CELEBRATION_SCREEN,
         );
         expect(store.getActions()).toEqual([
-          getOtherPersonResponse,
+          getPersonResponse,
           reloadJourneyResponse,
           navigatePushResponse,
         ]);
@@ -464,20 +457,13 @@ describe('AddStepScreen next', () => {
     });
 
     describe('stage is "Not Sure"', () => {
+      const getPersonNotSureResponse = {
+        ...getPersonResponse,
+        person: otherPersonNotSure,
+      };
       beforeEach(() => {
-        store = configureStore([thunk])({
-          ...baseState,
-          auth: {
-            ...baseState.auth,
-            person: {
-              ...baseState.auth.person,
-              user: {
-                pathway_stage_id: 1,
-              },
-            },
-          },
-        });
-        getPersonDetails.mockReturnValue(getOtherPersonResponse);
+        store = configureStore([thunk])(baseState);
+        getPersonDetails.mockReturnValue(getPersonNotSureResponse);
       });
 
       it('should fire required next actions', async () => {
@@ -534,7 +520,7 @@ describe('AddStepScreen next', () => {
         expect(store.getActions()).toEqual([
           updateNoteResponse,
           trackActionResponse,
-          getOtherPersonResponse,
+          getPersonNotSureResponse,
           { type: RESET_STEP_COUNT, userId: otherId },
           navigatePushResponse,
         ]);
@@ -553,7 +539,6 @@ describe('AddStepScreen next', () => {
             },
           },
         });
-        getPersonDetails.mockReturnValue(getOtherPersonResponse);
       });
 
       it('should fire required next actions', async () => {
@@ -610,7 +595,7 @@ describe('AddStepScreen next', () => {
         expect(store.getActions()).toEqual([
           updateNoteResponse,
           trackActionResponse,
-          getOtherPersonResponse,
+          getPersonResponse,
           navigatePushResponse,
         ]);
       });

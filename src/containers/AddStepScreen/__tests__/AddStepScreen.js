@@ -1,6 +1,5 @@
 import { Alert } from 'react-native';
 import React from 'react';
-import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 
 import AddStepScreen from '..';

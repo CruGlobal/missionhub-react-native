@@ -12,7 +12,6 @@ import {
 import CelebrationScreen from '..';
 
 import * as navigation from '../../../actions/navigation';
-import * as common from '../../../utils/common';
 import { MAIN_TABS } from '../../../constants';
 import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen';
 

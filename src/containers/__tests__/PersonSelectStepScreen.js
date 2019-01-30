@@ -59,7 +59,6 @@ it('allows for undefined organization', () => {
 
 describe('handleNavigate', () => {
   let screen;
-  let component;
 
   it('runs onSaveNewSteps', () => {
     screen = renderShallow(
