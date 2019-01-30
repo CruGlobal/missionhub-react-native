@@ -62,14 +62,7 @@ const navigatePushResponse = { type: 'navigate push' };
 
 const baseState = {
   stages: {
-    stages: [
-      {
-        id: 0,
-      },
-      {
-        id: 1,
-      },
-    ],
+    stages: [{ id: 0 }, { id: 1 }],
     stagesObj: {
       0: {
         id: 0,
@@ -90,17 +83,31 @@ const baseState = {
       },
     },
   },
-  steps: {
-    userStepCount: {
-      [myId]: 1,
-      [otherId]: 1,
-    },
-  },
+  steps: { userStepCount: { [myId]: 1, [otherId]: 1 } },
   profile: { firstName: myName },
   personProfile: { firstName: otherName },
 };
 
 let store = configureStore([thunk])(baseState);
+
+const buildAndCallNext = async (screen, navParams, nextProps) => {
+  const Component = CompleteStepFlowScreens[screen].screen;
+
+  await store.dispatch(
+    renderShallow(
+      <Component
+        navigation={{
+          state: {
+            params: navParams,
+          },
+        }}
+      />,
+      store,
+    )
+      .instance()
+      .props.next(nextProps),
+  );
+};
 
 beforeEach(() => {
   store.clearActions();
@@ -110,7 +117,6 @@ beforeEach(() => {
 
 describe('AddStepScreen next', () => {
   const text = 'text';
-
   const updateNoteResponse = { type: 'update challenge note' };
   const trackActionResponse = { type: 'track action' };
   const getPersonResponse = { type: 'get person details', person: otherPerson };
@@ -130,31 +136,10 @@ describe('AddStepScreen next', () => {
       });
 
       it('should fire required next actions', async () => {
-        const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
-
-        await store.dispatch(
-          renderShallow(
-            <Component
-              navigation={{
-                state: {
-                  params: {
-                    stepId,
-                    personId: myId,
-                    orgId,
-                    type: STEP_NOTE,
-                  },
-                },
-              }}
-            />,
-            store,
-          )
-            .instance()
-            .props.next({
-              text,
-              stepId,
-              personId: myId,
-              orgId,
-            }),
+        await buildAndCallNext(
+          ADD_STEP_SCREEN,
+          { stepId, personId: myId, orgId, type: STEP_NOTE },
+          { text, stepId, personId: myId, orgId },
         );
 
         expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
@@ -175,31 +160,10 @@ describe('AddStepScreen next', () => {
       });
 
       it('should fire required next actions without note', async () => {
-        const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
-
-        await store.dispatch(
-          renderShallow(
-            <Component
-              navigation={{
-                state: {
-                  params: {
-                    stepId,
-                    personId: myId,
-                    orgId,
-                    type: STEP_NOTE,
-                  },
-                },
-              }}
-            />,
-            store,
-          )
-            .instance()
-            .props.next({
-              text: null,
-              stepId,
-              personId: myId,
-              orgId,
-            }),
+        await buildAndCallNext(
+          ADD_STEP_SCREEN,
+          { stepId, personId: myId, orgId, type: STEP_NOTE },
+          { text: null, stepId, personId: myId, orgId },
         );
 
         expect(updateChallengeNote).not.toHaveBeenCalled();
@@ -233,31 +197,10 @@ describe('AddStepScreen next', () => {
       });
 
       it('should fire required next actions', async () => {
-        const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
-
-        await store.dispatch(
-          renderShallow(
-            <Component
-              navigation={{
-                state: {
-                  params: {
-                    stepId,
-                    personId: myId,
-                    orgId,
-                    type: STEP_NOTE,
-                  },
-                },
-              }}
-            />,
-            store,
-          )
-            .instance()
-            .props.next({
-              text,
-              stepId,
-              personId: myId,
-              orgId,
-            }),
+        await buildAndCallNext(
+          ADD_STEP_SCREEN,
+          { stepId, personId: myId, orgId, type: STEP_NOTE },
+          { text, stepId, personId: myId, orgId },
         );
 
         expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
@@ -304,31 +247,10 @@ describe('AddStepScreen next', () => {
         });
       });
       it('should fire required next actions', async () => {
-        const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
-
-        await store.dispatch(
-          renderShallow(
-            <Component
-              navigation={{
-                state: {
-                  params: {
-                    stepId,
-                    personId: myId,
-                    orgId,
-                    type: STEP_NOTE,
-                  },
-                },
-              }}
-            />,
-            store,
-          )
-            .instance()
-            .props.next({
-              text,
-              stepId,
-              personId: myId,
-              orgId,
-            }),
+        await buildAndCallNext(
+          ADD_STEP_SCREEN,
+          { stepId, personId: myId, orgId, type: STEP_NOTE },
+          { text, stepId, personId: myId, orgId },
         );
 
         expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
@@ -368,31 +290,10 @@ describe('AddStepScreen next', () => {
       });
 
       it('should fire required next actions', async () => {
-        const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
-
-        await store.dispatch(
-          renderShallow(
-            <Component
-              navigation={{
-                state: {
-                  params: {
-                    stepId,
-                    personId: otherId,
-                    orgId,
-                    type: STEP_NOTE,
-                  },
-                },
-              }}
-            />,
-            store,
-          )
-            .instance()
-            .props.next({
-              text,
-              stepId,
-              personId: otherId,
-              orgId,
-            }),
+        await buildAndCallNext(
+          ADD_STEP_SCREEN,
+          { stepId, personId: otherId, orgId, type: STEP_NOTE },
+          { text, stepId, personId: otherId, orgId },
         );
 
         expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
@@ -414,31 +315,10 @@ describe('AddStepScreen next', () => {
       });
 
       it('should fire required next actions without note', async () => {
-        const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
-
-        await store.dispatch(
-          renderShallow(
-            <Component
-              navigation={{
-                state: {
-                  params: {
-                    stepId,
-                    personId: otherId,
-                    orgId,
-                    type: STEP_NOTE,
-                  },
-                },
-              }}
-            />,
-            store,
-          )
-            .instance()
-            .props.next({
-              text: null,
-              stepId,
-              personId: otherId,
-              orgId,
-            }),
+        await buildAndCallNext(
+          ADD_STEP_SCREEN,
+          { stepId, personId: otherId, orgId, type: STEP_NOTE },
+          { text: null, stepId, personId: otherId, orgId },
         );
 
         expect(updateChallengeNote).not.toHaveBeenCalled();
@@ -467,31 +347,10 @@ describe('AddStepScreen next', () => {
       });
 
       it('should fire required next actions', async () => {
-        const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
-
-        await store.dispatch(
-          renderShallow(
-            <Component
-              navigation={{
-                state: {
-                  params: {
-                    stepId,
-                    personId: otherId,
-                    orgId,
-                    type: STEP_NOTE,
-                  },
-                },
-              }}
-            />,
-            store,
-          )
-            .instance()
-            .props.next({
-              text,
-              stepId,
-              personId: otherId,
-              orgId,
-            }),
+        await buildAndCallNext(
+          ADD_STEP_SCREEN,
+          { stepId, personId: otherId, orgId, type: STEP_NOTE },
+          { text, stepId, personId: otherId, orgId },
         );
 
         expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
@@ -542,31 +401,10 @@ describe('AddStepScreen next', () => {
       });
 
       it('should fire required next actions', async () => {
-        const Component = CompleteStepFlowScreens[ADD_STEP_SCREEN].screen;
-
-        await store.dispatch(
-          renderShallow(
-            <Component
-              navigation={{
-                state: {
-                  params: {
-                    stepId,
-                    personId: otherId,
-                    orgId,
-                    type: STEP_NOTE,
-                  },
-                },
-              }}
-            />,
-            store,
-          )
-            .instance()
-            .props.next({
-              text,
-              stepId,
-              personId: otherId,
-              orgId,
-            }),
+        await buildAndCallNext(
+          ADD_STEP_SCREEN,
+          { stepId, personId: otherId, orgId, type: STEP_NOTE },
+          { text, stepId, personId: otherId, orgId },
         );
 
         expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
@@ -609,38 +447,20 @@ describe('StageScreen next', () => {
   });
 
   describe('isAlreadySelected', () => {
-    it('should fire required next actions', () => {
-      const Component = CompleteStepFlowScreens[STAGE_SCREEN].screen;
-
-      store.dispatch(
-        renderShallow(
-          <Component
-            navigation={{
-              state: {
-                params: {
-                  section: 'people',
-                  subsection: 'self',
-                  firstItem: 0,
-                  enableBackButton: false,
-                  noNav: true,
-                  questionText: i18next.t('selectStage:meQuestion', {
-                    name: myName,
-                  }),
-                  orgId,
-                  contactId: myId,
-                },
-              },
-            }}
-          />,
-          store,
-        )
-          .instance()
-          .props.next({
-            stage,
-            contactId: myId,
-            orgId,
-            isAlreadySelected: true,
-          }),
+    it('should fire required next actions', async () => {
+      await buildAndCallNext(
+        STAGE_SCREEN,
+        {
+          section: 'people',
+          subsection: 'self',
+          firstItem: 0,
+          enableBackButton: false,
+          noNav: true,
+          questionText: i18next.t('selectStage:meQuestion', { name: myName }),
+          orgId,
+          contactId: myId,
+        },
+        { stage, contactId: myId, orgId, isAlreadySelected: true },
       );
 
       expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
@@ -652,38 +472,20 @@ describe('StageScreen next', () => {
   });
 
   describe('not isAlreadySelected', () => {
-    it('should fire required next actions', () => {
-      const Component = CompleteStepFlowScreens[STAGE_SCREEN].screen;
-
-      store.dispatch(
-        renderShallow(
-          <Component
-            navigation={{
-              state: {
-                params: {
-                  section: 'people',
-                  subsection: 'self',
-                  firstItem: 0,
-                  enableBackButton: false,
-                  noNav: true,
-                  questionText: i18next.t('selectStage:meQuestion', {
-                    name: myName,
-                  }),
-                  orgId,
-                  contactId: myId,
-                },
-              },
-            }}
-          />,
-          store,
-        )
-          .instance()
-          .props.next({
-            stage,
-            contactId: myId,
-            orgId,
-            isAlreadySelected: false,
-          }),
+    it('should fire required next actions', async () => {
+      await buildAndCallNext(
+        STAGE_SCREEN,
+        {
+          section: 'people',
+          subsection: 'self',
+          firstItem: 0,
+          enableBackButton: false,
+          noNav: true,
+          questionText: i18next.t('selectStage:meQuestion', { name: myName }),
+          orgId,
+          contactId: myId,
+        },
+        { stage, contactId: myId, orgId, isAlreadySelected: false },
       );
 
       expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
@@ -705,41 +507,30 @@ describe('PersonStageScreen next', () => {
   });
 
   describe('isAlreadySelected', () => {
-    it('should fire required next actions', () => {
-      const Component = CompleteStepFlowScreens[PERSON_STAGE_SCREEN].screen;
-
-      store.dispatch(
-        renderShallow(
-          <Component
-            navigation={{
-              state: {
-                params: {
-                  section: 'people',
-                  subsection: 'person',
-                  firstItem: 0,
-                  enableBackButton: false,
-                  noNav: true,
-                  questionText: i18next.t('selectStage:completed3Steps', {
-                    name: otherName,
-                  }),
-                  orgId,
-                  contactId: otherId,
-                  contactAssignmentId,
-                  name: otherName,
-                },
-              },
-            }}
-          />,
-          store,
-        )
-          .instance()
-          .props.next({
-            stage,
-            contactId: otherId,
+    it('should fire required next actions', async () => {
+      await buildAndCallNext(
+        PERSON_STAGE_SCREEN,
+        {
+          section: 'people',
+          subsection: 'person',
+          firstItem: 0,
+          enableBackButton: false,
+          noNav: true,
+          questionText: i18next.t('selectStage:completed3Steps', {
             name: otherName,
-            orgId,
-            isAlreadySelected: true,
           }),
+          orgId,
+          contactId: otherId,
+          contactAssignmentId,
+          name: otherName,
+        },
+        {
+          stage,
+          contactId: otherId,
+          name: otherName,
+          orgId,
+          isAlreadySelected: true,
+        },
       );
 
       expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
@@ -751,41 +542,30 @@ describe('PersonStageScreen next', () => {
   });
 
   describe('not isAlreadySelected', () => {
-    it('should fire required next actions', () => {
-      const Component = CompleteStepFlowScreens[PERSON_STAGE_SCREEN].screen;
-
-      store.dispatch(
-        renderShallow(
-          <Component
-            navigation={{
-              state: {
-                params: {
-                  section: 'people',
-                  subsection: 'person',
-                  firstItem: 0,
-                  enableBackButton: false,
-                  noNav: true,
-                  questionText: i18next.t('selectStage:completed3Steps', {
-                    name: otherName,
-                  }),
-                  orgId,
-                  contactId: otherId,
-                  contactAssignmentId,
-                  name: otherName,
-                },
-              },
-            }}
-          />,
-          store,
-        )
-          .instance()
-          .props.next({
-            stage,
-            contactId: otherId,
+    it('should fire required next actions', async () => {
+      await buildAndCallNext(
+        PERSON_STAGE_SCREEN,
+        {
+          section: 'people',
+          subsection: 'person',
+          firstItem: 0,
+          enableBackButton: false,
+          noNav: true,
+          questionText: i18next.t('selectStage:completed3Steps', {
             name: otherName,
-            orgId,
-            isAlreadySelected: false,
           }),
+          orgId,
+          contactId: otherId,
+          contactAssignmentId,
+          name: otherName,
+        },
+        {
+          stage,
+          contactId: otherId,
+          name: otherName,
+          orgId,
+          isAlreadySelected: false,
+        },
       );
 
       expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
@@ -819,26 +599,15 @@ describe('SelectMyStepScreen next', () => {
     store = configureStore([thunk])(baseState);
   });
 
-  it('should fire required next actions', () => {
-    const Component = CompleteStepFlowScreens[SELECT_MY_STEP_SCREEN].screen;
-
-    store.dispatch(
-      renderShallow(
-        <Component
-          navigation={{
-            state: {
-              params: {
-                enableBackButton: true,
-                contactStage: stage,
-                organization: { id: orgId },
-              },
-            },
-          }}
-        />,
-        store,
-      )
-        .instance()
-        .props.next({}),
+  it('should fire required next actions', async () => {
+    await buildAndCallNext(
+      SELECT_MY_STEP_SCREEN,
+      {
+        enableBackButton: true,
+        contactStage: stage,
+        organization: { id: orgId },
+      },
+      {},
     );
 
     expect(navigationActions.navigatePush).toHaveBeenCalledWith(
@@ -860,39 +629,28 @@ describe('PersonSelectStepScreen next', () => {
     store = configureStore([thunk])(baseState);
   });
 
-  it('should fire required next actions', () => {
-    const Component = CompleteStepFlowScreens[PERSON_SELECT_STEP_SCREEN].screen;
-
-    store.dispatch(
-      renderShallow(
-        <Component
-          navigation={{
-            state: {
-              params: {
-                contactStage: stage,
-                contactId: otherId,
-                organization: { id: orgId },
-                contactName: otherName,
-                createStepTracking: buildTrackingObj(
-                  'people : person : steps : create',
-                  'people',
-                  'person',
-                  'steps',
-                ),
-                trackingObj: buildTrackingObj(
-                  'people : person : steps : add',
-                  'people',
-                  'person',
-                  'steps',
-                ),
-              },
-            },
-          }}
-        />,
-        store,
-      )
-        .instance()
-        .props.next({}),
+  it('should fire required next actions', async () => {
+    await buildAndCallNext(
+      PERSON_SELECT_STEP_SCREEN,
+      {
+        contactStage: stage,
+        contactId: otherId,
+        organization: { id: orgId },
+        contactName: otherName,
+        createStepTracking: buildTrackingObj(
+          'people : person : steps : create',
+          'people',
+          'person',
+          'steps',
+        ),
+        trackingObj: buildTrackingObj(
+          'people : person : steps : add',
+          'people',
+          'person',
+          'steps',
+        ),
+      },
+      {},
     );
 
     expect(navigationActions.navigatePush).toHaveBeenCalledWith(
@@ -923,14 +681,8 @@ describe('CelebrationScreen next', () => {
     navigationActions.navigateBack.mockReturnValue(navigateBackResponse);
   });
 
-  it('should fire required next actions', () => {
-    const Component = CompleteStepFlowScreens[CELEBRATION_SCREEN].screen;
-
-    store.dispatch(
-      renderShallow(<Component navigation={{ state: { params: {} } }} />, store)
-        .instance()
-        .props.next({}),
-    );
+  it('should fire required next actions', async () => {
+    await buildAndCallNext(CELEBRATION_SCREEN, {}, {});
 
     expect(reactNavigation.StackActions.popToTop).toHaveBeenCalledTimes(1);
     expect(navigationActions.navigateBack).toHaveBeenCalledTimes(1);

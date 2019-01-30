@@ -126,100 +126,101 @@ describe('add step methods', () => {
   });
 });
 
-describe('add step methods for stepNote', () => {
+describe('add step methods for stepNote with onComplete', () => {
   let screen;
   const mockComplete = jest.fn();
+  common.disableBack = { add: jest.fn(), remove: jest.fn() };
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+
+    screen = renderShallow(
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: mockComplete,
+          type: STEP_NOTE,
+          text: 'Comment',
+        })}
+      />,
+      store,
+    );
+
+    expect(common.disableBack.add).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs skip', () => {
+    screen
+      .childAt(0)
+      .childAt(0)
+      .simulate('press');
+
+    expect(mockComplete).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs saveStep', () => {
+    screen
+      .find('Input')
+      .props()
+      .onChangeText('test');
+
+    screen.update();
+
+    screen
+      .childAt(3)
+      .childAt(0)
+      .simulate('press');
+
+    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
+    expect(mockComplete).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('add step methods for stepNote with next', () => {
+  let screen;
   const mockNext = jest.fn();
   common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
-  describe('stepNote with onComplete', () => {
-    beforeEach(() => {
-      jest.clearAllMocks();
+  beforeEach(() => {
+    jest.clearAllMocks();
 
-      screen = renderShallow(
-        <AddStepScreen
-          navigation={createMockNavState({
-            onComplete: mockComplete,
-            type: STEP_NOTE,
-            text: 'Comment',
-          })}
-        />,
-        store,
-      );
+    screen = renderShallow(
+      <AddStepScreen
+        navigation={createMockNavState({
+          next: mockNext,
+          type: STEP_NOTE,
+          text: 'Comment',
+        })}
+      />,
+      store,
+    );
 
-      expect(common.disableBack.add).toHaveBeenCalledTimes(1);
-    });
-
-    it('runs skip', () => {
-      screen
-        .childAt(0)
-        .childAt(0)
-        .simulate('press');
-
-      expect(mockComplete).toHaveBeenCalledTimes(1);
-    });
-
-    it('runs saveStep', () => {
-      screen
-        .find('Input')
-        .props()
-        .onChangeText('test');
-
-      screen.update();
-
-      screen
-        .childAt(3)
-        .childAt(0)
-        .simulate('press');
-
-      expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
-      expect(mockComplete).toHaveBeenCalledTimes(1);
-    });
+    expect(common.disableBack.add).toHaveBeenCalledTimes(1);
   });
 
-  describe('stepNote with next', () => {
-    beforeEach(() => {
-      jest.clearAllMocks();
+  it('runs skip', () => {
+    screen
+      .childAt(0)
+      .childAt(0)
+      .simulate('press');
 
-      screen = renderShallow(
-        <AddStepScreen
-          navigation={createMockNavState({
-            next: mockNext,
-            type: STEP_NOTE,
-            text: 'Comment',
-          })}
-        />,
-        store,
-      );
+    expect(mockNext).toHaveBeenCalledTimes(1);
+  });
 
-      expect(common.disableBack.add).toHaveBeenCalledTimes(1);
-    });
+  it('runs saveStep', () => {
+    screen
+      .find('Input')
+      .props()
+      .onChangeText('test');
 
-    it('runs skip', () => {
-      screen
-        .childAt(0)
-        .childAt(0)
-        .simulate('press');
+    screen.update();
 
-      expect(mockNext).toHaveBeenCalledTimes(1);
-    });
+    screen
+      .childAt(3)
+      .childAt(0)
+      .simulate('press');
 
-    it('runs saveStep', () => {
-      screen
-        .find('Input')
-        .props()
-        .onChangeText('test');
-
-      screen.update();
-
-      screen
-        .childAt(3)
-        .childAt(0)
-        .simulate('press');
-
-      expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
-      expect(mockNext).toHaveBeenCalledTimes(1);
-    });
+    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
+    expect(mockNext).toHaveBeenCalledTimes(1);
   });
 });
 

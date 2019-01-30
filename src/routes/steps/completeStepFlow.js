@@ -52,12 +52,9 @@ export const CompleteStepFlowScreens = {
         const person = isMe
           ? authPerson
           : (await dispatch(getPersonDetails(personId, orgId))).person;
-        const assignment = await getReverseContactAssignment(
-          isMe,
-          person,
-          orgId,
-          authPerson,
-        );
+        const assignment = isMe
+          ? null
+          : await getReverseContactAssignment(person, orgId, authPerson);
         const stageId = getStageId(isMe, assignment, authPerson);
 
         const hasHitCount = hasHitThreeSteps(steps, personId);
@@ -74,26 +71,11 @@ export const CompleteStepFlowScreens = {
         const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
         const subsection = getAnalyticsSubsection(personId, authPerson.id);
         const name = isMe ? authPerson.first_name : person.first_name;
-        const questionText = isMe
-          ? isNotSure
-            ? i18next.t('selectStage:meQuestion', {
-                name,
-              })
-            : i18next.t('selectStage:completed3StepsMe')
-          : isNotSure
-            ? i18next.t('selectStage:completed1Step', {
-                name,
-              })
-            : i18next.t('selectStage:completed3Steps', {
-                name,
-              });
+        const questionText = getQuestionText(isMe, isNotSure, name);
 
         if (isNotSure) {
           // Reset the user's step count so we don't show the wrong message once they hit 3 completed steps
-          dispatch({
-            type: RESET_STEP_COUNT,
-            userId: personId,
-          });
+          dispatch({ type: RESET_STEP_COUNT, userId: personId });
         }
 
         dispatch(
@@ -216,17 +198,17 @@ export const CompleteStepFlowNavigator = createStackNavigator(
   },
 );
 
-function getReverseContactAssignment(isMe, person, orgId, authPerson) {
-  return isMe
-    ? null
-    : ((person && person.reverse_contact_assignments) || []).find(
-        a =>
-          a &&
-          ((a.organization && a.organization.id === orgId) ||
-            (!a.organization && (!orgId || orgId === 'personal'))) &&
-          a.assigned_to &&
-          a.assigned_to.id === authPerson.id,
-      ) || null;
+function getReverseContactAssignment(person, orgId, authPerson) {
+  return (
+    ((person && person.reverse_contact_assignments) || []).find(
+      a =>
+        a &&
+        ((a.organization && a.organization.id === orgId) ||
+          (!a.organization && (!orgId || orgId === 'personal'))) &&
+        a.assigned_to &&
+        a.assigned_to.id === authPerson.id,
+    ) || null
+  );
 }
 
 function getStageId(isMe, assignment, authPerson) {
@@ -243,4 +225,20 @@ function hasHitThreeSteps(steps, personId) {
 
 function hasNotSureStage(stagesObj, stageId) {
   return (stagesObj[stageId] || {}).name_i18n === 'notsure_name';
+}
+
+function getQuestionText(isMe, isNotSure, name) {
+  return isMe
+    ? isNotSure
+      ? i18next.t('selectStage:meQuestion', {
+          name,
+        })
+      : i18next.t('selectStage:completed3StepsMe')
+    : isNotSure
+      ? i18next.t('selectStage:completed1Step', {
+          name,
+        })
+      : i18next.t('selectStage:completed3Steps', {
+          name,
+        });
 }
