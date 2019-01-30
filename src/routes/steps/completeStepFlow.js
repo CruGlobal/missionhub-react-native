@@ -232,7 +232,9 @@ function getReverseContactAssignment(isMe, person, orgId, authPerson) {
 function getStageId(isMe, assignment, authPerson) {
   return isMe
     ? authPerson.user.pathway_stage_id
-    : (assignment && assignment.pathway_stage_id) || null;
+    : assignment && assignment.pathway_stage_id >= 0
+      ? assignment.pathway_stage_id
+      : null;
 }
 
 function hasHitThreeSteps(steps, personId) {

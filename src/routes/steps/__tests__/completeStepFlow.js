@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import i18next from 'i18next';
 import * as reactNavigation from 'react-navigation';
 
-import { STEP_NOTE, ACTIONS } from '../../../constants';
+import { RESET_STEP_COUNT, STEP_NOTE, ACTIONS } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
 import { buildTrackingObj } from '../../../utils/common';
 import { CompleteStepFlowScreens } from '../completeStepFlow';
@@ -167,6 +167,12 @@ describe('AddStepScreen next', () => {
         expect(navigationActions.navigatePush).toHaveBeenCalledWith(
           CELEBRATION_SCREEN,
         );
+        expect(store.getActions()).toEqual([
+          updateNoteResponse,
+          trackActionResponse,
+          reloadJourneyResponse,
+          navigatePushResponse,
+        ]);
       });
 
       it('should fire required next actions without note', async () => {
@@ -204,6 +210,10 @@ describe('AddStepScreen next', () => {
         expect(navigationActions.navigatePush).toHaveBeenCalledWith(
           CELEBRATION_SCREEN,
         );
+        expect(store.getActions()).toEqual([
+          reloadJourneyResponse,
+          navigatePushResponse,
+        ]);
       });
     });
 
@@ -272,6 +282,12 @@ describe('AddStepScreen next', () => {
             contactId: myId,
           },
         );
+        expect(store.getActions()).toEqual([
+          updateNoteResponse,
+          trackActionResponse,
+          { type: RESET_STEP_COUNT, userId: myId },
+          navigatePushResponse,
+        ]);
       });
     });
 
@@ -337,18 +353,25 @@ describe('AddStepScreen next', () => {
             contactId: myId,
           },
         );
+        expect(store.getActions()).toEqual([
+          updateNoteResponse,
+          trackActionResponse,
+          navigatePushResponse,
+        ]);
       });
     });
   });
 
   describe('not isMe', () => {
+    const getOtherPersonResponse = {
+      ...getPersonResponse,
+      person: otherPerson,
+    };
+
     describe('stage is not "Not Sure" and has not completed 3 steps', () => {
       beforeEach(() => {
         store = configureStore([thunk])(baseState);
-        getPersonDetails.mockReturnValue({
-          ...getPersonResponse,
-          person: otherPerson,
-        });
+        getPersonDetails.mockReturnValue(getOtherPersonResponse);
       });
 
       it('should fire required next actions', async () => {
@@ -388,6 +411,13 @@ describe('AddStepScreen next', () => {
         expect(navigationActions.navigatePush).toHaveBeenCalledWith(
           CELEBRATION_SCREEN,
         );
+        expect(store.getActions()).toEqual([
+          updateNoteResponse,
+          trackActionResponse,
+          getOtherPersonResponse,
+          reloadJourneyResponse,
+          navigatePushResponse,
+        ]);
       });
 
       it('should fire required next actions without note', async () => {
@@ -425,6 +455,11 @@ describe('AddStepScreen next', () => {
         expect(navigationActions.navigatePush).toHaveBeenCalledWith(
           CELEBRATION_SCREEN,
         );
+        expect(store.getActions()).toEqual([
+          getOtherPersonResponse,
+          reloadJourneyResponse,
+          navigatePushResponse,
+        ]);
       });
     });
 
@@ -442,10 +477,7 @@ describe('AddStepScreen next', () => {
             },
           },
         });
-        getPersonDetails.mockReturnValue({
-          ...getPersonResponse,
-          person: otherPersonNotSure,
-        });
+        getPersonDetails.mockReturnValue(getOtherPersonResponse);
       });
 
       it('should fire required next actions', async () => {
@@ -499,6 +531,13 @@ describe('AddStepScreen next', () => {
             name: otherName,
           },
         );
+        expect(store.getActions()).toEqual([
+          updateNoteResponse,
+          trackActionResponse,
+          getOtherPersonResponse,
+          { type: RESET_STEP_COUNT, userId: otherId },
+          navigatePushResponse,
+        ]);
       });
     });
 
@@ -514,10 +553,7 @@ describe('AddStepScreen next', () => {
             },
           },
         });
-        getPersonDetails.mockReturnValue({
-          ...getPersonResponse,
-          person: otherPerson,
-        });
+        getPersonDetails.mockReturnValue(getOtherPersonResponse);
       });
 
       it('should fire required next actions', async () => {
@@ -571,6 +607,12 @@ describe('AddStepScreen next', () => {
             name: otherName,
           },
         );
+        expect(store.getActions()).toEqual([
+          updateNoteResponse,
+          trackActionResponse,
+          getOtherPersonResponse,
+          navigatePushResponse,
+        ]);
       });
     });
   });
