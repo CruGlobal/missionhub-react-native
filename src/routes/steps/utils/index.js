@@ -38,7 +38,7 @@ export function paramsforStageNavigation(personId, orgId, getState) {
   };
 }
 
-export function getReverseContactAssignment(person, orgId, authPerson) {
+function getReverseContactAssignment(person, orgId, authPerson) {
   return (
     ((person && person.reverse_contact_assignments) || []).find(
       a =>
@@ -51,7 +51,7 @@ export function getReverseContactAssignment(person, orgId, authPerson) {
   );
 }
 
-export function getStageId(isMe, assignment, authPerson) {
+function getStageId(isMe, assignment, authPerson) {
   return isMe
     ? authPerson.user.pathway_stage_id
     : assignment && assignment.pathway_stage_id >= 0
@@ -59,15 +59,15 @@ export function getStageId(isMe, assignment, authPerson) {
       : null;
 }
 
-export function hasHitThreeSteps(steps, personId) {
+function hasHitThreeSteps(steps, personId) {
   return steps.userStepCount[personId] % 3 === 0;
 }
 
-export function hasNotSureStage(stagesObj, stageId) {
+function hasNotSureStage(stagesObj, stageId) {
   return (stagesObj[stageId] || {}).name_i18n === 'notsure_name';
 }
 
-export function getQuestionText(isMe, isNotSure, name) {
+function getQuestionText(isMe, isNotSure, name) {
   return isMe
     ? isNotSure
       ? i18next.t('selectStage:meQuestion', {
