@@ -10,13 +10,17 @@ import {
   createMockStore,
   renderShallow,
 } from '../../../../testUtils';
-import { CREATE_STEP, STEP_NOTE } from '../../../constants';
+import { CREATE_STEP, STEP_NOTE, ACTIONS } from '../../../constants';
+import { updateChallengeNote } from '../../../actions/steps';
+import { trackAction } from '../../../actions/analytics';
 import * as common from '../../../utils/common';
 import locale from '../../../i18n/locales/en-US';
 
 const store = createMockStore();
 
 jest.mock('react-native-device-info');
+jest.mock('../../../actions/steps');
+jest.mock('../../../actions/analytics');
 
 it('renders correctly', () => {
   testSnapshot(
@@ -177,6 +181,11 @@ describe('add step methods for stepNote with onComplete', () => {
 
 describe('add step methods for stepNote with next', () => {
   let screen;
+
+  const stepId = '10';
+  const personId = '111';
+  const orgId = '11';
+  const text = 'Comment';
   const mockNext = jest.fn();
   common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
@@ -188,7 +197,10 @@ describe('add step methods for stepNote with next', () => {
         navigation={createMockNavState({
           next: mockNext,
           type: STEP_NOTE,
-          text: 'Comment',
+          text,
+          personId,
+          orgId,
+          stepId,
         })}
       />,
       store,
@@ -203,14 +215,14 @@ describe('add step methods for stepNote with next', () => {
       .childAt(0)
       .simulate('press');
 
-    expect(mockNext).toHaveBeenCalledTimes(1);
+    expect(mockNext).toHaveBeenCalledWith({ personId, orgId });
   });
 
   it('runs saveStep', () => {
     screen
       .find('Input')
       .props()
-      .onChangeText('test');
+      .onChangeText(text);
 
     screen.update();
 
@@ -220,7 +232,11 @@ describe('add step methods for stepNote with next', () => {
       .simulate('press');
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
-    expect(mockNext).toHaveBeenCalledTimes(1);
+    expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
+    expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
+      [ACTIONS.INTERACTION.COMMENT]: null,
+    });
+    expect(mockNext).toHaveBeenCalledWith({ personId, orgId });
   });
 });
 

@@ -5,9 +5,11 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigateBack } from '../../actions/navigation';
+import { updateChallengeNote } from '../../actions/steps';
+import { trackAction } from '../../actions/analytics';
 import { Button, Text, Flex, Input } from '../../components/common';
 import theme from '../../theme';
-import { STEP_NOTE, CREATE_STEP } from '../../constants';
+import { STEP_NOTE, CREATE_STEP, ACTIONS } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
 
@@ -49,7 +51,6 @@ class AddStepScreen extends Component {
       Alert.alert('', t('makeShorter'));
     }
   };
-
   saveStep() {
     const {
       type,
@@ -68,8 +69,18 @@ class AddStepScreen extends Component {
     }
     if (type === STEP_NOTE) {
       disableBack.remove();
+
       if (next) {
-        return dispatch(next({ text, stepId, personId, orgId }));
+        if (text) {
+          dispatch(updateChallengeNote(stepId, text));
+          dispatch(
+            trackAction(ACTIONS.INTERACTION.name, {
+              [ACTIONS.INTERACTION.COMMENT]: null,
+            }),
+          );
+        }
+
+        return dispatch(next({ personId, orgId }));
       }
     }
 
@@ -81,19 +92,11 @@ class AddStepScreen extends Component {
   }
 
   skip() {
-    const {
-      type,
-      dispatch,
-      next,
-      onComplete,
-      stepId,
-      personId,
-      orgId,
-    } = this.props;
+    const { type, dispatch, next, onComplete, personId, orgId } = this.props;
     Keyboard.dismiss();
 
     if (type === STEP_NOTE && next) {
-      return dispatch(next({ text: null, stepId, personId, orgId }));
+      return dispatch(next({ personId, orgId }));
     }
 
     onComplete(null);

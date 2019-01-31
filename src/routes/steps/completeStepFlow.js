@@ -1,18 +1,10 @@
 import { createStackNavigator, StackActions } from 'react-navigation';
-import i18next from 'i18next';
 
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
-import {
-  buildTrackingObj,
-  getStageIndex,
-  getAnalyticsSubsection,
-} from '../../utils/common';
+import { buildTrackingObj } from '../../utils/common';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { reloadJourney } from '../../actions/journey';
-import { updateChallengeNote } from '../../actions/steps';
-import { getPersonDetails } from '../../actions/person';
-import { trackAction } from '../../actions/analytics';
-import { RESET_STEP_COUNT, ACTIONS } from '../../constants';
+import { RESET_STEP_COUNT } from '../../constants';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import StageScreen, { STAGE_SCREEN } from '../../containers/StageScreen';
 import PersonStageScreen, {
@@ -28,37 +20,23 @@ import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
 
+import { paramsforStageNavigation } from './utils';
+
 export const CompleteStepFlowScreens = {
   [ADD_STEP_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       AddStepScreen,
-      ({ text, stepId, personId, orgId }) => async (dispatch, getState) => {
-        if (text) {
-          await dispatch(updateChallengeNote(stepId, text));
-          dispatch(
-            trackAction(ACTIONS.INTERACTION.name, {
-              [ACTIONS.INTERACTION.COMMENT]: null,
-            }),
-          );
-        }
-
+      ({ personId, orgId }) => (dispatch, getState) => {
         const {
-          stages: { stages, stagesObj },
-          auth: { person: authPerson },
-          steps,
-        } = getState();
-
-        const isMe = personId === authPerson.id;
-        const person = isMe
-          ? authPerson
-          : (await dispatch(getPersonDetails(personId, orgId))).person;
-        const assignment = isMe
-          ? null
-          : await getReverseContactAssignment(person, orgId, authPerson);
-        const stageId = getStageId(isMe, assignment, authPerson);
-
-        const hasHitCount = hasHitThreeSteps(steps, personId);
-        const isNotSure = hasNotSureStage(stagesObj, stageId);
+          isMe,
+          hasHitCount,
+          isNotSure,
+          subsection,
+          firstItemIndex,
+          questionText,
+          assignment,
+          name,
+        } = paramsforStageNavigation(personId, orgId, getState);
 
         // If person hasn't hit the count and they're NOT on the "not sure" stage
         // Send them through to celebrate and complete
@@ -67,33 +45,23 @@ export const CompleteStepFlowScreens = {
           return dispatch(navigatePush(CELEBRATION_SCREEN));
         }
 
-        const firstItemIndex = getStageIndex(stages, stageId);
-        const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
-        const subsection = getAnalyticsSubsection(personId, authPerson.id);
-        const name = isMe ? authPerson.first_name : person.first_name;
-        const questionText = getQuestionText(isMe, isNotSure, name);
-
         if (isNotSure) {
           // Reset the user's step count so we don't show the wrong message once they hit 3 completed steps
           dispatch({ type: RESET_STEP_COUNT, userId: personId });
         }
 
         dispatch(
-          navigatePush(nextStageScreen, {
+          navigatePush(isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN, {
             section: 'people',
-            subsection: subsection,
+            subsection,
             firstItem: firstItemIndex,
             enableBackButton: false,
             noNav: true,
             questionText,
             orgId,
-            ...(isMe
-              ? { contactId: authPerson.id }
-              : {
-                  contactId: personId,
-                  contactAssignmentId: assignment.id,
-                  name,
-                }),
+            contactId: personId,
+            contactAssignmentId: assignment && assignment.id,
+            name,
           }),
         );
       },
@@ -105,18 +73,15 @@ export const CompleteStepFlowScreens = {
       ({ stage, contactId, orgId, isAlreadySelected }) => dispatch => {
         dispatch(reloadJourney(contactId, orgId));
 
-        const nextScreen = isAlreadySelected
-          ? CELEBRATION_SCREEN
-          : SELECT_MY_STEP_SCREEN;
-        const nextProps = isAlreadySelected
-          ? {}
-          : {
-              enableBackButton: true,
-              contactStage: stage,
-              organization: { id: orgId },
-            };
-
-        dispatch(navigatePush(nextScreen, nextProps));
+        dispatch(
+          isAlreadySelected
+            ? navigatePush(CELEBRATION_SCREEN)
+            : navigatePush(SELECT_MY_STEP_SCREEN, {
+                enableBackButton: true,
+                contactStage: stage,
+                organization: { id: orgId },
+              }),
+        );
       },
     ),
   ),
@@ -126,31 +91,28 @@ export const CompleteStepFlowScreens = {
       ({ stage, contactId, name, orgId, isAlreadySelected }) => dispatch => {
         dispatch(reloadJourney(contactId, orgId));
 
-        const nextScreen = isAlreadySelected
-          ? CELEBRATION_SCREEN
-          : PERSON_SELECT_STEP_SCREEN;
-        const nextProps = isAlreadySelected
-          ? {}
-          : {
-              contactStage: stage,
-              contactId,
-              organization: { id: orgId },
-              contactName: name,
-              createStepTracking: buildTrackingObj(
-                'people : person : steps : create',
-                'people',
-                'person',
-                'steps',
-              ),
-              trackingObj: buildTrackingObj(
-                'people : person : steps : add',
-                'people',
-                'person',
-                'steps',
-              ),
-            };
-
-        dispatch(navigatePush(nextScreen, nextProps));
+        dispatch(
+          isAlreadySelected
+            ? navigatePush(CELEBRATION_SCREEN)
+            : navigatePush(PERSON_SELECT_STEP_SCREEN, {
+                contactStage: stage,
+                contactId,
+                organization: { id: orgId },
+                contactName: name,
+                createStepTracking: buildTrackingObj(
+                  'people : person : steps : create',
+                  'people',
+                  'person',
+                  'steps',
+                ),
+                trackingObj: buildTrackingObj(
+                  'people : person : steps : add',
+                  'people',
+                  'person',
+                  'steps',
+                ),
+              }),
+        );
       },
     ),
   ),
@@ -197,48 +159,3 @@ export const CompleteStepFlowNavigator = createStackNavigator(
     },
   },
 );
-
-function getReverseContactAssignment(person, orgId, authPerson) {
-  return (
-    ((person && person.reverse_contact_assignments) || []).find(
-      a =>
-        a &&
-        ((a.organization && a.organization.id === orgId) ||
-          (!a.organization && (!orgId || orgId === 'personal'))) &&
-        a.assigned_to &&
-        a.assigned_to.id === authPerson.id,
-    ) || null
-  );
-}
-
-function getStageId(isMe, assignment, authPerson) {
-  return isMe
-    ? authPerson.user.pathway_stage_id
-    : assignment && assignment.pathway_stage_id >= 0
-      ? assignment.pathway_stage_id
-      : null;
-}
-
-function hasHitThreeSteps(steps, personId) {
-  return steps.userStepCount[personId] % 3 === 0;
-}
-
-function hasNotSureStage(stagesObj, stageId) {
-  return (stagesObj[stageId] || {}).name_i18n === 'notsure_name';
-}
-
-function getQuestionText(isMe, isNotSure, name) {
-  return isMe
-    ? isNotSure
-      ? i18next.t('selectStage:meQuestion', {
-          name,
-        })
-      : i18next.t('selectStage:completed3StepsMe')
-    : isNotSure
-      ? i18next.t('selectStage:completed1Step', {
-          name,
-        })
-      : i18next.t('selectStage:completed3Steps', {
-          name,
-        });
-}

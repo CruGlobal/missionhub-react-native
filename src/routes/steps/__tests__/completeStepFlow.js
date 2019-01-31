@@ -4,15 +4,13 @@ import thunk from 'redux-thunk';
 import i18next from 'i18next';
 import * as reactNavigation from 'react-navigation';
 
-import { RESET_STEP_COUNT, STEP_NOTE, ACTIONS } from '../../../constants';
+import { RESET_STEP_COUNT, STEP_NOTE } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
 import { buildTrackingObj } from '../../../utils/common';
 import { CompleteStepFlowScreens } from '../completeStepFlow';
 import * as navigationActions from '../../../actions/navigation';
-import { updateChallengeNote } from '../../../actions/steps';
-import { getPersonDetails } from '../../../actions/person';
-import { trackAction } from '../../../actions/analytics';
 import { reloadJourney } from '../../../actions/journey';
+import { personSelector } from '../../../selectors/people';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../../../containers/StageScreen';
@@ -22,9 +20,9 @@ import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepS
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
-jest.mock('../../../actions/person');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/journey');
+jest.mock('../../../selectors/people');
 
 const myId = '111';
 const otherId = '222';
@@ -58,6 +56,8 @@ const otherPersonNotSure = {
   ],
 };
 
+const people = { allByOrg: {} };
+
 const navigatePushResponse = { type: 'navigate push' };
 
 const baseState = {
@@ -84,6 +84,7 @@ const baseState = {
     },
   },
   steps: { userStepCount: { [myId]: 1, [otherId]: 1 } },
+  people,
   profile: { firstName: myName },
   personProfile: { firstName: otherName },
 };
@@ -116,16 +117,10 @@ beforeEach(() => {
 });
 
 describe('AddStepScreen next', () => {
-  const text = 'text';
-  const updateNoteResponse = { type: 'update challenge note' };
-  const trackActionResponse = { type: 'track action' };
-  const getPersonResponse = { type: 'get person details', person: otherPerson };
   const reloadJourneyResponse = { type: 'reload journey' };
 
   beforeEach(() => {
-    updateChallengeNote.mockReturnValue(updateNoteResponse);
-    trackAction.mockReturnValue(trackActionResponse);
-    getPersonDetails.mockReturnValue(getPersonResponse);
+    personSelector.mockReturnValue(otherPerson);
     reloadJourney.mockReturnValue(reloadJourneyResponse);
   });
 
@@ -139,21 +134,14 @@ describe('AddStepScreen next', () => {
         await buildAndCallNext(
           ADD_STEP_SCREEN,
           { stepId, personId: myId, orgId, type: STEP_NOTE },
-          { text, stepId, personId: myId, orgId },
+          { personId: myId, orgId },
         );
 
-        expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
-        expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
-          [ACTIONS.INTERACTION.COMMENT]: null,
-        });
-        expect(getPersonDetails).not.toHaveBeenCalled();
         expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
         expect(navigationActions.navigatePush).toHaveBeenCalledWith(
           CELEBRATION_SCREEN,
         );
         expect(store.getActions()).toEqual([
-          updateNoteResponse,
-          trackActionResponse,
           reloadJourneyResponse,
           navigatePushResponse,
         ]);
@@ -163,12 +151,9 @@ describe('AddStepScreen next', () => {
         await buildAndCallNext(
           ADD_STEP_SCREEN,
           { stepId, personId: myId, orgId, type: STEP_NOTE },
-          { text: null, stepId, personId: myId, orgId },
+          { personId: myId, orgId },
         );
 
-        expect(updateChallengeNote).not.toHaveBeenCalled();
-        expect(trackAction).not.toHaveBeenCalled();
-        expect(getPersonDetails).not.toHaveBeenCalled();
         expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
         expect(navigationActions.navigatePush).toHaveBeenCalledWith(
           CELEBRATION_SCREEN,
@@ -200,14 +185,9 @@ describe('AddStepScreen next', () => {
         await buildAndCallNext(
           ADD_STEP_SCREEN,
           { stepId, personId: myId, orgId, type: STEP_NOTE },
-          { text, stepId, personId: myId, orgId },
+          { personId: myId, orgId },
         );
 
-        expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
-        expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
-          [ACTIONS.INTERACTION.COMMENT]: null,
-        });
-        expect(getPersonDetails).not.toHaveBeenCalled();
         expect(reloadJourney).not.toHaveBeenCalled();
         expect(navigationActions.navigatePush).toHaveBeenCalledWith(
           STAGE_SCREEN,
@@ -222,11 +202,11 @@ describe('AddStepScreen next', () => {
             }),
             orgId,
             contactId: myId,
+            contactAssignmentId: null,
+            name: myName,
           },
         );
         expect(store.getActions()).toEqual([
-          updateNoteResponse,
-          trackActionResponse,
           { type: RESET_STEP_COUNT, userId: myId },
           navigatePushResponse,
         ]);
@@ -250,14 +230,9 @@ describe('AddStepScreen next', () => {
         await buildAndCallNext(
           ADD_STEP_SCREEN,
           { stepId, personId: myId, orgId, type: STEP_NOTE },
-          { text, stepId, personId: myId, orgId },
+          { personId: myId, orgId },
         );
 
-        expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
-        expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
-          [ACTIONS.INTERACTION.COMMENT]: null,
-        });
-        expect(getPersonDetails).not.toHaveBeenCalled();
         expect(reloadJourney).not.toHaveBeenCalled();
         expect(navigationActions.navigatePush).toHaveBeenCalledWith(
           STAGE_SCREEN,
@@ -272,13 +247,11 @@ describe('AddStepScreen next', () => {
             }),
             orgId,
             contactId: myId,
+            contactAssignmentId: null,
+            name: myName,
           },
         );
-        expect(store.getActions()).toEqual([
-          updateNoteResponse,
-          trackActionResponse,
-          navigatePushResponse,
-        ]);
+        expect(store.getActions()).toEqual([navigatePushResponse]);
       });
     });
   });
@@ -293,22 +266,18 @@ describe('AddStepScreen next', () => {
         await buildAndCallNext(
           ADD_STEP_SCREEN,
           { stepId, personId: otherId, orgId, type: STEP_NOTE },
-          { text, stepId, personId: otherId, orgId },
+          { personId: otherId, orgId },
         );
 
-        expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
-        expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
-          [ACTIONS.INTERACTION.COMMENT]: null,
-        });
-        expect(getPersonDetails).toHaveBeenCalledWith(otherId, orgId);
+        expect(personSelector).toHaveBeenCalledWith(
+          { people },
+          { personId: otherId, orgId },
+        );
         expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
         expect(navigationActions.navigatePush).toHaveBeenCalledWith(
           CELEBRATION_SCREEN,
         );
         expect(store.getActions()).toEqual([
-          updateNoteResponse,
-          trackActionResponse,
-          getPersonResponse,
           reloadJourneyResponse,
           navigatePushResponse,
         ]);
@@ -318,18 +287,18 @@ describe('AddStepScreen next', () => {
         await buildAndCallNext(
           ADD_STEP_SCREEN,
           { stepId, personId: otherId, orgId, type: STEP_NOTE },
-          { text: null, stepId, personId: otherId, orgId },
+          { personId: otherId, orgId },
         );
 
-        expect(updateChallengeNote).not.toHaveBeenCalled();
-        expect(trackAction).not.toHaveBeenCalled();
-        expect(getPersonDetails).toHaveBeenCalledWith(otherId, orgId);
+        expect(personSelector).toHaveBeenCalledWith(
+          { people },
+          { personId: otherId, orgId },
+        );
         expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
         expect(navigationActions.navigatePush).toHaveBeenCalledWith(
           CELEBRATION_SCREEN,
         );
         expect(store.getActions()).toEqual([
-          getPersonResponse,
           reloadJourneyResponse,
           navigatePushResponse,
         ]);
@@ -337,27 +306,22 @@ describe('AddStepScreen next', () => {
     });
 
     describe('stage is "Not Sure"', () => {
-      const getPersonNotSureResponse = {
-        ...getPersonResponse,
-        person: otherPersonNotSure,
-      };
       beforeEach(() => {
         store = configureStore([thunk])(baseState);
-        getPersonDetails.mockReturnValue(getPersonNotSureResponse);
+        personSelector.mockReturnValue(otherPersonNotSure);
       });
 
       it('should fire required next actions', async () => {
         await buildAndCallNext(
           ADD_STEP_SCREEN,
           { stepId, personId: otherId, orgId, type: STEP_NOTE },
-          { text, stepId, personId: otherId, orgId },
+          { personId: otherId, orgId },
         );
 
-        expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
-        expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
-          [ACTIONS.INTERACTION.COMMENT]: null,
-        });
-        expect(getPersonDetails).toHaveBeenCalledWith(otherId, orgId);
+        expect(personSelector).toHaveBeenCalledWith(
+          { people },
+          { personId: otherId, orgId },
+        );
         expect(reloadJourney).not.toHaveBeenCalled();
         expect(navigationActions.navigatePush).toHaveBeenCalledWith(
           PERSON_STAGE_SCREEN,
@@ -377,9 +341,6 @@ describe('AddStepScreen next', () => {
           },
         );
         expect(store.getActions()).toEqual([
-          updateNoteResponse,
-          trackActionResponse,
-          getPersonNotSureResponse,
           { type: RESET_STEP_COUNT, userId: otherId },
           navigatePushResponse,
         ]);
@@ -404,14 +365,13 @@ describe('AddStepScreen next', () => {
         await buildAndCallNext(
           ADD_STEP_SCREEN,
           { stepId, personId: otherId, orgId, type: STEP_NOTE },
-          { text, stepId, personId: otherId, orgId },
+          { personId: otherId, orgId },
         );
 
-        expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
-        expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
-          [ACTIONS.INTERACTION.COMMENT]: null,
-        });
-        expect(getPersonDetails).toHaveBeenCalledWith(otherId, orgId);
+        expect(personSelector).toHaveBeenCalledWith(
+          { people },
+          { personId: otherId, orgId },
+        );
         expect(reloadJourney).not.toHaveBeenCalled();
         expect(navigationActions.navigatePush).toHaveBeenCalledWith(
           PERSON_STAGE_SCREEN,
@@ -430,12 +390,7 @@ describe('AddStepScreen next', () => {
             name: otherName,
           },
         );
-        expect(store.getActions()).toEqual([
-          updateNoteResponse,
-          trackActionResponse,
-          getPersonResponse,
-          navigatePushResponse,
-        ]);
+        expect(store.getActions()).toEqual([navigatePushResponse]);
       });
     });
   });
@@ -466,7 +421,6 @@ describe('StageScreen next', () => {
       expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
       expect(navigationActions.navigatePush).toHaveBeenCalledWith(
         CELEBRATION_SCREEN,
-        {},
       );
     });
   });
@@ -536,7 +490,6 @@ describe('PersonStageScreen next', () => {
       expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
       expect(navigationActions.navigatePush).toHaveBeenCalledWith(
         CELEBRATION_SCREEN,
-        {},
       );
     });
   });
