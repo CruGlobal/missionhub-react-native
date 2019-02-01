@@ -28,12 +28,12 @@ export default function tracking({ dispatch, getState }) {
   return next => action => {
     let newState;
     const returnValue = next(action);
-    const { nav: navState, auth: authState, tabs: tabsState } = getState();
+    const { nav: navState, tabs: tabsState } = getState();
 
     switch (action.type) {
       case DrawerActions.OPEN_DRAWER:
       case NAVIGATE_FORWARD:
-        newState = getNextTrackState(action, authState, dispatch);
+        newState = getNextTrackState(action);
 
         if (
           action.routeName === STEPS_TAB ||
@@ -72,7 +72,7 @@ export default function tracking({ dispatch, getState }) {
           break;
         }
 
-        newState = getNextTrackState(topRoute, authState, () => {});
+        newState = getNextTrackState(topRoute);
         break;
 
       case NAVIGATE_RESET:
