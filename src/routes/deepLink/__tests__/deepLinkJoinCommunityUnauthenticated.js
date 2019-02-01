@@ -15,7 +15,7 @@ import {
   landOnStashedCommunityScreen,
 } from '../../../actions/onboardingProfile';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
-import { KEY_LOGIN_SCREEN } from '../../../containers/KeyLoginScreen';
+import { KEY_LOGIN_SCREEN } from '../../../containers/Auth/KeyLoginScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import { DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN } from '../../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
 

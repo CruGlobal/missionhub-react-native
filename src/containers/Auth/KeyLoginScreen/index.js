@@ -12,16 +12,16 @@ import {
   Flex,
   Icon,
   LoadingWheel,
-} from '../../components/common';
-import Input from '../../components/Input/index';
-import { keyLogin, openKeyURL } from '../../actions/auth';
-import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS, MFA_REQUIRED } from '../../constants';
-import { hasNotch, isAndroid } from '../../utils/common';
-import { onSuccessfulLogin } from '../../actions/login';
-import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
-import BackButton from '../BackButton';
-import { navigatePush } from '../../actions/navigation';
+} from '../../../components/common';
+import Input from '../../../components/Input';
+import { keyLogin, openKeyURL } from '../../../actions/auth';
+import { trackActionWithoutData } from '../../../actions/analytics';
+import { ACTIONS, MFA_REQUIRED } from '../../../constants';
+import { hasNotch, isAndroid } from '../../../utils/common';
+import { onSuccessfulLogin } from '../../../actions/login';
+import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
+import BackButton from '../../BackButton';
+import { navigatePush } from '../../../actions/navigation';
 import { MFA_CODE_SCREEN } from '../MFACodeScreen';
 
 import styles from './styles';

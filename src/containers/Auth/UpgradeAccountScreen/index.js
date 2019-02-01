@@ -7,23 +7,23 @@ import { translate } from 'react-i18next';
 import i18Next from 'i18next';
 import PropTypes from 'prop-types';
 
-import { openKeyURL } from '../../actions/auth';
+import { openKeyURL } from '../../../actions/auth';
 import {
   Text,
   Button,
   Flex,
   Icon,
   LoadingWheel,
-} from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
-import LOGO from '../../../assets/images/missionHubLogoWords.png';
-import PEOPLE from '../../../assets/images/MemberContacts_light.png';
+} from '../../../components/common';
+import { navigatePush } from '../../../actions/navigation';
+import LOGO from '../../../../assets/images/missionHubLogoWords.png';
+import PEOPLE from '../../../../assets/images/MemberContacts_light.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
-import { onSuccessfulLogin } from '../../actions/login';
-import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
-import Header from '../Header';
-import BackButton from '../BackButton';
-import TosPrivacy from '../../components/TosPrivacy';
+import { onSuccessfulLogin } from '../../../actions/login';
+import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
+import Header from '../../Header';
+import BackButton from '../../BackButton';
+import TosPrivacy from '../../../components/TosPrivacy';
 
 import styles from './styles';
 
