@@ -110,13 +110,6 @@ export default {
   mainTabs: {
     takeAStepWithSomeone: 'Take a Step With Someone',
   },
-  error: {
-    error: 'Error',
-    unexpectedErrorMessage: 'There was an unexpected error.',
-    baseErrorMessage:
-      'Please email support@missionhub.com if the issue persists.',
-    ADD_NEW_PERSON: 'There was an error adding a new person.',
-  },
   offline: {
     youreOffline: "You're currently offline",
     connectToInternet:
@@ -317,6 +310,7 @@ export default {
     interactionSpirit: 'Holy Spirit Presentation',
     interactionDiscipleshipConversation: 'Discipleship Conversation',
     interactionNote: 'Comment',
+    commentBoxPlaceholder: 'Share something to be remembered...',
   },
   notes: {
     header: 'MY NOTES',
@@ -467,7 +461,6 @@ export default {
   },
   celebrateFeeds: {
     title: '',
-    placeholder: 'Share something to be celebrated...',
     emptyFeedTitle: 'Celebrate!',
     emptyFeedDescription:
       'You can celebrate {{firstName}} Steps of Faith here.',

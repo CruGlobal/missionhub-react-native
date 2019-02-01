@@ -121,7 +121,7 @@ const GROUP_IMPACT = 'nav/GROUP_IMPACT';
 const GROUP_CONTACTS = 'nav/GROUP_CONTACTS';
 const GROUP_SURVEYS = 'nav/GROUP_SURVEYS';
 
-const tabs = [
+export const CRU_TABS = [
   {
     name: i18next.t('groupTabs:celebrate'),
     navigationAction: GROUP_CELEBRATE,
@@ -189,10 +189,8 @@ const tabs = [
     }) => <Surveys organization={organization} />,
   },
 ];
-
-export const CRU_TABS = [tabs[0], ...tabs.slice(2, 6)];
-export const USER_CREATED_TABS = tabs.slice(0, 4);
-export const GLOBAL_TABS = [tabs[0], tabs[1], tabs[3]];
+export const USER_CREATED_TABS = CRU_TABS.slice(0, 4);
+export const GLOBAL_TABS = [CRU_TABS[0], CRU_TABS[1], CRU_TABS[3]];
 
 export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
   CRU_TABS,
