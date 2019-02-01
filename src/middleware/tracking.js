@@ -15,6 +15,7 @@ import {
   STEPS_TAB,
   PEOPLE_TAB,
   GROUPS_TAB,
+  GROUP_TAB_CHANGED,
 } from '../constants';
 import { buildTrackingObj } from '../utils/common';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
@@ -23,25 +24,24 @@ import {
   STAGE_SCREEN,
 } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
+import {
+  CRU_TABS,
+  GROUP_SCREEN,
+  USER_CREATED_GROUP_SCREEN,
+  GLOBAL_GROUP_SCREEN,
+} from '../containers/Groups/GroupScreen';
 
 export default function tracking({ dispatch, getState }) {
   return next => action => {
     let newState;
     const returnValue = next(action);
-    const { nav: navState, auth: authState, tabs: tabsState } = getState();
+    const { nav: navState, tabs: tabsState } = getState();
 
     switch (action.type) {
       case DrawerActions.OPEN_DRAWER:
       case NAVIGATE_FORWARD:
-        newState = getNextTrackState(action, authState, dispatch);
-
-        if (
-          action.routeName === STEPS_TAB ||
-          action.routeName === PEOPLE_TAB ||
-          action.routeName === GROUPS_TAB
-        ) {
-          dispatch({ type: MAIN_TAB_CHANGED, newActiveTab: newState });
-        }
+        newState = getNextTrackState(action);
+        trackTabChanges(action, newState, dispatch);
         break;
 
       case NAVIGATE_BACK:
@@ -72,7 +72,16 @@ export default function tracking({ dispatch, getState }) {
           break;
         }
 
-        newState = getNextTrackState(topRoute, authState, () => {});
+        if (
+          topRoute.routeName === GROUP_SCREEN ||
+          topRoute.routeName === USER_CREATED_GROUP_SCREEN ||
+          topRoute.routeName === GLOBAL_GROUP_SCREEN
+        ) {
+          newState = tabsState.activeGroupTab;
+          break;
+        }
+
+        newState = getNextTrackState(topRoute);
         break;
 
       case NAVIGATE_RESET:
@@ -98,6 +107,20 @@ function getNextTrackState(action) {
   } else if (action.params && action.params.trackingObj) {
     //todo test trackingObj is ignored if screen is in trackableScreens
     return action.params.trackingObj;
+  }
+}
+
+function trackTabChanges(action, newState, dispatch) {
+  if (
+    action.routeName === STEPS_TAB ||
+    action.routeName === PEOPLE_TAB ||
+    action.routeName === GROUPS_TAB
+  ) {
+    dispatch({ type: MAIN_TAB_CHANGED, newActiveTab: newState });
+  } else if (
+    CRU_TABS.map(tab => tab.navigationAction).includes(action.routeName)
+  ) {
+    dispatch({ type: GROUP_TAB_CHANGED, newActiveTab: newState });
   }
 }
 
