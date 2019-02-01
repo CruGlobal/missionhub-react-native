@@ -110,13 +110,6 @@ export default {
   mainTabs: {
     takeAStepWithSomeone: 'Take a Step With Someone',
   },
-  error: {
-    error: 'Error',
-    unexpectedErrorMessage: 'There was an unexpected error.',
-    baseErrorMessage:
-      'Please email support@missionhub.com if the issue persists.',
-    ADD_NEW_PERSON: 'There was an error adding a new person.',
-  },
   offline: {
     youreOffline: "You're currently offline",
     connectToInternet:
