@@ -13,7 +13,10 @@ import { trackableScreens } from '../../AppRoutes';
 import { buildTrackingObj } from '../../utils/common';
 import { SEARCH_SCREEN } from '../../containers/SearchPeopleScreen';
 import { trackState } from '../../actions/analytics';
-import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
+import {
+  GROUP_CHALLENGES,
+  USER_CREATED_GROUP_SCREEN,
+} from '../../containers/Groups/GroupScreen';
 
 jest.mock('../../actions/analytics');
 
@@ -111,17 +114,36 @@ describe('navigate reset', () => {
   });
 });
 
-it('tracks screen when navigating back', () => {
-  store = mockStore({
-    nav: {
-      routes: [{ routeName: SEARCH_SCREEN }],
-    },
+describe('navigate back', () => {
+  it('tracks screen', () => {
+    store = mockStore({
+      nav: {
+        routes: [{ routeName: SEARCH_SCREEN }],
+      },
+    });
+
+    store.dispatch(back);
+
+    expect(trackState).toHaveBeenCalledWith(
+      trackableScreens[SEARCH_SCREEN].tracking,
+    );
+    expect(store.getActions()).toEqual([back, trackStateResult]);
   });
 
-  store.dispatch(back);
+  it('tracks tab', () => {
+    const activeGroupTab = { name: 'some tab' };
+    store = mockStore({
+      nav: {
+        routes: [{ routeName: USER_CREATED_GROUP_SCREEN }],
+      },
+      tabs: {
+        activeGroupTab,
+      },
+    });
 
-  expect(trackState).toHaveBeenCalledWith(
-    trackableScreens[SEARCH_SCREEN].tracking,
-  );
-  expect(store.getActions()).toEqual([back, trackStateResult]);
+    store.dispatch(back);
+
+    expect(trackState).toHaveBeenCalledWith(activeGroupTab);
+    expect(store.getActions()).toEqual([back, trackStateResult]);
+  });
 });
