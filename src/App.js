@@ -8,8 +8,6 @@ import { Alert } from 'react-native';
 // eslint-disable-next-line import/default
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
-import { Crashlytics } from 'react-native-fabric';
-import StackTrace from 'stacktrace-js';
 
 import './i18n';
 import { rollbar } from './utils/rollbar.config';
@@ -98,8 +96,7 @@ export default class App extends Component {
     ErrorUtils.setGlobalHandler(this.handleError);
   }
 
-  async handleError(e) {
-    let errorToReport;
+  handleError(e) {
     const { apiError } = e;
 
     if (apiError) {
@@ -118,48 +115,25 @@ export default class App extends Component {
         return;
       } else {
         this.showApiErrorAlert(e.key);
-        errorToReport = {
-          title: `API Error: ${e.key} ${e.method.toUpperCase()} ${e.endpoint}`,
-          message: `\n\nQuery Params:\n${JSON.stringify(
-            e.query,
-            null,
-            2,
-          )}\n\nResponse:\n${JSON.stringify(e.apiError, null, 2)}`,
-        };
+        rollbar.error(
+          Error(
+            `API Error: ${e.key} ${e.method.toUpperCase()} ${
+              e.endpoint
+            }\n\nQuery Params:\n${JSON.stringify(
+              e.query,
+              null,
+              2,
+            )}\n\nResponse:\n${JSON.stringify(e.apiError, null, 2)}`,
+          ),
+        );
       }
-    } else if (e.message) {
-      errorToReport = {
-        title: e.message.split('\n')[0],
-        message: e.message,
-        originalError: e,
-      };
+    } else if (e instanceof Error) {
+      rollbar.error(e);
     } else {
-      errorToReport = {
-        title: 'Unknown Error',
-        message: JSON.stringify(e),
-      };
+      rollbar.error(Error(`Unknown Error:\n${JSON.stringify(e, null, 2)}`));
     }
 
     LOG(e);
-
-    if (!__DEV__) {
-      const stackFrames = errorToReport.originalError
-        ? await StackTrace.fromError(errorToReport.originalError, {
-            offline: true,
-          })
-        : (await StackTrace.get({ offline: true })).slice(1);
-
-      Crashlytics.recordCustomExceptionName(
-        errorToReport.title,
-        errorToReport.message,
-        stackFrames,
-      );
-
-      rollbar.error(
-        errorToReport.originalError ||
-          Error(`${errorToReport.title}\n${errorToReport.message}`),
-      );
-    }
   }
 
   showOfflineAlert = () => {

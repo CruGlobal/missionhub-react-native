@@ -1,3 +1,5 @@
+/* eslint max-lines: 0 */
+
 import Config from 'react-native-config';
 
 export const LOGOUT = 'app/LOGOUT';
@@ -423,4 +425,5 @@ export const CELEBRATEABLE_TYPES = {
     completed: 'completed_at',
   },
   createdCommunity: 'organization',
+  joinedCommunity: 'organizational_permission',
 };

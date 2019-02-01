@@ -1,3 +1,5 @@
+/* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0, max-params: 0 */
+
 import {
   CONTACT_PERSON_SCREEN,
   IS_USER_CREATED_MEMBER_PERSON_SCREEN,

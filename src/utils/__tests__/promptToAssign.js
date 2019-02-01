@@ -1,3 +1,5 @@
+/* eslint max-params: 0 */
+
 import { Alert } from 'react-native';
 import i18n from 'i18next';
 

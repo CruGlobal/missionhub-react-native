@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 0, max-params: 0 */
+
 import moment from 'moment';
 
 export const unassignedFilter = (t, selected) => ({

@@ -1,3 +1,5 @@
+/* eslint complexity: 0, max-lines: 0 */
+
 import React, { Component } from 'react';
 import { ScrollView, Image } from 'react-native';
 import { connect } from 'react-redux';

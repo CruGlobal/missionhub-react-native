@@ -1,3 +1,5 @@
+/* eslint max-params: 0 */
+
 import { REQUESTS } from './api';
 import callApi from './api';
 import { refreshImpact } from './impact';

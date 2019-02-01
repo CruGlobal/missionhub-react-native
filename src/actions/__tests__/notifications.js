@@ -1,3 +1,5 @@
+/* eslint max-lines: 0, max-lines-per-function: 0 */
+
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import PushNotification from 'react-native-push-notification';
@@ -20,6 +22,7 @@ import {
   NAVIGATE_FORWARD,
   LOAD_HOME_NOTIFICATION_REMINDER,
   REQUEST_NOTIFICATIONS,
+  GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 import * as common from '../../utils/common';
 import callApi, { REQUESTS } from '../api';
@@ -389,6 +392,22 @@ describe('askNotificationPermissions', () => {
         );
       });
 
+      it('should look for global community if org id is absent', () => {
+        testNotification({
+          screen: 'celebrate',
+          organization_id: null,
+        });
+
+        expect(organizationSelector).toHaveBeenCalledWith(
+          {
+            organizations,
+          },
+          {
+            orgId: GLOBAL_COMMUNITY_ID,
+          },
+        );
+      });
+
       it('should deep link to group screen', () => {
         organizationSelector.mockReturnValue(storedOrganization);
 
@@ -425,6 +444,22 @@ describe('askNotificationPermissions', () => {
           },
           {
             orgId: storedOrganization.id,
+          },
+        );
+      });
+
+      it('should look for global community if org id is absent', () => {
+        testNotification({
+          screen: 'community_challenges',
+          organization_id: null,
+        });
+
+        expect(organizationSelector).toHaveBeenCalledWith(
+          {
+            organizations,
+          },
+          {
+            orgId: GLOBAL_COMMUNITY_ID,
           },
         );
       });

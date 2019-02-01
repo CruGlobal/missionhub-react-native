@@ -1,3 +1,5 @@
+/* eslint max-params: 0 */
+
 import merge from 'lodash/merge';
 import qs from 'qs';
 import Config from 'react-native-config';

@@ -48,6 +48,28 @@
     "require-await": 2,
     "prefer-const": 2,
     "no-unneeded-ternary": 2,
+    "max-params": 2,
+    "max-lines": [
+      2,
+      {
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "complexity": [
+      2,
+      {
+        "max": 10
+      }
+    ],
+    "max-lines-per-function": [
+      2,
+      {
+        "max": 60,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
     "no-return-await": 2
   },
   "settings": {

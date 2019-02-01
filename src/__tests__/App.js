@@ -3,8 +3,6 @@ import ReactNative from 'react-native';
 import Adapter from 'enzyme-adapter-react-16/build/index';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
-import { Crashlytics } from 'react-native-fabric';
-import StackTrace from 'stacktrace-js';
 
 import App from '../App';
 import {
@@ -15,6 +13,7 @@ import {
 } from '../constants';
 import * as auth from '../actions/auth';
 import locale from '../i18n/locales/en-US';
+import { rollbar } from '../utils/rollbar.config';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -31,8 +30,6 @@ auth.logout = jest.fn().mockReturnValue(logoutResponse);
 jest.mock('react-navigation-redux-helpers', () => ({
   createReactNavigationReduxMiddleware: jest.fn(),
 }));
-
-jest.mock('stacktrace-js');
 
 jest.mock('../store', () => ({
   store: require('../../testUtils').createMockStore(),
@@ -51,10 +48,6 @@ const lastTwoArgs = [
   [{ text: 'Ok', onPress: expect.anything() }],
   { onDismiss: expect.anything() },
 ];
-
-const stackFrames = [{ id: '1' }, { id: '2' }];
-const shiftedStackFrames = [stackFrames[1]];
-const stacktraceResponse = Promise.resolve(stackFrames);
 
 beforeEach(() =>
   (ReactNative.Alert.alert = jest
@@ -142,15 +135,13 @@ describe('__DEV__ === false', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    StackTrace.fromError.mockReturnValue(stacktraceResponse);
-    StackTrace.get.mockReturnValue(stacktraceResponse);
   });
 
   afterAll(() => {
     __DEV__ = dev;
   });
 
-  it('Sends Crashlytics report for API error', async () => {
+  it('Sends Rollbar report for API error', async () => {
     const apiError = {
       apiError: { message: 'Error Text' },
       key: 'ADD_NEW_PERSON',
@@ -161,42 +152,36 @@ describe('__DEV__ === false', () => {
 
     await test(apiError);
 
-    expect(Crashlytics.recordCustomExceptionName).toHaveBeenCalledWith(
-      `API Error: ${apiError.key} ${apiError.method.toUpperCase()} ${
-        apiError.endpoint
-      }`,
-      `\n\nQuery Params:\n${JSON.stringify(
-        apiError.query,
-        null,
-        2,
-      )}\n\nResponse:\n${JSON.stringify(apiError.apiError, null, 2)}`,
-      shiftedStackFrames,
+    expect(rollbar.error).toHaveBeenCalledWith(
+      Error(
+        `API Error: ${apiError.key} ${apiError.method.toUpperCase()} ${
+          apiError.endpoint
+        }\n\nQuery Params:\n${JSON.stringify(
+          apiError.query,
+          null,
+          2,
+        )}\n\nResponse:\n${JSON.stringify(apiError.apiError, null, 2)}`,
+      ),
     );
   });
 
-  it('Sends Crashlytics report for error with message', async () => {
+  it('Sends Rollbar report for JS Error', async () => {
     const errorName = 'Error Name';
     const errorDetails = 'Error Details';
-    const apiError = { message: `${errorName}\n${errorDetails}` };
+    const error = Error(`${errorName}\n${errorDetails}`);
 
-    await test(apiError);
+    await test(error);
 
-    expect(Crashlytics.recordCustomExceptionName).toHaveBeenCalledWith(
-      errorName,
-      apiError.message,
-      stackFrames,
-    );
+    expect(rollbar.error).toHaveBeenCalledWith(error);
   });
 
-  it('Sends Crashlytics report for unknown error', async () => {
+  it('Sends Rollbar report for unknown error', async () => {
     const unknownError = { key: 'test', method: '' };
 
     await test(unknownError);
 
-    expect(Crashlytics.recordCustomExceptionName).toHaveBeenCalledWith(
-      'Unknown Error',
-      JSON.stringify(unknownError),
-      shiftedStackFrames,
+    expect(rollbar.error).toHaveBeenCalledWith(
+      Error(`Unknown Error:\n${JSON.stringify(unknownError, null, 2)}`),
     );
   });
 });

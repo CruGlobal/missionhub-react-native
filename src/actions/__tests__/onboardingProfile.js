@@ -1,4 +1,3 @@
-import { Crashlytics } from 'react-native-fabric';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import i18next from 'i18next';
@@ -39,6 +38,7 @@ import {
   GROUP_SCREEN,
   USER_CREATED_GROUP_SCREEN,
 } from '../../containers/Groups/GroupScreen';
+import { rollbar } from '../../utils/rollbar.config';
 
 jest.mock('../api');
 jest.mock('../navigation', () => ({
@@ -97,7 +97,7 @@ describe('createMyPerson', () => {
       },
     );
     expect(dispatch).toHaveBeenCalled();
-    expect(Crashlytics.setUserIdentifier).toHaveBeenCalledWith('123456');
+    expect(rollbar.setPerson).toHaveBeenCalledWith('123456');
   });
 });
 

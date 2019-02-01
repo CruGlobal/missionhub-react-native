@@ -1,3 +1,5 @@
+/* eslint max-lines: 0, max-params: 0 */
+
 import moment from 'moment';
 import {
   ToastAndroid,

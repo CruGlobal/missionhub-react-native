@@ -1,5 +1,4 @@
 import uuidv4 from 'uuid/v4';
-import { Crashlytics } from 'react-native-fabric';
 import i18next from 'i18next';
 
 import {
@@ -60,7 +59,6 @@ export function createMyPerson(firstName, lastName) {
 
   return async dispatch => {
     const me = await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
-    Crashlytics.setUserIdentifier(me.person_id);
     rollbar.setPerson(me.person_id);
     return me;
   };
