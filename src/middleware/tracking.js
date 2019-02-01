@@ -41,23 +41,7 @@ export default function tracking({ dispatch, getState }) {
       case DrawerActions.OPEN_DRAWER:
       case NAVIGATE_FORWARD:
         newState = getNextTrackState(action);
-
-        if (
-          action.routeName === STEPS_TAB ||
-          action.routeName === PEOPLE_TAB ||
-          action.routeName === GROUPS_TAB
-        ) {
-          dispatch({ type: MAIN_TAB_CHANGED, newActiveTab: newState });
-          break;
-        }
-
-        if (
-          CRU_TABS.map(tab => tab.navigationAction).includes(action.routeName)
-        ) {
-          dispatch({ type: GROUP_TAB_CHANGED, newActiveTab: newState });
-          break;
-        }
-
+        trackTabChanges(action, newState, dispatch);
         break;
 
       case NAVIGATE_BACK:
@@ -123,6 +107,20 @@ function getNextTrackState(action) {
   } else if (action.params && action.params.trackingObj) {
     //todo test trackingObj is ignored if screen is in trackableScreens
     return action.params.trackingObj;
+  }
+}
+
+function trackTabChanges(action, newState, dispatch) {
+  if (
+    action.routeName === STEPS_TAB ||
+    action.routeName === PEOPLE_TAB ||
+    action.routeName === GROUPS_TAB
+  ) {
+    dispatch({ type: MAIN_TAB_CHANGED, newActiveTab: newState });
+  } else if (
+    CRU_TABS.map(tab => tab.navigationAction).includes(action.routeName)
+  ) {
+    dispatch({ type: GROUP_TAB_CHANGED, newActiveTab: newState });
   }
 }
 

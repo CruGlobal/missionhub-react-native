@@ -6,12 +6,14 @@ import {
   NAVIGATE_BACK,
   NAVIGATE_FORWARD,
   NAVIGATE_RESET,
+  GROUP_TAB_CHANGED,
 } from '../../constants';
 import tracking from '../tracking';
 import { trackableScreens } from '../../AppRoutes';
 import { buildTrackingObj } from '../../utils/common';
 import { SEARCH_SCREEN } from '../../containers/SearchPeopleScreen';
 import { trackState } from '../../actions/analytics';
+import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
 
 jest.mock('../../actions/analytics');
 
@@ -42,6 +44,21 @@ describe('navigate forward', () => {
 
     expect(trackState).toHaveBeenCalledWith(tracking);
     expect(store.getActions()).toEqual([navigationAction, trackStateResult]);
+  });
+
+  it('tracks group tab', () => {
+    const tracking = { name: 'test : forward' };
+    navigationAction = { type: NAVIGATE_FORWARD, routeName: GROUP_CHALLENGES };
+    trackableScreens[GROUP_CHALLENGES] = { tracking: tracking };
+
+    store.dispatch(navigationAction);
+
+    expect(trackState).toHaveBeenCalledWith(tracking);
+    expect(store.getActions()).toEqual([
+      navigationAction,
+      { type: GROUP_TAB_CHANGED, newActiveTab: tracking },
+      trackStateResult,
+    ]);
   });
 
   describe('to drawer', () => {
