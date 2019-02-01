@@ -9,6 +9,7 @@ import {
   LOAD_HOME_NOTIFICATION_REMINDER,
   MAIN_TABS,
   REQUEST_NOTIFICATIONS,
+  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { DISABLE_WELCOME_NOTIFICATION, GCM_SENDER_ID } from '../constants';
 import { isAndroid } from '../utils/common';
@@ -154,6 +155,10 @@ function handleNotification(notification) {
 function navigateToOrg(organization, initialTab) {
   return (dispatch, getState) => {
     const { organizations } = getState();
+
+    if (!organization) {
+      organization = GLOBAL_COMMUNITY_ID;
+    }
 
     const storedOrg = organizationSelector(
       {
