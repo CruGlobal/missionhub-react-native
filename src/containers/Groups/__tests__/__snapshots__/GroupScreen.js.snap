@@ -9,6 +9,11 @@ Array [
   },
   Object {
     "component": [Function],
+    "name": "Challenges",
+    "navigationAction": "nav/GROUP_CHALLENGES",
+  },
+  Object {
+    "component": [Function],
     "name": "Members",
     "navigationAction": "nav/GROUP_MEMBERS",
   },
