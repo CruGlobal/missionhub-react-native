@@ -15,6 +15,7 @@ import {
   STEPS_TAB,
   PEOPLE_TAB,
   GROUPS_TAB,
+  GROUP_TAB_CHANGED,
 } from '../constants';
 import { buildTrackingObj } from '../utils/common';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
@@ -23,6 +24,12 @@ import {
   STAGE_SCREEN,
 } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
+import {
+  CRU_TABS,
+  GROUP_SCREEN,
+  USER_CREATED_GROUP_SCREEN,
+  GLOBAL_GROUP_SCREEN,
+} from '../containers/Groups/GroupScreen';
 
 export default function tracking({ dispatch, getState }) {
   return next => action => {
@@ -41,7 +48,16 @@ export default function tracking({ dispatch, getState }) {
           action.routeName === GROUPS_TAB
         ) {
           dispatch({ type: MAIN_TAB_CHANGED, newActiveTab: newState });
+          break;
         }
+
+        if (
+          CRU_TABS.map(tab => tab.navigationAction).includes(action.routeName)
+        ) {
+          dispatch({ type: GROUP_TAB_CHANGED, newActiveTab: newState });
+          break;
+        }
+
         break;
 
       case NAVIGATE_BACK:
@@ -69,6 +85,15 @@ export default function tracking({ dispatch, getState }) {
           topRoute.routeName === STAGE_ONBOARDING_SCREEN
         ) {
           newState = tabsState.activeSelfStageTab;
+          break;
+        }
+
+        if (
+          topRoute.routeName === GROUP_SCREEN ||
+          topRoute.routeName === USER_CREATED_GROUP_SCREEN ||
+          topRoute.routeName === GLOBAL_GROUP_SCREEN
+        ) {
+          newState = tabsState.activeGroupTab;
           break;
         }
 
