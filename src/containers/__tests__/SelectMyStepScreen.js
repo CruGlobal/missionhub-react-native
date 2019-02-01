@@ -11,6 +11,9 @@ import {
 
 jest.mock('react-native-device-info');
 
+const myId = '1234';
+const orgId = '11';
+
 const store = createMockStore({
   steps: {
     suggestedForMe: {
@@ -21,7 +24,7 @@ const store = createMockStore({
   },
   auth: {
     person: {
-      id: '1234',
+      id: myId,
       user: {},
     },
   },
@@ -91,6 +94,8 @@ describe('SelectMyStepScreen methods', () => {
           navigation={createMockNavState({
             ...navProps,
             onSaveNewSteps: undefined,
+            contactId: myId,
+            organization: { id: orgId },
             next: mockNext,
           })}
         />,
@@ -99,7 +104,7 @@ describe('SelectMyStepScreen methods', () => {
 
       screen.props().onComplete();
 
-      expect(mockNext).toHaveBeenCalledTimes(1);
+      expect(mockNext).toHaveBeenCalledWith({ contactId: myId, orgId });
     });
   });
 });

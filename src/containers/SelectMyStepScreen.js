@@ -23,7 +23,7 @@ class SelectMyStepScreen extends Component {
     } = this.props;
 
     if (next) {
-      dispatch(next({ personId: contactId, orgId: organization.id }));
+      dispatch(next({ contactId, orgId: organization.id }));
     } else if (onSaveNewSteps) {
       onSaveNewSteps();
     }

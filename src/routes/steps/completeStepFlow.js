@@ -1,6 +1,6 @@
 import { createStackNavigator, StackActions } from 'react-navigation';
 
-import { buildTrackedScreen, wrapNextAction } from '../helpers';
+import { wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { reloadJourney } from '../../actions/journey';
@@ -145,7 +145,6 @@ export const CompleteStepFlowScreens = {
   [CELEBRATION_SCREEN]: wrapNextAction(
     CelebrationScreen,
     ({ contactId, orgId }) => dispatch => {
-      console.log(personId);
       dispatch(reloadJourney(contactId, orgId));
       dispatch(StackActions.popToTop());
       dispatch(navigateBack());

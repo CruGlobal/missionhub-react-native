@@ -85,6 +85,9 @@ describe('handleNavigate', () => {
 
     screen.props().onComplete();
 
-    expect(mockNext).toHaveBeenCalledTimes(1);
+    expect(mockNext).toHaveBeenCalledWith({
+      contactId,
+      orgId: organization.id,
+    });
   });
 });
