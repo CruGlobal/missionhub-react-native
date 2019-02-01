@@ -317,6 +317,7 @@ export default {
     interactionSpirit: 'Holy Spirit Presentation',
     interactionDiscipleshipConversation: 'Discipleship Conversation',
     interactionNote: 'Comment',
+    commentBoxPlaceholder: 'Share something to be remembered...',
   },
   notes: {
     header: 'MY NOTES',
@@ -467,7 +468,6 @@ export default {
   },
   celebrateFeeds: {
     title: '',
-    placeholder: 'Share something to be celebrated...',
     emptyFeedTitle: 'Celebrate!',
     emptyFeedDescription:
       'You can celebrate {{firstName}} Steps of Faith here.',
