@@ -11,14 +11,14 @@ import {
   createMockStore,
   renderShallow,
   testSnapshot,
-} from '../../../../testUtils';
-import * as auth from '../../../actions/auth';
-import { trackActionWithoutData } from '../../../actions/analytics';
-import { ACTIONS, MFA_REQUIRED } from '../../../constants';
-import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
-import { navigatePush } from '../../../actions/navigation';
+} from '../../../../../testUtils';
+import * as auth from '../../../../actions/auth';
+import { trackActionWithoutData } from '../../../../actions/analytics';
+import { ACTIONS, MFA_REQUIRED } from '../../../../constants';
+import { facebookLoginWithUsernamePassword } from '../../../../actions/facebook';
+import { navigatePush } from '../../../../actions/navigation';
 import { MFA_CODE_SCREEN } from '../../MFACodeScreen';
-import * as common from '../../../utils/common';
+import * as common from '../../../../utils/common';
 
 let store;
 

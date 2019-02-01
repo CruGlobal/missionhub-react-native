@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { keyLogin } from '../../actions/auth';
-import { MFA_REQUIRED } from '../../constants';
-import MFACodeComponent from '../../components/MFACodeComponent';
+import { keyLogin } from '../../../actions/auth';
+import { MFA_REQUIRED } from '../../../constants';
+import MFACodeComponent from '../../../components/MFACodeComponent';
 
 @translate('mfaLogin')
 class MFACodeScreen extends Component {

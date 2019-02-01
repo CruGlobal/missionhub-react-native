@@ -11,7 +11,7 @@ import {
   renderShallow,
 } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
-import { KEY_LOGIN_SCREEN } from '../../KeyLoginScreen';
+import { KEY_LOGIN_SCREEN } from '../../Auth/KeyLoginScreen';
 import { WELCOME_SCREEN } from '../../WelcomeScreen';
 import { firstTime } from '../../../actions/auth';
 import { JOIN_BY_CODE_ONBOARDING_FLOW } from '../../../routes/constants';

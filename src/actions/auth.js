@@ -10,9 +10,9 @@ import i18next from 'i18next';
 
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, OPEN_URL } from '../constants';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
-import { UPGRADE_ACCOUNT_SCREEN } from '../containers/UpgradeAccountScreen';
+import { UPGRADE_ACCOUNT_SCREEN } from '../containers/Auth/UpgradeAccountScreen';
 import { THE_KEY_URL } from '../api/utils';
-import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
+import { KEY_LOGIN_SCREEN } from '../containers/Auth/KeyLoginScreen';
 import { rollbar } from '../utils/rollbar.config';
 
 import { navigateReset, navigatePush } from './navigation';

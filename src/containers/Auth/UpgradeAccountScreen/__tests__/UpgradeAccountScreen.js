@@ -13,11 +13,11 @@ import {
   testSnapshot,
   createMockNavState,
   renderShallow,
-} from '../../../../testUtils';
-import { openKeyURL } from '../../../actions/auth';
-import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
-import { onSuccessfulLogin } from '../../../actions/login';
-import { navigatePush } from '../../../actions/navigation';
+} from '../../../../../testUtils';
+import { openKeyURL } from '../../../../actions/auth';
+import { facebookLoginWithUsernamePassword } from '../../../../actions/facebook';
+import { onSuccessfulLogin } from '../../../../actions/login';
+import { navigatePush } from '../../../../actions/navigation';
 
 let store;
 
