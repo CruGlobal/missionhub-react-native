@@ -37,7 +37,6 @@ jest.mock('../store', () => ({
 }));
 
 const { youreOffline, connectToInternet } = locale.offline;
-const { error, baseErrorMessage, ADD_NEW_PERSON } = locale.error;
 
 const lastTwoArgs = [
   [{ text: 'Ok', onPress: expect.anything() }],
@@ -81,22 +80,6 @@ it('should not show alert for invalid access token', () => {
 
 it('should not show alert for invalid grant', () => {
   test({ apiError: { error: INVALID_GRANT } });
-
-  expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
-});
-
-it('should show specific error message if request has it', () => {
-  test({ apiError: {}, key: 'ADD_NEW_PERSON', method: '', message: '' });
-
-  expect(ReactNative.Alert.alert).toHaveBeenCalledWith(
-    error,
-    `${ADD_NEW_PERSON} ${baseErrorMessage}`,
-    ...lastTwoArgs,
-  );
-});
-
-it('should not show error message if request does not have it', () => {
-  test({ apiError: {}, key: 'test', method: '', message: '' });
 
   expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
 });
