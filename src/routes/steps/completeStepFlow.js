@@ -23,101 +23,94 @@ import CelebrationScreen, {
 import { paramsforStageNavigation } from './utils';
 
 export const CompleteStepFlowScreens = {
-  [ADD_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      AddStepScreen,
-      ({ personId, orgId }) => (dispatch, getState) => {
-        const {
-          isMe,
-          hasHitCount,
-          isNotSure,
+  [ADD_STEP_SCREEN]: wrapNextAction(
+    AddStepScreen,
+    ({ personId, orgId }) => (dispatch, getState) => {
+      const {
+        isMe,
+        hasHitCount,
+        isNotSure,
+        subsection,
+        firstItemIndex,
+        questionText,
+        assignment,
+        name,
+      } = paramsforStageNavigation(personId, orgId, getState);
+
+      // If person hasn't hit the count and they're NOT on the "not sure" stage
+      // Send them through to celebrate and complete
+      if (!hasHitCount && !isNotSure) {
+        return dispatch(
+          navigatePush(CELEBRATION_SCREEN, { contactId: personId, orgId }),
+        );
+      }
+
+      if (isNotSure) {
+        // Reset the user's step count so we don't show the wrong message once they hit 3 completed steps
+        dispatch({ type: RESET_STEP_COUNT, userId: personId });
+      }
+
+      dispatch(
+        navigatePush(isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN, {
+          section: 'people',
           subsection,
-          firstItemIndex,
+          firstItem: firstItemIndex,
+          enableBackButton: false,
+          noNav: true,
           questionText,
-          assignment,
+          orgId,
+          contactId: personId,
+          contactAssignmentId: assignment && assignment.id,
           name,
-        } = paramsforStageNavigation(personId, orgId, getState);
-
-        // If person hasn't hit the count and they're NOT on the "not sure" stage
-        // Send them through to celebrate and complete
-        if (!hasHitCount && !isNotSure) {
-          dispatch(reloadJourney(personId, orgId));
-          return dispatch(navigatePush(CELEBRATION_SCREEN));
-        }
-
-        if (isNotSure) {
-          // Reset the user's step count so we don't show the wrong message once they hit 3 completed steps
-          dispatch({ type: RESET_STEP_COUNT, userId: personId });
-        }
-
-        dispatch(
-          navigatePush(isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN, {
-            section: 'people',
-            subsection,
-            firstItem: firstItemIndex,
-            enableBackButton: false,
-            noNav: true,
-            questionText,
-            orgId,
-            contactId: personId,
-            contactAssignmentId: assignment && assignment.id,
-            name,
-          }),
-        );
-      },
-    ),
+        }),
+      );
+    },
   ),
-  [STAGE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      StageScreen,
-      ({ stage, contactId, orgId, isAlreadySelected }) => dispatch => {
-        dispatch(reloadJourney(contactId, orgId));
-
-        dispatch(
-          isAlreadySelected
-            ? navigatePush(CELEBRATION_SCREEN)
-            : navigatePush(SELECT_MY_STEP_SCREEN, {
-                enableBackButton: true,
-                contactStage: stage,
-                organization: { id: orgId },
-              }),
-        );
-      },
-    ),
+  [STAGE_SCREEN]: wrapNextAction(
+    StageScreen,
+    ({ stage, contactId, orgId, isAlreadySelected }) => dispatch => {
+      dispatch(
+        isAlreadySelected
+          ? navigatePush(CELEBRATION_SCREEN, { contactId, orgId })
+          : navigatePush(SELECT_MY_STEP_SCREEN, {
+              enableBackButton: true,
+              contactId,
+              contactStage: stage,
+              organization: { id: orgId },
+            }),
+      );
+    },
   ),
-  [PERSON_STAGE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      PersonStageScreen,
-      ({ stage, contactId, name, orgId, isAlreadySelected }) => dispatch => {
-        dispatch(reloadJourney(contactId, orgId));
-
-        dispatch(
-          isAlreadySelected
-            ? navigatePush(CELEBRATION_SCREEN)
-            : navigatePush(PERSON_SELECT_STEP_SCREEN, {
-                contactStage: stage,
-                contactId,
-                organization: { id: orgId },
-                contactName: name,
-                createStepTracking: buildTrackingObj(
-                  'people : person : steps : create',
-                  'people',
-                  'person',
-                  'steps',
-                ),
-                trackingObj: buildTrackingObj(
-                  'people : person : steps : add',
-                  'people',
-                  'person',
-                  'steps',
-                ),
-              }),
-        );
-      },
-    ),
+  [PERSON_STAGE_SCREEN]: wrapNextAction(
+    PersonStageScreen,
+    ({ stage, contactId, name, orgId, isAlreadySelected }) => dispatch => {
+      dispatch(
+        isAlreadySelected
+          ? navigatePush(CELEBRATION_SCREEN, { contactId, orgId })
+          : navigatePush(PERSON_SELECT_STEP_SCREEN, {
+              contactStage: stage,
+              contactId,
+              organization: { id: orgId },
+              contactName: name,
+              createStepTracking: buildTrackingObj(
+                'people : person : steps : create',
+                'people',
+                'person',
+                'steps',
+              ),
+              trackingObj: buildTrackingObj(
+                'people : person : steps : add',
+                'people',
+                'person',
+                'steps',
+              ),
+            }),
+      );
+    },
   ),
-  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SelectMyStepScreen, () => dispatch => {
+  [SELECT_MY_STEP_SCREEN]: wrapNextAction(
+    SelectMyStepScreen,
+    ({ contactId, orgId }) => dispatch => {
       dispatch(
         navigatePush(CELEBRATION_SCREEN, {
           trackingObj: buildTrackingObj(
@@ -126,12 +119,15 @@ export const CompleteStepFlowScreens = {
             'self',
             'steps',
           ),
+          contactId,
+          orgId,
         }),
       );
-    }),
+    },
   ),
-  [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(PersonSelectStepScreen, () => dispatch => {
+  [PERSON_SELECT_STEP_SCREEN]: wrapNextAction(
+    PersonSelectStepScreen,
+    ({ contactId, orgId }) => dispatch => {
       dispatch(
         navigatePush(CELEBRATION_SCREEN, {
           trackingObj: buildTrackingObj(
@@ -140,15 +136,20 @@ export const CompleteStepFlowScreens = {
             'person',
             'steps',
           ),
+          contactId,
+          orgId,
         }),
       );
-    }),
+    },
   ),
-  [CELEBRATION_SCREEN]: buildTrackedScreen(
-    wrapNextAction(CelebrationScreen, () => dispatch => {
+  [CELEBRATION_SCREEN]: wrapNextAction(
+    CelebrationScreen,
+    ({ contactId, orgId }) => dispatch => {
+      console.log(personId);
+      dispatch(reloadJourney(contactId, orgId));
       dispatch(StackActions.popToTop());
       dispatch(navigateBack());
-    }),
+    },
   ),
 };
 export const CompleteStepFlowNavigator = createStackNavigator(

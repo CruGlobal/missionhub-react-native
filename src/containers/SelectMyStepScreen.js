@@ -14,10 +14,16 @@ class SelectMyStepScreen extends Component {
   }
 
   handleNavigate = () => {
-    const { dispatch, next, onSaveNewSteps } = this.props;
+    const {
+      dispatch,
+      next,
+      onSaveNewSteps,
+      contactId,
+      organization,
+    } = this.props;
 
     if (next) {
-      dispatch(next());
+      dispatch(next({ personId: contactId, orgId: organization.id }));
     } else if (onSaveNewSteps) {
       onSaveNewSteps();
     }
@@ -63,6 +69,8 @@ SelectMyStepScreen.propTypes = {
   onSaveNewSteps: PropTypes.func,
   enableBackButton: PropTypes.bool,
   contactStage: PropTypes.object.isRequired,
+  contactId: PropTypes.string,
+  organization: PropTypes.object,
 };
 
 const mapStateToProps = ({ auth }, { navigation }) => ({

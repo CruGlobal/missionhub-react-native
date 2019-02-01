@@ -40,7 +40,7 @@ class CelebrationScreen extends Component {
     disableBack.remove();
 
     if (next) {
-      dispatch(next());
+      dispatch(next(this.props));
     } else if (onComplete) {
       onComplete();
     } else {
