@@ -109,6 +109,11 @@ export class StepsScreen extends Component {
     return this.props.reminders.length >= MAX_REMINDERS;
   }
 
+  hasFewSteps() {
+    const { steps, reminders } = this.props;
+    return steps.length + reminders.length <= MAX_REMINDERS;
+  }
+
   handleSetReminder(step) {
     const { dispatch, t } = this.props;
     dispatch(trackActionWithoutData(ACTIONS.STEP_PRIORITIZED));
@@ -188,7 +193,7 @@ export class StepsScreen extends Component {
   renderFocusPrompt() {
     const { t } = this.props;
 
-    if (this.hasReminders()) {
+    if (this.hasReminders() || this.hasFewSteps()) {
       return null;
     }
 
@@ -231,6 +236,7 @@ export class StepsScreen extends Component {
               <StepItem
                 step={s}
                 type="reminder"
+                hideAction={this.hasFewSteps()}
                 onSelect={this.handleRowSelect}
                 onAction={this.handleRemoveReminder}
               />
@@ -263,7 +269,7 @@ export class StepsScreen extends Component {
         <StepItem
           step={item}
           type="swipeable"
-          hideAction={this.hasMaxReminders()}
+          hideAction={this.hasMaxReminders() || this.hasFewSteps()}
           onSelect={this.handleRowSelect}
           onAction={this.handleSetReminder}
         />
