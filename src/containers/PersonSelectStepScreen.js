@@ -14,7 +14,19 @@ class PersonSelectStepScreen extends Component {
   }
 
   handleNavigate = () => {
-    this.props.onSaveNewSteps();
+    const {
+      dispatch,
+      next,
+      onSaveNewSteps,
+      contactId,
+      organization,
+    } = this.props;
+
+    if (next) {
+      dispatch(next({ contactId, orgId: organization.id }));
+    } else if (onSaveNewSteps) {
+      onSaveNewSteps();
+    }
   };
 
   render() {
@@ -59,6 +71,7 @@ PersonSelectStepScreen.propTypes = {
   createStepTracking: PropTypes.object.isRequired,
   contact: PropTypes.object,
   organization: PropTypes.object,
+  next: PropTypes.func,
   onSaveNewSteps: PropTypes.func,
 };
 
