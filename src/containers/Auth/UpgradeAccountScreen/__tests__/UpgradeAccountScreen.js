@@ -21,10 +21,10 @@ import { navigatePush } from '../../../../actions/navigation';
 
 let store;
 
-jest.mock('../../../actions/auth');
-jest.mock('../../../actions/login');
-jest.mock('../../../actions/facebook');
-jest.mock('../../../actions/navigation');
+jest.mock('../../../../actions/auth');
+jest.mock('../../../../actions/login');
+jest.mock('../../../../actions/facebook');
+jest.mock('../../../../actions/navigation');
 jest.mock('react-native-fbsdk', () => ({
   LoginManager: {
     logInWithReadPermissions: jest
