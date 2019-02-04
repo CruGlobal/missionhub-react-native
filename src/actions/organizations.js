@@ -67,6 +67,22 @@ export function getMyOrganizations() {
   };
 }
 
+function getOrganization(orgId) {
+  return dispatch => {
+    const query = { orgId };
+    return dispatch(callApi(REQUESTS.GET_ORGANIZATION, query));
+  };
+}
+
+export function refreshCommunity(orgId) {
+  return dispatch => {
+    //Refresh Community Data
+    dispatch(getOrganization(orgId));
+    //Refresh user org permissions
+    dispatch(getMe());
+  };
+}
+
 export function getOrganizationsContactReports() {
   return async (dispatch, getState) => {
     const {
