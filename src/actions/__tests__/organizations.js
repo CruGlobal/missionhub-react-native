@@ -20,6 +20,7 @@ import callApi, { REQUESTS } from '../api';
 import { trackActionWithoutData } from '../analytics';
 import {
   getMyOrganizations,
+  refreshCommunity,
   getOrganizationsContactReports,
   getOrganizationContacts,
   getOrganizationMembers,
@@ -110,6 +111,26 @@ describe('getMyOrganizations', () => {
         type: LOAD_ORGANIZATIONS,
         orgs: [org5, org4, org6, org3, org1, org2, org7, org8],
       },
+    ]);
+  });
+});
+
+describe('refreshCommunity', () => {
+  const orgId = '11';
+  const getOrganizationResponse = { type: 'get organization' };
+  const getMeResponse = { type: 'get me' };
+
+  it('should get organization data and user data', () => {
+    callApi.mockReturnValue(getOrganizationResponse);
+    getMe.mockReturnValue(getMeResponse);
+
+    store.dispatch(refreshCommunity(orgId));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATION, { orgId });
+    expect(getMe).toHaveBeenCalledWith();
+    expect(store.getActions()).toEqual([
+      getOrganizationResponse,
+      getMeResponse,
     ]);
   });
 });
