@@ -694,6 +694,8 @@ export default {
     createNewCode: 'Are you sure you want to create a new Community Code?',
     createNewLink: 'Are you sure you want to create a new Community Link?',
     cannotBeUndone: 'This cannot be undone',
+    codeCopyText:
+      "Take steps of faith with me in the MissionHub app. Here's my community code. {{code}}",
   },
   landing: {
     tryItNow: 'Try It Now',
