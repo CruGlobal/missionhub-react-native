@@ -5,9 +5,11 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigateBack } from '../../actions/navigation';
+import { updateChallengeNote } from '../../actions/steps';
+import { trackAction } from '../../actions/analytics';
 import { Button, Text, Flex, Input } from '../../components/common';
 import theme from '../../theme';
-import { STEP_NOTE, CREATE_STEP } from '../../constants';
+import { STEP_NOTE, CREATE_STEP, ACTIONS } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
 
@@ -49,28 +51,57 @@ class AddStepScreen extends Component {
       Alert.alert('', t('makeShorter'));
     }
   };
-
   saveStep() {
+    const {
+      type,
+      dispatch,
+      next,
+      onComplete,
+      stepId,
+      personId,
+      orgId,
+    } = this.props;
     Keyboard.dismiss();
+
     const text = (this.state.step || '').trim();
     if (!text) {
       return;
     }
-    if (this.props.type === STEP_NOTE) {
+    if (type === STEP_NOTE) {
       disableBack.remove();
+
+      if (next) {
+        if (text) {
+          dispatch(updateChallengeNote(stepId, text));
+          dispatch(
+            trackAction(ACTIONS.INTERACTION.name, {
+              [ACTIONS.INTERACTION.COMMENT]: null,
+            }),
+          );
+        }
+
+        return dispatch(next({ personId, orgId }));
+      }
     }
 
-    this.props.onComplete(text);
-    if (this.props.type !== STEP_NOTE) {
-      this.props.dispatch(navigateBack());
+    onComplete(text);
+
+    if (type !== STEP_NOTE) {
+      dispatch(navigateBack());
     }
   }
 
   skip() {
+    const { type, dispatch, next, onComplete, personId, orgId } = this.props;
     Keyboard.dismiss();
-    this.props.onComplete(null);
-    if (this.props.type === 'interaction') {
-      this.props.dispatch(navigateBack());
+
+    if (type === STEP_NOTE && next) {
+      return dispatch(next({ personId, orgId }));
+    }
+
+    onComplete(null);
+    if (type === 'interaction') {
+      dispatch(navigateBack());
     }
   }
 
@@ -157,7 +188,8 @@ class AddStepScreen extends Component {
 }
 
 AddStepScreen.propTypes = {
-  onComplete: PropTypes.func.isRequired,
+  next: PropTypes.func,
+  onComplete: PropTypes.func,
   type: PropTypes.oneOf([
     'journey',
     'editJourney',
@@ -168,6 +200,9 @@ AddStepScreen.propTypes = {
   isEdit: PropTypes.bool,
   hideSkip: PropTypes.bool,
   text: PropTypes.string,
+  stepId: PropTypes.string,
+  personId: PropTypes.string,
+  orgId: PropTypes.string,
 };
 
 const mapStateToProps = (reduxState, { navigation }) => ({

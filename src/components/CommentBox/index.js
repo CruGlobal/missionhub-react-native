@@ -189,7 +189,7 @@ class CommentBox extends Component {
             autoCorrect={true}
             returnKeyType="done"
             blurOnSubmit={true}
-            placeholder={t('celebrateFeeds:placeholder')}
+            placeholder={t('commentBoxPlaceholder')}
             placeholderTextColor={theme.grey1}
           />
           {text || action ? (

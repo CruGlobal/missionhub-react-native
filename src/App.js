@@ -114,7 +114,6 @@ export default class App extends Component {
         this.showOfflineAlert();
         return;
       } else {
-        this.showApiErrorAlert(e.key);
         rollbar.error(
           Error(
             `API Error: ${e.key} ${e.method.toUpperCase()} ${
@@ -141,16 +140,6 @@ export default class App extends Component {
       i18n.t('offline:youreOffline'),
       i18n.t('offline:connectToInternet'),
     );
-  };
-
-  showApiErrorAlert = key => {
-    const specificError = i18n.t([
-      `error:${key}`,
-      'error:unexpectedErrorMessage',
-    ]);
-    const errorMessage = `${specificError} ${i18n.t('error:baseErrorMessage')}`;
-
-    this.showAlert(i18n.t('error:error'), errorMessage);
   };
 
   showAlert = (title, message) => {
