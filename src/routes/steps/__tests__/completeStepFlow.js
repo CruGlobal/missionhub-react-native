@@ -67,6 +67,7 @@ const navigatePushResponse = { type: 'navigate push' };
 
 beforeEach(() => {
   store.clearActions();
+  jest.clearAllMocks();
   navigatePush.mockReturnValue(navigatePushResponse);
 });
 
@@ -410,12 +411,6 @@ describe('PersonStageScreen, not isAlreadySelected', () => {
         'person',
         'steps',
       ),
-      trackingObj: buildTrackingObj(
-        'people : person : steps : add',
-        'people',
-        'person',
-        'steps',
-      ),
     });
   });
 });
@@ -432,14 +427,7 @@ describe('SelectMyStepScreen next', () => {
       {},
     );
 
-    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
-      trackingObj: buildTrackingObj(
-        `people : self : steps : gif`,
-        'people',
-        'self',
-        'steps',
-      ),
-    });
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {});
   });
 });
 
@@ -458,24 +446,11 @@ describe('PersonSelectStepScreen next', () => {
           'person',
           'steps',
         ),
-        trackingObj: buildTrackingObj(
-          'people : person : steps : add',
-          'people',
-          'person',
-          'steps',
-        ),
       },
       {},
     );
 
-    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
-      trackingObj: buildTrackingObj(
-        `people : person : steps : gif`,
-        'people',
-        'person',
-        'steps',
-      ),
-    });
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {});
   });
 });
 

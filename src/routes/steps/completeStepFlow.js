@@ -1,6 +1,6 @@
 import { createStackNavigator, StackActions } from 'react-navigation';
 
-import { wrapNextAction } from '../helpers';
+import { wrapNextAction, wrapNextScreen } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { reloadJourney } from '../../actions/journey';
@@ -98,49 +98,17 @@ export const CompleteStepFlowScreens = {
                 'person',
                 'steps',
               ),
-              trackingObj: buildTrackingObj(
-                'people : person : steps : add',
-                'people',
-                'person',
-                'steps',
-              ),
             }),
       );
     },
   ),
-  [SELECT_MY_STEP_SCREEN]: wrapNextAction(
+  [SELECT_MY_STEP_SCREEN]: wrapNextScreen(
     SelectMyStepScreen,
-    ({ contactId, orgId }) => dispatch => {
-      dispatch(
-        navigatePush(CELEBRATION_SCREEN, {
-          trackingObj: buildTrackingObj(
-            `people : self : steps : gif`,
-            'people',
-            'self',
-            'steps',
-          ),
-          contactId,
-          orgId,
-        }),
-      );
-    },
+    CELEBRATION_SCREEN,
   ),
-  [PERSON_SELECT_STEP_SCREEN]: wrapNextAction(
+  [PERSON_SELECT_STEP_SCREEN]: wrapNextScreen(
     PersonSelectStepScreen,
-    ({ contactId, orgId }) => dispatch => {
-      dispatch(
-        navigatePush(CELEBRATION_SCREEN, {
-          trackingObj: buildTrackingObj(
-            `people : person : steps : gif`,
-            'people',
-            'person',
-            'steps',
-          ),
-          contactId,
-          orgId,
-        }),
-      );
-    },
+    CELEBRATION_SCREEN,
   ),
   [CELEBRATION_SCREEN]: wrapNextAction(
     CelebrationScreen,
