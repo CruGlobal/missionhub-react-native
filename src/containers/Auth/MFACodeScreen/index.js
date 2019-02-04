@@ -20,15 +20,13 @@ class MFACodeScreen extends Component {
   };
 
   completeMfa = async () => {
-    const { email, password, upgradeAccount, next } = this.props;
-    const { dispatch, t } = this.props;
+    const { email, password, upgradeAccount, next, dispatch, t } = this.props;
+    const { mfaCode } = this.state;
 
     this.setState({ isLoading: true });
 
     try {
-      await dispatch(
-        keyLogin(email, password, this.state.mfaCode, upgradeAccount, next),
-      );
+      await dispatch(keyLogin(email, password, mfaCode, upgradeAccount, next));
       Keyboard.dismiss();
     } catch (error) {
       this.setState({ isLoading: false });
@@ -61,9 +59,11 @@ MFACodeScreen.propTypes = {
   password: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = (_, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+const mapStateToProps = (_, { navigation }) => {
+  const { email, password, upgradeAccount } = navigation.state.params || {};
+
+  return { email, password, upgradeAccount };
+};
 
 export default connect(mapStateToProps)(MFACodeScreen);
 export const MFA_CODE_SCREEN = 'nav/MFA_SCREEN';

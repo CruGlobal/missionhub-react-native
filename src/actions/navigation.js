@@ -1,7 +1,5 @@
 import { NavigationActions, StackActions } from 'react-navigation';
 
-// Performance issues: https://github.com/react-community/react-navigation/issues/608#issuecomment-328635042
-
 export function navigatePush(screen, props = {}) {
   return dispatch => {
     dispatch(
