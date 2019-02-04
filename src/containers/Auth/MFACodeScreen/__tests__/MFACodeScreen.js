@@ -11,7 +11,7 @@ import MFACodeScreen from '..';
 import { keyLogin } from '../../../../actions/auth';
 import { MFA_REQUIRED } from '../../../../constants';
 
-jest.mock('../../../actions/auth');
+jest.mock('../../../../actions/auth');
 
 const mockStore = configureStore([thunk]);
 const store = mockStore({});

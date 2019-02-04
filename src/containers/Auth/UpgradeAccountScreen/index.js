@@ -35,8 +35,8 @@ export const SIGNUP_TYPES = {
 const headerContentOptions = {
   [SIGNUP_TYPES.CREATE_COMMUNITY]: {
     image: PEOPLE,
-    title: i18Next.t('createCommunityTitle'),
-    description: i18Next.t('createCommunityDescription'),
+    title: i18Next.t('loginOptions:createCommunityTitle'),
+    description: i18Next.t('loginOptions:createCommunityDescription'),
   },
 };
 
