@@ -76,9 +76,9 @@ export function showReminderOnLoad() {
 }
 
 export function requestNativePermissions() {
-  return async dispatch => {
+  return dispatch => {
     dispatch({ type: REQUEST_NOTIFICATIONS });
-    await PushNotification.requestPermissions();
+    return PushNotification.requestPermissions();
   };
 }
 

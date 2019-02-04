@@ -124,11 +124,7 @@ export const searchSelectFilter = (scope, item) => {
   }
 };
 
-export const searchRemoveFilter = async (
-  scope,
-  key,
-  defaultFilterKeys = [],
-) => {
+export const searchRemoveFilter = (scope, key, defaultFilterKeys = []) => {
   const newFilters = { ...scope.state.filters };
   delete newFilters[key];
   const newState = { filters: newFilters };
@@ -136,7 +132,7 @@ export const searchRemoveFilter = async (
   if (defaultFilterKeys.includes(key)) {
     newState.defaultResults = [];
   }
-  await new Promise(resolve => scope.setState(newState, () => resolve()));
+  return new Promise(resolve => scope.setState(newState, () => resolve()));
 };
 
 const DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ss[Z]';
