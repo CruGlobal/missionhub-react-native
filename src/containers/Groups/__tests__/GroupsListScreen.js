@@ -13,7 +13,7 @@ import { communitiesSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
-import { SIGNUP_TYPES } from '../../UpgradeAccountScreen';
+import { SIGNUP_TYPES } from '../../Auth/UpgradeAccountScreen';
 import { resetScrollGroups } from '../../../actions/swipe';
 import { ACTIONS } from '../../../constants';
 import { JOIN_BY_CODE_FLOW } from '../../../routes/constants';

@@ -11,7 +11,7 @@ import {
   upgradeAccount,
   upgradeAccountSignIn,
 } from '../../actions/auth';
-import { SIGNUP_TYPES } from '../../containers/UpgradeAccountScreen';
+import { SIGNUP_TYPES } from '../../containers/Auth/UpgradeAccountScreen';
 
 @translate('settingsMenu')
 export class SettingsMenu extends Component {

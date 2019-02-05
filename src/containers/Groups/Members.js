@@ -58,8 +58,10 @@ class Members extends Component {
   handleInvite = async () => {
     const { t, organization, groupInviteInfo, dispatch } = this.props;
     const url = getCommunityUrl(organization.community_url);
+    const code = organization.community_code;
+
     const { action } = await Share.share({
-      message: t('sendInviteMessage', { url }),
+      message: t('sendInviteMessage', { url, code }),
     });
     if (groupInviteInfo && action === Share.sharedAction) {
       Alert.alert('', t('invited', { orgName: organization.name }));

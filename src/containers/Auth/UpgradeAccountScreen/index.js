@@ -7,23 +7,23 @@ import { translate } from 'react-i18next';
 import i18Next from 'i18next';
 import PropTypes from 'prop-types';
 
-import { openKeyURL } from '../../actions/auth';
+import { openKeyURL } from '../../../actions/auth';
 import {
   Text,
   Button,
   Flex,
   Icon,
   LoadingWheel,
-} from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
-import LOGO from '../../../assets/images/missionHubLogoWords.png';
-import PEOPLE from '../../../assets/images/MemberContacts_light.png';
+} from '../../../components/common';
+import { navigatePush } from '../../../actions/navigation';
+import LOGO from '../../../../assets/images/missionHubLogoWords.png';
+import PEOPLE from '../../../../assets/images/MemberContacts_light.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
-import { onSuccessfulLogin } from '../../actions/login';
-import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
-import Header from '../Header';
-import BackButton from '../BackButton';
-import TosPrivacy from '../../components/TosPrivacy';
+import { onSuccessfulLogin } from '../../../actions/login';
+import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
+import Header from '../../Header';
+import BackButton from '../../BackButton';
+import TosPrivacy from '../../../components/TosPrivacy';
 
 import styles from './styles';
 
@@ -35,15 +35,14 @@ export const SIGNUP_TYPES = {
 const headerContentOptions = {
   [SIGNUP_TYPES.CREATE_COMMUNITY]: {
     image: PEOPLE,
-    title: i18Next.t('createCommunityTitle'),
-    description: i18Next.t('createCommunityDescription'),
+    title: i18Next.t('loginOptions:createCommunityTitle'),
+    description: i18Next.t('loginOptions:createCommunityDescription'),
   },
 };
 
 @translate('loginOptions')
 class UpgradeAccountScreen extends Component {
   state = {
-    activeSlide: 0,
     isLoading: false,
   };
 
@@ -79,37 +78,29 @@ class UpgradeAccountScreen extends Component {
       ),
     );
 
-    if (result) {
-      this.setState({ isLoading: true });
-    } else {
-      this.setState({ isLoading: false });
-    }
+    this.setState({ isLoading: !!result });
   };
 
-  renderHeader = () => {
-    const { t } = this.props;
-    return (
-      <Flex
-        value={1}
-        align="center"
-        justify="center"
-        style={styles.headerContainer}
-      >
-        <Image source={PEOPLE} />
-        <Text type="header" style={styles.headerText}>
-          {t('createCommunityTitle').toUpperCase()}
-        </Text>
-        <Text style={styles.descriptionText}>
-          {t('createCommunityDescription')}
-        </Text>
-      </Flex>
-    );
-  };
+  renderHeader = ({ image, title, description }) => (
+    <Flex
+      value={1}
+      align="center"
+      justify="center"
+      style={styles.headerContainer}
+    >
+      <Image source={image} />
+      <Text type="header" style={styles.headerText}>
+        {title.toUpperCase()}
+      </Text>
+      <Text style={styles.descriptionText}>{description}</Text>
+    </Flex>
+  );
 
   renderLogoHeader = () => <Image source={LOGO} />;
 
   render() {
     const { t, signupType } = this.props;
+    const { isLoading } = this.state;
 
     const headerContent = headerContentOptions[signupType];
 
@@ -118,7 +109,9 @@ class UpgradeAccountScreen extends Component {
         <Header left={<BackButton />} />
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
-            {headerContent ? this.renderHeader() : this.renderLogoHeader()}
+            {headerContent
+              ? this.renderHeader(headerContent)
+              : this.renderLogoHeader()}
           </Flex>
           <Flex
             value={1.2}
@@ -180,7 +173,7 @@ class UpgradeAccountScreen extends Component {
             </Flex>
           </Flex>
         </Flex>
-        {this.state.isLoading ? <LoadingWheel /> : null}
+        {isLoading ? <LoadingWheel /> : null}
       </Flex>
     );
   }
@@ -190,9 +183,11 @@ UpgradeAccountScreen.propTypes = {
   signupType: PropTypes.string,
 };
 
-const mapStateToProps = (_, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+const mapStateToProps = (_, { navigation }) => {
+  const { signupType, onComplete } = navigation.state.params || {};
+
+  return { signupType, onComplete };
+};
 
 export default connect(mapStateToProps)(UpgradeAccountScreen);
 export const UPGRADE_ACCOUNT_SCREEN = 'nav/UPGRADE_ACCOUNT';

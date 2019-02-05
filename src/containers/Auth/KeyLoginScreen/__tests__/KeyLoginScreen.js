@@ -11,25 +11,24 @@ import {
   createMockStore,
   renderShallow,
   testSnapshot,
-} from '../../../../testUtils';
-import * as auth from '../../../actions/auth';
-import { trackActionWithoutData } from '../../../actions/analytics';
-import { ACTIONS, MFA_REQUIRED } from '../../../constants';
-import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
-import { navigatePush } from '../../../actions/navigation';
+} from '../../../../../testUtils';
+import * as auth from '../../../../actions/auth';
+import { trackActionWithoutData } from '../../../../actions/analytics';
+import { ACTIONS, MFA_REQUIRED } from '../../../../constants';
+import { facebookLoginWithUsernamePassword } from '../../../../actions/facebook';
+import { navigatePush } from '../../../../actions/navigation';
 import { MFA_CODE_SCREEN } from '../../MFACodeScreen';
-import * as common from '../../../utils/common';
 
 let store;
 
 jest.mock('react-native-device-info');
-jest.mock('../../../actions/auth', () => ({
+jest.mock('../../../../actions/auth', () => ({
   keyLogin: jest.fn().mockReturnValue({ type: 'test' }),
   openKeyURL: jest.fn(),
 }));
-jest.mock('../../../actions/facebook');
+jest.mock('../../../../actions/facebook');
 facebookLoginWithUsernamePassword.mockReturnValue({ type: 'test' });
-jest.mock('../../../actions/navigation');
+jest.mock('../../../../actions/navigation');
 jest.mock('react-native-fbsdk', () => ({
   LoginManager: {
     logInWithReadPermissions: jest
@@ -44,7 +43,7 @@ jest.mock('react-native-fbsdk', () => ({
   GraphRequest: jest.fn((param1, param2, cb) => cb(undefined, {})),
   GraphRequestManager: () => ({ addRequest: () => ({ start: jest.fn() }) }),
 }));
-jest.mock('../../../actions/analytics', () => ({
+jest.mock('../../../../actions/analytics', () => ({
   trackActionWithoutData: jest.fn(),
 }));
 
@@ -63,20 +62,18 @@ it('renders correctly', () => {
 it('renders correctly for forced logout', () => {
   testSnapshot(
     <Provider store={store}>
-      <KeyLoginScreen navigation={createMockNavState({})} forcedLogout={true} />
+      <KeyLoginScreen navigation={createMockNavState({ forcedLogout: true })} />
     </Provider>,
   );
 });
 
-describe('Android', () => {
-  beforeEach(() => (common.isAndroid = true));
-
+describe('keyboard listeners', () => {
   it('should hide sign in logo when the keyboard comes up', () => {
     const component = renderShallow(
       <KeyLoginScreen navigation={createMockNavState({})} />,
     );
 
-    component.instance().keyboardDidShowListener.listener();
+    component.instance().keyboardShowListener.listener();
 
     component.update();
     expect(component).toMatchSnapshot();
@@ -86,41 +83,13 @@ describe('Android', () => {
     const instance = renderShallow(
       <KeyLoginScreen navigation={createMockNavState({})} />,
     ).instance();
-    instance.keyboardDidShowListener.remove = jest.fn();
-    instance.keyboardDidHideListener.remove = jest.fn();
+    instance.keyboardShowListener.remove = jest.fn();
+    instance.keyboardHideListener.remove = jest.fn();
 
     instance.componentWillUnmount();
 
-    expect(instance.keyboardDidShowListener.remove).toHaveBeenCalled();
-    expect(instance.keyboardDidHideListener.remove).toHaveBeenCalled();
-  });
-});
-
-describe('iOS', () => {
-  beforeEach(() => (common.isAndroid = false));
-
-  it('should hide sign in logo when the keyboard comes up', () => {
-    const component = renderShallow(
-      <KeyLoginScreen navigation={createMockNavState({})} />,
-    );
-
-    component.instance().keyboardWillShowListener.listener();
-
-    component.update();
-    expect(component).toMatchSnapshot();
-  });
-
-  it('should remove the listeners on unmount', () => {
-    const instance = renderShallow(
-      <KeyLoginScreen navigation={createMockNavState({})} />,
-    ).instance();
-    instance.keyboardWillShowListener.remove = jest.fn();
-    instance.keyboardWillHideListener.remove = jest.fn();
-
-    instance.componentWillUnmount();
-
-    expect(instance.keyboardWillShowListener.remove).toHaveBeenCalled();
-    expect(instance.keyboardWillHideListener.remove).toHaveBeenCalled();
+    expect(instance.keyboardShowListener.remove).toHaveBeenCalled();
+    expect(instance.keyboardHideListener.remove).toHaveBeenCalled();
   });
 });
 
@@ -131,8 +100,7 @@ describe('a login button is clicked', () => {
   beforeEach(() => {
     screen = renderShallow(
       <KeyLoginScreen
-        navigation={createMockNavState({})}
-        upgradeAccount={true}
+        navigation={createMockNavState({ upgradeAccount: true })}
       />,
       store,
     );
@@ -293,11 +261,13 @@ describe('a login button is clicked', () => {
       expect(screen).toMatchSnapshot();
     });
   });
-  it('on submit editing', () => {
-    const instance = screen.instance();
-    instance.password = { focus: jest.fn() };
-    instance.onSubmitEditing();
+  describe('focusPassword', () => {
+    it('should focus the password input', () => {
+      const instance = screen.instance();
+      instance.password = { focus: jest.fn() };
+      instance.focusPassword();
 
-    expect(instance.password.focus).toHaveBeenCalled();
+      expect(instance.password.focus).toHaveBeenCalled();
+    });
   });
 });

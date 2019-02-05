@@ -172,9 +172,17 @@ describe('Members', () => {
 
   it('calls invite', async () => {
     const url = '123';
+    const code = 'ABCDEF';
     const store2 = createMockStore({
       organizations: {
-        all: [{ ...organization, community_url: url, members }],
+        all: [
+          {
+            ...organization,
+            community_url: url,
+            community_code: code,
+            members,
+          },
+        ],
         membersPagination: { hasNextPage: true },
       },
       auth: {
@@ -202,7 +210,7 @@ describe('Members', () => {
       .onPress();
 
     expect(Share.share).toHaveBeenCalledWith({
-      message: i18n.t('groupsMembers:sendInviteMessage', { url }),
+      message: i18n.t('groupsMembers:sendInviteMessage', { url, code }),
     });
     expect(Alert.alert).toHaveBeenCalledWith(
       '',
