@@ -57,6 +57,7 @@ let store;
 const auth = { person: { user: {}, id: myId }, token: 'something' };
 
 beforeEach(() => {
+  jest.clearAllMocks();
   store = mockStore({ auth, organizations: { all: [] } });
   callApi.mockClear();
 });
@@ -132,6 +133,17 @@ describe('refreshCommunity', () => {
       getOrganizationResponse,
       getMeResponse,
     ]);
+  });
+
+  it('should not get organization data and user data if global community', () => {
+    callApi.mockReturnValue(getOrganizationResponse);
+    getMe.mockReturnValue(getMeResponse);
+
+    store.dispatch(refreshCommunity(GLOBAL_COMMUNITY_ID));
+
+    expect(callApi).not.toHaveBeenCalled();
+    expect(getMe).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([]);
   });
 });
 

@@ -68,14 +68,15 @@ export function getMyOrganizations() {
 }
 
 function getOrganization(orgId) {
-  return dispatch => {
-    const query = { orgId };
-    return dispatch(callApi(REQUESTS.GET_ORGANIZATION, query));
-  };
+  return dispatch => dispatch(callApi(REQUESTS.GET_ORGANIZATION, { orgId }));
 }
 
 export function refreshCommunity(orgId) {
   return dispatch => {
+    if (orgId === GLOBAL_COMMUNITY_ID) {
+      return;
+    }
+
     //Refresh Community Data
     dispatch(getOrganization(orgId));
     //Refresh user org permissions
