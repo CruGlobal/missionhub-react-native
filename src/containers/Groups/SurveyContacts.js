@@ -16,7 +16,6 @@ import { buildTrackingObj } from '../../utils/common';
 import Header from '../Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
-import { refreshCommunity } from '../../actions/organizations';
 import { buildUpdatedPagination } from '../../utils/pagination';
 import ShareSurveyMenu from '../../components/ShareSurveyMenu';
 import { getOrganizationContacts } from '../../actions/organizations';
@@ -87,8 +86,6 @@ class SurveyContacts extends Component {
   };
 
   handleRefreshSearchList = () => {
-    const { dispatch, organization } = this.props;
-    dispatch(refreshCommunity(organization.id));
     if (this.searchList && this.searchList.getWrappedInstance) {
       this.searchList.getWrappedInstance().search();
     }
