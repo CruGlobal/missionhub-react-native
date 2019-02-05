@@ -45,6 +45,16 @@ function organizationsReducer(state = initialState, action) {
           ...action.orgs,
         ],
       };
+    case REQUESTS.GET_ORGANIZATION.SUCCESS:
+      return {
+        ...state,
+        all: state.all.map(
+          o =>
+            o.id === action.query.orgId
+              ? { ...o, ...action.results.response }
+              : o,
+        ),
+      };
     case GET_ORGANIZATIONS_CONTACTS_REPORT:
       const { reports } = action;
       return {

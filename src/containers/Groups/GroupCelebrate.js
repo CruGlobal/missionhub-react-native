@@ -8,6 +8,7 @@ import {
   getGroupCelebrateFeed,
   reloadGroupCelebrateFeed,
 } from '../../actions/celebration';
+import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
 import { momentUtc, refresh } from '../../utils/common';
@@ -40,6 +41,7 @@ export class GroupCelebrate extends Component {
 
   reloadItems = () => {
     const { dispatch, organization } = this.props;
+    dispatch(refreshCommunity(organization.id));
     return dispatch(reloadGroupCelebrateFeed(organization.id));
   };
 

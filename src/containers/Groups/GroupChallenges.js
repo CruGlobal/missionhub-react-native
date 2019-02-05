@@ -14,6 +14,7 @@ import { organizationSelector } from '../../selectors/organizations';
 import { refresh, isAdminOrOwner } from '../../utils/common';
 import { challengesSelector } from '../../selectors/challenges';
 import { navigatePush, navigateBack } from '../../actions/navigation';
+import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
 
@@ -32,6 +33,7 @@ export class GroupChallenges extends Component {
 
   reloadItems = () => {
     const { dispatch, organization } = this.props;
+    dispatch(refreshCommunity(organization.id));
     return dispatch(reloadGroupChallengeFeed(organization.id));
   };
 

@@ -159,6 +159,9 @@ export default {
     endpoint: ORG_URL,
     method: 'post',
   },
+  GET_ORGANIZATION: {
+    endpoint: `${ORG_URL}/:orgId`,
+  },
   UPDATE_ORGANIZATION: {
     endpoint: `${ORG_URL}/:orgId`,
     method: 'put',

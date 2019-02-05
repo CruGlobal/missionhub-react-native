@@ -20,6 +20,7 @@ import callApi, { REQUESTS } from '../api';
 import { trackActionWithoutData } from '../analytics';
 import {
   getMyOrganizations,
+  refreshCommunity,
   getOrganizationsContactReports,
   getOrganizationContacts,
   getOrganizationMembers,
@@ -56,6 +57,7 @@ let store;
 const auth = { person: { user: {}, id: myId }, token: 'something' };
 
 beforeEach(() => {
+  jest.clearAllMocks();
   store = mockStore({ auth, organizations: { all: [] } });
   callApi.mockClear();
 });
@@ -111,6 +113,37 @@ describe('getMyOrganizations', () => {
         orgs: [org5, org4, org6, org3, org1, org2, org7, org8],
       },
     ]);
+  });
+});
+
+describe('refreshCommunity', () => {
+  const orgId = '11';
+  const getOrganizationResponse = { type: 'get organization' };
+  const getMeResponse = { type: 'get me' };
+
+  it('should get organization data and user data', () => {
+    callApi.mockReturnValue(getOrganizationResponse);
+    getMe.mockReturnValue(getMeResponse);
+
+    store.dispatch(refreshCommunity(orgId));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATION, { orgId });
+    expect(getMe).toHaveBeenCalledWith();
+    expect(store.getActions()).toEqual([
+      getOrganizationResponse,
+      getMeResponse,
+    ]);
+  });
+
+  it('should not get organization data and user data if global community', () => {
+    callApi.mockReturnValue(getOrganizationResponse);
+    getMe.mockReturnValue(getMeResponse);
+
+    store.dispatch(refreshCommunity(GLOBAL_COMMUNITY_ID));
+
+    expect(callApi).not.toHaveBeenCalled();
+    expect(getMe).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([]);
   });
 });
 

@@ -11,6 +11,7 @@ import LoadMore from '../../components/LoadMore';
 import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
+  refreshCommunity,
 } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
@@ -34,6 +35,7 @@ class Members extends Component {
 
   load = () => {
     const { dispatch, organization } = this.props;
+    dispatch(refreshCommunity(organization.id));
     return dispatch(getOrganizationMembers(organization.id));
   };
 
@@ -56,8 +58,10 @@ class Members extends Component {
   handleInvite = async () => {
     const { t, organization, groupInviteInfo, dispatch } = this.props;
     const url = getCommunityUrl(organization.community_url);
+    const code = organization.community_code;
+
     const { action } = await Share.share({
-      message: t('sendInviteMessage', { url }),
+      message: t('sendInviteMessage', { url, code }),
     });
     if (groupInviteInfo && action === Share.sharedAction) {
       Alert.alert('', t('invited', { orgName: organization.name }));
