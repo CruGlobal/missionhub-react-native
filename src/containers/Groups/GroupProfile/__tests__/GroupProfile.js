@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Alert } from 'react-native';
+import i18next from 'i18next';
 
 import GroupProfile from '..';
 
@@ -283,7 +284,11 @@ describe('GroupProfile', () => {
       .onPress();
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.COPY_CODE);
-    expect(common.copyText).toHaveBeenCalled();
+    expect(common.copyText).toHaveBeenCalledWith(
+      i18next.t('groupProfile:codeCopyText', {
+        code: organization.community_code,
+      }),
+    );
   });
 
   it('handle copy link', () => {
