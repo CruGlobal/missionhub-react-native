@@ -5,7 +5,10 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import { getOrganizationContacts } from '../../actions/organizations';
+import {
+  getOrganizationContacts,
+  refreshCommunity,
+} from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import SearchList from '../../components/SearchList';
 import PersonListItem from '../../components/PersonListItem';
@@ -85,6 +88,8 @@ class Contacts extends Component {
   };
 
   handleRefreshSearchList = () => {
+    const { dispatch, organization } = this.props;
+    dispatch(refreshCommunity(organization.id));
     if (this.searchList && this.searchList.getWrappedInstance) {
       this.searchList.getWrappedInstance().search();
     }
