@@ -464,10 +464,10 @@ describe('askNotificationPermissions', () => {
         );
       });
 
-      it('should deep link to challenges tab', () => {
+      it('should deep link to challenges tab', async () => {
         organizationSelector.mockReturnValue(storedOrganization);
 
-        testNotification({
+        await testNotification({
           screen: 'community_challenges',
           organization_id: organization.id,
         });
