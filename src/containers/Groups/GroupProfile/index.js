@@ -63,7 +63,8 @@ class GroupProfile extends Component {
   };
 
   copyCode = () => {
-    copyText(this.props.organization.community_code);
+    const { t, organization } = this.props;
+    copyText(t('codeCopyText', { code: organization.community_code }));
     this.props.dispatch(trackActionWithoutData(ACTIONS.COPY_CODE));
   };
 
