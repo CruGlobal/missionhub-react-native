@@ -529,7 +529,8 @@ export default {
   },
   groupsMembers: {
     invite: 'Send Invite',
-    sendInviteMessage: 'Join me on MissionHub. Click here to join: {{url}}',
+    sendInviteMessage:
+      'Join me on MissionHub. Our community code is {{code}}. Click here to join: {{url}}',
     invited: `Anyone you've invited to {{orgName}} will show up here when they join.`,
   },
   groupMemberOptions: {
@@ -694,6 +695,8 @@ export default {
     createNewCode: 'Are you sure you want to create a new Community Code?',
     createNewLink: 'Are you sure you want to create a new Community Link?',
     cannotBeUndone: 'This cannot be undone',
+    codeCopyText:
+      'Take steps of faith with me in the MissionHub app. Use this community code to join: {{code}}',
   },
   landing: {
     tryItNow: 'Try It Now',

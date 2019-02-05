@@ -8,15 +8,12 @@ import {
 } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import { getOrgSurveys, getOrgSurveysNextPage } from '../../../actions/surveys';
+import { refreshCommunity } from '../../../actions/organizations';
 import * as common from '../../../utils/common';
 
-jest.mock('../../../actions/navigation', () => ({
-  navigatePush: jest.fn(() => ({ type: 'test' })),
-}));
-jest.mock('../../../actions/surveys', () => ({
-  getOrgSurveys: jest.fn(() => ({ type: 'test' })),
-  getOrgSurveysNextPage: jest.fn(() => ({ type: 'test' })),
-}));
+jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/surveys');
+jest.mock('../../../actions/organizations');
 jest.mock('../../../utils/common');
 
 const surveys = [
@@ -84,7 +81,8 @@ describe('Surveys', () => {
 
     const instance = renderShallow(component, store).instance();
     instance.componentDidMount();
-    expect(getOrgSurveys).toHaveBeenCalled();
+    expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
+    expect(getOrgSurveys).toHaveBeenCalledWith(organization.id);
   });
 
   it('should handleSelect correctly', () => {

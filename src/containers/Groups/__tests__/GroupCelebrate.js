@@ -10,8 +10,10 @@ import {
 import { organizationSelector } from '../../../selectors/organizations';
 import { celebrationSelector } from '../../../selectors/celebration';
 import { reloadGroupCelebrateFeed } from '../../../actions/celebration';
+import { refreshCommunity } from '../../../actions/organizations';
 import * as common from '../../../utils/common';
 
+jest.mock('../../../actions/organizations');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/celebration');
 jest.mock('../../../actions/celebration');
@@ -96,7 +98,8 @@ it('should refresh correctly', async () => {
 
   await instance.props().refreshCallback();
 
-  expect(reloadGroupCelebrateFeed).toHaveBeenCalled();
+  expect(refreshCommunity).toHaveBeenCalledWith(org.id);
+  expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(org.id);
 });
 
 it('should refresh items properly', () => {

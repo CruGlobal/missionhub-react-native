@@ -9,7 +9,9 @@ import {
 import i18next from 'i18next';
 
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
-import KeyLoginScreen, { KEY_LOGIN_SCREEN } from './containers/KeyLoginScreen';
+import KeyLoginScreen, {
+  KEY_LOGIN_SCREEN,
+} from './containers/Auth/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
 import SelectMyStepScreen, {
@@ -67,11 +69,13 @@ import SearchPeopleFilterRefineScreen, {
 } from './containers/SearchPeopleFilterRefineScreen';
 import UpgradeAccountScreen, {
   UPGRADE_ACCOUNT_SCREEN,
-} from './containers/UpgradeAccountScreen';
+} from './containers/Auth/UpgradeAccountScreen';
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
-import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
+import MFACodeScreen, {
+  MFA_CODE_SCREEN,
+} from './containers/Auth/MFACodeScreen';
 import {
   ALL_PERSON_TAB_ROUTES,
   CONTACT_PERSON_SCREEN,
@@ -140,6 +144,7 @@ import {
   DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
+  COMPLETE_STEP_FLOW,
 } from './routes/constants';
 import {
   JoinByCodeFlowNavigator,
@@ -157,6 +162,10 @@ import {
   DeepLinkJoinCommunityUnauthenticatedNavigator,
   DeepLinkJoinCommunityUnauthenticatedScreens,
 } from './routes/deepLink/deepLinkJoinCommunityUnauthenticated';
+import {
+  CompleteStepFlowNavigator,
+  CompleteStepFlowScreens,
+} from './routes/steps/completeStepFlow';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -436,6 +445,7 @@ const screens = {
   [JOIN_BY_CODE_ONBOARDING_FLOW]: JoinByCodeOnboardingFlowNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityUnauthenticatedNavigator,
+  [COMPLETE_STEP_FLOW]: CompleteStepFlowNavigator,
 };
 
 export const trackableScreens = {
@@ -447,6 +457,7 @@ export const trackableScreens = {
   ...JoinByCodeOnboardingFlowScreens,
   ...DeepLinkJoinCommunityAuthenticatedScreens,
   ...DeepLinkJoinCommunityUnauthenticatedScreens,
+  ...CompleteStepFlowScreens,
 };
 
 export const MainStackRoutes = createStackNavigator(

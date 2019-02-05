@@ -36,11 +36,22 @@ class CelebrationScreen extends Component {
   }
 
   navigateToNext() {
+    const {
+      dispatch,
+      onComplete,
+      next,
+      nextScreen,
+      contactId,
+      orgId,
+    } = this.props;
     disableBack.remove();
-    if (this.props.onComplete) {
-      this.props.onComplete();
+
+    if (next) {
+      dispatch(next({ contactId, orgId }));
+    } else if (onComplete) {
+      onComplete();
     } else {
-      this.props.dispatch(navigateReset(this.props.nextScreen || MAIN_TABS));
+      dispatch(navigateReset(nextScreen || MAIN_TABS));
     }
   }
 
@@ -86,6 +97,7 @@ class CelebrationScreen extends Component {
 
 CelebrationScreen.propTypes = {
   onComplete: PropTypes.func,
+  next: PropTypes.func,
 };
 
 const mapStateToProps = (reduxState, { navigation }) => ({

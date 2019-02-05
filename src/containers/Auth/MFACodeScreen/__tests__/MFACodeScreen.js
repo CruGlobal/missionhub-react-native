@@ -4,14 +4,14 @@ import thunk from 'redux-thunk';
 import { Alert } from 'react-native';
 import i18n from 'i18next';
 
-import { renderShallow } from '../../../../testUtils';
+import { renderShallow } from '../../../../../testUtils';
 
 import MFACodeScreen from '..';
 
-import { keyLogin } from '../../../actions/auth';
-import { MFA_REQUIRED } from '../../../constants';
+import { keyLogin } from '../../../../actions/auth';
+import { MFA_REQUIRED } from '../../../../constants';
 
-jest.mock('../../../actions/auth');
+jest.mock('../../../../actions/auth');
 
 const mockStore = configureStore([thunk]);
 const store = mockStore({});

@@ -67,6 +67,23 @@ export function getMyOrganizations() {
   };
 }
 
+function getOrganization(orgId) {
+  return dispatch => dispatch(callApi(REQUESTS.GET_ORGANIZATION, { orgId }));
+}
+
+export function refreshCommunity(orgId) {
+  return dispatch => {
+    if (orgId === GLOBAL_COMMUNITY_ID) {
+      return;
+    }
+
+    //Refresh Community Data
+    dispatch(getOrganization(orgId));
+    //Refresh user org permissions
+    dispatch(getMe());
+  };
+}
+
 export function getOrganizationsContactReports() {
   return async (dispatch, getState) => {
     const {

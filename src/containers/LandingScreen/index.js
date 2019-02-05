@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import { Button, Flex, Text } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
-import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
+import { KEY_LOGIN_SCREEN } from '../Auth/KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { firstTime } from '../../actions/auth';
 import { JOIN_BY_CODE_ONBOARDING_FLOW } from '../../routes/constants';

@@ -45,6 +45,39 @@ it('should save loaded orgs', () => {
   ).toMatchSnapshot();
 });
 
+it('should load single org', () => {
+  const startOrg = {
+    id: org1Id,
+    name: 'test org 1',
+    community_photo_url: 'Photo',
+  };
+  const newOrg = {
+    id: org1Id,
+    name: 'new test org 1',
+    user_created: true,
+  };
+  const resultOrg = {
+    id: org1Id,
+    name: newOrg.name,
+    community_photo_url: startOrg.community_photo_url,
+    user_created: true,
+  };
+  expect(
+    organizations(
+      { all: [startOrg] },
+      {
+        type: REQUESTS.GET_ORGANIZATION.SUCCESS,
+        results: {
+          response: newOrg,
+        },
+        query: { orgId: org1Id },
+      },
+    ),
+  ).toEqual({
+    all: [resultOrg],
+  });
+});
+
 it('should load contact reports for all organizations', () => {
   const state = organizations(initialState, {
     type: GET_ORGANIZATIONS_CONTACTS_REPORT,

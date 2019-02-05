@@ -81,6 +81,15 @@ describe('render contacts count', () => {
   describe('user created org', () => {
     const newOrg = { ...organization, user_created: true };
 
+    it('should not crash without an org permission', () => {
+      orgPermissionSelector.mockReturnValue(null);
+
+      renderShallow(
+        <GroupMemberItem {...{ ...props, organization: newOrg }} />,
+        store,
+      );
+    });
+
     it('should render no stage, member permissions', () => {
       testSnapshotShallow(
         <GroupMemberItem {...{ ...props, organization: newOrg }} />,
