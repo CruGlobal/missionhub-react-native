@@ -11,6 +11,7 @@ import LoadMore from '../../components/LoadMore';
 import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
+  refreshCommunity,
 } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
@@ -34,6 +35,7 @@ class Members extends Component {
 
   load = () => {
     const { dispatch, organization } = this.props;
+    dispatch(refreshCommunity(organization.id));
     return dispatch(getOrganizationMembers(organization.id));
   };
 

@@ -15,20 +15,14 @@ import * as common from '../../../utils/common';
 import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
+  refreshCommunity,
 } from '../../../actions/organizations';
 import { ORG_PERMISSIONS } from '../../../constants';
 import { removeGroupInviteInfo } from '../../../actions/swipe';
 
-jest.mock('../../../actions/organizations', () => ({
-  getOrganizationMembers: jest.fn(() => ({ type: 'test' })),
-  getOrganizationMembersNextPage: jest.fn(() => ({ type: 'test' })),
-}));
-jest.mock('../../../actions/person', () => ({
-  navToPersonScreen: jest.fn(() => ({ type: 'test' })),
-}));
-jest.mock('../../../actions/swipe', () => ({
-  removeGroupInviteInfo: jest.fn(() => ({ type: 'remove group invite info' })),
-}));
+jest.mock('../../../actions/organizations');
+jest.mock('../../../actions/person');
+jest.mock('../../../actions/swipe');
 common.refresh = jest.fn();
 Alert.alert = jest.fn();
 
@@ -102,7 +96,8 @@ describe('Members', () => {
     });
     const instance = renderShallow(component, store2).instance();
     instance.componentDidMount();
-    expect(getOrganizationMembers).toHaveBeenCalled();
+    expect(refreshCommunity).toHaveBeenCalledWith(orgId);
+    expect(getOrganizationMembers).toHaveBeenCalledWith(orgId);
   });
 
   it('should not render load more correctly', () => {
@@ -130,7 +125,8 @@ describe('Members', () => {
     });
     const instance = renderShallow(component, store2).instance();
     instance.componentDidMount();
-    expect(getOrganizationMembers).toHaveBeenCalled();
+    expect(refreshCommunity).toHaveBeenCalledWith(orgId);
+    expect(getOrganizationMembers).toHaveBeenCalledWith(orgId);
   });
 
   it('should handleSelect correctly', () => {
