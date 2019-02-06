@@ -17,12 +17,14 @@ import {
   getOrganizationMembersNextPage,
   refreshCommunity,
 } from '../../../actions/organizations';
-import { ORG_PERMISSIONS } from '../../../constants';
+import { trackActionWithoutData } from '../../../actions/analytics';
+import { ORG_PERMISSIONS, ACTIONS } from '../../../constants';
 import { removeGroupInviteInfo } from '../../../actions/swipe';
 
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/swipe');
+jest.mock('../../../actions/analytics');
 common.refresh = jest.fn();
 Alert.alert = jest.fn();
 
@@ -217,6 +219,9 @@ describe('Members', () => {
       i18n.t('groupsMembers:invited', { orgName: organization.name }),
     );
     expect(removeGroupInviteInfo).toHaveBeenCalled();
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SEND_COMMUNITY_INVITE,
+    );
   });
 
   it('renderHeader match snapshot', () => {

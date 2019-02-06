@@ -322,6 +322,10 @@ export const ACTIONS = {
     name: 'Copy Community Invite URL',
     key: 'cru.copyinviteurl',
   },
+  SEND_COMMUNITY_INVITE: {
+    name: 'Send Community Invite',
+    key: 'cru.sendcommunityinvite',
+  },
   NEW_CODE: {
     name: 'New Community Code',
     key: 'cru.newcode',
