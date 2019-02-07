@@ -55,6 +55,11 @@ export class SettingsMenu extends Component {
         action: () => this.openUrl(LINKS.help),
       },
       {
+        label: t('shareStory'),
+        action: () => this.openUrl(LINKS.shareStory),
+      },
+
+      {
         label: t('review'),
         action: () =>
           this.openUrl(isAndroid ? LINKS.playStore : LINKS.appleStore),
