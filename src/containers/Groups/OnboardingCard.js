@@ -49,6 +49,7 @@ class OnboardingCard extends Component {
     return (
       <Card style={styles.onboardingCard}>
         <Flex
+          value={1}
           align="center"
           justify="center"
           style={styles.onboardingContainer}
