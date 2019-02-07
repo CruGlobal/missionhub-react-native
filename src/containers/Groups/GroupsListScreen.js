@@ -22,7 +22,7 @@ import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, MAIN_TABS } from '../../constants';
 import { JOIN_BY_CODE_FLOW } from '../../routes/constants';
-import { SIGNUP_TYPES } from '../UpgradeAccountScreen';
+import { SIGNUP_TYPES } from '../Auth/UpgradeAccountScreen';
 
 import { getScreenForOrg } from './GroupScreen';
 import styles from './styles';

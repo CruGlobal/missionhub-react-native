@@ -9,7 +9,9 @@ import {
 import i18next from 'i18next';
 
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
-import KeyLoginScreen, { KEY_LOGIN_SCREEN } from './containers/KeyLoginScreen';
+import KeyLoginScreen, {
+  KEY_LOGIN_SCREEN,
+} from './containers/Auth/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
 import SelectMyStepScreen, {
@@ -67,11 +69,13 @@ import SearchPeopleFilterRefineScreen, {
 } from './containers/SearchPeopleFilterRefineScreen';
 import UpgradeAccountScreen, {
   UPGRADE_ACCOUNT_SCREEN,
-} from './containers/UpgradeAccountScreen';
+} from './containers/Auth/UpgradeAccountScreen';
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
-import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
+import MFACodeScreen, {
+  MFA_CODE_SCREEN,
+} from './containers/Auth/MFACodeScreen';
 import {
   ALL_PERSON_TAB_ROUTES,
   CONTACT_PERSON_SCREEN,

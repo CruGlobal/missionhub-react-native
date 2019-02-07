@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
-import theme from '../../theme';
-import { hasNotch } from '../../utils/common';
+import theme from '../../../theme';
+import { hasNotch } from '../../../utils/common';
 
 export default StyleSheet.create({
   container: {

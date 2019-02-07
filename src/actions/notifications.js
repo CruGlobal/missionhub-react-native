@@ -28,6 +28,7 @@ import { getPersonDetails } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi from './api';
 import { REQUESTS } from './api';
+import { reloadGroupChallengeFeed } from './challenges';
 
 export function showReminderScreen(descriptionText) {
   return (dispatch, getState) => {
@@ -153,7 +154,7 @@ function handleNotification(notification) {
 }
 
 function navigateToOrg(organization, initialTab) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const { organizations } = getState();
 
     if (!organization) {
@@ -170,6 +171,10 @@ function navigateToOrg(organization, initialTab) {
     );
 
     if (storedOrg) {
+      if (initialTab === GROUP_CHALLENGES) {
+        await dispatch(reloadGroupChallengeFeed(storedOrg.id));
+      }
+
       return dispatch(
         navigatePush(getScreenForOrg(storedOrg), {
           organization: storedOrg,

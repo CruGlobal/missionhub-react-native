@@ -23,6 +23,10 @@ class GroupMemberItem extends Component {
   orgPermissionText = () => {
     const { t, personOrgPermission } = this.props;
 
+    if (!personOrgPermission) {
+      return '';
+    }
+
     switch (personOrgPermission.permission_id) {
       case ORG_PERMISSIONS.ADMIN:
         return t('profileLabels.admin');
