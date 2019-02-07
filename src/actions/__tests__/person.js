@@ -622,12 +622,10 @@ describe('saveNote', () => {
 describe('GetPersonNote', () => {
   const personId = 23;
 
-  const action = { type: 'got note' };
-
   const expectedQuery = { person_id: personId, include: 'person_notes' };
 
   beforeEach(() => {
-    callApi.mockReturnValue(action);
+    callApi.mockReturnValue(() => Promise.resolve());
   });
 
   it('should get note', () => {
@@ -637,7 +635,6 @@ describe('GetPersonNote', () => {
       REQUESTS.GET_PERSON_NOTE,
       expectedQuery,
     );
-    expect(store.getActions()[0]).toBe(action);
   });
 });
 

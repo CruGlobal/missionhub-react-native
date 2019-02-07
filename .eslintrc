@@ -69,7 +69,8 @@
         "skipBlankLines": true,
         "skipComments": true
       }
-    ]
+    ],
+    "no-return-await": 2
   },
   "settings": {
     "import/resolver": {
