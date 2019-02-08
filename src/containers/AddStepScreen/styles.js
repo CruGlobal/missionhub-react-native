@@ -23,15 +23,15 @@ export default StyleSheet.create({
   },
   skipBtnText: {
     fontSize: 14,
-    color: theme.anotherGrey,
+    color: theme.lightGrey,
     fontWeight: 'bold',
   },
   backButtonStyle: {
-    color: theme.anotherGrey,
+    color: theme.lightGrey,
   },
   input: {
     borderBottomColor: 'transparent',
     fontSize: 32,
-    color: theme.anotherGrey,
+    color: theme.lightGrey,
   },
 });

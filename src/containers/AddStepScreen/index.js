@@ -132,7 +132,7 @@ class AddStepScreen extends Component {
 
   render() {
     const { t, type, hideSkip } = this.props;
-    const { anotherGrey } = theme;
+    const { lightGrey } = theme;
     const { backButtonStyle, input } = styles;
 
     return (
@@ -166,7 +166,7 @@ class AddStepScreen extends Component {
             returnKeyType="done"
             blurOnSubmit={true}
             placeholder={this.renderTitle()}
-            placeholderTextColor={anotherGrey}
+            placeholderTextColor={lightGrey}
             maxLength={type === CREATE_STEP ? characterLimit : undefined}
           />
         </Flex>
