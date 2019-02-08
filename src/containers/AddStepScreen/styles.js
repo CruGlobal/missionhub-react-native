@@ -12,7 +12,6 @@ export default StyleSheet.create({
   },
   fieldWrap: {
     paddingTop: 10,
-    paddingHorizontal: 30,
   },
   createButton: {
     width: theme.fullWidth,
@@ -33,11 +32,13 @@ export default StyleSheet.create({
     borderBottomColor: 'transparent',
     fontSize: 32,
     color: theme.lightGrey,
+    paddingHorizontal: 30,
   },
   reminderButton: {
     borderColor: theme.extraLightGrey,
     borderBottomWidth: 1,
     borderTopWidth: 1,
+    paddingHorizontal: 30,
   },
   reminderIcon: {
     padding: 10,

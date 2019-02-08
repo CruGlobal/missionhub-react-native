@@ -15,7 +15,6 @@ exports[`renders correctly 1`] = `
     style={
       Array [
         Object {
-          "paddingHorizontal": 30,
           "paddingTop": 10,
         },
         Object {
@@ -54,6 +53,7 @@ exports[`renders correctly 1`] = `
             "borderBottomColor": "transparent",
             "color": "#B4B6BA",
             "fontSize": 32,
+            "paddingHorizontal": 30,
           },
         ]
       }
@@ -92,6 +92,7 @@ exports[`renders correctly 1`] = `
               "borderBottomWidth": 1,
               "borderColor": "#E6E8EC",
               "borderTopWidth": 1,
+              "paddingHorizontal": 30,
             },
             Object {
               "alignItems": "center",
@@ -358,7 +359,6 @@ exports[`renders edit journey correctly 1`] = `
     style={
       Array [
         Object {
-          "paddingHorizontal": 30,
           "paddingTop": 10,
         },
         Object {
@@ -397,6 +397,7 @@ exports[`renders edit journey correctly 1`] = `
             "borderBottomColor": "transparent",
             "color": "#B4B6BA",
             "fontSize": 32,
+            "paddingHorizontal": 30,
           },
         ]
       }
@@ -689,7 +690,6 @@ exports[`renders interaction with skip correctly 1`] = `
     style={
       Array [
         Object {
-          "paddingHorizontal": 30,
           "paddingTop": 10,
         },
         Object {
@@ -728,6 +728,7 @@ exports[`renders interaction with skip correctly 1`] = `
             "borderBottomColor": "transparent",
             "color": "#B4B6BA",
             "fontSize": 32,
+            "paddingHorizontal": 30,
           },
         ]
       }
@@ -934,7 +935,6 @@ exports[`renders interaction without skip correctly 1`] = `
     style={
       Array [
         Object {
-          "paddingHorizontal": 30,
           "paddingTop": 10,
         },
         Object {
@@ -973,6 +973,7 @@ exports[`renders interaction without skip correctly 1`] = `
             "borderBottomColor": "transparent",
             "color": "#B4B6BA",
             "fontSize": 32,
+            "paddingHorizontal": 30,
           },
         ]
       }
@@ -1179,7 +1180,6 @@ exports[`renders journey correctly 1`] = `
     style={
       Array [
         Object {
-          "paddingHorizontal": 30,
           "paddingTop": 10,
         },
         Object {
@@ -1218,6 +1218,7 @@ exports[`renders journey correctly 1`] = `
             "borderBottomColor": "transparent",
             "color": "#B4B6BA",
             "fontSize": 32,
+            "paddingHorizontal": 30,
           },
         ]
       }
@@ -1510,7 +1511,6 @@ exports[`renders step note correctly 1`] = `
     style={
       Array [
         Object {
-          "paddingHorizontal": 30,
           "paddingTop": 10,
         },
         Object {
@@ -1549,6 +1549,7 @@ exports[`renders step note correctly 1`] = `
             "borderBottomColor": "transparent",
             "color": "#B4B6BA",
             "fontSize": 32,
+            "paddingHorizontal": 30,
           },
         ]
       }
