@@ -89,6 +89,7 @@ export const JEAN = 'jean';
 export const LINKS = {
   about: 'https://get.missionhub.com',
   help: 'http://help.missionhub.com',
+  shareStory: 'mailto:stories@missionhub.com',
   playStore: 'market://details?id=com.missionhub',
   appleStore: 'itms://itunes.apple.com/us/app/apple-store/id447869440?mt=8',
   terms: 'https://get.missionhub.com/terms-of-service/',
@@ -321,6 +322,10 @@ export const ACTIONS = {
   COPY_INVITE_URL: {
     name: 'Copy Community Invite URL',
     key: 'cru.copyinviteurl',
+  },
+  SEND_COMMUNITY_INVITE: {
+    name: 'Send Community Invite',
+    key: 'cru.sendcommunityinvite',
   },
   NEW_CODE: {
     name: 'New Community Code',

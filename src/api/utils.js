@@ -100,5 +100,5 @@ export default async function request(type, url, query, data, extra) {
   APILOG('REQUEST', newObject.method, newUrl, newObject);
 
   const response = await fetch(newUrl, newObject);
-  return await handleResponse(response);
+  return handleResponse(response);
 }
