@@ -204,6 +204,10 @@ export default {
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
   },
+  stepDetail: {
+    removeStep: 'Remove Step',
+    tipTitle: 'Not quite sure how to do this?',
+  },
   selectStage: {
     meQuestion:
       '{{name}}, which stage best describes where you are on your journey?',
