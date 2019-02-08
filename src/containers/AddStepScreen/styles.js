@@ -6,19 +6,9 @@ import { hasNotch } from '../../utils/common';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.primaryColor,
+    backgroundColor: theme.white,
     justifyContent: 'space-between',
     flexDirection: 'column',
-  },
-  header: {
-    fontSize: 36,
-    color: theme.white,
-  },
-  journeyHeader: {
-    fontSize: 36,
-    color: theme.secondaryColor,
-    paddingHorizontal: 60,
-    textAlign: 'center',
   },
   fieldWrap: {
     paddingTop: 10,
@@ -33,7 +23,15 @@ export default StyleSheet.create({
   },
   skipBtnText: {
     fontSize: 14,
-    color: theme.white,
+    color: theme.anotherGrey,
     fontWeight: 'bold',
+  },
+  backButtonStyle: {
+    color: theme.anotherGrey,
+  },
+  input: {
+    borderBottomColor: 'transparent',
+    fontSize: 32,
+    color: theme.anotherGrey,
   },
 });

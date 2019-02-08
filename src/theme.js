@@ -59,6 +59,7 @@ export const COLORS = {
   BLACK: '#000000',
   GREY: '#505256',
   INACTIVE_GREY: '#A0A2A6',
+  ANOTHER_GRAY: '#B4B6BA', //todo rename
   LIGHT_GREY: '#E6E8EC',
   TRANSPARENT: 'transparent',
   BLUE_GREEN: '#50DCC8',
@@ -111,6 +112,7 @@ export default {
   grey: COLORS.GREY,
   grey1: '#B2B0B2',
   grey2: '#4E4C4E',
+  anotherGrey: COLORS.ANOTHER_GRAY,
   lightGrey: COLORS.LIGHT_GREY,
   iosBlue: COLORS.IOS_BLUE,
 

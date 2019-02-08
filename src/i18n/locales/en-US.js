@@ -187,8 +187,7 @@ export default {
       'You are not allowed to edit first names of other MissionHub users',
   },
   addStep: {
-    header: 'My Step of Faith',
-    createStep: 'Create Step',
+    header: 'Create your own step',
     journeyHeader: 'What did you see God do?',
     editJourneyHeader: 'Edit your comment',
     addJourney: 'Add to Our Journey',
