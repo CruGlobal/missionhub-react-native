@@ -20,7 +20,7 @@ export function addNewInteraction(
     } = getState().auth;
     if (!personId) {
       return Promise.reject(
-        `Invalid Data from addNewInteraction: no personId passed in`,
+        'Invalid Data from addNewInteraction: no personId passed in',
       );
     }
 
@@ -81,7 +81,7 @@ export function editComment(interaction, comment) {
   return dispatch => {
     if (!interaction || !comment) {
       return Promise.reject(
-        `Invalid Data from editComment: no interaction or no comment passed in`,
+        'Invalid Data from editComment: no interaction or no comment passed in',
       );
     }
 
