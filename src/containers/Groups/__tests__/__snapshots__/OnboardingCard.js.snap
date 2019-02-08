@@ -22,6 +22,7 @@ exports[`OnboardingCard render celebrate card 1`] = `
         "paddingTop": 35,
       }
     }
+    value={1}
   >
     <Image
       resizeMode="contain"
@@ -125,6 +126,7 @@ exports[`OnboardingCard render challenges card 1`] = `
         "paddingTop": 35,
       }
     }
+    value={1}
   >
     <Image
       resizeMode="contain"
@@ -153,7 +155,7 @@ exports[`OnboardingCard render challenges card 1`] = `
       }
       type="header"
     >
-      Challenge One Another
+      Our Challenges
     </MyText>
     <MyText
       accessible={true}
@@ -169,7 +171,7 @@ exports[`OnboardingCard render challenges card 1`] = `
         }
       }
     >
-      Create a community challenge everyone can join.
+      Join each other in a challenge created by your community.
     </MyText>
   </Flex>
   <Flex
@@ -228,6 +230,7 @@ exports[`OnboardingCard render contacts card 1`] = `
         "paddingTop": 35,
       }
     }
+    value={1}
   >
     <Image
       resizeMode="contain"
@@ -331,6 +334,7 @@ exports[`OnboardingCard render impact card 1`] = `
         "paddingTop": 35,
       }
     }
+    value={1}
   >
     <Image
       resizeMode="contain"
@@ -434,6 +438,7 @@ exports[`OnboardingCard render members card 1`] = `
         "paddingTop": 35,
       }
     }
+    value={1}
   >
     <Image
       resizeMode="contain"
@@ -537,6 +542,7 @@ exports[`OnboardingCard render surveys card 1`] = `
         "paddingTop": 35,
       }
     }
+    value={1}
   >
     <Image
       resizeMode="contain"
