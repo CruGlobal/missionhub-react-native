@@ -19,7 +19,6 @@ import ChallengeMembers from '../ChallengeMembers';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
 import { communityChallengeSelector } from '../../selectors/challenges';
 import { orgPermissionSelector } from '../../selectors/people';
-import { ORG_PERMISSIONS } from '../../constants';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { isAdminOrOwner } from '../../utils/common';
 
