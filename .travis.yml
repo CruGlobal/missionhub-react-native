@@ -5,7 +5,7 @@ matrix:
       node_js:
         - '9'
       env:
-        - ENVFILE=.env.production
+        - ENVFILE=.env.staging
       before_script:
         - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
       script:
@@ -17,7 +17,7 @@ matrix:
       after_success:
         - bash <(curl -s https://codecov.io/bash)
         - |
-          if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
+          if true then
             yarn run onesky:upload;
             yarn run onesky:download;
             yarn run codepush-ios-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.ios.js --extra-bundler-option="--sourcemap-sources-root" --extra-bundler-option="./" --description "#$TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT_RANGE | $TRAVIS_COMMIT_MESSAGE";

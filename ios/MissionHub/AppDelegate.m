@@ -49,7 +49,7 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
 
   
     #ifdef DEBUG
-        jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+        jsCodeLocation = [CodePush bundleURL];
     #else
         jsCodeLocation = [CodePush bundleURL];
     #endif
