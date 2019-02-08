@@ -145,13 +145,14 @@ class AddStepScreen extends Component {
 
   renderTitle() {
     const { t, type } = this.props;
-    let text = t('header');
-    if (type === 'journey' || type === STEP_NOTE || type === 'interaction') {
-      text = t('journeyHeader');
-    } else if (type === 'editJourney') {
-      text = t('editJourneyHeader');
-    }
-    return text;
+
+    return t(
+      type === 'journey' || type === STEP_NOTE || type === 'interaction'
+        ? 'journeyHeader'
+        : type === 'editJourney'
+          ? 'editJourneyHeader'
+          : 'header',
+    );
   }
 
   ref = c => (this.stepInput = c);
