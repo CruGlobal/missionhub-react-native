@@ -7,7 +7,14 @@ import { translate } from 'react-i18next';
 import { navigateBack } from '../../actions/navigation';
 import { updateChallengeNote } from '../../actions/steps';
 import { trackAction } from '../../actions/analytics';
-import { Button, Flex, Input } from '../../components/common';
+import {
+  Button,
+  Flex,
+  Input,
+  Touchable,
+  Icon,
+  Text,
+} from '../../components/common';
 import theme from '../../theme';
 import { STEP_NOTE, CREATE_STEP, ACTIONS } from '../../constants';
 import { disableBack } from '../../utils/common';
@@ -133,7 +140,13 @@ class AddStepScreen extends Component {
   render() {
     const { t, type, hideSkip } = this.props;
     const { lightGrey } = theme;
-    const { backButtonStyle, input } = styles;
+    const {
+      backButtonStyle,
+      input,
+      reminderIcon,
+      reminderText,
+      reminderButton,
+    } = styles;
 
     return (
       <View style={styles.container}>
@@ -169,6 +182,19 @@ class AddStepScreen extends Component {
             placeholderTextColor={lightGrey}
             maxLength={type === CREATE_STEP ? characterLimit : undefined}
           />
+          {type === CREATE_STEP && (
+            <Touchable>
+              <Flex
+                align="center"
+                justify="start"
+                style={reminderButton}
+                direction="row"
+              >
+                <Icon name="bellIcon" type="MissionHub" style={reminderIcon} />
+                <Text style={reminderText}>{t('setReminder')}</Text>
+              </Flex>
+            </Touchable>
+          )}
         </Flex>
 
         <Flex value={1} align="stretch" justify="end">

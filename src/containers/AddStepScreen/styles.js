@@ -34,4 +34,18 @@ export default StyleSheet.create({
     fontSize: 32,
     color: theme.lightGrey,
   },
+  reminderButton: {
+    borderColor: theme.extraLightGrey,
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+  },
+  reminderIcon: {
+    padding: 10,
+    fontSize: 35,
+    color: theme.secondaryColor,
+  },
+  reminderText: {
+    color: theme.secondaryColor,
+    fontSize: 16,
+  },
 });
