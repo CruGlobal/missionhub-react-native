@@ -58,7 +58,7 @@ export const COLORS = {
   WHITE: '#ffffff',
   BLACK: '#000000',
   GREY: '#505256',
-  INACTIVE_GREY: '#A0A2A6',
+  INACTIVE_GREY: '#B4B6BA',
   LIGHT_GREY: '#E6E8EC',
   TRANSPARENT: 'transparent',
   BLUE_GREEN: '#50DCC8',

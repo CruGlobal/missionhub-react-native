@@ -22,6 +22,7 @@ import {
   getMyStepsNextPage,
   deleteStepWithTracking,
 } from '../../actions/steps';
+import { navigatePush } from '../../actions/navigation';
 import {
   reminderStepsSelector,
   nonReminderStepsSelector,
@@ -44,6 +45,7 @@ import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { navToPersonScreen } from '../../actions/person';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
+import { STEP_DETAIL_SCREEN } from '../StepDetailScreen';
 
 import styles from './styles';
 
@@ -98,7 +100,7 @@ export class StepsScreen extends Component {
   }
 
   handleRowSelect(step) {
-    this.props.dispatch(navToPersonScreen(step.receiver, step.organization));
+    this.props.dispatch(navigatePush(STEP_DETAIL_SCREEN, { step }));
   }
 
   hasReminders() {
