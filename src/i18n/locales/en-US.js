@@ -123,6 +123,7 @@ export default {
     about: 'About',
     help: 'Help',
     review: 'Write a Review',
+    shareStory: 'Share a Story With Us',
     signOut: 'Sign out',
     cannotOpenUrl: 'Cannot open URL',
     pleaseVisit: 'Sorry, we could not open that URL. Please visit {{url}}',
