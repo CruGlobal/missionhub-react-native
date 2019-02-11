@@ -33,14 +33,19 @@ export class StepDetailScreen extends Component {
           shadow={false}
           style={styles.header}
         />
-        <Text>Share your faith with Sam</Text>
-        <Text>Not quite sure how to do this?</Text>
-        <Text>
-          Find Common Ground. Ask people their story. What are their
-          challenges?\nThat's an easy path to gain someone'e trust,
-          understanding their problems, their stories, and it just builds from
-          there.
-        </Text>
+        <Flex style={styles.stepTitleContainer}>
+          <Text style={styles.stepTitleText}>Share your faith with Sam</Text>
+        </Flex>
+        <Flex style={styles.tipTitleContainer}>
+          <Text style={styles.tipTitleText}>{t('tipTitle')}</Text>
+        </Flex>
+        <Flex style={styles.tipDescriptionContainer}>
+          <Text style={styles.tipDescriptionText}>
+            {
+              "Find Common Ground. Ask people their story. What are their challenges?\nThat's an easy path to gain someone's trust, understanding their problems, their stories, and it just builds from there."
+            }
+          </Text>
+        </Flex>
       </Flex>
     );
   }
