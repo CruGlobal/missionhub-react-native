@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
-// eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import i18next from 'i18next';
 import uuidv4 from 'uuid/v4';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
+import StepSuggestionItem from '../../components/StepSuggestionItem';
 import StepsList from '../../components/StepsList';
 import { Flex, Text, Button, Icon } from '../../components/common';
 import BackButton from '../BackButton';
@@ -211,6 +212,8 @@ class SelectStepScreen extends Component {
 
   stepsListRef = c => (this.stepsList = c);
 
+  renderItem = item => <StepSuggestionItem step={item} />;
+
   render() {
     const { t } = this.props;
 
@@ -223,14 +226,11 @@ class SelectStepScreen extends Component {
           stickyHeaderHeight={theme.headerHeight}
           renderStickyHeader={this.renderStickHeader}
         >
-          <StepsList
+          <FlatList
             ref={this.stepsListRef}
-            items={this.state.steps}
-            createStepText={t('createStep')}
-            loadMoreStepsText={t('loadMoreSteps')}
-            onSelectStep={this.handleSelectStep}
-            onCreateStep={this.handleCreateStep}
-            onLoadMoreSteps={this.handleLoadSteps}
+            data={this.state.steps}
+            renderItem={this.renderItem}
+            scrollEnabled={true}
           />
         </ParallaxScrollView>
         {this.renderSaveButton()}
