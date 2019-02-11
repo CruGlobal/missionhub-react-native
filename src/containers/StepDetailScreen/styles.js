@@ -34,22 +34,21 @@ export default StyleSheet.create({
     fontSize: 24,
     lineHeight: 30,
     fontWeight: '300',
+    paddingHorizontal: 32,
+    paddingBottom: 16,
   },
   tipDescriptionText: {
     fontSize: 16,
     lineHeight: 26,
+    paddingHorizontal: 32,
+    paddingTop: 14,
   },
   stepTitleContainer: {
     marginVertical: 26,
     marginHorizontal: 32,
   },
-  tipTitleContainer: {
+  tipContainer: {
     marginVertical: 26,
-    marginHorizontal: 32,
-  },
-  tipDescriptionContainer: {
-    marginVertical: 4,
-    marginHorizontal: 32,
   },
   bottomButton: {
     width: theme.fullWidth,

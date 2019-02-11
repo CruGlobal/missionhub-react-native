@@ -48,7 +48,7 @@ export function getMySteps(query = {}) {
         completed: false,
       },
       include:
-        'receiver.reverse_contact_assignments,receiver.organizational_permissions',
+        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion.description_markup',
     };
     return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
   };
@@ -80,7 +80,7 @@ export function getContactSteps(personId, orgId) {
         receiver_ids: personId,
         organization_ids: orgId || 'personal',
       },
-      include: 'receiver',
+      include: 'receiver,challenge_suggestion.description_markup',
       page: { limit: 1000 },
     };
     return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));

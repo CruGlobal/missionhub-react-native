@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -7,16 +8,25 @@ import { STEP_SUGGESTION, ACCEPTED_STEP } from '../../constants';
 import Header from '../Header';
 import BackButton from '../BackButton';
 import { Flex, Button, Text } from '../../components/common';
+import {
+  acceptedStepSelector,
+  suggestedStepSelector,
+} from '../../selectors/steps';
 
 import styles from './styles';
 
 @translate('stepDetail')
 export class StepDetailScreen extends Component {
   render() {
-    const { t, step } = this.props;
+    const { t, step, isSuggestion } = this.props;
 
-    const isSuggestion = step.type === STEP_SUGGESTION;
     const isCompleted = !isSuggestion && step.completed_at;
+
+    const stepTitle = step.title;
+    const tipDescription = (isSuggestion
+      ? step
+      : step.challenge_suggestion || {}
+    ).description_markdown;
 
     return (
       <Flex value={1} style={styles.container}>
@@ -40,16 +50,16 @@ export class StepDetailScreen extends Component {
         <Flex style={styles.stepTitleContainer}>
           <Text style={styles.stepTitleText}>Share your faith with Sam</Text>
         </Flex>
-        <Flex style={styles.tipTitleContainer}>
-          <Text style={styles.tipTitleText}>{t('tipTitle')}</Text>
-        </Flex>
-        <Flex value={1} style={styles.tipDescriptionContainer}>
-          <Text style={styles.tipDescriptionText}>
-            {
-              "Find Common Ground. Ask people their story. What are their challenges?\n\nThat's an easy path to gain someone's trust, understanding their problems, their stories, and it just builds from there."
-            }
-          </Text>
-        </Flex>
+        {tipDescription ? (
+          <Flex value={1} style={styles.tipContainer}>
+            <Text style={styles.tipTitleText}>{t('tipTitle')}</Text>
+            <ScrollView>
+              <Text style={styles.tipDescriptionText}>{tipDescription}</Text>
+            </ScrollView>
+          </Flex>
+        ) : (
+          <Flex value={1} />
+        )}
         {!isCompleted ? (
           <Flex align="center" justify="end">
             <Button
@@ -71,9 +81,14 @@ StepDetailScreen.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = ({}, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+const mapStateToProps = ({ steps }, { navigation }) => {
+  const { step, isSuggestion } = navigation.state.params;
+
+  return {
+    step,
+    isSuggestion,
+  };
+};
 
 export default connect(mapStateToProps)(StepDetailScreen);
 
