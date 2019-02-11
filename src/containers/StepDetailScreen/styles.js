@@ -12,6 +12,10 @@ export default StyleSheet.create({
   backButton: {
     color: theme.inactiveColor,
   },
+  completedStepText: {
+    fontSize: 14,
+    lineHeight: 20,
+  },
   removeStepButton: {
     paddingRight: 10,
   },
