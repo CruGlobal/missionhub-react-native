@@ -207,6 +207,8 @@ export default {
   stepDetail: {
     removeStep: 'Remove Step',
     tipTitle: 'Not quite sure how to do this?',
+    addStep: 'Add to My Steps',
+    iDidIt: 'I Did It!',
   },
   selectStage: {
     meQuestion:

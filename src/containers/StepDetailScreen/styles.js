@@ -47,4 +47,7 @@ export default StyleSheet.create({
     marginVertical: 4,
     marginHorizontal: 32,
   },
+  bottomButton: {
+    width: theme.fullWidth,
+  },
 });

@@ -39,12 +39,20 @@ export class StepDetailScreen extends Component {
         <Flex style={styles.tipTitleContainer}>
           <Text style={styles.tipTitleText}>{t('tipTitle')}</Text>
         </Flex>
-        <Flex style={styles.tipDescriptionContainer}>
+        <Flex value={1} style={styles.tipDescriptionContainer}>
           <Text style={styles.tipDescriptionText}>
             {
-              "Find Common Ground. Ask people their story. What are their challenges?\nThat's an easy path to gain someone's trust, understanding their problems, their stories, and it just builds from there."
+              "Find Common Ground. Ask people their story. What are their challenges?\n\nThat's an easy path to gain someone's trust, understanding their problems, their stories, and it just builds from there."
             }
           </Text>
+        </Flex>
+        <Flex align="center" justify="end">
+          <Button
+            type="secondary"
+            onPress={() => {}}
+            text={t('addStep').toUpperCase()}
+            style={styles.bottomButton}
+          />
         </Flex>
       </Flex>
     );
