@@ -23,7 +23,7 @@ export class StepDetailScreen extends Component {
 
     const isCompleted = !isSuggestion && step.completed_at;
 
-    const stepTitle = step.title;
+    const stepTitle = step.title || '';
     const tipDescription = (isSuggestion
       ? step
       : step.challenge_suggestion || {}
@@ -46,10 +46,10 @@ export class StepDetailScreen extends Component {
             ) : null
           }
           shadow={false}
-          style={styles.header}
+          style={styles.container}
         />
         <Flex style={styles.stepTitleContainer}>
-          <Text style={styles.stepTitleText}>Share your faith with Sam</Text>
+          <Text style={styles.stepTitleText}>{stepTitle}</Text>
         </Flex>
         <ReminderButton />
         {tipDescription ? (
@@ -84,11 +84,10 @@ StepDetailScreen.propTypes = {
 };
 
 const mapStateToProps = ({ steps }, { navigation }) => {
-  const { step, isSuggestion } = navigation.state.params;
+  const { step } = navigation.state.params;
 
   return {
     step,
-    isSuggestion,
   };
 };
 

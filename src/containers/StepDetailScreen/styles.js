@@ -6,9 +6,6 @@ export default StyleSheet.create({
   container: {
     backgroundColor: theme.white,
   },
-  header: {
-    backgroundColor: theme.white,
-  },
   backButton: {
     color: theme.inactiveColor,
   },
