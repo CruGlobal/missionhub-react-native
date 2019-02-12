@@ -57,39 +57,65 @@ class PersonStageScreen extends Component {
     }
   };
 
-  complete(stage) {
-    const { onComplete, noNav, dispatch, contactId, orgId, name } = this.props;
+  complete(stage, isAlreadySelected) {
+    const {
+      onComplete,
+      next,
+      noNav,
+      dispatch,
+      contactId,
+      orgId,
+      name,
+    } = this.props;
 
-    onComplete(stage);
-    if (!noNav) {
-      dispatch(
-        navigatePush(PERSON_SELECT_STEP_SCREEN, {
-          onSaveNewSteps: () => {
-            onComplete(stage);
-            dispatch(navigateBack(2));
-          },
-          contactStage: stage,
-          createStepTracking: buildTrackingObj(
-            'people : person : steps : create',
-            'people',
-            'person',
-            'steps',
-          ),
-          contactName: name,
-          contactId: contactId,
-          organization: { id: orgId },
-          trackingObj: buildTrackingObj(
-            'people : person : steps : add',
-            'people',
-            'person',
-            'steps',
-          ),
-        }),
+    if (next) {
+      return dispatch(
+        next({ stage, contactId, name, orgId, isAlreadySelected }),
       );
+    }
+
+    if (onComplete) {
+      onComplete(stage);
+      if (!noNav) {
+        dispatch(
+          navigatePush(PERSON_SELECT_STEP_SCREEN, {
+            onSaveNewSteps: () => {
+              onComplete(stage);
+              dispatch(navigateBack(2));
+            },
+            contactStage: stage,
+            createStepTracking: buildTrackingObj(
+              'people : person : steps : create',
+              'people',
+              'person',
+              'steps',
+            ),
+            contactName: name,
+            contactId: contactId,
+            organization: { id: orgId },
+            trackingObj: buildTrackingObj(
+              'people : person : steps : add',
+              'people',
+              'person',
+              'steps',
+            ),
+          }),
+        );
+      }
     }
   }
 
   handleSelectStage = async (stage, isAlreadySelected) => {
+    const { dispatch, contactAssignmentId, next } = this.props;
+
+    if (next) {
+      if (!isAlreadySelected) {
+        await dispatch(updateUserStage(contactAssignmentId, stage.id));
+      }
+
+      return this.complete(stage, isAlreadySelected);
+    }
+
     if (this.props.onComplete) {
       if (isAlreadySelected) {
         this.complete(stage);
@@ -200,7 +226,7 @@ const mapStateToProps = ({ personProfile, auth }, { navigation }) => {
     personId: personProfile.id,
     contactAssignmentId: navProps.onComplete
       ? navProps.contactAssignmentId
-      : personProfile.contactAssignmentId, // onComplete currently seems to be used as a flag to indicate if we are in onboarding or not
+      : navProps.contactAssignmentId || personProfile.contactAssignmentId, // onComplete currently seems to be used as a flag to indicate if we are in onboarding or not
     myId: auth.person.id,
   };
 };

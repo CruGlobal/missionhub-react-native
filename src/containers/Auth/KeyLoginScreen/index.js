@@ -12,16 +12,16 @@ import {
   Flex,
   Icon,
   LoadingWheel,
-} from '../../components/common';
-import Input from '../../components/Input/index';
-import { keyLogin, openKeyURL } from '../../actions/auth';
-import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS, MFA_REQUIRED } from '../../constants';
-import { hasNotch, isAndroid } from '../../utils/common';
-import { onSuccessfulLogin } from '../../actions/login';
-import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
-import BackButton from '../BackButton';
-import { navigatePush } from '../../actions/navigation';
+} from '../../../components/common';
+import Input from '../../../components/Input';
+import { keyLogin, openKeyURL } from '../../../actions/auth';
+import { trackActionWithoutData } from '../../../actions/analytics';
+import { ACTIONS, MFA_REQUIRED } from '../../../constants';
+import { hasNotch, isAndroid } from '../../../utils/common';
+import { onSuccessfulLogin } from '../../../actions/login';
+import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
+import BackButton from '../../BackButton';
+import { navigatePush } from '../../../actions/navigation';
 import { MFA_CODE_SCREEN } from '../MFACodeScreen';
 
 import styles from './styles';
@@ -33,47 +33,31 @@ class KeyLoginScreen extends Component {
     password: '',
     errorMessage: '',
     isLoading: false,
-    logo: true,
+    showLogo: true,
   };
 
   componentDidMount() {
-    if (isAndroid) {
-      this.keyboardDidShowListener = Keyboard.addListener(
-        'keyboardDidShow',
-        this._hideLogo,
-      );
-      this.keyboardDidHideListener = Keyboard.addListener(
-        'keyboardDidHide',
-        this._showLogo,
-      );
-    } else {
-      this.keyboardWillShowListener = Keyboard.addListener(
-        'keyboardWillShow',
-        this._hideLogo,
-      );
-      this.keyboardWillHideListener = Keyboard.addListener(
-        'keyboardWillHide',
-        this._showLogo,
-      );
-    }
+    this.keyboardShowListener = Keyboard.addListener(
+      isAndroid ? 'keyboardDidShow' : 'keyboardWillShow',
+      this._hideLogo,
+    );
+    this.keyboardHideListener = Keyboard.addListener(
+      isAndroid ? 'keyboardDidHide' : 'keyboardWillHide',
+      this._showLogo,
+    );
   }
 
   componentWillUnmount() {
-    if (isAndroid) {
-      this.keyboardDidShowListener.remove();
-      this.keyboardDidHideListener.remove();
-    } else {
-      this.keyboardWillShowListener.remove();
-      this.keyboardWillHideListener.remove();
-    }
+    this.keyboardShowListener.remove();
+    this.keyboardHideListener.remove();
   }
 
   _hideLogo = () => {
-    this.setState({ logo: false });
+    this.setState({ showLogo: false });
   };
 
   _showLogo = () => {
-    this.setState({ logo: true });
+    this.setState({ showLogo: true });
   };
 
   emailChanged = email => {
@@ -94,11 +78,12 @@ class KeyLoginScreen extends Component {
   };
 
   handleForgotPassword = () => {
-    this.props.dispatch(
+    const { dispatch, upgradeAccount } = this.props;
+    dispatch(
       openKeyURL(
         'service/selfservice?target=displayForgotPassword',
         this.startLoad,
-        this.props.upgradeAccount,
+        upgradeAccount,
       ),
     );
   };
@@ -177,34 +162,35 @@ class KeyLoginScreen extends Component {
   };
 
   renderErrorMessage() {
-    return (
-      <View style={styles.errorBar}>
-        <Text style={styles.errorMessage}>{this.state.errorMessage}</Text>
-      </View>
-    );
-  }
+    const { errorMessage } = this.state;
 
-  emailRef = c => (this.email = c);
+    return errorMessage ? (
+      <View style={styles.errorBar}>
+        <Text style={styles.errorMessage}>{errorMessage}</Text>
+      </View>
+    ) : null;
+  }
 
   passwordRef = c => (this.password = c);
 
-  onSubmitEditing = () => this.password.focus();
+  focusPassword = () => this.password.focus();
 
   render() {
     const { t, forcedLogout } = this.props;
+    const { showLogo, email, password, isLoading } = this.state;
     const marginTop = hasNotch() ? 50 : 25;
 
     return (
       <View style={styles.container}>
-        {this.state.errorMessage ? this.renderErrorMessage() : null}
+        {this.renderErrorMessage()}
         {forcedLogout ? (
           <View style={{ marginTop }} />
         ) : (
           <BackButton style={{ marginLeft: 5, marginTop }} />
         )}
         <Flex align="center" justify="center">
-          {this.state.logo ? (
-            this.props.forcedLogout ? (
+          {showLogo ? (
+            forcedLogout ? (
               <Text style={styles.forcedLogoutHeader}>
                 {t('forcedLogout:message')}
               </Text>
@@ -221,14 +207,12 @@ class KeyLoginScreen extends Component {
             <Text style={styles.label}>{t('emailLabel')}</Text>
             <Input
               autoCapitalize="none"
-              ref={this.emailRef}
               onChangeText={this.emailChanged}
-              value={this.state.email}
-              returnKeyType="next"
+              value={email}
               keyboardType="email-address"
-              blurOnSubmit={false}
-              onSubmitEditing={this.onSubmitEditing}
+              onSubmitEditing={this.focusPassword}
               placeholder={t('emailLabel')}
+              returnKeyType="next"
               placeholderTextColor="white"
             />
           </View>
@@ -239,11 +223,11 @@ class KeyLoginScreen extends Component {
               secureTextEntry={true}
               ref={this.passwordRef}
               onChangeText={this.passwordChanged}
-              value={this.state.password}
-              returnKeyType="next"
+              value={password}
               placeholder={t('passwordLabel')}
               placeholderTextColor="white"
-              blurOnSubmit={true}
+              returnKeyType="done"
+              onSubmitEditing={this.login}
             />
             <Button
               name={'forgotPasswordButton'}
@@ -255,8 +239,18 @@ class KeyLoginScreen extends Component {
             />
           </View>
         </Flex>
-        {!this.state.email && !this.state.password ? (
-          <Flex value={1} align="stretch" justify="center" align="center">
+
+        {email || password ? (
+          <Flex align="stretch" justify="end">
+            <Button
+              name={'loginButton'}
+              type="secondary"
+              onPress={this.login}
+              text={t('login').toUpperCase()}
+            />
+          </Flex>
+        ) : (
+          <Flex value={1} justify="center" align="center">
             <Button
               name={'facebookButton'}
               pill={true}
@@ -277,27 +271,18 @@ class KeyLoginScreen extends Component {
               </Flex>
             </Button>
           </Flex>
-        ) : null}
-
-        {!this.state.email && !this.state.password ? null : (
-          <Flex align="stretch" justify="end">
-            <Button
-              name={'loginButton'}
-              type="secondary"
-              onPress={this.login}
-              text={t('login').toUpperCase()}
-            />
-          </Flex>
         )}
-        {this.state.isLoading ? <LoadingWheel /> : null}
+        {isLoading ? <LoadingWheel /> : null}
       </View>
     );
   }
 }
 
-const mapStateToProps = (_, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+const mapStateToProps = (_, { navigation }) => {
+  const { upgradeAccount, forcedLogout } = navigation.state.params || {};
+
+  return { upgradeAccount, forcedLogout };
+};
 
 export default connect(mapStateToProps)(KeyLoginScreen);
 export const KEY_LOGIN_SCREEN = 'nav/KEY_LOGIN';

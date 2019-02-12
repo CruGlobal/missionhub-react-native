@@ -5,11 +5,14 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigateBack } from '../../actions/navigation';
-import { Button, Text, Flex, Input } from '../../components/common';
+import { updateChallengeNote } from '../../actions/steps';
+import { trackAction } from '../../actions/analytics';
+import { Button, Flex, Input } from '../../components/common';
 import theme from '../../theme';
-import { STEP_NOTE, CREATE_STEP } from '../../constants';
+import { STEP_NOTE, CREATE_STEP, ACTIONS } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
+import ReminderButton from '../../components/ReminderButton';
 
 import styles from './styles';
 
@@ -49,34 +52,63 @@ class AddStepScreen extends Component {
       Alert.alert('', t('makeShorter'));
     }
   };
-
   saveStep() {
+    const {
+      type,
+      dispatch,
+      next,
+      onComplete,
+      stepId,
+      personId,
+      orgId,
+    } = this.props;
     Keyboard.dismiss();
+
     const text = (this.state.step || '').trim();
     if (!text) {
       return;
     }
-    if (this.props.type === STEP_NOTE) {
+    if (type === STEP_NOTE) {
       disableBack.remove();
+
+      if (next) {
+        if (text) {
+          dispatch(updateChallengeNote(stepId, text));
+          dispatch(
+            trackAction(ACTIONS.INTERACTION.name, {
+              [ACTIONS.INTERACTION.COMMENT]: null,
+            }),
+          );
+        }
+
+        return dispatch(next({ personId, orgId }));
+      }
     }
 
-    this.props.onComplete(text);
-    if (this.props.type !== STEP_NOTE) {
-      this.props.dispatch(navigateBack());
+    onComplete(text);
+
+    if (type !== STEP_NOTE) {
+      dispatch(navigateBack());
     }
   }
 
   skip() {
+    const { type, dispatch, next, onComplete, personId, orgId } = this.props;
     Keyboard.dismiss();
-    this.props.onComplete(null);
-    if (this.props.type === 'interaction') {
-      this.props.dispatch(navigateBack());
+
+    if (type === STEP_NOTE && next) {
+      return dispatch(next({ personId, orgId }));
+    }
+
+    onComplete(null);
+    if (type === 'interaction') {
+      dispatch(navigateBack());
     }
   }
 
   getButtonText() {
     const { t, type } = this.props;
-    let text = t('createStep');
+    let text = t('selectStep:addStep');
     if (type === 'journey' || type === STEP_NOTE || type === 'interaction') {
       text = t('addJourney');
     } else if (type === 'editJourney') {
@@ -88,19 +120,13 @@ class AddStepScreen extends Component {
 
   renderTitle() {
     const { t, type } = this.props;
-    let text = t('header');
-    let style = styles.header;
-    if (type === 'journey' || type === STEP_NOTE || type === 'interaction') {
-      style = styles.journeyHeader;
-      text = t('journeyHeader');
-    } else if (type === 'editJourney') {
-      style = styles.journeyHeader;
-      text = t('editJourneyHeader');
-    }
-    return (
-      <Text type="header" style={style}>
-        {text}
-      </Text>
+
+    return t(
+      type === 'journey' || type === STEP_NOTE || type === 'interaction'
+        ? 'journeyHeader'
+        : type === 'editJourney'
+          ? 'editJourneyHeader'
+          : 'header',
     );
   }
 
@@ -108,6 +134,8 @@ class AddStepScreen extends Component {
 
   render() {
     const { t, type, hideSkip } = this.props;
+    const { lightGrey } = theme;
+    const { backButtonStyle, input } = styles;
 
     return (
       <View style={styles.container}>
@@ -122,24 +150,28 @@ class AddStepScreen extends Component {
             />
           </Flex>
         ) : null}
-        <Flex value={1.5} align="center" justify="center">
-          {this.renderTitle()}
-        </Flex>
 
-        <Flex value={1} style={styles.fieldWrap}>
+        <Flex
+          value={1}
+          align="stretch"
+          justify="center"
+          style={styles.fieldWrap}
+        >
           <Input
+            style={input}
             ref={this.ref}
             onChangeText={this.onChangeText}
             value={this.state.step}
             multiline={true}
             autoFocus={true}
             autoCorrect={true}
-            selectionColor={theme.white}
             returnKeyType="done"
             blurOnSubmit={true}
-            placeholder=""
+            placeholder={this.renderTitle()}
+            placeholderTextColor={lightGrey}
             maxLength={type === CREATE_STEP ? characterLimit : undefined}
           />
+          {type === CREATE_STEP && <ReminderButton />}
         </Flex>
 
         <Flex value={1} align="stretch" justify="end">
@@ -150,14 +182,17 @@ class AddStepScreen extends Component {
             style={styles.createButton}
           />
         </Flex>
-        {type !== STEP_NOTE ? <BackButton absolute={true} /> : null}
+        {type !== STEP_NOTE ? (
+          <BackButton absolute={true} iconStyle={backButtonStyle} />
+        ) : null}
       </View>
     );
   }
 }
 
 AddStepScreen.propTypes = {
-  onComplete: PropTypes.func.isRequired,
+  next: PropTypes.func,
+  onComplete: PropTypes.func,
   type: PropTypes.oneOf([
     'journey',
     'editJourney',
@@ -168,6 +203,9 @@ AddStepScreen.propTypes = {
   isEdit: PropTypes.bool,
   hideSkip: PropTypes.bool,
   text: PropTypes.string,
+  stepId: PropTypes.string,
+  personId: PropTypes.string,
+  orgId: PropTypes.string,
 };
 
 const mapStateToProps = (reduxState, { navigation }) => ({

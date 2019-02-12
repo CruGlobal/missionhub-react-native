@@ -28,13 +28,13 @@ import {
   openKeyURL,
 } from '../auth';
 import { mockFnWithParams } from '../../../testUtils';
-import { UPGRADE_ACCOUNT_SCREEN } from '../../containers/UpgradeAccountScreen';
+import { UPGRADE_ACCOUNT_SCREEN } from '../../containers/Auth/UpgradeAccountScreen';
 import { OPEN_URL } from '../../constants';
 import { getTimezoneString } from '../auth';
 import { refreshAnonymousLogin } from '../auth';
 import { deletePushToken } from '../notifications';
 import * as onboardingProfile from '../onboardingProfile';
-import { KEY_LOGIN_SCREEN } from '../../containers/KeyLoginScreen';
+import { KEY_LOGIN_SCREEN } from '../../containers/Auth/KeyLoginScreen';
 
 jest.mock('../../actions/notifications');
 

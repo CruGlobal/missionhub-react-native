@@ -194,3 +194,69 @@ exports[`should render unjoined challenge correctly 1`] = `
   />
 </Component>
 `;
+
+exports[`should render without edit correctly 1`] = `
+<Component>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 14,
+            "fontWeight": "400",
+          }
+        }
+        type="MissionHub"
+      />
+    }
+    right={
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#007398",
+            "fontSize": 14,
+            "fontWeight": "400",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 10,
+          }
+        }
+        text="JOIN"
+        type="transparent"
+      />
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <Translate(ChallengeDetailHeader)
+    canEditChallenges={false}
+    challenge={
+      Object {
+        "accepted_community_challenges": Array [
+          Object {
+            "id": "a1",
+            "person": Object {
+              "id": "1111",
+            },
+          },
+        ],
+        "end_date": "2018-09-22",
+        "id": "1",
+        "isPast": false,
+        "title": "Read \\"There and Back Again\\"",
+      }
+    }
+    onEdit={[Function]}
+  />
+</Component>
+`;

@@ -123,6 +123,7 @@ export default {
     about: 'About',
     help: 'Help',
     review: 'Write a Review',
+    shareStory: 'Share a Story With Us',
     signOut: 'Sign out',
     cannotOpenUrl: 'Cannot open URL',
     pleaseVisit: 'Sorry, we could not open that URL. Please visit {{url}}',
@@ -162,7 +163,7 @@ export default {
     mfaIncorrect: 'Incorrect verification code',
   },
   welcome: {
-    getStarted: `Let's Get Started`,
+    getStarted: "Let's Get Started",
     tryItNow: 'Try It Now',
     welcome: 'welcome!',
     welcomeDescription:
@@ -186,14 +187,14 @@ export default {
       'You are not allowed to edit first names of other MissionHub users',
   },
   addStep: {
-    header: 'My Step of Faith',
-    createStep: 'Create Step',
+    header: 'Create your own step',
     journeyHeader: 'What did you see God do?',
     editJourneyHeader: 'Edit your comment',
     addJourney: 'Add to Our Journey',
     editJourneyButton: 'Save',
     makeShorter:
       'Thanks for creating a step! But we need you to make it a little shorter so it can fit.',
+    setReminder: 'Set a Reminder',
   },
   selectStep: {
     meHeader: 'How do you want to move forward on your spiritual journey?',
@@ -515,22 +516,26 @@ export default {
   },
   groupOnboardingCard: {
     celebrateHeader: 'Celebrate One Another',
-    celebrateDescription: `See and celebrate one another's Steps of Faith.`,
-    challengesHeader: 'Challenge One Another',
-    challengesDescription: `Create a community challenge everyone can join.`,
+    celebrateDescription: "See and celebrate one another's Steps of Faith.",
+    challengesHeader: 'Our Challenges',
+    challengesDescription:
+      'Join each other in a challenge created by your community.',
     membersHeader: 'Journey Together',
-    membersDescription: `Take a Step of Faith with someone in your community.`,
+    membersDescription: 'Take a Step of Faith with someone in your community.',
     impactHeader: 'See God at Work',
-    impactDescription: `See what God is doing as you take Steps of Faith together. `,
+    impactDescription:
+      'See what God is doing as you take Steps of Faith together. ',
     contactsHeader: 'Journey Together',
-    contactsDescription: `Stay engaged with contacts in your community.`,
+    contactsDescription: 'Stay engaged with contacts in your community.',
     surveysHeader: 'Grow Together',
-    surveysDescription: `Learn about one another through survey responses.`,
+    surveysDescription: 'Learn about one another through survey responses.',
   },
   groupsMembers: {
     invite: 'Send Invite',
-    sendInviteMessage: 'Join me on MissionHub. Click here to join: {{url}}',
-    invited: `Anyone you've invited to {{orgName}} will show up here when they join.`,
+    sendInviteMessage:
+      'Join me on MissionHub. Our community code is {{code}}. Click here to join: {{url}}',
+    invited:
+      "Anyone you've invited to {{orgName}} will show up here when they join.",
   },
   groupMemberOptions: {
     ownerLeaveCommunityErrorMessage:
@@ -659,14 +664,15 @@ export default {
   },
   statusComplete: {
     done: 'Done',
-    continue: `Great job {{userName}}!\nWould you like to continue journeying with {{statusName}}?`,
+    continue:
+      'Great job {{userName}}!\nWould you like to continue journeying with {{statusName}}?',
     totally: 'Totally',
     nope: 'No Thanks',
   },
   statusReason: {
     done: 'Done',
     placeholder: 'Admin note',
-    important: `Anything important the admins at {{organization}} should know?`,
+    important: 'Anything important the admins at {{organization}} should know?',
   },
   imagePicker: {
     selectImage: 'Select Image',
@@ -677,7 +683,7 @@ export default {
     deniedText:
       'To be able to take pictures with your camera and choose images from your library.',
     reTryTitle: 'Re-Try',
-    okTitle: `I'm sure`,
+    okTitle: "I'm sure",
     errorHeader: 'Error',
     errorBody:
       'There was an error processing your request. Please try again later.',
@@ -694,6 +700,8 @@ export default {
     createNewCode: 'Are you sure you want to create a new Community Code?',
     createNewLink: 'Are you sure you want to create a new Community Link?',
     cannotBeUndone: 'This cannot be undone',
+    codeCopyText:
+      'Take steps of faith with me in the MissionHub app. Use this community code to join: {{code}}',
   },
   landing: {
     tryItNow: 'Try It Now',

@@ -15,20 +15,16 @@ import * as common from '../../../utils/common';
 import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
+  refreshCommunity,
 } from '../../../actions/organizations';
-import { ORG_PERMISSIONS } from '../../../constants';
+import { trackActionWithoutData } from '../../../actions/analytics';
+import { ORG_PERMISSIONS, ACTIONS } from '../../../constants';
 import { removeGroupInviteInfo } from '../../../actions/swipe';
 
-jest.mock('../../../actions/organizations', () => ({
-  getOrganizationMembers: jest.fn(() => ({ type: 'test' })),
-  getOrganizationMembersNextPage: jest.fn(() => ({ type: 'test' })),
-}));
-jest.mock('../../../actions/person', () => ({
-  navToPersonScreen: jest.fn(() => ({ type: 'test' })),
-}));
-jest.mock('../../../actions/swipe', () => ({
-  removeGroupInviteInfo: jest.fn(() => ({ type: 'remove group invite info' })),
-}));
+jest.mock('../../../actions/organizations');
+jest.mock('../../../actions/person');
+jest.mock('../../../actions/swipe');
+jest.mock('../../../actions/analytics');
 common.refresh = jest.fn();
 Alert.alert = jest.fn();
 
@@ -102,7 +98,8 @@ describe('Members', () => {
     });
     const instance = renderShallow(component, store2).instance();
     instance.componentDidMount();
-    expect(getOrganizationMembers).toHaveBeenCalled();
+    expect(refreshCommunity).toHaveBeenCalledWith(orgId);
+    expect(getOrganizationMembers).toHaveBeenCalledWith(orgId);
   });
 
   it('should not render load more correctly', () => {
@@ -130,7 +127,8 @@ describe('Members', () => {
     });
     const instance = renderShallow(component, store2).instance();
     instance.componentDidMount();
-    expect(getOrganizationMembers).toHaveBeenCalled();
+    expect(refreshCommunity).toHaveBeenCalledWith(orgId);
+    expect(getOrganizationMembers).toHaveBeenCalledWith(orgId);
   });
 
   it('should handleSelect correctly', () => {
@@ -176,9 +174,17 @@ describe('Members', () => {
 
   it('calls invite', async () => {
     const url = '123';
+    const code = 'ABCDEF';
     const store2 = createMockStore({
       organizations: {
-        all: [{ ...organization, community_url: url, members }],
+        all: [
+          {
+            ...organization,
+            community_url: url,
+            community_code: code,
+            members,
+          },
+        ],
         membersPagination: { hasNextPage: true },
       },
       auth: {
@@ -206,13 +212,16 @@ describe('Members', () => {
       .onPress();
 
     expect(Share.share).toHaveBeenCalledWith({
-      message: i18n.t('groupsMembers:sendInviteMessage', { url }),
+      message: i18n.t('groupsMembers:sendInviteMessage', { url, code }),
     });
     expect(Alert.alert).toHaveBeenCalledWith(
       '',
       i18n.t('groupsMembers:invited', { orgName: organization.name }),
     );
     expect(removeGroupInviteInfo).toHaveBeenCalled();
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SEND_COMMUNITY_INVITE,
+    );
   });
 
   it('renderHeader match snapshot', () => {

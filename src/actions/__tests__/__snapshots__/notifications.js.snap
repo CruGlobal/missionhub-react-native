@@ -29,6 +29,9 @@ Array [
 exports[`askNotificationPermissions onNotification community_challenges should deep link to challenges tab 1`] = `
 Array [
   Object {
+    "type": "app/REQUEST_NOTIFICATIONS",
+  },
+  Object {
     "params": Object {
       "initialTab": "nav/GROUP_CHALLENGES",
       "organization": Object {
@@ -37,9 +40,6 @@ Array [
     },
     "routeName": "nav/GROUP_SCREEN",
     "type": "Navigation/NAVIGATE",
-  },
-  Object {
-    "type": "app/REQUEST_NOTIFICATIONS",
   },
 ]
 `;

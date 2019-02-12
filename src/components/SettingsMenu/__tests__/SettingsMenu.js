@@ -45,10 +45,11 @@ describe('menu items and links', () => {
 
     expect(items[0].label).toEqual(i18n.t('settingsMenu:about'));
     expect(items[1].label).toEqual(i18n.t('settingsMenu:help'));
-    expect(items[2].label).toEqual(i18n.t('settingsMenu:review'));
-    expect(items[3].label).toEqual(i18n.t('privacy'));
-    expect(items[4].label).toEqual(i18n.t('tos'));
-    expect(items[5].label).toEqual(i18n.t('settingsMenu:signOut'));
+    expect(items[2].label).toEqual(i18n.t('settingsMenu:shareStory'));
+    expect(items[3].label).toEqual(i18n.t('settingsMenu:review'));
+    expect(items[4].label).toEqual(i18n.t('privacy'));
+    expect(items[5].label).toEqual(i18n.t('tos'));
+    expect(items[6].label).toEqual(i18n.t('settingsMenu:signOut'));
   });
 
   it('should test link, then open it', async () => {
@@ -66,9 +67,10 @@ describe('menu items and links', () => {
 
     await testUrl(0, LINKS.about);
     await testUrl(1, LINKS.help);
-    await testUrl(2, LINKS.appleStore);
-    await testUrl(3, LINKS.privacy);
-    await testUrl(4, LINKS.terms);
+    await testUrl(2, LINKS.shareStory);
+    await testUrl(3, LINKS.appleStore);
+    await testUrl(4, LINKS.privacy);
+    await testUrl(5, LINKS.terms);
   });
 
   it('should not open link if it is not supported', async () => {

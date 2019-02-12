@@ -67,6 +67,23 @@ export function getMyOrganizations() {
   };
 }
 
+function getOrganization(orgId) {
+  return dispatch => dispatch(callApi(REQUESTS.GET_ORGANIZATION, { orgId }));
+}
+
+export function refreshCommunity(orgId) {
+  return dispatch => {
+    if (orgId === GLOBAL_COMMUNITY_ID) {
+      return;
+    }
+
+    //Refresh Community Data
+    dispatch(getOrganization(orgId));
+    //Refresh user org permissions
+    dispatch(getMe());
+  };
+}
+
 export function getOrganizationsContactReports() {
   return async (dispatch, getState) => {
     const {
@@ -284,7 +301,7 @@ export function addNewPerson(data) {
     } = getState().auth;
     if (!data || !data.firstName) {
       return Promise.reject(
-        `Invalid Data from addNewPerson: no data or no firstName passed in`,
+        'Invalid Data from addNewPerson: no data or no firstName passed in',
       );
     }
     const included = [];
@@ -341,7 +358,7 @@ export function updateOrganization(orgId, data) {
   return dispatch => {
     if (!data) {
       return Promise.reject(
-        `Invalid Data from updateOrganization: no data passed in`,
+        'Invalid Data from updateOrganization: no data passed in',
       );
     }
     const bodyData = {
@@ -361,7 +378,7 @@ export function updateOrganizationImage(orgId, imageData) {
   return dispatch => {
     if (!imageData) {
       return Promise.reject(
-        `Invalid Data from updateOrganizationImage: no image data passed in`,
+        'Invalid Data from updateOrganizationImage: no image data passed in',
       );
     }
 
@@ -406,7 +423,7 @@ export function addNewOrganization(name, imageData) {
   return async dispatch => {
     if (!name) {
       return Promise.reject(
-        `Invalid Data from addNewOrganization: no org name passed in`,
+        'Invalid Data from addNewOrganization: no org name passed in',
       );
     }
     const bodyData = {
@@ -542,7 +559,7 @@ export function joinCommunity(orgId, code, url) {
       attributes.community_url = url;
     } else {
       return Promise.reject(
-        `Invalid Data from joinCommunity: must pass in a code or url`,
+        'Invalid Data from joinCommunity: must pass in a code or url',
       );
     }
     attributes.person_id = myId;

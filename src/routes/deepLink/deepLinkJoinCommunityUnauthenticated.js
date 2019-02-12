@@ -18,7 +18,7 @@ import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import KeyLoginScreen, {
   KEY_LOGIN_SCREEN,
-} from '../../containers/KeyLoginScreen';
+} from '../../containers/Auth/KeyLoginScreen';
 
 export const DeepLinkJoinCommunityUnauthenticatedScreens = {
   [DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN]: buildTrackedScreen(

@@ -11,7 +11,7 @@ import {
   upgradeAccount,
   upgradeAccountSignIn,
 } from '../../actions/auth';
-import { SIGNUP_TYPES } from '../../containers/UpgradeAccountScreen';
+import { SIGNUP_TYPES } from '../../containers/Auth/UpgradeAccountScreen';
 
 @translate('settingsMenu')
 export class SettingsMenu extends Component {
@@ -54,6 +54,11 @@ export class SettingsMenu extends Component {
         label: t('help'),
         action: () => this.openUrl(LINKS.help),
       },
+      {
+        label: t('shareStory'),
+        action: () => this.openUrl(LINKS.shareStory),
+      },
+
       {
         label: t('review'),
         action: () =>

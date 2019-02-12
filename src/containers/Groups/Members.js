@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
+import { ACTIONS } from '../../constants';
 import { Flex, RefreshControl, Button } from '../../components/common';
 import { refresh, getCommunityUrl } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
@@ -11,11 +12,13 @@ import LoadMore from '../../components/LoadMore';
 import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
+  refreshCommunity,
 } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgPermissionSelector } from '../../selectors/people';
 import { removeGroupInviteInfo } from '../../actions/swipe';
+import { trackActionWithoutData } from '../../actions/analytics';
 
 import styles from './styles';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
@@ -34,6 +37,7 @@ class Members extends Component {
 
   load = () => {
     const { dispatch, organization } = this.props;
+    dispatch(refreshCommunity(organization.id));
     return dispatch(getOrganizationMembers(organization.id));
   };
 
@@ -56,12 +60,15 @@ class Members extends Component {
   handleInvite = async () => {
     const { t, organization, groupInviteInfo, dispatch } = this.props;
     const url = getCommunityUrl(organization.community_url);
+    const code = organization.community_code;
+
     const { action } = await Share.share({
-      message: t('sendInviteMessage', { url }),
+      message: t('sendInviteMessage', { url, code }),
     });
     if (groupInviteInfo && action === Share.sharedAction) {
       Alert.alert('', t('invited', { orgName: organization.name }));
       dispatch(removeGroupInviteInfo());
+      dispatch(trackActionWithoutData(ACTIONS.SEND_COMMUNITY_INVITE));
     }
   };
 

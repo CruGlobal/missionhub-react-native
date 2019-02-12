@@ -10,6 +10,7 @@ import GroupSurveyItem from '../../components/GroupSurveyItem';
 import LoadMore from '../../components/LoadMore';
 import { navigatePush } from '../../actions/navigation';
 import { getOrgSurveys, getOrgSurveysNextPage } from '../../actions/surveys';
+import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
 
 import { GROUPS_SURVEY_CONTACTS } from './SurveyContacts';
@@ -30,6 +31,7 @@ class Surveys extends Component {
 
   load = () => {
     const { dispatch, organization } = this.props;
+    dispatch(refreshCommunity(organization.id));
     return dispatch(getOrgSurveys(organization.id));
   };
 

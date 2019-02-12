@@ -20,8 +20,12 @@ class StageScreen extends Component {
     });
   };
 
-  complete(stage) {
-    const { onComplete, noNav, dispatch } = this.props;
+  complete(stage, isAlreadySelected) {
+    const { onComplete, next, contactId, orgId, noNav, dispatch } = this.props;
+
+    if (next) {
+      return dispatch(next({ stage, contactId, orgId, isAlreadySelected }));
+    }
 
     if (onComplete) {
       onComplete(stage);
@@ -42,14 +46,12 @@ class StageScreen extends Component {
     }
   }
 
-  handleSelectStage = (stage, isAlreadySelected) => {
-    if (isAlreadySelected) {
-      this.complete(stage);
-    } else {
-      this.props.dispatch(selectMyStage(stage.id)).then(() => {
-        this.complete(stage);
-      });
+  handleSelectStage = async (stage, isAlreadySelected) => {
+    if (!isAlreadySelected) {
+      await this.props.dispatch(selectMyStage(stage.id));
     }
+
+    this.complete(stage, isAlreadySelected);
   };
 
   render() {
@@ -81,8 +83,10 @@ class StageScreen extends Component {
 }
 
 StageScreen.propTypes = {
+  next: PropTypes.func,
   onComplete: PropTypes.func,
   contactId: PropTypes.string,
+  orgId: PropTypes.string,
   questionText: PropTypes.string,
   firstItem: PropTypes.number,
   section: PropTypes.string,
