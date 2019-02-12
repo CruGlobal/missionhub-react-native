@@ -114,7 +114,7 @@ export class StepsScreen extends Component {
     return steps.length <= MAX_REMINDERS;
   }
 
-  canHideSteps() {
+  canHideStars() {
     return (
       (!this.hasReminders() && this.hasFewSteps()) ||
       (this.hasReminders() && this.hasMaxReminders())
@@ -243,7 +243,6 @@ export class StepsScreen extends Component {
               <StepItem
                 step={s}
                 type="reminder"
-                hideAction={false}
                 onSelect={this.handleRowSelect}
                 onAction={this.handleRemoveReminder}
               />
@@ -276,7 +275,7 @@ export class StepsScreen extends Component {
         <StepItem
           step={item}
           type="swipeable"
-          hideAction={this.canHideSteps()}
+          hideAction={this.canHideStars()}
           onSelect={this.handleRowSelect}
           onAction={this.handleSetReminder}
         />
@@ -307,7 +306,7 @@ export class StepsScreen extends Component {
         ref={this.listRef}
         style={[styles.list, { paddingBottom: hasMoreSteps ? 40 : undefined }]}
         data={steps}
-        extraData={{ hideStars: this.hasMaxReminders() }}
+        extraData={{ hideStars: this.canHideStars() }}
         keyExtractor={this.listKeyExtractor}
         renderItem={this.renderItem}
         removeClippedSubviews={false}

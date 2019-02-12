@@ -6,12 +6,12 @@ exports[`StepsScreen arrow functions should render item correctly 1`] = `
   completePressProps={
     Array [
       Object {
-        "id": 2,
+        "id": 0,
         "organization": Object {
-          "id": "222",
+          "id": "000",
         },
         "receiver": Object {
-          "id": "22",
+          "id": "00",
         },
       },
     ]
@@ -19,12 +19,12 @@ exports[`StepsScreen arrow functions should render item correctly 1`] = `
   deletePressProps={
     Array [
       Object {
-        "id": 2,
+        "id": 0,
         "organization": Object {
-          "id": "222",
+          "id": "000",
         },
         "receiver": Object {
-          "id": "22",
+          "id": "00",
         },
       },
     ]
@@ -34,17 +34,17 @@ exports[`StepsScreen arrow functions should render item correctly 1`] = `
   onDelete={[Function]}
 >
   <Connect(Translate(StepItem))
-    hideAction={false}
+    hideAction={true}
     onAction={[Function]}
     onSelect={[Function]}
     step={
       Object {
-        "id": 2,
+        "id": 0,
         "organization": Object {
-          "id": "222",
+          "id": "000",
         },
         "receiver": Object {
-          "id": "22",
+          "id": "00",
         },
       }
     }
@@ -76,7 +76,7 @@ Object {
 }
 `;
 
-exports[`StepsScreen renders correctly with max reminders 1`] = `
+exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
 <Component
   style={
     Object {
@@ -149,282 +149,7 @@ exports[`StepsScreen renders correctly with max reminders 1`] = `
             },
           ]
         }
-      >
-        <Translate(RowSwipeable)
-          bump={true}
-          completePressProps={
-            Array [
-              Object {
-                "id": 11,
-                "reminder": true,
-              },
-            ]
-          }
-          deletePressProps={
-            Array [
-              Object {
-                "id": 11,
-                "reminder": true,
-              },
-            ]
-          }
-          key="11"
-          onBumpComplete={[Function]}
-          onComplete={[Function]}
-          onDelete={[Function]}
-        >
-          <Connect(Translate(StepItem))
-            onAction={[Function]}
-            onSelect={[Function]}
-            step={
-              Object {
-                "id": 11,
-                "reminder": true,
-              }
-            }
-            type="reminder"
-          />
-        </Translate(RowSwipeable)>
-        <Translate(RowSwipeable)
-          bump={false}
-          completePressProps={
-            Array [
-              Object {
-                "id": 12,
-                "reminder": true,
-              },
-            ]
-          }
-          deletePressProps={
-            Array [
-              Object {
-                "id": 12,
-                "reminder": true,
-              },
-            ]
-          }
-          key="12"
-          onComplete={[Function]}
-          onDelete={[Function]}
-        >
-          <Connect(Translate(StepItem))
-            onAction={[Function]}
-            onSelect={[Function]}
-            step={
-              Object {
-                "id": 12,
-                "reminder": true,
-              }
-            }
-            type="reminder"
-          />
-        </Translate(RowSwipeable)>
-        <Translate(RowSwipeable)
-          bump={false}
-          completePressProps={
-            Array [
-              Object {
-                "id": 13,
-                "reminder": true,
-              },
-            ]
-          }
-          deletePressProps={
-            Array [
-              Object {
-                "id": 13,
-                "reminder": true,
-              },
-            ]
-          }
-          key="13"
-          onComplete={[Function]}
-          onDelete={[Function]}
-        >
-          <Connect(Translate(StepItem))
-            onAction={[Function]}
-            onSelect={[Function]}
-            step={
-              Object {
-                "id": 13,
-                "reminder": true,
-              }
-            }
-            type="reminder"
-          />
-        </Translate(RowSwipeable)>
-      </Flex>
-      <FlatList
-        ListFooterComponent={null}
-        bounces={false}
-        data={
-          Array [
-            Object {
-              "id": 2,
-              "organization": Object {
-                "id": "222",
-              },
-              "receiver": Object {
-                "id": "22",
-              },
-            },
-            Object {
-              "id": 3,
-              "organization": Object {
-                "id": "333",
-              },
-              "receiver": Object {
-                "id": "33",
-              },
-            },
-          ]
-        }
-        disableVirtualization={false}
-        extraData={
-          Object {
-            "hideStars": true,
-          }
-        }
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onEndReachedThreshold={2}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#ffffff",
-              "overflow": "scroll",
-              "paddingBottom": undefined,
-            },
-            Object {
-              "paddingBottom": 40,
-            },
-          ]
-        }
-        updateCellsBatchingPeriod={50}
-        windowSize={21}
       />
-    </ScrollView>
-  </Component>
-</Component>
-`;
-
-exports[`StepsScreen renders empty screen correctly 1`] = `
-<Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <Connect(Header)
-    left={
-      <IconButton
-        name="menuIcon"
-        onPress={[Function]}
-        type="MissionHub"
-      />
-    }
-    title="STEPS OF FAITH"
-  />
-  <Component
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
-    <ScrollView
-      contentContainerStyle={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-          },
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-      onScroll={[Function]}
-      refreshControl={
-        <MyRefreshControl
-          colors={
-            Array [
-              "#ffffff",
-              "#52C5DC",
-            ]
-          }
-          onRefresh={[Function]}
-          progressBackgroundColor="#007398"
-          refreshing={false}
-          tintColor="#007398"
-        />
-      }
-      scrollEventThrottle={16}
-      style={
-        Array [
-          Object {
-            "flex": 1,
-          },
-          Object {
-            "backgroundColor": "#ffffff",
-          },
-        ]
-      }
-    >
-      <Flex
-        align="center"
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#66D9F0",
-              "width": 750,
-            },
-          ]
-        }
-      >
-        <Translate(RowSwipeable)
-          bump={true}
-          completePressProps={
-            Array [
-              Object {
-                "id": 1,
-                "reminder": true,
-              },
-            ]
-          }
-          deletePressProps={
-            Array [
-              Object {
-                "id": 1,
-                "reminder": true,
-              },
-            ]
-          }
-          key="1"
-          onBumpComplete={[Function]}
-          onComplete={[Function]}
-          onDelete={[Function]}
-        >
-          <Connect(Translate(StepItem))
-            onAction={[Function]}
-            onSelect={[Function]}
-            step={
-              Object {
-                "id": 1,
-                "reminder": true,
-              }
-            }
-            type="reminder"
-          />
-        </Translate(RowSwipeable)>
-      </Flex>
       <Flex
         align="center"
         justify="center"
@@ -496,7 +221,160 @@ exports[`StepsScreen renders loading screen correctly 1`] = `
 </Component>
 `;
 
-exports[`StepsScreen renders screen with steps correctly 1`] = `
+exports[`StepsScreen renders screen with some focused and unfocused steps correctly 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <Component
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <ScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <MyRefreshControl
+          colors={
+            Array [
+              "#ffffff",
+              "#52C5DC",
+            ]
+          }
+          onRefresh={[Function]}
+          progressBackgroundColor="#007398"
+          refreshing={false}
+          tintColor="#007398"
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <Flex
+        align="center"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#66D9F0",
+              "width": 750,
+            },
+          ]
+        }
+      />
+      <FlatList
+        ListFooterComponent={null}
+        bounces={false}
+        data={
+          Array [
+            Object {
+              "id": 0,
+              "organization": Object {
+                "id": "000",
+              },
+              "receiver": Object {
+                "id": "00",
+              },
+            },
+            Object {
+              "id": 1,
+              "organization": Object {
+                "id": "111",
+              },
+              "receiver": Object {
+                "id": "11",
+              },
+            },
+            Object {
+              "id": 2,
+              "organization": Object {
+                "id": "222",
+              },
+              "receiver": Object {
+                "id": "22",
+              },
+            },
+            Object {
+              "id": 3,
+              "organization": Object {
+                "id": "333",
+              },
+              "receiver": Object {
+                "id": "33",
+              },
+            },
+          ]
+        }
+        disableVirtualization={false}
+        extraData={
+          Object {
+            "hideStars": false,
+          }
+        }
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onEndReachedThreshold={2}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "overflow": "scroll",
+              "paddingBottom": undefined,
+            },
+            Object {
+              "paddingBottom": 40,
+            },
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        windowSize={21}
+      />
+    </ScrollView>
+  </Component>
+</Component>
+`;
+
+exports[`StepsScreen renders with max reminders correctly 1`] = `
 <Component
   style={
     Object {
@@ -605,12 +483,64 @@ exports[`StepsScreen renders screen with steps correctly 1`] = `
             type="reminder"
           />
         </Translate(RowSwipeable)>
+        <Translate(RowSwipeable)
+          bump={false}
+          completePressProps={
+            Array [
+              Object {
+                "id": 2,
+                "reminder": true,
+              },
+            ]
+          }
+          deletePressProps={
+            Array [
+              Object {
+                "id": 2,
+                "reminder": true,
+              },
+            ]
+          }
+          key="2"
+          onComplete={[Function]}
+          onDelete={[Function]}
+        >
+          <Connect(Translate(StepItem))
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "id": 2,
+                "reminder": true,
+              }
+            }
+            type="reminder"
+          />
+        </Translate(RowSwipeable)>
       </Flex>
       <FlatList
         ListFooterComponent={null}
         bounces={false}
         data={
           Array [
+            Object {
+              "id": 0,
+              "organization": Object {
+                "id": "000",
+              },
+              "receiver": Object {
+                "id": "00",
+              },
+            },
+            Object {
+              "id": 1,
+              "organization": Object {
+                "id": "111",
+              },
+              "receiver": Object {
+                "id": "11",
+              },
+            },
             Object {
               "id": 2,
               "organization": Object {
@@ -634,7 +564,7 @@ exports[`StepsScreen renders screen with steps correctly 1`] = `
         disableVirtualization={false}
         extraData={
           Object {
-            "hideStars": false,
+            "hideStars": true,
           }
         }
         horizontal={false}
@@ -667,7 +597,140 @@ exports[`StepsScreen renders screen with steps correctly 1`] = `
 </Component>
 `;
 
-exports[`StepsScreen renders with no focused steps 1`] = `
+exports[`StepsScreen renders with no focused steps and less than 4 unfocused steps correctly 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <Component
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <ScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <MyRefreshControl
+          colors={
+            Array [
+              "#ffffff",
+              "#52C5DC",
+            ]
+          }
+          onRefresh={[Function]}
+          progressBackgroundColor="#007398"
+          refreshing={false}
+          tintColor="#007398"
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <FlatList
+        ListFooterComponent={null}
+        bounces={false}
+        data={
+          Array [
+            Object {
+              "id": 0,
+              "organization": Object {
+                "id": "000",
+              },
+              "receiver": Object {
+                "id": "00",
+              },
+            },
+            Object {
+              "id": 1,
+              "organization": Object {
+                "id": "111",
+              },
+              "receiver": Object {
+                "id": "11",
+              },
+            },
+            Object {
+              "id": 2,
+              "organization": Object {
+                "id": "222",
+              },
+              "receiver": Object {
+                "id": "22",
+              },
+            },
+          ]
+        }
+        disableVirtualization={false}
+        extraData={
+          Object {
+            "hideStars": true,
+          }
+        }
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onEndReachedThreshold={2}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "overflow": "scroll",
+              "paddingBottom": undefined,
+            },
+            Object {
+              "paddingBottom": 40,
+            },
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        windowSize={21}
+      />
+    </ScrollView>
+  </Component>
+</Component>
+`;
+
+exports[`StepsScreen renders with no focused steps correctly 1`] = `
 <Component
   style={
     Object {
@@ -785,6 +848,24 @@ exports[`StepsScreen renders with no focused steps 1`] = `
         bounces={false}
         data={
           Array [
+            Object {
+              "id": 0,
+              "organization": Object {
+                "id": "000",
+              },
+              "receiver": Object {
+                "id": "00",
+              },
+            },
+            Object {
+              "id": 1,
+              "organization": Object {
+                "id": "111",
+              },
+              "receiver": Object {
+                "id": "11",
+              },
+            },
             Object {
               "id": 2,
               "organization": Object {
@@ -866,56 +947,6 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
       }
     }
   >
-    <Flex
-      align="center"
-      justify="center"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#66D9F0",
-            "width": 750,
-          },
-          Object {
-            "paddingHorizontal": 27,
-            "paddingVertical": 32,
-          },
-        ]
-      }
-    >
-      <Icon
-        name="starGroupIcon"
-        size={45}
-        type="MissionHub"
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 36,
-            "textAlign": "center",
-          }
-        }
-        type="header"
-      >
-        FOCUS YOUR WEEK
-      </MyText>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 16,
-            "textAlign": "center",
-          }
-        }
-      >
-        Star up to three steps and get weekly handcrafted reminders.
-      </MyText>
-    </Flex>
     <ScrollView
       contentContainerStyle={
         Array [
