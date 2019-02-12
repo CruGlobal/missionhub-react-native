@@ -33,5 +33,6 @@ export default StyleSheet.create({
     fontSize: 32,
     color: theme.lightGrey,
     paddingHorizontal: 30,
+    fontFamily: 'SourceSansPro-Light',
   },
 });
