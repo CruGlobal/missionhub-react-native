@@ -1,7 +1,8 @@
 import React from 'react';
 
-import ReminderButton from '../ReminderButton';
-import { testSnapshotShallow } from '../../../testUtils';
+import { testSnapshotShallow } from '../../../../testUtils/index';
+
+import ReminderButton from '..';
 
 it('renders correctly', () => {
   testSnapshotShallow(<ReminderButton />);
