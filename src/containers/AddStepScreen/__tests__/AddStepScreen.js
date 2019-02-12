@@ -170,7 +170,7 @@ describe('add step methods for stepNote with onComplete', () => {
     screen.update();
 
     screen
-      .childAt(3)
+      .childAt(2)
       .childAt(0)
       .simulate('press');
 
@@ -227,7 +227,7 @@ describe('add step methods for stepNote with next', () => {
     screen.update();
 
     screen
-      .childAt(3)
+      .childAt(2)
       .childAt(0)
       .simulate('press');
 
