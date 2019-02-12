@@ -32,7 +32,7 @@ export default StyleSheet.create({
     borderBottomColor: 'transparent',
     fontSize: 32,
     color: theme.lightGrey,
-    paddingHorizontal: 30,
+    paddingHorizontal: 45,
     fontFamily: 'SourceSansPro-Light',
   },
 });

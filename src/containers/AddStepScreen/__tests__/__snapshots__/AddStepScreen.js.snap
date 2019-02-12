@@ -54,7 +54,7 @@ exports[`renders correctly 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
-            "paddingHorizontal": 30,
+            "paddingHorizontal": 45,
           },
         ]
       }
@@ -399,7 +399,7 @@ exports[`renders edit journey correctly 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
-            "paddingHorizontal": 30,
+            "paddingHorizontal": 45,
           },
         ]
       }
@@ -731,7 +731,7 @@ exports[`renders interaction with skip correctly 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
-            "paddingHorizontal": 30,
+            "paddingHorizontal": 45,
           },
         ]
       }
@@ -977,7 +977,7 @@ exports[`renders interaction without skip correctly 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
-            "paddingHorizontal": 30,
+            "paddingHorizontal": 45,
           },
         ]
       }
@@ -1223,7 +1223,7 @@ exports[`renders journey correctly 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
-            "paddingHorizontal": 30,
+            "paddingHorizontal": 45,
           },
         ]
       }
@@ -1555,7 +1555,7 @@ exports[`renders step note correctly 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
-            "paddingHorizontal": 30,
+            "paddingHorizontal": 45,
           },
         ]
       }
