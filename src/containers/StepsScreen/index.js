@@ -110,8 +110,16 @@ export class StepsScreen extends Component {
   }
 
   hasFewSteps() {
-    const { steps, reminders } = this.props;
-    return steps.length + reminders.length <= MAX_REMINDERS;
+    const { steps } = this.props;
+    return steps.length <= MAX_REMINDERS;
+  }
+
+  canHideSteps() {
+    const { hasReminders, hasMaxReminders, hasFewSteps } = this;
+    return (
+      (!hasReminders() || hasMaxReminders()) &&
+      !(!hasReminders() && !hasFewSteps())
+    );
   }
 
   handleSetReminder(step) {
@@ -236,7 +244,7 @@ export class StepsScreen extends Component {
               <StepItem
                 step={s}
                 type="reminder"
-                hideAction={this.hasFewSteps()}
+                hideAction={false}
                 onSelect={this.handleRowSelect}
                 onAction={this.handleRemoveReminder}
               />
@@ -269,7 +277,7 @@ export class StepsScreen extends Component {
         <StepItem
           step={item}
           type="swipeable"
-          hideAction={this.hasMaxReminders() || this.hasFewSteps()}
+          hideAction={this.canHideSteps()}
           onSelect={this.handleRowSelect}
           onAction={this.handleSetReminder}
         />
