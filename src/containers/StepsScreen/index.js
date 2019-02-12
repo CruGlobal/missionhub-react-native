@@ -115,10 +115,9 @@ export class StepsScreen extends Component {
   }
 
   canHideSteps() {
-    const { hasReminders, hasMaxReminders, hasFewSteps } = this;
     return (
-      (!hasReminders() || hasMaxReminders()) &&
-      !(!hasReminders() && !hasFewSteps())
+      (!this.hasReminders() && this.hasFewSteps()) ||
+      (this.hasReminders() && this.hasMaxReminders())
     );
   }
 
