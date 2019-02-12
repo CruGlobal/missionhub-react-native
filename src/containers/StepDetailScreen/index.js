@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { STEP_SUGGESTION, ACCEPTED_STEP } from '../../constants';
 import Header from '../Header';
 import BackButton from '../BackButton';
+import ReminderButton from '../../components/ReminderButton';
 import { Flex, Button, Text } from '../../components/common';
 import {
   acceptedStepSelector,
@@ -50,6 +51,7 @@ export class StepDetailScreen extends Component {
         <Flex style={styles.stepTitleContainer}>
           <Text style={styles.stepTitleText}>Share your faith with Sam</Text>
         </Flex>
+        <ReminderButton />
         {tipDescription ? (
           <Flex value={1} style={styles.tipContainer}>
             <Text style={styles.tipTitleText}>{t('tipTitle')}</Text>
