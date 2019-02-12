@@ -96,7 +96,7 @@ export function createChallenge(challenge, orgId) {
 export function updateChallenge(challenge) {
   if (!challenge) {
     return Promise.reject(
-      `Invalid Data from updateChallenge: no challenge passed in`,
+      'Invalid Data from updateChallenge: no challenge passed in',
     );
   }
 
