@@ -75,7 +75,7 @@ export function savePersonNote(personId, notes, noteId, myId) {
   return dispatch => {
     if (!personId) {
       return Promise.reject(
-        `Invalid Data from savePersonNote: no personId passed in`,
+        'Invalid Data from savePersonNote: no personId passed in',
       );
     }
 
@@ -121,7 +121,7 @@ export function getPersonNote(personId, myId) {
           return element.user_id == myId;
         });
       }
-      return Promise.reject(`Person Not Found in getPersonNote`);
+      return Promise.reject('Person Not Found in getPersonNote');
     });
   };
 }

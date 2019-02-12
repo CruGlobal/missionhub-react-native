@@ -59,6 +59,10 @@ const completedProps = {
   ...unjoinedProps,
   acceptedChallenge: completedChallenge,
 };
+const noEditProps = {
+  ...unjoinedProps,
+  canEditChallenges: false,
+};
 
 const orgPermission = {
   organization_id: '456',
@@ -88,16 +92,50 @@ const nav = {
   },
 };
 
-it('should provide necessary props', () => {
-  communityChallengeSelector.mockReturnValue(challenge);
-  orgPermissionSelector.mockReturnValue(orgPermission);
+describe('mapStateToProps', () => {
+  beforeEach(() => {
+    communityChallengeSelector.mockReturnValue(challenge);
+    orgPermissionSelector.mockReturnValue(orgPermission);
+  });
 
-  expect(mapStateToProps(store, nav)).toEqual({
-    ...nav.navigation.state.params,
-    canEditChallenges: true,
-    challenge,
-    acceptedChallenge: joinedChallenge,
-    myId,
+  it('should provide necessary props for Member', () => {
+    orgPermissionSelector.mockReturnValue({
+      ...orgPermission,
+      permission_id: ORG_PERMISSIONS.USER,
+    });
+
+    expect(mapStateToProps(store, nav)).toEqual({
+      ...nav.navigation.state.params,
+      canEditChallenges: false,
+      challenge,
+      acceptedChallenge: joinedChallenge,
+      myId,
+    });
+  });
+
+  it('should provide necessary props for Admin', () => {
+    expect(mapStateToProps(store, nav)).toEqual({
+      ...nav.navigation.state.params,
+      canEditChallenges: true,
+      challenge,
+      acceptedChallenge: joinedChallenge,
+      myId,
+    });
+  });
+
+  it('should provide necessary props for Owner', () => {
+    orgPermissionSelector.mockReturnValue({
+      ...orgPermission,
+      permission_id: ORG_PERMISSIONS.OWNER,
+    });
+
+    expect(mapStateToProps(store, nav)).toEqual({
+      ...nav.navigation.state.params,
+      canEditChallenges: true,
+      challenge,
+      acceptedChallenge: joinedChallenge,
+      myId,
+    });
   });
 });
 
@@ -113,6 +151,11 @@ it('should render joined challenge correctly', () => {
 
 it('should render completed challenge correctly', () => {
   testSnapshotShallow(<ChallengeDetailScreen {...completedProps} />);
+  expect(getChallenge).toHaveBeenCalledWith(challengeId);
+});
+
+it('should render without edit correctly', () => {
+  testSnapshotShallow(<ChallengeDetailScreen {...noEditProps} />);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
 });
 

@@ -70,7 +70,14 @@
         "skipComments": true
       }
     ],
-    "no-return-await": 2
+    "no-return-await": 2,
+    "quotes": [
+      2,
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ]
   },
   "settings": {
     "import/resolver": {

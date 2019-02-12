@@ -104,7 +104,7 @@ Pre-release builds are completed and deployed to TestFlight and the Play Store "
 - [fastlane] upload signed app archive to TestFlight 
   - NOTE: this step can take 5 minutes to nearly 2 hours to complete b/c of automated iTunesConnect checks that vary in length.
 - [fastlane] commit and push the updated build number to GitHub remote with [skip ci] tag to prevent a travis-ci fork bomb
-- [fastlane] notify the MissionHub - Engineering HipChat channel of release
+- [fastlane] notify the MissionHub - Engineering Slack channel of release
 
 ### Android Pre-release
 - [developer] push to `master`
@@ -116,7 +116,7 @@ Pre-release builds are completed and deployed to TestFlight and the Play Store "
 - [fastlane] decrypt Play Store upload key for MH
 - [fastlane] build and sign app APK
 - [fastlane] upload signed app archive to Play Store "internal" test track
-- [fastlane] notify the MissionHub - Engineering HipChat channel of release
+- [fastlane] notify the MissionHub - Engineering Slack channel of release
 
 Production releases for both apps use a standard semantic versioning scheme for version number/name (iOS/Android). [major].[minor].[patch] . In the examples below vx.y.z will refer to a version x.y.z using this scheme.
 
@@ -137,12 +137,12 @@ Travis will build production releases for both platform when it detects a commit
   - NOTE: this may not be the latest build depending up where the tag and commit are in the Git history!
 - [fastlane] increment patch version number and push to GitHub remote
   - NOTE | [TODO]: this step is skipped right now because the wrong branch is checked out and Travis w/ it's shallow clone won't be able to push back to the remote. PR welcomed.
-- [fastlane] notify the MissionHub - Engineering HipChat channel of release
+- [fastlane] notify the MissionHub - Engineering Slack channel of release
 - [travis] install fastlane and other dependencies in android directory
 - [travis] invoke [fastlane] `fastlane android release`
 - [fastlane] promote build to Play Store release track from internal track.
   - NOTE: unlike iOS, this will ALWAYS be the latest APK uploaded to "internal" track. anything in the alpha or beta track is ignored
-- [fastlane] notify the MissionHub - Engineering HipChat channel of release
+- [fastlane] notify the MissionHub - Engineering Slack channel of release
 - [developer] soon after, merge `master` down into `develop` (no PR required)
 - [developer] set, commit and push to `develop` the android version name (and iOS version number while this automated step is not working) to next desired value x.y.z+1
 

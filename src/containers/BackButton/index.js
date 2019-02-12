@@ -18,7 +18,7 @@ export class BackButton extends Component {
   };
 
   render() {
-    const { absolute, style, iconStyle, customIcon } = this.props;
+    const { absolute, style, customIcon, iconStyle } = this.props;
     return (
       <Flex
         self="start"
@@ -27,10 +27,10 @@ export class BackButton extends Component {
         style={[style || null, absolute ? styles.absoluteTopLeft : null]}
       >
         <IconButton
-          style={iconStyle || null}
           name={customIcon || 'backIcon'}
           type="MissionHub"
           onPress={this.onPress}
+          style={iconStyle}
         />
       </Flex>
     );
