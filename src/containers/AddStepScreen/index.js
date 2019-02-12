@@ -7,18 +7,12 @@ import { translate } from 'react-i18next';
 import { navigateBack } from '../../actions/navigation';
 import { updateChallengeNote } from '../../actions/steps';
 import { trackAction } from '../../actions/analytics';
-import {
-  Button,
-  Flex,
-  Input,
-  Touchable,
-  Icon,
-  Text,
-} from '../../components/common';
+import { Button, Flex, Input } from '../../components/common';
 import theme from '../../theme';
 import { STEP_NOTE, CREATE_STEP, ACTIONS } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
+import ReminderButton from '../../components/ReminderButton';
 
 import styles from './styles';
 
@@ -124,25 +118,6 @@ class AddStepScreen extends Component {
     return text.toUpperCase();
   }
 
-  renderReminder() {
-    const { t } = this.props;
-    const { reminderIcon, reminderText, reminderButton } = styles;
-
-    return (
-      <Touchable>
-        <Flex
-          align="center"
-          justify="start"
-          style={reminderButton}
-          direction="row"
-        >
-          <Icon name="bellIcon" type="MissionHub" style={reminderIcon} />
-          <Text style={reminderText}>{t('setReminder')}</Text>
-        </Flex>
-      </Touchable>
-    );
-  }
-
   renderTitle() {
     const { t, type } = this.props;
 
@@ -196,7 +171,7 @@ class AddStepScreen extends Component {
             placeholderTextColor={lightGrey}
             maxLength={type === CREATE_STEP ? characterLimit : undefined}
           />
-          {type === CREATE_STEP && this.renderReminder()}
+          {type === CREATE_STEP && <ReminderButton />}
         </Flex>
 
         <Flex value={1} align="stretch" justify="end">
