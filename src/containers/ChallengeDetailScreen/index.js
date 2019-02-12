@@ -19,8 +19,8 @@ import ChallengeMembers from '../ChallengeMembers';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
 import { communityChallengeSelector } from '../../selectors/challenges';
 import { orgPermissionSelector } from '../../selectors/people';
-import { ORG_PERMISSIONS } from '../../constants';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
+import { isAdminOrOwner } from '../../utils/common';
 
 import styles from './styles';
 
@@ -182,8 +182,7 @@ export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     person: auth.person,
     organization: { id: orgId },
   });
-  const canEditChallenges =
-    myOrgPerm && myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
+  const canEditChallenges = myOrgPerm && isAdminOrOwner(myOrgPerm);
 
   return {
     ...navParams,

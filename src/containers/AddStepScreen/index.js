@@ -7,11 +7,12 @@ import { translate } from 'react-i18next';
 import { navigateBack } from '../../actions/navigation';
 import { updateChallengeNote } from '../../actions/steps';
 import { trackAction } from '../../actions/analytics';
-import { Button, Text, Flex, Input } from '../../components/common';
+import { Button, Flex, Input } from '../../components/common';
 import theme from '../../theme';
 import { STEP_NOTE, CREATE_STEP, ACTIONS } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
+import ReminderButton from '../../components/ReminderButton';
 
 import styles from './styles';
 
@@ -107,7 +108,7 @@ class AddStepScreen extends Component {
 
   getButtonText() {
     const { t, type } = this.props;
-    let text = t('createStep');
+    let text = t('selectStep:addStep');
     if (type === 'journey' || type === STEP_NOTE || type === 'interaction') {
       text = t('addJourney');
     } else if (type === 'editJourney') {
@@ -119,19 +120,13 @@ class AddStepScreen extends Component {
 
   renderTitle() {
     const { t, type } = this.props;
-    let text = t('header');
-    let style = styles.header;
-    if (type === 'journey' || type === STEP_NOTE || type === 'interaction') {
-      style = styles.journeyHeader;
-      text = t('journeyHeader');
-    } else if (type === 'editJourney') {
-      style = styles.journeyHeader;
-      text = t('editJourneyHeader');
-    }
-    return (
-      <Text type="header" style={style}>
-        {text}
-      </Text>
+
+    return t(
+      type === 'journey' || type === STEP_NOTE || type === 'interaction'
+        ? 'journeyHeader'
+        : type === 'editJourney'
+          ? 'editJourneyHeader'
+          : 'header',
     );
   }
 
@@ -139,6 +134,8 @@ class AddStepScreen extends Component {
 
   render() {
     const { t, type, hideSkip } = this.props;
+    const { lightGrey } = theme;
+    const { backButtonStyle, input } = styles;
 
     return (
       <View style={styles.container}>
@@ -153,24 +150,28 @@ class AddStepScreen extends Component {
             />
           </Flex>
         ) : null}
-        <Flex value={1.5} align="center" justify="center">
-          {this.renderTitle()}
-        </Flex>
 
-        <Flex value={1} style={styles.fieldWrap}>
+        <Flex
+          value={1}
+          align="stretch"
+          justify="center"
+          style={styles.fieldWrap}
+        >
           <Input
+            style={input}
             ref={this.ref}
             onChangeText={this.onChangeText}
             value={this.state.step}
             multiline={true}
             autoFocus={true}
             autoCorrect={true}
-            selectionColor={theme.white}
             returnKeyType="done"
             blurOnSubmit={true}
-            placeholder=""
+            placeholder={this.renderTitle()}
+            placeholderTextColor={lightGrey}
             maxLength={type === CREATE_STEP ? characterLimit : undefined}
           />
+          {type === CREATE_STEP && <ReminderButton />}
         </Flex>
 
         <Flex value={1} align="stretch" justify="end">
@@ -181,7 +182,9 @@ class AddStepScreen extends Component {
             style={styles.createButton}
           />
         </Flex>
-        {type !== STEP_NOTE ? <BackButton absolute={true} /> : null}
+        {type !== STEP_NOTE ? (
+          <BackButton absolute={true} iconStyle={backButtonStyle} />
+        ) : null}
       </View>
     );
   }
