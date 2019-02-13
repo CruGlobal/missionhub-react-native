@@ -9,17 +9,68 @@ import Header from '../Header';
 import BackButton from '../BackButton';
 import ReminderButton from '../../components/ReminderButton';
 import { Flex, Button, Text } from '../../components/common';
-import {
-  acceptedStepSelector,
-  suggestedStepSelector,
-} from '../../selectors/steps';
 
 import styles from './styles';
 
 @translate('stepDetail')
 export class StepDetailScreen extends Component {
+  handleAddStep = () => {};
+
+  handleRemoveStep = () => {};
+
+  handleCompleteStep = () => {};
+
+  renderHeader = (isCompleted, isSuggestion) => {
+    const { t } = this.props;
+    return (
+      <Header
+        left={<BackButton iconStyle={styles.backButton} />}
+        center={isCompleted ? <Text>{t('completedStep')}</Text> : null}
+        right={
+          !isSuggestion && !isCompleted ? (
+            <Button
+              type="transparent"
+              text={t('removeStep').toUpperCase()}
+              onPress={this.handleRemoveStep}
+              style={styles.removeStepButton}
+              buttonTextStyle={styles.removeStepButtonText}
+            />
+          ) : null
+        }
+        shadow={false}
+        style={styles.container}
+      />
+    );
+  };
+
+  renderTipSection = tipDescription => {
+    return tipDescription ? (
+      <Flex value={1} style={styles.tipContainer}>
+        <ScrollView>
+          <Text style={styles.tipTitleText}>{this.props.t('tipTitle')}</Text>
+          <Text style={styles.tipDescriptionText}>{tipDescription}</Text>
+        </ScrollView>
+      </Flex>
+    ) : (
+      <Flex value={1} />
+    );
+  };
+
+  renderBottomButton = (isCompleted, isSuggestion) => {
+    return !isCompleted ? (
+      <Flex align="center" justify="end">
+        <Button
+          type="secondary"
+          onPress={isSuggestion ? this.handleAddStep : this.handleCompleteStep}
+          text={this.props.t(isSuggestion ? 'addStep' : 'iDidIt').toUpperCase()}
+          style={styles.bottomButton}
+        />
+      </Flex>
+    ) : null;
+  };
+
   render() {
-    const { t, step } = this.props;
+    const { step } = this.props;
 
     const isSuggestion = step.type === STEP_SUGGESTION;
     const isCompleted = !isSuggestion && step.completed_at;
@@ -32,47 +83,13 @@ export class StepDetailScreen extends Component {
 
     return (
       <Flex value={1} style={styles.container}>
-        <Header
-          left={<BackButton iconStyle={styles.backButton} />}
-          center={isCompleted ? <Text>{t('completedStep')}</Text> : null}
-          right={
-            !isSuggestion && !isCompleted ? (
-              <Button
-                type="transparent"
-                text={t('removeStep').toUpperCase()}
-                onPress={() => {}}
-                style={styles.removeStepButton}
-                buttonTextStyle={styles.removeStepButtonText}
-              />
-            ) : null
-          }
-          shadow={false}
-          style={styles.container}
-        />
+        {this.renderHeader(isCompleted, isSuggestion)}
         <Flex style={styles.stepTitleContainer}>
           <Text style={styles.stepTitleText}>{stepTitle}</Text>
         </Flex>
         <ReminderButton />
-        {tipDescription ? (
-          <Flex value={1} style={styles.tipContainer}>
-            <Text style={styles.tipTitleText}>{t('tipTitle')}</Text>
-            <ScrollView>
-              <Text style={styles.tipDescriptionText}>{tipDescription}</Text>
-            </ScrollView>
-          </Flex>
-        ) : (
-          <Flex value={1} />
-        )}
-        {!isCompleted ? (
-          <Flex align="center" justify="end">
-            <Button
-              type="secondary"
-              onPress={() => {}}
-              text={t(isSuggestion ? 'addStep' : 'iDidIt').toUpperCase()}
-              style={styles.bottomButton}
-            />
-          </Flex>
-        ) : null}
+        {this.renderTipSection(tipDescription)}
+        {this.renderBottomButton(isCompleted, isSuggestion)}
       </Flex>
     );
   }
@@ -84,7 +101,7 @@ StepDetailScreen.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = ({ steps }, { navigation }) => {
+const mapStateToProps = (_, { navigation }) => {
   const { step } = navigation.state.params;
 
   return {

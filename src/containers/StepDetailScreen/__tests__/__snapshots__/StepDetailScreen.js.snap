@@ -1,0 +1,475 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render renders for accepted step 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+  value={1}
+>
+  <Connect(Header)
+    center={null}
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#A0A2A6",
+          }
+        }
+      />
+    }
+    right={
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 10,
+          }
+        }
+        text="REMOVE STEP"
+        type="transparent"
+      />
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "marginHorizontal": 32,
+        "marginVertical": 26,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 32,
+          "fontWeight": "300",
+          "lineHeight": 38,
+        }
+      }
+    >
+      Step of Faith
+    </MyText>
+  </Flex>
+  <Connect(Translate(ReminderButton)) />
+  <Flex
+    value={1}
+  />
+  <Flex
+    align="center"
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      style={
+        Object {
+          "width": 750,
+        }
+      }
+      text="I DID IT!"
+      type="secondary"
+    />
+  </Flex>
+</Flex>
+`;
+
+exports[`render renders for accepted step with tip 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+  value={1}
+>
+  <Connect(Header)
+    center={null}
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#A0A2A6",
+          }
+        }
+      />
+    }
+    right={
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 10,
+          }
+        }
+        text="REMOVE STEP"
+        type="transparent"
+      />
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "marginHorizontal": 32,
+        "marginVertical": 26,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 32,
+          "fontWeight": "300",
+          "lineHeight": 38,
+        }
+      }
+    >
+      Step of Faith
+    </MyText>
+  </Flex>
+  <Connect(Translate(ReminderButton)) />
+  <Flex
+    style={
+      Object {
+        "marginVertical": 26,
+      }
+    }
+    value={1}
+  >
+    <ScrollView>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 24,
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "paddingBottom": 16,
+            "paddingHorizontal": 32,
+          }
+        }
+      >
+        Not quite sure how to do this?
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 16,
+            "lineHeight": 26,
+            "paddingHorizontal": 32,
+            "paddingTop": 14,
+          }
+        }
+      >
+        Accepted Step Tip
+      </MyText>
+    </ScrollView>
+  </Flex>
+  <Flex
+    align="center"
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      style={
+        Object {
+          "width": 750,
+        }
+      }
+      text="I DID IT!"
+      type="secondary"
+    />
+  </Flex>
+</Flex>
+`;
+
+exports[`render renders for completed step 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+  value={1}
+>
+  <Connect(Header)
+    center={
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        Completed Step
+      </MyText>
+    }
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#A0A2A6",
+          }
+        }
+      />
+    }
+    right={null}
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "marginHorizontal": 32,
+        "marginVertical": 26,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 32,
+          "fontWeight": "300",
+          "lineHeight": 38,
+        }
+      }
+    >
+      Step of Faith
+    </MyText>
+  </Flex>
+  <Connect(Translate(ReminderButton)) />
+  <Flex
+    value={1}
+  />
+</Flex>
+`;
+
+exports[`render renders for suggested step 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+  value={1}
+>
+  <Connect(Header)
+    center={null}
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#A0A2A6",
+          }
+        }
+      />
+    }
+    right={null}
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "marginHorizontal": 32,
+        "marginVertical": 26,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 32,
+          "fontWeight": "300",
+          "lineHeight": 38,
+        }
+      }
+    >
+      Step of Faith
+    </MyText>
+  </Flex>
+  <Connect(Translate(ReminderButton)) />
+  <Flex
+    value={1}
+  />
+  <Flex
+    align="center"
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      style={
+        Object {
+          "width": 750,
+        }
+      }
+      text="ADD TO MY STEPS"
+      type="secondary"
+    />
+  </Flex>
+</Flex>
+`;
+
+exports[`render renders for suggested step with tip 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+  value={1}
+>
+  <Connect(Header)
+    center={null}
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#A0A2A6",
+          }
+        }
+      />
+    }
+    right={null}
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "marginHorizontal": 32,
+        "marginVertical": 26,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 32,
+          "fontWeight": "300",
+          "lineHeight": 38,
+        }
+      }
+    >
+      Step of Faith
+    </MyText>
+  </Flex>
+  <Connect(Translate(ReminderButton)) />
+  <Flex
+    style={
+      Object {
+        "marginVertical": 26,
+      }
+    }
+    value={1}
+  >
+    <ScrollView>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 24,
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "paddingBottom": 16,
+            "paddingHorizontal": 32,
+          }
+        }
+      >
+        Not quite sure how to do this?
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 16,
+            "lineHeight": 26,
+            "paddingHorizontal": 32,
+            "paddingTop": 14,
+          }
+        }
+      >
+        Suggested Step Tip
+      </MyText>
+    </ScrollView>
+  </Flex>
+  <Flex
+    align="center"
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      style={
+        Object {
+          "width": 750,
+        }
+      }
+      text="ADD TO MY STEPS"
+      type="secondary"
+    />
+  </Flex>
+</Flex>
+`;

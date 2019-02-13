@@ -198,17 +198,6 @@ describe('handleCreateStep', () => {
     );
   });
 
-  it('navigates to step detail', () => {
-    contactAssignmentSelector.mockReturnValue(mockContactAssignment);
-    createComponent(false, mockPerson);
-
-    component.handleRowSelect(steps[0]);
-
-    expect(navigatePush).toHaveBeenCalledWith(STEP_DETAIL_SCREEN, {
-      step: steps[0],
-    });
-  });
-
   it('navigates to person steps', () => {
     contactAssignmentSelector.mockReturnValue({
       ...mockContactAssignment,
@@ -262,6 +251,19 @@ describe('handleCreateStep', () => {
       myId,
     );
     expect(promptToAssign).not.toHaveBeenCalled();
+  });
+});
+
+describe('handleRowSelect', () => {
+  it('navigates to step detail', () => {
+    contactAssignmentSelector.mockReturnValue(mockContactAssignment);
+    createComponent(false, mockPerson);
+
+    component.handleRowSelect(steps[0]);
+
+    expect(navigatePush).toHaveBeenCalledWith(STEP_DETAIL_SCREEN, {
+      step: steps[0],
+    });
   });
 });
 
