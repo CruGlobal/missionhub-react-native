@@ -53,47 +53,53 @@ const store = {
   },
 };
 
-const propsWithSteps = {
-  areNotificationsOff: true,
-  hasMoreSteps: true,
-  reminders: [
-    {
-      id: 1,
-      reminder: true,
-    },
-  ],
-  showNotificationReminder: true,
-  showStepBump: true,
-  showStepReminderBump: true,
-  steps: [
-    {
-      id: 2,
-      receiver: { id: '22' },
-      organization: { id: '222' },
-    },
-    {
-      id: 3,
-      receiver: { id: '33' },
-      organization: { id: '333' },
-    },
-  ],
-  dispatch,
-};
+const reminders = [
+  {
+    id: 0,
+    reminder: true,
+  },
+  {
+    id: 1,
+    reminder: true,
+  },
+  {
+    id: 2,
+    reminder: true,
+  },
+];
 
-const propsWithoutSteps = {
+const steps = [
+  {
+    id: 0,
+    receiver: { id: '00' },
+    organization: { id: '000' },
+  },
+  {
+    id: 1,
+    receiver: { id: '11' },
+    organization: { id: '111' },
+  },
+  {
+    id: 2,
+    receiver: { id: '22' },
+    organization: { id: '222' },
+  },
+  {
+    id: 3,
+    receiver: { id: '33' },
+    organization: { id: '333' },
+  },
+];
+
+const baseProps = {
   areNotificationsOff: true,
   hasMoreSteps: true,
-  reminders: [
-    {
-      id: 1,
-      reminder: true,
-    },
-  ],
   showNotificationReminder: true,
   showStepBump: true,
   showStepReminderBump: true,
-  steps: [],
   dispatch,
+  reminders,
+  steps,
 };
 
 common.toast = jest.fn();
@@ -104,6 +110,7 @@ describe('StepsScreen', () => {
   });
 
   let component;
+  let props;
 
   describe('mapStateToProps', () => {
     it('should provide the necessary props', () => {
@@ -113,7 +120,8 @@ describe('StepsScreen', () => {
     });
   });
 
-  const createComponent = props => renderShallow(<StepsScreen {...props} />);
+  const createComponent = componentProps =>
+    renderShallow(<StepsScreen {...componentProps} />);
 
   const stopLoad = component => {
     component.instance().setState({ loading: false });
@@ -121,51 +129,81 @@ describe('StepsScreen', () => {
     return component;
   };
 
+  const testRender = () => {
+    component = createComponent(props);
+    component = stopLoad(component);
+    expect(component).toMatchSnapshot();
+  };
+
   it('renders loading screen correctly', () => {
-    component = createComponent({ ...propsWithoutSteps, steps: null });
+    props = {
+      ...baseProps,
+      reminders: [],
+      steps: null,
+    };
+
+    component = createComponent(props);
 
     expect(component).toMatchSnapshot();
   });
 
-  it('renders empty screen correctly', () => {
-    component = createComponent(propsWithoutSteps);
-    component = stopLoad(component);
-    expect(component).toMatchSnapshot();
+  it('renders empty screen with one reminder correctly', () => {
+    props = {
+      ...baseProps,
+      reminders: reminders.slice(0, 1),
+      steps: [],
+    };
+    testRender();
   });
 
   it('renders with no steps (focused or unfocused) correctly', () => {
-    component = createComponent({ ...propsWithoutSteps, reminders: [] });
-    component = stopLoad(component);
-    expect(component).toMatchSnapshot();
+    props = {
+      ...baseProps,
+      reminders: [],
+      steps: [],
+    };
+    testRender();
   });
 
-  it('renders with no focused steps', () => {
-    component = createComponent({ ...propsWithSteps, reminders: [] });
-    component = stopLoad(component);
-    expect(component).toMatchSnapshot();
+  it('renders with no focused steps correctly', () => {
+    props = {
+      ...baseProps,
+      reminders: [],
+      steps,
+    };
+    testRender();
   });
 
-  it('renders screen with steps correctly', () => {
-    component = createComponent(propsWithSteps);
-    component = stopLoad(component);
-    expect(component).toMatchSnapshot();
+  it('renders with no focused steps and less than 4 unfocused steps correctly', () => {
+    props = {
+      ...baseProps,
+      reminders: [],
+      steps: steps.slice(0, 3),
+    };
+    testRender();
   });
 
-  it('renders correctly with max reminders', () => {
-    const reminders = [
-      { id: 11, reminder: true },
-      { id: 12, reminder: true },
-      { id: 13, reminder: true },
-    ];
+  it('renders screen with some focused and unfocused steps correctly', () => {
+    props = {
+      ...baseProps,
+      reminders: reminders.slice(0, 1),
+      steps: steps,
+    };
+    testRender();
+  });
 
-    component = createComponent({ ...propsWithSteps, reminders });
-    component = stopLoad(component);
-    expect(component).toMatchSnapshot();
+  it('renders with max reminders correctly', () => {
+    props = {
+      ...baseProps,
+      reminders,
+      steps,
+    };
+    testRender();
   });
 
   describe('Background color changes with scrolling', () => {
     beforeEach(() => {
-      component = createComponent(propsWithSteps);
+      component = createComponent(baseProps);
       component = stopLoad(component);
     });
 
@@ -231,7 +269,7 @@ describe('StepsScreen', () => {
   describe('handleSetReminder', () => {
     it('should focus a step', () => {
       const component = createComponent({
-        ...propsWithSteps,
+        ...baseProps,
         reminders: [],
       });
 
@@ -250,7 +288,7 @@ describe('StepsScreen', () => {
 
     it('should focus a step and not show notification reminder screen if reminders already exist', () => {
       const component = createComponent({
-        ...propsWithSteps,
+        ...baseProps,
         reminders: ['someStep'],
       });
 
@@ -267,7 +305,7 @@ describe('StepsScreen', () => {
 
     it('should not focus a step when reminders slots are filled', () => {
       const component = createComponent({
-        ...propsWithSteps,
+        ...baseProps,
         reminders: ['step1', 'step2', 'step3'],
       });
 
@@ -287,7 +325,7 @@ describe('StepsScreen', () => {
     it('should remove reminder', () => {
       const step = 'some step';
       const component = createComponent({
-        ...propsWithSteps,
+        ...baseProps,
         reminders: [step],
       });
 
@@ -304,7 +342,7 @@ describe('StepsScreen', () => {
     it('should complete the step', () => {
       const step = 'some step';
       const component = createComponent({
-        ...propsWithSteps,
+        ...baseProps,
         reminders: [step],
       });
 
@@ -318,7 +356,7 @@ describe('StepsScreen', () => {
     it('should delete the step', () => {
       const step = 'some step';
       const component = createComponent({
-        ...propsWithSteps,
+        ...baseProps,
         reminders: [step],
       });
 
@@ -330,27 +368,27 @@ describe('StepsScreen', () => {
 
   describe('arrow functions', () => {
     it('should render item correctly', () => {
-      const component = createComponent(propsWithSteps);
+      const component = createComponent(baseProps);
 
       const renderedItem = component
         .instance()
-        .renderItem({ item: propsWithSteps.steps[0], index: 0 });
+        .renderItem({ item: baseProps.steps[0], index: 0 });
       expect(renderedItem).toMatchSnapshot();
     });
     it('should list ref', () => {
-      const instance = createComponent(propsWithSteps).instance();
+      const instance = createComponent(baseProps).instance();
       const ref = 'test';
       instance.listRef(ref);
       expect(instance.list).toEqual(ref);
     });
     it('should list key extractor', () => {
-      const instance = createComponent(propsWithSteps).instance();
+      const instance = createComponent(baseProps).instance();
       const item = { id: '1' };
       const result = instance.listKeyExtractor(item);
       expect(result).toEqual(item.id);
     });
     it('should open main menu', () => {
-      const instance = createComponent(propsWithSteps).instance();
+      const instance = createComponent(baseProps).instance();
       common.openMainMenu = jest.fn();
       instance.openMainMenu();
       expect(common.openMainMenu).toHaveBeenCalled();
@@ -359,9 +397,9 @@ describe('StepsScreen', () => {
 
   describe('handleRowSelect', () => {
     it('should navigate to person screen', () => {
-      const step = propsWithSteps.steps[0];
+      const step = baseProps.steps[0];
       const { receiver, organization } = step;
-      const screen = createComponent(propsWithSteps);
+      const screen = createComponent(baseProps);
       const listItem = renderShallow(
         screen
           .childAt(1)
