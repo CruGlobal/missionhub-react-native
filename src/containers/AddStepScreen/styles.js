@@ -34,7 +34,6 @@ export default StyleSheet.create({
   skipBtnText: {
     fontSize: 14,
     color: theme.white,
-
     fontWeight: 'bold',
   },
 });
