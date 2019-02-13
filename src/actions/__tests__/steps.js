@@ -75,7 +75,7 @@ describe('get steps page', () => {
     page: { limit: 25, offset: 25 },
     filters: { completed: false },
     include:
-      'receiver.reverse_contact_assignments,receiver.organizational_permissions',
+      'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion.description_markup',
   };
   const apiResult = { type: 'done' };
 
@@ -121,7 +121,7 @@ describe('getContactSteps', () => {
         organization_ids: orgId,
       },
       page: { limit: 1000 },
-      include: 'receiver',
+      include: 'receiver,challenge_suggestion.description_markup',
     });
     expect(store.getActions()).toEqual([apiResult]);
   });
@@ -224,7 +224,7 @@ describe('complete challenge', () => {
     order: '-focused_at,-accepted_at',
     filters: { completed: false },
     include:
-      'receiver.reverse_contact_assignments,receiver.organizational_permissions',
+      'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion.description_markup',
   };
   const data = {
     data: {

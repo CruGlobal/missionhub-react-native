@@ -19,8 +19,9 @@ import styles from './styles';
 @translate('stepDetail')
 export class StepDetailScreen extends Component {
   render() {
-    const { t, step, isSuggestion } = this.props;
+    const { t, step } = this.props;
 
+    const isSuggestion = step.type === STEP_SUGGESTION;
     const isCompleted = !isSuggestion && step.completed_at;
 
     const stepTitle = step.title || '';
