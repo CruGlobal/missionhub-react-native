@@ -169,7 +169,7 @@ describe('handleSaveNewSteps', () => {
   });
 });
 
-describe('handleCreateStep', () => {
+describe('handleCreateStep to SelectStepScreen', () => {
   it('navigates to select my steps', () => {
     contactAssignmentSelector.mockReturnValue(null);
     createComponent(true, { ...mockPerson, id: myId });
@@ -181,21 +181,6 @@ describe('handleCreateStep', () => {
       enableBackButton: true,
       trackingObj,
     });
-  });
-
-  it('navigates to select stage', () => {
-    contactAssignmentSelector.mockReturnValue(mockContactAssignment);
-    createComponent(false, mockPerson);
-
-    component.handleCreateStep();
-
-    expect(navigateToStageScreen).toHaveBeenCalledWith(
-      false,
-      mockPerson,
-      mockContactAssignment,
-      undefined,
-      null,
-    );
   });
 
   it('navigates to person steps', () => {
@@ -222,7 +207,26 @@ describe('handleCreateStep', () => {
       trackingObj,
     });
   });
+});
 
+describe('handleCreateStep to SelectStageScreen', () => {
+  it('navigates to select stage', () => {
+    contactAssignmentSelector.mockReturnValue(mockContactAssignment);
+    createComponent(false, mockPerson);
+
+    component.handleCreateStep();
+
+    expect(navigateToStageScreen).toHaveBeenCalledWith(
+      false,
+      mockPerson,
+      mockContactAssignment,
+      undefined,
+      null,
+    );
+  });
+});
+
+describe('handleCreateStep to SelectStageScreen', () => {
   it('assigns the contact to me with prompt', async () => {
     contactAssignmentSelector.mockReturnValue(null);
     promptToAssign.mockReturnValue(Promise.resolve(true));
