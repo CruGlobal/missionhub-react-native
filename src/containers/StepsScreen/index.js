@@ -109,6 +109,18 @@ export class StepsScreen extends Component {
     return this.props.reminders.length >= MAX_REMINDERS;
   }
 
+  hasFewSteps() {
+    const { steps } = this.props;
+    return steps.length <= MAX_REMINDERS;
+  }
+
+  canHideStars() {
+    return (
+      (!this.hasReminders() && this.hasFewSteps()) ||
+      (this.hasReminders() && this.hasMaxReminders())
+    );
+  }
+
   handleSetReminder(step) {
     const { dispatch, t } = this.props;
     dispatch(trackActionWithoutData(ACTIONS.STEP_PRIORITIZED));
@@ -188,7 +200,7 @@ export class StepsScreen extends Component {
   renderFocusPrompt() {
     const { t } = this.props;
 
-    if (this.hasReminders()) {
+    if (this.hasReminders() || this.hasFewSteps()) {
       return null;
     }
 
@@ -263,7 +275,7 @@ export class StepsScreen extends Component {
         <StepItem
           step={item}
           type="swipeable"
-          hideAction={this.hasMaxReminders()}
+          hideAction={this.canHideStars()}
           onSelect={this.handleRowSelect}
           onAction={this.handleSetReminder}
         />
@@ -294,7 +306,7 @@ export class StepsScreen extends Component {
         ref={this.listRef}
         style={[styles.list, { paddingBottom: hasMoreSteps ? 40 : undefined }]}
         data={steps}
-        extraData={{ hideStars: this.hasMaxReminders() }}
+        extraData={{ hideStars: this.canHideStars() }}
         keyExtractor={this.listKeyExtractor}
         renderItem={this.renderItem}
         removeClippedSubviews={false}

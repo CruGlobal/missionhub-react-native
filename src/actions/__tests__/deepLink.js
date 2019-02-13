@@ -41,8 +41,8 @@ const test = async ({
 
 describe('setupFirebaseDynamicLinks', () => {
   describe('unauthenticated', () => {
-    it('should handle a link that launched the app', async () =>
-      await test({
+    it('should handle a link that launched the app ', () =>
+      test({
         auth: false,
         initialLink: true,
         expectedActions: [
@@ -60,8 +60,8 @@ describe('setupFirebaseDynamicLinks', () => {
           }),
         ],
       }));
-    it('should handle a link that was opened while the app was running ', async () =>
-      await test({
+    it('should handle a link that was opened while the app was running ', () =>
+      test({
         auth: false,
         initialLink: false,
         expectedActions: [
@@ -81,8 +81,8 @@ describe('setupFirebaseDynamicLinks', () => {
       }));
   });
   describe('authenticated', () => {
-    it('should handle a link that launched the app ', async () =>
-      await test({
+    it('should handle a link that launched the app ', () =>
+      test({
         auth: true,
         initialLink: true,
         expectedActions: [
@@ -100,8 +100,8 @@ describe('setupFirebaseDynamicLinks', () => {
           }),
         ],
       }));
-    it('should handle a link that was opened while the app was running', async () =>
-      await test({
+    it('should handle a link that was opened while the app was running', () =>
+      test({
         auth: true,
         initialLink: false,
         expectedActions: [
@@ -121,12 +121,11 @@ describe('setupFirebaseDynamicLinks', () => {
       }));
   });
   describe('unknown links', () => {
-    it('should ignore an empty link', async () => {
-      await test({
+    it('should ignore an empty link', () =>
+      test({
         deepLink: '',
         expectedActions: [],
-      });
-    });
+      }));
     it('should ignore a link with the wrong domain', async () => {
       await test({
         deepLink: 'https://mhub.cc/c/1234567890123456',
@@ -142,22 +141,20 @@ describe('setupFirebaseDynamicLinks', () => {
         deepLink: 'https://missionhub.com/s/1234567890123456',
         expectedActions: [],
       });
-      test({
+      await test({
         deepLink: 'https://missionhub.com/1234567890123456',
         expectedActions: [],
       });
     });
-    it('should ignore a link using http', async () => {
-      await test({
+    it('should ignore a link using http', () =>
+      test({
         deepLink: 'http://missionhub.com/c/1234567890123456',
         expectedActions: [],
-      });
-    });
-    it('should ignore a link with too short of a code', async () => {
-      await test({
+      }));
+    it('should ignore a link with too short of a code', () =>
+      test({
         deepLink: 'https://missionhub.com/c/123456789012345',
         expectedActions: [],
-      });
-    });
+      }));
   });
 });

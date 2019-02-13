@@ -69,6 +69,14 @@
         "skipBlankLines": true,
         "skipComments": true
       }
+    ],
+    "no-return-await": 2,
+    "quotes": [
+      2,
+      "single",
+      {
+        "avoidEscape":true
+      }
     ]
   },
   "settings": {

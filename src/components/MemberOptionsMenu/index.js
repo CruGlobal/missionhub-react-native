@@ -111,7 +111,7 @@ class MemberOptionsMenu extends Component {
           { text: t('ok') },
         );
       };
-      return [{ text: t(`leaveCommunity.optionTitle`), onPress }];
+      return [{ text: t('leaveCommunity.optionTitle'), onPress }];
     }
 
     return this.createOption('leaveCommunity', this.leaveCommunity);
