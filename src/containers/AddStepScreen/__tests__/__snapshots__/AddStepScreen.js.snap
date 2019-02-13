@@ -4,7 +4,7 @@ exports[`renders correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
       "flexDirection": "column",
       "justifyContent": "space-between",
@@ -14,13 +14,46 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Array [
+        Object {},
         Object {
+          "alignItems": "center",
+          "flex": 1.5,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "AmaticSC-Bold",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 36,
+          },
+        ]
+      }
+    >
+      my step of faith
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingHorizontal": 30,
           "paddingTop": 10,
         },
         Object {
-          "alignItems": "stretch",
           "flex": 1,
-          "justifyContent": "center",
         },
       ]
     }
@@ -33,10 +66,10 @@ exports[`renders correctly 1`] = `
       maxLength={255}
       multiline={true}
       onChangeText={[Function]}
-      placeholder="Create your own step"
-      placeholderTextColor="#B4B6BA"
+      placeholder=""
+      placeholderTextColor="#505256"
       returnKeyType="done"
-      selectionColor="#005A7F"
+      selectionColor="#ffffff"
       style={
         Array [
           Object {
@@ -49,117 +82,12 @@ exports[`renders correctly 1`] = `
             "letterSpacing": 0.25,
             "paddingVertical": 5,
           },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "paddingHorizontal": 45,
-          },
+          Object {},
         ]
       }
       underlineColorAndroid="rgba(0,0,0,0)"
       value=""
     />
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "borderBottomWidth": 1,
-              "borderColor": "#E6E8EC",
-              "borderTopWidth": 1,
-              "paddingHorizontal": 30,
-            },
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "flex-start",
-            },
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={false}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Object {
-                  "color": "#52C5DC",
-                  "fontSize": 35,
-                  "padding": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#52C5DC",
-                "fontSize": 16,
-              },
-            ]
-          }
-        >
-          Set a Reminder
-        </Text>
-      </View>
-    </View>
   </View>
   <View
     style={
@@ -241,7 +169,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          ADD TO MY STEPS
+          CREATE STEP
         </Text>
       </View>
     </View>
@@ -323,9 +251,7 @@ exports[`renders correctly 1`] = `
                   Object {
                     "margin": 10,
                   },
-                  Object {
-                    "color": "#B4B6BA",
-                  },
+                  Object {},
                 ],
               ],
               Object {
@@ -349,7 +275,7 @@ exports[`renders edit journey correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
       "flexDirection": "column",
       "justifyContent": "space-between",
@@ -359,13 +285,48 @@ exports[`renders edit journey correctly 1`] = `
   <View
     style={
       Array [
+        Object {},
         Object {
+          "alignItems": "center",
+          "flex": 1.5,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "AmaticSC-Bold",
+          },
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 36,
+            "paddingHorizontal": 60,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      edit your comment
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingHorizontal": 30,
           "paddingTop": 10,
         },
         Object {
-          "alignItems": "stretch",
           "flex": 1,
-          "justifyContent": "center",
         },
       ]
     }
@@ -378,10 +339,10 @@ exports[`renders edit journey correctly 1`] = `
       maxLength={undefined}
       multiline={true}
       onChangeText={[Function]}
-      placeholder="Edit your comment"
-      placeholderTextColor="#B4B6BA"
+      placeholder=""
+      placeholderTextColor="#505256"
       returnKeyType="done"
-      selectionColor="#005A7F"
+      selectionColor="#ffffff"
       style={
         Array [
           Object {
@@ -394,13 +355,7 @@ exports[`renders edit journey correctly 1`] = `
             "letterSpacing": 0.25,
             "paddingVertical": 5,
           },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "paddingHorizontal": 45,
-          },
+          Object {},
         ]
       }
       underlineColorAndroid="rgba(0,0,0,0)"
@@ -569,9 +524,7 @@ exports[`renders edit journey correctly 1`] = `
                   Object {
                     "margin": 10,
                   },
-                  Object {
-                    "color": "#B4B6BA",
-                  },
+                  Object {},
                 ],
               ],
               Object {
@@ -595,7 +548,7 @@ exports[`renders interaction with skip correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
       "flexDirection": "column",
       "justifyContent": "space-between",
@@ -675,7 +628,7 @@ exports[`renders interaction with skip correctly 1`] = `
                   "textAlign": "center",
                 },
                 Object {
-                  "color": "#B4B6BA",
+                  "color": "#ffffff",
                   "fontSize": 14,
                   "fontWeight": "bold",
                 },
@@ -691,13 +644,48 @@ exports[`renders interaction with skip correctly 1`] = `
   <View
     style={
       Array [
+        Object {},
         Object {
+          "alignItems": "center",
+          "flex": 1.5,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "AmaticSC-Bold",
+          },
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 36,
+            "paddingHorizontal": 60,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      what did you see god do?
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingHorizontal": 30,
           "paddingTop": 10,
         },
         Object {
-          "alignItems": "stretch",
           "flex": 1,
-          "justifyContent": "center",
         },
       ]
     }
@@ -710,10 +698,10 @@ exports[`renders interaction with skip correctly 1`] = `
       maxLength={undefined}
       multiline={true}
       onChangeText={[Function]}
-      placeholder="What did you see God do?"
-      placeholderTextColor="#B4B6BA"
+      placeholder=""
+      placeholderTextColor="#505256"
       returnKeyType="done"
-      selectionColor="#005A7F"
+      selectionColor="#ffffff"
       style={
         Array [
           Object {
@@ -726,13 +714,7 @@ exports[`renders interaction with skip correctly 1`] = `
             "letterSpacing": 0.25,
             "paddingVertical": 5,
           },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "paddingHorizontal": 45,
-          },
+          Object {},
         ]
       }
       underlineColorAndroid="rgba(0,0,0,0)"
@@ -901,9 +883,7 @@ exports[`renders interaction with skip correctly 1`] = `
                   Object {
                     "margin": 10,
                   },
-                  Object {
-                    "color": "#B4B6BA",
-                  },
+                  Object {},
                 ],
               ],
               Object {
@@ -927,7 +907,7 @@ exports[`renders interaction without skip correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
       "flexDirection": "column",
       "justifyContent": "space-between",
@@ -937,13 +917,48 @@ exports[`renders interaction without skip correctly 1`] = `
   <View
     style={
       Array [
+        Object {},
         Object {
+          "alignItems": "center",
+          "flex": 1.5,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "AmaticSC-Bold",
+          },
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 36,
+            "paddingHorizontal": 60,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      what did you see god do?
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingHorizontal": 30,
           "paddingTop": 10,
         },
         Object {
-          "alignItems": "stretch",
           "flex": 1,
-          "justifyContent": "center",
         },
       ]
     }
@@ -956,10 +971,10 @@ exports[`renders interaction without skip correctly 1`] = `
       maxLength={undefined}
       multiline={true}
       onChangeText={[Function]}
-      placeholder="What did you see God do?"
-      placeholderTextColor="#B4B6BA"
+      placeholder=""
+      placeholderTextColor="#505256"
       returnKeyType="done"
-      selectionColor="#005A7F"
+      selectionColor="#ffffff"
       style={
         Array [
           Object {
@@ -972,13 +987,7 @@ exports[`renders interaction without skip correctly 1`] = `
             "letterSpacing": 0.25,
             "paddingVertical": 5,
           },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "paddingHorizontal": 45,
-          },
+          Object {},
         ]
       }
       underlineColorAndroid="rgba(0,0,0,0)"
@@ -1147,9 +1156,7 @@ exports[`renders interaction without skip correctly 1`] = `
                   Object {
                     "margin": 10,
                   },
-                  Object {
-                    "color": "#B4B6BA",
-                  },
+                  Object {},
                 ],
               ],
               Object {
@@ -1173,7 +1180,7 @@ exports[`renders journey correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
       "flexDirection": "column",
       "justifyContent": "space-between",
@@ -1183,13 +1190,48 @@ exports[`renders journey correctly 1`] = `
   <View
     style={
       Array [
+        Object {},
         Object {
+          "alignItems": "center",
+          "flex": 1.5,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "AmaticSC-Bold",
+          },
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 36,
+            "paddingHorizontal": 60,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      what did you see god do?
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingHorizontal": 30,
           "paddingTop": 10,
         },
         Object {
-          "alignItems": "stretch",
           "flex": 1,
-          "justifyContent": "center",
         },
       ]
     }
@@ -1202,10 +1244,10 @@ exports[`renders journey correctly 1`] = `
       maxLength={undefined}
       multiline={true}
       onChangeText={[Function]}
-      placeholder="What did you see God do?"
-      placeholderTextColor="#B4B6BA"
+      placeholder=""
+      placeholderTextColor="#505256"
       returnKeyType="done"
-      selectionColor="#005A7F"
+      selectionColor="#ffffff"
       style={
         Array [
           Object {
@@ -1218,13 +1260,7 @@ exports[`renders journey correctly 1`] = `
             "letterSpacing": 0.25,
             "paddingVertical": 5,
           },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "paddingHorizontal": 45,
-          },
+          Object {},
         ]
       }
       underlineColorAndroid="rgba(0,0,0,0)"
@@ -1393,9 +1429,7 @@ exports[`renders journey correctly 1`] = `
                   Object {
                     "margin": 10,
                   },
-                  Object {
-                    "color": "#B4B6BA",
-                  },
+                  Object {},
                 ],
               ],
               Object {
@@ -1419,7 +1453,7 @@ exports[`renders step note correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
       "flexDirection": "column",
       "justifyContent": "space-between",
@@ -1499,7 +1533,7 @@ exports[`renders step note correctly 1`] = `
                   "textAlign": "center",
                 },
                 Object {
-                  "color": "#B4B6BA",
+                  "color": "#ffffff",
                   "fontSize": 14,
                   "fontWeight": "bold",
                 },
@@ -1515,13 +1549,48 @@ exports[`renders step note correctly 1`] = `
   <View
     style={
       Array [
+        Object {},
         Object {
+          "alignItems": "center",
+          "flex": 1.5,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "AmaticSC-Bold",
+          },
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 36,
+            "paddingHorizontal": 60,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      what did you see god do?
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingHorizontal": 30,
           "paddingTop": 10,
         },
         Object {
-          "alignItems": "stretch",
           "flex": 1,
-          "justifyContent": "center",
         },
       ]
     }
@@ -1534,10 +1603,10 @@ exports[`renders step note correctly 1`] = `
       maxLength={undefined}
       multiline={true}
       onChangeText={[Function]}
-      placeholder="What did you see God do?"
-      placeholderTextColor="#B4B6BA"
+      placeholder=""
+      placeholderTextColor="#505256"
       returnKeyType="done"
-      selectionColor="#005A7F"
+      selectionColor="#ffffff"
       style={
         Array [
           Object {
@@ -1550,13 +1619,7 @@ exports[`renders step note correctly 1`] = `
             "letterSpacing": 0.25,
             "paddingVertical": 5,
           },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "paddingHorizontal": 45,
-          },
+          Object {},
         ]
       }
       underlineColorAndroid="rgba(0,0,0,0)"
