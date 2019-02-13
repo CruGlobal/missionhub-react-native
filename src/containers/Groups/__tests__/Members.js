@@ -63,7 +63,7 @@ const store = createMockStore({
 });
 
 beforeEach(() => {
-  navToPersonScreen.mockClear();
+  jest.clearAllMocks();
 });
 
 describe('Members', () => {
@@ -127,8 +127,8 @@ describe('Members', () => {
     });
     const instance = renderShallow(component, store2).instance();
     instance.componentDidMount();
-    expect(refreshCommunity).toHaveBeenCalledWith(orgId);
-    expect(getOrganizationMembers).toHaveBeenCalledWith(orgId);
+    expect(refreshCommunity).not.toHaveBeenCalled();
+    expect(getOrganizationMembers).not.toHaveBeenCalled();
   });
 
   it('should handleSelect correctly', () => {
@@ -172,7 +172,7 @@ describe('Members', () => {
     expect(renderedItem).toMatchSnapshot();
   });
 
-  it('calls invite', async () => {
+  it('calls invite and shows alert', async () => {
     const url = '123';
     const code = 'ABCDEF';
     const store2 = createMockStore({
@@ -219,6 +219,55 @@ describe('Members', () => {
       i18n.t('groupsMembers:invited', { orgName: organization.name }),
     );
     expect(removeGroupInviteInfo).toHaveBeenCalled();
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SEND_COMMUNITY_INVITE,
+    );
+  });
+
+  it('calls invite and does not show alert', async () => {
+    const url = '123';
+    const code = 'ABCDEF';
+    const store2 = createMockStore({
+      organizations: {
+        all: [
+          {
+            ...organization,
+            community_url: url,
+            community_code: code,
+            members,
+          },
+        ],
+        membersPagination: { hasNextPage: true },
+      },
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: orgId,
+              permission_id: ORG_PERMISSIONS.ADMIN,
+            },
+          ],
+        },
+      },
+      swipe: { groupInviteInfo: false },
+    });
+    const component = renderShallow(
+      <Members organization={organization} />,
+      store2,
+    );
+    Share.share = jest.fn(() => ({ action: Share.sharedAction }));
+    common.getCommunityUrl = jest.fn(() => url);
+    await component
+      .childAt(1)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(Share.share).toHaveBeenCalledWith({
+      message: i18n.t('groupsMembers:sendInviteMessage', { url, code }),
+    });
+    expect(Alert.alert).not.toHaveBeenCalled();
+    expect(removeGroupInviteInfo).not.toHaveBeenCalled();
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SEND_COMMUNITY_INVITE,
     );
