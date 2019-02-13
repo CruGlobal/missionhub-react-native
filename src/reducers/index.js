@@ -18,6 +18,7 @@ import swipe from './swipe';
 import drawer from './drawer';
 import journey from './journey';
 import tabs from './tabs';
+import celebrateComments from './celebrateComments';
 
 export default combineReducers({
   analytics,
@@ -38,4 +39,5 @@ export default combineReducers({
   steps,
   surveys,
   swipe,
+  celebrateComments,
 });

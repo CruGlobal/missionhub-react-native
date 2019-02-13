@@ -105,8 +105,7 @@ exports[`renders item 1`] = `
       "date": "2018-03-01 12:00:00",
     }
   }
-  myId="123"
-  onToggleLike={[Function]}
+  onPressItem={[Function]}
 />
 `;
 

@@ -48,20 +48,9 @@ exports[`render 0 contacts 1`] = `
       <Flex
         value={1}
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            }
-          }
-        >
-          WINTER CONFERENCE 2018
-        </MyText>
+        <ItemHeaderText
+          text="Winter Conference 2018"
+        />
         <MyText
           accessible={true}
           align="center"
@@ -196,20 +185,9 @@ exports[`render 0 unassigned 1`] = `
       <Flex
         value={1}
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            }
-          }
-        >
-          WINTER CONFERENCE 2018
-        </MyText>
+        <ItemHeaderText
+          text="Winter Conference 2018"
+        />
         <MyText
           accessible={true}
           align="center"
@@ -329,20 +307,9 @@ exports[`render 0 unassigned and 0 uncontacted 1`] = `
       <Flex
         value={1}
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            }
-          }
-        >
-          WINTER CONFERENCE 2018
-        </MyText>
+        <ItemHeaderText
+          text="Winter Conference 2018"
+        />
         <MyText
           accessible={true}
           align="center"
@@ -432,20 +399,9 @@ exports[`render 0 uncontacted 1`] = `
       <Flex
         value={1}
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            }
-          }
-        >
-          WINTER CONFERENCE 2018
-        </MyText>
+        <ItemHeaderText
+          text="Winter Conference 2018"
+        />
         <MyText
           accessible={true}
           align="center"
@@ -565,20 +521,9 @@ exports[`render survey 1`] = `
       <Flex
         value={1}
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            }
-          }
-        >
-          WINTER CONFERENCE 2018
-        </MyText>
+        <ItemHeaderText
+          text="Winter Conference 2018"
+        />
         <MyText
           accessible={true}
           align="center"

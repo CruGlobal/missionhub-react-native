@@ -29,11 +29,6 @@ export default StyleSheet.create({
     borderBottomWidth: theme.separatorHeight,
     borderBottomColor: theme.separatorColor,
   },
-  person: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: theme.primaryColor,
-  },
   description: {
     fontSize: 14,
   },
