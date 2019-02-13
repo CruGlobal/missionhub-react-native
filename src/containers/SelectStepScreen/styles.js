@@ -3,9 +3,13 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: theme.white,
+  list: {
+    paddingVertical: 16,
+    backgroundColor: theme.transparent,
+  },
+  card: {
+    marginHorizontal: 20,
+    marginVertical: 4,
   },
   headerIcon: {
     fontSize: 36,

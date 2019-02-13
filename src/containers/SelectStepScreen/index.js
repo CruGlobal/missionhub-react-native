@@ -210,17 +210,20 @@ class SelectStepScreen extends Component {
     </Flex>
   );
 
+  renderItem = ({ item }) => <StepSuggestionItem step={item} />;
+
   stepsListRef = c => (this.stepsList = c);
 
-  renderItem = item => <StepSuggestionItem step={item} />;
+  keyExtractor = item => item.id;
 
   render() {
     const { t } = this.props;
 
     return (
-      <Flex style={styles.container}>
+      <Flex value={1}>
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
+          contentBackgroundColor={theme.lightGrey}
           parallaxHeaderHeight={215 + theme.notchHeight}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={theme.headerHeight}
@@ -228,9 +231,11 @@ class SelectStepScreen extends Component {
         >
           <FlatList
             ref={this.stepsListRef}
+            keyExtractor={this.keyExtractor}
             data={this.state.steps}
             renderItem={this.renderItem}
             scrollEnabled={true}
+            style={styles.list}
           />
         </ParallaxScrollView>
         {this.renderSaveButton()}
