@@ -94,17 +94,6 @@ class SelectStepScreen extends Component {
     });
   };
 
-  filterSelected() {
-    return this.state.steps.filter(s => s.selected);
-  }
-
-  handleSelectStep = item => {
-    const steps = this.state.steps.map(
-      s => (s && s.id === item.id ? { ...s, selected: !s.selected } : s),
-    );
-    this.setState({ steps });
-  };
-
   handleCreateStep = () => {
     if (this.props.contact) {
       this.setState({ contact: this.props.contact });
@@ -140,14 +129,6 @@ class SelectStepScreen extends Component {
     );
   };
 
-  saveAllSteps = async () => {
-    const { dispatch, receiverId, organization, onComplete } = this.props;
-    const selectedSteps = this.filterSelected();
-
-    await dispatch(addSteps(selectedSteps, receiverId, organization));
-    onComplete();
-  };
-
   navigateBackTwoScreens = () => this.props.dispatch(navigateBack(2));
 
   renderBackButton() {
@@ -161,20 +142,6 @@ class SelectStepScreen extends Component {
         }
         absolute={true}
       />
-    ) : null;
-  }
-
-  renderSaveButton() {
-    const { t } = this.props;
-    return this.filterSelected().length > 0 ? (
-      <Flex align="center" justify="end">
-        <Button
-          type="secondary"
-          onPress={this.saveAllSteps}
-          text={t('addStep').toUpperCase()}
-          style={styles.addButton}
-        />
-      </Flex>
     ) : null;
   }
 
@@ -204,6 +171,31 @@ class SelectStepScreen extends Component {
 
   renderItem = ({ item }) => <StepSuggestionItem step={item} />;
 
+  renderLoadMore = () => {
+    const { loadMoreStepsButton, loadMoreStepsButtonText } = styles;
+
+    return (
+      <Button
+        pill={true}
+        text={this.props.t('loadMoreSteps').toUpperCase()}
+        onPress={this.handleLoadSteps}
+        style={loadMoreStepsButton}
+        buttonTextStyle={loadMoreStepsButtonText}
+      />
+    );
+  };
+
+  renderCreateStepButton = () => (
+    <View flex={0} alignItems="stretch" justifyContent="flex-end">
+      <Button
+        type="secondary"
+        onPress={this.handleCreateStep}
+        text={this.props.t('addStep').toUpperCase()}
+        style={styles.addButton}
+      />
+    </View>
+  );
+
   stepsListRef = c => (this.stepsList = c);
 
   keyExtractor = item => item.id;
@@ -228,9 +220,10 @@ class SelectStepScreen extends Component {
             renderItem={this.renderItem}
             scrollEnabled={true}
             style={styles.list}
+            ListFooterComponent={this.renderLoadMore}
           />
         </ParallaxScrollView>
-        {this.renderSaveButton()}
+        {this.renderCreateStepButton()}
         {this.renderBackButton()}
       </Flex>
     );
