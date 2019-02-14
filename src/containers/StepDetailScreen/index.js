@@ -11,7 +11,7 @@ import BackButton from '../BackButton';
 import ReminderButton from '../../components/ReminderButton';
 import { Flex, Button, Text } from '../../components/common';
 
-import styles from './styles';
+import styles, { markupStyles } from './styles';
 
 @translate('stepDetail')
 export class StepDetailScreen extends Component {
@@ -46,12 +46,9 @@ export class StepDetailScreen extends Component {
 
   renderTipSection = tipDescription => {
     return tipDescription ? (
-      <Flex value={1} style={styles.tipContainer}>
-        <ScrollView>
-          <Text style={styles.tipTitleText}>{this.props.t('tipTitle')}</Text>
-          <Markdown style={styles.tipDescriptionText}>
-            {tipDescription}
-          </Markdown>
+      <Flex value={1}>
+        <ScrollView style={styles.tipContainer}>
+          <Markdown styles={markupStyles}>{tipDescription}</Markdown>
         </ScrollView>
       </Flex>
     ) : (
