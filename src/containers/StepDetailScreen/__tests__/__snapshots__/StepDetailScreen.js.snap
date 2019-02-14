@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render renders for accepted step 1`] = `
-<Flex
+<Component
+  flex={1}
   style={
     Object {
       "backgroundColor": "#ffffff",
     }
   }
-  value={1}
 >
   <Connect(Header)
     left={
@@ -63,11 +63,12 @@ exports[`render renders for accepted step 1`] = `
     Step of Faith
   </MyText>
   <Connect(Translate(ReminderButton)) />
-  <Flex
-    value={1}
+  <Component
+    flex={1}
   />
-  <Flex
+  <Component
     align="center"
+    flex={0}
     justify="end"
   >
     <Button
@@ -80,18 +81,18 @@ exports[`render renders for accepted step 1`] = `
       text="I DID IT!"
       type="secondary"
     />
-  </Flex>
-</Flex>
+  </Component>
+</Component>
 `;
 
 exports[`render renders for accepted step with tip 1`] = `
-<Flex
+<Component
+  flex={1}
   style={
     Object {
       "backgroundColor": "#ffffff",
     }
   }
-  value={1}
 >
   <Connect(Header)
     left={
@@ -147,8 +148,8 @@ exports[`render renders for accepted step with tip 1`] = `
     Step of Faith
   </MyText>
   <Connect(Translate(ReminderButton)) />
-  <Flex
-    value={1}
+  <Component
+    flex={1}
   >
     <ScrollView
       style={
@@ -199,9 +200,10 @@ exports[`render renders for accepted step with tip 1`] = `
         Accepted Step Tip
       </Markdown>
     </ScrollView>
-  </Flex>
-  <Flex
+  </Component>
+  <Component
     align="center"
+    flex={0}
     justify="end"
   >
     <Button
@@ -214,18 +216,18 @@ exports[`render renders for accepted step with tip 1`] = `
       text="I DID IT!"
       type="secondary"
     />
-  </Flex>
-</Flex>
+  </Component>
+</Component>
 `;
 
 exports[`render renders for completed step 1`] = `
-<Flex
+<Component
+  flex={1}
   style={
     Object {
       "backgroundColor": "#ffffff",
     }
   }
-  value={1}
 >
   <Connect(Header)
     center={
@@ -271,20 +273,20 @@ exports[`render renders for completed step 1`] = `
     Step of Faith
   </MyText>
   <Connect(Translate(ReminderButton)) />
-  <Flex
-    value={1}
+  <Component
+    flex={1}
   />
-</Flex>
+</Component>
 `;
 
 exports[`render renders for suggested step 1`] = `
-<Flex
+<Component
+  flex={1}
   style={
     Object {
       "backgroundColor": "#ffffff",
     }
   }
-  value={1}
 >
   <Connect(Header)
     center={false}
@@ -320,11 +322,12 @@ exports[`render renders for suggested step 1`] = `
     }
   />
   <Connect(Translate(ReminderButton)) />
-  <Flex
-    value={1}
+  <Component
+    flex={1}
   />
-  <Flex
+  <Component
     align="center"
+    flex={0}
     justify="end"
   >
     <Button
@@ -337,18 +340,18 @@ exports[`render renders for suggested step 1`] = `
       text="ADD TO MY STEPS"
       type="secondary"
     />
-  </Flex>
-</Flex>
+  </Component>
+</Component>
 `;
 
 exports[`render renders for suggested step with tip 1`] = `
-<Flex
+<Component
+  flex={1}
   style={
     Object {
       "backgroundColor": "#ffffff",
     }
   }
-  value={1}
 >
   <Connect(Header)
     center={false}
@@ -384,8 +387,8 @@ exports[`render renders for suggested step with tip 1`] = `
     }
   />
   <Connect(Translate(ReminderButton)) />
-  <Flex
-    value={1}
+  <Component
+    flex={1}
   >
     <ScrollView
       style={
@@ -436,9 +439,10 @@ exports[`render renders for suggested step with tip 1`] = `
         Suggested Step Tip
       </Markdown>
     </ScrollView>
-  </Flex>
-  <Flex
+  </Component>
+  <Component
     align="center"
+    flex={0}
     justify="end"
   >
     <Button
@@ -451,6 +455,6 @@ exports[`render renders for suggested step with tip 1`] = `
       text="ADD TO MY STEPS"
       type="secondary"
     />
-  </Flex>
-</Flex>
+  </Component>
+</Component>
 `;

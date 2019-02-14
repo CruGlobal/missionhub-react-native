@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import Markdown from 'react-native-simple-markdown';
@@ -9,7 +9,7 @@ import { STEP_SUGGESTION, ACCEPTED_STEP } from '../../constants';
 import Header from '../Header';
 import BackButton from '../BackButton';
 import ReminderButton from '../../components/ReminderButton';
-import { Flex, Button, Text } from '../../components/common';
+import { Button, Text } from '../../components/common';
 
 import styles, { markupStyles } from './styles';
 
@@ -47,14 +47,14 @@ export class StepDetailScreen extends Component {
 
   renderTipSection() {
     const { tipDescription } = this.props;
-    return tipDescription ? (
-      <Flex value={1}>
-        <ScrollView style={styles.tipContainer}>
-          <Markdown styles={markupStyles}>{tipDescription}</Markdown>
-        </ScrollView>
-      </Flex>
-    ) : (
-      <Flex value={1} />
+    return (
+      <View flex={1}>
+        {tipDescription && (
+          <ScrollView style={styles.tipContainer}>
+            <Markdown styles={markupStyles}>{tipDescription}</Markdown>
+          </ScrollView>
+        )}
+      </View>
     );
   }
 
@@ -62,7 +62,7 @@ export class StepDetailScreen extends Component {
     const { isCompleted, isSuggestion } = this.props;
     return (
       !isCompleted && (
-        <Flex align="center" justify="end">
+        <View flex={0} align="center" justify="end">
           <Button
             type="secondary"
             onPress={
@@ -73,7 +73,7 @@ export class StepDetailScreen extends Component {
               .toUpperCase()}
             style={styles.bottomButton}
           />
-        </Flex>
+        </View>
       )
     );
   };
@@ -81,13 +81,13 @@ export class StepDetailScreen extends Component {
   render() {
     const { stepTitle } = this.props;
     return (
-      <Flex value={1} style={styles.container}>
+      <View flex={1} style={styles.container}>
         {this.renderHeader()}
         <Text style={styles.stepTitleText}>{stepTitle}</Text>
         <ReminderButton />
         {this.renderTipSection()}
         {this.renderBottomButton()}
-      </Flex>
+      </View>
     );
   }
 }
