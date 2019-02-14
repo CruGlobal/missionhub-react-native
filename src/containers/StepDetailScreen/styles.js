@@ -26,17 +26,14 @@ export default StyleSheet.create({
     fontSize: 32,
     lineHeight: 38,
     fontWeight: '300',
+    marginVertical: 26,
+    marginHorizontal: 32,
   },
   tipContainer: {
     marginVertical: 26,
     paddingHorizontal: 32,
     paddingBottom: 14,
   },
-  stepTitleContainer: {
-    marginVertical: 26,
-    marginHorizontal: 32,
-  },
-
   bottomButton: {
     width: theme.fullWidth,
   },

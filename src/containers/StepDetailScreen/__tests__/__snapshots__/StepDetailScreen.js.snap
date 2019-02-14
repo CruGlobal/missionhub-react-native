@@ -10,7 +10,6 @@ exports[`render renders for accepted step 1`] = `
   value={1}
 >
   <Connect(Header)
-    center={null}
     left={
       <Connect(BackButton)
         iconStyle={
@@ -47,29 +46,22 @@ exports[`render renders for accepted step 1`] = `
       }
     }
   />
-  <Flex
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
       Object {
+        "fontSize": 32,
+        "fontWeight": "300",
+        "lineHeight": 38,
         "marginHorizontal": 32,
         "marginVertical": 26,
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-        }
-      }
-    >
-      Step of Faith
-    </MyText>
-  </Flex>
+    Step of Faith
+  </MyText>
   <Connect(Translate(ReminderButton)) />
   <Flex
     value={1}
@@ -102,7 +94,6 @@ exports[`render renders for accepted step with tip 1`] = `
   value={1}
 >
   <Connect(Header)
-    center={null}
     left={
       <Connect(BackButton)
         iconStyle={
@@ -139,29 +130,22 @@ exports[`render renders for accepted step with tip 1`] = `
       }
     }
   />
-  <Flex
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
       Object {
+        "fontSize": 32,
+        "fontWeight": "300",
+        "lineHeight": 38,
         "marginHorizontal": 32,
         "marginVertical": 26,
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-        }
-      }
-    >
-      Step of Faith
-    </MyText>
-  </Flex>
+    Step of Faith
+  </MyText>
   <Connect(Translate(ReminderButton)) />
   <Flex
     value={1}
@@ -262,7 +246,7 @@ exports[`render renders for completed step 1`] = `
         }
       />
     }
-    right={null}
+    right={false}
     shadow={false}
     style={
       Object {
@@ -270,29 +254,22 @@ exports[`render renders for completed step 1`] = `
       }
     }
   />
-  <Flex
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
       Object {
+        "fontSize": 32,
+        "fontWeight": "300",
+        "lineHeight": 38,
         "marginHorizontal": 32,
         "marginVertical": 26,
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-        }
-      }
-    >
-      Step of Faith
-    </MyText>
-  </Flex>
+    Step of Faith
+  </MyText>
   <Connect(Translate(ReminderButton)) />
   <Flex
     value={1}
@@ -310,7 +287,7 @@ exports[`render renders for suggested step 1`] = `
   value={1}
 >
   <Connect(Header)
-    center={null}
+    center={false}
     left={
       <Connect(BackButton)
         iconStyle={
@@ -320,7 +297,7 @@ exports[`render renders for suggested step 1`] = `
         }
       />
     }
-    right={null}
+    right={false}
     shadow={false}
     style={
       Object {
@@ -328,29 +305,20 @@ exports[`render renders for suggested step 1`] = `
       }
     }
   />
-  <Flex
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
       Object {
+        "fontSize": 32,
+        "fontWeight": "300",
+        "lineHeight": 38,
         "marginHorizontal": 32,
         "marginVertical": 26,
       }
     }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-        }
-      }
-    >
-      Step of Faith
-    </MyText>
-  </Flex>
+  />
   <Connect(Translate(ReminderButton)) />
   <Flex
     value={1}
@@ -383,7 +351,7 @@ exports[`render renders for suggested step with tip 1`] = `
   value={1}
 >
   <Connect(Header)
-    center={null}
+    center={false}
     left={
       <Connect(BackButton)
         iconStyle={
@@ -393,7 +361,7 @@ exports[`render renders for suggested step with tip 1`] = `
         }
       />
     }
-    right={null}
+    right={false}
     shadow={false}
     style={
       Object {
@@ -401,29 +369,20 @@ exports[`render renders for suggested step with tip 1`] = `
       }
     }
   />
-  <Flex
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
       Object {
+        "fontSize": 32,
+        "fontWeight": "300",
+        "lineHeight": 38,
         "marginHorizontal": 32,
         "marginVertical": 26,
       }
     }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-        }
-      }
-    >
-      Step of Faith
-    </MyText>
-  </Flex>
+  />
   <Connect(Translate(ReminderButton)) />
   <Flex
     value={1}

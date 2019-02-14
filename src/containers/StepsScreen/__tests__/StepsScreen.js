@@ -25,11 +25,13 @@ import {
   setStepFocus,
 } from '../../../actions/steps';
 import * as common from '../../../utils/common';
-import { navToPersonScreen } from '../../../actions/person';
+import { navigatePush } from '../../../actions/navigation';
+import { STEP_DETAIL_SCREEN } from '../../StepDetailScreen';
 
 jest.mock('../../../selectors/steps');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/notifications');
+jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/person');
 
@@ -398,7 +400,6 @@ describe('StepsScreen', () => {
   describe('handleRowSelect', () => {
     it('should navigate to person screen', () => {
       const step = baseProps.steps[0];
-      const { receiver, organization } = step;
       const screen = createComponent(baseProps);
       const listItem = renderShallow(
         screen
@@ -413,7 +414,7 @@ describe('StepsScreen', () => {
 
       listItem.props().onSelect(step);
 
-      expect(navToPersonScreen).toHaveBeenCalledWith(receiver, organization);
+      expect(navigatePush).toHaveBeenCalledWith(STEP_DETAIL_SCREEN, { step });
     });
   });
 });

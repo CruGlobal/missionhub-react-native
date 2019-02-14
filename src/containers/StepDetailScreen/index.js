@@ -21,14 +21,15 @@ export class StepDetailScreen extends Component {
 
   handleCompleteStep = () => {};
 
-  renderHeader = (isCompleted, isSuggestion) => {
-    const { t } = this.props;
+  renderHeader() {
+    const { t, isCompleted, isSuggestion } = this.props;
     return (
       <Header
         left={<BackButton iconStyle={styles.backButton} />}
-        center={isCompleted ? <Text>{t('completedStep')}</Text> : null}
+        center={isCompleted && <Text>{t('completedStep')}</Text>}
         right={
-          !isSuggestion && !isCompleted ? (
+          !isSuggestion &&
+          !isCompleted && (
             <Button
               type="transparent"
               text={t('removeStep').toUpperCase()}
@@ -36,15 +37,16 @@ export class StepDetailScreen extends Component {
               style={styles.removeStepButton}
               buttonTextStyle={styles.removeStepButtonText}
             />
-          ) : null
+          )
         }
         shadow={false}
         style={styles.container}
       />
     );
-  };
+  }
 
-  renderTipSection = tipDescription => {
+  renderTipSection() {
+    const { tipDescription } = this.props;
     return tipDescription ? (
       <Flex value={1}>
         <ScrollView style={styles.tipContainer}>
@@ -54,42 +56,37 @@ export class StepDetailScreen extends Component {
     ) : (
       <Flex value={1} />
     );
-  };
+  }
 
-  renderBottomButton = (isCompleted, isSuggestion) => {
-    return !isCompleted ? (
-      <Flex align="center" justify="end">
-        <Button
-          type="secondary"
-          onPress={isSuggestion ? this.handleAddStep : this.handleCompleteStep}
-          text={this.props.t(isSuggestion ? 'addStep' : 'iDidIt').toUpperCase()}
-          style={styles.bottomButton}
-        />
-      </Flex>
-    ) : null;
+  renderBottomButton = () => {
+    const { isCompleted, isSuggestion } = this.props;
+    return (
+      !isCompleted && (
+        <Flex align="center" justify="end">
+          <Button
+            type="secondary"
+            onPress={
+              isSuggestion ? this.handleAddStep : this.handleCompleteStep
+            }
+            text={this.props
+              .t(isSuggestion ? 'addStep' : 'iDidIt')
+              .toUpperCase()}
+            style={styles.bottomButton}
+          />
+        </Flex>
+      )
+    );
   };
 
   render() {
-    const { step } = this.props;
-
-    const isSuggestion = step.type === STEP_SUGGESTION;
-    const isCompleted = !isSuggestion && step.completed_at;
-
-    const stepTitle = step.title || '';
-    const tipDescription = (isSuggestion
-      ? step
-      : step.challenge_suggestion || {}
-    ).description_markdown;
-
+    const { stepTitle } = this.props;
     return (
       <Flex value={1} style={styles.container}>
-        {this.renderHeader(isCompleted, isSuggestion)}
-        <Flex style={styles.stepTitleContainer}>
-          <Text style={styles.stepTitleText}>{stepTitle}</Text>
-        </Flex>
+        {this.renderHeader()}
+        <Text style={styles.stepTitleText}>{stepTitle}</Text>
         <ReminderButton />
-        {this.renderTipSection(tipDescription)}
-        {this.renderBottomButton(isCompleted, isSuggestion)}
+        {this.renderTipSection()}
+        {this.renderBottomButton()}
       </Flex>
     );
   }
@@ -104,8 +101,19 @@ StepDetailScreen.propTypes = {
 const mapStateToProps = (_, { navigation }) => {
   const { step } = navigation.state.params;
 
+  const isSuggestion = step.type === STEP_SUGGESTION;
+  const isCompleted = !isSuggestion && step.completed_at;
+
+  const stepTitle = isSuggestion ? step.body : step.title;
+  const tipDescription = (isSuggestion ? step : step.challenge_suggestion || {})
+    .description_markdown;
+
   return {
     step,
+    isSuggestion,
+    isCompleted,
+    stepTitle,
+    tipDescription,
   };
 };
 
