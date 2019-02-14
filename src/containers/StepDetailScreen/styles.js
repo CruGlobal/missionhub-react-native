@@ -56,6 +56,13 @@ export const markupStyles = {
     fontSize: 16,
     lineHeight: 26,
   },
+  strong: {
+    color: theme.textColor,
+    fontFamily: 'SourceSansPro-Regular',
+    fontWeight: 'bold',
+    fontSize: 16,
+    lineHeight: 26,
+  },
   listItemBullet: {
     color: theme.textColor,
     fontFamily: 'SourceSansPro-Regular',

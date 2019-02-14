@@ -164,45 +164,56 @@ exports[`render renders for accepted step with tip 1`] = `
   </Flex>
   <Connect(Translate(ReminderButton)) />
   <Flex
-    style={
-      Object {
-        "marginVertical": 26,
-      }
-    }
     value={1}
   >
-    <ScrollView>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
+    <ScrollView
+      style={
+        Object {
+          "marginVertical": 26,
+          "paddingBottom": 14,
+          "paddingHorizontal": 32,
+        }
+      }
+    >
+      <Markdown
+        blacklist={Array []}
+        rules={Object {}}
+        styles={
           Object {
-            "fontSize": 24,
-            "fontWeight": "300",
-            "lineHeight": 30,
-            "paddingBottom": 16,
-            "paddingHorizontal": 32,
+            "heading1": Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+            },
+            "listItemBullet": Object {
+              "alignSelf": "flex-start",
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "lineHeight": 26,
+              "paddingRight": 16,
+            },
+            "strong": Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "lineHeight": 26,
+            },
+            "text": Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "lineHeight": 26,
+            },
           }
         }
-      >
-        Not quite sure how to do this?
-      </MyText>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 16,
-            "lineHeight": 26,
-            "paddingHorizontal": 32,
-            "paddingTop": 14,
-          }
-        }
+        whitelist={Array []}
       >
         Accepted Step Tip
-      </MyText>
+      </Markdown>
     </ScrollView>
   </Flex>
   <Flex
@@ -415,45 +426,56 @@ exports[`render renders for suggested step with tip 1`] = `
   </Flex>
   <Connect(Translate(ReminderButton)) />
   <Flex
-    style={
-      Object {
-        "marginVertical": 26,
-      }
-    }
     value={1}
   >
-    <ScrollView>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
+    <ScrollView
+      style={
+        Object {
+          "marginVertical": 26,
+          "paddingBottom": 14,
+          "paddingHorizontal": 32,
+        }
+      }
+    >
+      <Markdown
+        blacklist={Array []}
+        rules={Object {}}
+        styles={
           Object {
-            "fontSize": 24,
-            "fontWeight": "300",
-            "lineHeight": 30,
-            "paddingBottom": 16,
-            "paddingHorizontal": 32,
+            "heading1": Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+            },
+            "listItemBullet": Object {
+              "alignSelf": "flex-start",
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "lineHeight": 26,
+              "paddingRight": 16,
+            },
+            "strong": Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "lineHeight": 26,
+            },
+            "text": Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "lineHeight": 26,
+            },
           }
         }
-      >
-        Not quite sure how to do this?
-      </MyText>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 16,
-            "lineHeight": 26,
-            "paddingHorizontal": 32,
-            "paddingTop": 14,
-          }
-        }
+        whitelist={Array []}
       >
         Suggested Step Tip
-      </MyText>
+      </Markdown>
     </ScrollView>
   </Flex>
   <Flex

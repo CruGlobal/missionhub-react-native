@@ -206,7 +206,6 @@ export default {
   },
   stepDetail: {
     removeStep: 'Remove Step',
-    tipTitle: 'Not quite sure how to do this?',
     completedStep: 'Completed Step',
     addStep: 'Add to My Steps',
     iDidIt: 'I Did It!',
