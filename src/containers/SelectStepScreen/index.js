@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -13,6 +13,7 @@ import StepSuggestionItem from '../../components/StepSuggestionItem';
 import StepsList from '../../components/StepsList';
 import { Flex, Text, Button, Icon } from '../../components/common';
 import BackButton from '../BackButton';
+import Header from '../Header';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, shuffleArray } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
@@ -163,25 +164,6 @@ class SelectStepScreen extends Component {
     ) : null;
   }
 
-  renderTitle() {
-    const { t } = this.props;
-
-    return (
-      <Flex
-        value={1}
-        align="center"
-        justify="center"
-        style={{ marginTop: theme.notchHeight }}
-      >
-        <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
-        <Text type="header" style={styles.headerTitle}>
-          {t('stepsOfFaith')}
-        </Text>
-        <Text style={styles.headerText}>{this.props.headerText}</Text>
-      </Flex>
-    );
-  }
-
   renderSaveButton() {
     const { t } = this.props;
     return this.filterSelected().length > 0 ? (
@@ -196,18 +178,28 @@ class SelectStepScreen extends Component {
     ) : null;
   }
 
-  renderForeground = () => (
-    <Flex value={1} align="center" justify="center">
-      {this.renderTitle()}
-    </Flex>
-  );
+  renderForeground = () => {
+    const { t } = this.props;
+    return (
+      <View flex={1} alignItems={'center'}>
+        <Header />
+        <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
+        <Text type="header" style={styles.headerTitle}>
+          {t('stepsOfFaith')}
+        </Text>
+        <Text style={styles.headerText}>{this.props.headerText}</Text>
+      </View>
+    );
+  };
 
   renderStickHeader = () => (
-    <Flex align="center" justify="center" style={styles.collapsedHeader}>
-      <Text style={styles.collapsedHeaderTitle}>
-        {this.props.t('stepsOfFaith').toUpperCase()}
-      </Text>
-    </Flex>
+    <Header
+      center={
+        <Text style={styles.collapsedHeaderTitle}>
+          {this.props.t('stepsOfFaith').toUpperCase()}
+        </Text>
+      }
+    />
   );
 
   renderItem = ({ item }) => <StepSuggestionItem step={item} />;
@@ -224,7 +216,7 @@ class SelectStepScreen extends Component {
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
           contentBackgroundColor={theme.lightGrey}
-          parallaxHeaderHeight={215 + theme.notchHeight}
+          parallaxHeaderHeight={240 + theme.notchHeight}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={theme.headerHeight}
           renderStickyHeader={this.renderStickHeader}
