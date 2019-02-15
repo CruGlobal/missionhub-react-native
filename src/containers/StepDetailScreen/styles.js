@@ -39,7 +39,7 @@ export default StyleSheet.create({
   },
 });
 
-export const markupStyles = {
+export const markdownStyles = {
   heading1: {
     color: theme.textColor,
     fontFamily: 'SourceSansPro-Regular',

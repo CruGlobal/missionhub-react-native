@@ -283,6 +283,10 @@ const buildPersonScreenRoute = screen =>
   );
 
 const screens = {
+  [STEP_DETAIL_SCREEN]: buildTrackedScreen(
+    StepDetailScreen,
+    buildTrackingObj('step : detail', 'step'),
+  ),
   [UPGRADE_ACCOUNT_SCREEN]: buildTrackedScreen(
     UpgradeAccountScreen,
     buildTrackingObj('auth', 'auth'),
@@ -480,7 +484,6 @@ export const MainStackRoutes = createStackNavigator(
     [ADD_STEP_SCREEN]: { screen: AddStepScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },
     [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
-    [STEP_DETAIL_SCREEN]: { screen: StepDetailScreen },
     [PERSON_STAGE_SCREEN]: {
       screen: PersonStageScreen,
       navigationOptions: { gesturesEnabled: true },

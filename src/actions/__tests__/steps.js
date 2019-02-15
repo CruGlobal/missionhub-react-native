@@ -28,6 +28,7 @@ import {
   STEP_NOTE,
   TOGGLE_STEP_FOCUS,
   CUSTOM_STEP_TYPE,
+  ACCEPTED_STEP,
 } from '../../constants';
 import { COMPLETE_STEP_FLOW } from '../../routes/constants';
 
@@ -75,7 +76,7 @@ describe('get steps page', () => {
     page: { limit: 25, offset: 25 },
     filters: { completed: false },
     include:
-      'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion.description_markup',
+      'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
   };
   const apiResult = { type: 'done' };
 
@@ -121,7 +122,7 @@ describe('getContactSteps', () => {
         organization_ids: orgId,
       },
       page: { limit: 1000 },
-      include: 'receiver,challenge_suggestion.description_markup',
+      include: 'receiver,challenge_suggestion',
     });
     expect(store.getActions()).toEqual([apiResult]);
   });
@@ -146,21 +147,21 @@ describe('addSteps', () => {
 
   const acceptedChallenges = [
     {
-      type: 'accepted_challenge',
+      type: ACCEPTED_STEP,
       attributes: {
         title: step1.body,
         challenge_suggestion_id: step1.id,
       },
     },
     {
-      type: 'accepted_challenge',
+      type: ACCEPTED_STEP,
       attributes: {
         title: step2.body,
         challenge_suggestion_id: null,
       },
     },
     {
-      type: 'accepted_challenge',
+      type: ACCEPTED_STEP,
       attributes: {
         title: step3.body,
         challenge_suggestion_id: null,
@@ -224,11 +225,11 @@ describe('complete challenge', () => {
     order: '-focused_at,-accepted_at',
     filters: { completed: false },
     include:
-      'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion.description_markup',
+      'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
   };
   const data = {
     data: {
-      type: 'accepted_challenge',
+      type: ACCEPTED_STEP,
       attributes: {
         completed_at: mockDate,
       },
@@ -400,7 +401,7 @@ describe('Set Focus', () => {
 
   const focusData = {
     data: {
-      type: 'accepted_challenge',
+      type: ACCEPTED_STEP,
       attributes: {
         organization_id: null,
         focus: true,
@@ -418,7 +419,7 @@ describe('Set Focus', () => {
 
   const unfocusData = {
     data: {
-      type: 'accepted_challenge',
+      type: ACCEPTED_STEP,
       attributes: {
         organization_id: null,
         focus: false,

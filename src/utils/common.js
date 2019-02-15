@@ -20,6 +20,7 @@ import {
   ORG_PERMISSIONS,
   INTERACTION_TYPES,
   DEFAULT_PAGE_LIMIT,
+  ACCEPTED_STEP,
 } from '../constants';
 
 export const shuffleArray = arr => {
@@ -182,7 +183,7 @@ const interactionsArr = Object.keys(INTERACTION_TYPES).map(
 );
 // For journey items, feed items, etc.
 export const getIconName = (type, interaction_type_id) => {
-  if (type === 'accepted_challenge') {
+  if (type === ACCEPTED_STEP) {
     return 'stepsIcon';
   } else if (type === 'pathway_progression_audit') {
     return 'journeyIcon';
