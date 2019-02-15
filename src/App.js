@@ -15,7 +15,7 @@ import { store, persistor } from './store';
 import './utils/globals';
 import LoadingScreen from './containers/LoadingScreen';
 import AppWithNavigationState from './AppNavigator';
-import { codeLogin } from './actions/auth';
+import { codeLogin } from './actions/auth/anonymous';
 import {
   EXPIRED_ACCESS_TOKEN,
   INVALID_ACCESS_TOKEN,
@@ -29,6 +29,7 @@ import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import { COLORS } from './theme';
+import { navigateToPostAuthScreen } from './actions/auth/auth';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -61,21 +62,19 @@ export default class App extends Component {
     const iOSKey = 'org.cru.missionhub.clientIdKey'; // key from the old iOS app
     const androidKey = 'account.guest.secret'; // key from the old android app
 
-    const getKey = key => {
-      DefaultPreference.get(key).then(value => {
-        if (value) {
-          store
-            .dispatch(codeLogin(value))
-            .then(() => {
-              // If we successfully logged in with the user's guest code, clear it out now
-              DefaultPreference.clear(key);
-            })
-            .catch(() => {
-              // This happens when there is a problem with the code from the API call
-              // We don't want to clear out the key here
-            });
+    const getKey = async key => {
+      const value = await DefaultPreference.get(key);
+      if (value) {
+        try {
+          await store.dispatch(codeLogin(value));
+          // If we successfully logged in with the user's guest code, clear it out now
+          DefaultPreference.clear(key);
+          store.dispatch(navigateToPostAuthScreen());
+        } catch (e) {
+          // This happens when there is a problem with the code from the API call
+          // We don't want to clear out the key here
         }
-      });
+      }
     };
     if (isAndroid) {
       DefaultPreference.setName('com.missionhub.accounts.AccountManager').then(

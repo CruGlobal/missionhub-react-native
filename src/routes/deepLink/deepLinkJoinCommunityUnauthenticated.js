@@ -3,7 +3,7 @@ import { createStackNavigator } from 'react-navigation';
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
-import { firstTime, loadHome } from '../../actions/auth';
+import { firstTime, loadHome } from '../../actions/auth/userData';
 import {
   completeOnboarding,
   stashCommunityToJoin,
@@ -16,9 +16,18 @@ import DeepLinkConfirmJoinGroupScreen, {
 } from '../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
-import KeyLoginScreen, {
-  KEY_LOGIN_SCREEN,
-} from '../../containers/Auth/KeyLoginScreen';
+import SignInScreen, {
+  SIGN_IN_SCREEN,
+} from '../../containers/Auth/SignInScreen';
+import MFACodeScreen, {
+  MFA_CODE_SCREEN,
+} from '../../containers/Auth/MFACodeScreen';
+
+const finishAuth = () => async dispatch => {
+  await dispatch(joinStashedCommunity());
+  await dispatch(loadHome());
+  await dispatch(landOnStashedCommunityScreen());
+};
 
 export const DeepLinkJoinCommunityUnauthenticatedScreens = {
   [DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN]: buildTrackedScreen(
@@ -33,7 +42,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
   ),
   [WELCOME_SCREEN]: buildTrackedScreen(
     wrapNextAction(WelcomeScreen, ({ signin }) => dispatch => {
-      dispatch(navigatePush(signin ? KEY_LOGIN_SCREEN : SETUP_SCREEN));
+      dispatch(navigatePush(signin ? SIGN_IN_SCREEN : SETUP_SCREEN));
     }),
     buildTrackingObj('onboarding : welcome', 'onboarding'),
   ),
@@ -44,19 +53,26 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
       await dispatch(joinStashedCommunity());
       await dispatch(showNotificationPrompt());
       await dispatch(loadHome());
-      dispatch(landOnStashedCommunityScreen());
+      await dispatch(landOnStashedCommunityScreen());
     }),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
-  [KEY_LOGIN_SCREEN]: buildTrackedScreen(
-    wrapNextAction(KeyLoginScreen, () => async dispatch => {
-      await dispatch(joinStashedCommunity());
-      await dispatch(loadHome());
-      dispatch(landOnStashedCommunityScreen());
-    }),
+  [SIGN_IN_SCREEN]: buildTrackedScreen(
+    wrapNextAction(
+      SignInScreen,
+      ({ requires2FA, email, password } = {}) =>
+        requires2FA
+          ? navigatePush(MFA_CODE_SCREEN, { email, password })
+          : finishAuth(),
+    ),
     buildTrackingObj('auth : sign in', 'auth'),
   ),
+  [MFA_CODE_SCREEN]: buildTrackedScreen(
+    wrapNextAction(MFACodeScreen, finishAuth),
+    buildTrackingObj('auth : verification', 'auth'),
+  ),
 };
+
 export const DeepLinkJoinCommunityUnauthenticatedNavigator = createStackNavigator(
   DeepLinkJoinCommunityUnauthenticatedScreens,
   {

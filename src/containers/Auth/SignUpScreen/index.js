@@ -1,13 +1,16 @@
 /* eslint max-lines-per-function: 0 */
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 import i18Next from 'i18next';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import { openKeyURL } from '../../../actions/auth';
+import {
+  keyLoginWithAuthorizationCode,
+  openKeyURL,
+} from '../../../actions/auth/key';
 import {
   Text,
   Button,
@@ -15,12 +18,12 @@ import {
   Icon,
   LoadingWheel,
 } from '../../../components/common';
-import { navigatePush } from '../../../actions/navigation';
 import LOGO from '../../../../assets/images/missionHubLogoWords.png';
 import PEOPLE from '../../../../assets/images/MemberContacts_light.png';
-import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
-import { onSuccessfulLogin } from '../../../actions/login';
-import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
+import {
+  facebookPromptLogin,
+  facebookLoginWithAccessToken,
+} from '../../../actions/auth/facebook';
 import Header from '../../Header';
 import BackButton from '../../BackButton';
 import TosPrivacy from '../../../components/TosPrivacy';
@@ -41,44 +44,45 @@ const headerContentOptions = {
 };
 
 @translate('loginOptions')
-class UpgradeAccountScreen extends Component {
+class SignUpScreen extends Component {
   state = {
     isLoading: false,
   };
 
   login = () => {
-    const { dispatch, onComplete } = this.props;
+    const { dispatch, next } = this.props;
 
-    dispatch(
-      navigatePush(KEY_LOGIN_SCREEN, {
-        upgradeAccount: true,
-        next: onComplete,
-      }),
-    );
+    dispatch(next({ signIn: true }));
   };
 
-  startLoad = () => {
+  emailSignUp = async () => {
+    const { dispatch, next } = this.props;
+
+    const { code, codeVerifier, redirectUri } = await dispatch(
+      openKeyURL('login?action=signup'),
+    );
     this.setState({ isLoading: true });
-  };
-
-  emailSignUp = () => {
-    const { dispatch, onComplete } = this.props;
-
-    dispatch(
-      openKeyURL('login?action=signup', this.startLoad, true, onComplete),
-    );
+    try {
+      await dispatch(
+        keyLoginWithAuthorizationCode(code, codeVerifier, redirectUri),
+      );
+      dispatch(next());
+    } catch (e) {
+      this.setState({ isLoading: false });
+    }
   };
 
   facebookLogin = async () => {
-    const { dispatch, onComplete } = this.props;
+    const { dispatch, next } = this.props;
 
-    const result = await dispatch(
-      facebookLoginWithUsernamePassword(true, this.startLoad, () =>
-        onSuccessfulLogin(onComplete),
-      ),
-    );
-
-    this.setState({ isLoading: !!result });
+    try {
+      await dispatch(facebookPromptLogin());
+      this.setState({ isLoading: true });
+      await dispatch(facebookLoginWithAccessToken());
+      dispatch(next());
+    } catch (error) {
+      this.setState({ isLoading: false });
+    }
   };
 
   renderHeader = ({ image, title, description }) => (
@@ -99,10 +103,10 @@ class UpgradeAccountScreen extends Component {
   renderLogoHeader = () => <Image source={LOGO} />;
 
   render() {
-    const { t, signupType } = this.props;
+    const { t, signUpType } = this.props;
     const { isLoading } = this.state;
 
-    const headerContent = headerContentOptions[signupType];
+    const headerContent = headerContentOptions[signUpType];
 
     return (
       <Flex style={styles.container}>
@@ -179,15 +183,10 @@ class UpgradeAccountScreen extends Component {
   }
 }
 
-UpgradeAccountScreen.propTypes = {
-  signupType: PropTypes.string,
+SignUpScreen.propTypes = {
+  signUpType: PropTypes.string,
+  next: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (_, { navigation }) => {
-  const { signupType, onComplete } = navigation.state.params || {};
-
-  return { signupType, onComplete };
-};
-
-export default connect(mapStateToProps)(UpgradeAccountScreen);
-export const UPGRADE_ACCOUNT_SCREEN = 'nav/UPGRADE_ACCOUNT';
+export default connect()(SignUpScreen);
+export const SIGN_UP_SCREEN = 'nav/SIGN_UP_SCREEN';

@@ -10,7 +10,7 @@ import {
   removeSwipeStepsHome,
   removeSwipeStepsReminder,
 } from '../../actions/swipe';
-import { loadHome } from '../../actions/auth';
+import { loadHome } from '../../actions/auth/userData';
 import {
   showReminderScreen,
   showWelcomeNotification,

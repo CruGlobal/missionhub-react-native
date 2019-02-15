@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import { JOIN_GROUP_SCREEN } from '../../../containers/Groups/JoinGroupScreen';
 import { JoinByCodeOnboardingFlowScreens } from '../joinByCodeOnboardingFlow';
 import { renderShallow } from '../../../../testUtils';
-import { firstTime, loadHome } from '../../../actions/auth';
+import { firstTime, loadHome } from '../../../actions/auth/userData';
 import {
   completeOnboarding,
   stashCommunityToJoin,
@@ -18,7 +18,7 @@ import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import * as navigationActions from '../../../actions/navigation';
 
 jest.mock('../../../actions/api');
-jest.mock('../../../actions/auth');
+jest.mock('../../../actions/auth/userData');
 jest.mock('../../../actions/onboardingProfile');
 jest.mock('../../../actions/navigation');
 
