@@ -179,6 +179,6 @@ describe('click submit button', () => {
 
     await clickSubmit();
 
-    expect(onSubmit).toHaveBeenCalled();
+    expect(onSubmit).toHaveBeenCalledWith(null, text);
   });
 });
