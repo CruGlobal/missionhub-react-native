@@ -174,7 +174,7 @@ class DatePicker extends Component {
     }
   };
 
-  onDatetimePicked = ({ action, year, month, day }) => {
+  onDatetimePicked = async ({ action, year, month, day }) => {
     const {
       mode,
       androidMode,
@@ -185,12 +185,13 @@ class DatePicker extends Component {
     if (action !== DatePickerAndroid.dismissedAction) {
       const timeMoment = moment(this.state.date);
 
-      TimePickerAndroid.open({
+      await TimePickerAndroid.open({
         hour: timeMoment.hour(),
         minute: timeMoment.minutes(),
         is24Hour: is24Hour,
         mode: androidMode,
-      }).then(() => this.onDatetimeTimePicked(year, month, day));
+      });
+      this.onDatetimeTimePicked(year, month, day);
     } else {
       this.onPressCancel();
     }

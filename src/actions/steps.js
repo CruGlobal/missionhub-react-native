@@ -88,7 +88,7 @@ export function getContactSteps(personId, orgId) {
 }
 
 export function addSteps(steps, receiverId, organization) {
-  return dispatch => {
+  return async dispatch => {
     const query = {
       person_id: receiverId,
     };
@@ -107,12 +107,11 @@ export function addSteps(steps, receiverId, organization) {
       included: newSteps,
       include: 'received_challenges',
     };
-    return dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data)).then(r => {
-      dispatch(getMySteps());
-      dispatch(trackStepsAdded(steps));
+    const r = await dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data));
+    dispatch(getMySteps());
+    dispatch(trackStepsAdded(steps));
 
-      return r;
-    });
+    return r;
   };
 }
 
@@ -156,24 +155,22 @@ export function updateChallengeNote(stepId, note) {
 }
 
 export function completeStepReminder(step, screen) {
-  return dispatch => {
-    return dispatch(challengeCompleteAction(step, screen)).then(r => {
-      dispatch(getMySteps());
-      dispatch(setStepFocus(step, false));
-      return r;
-    });
+  return async dispatch => {
+    const r = await dispatch(challengeCompleteAction(step, screen));
+    dispatch(getMySteps());
+    dispatch(setStepFocus(step, false));
+    return r;
   };
 }
 
 export function completeStep(step, screen) {
-  return dispatch => {
-    return dispatch(challengeCompleteAction(step, screen)).then(r => {
-      dispatch(getMySteps());
-      if (step.organization) {
-        dispatch(reloadGroupCelebrateFeed(step.organization.id));
-      }
-      return r;
-    });
+  return async dispatch => {
+    const r = await dispatch(challengeCompleteAction(step, screen));
+    dispatch(getMySteps());
+    if (step.organization) {
+      dispatch(reloadGroupCelebrateFeed(step.organization.id));
+    }
+    return r;
   };
 }
 
@@ -230,24 +227,22 @@ function challengeCompleteAction(step, screen) {
 }
 
 export function deleteStepWithTracking(step, screen) {
-  return dispatch => {
-    return dispatch(deleteStep(step)).then(r => {
-      dispatch(
-        trackAction(`${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`, {
-          [ACTIONS.STEP_REMOVED.key]: null,
-        }),
-      );
-      return r;
-    });
+  return async dispatch => {
+    const r = await dispatch(deleteStep(step));
+    dispatch(
+      trackAction(`${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`, {
+        [ACTIONS.STEP_REMOVED.key]: null,
+      }),
+    );
+    return r;
   };
 }
 
 function deleteStep(step) {
-  return dispatch => {
+  return async dispatch => {
     const query = { challenge_id: step.id };
-    return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then(r => {
-      dispatch(getMySteps());
-      return r;
-    });
+    const r = await dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {}));
+    dispatch(getMySteps());
+    return r;
   };
 }

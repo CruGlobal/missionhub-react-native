@@ -110,19 +110,18 @@ export function savePersonNote(personId, notes, noteId, myId) {
 }
 
 export function getPersonNote(personId, myId) {
-  return dispatch => {
+  return async dispatch => {
     const query = { person_id: personId, include: 'person_notes' };
 
-    return dispatch(callApi(REQUESTS.GET_PERSON_NOTE, query)).then(results => {
-      const person = results.find('person', personId);
-      if (person && person.person_notes) {
-        const notes = person.person_notes;
-        return notes.find(element => {
-          return element.user_id == myId;
-        });
-      }
-      return Promise.reject('Person Not Found in getPersonNote');
-    });
+    const results = await dispatch(callApi(REQUESTS.GET_PERSON_NOTE, query));
+    const person = results.find('person', personId);
+    if (person && person.person_notes) {
+      const notes = person.person_notes;
+      return notes.find(element => {
+        return element.user_id == myId;
+      });
+    }
+    return Promise.reject('Person Not Found in getPersonNote');
   };
 }
 

@@ -69,18 +69,17 @@ class ContactJourney extends Component {
     );
   }
 
-  handleEditComment(text) {
+  async handleEditComment(text) {
     const { editingInteraction } = this.state;
     const action =
       editingInteraction._type === 'accepted_challenge'
         ? updateChallengeNote(editingInteraction.id, text)
         : editComment(editingInteraction, text);
 
-    this.props.dispatch(action).then(() => {
-      // Refresh the journey list after editing a comment
-      this.getInteractions();
-      this.setState({ editingInteraction: null });
-    });
+    await this.props.dispatch(action);
+    // Refresh the journey list after editing a comment
+    this.getInteractions();
+    this.setState({ editingInteraction: null });
   }
 
   renderRow({ item }) {

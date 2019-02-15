@@ -70,15 +70,14 @@ export const delay = ms =>
     setTimeout(resolve, ms);
   });
 
-export const refresh = (obj, method) => {
+export const refresh = async (obj, method) => {
   obj.setState({ refreshing: true });
-  method()
-    .then(() => {
-      obj.setState({ refreshing: false });
-    })
-    .catch(() => {
-      obj.setState({ refreshing: false });
-    });
+  try {
+    await method();
+    obj.setState({ refreshing: false });
+  } catch (error) {
+    obj.setState({ refreshing: false });
+  }
 };
 
 export const isAuthenticated = authState => authState.token;

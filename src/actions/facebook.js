@@ -12,57 +12,52 @@ export function facebookLoginWithUsernamePassword(
   startLoad,
   onComplete,
 ) {
-  return dispatch => {
-    return LoginManager.logInWithReadPermissions(FACEBOOK_SCOPE).then(
-      result => {
-        LOG('Facebook login result', result);
-        if (result.isCancelled) {
-          return;
-        }
-        startLoad && startLoad();
-        return dispatch(facebookLoginWithAccessToken(isUpgrade, onComplete));
-      },
-      err => {
-        LOG('err', err);
-        LoginManager.logOut();
-      },
-    );
+  return async dispatch => {
+    try {
+      const result = await LoginManager.logInWithReadPermissions(
+        FACEBOOK_SCOPE,
+      );
+      LOG('Facebook login result', result);
+      if (result.isCancelled) {
+        return;
+      }
+      startLoad && startLoad();
+      return dispatch(facebookLoginWithAccessToken(isUpgrade, onComplete));
+    } catch (err) {
+      LOG('err', err);
+      LoginManager.logOut();
+    }
   };
 }
 
 export function facebookLoginWithAccessToken(isUpgrade, onComplete) {
-  return dispatch => {
-    return AccessToken.getCurrentAccessToken().then(data => {
-      const { accessToken, userID } = data;
+  return async dispatch => {
+    const data = await AccessToken.getCurrentAccessToken();
+    const { accessToken, userID } = data;
 
-      if (!accessToken) {
-        LOG('facebook access token doesnt exist');
-        return;
-      }
+    if (!accessToken) {
+      LOG('facebook access token doesnt exist');
+      return;
+    }
 
-      return dispatch(
-        facebookLoginAction(accessToken.toString(), userID, isUpgrade),
-      ).then(() => {
-        onComplete && dispatch(onComplete());
-      });
-    });
+    await dispatch(
+      facebookLoginAction(accessToken.toString(), userID, isUpgrade),
+    );
+    onComplete && dispatch(onComplete());
   };
 }
 
 export function facebookLoginAction(accessToken, id, isUpgrade = false) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const upgradeToken = getState().auth.upgradeToken;
     const data = { fb_access_token: accessToken };
     if (isUpgrade) {
       data.client_token = upgradeToken;
     }
 
-    return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, data)).then(
-      results => {
-        LOG(results);
-        dispatch(updateAnalyticsContext({ [ANALYTICS.FACEBOOK_ID]: id }));
-      },
-    );
+    const results = await dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, data));
+    LOG(results);
+    dispatch(updateAnalyticsContext({ [ANALYTICS.FACEBOOK_ID]: id }));
   };
 }
 

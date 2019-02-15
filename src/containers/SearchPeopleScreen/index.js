@@ -87,7 +87,7 @@ export class SearchPeopleScreen extends Component {
     return orgPeople;
   }
 
-  handleSearch(text) {
+  async handleSearch(text) {
     if (!text) {
       return this.clearSearch();
     }
@@ -95,16 +95,16 @@ export class SearchPeopleScreen extends Component {
       this.setState({ isSearching: true });
     }
 
-    this.props
-      .dispatch(searchPeople(text, this.state.filters))
-      .then(results => {
-        const people = this.getPeopleByOrg(results);
-        this.setState({ isSearching: false, results: people });
-      })
-      .catch(err => {
-        this.setState({ isSearching: false });
-        LOG('error getting search results', err);
-      });
+    try {
+      const results = await this.props.dispatch(
+        searchPeople(text, this.state.filters),
+      );
+      const people = this.getPeopleByOrg(results);
+      this.setState({ isSearching: false, results: people });
+    } catch (err) {
+      this.setState({ isSearching: false });
+      LOG('error getting search results', err);
+    }
   }
 
   clearSearch() {
