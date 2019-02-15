@@ -43,10 +43,7 @@ class GetStartedScreen extends Component {
           </Text>
           <Text style={styles.text}>{t('tagline')}</Text>
         </Flex>
-        <BottomButton
-          onPress={this.navigateNext}
-          text={t('getStarted').toUpperCase()}
-        />
+        <BottomButton onPress={this.navigateNext} text={t('getStarted')} />
       </Flex>
     );
   }

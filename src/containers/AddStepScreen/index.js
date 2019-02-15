@@ -116,7 +116,7 @@ class AddStepScreen extends Component {
       text = t('editJourneyButton');
     }
 
-    return text.toUpperCase();
+    return text;
   }
 
   renderTitle() {

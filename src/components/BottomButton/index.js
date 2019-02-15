@@ -21,7 +21,7 @@ export default class BottomButton extends Component {
         type="secondary"
         disabled={disabled}
         onPress={this.handlePress}
-        text={text}
+        text={text.toUpperCase()}
         style={{ width: theme.fullWidth }}
       />
     );

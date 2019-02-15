@@ -65,7 +65,7 @@ export class StepDetailScreen extends Component {
       !isCompleted && (
         <BottomButton
           onPress={isSuggestion ? this.handleAddStep : this.handleCompleteStep}
-          text={this.props.t(isSuggestion ? 'addStep' : 'iDidIt').toUpperCase()}
+          text={this.props.t(isSuggestion ? 'addStep' : 'iDidIt')}
         />
       )
     );

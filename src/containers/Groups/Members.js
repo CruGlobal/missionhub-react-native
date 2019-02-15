@@ -111,10 +111,7 @@ class Members extends Component {
             )
           }
         />
-        <BottomButton
-          onPress={this.handleInvite}
-          text={t('invite').toUpperCase()}
-        />
+        <BottomButton onPress={this.handleInvite} text={t('invite')} />
       </Flex>
     );
   }

@@ -198,10 +198,7 @@ class AddContactScreen extends Component {
             onUpdateData={this.handleUpdateData}
           />
         </ScrollView>
-        <BottomButton
-          onPress={this.savePerson}
-          text={t('done').toUpperCase()}
-        />
+        <BottomButton onPress={this.savePerson} text={t('done')} />
       </View>
     );
   }

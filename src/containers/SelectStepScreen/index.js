@@ -185,10 +185,7 @@ class SelectStepScreen extends Component {
   renderSaveButton() {
     const { t } = this.props;
     return this.filterSelected().length > 0 ? (
-      <BottomButton
-        onPress={this.saveAllSteps}
-        text={t('addStep').toUpperCase()}
-      />
+      <BottomButton onPress={this.saveAllSteps} text={t('addStep')} />
     ) : null;
   }
 

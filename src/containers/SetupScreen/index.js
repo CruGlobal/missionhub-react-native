@@ -88,10 +88,7 @@ class SetupScreen extends Component {
           </View>
           <TosPrivacy trial={true} />
         </Flex>
-        <BottomButton
-          onPress={this.saveAndGoToGetStarted}
-          text={t('next').toUpperCase()}
-        />
+        <BottomButton onPress={this.saveAndGoToGetStarted} text={t('next')} />
       </View>
     );
   }

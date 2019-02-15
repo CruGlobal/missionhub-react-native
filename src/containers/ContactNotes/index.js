@@ -96,7 +96,7 @@ export class ContactNotes extends Component {
     const t = this.props.t;
 
     if (this.state.editing) {
-      return t('done').toUpperCase();
+      return t('done');
     } else if (this.state.text) {
       return t('edit');
     } else {

@@ -245,7 +245,7 @@ class KeyLoginScreen extends Component {
           <BottomButton
             name={'loginButton'}
             onPress={this.login}
-            text={t('login').toUpperCase()}
+            text={t('login')}
           />
         ) : (
           <Flex value={1} justify="center" align="center">

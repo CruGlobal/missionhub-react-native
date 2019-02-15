@@ -112,7 +112,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
   <BottomButton
     disabled={true}
     onPress={[Function]}
-    text="CREATE COMMUNITY"
+    text="Create Community"
   />
 </Component>
 `;
@@ -237,7 +237,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
   <BottomButton
     disabled={true}
     onPress={[Function]}
-    text="CREATE COMMUNITY"
+    text="Create Community"
   />
 </Component>
 `;

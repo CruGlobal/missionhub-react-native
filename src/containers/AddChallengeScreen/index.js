@@ -107,7 +107,7 @@ class AddChallengeScreen extends Component {
         <BottomButton
           disabled={disableBtn}
           onPress={this.saveChallenge}
-          text={(isEdit ? t('save') : t('add')).toUpperCase()}
+          text={isEdit ? t('save') : t('add')}
         />
         <BackButton customIcon="deleteIcon" absolute={true} />
       </View>

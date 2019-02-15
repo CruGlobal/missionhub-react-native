@@ -72,10 +72,7 @@ export class GroupChallenges extends Component {
           refreshing={refreshing}
         />
         {isAdminOrOwner(myOrgPermissions) ? (
-          <BottomButton
-            onPress={this.create}
-            text={t('create').toUpperCase()}
-          />
+          <BottomButton onPress={this.create} text={t('create')} />
         ) : null}
       </View>
     );

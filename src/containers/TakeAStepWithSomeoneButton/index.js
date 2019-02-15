@@ -16,7 +16,7 @@ class TakeAStepWithSomeoneButton extends Component {
 
     return (
       <BottomButton
-        text={t('mainTabs:takeAStepWithSomeone').toUpperCase()}
+        text={t('mainTabs:takeAStepWithSomeone')}
         onPress={this.navigateToAddSomeoneScreen}
       />
     );

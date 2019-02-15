@@ -225,10 +225,7 @@ class ContactSteps extends Component {
         >
           {steps.length > 0 ? this.renderList() : this.renderNull()}
         </Flex>
-        <BottomButton
-          onPress={this.handleCreateStep}
-          text={t('addStep').toUpperCase()}
-        />
+        <BottomButton onPress={this.handleCreateStep} text={t('addStep')} />
       </View>
     );
   }

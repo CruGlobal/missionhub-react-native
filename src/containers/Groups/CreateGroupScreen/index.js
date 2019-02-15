@@ -140,7 +140,7 @@ class CreateGroupScreen extends Component {
         <BottomButton
           disabled={!name}
           onPress={this.createCommunity}
-          text={t('createCommunity').toUpperCase()}
+          text={t('createCommunity')}
         />
       </View>
     );

@@ -39,7 +39,7 @@ exports[`contact notes and editing is set to true button message changes to DONE
   </Flex>
   <BottomButton
     onPress={[Function]}
-    text="DONE"
+    text="Done"
   />
 </View>
 `;

@@ -67,10 +67,7 @@ class WelcomeScreen extends Component {
             />
           </Flex>
         ) : (
-          <BottomButton
-            onPress={this.navigateToNext}
-            text={t('getStarted').toUpperCase()}
-          />
+          <BottomButton onPress={this.navigateToNext} text={t('getStarted')} />
         )}
       </Flex>
     );

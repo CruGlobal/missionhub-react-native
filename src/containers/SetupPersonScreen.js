@@ -119,10 +119,7 @@ class SetupPersonScreen extends Component {
             />
           </View>
         </Flex>
-        <BottomButton
-          onPress={this.saveAndGoToGetStarted}
-          text={t('next').toUpperCase()}
-        />
+        <BottomButton onPress={this.saveAndGoToGetStarted} text={t('next')} />
         <AbsoluteSkip onSkip={this.skip} />
       </View>
     );

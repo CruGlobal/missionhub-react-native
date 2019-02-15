@@ -132,7 +132,7 @@ exports[`renders button text correctly 1`] = `
           ]
         }
       >
-        Click me
+        CLICK ME
       </Text>
     </View>
   </View>

@@ -31,7 +31,7 @@ exports[`renders correctly with no steps 1`] = `
   </Flex>
   <BottomButton
     onPress={[Function]}
-    text="ADD A STEP OF FAITH"
+    text="Add a step of faith"
   />
 </Component>
 `;
@@ -86,7 +86,7 @@ exports[`renders correctly with steps 1`] = `
   </Flex>
   <BottomButton
     onPress={[Function]}
-    text="ADD A STEP OF FAITH"
+    text="Add a step of faith"
   />
 </Component>
 `;

@@ -3,6 +3,6 @@
 exports[`renders correctly 1`] = `
 <BottomButton
   onPress={[Function]}
-  text="TAKE A STEP WITH SOMEONE"
+  text="Take a Step With Someone"
 />
 `;

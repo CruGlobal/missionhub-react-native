@@ -35,7 +35,7 @@ exports[`renders correctly 1`] = `
   </ScrollView>
   <BottomButton
     onPress={[Function]}
-    text="DONE"
+    text="Done"
   />
 </Component>
 `;

@@ -68,7 +68,7 @@ exports[`render renders for accepted step 1`] = `
   />
   <BottomButton
     onPress={[Function]}
-    text="I DID IT!"
+    text="I Did It!"
   />
 </Component>
 `;
@@ -191,7 +191,7 @@ exports[`render renders for accepted step with tip 1`] = `
   </Component>
   <BottomButton
     onPress={[Function]}
-    text="I DID IT!"
+    text="I Did It!"
   />
 </Component>
 `;
@@ -303,7 +303,7 @@ exports[`render renders for suggested step 1`] = `
   />
   <BottomButton
     onPress={[Function]}
-    text="ADD TO MY STEPS"
+    text="Add to My Steps"
   />
 </Component>
 `;
@@ -406,7 +406,7 @@ exports[`render renders for suggested step with tip 1`] = `
   </Component>
   <BottomButton
     onPress={[Function]}
-    text="ADD TO MY STEPS"
+    text="Add to My Steps"
   />
 </Component>
 `;
