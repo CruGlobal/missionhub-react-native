@@ -204,6 +204,12 @@ export default {
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
   },
+  stepDetail: {
+    removeStep: 'Remove Step',
+    completedStep: 'Completed Step',
+    addStep: 'Add to My Steps',
+    iDidIt: 'I Did It!',
+  },
   selectStage: {
     meQuestion:
       '{{name}}, which stage best describes where you are on your journey?',

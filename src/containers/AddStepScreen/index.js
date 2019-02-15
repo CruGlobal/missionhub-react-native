@@ -12,6 +12,7 @@ import theme from '../../theme';
 import { STEP_NOTE, CREATE_STEP, ACTIONS } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
+import BottomButton from '../../components/BottomButton';
 import ReminderButton from '../../components/ReminderButton';
 
 import styles from './styles';
@@ -115,7 +116,7 @@ class AddStepScreen extends Component {
       text = t('editJourneyButton');
     }
 
-    return text.toUpperCase();
+    return text;
   }
 
   renderTitle() {
@@ -173,15 +174,7 @@ class AddStepScreen extends Component {
           />
           {type === CREATE_STEP && <ReminderButton />}
         </Flex>
-
-        <Flex value={1} align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.saveStep}
-            text={this.getButtonText()}
-            style={styles.createButton}
-          />
-        </Flex>
+        <BottomButton onPress={this.saveStep} text={this.getButtonText()} />
         {type !== STEP_NOTE ? (
           <BackButton absolute={true} iconStyle={backButtonStyle} />
         ) : null}

@@ -207,7 +207,6 @@ describe('Members', () => {
     common.getCommunityUrl = jest.fn(() => url);
     await component
       .childAt(1)
-      .childAt(0)
       .props()
       .onPress();
 

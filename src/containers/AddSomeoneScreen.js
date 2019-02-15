@@ -35,7 +35,7 @@ class AddSomeoneScreen extends Component {
       <IconMessageScreen
         mainText={t('message')}
         onComplete={this.handleNavigate}
-        buttonText={t('addSomeone').toUpperCase()}
+        buttonText={t('addSomeone')}
         iconPath={require('../../assets/images/add_someone.png')}
         onSkip={this.skip}
       />

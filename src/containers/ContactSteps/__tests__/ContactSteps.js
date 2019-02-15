@@ -14,6 +14,7 @@ import {
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { SELECT_MY_STEP_SCREEN } from '../../SelectMyStepScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../PersonSelectStepScreen';
+import { STEP_DETAIL_SCREEN } from '../../StepDetailScreen';
 import { buildTrackingObj } from '../../../utils/common';
 import {
   getContactSteps,
@@ -252,6 +253,19 @@ describe('handleCreateStep', () => {
       myId,
     );
     expect(promptToAssign).not.toHaveBeenCalled();
+  });
+});
+
+describe('handleRowSelect', () => {
+  it('navigates to step detail', () => {
+    contactAssignmentSelector.mockReturnValue(mockContactAssignment);
+    createComponent(false, mockPerson);
+
+    component.handleRowSelect(steps[0]);
+
+    expect(navigatePush).toHaveBeenCalledWith(STEP_DETAIL_SCREEN, {
+      step: steps[0],
+    });
   });
 });
 

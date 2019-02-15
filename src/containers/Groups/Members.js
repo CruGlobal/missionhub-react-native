@@ -5,7 +5,8 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { ACTIONS } from '../../constants';
-import { Flex, RefreshControl, Button } from '../../components/common';
+import { Flex, RefreshControl } from '../../components/common';
+import BottomButton from '../../components/BottomButton';
 import { refresh, getCommunityUrl } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
@@ -110,13 +111,7 @@ class Members extends Component {
             )
           }
         />
-        <Flex align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.handleInvite}
-            text={t('invite').toUpperCase()}
-          />
-        </Flex>
+        <BottomButton onPress={this.handleInvite} text={t('invite')} />
       </Flex>
     );
   }

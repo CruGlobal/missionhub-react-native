@@ -114,7 +114,6 @@ describe('CreateGroupScreen', () => {
     const component = buildScreen();
     const result = await component
       .childAt(2)
-      .childAt(0)
       .props()
       .onPress();
 
@@ -131,7 +130,6 @@ describe('CreateGroupScreen', () => {
 
     await component
       .childAt(2)
-      .childAt(0)
       .props()
       .onPress();
 
@@ -155,7 +153,6 @@ describe('CreateGroupScreen', () => {
 
     await component
       .childAt(2)
-      .childAt(0)
       .props()
       .onPress();
 
@@ -184,7 +181,6 @@ describe('CreateGroupScreen', () => {
 
     await component
       .childAt(2)
-      .childAt(0)
       .props()
       .onPress();
 

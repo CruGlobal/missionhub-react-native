@@ -6,6 +6,7 @@ import { getAssignedByName, getAssignedToName } from '../../../utils/common';
 import JourneyItem from '..';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { ACCEPTED_STEP } from '../../../constants';
 
 jest.mock('../../../utils/common');
 
@@ -28,7 +29,7 @@ beforeEach(() => {
 describe('step', () => {
   const mockStep = {
     id: '1',
-    _type: 'accepted_challenge',
+    _type: ACCEPTED_STEP,
     title: 'Test Step',
     completed_at: date,
   };

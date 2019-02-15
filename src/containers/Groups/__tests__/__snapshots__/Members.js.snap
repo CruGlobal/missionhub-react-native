@@ -110,15 +110,9 @@ exports[`Members should render correctly 1`] = `
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      text="SEND INVITE"
-      type="secondary"
-    />
-  </Flex>
+  <BottomButton
+    onPress={[Function]}
+    text="Send Invite"
+  />
 </Flex>
 `;

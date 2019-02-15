@@ -169,10 +169,7 @@ describe('add step methods for stepNote with onComplete', () => {
 
     screen.update();
 
-    screen
-      .childAt(2)
-      .childAt(0)
-      .simulate('press');
+    screen.childAt(2).simulate('press');
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
@@ -226,10 +223,7 @@ describe('add step methods for stepNote with next', () => {
 
     screen.update();
 
-    screen
-      .childAt(2)
-      .childAt(0)
-      .simulate('press');
+    screen.childAt(2).simulate('press');
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
     expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);

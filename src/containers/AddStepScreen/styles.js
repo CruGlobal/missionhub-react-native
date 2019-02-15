@@ -13,9 +13,6 @@ export default StyleSheet.create({
   fieldWrap: {
     paddingTop: 10,
   },
-  createButton: {
-    width: theme.fullWidth,
-  },
   skipBtn: {
     marginTop: hasNotch() ? 17 : 0,
     padding: 30,

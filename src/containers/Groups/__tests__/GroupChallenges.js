@@ -151,7 +151,6 @@ it('should call create', () => {
 
   component
     .childAt(1)
-    .childAt(0)
     .props()
     .onPress();
 

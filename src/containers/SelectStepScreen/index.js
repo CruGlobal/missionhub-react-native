@@ -10,8 +10,9 @@ import uuidv4 from 'uuid/v4';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
-import { Flex, Text, Button, Icon } from '../../components/common';
+import { Flex, Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
+import BottomButton from '../../components/BottomButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, shuffleArray } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
@@ -184,14 +185,7 @@ class SelectStepScreen extends Component {
   renderSaveButton() {
     const { t } = this.props;
     return this.filterSelected().length > 0 ? (
-      <Flex align="center" justify="end">
-        <Button
-          type="secondary"
-          onPress={this.saveAllSteps}
-          text={t('addStep').toUpperCase()}
-          style={styles.addButton}
-        />
-      </Flex>
+      <BottomButton onPress={this.saveAllSteps} text={t('addStep')} />
     ) : null;
   }
 

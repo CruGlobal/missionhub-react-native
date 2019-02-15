@@ -10,7 +10,7 @@ import { getPersonNote, savePersonNote } from '../../../actions/person';
 
 import { ContactNotes } from '..';
 
-import Button from '../../../components/Button';
+import BottomButton from '../../../components/BottomButton';
 import { trackState } from '../../../actions/analytics';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -65,7 +65,7 @@ describe('contact notes', () => {
       ReactNative.Keyboard.dismiss = jest.fn();
       jest.spyOn(shallowScreen.instance(), 'saveNote');
 
-      shallowScreen.find(Button).simulate('press');
+      shallowScreen.find(BottomButton).simulate('press');
 
       expect(shallowScreen.state('editing')).toBe(false);
       expect(shallowScreen.instance().saveNote).toHaveBeenCalled();
@@ -79,7 +79,7 @@ describe('contact notes', () => {
       value: { focus: mockFocus },
     });
 
-    shallowScreen.find(Button).simulate('press');
+    shallowScreen.find(BottomButton).simulate('press');
 
     expect(shallowScreen.state('editing')).toBe(true);
     expect(mockFocus).toHaveBeenCalled();

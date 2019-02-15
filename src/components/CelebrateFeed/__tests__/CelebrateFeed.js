@@ -7,6 +7,7 @@ import CelebrateFeed from '..';
 
 import { renderShallow } from '../../../../testUtils';
 import { toggleLike } from '../../../actions/celebration';
+import { ACCEPTED_STEP } from '../../../constants';
 
 jest.mock('../../../actions/celebration');
 
@@ -21,7 +22,7 @@ const celebrationItems = [
       {
         id: '1',
         subject_person_name: 'Roge Dog',
-        celebrateable_type: 'accepted_challenge',
+        celebrateable_type: ACCEPTED_STEP,
         likes_count: 0,
         adjective_attribute_value: '2',
         changed_attribute_value: '2018-03-01 12:00:00',
@@ -42,7 +43,7 @@ const celebrationItems = [
       {
         id: '4',
         subject_person_name: 'Roge Dog',
-        celebrateable_type: 'accepted_challenge',
+        celebrateable_type: ACCEPTED_STEP,
         likes_count: 11,
         adjective_attribute_value: '1',
         changed_attribute_value: '2018-01-01 12:00:00',

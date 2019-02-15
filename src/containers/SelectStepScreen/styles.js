@@ -32,7 +32,4 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0)',
     lineHeight: 24,
   },
-  addButton: {
-    width: theme.fullWidth,
-  },
 });
