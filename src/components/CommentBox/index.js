@@ -70,28 +70,35 @@ export default class CommentBox extends Component {
   renderIcons = item => {
     const { t } = this.props;
     const { action } = this.state;
+    const {
+      actionRowWrap,
+      actionIconButton,
+      actionIconActive,
+      actionIcon,
+      actionText,
+    } = styles;
 
     return (
       <Touchable
         key={item.id}
         pressProps={[item]}
         onPress={this.selectAction}
-        style={styles.actionRowWrap}
+        style={actionRowWrap}
       >
         <Flex
           style={[
-            styles.actionIconButton,
-            action && item.id === action.id ? styles.actionIconActive : null,
+            actionIconButton,
+            action && item.id === action.id ? actionIconActive : null,
           ]}
         >
           <Icon
             size={16}
-            style={styles.actionIcon}
+            style={actionIcon}
             name={item.iconName}
             type="MissionHub"
           />
         </Flex>
-        <Text style={styles.actionText} numberOfLines={2}>
+        <Text style={actionText} numberOfLines={2}>
           {t(item.translationKey)}
         </Text>
       </Touchable>
@@ -99,11 +106,15 @@ export default class CommentBox extends Component {
   };
 
   renderActions() {
-    if (!this.state.showActions) {
+    const { showActions } = this.state;
+    const { actions } = styles;
+
+    if (!showActions) {
       return null;
     }
+
     return (
-      <Flex direction="row" align="center" style={styles.actions}>
+      <Flex direction="row" align="center" style={actions}>
         {ACTION_ITEMS.map(this.renderIcons)}
       </Flex>
     );
@@ -112,15 +123,29 @@ export default class CommentBox extends Component {
   ref = c => (this.searchInput = c);
 
   renderInput() {
-    const { t } = this.props;
+    const { t, placeholderTextKey } = this.props;
     const { text, action } = this.state;
+    const {
+      inputBoxWrap,
+      activeAction,
+      activeIcon,
+      activeTextWrap,
+      activeDate,
+      activeText,
+      clearAction,
+      clearActionButton,
+      inputWrap,
+      input,
+      submitIcon,
+    } = styles;
+
     return (
       <Flex
         value={1}
         direction="column"
         align="center"
         justify="center"
-        style={styles.inputBoxWrap}
+        style={inputBoxWrap}
         self="stretch"
       >
         {action ? (
@@ -128,29 +153,25 @@ export default class CommentBox extends Component {
             direction="row"
             align="center"
             self="stretch"
-            style={styles.activeAction}
+            style={activeAction}
           >
             <Flex value={1} align="center">
               <Icon
                 name={action.iconName}
                 type="MissionHub"
                 size={24}
-                style={styles.activeIcon}
+                style={activeIcon}
               />
             </Flex>
-            <Flex value={4} justify="center" style={styles.activeTextWrap}>
-              <DateComponent
-                date={new Date()}
-                format="LL"
-                style={styles.activeDate}
-              />
-              <Text style={styles.activeText}>{t(action.translationKey)}</Text>
+            <Flex value={4} justify="center" style={activeTextWrap}>
+              <DateComponent date={new Date()} format="LL" style={activeDate} />
+              <Text style={activeText}>{t(action.translationKey)}</Text>
             </Flex>
-            <Flex style={styles.clearAction}>
+            <Flex style={clearAction}>
               <Button
                 type="transparent"
                 onPress={this.clearAction}
-                style={styles.clearActionButton}
+                style={clearActionButton}
               >
                 <Icon name="deleteIcon" type="MissionHub" size={10} />
               </Button>
@@ -162,7 +183,7 @@ export default class CommentBox extends Component {
           align="center"
           justify="center"
           self="stretch"
-          style={styles.inputWrap}
+          style={inputWrap}
         >
           <Input
             ref={this.ref}
@@ -170,12 +191,12 @@ export default class CommentBox extends Component {
             onBlur={this.blur}
             onChangeText={this.handleTextChange}
             value={text}
-            style={styles.input}
+            style={input}
             autoFocus={false}
             autoCorrect={true}
             returnKeyType="done"
             blurOnSubmit={true}
-            placeholder={t('commentBoxPlaceholder')}
+            placeholder={t(placeholderTextKey)}
             placeholderTextColor={theme.grey1}
           />
           {text || action ? (
@@ -183,7 +204,7 @@ export default class CommentBox extends Component {
               name="upArrow"
               type="MissionHub"
               onPress={this.submit}
-              style={styles.submitIcon}
+              style={submitIcon}
             />
           ) : null}
         </Flex>
@@ -194,29 +215,29 @@ export default class CommentBox extends Component {
   render() {
     const { hideActions } = this.props;
     const { showActions, action } = this.state;
+    const {
+      container,
+      boxWrap,
+      actionSelectionWrap,
+      actionsOpen,
+      actionSelection,
+    } = styles;
+
     return (
-      <Flex direction="column" style={styles.container}>
-        <Flex
-          direction="row"
-          align="center"
-          justify="center"
-          style={styles.boxWrap}
-        >
+      <Flex direction="column" style={container}>
+        <Flex direction="row" align="center" justify="center" style={boxWrap}>
           {!hideActions && !action ? (
             <Flex
               align="center"
               justify="center"
-              style={[
-                styles.actionSelectionWrap,
-                showActions ? styles.actionsOpen : null,
-              ]}
+              style={[actionSelectionWrap, showActions ? actionsOpen : null]}
             >
               <IconButton
                 name={showActions ? 'deleteIcon' : 'plusIcon'}
                 type="MissionHub"
                 size={13}
                 onPress={this.handleActionPress}
-                style={styles.actionSelection}
+                style={actionSelection}
               />
             </Flex>
           ) : null}

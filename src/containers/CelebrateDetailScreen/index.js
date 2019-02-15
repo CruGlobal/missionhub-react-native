@@ -9,6 +9,7 @@ import CommentsList from '../CommentsList';
 import theme from '../../theme';
 import { hasNotch } from '../../utils/common';
 import BackButton from '../BackButton';
+import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 
 class CelebrateDetailScreen extends Component {
   render() {
@@ -41,6 +42,7 @@ class CelebrateDetailScreen extends Component {
           eventId={event.id}
           organizationId={event.organization.id}
         />
+        <CelebrateCommentBox event={event} />
       </Flex>
     );
   }

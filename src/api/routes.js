@@ -196,6 +196,10 @@ export default {
     endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/like`,
     method: 'delete',
   },
+  CREATE_CELEBRATE_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments`,
+    method: 'post',
+  },
   ORGANIZATION_NEW_CODE: {
     endpoint: `${ORG_URL}/:orgId/community_code`,
     method: 'put',
