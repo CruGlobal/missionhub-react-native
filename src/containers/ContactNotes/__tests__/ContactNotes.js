@@ -86,11 +86,13 @@ describe('contact notes', () => {
   });
 });
 
-describe('componentWillReceiveProps', () => {
+describe('UNSAFE_componentWillReceiveProps', () => {
   it('should save notes when navigating away', () => {
     jest.spyOn(shallowScreen.instance(), 'saveNote');
 
-    shallowScreen.instance().componentWillReceiveProps({ isActiveTab: false });
+    shallowScreen
+      .instance()
+      .UNSAFE_componentWillReceiveProps({ isActiveTab: false });
 
     expect(shallowScreen.instance().saveNote).toHaveBeenCalled();
   });
