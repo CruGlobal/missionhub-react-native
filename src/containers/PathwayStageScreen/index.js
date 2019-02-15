@@ -43,7 +43,7 @@ class PathwayStageScreen extends Component {
     this.handleSnapToItem = this.handleSnapToItem.bind(this);
   }
 
-  async componentWillMount() {
+  async UNSAFE_componentWillMount() {
     await this.props.dispatch(getStages());
     const { firstItem, stages } = this.props;
 
