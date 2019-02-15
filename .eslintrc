@@ -78,6 +78,7 @@
         "avoidEscape":true
       }
     ],
+    "react/react-in-jsx-scope": 2,
     "react/no-deprecated": 2
   },
   "settings": {
