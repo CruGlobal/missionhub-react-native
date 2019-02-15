@@ -29,15 +29,10 @@ exports[`renders correctly with no steps 1`] = `
       }
     />
   </Flex>
-  <Flex
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      text="ADD A STEP OF FAITH"
-      type="secondary"
-    />
-  </Flex>
+  <BottomButton
+    onPress={[Function]}
+    text="ADD A STEP OF FAITH"
+  />
 </Component>
 `;
 
@@ -89,14 +84,9 @@ exports[`renders correctly with steps 1`] = `
       windowSize={21}
     />
   </Flex>
-  <Flex
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      text="ADD A STEP OF FAITH"
-      type="secondary"
-    />
-  </Flex>
+  <BottomButton
+    onPress={[Function]}
+    text="ADD A STEP OF FAITH"
+  />
 </Component>
 `;

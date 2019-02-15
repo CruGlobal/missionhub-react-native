@@ -12,7 +12,8 @@ import {
   deleteStepWithTracking,
 } from '../../actions/steps';
 import { reloadJourney } from '../../actions/journey';
-import { Flex, Button } from '../../components/common';
+import { Flex } from '../../components/common';
+import BottomButton from '../../components/BottomButton';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
@@ -224,13 +225,10 @@ class ContactSteps extends Component {
         >
           {steps.length > 0 ? this.renderList() : this.renderNull()}
         </Flex>
-        <Flex justify="end">
-          <Button
-            type="secondary"
-            onPress={this.handleCreateStep}
-            text={t('addStep').toUpperCase()}
-          />
-        </Flex>
+        <BottomButton
+          onPress={this.handleCreateStep}
+          text={t('addStep').toUpperCase()}
+        />
       </View>
     );
   }

@@ -502,17 +502,11 @@ exports[`a login button is clicked key login button is pressed loading wheel app
       />
     </Component>
   </Flex>
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      name="loginButton"
-      onPress={[Function]}
-      text="LOGIN"
-      type="secondary"
-    />
-  </Flex>
+  <BottomButton
+    name="loginButton"
+    onPress={[Function]}
+    text="LOGIN"
+  />
   <LoadingWheel />
 </Component>
 `;
@@ -854,17 +848,11 @@ exports[`a login button is clicked key login button is pressed shows email verif
       />
     </Component>
   </Flex>
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      name="loginButton"
-      onPress={[Function]}
-      text="LOGIN"
-      type="secondary"
-    />
-  </Flex>
+  <BottomButton
+    name="loginButton"
+    onPress={[Function]}
+    text="LOGIN"
+  />
 </Component>
 `;
 
@@ -1017,17 +1005,11 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       />
     </Component>
   </Flex>
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      name="loginButton"
-      onPress={[Function]}
-      text="LOGIN"
-      type="secondary"
-    />
-  </Flex>
+  <BottomButton
+    name="loginButton"
+    onPress={[Function]}
+    text="LOGIN"
+  />
 </Component>
 `;
 
@@ -1180,17 +1162,11 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       />
     </Component>
   </Flex>
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      name="loginButton"
-      onPress={[Function]}
-      text="LOGIN"
-      type="secondary"
-    />
-  </Flex>
+  <BottomButton
+    name="loginButton"
+    onPress={[Function]}
+    text="LOGIN"
+  />
 </Component>
 `;
 

@@ -66,22 +66,10 @@ exports[`render renders for accepted step 1`] = `
   <Component
     flex={1}
   />
-  <Component
-    align="center"
-    flex={0}
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      style={
-        Object {
-          "width": 750,
-        }
-      }
-      text="I DID IT!"
-      type="secondary"
-    />
-  </Component>
+  <BottomButton
+    onPress={[Function]}
+    text="I DID IT!"
+  />
 </Component>
 `;
 
@@ -201,22 +189,10 @@ exports[`render renders for accepted step with tip 1`] = `
       </Markdown>
     </ScrollView>
   </Component>
-  <Component
-    align="center"
-    flex={0}
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      style={
-        Object {
-          "width": 750,
-        }
-      }
-      text="I DID IT!"
-      type="secondary"
-    />
-  </Component>
+  <BottomButton
+    onPress={[Function]}
+    text="I DID IT!"
+  />
 </Component>
 `;
 
@@ -325,22 +301,10 @@ exports[`render renders for suggested step 1`] = `
   <Component
     flex={1}
   />
-  <Component
-    align="center"
-    flex={0}
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      style={
-        Object {
-          "width": 750,
-        }
-      }
-      text="ADD TO MY STEPS"
-      type="secondary"
-    />
-  </Component>
+  <BottomButton
+    onPress={[Function]}
+    text="ADD TO MY STEPS"
+  />
 </Component>
 `;
 
@@ -440,21 +404,9 @@ exports[`render renders for suggested step with tip 1`] = `
       </Markdown>
     </ScrollView>
   </Component>
-  <Component
-    align="center"
-    flex={0}
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      style={
-        Object {
-          "width": 750,
-        }
-      }
-      text="ADD TO MY STEPS"
-      type="secondary"
-    />
-  </Component>
+  <BottomButton
+    onPress={[Function]}
+    text="ADD TO MY STEPS"
+  />
 </Component>
 `;

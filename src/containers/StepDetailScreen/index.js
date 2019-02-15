@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import { STEP_SUGGESTION, ACCEPTED_STEP } from '../../constants';
 import Header from '../Header';
 import BackButton from '../BackButton';
+import BottomButton from '../../components/BottomButton';
 import ReminderButton from '../../components/ReminderButton';
 import { Button, Text } from '../../components/common';
 
@@ -62,18 +63,10 @@ export class StepDetailScreen extends Component {
     const { isCompleted, isSuggestion } = this.props;
     return (
       !isCompleted && (
-        <View flex={0} align="center" justify="end">
-          <Button
-            type="secondary"
-            onPress={
-              isSuggestion ? this.handleAddStep : this.handleCompleteStep
-            }
-            text={this.props
-              .t(isSuggestion ? 'addStep' : 'iDidIt')
-              .toUpperCase()}
-            style={styles.bottomButton}
-          />
-        </View>
+        <BottomButton
+          onPress={isSuggestion ? this.handleAddStep : this.handleCompleteStep}
+          text={this.props.t(isSuggestion ? 'addStep' : 'iDidIt').toUpperCase()}
+        />
       )
     );
   };

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { View, Keyboard, Image } from 'react-native';
 import { translate } from 'react-i18next';
 
-import { Button, Text, Flex } from '../components/common';
+import { Text, Flex } from '../components/common';
+import BottomButton from '../components/BottomButton';
 import Input from '../components/Input/index';
 import { navigatePush } from '../actions/navigation';
 import {
@@ -118,14 +119,10 @@ class SetupPersonScreen extends Component {
             />
           </View>
         </Flex>
-
-        <Flex value={1} align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.saveAndGoToGetStarted}
-            text={t('next').toUpperCase()}
-          />
-        </Flex>
+        <BottomButton
+          onPress={this.saveAndGoToGetStarted}
+          text={t('next').toUpperCase()}
+        />
         <AbsoluteSkip onSkip={this.skip} />
       </View>
     );

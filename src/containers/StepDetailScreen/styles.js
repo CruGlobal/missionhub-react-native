@@ -34,9 +34,6 @@ export default StyleSheet.create({
     paddingHorizontal: 32,
     paddingBottom: 14,
   },
-  bottomButton: {
-    width: theme.fullWidth,
-  },
 });
 
 export const markdownStyles = {

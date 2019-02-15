@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { View, Keyboard } from 'react-native';
 import { translate } from 'react-i18next';
 
-import { Button, Text, Flex, Input } from '../../components/common';
+import { Text, Flex, Input } from '../../components/common';
+import BottomButton from '../../components/BottomButton';
 import {
   createMyPerson,
   firstNameChanged,
@@ -87,14 +88,10 @@ class SetupScreen extends Component {
           </View>
           <TosPrivacy trial={true} />
         </Flex>
-
-        <Flex value={1} align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.saveAndGoToGetStarted}
-            text={t('next').toUpperCase()}
-          />
-        </Flex>
+        <BottomButton
+          onPress={this.saveAndGoToGetStarted}
+          text={t('next').toUpperCase()}
+        />
       </View>
     );
   }

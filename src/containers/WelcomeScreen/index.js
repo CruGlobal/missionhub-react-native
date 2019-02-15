@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import theme from '../../theme';
 import { Flex, Text, Button } from '../../components/common';
+import BottomButton from '../../components/BottomButton';
 import { disableBack } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
@@ -67,14 +67,10 @@ class WelcomeScreen extends Component {
             />
           </Flex>
         ) : (
-          <Flex value={1} align="stretch" justify="end">
-            <Button
-              type="secondary"
-              onPress={this.navigateToNext}
-              text={t('getStarted').toUpperCase()}
-              style={{ width: theme.fullWidth }}
-            />
-          </Flex>
+          <BottomButton
+            onPress={this.navigateToNext}
+            text={t('getStarted').toUpperCase()}
+          />
         )}
       </Flex>
     );

@@ -21,6 +21,7 @@ import { hasNotch, isAndroid } from '../../../utils/common';
 import { onSuccessfulLogin } from '../../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
 import BackButton from '../../BackButton';
+import BottomButton from '../../../components/BottomButton';
 import { navigatePush } from '../../../actions/navigation';
 import { MFA_CODE_SCREEN } from '../MFACodeScreen';
 
@@ -241,14 +242,11 @@ class KeyLoginScreen extends Component {
         </Flex>
 
         {email || password ? (
-          <Flex align="stretch" justify="end">
-            <Button
-              name={'loginButton'}
-              type="secondary"
-              onPress={this.login}
-              text={t('login').toUpperCase()}
-            />
-          </Flex>
+          <BottomButton
+            name={'loginButton'}
+            onPress={this.login}
+            text={t('login').toUpperCase()}
+          />
         ) : (
           <Flex value={1} justify="center" align="center">
             <Button
