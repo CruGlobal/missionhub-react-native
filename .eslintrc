@@ -77,7 +77,8 @@
       {
         "avoidEscape":true
       }
-    ]
+    ],
+    "react/react-in-jsx-scope": 2
   },
   "settings": {
     "import/resolver": {
