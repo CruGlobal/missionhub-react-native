@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
-import { connect } from 'react-redux';
 
 import { INTERACTION_TYPES } from '../../constants';
 import {
@@ -17,7 +16,6 @@ import {
   DateComponent,
 } from '../common';
 import theme from '../../theme';
-import { addNewInteraction } from '../../actions/interactions';
 
 import styles from './styles';
 
@@ -33,28 +31,16 @@ const initialState = {
 };
 
 @translate('actions')
-class CommentBox extends Component {
+export default class CommentBox extends Component {
   state = initialState;
 
   submit = async () => {
+    const { onSubmit } = this.props;
     const { action, text } = this.state;
-    const { person, organization, dispatch, onSubmit } = this.props;
 
-    const interaction = action
-      ? action
-      : INTERACTION_TYPES.MHInteractionTypeNote;
-
-    await dispatch(
-      addNewInteraction(
-        person.id,
-        interaction,
-        text,
-        organization ? organization.id : undefined,
-      ),
-    );
+    await onSubmit(action, text);
 
     this.setState(initialState);
-    onSubmit && onSubmit();
   };
 
   handleTextChange = t => {
@@ -230,10 +216,7 @@ class CommentBox extends Component {
                 type="MissionHub"
                 size={13}
                 onPress={this.handleActionPress}
-                style={[
-                  styles.actionSelection,
-                  showActions ? styles.actionsOpenIcon : null,
-                ]}
+                style={styles.actionSelection}
               />
             </Flex>
           ) : null}
@@ -246,15 +229,6 @@ class CommentBox extends Component {
 }
 
 CommentBox.propTypes = {
-  person: PropTypes.object.isRequired,
-  organization: PropTypes.object,
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
   hideActions: PropTypes.bool,
 };
-
-const mapStateToProps = (_, { person, organization }) => ({
-  person,
-  organization,
-});
-
-export default connect(mapStateToProps)(CommentBox);
