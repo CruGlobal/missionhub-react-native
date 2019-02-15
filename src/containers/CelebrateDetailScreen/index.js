@@ -7,6 +7,7 @@ import { celebrationItemSelector } from '../../selectors/celebration';
 import CelebrateItem from '../../components/CelebrateItem';
 import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
+import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 
 import styles from './styles';
 
@@ -28,6 +29,7 @@ class CelebrateDetailScreen extends Component {
           eventId={event.id}
           organizationId={event.organization.id}
         />
+        <CelebrateCommentBox event={event} />
       </View>
     );
   }

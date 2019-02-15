@@ -30,7 +30,11 @@ class InteractionCommentBox extends Component {
     const { hideActions } = this.props;
 
     return (
-      <CommentBox onSubmit={this.submitInteraction} hideActions={hideActions} />
+      <CommentBox
+        placeholderTextKey={'actions:commentBoxPlaceholder'}
+        onSubmit={this.submitInteraction}
+        hideActions={hideActions}
+      />
     );
   }
 }
