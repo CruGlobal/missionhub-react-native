@@ -279,6 +279,15 @@ describe('complete challenge', () => {
       REQUESTS.GET_MY_CHALLENGES,
       stepsQuery,
     );
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_CHALLENGES_BY_FILTER,
+      expect.objectContaining({
+        filters: expect.objectContaining({
+          receiver_ids: receiverId,
+          organization_ids: stepOrgId,
+        }),
+      }),
+    );
     expect(analytics.trackAction).toHaveBeenCalledWith(
       `${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`,
       { [ACTIONS.STEP_COMPLETED.key]: null },
@@ -315,6 +324,15 @@ describe('complete challenge', () => {
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_MY_CHALLENGES,
       stepsQuery,
+    );
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_CHALLENGES_BY_FILTER,
+      expect.objectContaining({
+        filters: expect.objectContaining({
+          receiver_ids: receiverId,
+          organization_ids: 'personal',
+        }),
+      }),
     );
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.CHALLENGE_COMPLETE,
