@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 import * as navigation from '../../../actions/navigation';
+import { ACCEPTED_STEP } from '../../../constants';
 
 import ContactJourney from '..';
 
@@ -26,7 +27,7 @@ const mockPerson = {
 };
 
 const mockJourneyList = [
-  { _type: 'accepted_challenge', id: '84472', date: '2010-01-01 12:12:12' },
+  { _type: ACCEPTED_STEP, id: '84472', date: '2010-01-01 12:12:12' },
 ];
 
 const mockAddComment = jest.fn(() => Promise.resolve());
@@ -135,7 +136,7 @@ describe('journey methods', () => {
       item: {
         id: '123',
         note: '123',
-        _type: 'accepted_challenge',
+        _type: ACCEPTED_STEP,
       },
     });
     expect(snap).toMatchSnapshot();

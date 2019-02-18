@@ -57,7 +57,7 @@ class StageSuccessScreen extends Component {
     return (
       <IconMessageScreen
         mainText={message}
-        buttonText={t('chooseSteps').toUpperCase()}
+        buttonText={t('chooseSteps')}
         onComplete={this.handleNavigateToStep}
         iconPath={require('../../assets/images/pathFinder.png')}
       />

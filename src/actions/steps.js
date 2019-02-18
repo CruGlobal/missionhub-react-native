@@ -8,6 +8,7 @@ import {
   STEP_NOTE,
   ACTIONS,
   DEFAULT_PAGE_LIMIT,
+  ACCEPTED_STEP,
 } from '../constants';
 import {
   buildTrackingObj,
@@ -48,7 +49,7 @@ export function getMySteps(query = {}) {
         completed: false,
       },
       include:
-        'receiver.reverse_contact_assignments,receiver.organizational_permissions',
+        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
     };
     return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
   };
@@ -80,7 +81,7 @@ export function getContactSteps(personId, orgId) {
         receiver_ids: personId,
         organization_ids: orgId || 'personal',
       },
-      include: 'receiver',
+      include: 'receiver,challenge_suggestion',
       page: { limit: 1000 },
     };
     return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
@@ -93,7 +94,7 @@ export function addSteps(steps, receiverId, organization) {
       person_id: receiverId,
     };
     const newSteps = steps.map(s => ({
-      type: 'accepted_challenge',
+      type: ACCEPTED_STEP,
       attributes: {
         title: s.body,
         challenge_suggestion_id: s && isCustomStep(s) ? null : (s || {}).id,
@@ -121,7 +122,7 @@ export function setStepFocus(step, isFocus) {
     const query = { challenge_id: step.id };
     const data = {
       data: {
-        type: 'accepted_challenge',
+        type: ACCEPTED_STEP,
         attributes: {
           organization_id: step.organization ? step.organization.id : null,
           focus: isFocus,
@@ -180,7 +181,7 @@ export function completeStep(step, screen) {
 function buildChallengeData(attributes) {
   return {
     data: {
-      type: 'accepted_challenge',
+      type: ACCEPTED_STEP,
       attributes,
     },
   };

@@ -1,4 +1,5 @@
 import { celebrationSelector } from '../celebration';
+import { ACCEPTED_STEP } from '../../constants';
 
 const celebrateItems = [
   {
@@ -21,7 +22,7 @@ const celebrateItems = [
   },
   {
     id: '4',
-    celebrateable_type: 'accepted_challenge',
+    celebrateable_type: ACCEPTED_STEP,
     adjective_attribute_value: 2,
     changed_attribute_value: '2018-01-07 00:00:00 UTC',
   },

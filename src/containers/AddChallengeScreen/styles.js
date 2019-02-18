@@ -26,7 +26,4 @@ export default StyleSheet.create({
     marginTop: 15,
     marginBottom: 5,
   },
-  createButton: {
-    width: theme.fullWidth,
-  },
 });

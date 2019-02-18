@@ -4,19 +4,20 @@ import {
   COMPLETED_STEP_COUNT,
   TOGGLE_STEP_FOCUS,
   RESET_STEP_COUNT,
+  STEP_SUGGESTION,
 } from '../../constants';
 
 it('loads step suggestions for me', () => {
   const stageId = 5;
   const oldSuggestions = [
-    { id: 1, type: 'challenge_suggestion' },
-    { id: 2, type: 'challenge_suggestion' },
-    { id: 3, type: 'challenge_suggestion' },
+    { id: 1, type: STEP_SUGGESTION },
+    { id: 2, type: STEP_SUGGESTION },
+    { id: 3, type: STEP_SUGGESTION },
   ];
   const newSuggestions = [
-    { id: 4, type: 'challenge_suggestion' },
-    { id: 5, type: 'challenge_suggestion' },
-    { id: 6, type: 'challenge_suggestion' },
+    { id: 4, type: STEP_SUGGESTION },
+    { id: 5, type: STEP_SUGGESTION },
+    { id: 6, type: STEP_SUGGESTION },
   ];
   newSuggestions.findAll = () => newSuggestions;
 
@@ -49,14 +50,14 @@ it('loads step suggestions for me', () => {
 it('loads step suggestions for others', () => {
   const stageId = 5;
   const oldSuggestions = [
-    { id: 1, type: 'challenge_suggestion' },
-    { id: 2, type: 'challenge_suggestion' },
-    { id: 3, type: 'challenge_suggestion' },
+    { id: 1, type: STEP_SUGGESTION },
+    { id: 2, type: STEP_SUGGESTION },
+    { id: 3, type: STEP_SUGGESTION },
   ];
   const newSuggestions = [
-    { id: 4, type: 'challenge_suggestion' },
-    { id: 5, type: 'challenge_suggestion' },
-    { id: 6, type: 'challenge_suggestion' },
+    { id: 4, type: STEP_SUGGESTION },
+    { id: 5, type: STEP_SUGGESTION },
+    { id: 6, type: STEP_SUGGESTION },
   ];
   newSuggestions.findAll = () => newSuggestions;
 

@@ -33,15 +33,9 @@ exports[`renders correctly 1`] = `
       onUpdateData={[Function]}
     />
   </ScrollView>
-  <Button
+  <BottomButton
     onPress={[Function]}
-    style={
-      Object {
-        "width": 750,
-      }
-    }
-    text="DONE"
-    type="secondary"
+    text="Done"
   />
 </Component>
 `;

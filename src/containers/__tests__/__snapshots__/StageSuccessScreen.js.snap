@@ -69,88 +69,75 @@ exports[`renders correctly 1`] = `
     </Text>
   </View>
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits="button"
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "stretch",
-          "flex": 1,
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
+    testID={undefined}
+    tvParallaxProperties={undefined}
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#52C5DC",
+            "height": 60,
+            "justifyContent": "center",
+          },
+          null,
+          Object {
+            "width": 750,
+          },
+          null,
+        ]
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
-      <View
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#505256",
             },
-            null,
             Object {
-              "width": 750,
+              "fontFamily": "SourceSansPro-Regular",
             },
-            null,
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "color": "#ffffff",
+                "fontSize": 18,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
           ]
         }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          CHOOSE MY STEPS
-        </Text>
-      </View>
+        CHOOSE MY STEPS
+      </Text>
     </View>
   </View>
 </View>
@@ -225,88 +212,75 @@ exports[`renders correctly with default state 1`] = `
     </Text>
   </View>
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits="button"
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "stretch",
-          "flex": 1,
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
+    testID={undefined}
+    tvParallaxProperties={undefined}
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#52C5DC",
+            "height": 60,
+            "justifyContent": "center",
+          },
+          null,
+          Object {
+            "width": 750,
+          },
+          null,
+        ]
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
-      <View
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#505256",
             },
-            null,
             Object {
-              "width": 750,
+              "fontFamily": "SourceSansPro-Regular",
             },
-            null,
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "color": "#ffffff",
+                "fontSize": 18,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
           ]
         }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          CHOOSE MY STEPS
-        </Text>
-      </View>
+        CHOOSE MY STEPS
+      </Text>
     </View>
   </View>
 </View>

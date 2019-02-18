@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<Button
+<BottomButton
   onPress={[Function]}
-  text="TAKE A STEP WITH SOMEONE"
-  type="secondary"
+  text="Take a Step With Someone"
 />
 `;

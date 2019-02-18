@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { Text, Flex, Button, Input } from '../../components/common';
+import { Text, Flex, Input } from '../../components/common';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
 import { buildTrackingObj } from '../../utils/common';
 import { trackState } from '../../actions/analytics';
 import NullStateComponent from '../../components/NullStateComponent';
+import BottomButton from '../../components/BottomButton';
 
 import styles from './styles';
 
@@ -95,7 +96,7 @@ export class ContactNotes extends Component {
     const t = this.props.t;
 
     if (this.state.editing) {
-      return t('done').toUpperCase();
+      return t('done');
     } else if (this.state.text) {
       return t('edit');
     } else {
@@ -150,13 +151,10 @@ export class ContactNotes extends Component {
     return (
       <View style={{ flex: 1 }}>
         {text || editing ? this.renderNotes() : this.renderEmpty()}
-        <Flex align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.onButtonPress}
-            text={this.getButtonText()}
-          />
-        </Flex>
+        <BottomButton
+          onPress={this.onButtonPress}
+          text={this.getButtonText()}
+        />
       </View>
     );
   }

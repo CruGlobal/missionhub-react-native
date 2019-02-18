@@ -62,6 +62,7 @@
     "react-native-parallax-scroll-view": "^0.21.0",
     "react-native-push-notification": "https://github.com/CruGlobal/react-native-push-notification",
     "react-native-scrollable-tab-view": "^0.8.0",
+    "react-native-simple-markdown": "^1.1.0",
     "react-native-snap-carousel": "^3.7.0",
     "react-native-vector-icons": "^6.1.0",
     "react-native-view-overflow": "^0.0.3",

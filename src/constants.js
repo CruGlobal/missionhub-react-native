@@ -55,6 +55,9 @@ export const GLOBAL_COMMUNITY_ID = '_global_community_id';
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';
 
+export const STEP_SUGGESTION = 'challenge_suggestion';
+export const ACCEPTED_STEP = 'accepted_challenge';
+
 export const STEPS_TAB = 'StepsTab';
 export const PEOPLE_TAB = 'PeopleTab';
 export const GROUPS_TAB = 'GroupsTab';

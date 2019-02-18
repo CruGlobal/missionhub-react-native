@@ -11,9 +11,10 @@ import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepSuggestionItem from '../../components/StepSuggestionItem';
 import StepsList from '../../components/StepsList';
-import { Flex, Text, Button, Icon } from '../../components/common';
+import { Flex, Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import Header from '../Header';
+import BottomButton from '../../components/BottomButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, shuffleArray } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
@@ -186,14 +187,11 @@ class SelectStepScreen extends Component {
   };
 
   renderCreateStepButton = () => (
-    <View flex={0} alignItems="stretch" justifyContent="flex-end">
-      <Button
-        type="secondary"
-        onPress={this.handleCreateStep}
-        text={this.props.t('addStep').toUpperCase()}
-        style={styles.addButton}
-      />
-    </View>
+    <BottomButton
+      onPress={this.handleCreateStep}
+      text={this.props.t('addStep').toUpperCase()}
+      style={styles.addButton}
+    />
   );
 
   stepsListRef = c => (this.stepsList = c);

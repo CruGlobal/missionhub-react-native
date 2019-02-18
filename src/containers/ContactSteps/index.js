@@ -12,7 +12,8 @@ import {
   deleteStepWithTracking,
 } from '../../actions/steps';
 import { reloadJourney } from '../../actions/journey';
-import { Flex, Button } from '../../components/common';
+import { Flex } from '../../components/common';
+import BottomButton from '../../components/BottomButton';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
@@ -24,6 +25,7 @@ import {
 import { promptToAssign } from '../../utils/promptToAssign';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
+import { STEP_DETAIL_SCREEN } from '../StepDetailScreen';
 import { contactAssignmentSelector } from '../../selectors/people';
 import {
   assignContactAndPickStage,
@@ -49,6 +51,10 @@ class ContactSteps extends Component {
     const { dispatch, person, organization = {} } = this.props;
 
     dispatch(getContactSteps(person.id, organization.id));
+  };
+
+  handleRowSelect = step => {
+    this.props.dispatch(navigatePush(STEP_DETAIL_SCREEN, { step }));
   };
 
   handleRemove = async step => {
@@ -170,7 +176,7 @@ class ContactSteps extends Component {
         onDelete={this.handleRemove}
         onComplete={this.handleComplete}
       >
-        <StepItem step={item} type="contact" />
+        <StepItem step={item} type="contact" onSelect={this.handleRowSelect} />
       </RowSwipeable>
     );
   };
@@ -219,13 +225,7 @@ class ContactSteps extends Component {
         >
           {steps.length > 0 ? this.renderList() : this.renderNull()}
         </Flex>
-        <Flex justify="end">
-          <Button
-            type="secondary"
-            onPress={this.handleCreateStep}
-            text={t('addStep').toUpperCase()}
-          />
-        </Flex>
+        <BottomButton onPress={this.handleCreateStep} text={t('addStep')} />
       </View>
     );
   }

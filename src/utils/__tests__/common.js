@@ -27,7 +27,11 @@ import {
   getFirstNameAndLastInitial,
   getCommunityUrl,
 } from '../common';
-import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../constants';
+import {
+  MAIN_MENU_DRAWER,
+  DEFAULT_PAGE_LIMIT,
+  ACCEPTED_STEP,
+} from '../../constants';
 
 jest.mock('react-navigation', () => ({
   DrawerActions: {
@@ -184,7 +188,7 @@ describe('openMainMenu', () => {
 
 describe('getIconName', () => {
   it('should return steps icon', () => {
-    const item = { type: 'accepted_challenge' };
+    const item = { type: ACCEPTED_STEP };
     const result = getIconName(item.type);
     expect(result).toBe('stepsIcon');
   });
