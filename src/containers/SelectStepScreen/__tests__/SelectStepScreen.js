@@ -10,7 +10,7 @@ import {
 } from '../../../../testUtils';
 import * as navigation from '../../../actions/navigation';
 import { ADD_STEP_SCREEN } from '../../AddStepScreen';
-import { addSteps, getStepSuggestions } from '../../../actions/steps';
+import { getStepSuggestions } from '../../../actions/steps';
 import { shuffleArray } from '../../../utils/common';
 import { CREATE_STEP } from '../../../constants';
 
@@ -45,6 +45,8 @@ const org = { id: 2 };
 
 const receiverId = '1';
 
+const headerText = 'header';
+
 const steps = {
   suggestedForOthers: {
     [contactStageId]: suggestions,
@@ -68,6 +70,7 @@ const createComponent = async () => {
   component = renderShallow(
     <SelectStepScreen
       isMe={false}
+      headerText={headerText}
       contactStageId={contactStageId}
       createStepTracking={createStepTracking}
       onComplete={onComplete}
@@ -172,16 +175,6 @@ describe('componentDidMount', () => {
   });
 });
 
-describe('renderSaveButton', () => {
-  it('should render save button', async () => {
-    await createComponent();
-
-    component.instance().handleSelectStep({ id: '1' });
-    component.update();
-    expect(component).toMatchSnapshot();
-  });
-});
-
 describe('renderBackButton', () => {
   it('should render back button', async () => {
     enableBackButton = true;
@@ -233,36 +226,5 @@ describe('handleLoadSteps', () => {
     instance.handleLoadSteps();
     component.update();
     expect(instance.state.steps).toEqual(suggestions);
-  });
-});
-
-describe('saveAllSteps', () => {
-  it('should add the selected steps', async () => {
-    onComplete = jest.fn();
-    addSteps.mockReturnValue(Promise.resolve());
-    await createComponent();
-
-    instance.handleSelectStep({ id: '1' });
-    instance.handleSelectStep({ id: '3' });
-    component.update();
-    await instance.saveAllSteps();
-
-    expect(addSteps).toHaveBeenCalledWith(
-      [
-        {
-          id: '1',
-          body: 'test 1',
-          selected: true,
-        },
-        {
-          id: '3',
-          body: 'test 3',
-          selected: true,
-        },
-      ],
-      receiverId,
-      org,
-    );
-    expect(onComplete).toHaveBeenCalled();
   });
 });

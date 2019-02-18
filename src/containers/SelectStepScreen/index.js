@@ -8,10 +8,9 @@ import i18next from 'i18next';
 import uuidv4 from 'uuid/v4';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
-import { getStepSuggestions, addSteps } from '../../actions/steps';
+import { getStepSuggestions } from '../../actions/steps';
 import StepSuggestionItem from '../../components/StepSuggestionItem';
-import StepsList from '../../components/StepsList';
-import { Flex, Text, Icon, Button } from '../../components/common';
+import { Text, Icon, Button } from '../../components/common';
 import BackButton from '../BackButton';
 import Header from '../Header';
 import BottomButton from '../../components/BottomButton';
@@ -198,8 +197,6 @@ class SelectStepScreen extends Component {
   keyExtractor = item => item.id;
 
   render() {
-    const { t } = this.props;
-
     return (
       <View flex={1}>
         <ParallaxScrollView

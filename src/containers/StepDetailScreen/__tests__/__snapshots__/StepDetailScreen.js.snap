@@ -10,6 +10,7 @@ exports[`render renders for accepted step 1`] = `
   }
 >
   <Connect(Header)
+    center={null}
     left={
       <Connect(BackButton)
         iconStyle={
@@ -83,6 +84,7 @@ exports[`render renders for accepted step with tip 1`] = `
   }
 >
   <Connect(Header)
+    center={null}
     left={
       <Connect(BackButton)
         iconStyle={
@@ -224,7 +226,7 @@ exports[`render renders for completed step 1`] = `
         }
       />
     }
-    right={false}
+    right={null}
     shadow={false}
     style={
       Object {
@@ -265,7 +267,7 @@ exports[`render renders for suggested step 1`] = `
   }
 >
   <Connect(Header)
-    center={false}
+    center={null}
     left={
       <Connect(BackButton)
         iconStyle={
@@ -275,7 +277,7 @@ exports[`render renders for suggested step 1`] = `
         }
       />
     }
-    right={false}
+    right={null}
     shadow={false}
     style={
       Object {
@@ -318,7 +320,7 @@ exports[`render renders for suggested step with tip 1`] = `
   }
 >
   <Connect(Header)
-    center={false}
+    center={null}
     left={
       <Connect(BackButton)
         iconStyle={
@@ -328,7 +330,7 @@ exports[`render renders for suggested step with tip 1`] = `
         }
       />
     }
-    right={false}
+    right={null}
     shadow={false}
     style={
       Object {

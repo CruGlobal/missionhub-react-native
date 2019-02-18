@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Text, Flex, Card } from '../common';
+import { Text, Card } from '../common';
 import { navigatePush } from '../../actions/navigation';
 import { STEP_DETAIL_SCREEN } from '../../containers/StepDetailScreen';
 
