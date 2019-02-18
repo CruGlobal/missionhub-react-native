@@ -39,7 +39,7 @@ class DatePicker extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.date !== this.props.date) {
       this.setState({ date: this.getDate(nextProps.date) });
     }

@@ -33,7 +33,7 @@ export class ContactNotes extends Component {
     this.getNote();
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     if (!props.isActiveTab) {
       this.saveNote();
     }

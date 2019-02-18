@@ -23,7 +23,7 @@ export default class StepItemDraggable extends Component {
     this.handleSelect = this.handleSelect.bind(this);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     if (!isAndroid) {
       this._val = { x: 0, y: 0 };
       this.state.pan.addListener(value => (this._val = value));
