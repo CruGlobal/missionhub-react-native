@@ -52,6 +52,10 @@ let nav;
 
 const completeStepResult = { type: 'completed step' };
 
+const componentAcceptedStep = (
+  <StepDetailScreen navigation={createMockNavState({ step: acceptedStep })} />
+);
+
 beforeEach(() => {
   store = mockStore();
   jest.clearAllMocks();
@@ -71,8 +75,7 @@ describe('render', () => {
   });
 
   it('renders for accepted step', () => {
-    nav = createMockNavState({ step: acceptedStep });
-    testSnapshotShallow(<StepDetailScreen navigation={nav} />, store);
+    testSnapshotShallow(componentAcceptedStep, store);
   });
 
   it('renders for accepted step with tip', () => {
@@ -88,12 +91,7 @@ describe('render', () => {
 
 describe('complete step button', () => {
   it('creates step', () => {
-    renderShallow(
-      <StepDetailScreen
-        navigation={createMockNavState({ step: acceptedStep })}
-      />,
-      store,
-    )
+    renderShallow(componentAcceptedStep, store)
       .childAt(4)
       .props()
       .onPress();
