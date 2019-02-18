@@ -2,7 +2,7 @@ import { createStackNavigator, StackActions } from 'react-navigation';
 
 import { wrapNextAction, wrapNextScreen } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
-import { navigatePush, navigateBack } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { reloadJourney } from '../../actions/journey';
 import { RESET_STEP_COUNT } from '../../constants';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
