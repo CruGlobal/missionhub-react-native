@@ -24,7 +24,6 @@ export class StepDetailScreen extends Component {
   handleCompleteStep = () => {
     const { dispatch, step } = this.props;
 
-    //todo need to navigate back one more screen
     dispatch(completeStep(step, 'Step Detail'));
   };
 
