@@ -11,7 +11,7 @@ import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepSuggestionItem from '../../components/StepSuggestionItem';
 import StepsList from '../../components/StepsList';
-import { Flex, Text, Icon } from '../../components/common';
+import { Flex, Text, Icon, Button } from '../../components/common';
 import BackButton from '../BackButton';
 import Header from '../Header';
 import BottomButton from '../../components/BottomButton';
@@ -189,8 +189,7 @@ class SelectStepScreen extends Component {
   renderCreateStepButton = () => (
     <BottomButton
       onPress={this.handleCreateStep}
-      text={this.props.t('addStep').toUpperCase()}
-      style={styles.addButton}
+      text={this.props.t('createStep').toUpperCase()}
     />
   );
 
@@ -202,10 +201,10 @@ class SelectStepScreen extends Component {
     const { t } = this.props;
 
     return (
-      <Flex value={1}>
+      <View flex={1}>
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
-          contentBackgroundColor={theme.lightGrey}
+          contentBackgroundColor={theme.extraLightGrey}
           parallaxHeaderHeight={240 + theme.notchHeight}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={theme.headerHeight}
@@ -223,7 +222,7 @@ class SelectStepScreen extends Component {
         </ParallaxScrollView>
         {this.renderCreateStepButton()}
         {this.renderBackButton()}
-      </Flex>
+      </View>
     );
   }
 }
