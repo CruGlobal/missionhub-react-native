@@ -115,8 +115,10 @@ export const CompleteStepFlowScreens = {
     ({ contactId, orgId }) => dispatch => {
       dispatch(reloadJourney(contactId, orgId));
       dispatch(StackActions.popToTop());
-      dispatch(navigateBack());
-      dispatch(StackActions.pop({ n: 1, immediate: true }));
+
+      const popAction = StackActions.pop({ immediate: true });
+      dispatch(popAction);
+      dispatch(popAction);
     },
   ),
 };
