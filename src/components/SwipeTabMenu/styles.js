@@ -7,7 +7,7 @@ export default StyleSheet.create({
     backgroundColor: theme.accentColor,
   },
   containerLight: {
-    backgroundColor: theme.lightGrey,
+    backgroundColor: theme.extraLightGrey,
   },
   scrollContainer: {
     height: theme.swipeTabHeight,
@@ -49,6 +49,6 @@ export default StyleSheet.create({
     transform: [{ rotate: '180deg' }],
   },
   triangleLight: {
-    borderBottomColor: theme.lightGrey,
+    borderBottomColor: theme.extraLightGrey,
   },
 });
