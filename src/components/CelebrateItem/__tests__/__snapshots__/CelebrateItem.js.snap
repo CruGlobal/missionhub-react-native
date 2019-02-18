@@ -15,20 +15,25 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -137,20 +142,25 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -259,20 +269,25 @@ exports[`CelebrateItem message renders created community event 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -359,20 +374,25 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        MISSIONHUB USER
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          MISSIONHUB USER
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -417,20 +437,25 @@ exports[`CelebrateItem message renders joined community event 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -517,20 +542,25 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -617,20 +647,25 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -717,20 +752,25 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -817,20 +857,25 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -917,20 +962,25 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -1017,20 +1067,25 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -1115,20 +1170,25 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -1215,20 +1275,25 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -1315,20 +1380,25 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -1413,20 +1483,25 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -1511,20 +1586,25 @@ exports[`CelebrateItem renders event with no subject person (global community ev
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        JOHN SMITH
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          JOHN SMITH
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"
@@ -1567,20 +1647,25 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
+      <Button
+        onPress={[Function]}
+        type="transparent"
       >
-        MISSIONHUB USER
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          MISSIONHUB USER
+        </MyText>
+      </Button>
       <Translate(DateComponent)
         date="2004-04-04 00:00:00 UTC"
         format="LT"

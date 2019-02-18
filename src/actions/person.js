@@ -411,14 +411,24 @@ export function navToPersonScreen(person, org, props = {}) {
     const selectorOrg =
       organizationSelector({ organizations }, { orgId }) || organization;
     //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+
+    //todo fix by adding people from celebrate items to people reducer
+    const personSelectorResult = personSelector(
+      { people },
+      { orgId, personId },
+    );
     const selectorPerson =
-      personSelector({ people }, { orgId, personId }) || person;
+      personSelectorResult && personSelectorResult.id
+        ? personSelectorResult
+        : person;
 
     const contactAssignment = contactAssignmentSelector(
       { auth },
       { person: selectorPerson, orgId },
     );
     const authPerson = auth.person;
+
+    console.log(personSelectorResult);
 
     dispatch(
       navigatePush(
@@ -455,6 +465,9 @@ export function getPersonScreenRoute(
 
   const isUserCreatedOrg = organization.user_created;
   const isGroups = mePerson.user.groups_feature;
+
+  console.log(isMember);
+  console.log(isGroups);
 
   if (isMe) {
     if (isMember) {

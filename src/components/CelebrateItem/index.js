@@ -23,6 +23,7 @@ import { trackActionWithoutData } from '../../actions/analytics';
 import GREY_HEART from '../../../assets/images/heart-grey.png';
 import BLUE_HEART from '../../../assets/images/heart-blue.png';
 import { getFirstNameAndLastInitial } from '../../utils/common';
+import { navToPersonScreen } from '../../actions/person';
 
 import styles from './styles';
 
@@ -47,6 +48,18 @@ class CelebrateItem extends Component {
         }),
       );
     }
+  };
+
+  onPressNameLink = () => {
+    const {
+      dispatch,
+      event: { subject_person, organization },
+    } = this.props;
+
+    //todo "undefined" if user not loaded?
+    //todo hide for global
+    //todo hide for "missionhub user"
+    dispatch(navToPersonScreen(subject_person, organization));
   };
 
   renderMessage() {
@@ -223,12 +236,14 @@ class CelebrateItem extends Component {
       <Card>
         <Flex value={1} direction={'row'} style={styles.content}>
           <Flex value={1} direction={'column'}>
-            <Text style={styles.name}>
-              {(subject_person_name
-                ? subject_person_name
-                : t('missionHubUser')
-              ).toUpperCase()}
-            </Text>
+            <Button type="transparent" onPress={this.onPressNameLink}>
+              <Text style={styles.name}>
+                {(subject_person_name
+                  ? subject_person_name
+                  : t('missionHubUser')
+                ).toUpperCase()}
+              </Text>
+            </Button>
             <DateComponent
               style={styles.time}
               date={changed_attribute_value}

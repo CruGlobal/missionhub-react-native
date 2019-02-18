@@ -285,7 +285,13 @@ export const mapStateToProps = (
 
   const organization =
     organizationSelector({ organizations }, { orgId }) || navOrg;
-  const person = personSelector({ people }, { personId, orgId }) || navPerson;
+
+  const personSelectorResult = personSelector({ people }, { orgId, personId });
+  const person =
+    personSelectorResult && personSelectorResult.id
+      ? personSelectorResult
+      : navPerson;
+
   const contactAssignment = contactAssignmentSelector(
     { auth },
     { person, orgId: organization.id },
