@@ -8,7 +8,7 @@ import { STEP_DETAIL_SCREEN } from '../../containers/StepDetailScreen';
 
 import styles from './styles';
 
-export class StepSuggestionItem extends Component {
+class StepSuggestionItem extends Component {
   handlePress = () => {
     const { dispatch, step } = this.props;
     dispatch(navigatePush(STEP_DETAIL_SCREEN, { step }));
