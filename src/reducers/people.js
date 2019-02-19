@@ -58,6 +58,8 @@ export default function peopleReducer(state = initialState, action) {
       return loadPeople(state, action);
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
       return loadContactsFromSteps(state, action);
+    case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
+      return loadPeopleFromCelebrateItems(state, action);
     case LOGOUT:
       return initialState;
     case PEOPLE_WITH_ORG_SECTIONS:
@@ -122,6 +124,28 @@ function loadContactsFromSteps(state, action) {
     ...state,
     allByOrg,
   };
+}
+
+function loadPeopleFromCelebrateItems(state, action) {
+  const orgId = action.query.orgId;
+  const people = action.results.response.map(item => item.subject_person);
+  const newPeople = state.allByOrg[orgId].people;
+
+  people.forEach(person => {
+    newPeople[person.id] = newPeople[person.id] || person;
+  });
+
+  const newState = {
+    ...state,
+    allByOrg: {
+      ...state.allByOrg,
+      [orgId]: {
+        ...state.allByOrg[orgId],
+        people: newPeople,
+      },
+    },
+  };
+  return newState;
 }
 
 function updateAllPersonInstances(allByOrg, updatedPerson, replace = false) {
