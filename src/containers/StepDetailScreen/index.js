@@ -11,12 +11,20 @@ import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import ReminderButton from '../../components/ReminderButton';
 import { Button, Text } from '../../components/common';
+import { addSteps } from '../../actions/steps';
+import { navigateBack } from '../../actions/navigation';
 
 import styles, { markdownStyles } from './styles';
 
 @translate('stepDetail')
 export class StepDetailScreen extends Component {
-  handleAddStep = () => {};
+  handleAddStep = async () => {
+    const { dispatch, step, receiverId, orgId } = this.props;
+
+    await dispatch(addSteps([step], receiverId, { id: orgId }));
+
+    dispatch(navigateBack());
+  };
 
   handleRemoveStep = () => {};
 
@@ -90,10 +98,12 @@ StepDetailScreen.propTypes = {
   step: PropTypes.shape({
     type: PropTypes.oneOf([STEP_SUGGESTION, ACCEPTED_STEP]),
   }).isRequired,
+  receiverId: PropTypes.string.isRequired,
+  orgId: PropTypes.string,
 };
 
 const mapStateToProps = (_, { navigation }) => {
-  const { step } = navigation.state.params;
+  const { step, receiverId, orgId } = navigation.state.params;
 
   const isSuggestion = step._type === STEP_SUGGESTION;
   const isCompleted = !isSuggestion && step.completed_at;
@@ -108,6 +118,8 @@ const mapStateToProps = (_, { navigation }) => {
     isCompleted,
     stepTitle,
     tipDescription,
+    receiverId,
+    orgId,
   };
 };
 
