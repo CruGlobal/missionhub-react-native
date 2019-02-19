@@ -3,6 +3,7 @@ import { FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import i18next from 'i18next';
 import uuidv4 from 'uuid/v4';

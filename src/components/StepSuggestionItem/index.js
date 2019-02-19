@@ -16,7 +16,7 @@ export class StepSuggestionItem extends Component {
 
   render() {
     const {
-      step: { body = '' },
+      step: { body },
     } = this.props;
 
     return (
