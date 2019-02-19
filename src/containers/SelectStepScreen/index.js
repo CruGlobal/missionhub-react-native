@@ -28,40 +28,45 @@ class SelectStepScreen extends Component {
     super(props);
 
     this.state = {
-      steps: [],
-      addedSteps: [],
       suggestions: [],
-      contact: null,
-      suggestionIndex: 0,
+      suggestionIndex: 4,
     };
   }
 
   insertName(steps) {
+    const { contactName, personFirstName } = this.props;
     return steps.map(step => ({
       ...step,
       body: step.body.replace(
         '<<name>>',
-        this.props.contactName
-          ? this.props.contactName
-          : this.props.personFirstName,
+        contactName ? contactName : personFirstName,
       ),
     }));
   }
 
   async componentDidMount() {
-    const { dispatch, isMe, contactStageId } = this.props;
-    let { suggestions } = this.props;
-    if (!this.props.enableBackButton) {
+    const {
+      dispatch,
+      enableBackButton,
+      suggestions = [],
+      isMe,
+      contactStageId,
+    } = this.props;
+    if (!enableBackButton) {
       disableBack.add();
     }
 
-    const { response } = await dispatch(
-      getStepSuggestions(isMe, contactStageId),
-    );
-    suggestions = response;
-    this.setState({ suggestions: shuffleArray(suggestions) });
+    let suggestionList;
+    if (suggestions.length > 0) {
+      suggestionList = suggestions;
+    } else {
+      const { response } = await dispatch(
+        getStepSuggestions(isMe, contactStageId),
+      );
+      suggestionList = response;
+    }
 
-    this.handleLoadSteps();
+    this.setState({ suggestions: shuffleArray(suggestions) });
   }
 
   componentWillUnmount() {
@@ -71,61 +76,36 @@ class SelectStepScreen extends Component {
   }
 
   handleLoadSteps = () => {
-    const { suggestionIndex } = this.state;
-    const { suggestions, isMe } = this.props;
+    const { suggestionIndex, suggestions = [] } = this.state;
 
-    if (suggestionIndex >= (suggestions || []).length) {
-      return;
+    let newSuggestionIndex = suggestionIndex + 4;
+    if (newSuggestionIndex > suggestions.length) {
+      newSuggestionIndex = suggestions.length;
     }
 
-    let suggestionIndexMax = suggestionIndex + 4;
-    if (suggestionIndexMax > (suggestions || []).length) {
-      suggestionIndexMax = (suggestions || []).length;
-    }
+    this.setState({ suggestionIndex: newSuggestionIndex });
+  };
 
-    let newSuggestions = suggestions.slice(suggestionIndex, suggestionIndexMax);
+  getSuggestionSubset() {
+    const { suggestionIndex, suggestions = [] } = this.state;
+    const { isMe } = this.props;
+
+    let newSuggestions = suggestions.slice(0, suggestionIndex);
 
     if (!isMe) {
       newSuggestions = this.insertName(newSuggestions);
     }
 
-    this.setState({
-      steps: [...this.state.steps, ...newSuggestions],
-      suggestionIndex: suggestionIndexMax,
-    });
-  };
+    return newSuggestions;
+  }
 
   handleCreateStep = () => {
-    if (this.props.contact) {
-      this.setState({ contact: this.props.contact });
-    }
-    if (!this.props.enableBackButton) {
-      disableBack.remove();
-    }
-    this.props.dispatch(
+    const { dispatch, createStepTracking } = this.props;
+
+    dispatch(
       navigatePush(ADD_STEP_SCREEN, {
         type: CREATE_STEP,
-        trackingObj: this.props.createStepTracking,
-        onComplete: newStepText => {
-          const addedSteps = this.state.addedSteps;
-
-          const newStep = {
-            id: uuidv4(),
-            body: newStepText,
-            selected: true,
-            locale: i18next.language,
-            challenge_type: CUSTOM_STEP_TYPE,
-            self_step: this.props.myId === this.props.receiverId,
-          };
-
-          this.setState({
-            steps: this.state.steps.concat([newStep]),
-            addedSteps: addedSteps.concat([newStep]),
-          });
-          if (this.stepsList && this.stepsList.onScrollToEnd) {
-            this.stepsList.onScrollToEnd();
-          }
-        },
+        trackingObj: createStepTracking,
       }),
     );
   };
@@ -136,11 +116,7 @@ class SelectStepScreen extends Component {
     const { enableBackButton, contact } = this.props;
     return enableBackButton ? (
       <BackButton
-        customNavigate={
-          contact || this.state.contact
-            ? undefined
-            : this.navigateBackTwoScreens
-        }
+        customNavigate={contact ? undefined : this.navigateBackTwoScreens}
         absolute={true}
       />
     ) : null;
@@ -198,6 +174,8 @@ class SelectStepScreen extends Component {
   keyExtractor = item => item.id;
 
   render() {
+    const suggestions = this.getSuggestionSubset();
+
     return (
       <View flex={1}>
         <ParallaxScrollView
@@ -211,7 +189,7 @@ class SelectStepScreen extends Component {
           <FlatList
             ref={this.stepsListRef}
             keyExtractor={this.keyExtractor}
-            data={this.state.steps}
+            data={suggestions}
             renderItem={this.renderItem}
             scrollEnabled={true}
             style={styles.list}
