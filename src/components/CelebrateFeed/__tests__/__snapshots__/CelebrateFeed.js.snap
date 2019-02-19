@@ -121,7 +121,6 @@ exports[`renders section header 1`] = `
   }
 >
   <Translate(DateComponent)
-    date={undefined}
     format="relative"
     style={
       Object {

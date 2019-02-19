@@ -478,16 +478,9 @@ exports[`renders correctly for Create Community 1`] = `
         }
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
           accessibilityTraits="button"
           accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -499,8 +492,6 @@ exports[`renders correctly for Create Community 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={
@@ -692,16 +683,9 @@ exports[`renders correctly for Create Community 1`] = `
         }
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
           accessibilityTraits="button"
           accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -713,8 +697,6 @@ exports[`renders correctly for Create Community 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={
@@ -815,16 +797,9 @@ exports[`renders correctly for Create Community 1`] = `
           </View>
         </View>
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
           accessibilityTraits="button"
           accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -836,8 +811,6 @@ exports[`renders correctly for Create Community 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={
@@ -986,16 +959,9 @@ exports[`renders correctly for Create Community 1`] = `
             }
           >
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1007,8 +973,6 @@ exports[`renders correctly for Create Community 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={
@@ -1084,16 +1048,9 @@ exports[`renders correctly for Create Community 1`] = `
               and
             </Text>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1105,8 +1062,6 @@ exports[`renders correctly for Create Community 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={
@@ -1200,16 +1155,9 @@ exports[`renders correctly for Create Community 1`] = `
           ALREADY A MEMBER?
         </Text>
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
           accessibilityTraits="button"
           accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1221,8 +1169,6 @@ exports[`renders correctly for Create Community 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={
@@ -1343,16 +1289,9 @@ exports[`renders correctly with logo 1`] = `
         }
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
           accessibilityTraits="button"
           accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1364,8 +1303,6 @@ exports[`renders correctly with logo 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={
@@ -1496,16 +1433,9 @@ exports[`renders correctly with logo 1`] = `
         }
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
           accessibilityTraits="button"
           accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1517,8 +1447,6 @@ exports[`renders correctly with logo 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={
@@ -1619,16 +1547,9 @@ exports[`renders correctly with logo 1`] = `
           </View>
         </View>
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
           accessibilityTraits="button"
           accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1640,8 +1561,6 @@ exports[`renders correctly with logo 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={
@@ -1790,16 +1709,9 @@ exports[`renders correctly with logo 1`] = `
             }
           >
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1811,8 +1723,6 @@ exports[`renders correctly with logo 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={
@@ -1888,16 +1798,9 @@ exports[`renders correctly with logo 1`] = `
               and
             </Text>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1909,8 +1812,6 @@ exports[`renders correctly with logo 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={
@@ -2004,16 +1905,9 @@ exports[`renders correctly with logo 1`] = `
           ALREADY A MEMBER?
         </Text>
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
           accessibilityTraits="button"
           accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -2025,8 +1919,6 @@ exports[`renders correctly with logo 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={

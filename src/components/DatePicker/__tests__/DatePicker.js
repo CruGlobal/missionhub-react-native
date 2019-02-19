@@ -77,7 +77,7 @@ describe('date methods', () => {
     );
     instance = component.instance();
     const newDate = new Date('2018-09-30');
-    instance.componentWillReceiveProps({ date: newDate });
+    instance.UNSAFE_componentWillReceiveProps({ date: newDate });
     expect(instance.state.date).toEqual(newDate);
   });
 

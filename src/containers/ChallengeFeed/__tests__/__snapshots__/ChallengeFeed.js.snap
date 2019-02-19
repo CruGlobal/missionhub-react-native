@@ -105,7 +105,6 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
 
 exports[`renders item 1`] = `
 <Translate(ChallengeItem)
-  acceptedChallenge={undefined}
   item={
     Object {
       "accepted_community_challenges": Array [],

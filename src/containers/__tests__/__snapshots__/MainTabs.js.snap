@@ -89,16 +89,9 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
               }
             >
               <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
                 accessibilityTraits="button"
                 accessible={true}
-                collapsable={undefined}
-                hasTVPreferredFocus={undefined}
-                hitSlop={undefined}
                 isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -110,8 +103,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                     "opacity": 1,
                   }
                 }
-                testID={undefined}
-                tvParallaxProperties={undefined}
               >
                 <View
                   style={
@@ -238,16 +229,9 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
               }
             >
               <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
                 accessibilityTraits="button"
                 accessible={true}
-                collapsable={undefined}
-                hasTVPreferredFocus={undefined}
-                hitSlop={undefined}
                 isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -259,8 +243,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                     "opacity": 1,
                   }
                 }
-                testID={undefined}
-                tvParallaxProperties={undefined}
               >
                 <View
                   style={
@@ -332,16 +314,9 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
               }
             >
               <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
                 accessibilityTraits="button"
                 accessible={true}
-                collapsable={undefined}
-                hasTVPreferredFocus={undefined}
-                hitSlop={undefined}
                 isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -353,8 +328,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                     "opacity": 1,
                   }
                 }
-                testID={undefined}
-                tvParallaxProperties={undefined}
               >
                 <View
                   style={
@@ -514,7 +487,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
     </View>
   </View>
   <View
-    collapsable={undefined}
     onLayout={[Function]}
     pointerEvents="box-none"
     style={
@@ -532,13 +504,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -561,7 +527,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
           undefined,
         ]
       }
-      testID={undefined}
     >
       <View
         style={
@@ -631,13 +596,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -660,7 +619,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
           undefined,
         ]
       }
-      testID={undefined}
     >
       <View
         style={
@@ -730,13 +688,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -759,7 +711,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
           undefined,
         ]
       }
-      testID={undefined}
     >
       <View
         style={
@@ -923,16 +874,9 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
               }
             >
               <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
                 accessibilityTraits="button"
                 accessible={true}
-                collapsable={undefined}
-                hasTVPreferredFocus={undefined}
-                hitSlop={undefined}
                 isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -944,8 +888,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
                     "opacity": 1,
                   }
                 }
-                testID={undefined}
-                tvParallaxProperties={undefined}
               >
                 <View
                   style={
@@ -1148,7 +1090,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
     </View>
   </View>
   <View
-    collapsable={undefined}
     onLayout={[Function]}
     pointerEvents="box-none"
     style={
@@ -1166,13 +1107,7 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1195,7 +1130,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
           undefined,
         ]
       }
-      testID={undefined}
     >
       <View
         style={
@@ -1265,13 +1199,7 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1294,7 +1222,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
           undefined,
         ]
       }
-      testID={undefined}
     >
       <View
         style={
@@ -1364,13 +1291,7 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1393,7 +1314,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
           undefined,
         ]
       }
-      testID={undefined}
     >
       <View
         style={
