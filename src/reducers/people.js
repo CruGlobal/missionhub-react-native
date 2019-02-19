@@ -128,7 +128,9 @@ function loadContactsFromSteps(state, action) {
 
 function loadPeopleFromCelebrateItems(state, action) {
   const orgId = action.query.orgId;
-  const people = action.results.response.map(item => item.subject_person);
+  const people = action.results.response
+    .map(item => item.subject_person)
+    .filter(item => !!item);
   const newPeople = state.allByOrg[orgId].people;
 
   people.forEach(person => {

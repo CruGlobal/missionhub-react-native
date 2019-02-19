@@ -56,9 +56,6 @@ class CelebrateItem extends Component {
       event: { subject_person, organization },
     } = this.props;
 
-    //todo "undefined" if user not loaded?
-    //todo hide for global
-    //todo hide for "missionhub user"
     dispatch(navToPersonScreen(subject_person, organization));
   };
 
@@ -220,11 +217,45 @@ class CelebrateItem extends Component {
     ) : null;
   }
 
+  renderName() {
+    const {
+      event: { subject_person_name },
+      t,
+    } = this.props;
+
+    return (
+      <Text style={styles.name}>
+        {(subject_person_name
+          ? subject_person_name
+          : t('missionHubUser')
+        ).toUpperCase()}
+      </Text>
+    );
+  }
+
+  renderPersonText() {
+    const { event } = this.props;
+    const { subject_person_name } = event;
+
+    if (
+      !event.organization ||
+      event.organization.id === GLOBAL_COMMUNITY_ID ||
+      !subject_person_name
+    ) {
+      return this.renderName();
+    }
+
+    return (
+      <Button type="transparent" onPress={this.onPressNameLink}>
+        {this.renderName()}
+      </Button>
+    );
+  }
+
   render() {
-    const { myId, event, t } = this.props;
+    const { myId, event } = this.props;
     const {
       changed_attribute_value,
-      subject_person_name,
       subject_person,
       likes_count,
       liked,
@@ -236,14 +267,7 @@ class CelebrateItem extends Component {
       <Card>
         <Flex value={1} direction={'row'} style={styles.content}>
           <Flex value={1} direction={'column'}>
-            <Button type="transparent" onPress={this.onPressNameLink}>
-              <Text style={styles.name}>
-                {(subject_person_name
-                  ? subject_person_name
-                  : t('missionHubUser')
-                ).toUpperCase()}
-              </Text>
-            </Button>
+            {this.renderPersonText()}
             <DateComponent
               style={styles.time}
               date={changed_attribute_value}
