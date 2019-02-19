@@ -58,7 +58,7 @@ let store = createMockStore({
   steps,
 });
 
-let component, parallaxProps, instance;
+let component, parallaxProps, flatListProps, instance;
 let onComplete = jest.fn();
 let createStepTracking = {};
 let enableBackButton = false;
@@ -82,6 +82,7 @@ const createComponent = async () => {
     store,
   );
   parallaxProps = component.find('ParallaxScrollView').props();
+  flatListProps = component.find('FlatList').props();
   instance = component.instance();
   await Promise.resolve();
 };
@@ -151,6 +152,14 @@ describe('SelectStepScreen', () => {
 
   it('should render sticky header correctly', () => {
     testSnapshotShallow(parallaxProps.renderStickyHeader());
+  });
+
+  it('should render step item correctly', () => {
+    testSnapshotShallow(flatListProps.renderItem({ item: suggestions[0] }));
+  });
+
+  it('should render load more button correctly', () => {
+    testSnapshotShallow(flatListProps.ListFooterComponent());
   });
 
   it('should call navigate back two screens', () => {

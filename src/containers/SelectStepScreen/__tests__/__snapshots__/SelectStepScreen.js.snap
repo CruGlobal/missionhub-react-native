@@ -102,6 +102,98 @@ exports[`SelectStepScreen should render foreground header correctly 1`] = `
 </View>
 `;
 
+exports[`SelectStepScreen should render load more button correctly 1`] = `
+<TouchableOpacity
+  accessibilityTraits="button"
+  activeOpacity={0.6}
+  disabled={false}
+  onPress={[Function]}
+>
+  <Component
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Object {
+          "backgroundColor": "transparent",
+          "borderColor": "#A0A2A6",
+          "borderWidth": 1,
+          "height": 36,
+          "marginHorizontal": 68,
+          "marginTop": 18,
+        },
+        Object {
+          "borderRadius": 50,
+        },
+      ]
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0,0,0,0)",
+            "color": "#ffffff",
+            "fontSize": 18,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+            "textAlign": "center",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 14,
+            "letterSpacing": 1,
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      SHOW MORE STEPS
+    </MyText>
+  </Component>
+</TouchableOpacity>
+`;
+
+exports[`SelectStepScreen should render step item correctly 1`] = `
+<Card
+  onPress={[Function]}
+  style={
+    Object {
+      "marginHorizontal": 20,
+      "marginVertical": 4,
+      "padding": 20,
+    }
+  }
+>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 16,
+        "lineHeight": 22,
+      }
+    }
+  >
+    test 1
+  </MyText>
+</Card>
+`;
+
 exports[`SelectStepScreen should render sticky header correctly 1`] = `
 <Flex
   direction="row"
