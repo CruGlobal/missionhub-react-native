@@ -173,6 +173,7 @@ class SelectStepScreen extends Component {
   renderItem = ({ item }) => {
     const { contact, organization } = this.props;
 
+    //TODO shouldn't contact always be present?
     return (
       <StepSuggestionItem
         step={item}
