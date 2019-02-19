@@ -5,8 +5,6 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
-import i18next from 'i18next';
-import uuidv4 from 'uuid/v4';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions } from '../../actions/steps';
@@ -17,7 +15,7 @@ import Header from '../Header';
 import BottomButton from '../../components/BottomButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, shuffleArray } from '../../utils/common';
-import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
+import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
 
 import styles from './styles';
@@ -66,7 +64,7 @@ class SelectStepScreen extends Component {
       suggestionList = response;
     }
 
-    this.setState({ suggestions: shuffleArray(suggestions) });
+    this.setState({ suggestions: shuffleArray(suggestionList) });
   }
 
   componentWillUnmount() {
