@@ -31,6 +31,9 @@ import ChallengeDetailScreen, {
 import StepDetailScreen, {
   STEP_DETAIL_SCREEN,
 } from './containers/StepDetailScreen';
+import StepReminderScreen, {
+  STEP_REMINDER_SCREEN,
+} from './containers/StepReminderScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, {
@@ -286,6 +289,10 @@ const screens = {
   [STEP_DETAIL_SCREEN]: buildTrackedScreen(
     StepDetailScreen,
     buildTrackingObj('step : detail', 'step'),
+  ),
+  [STEP_REMINDER_SCREEN]: buildTrackedScreen(
+    StepReminderScreen,
+    buildTrackingObj('step : detail : reminder', 'step', 'detail'),
   ),
   [UPGRADE_ACCOUNT_SCREEN]: buildTrackedScreen(
     UpgradeAccountScreen,

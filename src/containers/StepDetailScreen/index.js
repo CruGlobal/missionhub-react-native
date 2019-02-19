@@ -72,12 +72,12 @@ export class StepDetailScreen extends Component {
   };
 
   render() {
-    const { stepTitle } = this.props;
+    const { stepTitle, step } = this.props;
     return (
       <View flex={1} style={styles.container}>
         {this.renderHeader()}
         <Text style={styles.stepTitleText}>{stepTitle}</Text>
-        <ReminderButton />
+        <ReminderButton step={step} />
         {this.renderTipSection()}
         {this.renderBottomButton()}
       </View>
