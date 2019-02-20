@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
+import { FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
-import i18next from 'i18next';
-import uuidv4 from 'uuid/v4';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
-import { getStepSuggestions, addSteps } from '../../actions/steps';
-import StepsList from '../../components/StepsList';
-import { Flex, Text, Icon } from '../../components/common';
+import { getStepSuggestions } from '../../actions/steps';
+import StepSuggestionItem from '../../components/StepSuggestionItem';
+import { Text, Icon, Button } from '../../components/common';
 import BackButton from '../BackButton';
+import Header from '../Header';
 import BottomButton from '../../components/BottomButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, shuffleArray } from '../../utils/common';
-import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
+import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
 
 import styles from './styles';
@@ -26,40 +26,45 @@ class SelectStepScreen extends Component {
     super(props);
 
     this.state = {
-      steps: [],
-      addedSteps: [],
       suggestions: [],
-      contact: null,
-      suggestionIndex: 0,
+      suggestionIndex: 4,
     };
   }
 
   insertName(steps) {
+    const { contactName, personFirstName } = this.props;
     return steps.map(step => ({
       ...step,
       body: step.body.replace(
         '<<name>>',
-        this.props.contactName
-          ? this.props.contactName
-          : this.props.personFirstName,
+        contactName ? contactName : personFirstName,
       ),
     }));
   }
 
   async componentDidMount() {
-    const { dispatch, isMe, contactStageId } = this.props;
-    let { suggestions } = this.props;
-    if (!this.props.enableBackButton) {
+    const {
+      dispatch,
+      enableBackButton,
+      suggestions = [],
+      isMe,
+      contactStageId,
+    } = this.props;
+    if (!enableBackButton) {
       disableBack.add();
     }
 
-    const { response } = await dispatch(
-      getStepSuggestions(isMe, contactStageId),
-    );
-    suggestions = response;
-    this.setState({ suggestions: shuffleArray(suggestions) });
+    let suggestionList;
+    if (suggestions.length > 0) {
+      suggestionList = suggestions;
+    } else {
+      const { response } = await dispatch(
+        getStepSuggestions(isMe, contactStageId),
+      );
+      suggestionList = response;
+    }
 
-    this.handleLoadSteps();
+    this.setState({ suggestions: shuffleArray(suggestionList) });
   }
 
   componentWillUnmount() {
@@ -69,82 +74,38 @@ class SelectStepScreen extends Component {
   }
 
   handleLoadSteps = () => {
-    const { suggestionIndex } = this.state;
-    const { suggestions, isMe } = this.props;
+    const { suggestionIndex, suggestions = [] } = this.state;
 
-    if (suggestionIndex >= (suggestions || []).length) {
-      return;
+    let newSuggestionIndex = suggestionIndex + 4;
+    if (newSuggestionIndex > suggestions.length) {
+      newSuggestionIndex = suggestions.length;
     }
 
-    let suggestionIndexMax = suggestionIndex + 4;
-    if (suggestionIndexMax > (suggestions || []).length) {
-      suggestionIndexMax = (suggestions || []).length;
-    }
+    this.setState({ suggestionIndex: newSuggestionIndex });
+  };
 
-    let newSuggestions = suggestions.slice(suggestionIndex, suggestionIndexMax);
+  getSuggestionSubset() {
+    const { suggestionIndex, suggestions = [] } = this.state;
+    const { isMe } = this.props;
+
+    let newSuggestions = suggestions.slice(0, suggestionIndex);
 
     if (!isMe) {
       newSuggestions = this.insertName(newSuggestions);
     }
 
-    this.setState({
-      steps: [...this.state.steps, ...newSuggestions],
-      suggestionIndex: suggestionIndexMax,
-    });
-  };
-
-  filterSelected() {
-    return this.state.steps.filter(s => s.selected);
+    return newSuggestions;
   }
 
-  handleSelectStep = item => {
-    const steps = this.state.steps.map(
-      s => (s && s.id === item.id ? { ...s, selected: !s.selected } : s),
-    );
-    this.setState({ steps });
-  };
-
   handleCreateStep = () => {
-    if (this.props.contact) {
-      this.setState({ contact: this.props.contact });
-    }
-    if (!this.props.enableBackButton) {
-      disableBack.remove();
-    }
-    this.props.dispatch(
+    const { dispatch, createStepTracking } = this.props;
+
+    dispatch(
       navigatePush(ADD_STEP_SCREEN, {
         type: CREATE_STEP,
-        trackingObj: this.props.createStepTracking,
-        onComplete: newStepText => {
-          const addedSteps = this.state.addedSteps;
-
-          const newStep = {
-            id: uuidv4(),
-            body: newStepText,
-            selected: true,
-            locale: i18next.language,
-            challenge_type: CUSTOM_STEP_TYPE,
-            self_step: this.props.myId === this.props.receiverId,
-          };
-
-          this.setState({
-            steps: this.state.steps.concat([newStep]),
-            addedSteps: addedSteps.concat([newStep]),
-          });
-          if (this.stepsList && this.stepsList.onScrollToEnd) {
-            this.stepsList.onScrollToEnd();
-          }
-        },
+        trackingObj: createStepTracking,
       }),
     );
-  };
-
-  saveAllSteps = async () => {
-    const { dispatch, receiverId, organization, onComplete } = this.props;
-    const selectedSteps = this.filterSelected();
-
-    await dispatch(addSteps(selectedSteps, receiverId, organization));
-    onComplete();
   };
 
   navigateBackTwoScreens = () => this.props.dispatch(navigateBack(2));
@@ -153,83 +114,89 @@ class SelectStepScreen extends Component {
     const { enableBackButton, contact } = this.props;
     return enableBackButton ? (
       <BackButton
-        customNavigate={
-          contact || this.state.contact
-            ? undefined
-            : this.navigateBackTwoScreens
-        }
+        customNavigate={contact ? undefined : this.navigateBackTwoScreens}
         absolute={true}
       />
     ) : null;
   }
 
-  renderTitle() {
-    const { t } = this.props;
-
+  renderForeground = () => {
+    const { t, headerText } = this.props;
     return (
-      <Flex
-        value={1}
-        align="center"
-        justify="center"
-        style={{ marginTop: theme.notchHeight }}
-      >
+      <View flex={1} alignItems={'center'}>
+        <Header />
         <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
         <Text type="header" style={styles.headerTitle}>
           {t('stepsOfFaith')}
         </Text>
-        <Text style={styles.headerText}>{this.props.headerText}</Text>
-      </Flex>
+        <Text style={styles.headerText}>{headerText}</Text>
+      </View>
     );
-  }
-
-  renderSaveButton() {
-    const { t } = this.props;
-    return this.filterSelected().length > 0 ? (
-      <BottomButton onPress={this.saveAllSteps} text={t('addStep')} />
-    ) : null;
-  }
-
-  renderForeground = () => (
-    <Flex value={1} align="center" justify="center">
-      {this.renderTitle()}
-    </Flex>
-  );
+  };
 
   renderStickHeader = () => (
-    <Flex align="center" justify="center" style={styles.collapsedHeader}>
-      <Text style={styles.collapsedHeaderTitle}>
-        {this.props.t('stepsOfFaith').toUpperCase()}
-      </Text>
-    </Flex>
+    <Header
+      center={
+        <Text style={styles.collapsedHeaderTitle}>
+          {this.props.t('stepsOfFaith').toUpperCase()}
+        </Text>
+      }
+    />
+  );
+
+  renderItem = ({ item }) => <StepSuggestionItem step={item} />;
+
+  renderLoadMore = () => {
+    const { loadMoreStepsButton, loadMoreStepsButtonText } = styles;
+
+    return (
+      <Button
+        pill={true}
+        text={this.props.t('loadMoreSteps').toUpperCase()}
+        onPress={this.handleLoadSteps}
+        style={loadMoreStepsButton}
+        buttonTextStyle={loadMoreStepsButtonText}
+      />
+    );
+  };
+
+  renderCreateStepButton = () => (
+    <BottomButton
+      onPress={this.handleCreateStep}
+      text={this.props.t('createStep').toUpperCase()}
+    />
   );
 
   stepsListRef = c => (this.stepsList = c);
 
+  keyExtractor = item => item.id;
+
   render() {
-    const { t } = this.props;
+    const suggestions = this.getSuggestionSubset();
 
     return (
-      <Flex style={styles.container}>
+      <View flex={1}>
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
-          parallaxHeaderHeight={215 + theme.notchHeight}
+          contentBackgroundColor={theme.extraLightGrey}
+          parallaxHeaderHeight={240 + theme.notchHeight}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={theme.headerHeight}
           renderStickyHeader={this.renderStickHeader}
         >
-          <StepsList
+          <FlatList
             ref={this.stepsListRef}
-            items={this.state.steps}
-            createStepText={t('createStep')}
-            loadMoreStepsText={t('loadMoreSteps')}
-            onSelectStep={this.handleSelectStep}
-            onCreateStep={this.handleCreateStep}
-            onLoadMoreSteps={this.handleLoadSteps}
+            keyExtractor={this.keyExtractor}
+            data={suggestions}
+            renderItem={this.renderItem}
+            scrollEnabled={true}
+            style={styles.list}
+            ListFooterComponent={this.renderLoadMore}
           />
         </ParallaxScrollView>
-        {this.renderSaveButton()}
+        {this.renderCreateStepButton()}
         {this.renderBackButton()}
-      </Flex>
+      </View>
     );
   }
 }

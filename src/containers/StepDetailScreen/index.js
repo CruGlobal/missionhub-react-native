@@ -32,18 +32,19 @@ export class StepDetailScreen extends Component {
     return (
       <Header
         left={<BackButton iconStyle={styles.backButton} />}
-        center={isCompleted && <Text>{t('completedStep')}</Text>}
+        center={(isCompleted && <Text>{t('completedStep')}</Text>) || null}
         right={
-          !isSuggestion &&
-          !isCompleted && (
-            <Button
-              type="transparent"
-              text={t('removeStep').toUpperCase()}
-              onPress={this.handleRemoveStep}
-              style={styles.removeStepButton}
-              buttonTextStyle={styles.removeStepButtonText}
-            />
-          )
+          (!isSuggestion &&
+            !isCompleted && (
+              <Button
+                type="transparent"
+                text={t('removeStep').toUpperCase()}
+                onPress={this.handleRemoveStep}
+                style={styles.removeStepButton}
+                buttonTextStyle={styles.removeStepButtonText}
+              />
+            )) ||
+          null
         }
         shadow={false}
         style={styles.container}
@@ -99,7 +100,7 @@ StepDetailScreen.propTypes = {
 const mapStateToProps = (_, { navigation }) => {
   const { step } = navigation.state.params;
 
-  const isSuggestion = step.type === STEP_SUGGESTION;
+  const isSuggestion = step._type === STEP_SUGGESTION;
   const isCompleted = !isSuggestion && step.completed_at;
 
   const stepTitle = isSuggestion ? step.body : step.title;

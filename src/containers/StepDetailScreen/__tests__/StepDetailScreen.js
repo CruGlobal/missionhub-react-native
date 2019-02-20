@@ -21,7 +21,7 @@ const baseStep = {
 
 const suggestedStep = {
   ...baseStep,
-  type: STEP_SUGGESTION,
+  _type: STEP_SUGGESTION,
 };
 
 const suggestedStepWithTip = {
@@ -31,7 +31,7 @@ const suggestedStepWithTip = {
 
 const acceptedStep = {
   ...baseStep,
-  type: ACCEPTED_STEP,
+  _type: ACCEPTED_STEP,
 };
 
 const acceptedStepWithTip = {
