@@ -11,6 +11,7 @@ import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import ReminderButton from '../../components/ReminderButton';
 import { Button, Text } from '../../components/common';
+import { completeStep } from '../../actions/steps';
 
 import styles, { markdownStyles } from './styles';
 
@@ -20,7 +21,11 @@ export class StepDetailScreen extends Component {
 
   handleRemoveStep = () => {};
 
-  handleCompleteStep = () => {};
+  handleCompleteStep = () => {
+    const { dispatch, step } = this.props;
+
+    dispatch(completeStep(step, 'Step Detail'));
+  };
 
   renderHeader() {
     const { t, isCompleted, isSuggestion } = this.props;
