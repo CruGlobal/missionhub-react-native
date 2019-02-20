@@ -80,13 +80,21 @@ describe('PersonSideMenu', () => {
   describe('person has org permission', () => {
     beforeEach(() => orgPermissionSelector.mockReturnValue(orgPermission));
 
-    it('renders unassign correctly', () => {
-      contactAssignmentSelector.mockReturnValue(contactAssignment);
-      createComponent();
+    describe('unassign', () => {
+      it('renders correctly', () => {
+        contactAssignmentSelector.mockReturnValue(contactAssignment);
+        createComponent();
 
-      expect(component).toMatchSnapshot();
-      testEditClick(component);
-      testUnassignClick(component);
+        expect(component).toMatchSnapshot();
+      });
+
+      it('edit button works', () => {
+        testEditClick(component);
+      });
+
+      it('unassign button works', () => {
+        testUnassignClick(component);
+      });
     });
 
     it('renders assign correctly', () => {
@@ -210,7 +218,7 @@ function testUnassignClick(component) {
   const onSubmit = component.instance().onSubmitReason;
 
   props.menuItems.filter(item => item.label === 'Unassign')[0].action();
-  expect(navigatePush).toHaveBeenCalledTimes(2);
+  expect(navigatePush).toHaveBeenCalledTimes(1);
   expect(navigatePush).toHaveBeenCalledWith(STATUS_REASON_SCREEN, {
     person,
     organization,
