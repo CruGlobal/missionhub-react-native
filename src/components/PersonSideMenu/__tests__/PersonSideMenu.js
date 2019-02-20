@@ -210,7 +210,7 @@ function testUnassignClick(component) {
   const onSubmit = component.instance().onSubmitReason;
 
   props.menuItems.filter(item => item.label === 'Unassign')[0].action();
-  expect(navigatePush).toHaveBeenCalledTimes(1);
+  expect(navigatePush).toHaveBeenCalledTimes(2);
   expect(navigatePush).toHaveBeenCalledWith(STATUS_REASON_SCREEN, {
     person,
     organization,
