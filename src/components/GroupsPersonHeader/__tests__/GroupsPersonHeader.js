@@ -369,7 +369,7 @@ describe('isContact', () => {
           },
         ],
       });
-      expect(loadStepsAndJourney).toHaveBeenCalledWith(person, organization);
+      expect(loadStepsAndJourney).toHaveBeenCalledWith(newPerson, organization);
     });
 
     it('navigates to status select screen', () => {
