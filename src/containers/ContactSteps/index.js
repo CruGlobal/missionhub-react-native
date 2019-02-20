@@ -14,7 +14,7 @@ import {
 import { reloadJourney } from '../../actions/journey';
 import { Flex } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import StepItem from '../../components/StepItem';
+import AcceptedStepItem from '../../components/AcceptedStepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
 import {
@@ -164,22 +164,7 @@ class ContactSteps extends Component {
         : this.handleAssign();
   };
 
-  renderRow = ({ item, index }) => {
-    const { showBump } = this.props;
-    return (
-      <RowSwipeable
-        key={item.id}
-        bump={showBump && index === 0}
-        onBumpComplete={this.bumpComplete}
-        deletePressProps={[item]}
-        completePressProps={[item]}
-        onDelete={this.handleRemove}
-        onComplete={this.handleComplete}
-      >
-        <StepItem step={item} type="contact" onSelect={this.handleRowSelect} />
-      </RowSwipeable>
-    );
-  };
+  renderRow = ({ item }) => <AcceptedStepItem step={item} />;
 
   ref = c => (this.list = c);
 
@@ -190,7 +175,7 @@ class ContactSteps extends Component {
     return (
       <FlatList
         ref={this.ref}
-        style={styles.list}
+        style={styles.container}
         data={steps}
         keyExtractor={this.keyExtractor}
         renderItem={this.renderRow}
@@ -216,15 +201,8 @@ class ContactSteps extends Component {
   render() {
     const { t, steps } = this.props;
     return (
-      <View style={{ flex: 1 }}>
-        <Flex
-          align="center"
-          justify="center"
-          value={1}
-          style={styles.container}
-        >
-          {steps.length > 0 ? this.renderList() : this.renderNull()}
-        </Flex>
+      <View flex={1}>
+        {steps.length > 0 ? this.renderList() : this.renderNull()}
         <BottomButton onPress={this.handleCreateStep} text={t('addStep')} />
       </View>
     );

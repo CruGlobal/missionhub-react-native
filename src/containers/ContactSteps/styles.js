@@ -5,9 +5,7 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.white,
-  },
-  list: {
-    backgroundColor: theme.transparent,
+    paddingVertical: 16,
+    backgroundColor: theme.extraLightGrey,
   },
 });

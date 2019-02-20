@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { View, Text, Card, IconButton } from '../common';
+import { Text, Card, IconButton } from '../common';
 import { navigatePush } from '../../actions/navigation';
 import { STEP_DETAIL_SCREEN } from '../../containers/StepDetailScreen';
 
@@ -10,28 +11,31 @@ import styles from './styles';
 import Icon from '../Icon/index';
 
 class AcceptedStepItem extends Component {
-  handlePress = () => {
+  handlePressCard = () => {
     const { dispatch, step } = this.props;
     dispatch(navigatePush(STEP_DETAIL_SCREEN, { step }));
   };
 
+  handlePressIcon = () => {};
+
   render() {
     const {
-      step: { body },
+      step: { title, completed_at },
     } = this.props;
+    const { card, stepText, checkIcon, active, completed } = styles;
 
     return (
-      <Card onPress={this.handlePress} style={styles.card}>
+      <Card onPress={this.handlePressCard} style={card}>
         <View flex={1} flexDirection={'row'}>
           <View flex={1} flexDirection={'column'}>
-            <Text>REMINDER</Text>
-            <Text style={styles.stepText}>{body}</Text>
+            <Text style={stepText}>REMINDER</Text>
+            <Text style={stepText}>{title}</Text>
           </View>
           <IconButton
-            style={styles.completeIcon}
+            style={[checkIcon, completed_at ? completed : active]}
             name="deleteIcon"
             type="MissionHub"
-            onPress={this.handlePress}
+            onPress={this.handlePressIcon}
           />
         </View>
       </Card>
@@ -41,7 +45,8 @@ class AcceptedStepItem extends Component {
 
 AcceptedStepItem.propTypes = {
   step: PropTypes.shape({
-    body: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    completed_at: PropTypes.string,
   }).isRequired,
 };
 
