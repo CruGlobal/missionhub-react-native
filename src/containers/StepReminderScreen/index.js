@@ -12,6 +12,7 @@ import moment from 'moment';
 import { translate } from 'react-i18next';
 
 import BackButton from '../BackButton';
+import DatePicker from '../../components/DatePicker';
 import BottomButton from '../../components/BottomButton';
 
 import styles from './styles';
@@ -21,6 +22,7 @@ class StepReminderScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <DatePicker />
         <BottomButton text={this.props.t('done')} />
         <BackButton absolute={true} />
       </View>

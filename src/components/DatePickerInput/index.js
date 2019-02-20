@@ -291,26 +291,81 @@ class DatePicker extends Component {
     } = this.props;
 
     return (
-      <Touchable activeOpacity={1} style={{ flex: 1 }}>
-        <Animated.View
-          style={[styles.datePickerBox, { height: this.state.animatedHeight }]}
-        >
-          <View pointerEvents={this.state.allowPointerEvents ? 'auto' : 'none'}>
-            <DatePickerIOS
-              date={this.state.date}
-              mode={mode}
-              minimumDate={minDate && this.getDate(minDate)}
-              maximumDate={maxDate && this.getDate(maxDate)}
-              onDateChange={this.onDateChange}
-              minuteInterval={minuteInterval}
-              timeZoneOffsetInMinutes={
-                timeZoneOffsetInMinutes ? timeZoneOffsetInMinutes : null
-              }
-              style={[styles.datePicker, customStyles.datePicker]}
-              locale={locale}
-            />
-          </View>
-        </Animated.View>
+      <Touchable
+        style={style}
+        underlayColor={'transparent'}
+        onPress={this.onPressDate}
+      >
+        <View>
+          {!this.props.hideText ? this.renderInput() : <View />}
+          {!isAndroid ? (
+            <Modal
+              transparent={true}
+              animationType="none"
+              visible={this.state.modalVisible}
+              onRequestClose={this.closeModal}
+            >
+              <View style={{ flex: 1 }}>
+                <Touchable
+                  style={styles.datePickerMask}
+                  activeOpacity={1}
+                  onPress={this.onPressCancel}
+                >
+                  <Touchable activeOpacity={1} style={{ flex: 1 }}>
+                    <Animated.View
+                      style={[
+                        styles.datePickerBox,
+                        { height: this.state.animatedHeight },
+                      ]}
+                    >
+                      <View
+                        pointerEvents={
+                          this.state.allowPointerEvents ? 'auto' : 'none'
+                        }
+                      >
+                        <DatePickerIOS
+                          date={this.state.date}
+                          mode={mode}
+                          minimumDate={minDate && this.getDate(minDate)}
+                          maximumDate={maxDate && this.getDate(maxDate)}
+                          onDateChange={this.onDateChange}
+                          minuteInterval={minuteInterval}
+                          timeZoneOffsetInMinutes={
+                            timeZoneOffsetInMinutes
+                              ? timeZoneOffsetInMinutes
+                              : null
+                          }
+                          style={[styles.datePicker, customStyles.datePicker]}
+                          locale={locale}
+                        />
+                      </View>
+                      <View style={styles.topWrap}>
+                        <Touchable onPress={this.onPressCancel}>
+                          <Text style={[styles.btnText, styles.btnTextCancel]}>
+                            {cancelBtnText || t('cancel')}
+                          </Text>
+                        </Touchable>
+                        <Text style={styles.titleText}>
+                          {title || t('date')}
+                        </Text>
+                        <Touchable onPress={this.onPressConfirm}>
+                          <Text
+                            style={[
+                              styles.btnText,
+                              customStyles.btnTextConfirm,
+                            ]}
+                          >
+                            {doneBtnText || t('done')}
+                          </Text>
+                        </Touchable>
+                      </View>
+                    </Animated.View>
+                  </Touchable>
+                </Touchable>
+              </View>
+            </Modal>
+          ) : null}
+        </View>
       </Touchable>
     );
   }
