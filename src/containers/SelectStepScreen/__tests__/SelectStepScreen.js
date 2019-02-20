@@ -1,5 +1,7 @@
 import 'react-native';
 import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import SelectStepScreen, { mapStateToProps } from '..';
 
@@ -13,6 +15,8 @@ import { ADD_STEP_SCREEN } from '../../AddStepScreen';
 import { getStepSuggestions } from '../../../actions/steps';
 import { shuffleArray } from '../../../utils/common';
 import { CREATE_STEP } from '../../../constants';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/steps');
@@ -145,7 +149,12 @@ describe('SelectStepScreen', () => {
   });
 
   it('should render foreground header correctly', () => {
-    testSnapshotShallow(parallaxProps.renderForeground());
+    expect(
+      shallow(parallaxProps.renderForeground(), {
+        t: jest.fn(),
+        headerText: 'text',
+      }),
+    ).toMatchSnapshot();
   });
 
   it('should render sticky header correctly', () => {

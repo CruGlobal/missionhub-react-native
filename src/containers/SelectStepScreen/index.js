@@ -121,7 +121,7 @@ class SelectStepScreen extends Component {
   }
 
   renderForeground = () => {
-    const { t } = this.props;
+    const { t, headerText } = this.props;
     return (
       <View flex={1} alignItems={'center'}>
         <Header />
@@ -129,7 +129,7 @@ class SelectStepScreen extends Component {
         <Text type="header" style={styles.headerTitle}>
           {t('stepsOfFaith')}
         </Text>
-        <Text style={styles.headerText}>{this.props.headerText}</Text>
+        <Text style={styles.headerText}>{headerText}</Text>
       </View>
     );
   };
