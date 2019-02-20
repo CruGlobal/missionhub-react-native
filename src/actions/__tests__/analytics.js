@@ -52,8 +52,6 @@ let store;
 const nameWithPrefix = name => `mh : ${name}`;
 
 beforeEach(() => {
-  RNOmniture.trackAction.mockReset();
-
   context = {
     [ANALYTICS.SCREENNAME]: screenName,
     [ANALYTICS.MCID]: mcId,

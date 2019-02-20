@@ -56,7 +56,6 @@ function buildShallowScreen(props) {
 
 beforeEach(() => {
   store = mockStore(mockState);
-  mockComplete.mockReset();
 });
 
 it('StageScreen renders correctly with back button', () => {

@@ -49,7 +49,6 @@ const store = mockStore({
 beforeEach(() => {
   common.isAndroid = false;
   store.clearActions();
-  PushNotification.configure.mockReset();
 });
 
 describe('showReminderScreen', () => {
