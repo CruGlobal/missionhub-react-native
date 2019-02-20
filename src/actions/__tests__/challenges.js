@@ -61,7 +61,6 @@ const defaultStore = {
 };
 
 beforeEach(() => {
-  jest.clearAllMocks();
   store = createStore(defaultStore);
   callApi.mockReturnValue(apiResult);
   navigatePush.mockReturnValue(navigateResult);

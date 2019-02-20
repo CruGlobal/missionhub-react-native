@@ -45,7 +45,6 @@ const baseEvent = {
 beforeEach(() => {
   store = mockStore();
 
-  jest.clearAllMocks();
   trackActionWithoutData.mockReturnValue(trackActionResult);
 });
 

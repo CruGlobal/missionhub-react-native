@@ -114,7 +114,6 @@ describe('handleSelectStage', () => {
   describe('when not already selected', () => {
     describe('and onComplete prop exists', () => {
       beforeEach(() => {
-        jest.clearAllMocks();
         component = buildShallowScreen({});
       });
 
@@ -133,7 +132,6 @@ describe('handleSelectStage', () => {
 
     describe('and next prop exists', () => {
       beforeEach(() => {
-        jest.clearAllMocks();
         component = buildShallowScreen({
           onComplete: undefined,
           next: mockNext,
@@ -156,10 +154,6 @@ describe('handleSelectStage', () => {
 });
 
 describe('stage screen methods', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
   it('runs select stage with active', () => {
     component = buildShallowScreen({ noNav: true });
 

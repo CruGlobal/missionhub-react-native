@@ -29,11 +29,6 @@ const organization = { id: '1', name: 'Test Org' };
 const survey = { id: '11' };
 const people = [{ id: '1' }, { id: '2' }];
 
-beforeEach(() => {
-  navigatePush.mockClear();
-  navToPersonScreen.mockClear();
-});
-
 describe('SurveyContacts', () => {
   const component = (
     <SurveyContacts

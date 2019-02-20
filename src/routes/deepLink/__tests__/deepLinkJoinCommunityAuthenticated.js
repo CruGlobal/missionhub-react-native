@@ -27,8 +27,6 @@ const loadHomeResponse = { type: 'load home' };
 
 beforeEach(() => {
   store.clearActions();
-  callApi.mockClear();
-  loadHome.mockClear();
   callApi.mockReturnValue(() => Promise.resolve());
   loadHome.mockReturnValue(loadHomeResponse);
 });

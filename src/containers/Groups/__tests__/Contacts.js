@@ -31,11 +31,6 @@ const store = createMockStore({});
 
 const organization = { id: '1', name: 'Test Org' };
 
-beforeEach(() => {
-  navigatePush.mockClear();
-  navToPersonScreen.mockClear();
-});
-
 describe('Contacts', () => {
   const component = <Contacts organization={organization} />;
 

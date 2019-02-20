@@ -219,7 +219,6 @@ describe('person stage screen methods with next', () => {
   const mockNext = jest.fn();
 
   beforeEach(() => {
-    jest.clearAllMocks();
     component = buildScreen(
       {
         ...mockNavState,

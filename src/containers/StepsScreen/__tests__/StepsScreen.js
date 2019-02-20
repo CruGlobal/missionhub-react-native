@@ -105,10 +105,6 @@ const baseProps = {
 common.toast = jest.fn();
 
 describe('StepsScreen', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
   let component;
   let props;
 

@@ -50,7 +50,6 @@ beforeEach(() => {
   common.isAndroid = false;
   store.clearActions();
   PushNotification.configure.mockReset();
-  jest.clearAllMocks();
 });
 
 describe('showReminderScreen', () => {

@@ -164,8 +164,6 @@ describe('GroupProfile', () => {
     let component;
 
     beforeEach(() => {
-      jest.clearAllMocks();
-
       component = buildScreen();
       // Press the "Edit" button
       component

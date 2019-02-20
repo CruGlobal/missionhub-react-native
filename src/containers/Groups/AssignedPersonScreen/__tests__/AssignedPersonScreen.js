@@ -81,7 +81,6 @@ const props = {
 };
 
 beforeEach(() => {
-  jest.clearAllMocks();
   contactAssignmentSelector.mockReturnValue(contactAssignment);
 });
 

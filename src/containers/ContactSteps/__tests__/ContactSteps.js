@@ -90,10 +90,6 @@ const createComponent = (isCurrentUser = false, person, org) => {
   ).instance();
 };
 
-beforeEach(() => {
-  jest.clearAllMocks();
-});
-
 it('renders correctly with no steps', () => {
   testSnapshotShallow(
     <ContactSteps

@@ -37,7 +37,6 @@ const store = configureStore([thunk])({
 
 beforeEach(() => {
   store.clearActions();
-  jest.clearAllMocks();
   navigationActions.navigatePush.mockReturnValue(() => Promise.resolve());
 });
 

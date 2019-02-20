@@ -45,7 +45,6 @@ jest.mock('../../../../actions/organizations', () => ({
 jest.mock('../../../../selectors/organizations');
 
 beforeEach(() => {
-  jest.clearAllMocks();
   organizations.addNewOrganization.mockImplementation(
     jest.fn(() => mockAddNewOrg),
   );

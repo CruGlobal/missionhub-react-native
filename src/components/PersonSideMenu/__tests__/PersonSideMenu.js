@@ -61,8 +61,6 @@ const store = createMockStore({
 
 personSelector.mockReturnValue(person);
 
-beforeEach(() => jest.clearAllMocks());
-
 let component;
 
 const createComponent = (extraProps = {}) => {
@@ -88,7 +86,6 @@ describe('PersonSideMenu', () => {
 
       expect(component).toMatchSnapshot();
       testEditClick(component);
-      navigatePush.mockClear();
       testUnassignClick(component);
     });
 
