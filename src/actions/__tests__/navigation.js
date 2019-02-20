@@ -34,7 +34,7 @@ describe('navigatePush', () => {
     navigatePush(routeName)(jest.fn());
     expect(NavigationActions.navigate).toHaveBeenCalledWith({
       routeName,
-      params,
+      params: {},
     });
   });
 });
@@ -69,7 +69,7 @@ describe('navigateReset', () => {
     navigateReset(routeName)(jest.fn());
     expect(NavigationActions.navigate).toHaveBeenCalledWith({
       routeName,
-      params,
+      params: {},
     });
     expect(StackActions.reset).toHaveBeenCalledWith({
       index: 0,
