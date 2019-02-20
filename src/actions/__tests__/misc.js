@@ -73,7 +73,6 @@ const state = {
 beforeEach(() => {
   store = mockStore(state);
 
-  jest.clearAllMocks();
   trackActionWithoutData.mockReturnValue(trackActionResult);
   getContactSteps.mockReturnValue(getStepsResult);
   reloadJourney.mockReturnValue(reloadJourneyResult);

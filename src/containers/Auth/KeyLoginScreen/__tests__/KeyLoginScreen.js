@@ -150,7 +150,6 @@ describe('a login button is clicked', () => {
           : undefined;
       });
 
-      trackActionWithoutData.mockReset();
       trackActionWithoutData.mockReturnValue(mockTrackActionResult);
     });
 

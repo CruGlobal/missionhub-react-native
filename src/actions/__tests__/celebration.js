@@ -19,10 +19,6 @@ let store;
 
 const currentPage = 0;
 
-beforeEach(() => {
-  callApi.mockClear();
-});
-
 describe('getGroupCelebrateFeed', () => {
   beforeEach(() => {
     store = createStore();

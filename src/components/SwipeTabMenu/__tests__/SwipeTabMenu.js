@@ -30,10 +30,6 @@ const tabs = [
   },
 ];
 
-beforeEach(() => {
-  navigatePush.mockClear();
-});
-
 it('should render correctly', () => {
   const component = testSnapshotShallow(
     <SwipeTabMenu
