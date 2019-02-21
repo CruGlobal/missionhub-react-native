@@ -9,6 +9,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   reminderButton: {
+    borderWidth: 1,
+    justifyContent: 'flex-start',
     padding: 4,
   },
   bellIcon: {
@@ -16,6 +18,7 @@ export default StyleSheet.create({
     color: theme.secondaryColor,
   },
   reminderText: {
+    borderWidth: 1,
     color: theme.secondaryColor,
     paddingLeft: 8,
     fontSize: 14,

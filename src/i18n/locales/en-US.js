@@ -243,6 +243,7 @@ export default {
     header: 'STEPS OF FAITH',
     stepNull: 'Your Steps of Faith with {{name}} appear here.',
     addStep: 'Add a step of faith',
+    setReminder: 'Set a Reminder',
   },
   contactJourney: {
     loading: 'Loading Journey Items',
