@@ -56,6 +56,17 @@ function subject() {
   );
 }
 
+describe('componentDidMount', () => {
+  it('refreshes items', () => {
+    subject();
+
+    expect(reloadCelebrateComments).toHaveBeenCalledWith(event);
+    expect(store.getActions()).toEqual(
+      expect.arrayContaining([reloadCelebrateCommentsResult]),
+    );
+  });
+});
+
 describe('with no comments', () => {
   beforeEach(() => celebrateCommentsSelector.mockReturnValue(undefined));
 
