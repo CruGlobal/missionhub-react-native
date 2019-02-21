@@ -3,10 +3,10 @@ import React from 'react';
 
 import ItemHeaderText from '..';
 
-import { renderShallow } from '../../../../testUtils';
+import { testSnapshotShallow } from '../../../../testUtils';
 
 const text = 'Roge Goers';
 
 it('renders correctly', () => {
-  expect(renderShallow(<ItemHeaderText text={text} />)).toMatchSnapshot();
+  testSnapshotShallow(<ItemHeaderText text={text} />);
 });

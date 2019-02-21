@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 
 import CommentLikeComponent from '..';
 
-import { renderShallow } from '../../../../testUtils';
+import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import { toggleLike } from '../../../actions/celebration';
 import { ACTIONS } from '../../../constants';
 import { trackActionWithoutData } from '../../../actions/analytics';
@@ -48,29 +48,23 @@ describe('with subject person', () => {
   };
 
   it('renders for me', () => {
-    expect(
-      renderShallow(<CommentLikeComponent event={event} />, store),
-    ).toMatchSnapshot();
+    testSnapshotShallow(<CommentLikeComponent event={event} />, store);
   });
 
   it('renders for someone else', () => {
-    expect(
-      renderShallow(
-        <CommentLikeComponent
-          event={{ ...event, subject_person: { id: myId } }}
-        />,
-        store,
-      ),
-    ).toMatchSnapshot();
+    testSnapshotShallow(
+      <CommentLikeComponent
+        event={{ ...event, subject_person: { id: myId } }}
+      />,
+      store,
+    );
   });
 
   it('renders when liked', () => {
-    expect(
-      renderShallow(
-        <CommentLikeComponent event={{ ...event, liked: true }} />,
-        store,
-      ),
-    ).toMatchSnapshot();
+    testSnapshotShallow(
+      <CommentLikeComponent event={{ ...event, liked: true }} />,
+      store,
+    );
   });
 
   describe('onPress like button', () => {
