@@ -76,6 +76,23 @@ describe('with comments', () => {
       expect(subject()).toMatchSnapshot();
     });
 
+    it('renders item correctly', () => {
+      expect(
+        subject()
+          .props()
+          .renderItem({
+            item: {
+              person: {
+                first_name: 'Roger',
+                last_name: 'Goers',
+              },
+              content: 'hello roge',
+              created_at: '2018-06-11 12:00:00 UTC',
+            },
+          }),
+      ).toMatchSnapshot();
+    });
+
     it('loads more comments', () => {
       subject()
         .props()
