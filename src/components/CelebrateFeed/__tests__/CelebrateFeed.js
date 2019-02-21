@@ -6,7 +6,6 @@ import MockDate from 'mockdate';
 import CelebrateFeed from '..';
 
 import { renderShallow } from '../../../../testUtils';
-import { toggleLike } from '../../../actions/celebration';
 
 jest.mock('../../../actions/celebration');
 
@@ -71,22 +70,6 @@ beforeEach(() => {
 describe('Member Feed rendering', () => {
   it('renders correctly for member feed', () => {
     expect(component).toMatchSnapshot();
-  });
-});
-
-//todo fix
-xdescribe('handleToggleLike', () => {
-  const toggleResult = { type: 'toggle success' };
-  const eventId = '222';
-  const liked = true;
-
-  toggleLike.mockReturnValue(toggleResult);
-
-  it('calls toggleLike', () => {
-    component.instance().handleToggleLike(eventId, liked);
-
-    expect(toggleLike).toHaveBeenCalledWith(organization.id, eventId, liked);
-    expect(store.getActions()).toEqual([toggleResult]);
   });
 });
 
