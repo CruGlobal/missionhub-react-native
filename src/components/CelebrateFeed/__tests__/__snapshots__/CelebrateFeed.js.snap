@@ -74,13 +74,7 @@ exports[`Member Feed rendering renders correctly for member feed 1`] = `
 />
 `;
 
-exports[`renderHeader match snapshot 1`] = `
-<Connect(Translate(OnboardingCard))
-  type="celebrate"
-/>
-`;
-
-exports[`renders item 1`] = `
+exports[`item renders correctly 1`] = `
 <Connect(Translate(CelebrateItem))
   event={
     Object {
@@ -106,6 +100,12 @@ exports[`renders item 1`] = `
     }
   }
   onPressItem={[Function]}
+/>
+`;
+
+exports[`renderHeader match snapshot 1`] = `
+<Connect(Translate(OnboardingCard))
+  type="celebrate"
 />
 `;
 
