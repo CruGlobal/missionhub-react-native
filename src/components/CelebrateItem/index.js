@@ -202,21 +202,13 @@ class CelebrateItem extends Component {
   render() {
     const { event, t, onPressItem, cardStyle, rightCorner } = this.props;
     const { changed_attribute_value, subject_person_name } = event;
+    const { top, topLeft } = styles;
 
     return (
       <Card onPress={onPressItem && this.onPressItem} style={cardStyle}>
         <Flex value={1} direction={'column'} style={styles.content}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}
-          >
-            <View
-              style={{
-                justifyContent: 'flex-start',
-              }}
-            >
+          <View style={top}>
+            <View style={topLeft}>
               <ItemHeaderText
                 text={
                   subject_person_name

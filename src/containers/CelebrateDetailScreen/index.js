@@ -6,35 +6,22 @@ import { celebrationItemSelector } from '../../selectors/celebration';
 import { Flex } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
 import CommentsList from '../CommentsList';
-import theme from '../../theme';
-import { hasNotch } from '../../utils/common';
 import BackButton from '../BackButton';
+
+import styles from './styles';
 
 class CelebrateDetailScreen extends Component {
   render() {
     const { event } = this.props;
+    const { container, cardStyle, backButtonStyle } = styles;
 
     return (
-      <Flex
-        value={1}
-        justify="center"
-        style={{
-          backgroundColor: theme.white,
-        }}
-      >
+      <Flex value={1} justify="center" style={container}>
         <CelebrateItem
           event={event}
-          cardStyle={{
-            shadowOpacity: 0,
-            shadowRadius: 0,
-            marginHorizontal: 3,
-            marginTop: hasNotch() ? 50 : 25,
-          }}
+          cardStyle={cardStyle}
           rightCorner={
-            <BackButton
-              iconStyle={{ color: theme.black }}
-              customIcon="deleteIcon"
-            />
+            <BackButton iconStyle={backButtonStyle} customIcon="deleteIcon" />
           }
         />
         <CommentsList

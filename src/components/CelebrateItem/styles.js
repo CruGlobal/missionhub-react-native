@@ -20,4 +20,11 @@ export default StyleSheet.create({
     letterSpacing: 0,
     color: theme.primaryColor,
   },
+  top: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  topLeft: {
+    justifyContent: 'flex-start',
+  },
 });
