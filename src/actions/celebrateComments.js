@@ -3,7 +3,7 @@ import { celebrateCommentsSelector } from '../selectors/celebrateComments';
 
 import callApi, { REQUESTS } from './api';
 
-export function getCelebrateComments(event) {
+export function getCelebrateCommentsNextPage(event) {
   return (dispatch, getState) => {
     const { pagination } = celebrateCommentsSelector(
       { celebrateComments: getState().celebrateComments },
@@ -19,25 +19,25 @@ export function getCelebrateComments(event) {
     }
 
     return dispatch(
-      callApi(REQUESTS.GET_CELEBRATE_COMMENTS, {
-        orgId: event.organization.id,
-        eventId: event.id,
-        page: {
-          limit: DEFAULT_PAGE_LIMIT,
-          offset: DEFAULT_PAGE_LIMIT * page,
-        },
+      getCelebrateComments(event, {
+        limit: DEFAULT_PAGE_LIMIT,
+        offset: DEFAULT_PAGE_LIMIT * page,
       }),
     );
   };
 }
 
-//todo reuse
 export function reloadCelebrateComments(event) {
+  return dispatch => dispatch(getCelebrateComments(event));
+}
+
+function getCelebrateComments(event, page) {
   return dispatch =>
     dispatch(
       callApi(REQUESTS.GET_CELEBRATE_COMMENTS, {
         orgId: event.organization.id,
         eventId: event.id,
+        page,
       }),
     );
 }

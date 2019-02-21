@@ -11,7 +11,7 @@ import ItemHeaderText from '../../components/ItemHeaderText';
 import { Text } from '../../components/common';
 import {
   reloadCelebrateComments,
-  getCelebrateComments,
+  getCelebrateCommentsNextPage,
 } from '../../actions/celebrateComments';
 import LoadMore from '../../components/LoadMore';
 import RefreshControl from '../../components/RefreshControl';
@@ -37,7 +37,7 @@ class CommentsList extends Component {
   handleLoadMore = () => {
     const { dispatch, event } = this.props;
 
-    dispatch(getCelebrateComments(event));
+    dispatch(getCelebrateCommentsNextPage(event));
   };
 
   keyExtractor = i => i.id;
