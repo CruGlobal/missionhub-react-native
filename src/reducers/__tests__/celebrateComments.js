@@ -31,46 +31,33 @@ describe('REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS', () => {
 
   describe('state has existing comments', () => {
     const existingComments = [{ id: 'comment three' }, { id: 'comment four' }];
+    const stateWithExistingComments = {
+      all: {
+        [eventId]: { comments: existingComments },
+      },
+    };
 
     it('should add objects from next page', () => {
       expect(
-        celebrateCommentsReducer(
-          {
-            all: {
-              [eventId]: { comments: existingComments },
-            },
-          },
-          {
-            ...baseAction,
-            query: { ...baseAction.query, page: {} },
-          },
-        ),
+        celebrateCommentsReducer(stateWithExistingComments, {
+          ...baseAction,
+          query: { ...baseAction.query, page: {} },
+        }),
       ).toEqual({
         all: {
-          [eventId]: {
+          [eventId]: expect.objectContaining({
             comments: [...existingComments, ...response],
-            pagination: expect.anything(),
-          },
+          }),
         },
       });
     });
 
     it('should reset comments if there is no page', () => {
       expect(
-        celebrateCommentsReducer(
-          {
-            all: {
-              [eventId]: { comments: existingComments },
-            },
-          },
-          baseAction,
-        ),
+        celebrateCommentsReducer(stateWithExistingComments, baseAction),
       ).toEqual({
         all: {
-          [eventId]: {
-            comments: response,
-            pagination: expect.anything(),
-          },
+          [eventId]: expect.objectContaining({ comments: response }),
         },
       });
     });
@@ -79,10 +66,7 @@ describe('REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS', () => {
   it('should update pagination data', () => {
     expect(celebrateCommentsReducer(undefined, baseAction)).toEqual({
       all: {
-        [eventId]: {
-          comments: expect.anything(),
-          pagination: getPaginationResult,
-        },
+        [eventId]: expect.objectContaining({ pagination: getPaginationResult }),
       },
     });
     expect(getPagination).toHaveBeenCalledWith(baseAction, response.length);
