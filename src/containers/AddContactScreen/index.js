@@ -1,7 +1,7 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
 
 import React, { Component } from 'react';
-import { View, ScrollView, Alert } from 'react-native';
+import { ScrollView, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -10,7 +10,7 @@ import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewPerson } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
-import { Button, IconButton } from '../../components/common';
+import { Button, IconButton, SafeView } from '../../components/common';
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
 import { trackActionWithoutData } from '../../actions/analytics';
@@ -170,7 +170,7 @@ class AddContactScreen extends Component {
     const orgName = organization ? organization.name : undefined;
 
     return (
-      <View style={styles.container}>
+      <SafeView style={styles.container}>
         <Header
           right={
             <IconButton
@@ -204,7 +204,7 @@ class AddContactScreen extends Component {
           text={t('done').toUpperCase()}
           style={styles.button}
         />
-      </View>
+      </SafeView>
     );
   }
 }

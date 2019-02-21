@@ -11,6 +11,7 @@ import SearchList from '../../components/SearchList';
 import PersonListItem from '../../components/PersonListItem';
 import { searchRemoveFilter } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
+import { SafeView } from '../../components/common';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
@@ -128,22 +129,24 @@ class Contacts extends Component {
     const { t } = this.props;
     const { filters, defaultResults } = this.state;
     return (
-      <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="handled">
-        <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />
-        <SearchList
-          ref={this.listRef}
-          defaultData={defaultResults}
-          onFilterPress={this.handleFilterPress}
-          listProps={{
-            renderItem: this.renderItem,
-          }}
-          onSearch={this.handleSearch}
-          onRemoveFilter={this.handleRemoveFilter}
-          onLoadMore={this.handleLoadMore}
-          filters={filters}
-          placeholder={t('searchPlaceholder')}
-        />
-      </ScrollView>
+      <SafeView bg="white">
+        <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="handled">
+          <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />
+          <SearchList
+            ref={this.listRef}
+            defaultData={defaultResults}
+            onFilterPress={this.handleFilterPress}
+            listProps={{
+              renderItem: this.renderItem,
+            }}
+            onSearch={this.handleSearch}
+            onRemoveFilter={this.handleRemoveFilter}
+            onLoadMore={this.handleLoadMore}
+            filters={filters}
+            placeholder={t('searchPlaceholder')}
+          />
+        </ScrollView>
+      </SafeView>
     );
   }
 }

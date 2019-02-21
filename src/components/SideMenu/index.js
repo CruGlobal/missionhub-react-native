@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { BackHandler } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { DrawerActions } from 'react-navigation';
 
-import { Flex, Button, IconButton } from '../common';
+import { Flex, Button, IconButton, SafeView } from '../common';
 
 import styles from './styles';
 
@@ -32,8 +31,8 @@ export class SideMenu extends Component {
   render() {
     const { menuItems } = this.props;
     return (
-      <SafeAreaView style={styles.background}>
-        <Flex style={styles.buttonContainer}>
+      <SafeView style={styles.background}>
+        <Flex style={[styles.buttonContainer, styles.firstItem]}>
           <IconButton
             style={styles.button}
             onPress={this.closeDrawer}
@@ -55,7 +54,7 @@ export class SideMenu extends Component {
             />
           </Flex>
         ))}
-      </SafeAreaView>
+      </SafeView>
     );
   }
 }

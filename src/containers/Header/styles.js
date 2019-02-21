@@ -1,15 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
-import { isAndroid, hasNotch } from '../../utils/common';
-
-function getMarginTop() {
-  return hasNotch() ? 17 : 0;
-}
+import { isAndroid } from '../../utils/common';
 
 export default StyleSheet.create({
   header: {
-    height: theme.headerHeight,
+    height: theme.headerHeight + theme.topNotchHeight,
     backgroundColor: theme.primaryColor,
     paddingTop: isAndroid ? 0 : 20,
   },
@@ -17,15 +13,15 @@ export default StyleSheet.create({
     elevation: 4,
   },
   center: {
-    marginTop: getMarginTop(),
+    marginTop: theme.topNotchHeight,
   },
   left: {
     paddingLeft: 5,
-    marginTop: getMarginTop(),
+    marginTop: theme.topNotchHeight,
   },
   right: {
     paddingRight: 5,
-    marginTop: getMarginTop(),
+    marginTop: theme.topNotchHeight,
   },
   title: {
     color: 'white',
@@ -44,7 +40,7 @@ export default StyleSheet.create({
   },
   // HeaderTwoLine styles
   headerTwoLine: {
-    marginTop: hasNotch() ? 8 : 2,
+    marginTop: true ? 8 : 2,
     paddingHorizontal: 10,
   },
   headerTwoLine1: {

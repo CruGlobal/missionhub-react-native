@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
   ScrollView,
-  View,
   Keyboard,
   Image,
   KeyboardAvoidingView,
@@ -15,6 +14,7 @@ import {
   Input,
   IconButton,
   Button,
+  SafeView,
 } from '../../../components/common';
 import Header from '../../Header';
 import theme from '../../../theme';
@@ -100,7 +100,7 @@ class CreateGroupScreen extends Component {
     const { name } = this.state;
 
     return (
-      <View style={styles.container}>
+      <SafeView style={styles.container}>
         <Header
           left={
             <IconButton
@@ -152,7 +152,7 @@ class CreateGroupScreen extends Component {
             style={styles.createButton}
           />
         </Flex>
-      </View>
+      </SafeView>
     );
   }
 }

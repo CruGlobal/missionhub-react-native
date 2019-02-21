@@ -4,7 +4,7 @@ import { View, Image, Keyboard } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import PropTypes from 'prop-types';
 
-import { Flex, Text, Button } from '../../components/common';
+import { Flex, Text, Button, SafeView } from '../../components/common';
 import BackButton from '../BackButton';
 import LANDSCAPE from '../../../assets/images/landscapeStagesImage.png';
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
@@ -134,35 +134,42 @@ class PathwayStageScreen extends Component {
     const leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
 
     return (
-      <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Image
-          source={LANDSCAPE}
-          style={[
-            styles.footerImage,
-            {
-              left: leftMargin,
-              width: getLandscapeWidth((stages || []).length),
-            },
-          ]}
-        />
-        {enableBackButton ? <BackButton absolute={true} /> : null}
-        <Text style={styles.title}>{questionText}</Text>
-        {stages ? (
-          <Carousel
-            firstItem={firstItem || fallbackIndex}
-            data={stages}
-            inactiveSlideOpacity={1}
-            inactiveSlideScale={1}
-            renderItem={this.renderStage}
-            sliderWidth={sliderWidth + 75}
-            itemWidth={stageWidth + stageMargin * 2}
-            onScroll={this.handleScroll}
-            scrollEventThrottle={5}
-            onSnapToItem={this.handleSnapToItem}
-            containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
+      <SafeView>
+        <Flex
+          align="center"
+          justify="center"
+          value={1}
+          style={styles.container}
+        >
+          <Image
+            source={LANDSCAPE}
+            style={[
+              styles.footerImage,
+              {
+                left: leftMargin,
+                width: getLandscapeWidth((stages || []).length),
+              },
+            ]}
           />
-        ) : null}
-      </Flex>
+          {enableBackButton ? <BackButton absolute={true} /> : null}
+          <Text style={styles.title}>{questionText}</Text>
+          {stages ? (
+            <Carousel
+              firstItem={firstItem || fallbackIndex}
+              data={stages}
+              inactiveSlideOpacity={1}
+              inactiveSlideScale={1}
+              renderItem={this.renderStage}
+              sliderWidth={sliderWidth + 75}
+              itemWidth={stageWidth + stageMargin * 2}
+              onScroll={this.handleScroll}
+              scrollEventThrottle={5}
+              onSnapToItem={this.handleSnapToItem}
+              containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
+            />
+          ) : null}
+        </Flex>
+      </SafeView>
     );
   }
 }

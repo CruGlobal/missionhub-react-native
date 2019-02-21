@@ -10,7 +10,7 @@ import uuidv4 from 'uuid/v4';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
-import { Flex, Text, Button, Icon } from '../../components/common';
+import { Flex, Text, Button, Icon, SafeView } from '../../components/common';
 import BackButton from '../BackButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, shuffleArray } from '../../utils/common';
@@ -170,7 +170,7 @@ class SelectStepScreen extends Component {
         value={1}
         align="center"
         justify="center"
-        style={{ marginTop: theme.notchHeight }}
+        style={styles.headerTitleWrap}
       >
         <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
         <Text type="header" style={styles.headerTitle}>
@@ -201,7 +201,7 @@ class SelectStepScreen extends Component {
     </Flex>
   );
 
-  renderStickHeader = () => (
+  renderStickyHeader = () => (
     <Flex align="center" justify="center" style={styles.collapsedHeader}>
       <Text style={styles.collapsedHeaderTitle}>
         {this.props.t('stepsOfFaith').toUpperCase()}
@@ -215,13 +215,13 @@ class SelectStepScreen extends Component {
     const { t } = this.props;
 
     return (
-      <Flex style={styles.container}>
+      <SafeView bg="white">
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
-          parallaxHeaderHeight={215 + theme.notchHeight}
+          parallaxHeaderHeight={215 + theme.topNotchHeight}
           renderForeground={this.renderForeground}
-          stickyHeaderHeight={theme.headerHeight}
-          renderStickyHeader={this.renderStickHeader}
+          stickyHeaderHeight={theme.headerHeight + theme.topNotchHeight}
+          renderStickyHeader={this.renderStickyHeader}
         >
           <StepsList
             ref={this.stepsListRef}
@@ -235,7 +235,7 @@ class SelectStepScreen extends Component {
         </ParallaxScrollView>
         {this.renderSaveButton()}
         {this.renderBackButton()}
-      </Flex>
+      </SafeView>
     );
   }
 }

@@ -4,7 +4,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import { Flex } from '../../components/common';
+import { SafeView } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import PersonListItem from '../../components/PersonListItem';
 import {
@@ -146,7 +146,7 @@ class SurveyContacts extends Component {
     const { filters, defaultResults } = this.state;
     const orgName = organization ? organization.name : undefined;
     return (
-      <Flex value={1}>
+      <SafeView bg="white">
         <Header
           left={<BackButton />}
           title={orgName}
@@ -165,7 +165,7 @@ class SurveyContacts extends Component {
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />
-      </Flex>
+      </SafeView>
     );
   }
 }

@@ -1,7 +1,7 @@
 /* eslint max-lines-per-function: 0 */
 
 import React, { Component } from 'react';
-import { View, ScrollView, Keyboard } from 'react-native';
+import { ScrollView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -12,14 +12,12 @@ import { getMyGroups } from '../../actions/groups';
 import { getMySurveys } from '../../actions/surveys';
 import { getMyLabels } from '../../actions/labels';
 import Header from '../Header';
-import { RefreshControl } from '../../components/common';
+import { RefreshControl, SafeView } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
 import { buildTrackingObj, isString } from '../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../actions/analytics';
 import BackButton from '../BackButton';
-
-import styles from './styles';
 
 @translate('searchFilter')
 export class SearchPeopleFilterScreen extends Component {
@@ -205,7 +203,7 @@ export class SearchPeopleFilterScreen extends Component {
   render() {
     const { t } = this.props;
     return (
-      <View style={styles.pageContainer}>
+      <SafeView bg="white">
         <Header left={<BackButton />} title={t('title')} />
         <ScrollView
           style={{ flex: 1 }}
@@ -234,7 +232,7 @@ export class SearchPeopleFilterScreen extends Component {
             />
           ))}
         </ScrollView>
-      </View>
+      </SafeView>
     );
   }
 }

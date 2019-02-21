@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { getGroupJourney } from '../../../actions/journey';
-import GroupsContactList from '../../../components/GroupsContactList/index';
-import CommentBox from '../../../components/CommentBox/index';
-import Header from '../../Header/index';
-import BackButton from '../../BackButton/index';
+import GroupsContactList from '../../../components/GroupsContactList';
+import CommentBox from '../../../components/CommentBox';
+import Header from '../../Header';
+import BackButton from '../../BackButton';
 import { organizationSelector } from '../../../selectors/organizations';
 import { personSelector } from '../../../selectors/people';
+import { SafeView } from '../../../components/common';
 
 import styles from './styles';
 
@@ -31,7 +31,7 @@ class UnassignedPersonScreen extends Component {
     const { activity } = this.state;
 
     return (
-      <View style={styles.container}>
+      <SafeView style={styles.container}>
         <Header
           left={<BackButton />}
           title={organization.name}
@@ -49,7 +49,7 @@ class UnassignedPersonScreen extends Component {
           person={person}
           organization={organization}
         />
-      </View>
+      </SafeView>
     );
   }
 }

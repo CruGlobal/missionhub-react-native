@@ -14,6 +14,7 @@ import {
   Flex,
   Icon,
   LoadingWheel,
+  SafeView,
 } from '../../../components/common';
 import { navigatePush } from '../../../actions/navigation';
 import LOGO from '../../../../assets/images/missionHubLogoWords.png';
@@ -105,7 +106,7 @@ class UpgradeAccountScreen extends Component {
     const headerContent = headerContentOptions[signupType];
 
     return (
-      <Flex style={styles.container}>
+      <SafeView style={styles.container}>
         <Header left={<BackButton />} />
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
@@ -174,7 +175,7 @@ class UpgradeAccountScreen extends Component {
           </Flex>
         </Flex>
         {isLoading ? <LoadingWheel /> : null}
-      </Flex>
+      </SafeView>
     );
   }
 }

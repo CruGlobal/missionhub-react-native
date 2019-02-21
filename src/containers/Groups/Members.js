@@ -5,7 +5,12 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { ACTIONS } from '../../constants';
-import { Flex, RefreshControl, Button } from '../../components/common';
+import {
+  Flex,
+  RefreshControl,
+  Button,
+  SafeView,
+} from '../../components/common';
 import { refresh, getCommunityUrl } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
@@ -91,7 +96,7 @@ class Members extends Component {
   render() {
     const { t, members, pagination } = this.props;
     return (
-      <Flex value={1}>
+      <SafeView>
         <FlatList
           data={members}
           ListHeaderComponent={this.renderHeader}
@@ -119,7 +124,7 @@ class Members extends Component {
             text={t('invite').toUpperCase()}
           />
         </Flex>
-      </Flex>
+      </SafeView>
     );
   }
 }

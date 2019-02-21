@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { MainTabBarStartSteps, MainTabBarStartGroups } from '../AppRoutes';
+import { SafeView } from '../components/common';
 
 class MainTabs extends Component {
   render() {
     return this.props.startTab === 'groups' ? (
-      <MainTabBarStartGroups />
+      <SafeView bg="white">
+        <MainTabBarStartGroups />
+      </SafeView>
     ) : (
-      <MainTabBarStartSteps />
+      <SafeView bg="white">
+        <MainTabBarStartSteps />
+      </SafeView>
     );
   }
 }

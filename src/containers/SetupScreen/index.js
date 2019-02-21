@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { View, Keyboard } from 'react-native';
 import { translate } from 'react-i18next';
 
-import { Button, Text, Flex, Input } from '../../components/common';
+import { Button, Text, Flex, Input, SafeView } from '../../components/common';
 import {
   createMyPerson,
   firstNameChanged,
@@ -49,7 +49,7 @@ class SetupScreen extends Component {
     const { t } = this.props;
 
     return (
-      <View style={styles.container}>
+      <SafeView style={styles.container}>
         <Flex value={2} justify="end" align="center">
           <Text type="header" style={styles.header}>
             {t('namePrompt')}
@@ -95,7 +95,7 @@ class SetupScreen extends Component {
             text={t('next').toUpperCase()}
           />
         </Flex>
-      </View>
+      </SafeView>
     );
   }
 }

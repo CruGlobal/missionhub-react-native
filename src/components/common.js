@@ -1,37 +1,39 @@
 // Common components that we can import with simple destructuring syntax
 // So when one of these components are loaded in, all files will be called also
 import Button from './Button';
+import Card from './Card';
 import DateComponent from './DateComponent';
+import Dot from './Dot';
 import Flex from './Flex';
 import Icon from './Icon';
+import IconButton from './IconButton';
 import Input from './Input';
 import LoadingGuy from './LoadingGuy';
 import LoadingWheel from './LoadingWheel';
+import PlatformKeyboardAvoidingView from './PlatformKeyboardAvoidingView';
+import RadioButton from './RadioButton';
+import RefreshControl from './RefreshControl';
+import SafeView from './SafeView';
+import Separator from './Separator';
 import Text from './Text';
 import Touchable from './Touchable';
-import Separator from './Separator';
-import RefreshControl from './RefreshControl';
-import PlatformKeyboardAvoidingView from './PlatformKeyboardAvoidingView';
-import IconButton from './IconButton';
-import RadioButton from './RadioButton';
-import Card from './Card';
-import Dot from './Dot';
 
 export {
   Button,
+  Card,
   DateComponent,
+  Dot,
   Flex,
   Icon,
+  IconButton,
   Input,
   LoadingGuy,
   LoadingWheel,
+  PlatformKeyboardAvoidingView,
+  RadioButton,
+  RefreshControl,
+  SafeView,
+  Separator,
   Text,
   Touchable,
-  Separator,
-  RefreshControl,
-  PlatformKeyboardAvoidingView,
-  IconButton,
-  RadioButton,
-  Card,
-  Dot,
 };

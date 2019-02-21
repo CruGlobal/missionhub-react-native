@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -10,6 +10,7 @@ import FilterItem from '../../components/FilterItem';
 import { trackSearchFilter } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 import BackButton from '../BackButton';
+import { SafeView } from '../../components/common';
 
 import styles from './styles';
 
@@ -92,7 +93,7 @@ export class SearchPeopleFilterRefineScreen extends Component {
   render() {
     const { t, title } = this.props;
     return (
-      <View style={styles.pageContainer}>
+      <SafeView bg="white">
         <Header left={<BackButton />} title={title || t('title')} />
         <FlatList
           style={styles.list}
@@ -101,7 +102,7 @@ export class SearchPeopleFilterRefineScreen extends Component {
           initialNumToRender={15}
           renderItem={this.renderItem}
         />
-      </View>
+      </SafeView>
     );
   }
 }

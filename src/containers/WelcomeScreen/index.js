@@ -4,7 +4,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import theme from '../../theme';
-import { Flex, Text, Button } from '../../components/common';
+import { Flex, Text, Button, SafeView } from '../../components/common';
 import { disableBack } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
@@ -39,44 +39,53 @@ class WelcomeScreen extends Component {
     const { t, allowSignIn } = this.props;
 
     return (
-      <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Flex value={3} align="start" justify="center">
-          <Text type="header" style={styles.headerText}>
-            {t('welcome')}
-          </Text>
-          <Text style={styles.descriptionText}>{t('welcomeDescription')}</Text>
-        </Flex>
+      <SafeView bg="primary">
+        <Flex
+          align="center"
+          justify="center"
+          value={1}
+          style={styles.container}
+        >
+          <Flex value={3} align="start" justify="center">
+            <Text type="header" style={styles.headerText}>
+              {t('welcome')}
+            </Text>
+            <Text style={styles.descriptionText}>
+              {t('welcomeDescription')}
+            </Text>
+          </Flex>
 
-        {allowSignIn ? (
-          <Flex value={1} align="center" justify="start">
-            <Button
-              name={'signIn'}
-              pill={true}
-              onPress={this.signIn}
-              style={styles.filledButton}
-              buttonTextStyle={styles.buttonText}
-              text={t('signIn').toUpperCase()}
-            />
-            <Button
-              name={'tryItNow'}
-              pill={true}
-              onPress={this.navigateToNext}
-              style={styles.clearButton}
-              buttonTextStyle={styles.buttonText}
-              text={t('tryItNow').toUpperCase()}
-            />
-          </Flex>
-        ) : (
-          <Flex value={1} align="stretch" justify="end">
-            <Button
-              type="secondary"
-              onPress={this.navigateToNext}
-              text={t('getStarted').toUpperCase()}
-              style={{ width: theme.fullWidth }}
-            />
-          </Flex>
-        )}
-      </Flex>
+          {allowSignIn ? (
+            <Flex value={1} align="center" justify="start">
+              <Button
+                name={'signIn'}
+                pill={true}
+                onPress={this.signIn}
+                style={styles.filledButton}
+                buttonTextStyle={styles.buttonText}
+                text={t('signIn').toUpperCase()}
+              />
+              <Button
+                name={'tryItNow'}
+                pill={true}
+                onPress={this.navigateToNext}
+                style={styles.clearButton}
+                buttonTextStyle={styles.buttonText}
+                text={t('tryItNow').toUpperCase()}
+              />
+            </Flex>
+          ) : (
+            <Flex value={1} align="stretch" justify="end">
+              <Button
+                type="secondary"
+                onPress={this.navigateToNext}
+                text={t('getStarted').toUpperCase()}
+                style={{ width: theme.fullWidth }}
+              />
+            </Flex>
+          )}
+        </Flex>
+      </SafeView>
     );
   }
 }

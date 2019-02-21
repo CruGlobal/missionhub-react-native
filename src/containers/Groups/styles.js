@@ -7,6 +7,10 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
+  scrollView: {
+    flex: 1,
+    backgroundColor: theme.lightGrey,
+  },
   cardList: {
     flex: 1,
     backgroundColor: theme.lightGrey,

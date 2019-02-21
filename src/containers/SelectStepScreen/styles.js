@@ -16,12 +16,15 @@ export default StyleSheet.create({
     color: theme.secondaryColor,
   },
   collapsedHeader: {
-    paddingTop: theme.notchHeight,
     height: '100%',
+    marginTop: 15,
   },
   collapsedHeaderTitle: {
     fontSize: 14,
     color: theme.white,
+  },
+  headerTitleWrap: {
+    marginTop: theme.topNotchHeight,
   },
   headerText: {
     fontSize: 16,

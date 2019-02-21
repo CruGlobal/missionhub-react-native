@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 import CommentBox from '../../components/CommentBox';
 import { navigatePush } from '../../actions/navigation';
 import { getJourney } from '../../actions/journey';
-import { Flex, Separator, LoadingGuy } from '../../components/common';
+import { Flex, Separator, LoadingGuy, SafeView } from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
@@ -167,7 +167,7 @@ class ContactJourney extends Component {
     const { isPersonalMinistry } = this.state;
     const { person, organization, isUserCreatedOrg } = this.props;
     return (
-      <View style={{ flex: 1 }}>
+      <SafeView bg="white">
         {this.renderContent()}
         <Flex justify="end">
           <CommentBox
@@ -176,7 +176,7 @@ class ContactJourney extends Component {
             hideActions={isPersonalMinistry || isUserCreatedOrg}
           />
         </Flex>
-      </View>
+      </SafeView>
     );
   }
 }

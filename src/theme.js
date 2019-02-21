@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, StatusBar } from 'react-native';
 import Color from 'color';
 
 import { exists, isAndroid, hasNotch } from './utils/common';
@@ -75,7 +75,6 @@ const BACKGROUND = COLORS.LIGHT_BLUE;
 const ACCENT = COLORS.ACCENT_BLUE;
 
 const iPhoneHeaderHeight = 65;
-const notchHeight = hasNotch() ? 20 : 0;
 
 export default {
   // base theme
@@ -117,7 +116,8 @@ export default {
   contactHeaderIconActiveColor: 'rgba(255,255,255,1)',
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
 
-  headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + notchHeight,
-  notchHeight,
+  headerHeight: isAndroid ? 56 : iPhoneHeaderHeight,
+  topNotchHeight: isAndroid ? StatusBar.currentHeight : 20,
+  bottomNotchHeight: !isAndroid && hasNotch() ? 20 : 0,
   swipeTabHeight: 48,
 };

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { Flex, Text, Button } from '../../components/common';
+import { Flex, Text, Button, SafeView } from '../../components/common';
 import theme from '../../theme';
 import AbsoluteSkip from '../../components/AbsoluteSkip';
 
@@ -11,25 +11,32 @@ import styles from './styles';
 
 class IconMessageScreen extends Component {
   render() {
-    const { onSkip, mainText, buttonText, iconPath } = this.props;
+    const { onSkip, mainText, buttonText, iconPath, onComplete } = this.props;
 
     return (
-      <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Flex align="start" justify="center" value={4}>
-          <Image source={iconPath} style={styles.image} />
-          <Text style={styles.text}>{mainText}</Text>
-        </Flex>
+      <SafeView bg="primary">
+        <Flex
+          align="center"
+          justify="center"
+          value={1}
+          style={styles.container}
+        >
+          <Flex align="start" justify="center" value={4}>
+            <Image source={iconPath} style={styles.image} />
+            <Text style={styles.text}>{mainText}</Text>
+          </Flex>
 
-        <Flex value={1} align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.props.onComplete}
-            text={buttonText}
-            style={{ width: theme.fullWidth }}
-          />
+          <Flex value={1} align="stretch" justify="end">
+            <Button
+              type="secondary"
+              onPress={onComplete}
+              text={buttonText}
+              style={{ width: theme.fullWidth }}
+            />
+          </Flex>
+          {onSkip ? <AbsoluteSkip onSkip={onSkip} /> : null}
         </Flex>
-        {onSkip ? <AbsoluteSkip onSkip={onSkip} /> : null}
-      </Flex>
+      </SafeView>
     );
   }
 }

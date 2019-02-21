@@ -12,17 +12,19 @@ import {
   Flex,
   Icon,
   LoadingWheel,
+  SafeView,
 } from '../../../components/common';
 import Input from '../../../components/Input';
 import { keyLogin, openKeyURL } from '../../../actions/auth';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS, MFA_REQUIRED } from '../../../constants';
-import { hasNotch, isAndroid } from '../../../utils/common';
+import { isAndroid } from '../../../utils/common';
 import { onSuccessfulLogin } from '../../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
 import BackButton from '../../BackButton';
 import { navigatePush } from '../../../actions/navigation';
 import { MFA_CODE_SCREEN } from '../MFACodeScreen';
+import Header from '../../Header';
 
 import styles from './styles';
 
@@ -178,16 +180,11 @@ class KeyLoginScreen extends Component {
   render() {
     const { t, forcedLogout } = this.props;
     const { showLogo, email, password, isLoading } = this.state;
-    const marginTop = hasNotch() ? 50 : 25;
 
     return (
-      <View style={styles.container}>
+      <SafeView style={styles.container}>
         {this.renderErrorMessage()}
-        {forcedLogout ? (
-          <View style={{ marginTop }} />
-        ) : (
-          <BackButton style={{ marginLeft: 5, marginTop }} />
-        )}
+        <Header left={forcedLogout ? null : <BackButton />} />
         <Flex align="center" justify="center">
           {showLogo ? (
             forcedLogout ? (
@@ -273,7 +270,7 @@ class KeyLoginScreen extends Component {
           </Flex>
         )}
         {isLoading ? <LoadingWheel /> : null}
-      </View>
+      </SafeView>
     );
   }
 }

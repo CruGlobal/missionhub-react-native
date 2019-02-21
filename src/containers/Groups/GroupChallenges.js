@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -9,7 +8,7 @@ import {
   reloadGroupChallengeFeed,
   createChallenge,
 } from '../../actions/challenges';
-import { Flex, Button } from '../../components/common';
+import { Flex, Button, SafeView } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
 import { refresh, isAdminOrOwner } from '../../utils/common';
 import { challengesSelector } from '../../selectors/challenges';
@@ -63,7 +62,7 @@ export class GroupChallenges extends Component {
     const { t, challengeItems, organization, myOrgPermissions } = this.props;
 
     return (
-      <View style={{ flex: 1 }}>
+      <SafeView>
         <ChallengeFeed
           organization={organization}
           items={challengeItems}
@@ -80,7 +79,7 @@ export class GroupChallenges extends Component {
             />
           </Flex>
         ) : null}
-      </View>
+      </SafeView>
     );
   }
 }
