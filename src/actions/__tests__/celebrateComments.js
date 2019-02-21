@@ -23,17 +23,29 @@ let store;
 callApi.mockReturnValue(() => callApiResponse);
 celebrateCommentsSelector.mockReturnValue(comment);
 
-beforeEach(() => (store = mockStore({ celebrateComments })));
+beforeEach(() => {
+  jest.clearAllMocks();
+
+  store = mockStore({ celebrateComments });
+});
 
 describe('getCelebrateCommentsNextPage', () => {
-  it('should send request with next page', async () => {
-    const result = await store.dispatch(getCelebrateCommentsNextPage(event));
+  function subject() {
+    return store.dispatch(getCelebrateCommentsNextPage(event));
+  }
+
+  it('should call selector', async () => {
+    await subject();
 
     expect(celebrateCommentsSelector).toHaveBeenCalledWith(
       { celebrateComments },
       { eventId: event.id },
     );
-    expect(result).toEqual(callApiResponse);
+  });
+
+  it('should callApi with next page', async () => {
+    await subject();
+
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CELEBRATE_COMMENTS, {
       orgId: event.organization.id,
       eventId: event.id,
@@ -43,16 +55,27 @@ describe('getCelebrateCommentsNextPage', () => {
       },
     });
   });
+
+  it('should return api response', async () => {
+    expect(await subject()).toEqual(callApiResponse);
+  });
 });
 
 describe('reloadCelebrateComments', () => {
-  it('should send request with no page', async () => {
-    const result = await store.dispatch(reloadCelebrateComments(event));
+  function subject() {
+    return store.dispatch(reloadCelebrateComments(event));
+  }
 
-    expect(result).toEqual(callApiResponse);
+  it('should callApi with no page', async () => {
+    await subject();
+
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CELEBRATE_COMMENTS, {
       orgId: event.organization.id,
       eventId: event.id,
     });
+  });
+
+  it('should return api response', async () => {
+    expect(await subject()).toEqual(callApiResponse);
   });
 });
