@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {
+        "color": "#007398",
+        "fontSize": 16,
+        "fontWeight": "bold",
+      },
+    ]
+  }
+>
+  ROGE GOERS
+</Text>
+`;
