@@ -123,3 +123,69 @@ export default {
   notchHeight,
   swipeTabHeight: 48,
 };
+
+const textStyle = {
+  color: COLORS.GREY,
+  fontFamily: 'SourceSansPro-Regular',
+  fontSize: 16,
+  lineHeight: 22,
+};
+const heading1Style = {
+  ...textStyle,
+  fontFamily: 'SourceSansPro-Light',
+  fontSize: 32,
+  lineHeight: 38,
+};
+const heading2Style = {
+  ...heading1Style,
+  fontSize: 24,
+  lineHeight: 30,
+};
+const strongStyle = {
+  ...textStyle,
+  fontFamily: 'SourceSansPro-Bold',
+  fontWeight: 'bold',
+};
+const emphasisStyle = {
+  ...textStyle,
+  fontStyle: 'italic',
+};
+const unorderedListItemStyle = {
+  ...textStyle,
+  paddingRight: 16,
+  alignSelf: 'flex-start',
+};
+const orderedListItemStyle = {
+  ...textStyle,
+  paddingRight: 16,
+  alignSelf: 'flex-start',
+};
+const linkStyle = {
+  color: COLORS.BLUE,
+  textDecorationColor: COLORS.BLUE,
+  textDecorationLine: 'underline',
+};
+const blockQuoteStyle = {};
+const horizontalLineStyle = {
+  height: 1,
+  backgroundColor: COLORS.EXTRA_LIGHT_GREY,
+};
+const imageStyle = {
+  backgroundColor: COLORS.BLUE,
+  height: 60,
+  resizeMode: 'contain',
+};
+
+export const markdownTheme = {
+  text: textStyle,
+  heading1: heading1Style,
+  heading2: heading2Style,
+  strong: strongStyle,
+  em: emphasisStyle,
+  listItemBullet: unorderedListItemStyle,
+  listItemNumber: orderedListItemStyle,
+  link: linkStyle,
+  blockQuote: blockQuoteStyle,
+  hr: horizontalLineStyle,
+  image: imageStyle,
+};

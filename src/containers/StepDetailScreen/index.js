@@ -11,8 +11,9 @@ import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import ReminderButton from '../../components/ReminderButton';
 import { Button, Text } from '../../components/common';
+import { markdownTheme } from '../../theme';
 
-import styles, { markdownStyles } from './styles';
+import styles from './styles';
 
 @translate('stepDetail')
 export class StepDetailScreen extends Component {
@@ -52,7 +53,7 @@ export class StepDetailScreen extends Component {
       <View flex={1}>
         {tipDescription && (
           <ScrollView style={styles.tipContainer}>
-            <Markdown styles={markdownStyles}>{tipDescription}</Markdown>
+            <Markdown styles={markdownTheme}>{tipDescription}</Markdown>
           </ScrollView>
         )}
       </View>
