@@ -1,3 +1,194 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders nothing with no subject person 1`] = `""`;
+
+exports[`with subject person renders for me 1`] = `
+<Flex
+  align="end"
+  direction="row"
+  justify="end"
+>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 14,
+      }
+    }
+  >
+    15
+  </MyText>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+    style={
+      Object {
+        "marginHorizontal": 10,
+      }
+    }
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 14,
+      }
+    }
+  />
+  <Button
+    onPress={[Function]}
+    style={
+      Object {
+        "height": 24,
+        "margin": 0,
+        "width": 24,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/heart-grey.png",
+        }
+      }
+    />
+  </Button>
+</Flex>
+`;
+
+exports[`with subject person renders for someone else 1`] = `
+<Flex
+  align="end"
+  direction="row"
+  justify="end"
+>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 14,
+      }
+    }
+  >
+    15
+  </MyText>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+    style={
+      Object {
+        "marginHorizontal": 10,
+      }
+    }
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 14,
+      }
+    }
+  >
+    54
+  </MyText>
+  <Button
+    onPress={[Function]}
+    style={
+      Object {
+        "height": 24,
+        "margin": 0,
+        "width": 24,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/heart-grey.png",
+        }
+      }
+    />
+  </Button>
+</Flex>
+`;
+
+exports[`with subject person renders when liked 1`] = `
+<Flex
+  align="end"
+  direction="row"
+  justify="end"
+>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 14,
+      }
+    }
+  >
+    15
+  </MyText>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+    style={
+      Object {
+        "marginHorizontal": 10,
+      }
+    }
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 14,
+      }
+    }
+  />
+  <Button
+    onPress={[Function]}
+    style={
+      Object {
+        "height": 24,
+        "margin": 0,
+        "width": 24,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/heart-blue.png",
+        }
+      }
+    />
+  </Button>
+</Flex>
+`;
