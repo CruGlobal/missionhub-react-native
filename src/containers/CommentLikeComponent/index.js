@@ -22,7 +22,7 @@ class CommentLikeComponent extends Component {
 
   render() {
     const { myId, event } = this.props;
-    const { subject_person, likes_count, liked } = event;
+    const { subject_person, likes_count, comments_count, liked } = event;
 
     if (!subject_person) {
       return null;
@@ -34,7 +34,7 @@ class CommentLikeComponent extends Component {
     return (
       subject_person && (
         <Flex direction={'row'} align="end" justify="end">
-          <Text style={styles.likeCount}>{1}</Text>
+          <Text style={styles.likeCount}>{comments_count || 0}</Text>
           <Image source={COMMENTS} style={{ marginHorizontal: 10 }} />
 
           <Text style={styles.likeCount}>

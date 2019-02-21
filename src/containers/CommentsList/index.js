@@ -9,14 +9,36 @@ import theme from '../../theme';
 import CardTime from '../../components/CardTime';
 import ItemHeaderText from '../../components/ItemHeaderText';
 import { Text } from '../../components/common';
-import { getCelebrateComments } from '../../actions/celebrateComments';
+import {
+  reloadCelebrateComments,
+  getCelebrateComments,
+} from '../../actions/celebrateComments';
+import LoadMore from '../../components/LoadMore';
+import RefreshControl from '../../components/RefreshControl';
+import { refresh } from '../../utils/common';
 
 class CommentsList extends Component {
+  state = {
+    refreshing: false,
+  };
+
   componentDidMount() {
+    this.refreshComments();
+  }
+
+  refreshComments = () => {
+    const { dispatch, event } = this.props;
+
+    return dispatch(reloadCelebrateComments(event));
+  };
+
+  handleRefresh = () => refresh(this, this.refreshComments);
+
+  handleLoadMore = () => {
     const { dispatch, event } = this.props;
 
     dispatch(getCelebrateComments(event));
-  }
+  };
 
   keyExtractor = i => i.id;
 
@@ -43,16 +65,26 @@ class CommentsList extends Component {
   }
 
   render() {
-    const { celebrateComments } = this.props;
+    const { celebrateComments: { comments, pagination } = {} } = this.props;
 
     return (
       <FlatList
-        data={celebrateComments}
+        data={comments}
         keyExtractor={this.keyExtractor}
         renderItem={this.renderItem}
         style={{
           marginHorizontal: 20,
         }}
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this.handleRefresh}
+          />
+        }
+        ListFooterComponent={
+          pagination &&
+          pagination.hasNextPage && <LoadMore onPress={this.handleLoadMore} />
+        }
       />
     );
   }
@@ -76,7 +108,7 @@ const mapStateToProps = (
     celebrateComments: celebrateCommentsSelector(
       { celebrateComments },
       { eventId },
-    ).comments,
+    ),
   };
 };
 export default connect(mapStateToProps)(CommentsList);

@@ -1,5 +1,6 @@
 import { LOGOUT } from '../constants';
 import { REQUESTS } from '../actions/api';
+import { getPagination } from '../utils/common';
 
 const initialState = {
   all: {},
@@ -10,19 +11,21 @@ export default function celebrateCommentsReducer(state = initialState, action) {
     case REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS:
       const {
         results: { response },
-        query: { eventId },
-      } = action.results.response;
+        query: { eventId, page },
+      } = action;
 
-      //TODO pagination
-      //TODO combine old items with new
-      //TODO account for duplicate responses?
+      const event = state.all[eventId] || {};
+      const existingComments = event.comments || [];
+      const comments = page ? [...existingComments, ...response] : response;
 
       return {
         ...state,
         all: {
           ...state.all,
           [eventId]: {
-            comments: [...response],
+            ...event,
+            comments,
+            pagination: getPagination(action, comments.length),
           },
         },
       };
