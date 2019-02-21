@@ -264,3 +264,18 @@ describe('onPressChallengeLink', () => {
     expect(store.getActions()).toEqual([navigateResponse]);
   });
 });
+
+describe('press card', () => {
+  const onPressItem = jest.fn();
+
+  it('calls onPressItem', () => {
+    renderShallow(
+      <CelebrateItem event={event} myId={myId} onPressItem={onPressItem} />,
+      store,
+    )
+      .props()
+      .onPress();
+
+    expect(onPressItem).toHaveBeenCalledWith(event);
+  });
+});

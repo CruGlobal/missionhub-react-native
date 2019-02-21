@@ -12,6 +12,6 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  9:51 AM
+  1:51 PM
 </MyText>
 `;
