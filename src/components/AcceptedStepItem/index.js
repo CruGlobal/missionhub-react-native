@@ -24,19 +24,32 @@ class AcceptedStepItem extends Component {
     const {
       step: { title, completed_at },
     } = this.props;
-    const { card, stepText, iconButton, checkIcon } = styles;
+    const {
+      card,
+      reminderButton,
+      bellIcon,
+      reminderText,
+      stepText,
+      iconButton,
+      checkIcon,
+    } = styles;
 
     return (
       <Card onPress={this.handlePressCard} style={card}>
-        <View flex={1} flexDirection={'row'} alignItems={'center'}>
-          <View flex={1} flexDirection={'column'}>
-            <Text style={stepText}>REMINDER</Text>
+        <View flex={1} flexDirection="row" alignItems="center">
+          <View flex={1} flexDirection="column">
+            <Button type="transparent" style={reminderButton}>
+              <View flexDirection={'row'}>
+                <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
+                <Text style={reminderText}>REMINDER</Text>
+              </View>
+            </Button>
             <Text style={stepText}>{title}</Text>
           </View>
           <Button onPress={this.handlePressIcon} style={iconButton}>
             <Image
               source={completed_at ? GREY_CHECKBOX : BLUE_CHECKBOX}
-              style={styles.checkIcon}
+              style={checkIcon}
             />
           </Button>
         </View>
