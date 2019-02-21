@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -12,7 +12,7 @@ import {
   deleteStepWithTracking,
 } from '../../actions/steps';
 import { reloadJourney } from '../../actions/journey';
-import { Flex } from '../../components/common';
+import { Flex, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import AcceptedStepItem from '../../components/AcceptedStepItem';
 import RowSwipeable from '../../components/RowSwipeable';
@@ -43,23 +43,10 @@ class ContactSteps extends Component {
     this.getSteps();
   }
 
-  bumpComplete = () => {
-    this.props.dispatch(removeSwipeStepsContact());
-  };
-
   getSteps = () => {
     const { dispatch, person, organization = {} } = this.props;
 
     dispatch(getContactSteps(person.id, organization.id));
-  };
-
-  handleRowSelect = step => {
-    this.props.dispatch(navigatePush(STEP_DETAIL_SCREEN, { step }));
-  };
-
-  handleRemove = async step => {
-    await this.props.dispatch(deleteStepWithTracking(step, CONTACT_STEPS));
-    this.getSteps();
   };
 
   handleComplete = async step => {
@@ -164,7 +151,23 @@ class ContactSteps extends Component {
         : this.handleAssign();
   };
 
+  toggleCompletedSteps = () => {};
+
   renderRow = ({ item }) => <AcceptedStepItem step={item} />;
+
+  renderCompletedStepsButton = () => {
+    const { completedStepsButton, completedStepsButtonText } = styles;
+
+    return (
+      <Button
+        pill={true}
+        text={this.props.t('showCompletedSteps').toUpperCase()}
+        onPress={this.toggleCompletedSteps}
+        style={completedStepsButton}
+        buttonTextStyle={completedStepsButtonText}
+      />
+    );
+  };
 
   ref = c => (this.list = c);
 
@@ -173,15 +176,27 @@ class ContactSteps extends Component {
   renderList() {
     const { steps } = this.props;
     return (
-      <FlatList
-        ref={this.ref}
-        style={styles.container}
-        data={steps}
-        keyExtractor={this.keyExtractor}
-        renderItem={this.renderRow}
-        bounces={true}
-        showsVerticalScrollIndicator={false}
-      />
+      <ScrollView flex={1}>
+        <FlatList
+          ref={this.ref}
+          style={styles.container}
+          data={steps}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderRow}
+          bounces={true}
+          showsVerticalScrollIndicator={false}
+        />
+        {this.renderCompletedStepsButton()}
+        <FlatList
+          ref={this.ref}
+          style={styles.container}
+          data={[]}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderRow}
+          bounces={true}
+          showsVerticalScrollIndicator={false}
+        />
+      </ScrollView>
     );
   }
 

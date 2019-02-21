@@ -15,12 +15,14 @@ import Icon from '../Icon/index';
 
 @translate('contactSteps')
 class AcceptedStepItem extends Component {
-  handlePressCard = () => {
+  handleNavigate = () => {
     const { dispatch, step } = this.props;
     dispatch(navigatePush(STEP_DETAIL_SCREEN, { step }));
   };
 
-  handlePressIcon = () => {};
+  handleCompleteStep = () => {};
+
+  handleSetReminder = () => {};
 
   render() {
     const {
@@ -38,11 +40,15 @@ class AcceptedStepItem extends Component {
     } = styles;
 
     return (
-      <Card onPress={this.handlePressCard} style={card}>
+      <Card onPress={this.handleNavigate} style={card}>
         <View flex={1} flexDirection="row" alignItems="center">
           <View flex={1} flexDirection="column">
             <View flexDirection="row">
-              <Button type="transparent" style={reminderButton}>
+              <Button
+                type="transparent"
+                style={reminderButton}
+                onPress={this.handleSetReminder}
+              >
                 <View flexDirection="row">
                   <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
                   <Text style={reminderText}>{t('setReminder')}</Text>
@@ -51,7 +57,7 @@ class AcceptedStepItem extends Component {
             </View>
             <Text style={stepText}>{title}</Text>
           </View>
-          <Button onPress={this.handlePressIcon} style={iconButton}>
+          <Button onPress={this.handleCompleteStep} style={iconButton}>
             <Image
               source={completed_at ? GREY_CHECKBOX : BLUE_CHECKBOX}
               style={checkIcon}
