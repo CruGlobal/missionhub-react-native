@@ -6,11 +6,24 @@ import thunk from 'redux-thunk';
 import CommentLikeComponent from '..';
 
 import { renderShallow } from '../../../../testUtils';
+import { toggleLike } from '../../../actions/celebration';
+import { ACTIONS } from '../../../constants';
+import { trackActionWithoutData } from '../../../actions/analytics';
+
+jest.mock('../../../actions/celebration');
+jest.mock('../../../actions/analytics');
 
 const mockStore = configureStore([thunk]);
 let store;
 
 const myId = '2342';
+const toggleLikeResponse = { type: 'item was liked' };
+const trackActionResponse = { type: 'tracked action' };
+
+toggleLike.mockReturnValue(dispatch => dispatch(toggleLikeResponse));
+trackActionWithoutData.mockReturnValue(dispatch =>
+  dispatch(trackActionResponse),
+);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -26,9 +39,12 @@ it('renders nothing with no subject person', () => {
 
 describe('with subject person', () => {
   const event = {
+    id: '777711',
+    liked: false,
     subject_person: {},
     likes_count: 54,
     comments_count: 15,
+    organization: { id: '88732' },
   };
 
   it('renders for me', () => {
@@ -55,5 +71,36 @@ describe('with subject person', () => {
         store,
       ),
     ).toMatchSnapshot();
+  });
+
+  describe('onPress like button', () => {
+    function subject() {
+      renderShallow(<CommentLikeComponent event={event} />, store)
+        .childAt(3)
+        .props()
+        .onPress();
+    }
+
+    it('toggles like', () => {
+      subject();
+
+      expect(toggleLike).toHaveBeenCalledWith(
+        event.organization.id,
+        event.id,
+        event.liked,
+      );
+      expect(store.getActions()).toEqual(
+        expect.arrayContaining([toggleLikeResponse]),
+      );
+    });
+
+    it('tracks action', () => {
+      subject();
+
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ITEM_LIKED);
+      expect(store.getActions()).toEqual(
+        expect.arrayContaining([trackActionResponse]),
+      );
+    });
   });
 });
