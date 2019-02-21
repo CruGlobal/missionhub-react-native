@@ -12,9 +12,16 @@ export default StyleSheet.create({
     fontSize: 16,
     lineHeight: 22,
   },
-  checkIcon: {
-    fontSize: 20,
+  iconButton: {
+    height: 24,
+    width: 24,
+    paddingHorizontal: 0,
   },
+  checkIcon: {
+    height: 24,
+    width: 24,
+  },
+
   active: {
     color: theme.secondaryColor,
   },
