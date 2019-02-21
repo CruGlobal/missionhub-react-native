@@ -1,6 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`with comments with next page renders correctly 1`] = `
+<FlatList
+  ListFooterComponent={
+    <Translate(LoadMore)
+      onPress={[Function]}
+    />
+  }
+  data={
+    Array [
+      Object {
+        "content": "some comment",
+      },
+      Object {
+        "content": "another comment",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  refreshControl={
+    <MyRefreshControl
+      colors={
+        Array [
+          "#ffffff",
+          "#52C5DC",
+        ]
+      }
+      onRefresh={[Function]}
+      progressBackgroundColor="#007398"
+      refreshing={false}
+      tintColor="#007398"
+    />
+  }
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  style={
+    Object {
+      "marginHorizontal": 20,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
+exports[`with comments with next page renders correctly 2`] = `
 <FlatList
   data={
     Array [
@@ -12,6 +62,41 @@ exports[`renders correctly 1`] = `
       },
     ]
   }
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  refreshControl={
+    <MyRefreshControl
+      colors={
+        Array [
+          "#ffffff",
+          "#52C5DC",
+        ]
+      }
+      onRefresh={[Function]}
+      progressBackgroundColor="#007398"
+      refreshing={false}
+      tintColor="#007398"
+    />
+  }
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  style={
+    Object {
+      "marginHorizontal": 20,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
+exports[`with no comments renders correctly 1`] = `
+<FlatList
   disableVirtualization={false}
   horizontal={false}
   initialNumToRender={10}

@@ -26,7 +26,6 @@ const organizations = [event.organization];
 const celebrateCommentsState = [celebrateComments];
 
 celebrationItemSelector.mockReturnValue(event);
-celebrateCommentsSelector.mockReturnValue(celebrateComments);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -44,6 +43,33 @@ function subject() {
   );
 }
 
-it('renders correctly', () => {
-  expect(subject()).toMatchSnapshot();
+describe('with no comments', () => {
+  beforeEach(() => celebrateCommentsSelector.mockReturnValue(undefined));
+
+  it('renders correctly', () => {
+    expect(subject()).toMatchSnapshot();
+  });
+});
+
+describe('with comments', () => {
+  describe('with next page', () => {
+    beforeEach(() =>
+      celebrateCommentsSelector.mockReturnValue({
+        ...celebrateComments,
+        pagination: { hasNextPage: true },
+      }));
+
+    it('renders correctly', () => {
+      expect(subject()).toMatchSnapshot();
+    });
+  });
+
+  describe('with next page', () => {
+    beforeEach(() =>
+      celebrateCommentsSelector.mockReturnValue(celebrateComments));
+
+    it('renders correctly', () => {
+      expect(subject()).toMatchSnapshot();
+    });
+  });
 });
