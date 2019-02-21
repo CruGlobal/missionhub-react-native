@@ -1,12 +1,14 @@
-import { celebrationSelector } from '../celebration';
+import { celebrationSelector, celebrationItemSelector } from '../celebration';
+
+const itemOne = {
+  id: '1',
+  celebrateable_type: 'interaction',
+  adjective_attribute_value: 2,
+  changed_attribute_value: '2018-01-01 00:00:00 UTC',
+};
 
 const celebrateItems = [
-  {
-    id: '1',
-    celebrateable_type: 'interaction',
-    adjective_attribute_value: 2,
-    changed_attribute_value: '2018-01-01 00:00:00 UTC',
-  },
+  itemOne,
   {
     id: '2',
     celebrateable_type: 'interaction',
@@ -90,14 +92,29 @@ const invalidItems = [
   },
 ];
 
-it('sorts items into sections by date', () => {
-  expect(celebrationSelector({ celebrateItems })).toMatchSnapshot();
+describe('celebrationItemSelector', () => {
+  const org = { id: '314234234', celebrateItems: [itemOne] };
+
+  expect(
+    celebrationItemSelector(
+      {
+        organizations: { all: [org] },
+      },
+      { organizationId: org.id, eventId: itemOne.id },
+    ),
+  ).toEqual(itemOne);
 });
 
-it('filters out celebrate items it cannot render', () => {
-  const combinedItems = celebrateItems.concat(invalidItems);
-  const selectedCelebrationItems = celebrationSelector({
-    celebrateItems: combinedItems,
+describe('celebrationSelector', () => {
+  it('sorts items into sections by date', () => {
+    expect(celebrationSelector({ celebrateItems })).toMatchSnapshot();
   });
-  expect(selectedCelebrationItems).toMatchSnapshot();
+
+  it('filters out celebrate items it cannot render', () => {
+    const combinedItems = celebrateItems.concat(invalidItems);
+    const selectedCelebrationItems = celebrationSelector({
+      celebrateItems: combinedItems,
+    });
+    expect(selectedCelebrationItems).toMatchSnapshot();
+  });
 });
