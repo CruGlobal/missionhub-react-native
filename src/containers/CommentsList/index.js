@@ -5,7 +5,6 @@ import { FlatList, View } from 'react-native';
 
 import { celebrationItemSelector } from '../../selectors/celebration';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
-import theme from '../../theme';
 import CardTime from '../../components/CardTime';
 import ItemHeaderText from '../../components/ItemHeaderText';
 import { Text } from '../../components/common';
@@ -16,6 +15,8 @@ import {
 import LoadMore from '../../components/LoadMore';
 import RefreshControl from '../../components/RefreshControl';
 import { refresh } from '../../utils/common';
+
+import styles from './styles';
 
 class CommentsList extends Component {
   state = {
@@ -43,22 +44,14 @@ class CommentsList extends Component {
   keyExtractor = i => i.id;
 
   renderItem({ item }) {
-    //todo fix inline styles
+    const { itemStyle, text } = styles;
 
     return (
-      <View
-        style={{
-          backgroundColor: theme.lightGrey,
-          borderRadius: 8,
-          paddingVertical: 5,
-          paddingHorizontal: 10,
-          marginVertical: 5,
-        }}
-      >
+      <View style={itemStyle}>
         <ItemHeaderText
           text={`${item.person.first_name} ${item.person.last_name}`}
         />
-        <Text style={{ paddingVertical: 3 }}>{item.content}</Text>
+        <Text style={text}>{item.content}</Text>
         <CardTime date={item.created_at} />
       </View>
     );
@@ -66,15 +59,14 @@ class CommentsList extends Component {
 
   render() {
     const { celebrateComments: { comments, pagination } = {} } = this.props;
+    const { list } = styles;
 
     return (
       <FlatList
         data={comments}
         keyExtractor={this.keyExtractor}
         renderItem={this.renderItem}
-        style={{
-          marginHorizontal: 20,
-        }}
+        style={list}
         refreshControl={
           <RefreshControl
             refreshing={this.state.refreshing}
