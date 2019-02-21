@@ -8,7 +8,12 @@ import CommentsList from '..';
 import { renderShallow } from '../../../../testUtils';
 import { celebrationItemSelector } from '../../../selectors/celebration';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
+import {
+  reloadCelebrateComments,
+  getCelebrateCommentsNextPage,
+} from '../../../actions/celebrateComments';
 
+jest.mock('../../../actions/celebrateComments');
 jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/celebrateComments');
 
@@ -24,8 +29,16 @@ const celebrateComments = {
 
 const organizations = [event.organization];
 const celebrateCommentsState = [celebrateComments];
+const reloadCelebrateCommentsResult = { type: 'loaded comments' };
+const getCelebrateCommentsNextPageResult = { type: 'got next page' };
 
 celebrationItemSelector.mockReturnValue(event);
+reloadCelebrateComments.mockReturnValue(dispatch =>
+  dispatch(reloadCelebrateCommentsResult),
+);
+getCelebrateCommentsNextPage.mockReturnValue(dispatch =>
+  dispatch(getCelebrateCommentsNextPageResult),
+);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -61,6 +74,17 @@ describe('with comments', () => {
 
     it('renders correctly', () => {
       expect(subject()).toMatchSnapshot();
+    });
+
+    it('loads more comments', () => {
+      subject()
+        .props()
+        .ListFooterComponent.props.onPress();
+
+      expect(getCelebrateCommentsNextPage).toHaveBeenCalledWith(event);
+      expect(store.getActions()).toEqual(
+        expect.arrayContaining([getCelebrateCommentsNextPageResult]),
+      );
     });
   });
 
