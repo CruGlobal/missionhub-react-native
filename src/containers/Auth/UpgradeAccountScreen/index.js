@@ -22,7 +22,6 @@ import PEOPLE from '../../../../assets/images/MemberContacts_light.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { onSuccessfulLogin } from '../../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
-import Header from '../../Header';
 import BackButton from '../../BackButton';
 import TosPrivacy from '../../../components/TosPrivacy';
 
@@ -107,7 +106,6 @@ class UpgradeAccountScreen extends Component {
 
     return (
       <SafeView style={styles.container}>
-        <Header left={<BackButton />} />
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
             {headerContent
@@ -175,6 +173,7 @@ class UpgradeAccountScreen extends Component {
           </Flex>
         </Flex>
         {isLoading ? <LoadingWheel /> : null}
+        <BackButton absolute={true} />
       </SafeView>
     );
   }

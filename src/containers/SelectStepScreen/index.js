@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -16,6 +17,7 @@ import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, shuffleArray } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
+import Header from '../Header';
 
 import styles from './styles';
 
@@ -202,11 +204,7 @@ class SelectStepScreen extends Component {
   );
 
   renderStickyHeader = () => (
-    <Flex align="center" justify="center" style={styles.collapsedHeader}>
-      <Text style={styles.collapsedHeaderTitle}>
-        {this.props.t('stepsOfFaith').toUpperCase()}
-      </Text>
-    </Flex>
+    <Header shadow={false} title={this.props.t('stepsOfFaith').toUpperCase()} />
   );
 
   stepsListRef = c => (this.stepsList = c);
@@ -215,10 +213,10 @@ class SelectStepScreen extends Component {
     const { t } = this.props;
 
     return (
-      <SafeView bg="white">
+      <View style={styles.container}>
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
-          parallaxHeaderHeight={215 + theme.topNotchHeight}
+          parallaxHeaderHeight={215}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={theme.headerHeight + theme.topNotchHeight}
           renderStickyHeader={this.renderStickyHeader}
@@ -233,9 +231,11 @@ class SelectStepScreen extends Component {
             onLoadMoreSteps={this.handleLoadSteps}
           />
         </ParallaxScrollView>
-        {this.renderSaveButton()}
+        <SafeView style={{ flex: undefined }}>
+          {this.renderSaveButton()}
+        </SafeView>
         {this.renderBackButton()}
-      </SafeView>
+      </View>
     );
   }
 }

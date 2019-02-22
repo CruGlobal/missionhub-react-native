@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   ScrollView,
+  View,
   Keyboard,
   Image,
   KeyboardAvoidingView,
@@ -100,7 +101,7 @@ class CreateGroupScreen extends Component {
     const { name } = this.state;
 
     return (
-      <SafeView style={styles.container}>
+      <View style={styles.container}>
         <Header
           left={
             <IconButton
@@ -112,47 +113,49 @@ class CreateGroupScreen extends Component {
           shadow={false}
           title={t('createCommunity')}
         />
-        <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
-          <ImagePicker onSelectImage={this.handleImageChange}>
-            <Flex align="center" justify="center" style={styles.imageWrap}>
-              {this.renderImage()}
-            </Flex>
-          </ImagePicker>
+        <SafeView>
+          <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
+            <ImagePicker onSelectImage={this.handleImageChange}>
+              <Flex align="center" justify="center" style={styles.imageWrap}>
+                {this.renderImage()}
+              </Flex>
+            </ImagePicker>
 
-          <KeyboardAvoidingView
-            keyboardVerticalOffset={theme.buttonHeight}
-            style={styles.flex}
-          >
-            <Flex style={styles.fieldWrap}>
-              <Text style={styles.label} type="header">
-                {t('name')}
-              </Text>
-              <Input
-                ref={this.ref}
-                onChangeText={this.onChangeText}
-                value={name}
-                autoFocus={true}
-                autoCorrect={true}
-                selectionColor={theme.white}
-                returnKeyType="done"
-                style={styles.input}
-                blurOnSubmit={true}
-                placeholder=""
-              />
-            </Flex>
-          </KeyboardAvoidingView>
-        </ScrollView>
+            <KeyboardAvoidingView
+              keyboardVerticalOffset={theme.buttonHeight}
+              style={styles.flex}
+            >
+              <Flex style={styles.fieldWrap}>
+                <Text style={styles.label} type="header">
+                  {t('name')}
+                </Text>
+                <Input
+                  ref={this.ref}
+                  onChangeText={this.onChangeText}
+                  value={name}
+                  autoFocus={true}
+                  autoCorrect={true}
+                  selectionColor={theme.white}
+                  returnKeyType="done"
+                  style={styles.input}
+                  blurOnSubmit={true}
+                  placeholder=""
+                />
+              </Flex>
+            </KeyboardAvoidingView>
+          </ScrollView>
 
-        <Flex align="stretch" justify="end">
-          <Button
-            type="secondary"
-            disabled={!name}
-            onPress={this.createCommunity}
-            text={t('createCommunity').toUpperCase()}
-            style={styles.createButton}
-          />
-        </Flex>
-      </SafeView>
+          <Flex align="stretch" justify="end">
+            <Button
+              type="secondary"
+              disabled={!name}
+              onPress={this.createCommunity}
+              text={t('createCommunity').toUpperCase()}
+              style={styles.createButton}
+            />
+          </Flex>
+        </SafeView>
+      </View>
     );
   }
 }

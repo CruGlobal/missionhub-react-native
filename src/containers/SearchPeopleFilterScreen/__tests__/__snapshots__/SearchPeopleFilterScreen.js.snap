@@ -1,18 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<RCTSafeAreaView
+<View
   style={
-    Array [
-      Object {
-        "flex": 1,
-        "position": "relative",
-      },
-      Object {
-        "backgroundColor": "#ffffff",
-      },
-      undefined,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
   }
 >
   <View
@@ -922,5 +916,5 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </RCTScrollView>
-</RCTSafeAreaView>
+</View>
 `;

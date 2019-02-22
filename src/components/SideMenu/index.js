@@ -32,7 +32,7 @@ export class SideMenu extends Component {
     const { menuItems } = this.props;
     return (
       <SafeView style={styles.background}>
-        <Flex style={[styles.buttonContainer, styles.firstItem]}>
+        <Flex style={styles.buttonContainer}>
           <IconButton
             style={styles.button}
             onPress={this.closeDrawer}

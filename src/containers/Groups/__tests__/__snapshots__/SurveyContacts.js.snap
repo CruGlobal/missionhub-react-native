@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SurveyContacts should render correctly 1`] = `
-<SafeView
-  bg="white"
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
 >
   <Connect(Header)
     left={<Connect(BackButton) />}
@@ -18,34 +23,36 @@ exports[`SurveyContacts should render correctly 1`] = `
     }
     title="Test Org"
   />
-  <Translate(SearchList)
-    defaultData={Array []}
-    filters={
-      Object {
-        "time": Object {
-          "id": "time30",
-          "text": "Last 30 days",
-          "value": 30,
-        },
-        "unassigned": Object {
-          "id": "unassigned",
-          "selected": true,
-          "text": "Unassigned",
-        },
+  <SafeView>
+    <Translate(SearchList)
+      defaultData={Array []}
+      filters={
+        Object {
+          "time": Object {
+            "id": "time30",
+            "text": "Last 30 days",
+            "value": 30,
+          },
+          "unassigned": Object {
+            "id": "unassigned",
+            "selected": true,
+            "text": "Unassigned",
+          },
+        }
       }
-    }
-    listProps={
-      Object {
-        "renderItem": [Function],
+      listProps={
+        Object {
+          "renderItem": [Function],
+        }
       }
-    }
-    onFilterPress={[Function]}
-    onLoadMore={[Function]}
-    onRemoveFilter={[Function]}
-    onSearch={[Function]}
-    placeholder="Search Contacts"
-  />
-</SafeView>
+      onFilterPress={[Function]}
+      onLoadMore={[Function]}
+      onRemoveFilter={[Function]}
+      onSearch={[Function]}
+      placeholder="Search Contacts"
+    />
+  </SafeView>
+</Component>
 `;
 
 exports[`SurveyContacts should render item correctly 1`] = `

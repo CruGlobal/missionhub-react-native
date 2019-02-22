@@ -1,89 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<RCTSafeAreaView
+<View
   style={
     Array [
       Object {
+        "alignItems": "center",
+        "backgroundColor": "#007398",
         "flex": 1,
-        "position": "relative",
+        "justifyContent": "center",
+        "paddingHorizontal": 60,
       },
       Object {
-        "backgroundColor": "#007398",
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
       },
-      undefined,
     ]
   }
 >
   <View
     style={
       Array [
+        Object {},
         Object {
-          "alignItems": "center",
-          "backgroundColor": "#007398",
-          "flex": 1,
-          "justifyContent": "center",
-          "paddingHorizontal": 60,
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
+          "alignItems": "flex-start",
+          "flex": 4,
           "justifyContent": "center",
         },
       ]
     }
   >
-    <View
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/pathFinder.png",
+        }
+      }
+      style={
+        Object {
+          "height": 80,
+          "resizeMode": "contain",
+          "width": 80,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
       style={
         Array [
-          Object {},
           Object {
-            "alignItems": "flex-start",
-            "flex": 4,
-            "justifyContent": "center",
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "lineHeight": 32,
+            "paddingVertical": 10,
+            "textAlign": "left",
           },
         ]
       }
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/pathFinder.png",
-          }
-        }
-        style={
-          Object {
-            "height": 80,
-            "resizeMode": "contain",
-            "width": 80,
-          }
-        }
-      />
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "lineHeight": 32,
-              "paddingVertical": 10,
-              "textAlign": "left",
-            },
-          ]
-        }
-      >
-        Friend test
-      </Text>
-    </View>
+      Friend test
+    </Text>
+  </View>
+  <RCTSafeAreaView
+    style={
+      Array [
+        Object {
+          "flex": 1,
+          "position": "relative",
+        },
+        undefined,
+        undefined,
+      ]
+    }
+  >
     <View
       style={
         Array [
@@ -160,94 +158,92 @@ exports[`renders correctly 1`] = `
         </View>
       </View>
     </View>
-  </View>
-</RCTSafeAreaView>
+  </RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders correctly with default state 1`] = `
-<RCTSafeAreaView
+<View
   style={
     Array [
       Object {
+        "alignItems": "center",
+        "backgroundColor": "#007398",
         "flex": 1,
-        "position": "relative",
+        "justifyContent": "center",
+        "paddingHorizontal": 60,
       },
       Object {
-        "backgroundColor": "#007398",
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
       },
-      undefined,
     ]
   }
 >
   <View
     style={
       Array [
+        Object {},
         Object {
-          "alignItems": "center",
-          "backgroundColor": "#007398",
-          "flex": 1,
-          "justifyContent": "center",
-          "paddingHorizontal": 60,
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
+          "alignItems": "flex-start",
+          "flex": 4,
           "justifyContent": "center",
         },
       ]
     }
   >
-    <View
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/pathFinder.png",
+        }
+      }
+      style={
+        Object {
+          "height": 80,
+          "resizeMode": "contain",
+          "width": 80,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
       style={
         Array [
-          Object {},
           Object {
-            "alignItems": "flex-start",
-            "flex": 4,
-            "justifyContent": "center",
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "lineHeight": 32,
+            "paddingVertical": 10,
+            "textAlign": "left",
           },
         ]
       }
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/pathFinder.png",
-          }
-        }
-        style={
-          Object {
-            "height": 80,
-            "resizeMode": "contain",
-            "width": 80,
-          }
-        }
-      />
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "lineHeight": 32,
-              "paddingVertical": 10,
-              "textAlign": "left",
-            },
-          ]
-        }
-      >
-        We are glad you are here, Friend!
-      </Text>
-    </View>
+      We are glad you are here, Friend!
+    </Text>
+  </View>
+  <RCTSafeAreaView
+    style={
+      Array [
+        Object {
+          "flex": 1,
+          "position": "relative",
+        },
+        undefined,
+        undefined,
+      ]
+    }
+  >
     <View
       style={
         Array [
@@ -324,6 +320,6 @@ exports[`renders correctly with default state 1`] = `
         </View>
       </View>
     </View>
-  </View>
-</RCTSafeAreaView>
+  </RCTSafeAreaView>
+</View>
 `;

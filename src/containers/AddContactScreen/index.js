@@ -1,7 +1,7 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
 
 import React, { Component } from 'react';
-import { ScrollView, Alert } from 'react-native';
+import { View, ScrollView, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -170,7 +170,7 @@ class AddContactScreen extends Component {
     const orgName = organization ? organization.name : undefined;
 
     return (
-      <SafeView style={styles.container}>
+      <View style={styles.container}>
         <Header
           right={
             <IconButton
@@ -188,23 +188,25 @@ class AddContactScreen extends Component {
                 : t('addSomeone').toUpperCase()
           }
         />
-        <ScrollView style={styles.scrollView}>
-          <AddContactFields
-            person={person}
-            organization={organization}
-            isJean={isJean}
-            isGroupInvite={isInvite}
-            onUpdateData={this.handleUpdateData}
-          />
-        </ScrollView>
+        <SafeView>
+          <ScrollView style={styles.scrollView}>
+            <AddContactFields
+              person={person}
+              organization={organization}
+              isJean={isJean}
+              isGroupInvite={isInvite}
+              onUpdateData={this.handleUpdateData}
+            />
+          </ScrollView>
 
-        <Button
-          type="secondary"
-          onPress={this.savePerson}
-          text={t('done').toUpperCase()}
-          style={styles.button}
-        />
-      </SafeView>
+          <Button
+            type="secondary"
+            onPress={this.savePerson}
+            text={t('done').toUpperCase()}
+            style={styles.button}
+          />
+        </SafeView>
+      </View>
     );
   }
 }

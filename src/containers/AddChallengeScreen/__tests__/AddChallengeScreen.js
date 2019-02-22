@@ -106,6 +106,7 @@ describe('create methods', () => {
     component
       .childAt(2)
       .childAt(0)
+      .childAt(0)
       .props()
       .onPress();
     expect(mockComplete).toHaveBeenCalledWith(challenge);
@@ -165,6 +166,7 @@ describe('edit methods', () => {
     });
     component
       .childAt(2)
+      .childAt(0)
       .childAt(0)
       .props()
       .onPress();

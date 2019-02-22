@@ -14,18 +14,13 @@ class IconMessageScreen extends Component {
     const { onSkip, mainText, buttonText, iconPath, onComplete } = this.props;
 
     return (
-      <SafeView bg="primary">
-        <Flex
-          align="center"
-          justify="center"
-          value={1}
-          style={styles.container}
-        >
-          <Flex align="start" justify="center" value={4}>
-            <Image source={iconPath} style={styles.image} />
-            <Text style={styles.text}>{mainText}</Text>
-          </Flex>
+      <Flex align="center" justify="center" value={1} style={styles.container}>
+        <Flex align="start" justify="center" value={4}>
+          <Image source={iconPath} style={styles.image} />
+          <Text style={styles.text}>{mainText}</Text>
+        </Flex>
 
+        <SafeView>
           <Flex value={1} align="stretch" justify="end">
             <Button
               type="secondary"
@@ -34,9 +29,9 @@ class IconMessageScreen extends Component {
               style={{ width: theme.fullWidth }}
             />
           </Flex>
-          {onSkip ? <AbsoluteSkip onSkip={onSkip} /> : null}
-        </Flex>
-      </SafeView>
+        </SafeView>
+        {onSkip ? <AbsoluteSkip onSkip={onSkip} /> : null}
+      </Flex>
     );
   }
 }

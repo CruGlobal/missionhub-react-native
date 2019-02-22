@@ -7,9 +7,6 @@ export default StyleSheet.create({
     backgroundColor: COLORS.GREY,
     flex: 1,
   },
-  firstItem: {
-    marginTop: theme.topNotchHeight + 10,
-  },
   buttonContainer: {
     borderBottomWidth: 1,
     borderBottomColor: theme.inactiveColor,

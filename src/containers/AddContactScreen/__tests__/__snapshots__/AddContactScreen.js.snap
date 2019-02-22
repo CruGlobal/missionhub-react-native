@@ -1,13 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<SafeView
+<Component
   style={
     Object {
       "backgroundColor": "#007398",
       "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
     }
   }
 >
@@ -22,26 +20,28 @@ exports[`renders correctly 1`] = `
     shadow={false}
     title="ADD SOMEONE"
   />
-  <ScrollView
-    style={
-      Object {
-        "flex": 1,
+  <SafeView>
+    <ScrollView
+      style={
+        Object {
+          "flex": 1,
+        }
       }
-    }
-  >
-    <Connect(Translate(AddContactFields))
-      onUpdateData={[Function]}
+    >
+      <Connect(Translate(AddContactFields))
+        onUpdateData={[Function]}
+      />
+    </ScrollView>
+    <Button
+      onPress={[Function]}
+      style={
+        Object {
+          "width": 750,
+        }
+      }
+      text="DONE"
+      type="secondary"
     />
-  </ScrollView>
-  <Button
-    onPress={[Function]}
-    style={
-      Object {
-        "width": 750,
-      }
-    }
-    text="DONE"
-    type="secondary"
-  />
-</SafeView>
+  </SafeView>
+</Component>
 `;

@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import moment from 'moment';
 
 import CHALLENGE from '../../../assets/images/challenge_bullseye.png';
-import { Button, Text, Flex, Input } from '../../components/common';
+import { Button, Text, Flex, Input, SafeView } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
 import BackButton from '../BackButton';
@@ -104,15 +104,17 @@ class AddChallengeScreen extends Component {
           />
         </Flex>
 
-        <Flex value={1} align="stretch" justify="end">
-          <Button
-            disabled={disableBtn}
-            type="secondary"
-            onPress={this.saveChallenge}
-            text={(isEdit ? t('save') : t('add')).toUpperCase()}
-            style={styles.createButton}
-          />
-        </Flex>
+        <SafeView>
+          <Flex value={1} align="stretch" justify="end">
+            <Button
+              disabled={disableBtn}
+              type="secondary"
+              onPress={this.saveChallenge}
+              text={(isEdit ? t('save') : t('add')).toUpperCase()}
+              style={styles.createButton}
+            />
+          </Flex>
+        </SafeView>
         <BackButton customIcon="deleteIcon" absolute={true} />
       </View>
     );

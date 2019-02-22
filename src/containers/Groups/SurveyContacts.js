@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -21,6 +22,7 @@ import ShareSurveyMenu from '../../components/ShareSurveyMenu';
 import { getOrganizationContacts } from '../../actions/organizations';
 
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
+import styles from './styles';
 
 @translate('groupsSurveyContacts')
 class SurveyContacts extends Component {
@@ -146,26 +148,28 @@ class SurveyContacts extends Component {
     const { filters, defaultResults } = this.state;
     const orgName = organization ? organization.name : undefined;
     return (
-      <SafeView bg="white">
+      <View style={styles.pageContainer}>
         <Header
           left={<BackButton />}
           title={orgName}
           right={<ShareSurveyMenu survey={survey} header={true} />}
         />
-        <SearchList
-          ref={this.ref}
-          defaultData={defaultResults}
-          onFilterPress={this.handleFilterPress}
-          listProps={{
-            renderItem: this.renderItem,
-          }}
-          onSearch={this.handleSearch}
-          onRemoveFilter={this.handleRemoveFilter}
-          onLoadMore={this.handleLoadMore}
-          filters={filters}
-          placeholder={t('searchPlaceholder')}
-        />
-      </SafeView>
+        <SafeView>
+          <SearchList
+            ref={this.ref}
+            defaultData={defaultResults}
+            onFilterPress={this.handleFilterPress}
+            listProps={{
+              renderItem: this.renderItem,
+            }}
+            onSearch={this.handleSearch}
+            onRemoveFilter={this.handleRemoveFilter}
+            onLoadMore={this.handleLoadMore}
+            filters={filters}
+            placeholder={t('searchPlaceholder')}
+          />
+        </SafeView>
+      </View>
     );
   }
 }

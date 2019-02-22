@@ -1,246 +1,220 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StageScreen renders correctly with back button 1`] = `
-<RCTSafeAreaView
+<View
   style={
     Array [
       Object {
+        "backgroundColor": "#66D9F0",
         "flex": 1,
-        "position": "relative",
       },
-      undefined,
-      undefined,
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
     ]
   }
 >
-  <View
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/landscapeStagesImage.png",
+      }
+    }
     style={
       Array [
         Object {
-          "backgroundColor": "#66D9F0",
-          "flex": 1,
+          "bottom": -100,
+          "height": 275,
+          "position": "absolute",
         },
         Object {
-          "alignItems": "center",
-          "flex": 1,
+          "left": -150,
+          "width": 395,
+        },
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Array [
+          null,
+          Object {
+            "left": 5,
+            "position": "absolute",
+            "top": 25,
+          },
+        ],
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
           "justifyContent": "center",
         },
       ]
     }
   >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/landscapeStagesImage.png",
-        }
-      }
-      style={
-        Array [
-          Object {
-            "bottom": -100,
-            "height": 275,
-            "position": "absolute",
-          },
-          Object {
-            "left": -150,
-            "width": 395,
-          },
-        ]
-      }
-    />
     <View
+      accessibilityTraits="button"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Array [
-            null,
-            Object {
-              "left": 5,
-              "position": "absolute",
-              "top": 25,
-            },
-          ],
-          Object {
-            "alignItems": "flex-start",
-            "alignSelf": "flex-start",
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "opacity": 1,
+        }
       }
     >
       <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
         }
       >
-        <View
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
           style={
             Array [
               Object {
-                "backgroundColor": "transparent",
+                "color": undefined,
+                "fontSize": 12,
               },
-              null,
-              Object {},
-              null,
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
-            style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
                 },
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "margin": 10,
                   },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {},
-                  ],
+                  Object {},
                 ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
-            "fontWeight": "500",
-            "paddingBottom": 25,
-            "paddingHorizontal": 30,
-            "paddingTop": 45,
-            "textAlign": "center",
-            "width": 650,
-          },
-        ]
-      }
-    >
-      Roger, which stage best describes where you are on your journey?
-    </Text>
   </View>
-</RCTSafeAreaView>
-`;
-
-exports[`StageScreen renders correctly without back button 1`] = `
-<RCTSafeAreaView
-  style={
-    Array [
-      Object {
-        "flex": 1,
-        "position": "relative",
-      },
-      undefined,
-      undefined,
-    ]
-  }
->
-  <View
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
       Array [
         Object {
-          "backgroundColor": "#66D9F0",
-          "flex": 1,
+          "color": "#505256",
         },
         Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 18,
+          "fontWeight": "500",
+          "paddingBottom": 25,
+          "paddingHorizontal": 30,
+          "paddingTop": 45,
+          "textAlign": "center",
+          "width": 650,
         },
       ]
     }
   >
-    <Image
-      source={
+    Roger, which stage best describes where you are on your journey?
+  </Text>
+</View>
+`;
+
+exports[`StageScreen renders correctly without back button 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#66D9F0",
+        "flex": 1,
+      },
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/landscapeStagesImage.png",
+      }
+    }
+    style={
+      Array [
         Object {
-          "testUri": "../../../assets/images/landscapeStagesImage.png",
-        }
-      }
-      style={
-        Array [
-          Object {
-            "bottom": -100,
-            "height": 275,
-            "position": "absolute",
-          },
-          Object {
-            "left": -150,
-            "width": 395,
-          },
-        ]
-      }
-    />
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
-            "fontWeight": "500",
-            "paddingBottom": 25,
-            "paddingHorizontal": 30,
-            "paddingTop": 45,
-            "textAlign": "center",
-            "width": 650,
-          },
-        ]
-      }
-    >
-      Roger, which stage best describes where you are on your journey?
-    </Text>
-  </View>
-</RCTSafeAreaView>
+          "bottom": -100,
+          "height": 275,
+          "position": "absolute",
+        },
+        Object {
+          "left": -150,
+          "width": 395,
+        },
+      ]
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 18,
+          "fontWeight": "500",
+          "paddingBottom": 25,
+          "paddingHorizontal": 30,
+          "paddingTop": 45,
+          "textAlign": "center",
+          "width": 650,
+        },
+      ]
+    }
+  >
+    Roger, which stage best describes where you are on your journey?
+  </Text>
+</View>
 `;
