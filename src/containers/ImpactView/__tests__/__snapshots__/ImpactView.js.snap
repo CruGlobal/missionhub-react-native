@@ -699,7 +699,7 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
         ]
       }
     >
-      In 2018,  you have taken 10 steps of faith with 5 people.
+      You have taken 10 steps of faith with 5 people in 2018.
 
 3 people reached a new stage on their spiritual journey.
     </MyText>
@@ -1363,7 +1363,7 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
         ]
       }
     >
-      In 2018,  you have taken 1 step of faith with 1 person.
+      You have taken 1 step of faith with 1 person in 2018.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -2090,7 +2090,7 @@ exports[`ImpactView ME person impact view for user created org renders plural st
         ]
       }
     >
-      In 2018,  you have taken 10 steps of faith with 5 people.
+      You have taken 10 steps of faith with 5 people in 2018.
 
 3 people reached a new stage on their spiritual journey.
     </MyText>
@@ -2155,7 +2155,7 @@ exports[`ImpactView ME person impact view for user created org renders singular 
         ]
       }
     >
-      In 2018,  you have taken 1 step of faith with 1 person.
+      You have taken 1 step of faith with 1 person in 2018.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -2306,7 +2306,7 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
         ]
       }
     >
-      In 2018,  you have taken 10 steps of faith with 5 people.
+      You have taken 10 steps of faith with 5 people in 2018.
 
 3 people reached a new stage on their spiritual journey.
     </MyText>
@@ -2349,7 +2349,7 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
         ]
       }
     >
-      In 2018, 200 users have taken 10 steps of faith with 5 people.
+      200 users have taken 10 steps of faith with 5 people in 2018.
 
 50 people reached a new stage on their spiritual journey.
     </MyText>
@@ -2392,7 +2392,7 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
         ]
       }
     >
-      In 2018,  you have taken 1 step of faith with 1 person.
+      You have taken 1 step of faith with 1 person in 2018.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -2435,7 +2435,7 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
         ]
       }
     >
-      In 2018, 200 users have taken 1 step of faith with 1 person.
+      200 users have taken 1 step of faith with 1 person in 2018.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -3142,7 +3142,7 @@ exports[`ImpactView contact impact renders plural state 1`] = `
         ]
       }
     >
-      In 2018,  Test Fname has taken 11 steps of faith with 6 people in their life.
+      Test Fname has taken 11 steps of faith with 6 people in their life.
 
 4 people reached a new stage on their spiritual journey.
     </MyText>
@@ -3806,7 +3806,7 @@ exports[`ImpactView contact impact renders singular state 1`] = `
         ]
       }
     >
-      In 2018,  Test Fname has taken 1 step of faith with 1 person in their life.
+      Test Fname has taken 1 step of faith with 1 person in their life.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -5140,7 +5140,7 @@ exports[`ImpactView group impact renders plural state 1`] = `
         ]
       }
     >
-      In 2018,  we have taken 11 steps of faith with 6 people at Test Org.
+      Together we have taken 11 steps of faith with 6 people in 2018.
 
 4 people reached a new stage on their spiritual journey.
     </MyText>
@@ -5807,7 +5807,7 @@ exports[`ImpactView group impact renders singular state 1`] = `
         ]
       }
     >
-      In 2018,  we have taken 1 step of faith with 1 person at Test Org.
+      Together we have taken 1 step of faith with 1 person in 2018.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -6723,7 +6723,7 @@ exports[`ImpactView user created member impact renders plural state 1`] = `
         ]
       }
     >
-      In 2018,  Test Fname has taken 11 steps of faith with 6 people in their life.
+      Test Fname has taken 11 steps of faith with 6 people in their life.
 
 4 people reached a new stage on their spiritual journey.
     </MyText>
@@ -6788,7 +6788,7 @@ exports[`ImpactView user created member impact renders singular state 1`] = `
         ]
       }
     >
-      In 2018,  Test Fname has taken 1 step of faith with 1 person in their life.
+      Test Fname has taken 1 step of faith with 1 person in their life.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -6943,7 +6943,7 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
         ]
       }
     >
-      In 2018,  we have taken 11 steps of faith with 6 people at Test Org.
+      Together we have taken 11 steps of faith with 6 people in 2018.
 
 4 people reached a new stage on their spiritual journey.
     </MyText>
@@ -6986,7 +6986,7 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
         ]
       }
     >
-      In 2018, 200 users have taken 10 steps of faith with 5 people.
+      200 users have taken 10 steps of faith with 5 people in 2018.
 
 50 people reached a new stage on their spiritual journey.
     </MyText>
@@ -7032,7 +7032,7 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
         ]
       }
     >
-      In 2018,  we have taken 1 step of faith with 1 person at Test Org.
+      Together we have taken 1 step of faith with 1 person in 2018.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -7075,7 +7075,7 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
         ]
       }
     >
-      In 2018, 200 users have taken 1 step of faith with 1 person.
+      200 users have taken 1 step of faith with 1 person in 2018.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
