@@ -8,7 +8,7 @@ import {
   renderShallow,
 } from '../../../../testUtils';
 import { STEP_SUGGESTION, ACCEPTED_STEP } from '../../../constants';
-import { completeStep } from '../../../actions/steps';
+import { completeStep, addSteps } from '../../../actions/steps';
 
 import StepDetailScreen from '..';
 
@@ -46,31 +46,42 @@ const completedStep = {
   completed_at: '2-13-2019',
 };
 
+const receiverId = '4242413';
+const orgId = '99990002';
+
 const mockStore = configureStore([thunk]);
 let store;
 let nav;
 
 const completeStepResult = { type: 'completed step' };
+const addStepResult = { type: 'add step result' };
 
 const componentAcceptedStep = (
-  <StepDetailScreen navigation={createMockNavState({ step: acceptedStep })} />
+  <StepDetailScreen
+    navigation={createMockNavState({ step: acceptedStep, receiverId, orgId })}
+  />
 );
+const componentSuggestedStep = (
+  <StepDetailScreen
+    navigation={createMockNavState({ step: suggestedStep, receiverId, orgId })}
+  />
+);
+
+completeStep.mockReturnValue(completeStepResult);
+addSteps.mockReturnValue(addStepResult);
 
 beforeEach(() => {
   store = mockStore();
   jest.clearAllMocks();
-
-  completeStep.mockReturnValue(completeStepResult);
 });
 
 describe('render', () => {
   it('renders for suggested step', () => {
-    nav = createMockNavState({ step: suggestedStep });
-    testSnapshotShallow(<StepDetailScreen navigation={nav} />, store);
+    testSnapshotShallow(componentSuggestedStep, store);
   });
 
   it('renders for suggested step with tip', () => {
-    nav = createMockNavState({ step: suggestedStepWithTip });
+    nav = createMockNavState({ step: suggestedStepWithTip, receiverId, orgId });
     testSnapshotShallow(<StepDetailScreen navigation={nav} />, store);
   });
 
@@ -79,12 +90,12 @@ describe('render', () => {
   });
 
   it('renders for accepted step with tip', () => {
-    nav = createMockNavState({ step: acceptedStepWithTip });
+    nav = createMockNavState({ step: acceptedStepWithTip, receiverId, orgId });
     testSnapshotShallow(<StepDetailScreen navigation={nav} />, store);
   });
 
   it('renders for completed step', () => {
-    nav = createMockNavState({ step: completedStep });
+    nav = createMockNavState({ step: completedStep, receiverId, orgId });
     testSnapshotShallow(<StepDetailScreen navigation={nav} />, store);
   });
 });
@@ -98,5 +109,19 @@ describe('complete step button', () => {
 
     expect(completeStep).toHaveBeenCalledWith(acceptedStep, 'Step Detail');
     expect(store.getActions()).toEqual([completeStepResult]);
+  });
+});
+
+describe('add step button', () => {
+  it('adds step', () => {
+    renderShallow(componentSuggestedStep, store)
+      .childAt(4)
+      .props()
+      .onPress();
+
+    expect(addSteps).toHaveBeenCalledWith([suggestedStep], receiverId, {
+      id: orgId,
+    });
+    expect(store.getActions()).toEqual([addStepResult]);
   });
 });
