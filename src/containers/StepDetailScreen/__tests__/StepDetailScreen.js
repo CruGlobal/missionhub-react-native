@@ -56,14 +56,16 @@ let nav;
 const completeStepResult = { type: 'completed step' };
 const addStepResult = { type: 'add step result' };
 
+const props = { receiverId, orgId };
+
 const componentAcceptedStep = (
   <StepDetailScreen
-    navigation={createMockNavState({ step: acceptedStep, receiverId, orgId })}
+    navigation={createMockNavState({ step: acceptedStep, ...props })}
   />
 );
 const componentSuggestedStep = (
   <StepDetailScreen
-    navigation={createMockNavState({ step: suggestedStep, receiverId, orgId })}
+    navigation={createMockNavState({ step: suggestedStep, ...props })}
   />
 );
 
@@ -81,7 +83,7 @@ describe('render', () => {
   });
 
   it('renders for suggested step with tip', () => {
-    nav = createMockNavState({ step: suggestedStepWithTip, receiverId, orgId });
+    nav = createMockNavState({ step: suggestedStepWithTip, ...props });
     testSnapshotShallow(<StepDetailScreen navigation={nav} />, store);
   });
 
@@ -90,12 +92,12 @@ describe('render', () => {
   });
 
   it('renders for accepted step with tip', () => {
-    nav = createMockNavState({ step: acceptedStepWithTip, receiverId, orgId });
+    nav = createMockNavState({ step: acceptedStepWithTip, ...props });
     testSnapshotShallow(<StepDetailScreen navigation={nav} />, store);
   });
 
   it('renders for completed step', () => {
-    nav = createMockNavState({ step: completedStep, receiverId, orgId });
+    nav = createMockNavState({ step: completedStep, ...props });
     testSnapshotShallow(<StepDetailScreen navigation={nav} />, store);
   });
 });
