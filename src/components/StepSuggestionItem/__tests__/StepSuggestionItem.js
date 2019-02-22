@@ -7,23 +7,27 @@ import { STEP_DETAIL_SCREEN } from '../../../containers/StepDetailScreen';
 
 jest.mock('.../../../actions/navigation');
 
+const receiverId = '2423423';
+const orgId = '89989';
 const step = {
   id: '1',
   body: 'Step of Faith',
 };
 
+const props = { receiverId, orgId, step };
+
+navigatePush.mockReturnValue({ type: 'navigate push' });
+
 describe('StepSuggestionScreen', () => {
   it('renders correctly', () => {
-    testSnapshotShallow(<StepSuggestionItem step={step} />);
+    testSnapshotShallow(<StepSuggestionItem {...props} />);
   });
 
   it('navigates to StepDetailScreen', () => {
-    navigatePush.mockReturnValue({ type: 'navigate push' });
-
-    const component = renderShallow(<StepSuggestionItem step={step} />);
+    const component = renderShallow(<StepSuggestionItem {...props} />);
 
     component.props().onPress();
 
-    expect(navigatePush).toHaveBeenCalledWith(STEP_DETAIL_SCREEN, { step });
+    expect(navigatePush).toHaveBeenCalledWith(STEP_DETAIL_SCREEN, props);
   });
 });
