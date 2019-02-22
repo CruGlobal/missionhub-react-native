@@ -5,10 +5,7 @@ import { MainTabBarStartSteps, MainTabBarStartGroups } from '../AppRoutes';
 import { SafeView } from '../components/common';
 import theme from '../theme';
 
-const needsWrap = () => {
-  const isiPhoneXrOrXSMax = theme.fullHeight === 896 || theme.fullWidth === 896;
-  return isiPhoneXrOrXSMax;
-};
+const isiPhoneXrOrXSMax = theme.fullHeight === 896 || theme.fullWidth === 896;
 
 class MainTabs extends Component {
   render() {
@@ -19,7 +16,7 @@ class MainTabs extends Component {
         <MainTabBarStartSteps />
       );
     // Until React Navigation is updated, we need to do this for iphone xr/xsmax
-    if (needsWrap()) {
+    if (isiPhoneXrOrXSMax) {
       return <SafeView bg="white">{content}</SafeView>;
     }
     return content;
