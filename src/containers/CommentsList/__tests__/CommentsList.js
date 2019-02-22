@@ -32,6 +32,8 @@ const celebrateCommentsState = [celebrateComments];
 const reloadCelebrateCommentsResult = { type: 'loaded comments' };
 const getCelebrateCommentsNextPageResult = { type: 'got next page' };
 
+let screen;
+
 celebrationItemSelector.mockReturnValue(event);
 reloadCelebrateComments.mockReturnValue(dispatch =>
   dispatch(reloadCelebrateCommentsResult),
@@ -47,19 +49,15 @@ beforeEach(() => {
     organizations,
     celebrateComments: celebrateCommentsState,
   });
-});
 
-function subject() {
-  return renderShallow(
+  screen = renderShallow(
     <CommentsList eventId={event.id} organizationId={organizationId} />,
     store,
   );
-}
+});
 
 describe('componentDidMount', () => {
   it('refreshes items', () => {
-    subject();
-
     expect(reloadCelebrateComments).toHaveBeenCalledWith(event);
     expect(store.getActions()).toEqual(
       expect.arrayContaining([reloadCelebrateCommentsResult]),
@@ -68,41 +66,37 @@ describe('componentDidMount', () => {
 });
 
 describe('with no comments', () => {
-  beforeEach(() => celebrateCommentsSelector.mockReturnValue(undefined));
+  beforeAll(() => celebrateCommentsSelector.mockReturnValue(undefined));
 
   it('renders correctly', () => {
-    expect(subject()).toMatchSnapshot();
+    expect(screen).toMatchSnapshot();
   });
 });
 
 describe('with comments', () => {
   describe('with next page', () => {
-    beforeEach(() =>
+    beforeAll(() =>
       celebrateCommentsSelector.mockReturnValue({
         ...celebrateComments,
         pagination: { hasNextPage: true },
       }));
 
     it('renders correctly', () => {
-      expect(subject()).toMatchSnapshot();
+      expect(screen).toMatchSnapshot();
     });
 
     it('renders item correctly', () => {
       expect(
-        subject()
-          .props()
-          .renderItem({
-            item: {
-              content: 'hello roge',
-            },
-          }),
+        screen.props().renderItem({
+          item: {
+            content: 'hello roge',
+          },
+        }),
       ).toMatchSnapshot();
     });
 
     it('loads more comments', () => {
-      subject()
-        .props()
-        .ListFooterComponent.props.onPress();
+      screen.props().ListFooterComponent.props.onPress();
 
       expect(getCelebrateCommentsNextPage).toHaveBeenCalledWith(event);
       expect(store.getActions()).toEqual(
@@ -112,11 +106,11 @@ describe('with comments', () => {
   });
 
   describe('without next page', () => {
-    beforeEach(() =>
+    beforeAll(() =>
       celebrateCommentsSelector.mockReturnValue(celebrateComments));
 
     it('renders correctly', () => {
-      expect(subject()).toMatchSnapshot();
+      expect(screen).toMatchSnapshot();
     });
   });
 });
