@@ -29,6 +29,7 @@ import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import { COLORS } from './theme';
+import { RootSafeAreaView } from './components/RootSafeAreaView';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -181,18 +182,20 @@ export default class App extends Component {
           backgroundColor={COLORS.DARK_BLUE}
           barStyle="light-content"
         />
-        <Provider store={store}>
-          <PersistGate
-            loading={<LoadingScreen />}
-            onBeforeLift={this.onBeforeLift}
-            persistor={persistor}
-          >
-            {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
-            <PlatformKeyboardAvoidingView>
-              <AppWithNavigationState />
-            </PlatformKeyboardAvoidingView>
-          </PersistGate>
-        </Provider>
+        <RootSafeAreaView>
+          <Provider store={store}>
+            <PersistGate
+              loading={<LoadingScreen />}
+              onBeforeLift={this.onBeforeLift}
+              persistor={persistor}
+            >
+              {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
+              <PlatformKeyboardAvoidingView>
+                <AppWithNavigationState />
+              </PlatformKeyboardAvoidingView>
+            </PersistGate>
+          </Provider>
+        </RootSafeAreaView>
       </Fragment>
     );
   }

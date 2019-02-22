@@ -509,6 +509,9 @@ export const MainStackRoutes = createStackNavigator(
       header: null,
       gesturesEnabled: false,
     },
+    cardStyle: {
+      shadowColor: 'transparent',
+    },
   },
 );
 

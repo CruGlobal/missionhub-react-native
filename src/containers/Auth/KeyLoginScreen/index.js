@@ -1,6 +1,6 @@
 /* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
 
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Keyboard, View } from 'react-native';
 import { translate } from 'react-i18next';
@@ -27,6 +27,7 @@ import { MFA_CODE_SCREEN } from '../MFACodeScreen';
 import Header from '../../Header';
 
 import styles from './styles';
+import { DisableRootSafeAreaView } from '../../../components/RootSafeAreaView';
 
 @translate('keyLogin')
 class KeyLoginScreen extends Component {
@@ -182,95 +183,101 @@ class KeyLoginScreen extends Component {
     const { showLogo, email, password, isLoading } = this.state;
 
     return (
-      <SafeView style={styles.container}>
-        {this.renderErrorMessage()}
-        <Header left={forcedLogout ? null : <BackButton />} shadow={false} />
-        <Flex align="center" justify="center">
-          {showLogo ? (
-            forcedLogout ? (
-              <Text style={styles.forcedLogoutHeader}>
-                {t('forcedLogout:message')}
-              </Text>
-            ) : (
-              <Text type="header" style={styles.header}>
-                {t('signIn')}
-              </Text>
-            )
-          ) : null}
-        </Flex>
-
-        <Flex value={3} style={{ paddingVertical: 10, paddingHorizontal: 30 }}>
-          <View>
-            <Text style={styles.label}>{t('emailLabel')}</Text>
-            <Input
-              autoCapitalize="none"
-              onChangeText={this.emailChanged}
-              value={email}
-              keyboardType="email-address"
-              onSubmitEditing={this.focusPassword}
-              placeholder={t('emailLabel')}
-              returnKeyType="next"
-              placeholderTextColor="white"
-            />
-          </View>
-
-          <View style={{ paddingVertical: 15 }}>
-            <Text style={styles.label}>{t('passwordLabel')}</Text>
-            <Input
-              secureTextEntry={true}
-              ref={this.passwordRef}
-              onChangeText={this.passwordChanged}
-              value={password}
-              placeholder={t('passwordLabel')}
-              placeholderTextColor="white"
-              returnKeyType="done"
-              onSubmitEditing={this.login}
-            />
-            <Button
-              name={'forgotPasswordButton'}
-              text={t('forgotPassword')}
-              type="transparent"
-              style={styles.forgotPasswordButton}
-              buttonTextStyle={styles.forgotPasswordText}
-              onPress={this.handleForgotPassword}
-            />
-          </View>
-        </Flex>
-
-        {email || password ? (
-          <Flex align="stretch" justify="end">
-            <Button
-              name={'loginButton'}
-              type="secondary"
-              onPress={this.login}
-              text={t('login').toUpperCase()}
-            />
-          </Flex>
-        ) : (
-          <Flex value={1} justify="center" align="center">
-            <Button
-              name={'facebookButton'}
-              pill={true}
-              onPress={this.facebookLogin}
-              style={styles.facebookButton}
-              buttonTextStyle={styles.buttonText}
-            >
-              <Flex direction="row">
-                <Icon
-                  name="facebookIcon"
-                  size={21}
-                  type="MissionHub"
-                  style={styles.icon}
-                />
-                <Text style={styles.buttonText}>
-                  {t('facebookLogin').toUpperCase()}
+      <Fragment>
+        <DisableRootSafeAreaView />
+        <SafeView style={styles.container}>
+          {this.renderErrorMessage()}
+          <Header left={forcedLogout ? null : <BackButton />} shadow={false} />
+          <Flex align="center" justify="center">
+            {showLogo ? (
+              forcedLogout ? (
+                <Text style={styles.forcedLogoutHeader}>
+                  {t('forcedLogout:message')}
                 </Text>
-              </Flex>
-            </Button>
+              ) : (
+                <Text type="header" style={styles.header}>
+                  {t('signIn')}
+                </Text>
+              )
+            ) : null}
           </Flex>
-        )}
-        {isLoading ? <LoadingWheel /> : null}
-      </SafeView>
+
+          <Flex
+            value={3}
+            style={{ paddingVertical: 10, paddingHorizontal: 30 }}
+          >
+            <View>
+              <Text style={styles.label}>{t('emailLabel')}</Text>
+              <Input
+                autoCapitalize="none"
+                onChangeText={this.emailChanged}
+                value={email}
+                keyboardType="email-address"
+                onSubmitEditing={this.focusPassword}
+                placeholder={t('emailLabel')}
+                returnKeyType="next"
+                placeholderTextColor="white"
+              />
+            </View>
+
+            <View style={{ paddingVertical: 15 }}>
+              <Text style={styles.label}>{t('passwordLabel')}</Text>
+              <Input
+                secureTextEntry={true}
+                ref={this.passwordRef}
+                onChangeText={this.passwordChanged}
+                value={password}
+                placeholder={t('passwordLabel')}
+                placeholderTextColor="white"
+                returnKeyType="done"
+                onSubmitEditing={this.login}
+              />
+              <Button
+                name={'forgotPasswordButton'}
+                text={t('forgotPassword')}
+                type="transparent"
+                style={styles.forgotPasswordButton}
+                buttonTextStyle={styles.forgotPasswordText}
+                onPress={this.handleForgotPassword}
+              />
+            </View>
+          </Flex>
+
+          {email || password ? (
+            <Flex align="stretch" justify="end">
+              <Button
+                name={'loginButton'}
+                type="secondary"
+                onPress={this.login}
+                text={t('login').toUpperCase()}
+              />
+            </Flex>
+          ) : (
+            <Flex value={1} justify="center" align="center">
+              <Button
+                name={'facebookButton'}
+                pill={true}
+                onPress={this.facebookLogin}
+                style={styles.facebookButton}
+                buttonTextStyle={styles.buttonText}
+              >
+                <Flex direction="row">
+                  <Icon
+                    name="facebookIcon"
+                    size={21}
+                    type="MissionHub"
+                    style={styles.icon}
+                  />
+                  <Text style={styles.buttonText}>
+                    {t('facebookLogin').toUpperCase()}
+                  </Text>
+                </Flex>
+              </Button>
+            </Flex>
+          )}
+          {isLoading ? <LoadingWheel /> : null}
+        </SafeView>
+      </Fragment>
     );
   }
 }
