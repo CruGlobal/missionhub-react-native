@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { celebrationItemSelector } from '../../selectors/celebration';
-import { Flex } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
 import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
@@ -16,7 +16,7 @@ class CelebrateDetailScreen extends Component {
     const { container, cardStyle, backButtonStyle } = styles;
 
     return (
-      <Flex value={1} justify="center" style={container}>
+      <View style={container}>
         <CelebrateItem
           event={event}
           cardStyle={cardStyle}
@@ -28,7 +28,7 @@ class CelebrateDetailScreen extends Component {
           eventId={event.id}
           organizationId={event.organization.id}
         />
-      </Flex>
+      </View>
     );
   }
 }

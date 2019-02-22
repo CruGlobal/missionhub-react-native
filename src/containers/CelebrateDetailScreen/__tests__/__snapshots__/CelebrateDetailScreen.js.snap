@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<Flex
-  justify="center"
+<Component
   style={
     Object {
       "backgroundColor": "#ffffff",
+      "flex": 1,
+      "justifyContent": "center",
     }
   }
-  value={1}
 >
   <Connect(Translate(CelebrateItem))
     cardStyle={
@@ -42,5 +42,5 @@ exports[`renders correctly 1`] = `
     eventId="90001"
     organizationId="24234234"
   />
-</Flex>
+</Component>
 `;

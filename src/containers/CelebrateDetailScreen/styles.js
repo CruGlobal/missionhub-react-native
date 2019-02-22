@@ -6,6 +6,8 @@ import { hasNotch } from '../../utils/common';
 export default StyleSheet.create({
   container: {
     backgroundColor: theme.white,
+    flex: 1,
+    justifyContent: 'center',
   },
   cardStyle: {
     shadowOpacity: 0,

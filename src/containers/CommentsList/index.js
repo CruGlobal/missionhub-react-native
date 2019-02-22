@@ -89,18 +89,14 @@ CommentsList.propTypes = {
 const mapStateToProps = (
   { organizations, celebrateComments },
   { eventId, organizationId },
-) => {
-  const event = celebrationItemSelector(
+) => ({
+  event: celebrationItemSelector(
     { organizations },
     { eventId, organizationId },
-  );
-
-  return {
-    event,
-    celebrateComments: celebrateCommentsSelector(
-      { celebrateComments },
-      { eventId },
-    ),
-  };
-};
+  ),
+  celebrateComments: celebrateCommentsSelector(
+    { celebrateComments },
+    { eventId },
+  ),
+});
 export default connect(mapStateToProps)(CommentsList);

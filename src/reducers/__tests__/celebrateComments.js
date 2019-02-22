@@ -23,7 +23,9 @@ describe('REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS', () => {
     it('should add object to initial state', () => {
       expect(celebrateCommentsReducer(undefined, baseAction)).toEqual({
         all: {
-          [eventId]: { comments: response, pagination: expect.anything() },
+          [eventId]: expect.objectContaining({
+            comments: response,
+          }),
         },
       });
     });
