@@ -10,7 +10,7 @@ import { THE_KEY_CLIENT_ID } from '../../constants';
 import callApi, { REQUESTS } from '../api';
 
 import { retryIfInvalidatedClientToken } from './auth';
-import { authSuccessTrackPerson } from './userData';
+import { authSuccess } from './userData';
 
 export function openKeyURL(baseURL) {
   return () => {
@@ -79,7 +79,7 @@ function getTokenAndLogin(data) {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
     await dispatch(getTicketAndLogin());
 
-    return dispatch(authSuccessTrackPerson());
+    return dispatch(authSuccess());
   };
 }
 

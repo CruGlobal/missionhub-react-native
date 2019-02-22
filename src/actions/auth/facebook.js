@@ -5,7 +5,7 @@ import callApi, { REQUESTS } from '../api';
 import { updateAnalyticsContext } from '../analytics';
 
 import { retryIfInvalidatedClientToken } from './auth';
-import { authSuccessTrackPerson } from './userData';
+import { authSuccess } from './userData';
 
 const FACEBOOK_SCOPE = ['public_profile', 'email'];
 
@@ -29,7 +29,7 @@ export function facebookLoginWithAccessToken() {
       }
 
       await dispatch(facebookLoginAction(accessToken.toString(), userID));
-      await dispatch(authSuccessTrackPerson());
+      await dispatch(authSuccess());
     } catch (error) {
       LoginManager.logOut();
       throw error;
@@ -57,7 +57,7 @@ const loginWithFacebookAccessToken = (fb_access_token, client_token) =>
     {},
     {
       fb_access_token,
-      ...(client_token ? { client_token } : {}),
+      ...(client_token && { client_token }),
     },
   );
 
@@ -65,9 +65,9 @@ export function refreshMissionHubFacebookAccess() {
   return async dispatch => {
     try {
       await AccessToken.refreshCurrentAccessTokenAsync();
-      await dispatch(facebookLoginWithAccessToken());
     } catch (error) {
       await dispatch(facebookPromptLogin());
+    } finally {
       await dispatch(facebookLoginWithAccessToken());
     }
   };

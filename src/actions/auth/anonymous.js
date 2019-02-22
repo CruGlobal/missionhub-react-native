@@ -1,6 +1,6 @@
 import callApi, { REQUESTS } from '../api';
 
-import { authSuccessTrackPerson } from './userData';
+import { authSuccess } from './userData';
 import { firstTime } from './userData';
 
 export function codeLogin(code) {
@@ -8,7 +8,7 @@ export function codeLogin(code) {
     await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, { code }));
     // Make sure this is set to FIRST_TIME so we know we're in the tryItNow flow
     dispatch(firstTime());
-    dispatch(authSuccessTrackPerson());
+    dispatch(authSuccess());
   };
 }
 

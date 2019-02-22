@@ -15,7 +15,7 @@ import {
   facebookLoginWithAccessToken,
   refreshMissionHubFacebookAccess,
 } from '../facebook';
-import { authSuccessTrackPerson } from '../userData';
+import { authSuccess } from '../userData';
 
 jest.mock('react-native-fbsdk', () => ({
   LoginManager: { logInWithReadPermissions: jest.fn(), logOut: jest.fn() },
@@ -26,7 +26,7 @@ jest.mock('react-native-fbsdk', () => ({
 }));
 jest.mock('../../api');
 jest.mock('../../auth/userData');
-authSuccessTrackPerson.mockReturnValue({ type: 'authSuccessTrackPerson' });
+authSuccess.mockReturnValue({ type: 'authSuccess' });
 
 const mockStore = configureStore([thunk]);
 
@@ -110,7 +110,7 @@ describe('facebookLoginWithAccessToken', () => {
           analyticsContext: { [ANALYTICS.FACEBOOK_ID]: facebookId },
           type: ANALYTICS_CONTEXT_CHANGED,
         },
-        { type: 'authSuccessTrackPerson' },
+        { type: 'authSuccess' },
       ]);
     });
     it('with upgradeToken', async () => {
@@ -142,7 +142,7 @@ describe('facebookLoginWithAccessToken', () => {
           analyticsContext: { [ANALYTICS.FACEBOOK_ID]: facebookId },
           type: ANALYTICS_CONTEXT_CHANGED,
         },
-        { type: 'authSuccessTrackPerson' },
+        { type: 'authSuccess' },
       ]);
     });
     it('with invalidated upgradeToken', async () => {
@@ -193,7 +193,7 @@ describe('facebookLoginWithAccessToken', () => {
           analyticsContext: { [ANALYTICS.FACEBOOK_ID]: facebookId },
           type: ANALYTICS_CONTEXT_CHANGED,
         },
-        { type: 'authSuccessTrackPerson' },
+        { type: 'authSuccess' },
       ]);
     });
   });
@@ -229,7 +229,7 @@ describe('refreshMissionHubFacebookAccess', () => {
         analyticsContext: { [ANALYTICS.FACEBOOK_ID]: facebookId },
         type: ANALYTICS_CONTEXT_CHANGED,
       },
-      { type: 'authSuccessTrackPerson' },
+      { type: 'authSuccess' },
     ]);
     expect(LoginManager.logInWithReadPermissions).not.toHaveBeenCalled();
   });

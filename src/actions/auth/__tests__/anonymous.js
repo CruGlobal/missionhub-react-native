@@ -2,7 +2,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import callApi, { REQUESTS } from '../../api';
-import { firstTime, authSuccessTrackPerson } from '../userData';
+import { firstTime, authSuccess } from '../userData';
 import { codeLogin, refreshAnonymousLogin } from '../anonymous';
 
 jest.mock('../../api');
@@ -15,7 +15,7 @@ let store;
 
 beforeEach(() => {
   firstTime.mockReturnValue({ type: 'test' });
-  authSuccessTrackPerson.mockReturnValue({ type: 'test' });
+  authSuccess.mockReturnValue({ type: 'test' });
   store = mockStore({
     auth: {
       upgradeToken,
@@ -35,7 +35,7 @@ describe('codeLogin', () => {
       { code: '123' },
     );
     expect(firstTime).toHaveBeenCalledTimes(1);
-    expect(authSuccessTrackPerson).toHaveBeenCalledTimes(1);
+    expect(authSuccess).toHaveBeenCalledTimes(1);
   });
 
   it('should not set first time or track person on error', async () => {
@@ -53,7 +53,7 @@ describe('codeLogin', () => {
       { code: '123' },
     );
     expect(firstTime).not.toHaveBeenCalled();
-    expect(authSuccessTrackPerson).not.toHaveBeenCalled();
+    expect(authSuccess).not.toHaveBeenCalled();
   });
 });
 

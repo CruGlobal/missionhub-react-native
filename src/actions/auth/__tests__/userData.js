@@ -9,7 +9,7 @@ import { REQUESTS } from '../../api';
 import {
   updateLocaleAndTimezone,
   firstTime,
-  authSuccessTrackPerson,
+  authSuccess,
   loadHome,
 } from '../userData';
 import { FIRST_TIME } from '../../../constants';
@@ -98,7 +98,7 @@ describe('updateLocaleAndTimezone', () => {
   });
 });
 
-describe('authSuccessTrackPerson', () => {
+describe('authSuccess', () => {
   const personId = '593348';
   const global_registry_mdm_id = 'c6e4fdcf-d638-46b7-a02b-8c6c1cc4af23';
 
@@ -119,13 +119,13 @@ describe('authSuccessTrackPerson', () => {
   });
 
   it('should set Rollbar user id', async () => {
-    await store.dispatch(authSuccessTrackPerson());
+    await store.dispatch(authSuccess());
 
     expect(rollbar.setPerson).toHaveBeenCalledWith(`${personId}`);
   });
 
   it('should track global registry master person id', async () => {
-    await store.dispatch(authSuccessTrackPerson());
+    await store.dispatch(authSuccess());
 
     expect(RNOmniture.syncIdentifier).toHaveBeenCalledWith(
       global_registry_mdm_id,

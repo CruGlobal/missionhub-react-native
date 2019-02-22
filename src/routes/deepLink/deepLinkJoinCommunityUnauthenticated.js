@@ -26,7 +26,7 @@ import MFACodeScreen, {
 const finishAuth = () => async dispatch => {
   await dispatch(joinStashedCommunity());
   await dispatch(loadHome());
-  await dispatch(landOnStashedCommunityScreen());
+  dispatch(landOnStashedCommunityScreen());
 };
 
 export const DeepLinkJoinCommunityUnauthenticatedScreens = {
@@ -50,10 +50,8 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     wrapNextAction(SetupScreen, () => async dispatch => {
       dispatch(firstTime());
       dispatch(completeOnboarding());
-      await dispatch(joinStashedCommunity());
       await dispatch(showNotificationPrompt());
-      await dispatch(loadHome());
-      await dispatch(landOnStashedCommunityScreen());
+      await dispatch(finishAuth());
     }),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),

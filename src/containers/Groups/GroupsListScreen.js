@@ -76,9 +76,11 @@ class GroupsListScreen extends Component {
     const { dispatch, isFirstTime } = this.props;
 
     dispatch(
-      isFirstTime
-        ? navigatePush(CREATE_COMMUNITY_UNAUTHENTICATED_FLOW)
-        : navigatePush(CREATE_GROUP_SCREEN),
+      navigatePush(
+        isFirstTime
+          ? CREATE_COMMUNITY_UNAUTHENTICATED_FLOW
+          : CREATE_GROUP_SCREEN,
+      ),
     );
   };
 

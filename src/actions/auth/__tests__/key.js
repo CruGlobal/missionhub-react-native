@@ -16,7 +16,7 @@ import {
   keyLoginWithAuthorizationCode,
 } from '../key';
 import { CLEAR_UPGRADE_TOKEN } from '../../../constants';
-import { authSuccessTrackPerson } from '../userData';
+import { authSuccess } from '../userData';
 
 Config.THE_KEY_URL = 'https://thekey.me/cas/';
 
@@ -24,7 +24,7 @@ jest.mock('random-string', () =>
   jest.fn().mockReturnValue('random-string-12345'),
 );
 jest.mock('../userData');
-authSuccessTrackPerson.mockReturnValue({ type: 'authSuccessTrackPerson' });
+authSuccess.mockReturnValue({ type: 'authSuccess' });
 
 const email = 'klas&jflk@lkjasdf.com';
 const password = 'this&is=unsafe';
@@ -124,7 +124,7 @@ describe('keyLogin', () => {
       { type: 'keyGetTicket', ticket },
       { type: 'keyTicketLogin' },
       { type: CLEAR_UPGRADE_TOKEN },
-      { type: 'authSuccessTrackPerson' },
+      { type: 'authSuccess' },
     ]);
   });
   it('with mfa', async () => {
@@ -164,7 +164,7 @@ describe('keyLogin', () => {
       { type: 'keyGetTicket', ticket },
       { type: 'keyTicketLogin' },
       { type: CLEAR_UPGRADE_TOKEN },
-      { type: 'authSuccessTrackPerson' },
+      { type: 'authSuccess' },
     ]);
   });
   it('with upgradeToken', async () => {
@@ -209,7 +209,7 @@ describe('keyLogin', () => {
       { type: 'keyGetTicket', ticket },
       { type: 'keyTicketLogin' },
       { type: CLEAR_UPGRADE_TOKEN },
-      { type: 'authSuccessTrackPerson' },
+      { type: 'authSuccess' },
     ]);
   });
   it('with invalidated upgradeToken', async () => {
@@ -271,7 +271,7 @@ describe('keyLogin', () => {
       { type: 'keyGetTicket', ticket },
       { type: 'keyTicketLogin' },
       { type: CLEAR_UPGRADE_TOKEN },
-      { type: 'authSuccessTrackPerson' },
+      { type: 'authSuccess' },
     ]);
   });
 
@@ -313,7 +313,7 @@ describe('keyLogin', () => {
         { type: 'keyGetTicket', ticket },
         { type: 'keyTicketLogin' },
         { type: CLEAR_UPGRADE_TOKEN },
-        { type: 'authSuccessTrackPerson' },
+        { type: 'authSuccess' },
       ]);
     });
   });

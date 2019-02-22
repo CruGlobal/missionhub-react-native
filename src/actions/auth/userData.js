@@ -43,7 +43,7 @@ export function updateLocaleAndTimezone() {
   };
 }
 
-export function authSuccessTrackPerson() {
+export function authSuccess() {
   return async (dispatch, getState) => {
     dispatch(logInAnalytics());
 
