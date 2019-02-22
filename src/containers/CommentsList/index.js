@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { FlatList, View } from 'react-native';
+import { FlatList } from 'react-native';
 
 import { celebrationItemSelector } from '../../selectors/celebration';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
-import CardTime from '../../components/CardTime';
-import ItemHeaderText from '../../components/ItemHeaderText';
-import { Text } from '../../components/common';
 import {
   reloadCelebrateComments,
   getCelebrateCommentsNextPage,
@@ -15,6 +12,7 @@ import {
 import LoadMore from '../../components/LoadMore';
 import RefreshControl from '../../components/RefreshControl';
 import { refresh } from '../../utils/common';
+import CommentItem from '../../components/CommentItem';
 
 import styles from './styles';
 
@@ -43,19 +41,7 @@ class CommentsList extends Component {
 
   keyExtractor = i => i.id;
 
-  renderItem({ item }) {
-    const { itemStyle, text } = styles;
-
-    return (
-      <View style={itemStyle}>
-        <ItemHeaderText
-          text={`${item.person.first_name} ${item.person.last_name}`}
-        />
-        <Text style={text}>{item.content}</Text>
-        <CardTime date={item.created_at} />
-      </View>
-    );
-  }
+  renderItem = ({ item }) => <CommentItem item={item} />;
 
   render() {
     const { celebrateComments: { comments, pagination } = {} } = this.props;

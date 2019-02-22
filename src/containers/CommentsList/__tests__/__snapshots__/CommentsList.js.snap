@@ -51,36 +51,13 @@ exports[`with comments with next page renders correctly 1`] = `
 `;
 
 exports[`with comments with next page renders item correctly 1`] = `
-<Component
-  style={
+<CommentItem
+  item={
     Object {
-      "backgroundColor": "#E6E8EC",
-      "borderRadius": 8,
-      "marginVertical": 5,
-      "paddingHorizontal": 10,
-      "paddingVertical": 5,
+      "content": "hello roge",
     }
   }
->
-  <ItemHeaderText
-    text="Roger Goers"
-  />
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "paddingVertical": 3,
-      }
-    }
-  >
-    hello roge
-  </MyText>
-  <CardTime
-    date="2018-06-11 12:00:00 UTC"
-  />
-</Component>
+/>
 `;
 
 exports[`with comments without next page renders correctly 1`] = `
