@@ -5,6 +5,7 @@ import {
   createBottomTabNavigator,
   createDrawerNavigator,
   createStackNavigator,
+  StackViewTransitionConfigs,
 } from 'react-navigation';
 import i18next from 'i18next';
 
@@ -166,6 +167,9 @@ import {
   CompleteStepFlowNavigator,
   CompleteStepFlowScreens,
 } from './routes/steps/completeStepFlow';
+import CelebrateDetailScreen, {
+  CELEBRATE_DETAIL_SCREEN,
+} from './containers/CelebrateDetailScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -446,6 +450,11 @@ const screens = {
   [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityUnauthenticatedNavigator,
   [COMPLETE_STEP_FLOW]: CompleteStepFlowNavigator,
+  [CELEBRATE_DETAIL_SCREEN]: buildTrackedScreen(
+    CelebrateDetailScreen,
+    buildTrackingObj('community : celebrate : detail', 'celebrate : detail'),
+    { gesturesEnabled: true },
+  ),
 };
 
 export const trackableScreens = {
@@ -459,6 +468,8 @@ export const trackableScreens = {
   ...DeepLinkJoinCommunityUnauthenticatedScreens,
   ...CompleteStepFlowScreens,
 };
+
+const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN];
 
 export const MainStackRoutes = createStackNavigator(
   {
@@ -509,6 +520,17 @@ export const MainStackRoutes = createStackNavigator(
       header: null,
       gesturesEnabled: false,
     },
+    transitionConfig: (transitionProps, prevTransitionProps) =>
+      StackViewTransitionConfigs.defaultTransitionConfig(
+        transitionProps,
+        prevTransitionProps,
+        MODAL_SCREENS.some(
+          screenName =>
+            screenName === transitionProps.scene.route.routeName ||
+            (prevTransitionProps &&
+              screenName === prevTransitionProps.scene.route.routeName),
+        ),
+      ),
   },
 );
 

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#E6E8EC",
+      "borderRadius": 8,
+      "marginVertical": 5,
+      "paddingHorizontal": 10,
+      "paddingVertical": 5,
+    }
+  }
+>
+  <ItemHeaderText
+    text="Roge Goers"
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "paddingVertical": 3,
+      }
+    }
+  >
+    hello roge
+  </MyText>
+  <CardTime
+    date="2018-06-11 12:00:00 UTC"
+  />
+</View>
+`;

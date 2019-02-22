@@ -5,11 +5,7 @@ import configureStore from 'redux-mock-store';
 
 import CelebrateItem from '..';
 
-import {
-  ACTIONS,
-  CELEBRATEABLE_TYPES,
-  INTERACTION_TYPES,
-} from '../../../constants';
+import { CELEBRATEABLE_TYPES, INTERACTION_TYPES } from '../../../constants';
 import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
@@ -43,7 +39,7 @@ const baseEvent = {
 };
 
 beforeEach(() => {
-  store = mockStore();
+  store = mockStore({ auth: { person: { id: myId } } });
 
   jest.clearAllMocks();
   trackActionWithoutData.mockReturnValue(trackActionResult);
@@ -230,52 +226,6 @@ describe('CelebrateItem', () => {
   });
 });
 
-describe('onPressLikeIcon', () => {
-  it('calls onToggleLike prop for unliked item', () => {
-    event = {
-      ...baseEvent,
-      subject_person: otherPerson,
-      likes_count: 0,
-      liked: false,
-    };
-
-    const instance = renderShallow(
-      <CelebrateItem event={event} myId={myId} onToggleLike={jest.fn()} />,
-      store,
-    ).instance();
-
-    instance.onPressLikeIcon();
-    expect(instance.props.onToggleLike).toHaveBeenCalledWith(
-      event.id,
-      event.liked,
-    );
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ITEM_LIKED);
-    expect(store.getActions()).toEqual([trackActionResult]);
-  });
-
-  it('calls onToggleLike prop for liked item', () => {
-    event = {
-      ...baseEvent,
-      subject_person: otherPerson,
-      likes_count: 0,
-      liked: true,
-    };
-
-    const instance = renderShallow(
-      <CelebrateItem event={event} myId={myId} onToggleLike={jest.fn()} />,
-      store,
-    ).instance();
-
-    instance.onPressLikeIcon();
-    expect(instance.props.onToggleLike).toHaveBeenCalledWith(
-      event.id,
-      event.liked,
-    );
-    expect(trackActionWithoutData).not.toHaveBeenCalled();
-    expect(store.getActions()).toEqual([]);
-  });
-});
-
 describe('onPressChallengeLink', () => {
   it('navigates to challenge detail screen', () => {
     const challengeId = '123';
@@ -312,5 +262,20 @@ describe('onPressChallengeLink', () => {
       orgId,
     });
     expect(store.getActions()).toEqual([navigateResponse]);
+  });
+});
+
+describe('press card', () => {
+  const onPressItem = jest.fn();
+
+  it('calls onPressItem', () => {
+    renderShallow(
+      <CelebrateItem event={event} myId={myId} onPressItem={onPressItem} />,
+      store,
+    )
+      .props()
+      .onPress();
+
+    expect(onPressItem).toHaveBeenCalledWith(event);
   });
 });

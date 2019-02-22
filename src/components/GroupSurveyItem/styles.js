@@ -24,11 +24,6 @@ export default StyleSheet.create({
     color: theme.inactiveColor,
     fontSize: 10,
   },
-  title: {
-    color: theme.primaryColor,
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
   text: {
     fontSize: 13,
   },
