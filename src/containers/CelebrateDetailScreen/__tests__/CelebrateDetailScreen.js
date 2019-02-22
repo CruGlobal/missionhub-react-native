@@ -17,16 +17,16 @@ const organizationId = '24234234';
 const event = { id: '90001', organization: { id: organizationId } };
 const organizations = [event.organization];
 
+let screen;
+
 celebrationItemSelector.mockReturnValue(event);
 
 beforeEach(() => {
   jest.clearAllMocks();
 
   store = mockStore({ organizations });
-});
 
-function subject() {
-  return renderShallow(
+  screen = renderShallow(
     <CelebrateDetailScreen
       navigation={{
         state: {
@@ -36,15 +36,13 @@ function subject() {
     />,
     store,
   );
-}
+});
 
 it('renders correctly', () => {
-  expect(subject()).toMatchSnapshot();
+  expect(screen).toMatchSnapshot();
 });
 
 it('should call celebrationItemSelector', () => {
-  subject();
-
   expect(celebrationItemSelector).toHaveBeenCalledWith(
     { organizations },
     { eventId: event.id, organizationId },

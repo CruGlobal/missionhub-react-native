@@ -68,16 +68,13 @@ describe('with subject person', () => {
   });
 
   describe('onPress like button', () => {
-    function subject() {
+    beforeEach(() =>
       renderShallow(<CommentLikeComponent event={event} />, store)
         .childAt(3)
         .props()
-        .onPress();
-    }
+        .onPress());
 
     it('toggles like', () => {
-      subject();
-
       expect(toggleLike).toHaveBeenCalledWith(
         event.organization.id,
         event.id,
@@ -89,8 +86,6 @@ describe('with subject person', () => {
     });
 
     it('tracks action', () => {
-      subject();
-
       expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ITEM_LIKED);
       expect(store.getActions()).toEqual(
         expect.arrayContaining([trackActionResponse]),

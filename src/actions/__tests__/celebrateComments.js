@@ -30,22 +30,19 @@ beforeEach(() => {
 });
 
 describe('getCelebrateCommentsNextPage', () => {
-  function subject() {
-    return store.dispatch(getCelebrateCommentsNextPage(event));
-  }
+  let response;
 
-  it('should call selector', async () => {
-    await subject();
+  beforeEach(() =>
+    (response = store.dispatch(getCelebrateCommentsNextPage(event))));
 
+  it('should call selector', () => {
     expect(celebrateCommentsSelector).toHaveBeenCalledWith(
       { celebrateComments },
       { eventId: event.id },
     );
   });
 
-  it('should callApi with next page', async () => {
-    await subject();
-
+  it('should callApi with next page', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CELEBRATE_COMMENTS, {
       orgId: event.organization.id,
       eventId: event.id,
@@ -56,26 +53,24 @@ describe('getCelebrateCommentsNextPage', () => {
     });
   });
 
-  it('should return api response', async () => {
-    expect(await subject()).toEqual(callApiResponse);
+  it('should return api response', () => {
+    expect(response).toEqual(callApiResponse);
   });
 });
 
 describe('reloadCelebrateComments', () => {
-  function subject() {
-    return store.dispatch(reloadCelebrateComments(event));
-  }
+  let response;
 
-  it('should callApi with no page', async () => {
-    await subject();
+  beforeEach(() => (response = store.dispatch(reloadCelebrateComments(event))));
 
+  it('should callApi with no page', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CELEBRATE_COMMENTS, {
       orgId: event.organization.id,
       eventId: event.id,
     });
   });
 
-  it('should return api response', async () => {
-    expect(await subject()).toEqual(callApiResponse);
+  it('should return api response', () => {
+    expect(response).toEqual(callApiResponse);
   });
 });
