@@ -1,13 +1,18 @@
 import React from 'react';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import {
   testSnapshotShallow,
   createMockNavState,
-  createMockStore,
+  renderShallow,
 } from '../../../../testUtils';
 import { STEP_SUGGESTION, ACCEPTED_STEP } from '../../../constants';
+import { completeStep } from '../../../actions/steps';
 
 import StepDetailScreen from '..';
+
+jest.mock('../../../actions/steps');
 
 const baseStep = {
   id: 1,
@@ -41,8 +46,22 @@ const completedStep = {
   completed_at: '2-13-2019',
 };
 
-const store = createMockStore();
+const mockStore = configureStore([thunk]);
+let store;
 let nav;
+
+const completeStepResult = { type: 'completed step' };
+
+const componentAcceptedStep = (
+  <StepDetailScreen navigation={createMockNavState({ step: acceptedStep })} />
+);
+
+beforeEach(() => {
+  store = mockStore();
+  jest.clearAllMocks();
+
+  completeStep.mockReturnValue(completeStepResult);
+});
 
 describe('render', () => {
   it('renders for suggested step', () => {
@@ -56,8 +75,7 @@ describe('render', () => {
   });
 
   it('renders for accepted step', () => {
-    nav = createMockNavState({ step: acceptedStep });
-    testSnapshotShallow(<StepDetailScreen navigation={nav} />, store);
+    testSnapshotShallow(componentAcceptedStep, store);
   });
 
   it('renders for accepted step with tip', () => {
@@ -68,5 +86,17 @@ describe('render', () => {
   it('renders for completed step', () => {
     nav = createMockNavState({ step: completedStep });
     testSnapshotShallow(<StepDetailScreen navigation={nav} />, store);
+  });
+});
+
+describe('complete step button', () => {
+  it('creates step', () => {
+    renderShallow(componentAcceptedStep, store)
+      .childAt(4)
+      .props()
+      .onPress();
+
+    expect(completeStep).toHaveBeenCalledWith(acceptedStep, 'Step Detail');
+    expect(store.getActions()).toEqual([completeStepResult]);
   });
 });

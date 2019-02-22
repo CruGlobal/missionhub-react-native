@@ -1,5 +1,7 @@
 import 'react-native';
 import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import SelectStepScreen, { mapStateToProps } from '..';
 
@@ -13,6 +15,8 @@ import { ADD_STEP_SCREEN } from '../../AddStepScreen';
 import { getStepSuggestions } from '../../../actions/steps';
 import { shuffleArray } from '../../../utils/common';
 import { CREATE_STEP } from '../../../constants';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/steps');
@@ -59,7 +63,6 @@ let store = createMockStore({
 });
 
 let component, parallaxProps, flatListProps, instance;
-let onComplete = jest.fn();
 let createStepTracking = {};
 let enableBackButton = false;
 
@@ -73,7 +76,6 @@ const createComponent = async () => {
       headerText={headerText}
       contactStageId={contactStageId}
       createStepTracking={createStepTracking}
-      onComplete={onComplete}
       personFirstName={testName}
       enableBackButton={enableBackButton}
       receiverId={receiverId}
@@ -147,7 +149,12 @@ describe('SelectStepScreen', () => {
   });
 
   it('should render foreground header correctly', () => {
-    testSnapshotShallow(parallaxProps.renderForeground());
+    expect(
+      shallow(parallaxProps.renderForeground(), {
+        t: jest.fn(),
+        headerText: 'text',
+      }),
+    ).toMatchSnapshot();
   });
 
   it('should render sticky header correctly', () => {
@@ -198,18 +205,14 @@ describe('Navigation', () => {
   it('navigates to add step screen', async () => {
     navigation.navigatePush = jest.fn();
     createStepTracking = { test: 'this is a test tracking property' };
-    onComplete = jest.fn();
     await createComponent();
 
     instance.handleCreateStep();
 
     expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
-      onComplete: expect.any(Function),
       trackingObj: createStepTracking,
     });
-    createStepTracking = {};
-    onComplete = jest.fn();
   });
 });
 
@@ -219,21 +222,25 @@ describe('handleLoadSteps', () => {
   });
 
   it('Initially displays four suggestions', () => {
-    expect(instance.state.steps).toEqual(suggestions.slice(0, 4));
+    expect(instance.state.suggestionIndex).toEqual(4);
+    expect(component).toMatchSnapshot();
   });
   it('Loads four more suggestions', () => {
     instance.handleLoadSteps();
     component.update();
-    expect(instance.state.steps).toEqual(suggestions.slice(0, 8));
+    expect(instance.state.suggestionIndex).toEqual(8);
+    expect(component).toMatchSnapshot();
   });
   it('Loads last suggestion', () => {
     instance.handleLoadSteps();
     component.update();
-    expect(instance.state.steps).toEqual(suggestions);
+    expect(instance.state.suggestionIndex).toEqual(9);
+    expect(component).toMatchSnapshot();
   });
   it('loads no more because all suggestions are displayed', () => {
     instance.handleLoadSteps();
     component.update();
-    expect(instance.state.steps).toEqual(suggestions);
+    expect(instance.state.suggestionIndex).toEqual(9);
+    expect(component).toMatchSnapshot();
   });
 });

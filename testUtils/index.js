@@ -32,11 +32,8 @@ export const renderShallow = (component, store = configureStore([thunk])()) => {
   }
 
   // Render contents of component
-  try {
-    return renderedComponent.dive();
-  } catch (err) {
-    return renderedComponent;
-  }
+  renderedComponent = renderedComponent.dive();
+  return renderedComponent;
 };
 
 export const testSnapshotShallow = (
