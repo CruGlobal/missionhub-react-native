@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders bg color primary correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      Object {
+        "backgroundColor": "#007398",
+      },
+      undefined,
+    ]
+  }
+>
+  Hello
+</RCTSafeAreaView>
+`;
+
+exports[`renders bg color white correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      Object {
+        "backgroundColor": "#ffffff",
+      },
+      undefined,
+    ]
+  }
+>
+  Hello
+</RCTSafeAreaView>
+`;
+
+exports[`renders correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  Hello
+</RCTSafeAreaView>
+`;
+
+exports[`renders style correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      undefined,
+      Object {
+        "backgroundColor": "red",
+      },
+    ]
+  }
+>
+  Hello
+</RCTSafeAreaView>
+`;

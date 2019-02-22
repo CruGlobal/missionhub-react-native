@@ -8,7 +8,6 @@ export default StyleSheet.create({
     backgroundColor: theme.primaryColor,
     justifyContent: 'space-between',
     flexDirection: 'column',
-    paddingTop: 25,
   },
   label: {
     color: theme.secondaryColor,

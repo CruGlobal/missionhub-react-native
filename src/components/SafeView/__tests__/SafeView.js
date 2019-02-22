@@ -10,7 +10,7 @@ it('renders correctly', () => {
 });
 
 it('renders style correctly', () => {
-  testSnapshot(<SafeView style={{ color: 'red' }}>Hello</SafeView>);
+  testSnapshot(<SafeView style={{ backgroundColor: 'red' }}>Hello</SafeView>);
 });
 
 it('renders bg color primary correctly', () => {

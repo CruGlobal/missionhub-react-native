@@ -6,7 +6,7 @@ exports[`render skip 1`] = `
     Object {
       "position": "absolute",
       "right": 10,
-      "top": 35,
+      "top": 25,
     }
   }
 >

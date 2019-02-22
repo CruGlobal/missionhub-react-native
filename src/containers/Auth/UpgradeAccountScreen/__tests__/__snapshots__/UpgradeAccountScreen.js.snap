@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`a login button is clicked email signup button is pressed loading wheel to be rendered 1`] = `
-<Flex
+<SafeView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -204,11 +204,11 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
     </Flex>
   </Flex>
   <LoadingWheel />
-</Flex>
+</SafeView>
 `;
 
 exports[`a login button is clicked facebook signup button is pressed loading wheel to be rendered 1`] = `
-<Flex
+<SafeView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -411,19 +411,23 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
     </Flex>
   </Flex>
   <LoadingWheel />
-</Flex>
+</SafeView>
 `;
 
 exports[`renders correctly for Create Community 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      undefined,
       Object {
         "backgroundColor": "#007398",
         "flex": 1,
         "justifyContent": "center",
       },
-      Object {},
     ]
   }
 >
@@ -1222,19 +1226,23 @@ exports[`renders correctly for Create Community 1`] = `
       </View>
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;
 
 exports[`renders correctly with logo 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      undefined,
       Object {
         "backgroundColor": "#007398",
         "flex": 1,
         "justifyContent": "center",
       },
-      Object {},
     ]
   }
 >
@@ -1972,5 +1980,5 @@ exports[`renders correctly with logo 1`] = `
       </View>
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;

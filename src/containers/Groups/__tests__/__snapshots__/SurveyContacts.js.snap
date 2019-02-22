@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SurveyContacts should render correctly 1`] = `
-<Flex
-  value={1}
+<SafeView
+  bg="white"
 >
   <Connect(Header)
     left={<Connect(BackButton) />}
@@ -45,7 +45,7 @@ exports[`SurveyContacts should render correctly 1`] = `
     onSearch={[Function]}
     placeholder="Search Contacts"
   />
-</Flex>
+</SafeView>
 `;
 
 exports[`SurveyContacts should render item correctly 1`] = `

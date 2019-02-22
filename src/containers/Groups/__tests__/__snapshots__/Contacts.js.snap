@@ -1,40 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contacts should render correctly 1`] = `
-<ScrollView
-  keyboardShouldPersistTaps="handled"
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<SafeView
+  bg="white"
 >
-  <Connect(Translate(OnboardingCard))
-    type="contacts"
-  />
-  <Translate(SearchList)
-    defaultData={Array []}
-    filters={
+  <ScrollView
+    keyboardShouldPersistTaps="handled"
+    style={
       Object {
-        "unassigned": Object {
-          "id": "unassigned",
-          "selected": true,
-          "text": "Unassigned",
-        },
+        "flex": 1,
       }
     }
-    listProps={
-      Object {
-        "renderItem": [Function],
+  >
+    <Connect(Translate(OnboardingCard))
+      type="contacts"
+    />
+    <Translate(SearchList)
+      defaultData={Array []}
+      filters={
+        Object {
+          "unassigned": Object {
+            "id": "unassigned",
+            "selected": true,
+            "text": "Unassigned",
+          },
+        }
       }
-    }
-    onFilterPress={[Function]}
-    onLoadMore={[Function]}
-    onRemoveFilter={[Function]}
-    onSearch={[Function]}
-    placeholder="Search Contacts"
-  />
-</ScrollView>
+      listProps={
+        Object {
+          "renderItem": [Function],
+        }
+      }
+      onFilterPress={[Function]}
+      onLoadMore={[Function]}
+      onRemoveFilter={[Function]}
+      onSearch={[Function]}
+      placeholder="Search Contacts"
+    />
+  </ScrollView>
+</SafeView>
 `;
 
 exports[`Contacts should render item 1`] = `

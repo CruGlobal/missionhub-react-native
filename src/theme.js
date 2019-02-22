@@ -117,7 +117,7 @@ export default {
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
 
   headerHeight: isAndroid ? 56 : iPhoneHeaderHeight,
-  topNotchHeight: isAndroid ? StatusBar.currentHeight : 20,
+  topNotchHeight: hasNotch() ? (isAndroid ? StatusBar.currentHeight : 20) : 0,
   bottomNotchHeight: !isAndroid && hasNotch() ? 20 : 0,
   swipeTabHeight: 48,
 };

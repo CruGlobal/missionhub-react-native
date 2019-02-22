@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`a login button is clicked facebook login button is pressed loading wheel appears 1`] = `
-<Component
+<SafeView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -11,13 +11,9 @@ exports[`a login button is clicked facebook login button is pressed loading whee
     }
   }
 >
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
   <Flex
     align="center"
@@ -186,11 +182,11 @@ exports[`a login button is clicked facebook login button is pressed loading whee
     </Button>
   </Flex>
   <LoadingWheel />
-</Component>
+</SafeView>
 `;
 
 exports[`a login button is clicked forgot password button is pressed loading wheel to be rendered 1`] = `
-<Component
+<SafeView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -200,13 +196,9 @@ exports[`a login button is clicked forgot password button is pressed loading whe
     }
   }
 >
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
   <Flex
     align="center"
@@ -375,11 +367,11 @@ exports[`a login button is clicked forgot password button is pressed loading whe
     </Button>
   </Flex>
   <LoadingWheel />
-</Component>
+</SafeView>
 `;
 
 exports[`a login button is clicked key login button is pressed loading wheel appears 1`] = `
-<Component
+<SafeView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -389,13 +381,9 @@ exports[`a login button is clicked key login button is pressed loading wheel app
     }
   }
 >
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
   <Flex
     align="center"
@@ -514,11 +502,11 @@ exports[`a login button is clicked key login button is pressed loading wheel app
     />
   </Flex>
   <LoadingWheel />
-</Component>
+</SafeView>
 `;
 
 exports[`a login button is clicked key login button is pressed mfa_required is returned from the Key should clear username and password 1`] = `
-<Component
+<SafeView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -528,13 +516,9 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
     }
   }
 >
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
   <Flex
     align="center"
@@ -702,11 +686,11 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
       </Flex>
     </Button>
   </Flex>
-</Component>
+</SafeView>
 `;
 
 exports[`a login button is clicked key login button is pressed shows email verification required message and tracks user error when email has not been verified 1`] = `
-<Component
+<SafeView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -741,13 +725,9 @@ exports[`a login button is clicked key login button is pressed shows email verif
       Verify your account via Email
     </MyText>
   </Component>
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
   <Flex
     align="center"
@@ -865,11 +845,11 @@ exports[`a login button is clicked key login button is pressed shows email verif
       type="secondary"
     />
   </Flex>
-</Component>
+</SafeView>
 `;
 
 exports[`a login button is clicked key login button is pressed shows invalid credentials message and tracks user error when email or password is missing 1`] = `
-<Component
+<SafeView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -904,13 +884,9 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       Your Email or Password is Incorrect
     </MyText>
   </Component>
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
   <Flex
     align="center"
@@ -1028,11 +1004,11 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       type="secondary"
     />
   </Flex>
-</Component>
+</SafeView>
 `;
 
 exports[`a login button is clicked key login button is pressed shows invalid credentials message and tracks user error when invalid credentials are entered 1`] = `
-<Component
+<SafeView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -1067,13 +1043,9 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       Your Email or Password is Incorrect
     </MyText>
   </Component>
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
   <Flex
     align="center"
@@ -1191,11 +1163,11 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       type="secondary"
     />
   </Flex>
-</Component>
+</SafeView>
 `;
 
 exports[`keyboard listeners should hide sign in logo when the keyboard comes up 1`] = `
-<Component
+<SafeView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -1205,13 +1177,9 @@ exports[`keyboard listeners should hide sign in logo when the keyboard comes up 
     }
   }
 >
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
   <Flex
     align="center"
@@ -1364,18 +1332,25 @@ exports[`keyboard listeners should hide sign in logo when the keyboard comes up 
       </Flex>
     </Button>
   </Flex>
-</Component>
+</SafeView>
 `;
 
 exports[`renders correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
-    }
+    Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      undefined,
+      Object {
+        "backgroundColor": "#007398",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "space-between",
+      },
+    ]
   }
 >
   <View
@@ -1383,84 +1358,131 @@ exports[`renders correctly 1`] = `
       Array [
         Array [
           Object {
-            "marginLeft": 5,
-            "marginTop": 25,
+            "backgroundColor": "#007398",
+            "height": 65,
+            "paddingTop": 20,
           },
+          undefined,
           null,
         ],
         Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
+          "flexDirection": "row",
         },
       ]
     }
   >
     <View
-      accessibilityTraits="button"
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {
+            "marginTop": 0,
+            "paddingLeft": 5,
+          },
+          Object {
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
       }
     >
       <View
         style={
           Array [
+            Array [
+              null,
+              null,
+            ],
             Object {
-              "backgroundColor": "transparent",
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
             },
-            null,
-            Object {},
-            null,
           ]
         }
       >
-        <Text
+        <View
+          accessibilityTraits="button"
           accessible={true}
-          allowFontScaling={false}
-          ellipsizeMode="tail"
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {},
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
+            Object {
+              "opacity": 1,
+            }
           }
         >
-          
-        </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
       </View>
     </View>
+    <View
+      style={
+        Array [
+          Object {
+            "marginTop": 0,
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    />
   </View>
   <View
     style={
@@ -1816,27 +1838,76 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;
 
 exports[`renders correctly for forced logout 1`] = `
-<View
+<RCTSafeAreaView
   style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
-    }
+    Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      undefined,
+      Object {
+        "backgroundColor": "#007398",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "space-between",
+      },
+    ]
   }
 >
   <View
     style={
-      Object {
-        "marginTop": 25,
-      }
+      Array [
+        Array [
+          Object {
+            "backgroundColor": "#007398",
+            "height": 65,
+            "paddingTop": 20,
+          },
+          undefined,
+          null,
+        ],
+        Object {
+          "flexDirection": "row",
+        },
+      ]
     }
-  />
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "marginTop": 0,
+            "paddingLeft": 5,
+          },
+          Object {
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "marginTop": 0,
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    />
+  </View>
   <View
     style={
       Array [
@@ -2196,5 +2267,5 @@ Please sign in so we know it's you.
       </View>
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;

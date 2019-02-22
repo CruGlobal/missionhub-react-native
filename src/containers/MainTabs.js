@@ -3,18 +3,26 @@ import { connect } from 'react-redux';
 
 import { MainTabBarStartSteps, MainTabBarStartGroups } from '../AppRoutes';
 import { SafeView } from '../components/common';
+import theme from '../theme';
+
+const needsWrap = () => {
+  const isiPhoneXrOrXSMax = theme.fullHeight === 896 || theme.fullWidth === 896;
+  return isiPhoneXrOrXSMax;
+};
 
 class MainTabs extends Component {
   render() {
-    return this.props.startTab === 'groups' ? (
-      <SafeView bg="white">
+    const content =
+      this.props.startTab === 'groups' ? (
         <MainTabBarStartGroups />
-      </SafeView>
-    ) : (
-      <SafeView bg="white">
+      ) : (
         <MainTabBarStartSteps />
-      </SafeView>
-    );
+      );
+    // Until React Navigation is updated, we need to do this for iphone xr/xsmax
+    if (needsWrap()) {
+      return <SafeView bg="white">{content}</SafeView>;
+    }
+    return content;
   }
 }
 

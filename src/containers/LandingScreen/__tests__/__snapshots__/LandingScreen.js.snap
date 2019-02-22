@@ -1,15 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      undefined,
       Object {
         "backgroundColor": "#007398",
         "flex": 1,
         "justifyContent": "center",
       },
-      Object {},
     ]
   }
 >
@@ -335,5 +339,5 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;

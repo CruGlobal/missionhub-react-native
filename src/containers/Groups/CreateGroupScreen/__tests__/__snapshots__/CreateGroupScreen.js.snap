@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CreateGroupScreen renders correctly 1`] = `
-<Component
+<SafeView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -125,11 +125,11 @@ exports[`CreateGroupScreen renders correctly 1`] = `
       type="secondary"
     />
   </Flex>
-</Component>
+</SafeView>
 `;
 
 exports[`CreateGroupScreen should update the image 1`] = `
-<Component
+<SafeView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -261,5 +261,5 @@ exports[`CreateGroupScreen should update the image 1`] = `
       type="secondary"
     />
   </Flex>
-</Component>
+</SafeView>
 `;

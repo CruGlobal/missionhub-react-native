@@ -1,12 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContactJourney renders loading screen correctly 1`] = `
-<Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<SafeView
+  bg="white"
 >
   <Flex
     align="center"
@@ -39,16 +35,12 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
       }
     />
   </Flex>
-</Component>
+</SafeView>
 `;
 
 exports[`ContactJourney renders null screen correctly 1`] = `
-<Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<SafeView
+  bg="white"
 >
   <Flex
     align="center"
@@ -89,16 +81,12 @@ exports[`ContactJourney renders null screen correctly 1`] = `
       }
     />
   </Flex>
-</Component>
+</SafeView>
 `;
 
 exports[`ContactJourney renders screen as personal ministry 1`] = `
-<Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<SafeView
+  bg="white"
 >
   <Flex
     align="center"
@@ -162,16 +150,12 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
       }
     />
   </Flex>
-</Component>
+</SafeView>
 `;
 
 exports[`ContactJourney renders screen with steps correctly 1`] = `
-<Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<SafeView
+  bg="white"
 >
   <Flex
     align="center"
@@ -235,7 +219,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
       }
     />
   </Flex>
-</Component>
+</SafeView>
 `;
 
 exports[`journey methods renders a stage change row 1`] = `
@@ -324,11 +308,18 @@ exports[`journey methods renders an interaction row 1`] = `
 exports[`journey methods should render item separator 1`] = `<Separator />`;
 
 exports[`renders with an organization correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
-    Object {
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      Object {
+        "backgroundColor": "#ffffff",
+      },
+      undefined,
+    ]
   }
 >
   <View
@@ -646,5 +637,5 @@ exports[`renders with an organization correctly 1`] = `
       </View>
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;

@@ -1,13 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SelectStepScreen renders correctly 1`] = `
-<Flex
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
+<SafeView
+  bg="white"
 >
   <ParallaxScrollView
     backgroundColor="#007398"
@@ -34,7 +29,7 @@ exports[`SelectStepScreen renders correctly 1`] = `
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
-</Flex>
+</SafeView>
 `;
 
 exports[`SelectStepScreen should render foreground header correctly 1`] = `
@@ -110,7 +105,7 @@ exports[`SelectStepScreen should render sticky header correctly 1`] = `
     Array [
       Object {
         "height": "100%",
-        "paddingTop": 0,
+        "marginTop": 15,
       },
       Object {
         "alignItems": "center",
@@ -160,13 +155,8 @@ Object {
 `;
 
 exports[`renderBackButton should render back button 1`] = `
-<Flex
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
+<SafeView
+  bg="white"
 >
   <ParallaxScrollView
     backgroundColor="#007398"
@@ -197,17 +187,12 @@ exports[`renderBackButton should render back button 1`] = `
     absolute={true}
     customNavigate={[Function]}
   />
-</Flex>
+</SafeView>
 `;
 
 exports[`renderSaveButton should render save button 1`] = `
-<Flex
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
+<SafeView
+  bg="white"
 >
   <ParallaxScrollView
     backgroundColor="#007398"
@@ -269,5 +254,5 @@ exports[`renderSaveButton should render save button 1`] = `
       type="secondary"
     />
   </Flex>
-</Flex>
+</SafeView>
 `;

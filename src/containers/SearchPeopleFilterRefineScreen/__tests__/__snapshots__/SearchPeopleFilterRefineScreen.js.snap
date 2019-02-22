@@ -1,12 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      Object {
+        "backgroundColor": "#ffffff",
+      },
+      undefined,
+    ]
   }
 >
   <View
@@ -450,16 +456,22 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </RCTScrollView>
-</View>
+</RCTSafeAreaView>
 `;
 
 exports[`renders title correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      Object {
+        "backgroundColor": "#ffffff",
+      },
+      undefined,
+    ]
   }
 >
   <View
@@ -903,5 +915,5 @@ exports[`renders title correctly 1`] = `
       </View>
     </View>
   </RCTScrollView>
-</View>
+</RCTSafeAreaView>
 `;

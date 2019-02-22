@@ -23,8 +23,8 @@ exports[`Surveys renders item 1`] = `
 `;
 
 exports[`Surveys should render correctly 1`] = `
-<Flex
-  value={1}
+<SafeView
+  bg="white"
 >
   <FlatList
     ListFooterComponent={
@@ -93,5 +93,5 @@ exports[`Surveys should render correctly 1`] = `
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />
-</Flex>
+</SafeView>
 `;

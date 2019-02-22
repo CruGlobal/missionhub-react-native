@@ -184,7 +184,7 @@ class KeyLoginScreen extends Component {
     return (
       <SafeView style={styles.container}>
         {this.renderErrorMessage()}
-        <Header left={forcedLogout ? null : <BackButton />} />
+        <Header left={forcedLogout ? null : <BackButton />} shadow={false} />
         <Flex align="center" justify="center">
           {showLogo ? (
             forcedLogout ? (

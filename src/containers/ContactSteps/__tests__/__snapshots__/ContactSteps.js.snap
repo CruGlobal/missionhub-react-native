@@ -1,12 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly with no steps 1`] = `
-<Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<SafeView
+  bg="white"
 >
   <Flex
     align="center"
@@ -38,16 +34,12 @@ exports[`renders correctly with no steps 1`] = `
       type="secondary"
     />
   </Flex>
-</Component>
+</SafeView>
 `;
 
 exports[`renders correctly with steps 1`] = `
-<Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<SafeView
+  bg="white"
 >
   <Flex
     align="center"
@@ -98,5 +90,5 @@ exports[`renders correctly with steps 1`] = `
       type="secondary"
     />
   </Flex>
-</Component>
+</SafeView>
 `;
