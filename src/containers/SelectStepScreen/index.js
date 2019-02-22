@@ -145,13 +145,12 @@ class SelectStepScreen extends Component {
   );
 
   renderItem = ({ item }) => {
-    const { contact, organization } = this.props;
+    const { organization, receiverId } = this.props;
 
-    //TODO shouldn't contact always be present?
     return (
       <StepSuggestionItem
         step={item}
-        receiverId={contact.id}
+        receiverId={receiverId}
         orgId={organization && organization.id}
       />
     );
