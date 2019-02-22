@@ -116,7 +116,7 @@ describe('with comments', () => {
     });
   });
 
-  describe('with next page', () => {
+  describe('without next page', () => {
     beforeEach(() =>
       celebrateCommentsSelector.mockReturnValue(celebrateComments));
 
