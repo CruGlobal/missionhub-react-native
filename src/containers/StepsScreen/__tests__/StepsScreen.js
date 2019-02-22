@@ -32,6 +32,7 @@ jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/person');
+jest.mock('../../TrackTabChange', () => () => null);
 
 const dispatch = jest.fn(async () => {});
 
@@ -398,7 +399,7 @@ describe('StepsScreen', () => {
       const screen = createComponent(baseProps);
       const listItem = renderShallow(
         screen
-          .childAt(1)
+          .childAt(2)
           .childAt(0)
           .childAt(1)
           .props()

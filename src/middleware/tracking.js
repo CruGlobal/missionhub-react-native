@@ -94,7 +94,7 @@ export default function tracking({ dispatch, getState }) {
   };
 }
 
-function getNextTrackState(action) {
+export function getNextTrackState(action) {
   const routeName = action.routeName;
   const trackedRoute = trackableScreens[routeName];
 
@@ -110,7 +110,7 @@ function getNextTrackState(action) {
   }
 }
 
-function trackTabChanges(action, newState, dispatch) {
+export function trackTabChanges(action, newState, dispatch) {
   if (
     action.routeName === STEPS_TAB ||
     action.routeName === PEOPLE_TAB ||

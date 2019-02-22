@@ -18,6 +18,8 @@ import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
 import { navToPersonScreen } from '../../actions/person';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
+import TrackTabChange from '../TrackTabChange';
+import { PEOPLE_TAB } from '../../constants';
 
 import styles from './styles';
 
@@ -79,6 +81,7 @@ export class PeopleScreen extends Component {
     const { items, isJean, t, hasNoContacts } = this.props;
     return (
       <View style={styles.pageContainer}>
+        <TrackTabChange screen={PEOPLE_TAB} />
         <Header
           left={
             <IconButton
