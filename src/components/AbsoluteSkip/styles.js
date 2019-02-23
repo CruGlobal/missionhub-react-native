@@ -5,8 +5,9 @@ import { isAndroid } from '../../utils/common';
 
 export default StyleSheet.create({
   skipWrap: {
+    flex: 1,
     position: 'absolute',
-    top: (isAndroid ? 7 : 25) + theme.topNotchHeight,
+    top: 0,
     right: 10,
   },
   skipBtn: {
