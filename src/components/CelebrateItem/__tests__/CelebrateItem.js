@@ -238,10 +238,11 @@ describe('onPressLikeIcon', () => {
       liked: false,
     };
 
-    const instance = renderShallow(
+    const component = renderShallow(
       <CelebrateItem event={event} myId={myId} onToggleLike={jest.fn()} />,
       store,
-    ).instance();
+    );
+    const instance = component.instance();
 
     instance.onPressLikeIcon();
     expect(instance.props.onToggleLike).toHaveBeenCalledWith(
@@ -250,6 +251,12 @@ describe('onPressLikeIcon', () => {
     );
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ITEM_LIKED);
     expect(store.getActions()).toEqual([trackActionResult]);
+
+    component.update();
+    expect(component.instance().state).toEqual({
+      localLiked: true,
+      localLikesCount: 1,
+    });
   });
 
   it('calls onToggleLike prop for liked item', () => {
@@ -260,10 +267,11 @@ describe('onPressLikeIcon', () => {
       liked: true,
     };
 
-    const instance = renderShallow(
+    const component = renderShallow(
       <CelebrateItem event={event} myId={myId} onToggleLike={jest.fn()} />,
       store,
-    ).instance();
+    );
+    const instance = component.instance();
 
     instance.onPressLikeIcon();
     expect(instance.props.onToggleLike).toHaveBeenCalledWith(
@@ -272,6 +280,12 @@ describe('onPressLikeIcon', () => {
     );
     expect(trackActionWithoutData).not.toHaveBeenCalled();
     expect(store.getActions()).toEqual([]);
+
+    component.update();
+    expect(component.instance().state).toEqual({
+      localLiked: false,
+      localLikesCount: 0,
+    });
   });
 });
 

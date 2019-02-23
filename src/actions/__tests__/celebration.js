@@ -80,9 +80,8 @@ describe('getGroupCelebrateFeed', () => {
 describe('toggleLike', () => {
   const eventId = '456';
   const liked = false;
-  const resetResult = { type: RESET_CELEBRATION_PAGINATION, orgId };
 
-  it('toggles from unlike to like', async () => {
+  it('toggles from unlike to like', () => {
     store = createStore({
       organizations: {
         all: [
@@ -99,12 +98,12 @@ describe('toggleLike', () => {
 
     callApi.mockReturnValue(apiResult);
 
-    await store.dispatch(toggleLike(orgId, eventId, liked));
+    store.dispatch(toggleLike(orgId, eventId, liked));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.LIKE_CELEBRATE_ITEM, {
       orgId,
       eventId,
     });
-    expect(store.getActions()).toEqual([apiResult, resetResult, apiResult]);
+    expect(store.getActions()).toEqual([apiResult]);
   });
 });
