@@ -20,7 +20,13 @@ exports[`renders correctly 1`] = `
     shadow={false}
     title="ADD SOMEONE"
   />
-  <SafeView>
+  <SafeAreaView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
     <ScrollView
       style={
         Object {
@@ -42,6 +48,6 @@ exports[`renders correctly 1`] = `
       text="DONE"
       type="secondary"
     />
-  </SafeView>
+  </SafeAreaView>
 </Component>
 `;

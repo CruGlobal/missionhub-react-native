@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image } from 'react-native';
+import { SafeAreaView, Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { Flex, Text, Button, SafeView } from '../../components/common';
+import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
 import AbsoluteSkip from '../../components/AbsoluteSkip';
 
@@ -20,7 +20,7 @@ class IconMessageScreen extends Component {
           <Text style={styles.text}>{mainText}</Text>
         </Flex>
 
-        <SafeView>
+        <SafeAreaView style={{ flex: 1 }}>
           <Flex value={1} align="stretch" justify="end">
             <Button
               type="secondary"
@@ -29,7 +29,7 @@ class IconMessageScreen extends Component {
               style={{ width: theme.fullWidth }}
             />
           </Flex>
-        </SafeView>
+        </SafeAreaView>
         {onSkip ? <AbsoluteSkip onSkip={onSkip} /> : null}
       </Flex>
     );

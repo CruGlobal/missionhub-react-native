@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, View } from 'react-native';
+import { SafeAreaView, Keyboard, View } from 'react-native';
 import { translate } from 'react-i18next';
 import i18n from 'i18next';
 
@@ -12,7 +12,6 @@ import {
   Flex,
   Icon,
   LoadingWheel,
-  SafeView,
 } from '../../../components/common';
 import Input from '../../../components/Input';
 import { keyLogin, openKeyURL } from '../../../actions/auth';
@@ -185,7 +184,7 @@ class KeyLoginScreen extends Component {
       <View style={styles.container}>
         {this.renderErrorMessage()}
         <Header left={forcedLogout ? null : <BackButton />} shadow={false} />
-        <SafeView>
+        <SafeAreaView style={{ flex: 1 }}>
           <Flex align="center" justify="center">
             {showLogo ? (
               forcedLogout ? (
@@ -273,7 +272,7 @@ class KeyLoginScreen extends Component {
               </Button>
             </Flex>
           )}
-        </SafeView>
+        </SafeAreaView>
         {isLoading ? <LoadingWheel /> : null}
       </View>
     );

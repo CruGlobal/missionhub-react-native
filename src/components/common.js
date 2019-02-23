@@ -13,7 +13,6 @@ import LoadingWheel from './LoadingWheel';
 import PlatformKeyboardAvoidingView from './PlatformKeyboardAvoidingView';
 import RadioButton from './RadioButton';
 import RefreshControl from './RefreshControl';
-import SafeView from './SafeView';
 import Separator from './Separator';
 import Text from './Text';
 import Touchable from './Touchable';
@@ -32,7 +31,6 @@ export {
   PlatformKeyboardAvoidingView,
   RadioButton,
   RefreshControl,
-  SafeView,
   Separator,
   Text,
   Touchable,

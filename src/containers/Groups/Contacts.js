@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -11,10 +11,10 @@ import SearchList from '../../components/SearchList';
 import PersonListItem from '../../components/PersonListItem';
 import { searchRemoveFilter } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
-import { SafeView } from '../../components/common';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
+import styles from './styles';
 
 @translate('groupsContacts')
 class Contacts extends Component {
@@ -129,7 +129,7 @@ class Contacts extends Component {
     const { t } = this.props;
     const { filters, defaultResults } = this.state;
     return (
-      <SafeView bg="white">
+      <SafeAreaView style={styles.pageContainer}>
         <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="handled">
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />
           <SearchList
@@ -146,7 +146,7 @@ class Contacts extends Component {
             placeholder={t('searchPlaceholder')}
           />
         </ScrollView>
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

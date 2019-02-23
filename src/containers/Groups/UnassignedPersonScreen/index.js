@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -9,7 +10,6 @@ import Header from '../../Header';
 import BackButton from '../../BackButton';
 import { organizationSelector } from '../../../selectors/organizations';
 import { personSelector } from '../../../selectors/people';
-import { SafeView } from '../../../components/common';
 
 import styles from './styles';
 
@@ -31,7 +31,7 @@ class UnassignedPersonScreen extends Component {
     const { activity } = this.state;
 
     return (
-      <SafeView style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Header
           left={<BackButton />}
           title={organization.name}
@@ -49,7 +49,7 @@ class UnassignedPersonScreen extends Component {
           person={person}
           organization={organization}
         />
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

@@ -23,8 +23,13 @@ exports[`Surveys renders item 1`] = `
 `;
 
 exports[`Surveys should render correctly 1`] = `
-<SafeView
-  bg="white"
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
 >
   <FlatList
     ListFooterComponent={
@@ -93,5 +98,5 @@ exports[`Surveys should render correctly 1`] = `
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />
-</SafeView>
+</SafeAreaView>
 `;

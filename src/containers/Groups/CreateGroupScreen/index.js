@@ -5,6 +5,7 @@ import {
   Keyboard,
   Image,
   KeyboardAvoidingView,
+  SafeAreaView,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
@@ -15,7 +16,6 @@ import {
   Input,
   IconButton,
   Button,
-  SafeView,
 } from '../../../components/common';
 import Header from '../../Header';
 import theme from '../../../theme';
@@ -113,7 +113,7 @@ class CreateGroupScreen extends Component {
           shadow={false}
           title={t('createCommunity')}
         />
-        <SafeView>
+        <SafeAreaView style={{ flex: 1 }}>
           <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
             <ImagePicker onSelectImage={this.handleImageChange}>
               <Flex align="center" justify="center" style={styles.imageWrap}>
@@ -154,7 +154,7 @@ class CreateGroupScreen extends Component {
               style={styles.createButton}
             />
           </Flex>
-        </SafeView>
+        </SafeAreaView>
       </View>
     );
   }

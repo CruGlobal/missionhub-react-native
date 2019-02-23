@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { Flex, Text, Input, Button, SafeView } from '../../components/common';
+import { Flex, Text, Input, Button } from '../../components/common';
 import LoadingWheel from '../../components/LoadingWheel';
 import BackButton from '../../containers/BackButton';
 
@@ -25,7 +25,7 @@ export default class MFACodeComponent extends Component {
     } = styles;
 
     return (
-      <SafeView style={container}>
+      <SafeAreaView style={container}>
         <Flex direction="row" justify="between" align="center">
           <BackButton style={backButton} />
 
@@ -63,7 +63,7 @@ export default class MFACodeComponent extends Component {
         </Flex>
 
         {isLoading ? <LoadingWheel /> : null}
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

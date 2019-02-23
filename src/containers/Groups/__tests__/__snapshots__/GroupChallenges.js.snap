@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render correctly 1`] = `
-<SafeView>
+<SafeAreaView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
   <Connect(ChallengeFeed)
     items={
       Array [
@@ -78,11 +84,17 @@ exports[`should render correctly 1`] = `
       type="secondary"
     />
   </Flex>
-</SafeView>
+</SafeAreaView>
 `;
 
 exports[`should render empty correctly 1`] = `
-<SafeView>
+<SafeAreaView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
   <Connect(ChallengeFeed)
     items={
       Array [
@@ -139,5 +151,5 @@ exports[`should render empty correctly 1`] = `
       type="secondary"
     />
   </Flex>
-</SafeView>
+</SafeAreaView>
 `;

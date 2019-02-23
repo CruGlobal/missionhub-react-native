@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -8,7 +9,7 @@ import {
   reloadGroupChallengeFeed,
   createChallenge,
 } from '../../actions/challenges';
-import { Flex, Button, SafeView } from '../../components/common';
+import { Flex, Button } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
 import { refresh, isAdminOrOwner } from '../../utils/common';
 import { challengesSelector } from '../../selectors/challenges';
@@ -16,6 +17,8 @@ import { navigatePush, navigateBack } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
+
+import styles from './styles';
 
 @translate('groupsChallenge')
 export class GroupChallenges extends Component {
@@ -62,7 +65,7 @@ export class GroupChallenges extends Component {
     const { t, challengeItems, organization, myOrgPermissions } = this.props;
 
     return (
-      <SafeView>
+      <SafeAreaView style={{ flex: 1 }}>
         <ChallengeFeed
           organization={organization}
           items={challengeItems}
@@ -79,7 +82,7 @@ export class GroupChallenges extends Component {
             />
           </Flex>
         ) : null}
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

@@ -22,7 +22,13 @@ exports[`CreateGroupScreen renders correctly 1`] = `
     shadow={false}
     title="Create Community"
   />
-  <SafeView>
+  <SafeAreaView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
     <ScrollView
       keyboardShouldPersistTaps="handled"
       style={
@@ -126,7 +132,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
         type="secondary"
       />
     </Flex>
-  </SafeView>
+  </SafeAreaView>
 </Component>
 `;
 
@@ -152,7 +158,13 @@ exports[`CreateGroupScreen should update the image 1`] = `
     shadow={false}
     title="Create Community"
   />
-  <SafeView>
+  <SafeAreaView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
     <ScrollView
       keyboardShouldPersistTaps="handled"
       style={
@@ -264,6 +276,6 @@ exports[`CreateGroupScreen should update the image 1`] = `
         type="secondary"
       />
     </Flex>
-  </SafeView>
+  </SafeAreaView>
 </Component>
 `;

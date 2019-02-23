@@ -34,13 +34,7 @@ exports[`SelectStepScreen renders correctly 1`] = `
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
-  <SafeView
-    style={
-      Object {
-        "flex": undefined,
-      }
-    }
-  />
+  <SafeAreaView />
 </Component>
 `;
 
@@ -235,13 +229,7 @@ exports[`renderBackButton should render back button 1`] = `
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
-  <SafeView
-    style={
-      Object {
-        "flex": undefined,
-      }
-    }
-  />
+  <SafeAreaView />
   <Connect(BackButton)
     absolute={true}
     customNavigate={[Function]}
@@ -303,13 +291,7 @@ exports[`renderSaveButton should render save button 1`] = `
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
-  <SafeView
-    style={
-      Object {
-        "flex": undefined,
-      }
-    }
-  >
+  <SafeAreaView>
     <Flex
       align="center"
       justify="end"
@@ -325,6 +307,6 @@ exports[`renderSaveButton should render save button 1`] = `
         type="secondary"
       />
     </Flex>
-  </SafeView>
+  </SafeAreaView>
 </Component>
 `;

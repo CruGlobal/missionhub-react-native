@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image } from 'react-native';
+import { SafeAreaView, Image } from 'react-native';
 import { translate } from 'react-i18next';
 import i18Next from 'i18next';
 import PropTypes from 'prop-types';
@@ -14,7 +14,6 @@ import {
   Flex,
   Icon,
   LoadingWheel,
-  SafeView,
 } from '../../../components/common';
 import { navigatePush } from '../../../actions/navigation';
 import LOGO from '../../../../assets/images/missionHubLogoWords.png';
@@ -105,7 +104,7 @@ class UpgradeAccountScreen extends Component {
     const headerContent = headerContentOptions[signupType];
 
     return (
-      <SafeView style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
             {headerContent
@@ -174,7 +173,7 @@ class UpgradeAccountScreen extends Component {
         </Flex>
         {isLoading ? <LoadingWheel /> : null}
         <BackButton absolute={true} />
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

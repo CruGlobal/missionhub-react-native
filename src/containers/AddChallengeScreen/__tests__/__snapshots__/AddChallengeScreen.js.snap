@@ -424,14 +424,9 @@ exports[`renders correctly 1`] = `
   </View>
   <RCTSafeAreaView
     style={
-      Array [
-        Object {
-          "flex": 1,
-          "position": "relative",
-        },
-        undefined,
-        undefined,
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <View
@@ -709,7 +704,13 @@ exports[`renders edit challenge correctly 1`] = `
       placeholder="End Date (Required)"
     />
   </Flex>
-  <SafeView>
+  <SafeAreaView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
     <Flex
       align="stretch"
       justify="end"
@@ -727,7 +728,7 @@ exports[`renders edit challenge correctly 1`] = `
         type="secondary"
       />
     </Flex>
-  </SafeView>
+  </SafeAreaView>
   <Connect(BackButton)
     absolute={true}
     customIcon="deleteIcon"

@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContactJourney renders loading screen correctly 1`] = `
-<SafeView
-  bg="white"
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
 >
   <Flex
     align="center"
@@ -35,12 +40,17 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
       }
     />
   </Flex>
-</SafeView>
+</SafeAreaView>
 `;
 
 exports[`ContactJourney renders null screen correctly 1`] = `
-<SafeView
-  bg="white"
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
 >
   <Flex
     align="center"
@@ -81,12 +91,17 @@ exports[`ContactJourney renders null screen correctly 1`] = `
       }
     />
   </Flex>
-</SafeView>
+</SafeAreaView>
 `;
 
 exports[`ContactJourney renders screen as personal ministry 1`] = `
-<SafeView
-  bg="white"
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
 >
   <Flex
     align="center"
@@ -150,12 +165,17 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
       }
     />
   </Flex>
-</SafeView>
+</SafeAreaView>
 `;
 
 exports[`ContactJourney renders screen with steps correctly 1`] = `
-<SafeView
-  bg="white"
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
 >
   <Flex
     align="center"
@@ -219,7 +239,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
       }
     />
   </Flex>
-</SafeView>
+</SafeAreaView>
 `;
 
 exports[`journey methods renders a stage change row 1`] = `
@@ -310,16 +330,10 @@ exports[`journey methods should render item separator 1`] = `<Separator />`;
 exports[`renders with an organization correctly 1`] = `
 <RCTSafeAreaView
   style={
-    Array [
-      Object {
-        "flex": 1,
-        "position": "relative",
-      },
-      Object {
-        "backgroundColor": "#ffffff",
-      },
-      undefined,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
   }
 >
   <View

@@ -72,14 +72,9 @@ exports[`renders correctly 1`] = `
   </View>
   <RCTSafeAreaView
     style={
-      Array [
-        Object {
-          "flex": 1,
-          "position": "relative",
-        },
-        undefined,
-        undefined,
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <View
@@ -234,14 +229,9 @@ exports[`renders correctly with default state 1`] = `
   </View>
   <RCTSafeAreaView
     style={
-      Array [
-        Object {
-          "flex": 1,
-          "position": "relative",
-        },
-        undefined,
-        undefined,
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <View

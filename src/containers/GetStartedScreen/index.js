@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { SafeAreaView } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../actions/navigation';
-import { Flex, Text, Button, SafeView } from '../../components/common';
+import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
 import { STAGE_ONBOARDING_SCREEN } from '../StageScreen';
 import { disableBack } from '../../utils/common';
@@ -36,13 +37,8 @@ class GetStartedScreen extends Component {
     const name = firstName.toLowerCase();
 
     return (
-      <SafeView bg="primary">
-        <Flex
-          align="center"
-          justify="center"
-          value={1}
-          style={styles.container}
-        >
+      <SafeAreaView style={styles.container}>
+        <Flex align="center" justify="center" value={1} style={styles.content}>
           <Flex align="start" justify="center" value={4}>
             <Text type="header" style={styles.headerTitle}>
               {t('hi', { name })}
@@ -59,7 +55,7 @@ class GetStartedScreen extends Component {
             />
           </Flex>
         </Flex>
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

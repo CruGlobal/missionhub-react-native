@@ -23,7 +23,13 @@ exports[`SurveyContacts should render correctly 1`] = `
     }
     title="Test Org"
   />
-  <SafeView>
+  <SafeAreaView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
     <Translate(SearchList)
       defaultData={Array []}
       filters={
@@ -51,7 +57,7 @@ exports[`SurveyContacts should render correctly 1`] = `
       onSearch={[Function]}
       placeholder="Search Contacts"
     />
-  </SafeView>
+  </SafeAreaView>
 </Component>
 `;
 

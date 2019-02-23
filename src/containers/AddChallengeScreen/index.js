@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Keyboard, Image } from 'react-native';
+import { SafeAreaView, View, Keyboard, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 import moment from 'moment';
 
 import CHALLENGE from '../../../assets/images/challenge_bullseye.png';
-import { Button, Text, Flex, Input, SafeView } from '../../components/common';
+import { Button, Text, Flex, Input } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
 import BackButton from '../BackButton';
@@ -104,7 +104,7 @@ class AddChallengeScreen extends Component {
           />
         </Flex>
 
-        <SafeView>
+        <SafeAreaView style={{ flex: 1 }}>
           <Flex value={1} align="stretch" justify="end">
             <Button
               disabled={disableBtn}
@@ -114,7 +114,7 @@ class AddChallengeScreen extends Component {
               style={styles.createButton}
             />
           </Flex>
-        </SafeView>
+        </SafeAreaView>
         <BackButton customIcon="deleteIcon" absolute={true} />
       </View>
     );

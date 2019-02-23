@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GroupProfile edit screen renders editing state 1`] = `
-<SafeView
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#505256",
@@ -445,11 +445,11 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
       />
     </Flex>
   </Flex>
-</SafeView>
+</SafeAreaView>
 `;
 
 exports[`GroupProfile renders correctly 1`] = `
-<SafeView
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#505256",
@@ -832,11 +832,11 @@ exports[`GroupProfile renders correctly 1`] = `
       />
     </Flex>
   </Flex>
-</SafeView>
+</SafeAreaView>
 `;
 
 exports[`GroupProfile renders with image 1`] = `
-<SafeView
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#505256",
@@ -1219,11 +1219,11 @@ exports[`GroupProfile renders with image 1`] = `
       />
     </Flex>
   </Flex>
-</SafeView>
+</SafeAreaView>
 `;
 
 exports[`GroupProfile renders without edit button 1`] = `
-<SafeView
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#505256",
@@ -1588,5 +1588,5 @@ exports[`GroupProfile renders without edit button 1`] = `
       />
     </Flex>
   </Flex>
-</SafeView>
+</SafeAreaView>
 `;

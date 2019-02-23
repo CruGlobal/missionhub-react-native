@@ -1,18 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`contact notes and editing is set to true button message changes to DONE 1`] = `
-<SafeAreaView
+<_class
   style={
-    Array [
-      Object {
-        "flex": 1,
-        "position": "relative",
-      },
-      Object {
-        "backgroundColor": "#ffffff",
-      },
-      undefined,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
   }
 >
   <Flex
@@ -54,22 +48,16 @@ exports[`contact notes and editing is set to true button message changes to DONE
       type="secondary"
     />
   </Flex>
-</SafeAreaView>
+</_class>
 `;
 
 exports[`contact notes icon and prompt are shown if no notes 1`] = `
-<SafeAreaView
+<_class
   style={
-    Array [
-      Object {
-        "flex": 1,
-        "position": "relative",
-      },
-      Object {
-        "backgroundColor": "#ffffff",
-      },
-      undefined,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
   }
 >
   <NullStateComponent
@@ -91,22 +79,16 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
       type="secondary"
     />
   </Flex>
-</SafeAreaView>
+</_class>
 `;
 
 exports[`contact notes notes are shown 1`] = `
-<SafeAreaView
+<_class
   style={
-    Array [
-      Object {
-        "flex": 1,
-        "position": "relative",
-      },
-      Object {
-        "backgroundColor": "#ffffff",
-      },
-      undefined,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
   }
 >
   <Flex
@@ -149,5 +131,5 @@ exports[`contact notes notes are shown 1`] = `
       type="secondary"
     />
   </Flex>
-</SafeAreaView>
+</_class>
 `;

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { SafeAreaView } from 'react-native';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import theme from '../../theme';
-import { Flex, Text, Button, SafeView } from '../../components/common';
+import { Flex, Text, Button } from '../../components/common';
 import { disableBack } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
@@ -39,13 +40,8 @@ class WelcomeScreen extends Component {
     const { t, allowSignIn } = this.props;
 
     return (
-      <SafeView bg="primary">
-        <Flex
-          align="center"
-          justify="center"
-          value={1}
-          style={styles.container}
-        >
+      <SafeAreaView style={styles.container}>
+        <Flex align="center" justify="center" value={1} style={styles.content}>
           <Flex value={3} align="start" justify="center">
             <Text type="header" style={styles.headerText}>
               {t('welcome')}
@@ -85,7 +81,7 @@ class WelcomeScreen extends Component {
             </Flex>
           )}
         </Flex>
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

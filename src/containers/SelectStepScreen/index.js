@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -11,7 +11,7 @@ import uuidv4 from 'uuid/v4';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
-import { Flex, Text, Button, Icon, SafeView } from '../../components/common';
+import { Flex, Text, Button, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, shuffleArray } from '../../utils/common';
@@ -231,9 +231,7 @@ class SelectStepScreen extends Component {
             onLoadMoreSteps={this.handleLoadSteps}
           />
         </ParallaxScrollView>
-        <SafeView style={{ flex: undefined }}>
-          {this.renderSaveButton()}
-        </SafeView>
+        <SafeAreaView>{this.renderSaveButton()}</SafeAreaView>
         {this.renderBackButton()}
       </View>
     );

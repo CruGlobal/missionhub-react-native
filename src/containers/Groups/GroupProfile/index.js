@@ -1,7 +1,7 @@
 /* eslint max-lines: 0, max-lines-per-function: 0 */
 
 import React, { Component } from 'react';
-import { Alert, Image, ScrollView } from 'react-native';
+import { SafeAreaView, Alert, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -14,7 +14,6 @@ import {
   Separator,
   IconButton,
   DateComponent,
-  SafeView,
 } from '../../../components/common';
 import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import ImagePicker from '../../../components/ImagePicker';
@@ -172,7 +171,7 @@ class GroupProfile extends Component {
     const { t, organization, membersLength, owner, canEdit } = this.props;
     const { editing, name } = this.state;
     return (
-      <SafeView style={styles.container}>
+      <SafeAreaView style={styles.container}>
         {this.renderImage()}
         <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
           {editing ? (
@@ -307,7 +306,7 @@ class GroupProfile extends Component {
             </Flex>
           ) : null}
         </Flex>
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

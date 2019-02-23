@@ -1,18 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly with no steps 1`] = `
-<SafeView
-  bg="white"
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
 >
   <Flex
     align="center"
     justify="center"
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
-      }
-    }
     value={1}
   >
     <NullStateComponent
@@ -34,22 +33,21 @@ exports[`renders correctly with no steps 1`] = `
       type="secondary"
     />
   </Flex>
-</SafeView>
+</SafeAreaView>
 `;
 
 exports[`renders correctly with steps 1`] = `
-<SafeView
-  bg="white"
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
 >
   <Flex
     align="center"
     justify="center"
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
-      }
-    }
     value={1}
   >
     <FlatList
@@ -90,5 +88,5 @@ exports[`renders correctly with steps 1`] = `
       type="secondary"
     />
   </Flex>
-</SafeView>
+</SafeAreaView>
 `;

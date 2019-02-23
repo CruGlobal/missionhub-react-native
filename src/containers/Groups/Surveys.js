@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { SafeAreaView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { RefreshControl, SafeView } from '../../components/common';
+import { RefreshControl } from '../../components/common';
 import { refresh } from '../../utils/common';
 import GroupSurveyItem from '../../components/GroupSurveyItem';
 import LoadMore from '../../components/LoadMore';
@@ -65,7 +65,7 @@ class Surveys extends Component {
   render() {
     const { surveys, pagination } = this.props;
     return (
-      <SafeView bg="white">
+      <SafeAreaView style={styles.pageContainer}>
         <FlatList
           data={surveys}
           ListHeaderComponent={this.renderHeader}
@@ -86,7 +86,7 @@ class Surveys extends Component {
             )
           }
         />
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

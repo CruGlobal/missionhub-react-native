@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contacts should render correctly 1`] = `
-<SafeView
-  bg="white"
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
 >
   <ScrollView
     keyboardShouldPersistTaps="handled"
@@ -38,7 +43,7 @@ exports[`Contacts should render correctly 1`] = `
       placeholder="Search Contacts"
     />
   </ScrollView>
-</SafeView>
+</SafeAreaView>
 `;
 
 exports[`Contacts should render item 1`] = `

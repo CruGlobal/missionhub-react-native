@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import { SafeView } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import PersonListItem from '../../components/PersonListItem';
 import {
@@ -154,7 +153,7 @@ class SurveyContacts extends Component {
           title={orgName}
           right={<ShareSurveyMenu survey={survey} header={true} />}
         />
-        <SafeView>
+        <SafeAreaView style={{ flex: 1 }}>
           <SearchList
             ref={this.ref}
             defaultData={defaultResults}
@@ -168,7 +167,7 @@ class SurveyContacts extends Component {
             filters={filters}
             placeholder={t('searchPlaceholder')}
           />
-        </SafeView>
+        </SafeAreaView>
       </View>
     );
   }

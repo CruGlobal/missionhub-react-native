@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { SafeAreaView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -12,7 +12,7 @@ import {
   deleteStepWithTracking,
 } from '../../actions/steps';
 import { reloadJourney } from '../../actions/journey';
-import { Flex, Button, SafeView } from '../../components/common';
+import { Flex, Button } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
@@ -210,13 +210,8 @@ class ContactSteps extends Component {
   render() {
     const { t, steps } = this.props;
     return (
-      <SafeView bg="white">
-        <Flex
-          align="center"
-          justify="center"
-          value={1}
-          style={styles.container}
-        >
+      <SafeAreaView style={styles.container}>
+        <Flex align="center" justify="center" value={1}>
           {steps.length > 0 ? this.renderList() : this.renderNull()}
         </Flex>
         <Flex justify="end">
@@ -226,7 +221,7 @@ class ContactSteps extends Component {
             text={t('addStep').toUpperCase()}
           />
         </Flex>
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

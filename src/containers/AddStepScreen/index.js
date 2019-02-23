@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, Alert } from 'react-native';
+import { SafeAreaView, Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigateBack } from '../../actions/navigation';
 import { updateChallengeNote } from '../../actions/steps';
 import { trackAction } from '../../actions/analytics';
-import { Button, Text, Flex, Input, SafeView } from '../../components/common';
+import { Button, Text, Flex, Input } from '../../components/common';
 import theme from '../../theme';
 import { STEP_NOTE, CREATE_STEP, ACTIONS } from '../../constants';
 import { disableBack } from '../../utils/common';
@@ -142,7 +142,7 @@ class AddStepScreen extends Component {
     const { type, hideSkip } = this.props;
 
     return (
-      <SafeView style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Flex value={1.5} align="center" justify="center">
           {this.renderTitle()}
         </Flex>
@@ -175,7 +175,7 @@ class AddStepScreen extends Component {
         {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
           <AbsoluteSkip onSkip={this.skip} />
         ) : null}
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

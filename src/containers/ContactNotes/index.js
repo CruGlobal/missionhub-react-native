@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { ScrollView, Keyboard } from 'react-native';
+import { SafeAreaView, ScrollView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { Text, Flex, Button, Input, SafeView } from '../../components/common';
+import { Text, Flex, Button, Input } from '../../components/common';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
 import { buildTrackingObj } from '../../utils/common';
@@ -148,7 +148,7 @@ export class ContactNotes extends Component {
   render() {
     const { text, editing } = this.state;
     return (
-      <SafeView bg="white">
+      <SafeAreaView style={styles.container}>
         {text || editing ? this.renderNotes() : this.renderEmpty()}
         <Flex align="stretch" justify="end">
           <Button
@@ -157,7 +157,7 @@ export class ContactNotes extends Component {
             text={this.getButtonText()}
           />
         </Flex>
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

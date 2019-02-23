@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image } from 'react-native';
+import { SafeAreaView, Image } from 'react-native';
 import { translate } from 'react-i18next';
 
-import { Button, Flex, Text, SafeView } from '../../components/common';
+import { Button, Flex, Text } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { KEY_LOGIN_SCREEN } from '../Auth/KeyLoginScreen';
@@ -32,7 +32,7 @@ class LandingScreen extends Component {
     const { t } = this.props;
 
     return (
-      <SafeView style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Flex align="center" justify="end" style={styles.imageWrap}>
           <Image source={LOGO} />
         </Flex>
@@ -78,7 +78,7 @@ class LandingScreen extends Component {
             />
           </Flex>
         </Flex>
-      </SafeView>
+      </SafeAreaView>
     );
   }
 }

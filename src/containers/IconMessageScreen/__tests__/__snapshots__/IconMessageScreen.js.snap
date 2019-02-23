@@ -67,14 +67,9 @@ exports[`renders button text correctly 1`] = `
   </View>
   <RCTSafeAreaView
     style={
-      Array [
-        Object {
-          "flex": 1,
-          "position": "relative",
-        },
-        undefined,
-        undefined,
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <View
@@ -229,14 +224,9 @@ exports[`renders icon correctly 1`] = `
   </View>
   <RCTSafeAreaView
     style={
-      Array [
-        Object {
-          "flex": 1,
-          "position": "relative",
-        },
-        undefined,
-        undefined,
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <View
@@ -357,14 +347,9 @@ exports[`renders main text correctly 1`] = `
   </View>
   <RCTSafeAreaView
     style={
-      Array [
-        Object {
-          "flex": 1,
-          "position": "relative",
-        },
-        undefined,
-        undefined,
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <View
@@ -485,14 +470,9 @@ exports[`renders skip button correctly 1`] = `
   </View>
   <RCTSafeAreaView
     style={
-      Array [
-        Object {
-          "flex": 1,
-          "position": "relative",
-        },
-        undefined,
-        undefined,
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <View
