@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 
 import { Text, Card } from '../common';
 import { navigatePush } from '../../actions/navigation';
-import { STEP_DETAIL_SCREEN } from '../../containers/StepDetailScreen';
+import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../containers/SuggestedStepDetailScreen';
 
 import styles from './styles';
 
 class StepSuggestionItem extends Component {
   handlePress = () => {
     const { dispatch, step, receiverId, orgId } = this.props;
-    dispatch(navigatePush(STEP_DETAIL_SCREEN, { step, receiverId, orgId }));
+    dispatch(
+      navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, { step, receiverId, orgId }),
+    );
   };
 
   render() {
