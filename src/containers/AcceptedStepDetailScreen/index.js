@@ -25,8 +25,8 @@ class AcceptedStepDetailScreen extends Component {
 
     return (
       <StepDetailScreen
-        centerHeader={null}
-        rightHeader={
+        CenterHeader={null}
+        RightHeader={
           <Button
             type="transparent"
             text={t('removeStep').toUpperCase()}
@@ -35,7 +35,7 @@ class AcceptedStepDetailScreen extends Component {
             buttonTextStyle={removeStepButtonText}
           />
         }
-        body={null}
+        Body={null}
         text={step.title}
         bottomButtonProps={{
           onPress: this.completeStep,

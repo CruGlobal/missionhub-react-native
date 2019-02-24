@@ -12,37 +12,29 @@ import styles from './styles';
 
 export default class StepDetailScreen extends Component {
   renderHeader() {
-    const { centerHeader, rightHeader } = this.props;
+    const { CenterHeader, RightHeader } = this.props;
     const { container, backButton } = styles;
 
     return (
       <Header
         left={<BackButton iconStyle={backButton} />}
-        center={centerHeader}
-        right={rightHeader}
+        center={CenterHeader}
+        right={RightHeader}
         shadow={false}
         style={container}
       />
     );
   }
 
-  renderTipSection() {
-    const { body } = this.props;
+  renderBody() {
+    const { Body } = this.props;
+    const { bodyStyle } = styles;
 
-    if (!body) {
-      return (
-        <View
-          style={{
-            flex: 1,
-            marginVertical: 26,
-            paddingHorizontal: 32,
-            paddingBottom: 14,
-          }}
-        />
-      );
+    if (!Body) {
+      return <View style={bodyStyle} />;
     }
 
-    return body;
+    return <View style={bodyStyle}>{Body}</View>;
   }
 
   renderBottomButton = () => {
@@ -64,7 +56,7 @@ export default class StepDetailScreen extends Component {
         {this.renderHeader()}
         <Text style={stepTitleText}>{text}</Text>
         <ReminderButton />
-        {this.renderTipSection()}
+        {this.renderBody()}
         {this.renderBottomButton()}
       </View>
     );
@@ -73,8 +65,8 @@ export default class StepDetailScreen extends Component {
 
 StepDetailScreen.propTypes = {
   text: PropTypes.string.isRequired,
-  centerHeader: PropTypes.object,
-  rightHeader: PropTypes.object,
-  body: PropTypes.object,
+  CenterHeader: PropTypes.object,
+  RightHeader: PropTypes.object,
+  Body: PropTypes.object,
   bottomButtonProps: PropTypes.object,
 };

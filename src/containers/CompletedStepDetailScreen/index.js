@@ -13,9 +13,9 @@ class CompletedStepDetailScreen extends Component {
 
     return (
       <StepDetailScreen
-        centerHeader={<Text>{t('completedStep')}</Text>}
-        rightHeader={null}
-        body={null}
+        CenterHeader={<Text>{t('completedStep')}</Text>}
+        RightHeader={null}
+        Body={null}
         text={step.title}
         bottomButtonProps={null}
       />

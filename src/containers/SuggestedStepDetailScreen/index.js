@@ -9,7 +9,7 @@ import { addSteps } from '../../actions/steps';
 import { navigateBack } from '../../actions/navigation';
 import StepDetailScreen from '../StepDetailScreen';
 
-import styles, { markdownStyles } from './styles';
+import { markdownStyles } from './styles';
 
 @translate('stepDetail')
 class SuggestedStepSetailScreen extends Component {
@@ -24,17 +24,16 @@ class SuggestedStepSetailScreen extends Component {
   render() {
     const {
       t,
-      step: { body, tipDescription },
+      step: { body, description_markdown },
     } = this.props;
-    const { tipContainer } = styles;
 
     return (
       <StepDetailScreen
-        centerHeader={null}
-        rightHeader={null}
-        body={
-          <ScrollView style={tipContainer}>
-            <Markdown styles={markdownStyles}>{tipDescription}</Markdown>
+        CenterHeader={null}
+        RightHeader={null}
+        Body={
+          <ScrollView>
+            <Markdown styles={markdownStyles}>{description_markdown}</Markdown>
           </ScrollView>
         }
         text={body}
@@ -50,7 +49,7 @@ class SuggestedStepSetailScreen extends Component {
 SuggestedStepSetailScreen.propTypes = {
   step: PropTypes.object.isRequired,
   receiverId: PropTypes.string.isRequired,
-  orgId: PropTypes.string.isRequired,
+  orgId: PropTypes.string,
 };
 
 const mapStateToProps = (

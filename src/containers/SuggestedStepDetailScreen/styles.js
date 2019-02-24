@@ -1,14 +1,4 @@
-import { StyleSheet } from 'react-native';
-
 import theme from '../../theme';
-
-export default StyleSheet.create({
-  tipContainer: {
-    marginVertical: 26,
-    paddingHorizontal: 32,
-    paddingBottom: 14,
-  },
-});
 
 export const markdownStyles = {
   heading1: {
