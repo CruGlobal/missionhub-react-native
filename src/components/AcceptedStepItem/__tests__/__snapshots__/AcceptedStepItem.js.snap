@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StepSuggestionScreen renders correctly 1`] = `
+exports[`StepSuggestionItem renders correctly 1`] = `
 <Card
   onPress={[Function]}
   style={

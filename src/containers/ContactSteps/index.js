@@ -5,17 +5,10 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush, navigateBack } from '../../actions/navigation';
-import { removeSwipeStepsContact } from '../../actions/swipe';
-import {
-  getContactSteps,
-  completeStep,
-  deleteStepWithTracking,
-} from '../../actions/steps';
-import { reloadJourney } from '../../actions/journey';
-import { Flex, Button } from '../../components/common';
+import { getContactSteps } from '../../actions/steps';
+import { Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import AcceptedStepItem from '../../components/AcceptedStepItem';
-import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
 import {
   buildTrackingObj,
@@ -25,15 +18,15 @@ import {
 import { promptToAssign } from '../../utils/promptToAssign';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
-import { STEP_DETAIL_SCREEN } from '../StepDetailScreen';
-import { contactAssignmentSelector } from '../../selectors/people';
+import {
+  contactAssignmentSelector,
+  personSelector,
+} from '../../selectors/people';
 import {
   assignContactAndPickStage,
   navigateToStageScreen,
 } from '../../actions/misc';
 import NullStateComponent from '../../components/NullStateComponent';
-import { personSelector } from '../../selectors/people';
-import { CONTACT_STEPS } from '../../constants';
 
 import styles from './styles';
 

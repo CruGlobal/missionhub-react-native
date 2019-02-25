@@ -11,8 +11,5 @@ Array [
   Object {
     "type": "pop once",
   },
-  Object {
-    "type": "pop once",
-  },
 ]
 `;

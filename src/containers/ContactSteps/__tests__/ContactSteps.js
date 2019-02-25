@@ -14,20 +14,12 @@ import {
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { SELECT_MY_STEP_SCREEN } from '../../SelectMyStepScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../PersonSelectStepScreen';
-import { STEP_DETAIL_SCREEN } from '../../StepDetailScreen';
 import { buildTrackingObj } from '../../../utils/common';
-import {
-  getContactSteps,
-  completeStep,
-  deleteStepWithTracking,
-} from '../../../actions/steps';
+import { getContactSteps } from '../../../actions/steps';
 import { contactAssignmentSelector } from '../../../selectors/people';
-import { CONTACT_STEPS } from '../../../constants';
 import { assignContactAndPickStage } from '../../../actions/misc';
 import { promptToAssign } from '../../../utils/promptToAssign';
 import { navigateToStageScreen } from '../../../actions/misc';
-import { removeSwipeStepsContact } from '../../../actions/swipe';
-import { reloadJourney } from '../../../actions/journey';
 
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/navigation');
@@ -139,9 +131,7 @@ describe('handleComplete', () => {
   it('triggers complete step flow', async () => {
     createComponent(false, mockPerson);
     await component.handleComplete(steps[0]);
-    expect(completeStep).toHaveBeenCalledWith(steps[0], CONTACT_STEPS);
     expect(getContactSteps).toHaveBeenCalled();
-    expect(reloadJourney).toHaveBeenCalled();
   });
 });
 

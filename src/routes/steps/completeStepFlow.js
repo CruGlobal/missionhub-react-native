@@ -118,7 +118,6 @@ export const CompleteStepFlowScreens = {
 
       const popAction = StackActions.pop({ immediate: true });
       dispatch(popAction);
-      dispatch(popAction);
     },
   ),
 };

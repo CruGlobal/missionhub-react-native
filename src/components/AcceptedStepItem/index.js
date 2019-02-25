@@ -9,12 +9,11 @@ import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
 import { Text, Card, Button } from '../common';
 import { completeStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
-import { reloadJourney } from '../../actions/journey';
 import { STEP_DETAIL_SCREEN } from '../../containers/StepDetailScreen';
 import { CONTACT_STEPS } from '../../constants';
+import Icon from '../Icon/index';
 
 import styles from './styles';
-import Icon from '../Icon/index';
 
 @translate('contactSteps')
 class AcceptedStepItem extends Component {
@@ -25,11 +24,8 @@ class AcceptedStepItem extends Component {
 
   handleCompleteStep = async () => {
     const { dispatch, step, onComplete } = this.props;
-    const { receiver, organization = {} } = step;
 
     await dispatch(completeStep(step, CONTACT_STEPS));
-    dispatch(reloadJourney(receiver.id, organization.id));
-
     onComplete && onComplete();
   };
 
@@ -84,8 +80,6 @@ AcceptedStepItem.propTypes = {
   step: PropTypes.shape({
     title: PropTypes.string.isRequired,
     completed_at: PropTypes.string,
-    receiver: PropTypes.object.isRequired,
-    organization: PropTypes.object,
   }).isRequired,
   onComplete: PropTypes.func,
 };
