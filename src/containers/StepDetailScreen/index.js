@@ -44,7 +44,7 @@ export default class StepDetailScreen extends Component {
       return null;
     }
 
-    return bottomButtonProps && <BottomButton {...bottomButtonProps} />;
+    return <BottomButton {...bottomButtonProps} />;
   };
 
   render() {
