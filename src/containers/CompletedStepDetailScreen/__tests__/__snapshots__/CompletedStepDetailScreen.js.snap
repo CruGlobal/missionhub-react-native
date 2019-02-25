@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<StepDetailScreen
+  Body={null}
+  CenterHeader={
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Completed Step
+    </MyText>
+  }
+  RightHeader={null}
+  bottomButtonProps={null}
+  text="SCOTTY"
+/>
+`;

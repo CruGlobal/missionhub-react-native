@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`with description renders correctly 1`] = `
+<StepDetailScreen
+  Body={
+    <ScrollView>
+      <Markdown
+        blacklist={Array []}
+        rules={Object {}}
+        styles={
+          Object {
+            "heading1": Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+            },
+            "listItemBullet": Object {
+              "alignSelf": "flex-start",
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "lineHeight": 26,
+              "paddingRight": 16,
+            },
+            "strong": Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "lineHeight": 26,
+            },
+            "text": Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "lineHeight": 26,
+            },
+          }
+        }
+        whitelist={Array []}
+      >
+        some markdown
+      </Markdown>
+    </ScrollView>
+  }
+  CenterHeader={null}
+  RightHeader={null}
+  bottomButtonProps={
+    Object {
+      "onPress": [Function],
+      "text": "Add to My Steps",
+    }
+  }
+  text="do this step"
+/>
+`;
+
+exports[`without description renders correctly 1`] = `
+<StepDetailScreen
+  CenterHeader={null}
+  RightHeader={null}
+  bottomButtonProps={
+    Object {
+      "onPress": [Function],
+      "text": "Add to My Steps",
+    }
+  }
+  text="do this step"
+/>
+`;
