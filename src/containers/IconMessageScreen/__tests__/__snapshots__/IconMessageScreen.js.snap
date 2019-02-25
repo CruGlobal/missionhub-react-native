@@ -523,16 +523,13 @@ exports[`renders skip button correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <View
+  <RCTSafeAreaView
     style={
-      Array [
-        Object {
-          "position": "absolute",
-          "right": 10,
-          "top": 25,
-        },
-        Object {},
-      ]
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 0,
+      }
     }
   >
     <View
@@ -597,6 +594,6 @@ exports[`renders skip button correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </View>
 `;

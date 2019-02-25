@@ -1086,21 +1086,19 @@ exports[`renders correctly for Create Community 1`] = `
       </View>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
         },
       ]
     }
@@ -1170,7 +1168,7 @@ exports[`renders correctly for Create Community 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -1785,21 +1783,19 @@ exports[`renders correctly with logo 1`] = `
       </View>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
         },
       ]
     }
@@ -1869,6 +1865,6 @@ exports[`renders correctly with logo 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;

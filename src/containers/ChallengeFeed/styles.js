@@ -4,11 +4,10 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   list: {
-    paddingBottom: 10 + theme.bottomNotchHeight,
+    paddingBottom: 10,
   },
   header: {
     alignContent: 'center',
-    // paddingVertical: 10,
     backgroundColor: theme.lightGrey,
   },
   title: {

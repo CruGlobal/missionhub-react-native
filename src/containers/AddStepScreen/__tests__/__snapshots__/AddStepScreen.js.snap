@@ -165,21 +165,19 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
         },
       ]
     }
@@ -249,7 +247,7 @@ exports[`renders correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -419,21 +417,19 @@ exports[`renders edit journey correctly 1`] = `
       </View>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
         },
       ]
     }
@@ -503,7 +499,7 @@ exports[`renders edit journey correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -673,21 +669,19 @@ exports[`renders interaction with skip correctly 1`] = `
       </View>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
         },
       ]
     }
@@ -757,17 +751,14 @@ exports[`renders interaction with skip correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
-  <View
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
     style={
-      Array [
-        Object {
-          "position": "absolute",
-          "right": 10,
-          "top": 25,
-        },
-        Object {},
-      ]
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 0,
+      }
     }
   >
     <View
@@ -832,7 +823,7 @@ exports[`renders interaction with skip correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -1002,21 +993,19 @@ exports[`renders interaction without skip correctly 1`] = `
       </View>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
         },
       ]
     }
@@ -1086,7 +1075,7 @@ exports[`renders interaction without skip correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -1256,21 +1245,19 @@ exports[`renders journey correctly 1`] = `
       </View>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
         },
       ]
     }
@@ -1340,7 +1327,7 @@ exports[`renders journey correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -1510,16 +1497,13 @@ exports[`renders step note correctly 1`] = `
       </View>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
-      Array [
-        Object {
-          "position": "absolute",
-          "right": 10,
-          "top": 25,
-        },
-        Object {},
-      ]
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 0,
+      }
     }
   >
     <View
@@ -1584,6 +1568,6 @@ exports[`renders step note correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;

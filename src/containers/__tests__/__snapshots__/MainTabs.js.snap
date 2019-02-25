@@ -55,21 +55,17 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
             }
           }
         >
-          <View
+          <RCTSafeAreaView
             style={
               Array [
-                Array [
-                  Object {
-                    "backgroundColor": "#007398",
-                    "height": 65,
-                    "paddingTop": 20,
-                  },
-                  undefined,
-                  null,
-                ],
                 Object {
+                  "backgroundColor": "#007398",
                   "flexDirection": "row",
+                  "height": 65,
+                  "paddingTop": 20,
                 },
+                undefined,
+                null,
               ]
             }
           >
@@ -77,7 +73,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
               style={
                 Array [
                   Object {
-                    "marginTop": 0,
                     "paddingLeft": 5,
                   },
                   Object {
@@ -157,9 +152,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
             <View
               style={
                 Array [
-                  Object {
-                    "marginTop": 0,
-                  },
+                  Object {},
                   Object {
                     "alignItems": "center",
                     "flex": 4,
@@ -196,7 +189,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
               style={
                 Array [
                   Object {
-                    "marginTop": 0,
                     "paddingRight": 5,
                   },
                   Object {
@@ -207,7 +199,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                 ]
               }
             />
-          </View>
+          </RCTSafeAreaView>
           <View
             style={
               Array [
@@ -839,22 +831,18 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
             }
           }
         >
-          <View
+          <RCTSafeAreaView
             style={
               Array [
-                Array [
-                  Object {
-                    "backgroundColor": "#007398",
-                    "height": 65,
-                    "paddingTop": 20,
-                  },
-                  undefined,
-                  Object {
-                    "elevation": 4,
-                  },
-                ],
                 Object {
+                  "backgroundColor": "#007398",
                   "flexDirection": "row",
+                  "height": 65,
+                  "paddingTop": 20,
+                },
+                undefined,
+                Object {
+                  "elevation": 4,
                 },
               ]
             }
@@ -863,7 +851,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
               style={
                 Array [
                   Object {
-                    "marginTop": 0,
                     "paddingLeft": 5,
                   },
                   Object {
@@ -943,9 +930,7 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
             <View
               style={
                 Array [
-                  Object {
-                    "marginTop": 0,
-                  },
+                  Object {},
                   Object {
                     "alignItems": "center",
                     "flex": 4,
@@ -982,7 +967,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
               style={
                 Array [
                   Object {
-                    "marginTop": 0,
                     "paddingRight": 5,
                   },
                   Object {
@@ -993,7 +977,7 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
                 ]
               }
             />
-          </View>
+          </RCTSafeAreaView>
           <View
             style={
               Array [

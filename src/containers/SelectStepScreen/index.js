@@ -168,12 +168,7 @@ class SelectStepScreen extends Component {
     const { t } = this.props;
 
     return (
-      <Flex
-        value={1}
-        align="center"
-        justify="center"
-        style={styles.headerTitleWrap}
-      >
+      <Flex value={1} align="center" justify="center">
         <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
         <Text type="header" style={styles.headerTitle}>
           {t('stepsOfFaith')}
@@ -218,7 +213,7 @@ class SelectStepScreen extends Component {
           backgroundColor={theme.primaryColor}
           parallaxHeaderHeight={215}
           renderForeground={this.renderForeground}
-          stickyHeaderHeight={theme.headerHeight + theme.topNotchHeight}
+          stickyHeaderHeight={theme.headerHeight}
           renderStickyHeader={this.renderStickyHeader}
         >
           <StepsList

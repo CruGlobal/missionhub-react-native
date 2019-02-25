@@ -5,23 +5,20 @@ import { isAndroid } from '../../utils/common';
 
 export default StyleSheet.create({
   header: {
-    height: theme.headerHeight + theme.topNotchHeight,
+    flexDirection: 'row',
+    height: theme.headerHeight,
     backgroundColor: theme.primaryColor,
     paddingTop: isAndroid ? 0 : 20,
   },
   shadow: {
     elevation: 4,
   },
-  center: {
-    marginTop: theme.topNotchHeight,
-  },
+  center: {},
   left: {
     paddingLeft: 5,
-    marginTop: theme.topNotchHeight,
   },
   right: {
     paddingRight: 5,
-    marginTop: theme.topNotchHeight,
   },
   title: {
     color: 'white',

@@ -36,21 +36,19 @@ exports[`renders correctly 1`] = `
       ]
     }
   />
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
         },
       ]
     }
@@ -120,7 +118,7 @@ exports[`renders correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
   <Text
     accessible={true}
     allowFontScaling={true}

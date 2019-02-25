@@ -23,9 +23,6 @@ export default StyleSheet.create({
     fontSize: 14,
     color: theme.white,
   },
-  headerTitleWrap: {
-    marginTop: theme.topNotchHeight,
-  },
   headerText: {
     fontSize: 16,
     color: theme.white,

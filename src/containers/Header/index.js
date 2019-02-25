@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -69,14 +70,13 @@ class Header extends Component {
   render() {
     const { shadow, style } = this.props;
     return (
-      <Flex
-        direction="row"
+      <SafeAreaView
         style={[styles.header, style, shadow ? styles.shadow : null]}
       >
         {this.renderLeft()}
         {this.renderCenter()}
         {this.renderRight()}
-      </Flex>
+      </SafeAreaView>
     );
   }
 }

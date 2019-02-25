@@ -1410,21 +1410,17 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          Object {
-            "backgroundColor": "#007398",
-            "height": 65,
-            "paddingTop": 20,
-          },
-          undefined,
-          null,
-        ],
         Object {
+          "backgroundColor": "#007398",
           "flexDirection": "row",
+          "height": 65,
+          "paddingTop": 20,
         },
+        undefined,
+        null,
       ]
     }
   >
@@ -1432,7 +1428,6 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
-            "marginTop": 0,
             "paddingLeft": 5,
           },
           Object {
@@ -1446,15 +1441,13 @@ exports[`renders correctly 1`] = `
       <View
         style={
           Array [
-            Array [
-              null,
-              null,
-            ],
             Object {
               "alignItems": "flex-start",
               "alignSelf": "flex-start",
               "justifyContent": "center",
             },
+            undefined,
+            null,
           ]
         }
       >
@@ -1529,7 +1522,6 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
-            "marginTop": 0,
             "paddingRight": 5,
           },
           Object {
@@ -1540,7 +1532,7 @@ exports[`renders correctly 1`] = `
         ]
       }
     />
-  </View>
+  </RCTSafeAreaView>
   <RCTSafeAreaView
     style={
       Object {
@@ -1917,21 +1909,17 @@ exports[`renders correctly for forced logout 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          Object {
-            "backgroundColor": "#007398",
-            "height": 65,
-            "paddingTop": 20,
-          },
-          undefined,
-          null,
-        ],
         Object {
+          "backgroundColor": "#007398",
           "flexDirection": "row",
+          "height": 65,
+          "paddingTop": 20,
         },
+        undefined,
+        null,
       ]
     }
   >
@@ -1939,7 +1927,6 @@ exports[`renders correctly for forced logout 1`] = `
       style={
         Array [
           Object {
-            "marginTop": 0,
             "paddingLeft": 5,
           },
           Object {
@@ -1954,7 +1941,6 @@ exports[`renders correctly for forced logout 1`] = `
       style={
         Array [
           Object {
-            "marginTop": 0,
             "paddingRight": 5,
           },
           Object {
@@ -1965,7 +1951,7 @@ exports[`renders correctly for forced logout 1`] = `
         ]
       }
     />
-  </View>
+  </RCTSafeAreaView>
   <RCTSafeAreaView
     style={
       Object {
