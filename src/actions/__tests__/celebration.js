@@ -3,10 +3,7 @@ import thunk from 'redux-thunk';
 
 import { getGroupCelebrateFeed, toggleLike } from '../celebration';
 import callApi, { REQUESTS } from '../api';
-import {
-  DEFAULT_PAGE_LIMIT,
-  RESET_CELEBRATION_PAGINATION,
-} from '../../constants';
+import { DEFAULT_PAGE_LIMIT } from '../../constants';
 
 jest.mock('../api');
 
