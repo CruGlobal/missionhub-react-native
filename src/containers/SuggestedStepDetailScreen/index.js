@@ -32,9 +32,13 @@ class SuggestedStepSetailScreen extends Component {
         CenterHeader={null}
         RightHeader={null}
         Body={
-          <ScrollView>
-            <Markdown styles={markdownStyles}>{description_markdown}</Markdown>
-          </ScrollView>
+          description_markdown && (
+            <ScrollView>
+              <Markdown styles={markdownStyles}>
+                {description_markdown}
+              </Markdown>
+            </ScrollView>
+          )
         }
         text={body}
         bottomButtonProps={{
