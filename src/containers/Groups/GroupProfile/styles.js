@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../../theme';
-import { hasNotch } from '../../../utils/common';
 
 export default StyleSheet.create({
   flex: {
@@ -18,7 +17,7 @@ export default StyleSheet.create({
     paddingBottom: 10,
     paddingRight: 20,
     paddingLeft: 15,
-    top: hasNotch() ? 17 : 0,
+    top: 0,
     left: 0,
     right: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.05)',

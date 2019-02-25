@@ -111,6 +111,7 @@ describe('SurveyContacts', () => {
     const screen = renderShallow(component, store);
     const listItem = screen
       .childAt(1)
+      .childAt(0)
       .props()
       .listProps.renderItem({ item: person });
 

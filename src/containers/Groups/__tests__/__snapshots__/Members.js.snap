@@ -49,8 +49,12 @@ exports[`Members renderHeader match snapshot 1`] = `
 `;
 
 exports[`Members should render correctly 1`] = `
-<Flex
-  value={1}
+<SafeAreaView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
 >
   <FlatList
     ListFooterComponent={
@@ -120,5 +124,5 @@ exports[`Members should render correctly 1`] = `
       type="secondary"
     />
   </Flex>
-</Flex>
+</SafeAreaView>
 `;

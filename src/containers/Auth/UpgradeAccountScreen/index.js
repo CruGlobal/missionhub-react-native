@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image } from 'react-native';
+import { SafeAreaView, Image } from 'react-native';
 import { translate } from 'react-i18next';
 import i18Next from 'i18next';
 import PropTypes from 'prop-types';
@@ -21,7 +21,6 @@ import PEOPLE from '../../../../assets/images/MemberContacts_light.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { onSuccessfulLogin } from '../../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
-import Header from '../../Header';
 import BackButton from '../../BackButton';
 import TosPrivacy from '../../../components/TosPrivacy';
 
@@ -105,8 +104,7 @@ class UpgradeAccountScreen extends Component {
     const headerContent = headerContentOptions[signupType];
 
     return (
-      <Flex style={styles.container}>
-        <Header left={<BackButton />} />
+      <SafeAreaView style={styles.container}>
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
             {headerContent
@@ -174,7 +172,8 @@ class UpgradeAccountScreen extends Component {
           </Flex>
         </Flex>
         {isLoading ? <LoadingWheel /> : null}
-      </Flex>
+        <BackButton absolute={true} />
+      </SafeAreaView>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image } from 'react-native';
+import { SafeAreaView, Image } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { Button, Flex, Text } from '../../components/common';
@@ -32,7 +32,7 @@ class LandingScreen extends Component {
     const { t } = this.props;
 
     return (
-      <Flex style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Flex align="center" justify="end" style={styles.imageWrap}>
           <Image source={LOGO} />
         </Flex>
@@ -78,7 +78,7 @@ class LandingScreen extends Component {
             />
           </Flex>
         </Flex>
-      </Flex>
+      </SafeAreaView>
     );
   }
 }

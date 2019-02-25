@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render correctly 1`] = `
-<Component
+<SafeAreaView
   style={
     Object {
       "flex": 1,
@@ -84,11 +84,11 @@ exports[`should render correctly 1`] = `
       type="secondary"
     />
   </Flex>
-</Component>
+</SafeAreaView>
 `;
 
 exports[`should render empty correctly 1`] = `
-<Component
+<SafeAreaView
   style={
     Object {
       "flex": 1,
@@ -151,5 +151,5 @@ exports[`should render empty correctly 1`] = `
       type="secondary"
     />
   </Flex>
-</Component>
+</SafeAreaView>
 `;

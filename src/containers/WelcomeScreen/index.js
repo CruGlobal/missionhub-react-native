@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { SafeAreaView } from 'react-native';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
@@ -39,44 +40,48 @@ class WelcomeScreen extends Component {
     const { t, allowSignIn } = this.props;
 
     return (
-      <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Flex value={3} align="start" justify="center">
-          <Text type="header" style={styles.headerText}>
-            {t('welcome')}
-          </Text>
-          <Text style={styles.descriptionText}>{t('welcomeDescription')}</Text>
-        </Flex>
+      <SafeAreaView style={styles.container}>
+        <Flex align="center" justify="center" value={1} style={styles.content}>
+          <Flex value={3} align="start" justify="center">
+            <Text type="header" style={styles.headerText}>
+              {t('welcome')}
+            </Text>
+            <Text style={styles.descriptionText}>
+              {t('welcomeDescription')}
+            </Text>
+          </Flex>
 
-        {allowSignIn ? (
-          <Flex value={1} align="center" justify="start">
-            <Button
-              name={'signIn'}
-              pill={true}
-              onPress={this.signIn}
-              style={styles.filledButton}
-              buttonTextStyle={styles.buttonText}
-              text={t('signIn').toUpperCase()}
-            />
-            <Button
-              name={'tryItNow'}
-              pill={true}
-              onPress={this.navigateToNext}
-              style={styles.clearButton}
-              buttonTextStyle={styles.buttonText}
-              text={t('tryItNow').toUpperCase()}
-            />
-          </Flex>
-        ) : (
-          <Flex value={1} align="stretch" justify="end">
-            <Button
-              type="secondary"
-              onPress={this.navigateToNext}
-              text={t('getStarted').toUpperCase()}
-              style={{ width: theme.fullWidth }}
-            />
-          </Flex>
-        )}
-      </Flex>
+          {allowSignIn ? (
+            <Flex value={1} align="center" justify="start">
+              <Button
+                name={'signIn'}
+                pill={true}
+                onPress={this.signIn}
+                style={styles.filledButton}
+                buttonTextStyle={styles.buttonText}
+                text={t('signIn').toUpperCase()}
+              />
+              <Button
+                name={'tryItNow'}
+                pill={true}
+                onPress={this.navigateToNext}
+                style={styles.clearButton}
+                buttonTextStyle={styles.buttonText}
+                text={t('tryItNow').toUpperCase()}
+              />
+            </Flex>
+          ) : (
+            <Flex value={1} align="stretch" justify="end">
+              <Button
+                type="secondary"
+                onPress={this.navigateToNext}
+                text={t('getStarted').toUpperCase()}
+                style={{ width: theme.fullWidth }}
+              />
+            </Flex>
+          )}
+        </Flex>
+      </SafeAreaView>
     );
   }
 }
