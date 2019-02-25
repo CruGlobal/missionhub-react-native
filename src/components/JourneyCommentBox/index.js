@@ -8,10 +8,7 @@ import { INTERACTION_TYPES } from '../../constants';
 class JourneyCommentBox extends Component {
   submitInteraction = async (action, text) => {
     const { person, organization, dispatch, onSubmit } = this.props;
-
-    const interaction = action
-      ? action
-      : INTERACTION_TYPES.MHInteractionTypeNote;
+    const interaction = action || INTERACTION_TYPES.MHInteractionTypeNote;
 
     await dispatch(
       addNewInteraction(
