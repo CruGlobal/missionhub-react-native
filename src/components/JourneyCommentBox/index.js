@@ -5,8 +5,7 @@ import CommentBox from '../CommentBox';
 import { addNewInteraction } from '../../actions/interactions';
 import { INTERACTION_TYPES } from '../../constants';
 
-//todo rename to JourneyCommentBox?
-class InteractionCommentBox extends Component {
+class JourneyCommentBox extends Component {
   submitInteraction = async (action, text) => {
     const { person, organization, dispatch, onSubmit } = this.props;
 
@@ -39,4 +38,4 @@ class InteractionCommentBox extends Component {
   }
 }
 
-export default connect()(InteractionCommentBox);
+export default connect()(JourneyCommentBox);

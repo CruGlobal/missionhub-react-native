@@ -24,7 +24,7 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
   <Flex
     justify="end"
   >
-    <Connect(InteractionCommentBox)
+    <Connect(JourneyCommentBox)
       hideActions={true}
       person={
         Object {
@@ -74,7 +74,7 @@ exports[`ContactJourney renders null screen correctly 1`] = `
   <Flex
     justify="end"
   >
-    <Connect(InteractionCommentBox)
+    <Connect(JourneyCommentBox)
       hideActions={true}
       person={
         Object {
@@ -147,7 +147,7 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
   <Flex
     justify="end"
   >
-    <Connect(InteractionCommentBox)
+    <Connect(JourneyCommentBox)
       hideActions={true}
       person={
         Object {
@@ -220,7 +220,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
   <Flex
     justify="end"
   >
-    <Connect(InteractionCommentBox)
+    <Connect(JourneyCommentBox)
       hideActions={true}
       person={
         Object {

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { getGroupJourney } from '../../../actions/journey';
 import GroupsContactList from '../../../components/GroupsContactList/index';
-import InteractionCommentBox from '../../../components/InteractionCommentBox';
+import JourneyCommentBox from '../../../components/JourneyCommentBox';
 import Header from '../../Header/index';
 import BackButton from '../../BackButton/index';
 import { organizationSelector } from '../../../selectors/organizations';
@@ -44,7 +44,7 @@ class UnassignedPersonScreen extends Component {
           myId={me.id}
           onAssign={onAssign}
         />
-        <InteractionCommentBox
+        <JourneyCommentBox
           onSubmit={this.loadFeed}
           person={person}
           organization={organization}

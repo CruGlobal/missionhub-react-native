@@ -6,7 +6,7 @@ import { renderShallow } from '../../../../testUtils';
 import { addNewInteraction } from '../../../actions/interactions';
 import { INTERACTION_TYPES } from '../../../constants';
 
-import InteractionCommentBox from '..';
+import JourneyCommentBox from '..';
 
 jest.mock('../../../actions/interactions');
 
@@ -26,7 +26,7 @@ beforeEach(() => {
   store = mockStore();
 
   screen = renderShallow(
-    <InteractionCommentBox
+    <JourneyCommentBox
       hideActions={true}
       person={person}
       organization={organization}
