@@ -17,6 +17,10 @@ const event = { id: '80890', organization: { id: '645654' } };
 const comment = { pagination: { page: 2, hasNextPage: true } };
 const callApiResponse = { result: 'hello world' };
 const celebrateComments = { someProp: 'asdfasdfasdf' };
+const baseQuery = {
+  orgId: event.organization.id,
+  eventId: event.id,
+};
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -45,8 +49,7 @@ describe('getCelebrateCommentsNextPage', () => {
 
   it('should callApi with next page', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CELEBRATE_COMMENTS, {
-      orgId: event.organization.id,
-      eventId: event.id,
+      ...baseQuery,
       page: {
         limit: DEFAULT_PAGE_LIMIT,
         offset: DEFAULT_PAGE_LIMIT * comment.pagination.page,
@@ -65,10 +68,10 @@ describe('reloadCelebrateComments', () => {
   beforeEach(() => (response = store.dispatch(reloadCelebrateComments(event))));
 
   it('should callApi with no page', () => {
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CELEBRATE_COMMENTS, {
-      orgId: event.organization.id,
-      eventId: event.id,
-    });
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_CELEBRATE_COMMENTS,
+      baseQuery,
+    );
   });
 
   it('should return api response', () => {
@@ -86,10 +89,7 @@ describe('createCelebrateComment', () => {
   it('should callApi with no page', () => {
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.CREATE_CELEBRATE_COMMENT,
-      {
-        orgId: event.organization.id,
-        eventId: event.id,
-      },
+      baseQuery,
       { data: { attributes: { content } } },
     );
   });
