@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 
 import { renderShallow } from '../../../../testUtils';
 import { addNewInteraction } from '../../../actions/interactions';
+import { INTERACTION_TYPES } from '../../../constants';
 
 import InteractionCommentBox from '..';
 
@@ -11,10 +12,10 @@ jest.mock('../../../actions/interactions');
 
 const mockStore = configureStore([thunk]);
 const addNewInteractionResult = { type: 'created interaction' };
+const person = { id: '4243242' };
 
 let screen;
 let store;
-let hideActions;
 
 addNewInteraction.mockReturnValue(addNewInteractionResult);
 
@@ -24,27 +25,27 @@ beforeEach(() => {
   store = mockStore();
 
   screen = renderShallow(
-    <InteractionCommentBox hideActions={hideActions} />,
+    <InteractionCommentBox hideActions={true} person={person} />,
     store,
   );
 });
 
-describe('hide actions', () => {
-  beforeAll(() => {
-    hideActions = true;
-  });
-
-  it('renders correctly', () => {
-    expect(screen).toMatchSnapshot();
-  });
+it('renders correctly', () => {
+  expect(screen).toMatchSnapshot();
 });
 
-describe('show actions', () => {
-  beforeAll(() => {
-    hideActions = false;
-  });
+describe('onSubmit', () => {
+  it('creates interaction', () => {
+    const text = 'matt watts loves the spurs';
 
-  it('renders correctly', () => {
-    expect(screen).toMatchSnapshot();
+    screen.props().onSubmit(null, text);
+
+    expect(addNewInteraction).toHaveBeenCalledWith(
+      person.id,
+      INTERACTION_TYPES.MHInteractionTypeNote,
+      text,
+      undefined,
+    );
+    expect(store.getActions()).toEqual([addNewInteractionResult]);
   });
 });
