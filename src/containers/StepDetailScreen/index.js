@@ -30,10 +30,6 @@ export default class StepDetailScreen extends Component {
     const { Body } = this.props;
     const { bodyStyle } = styles;
 
-    if (!Body) {
-      return <View style={bodyStyle} />;
-    }
-
     return <View style={bodyStyle}>{Body}</View>;
   }
 

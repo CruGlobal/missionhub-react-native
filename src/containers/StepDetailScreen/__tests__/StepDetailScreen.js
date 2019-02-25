@@ -8,7 +8,7 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe('body is null', () => {
+describe('bottomButtonProps are not null', () => {
   it('renders correctly', () => {
     testSnapshotShallow(
       <StepDetailScreen
