@@ -25,9 +25,8 @@ function addCommentsToState(state, action) {
     query: { eventId, page },
   } = action;
 
-  const event = state.all[eventId] || {};
-  const existingComments = event.comments || []; //todo add a test
-  const comments = page ? [...existingComments, ...response] : response;
+  const event = state.all[eventId];
+  const comments = page ? [...event.comments, ...response] : response;
 
   return {
     ...state,
