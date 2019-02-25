@@ -117,44 +117,44 @@ export class ImpactView extends Component {
       isUserCreatedOrg,
       isGlobalCommunity,
     } = this.props;
-    let initiator = paramGlobal
+    const init = paramGlobal
       ? '$t(users)'
       : isMe || isGlobalCommunity
         ? '$t(you)'
         : person.id
           ? person.first_name
-          : '$t(togetherWe)';
-    const context = count =>
-      count === 0 ? (paramGlobal ? 'emptyGlobal' : 'empty') : '';
+          : steps_count === 0
+            ? '$t(we)'
+            : '$t(togetherWe)';
+    const context = c =>
+      c === 0 ? (paramGlobal ? 'emptyGlobal' : 'empty') : '';
     const isSpecificContact =
       !paramGlobal && !isMe && !isGlobalCommunity && person.id;
     const hideStageSentence =
       !paramGlobal && isUserCreatedOrg && pathway_moved_count === 0;
-
     const year = new Date().getFullYear();
-
-    if (steps_count === 0 && initiator === '$t(togetherWe)') {
-      initiator = '$t(we)';
-    }
 
     const stepsSentenceOptions = {
       context: context(steps_count),
       numInitiators: paramGlobal ? `${step_owners_count} ` : '',
-      initiator: initiator,
+      initiator: init,
       initiatorSuffix: !isSpecificContact ? t('haveSuffix') : t('hasSuffix'),
       stepsCount: steps_count,
       receiversCount: receivers_count,
-      scope: isSpecificContact ? t('inTheirLife') : t('inYear', { year }),
+      beginningScope:
+        init === '$t(togetherWe)' ? '' : `${t('inYear', { year })}, `,
+      endingScope: isSpecificContact
+        ? t('inTheirLife')
+        : init !== '$t(togetherWe)'
+          ? ''
+          : ` ${t('inYear', { year })}`,
     };
-
     const stageSentenceOptions = {
       context: context(pathway_moved_count),
       initiator:
-        initiator === '$t(users)' ||
-        initiator === '$t(we)' ||
-        initiator === '$t(togetherWe)'
+        init === '$t(users)' || init === '$t(we)' || init === '$t(togetherWe)'
           ? '$t(allOfUs)'
-          : initiator,
+          : init,
       pathwayMovedCount: pathway_moved_count,
     };
 
