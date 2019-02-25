@@ -42,9 +42,13 @@ function addCommentsToState(state, action) {
 }
 
 function addCreatedCommentToState(state, action) {
-  const response = action.results.response;
-  const eventId = action.query.eventId; //todo clean this up a bit, combine with function above
+  const {
+    results: { response },
+    query: { eventId },
+  } = action;
+
   const event = state.all[eventId];
+  const comments = [...event.comments, response];
 
   return {
     ...state,
@@ -52,7 +56,7 @@ function addCreatedCommentToState(state, action) {
       ...state.all,
       [eventId]: {
         ...event,
-        comments: [...event.comments, response],
+        comments,
       },
     },
   };
