@@ -252,4 +252,5 @@ export default class CommentBox extends Component {
 CommentBox.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   hideActions: PropTypes.bool,
+  placeholderTextKey: PropTypes.string.isRequired,
 };
