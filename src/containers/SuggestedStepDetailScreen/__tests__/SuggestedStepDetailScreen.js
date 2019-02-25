@@ -6,13 +6,23 @@ import { createMockNavState, renderShallow } from '../../../../testUtils';
 
 import SuggestedStepDetailScreen from '..';
 
+import { addSteps } from '../../../actions/steps';
+import { navigateBack } from '../../../actions/navigation';
+
+jest.mock('../../../actions/steps');
+jest.mock('../../../actions/navigation');
+
 let step = { body: 'do this step' };
 const receiverId = '423325';
 const orgId = '880124';
+const navigateBackResult = { type: 'navigated back' };
 let screen;
 
 const mockStore = configureStore([thunk]);
 let store;
+
+addSteps.mockReturnValue(() => Promise.resolve());
+navigateBack.mockReturnValue(navigateBackResult);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -34,6 +44,15 @@ describe('without description', () => {
 
   it('renders correctly', () => {
     expect(screen).toMatchSnapshot();
+  });
+
+  describe('bottomButtonProps', () => {
+    it('adds step', async () => {
+      await screen.props().bottomButtonProps.onPress();
+
+      expect(addSteps).toHaveBeenCalledWith([step], receiverId, { id: orgId });
+      expect(store.getActions()).toEqual([navigateBackResult]);
+    });
   });
 });
 
