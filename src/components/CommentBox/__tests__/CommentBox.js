@@ -8,7 +8,6 @@ import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import CommentBox from '..';
 
 import { addNewInteraction } from '../../../actions/interactions';
-import { INTERACTION_TYPES } from '../../../constants';
 
 jest.mock('../../../actions/interactions');
 
@@ -145,27 +144,6 @@ describe('click submit button', () => {
       .childAt(1)
       .props()
       .onPress();
-
-  //todo fix
-  xdescribe('with no interaction selected', () => {
-    it('should add a comment', async () => {
-      component = renderShallow(
-        <CommentBox person={person} organization={organization} />,
-        store,
-      );
-      setText(text);
-
-      await clickSubmit();
-
-      expect(addNewInteraction).toHaveBeenCalledWith(
-        person.id,
-        INTERACTION_TYPES.MHInteractionTypeNote,
-        text,
-        organization.id,
-      );
-      expect(store.getActions()).toEqual([addNewInteractionResult]);
-    });
-  });
 
   it('calls onSubmit prop', async () => {
     const onSubmit = jest.fn();
