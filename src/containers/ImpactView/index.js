@@ -108,55 +108,57 @@ export class ImpactView extends Component {
       step_owners_count = 0,
       pathway_moved_count = 0,
     },
-    global = false,
+    paramGlobal = false,
   ) {
     const {
       t,
       person = {},
-      organization = {},
       isMe,
       isUserCreatedOrg,
       isGlobalCommunity,
     } = this.props;
-    const initiator = global
+    const initiator = paramGlobal
       ? '$t(users)'
       : isMe || isGlobalCommunity
         ? '$t(you)'
         : person.id
           ? person.first_name
-          : '$t(we)';
-    const context = count =>
-      count === 0 ? (global ? 'emptyGlobal' : 'empty') : '';
+          : steps_count === 0
+            ? '$t(we)'
+            : '$t(togetherWe)';
+    const context = c =>
+      c === 0 ? (paramGlobal ? 'emptyGlobal' : 'empty') : '';
     const isSpecificContact =
-      !global && !isMe && !isGlobalCommunity && person.id;
+      !paramGlobal && !isMe && !isGlobalCommunity && person.id;
     const hideStageSentence =
-      !global && isUserCreatedOrg && pathway_moved_count === 0;
+      !paramGlobal && isUserCreatedOrg && pathway_moved_count === 0;
+    const year = new Date().getFullYear();
 
     const stepsSentenceOptions = {
       context: context(steps_count),
-      year: new Date().getFullYear(),
-      numInitiators: global ? step_owners_count : '',
+      numInitiators: paramGlobal ? `${step_owners_count} ` : '',
       initiator: initiator,
-      initiatorSuffix: !isSpecificContact ? '$t(haveSuffix)' : '$t(hasSuffix)',
+      initiatorSuffix: !isSpecificContact ? t('haveSuffix') : t('hasSuffix'),
       stepsCount: steps_count,
       receiversCount: receivers_count,
-      scope: isSpecificContact
-        ? '$t(inTheirLife)'
-        : !global && !person.id && organization.name
-          ? t('atOrgName', { orgName: organization.name })
-          : '',
+      beginningScope:
+        initiator === '$t(togetherWe)' ? '' : `${t('inYear', { year })}, `,
+      endingScope: isSpecificContact
+        ? t('inTheirLife')
+        : initiator !== '$t(togetherWe)'
+          ? ''
+          : ` ${t('inYear', { year })}`,
     };
-
     const stageSentenceOptions = {
       context: context(pathway_moved_count),
-      initiator:
-        initiator === '$t(users)' || initiator === '$t(we)'
-          ? '$t(allOfUs)'
-          : initiator,
+      initiator: ['$t(users)', '$t(we)', '$t(togetherWe)'].includes(initiator)
+        ? '$t(allOfUs)'
+        : initiator,
       pathwayMovedCount: pathway_moved_count,
     };
 
-    return `${t('stepsSentence', stepsSentenceOptions)}${
+    const stepsStr = t('stepsSentence', stepsSentenceOptions);
+    return `${stepsStr[0].toUpperCase() + stepsStr.slice(1)}${
       hideStageSentence ? '' : `\n\n${t('stageSentence', stageSentenceOptions)}`
     }`;
   }
