@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`body is null renders correctly 1`] = `
+exports[`bottomButtonProps are not null renders correctly 1`] = `
 <View
   flex={1}
   style={

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { Button } from '../../components/common';
 import { completeStep } from '../../actions/steps';
-import StepDetailScreen from '../StepDetailScreen';
+import StepDetailScreen from '../../components/StepDetailScreen';
 
 import styles from './styles';
 

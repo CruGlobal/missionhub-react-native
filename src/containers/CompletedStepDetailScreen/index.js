@@ -4,7 +4,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Text } from '../../components/common';
-import StepDetailScreen from '../StepDetailScreen';
+import StepDetailScreen from '../../components/StepDetailScreen';
 
 @translate('stepDetail')
 class CompletedStepDetailScreen extends Component {

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 import { addSteps } from '../../actions/steps';
 import { navigateBack } from '../../actions/navigation';
-import StepDetailScreen from '../StepDetailScreen';
+import StepDetailScreen from '../../components/StepDetailScreen';
 
 import { markdownStyles } from './styles';
 
