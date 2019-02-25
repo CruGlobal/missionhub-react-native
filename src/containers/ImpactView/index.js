@@ -117,7 +117,7 @@ export class ImpactView extends Component {
       isUserCreatedOrg,
       isGlobalCommunity,
     } = this.props;
-    const init = paramGlobal
+    const initiator = paramGlobal
       ? '$t(users)'
       : isMe || isGlobalCommunity
         ? '$t(you)'
@@ -137,24 +137,23 @@ export class ImpactView extends Component {
     const stepsSentenceOptions = {
       context: context(steps_count),
       numInitiators: paramGlobal ? `${step_owners_count} ` : '',
-      initiator: init,
+      initiator: initiator,
       initiatorSuffix: !isSpecificContact ? t('haveSuffix') : t('hasSuffix'),
       stepsCount: steps_count,
       receiversCount: receivers_count,
       beginningScope:
-        init === '$t(togetherWe)' ? '' : `${t('inYear', { year })}, `,
+        initiator === '$t(togetherWe)' ? '' : `${t('inYear', { year })}, `,
       endingScope: isSpecificContact
         ? t('inTheirLife')
-        : init !== '$t(togetherWe)'
+        : initiator !== '$t(togetherWe)'
           ? ''
           : ` ${t('inYear', { year })}`,
     };
     const stageSentenceOptions = {
       context: context(pathway_moved_count),
-      initiator:
-        init === '$t(users)' || init === '$t(we)' || init === '$t(togetherWe)'
-          ? '$t(allOfUs)'
-          : init,
+      initiator: ['$t(users)', '$t(we)', '$t(togetherWe)'].includes(initiator)
+        ? '$t(allOfUs)'
+        : initiator,
       pathwayMovedCount: pathway_moved_count,
     };
 
