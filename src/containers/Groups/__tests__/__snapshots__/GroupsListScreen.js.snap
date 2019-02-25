@@ -8,6 +8,9 @@ exports[`GroupsListScreen should render correctly 1`] = `
     }
   }
 >
+  <Component
+    screen="GroupsTab"
+  />
   <Connect(Header)
     left={
       <IconButton
@@ -169,6 +172,9 @@ exports[`should render null state 1`] = `
     }
   }
 >
+  <Component
+    screen="GroupsTab"
+  />
   <Connect(Header)
     left={
       <IconButton
