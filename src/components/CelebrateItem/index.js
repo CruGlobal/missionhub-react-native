@@ -28,27 +28,8 @@ import styles from './styles';
 
 @translate('celebrateFeeds')
 class CelebrateItem extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      localLiked: props.event.liked,
-      localLikesCount: props.event.likes_count,
-    };
-  }
-
   onPressLikeIcon = () => {
     const { event, onToggleLike, dispatch } = this.props;
-
-    // Keep track of local state for liked
-    const newLikedCount = !event.liked
-      ? (event.likes_count || 0) + 1
-      : (event.likes_count || 0) - 1;
-    this.setState({
-      localLiked: !event.liked,
-      localLikesCount: newLikedCount < 0 ? 0 : newLikedCount,
-    });
-
     onToggleLike(event.id, event.liked);
     !event.liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
   };
@@ -232,10 +213,11 @@ class CelebrateItem extends Component {
       changed_attribute_value,
       subject_person_name,
       subject_person,
+      likes_count,
+      liked,
     } = event;
-    const { localLiked, localLikesCount } = this.state;
     const displayLikeCount =
-      localLikesCount > 0 && subject_person && subject_person.id === myId;
+      likes_count > 0 && subject_person && subject_person.id === myId;
 
     return (
       <Card>
@@ -259,14 +241,14 @@ class CelebrateItem extends Component {
             <Flex direction={'column'} align="start">
               <Flex direction={'row'} align="center">
                 <Text style={styles.likeCount}>
-                  {displayLikeCount ? localLikesCount : null}
+                  {displayLikeCount ? likes_count : null}
                 </Text>
                 <Button
                   name="likeActiveIcon"
                   onPress={this.onPressLikeIcon}
                   style={[styles.icon]}
                 >
-                  <Image source={localLiked ? BLUE_HEART : GREY_HEART} />
+                  <Image source={liked ? BLUE_HEART : GREY_HEART} />
                 </Button>
               </Flex>
             </Flex>
