@@ -11,7 +11,7 @@ import StepDetailScreen from '../../components/StepDetailScreen';
 
 import { markdownStyles } from './styles';
 
-@translate('stepDetail')
+@translate('suggestedStepDetail')
 class SuggestedStepSetailScreen extends Component {
   addStep = async () => {
     const { dispatch, step, receiverId, orgId } = this.props;

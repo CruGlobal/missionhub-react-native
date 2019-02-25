@@ -9,7 +9,7 @@ import StepDetailScreen from '../../components/StepDetailScreen';
 
 import styles from './styles';
 
-@translate('stepDetail')
+@translate('acceptedStepDetail')
 class AcceptedStepDetailScreen extends Component {
   completeStep = () => {
     const { dispatch, step } = this.props;

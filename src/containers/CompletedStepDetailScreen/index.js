@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Text } from '../../components/common';
 import StepDetailScreen from '../../components/StepDetailScreen';
 
-@translate('stepDetail')
+@translate('completedStepDetail')
 class CompletedStepDetailScreen extends Component {
   render() {
     const { t, step } = this.props;
