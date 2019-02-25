@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -31,25 +31,27 @@ class UnassignedPersonScreen extends Component {
     const { activity } = this.state;
 
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Header
           left={<BackButton />}
           title={organization.name}
           shadow={false}
         />
-        <GroupsContactList
-          activity={activity}
-          person={person}
-          organization={organization}
-          myId={me.id}
-          onAssign={onAssign}
-        />
-        <CommentBox
-          onSubmit={this.loadFeed}
-          person={person}
-          organization={organization}
-        />
-      </SafeAreaView>
+        <SafeAreaView style={styles.content}>
+          <GroupsContactList
+            activity={activity}
+            person={person}
+            organization={organization}
+            myId={me.id}
+            onAssign={onAssign}
+          />
+          <CommentBox
+            onSubmit={this.loadFeed}
+            person={person}
+            organization={organization}
+          />
+        </SafeAreaView>
+      </View>
     );
   }
 }

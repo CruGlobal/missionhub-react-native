@@ -37,7 +37,7 @@ export default StyleSheet.create({
   },
   // HeaderTwoLine styles
   headerTwoLine: {
-    marginTop: true ? 8 : 2,
+    marginTop: 2,
     paddingHorizontal: 10,
   },
   headerTwoLine1: {

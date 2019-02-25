@@ -18,8 +18,6 @@ import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
 
-import styles from './styles';
-
 @translate('groupsChallenge')
 export class GroupChallenges extends Component {
   state = { refreshing: false };

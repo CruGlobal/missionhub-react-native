@@ -1,4 +1,4 @@
-import { Dimensions, StatusBar } from 'react-native';
+import { Dimensions } from 'react-native';
 import Color from 'color';
 
 import { exists, isAndroid, hasNotch } from './utils/common';
