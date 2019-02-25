@@ -36,8 +36,7 @@ class CelebrateFeed extends Component {
 
     dispatch(
       navigatePush(CELEBRATE_DETAIL_SCREEN, {
-        eventId: event.id,
-        organizationId: event.organization.id,
+        event,
       }),
     );
   };

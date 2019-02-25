@@ -97,17 +97,15 @@ describe('item', () => {
   });
 
   it('navigates to CELEBRATE_DETAIL_SCREEN on press', () => {
-    const organization = { id: '134234235' };
     const item = celebrationItems[0];
 
     component
       .instance()
       .renderItem({ item })
-      .props.onPressItem({ ...item, organization });
+      .props.onPressItem({ ...item });
 
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_DETAIL_SCREEN, {
-      eventId: item.id,
-      organizationId: organization.id,
+      event: item,
     });
     expect(store.getActions()).toEqual(
       expect.arrayContaining([navigatePushResult]),

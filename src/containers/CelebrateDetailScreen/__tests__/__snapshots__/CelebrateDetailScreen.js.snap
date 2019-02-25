@@ -39,7 +39,14 @@ exports[`renders correctly 1`] = `
     }
   />
   <Connect(CommentsList)
-    eventId="90001"
+    event={
+      Object {
+        "id": "90001",
+        "organization": Object {
+          "id": "24234234",
+        },
+      }
+    }
     organizationId="24234234"
   />
   <Connect(CelebrateCommentBox)

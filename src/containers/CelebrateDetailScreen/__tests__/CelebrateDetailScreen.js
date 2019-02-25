@@ -30,7 +30,7 @@ beforeEach(() => {
     <CelebrateDetailScreen
       navigation={{
         state: {
-          params: { eventId: event.id, organizationId },
+          params: { event },
         },
       }}
     />,
