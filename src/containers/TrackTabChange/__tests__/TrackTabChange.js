@@ -1,16 +1,11 @@
 import React from 'react';
 
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import { TRACK_TAB } from '../../../constants';
 
 import { TrackTabChange } from '..';
 
-import * as tracking from '../../../middleware/tracking';
-
 const dispatch = jest.fn(async () => {});
-
-const newState = { newState: 'test' };
-tracking.getNextTrackState = jest.fn().mockReturnValue(newState);
-tracking.trackTabChanges = jest.fn();
 
 describe('TrackTabChange', () => {
   it('renders component correctly', () => {
@@ -20,16 +15,10 @@ describe('TrackTabChange', () => {
   it('mounts and calls tab focused', () => {
     renderShallow(<TrackTabChange dispatch={dispatch} screen="test" />);
 
-    expect(tracking.getNextTrackState).toHaveBeenCalledWith({
+    expect(dispatch).toHaveBeenCalledWith({
+      type: TRACK_TAB,
       routeName: 'test',
     });
-    expect(tracking.trackTabChanges).toHaveBeenCalledWith(
-      {
-        routeName: 'test',
-      },
-      newState,
-      dispatch,
-    );
   });
 
   it('calls on focus and tracks it', () => {
@@ -40,15 +29,9 @@ describe('TrackTabChange', () => {
       .instance()
       .props.onDidFocus({ action: { routeName: 'onDidFocus' } });
 
-    expect(tracking.getNextTrackState).toHaveBeenCalledWith({
+    expect(dispatch).toHaveBeenCalledWith({
+      type: TRACK_TAB,
       routeName: 'onDidFocus',
     });
-    expect(tracking.trackTabChanges).toHaveBeenCalledWith(
-      {
-        routeName: 'onDidFocus',
-      },
-      newState,
-      dispatch,
-    );
   });
 });

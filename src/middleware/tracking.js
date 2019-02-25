@@ -16,6 +16,7 @@ import {
   PEOPLE_TAB,
   GROUPS_TAB,
   GROUP_TAB_CHANGED,
+  TRACK_TAB,
 } from '../constants';
 import { buildTrackingObj } from '../utils/common';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
@@ -40,6 +41,7 @@ export default function tracking({ dispatch, getState }) {
     switch (action.type) {
       case DrawerActions.OPEN_DRAWER:
       case NAVIGATE_FORWARD:
+      case TRACK_TAB:
         newState = getNextTrackState(action);
         trackTabChanges(action, newState, dispatch);
         break;
@@ -94,7 +96,7 @@ export default function tracking({ dispatch, getState }) {
   };
 }
 
-export function getNextTrackState(action) {
+function getNextTrackState(action) {
   const routeName = action.routeName;
   const trackedRoute = trackableScreens[routeName];
 
@@ -110,7 +112,7 @@ export function getNextTrackState(action) {
   }
 }
 
-export function trackTabChanges(action, newState, dispatch) {
+function trackTabChanges(action, newState, dispatch) {
   if (
     action.routeName === STEPS_TAB ||
     action.routeName === PEOPLE_TAB ||
