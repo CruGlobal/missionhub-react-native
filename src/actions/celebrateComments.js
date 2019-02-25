@@ -48,7 +48,7 @@ export function createCelebrateComment(event, content) {
       callApi(
         REQUESTS.CREATE_CELEBRATE_COMMENT,
         {
-          orgId: event.organization_id,
+          orgId: event.organization.id,
           eventId: event.id,
         },
         {

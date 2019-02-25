@@ -44,13 +44,14 @@ function addCommentsToState(state, action) {
 
 function addCreatedCommentToState(state, action) {
   const response = action.results.response;
-  const event = state.all[response.eventId];
+  const eventId = response.organization_celebration_item.id;
+  const event = state.all[eventId];
 
   return {
     ...state,
     all: {
       ...state.all,
-      [response.eventId]: {
+      [eventId]: {
         ...event,
         comments: [...event.comments, response],
       },
