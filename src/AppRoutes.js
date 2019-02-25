@@ -248,18 +248,15 @@ export const MainTabBarStartSteps = createTabs(STEPS_TAB);
 // Create another set of tabs with a different default tab
 export const MainTabBarStartGroups = createTabs(GROUPS_TAB);
 
-export const MAIN_TABS_SCREEN = buildTrackedScreen(
-  createDrawerNavigator(
-    {
-      Main: { screen: MainTabs },
-    },
-    {
-      contentComponent: SettingsMenu,
-      navigationOptions: { drawerLockMode: 'locked-closed' },
-      backBehavior: 'none', // We're handling it on our own
-    },
-  ),
-  stepsTab, //stepsTab is shown when MainTabs first opens
+export const MAIN_TABS_SCREEN = createDrawerNavigator(
+  {
+    Main: { screen: MainTabs },
+  },
+  {
+    contentComponent: SettingsMenu,
+    navigationOptions: { drawerLockMode: 'locked-closed' },
+    backBehavior: 'none', // We're handling it on our own
+  },
 );
 
 const buildPersonScreenRoute = screen =>
