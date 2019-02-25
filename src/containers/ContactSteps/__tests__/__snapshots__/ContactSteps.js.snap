@@ -2,33 +2,17 @@
 
 exports[`renders correctly with no steps 1`] = `
 <Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+  flex={1}
 >
-  <Flex
-    align="center"
-    justify="center"
-    style={
+  <NullStateComponent
+    descriptionText="Your Steps of Faith with ben appear here."
+    headerText="STEPS OF FAITH"
+    imageSource={
       Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
+        "testUri": "../../../assets/images/footprints.png",
       }
     }
-    value={1}
-  >
-    <NullStateComponent
-      descriptionText="Your Steps of Faith with ben appear here."
-      headerText="STEPS OF FAITH"
-      imageSource={
-        Object {
-          "testUri": "../../../assets/images/footprints.png",
-        }
-      }
-    />
-  </Flex>
+  />
   <BottomButton
     onPress={[Function]}
     text="Add a step of faith"
@@ -38,22 +22,10 @@ exports[`renders correctly with no steps 1`] = `
 
 exports[`renders correctly with steps 1`] = `
 <Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+  flex={1}
 >
-  <Flex
-    align="center"
-    justify="center"
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
-      }
-    }
-    value={1}
+  <ScrollView
+    flex={1}
   >
     <FlatList
       bounces={true}
@@ -77,13 +49,60 @@ exports[`renders correctly with steps 1`] = `
       showsVerticalScrollIndicator={false}
       style={
         Object {
-          "backgroundColor": "transparent",
+          "backgroundColor": "#E6E8EC",
+          "flex": 1,
+          "paddingVertical": 16,
         }
       }
       updateCellsBatchingPeriod={50}
       windowSize={21}
     />
-  </Flex>
+    <Button
+      buttonTextStyle={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 14,
+          "letterSpacing": 1,
+          "lineHeight": 18,
+        }
+      }
+      onPress={[Function]}
+      pill={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderColor": "#A0A2A6",
+          "borderWidth": 1,
+          "height": 36,
+          "marginHorizontal": 68,
+        }
+      }
+      text="SHOW COMPLETED STEPS"
+    />
+    <FlatList
+      bounces={true}
+      data={Array []}
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "#E6E8EC",
+          "flex": 1,
+          "paddingVertical": 16,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </ScrollView>
   <BottomButton
     onPress={[Function]}
     text="Add a step of faith"

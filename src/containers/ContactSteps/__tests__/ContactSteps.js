@@ -123,14 +123,6 @@ it('renders correctly with steps', () => {
   );
 });
 
-describe('bumpComplete', () => {
-  it('bumps out swipeable row', () => {
-    createComponent(false, mockPerson);
-    component.bumpComplete();
-    expect(removeSwipeStepsContact).toHaveBeenCalled();
-  });
-});
-
 describe('getSteps', () => {
   it('should get steps for a personal org', () => {
     createComponent(false, mockPerson);
@@ -140,15 +132,6 @@ describe('getSteps', () => {
     const org = { id: '4' };
     createComponent(false, mockPerson, org);
     expect(getContactSteps).toHaveBeenCalledWith(mockPerson.id, org.id);
-  });
-});
-
-describe('handleRemove', () => {
-  it('removes step', async () => {
-    createComponent(false, mockPerson);
-    await component.handleRemove(steps[0]);
-    expect(deleteStepWithTracking).toHaveBeenCalled();
-    expect(getContactSteps).toHaveBeenCalled();
   });
 });
 
@@ -253,19 +236,6 @@ describe('handleCreateStep', () => {
       myId,
     );
     expect(promptToAssign).not.toHaveBeenCalled();
-  });
-});
-
-describe('handleRowSelect', () => {
-  it('navigates to step detail', () => {
-    contactAssignmentSelector.mockReturnValue(mockContactAssignment);
-    createComponent(false, mockPerson);
-
-    component.handleRowSelect(steps[0]);
-
-    expect(navigatePush).toHaveBeenCalledWith(STEP_DETAIL_SCREEN, {
-      step: steps[0],
-    });
   });
 });
 
