@@ -25,8 +25,17 @@ class CompletedStepDetailScreen extends Component {
 
 CompletedStepDetailScreen.propTypes = { step: PropTypes.object.isRequired };
 
-const mapStateToProps = (_, { navigation }) => ({
-  step: navigation.state.params.step,
+const mapStateToProps = (
+  _,
+  {
+    navigation: {
+      state: {
+        params: { step },
+      },
+    },
+  },
+) => ({
+  step,
 });
 export default connect(mapStateToProps)(CompletedStepDetailScreen);
 export const COMPLETED_STEP_DETAIL_SCREEN = 'nav/COMPLETED_STEP_DETAIL_SCREEN';

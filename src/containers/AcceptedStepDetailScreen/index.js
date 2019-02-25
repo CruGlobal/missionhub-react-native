@@ -48,8 +48,17 @@ class AcceptedStepDetailScreen extends Component {
 
 AcceptedStepDetailScreen.propTypes = { step: PropTypes.object.isRequired };
 
-const mapStateToProps = (_, { navigation }) => ({
-  step: navigation.state.params.step,
+const mapStateToProps = (
+  _,
+  {
+    navigation: {
+      state: {
+        params: { step },
+      },
+    },
+  },
+) => ({
+  step,
 });
 export default connect(mapStateToProps)(AcceptedStepDetailScreen);
 export const ACCEPTED_STEP_DETAIL_SCREEN = 'nav/ACCEPTED_STEP_DETAIL_SCREEN';
