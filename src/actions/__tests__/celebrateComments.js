@@ -5,6 +5,7 @@ import { DEFAULT_PAGE_LIMIT } from '../../constants';
 import {
   getCelebrateCommentsNextPage,
   reloadCelebrateComments,
+  createCelebrateComment,
 } from '../celebrateComments';
 import callApi, { REQUESTS } from '../api';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
@@ -68,6 +69,29 @@ describe('reloadCelebrateComments', () => {
       orgId: event.organization.id,
       eventId: event.id,
     });
+  });
+
+  it('should return api response', () => {
+    expect(response).toEqual(callApiResponse);
+  });
+});
+
+describe('createCelebrateComment', () => {
+  const content = 'this is a comment';
+  let response;
+
+  beforeEach(() =>
+    (response = store.dispatch(createCelebrateComment(event, content))));
+
+  it('should callApi with no page', () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CREATE_CELEBRATE_COMMENT,
+      {
+        orgId: event.organization.id,
+        eventId: event.id,
+      },
+      { data: { attributes: { content } } },
+    );
   });
 
   it('should return api response', () => {

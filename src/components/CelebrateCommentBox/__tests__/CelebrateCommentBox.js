@@ -3,10 +3,9 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { renderShallow } from '../../../../testUtils';
+import { createCelebrateComment } from '../../../actions/celebrateComments';
 
 import CelebrateCommentBox from '..';
-
-import { createCelebrateComment } from '../../../actions/celebrateComments';
 
 jest.mock('../../../actions/celebrateComments');
 
