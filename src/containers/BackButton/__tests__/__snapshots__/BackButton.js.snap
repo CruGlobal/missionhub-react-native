@@ -1,21 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`back button absolute renders with absolute 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Array [
-      Array [
-        null,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
-      ],
       Object {
         "alignItems": "flex-start",
         "alignSelf": "flex-start",
         "justifyContent": "center",
+      },
+      undefined,
+      Object {
+        "left": 5,
+        "position": "absolute",
+        "top": 25,
       },
     ]
   }
@@ -25,22 +23,20 @@ exports[`back button absolute renders with absolute 1`] = `
     onPress={[Function]}
     type="MissionHub"
   />
-</View>
+</RCTSafeAreaView>
 `;
 
 exports[`back button renders normally 1`] = `
 <View
   style={
     Array [
-      Array [
-        null,
-        null,
-      ],
       Object {
         "alignItems": "flex-start",
         "alignSelf": "flex-start",
         "justifyContent": "center",
       },
+      undefined,
+      null,
     ]
   }
 >

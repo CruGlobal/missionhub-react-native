@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Keyboard, Image } from 'react-native';
+import { SafeAreaView, View, Keyboard, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 import moment from 'moment';
@@ -104,15 +104,17 @@ class AddChallengeScreen extends Component {
           />
         </Flex>
 
-        <Flex value={1} align="stretch" justify="end">
-          <Button
-            disabled={disableBtn}
-            type="secondary"
-            onPress={this.saveChallenge}
-            text={(isEdit ? t('save') : t('add')).toUpperCase()}
-            style={styles.createButton}
-          />
-        </Flex>
+        <SafeAreaView style={{ flex: 1 }}>
+          <Flex value={1} align="stretch" justify="end">
+            <Button
+              disabled={disableBtn}
+              type="secondary"
+              onPress={this.saveChallenge}
+              text={(isEdit ? t('save') : t('add')).toUpperCase()}
+              style={styles.createButton}
+            />
+          </Flex>
+        </SafeAreaView>
         <BackButton customIcon="deleteIcon" absolute={true} />
       </View>
     );

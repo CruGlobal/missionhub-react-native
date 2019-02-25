@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Keyboard, Image } from 'react-native';
+import { SafeAreaView, View, Keyboard, Image } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { Button, Text, Flex } from '../components/common';
@@ -82,7 +82,7 @@ class SetupPersonScreen extends Component {
     const { t, personFirstName, personLastName } = this.props;
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Flex value={1} />
         <Flex value={2} align="center">
           <Image source={require('../../assets/images/add_someone.png')} />
@@ -127,7 +127,7 @@ class SetupPersonScreen extends Component {
           />
         </Flex>
         <AbsoluteSkip onSkip={this.skip} />
-      </View>
+      </SafeAreaView>
     );
   }
 }
