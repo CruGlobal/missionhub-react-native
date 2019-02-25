@@ -3,7 +3,7 @@ import React from 'react';
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import StepSuggestionItem from '../';
-import { STEP_DETAIL_SCREEN } from '../../../containers/StepDetailScreen';
+import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 
 jest.mock('.../../../actions/navigation');
 
@@ -28,6 +28,9 @@ describe('StepSuggestionScreen', () => {
 
     component.props().onPress();
 
-    expect(navigatePush).toHaveBeenCalledWith(STEP_DETAIL_SCREEN, props);
+    expect(navigatePush).toHaveBeenCalledWith(
+      SUGGESTED_STEP_DETAIL_SCREEN,
+      props,
+    );
   });
 });
