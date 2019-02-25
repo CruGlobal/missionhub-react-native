@@ -70,6 +70,7 @@ getContactSteps.mockReturnValue({ response: steps });
 
 const store = createMockStore(mockState);
 let component;
+let instance;
 
 const createComponent = (isCurrentUser = false, person, org) => {
   component = renderShallow(
@@ -80,7 +81,8 @@ const createComponent = (isCurrentUser = false, person, org) => {
       navigation={createMockNavState()}
     />,
     store,
-  ).instance();
+  );
+  instance = component.instance();
 };
 
 beforeEach(() => {
@@ -115,6 +117,18 @@ it('renders correctly with steps', () => {
   );
 });
 
+it('renders row', () => {
+  createComponent(false, mockPerson);
+
+  expect(
+    component
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .renderItem({ item: steps[0] }),
+  ).toMatchSnapshot();
+});
+
 describe('getSteps', () => {
   it('should get steps for a personal org', () => {
     createComponent(false, mockPerson);
@@ -130,7 +144,7 @@ describe('getSteps', () => {
 describe('handleComplete', () => {
   it('triggers complete step flow', async () => {
     createComponent(false, mockPerson);
-    await component.handleComplete(steps[0]);
+    await instance.handleComplete(steps[0]);
     expect(getContactSteps).toHaveBeenCalled();
   });
 });
@@ -138,7 +152,7 @@ describe('handleComplete', () => {
 describe('handleSaveNewSteps', () => {
   it('saves new steps', async () => {
     createComponent(false, mockPerson);
-    await component.handleSaveNewSteps();
+    await instance.handleSaveNewSteps();
     expect(getContactSteps).toHaveBeenCalled();
     expect(navigateBack).toHaveBeenCalled();
   });
@@ -149,7 +163,7 @@ describe('handleCreateStep', () => {
     contactAssignmentSelector.mockReturnValue(null);
     createComponent(true, { ...mockPerson, id: myId });
 
-    component.handleCreateStep();
+    instance.handleCreateStep();
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
       onSaveNewSteps: expect.any(Function),
@@ -162,7 +176,7 @@ describe('handleCreateStep', () => {
     contactAssignmentSelector.mockReturnValue(mockContactAssignment);
     createComponent(false, mockPerson);
 
-    component.handleCreateStep();
+    instance.handleCreateStep();
 
     expect(navigateToStageScreen).toHaveBeenCalledWith(
       false,
@@ -180,7 +194,7 @@ describe('handleCreateStep', () => {
     });
     createComponent(false, mockPerson);
 
-    component.handleCreateStep();
+    instance.handleCreateStep();
 
     expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
       contactName: mockPerson.first_name,
@@ -203,7 +217,7 @@ describe('handleCreateStep', () => {
     promptToAssign.mockReturnValue(Promise.resolve(true));
     createComponent(false, mockPerson);
 
-    await component.handleCreateStep();
+    await instance.handleCreateStep();
 
     expect(assignContactAndPickStage).toHaveBeenCalledWith(
       mockPerson,
@@ -218,7 +232,7 @@ describe('handleCreateStep', () => {
     promptToAssign.mockReturnValue(Promise.resolve(true));
     createComponent(false, mockPerson, mockOrg);
 
-    await component.handleCreateStep();
+    await instance.handleCreateStep();
 
     expect(assignContactAndPickStage).toHaveBeenCalledWith(
       mockPerson,
@@ -233,12 +247,12 @@ it('should call key extractor', () => {
   createComponent(false, mockPerson);
 
   const item = { id: '1' };
-  const result = component.keyExtractor(item);
+  const result = instance.keyExtractor(item);
   expect(result).toEqual(item.id);
 });
 it('should call ref', () => {
   createComponent(false, mockPerson);
   const ref = 'test';
-  component.ref(ref);
-  expect(component.list).toEqual(ref);
+  instance.ref(ref);
+  expect(instance.list).toEqual(ref);
 });

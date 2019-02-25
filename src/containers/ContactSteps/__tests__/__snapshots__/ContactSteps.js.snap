@@ -109,3 +109,15 @@ exports[`renders correctly with steps 1`] = `
   />
 </Component>
 `;
+
+exports[`renders row 1`] = `
+<Connect(Translate(AcceptedStepItem))
+  onComplete={[Function]}
+  step={
+    Object {
+      "id": "1",
+      "title": "Test Step",
+    }
+  }
+/>
+`;
