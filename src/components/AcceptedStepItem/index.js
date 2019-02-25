@@ -7,8 +7,11 @@ import { translate } from 'react-i18next';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
 import { Text, Card, Button } from '../common';
+import { completeStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
+import { reloadJourney } from '../../actions/journey';
 import { STEP_DETAIL_SCREEN } from '../../containers/StepDetailScreen';
+import { CONTACT_STEPS } from '../../constants';
 
 import styles from './styles';
 import Icon from '../Icon/index';
@@ -20,7 +23,15 @@ class AcceptedStepItem extends Component {
     dispatch(navigatePush(STEP_DETAIL_SCREEN, { step }));
   };
 
-  handleCompleteStep = () => {};
+  handleCompleteStep = async () => {
+    const { dispatch, step, onComplete } = this.props;
+    const { receiver, organization = {} } = step;
+
+    await dispatch(completeStep(step, CONTACT_STEPS));
+    dispatch(reloadJourney(receiver.id, organization.id));
+
+    onComplete && onComplete();
+  };
 
   handleSetReminder = () => {};
 
@@ -73,7 +84,10 @@ AcceptedStepItem.propTypes = {
   step: PropTypes.shape({
     title: PropTypes.string.isRequired,
     completed_at: PropTypes.string,
+    receiver: PropTypes.object.isRequired,
+    organization: PropTypes.object,
   }).isRequired,
+  onComplete: PropTypes.func,
 };
 
 export default connect()(AcceptedStepItem);

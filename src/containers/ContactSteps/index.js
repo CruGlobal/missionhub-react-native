@@ -49,13 +49,8 @@ class ContactSteps extends Component {
     dispatch(getContactSteps(person.id, organization.id));
   };
 
-  handleComplete = async step => {
-    const { dispatch, person, organization } = this.props;
-    await dispatch(completeStep(step, CONTACT_STEPS));
+  handleComplete = () => {
     this.getSteps();
-    dispatch(
-      reloadJourney(person.id, organization ? organization.id : undefined),
-    );
   };
 
   handleSaveNewSteps = async () => {
@@ -153,7 +148,9 @@ class ContactSteps extends Component {
 
   toggleCompletedSteps = () => {};
 
-  renderRow = ({ item }) => <AcceptedStepItem step={item} />;
+  renderRow = ({ item }) => (
+    <AcceptedStepItem step={item} onComplete={this.handleComplete} />
+  );
 
   renderCompletedStepsButton = () => {
     const { completedStepsButton, completedStepsButtonText } = styles;
