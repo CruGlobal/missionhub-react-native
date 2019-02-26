@@ -217,7 +217,12 @@ class CelebrateItem extends Component {
       rightCorner,
       namePressable,
     } = this.props;
-    const { changed_attribute_value } = event;
+    const {
+      changed_attribute_value,
+      organization,
+      subject_person,
+      subject_person_name,
+    } = event;
     const { top, topLeft } = styles;
 
     return (
@@ -225,7 +230,12 @@ class CelebrateItem extends Component {
         <Flex value={1} direction={'column'} style={styles.content}>
           <View style={top}>
             <View style={topLeft}>
-              <CelebrateItemName event={event} pressable={namePressable} />
+              <CelebrateItemName
+                name={subject_person_name}
+                person={subject_person}
+                organization={organization}
+                pressable={namePressable}
+              />
               <CardTime date={changed_attribute_value} />
             </View>
             {rightCorner}

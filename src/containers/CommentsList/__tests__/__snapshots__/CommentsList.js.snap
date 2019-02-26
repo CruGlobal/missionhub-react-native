@@ -57,6 +57,11 @@ exports[`with comments with next page renders item correctly 1`] = `
       "content": "hello roge",
     }
   }
+  organization={
+    Object {
+      "id": "24234234",
+    }
+  }
 />
 `;
 

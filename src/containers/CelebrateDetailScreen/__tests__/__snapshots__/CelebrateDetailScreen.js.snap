@@ -27,6 +27,7 @@ exports[`renders correctly 1`] = `
         },
       }
     }
+    namePressable={true}
     rightCorner={
       <Connect(BackButton)
         customIcon="deleteIcon"

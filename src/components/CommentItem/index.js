@@ -15,17 +15,14 @@ export default function CommentItem({
   const { first_name, last_name } = person;
   const { itemStyle, text } = styles;
 
-  //todo don't create fake event
   //todo need to 1) store comments people in people reducer, and 2) include org permissions
 
   return (
     <View style={itemStyle}>
       <CelebrateItemName
-        event={{
-          subject_person: person,
-          subject_person_name: `${first_name} ${last_name}`,
-          organization,
-        }}
+        name={`${first_name} ${last_name}`}
+        person={person}
+        organization={organization}
         pressable={true}
       />
       <Text style={text}>{content}</Text>

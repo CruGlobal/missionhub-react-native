@@ -12,8 +12,15 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <ItemHeaderText
-    text="Roge Goers"
+  <Connect(Translate(CelebrateItemName))
+    name="Roge Goers"
+    person={
+      Object {
+        "first_name": "Roge",
+        "last_name": "Goers",
+      }
+    }
+    pressable={true}
   />
   <MyText
     accessible={true}

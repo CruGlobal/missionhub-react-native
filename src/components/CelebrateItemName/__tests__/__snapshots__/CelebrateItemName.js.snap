@@ -19,12 +19,7 @@ exports[`has organization does not have subject person name renders correctly 1`
 `;
 
 exports[`has organization has subject person name renders correctly 1`] = `
-<Button
-  onPress={[Function]}
-  type="transparent"
->
-  <ItemHeaderText
-    text="Roger Goers"
-  />
-</Button>
+<ItemHeaderText
+  text="MissionHub user"
+/>
 `;

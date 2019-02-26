@@ -2,6 +2,7 @@
 
 exports[`MemberCelebrate renders correctly 1`] = `
 <Connect(CelebrateFeed)
+  itemNamePressable={false}
   items={
     Array [
       Object {
@@ -33,6 +34,7 @@ exports[`MemberCelebrate renders correctly 1`] = `
 
 exports[`MemberCelebrate renders empty feed correctly 1`] = `
 <Connect(CelebrateFeed)
+  itemNamePressable={false}
   items={Array []}
   loadMoreItemsCallback={[Function]}
   organization={
