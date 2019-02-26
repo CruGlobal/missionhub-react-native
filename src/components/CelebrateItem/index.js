@@ -1,38 +1,30 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { View } from 'react-native';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import {
-  Card,
-  Text,
-  Flex,
-  Button,
-  DateComponent,
-} from '../../components/common';
+import { Card, Text, Flex, Button } from '../../components/common';
 import {
   INTERACTION_TYPES,
   CELEBRATEABLE_TYPES,
-  ACTIONS,
   GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 import { navigatePush } from '../../actions/navigation';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
-import { trackActionWithoutData } from '../../actions/analytics';
-import GREY_HEART from '../../../assets/images/heart-grey.png';
-import BLUE_HEART from '../../../assets/images/heart-blue.png';
 import { getFirstNameAndLastInitial } from '../../utils/common';
+import ItemHeaderText from '../../components/ItemHeaderText';
+import CardTime from '../CardTime';
+import CommentLikeComponent from '../../containers/CommentLikeComponent';
 import { navToPersonScreen } from '../../actions/person';
 
 import styles from './styles';
 
 @translate('celebrateFeeds')
 class CelebrateItem extends Component {
-  onPressLikeIcon = () => {
-    const { event, onToggleLike, dispatch } = this.props;
-    onToggleLike(event.id, event.liked);
-    !event.liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
+  onPressItem = () => {
+    const { onPressItem, event } = this.props;
+    onPressItem && onPressItem(event);
   };
 
   onPressChallengeLink = () => {
@@ -219,17 +211,14 @@ class CelebrateItem extends Component {
 
   renderName() {
     const {
-      event: { subject_person_name },
       t,
+      event: { subject_person_name },
     } = this.props;
 
     return (
-      <Text style={styles.name}>
-        {(subject_person_name
-          ? subject_person_name
-          : t('missionHubUser')
-        ).toUpperCase()}
-      </Text>
+      <ItemHeaderText
+        text={subject_person_name ? subject_person_name : t('missionHubUser')}
+      />
     );
   }
 
@@ -253,45 +242,23 @@ class CelebrateItem extends Component {
   }
 
   render() {
-    const { myId, event } = this.props;
-    const {
-      changed_attribute_value,
-      subject_person,
-      likes_count,
-      liked,
-    } = event;
-    const displayLikeCount =
-      likes_count > 0 && subject_person && subject_person.id === myId;
+    const { event, onPressItem, cardStyle, rightCorner } = this.props;
+    const { changed_attribute_value } = event;
+    const { top, topLeft } = styles;
 
     return (
-      <Card>
-        <Flex value={1} direction={'row'} style={styles.content}>
-          <Flex value={1} direction={'column'}>
-            {this.renderPersonText()}
-            <DateComponent
-              style={styles.time}
-              date={changed_attribute_value}
-              format={'LT'}
-            />
-            <Text style={styles.description}>{this.renderMessage()}</Text>
-            {this.renderChallengeLink()}
-          </Flex>
-          {subject_person && (
-            <Flex direction={'column'} align="start">
-              <Flex direction={'row'} align="center">
-                <Text style={styles.likeCount}>
-                  {displayLikeCount ? likes_count : null}
-                </Text>
-                <Button
-                  name="likeActiveIcon"
-                  onPress={this.onPressLikeIcon}
-                  style={[styles.icon]}
-                >
-                  <Image source={liked ? BLUE_HEART : GREY_HEART} />
-                </Button>
-              </Flex>
-            </Flex>
-          )}
+      <Card onPress={onPressItem && this.onPressItem} style={cardStyle}>
+        <Flex value={1} direction={'column'} style={styles.content}>
+          <View style={top}>
+            <View style={topLeft}>
+              {this.renderPersonText()}
+              <CardTime date={changed_attribute_value} />
+            </View>
+            {rightCorner}
+          </View>
+          <Text style={styles.description}>{this.renderMessage()}</Text>
+          {this.renderChallengeLink()}
+          <CommentLikeComponent event={event} />
         </Flex>
       </Card>
     );
@@ -300,8 +267,6 @@ class CelebrateItem extends Component {
 
 CelebrateItem.propTypes = {
   event: PropTypes.object.isRequired,
-  myId: PropTypes.string.isRequired,
-  onToggleLike: PropTypes.func.isRequired,
 };
 
 export default connect()(CelebrateItem);

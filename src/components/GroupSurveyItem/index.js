@@ -4,6 +4,7 @@ import { translate } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon, Dot } from '../common';
 import ShareSurveyMenu from '../ShareSurveyMenu';
+import ItemHeaderText from '../ItemHeaderText';
 
 import styles from './styles';
 
@@ -28,9 +29,7 @@ class GroupSurveyItem extends Component {
           </Flex>
           <Flex value={3.5} direction="row" style={styles.content}>
             <Flex value={1}>
-              <Text style={styles.title}>
-                {(survey.title || '').toUpperCase()}
-              </Text>
+              <ItemHeaderText text={survey.title || ''} />
               <Text direction="row" align="center">
                 {survey.contacts_count ? (
                   <Text style={[styles.text, styles.contacts]}>

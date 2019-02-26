@@ -12,11 +12,6 @@ export default StyleSheet.create({
   detailsWrap: {
     marginTop: 1,
   },
-  name: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: theme.primaryColor,
-  },
   detailText: {
     fontSize: 14,
     color: theme.grey1,

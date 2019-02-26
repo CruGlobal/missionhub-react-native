@@ -3,7 +3,7 @@
 exports[`CelebrateItem message renders accepted challenge event 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -11,113 +11,83 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
+          Object {
+            "justifyContent": "flex-start",
+          }
+        }
+      >
+        <ItemHeaderText
+          text="John Smith"
+        />
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
+        }
+      }
+    >
+      John S. accepted a Challenge:
+    </MyText>
+    <Flex
+      direction="row"
+    >
+      <Button
+        buttonTextStyle={
           Object {
             "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
             "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
+            "fontWeight": "400",
+            "letterSpacing": 0,
           }
         }
-      >
-        John S. accepted a Challenge:
-      </MyText>
-      <Flex
-        direction="row"
-      >
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#007398",
-              "fontSize": 14,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-            }
+        onPress={[Function]}
+        style={
+          Object {
+            "marginTop": 4,
           }
-          onPress={[Function]}
-          style={
-            Object {
-              "marginTop": 4,
-            }
-          }
-          text="Invite a friend to church"
-          type="transparent"
-        />
-      </Flex>
+        }
+        text="Invite a friend to church"
+        type="transparent"
+      />
     </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
-        />
-        <Button
-          name="likeActiveIcon"
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
-        >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-grey.png",
-              }
-            }
-          />
-        </Button>
-      </Flex>
-    </Flex>
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "celebrateable_type": "accepted_community_challenge",
+          "changed_attribute_name": "accepted_at",
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "object_description": "Invite a friend to church",
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -125,7 +95,7 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
 exports[`CelebrateItem message renders completed challenge event 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -133,113 +103,83 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
+          Object {
+            "justifyContent": "flex-start",
+          }
+        }
+      >
+        <ItemHeaderText
+          text="John Smith"
+        />
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
+        }
+      }
+    >
+      John S. completed a Challenge:
+    </MyText>
+    <Flex
+      direction="row"
+    >
+      <Button
+        buttonTextStyle={
           Object {
             "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
             "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
+            "fontWeight": "400",
+            "letterSpacing": 0,
           }
         }
-      >
-        John S. completed a Challenge:
-      </MyText>
-      <Flex
-        direction="row"
-      >
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#007398",
-              "fontSize": 14,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-            }
+        onPress={[Function]}
+        style={
+          Object {
+            "marginTop": 4,
           }
-          onPress={[Function]}
-          style={
-            Object {
-              "marginTop": 4,
-            }
-          }
-          text="Invite a friend to church"
-          type="transparent"
-        />
-      </Flex>
+        }
+        text="Invite a friend to church"
+        type="transparent"
+      />
     </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
-        />
-        <Button
-          name="likeActiveIcon"
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
-        >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-grey.png",
-              }
-            }
-          />
-        </Button>
-      </Flex>
-    </Flex>
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "celebrateable_type": "accepted_community_challenge",
+          "changed_attribute_name": "completed_at",
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "object_description": "Invite a friend to church",
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -247,7 +187,7 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
 exports[`CelebrateItem message renders created community event 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -255,96 +195,67 @@ exports[`CelebrateItem message renders created community event 1`] = `
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
-    >
-      <Button
-        onPress={[Function]}
-        type="transparent"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            }
-          }
-        >
-          JOHN SMITH
-        </MyText>
-      </Button>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
         }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      }
+    >
+      <Component
         style={
           Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
+            "justifyContent": "flex-start",
           }
         }
       >
-        John S. created Celebration Community!
-      </MyText>
-    </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
-        />
         <Button
-          name="likeActiveIcon"
           onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
+          type="transparent"
         >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-grey.png",
-              }
-            }
+          <ItemHeaderText
+            text="John Smith"
           />
         </Button>
-      </Flex>
-    </Flex>
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
+        }
+      }
+    >
+      John S. created Celebration Community!
+    </MyText>
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "celebrateable_type": "organization",
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "organization": Object {
+            "name": "Celebration Community",
+          },
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -352,7 +263,7 @@ exports[`CelebrateItem message renders created community event 1`] = `
 exports[`CelebrateItem message renders event with no subject person name 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -360,49 +271,56 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        MISSIONHUB USER
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
+        <ItemHeaderText
+          text="MissionHub user"
+        />
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
         }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
+      }
+    >
+      A MissionHub user completed a Step of Faith with a Forgiven person.
+    </MyText>
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "adjective_attribute_value": "3",
+          "celebrateable_type": "accepted_challenge",
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "subject_person": null,
+          "subject_person_name": null,
         }
-      >
-        A MissionHub user completed a Step of Faith with a Forgiven person.
-      </MyText>
-    </Flex>
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -410,7 +328,7 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
 exports[`CelebrateItem message renders joined community event 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -418,96 +336,67 @@ exports[`CelebrateItem message renders joined community event 1`] = `
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
-    >
-      <Button
-        onPress={[Function]}
-        type="transparent"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            }
-          }
-        >
-          JOHN SMITH
-        </MyText>
-      </Button>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
         }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      }
+    >
+      <Component
         style={
           Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
+            "justifyContent": "flex-start",
           }
         }
       >
-        John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
-      </MyText>
-    </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
-        />
         <Button
-          name="likeActiveIcon"
           onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
+          type="transparent"
         >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-grey.png",
-              }
-            }
+          <ItemHeaderText
+            text="John Smith"
           />
         </Button>
-      </Flex>
-    </Flex>
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
+        }
+      }
+    >
+      John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
+    </MyText>
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "celebrateable_type": "organizational_permission",
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "organization": Object {
+            "name": "Celebration Community",
+          },
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -515,7 +404,7 @@ exports[`CelebrateItem message renders joined community event 1`] = `
 exports[`CelebrateItem message renders other interaction event 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -523,91 +412,60 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
-        }
-      >
-        John S. had a Spiritual Conversation.
-      </MyText>
-    </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
+        <ItemHeaderText
+          text="John Smith"
         />
-        <Button
-          name="likeActiveIcon"
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
-        >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-grey.png",
-              }
-            }
-          />
-        </Button>
-      </Flex>
-    </Flex>
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
+        }
+      }
+    >
+      John S. had a Spiritual Conversation.
+    </MyText>
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "adjective_attribute_value": 2,
+          "celebrateable_type": "interaction",
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -615,7 +473,7 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
 exports[`CelebrateItem message renders personal decision interaction event 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -623,91 +481,60 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
-        }
-      >
-        John S. saw someone make a Personal Decision.
-      </MyText>
-    </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
+        <ItemHeaderText
+          text="John Smith"
         />
-        <Button
-          name="likeActiveIcon"
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
-        >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-grey.png",
-              }
-            }
-          />
-        </Button>
-      </Flex>
-    </Flex>
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
+        }
+      }
+    >
+      John S. saw someone make a Personal Decision.
+    </MyText>
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "adjective_attribute_value": 4,
+          "celebrateable_type": "interaction",
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -715,7 +542,7 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
 exports[`CelebrateItem message renders something cool happened event 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -723,91 +550,60 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
-        }
-      >
-        John S. saw something cool happen with someone.
-      </MyText>
-    </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
+        <ItemHeaderText
+          text="John Smith"
         />
-        <Button
-          name="likeActiveIcon"
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
-        >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-grey.png",
-              }
-            }
-          />
-        </Button>
-      </Flex>
-    </Flex>
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
+        }
+      }
+    >
+      John S. saw something cool happen with someone.
+    </MyText>
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "adjective_attribute_value": 11,
+          "celebrateable_type": "interaction",
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -815,7 +611,7 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
 exports[`CelebrateItem message renders step of faith event with stage 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -823,91 +619,60 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
-        }
-      >
-        John S. completed a Step of Faith with a Forgiven person.
-      </MyText>
-    </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
+        <ItemHeaderText
+          text="John Smith"
         />
-        <Button
-          name="likeActiveIcon"
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
-        >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-grey.png",
-              }
-            }
-          />
-        </Button>
-      </Flex>
-    </Flex>
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
+        }
+      }
+    >
+      John S. completed a Step of Faith with a Forgiven person.
+    </MyText>
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "adjective_attribute_value": "3",
+          "celebrateable_type": "accepted_challenge",
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -915,7 +680,7 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
 exports[`CelebrateItem message renders step of faith event without stage 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -923,91 +688,59 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
-        }
-      >
-        John S. completed a Step of Faith with someone.
-      </MyText>
-    </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
+        <ItemHeaderText
+          text="John Smith"
         />
-        <Button
-          name="likeActiveIcon"
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
-        >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-grey.png",
-              }
-            }
-          />
-        </Button>
-      </Flex>
-    </Flex>
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
+        }
+      }
+    >
+      John S. completed a Step of Faith with someone.
+    </MyText>
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "celebrateable_type": "accepted_challenge",
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -1015,7 +748,7 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
 exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -1023,89 +756,56 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
-        }
-      />
-    </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
+        <ItemHeaderText
+          text="John Smith"
         />
-        <Button
-          name="likeActiveIcon"
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
-        >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-grey.png",
-              }
-            }
-          />
-        </Button>
-      </Flex>
-    </Flex>
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
+        }
+      }
+    />
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -1113,7 +813,7 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
 exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -1121,91 +821,56 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
+        <ItemHeaderText
+          text="John Smith"
+        />
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
         }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
+      }
+    />
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 1,
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
         }
-      />
-    </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
-        >
-          1
-        </MyText>
-        <Button
-          name="likeActiveIcon"
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
-        >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-grey.png",
-              }
-            }
-          />
-        </Button>
-      </Flex>
-    </Flex>
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -1213,7 +878,7 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
 exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -1221,91 +886,56 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
+        <ItemHeaderText
+          text="John Smith"
+        />
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
         }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
+      }
+    />
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": true,
+          "likes_count": 1,
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
         }
-      />
-    </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
-        >
-          1
-        </MyText>
-        <Button
-          name="likeActiveIcon"
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
-        >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-blue.png",
-              }
-            }
-          />
-        </Button>
-      </Flex>
-    </Flex>
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -1313,7 +943,7 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
 exports[`CelebrateItem renders event for subject=other, liked=false, like count=0 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -1321,89 +951,56 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
-        }
-      />
-    </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
+        <ItemHeaderText
+          text="John Smith"
         />
-        <Button
-          name="likeActiveIcon"
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
-        >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-grey.png",
-              }
-            }
-          />
-        </Button>
-      </Flex>
-    </Flex>
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
+        }
+      }
+    />
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "456",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -1411,7 +1008,7 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
 exports[`CelebrateItem renders event for subject=other, liked=true, like count>0 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -1419,89 +1016,56 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
-        }
-      />
-    </Flex>
-    <Flex
-      align="start"
-      direction="column"
-    >
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 14,
-            }
-          }
+        <ItemHeaderText
+          text="John Smith"
         />
-        <Button
-          name="likeActiveIcon"
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 24,
-                "margin": 0,
-                "width": 24,
-              },
-            ]
-          }
-        >
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/heart-blue.png",
-              }
-            }
-          />
-        </Button>
-      </Flex>
-    </Flex>
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
+        }
+      }
+    />
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": true,
+          "likes_count": 1,
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "456",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -1509,7 +1073,7 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
 exports[`CelebrateItem renders event with no subject person (global community event) 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -1517,47 +1081,49 @@ exports[`CelebrateItem renders event with no subject person (global community ev
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        JOHN SMITH
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
+        <ItemHeaderText
+          text="John Smith"
+        />
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
         }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
+      }
+    />
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "subject_person_name": "John Smith",
         }
-      />
-    </Flex>
+      }
+    />
   </Flex>
 </Card>
 `;
@@ -1565,7 +1131,7 @@ exports[`CelebrateItem renders event with no subject person (global community ev
 exports[`CelebrateItem renders event with no subject person name 1`] = `
 <Card>
   <Flex
-    direction="row"
+    direction="column"
     style={
       Object {
         "padding": 16,
@@ -1573,47 +1139,49 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
     }
     value={1}
   >
-    <Flex
-      direction="column"
-      value={1}
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
+            "justifyContent": "flex-start",
           }
         }
       >
-        MISSIONHUB USER
-      </MyText>
-      <Translate(DateComponent)
-        date="2004-04-04 00:00:00 UTC"
-        format="LT"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
+        <ItemHeaderText
+          text="MissionHub user"
+        />
+        <CardTime
+          date="2004-04-04 00:00:00 UTC"
+        />
+      </Component>
+    </Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "minHeight": 70,
+          "paddingTop": 12,
         }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "minHeight": 70,
-            "paddingTop": 12,
-          }
+      }
+    />
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "subject_person_name": null,
         }
-      />
-    </Flex>
+      }
+    />
   </Flex>
 </Card>
 `;
