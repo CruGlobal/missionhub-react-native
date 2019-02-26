@@ -126,16 +126,16 @@ function loadContactsFromSteps(state, action) {
   };
 }
 
-function loadPeopleFromCelebrateItems(state, action) {
-  const orgId = action.query.orgId;
-  const people = action.results.response
-    .map(item => item.subject_person)
-    .filter(person => !!person);
+function loadPeopleFromCelebrateItems(
+  state,
+  { query: { orgId }, results: { response } },
+) {
   const newPeople = state.allByOrg[orgId].people;
 
-  people.forEach(person => {
-    newPeople[person.id] = newPeople[person.id] || person;
-  });
+  response
+    .map(item => item.subject_person)
+    .filter(person => !!person)
+    .forEach(person => (newPeople[person.id] = newPeople[person.id] || person));
 
   const newState = {
     ...state,
