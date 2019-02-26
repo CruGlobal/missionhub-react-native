@@ -30,17 +30,21 @@ describe('StepSuggestionItem', () => {
     expect(navigatePush).toHaveBeenCalledWith(STEP_DETAIL_SCREEN, { step });
   });
 
-  it('calls completeStep', () => {
+  it('calls completeStep', async () => {
     completeStep.mockReturnValue({ type: 'complete step' });
+    const onComplete = jest.fn();
 
-    const component = renderShallow(<StepSuggestionItem step={step} />);
+    const component = renderShallow(
+      <StepSuggestionItem step={step} onComplete={onComplete} />,
+    );
 
-    component
+    await component
       .childAt(0)
       .childAt(1)
       .props()
       .onPress();
 
     expect(completeStep).toHaveBeenCalledWith(step, CONTACT_STEPS);
+    expect(onComplete).toHaveBeenCalled();
   });
 });
