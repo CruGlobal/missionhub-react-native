@@ -38,7 +38,6 @@ function getCelebrateComments(event, page) {
         orgId: event.organization.id,
         eventId: event.id,
         page,
-        include: 'person.organizational_permissions',
       }),
     );
 }

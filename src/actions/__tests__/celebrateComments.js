@@ -20,7 +20,6 @@ const celebrateComments = { someProp: 'asdfasdfasdf' };
 const baseQuery = {
   orgId: event.organization.id,
   eventId: event.id,
-  include: 'person.organizational_permissions',
 };
 
 const mockStore = configureStore([thunk]);
@@ -90,7 +89,7 @@ describe('createCelebrateComment', () => {
   it('should callApi with no page', () => {
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.CREATE_CELEBRATE_COMMENT,
-      { orgId: baseQuery.orgId, eventId: baseQuery.eventId },
+      baseQuery,
       { data: { attributes: { content } } },
     );
   });
