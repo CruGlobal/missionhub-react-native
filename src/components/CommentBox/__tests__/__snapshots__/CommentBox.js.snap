@@ -44,12 +44,6 @@ exports[`renders focused 1`] = `
         name="plusIcon"
         onPress={[Function]}
         size={13}
-        style={
-          Array [
-            undefined,
-            null,
-          ]
-        }
         type="MissionHub"
       />
     </Flex>
@@ -151,12 +145,6 @@ exports[`renders with actions 1`] = `
         name="plusIcon"
         onPress={[Function]}
         size={13}
-        style={
-          Array [
-            undefined,
-            null,
-          ]
-        }
         type="MissionHub"
       />
     </Flex>
@@ -260,12 +248,6 @@ exports[`renders with actions 2`] = `
         name="deleteIcon"
         onPress={[Function]}
         size={13}
-        style={
-          Array [
-            undefined,
-            undefined,
-          ]
-        }
         type="MissionHub"
       />
     </Flex>
@@ -1176,12 +1158,6 @@ exports[`renders with text 1`] = `
         name="plusIcon"
         onPress={[Function]}
         size={13}
-        style={
-          Array [
-            undefined,
-            null,
-          ]
-        }
         type="MissionHub"
       />
     </Flex>

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FlatList } from 'react-native';
 
-import { celebrationItemSelector } from '../../selectors/celebration';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import {
   reloadCelebrateComments,
@@ -72,17 +71,10 @@ CommentsList.propTypes = {
   event: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (
-  { organizations, celebrateComments },
-  { eventId, organizationId },
-) => ({
-  event: celebrationItemSelector(
-    { organizations },
-    { eventId, organizationId },
-  ),
+const mapStateToProps = ({ celebrateComments }, { event }) => ({
   celebrateComments: celebrateCommentsSelector(
     { celebrateComments },
-    { eventId },
+    { eventId: event.id },
   ),
 });
 export default connect(mapStateToProps)(CommentsList);

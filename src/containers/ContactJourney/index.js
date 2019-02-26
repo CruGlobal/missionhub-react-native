@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import CommentBox from '../../components/CommentBox';
+import JourneyCommentBox from '../../components/JourneyCommentBox';
 import { navigatePush } from '../../actions/navigation';
 import { getJourney } from '../../actions/journey';
 import { Flex, Separator, LoadingGuy } from '../../components/common';
@@ -170,7 +170,7 @@ class ContactJourney extends Component {
       <View style={{ flex: 1 }}>
         {this.renderContent()}
         <Flex justify="end">
-          <CommentBox
+          <JourneyCommentBox
             person={person}
             organization={organization}
             hideActions={isPersonalMinistry || isUserCreatedOrg}

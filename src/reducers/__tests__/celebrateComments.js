@@ -74,3 +74,32 @@ describe('REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS', () => {
     expect(getPagination).toHaveBeenCalledWith(baseAction, response.length);
   });
 });
+
+describe('REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS', () => {
+  const eventId = '13407923';
+  const response = { id: 'comment six' };
+  const existingComment = { id: 'comment five' };
+  const stateWithExistingComments = {
+    all: {
+      [eventId]: { comments: [existingComment] },
+    },
+  };
+
+  const action = {
+    type: REQUESTS.CREATE_CELEBRATE_COMMENT.SUCCESS,
+    results: { response },
+    query: { eventId },
+  };
+
+  it('should add created item to the list', () => {
+    expect(celebrateCommentsReducer(stateWithExistingComments, action)).toEqual(
+      {
+        all: {
+          [eventId]: expect.objectContaining({
+            comments: [existingComment, response],
+          }),
+        },
+      },
+    );
+  });
+});

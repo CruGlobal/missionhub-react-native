@@ -33,7 +33,7 @@ exports[`Contact should render correctly 1`] = `
       }
     }
   />
-  <Connect(Translate(CommentBox))
+  <Connect(JourneyCommentBox)
     onSubmit={[Function]}
     organization={
       Object {

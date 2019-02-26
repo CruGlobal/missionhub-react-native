@@ -7,6 +7,7 @@ import { celebrationItemSelector } from '../../selectors/celebration';
 import CelebrateItem from '../../components/CelebrateItem';
 import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
+import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 
 import styles from './styles';
 
@@ -24,10 +25,8 @@ class CelebrateDetailScreen extends Component {
             <BackButton iconStyle={backButtonStyle} customIcon="deleteIcon" />
           }
         />
-        <CommentsList
-          eventId={event.id}
-          organizationId={event.organization.id}
-        />
+        <CommentsList event={event} organizationId={event.organization.id} />
+        <CelebrateCommentBox event={event} />
       </View>
     );
   }
@@ -42,15 +41,16 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { eventId, organizationId },
+        params: { event },
       },
     },
   },
 ) => ({
-  event: celebrationItemSelector(
-    { organizations },
-    { eventId, organizationId },
-  ),
+  event:
+    celebrationItemSelector(
+      { organizations },
+      { eventId: event.id, organizationId: event.organization.id },
+    ) || event,
 });
 export default connect(mapStateToProps)(CelebrateDetailScreen);
 export const CELEBRATE_DETAIL_SCREEN = 'nav/CELEBRATE_DETAIL_SCREEN';

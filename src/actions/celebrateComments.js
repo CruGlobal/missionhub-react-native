@@ -41,3 +41,21 @@ function getCelebrateComments(event, page) {
       }),
     );
 }
+
+export function createCelebrateComment(event, content) {
+  return dispatch =>
+    dispatch(
+      callApi(
+        REQUESTS.CREATE_CELEBRATE_COMMENT,
+        {
+          orgId: event.organization.id,
+          eventId: event.id,
+        },
+        {
+          data: {
+            attributes: { content },
+          },
+        },
+      ),
+    );
+}

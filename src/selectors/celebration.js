@@ -7,10 +7,11 @@ export const celebrationItemSelector = createSelector(
   ({ organizations }) => organizations.all,
   (_, { eventId }) => eventId,
   (_, { organizationId }) => organizationId,
-  (orgs, eventId, organizationId) =>
-    orgs
-      .find(({ id }) => id === organizationId)
-      .celebrateItems.find(({ id }) => id === eventId),
+  (orgs, eventId, organizationId) => {
+    const { celebrateItems } = orgs.find(({ id }) => id === organizationId);
+
+    return celebrateItems && celebrateItems.find(({ id }) => id === eventId);
+  },
 );
 
 export const celebrationSelector = createSelector(
