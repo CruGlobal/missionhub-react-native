@@ -19,34 +19,25 @@ class CelebrateItemName extends Component {
     dispatch(navToPersonScreen(subject_person, organization));
   };
 
-  renderName() {
-    const {
-      t,
-      event: { subject_person_name },
-    } = this.props;
-
-    return (
-      <ItemHeaderText
-        text={subject_person_name ? subject_person_name : t('missionHubUser')}
-      />
-    );
+  renderName(name) {
+    return <ItemHeaderText text={name} />;
   }
 
   render() {
-    const { event } = this.props;
+    const { event, t } = this.props;
     const { subject_person_name } = event;
 
-    if (
-      !event.organization ||
-      event.organization.id === GLOBAL_COMMUNITY_ID ||
-      !subject_person_name
-    ) {
-      return this.renderName();
+    if (!subject_person_name) {
+      return this.renderName(t('missionHubUser'));
+    }
+
+    if (!event.organization || event.organization.id === GLOBAL_COMMUNITY_ID) {
+      return this.renderName(subject_person_name);
     }
 
     return (
       <Button type="transparent" onPress={this.onPressNameLink}>
-        {this.renderName()}
+        {this.renderName(subject_person_name)}
       </Button>
     );
   }
