@@ -15,9 +15,15 @@ const step = {
   body: 'Step of Faith',
 };
 
-describe('StepSuggestionItem', () => {
-  it('renders correctly', () => {
+describe('AcceptedStepItem', () => {
+  it('renders accepted correctly', () => {
     testSnapshotShallow(<StepSuggestionItem step={step} />);
+  });
+
+  it('renders completed correctly', () => {
+    testSnapshotShallow(
+      <StepSuggestionItem step={{ ...step, completed_at: '12/12/2012' }} />,
+    );
   });
 
   it('navigates to StepDetailScreen', () => {
@@ -41,7 +47,6 @@ describe('StepSuggestionItem', () => {
     );
 
     await component
-      .childAt(0)
       .childAt(1)
       .props()
       .onPress();

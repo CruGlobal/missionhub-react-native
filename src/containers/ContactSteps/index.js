@@ -163,29 +163,27 @@ class ContactSteps extends Component {
 
   keyExtractor = i => i.id;
 
-  renderList() {
+  renderList(data) {
+    return (
+      <FlatList
+        ref={this.ref}
+        style={styles.container}
+        data={data}
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderRow}
+        bounces={true}
+        showsVerticalScrollIndicator={false}
+      />
+    );
+  }
+
+  renderSteps() {
     const { steps } = this.props;
     return (
       <ScrollView flex={1}>
-        <FlatList
-          ref={this.ref}
-          style={styles.container}
-          data={steps}
-          keyExtractor={this.keyExtractor}
-          renderItem={this.renderRow}
-          bounces={true}
-          showsVerticalScrollIndicator={false}
-        />
+        {this.renderList(steps)}
         {this.renderCompletedStepsButton()}
-        <FlatList
-          ref={this.ref}
-          style={styles.container}
-          data={[]}
-          keyExtractor={this.keyExtractor}
-          renderItem={this.renderRow}
-          bounces={true}
-          showsVerticalScrollIndicator={false}
-        />
+        {this.renderList([])}
       </ScrollView>
     );
   }
@@ -207,7 +205,7 @@ class ContactSteps extends Component {
     const { t, steps } = this.props;
     return (
       <View flex={1}>
-        {steps.length > 0 ? this.renderList() : this.renderNull()}
+        {steps.length > 0 ? this.renderSteps() : this.renderNull()}
         <BottomButton onPress={this.handleCreateStep} text={t('addStep')} />
       </View>
     );

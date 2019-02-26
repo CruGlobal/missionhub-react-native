@@ -47,30 +47,33 @@ class AcceptedStepItem extends Component {
     } = styles;
 
     return (
-      <Card onPress={this.handleNavigate} style={card}>
-        <View flex={1} flexDirection="row" alignItems="center">
-          <View flex={1} flexDirection="column">
+      <Card
+        flex={1}
+        flexDirection="row"
+        alignItems="center"
+        onPress={this.handleNavigate}
+        style={card}
+      >
+        <View flex={1} flexDirection="column">
+          <Button
+            type="transparent"
+            flexDirection="row"
+            style={reminderButton}
+            onPress={this.handleSetReminder}
+          >
             <View flexDirection="row">
-              <Button
-                type="transparent"
-                style={reminderButton}
-                onPress={this.handleSetReminder}
-              >
-                <View flexDirection="row">
-                  <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-                  <Text style={reminderText}>{t('setReminder')}</Text>
-                </View>
-              </Button>
+              <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
+              <Text style={reminderText}>{t('setReminder')}</Text>
             </View>
-            <Text style={stepText}>{title}</Text>
-          </View>
-          <Button onPress={this.handleCompleteStep} style={iconButton}>
-            <Image
-              source={completed_at ? GREY_CHECKBOX : BLUE_CHECKBOX}
-              style={checkIcon}
-            />
           </Button>
+          <Text style={stepText}>{title}</Text>
         </View>
+        <Button onPress={this.handleCompleteStep} style={iconButton}>
+          <Image
+            source={completed_at ? GREY_CHECKBOX : BLUE_CHECKBOX}
+            style={checkIcon}
+          />
+        </Button>
       </Card>
     );
   }
