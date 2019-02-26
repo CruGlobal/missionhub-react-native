@@ -313,6 +313,9 @@ export default {
     interactionNote: 'Comment',
     commentBoxPlaceholder: 'Share something to be remembered...',
   },
+  celebrateCommentBox: {
+    placeholder: 'Write a comment...',
+  },
   notes: {
     header: 'MY NOTES',
     add: 'ADD PRIVATE NOTES',
@@ -648,9 +651,6 @@ export default {
   },
   loadMore: {
     load: 'Load More',
-  },
-  commentBox: {
-    placeholder: 'Comment',
   },
   statusSelect: {
     header: 'Status',

@@ -6,7 +6,6 @@ import thunk from 'redux-thunk';
 import CommentsList from '..';
 
 import { renderShallow } from '../../../../testUtils';
-import { celebrationItemSelector } from '../../../selectors/celebration';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
 import {
   reloadCelebrateComments,
@@ -34,7 +33,6 @@ const getCelebrateCommentsNextPageResult = { type: 'got next page' };
 
 let screen;
 
-celebrationItemSelector.mockReturnValue(event);
 reloadCelebrateComments.mockReturnValue(dispatch =>
   dispatch(reloadCelebrateCommentsResult),
 );
@@ -51,7 +49,7 @@ beforeEach(() => {
   });
 
   screen = renderShallow(
-    <CommentsList eventId={event.id} organizationId={organizationId} />,
+    <CommentsList event={event} organizationId={organizationId} />,
     store,
   );
 });

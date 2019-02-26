@@ -8,7 +8,6 @@ import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import CommentBox from '..';
 
 import { addNewInteraction } from '../../../actions/interactions';
-import { INTERACTION_TYPES } from '../../../constants';
 
 jest.mock('../../../actions/interactions');
 
@@ -20,6 +19,7 @@ let store;
 const props = {
   person: { id: '1' },
   onSubmit: jest.fn(),
+  placeholderTextKey: 'actions:commentBoxPlaceholder',
 };
 
 const action = {
@@ -145,26 +145,6 @@ describe('click submit button', () => {
       .props()
       .onPress();
 
-  describe('with no interaction selected', () => {
-    it('should add a comment', async () => {
-      component = renderShallow(
-        <CommentBox person={person} organization={organization} />,
-        store,
-      );
-      setText(text);
-
-      await clickSubmit();
-
-      expect(addNewInteraction).toHaveBeenCalledWith(
-        person.id,
-        INTERACTION_TYPES.MHInteractionTypeNote,
-        text,
-        organization.id,
-      );
-      expect(store.getActions()).toEqual([addNewInteractionResult]);
-    });
-  });
-
   it('calls onSubmit prop', async () => {
     const onSubmit = jest.fn();
     component = renderShallow(
@@ -179,6 +159,6 @@ describe('click submit button', () => {
 
     await clickSubmit();
 
-    expect(onSubmit).toHaveBeenCalled();
+    expect(onSubmit).toHaveBeenCalledWith(null, text);
   });
 });
