@@ -12,6 +12,7 @@ import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
 import { momentUtc, refresh } from '../../utils/common';
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
 
 @translate('groupsCelebrate')
 export class GroupCelebrate extends Component {
@@ -60,7 +61,7 @@ export class GroupCelebrate extends Component {
         loadMoreItemsCallback={this.loadItems}
         refreshCallback={this.refreshItems}
         refreshing={refreshing}
-        itemNamePressable={true}
+        itemNamePressable={organization.id !== GLOBAL_COMMUNITY_ID}
       />
     );
   }

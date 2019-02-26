@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { Button } from '../../components/common';
-import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import ItemHeaderText from '../../components/ItemHeaderText';
 import { navToPersonScreen } from '../../actions/person';
 
@@ -21,17 +20,13 @@ class CelebrateItemName extends Component {
   }
 
   render() {
-    const { name, organization, t, pressable } = this.props;
+    const { name, t, pressable } = this.props;
 
     if (!name) {
       return this.renderName(t('missionHubUser'));
     }
 
-    if (
-      !organization ||
-      organization.id === GLOBAL_COMMUNITY_ID || //TODO move global ID check elsewhere?
-      !pressable
-    ) {
+    if (!pressable) {
       return this.renderName(name);
     }
 
@@ -44,9 +39,9 @@ class CelebrateItemName extends Component {
 }
 
 CelebrateItemName.propTypes = {
-  person: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
-  organization: PropTypes.object.isRequired,
+  name: PropTypes.string,
+  person: PropTypes.object,
+  organization: PropTypes.object,
   pressable: PropTypes.bool,
 };
 

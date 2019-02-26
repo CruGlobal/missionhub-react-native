@@ -3,7 +3,6 @@ import configureStore from 'redux-mock-store';
 
 import CelebrateItemName from '..';
 
-import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
 import { navToPersonScreen } from '../../../actions/person';
 
@@ -11,9 +10,11 @@ const mockStore = configureStore();
 let store;
 
 const navToPersonScreenResult = { type: 'navigated to person screen' };
+const person = { id: '1234123' };
 const organization = { id: '235234' };
-const subject_person_name = 'Roger Goers';
-let event;
+
+let name;
+let pressable;
 let screen;
 
 jest.mock('../../../actions/person');
@@ -25,15 +26,20 @@ beforeEach(() => {
 
   jest.clearAllMocks();
 
-  screen = renderShallow(<CelebrateItemName event={event} />, store);
+  screen = renderShallow(
+    <CelebrateItemName
+      name={name}
+      person={person}
+      organization={organization}
+      pressable={pressable}
+    />,
+    store,
+  );
 });
 
-describe('does not have organization', () => {
+describe('does not have name', () => {
   beforeAll(() => {
-    event = {
-      ...event,
-      organization: null,
-    };
+    name = null;
   });
 
   it('renders correctly', () => {
@@ -41,30 +47,14 @@ describe('does not have organization', () => {
   });
 });
 
-describe('global community', () => {
+describe('has name', () => {
   beforeAll(() => {
-    event = {
-      ...event,
-      organization: { id: GLOBAL_COMMUNITY_ID },
-    };
+    name = 'Roger Goers';
   });
 
-  it('renders correctly', () => {
-    expect(screen).toMatchSnapshot();
-  });
-});
-
-describe('has organization', () => {
-  beforeAll(() => {
-    event = { ...event, organization };
-  });
-
-  describe('does not have subject person name', () => {
+  describe('is not pressable', () => {
     beforeAll(() => {
-      event = {
-        ...event,
-        subject_person_name: null,
-      };
+      pressable = false;
     });
 
     it('renders correctly', () => {
@@ -72,15 +62,9 @@ describe('has organization', () => {
     });
   });
 
-  describe('has subject person name', () => {
-    const subject_person = { name: 'Roger' };
-
+  describe('is pressable', () => {
     beforeAll(() => {
-      event = {
-        ...event,
-        subject_person_name,
-        subject_person,
-      };
+      pressable = true;
     });
 
     it('renders correctly', () => {
@@ -90,10 +74,7 @@ describe('has organization', () => {
     it('navigates to person screen', () => {
       screen.props().onPress();
 
-      expect(navToPersonScreen).toHaveBeenCalledWith(
-        subject_person,
-        organization,
-      );
+      expect(navToPersonScreen).toHaveBeenCalledWith(person, organization);
       expect(store.getActions()).toEqual([navToPersonScreenResult]);
     });
   });
