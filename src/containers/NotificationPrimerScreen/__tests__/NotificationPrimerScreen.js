@@ -94,10 +94,6 @@ describe('notification primer methods', () => {
   let component;
   const mockComplete = jest.fn();
 
-  beforeEach(() => {
-    mockComplete.mockReset();
-  });
-
   const createComponent = (props = {}) => {
     const screen = renderShallow(
       <NotificationPrimerScreen

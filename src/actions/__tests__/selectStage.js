@@ -75,7 +75,6 @@ refreshImpact.mockReturnValue(impactResponse);
 getPersonDetails.mockReturnValue(getPersonResponse);
 
 beforeEach(() => {
-  callApi.mockClear();
   store = mockStore();
 });
 

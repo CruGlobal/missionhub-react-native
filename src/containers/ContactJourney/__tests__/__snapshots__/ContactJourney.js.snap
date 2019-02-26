@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContactJourney renders loading screen correctly 1`] = `
-<Component
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -39,13 +40,14 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
       }
     />
   </Flex>
-</Component>
+</SafeAreaView>
 `;
 
 exports[`ContactJourney renders null screen correctly 1`] = `
-<Component
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -89,13 +91,14 @@ exports[`ContactJourney renders null screen correctly 1`] = `
       }
     />
   </Flex>
-</Component>
+</SafeAreaView>
 `;
 
 exports[`ContactJourney renders screen as personal ministry 1`] = `
-<Component
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -162,13 +165,14 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
       }
     />
   </Flex>
-</Component>
+</SafeAreaView>
 `;
 
 exports[`ContactJourney renders screen with steps correctly 1`] = `
-<Component
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -235,7 +239,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
       }
     />
   </Flex>
-</Component>
+</SafeAreaView>
 `;
 
 exports[`journey methods renders a stage change row 1`] = `
@@ -263,7 +267,6 @@ exports[`journey methods renders a step row 1`] = `
       },
     ]
   }
-  onBumpComplete={undefined}
   onEdit={[Function]}
 >
   <Translate(JourneyItem)
@@ -306,7 +309,6 @@ exports[`journey methods renders an interaction row 1`] = `
       },
     ]
   }
-  onBumpComplete={undefined}
   onEdit={[Function]}
 >
   <Translate(JourneyItem)
@@ -326,9 +328,10 @@ exports[`journey methods renders an interaction row 1`] = `
 exports[`journey methods should render item separator 1`] = `<Separator />`;
 
 exports[`renders with an organization correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -503,16 +506,9 @@ exports[`renders with an organization correctly 1`] = `
           }
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
             accessibilityTraits="button"
             accessible={true}
-            collapsable={undefined}
-            hasTVPreferredFocus={undefined}
-            hitSlop={undefined}
             isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -524,8 +520,6 @@ exports[`renders with an organization correctly 1`] = `
                 "opacity": 1,
               }
             }
-            testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <View
               style={
@@ -657,5 +651,5 @@ exports[`renders with an organization correctly 1`] = `
       </View>
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;

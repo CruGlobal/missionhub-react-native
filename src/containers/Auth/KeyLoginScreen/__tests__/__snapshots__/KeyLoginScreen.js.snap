@@ -11,73 +11,20 @@ exports[`a login button is clicked facebook login button is pressed loading whee
     }
   }
 >
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
-  <Flex
-    align="center"
-    justify="center"
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 48,
-        }
-      }
-      type="header"
-    >
-      Sign In
-    </MyText>
-  </Flex>
-  <Flex
+  <SafeAreaView
     style={
       Object {
-        "paddingHorizontal": 30,
-        "paddingVertical": 10,
+        "flex": 1,
       }
     }
-    value={3}
   >
-    <Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 12,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="white"
-        returnKeyType="next"
-        value=""
-      />
-    </Component>
-    <Component
-      style={
-        Object {
-          "paddingVertical": 15,
-        }
-      }
+    <Flex
+      align="center"
+      justify="center"
     >
       <MyText
         accessible={true}
@@ -86,105 +33,162 @@ exports[`a login button is clicked facebook login button is pressed loading whee
         style={
           Object {
             "color": "#52C5DC",
-            "fontSize": 12,
+            "fontSize": 48,
           }
         }
+        type="header"
       >
-        Password
+        Sign In
       </MyText>
-      <Input
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Password"
-        placeholderTextColor="white"
-        returnKeyType="done"
-        secureTextEntry={true}
-        value=""
-      />
-      <Button
-        buttonTextStyle={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 16,
-            "fontWeight": "normal",
-            "letterSpacing": 0,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          }
-        }
-        name="forgotPasswordButton"
-        onPress={[Function]}
-        style={
-          Object {
-            "width": 130,
-          }
-        }
-        text="Forgot Password?"
-        type="transparent"
-      />
-    </Component>
-  </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    value={1}
-  >
-    <Button
-      buttonTextStyle={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
-          "paddingTop": 2,
-        }
-      }
-      name="facebookButton"
-      onPress={[Function]}
-      pill={true}
+    </Flex>
+    <Flex
       style={
         Object {
-          "backgroundColor": "transparent",
-          "borderColor": "#52C5DC",
-          "borderWidth": 1,
-          "height": 48,
-          "margin": 8,
-          "width": 670,
+          "paddingHorizontal": 30,
+          "paddingVertical": 10,
         }
       }
+      value={3}
     >
-      <Flex
-        direction="row"
-      >
-        <Icon
-          name="facebookIcon"
-          size={21}
-          style={
-            Object {
-              "marginRight": 10,
-            }
-          }
-          type="MissionHub"
-        />
+      <Component>
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "paddingTop": 2,
+              "color": "#52C5DC",
+              "fontSize": 12,
             }
           }
         >
-          LOG IN WITH FACEBOOK
+          Email
         </MyText>
-      </Flex>
-    </Button>
-  </Flex>
+        <Input
+          autoCapitalize="none"
+          keyboardType="email-address"
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Email"
+          placeholderTextColor="white"
+          returnKeyType="next"
+          value=""
+        />
+      </Component>
+      <Component
+        style={
+          Object {
+            "paddingVertical": 15,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            }
+          }
+        >
+          Password
+        </MyText>
+        <Input
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Password"
+          placeholderTextColor="white"
+          returnKeyType="done"
+          secureTextEntry={true}
+          value=""
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 16,
+              "fontWeight": "normal",
+              "letterSpacing": 0,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            }
+          }
+          name="forgotPasswordButton"
+          onPress={[Function]}
+          style={
+            Object {
+              "width": 130,
+            }
+          }
+          text="Forgot Password?"
+          type="transparent"
+        />
+      </Component>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+            "paddingTop": 2,
+          }
+        }
+        name="facebookButton"
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 670,
+          }
+        }
+      >
+        <Flex
+          direction="row"
+        >
+          <Icon
+            name="facebookIcon"
+            size={21}
+            style={
+              Object {
+                "marginRight": 10,
+              }
+            }
+            type="MissionHub"
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "paddingTop": 2,
+              }
+            }
+          >
+            LOG IN WITH FACEBOOK
+          </MyText>
+        </Flex>
+      </Button>
+    </Flex>
+  </SafeAreaView>
   <LoadingWheel />
 </Component>
 `;
@@ -200,73 +204,20 @@ exports[`a login button is clicked forgot password button is pressed loading whe
     }
   }
 >
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
-  <Flex
-    align="center"
-    justify="center"
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 48,
-        }
-      }
-      type="header"
-    >
-      Sign In
-    </MyText>
-  </Flex>
-  <Flex
+  <SafeAreaView
     style={
       Object {
-        "paddingHorizontal": 30,
-        "paddingVertical": 10,
+        "flex": 1,
       }
     }
-    value={3}
   >
-    <Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 12,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="white"
-        returnKeyType="next"
-        value=""
-      />
-    </Component>
-    <Component
-      style={
-        Object {
-          "paddingVertical": 15,
-        }
-      }
+    <Flex
+      align="center"
+      justify="center"
     >
       <MyText
         accessible={true}
@@ -275,105 +226,162 @@ exports[`a login button is clicked forgot password button is pressed loading whe
         style={
           Object {
             "color": "#52C5DC",
-            "fontSize": 12,
+            "fontSize": 48,
           }
         }
+        type="header"
       >
-        Password
+        Sign In
       </MyText>
-      <Input
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Password"
-        placeholderTextColor="white"
-        returnKeyType="done"
-        secureTextEntry={true}
-        value=""
-      />
-      <Button
-        buttonTextStyle={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 16,
-            "fontWeight": "normal",
-            "letterSpacing": 0,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          }
-        }
-        name="forgotPasswordButton"
-        onPress={[Function]}
-        style={
-          Object {
-            "width": 130,
-          }
-        }
-        text="Forgot Password?"
-        type="transparent"
-      />
-    </Component>
-  </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    value={1}
-  >
-    <Button
-      buttonTextStyle={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
-          "paddingTop": 2,
-        }
-      }
-      name="facebookButton"
-      onPress={[Function]}
-      pill={true}
+    </Flex>
+    <Flex
       style={
         Object {
-          "backgroundColor": "transparent",
-          "borderColor": "#52C5DC",
-          "borderWidth": 1,
-          "height": 48,
-          "margin": 8,
-          "width": 670,
+          "paddingHorizontal": 30,
+          "paddingVertical": 10,
         }
       }
+      value={3}
     >
-      <Flex
-        direction="row"
-      >
-        <Icon
-          name="facebookIcon"
-          size={21}
-          style={
-            Object {
-              "marginRight": 10,
-            }
-          }
-          type="MissionHub"
-        />
+      <Component>
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "paddingTop": 2,
+              "color": "#52C5DC",
+              "fontSize": 12,
             }
           }
         >
-          LOG IN WITH FACEBOOK
+          Email
         </MyText>
-      </Flex>
-    </Button>
-  </Flex>
+        <Input
+          autoCapitalize="none"
+          keyboardType="email-address"
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Email"
+          placeholderTextColor="white"
+          returnKeyType="next"
+          value=""
+        />
+      </Component>
+      <Component
+        style={
+          Object {
+            "paddingVertical": 15,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            }
+          }
+        >
+          Password
+        </MyText>
+        <Input
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Password"
+          placeholderTextColor="white"
+          returnKeyType="done"
+          secureTextEntry={true}
+          value=""
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 16,
+              "fontWeight": "normal",
+              "letterSpacing": 0,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            }
+          }
+          name="forgotPasswordButton"
+          onPress={[Function]}
+          style={
+            Object {
+              "width": 130,
+            }
+          }
+          text="Forgot Password?"
+          type="transparent"
+        />
+      </Component>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+            "paddingTop": 2,
+          }
+        }
+        name="facebookButton"
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 670,
+          }
+        }
+      >
+        <Flex
+          direction="row"
+        >
+          <Icon
+            name="facebookIcon"
+            size={21}
+            style={
+              Object {
+                "marginRight": 10,
+              }
+            }
+            type="MissionHub"
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "paddingTop": 2,
+              }
+            }
+          >
+            LOG IN WITH FACEBOOK
+          </MyText>
+        </Flex>
+      </Button>
+    </Flex>
+  </SafeAreaView>
   <LoadingWheel />
 </Component>
 `;
@@ -389,73 +397,20 @@ exports[`a login button is clicked key login button is pressed loading wheel app
     }
   }
 >
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
-  <Flex
-    align="center"
-    justify="center"
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 48,
-        }
-      }
-      type="header"
-    >
-      Sign In
-    </MyText>
-  </Flex>
-  <Flex
+  <SafeAreaView
     style={
       Object {
-        "paddingHorizontal": 30,
-        "paddingVertical": 10,
+        "flex": 1,
       }
     }
-    value={3}
   >
-    <Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 12,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="white"
-        returnKeyType="next"
-        value="klas&jflk@lkjasdf.com"
-      />
-    </Component>
-    <Component
-      style={
-        Object {
-          "paddingVertical": 15,
-        }
-      }
+    <Flex
+      align="center"
+      justify="center"
     >
       <MyText
         accessible={true}
@@ -464,55 +419,112 @@ exports[`a login button is clicked key login button is pressed loading wheel app
         style={
           Object {
             "color": "#52C5DC",
-            "fontSize": 12,
+            "fontSize": 48,
+          }
+        }
+        type="header"
+      >
+        Sign In
+      </MyText>
+    </Flex>
+    <Flex
+      style={
+        Object {
+          "paddingHorizontal": 30,
+          "paddingVertical": 10,
+        }
+      }
+      value={3}
+    >
+      <Component>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            }
+          }
+        >
+          Email
+        </MyText>
+        <Input
+          autoCapitalize="none"
+          keyboardType="email-address"
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Email"
+          placeholderTextColor="white"
+          returnKeyType="next"
+          value="klas&jflk@lkjasdf.com"
+        />
+      </Component>
+      <Component
+        style={
+          Object {
+            "paddingVertical": 15,
           }
         }
       >
-        Password
-      </MyText>
-      <Input
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Password"
-        placeholderTextColor="white"
-        returnKeyType="done"
-        secureTextEntry={true}
-        value="this&is=unsafe"
-      />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            }
+          }
+        >
+          Password
+        </MyText>
+        <Input
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Password"
+          placeholderTextColor="white"
+          returnKeyType="done"
+          secureTextEntry={true}
+          value="this&is=unsafe"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 16,
+              "fontWeight": "normal",
+              "letterSpacing": 0,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            }
+          }
+          name="forgotPasswordButton"
+          onPress={[Function]}
+          style={
+            Object {
+              "width": 130,
+            }
+          }
+          text="Forgot Password?"
+          type="transparent"
+        />
+      </Component>
+    </Flex>
+    <Flex
+      align="stretch"
+      justify="end"
+    >
       <Button
-        buttonTextStyle={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 16,
-            "fontWeight": "normal",
-            "letterSpacing": 0,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          }
-        }
-        name="forgotPasswordButton"
+        name="loginButton"
         onPress={[Function]}
-        style={
-          Object {
-            "width": 130,
-          }
-        }
-        text="Forgot Password?"
-        type="transparent"
+        text="LOGIN"
+        type="secondary"
       />
-    </Component>
-  </Flex>
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      name="loginButton"
-      onPress={[Function]}
-      text="LOGIN"
-      type="secondary"
-    />
-  </Flex>
+    </Flex>
+  </SafeAreaView>
   <LoadingWheel />
 </Component>
 `;
@@ -528,73 +540,20 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
     }
   }
 >
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
-  <Flex
-    align="center"
-    justify="center"
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 48,
-        }
-      }
-      type="header"
-    >
-      Sign In
-    </MyText>
-  </Flex>
-  <Flex
+  <SafeAreaView
     style={
       Object {
-        "paddingHorizontal": 30,
-        "paddingVertical": 10,
+        "flex": 1,
       }
     }
-    value={3}
   >
-    <Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 12,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="white"
-        returnKeyType="next"
-        value=""
-      />
-    </Component>
-    <Component
-      style={
-        Object {
-          "paddingVertical": 15,
-        }
-      }
+    <Flex
+      align="center"
+      justify="center"
     >
       <MyText
         accessible={true}
@@ -603,105 +562,162 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
         style={
           Object {
             "color": "#52C5DC",
-            "fontSize": 12,
+            "fontSize": 48,
           }
         }
+        type="header"
       >
-        Password
+        Sign In
       </MyText>
-      <Input
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Password"
-        placeholderTextColor="white"
-        returnKeyType="done"
-        secureTextEntry={true}
-        value=""
-      />
-      <Button
-        buttonTextStyle={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 16,
-            "fontWeight": "normal",
-            "letterSpacing": 0,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          }
-        }
-        name="forgotPasswordButton"
-        onPress={[Function]}
-        style={
-          Object {
-            "width": 130,
-          }
-        }
-        text="Forgot Password?"
-        type="transparent"
-      />
-    </Component>
-  </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    value={1}
-  >
-    <Button
-      buttonTextStyle={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
-          "paddingTop": 2,
-        }
-      }
-      name="facebookButton"
-      onPress={[Function]}
-      pill={true}
+    </Flex>
+    <Flex
       style={
         Object {
-          "backgroundColor": "transparent",
-          "borderColor": "#52C5DC",
-          "borderWidth": 1,
-          "height": 48,
-          "margin": 8,
-          "width": 670,
+          "paddingHorizontal": 30,
+          "paddingVertical": 10,
         }
       }
+      value={3}
     >
-      <Flex
-        direction="row"
-      >
-        <Icon
-          name="facebookIcon"
-          size={21}
-          style={
-            Object {
-              "marginRight": 10,
-            }
-          }
-          type="MissionHub"
-        />
+      <Component>
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "paddingTop": 2,
+              "color": "#52C5DC",
+              "fontSize": 12,
             }
           }
         >
-          LOG IN WITH FACEBOOK
+          Email
         </MyText>
-      </Flex>
-    </Button>
-  </Flex>
+        <Input
+          autoCapitalize="none"
+          keyboardType="email-address"
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Email"
+          placeholderTextColor="white"
+          returnKeyType="next"
+          value=""
+        />
+      </Component>
+      <Component
+        style={
+          Object {
+            "paddingVertical": 15,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            }
+          }
+        >
+          Password
+        </MyText>
+        <Input
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Password"
+          placeholderTextColor="white"
+          returnKeyType="done"
+          secureTextEntry={true}
+          value=""
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 16,
+              "fontWeight": "normal",
+              "letterSpacing": 0,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            }
+          }
+          name="forgotPasswordButton"
+          onPress={[Function]}
+          style={
+            Object {
+              "width": 130,
+            }
+          }
+          text="Forgot Password?"
+          type="transparent"
+        />
+      </Component>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+            "paddingTop": 2,
+          }
+        }
+        name="facebookButton"
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 670,
+          }
+        }
+      >
+        <Flex
+          direction="row"
+        >
+          <Icon
+            name="facebookIcon"
+            size={21}
+            style={
+              Object {
+                "marginRight": 10,
+              }
+            }
+            type="MissionHub"
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "paddingTop": 2,
+              }
+            }
+          >
+            LOG IN WITH FACEBOOK
+          </MyText>
+        </Flex>
+      </Button>
+    </Flex>
+  </SafeAreaView>
 </Component>
 `;
 
@@ -741,73 +757,20 @@ exports[`a login button is clicked key login button is pressed shows email verif
       Verify your account via Email
     </MyText>
   </Component>
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
-  <Flex
-    align="center"
-    justify="center"
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 48,
-        }
-      }
-      type="header"
-    >
-      Sign In
-    </MyText>
-  </Flex>
-  <Flex
+  <SafeAreaView
     style={
       Object {
-        "paddingHorizontal": 30,
-        "paddingVertical": 10,
+        "flex": 1,
       }
     }
-    value={3}
   >
-    <Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 12,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="white"
-        returnKeyType="next"
-        value="klas&jflk@lkjasdf.com"
-      />
-    </Component>
-    <Component
-      style={
-        Object {
-          "paddingVertical": 15,
-        }
-      }
+    <Flex
+      align="center"
+      justify="center"
     >
       <MyText
         accessible={true}
@@ -816,55 +779,112 @@ exports[`a login button is clicked key login button is pressed shows email verif
         style={
           Object {
             "color": "#52C5DC",
-            "fontSize": 12,
+            "fontSize": 48,
+          }
+        }
+        type="header"
+      >
+        Sign In
+      </MyText>
+    </Flex>
+    <Flex
+      style={
+        Object {
+          "paddingHorizontal": 30,
+          "paddingVertical": 10,
+        }
+      }
+      value={3}
+    >
+      <Component>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            }
+          }
+        >
+          Email
+        </MyText>
+        <Input
+          autoCapitalize="none"
+          keyboardType="email-address"
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Email"
+          placeholderTextColor="white"
+          returnKeyType="next"
+          value="klas&jflk@lkjasdf.com"
+        />
+      </Component>
+      <Component
+        style={
+          Object {
+            "paddingVertical": 15,
           }
         }
       >
-        Password
-      </MyText>
-      <Input
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Password"
-        placeholderTextColor="white"
-        returnKeyType="done"
-        secureTextEntry={true}
-        value="this&is=unsafe"
-      />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            }
+          }
+        >
+          Password
+        </MyText>
+        <Input
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Password"
+          placeholderTextColor="white"
+          returnKeyType="done"
+          secureTextEntry={true}
+          value="this&is=unsafe"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 16,
+              "fontWeight": "normal",
+              "letterSpacing": 0,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            }
+          }
+          name="forgotPasswordButton"
+          onPress={[Function]}
+          style={
+            Object {
+              "width": 130,
+            }
+          }
+          text="Forgot Password?"
+          type="transparent"
+        />
+      </Component>
+    </Flex>
+    <Flex
+      align="stretch"
+      justify="end"
+    >
       <Button
-        buttonTextStyle={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 16,
-            "fontWeight": "normal",
-            "letterSpacing": 0,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          }
-        }
-        name="forgotPasswordButton"
+        name="loginButton"
         onPress={[Function]}
-        style={
-          Object {
-            "width": 130,
-          }
-        }
-        text="Forgot Password?"
-        type="transparent"
+        text="LOGIN"
+        type="secondary"
       />
-    </Component>
-  </Flex>
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      name="loginButton"
-      onPress={[Function]}
-      text="LOGIN"
-      type="secondary"
-    />
-  </Flex>
+    </Flex>
+  </SafeAreaView>
 </Component>
 `;
 
@@ -904,73 +924,20 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       Your Email or Password is Incorrect
     </MyText>
   </Component>
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
-  <Flex
-    align="center"
-    justify="center"
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 48,
-        }
-      }
-      type="header"
-    >
-      Sign In
-    </MyText>
-  </Flex>
-  <Flex
+  <SafeAreaView
     style={
       Object {
-        "paddingHorizontal": 30,
-        "paddingVertical": 10,
+        "flex": 1,
       }
     }
-    value={3}
   >
-    <Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 12,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="white"
-        returnKeyType="next"
-        value="klas&jflk@lkjasdf.com"
-      />
-    </Component>
-    <Component
-      style={
-        Object {
-          "paddingVertical": 15,
-        }
-      }
+    <Flex
+      align="center"
+      justify="center"
     >
       <MyText
         accessible={true}
@@ -979,55 +946,112 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         style={
           Object {
             "color": "#52C5DC",
-            "fontSize": 12,
+            "fontSize": 48,
+          }
+        }
+        type="header"
+      >
+        Sign In
+      </MyText>
+    </Flex>
+    <Flex
+      style={
+        Object {
+          "paddingHorizontal": 30,
+          "paddingVertical": 10,
+        }
+      }
+      value={3}
+    >
+      <Component>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            }
+          }
+        >
+          Email
+        </MyText>
+        <Input
+          autoCapitalize="none"
+          keyboardType="email-address"
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Email"
+          placeholderTextColor="white"
+          returnKeyType="next"
+          value="klas&jflk@lkjasdf.com"
+        />
+      </Component>
+      <Component
+        style={
+          Object {
+            "paddingVertical": 15,
           }
         }
       >
-        Password
-      </MyText>
-      <Input
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Password"
-        placeholderTextColor="white"
-        returnKeyType="done"
-        secureTextEntry={true}
-        value="this&is=unsafe"
-      />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            }
+          }
+        >
+          Password
+        </MyText>
+        <Input
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Password"
+          placeholderTextColor="white"
+          returnKeyType="done"
+          secureTextEntry={true}
+          value="this&is=unsafe"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 16,
+              "fontWeight": "normal",
+              "letterSpacing": 0,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            }
+          }
+          name="forgotPasswordButton"
+          onPress={[Function]}
+          style={
+            Object {
+              "width": 130,
+            }
+          }
+          text="Forgot Password?"
+          type="transparent"
+        />
+      </Component>
+    </Flex>
+    <Flex
+      align="stretch"
+      justify="end"
+    >
       <Button
-        buttonTextStyle={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 16,
-            "fontWeight": "normal",
-            "letterSpacing": 0,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          }
-        }
-        name="forgotPasswordButton"
+        name="loginButton"
         onPress={[Function]}
-        style={
-          Object {
-            "width": 130,
-          }
-        }
-        text="Forgot Password?"
-        type="transparent"
+        text="LOGIN"
+        type="secondary"
       />
-    </Component>
-  </Flex>
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      name="loginButton"
-      onPress={[Function]}
-      text="LOGIN"
-      type="secondary"
-    />
-  </Flex>
+    </Flex>
+  </SafeAreaView>
 </Component>
 `;
 
@@ -1067,73 +1091,20 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       Your Email or Password is Incorrect
     </MyText>
   </Component>
-  <Connect(BackButton)
-    style={
-      Object {
-        "marginLeft": 5,
-        "marginTop": 25,
-      }
-    }
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
   />
-  <Flex
-    align="center"
-    justify="center"
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 48,
-        }
-      }
-      type="header"
-    >
-      Sign In
-    </MyText>
-  </Flex>
-  <Flex
+  <SafeAreaView
     style={
       Object {
-        "paddingHorizontal": 30,
-        "paddingVertical": 10,
+        "flex": 1,
       }
     }
-    value={3}
   >
-    <Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 12,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="white"
-        returnKeyType="next"
-        value="klas&jflk@lkjasdf.com"
-      />
-    </Component>
-    <Component
-      style={
-        Object {
-          "paddingVertical": 15,
-        }
-      }
+    <Flex
+      align="center"
+      justify="center"
     >
       <MyText
         accessible={true}
@@ -1142,55 +1113,112 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         style={
           Object {
             "color": "#52C5DC",
-            "fontSize": 12,
+            "fontSize": 48,
+          }
+        }
+        type="header"
+      >
+        Sign In
+      </MyText>
+    </Flex>
+    <Flex
+      style={
+        Object {
+          "paddingHorizontal": 30,
+          "paddingVertical": 10,
+        }
+      }
+      value={3}
+    >
+      <Component>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            }
+          }
+        >
+          Email
+        </MyText>
+        <Input
+          autoCapitalize="none"
+          keyboardType="email-address"
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Email"
+          placeholderTextColor="white"
+          returnKeyType="next"
+          value="klas&jflk@lkjasdf.com"
+        />
+      </Component>
+      <Component
+        style={
+          Object {
+            "paddingVertical": 15,
           }
         }
       >
-        Password
-      </MyText>
-      <Input
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Password"
-        placeholderTextColor="white"
-        returnKeyType="done"
-        secureTextEntry={true}
-        value="this&is=unsafe"
-      />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            }
+          }
+        >
+          Password
+        </MyText>
+        <Input
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Password"
+          placeholderTextColor="white"
+          returnKeyType="done"
+          secureTextEntry={true}
+          value="this&is=unsafe"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 16,
+              "fontWeight": "normal",
+              "letterSpacing": 0,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            }
+          }
+          name="forgotPasswordButton"
+          onPress={[Function]}
+          style={
+            Object {
+              "width": 130,
+            }
+          }
+          text="Forgot Password?"
+          type="transparent"
+        />
+      </Component>
+    </Flex>
+    <Flex
+      align="stretch"
+      justify="end"
+    >
       <Button
-        buttonTextStyle={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 16,
-            "fontWeight": "normal",
-            "letterSpacing": 0,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          }
-        }
-        name="forgotPasswordButton"
+        name="loginButton"
         onPress={[Function]}
-        style={
-          Object {
-            "width": 130,
-          }
-        }
-        text="Forgot Password?"
-        type="transparent"
+        text="LOGIN"
+        type="secondary"
       />
-    </Component>
-  </Flex>
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      name="loginButton"
-      onPress={[Function]}
-      text="LOGIN"
-      type="secondary"
-    />
-  </Flex>
+    </Flex>
+  </SafeAreaView>
 </Component>
 `;
 
@@ -1205,165 +1233,169 @@ exports[`keyboard listeners should hide sign in logo when the keyboard comes up 
     }
   }
 >
-  <Connect(BackButton)
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
+  />
+  <SafeAreaView
     style={
       Object {
-        "marginLeft": 5,
-        "marginTop": 25,
+        "flex": 1,
       }
     }
-  />
-  <Flex
-    align="center"
-    justify="center"
-  />
-  <Flex
-    style={
-      Object {
-        "paddingHorizontal": 30,
-        "paddingVertical": 10,
-      }
-    }
-    value={3}
   >
-    <Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 12,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="white"
-        returnKeyType="next"
-        value=""
-      />
-    </Component>
-    <Component
+    <Flex
+      align="center"
+      justify="center"
+    />
+    <Flex
       style={
         Object {
-          "paddingVertical": 15,
+          "paddingHorizontal": 30,
+          "paddingVertical": 10,
         }
       }
+      value={3}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 12,
-          }
-        }
-      >
-        Password
-      </MyText>
-      <Input
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Password"
-        placeholderTextColor="white"
-        returnKeyType="done"
-        secureTextEntry={true}
-        value=""
-      />
-      <Button
-        buttonTextStyle={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 16,
-            "fontWeight": "normal",
-            "letterSpacing": 0,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          }
-        }
-        name="forgotPasswordButton"
-        onPress={[Function]}
-        style={
-          Object {
-            "width": 130,
-          }
-        }
-        text="Forgot Password?"
-        type="transparent"
-      />
-    </Component>
-  </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    value={1}
-  >
-    <Button
-      buttonTextStyle={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
-          "paddingTop": 2,
-        }
-      }
-      name="facebookButton"
-      onPress={[Function]}
-      pill={true}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "borderColor": "#52C5DC",
-          "borderWidth": 1,
-          "height": 48,
-          "margin": 8,
-          "width": 670,
-        }
-      }
-    >
-      <Flex
-        direction="row"
-      >
-        <Icon
-          name="facebookIcon"
-          size={21}
-          style={
-            Object {
-              "marginRight": 10,
-            }
-          }
-          type="MissionHub"
-        />
+      <Component>
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "paddingTop": 2,
+              "color": "#52C5DC",
+              "fontSize": 12,
             }
           }
         >
-          LOG IN WITH FACEBOOK
+          Email
         </MyText>
-      </Flex>
-    </Button>
-  </Flex>
+        <Input
+          autoCapitalize="none"
+          keyboardType="email-address"
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Email"
+          placeholderTextColor="white"
+          returnKeyType="next"
+          value=""
+        />
+      </Component>
+      <Component
+        style={
+          Object {
+            "paddingVertical": 15,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            }
+          }
+        >
+          Password
+        </MyText>
+        <Input
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Password"
+          placeholderTextColor="white"
+          returnKeyType="done"
+          secureTextEntry={true}
+          value=""
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 16,
+              "fontWeight": "normal",
+              "letterSpacing": 0,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            }
+          }
+          name="forgotPasswordButton"
+          onPress={[Function]}
+          style={
+            Object {
+              "width": 130,
+            }
+          }
+          text="Forgot Password?"
+          type="transparent"
+        />
+      </Component>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+            "paddingTop": 2,
+          }
+        }
+        name="facebookButton"
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 670,
+          }
+        }
+      >
+        <Flex
+          direction="row"
+        >
+          <Icon
+            name="facebookIcon"
+            size={21}
+            style={
+              Object {
+                "marginRight": 10,
+              }
+            }
+            type="MissionHub"
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "paddingTop": 2,
+              }
+            }
+          >
+            LOG IN WITH FACEBOOK
+          </MyText>
+        </Flex>
+      </Button>
+    </Flex>
+  </SafeAreaView>
 </Component>
 `;
 
@@ -1378,204 +1410,145 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          Object {
-            "marginLeft": 5,
-            "marginTop": 25,
-          },
-          null,
-        ],
         Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
+          "backgroundColor": "#007398",
+          "flexDirection": "row",
+          "height": 65,
+          "paddingTop": 20,
         },
+        undefined,
+        null,
       ]
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={false}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {},
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
-            "color": "#505256",
+            "paddingLeft": 5,
           },
           Object {
-            "fontFamily": "AmaticSC-Bold",
-          },
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 48,
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
           },
         ]
       }
     >
-      sign in
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "paddingHorizontal": 30,
-          "paddingVertical": 10,
-        },
-        Object {
-          "flex": 3,
-        },
-      ]
-    }
-  >
-    <View>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <View
         style={
           Array [
             Object {
-              "color": "#505256",
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
             },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 12,
-            },
+            undefined,
+            null,
           ]
         }
       >
-        Email
-      </Text>
-      <TextInput
-        allowFontScaling={true}
-        autoCapitalize="none"
-        autoCorrect={false}
-        autoFocus={false}
-        keyboardType="email-address"
-        multiline={false}
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="white"
-        returnKeyType="next"
-        selectionColor="#005A7F"
-        style={
-          Array [
+        <View
+          accessibilityTraits="button"
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
             Object {
-              "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
-              "borderBottomWidth": 1,
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 16,
-              "letterSpacing": 0.25,
-              "paddingVertical": 5,
-            },
-            Object {},
-          ]
-        }
-        underlineColorAndroid="rgba(0,0,0,0)"
-        value=""
-      />
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
     </View>
     <View
       style={
-        Object {
-          "paddingVertical": 15,
-        }
+        Array [
+          Object {
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    />
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+        ]
       }
     >
       <Text
@@ -1588,58 +1561,228 @@ exports[`renders correctly 1`] = `
               "color": "#505256",
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "AmaticSC-Bold",
             },
             Object {
               "color": "#52C5DC",
-              "fontSize": 12,
+              "fontSize": 48,
             },
           ]
         }
       >
-        Password
+        sign in
       </Text>
-      <TextInput
-        allowFontScaling={true}
-        autoCorrect={false}
-        autoFocus={false}
-        multiline={false}
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Password"
-        placeholderTextColor="white"
-        returnKeyType="done"
-        secureTextEntry={true}
-        selectionColor="#005A7F"
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
-              "borderBottomWidth": 1,
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 16,
-              "letterSpacing": 0.25,
-              "paddingVertical": 5,
-            },
-            Object {},
-          ]
-        }
-        underlineColorAndroid="rgba(0,0,0,0)"
-        value=""
-      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingHorizontal": 30,
+            "paddingVertical": 10,
+          },
+          Object {
+            "flex": 3,
+          },
+        ]
+      }
+    >
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#52C5DC",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          Email
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          autoCapitalize="none"
+          autoCorrect={false}
+          autoFocus={false}
+          keyboardType="email-address"
+          multiline={false}
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Email"
+          placeholderTextColor="white"
+          returnKeyType="next"
+          selectionColor="#005A7F"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {},
+            ]
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value=""
+        />
+      </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
+        style={
+          Object {
+            "paddingVertical": 15,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#52C5DC",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          Password
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={false}
+          autoFocus={false}
+          multiline={false}
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Password"
+          placeholderTextColor="white"
+          returnKeyType="done"
+          secureTextEntry={true}
+          selectionColor="#005A7F"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {},
+            ]
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value=""
+        />
+        <View
+          accessibilityTraits="button"
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {
+                  "width": 130,
+                },
+                null,
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 18,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0,
+                      "paddingVertical": 10,
+                      "textAlign": "left",
+                    },
+                  ],
+                ]
+              }
+            >
+              Forgot Password?
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
         accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1651,198 +1794,107 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <View
           style={
             Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
               Object {
                 "backgroundColor": "transparent",
+                "borderColor": "#52C5DC",
+                "borderWidth": 1,
+                "height": 48,
+                "margin": 8,
+                "width": 670,
               },
-              null,
               Object {
-                "width": 130,
+                "borderRadius": 50,
               },
-              null,
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": "#505256",
+                  "flexDirection": "row",
                 },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 21,
+                    },
+                    Object {
+                      "marginRight": 10,
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
                     "color": "#ffffff",
-                    "fontSize": 18,
+                    "fontSize": 14,
                     "fontWeight": "500",
                     "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "paddingTop": 2,
                   },
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 16,
-                    "fontWeight": "normal",
-                    "letterSpacing": 0,
-                    "paddingVertical": 10,
-                    "textAlign": "left",
-                  },
-                ],
-              ]
-            }
-          >
-            Forgot Password?
-          </Text>
+                ]
+              }
+            >
+              LOG IN WITH FACEBOOK
+            </Text>
+          </View>
         </View>
       </View>
     </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
-            },
-            null,
-            Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#52C5DC",
-              "borderWidth": 1,
-              "height": 48,
-              "margin": 8,
-              "width": 670,
-            },
-            Object {
-              "borderRadius": 50,
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {},
-              Object {
-                "flexDirection": "row",
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 21,
-                  },
-                  Object {
-                    "marginRight": 10,
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "paddingTop": 2,
-                },
-              ]
-            }
-          >
-            LOG IN WITH FACEBOOK
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -1857,65 +1909,67 @@ exports[`renders correctly for forced logout 1`] = `
     }
   }
 >
-  <View
-    style={
-      Object {
-        "marginTop": 25,
-      }
-    }
-  />
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "backgroundColor": "#007398",
+          "flexDirection": "row",
+          "height": 65,
+          "paddingTop": 20,
         },
+        undefined,
+        null,
       ]
     }
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
+    <View
       style={
         Array [
           Object {
-            "color": "#505256",
+            "paddingLeft": 5,
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "paddingRight": 5,
           },
           Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "lineHeight": 32,
-            "paddingLeft": 30,
-            "paddingRight": 80,
-            "textAlign": "left",
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    />
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
           },
         ]
       }
     >
-      It's been a while since you've signed in.
-Please sign in so we know it's you.
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "paddingHorizontal": 30,
-          "paddingVertical": 10,
-        },
-        Object {
-          "flex": 3,
-        },
-      ]
-    }
-  >
-    <View>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -1929,115 +1983,230 @@ Please sign in so we know it's you.
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "color": "#52C5DC",
-              "fontSize": 12,
+              "color": "#ffffff",
+              "fontSize": 24,
+              "lineHeight": 32,
+              "paddingLeft": 30,
+              "paddingRight": 80,
+              "textAlign": "left",
             },
           ]
         }
       >
-        Email
+        It's been a while since you've signed in.
+Please sign in so we know it's you.
       </Text>
-      <TextInput
-        allowFontScaling={true}
-        autoCapitalize="none"
-        autoCorrect={false}
-        autoFocus={false}
-        keyboardType="email-address"
-        multiline={false}
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="white"
-        returnKeyType="next"
-        selectionColor="#005A7F"
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
-              "borderBottomWidth": 1,
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 16,
-              "letterSpacing": 0.25,
-              "paddingVertical": 5,
-            },
-            Object {},
-          ]
-        }
-        underlineColorAndroid="rgba(0,0,0,0)"
-        value=""
-      />
     </View>
     <View
       style={
-        Object {
-          "paddingVertical": 15,
-        }
+        Array [
+          Object {
+            "paddingHorizontal": 30,
+            "paddingVertical": 10,
+          },
+          Object {
+            "flex": 3,
+          },
+        ]
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#52C5DC",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          Email
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          autoCapitalize="none"
+          autoCorrect={false}
+          autoFocus={false}
+          keyboardType="email-address"
+          multiline={false}
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Email"
+          placeholderTextColor="white"
+          returnKeyType="next"
+          selectionColor="#005A7F"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {},
+            ]
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value=""
+        />
+      </View>
+      <View
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 12,
-            },
-          ]
+          Object {
+            "paddingVertical": 15,
+          }
         }
       >
-        Password
-      </Text>
-      <TextInput
-        allowFontScaling={true}
-        autoCorrect={false}
-        autoFocus={false}
-        multiline={false}
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Password"
-        placeholderTextColor="white"
-        returnKeyType="done"
-        secureTextEntry={true}
-        selectionColor="#005A7F"
-        style={
-          Array [
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#52C5DC",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          Password
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={false}
+          autoFocus={false}
+          multiline={false}
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="Password"
+          placeholderTextColor="white"
+          returnKeyType="done"
+          secureTextEntry={true}
+          selectionColor="#005A7F"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {},
+            ]
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value=""
+        />
+        <View
+          accessibilityTraits="button"
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
             Object {
-              "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
-              "borderBottomWidth": 1,
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 16,
-              "letterSpacing": 0.25,
-              "paddingVertical": 5,
-            },
-            Object {},
-          ]
-        }
-        underlineColorAndroid="rgba(0,0,0,0)"
-        value=""
-      />
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {
+                  "width": 130,
+                },
+                null,
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 18,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0,
+                      "paddingVertical": 10,
+                      "textAlign": "left",
+                    },
+                  ],
+                ]
+              }
+            >
+              Forgot Password?
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
         accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -2049,197 +2218,106 @@ Please sign in so we know it's you.
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <View
           style={
             Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
               Object {
                 "backgroundColor": "transparent",
+                "borderColor": "#52C5DC",
+                "borderWidth": 1,
+                "height": 48,
+                "margin": 8,
+                "width": 670,
               },
-              null,
               Object {
-                "width": 130,
+                "borderRadius": 50,
               },
-              null,
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": "#505256",
+                  "flexDirection": "row",
                 },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
                 Array [
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 21,
+                    },
+                    Object {
+                      "marginRight": 10,
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
                     "color": "#ffffff",
-                    "fontSize": 18,
+                    "fontSize": 14,
                     "fontWeight": "500",
                     "letterSpacing": 1.5,
-                    "textAlign": "center",
+                    "paddingTop": 2,
                   },
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 16,
-                    "fontWeight": "normal",
-                    "letterSpacing": 0,
-                    "paddingVertical": 10,
-                    "textAlign": "left",
-                  },
-                ],
-              ]
-            }
-          >
-            Forgot Password?
-          </Text>
+                ]
+              }
+            >
+              LOG IN WITH FACEBOOK
+            </Text>
+          </View>
         </View>
       </View>
     </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
-            },
-            null,
-            Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#52C5DC",
-              "borderWidth": 1,
-              "height": 48,
-              "margin": 8,
-              "width": 670,
-            },
-            Object {
-              "borderRadius": 50,
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {},
-              Object {
-                "flexDirection": "row",
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 21,
-                  },
-                  Object {
-                    "marginRight": 10,
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "paddingTop": 2,
-                },
-              ]
-            }
-          >
-            LOG IN WITH FACEBOOK
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
+  </RCTSafeAreaView>
 </View>
 `;

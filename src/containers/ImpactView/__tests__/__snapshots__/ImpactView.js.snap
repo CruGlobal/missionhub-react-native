@@ -5,7 +5,7 @@ exports[`ImpactView ME person community impact view renders empty state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -669,7 +669,7 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -699,7 +699,7 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
         ]
       }
     >
-      In 2018,  you have taken 10 steps of faith with 5 people.
+      In 2018, you have taken 10 steps of faith with 5 people.
 
 3 people reached a new stage on their spiritual journey.
     </MyText>
@@ -1333,7 +1333,7 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -1363,7 +1363,7 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
         ]
       }
     >
-      In 2018,  you have taken 1 step of faith with 1 person.
+      In 2018, you have taken 1 step of faith with 1 person.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -1997,7 +1997,7 @@ exports[`ImpactView ME person impact view for user created org renders empty sta
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -2060,7 +2060,7 @@ exports[`ImpactView ME person impact view for user created org renders plural st
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -2090,7 +2090,7 @@ exports[`ImpactView ME person impact view for user created org renders plural st
         ]
       }
     >
-      In 2018,  you have taken 10 steps of faith with 5 people.
+      In 2018, you have taken 10 steps of faith with 5 people.
 
 3 people reached a new stage on their spiritual journey.
     </MyText>
@@ -2125,7 +2125,7 @@ exports[`ImpactView ME person impact view for user created org renders singular 
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -2155,7 +2155,7 @@ exports[`ImpactView ME person impact view for user created org renders singular 
         ]
       }
     >
-      In 2018,  you have taken 1 step of faith with 1 person.
+      In 2018, you have taken 1 step of faith with 1 person.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -2190,7 +2190,7 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -2276,7 +2276,7 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -2306,7 +2306,7 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
         ]
       }
     >
-      In 2018,  you have taken 10 steps of faith with 5 people.
+      In 2018, you have taken 10 steps of faith with 5 people.
 
 3 people reached a new stage on their spiritual journey.
     </MyText>
@@ -2362,7 +2362,7 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -2392,7 +2392,7 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
         ]
       }
     >
-      In 2018,  you have taken 1 step of faith with 1 person.
+      In 2018, you have taken 1 step of faith with 1 person.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -2448,7 +2448,7 @@ exports[`ImpactView contact impact renders empty state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -3112,7 +3112,7 @@ exports[`ImpactView contact impact renders plural state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -3142,7 +3142,7 @@ exports[`ImpactView contact impact renders plural state 1`] = `
         ]
       }
     >
-      In 2018,  Test Fname has taken 11 steps of faith with 6 people in their life.
+      In 2018, Test Fname has taken 11 steps of faith with 6 people in their life.
 
 4 people reached a new stage on their spiritual journey.
     </MyText>
@@ -3776,7 +3776,7 @@ exports[`ImpactView contact impact renders singular state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -3806,7 +3806,7 @@ exports[`ImpactView contact impact renders singular state 1`] = `
         ]
       }
     >
-      In 2018,  Test Fname has taken 1 step of faith with 1 person in their life.
+      In 2018, Test Fname has taken 1 step of faith with 1 person in their life.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -4440,7 +4440,7 @@ exports[`ImpactView group impact renders empty state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -5107,7 +5107,7 @@ exports[`ImpactView group impact renders plural state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -5140,7 +5140,7 @@ exports[`ImpactView group impact renders plural state 1`] = `
         ]
       }
     >
-      In 2018,  we have taken 11 steps of faith with 6 people at Test Org.
+      Together we have taken 11 steps of faith with 6 people in 2018.
 
 4 people reached a new stage on their spiritual journey.
     </MyText>
@@ -5774,7 +5774,7 @@ exports[`ImpactView group impact renders singular state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -5807,7 +5807,7 @@ exports[`ImpactView group impact renders singular state 1`] = `
         ]
       }
     >
-      In 2018,  we have taken 1 step of faith with 1 person at Test Org.
+      Together we have taken 1 step of faith with 1 person in 2018.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -6630,7 +6630,7 @@ exports[`ImpactView user created member impact renders empty state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -6693,7 +6693,7 @@ exports[`ImpactView user created member impact renders plural state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -6723,7 +6723,7 @@ exports[`ImpactView user created member impact renders plural state 1`] = `
         ]
       }
     >
-      In 2018,  Test Fname has taken 11 steps of faith with 6 people in their life.
+      In 2018, Test Fname has taken 11 steps of faith with 6 people in their life.
 
 4 people reached a new stage on their spiritual journey.
     </MyText>
@@ -6758,7 +6758,7 @@ exports[`ImpactView user created member impact renders singular state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -6788,7 +6788,7 @@ exports[`ImpactView user created member impact renders singular state 1`] = `
         ]
       }
     >
-      In 2018,  Test Fname has taken 1 step of faith with 1 person in their life.
+      In 2018, Test Fname has taken 1 step of faith with 1 person in their life.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>
@@ -6823,7 +6823,7 @@ exports[`ImpactView user-created group impact renders empty state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -6910,7 +6910,7 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -6943,7 +6943,7 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
         ]
       }
     >
-      In 2018,  we have taken 11 steps of faith with 6 people at Test Org.
+      Together we have taken 11 steps of faith with 6 people in 2018.
 
 4 people reached a new stage on their spiritual journey.
     </MyText>
@@ -6999,7 +6999,7 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
   bounces={false}
   style={
     Object {
-      "backgroundColor": "#52C5DC",
+      "backgroundColor": "#3EB1C8",
       "flex": 1,
     }
   }
@@ -7032,7 +7032,7 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
         ]
       }
     >
-      In 2018,  we have taken 1 step of faith with 1 person at Test Org.
+      Together we have taken 1 step of faith with 1 person in 2018.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>

@@ -67,10 +67,8 @@ navigation.navigatePush = jest.fn();
 navigation.navigateBack = jest.fn();
 
 beforeEach(() => {
-  navigation.navigatePush.mockReset();
   navigation.navigatePush.mockReturnValue({ type: 'navigated forward' });
 
-  navigation.navigateBack.mockReset();
   analytics.trackState = jest.fn(() => trackStateResult);
 });
 
@@ -219,7 +217,6 @@ describe('person stage screen methods with next', () => {
   const mockNext = jest.fn();
 
   beforeEach(() => {
-    jest.clearAllMocks();
     component = buildScreen(
       {
         ...mockNavState,

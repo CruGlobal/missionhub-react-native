@@ -16,6 +16,7 @@ import {
   PEOPLE_TAB,
   GROUPS_TAB,
   GROUP_TAB_CHANGED,
+  TRACK_TAB,
 } from '../constants';
 import { buildTrackingObj } from '../utils/common';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
@@ -40,6 +41,7 @@ export default function tracking({ dispatch, getState }) {
     switch (action.type) {
       case DrawerActions.OPEN_DRAWER:
       case NAVIGATE_FORWARD:
+      case TRACK_TAB:
         newState = getNextTrackState(action);
         trackTabChanges(action, newState, dispatch);
         break;

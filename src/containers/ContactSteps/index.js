@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { SafeAreaView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -210,13 +210,8 @@ class ContactSteps extends Component {
   render() {
     const { t, steps } = this.props;
     return (
-      <View style={{ flex: 1 }}>
-        <Flex
-          align="center"
-          justify="center"
-          value={1}
-          style={styles.container}
-        >
+      <SafeAreaView style={styles.container}>
+        <Flex align="center" justify="center" value={1}>
           {steps.length > 0 ? this.renderList() : this.renderNull()}
         </Flex>
         <Flex justify="end">
@@ -226,7 +221,7 @@ class ContactSteps extends Component {
             text={t('addStep').toUpperCase()}
           />
         </Flex>
-      </View>
+      </SafeAreaView>
     );
   }
 }

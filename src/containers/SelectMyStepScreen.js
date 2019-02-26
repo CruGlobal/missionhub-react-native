@@ -68,7 +68,7 @@ SelectMyStepScreen.propTypes = {
   next: PropTypes.func,
   onSaveNewSteps: PropTypes.func,
   enableBackButton: PropTypes.bool,
-  contactStage: PropTypes.object.isRequired,
+  contactStage: PropTypes.object,
   contactId: PropTypes.string,
   organization: PropTypes.object,
 };

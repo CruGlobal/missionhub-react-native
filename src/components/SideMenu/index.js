@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BackHandler } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { SafeAreaView, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { DrawerActions } from 'react-navigation';

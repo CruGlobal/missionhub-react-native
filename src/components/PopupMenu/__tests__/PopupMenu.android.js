@@ -24,11 +24,4 @@ describe('PopupMenu Android', () => {
     instance.handleItemPress(undefined, 0);
     expect(onPress).toHaveBeenCalled();
   });
-
-  it('calls handle press', () => {
-    UIManager.showPopupMenu = jest.fn();
-    const instance = shallow(<PopupMenu {...props} />).instance();
-    instance.handlePress();
-    expect(onPress).toHaveBeenCalled();
-  });
 });

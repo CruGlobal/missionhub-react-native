@@ -107,10 +107,6 @@ describe('__DEV__ === false', () => {
     __DEV__ = false;
   });
 
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
   afterAll(() => {
     __DEV__ = dev;
   });

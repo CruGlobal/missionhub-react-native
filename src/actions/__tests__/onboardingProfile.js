@@ -56,7 +56,6 @@ const dispatch = jest.fn(response => Promise.resolve(response));
 
 beforeEach(() => {
   common.isAndroid = false;
-  jest.clearAllMocks();
 });
 
 describe('completeOnboarding', () => {

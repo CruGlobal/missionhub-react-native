@@ -84,6 +84,9 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
     }
   }
 >
+  <Component
+    screen="StepsTab"
+  />
   <Connect(Header)
     left={
       <IconButton
@@ -207,6 +210,9 @@ exports[`StepsScreen renders loading screen correctly 1`] = `
     }
   }
 >
+  <Component
+    screen="StepsTab"
+  />
   <Connect(Header)
     left={
       <IconButton
@@ -229,6 +235,9 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
     }
   }
 >
+  <Component
+    screen="StepsTab"
+  />
   <Connect(Header)
     left={
       <IconButton
@@ -382,6 +391,9 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
     }
   }
 >
+  <Component
+    screen="StepsTab"
+  />
   <Connect(Header)
     left={
       <IconButton
@@ -605,6 +617,9 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
     }
   }
 >
+  <Component
+    screen="StepsTab"
+  />
   <Connect(Header)
     left={
       <IconButton
@@ -738,6 +753,9 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
     }
   }
 >
+  <Component
+    screen="StepsTab"
+  />
   <Connect(Header)
     left={
       <IconButton
@@ -930,6 +948,9 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
     }
   }
 >
+  <Component
+    screen="StepsTab"
+  />
   <Connect(Header)
     left={
       <IconButton

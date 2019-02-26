@@ -26,7 +26,7 @@ export default class PeopleList extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.sections) {
       // Format section items merging in the existing expanded state.
       const items = nextProps.items.map((i, index) => {

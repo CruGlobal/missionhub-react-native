@@ -7,6 +7,8 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.primaryColor,
     paddingHorizontal: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontSize: 24,

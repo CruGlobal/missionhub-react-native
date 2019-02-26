@@ -144,16 +144,9 @@ exports[`renders correctly 1`] = `
       End Date
     </Text>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
       accessibilityTraits="button"
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -165,8 +158,6 @@ exports[`renders correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View>
         <View
@@ -225,16 +216,9 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -250,20 +234,11 @@ exports[`renders correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
                 accessibilityTraits="button"
                 accessible={true}
-                collapsable={undefined}
-                hasTVPreferredFocus={undefined}
-                hitSlop={undefined}
                 isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -276,11 +251,8 @@ exports[`renders correctly 1`] = `
                     "opacity": 1,
                   }
                 }
-                testID={undefined}
-                tvParallaxProperties={undefined}
               >
                 <View
-                  collapsable={undefined}
                   style={
                     Object {
                       "backgroundColor": "#ffffff",
@@ -306,10 +278,7 @@ exports[`renders correctly 1`] = `
                     >
                       <RCTDatePicker
                         date={1535760000000}
-                        locale={undefined}
-                        maximumDate={undefined}
                         minimumDate={1535760000000}
-                        minuteInterval={undefined}
                         mode="date"
                         onChange={[Function]}
                         onResponderTerminationRequest={[Function]}
@@ -338,16 +307,9 @@ exports[`renders correctly 1`] = `
                     }
                   >
                     <View
-                      accessibilityComponentType={undefined}
-                      accessibilityLabel={undefined}
                       accessibilityTraits="button"
                       accessible={true}
-                      collapsable={undefined}
-                      hasTVPreferredFocus={undefined}
-                      hitSlop={undefined}
                       isTVSelectable={true}
-                      nativeID={undefined}
-                      onLayout={undefined}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -359,8 +321,6 @@ exports[`renders correctly 1`] = `
                           "opacity": 1,
                         }
                       }
-                      testID={undefined}
-                      tvParallaxProperties={undefined}
                     >
                       <Text
                         accessible={true}
@@ -413,16 +373,9 @@ exports[`renders correctly 1`] = `
                       Date
                     </Text>
                     <View
-                      accessibilityComponentType={undefined}
-                      accessibilityLabel={undefined}
                       accessibilityTraits="button"
                       accessible={true}
-                      collapsable={undefined}
-                      hasTVPreferredFocus={undefined}
-                      hitSlop={undefined}
                       isTVSelectable={true}
-                      nativeID={undefined}
-                      onLayout={undefined}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -434,8 +387,6 @@ exports[`renders correctly 1`] = `
                           "opacity": 1,
                         }
                       }
-                      testID={undefined}
-                      tvParallaxProperties={undefined}
                     >
                       <Text
                         accessible={true}
@@ -471,123 +422,113 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "stretch",
-          "flex": 1,
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {},
+          Object {
+            "alignItems": "stretch",
+            "flex": 1,
+            "justifyContent": "flex-end",
+          },
+        ]
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
+        accessibilityTraits="button"
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            Object {
-              "opacity": 0.6,
-            },
-            Object {
-              "width": 750,
-            },
-            null,
-          ]
+          Object {
+            "opacity": 1,
+          }
         }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "opacity": 0.6,
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
+              Object {
+                "width": 750,
+              },
+              null,
             ]
           }
         >
-          CREATE CHALLENGE
-        </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            CREATE CHALLENGE
+          </Text>
+        </View>
       </View>
     </View>
-  </View>
-  <View
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
         },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
       ]
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
       accessibilityTraits="button"
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -599,8 +540,6 @@ exports[`renders correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
         style={
@@ -651,7 +590,7 @@ exports[`renders correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -763,23 +702,31 @@ exports[`renders edit challenge correctly 1`] = `
       placeholder="End Date (Required)"
     />
   </Flex>
-  <Flex
-    align="stretch"
-    justify="end"
-    value={1}
-  >
-    <Button
-      disabled={true}
-      onPress={[Function]}
-      style={
-        Object {
-          "width": 750,
-        }
+  <SafeAreaView
+    style={
+      Object {
+        "flex": 1,
       }
-      text="SAVE CHANGES"
-      type="secondary"
-    />
-  </Flex>
+    }
+  >
+    <Flex
+      align="stretch"
+      justify="end"
+      value={1}
+    >
+      <Button
+        disabled={true}
+        onPress={[Function]}
+        style={
+          Object {
+            "width": 750,
+          }
+        }
+        text="SAVE CHANGES"
+        type="secondary"
+      />
+    </Flex>
+  </SafeAreaView>
   <Connect(BackButton)
     absolute={true}
     customIcon="deleteIcon"

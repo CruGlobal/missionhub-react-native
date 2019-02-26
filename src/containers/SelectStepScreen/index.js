@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -16,6 +17,7 @@ import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, shuffleArray } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
+import Header from '../Header';
 
 import styles from './styles';
 
@@ -166,12 +168,7 @@ class SelectStepScreen extends Component {
     const { t } = this.props;
 
     return (
-      <Flex
-        value={1}
-        align="center"
-        justify="center"
-        style={{ marginTop: theme.notchHeight }}
-      >
+      <Flex value={1} align="center" justify="center">
         <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
         <Text type="header" style={styles.headerTitle}>
           {t('stepsOfFaith')}
@@ -201,12 +198,8 @@ class SelectStepScreen extends Component {
     </Flex>
   );
 
-  renderStickHeader = () => (
-    <Flex align="center" justify="center" style={styles.collapsedHeader}>
-      <Text style={styles.collapsedHeaderTitle}>
-        {this.props.t('stepsOfFaith').toUpperCase()}
-      </Text>
-    </Flex>
+  renderStickyHeader = () => (
+    <Header shadow={false} title={this.props.t('stepsOfFaith').toUpperCase()} />
   );
 
   stepsListRef = c => (this.stepsList = c);
@@ -215,13 +208,13 @@ class SelectStepScreen extends Component {
     const { t } = this.props;
 
     return (
-      <Flex style={styles.container}>
+      <View style={styles.container}>
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
-          parallaxHeaderHeight={215 + theme.notchHeight}
+          parallaxHeaderHeight={215}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={theme.headerHeight}
-          renderStickyHeader={this.renderStickHeader}
+          renderStickyHeader={this.renderStickyHeader}
         >
           <StepsList
             ref={this.stepsListRef}
@@ -233,9 +226,9 @@ class SelectStepScreen extends Component {
             onLoadMoreSteps={this.handleLoadSteps}
           />
         </ParallaxScrollView>
-        {this.renderSaveButton()}
+        <SafeAreaView>{this.renderSaveButton()}</SafeAreaView>
         {this.renderBackButton()}
-      </Flex>
+      </View>
     );
   }
 }

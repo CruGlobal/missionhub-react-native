@@ -85,10 +85,6 @@ jest.mock('../../../actions/navigation', () => ({
 }));
 jest.mock('../../../utils/common');
 
-beforeEach(() => {
-  jest.clearAllMocks();
-});
-
 it('renders me correctly', () => {
   const mePerson = { ...mockPerson, id: myId };
 

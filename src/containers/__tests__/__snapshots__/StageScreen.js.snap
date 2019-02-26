@@ -36,36 +36,27 @@ exports[`StageScreen renders correctly with back button 1`] = `
       ]
     }
   />
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
         },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
       ]
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
       accessibilityTraits="button"
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -77,8 +68,6 @@ exports[`StageScreen renders correctly with back button 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
         style={
@@ -129,7 +118,7 @@ exports[`StageScreen renders correctly with back button 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
   <Text
     accessible={true}
     allowFontScaling={true}

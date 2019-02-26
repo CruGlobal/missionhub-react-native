@@ -81,6 +81,7 @@ class CelebrateFeed extends Component {
         onRefresh={this.handleRefreshing}
         refreshing={refreshing || false}
         extraData={this.state}
+        contentContainerStyle={styles.list}
       />
     );
   }

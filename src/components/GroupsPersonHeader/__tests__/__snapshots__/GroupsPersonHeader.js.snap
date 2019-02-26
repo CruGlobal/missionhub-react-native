@@ -63,11 +63,13 @@ exports[`isContact with contact assignment does not render status button if cont
     <CenteredIconButtonWithText
       icon="textIcon"
       key="some key"
+      onClick={[Function]}
       text="Message"
     />
     <CenteredIconButtonWithText
       icon="callIcon"
       key="some key"
+      onClick={[Function]}
       text="Call"
     />
     <CenteredIconButtonWithText
@@ -78,6 +80,7 @@ exports[`isContact with contact assignment does not render status button if cont
       }
       icon="emailIcon"
       key="some key"
+      onClick={[Function]}
       text="Email"
     />
   </Flex>
@@ -126,11 +129,13 @@ exports[`isContact with contact assignment renders status button if contact is p
     <CenteredIconButtonWithText
       icon="textIcon"
       key="some key"
+      onClick={[Function]}
       text="Message"
     />
     <CenteredIconButtonWithText
       icon="callIcon"
       key="some key"
+      onClick={[Function]}
       text="Call"
     />
     <CenteredIconButtonWithText
@@ -141,6 +146,7 @@ exports[`isContact with contact assignment renders status button if contact is p
       }
       icon="emailIcon"
       key="some key"
+      onClick={[Function]}
       text="Email"
     />
   </Flex>
