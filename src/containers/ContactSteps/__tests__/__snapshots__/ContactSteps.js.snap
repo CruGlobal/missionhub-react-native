@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renderItem renders row 1`] = `
+<Connect(Translate(AcceptedStepItem))
+  onComplete={[Function]}
+  step={
+    Object {
+      "id": "1",
+      "title": "Test Step",
+    }
+  }
+/>
+`;
+
 exports[`renders correctly with no steps 1`] = `
 <Component
   flex={1}
@@ -108,16 +120,4 @@ exports[`renders correctly with steps 1`] = `
     text="Add a step of faith"
   />
 </Component>
-`;
-
-exports[`renders row 1`] = `
-<Connect(Translate(AcceptedStepItem))
-  onComplete={[Function]}
-  step={
-    Object {
-      "id": "1",
-      "title": "Test Step",
-    }
-  }
-/>
 `;

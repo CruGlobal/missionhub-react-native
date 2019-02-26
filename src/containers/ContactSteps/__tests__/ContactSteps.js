@@ -54,11 +54,10 @@ const mockPerson = {
   id: 1,
   reverse_contact_assignments: [],
 };
-
+const mockOrg = { id: '1111', user_created: true };
 const mockContactAssignment = {
   id: 333,
 };
-
 const trackingObj = buildTrackingObj(
   'people : person : steps : add',
   'people',
@@ -69,33 +68,25 @@ const trackingObj = buildTrackingObj(
 getContactSteps.mockReturnValue({ response: steps });
 
 const store = createMockStore(mockState);
+const navState = createMockNavState();
+
+let props = { isMe: false, person: mockPerson };
+
 let component;
 let instance;
 
-const createComponent = (isCurrentUser = false, person, org) => {
+beforeEach(() => {
+  jest.clearAllMocks();
   component = renderShallow(
-    <ContactSteps
-      isMe={isCurrentUser}
-      person={person}
-      organization={org}
-      navigation={createMockNavState()}
-    />,
+    <ContactSteps {...props} navigation={navState} />,
     store,
   );
   instance = component.instance();
-};
-
-beforeEach(() => {
-  jest.clearAllMocks();
 });
 
 it('renders correctly with no steps', () => {
   testSnapshotShallow(
-    <ContactSteps
-      isMe={false}
-      person={mockPerson}
-      navigation={createMockNavState()}
-    />,
+    <ContactSteps {...props} navigation={createMockNavState()} />,
     createMockStore({
       ...mockState,
       steps: {
@@ -108,151 +99,245 @@ it('renders correctly with no steps', () => {
 
 it('renders correctly with steps', () => {
   testSnapshotShallow(
-    <ContactSteps
-      isMe={false}
-      person={mockPerson}
-      navigation={createMockNavState()}
-    />,
+    <ContactSteps {...props} navigation={createMockNavState()} />,
     store,
   );
 });
 
-it('renders row', () => {
-  createComponent(false, mockPerson);
+describe('renderItem', () => {
+  beforeAll(() => {
+    props = {
+      isMe: false,
+      person: mockPerson,
+    };
+  });
 
-  expect(
-    component
-      .childAt(0)
-      .childAt(0)
-      .props()
-      .renderItem({ item: steps[0] }),
-  ).toMatchSnapshot();
+  it('renders row', () => {
+    expect(
+      component
+        .childAt(0)
+        .childAt(0)
+        .props()
+        .renderItem({ item: steps[0] }),
+    ).toMatchSnapshot();
+  });
 });
 
 describe('getSteps', () => {
-  it('should get steps for a personal org', () => {
-    createComponent(false, mockPerson);
-    expect(getContactSteps).toHaveBeenCalledWith(mockPerson.id, undefined);
+  describe('for personal ministry', () => {
+    beforeAll(() => {
+      props = {
+        isMe: false,
+        person: mockPerson,
+      };
+    });
+
+    it('should get steps', () => {
+      expect(getContactSteps).toHaveBeenCalledWith(mockPerson.id, undefined);
+    });
   });
-  it('should get steps for a ministry org', () => {
-    const org = { id: '4' };
-    createComponent(false, mockPerson, org);
-    expect(getContactSteps).toHaveBeenCalledWith(mockPerson.id, org.id);
+
+  describe('for organization', () => {
+    beforeAll(() => {
+      props = {
+        isMe: false,
+        person: mockPerson,
+        organization: mockOrg,
+      };
+    });
+
+    it('should get steps', () => {
+      expect(getContactSteps).toHaveBeenCalledWith(mockPerson.id, mockOrg.id);
+    });
   });
 });
 
 describe('handleComplete', () => {
+  beforeAll(() => {
+    props = {
+      isMe: false,
+      person: mockPerson,
+    };
+  });
+
   it('triggers complete step flow', async () => {
-    createComponent(false, mockPerson);
-    await instance.handleComplete(steps[0]);
+    await component
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .renderItem({ item: steps[0] })
+      .props.onComplete();
+
     expect(getContactSteps).toHaveBeenCalled();
   });
 });
 
 describe('handleSaveNewSteps', () => {
+  beforeAll(() => {
+    props = {
+      isMe: false,
+      person: mockPerson,
+    };
+  });
+
   it('saves new steps', async () => {
-    createComponent(false, mockPerson);
     await instance.handleSaveNewSteps();
+
     expect(getContactSteps).toHaveBeenCalled();
     expect(navigateBack).toHaveBeenCalled();
   });
 });
 
 describe('handleCreateStep', () => {
-  it('navigates to select my steps', () => {
-    contactAssignmentSelector.mockReturnValue(null);
-    createComponent(true, { ...mockPerson, id: myId });
+  describe('for me', () => {
+    beforeAll(() => {
+      contactAssignmentSelector.mockReturnValue(null);
 
-    instance.handleCreateStep();
+      props = {
+        isMe: true,
+        person: { ...mockPerson, id: myId },
+      };
+    });
 
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
-      onSaveNewSteps: expect.any(Function),
-      enableBackButton: true,
-      trackingObj,
+    it('navigates to select my steps', () => {
+      instance.handleCreateStep();
+
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
+        onSaveNewSteps: expect.any(Function),
+        enableBackButton: true,
+        trackingObj,
+      });
     });
   });
 
-  it('navigates to select stage', () => {
-    contactAssignmentSelector.mockReturnValue(mockContactAssignment);
-    createComponent(false, mockPerson);
+  describe('for contact without stage', () => {
+    beforeAll(() => {
+      contactAssignmentSelector.mockReturnValue(mockContactAssignment);
 
-    instance.handleCreateStep();
-
-    expect(navigateToStageScreen).toHaveBeenCalledWith(
-      false,
-      mockPerson,
-      mockContactAssignment,
-      undefined,
-      null,
-    );
-  });
-
-  it('navigates to person steps', () => {
-    contactAssignmentSelector.mockReturnValue({
-      ...mockContactAssignment,
-      pathway_stage_id: '2',
+      props = {
+        isMe: false,
+        person: mockPerson,
+      };
     });
-    createComponent(false, mockPerson);
 
-    instance.handleCreateStep();
+    it('navigates to select stage', () => {
+      instance.handleCreateStep();
 
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
-      contactName: mockPerson.first_name,
-      contactId: mockPerson.id,
-      contact: mockPerson,
-      organization: undefined,
-      onSaveNewSteps: expect.any(Function),
-      createStepTracking: buildTrackingObj(
-        'people : person : steps : create',
-        'people',
-        'person',
-        'steps',
-      ),
-      trackingObj,
+      expect(navigateToStageScreen).toHaveBeenCalledWith(
+        false,
+        mockPerson,
+        mockContactAssignment,
+        undefined,
+        null,
+      );
     });
   });
 
-  it('assigns the contact to me with prompt', async () => {
-    contactAssignmentSelector.mockReturnValue(null);
-    promptToAssign.mockReturnValue(Promise.resolve(true));
-    createComponent(false, mockPerson);
+  describe('for contact with stage', () => {
+    beforeAll(() => {
+      contactAssignmentSelector.mockReturnValue({
+        ...mockContactAssignment,
+        pathway_stage_id: '2',
+      });
 
-    await instance.handleCreateStep();
+      props = {
+        isMe: false,
+        person: mockPerson,
+      };
+    });
 
-    expect(assignContactAndPickStage).toHaveBeenCalledWith(
-      mockPerson,
-      undefined,
-      myId,
-    );
+    it('navigates to person steps', () => {
+      instance.handleCreateStep();
+
+      expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+        contactName: mockPerson.first_name,
+        contactId: mockPerson.id,
+        contact: mockPerson,
+        organization: undefined,
+        onSaveNewSteps: expect.any(Function),
+        createStepTracking: buildTrackingObj(
+          'people : person : steps : create',
+          'people',
+          'person',
+          'steps',
+        ),
+        trackingObj,
+      });
+    });
   });
 
-  it('assigns the contact to me without prompt', async () => {
-    const mockOrg = { id: '1111', user_created: true };
-    contactAssignmentSelector.mockReturnValue(null);
-    promptToAssign.mockReturnValue(Promise.resolve(true));
-    createComponent(false, mockPerson, mockOrg);
+  describe('for contact with stage', () => {
+    beforeAll(() => {
+      contactAssignmentSelector.mockReturnValue(null);
+      promptToAssign.mockReturnValue(Promise.resolve(true));
 
-    await instance.handleCreateStep();
+      props = {
+        isMe: false,
+        person: mockPerson,
+      };
+    });
 
-    expect(assignContactAndPickStage).toHaveBeenCalledWith(
-      mockPerson,
-      mockOrg,
-      myId,
-    );
-    expect(promptToAssign).not.toHaveBeenCalled();
+    it('assigns the contact to me with prompt', async () => {
+      await instance.handleCreateStep();
+
+      expect(assignContactAndPickStage).toHaveBeenCalledWith(
+        mockPerson,
+        undefined,
+        myId,
+      );
+    });
+  });
+
+  describe('for contact with stage', () => {
+    beforeAll(() => {
+      contactAssignmentSelector.mockReturnValue(null);
+      promptToAssign.mockReturnValue(Promise.resolve(true));
+
+      props = {
+        isMe: false,
+        person: mockPerson,
+        organization: mockOrg,
+      };
+    });
+    it('assigns the contact to me without prompt', async () => {
+      await instance.handleCreateStep();
+
+      expect(assignContactAndPickStage).toHaveBeenCalledWith(
+        mockPerson,
+        mockOrg,
+        myId,
+      );
+      expect(promptToAssign).not.toHaveBeenCalled();
+    });
   });
 });
 
-it('should call key extractor', () => {
-  createComponent(false, mockPerson);
+describe('key extractor', () => {
+  beforeAll(() => {
+    props = {
+      isMe: false,
+      person: mockPerson,
+    };
+  });
 
-  const item = { id: '1' };
-  const result = instance.keyExtractor(item);
-  expect(result).toEqual(item.id);
+  it('should call key extractor', () => {
+    const item = { id: '1' };
+    const result = instance.keyExtractor(item);
+    expect(result).toEqual(item.id);
+  });
 });
-it('should call ref', () => {
-  createComponent(false, mockPerson);
-  const ref = 'test';
-  instance.ref(ref);
-  expect(instance.list).toEqual(ref);
+
+describe('ref', () => {
+  beforeAll(() => {
+    props = {
+      isMe: false,
+      person: mockPerson,
+    };
+  });
+
+  it('should call ref', () => {
+    const ref = 'test';
+    instance.ref(ref);
+    expect(instance.list).toEqual(ref);
+  });
 });
