@@ -9,7 +9,7 @@ import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
 import { Text, Card, Button } from '../common';
 import { completeStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
-import { STEP_DETAIL_SCREEN } from '../../containers/StepDetailScreen';
+import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../containers/AcceptedStepDetailScreen';
 import { CONTACT_STEPS } from '../../constants';
 import Icon from '../Icon/index';
 
@@ -19,7 +19,7 @@ import styles from './styles';
 class AcceptedStepItem extends Component {
   handleNavigate = () => {
     const { dispatch, step } = this.props;
-    dispatch(navigatePush(STEP_DETAIL_SCREEN, { step }));
+    dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
   };
 
   handleCompleteStep = async () => {

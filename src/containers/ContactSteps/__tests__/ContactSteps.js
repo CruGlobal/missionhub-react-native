@@ -14,7 +14,6 @@ import {
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { SELECT_MY_STEP_SCREEN } from '../../SelectMyStepScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../PersonSelectStepScreen';
-import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
 import { buildTrackingObj } from '../../../utils/common';
 import { getContactSteps } from '../../../actions/steps';
 import { contactAssignmentSelector } from '../../../selectors/people';

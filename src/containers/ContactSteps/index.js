@@ -22,7 +22,6 @@ import {
   contactAssignmentSelector,
   personSelector,
 } from '../../selectors/people';
-import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 import {
   assignContactAndPickStage,
   navigateToStageScreen,
@@ -43,18 +42,7 @@ class ContactSteps extends Component {
     dispatch(getContactSteps(person.id, organization.id));
   };
 
-  handleRowSelect = step => {
-    this.props.dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
-  };
-
-  handleRemove = async step => {
-    await this.props.dispatch(deleteStepWithTracking(step, CONTACT_STEPS));
-    this.getSteps();
-  };
-
-  handleComplete = async step => {
-    const { dispatch, person, organization } = this.props;
-    await dispatch(completeStep(step, CONTACT_STEPS));
+  handleComplete = () => {
     this.getSteps();
   };
 

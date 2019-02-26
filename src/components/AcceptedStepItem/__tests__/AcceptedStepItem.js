@@ -4,7 +4,7 @@ import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import { completeStep } from '../../../actions/steps';
 import { navigatePush } from '../../../actions/navigation';
 import StepSuggestionItem from '../';
-import { STEP_DETAIL_SCREEN } from '../../../containers/StepDetailScreen';
+import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../../containers/AcceptedStepDetailScreen';
 import { CONTACT_STEPS } from '../../../constants';
 
 jest.mock('.../../../actions/navigation');
@@ -27,7 +27,9 @@ describe('StepSuggestionItem', () => {
 
     component.props().onPress();
 
-    expect(navigatePush).toHaveBeenCalledWith(STEP_DETAIL_SCREEN, { step });
+    expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
+      step,
+    });
   });
 
   it('calls completeStep', async () => {
