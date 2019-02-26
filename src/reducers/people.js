@@ -133,21 +133,26 @@ function loadPeopleFromCelebrateItems(
   const org = state.allByOrg[orgId];
   const people = org.people;
 
-  response
-    .map(item => item.subject_person)
-    .filter(person => !!person)
-    .forEach(person => (people[person.id] = people[person.id] || person));
-
   return {
     ...state,
     allByOrg: {
       ...state.allByOrg,
       [orgId]: {
         ...org,
-        people,
+        people: {
+          ...getPeopleFromItems(response), //don't overwrite existing people
+          ...people,
+        },
       },
     },
   };
+}
+
+function getPeopleFromItems(items) {
+  return items
+    .map(item => item.subject_person)
+    .filter(person => !!person)
+    .reduce((acc, person) => ({ ...acc, [person.id]: person }), {});
 }
 
 function updateAllPersonInstances(allByOrg, updatedPerson, replace = false) {
