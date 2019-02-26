@@ -12,7 +12,10 @@ import { navigateBack } from '../../../actions/navigation';
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/navigation');
 
-let step = { body: 'do this step' };
+const step = {
+  body: 'do this step',
+  description_markdown: 'some markdown',
+};
 const receiverId = '423325';
 const orgId = '880124';
 const navigateBackResult = { type: 'navigated back' };
@@ -37,31 +40,15 @@ beforeEach(() => {
   );
 });
 
-describe('without description', () => {
-  beforeAll(() => {
-    step = { ...step };
-  });
-
-  it('renders correctly', () => {
-    expect(screen).toMatchSnapshot();
-  });
-
-  describe('bottomButtonProps', () => {
-    it('adds step', async () => {
-      await screen.props().bottomButtonProps.onPress();
-
-      expect(addSteps).toHaveBeenCalledWith([step], receiverId, { id: orgId });
-      expect(store.getActions()).toEqual([navigateBackResult]);
-    });
-  });
+it('renders correctly', () => {
+  expect(screen).toMatchSnapshot();
 });
 
-describe('with description', () => {
-  beforeAll(() => {
-    step = { ...step, description_markdown: 'some markdown' };
-  });
+describe('bottomButtonProps', () => {
+  it('adds step', async () => {
+    await screen.props().bottomButtonProps.onPress();
 
-  it('renders correctly', () => {
-    expect(screen).toMatchSnapshot();
+    expect(addSteps).toHaveBeenCalledWith([step], receiverId, { id: orgId });
+    expect(store.getActions()).toEqual([navigateBackResult]);
   });
 });

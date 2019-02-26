@@ -2,7 +2,6 @@
 
 exports[`renders correctly 1`] = `
 <StepDetailScreen
-  Body={null}
   CenterHeader={
     <MyText
       accessible={true}
@@ -14,6 +13,7 @@ exports[`renders correctly 1`] = `
   }
   RightHeader={null}
   bottomButtonProps={null}
+  markdown="roge rules"
   text="SCOTTY"
 />
 `;

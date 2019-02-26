@@ -1,6 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
+import Markdown from 'react-native-simple-markdown';
+import { ScrollView } from 'react-native';
 
 import Header from '../../containers/Header/index';
 import BackButton from '../../containers/BackButton/index';
@@ -8,13 +10,13 @@ import BottomButton from '../BottomButton/index';
 import ReminderButton from '../ReminderButton/index';
 import { Text } from '../common';
 
-import styles from './styles';
+import styles, { markdownStyles } from './styles';
 
 export default function StepDetailScreen({
   text,
+  markdown,
   CenterHeader,
   RightHeader,
-  Body,
   bottomButtonProps,
 }) {
   const { container, stepTitleText, bodyStyle, backButton } = styles;
@@ -30,7 +32,13 @@ export default function StepDetailScreen({
       />
       <Text style={stepTitleText}>{text}</Text>
       <ReminderButton />
-      <View style={bodyStyle}>{Body}</View>
+      <View style={bodyStyle}>
+        {markdown && (
+          <ScrollView>
+            <Markdown styles={markdownStyles}>{markdown}</Markdown>
+          </ScrollView>
+        )}
+      </View>
       {bottomButtonProps && <BottomButton {...bottomButtonProps} />}
     </View>
   );
@@ -38,8 +46,8 @@ export default function StepDetailScreen({
 
 StepDetailScreen.propTypes = {
   text: PropTypes.string.isRequired,
+  markdown: PropTypes.string,
   CenterHeader: PropTypes.object,
   RightHeader: PropTypes.object,
-  Body: PropTypes.object,
   bottomButtonProps: PropTypes.object,
 };

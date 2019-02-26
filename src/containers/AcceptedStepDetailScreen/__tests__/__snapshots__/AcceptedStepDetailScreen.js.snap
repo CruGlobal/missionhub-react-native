@@ -2,7 +2,6 @@
 
 exports[`renders correctly 1`] = `
 <StepDetailScreen
-  Body={null}
   CenterHeader={null}
   RightHeader={
     <Button
@@ -30,6 +29,7 @@ exports[`renders correctly 1`] = `
       "text": "I Did It!",
     }
   }
+  markdown="roge rules"
   text="ROBERT"
 />
 `;

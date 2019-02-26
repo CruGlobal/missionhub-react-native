@@ -4,6 +4,7 @@ import { renderShallow } from '../../../../testUtils/index';
 import StepDetailScreen from '../index';
 
 let bottomButtonProps;
+let markdown;
 let screen;
 
 beforeEach(() => {
@@ -14,15 +15,15 @@ beforeEach(() => {
       text="Roge is well behaved"
       CenterHeader={{ prop: 'center header' }}
       RightHeader={{ prop: 'right header' }}
-      Body={null}
+      markdown={markdown}
       bottomButtonProps={bottomButtonProps}
     />,
   );
 });
 
-describe('bottomButtonProps are not null', () => {
+describe('markdown is not null', () => {
   beforeAll(() => {
-    bottomButtonProps = { text: 'bottom button props', onPress: () => {} };
+    markdown = 'ROBERT ROBERT ROBERT';
   });
 
   it('renders correctly', () => {
@@ -30,12 +31,28 @@ describe('bottomButtonProps are not null', () => {
   });
 });
 
-describe('bottomButtonProps are null', () => {
+describe('markdown is null', () => {
   beforeAll(() => {
-    bottomButtonProps = null;
+    markdown = null;
   });
 
-  it('renders correctly', () => {
-    expect(screen).toMatchSnapshot();
+  describe('bottomButtonProps are not null', () => {
+    beforeAll(() => {
+      bottomButtonProps = { text: 'bottom button props', onPress: () => {} };
+    });
+
+    it('renders correctly', () => {
+      expect(screen).toMatchSnapshot();
+    });
+  });
+
+  describe('bottomButtonProps are null', () => {
+    beforeAll(() => {
+      bottomButtonProps = null;
+    });
+
+    it('renders correctly', () => {
+      expect(screen).toMatchSnapshot();
+    });
   });
 });

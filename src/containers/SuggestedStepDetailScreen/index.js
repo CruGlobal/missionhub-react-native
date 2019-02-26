@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-import Markdown from 'react-native-simple-markdown';
 import PropTypes from 'prop-types';
 
 import { addSteps } from '../../actions/steps';
 import { navigateBack } from '../../actions/navigation';
 import StepDetailScreen from '../../components/StepDetailScreen';
-
-import { markdownStyles } from './styles';
 
 @translate('suggestedStepDetail')
 class SuggestedStepSetailScreen extends Component {
@@ -31,16 +27,8 @@ class SuggestedStepSetailScreen extends Component {
       <StepDetailScreen
         CenterHeader={null}
         RightHeader={null}
-        Body={
-          description_markdown && (
-            <ScrollView>
-              <Markdown styles={markdownStyles}>
-                {description_markdown}
-              </Markdown>
-            </ScrollView>
-          )
-        }
         text={body}
+        markdown={description_markdown}
         bottomButtonProps={{
           onPress: this.addStep,
           text: t('addStep'),

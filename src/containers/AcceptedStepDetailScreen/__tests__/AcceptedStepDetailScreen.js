@@ -10,7 +10,10 @@ import { completeStep } from '../../../actions/steps';
 
 jest.mock('../../../actions/steps');
 
-const step = { title: 'ROBERT' };
+const step = {
+  title: 'ROBERT',
+  challenge_suggestion: { description_markdown: 'roge rules' },
+};
 const completeStepResult = { type: 'completed step' };
 let screen;
 
