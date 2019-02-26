@@ -130,24 +130,24 @@ function loadPeopleFromCelebrateItems(
   state,
   { query: { orgId }, results: { response } },
 ) {
-  const newPeople = state.allByOrg[orgId].people;
+  const org = state.allByOrg[orgId];
+  const people = org.people;
 
   response
     .map(item => item.subject_person)
     .filter(person => !!person)
-    .forEach(person => (newPeople[person.id] = newPeople[person.id] || person));
+    .forEach(person => (people[person.id] = people[person.id] || person));
 
-  const newState = {
+  return {
     ...state,
     allByOrg: {
       ...state.allByOrg,
       [orgId]: {
-        ...state.allByOrg[orgId],
-        people: newPeople,
+        ...org,
+        people,
       },
     },
   };
-  return newState;
 }
 
 function updateAllPersonInstances(allByOrg, updatedPerson, replace = false) {
