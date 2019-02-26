@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-import Markdown from 'react-native-simple-markdown';
+import Markdown from 'react-native-markdown-renderer';
 import PropTypes from 'prop-types';
 
 import { STEP_SUGGESTION, ACCEPTED_STEP } from '../../constants';
@@ -53,7 +53,7 @@ export class StepDetailScreen extends Component {
       <View flex={1}>
         {tipDescription && (
           <ScrollView style={styles.tipContainer}>
-            <Markdown styles={markdownTheme}>{tipDescription}</Markdown>
+            <Markdown style={markdownTheme}>{tipDescription}</Markdown>
           </ScrollView>
         )}
       </View>

@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import Color from 'color';
 
 import { exists, isAndroid, hasNotch } from './utils/common';
@@ -141,6 +141,11 @@ const heading2Style = {
   fontSize: 24,
   lineHeight: 30,
 };
+const heading3Style = {
+  ...heading1Style,
+  fontSize: 20,
+  lineHeight: 24,
+};
 const strongStyle = {
   ...textStyle,
   fontFamily: 'SourceSansPro-Bold',
@@ -161,6 +166,7 @@ const orderedListItemStyle = {
   alignSelf: 'flex-start',
 };
 const linkStyle = {
+  ...textStyle,
   color: COLORS.BLUE,
   textDecorationColor: COLORS.BLUE,
   textDecorationLine: 'underline',
@@ -172,14 +178,16 @@ const horizontalLineStyle = {
 };
 const imageStyle = {
   backgroundColor: COLORS.BLUE,
-  height: 60,
-  resizeMode: 'contain',
+  borderWidth: 1,
+  height: '100%',
+  width: '100%',
 };
 
-export const markdownTheme = {
+export const markdownTheme = StyleSheet.create({
   text: textStyle,
   heading1: heading1Style,
   heading2: heading2Style,
+  heading3: heading3Style,
   strong: strongStyle,
   em: emphasisStyle,
   listItemBullet: unorderedListItemStyle,
@@ -188,4 +196,4 @@ export const markdownTheme = {
   blockQuote: blockQuoteStyle,
   hr: horizontalLineStyle,
   image: imageStyle,
-};
+});
