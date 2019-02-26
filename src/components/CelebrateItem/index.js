@@ -210,7 +210,13 @@ class CelebrateItem extends Component {
   }
 
   render() {
-    const { event, onPressItem, cardStyle, rightCorner } = this.props;
+    const {
+      event,
+      onPressItem,
+      cardStyle,
+      rightCorner,
+      namePressable,
+    } = this.props;
     const { changed_attribute_value } = event;
     const { top, topLeft } = styles;
 
@@ -219,7 +225,7 @@ class CelebrateItem extends Component {
         <Flex value={1} direction={'column'} style={styles.content}>
           <View style={top}>
             <View style={topLeft}>
-              <CelebrateItemName event={event} />
+              <CelebrateItemName event={event} pressable={namePressable} />
               <CardTime date={changed_attribute_value} />
             </View>
             {rightCorner}
@@ -235,6 +241,7 @@ class CelebrateItem extends Component {
 
 CelebrateItem.propTypes = {
   event: PropTypes.object.isRequired,
+  namePressable: PropTypes.bool,
 };
 
 export default connect()(CelebrateItem);

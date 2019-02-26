@@ -24,6 +24,7 @@ class CelebrateDetailScreen extends Component {
           rightCorner={
             <BackButton iconStyle={backButtonStyle} customIcon="deleteIcon" />
           }
+          namePressable={true}
         />
         <CommentsList event={event} organizationId={event.organization.id} />
         <CelebrateCommentBox event={event} />

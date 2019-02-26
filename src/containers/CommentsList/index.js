@@ -40,7 +40,9 @@ class CommentsList extends Component {
 
   keyExtractor = i => i.id;
 
-  renderItem = ({ item }) => <CommentItem item={item} />;
+  renderItem = ({ item }) => (
+    <CommentItem item={item} organization={this.props.event.organization} />
+  );
 
   render() {
     const { celebrateComments: { comments, pagination } = {} } = this.props;

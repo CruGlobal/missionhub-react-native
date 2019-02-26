@@ -60,6 +60,7 @@ export class GroupCelebrate extends Component {
         loadMoreItemsCallback={this.loadItems}
         refreshCallback={this.refreshItems}
         refreshing={refreshing}
+        itemNamePressable={true}
       />
     );
   }

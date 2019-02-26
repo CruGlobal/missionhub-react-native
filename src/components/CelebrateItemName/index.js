@@ -24,14 +24,18 @@ class CelebrateItemName extends Component {
   }
 
   render() {
-    const { event, t } = this.props;
+    const { event, t, pressable } = this.props;
     const { subject_person_name } = event;
 
     if (!subject_person_name) {
       return this.renderName(t('missionHubUser'));
     }
 
-    if (!event.organization || event.organization.id === GLOBAL_COMMUNITY_ID) {
+    if (
+      !event.organization ||
+      event.organization.id === GLOBAL_COMMUNITY_ID || //TODO move global ID check elsewhere?
+      !pressable
+    ) {
       return this.renderName(subject_person_name);
     }
 
@@ -45,6 +49,7 @@ class CelebrateItemName extends Component {
 
 CelebrateItemName.propTypes = {
   event: PropTypes.object.isRequired,
+  pressable: PropTypes.bool,
 };
 
 export default connect()(CelebrateItemName);
