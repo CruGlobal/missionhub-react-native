@@ -1,5 +1,6 @@
 import 'react-native';
 import React from 'react';
+import { shallow } from 'enzyme';
 
 import CommentItem from '..';
 
@@ -17,4 +18,20 @@ it('renders correctly', () => {
 
 it('renders correctly with onLongPress', () => {
   testSnapshotShallow(<CommentItem item={item} onLongPress={jest.fn()} />);
+});
+
+it('renders correctly with onLongPress', () => {
+  const onLongPress = jest.fn();
+  const component = shallow(
+    <CommentItem item={item} onLongPress={onLongPress} />,
+  );
+  component.props().onLongPress();
+  expect(onLongPress).toHaveBeenCalledWith(item, undefined);
+});
+
+it('calls ref', () => {
+  const instance = shallow(<CommentItem item={item} />).instance();
+  instance.view = null;
+  instance.ref('test');
+  expect(instance.view).toEqual('test');
 });

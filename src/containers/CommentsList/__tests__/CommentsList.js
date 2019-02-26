@@ -219,6 +219,9 @@ describe('comments sets up actions as user', () => {
       permission_id: ORG_PERMISSIONS.USER,
     });
 
+    const instance = screen.instance();
+    instance.handleReport = jest.fn();
+
     screen.instance().handleLongPress(comment, 'testRef');
     expect(common.showMenu).toHaveBeenCalledWith(
       [
@@ -230,5 +233,75 @@ describe('comments sets up actions as user', () => {
       ],
       'testRef',
     );
+  });
+});
+
+describe('comment action for author', () => {
+  let instance;
+  const person = { id: '1' };
+  const comment = { id: 'comment1', person };
+  beforeEach(() => {
+    store = mockStore({
+      auth: { person: me },
+      organizations,
+      celebrateComments: {
+        comments: [comment],
+        pagination: {},
+      },
+    });
+
+    screen = renderShallow(
+      <CommentsList event={event} organizationId={organizationId} />,
+      store,
+    );
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
+
+    instance = screen.instance();
+    instance.handleEdit = jest.fn();
+    instance.handleDelete = jest.fn();
+  });
+  it('handleEdit', () => {
+    common.showMenu = jest.fn(a => a[0].onPress());
+    instance.handleLongPress(comment, 'testRef');
+    expect(instance.handleEdit).toHaveBeenCalledWith(comment);
+  });
+  it('handleDelete', () => {
+    common.showMenu = jest.fn(a => a[1].onPress());
+    instance.handleLongPress(comment, 'testRef');
+    expect(instance.handleDelete).toHaveBeenCalledWith(comment);
+  });
+});
+
+describe('comment action for user', () => {
+  let instance;
+  const person = { id: '2' };
+  const comment = { id: 'comment1', person };
+  beforeEach(() => {
+    store = mockStore({
+      auth: { person: me },
+      organizations,
+      celebrateComments: {
+        comments: [comment],
+        pagination: {},
+      },
+    });
+
+    screen = renderShallow(
+      <CommentsList event={event} organizationId={organizationId} />,
+      store,
+    );
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.USER,
+    });
+
+    instance = screen.instance();
+    instance.handleReport = jest.fn();
+  });
+  it('handleReport', () => {
+    common.showMenu = jest.fn(a => a[0].onPress());
+    instance.handleLongPress(comment, 'testRef');
+    expect(instance.handleReport).toHaveBeenCalledWith(comment);
   });
 });

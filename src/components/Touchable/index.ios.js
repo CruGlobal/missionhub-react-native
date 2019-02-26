@@ -17,19 +17,11 @@ class TouchableIOS extends Component {
     }
   };
 
-  handleLongPress = () => {
-    const { pressProps, onLongPress } = this.props;
-    if (onLongPress) {
-      onLongPress.apply(null, pressProps);
-    }
-  };
-
   render() {
     // Remove `pressProps` so that they aren't included in the `...rest` array
     const {
       highlight,
       withoutFeedback,
-      onLongPress,
       pressProps, // eslint-disable-line no-unused-vars
       ...rest
     } = this.props;
@@ -44,7 +36,6 @@ class TouchableIOS extends Component {
           })}
           {...rest}
           onPress={this.handlePress}
-          onLongPress={onLongPress && this.handleLongPress}
         />
       );
     }
@@ -54,7 +45,6 @@ class TouchableIOS extends Component {
           accessibilityTraits="button"
           {...rest}
           onPress={this.handlePress}
-          onLongPress={onLongPress && this.handleLongPress}
         />
       );
     }
@@ -64,7 +54,6 @@ class TouchableIOS extends Component {
         activeOpacity={0.6}
         {...rest}
         onPress={this.handlePress}
-        onLongPress={onLongPress && this.handleLongPress}
       />
     );
   }
