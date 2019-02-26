@@ -130,7 +130,7 @@ function loadPeopleFromCelebrateItems(state, action) {
   const orgId = action.query.orgId;
   const people = action.results.response
     .map(item => item.subject_person)
-    .filter(item => !!item);
+    .filter(person => !!person);
   const newPeople = state.allByOrg[orgId].people;
 
   people.forEach(person => {
