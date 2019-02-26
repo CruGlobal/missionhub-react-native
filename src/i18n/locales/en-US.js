@@ -91,6 +91,7 @@ export default {
     loading: 'Loading',
     save: 'Save',
     delete: 'Delete',
+    report: 'Report',
     cancel: 'Cancel',
     continue: 'Continue',
     your: 'your',

@@ -14,3 +14,7 @@ const item = {
 it('renders correctly', () => {
   testSnapshotShallow(<CommentItem item={item} />);
 });
+
+it('renders correctly with onLongPress', () => {
+  testSnapshotShallow(<CommentItem item={item} onLongPress={jest.fn()} />);
+});

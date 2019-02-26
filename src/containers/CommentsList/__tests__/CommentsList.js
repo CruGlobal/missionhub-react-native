@@ -2,18 +2,23 @@ import 'react-native';
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import i18n from 'i18next';
 
 import CommentsList from '..';
 
 import { renderShallow } from '../../../../testUtils';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
+import { orgPermissionSelector } from '../../../selectors/people';
 import {
   reloadCelebrateComments,
   getCelebrateCommentsNextPage,
 } from '../../../actions/celebrateComments';
+import * as common from '../../../utils/common';
+import { ORG_PERMISSIONS } from '../../../constants';
 
 jest.mock('../../../actions/celebrateComments');
 jest.mock('../../../selectors/celebration');
+jest.mock('../../../selectors/people');
 jest.mock('../../../selectors/celebrateComments');
 
 const mockStore = configureStore([thunk]);
@@ -40,10 +45,13 @@ getCelebrateCommentsNextPage.mockReturnValue(dispatch =>
   dispatch(getCelebrateCommentsNextPageResult),
 );
 
+const me = { id: '1' };
+
 beforeEach(() => {
   jest.clearAllMocks();
 
   store = mockStore({
+    auth: { person: me },
     organizations,
     celebrateComments: celebrateCommentsState,
   });
@@ -110,5 +118,117 @@ describe('with comments', () => {
     it('renders correctly', () => {
       expect(screen).toMatchSnapshot();
     });
+  });
+});
+
+describe('comments sets up actions as author', () => {
+  it('handleLongPress', () => {
+    common.showMenu = jest.fn();
+    const person = { id: '1' };
+    const comment = { id: 'comment1', person };
+    store = mockStore({
+      auth: { person: me },
+      organizations,
+      celebrateComments: {
+        comments: [comment],
+        pagination: {},
+      },
+    });
+
+    screen = renderShallow(
+      <CommentsList event={event} organizationId={organizationId} />,
+      store,
+    );
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
+
+    screen.instance().handleLongPress(comment, 'testRef');
+    expect(common.showMenu).toHaveBeenCalledWith(
+      [
+        {
+          text: i18n.t('edit'),
+          onPress: expect.any(Function),
+        },
+        {
+          text: i18n.t('delete'),
+          onPress: expect.any(Function),
+          destructive: true,
+        },
+      ],
+      'testRef',
+    );
+  });
+});
+
+describe('comments sets up actions as owner', () => {
+  it('handleLongPress', () => {
+    common.showMenu = jest.fn();
+    const person = { id: '2' };
+    const comment = { id: 'comment1', person };
+    store = mockStore({
+      auth: { person: me },
+      organizations,
+      celebrateComments: {
+        comments: [comment],
+        pagination: {},
+      },
+    });
+
+    screen = renderShallow(
+      <CommentsList event={event} organizationId={organizationId} />,
+      store,
+    );
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
+
+    screen.instance().handleLongPress(comment, 'testRef');
+    expect(common.showMenu).toHaveBeenCalledWith(
+      [
+        {
+          text: i18n.t('delete'),
+          onPress: expect.any(Function),
+          destructive: true,
+        },
+      ],
+      'testRef',
+    );
+  });
+});
+
+describe('comments sets up actions as user', () => {
+  it('handleLongPress', () => {
+    common.showMenu = jest.fn();
+    const person = { id: '2' };
+    const comment = { id: 'comment1', person };
+    store = mockStore({
+      auth: { person: me },
+      organizations,
+      celebrateComments: {
+        comments: [comment],
+        pagination: {},
+      },
+    });
+
+    screen = renderShallow(
+      <CommentsList event={event} organizationId={organizationId} />,
+      store,
+    );
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.USER,
+    });
+
+    screen.instance().handleLongPress(comment, 'testRef');
+    expect(common.showMenu).toHaveBeenCalledWith(
+      [
+        {
+          text: i18n.t('report'),
+          onPress: expect.any(Function),
+          destructive: true,
+        },
+      ],
+      'testRef',
+    );
   });
 });
