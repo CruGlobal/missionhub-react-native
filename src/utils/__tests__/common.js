@@ -2,7 +2,7 @@
 
 import { DrawerActions } from 'react-navigation';
 import Config from 'react-native-config';
-import ReactNative, { Platform, ActionSheetIOS, UIManager } from 'react-native';
+import { Platform, ActionSheetIOS, UIManager } from 'react-native';
 
 import {
   buildTrackingObj,
@@ -29,7 +29,6 @@ import {
   getCommunityUrl,
   showMenu,
 } from '../common';
-import * as common from '../common';
 import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../constants';
 
 jest.mock('react-navigation', () => ({
