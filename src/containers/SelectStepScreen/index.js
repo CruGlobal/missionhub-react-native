@@ -144,7 +144,17 @@ class SelectStepScreen extends Component {
     />
   );
 
-  renderItem = ({ item }) => <StepSuggestionItem step={item} />;
+  renderItem = ({ item }) => {
+    const { organization, receiverId } = this.props;
+
+    return (
+      <StepSuggestionItem
+        step={item}
+        receiverId={receiverId}
+        orgId={organization && organization.id}
+      />
+    );
+  };
 
   renderLoadMore = () => {
     const { loadMoreStepsButton, loadMoreStepsButtonText } = styles;

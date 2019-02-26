@@ -44,7 +44,7 @@ import { openMainMenu, refresh, toast } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
-import { STEP_DETAIL_SCREEN } from '../StepDetailScreen';
+import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 
 import styles from './styles';
 
@@ -99,7 +99,7 @@ export class StepsScreen extends Component {
   }
 
   handleRowSelect(step) {
-    this.props.dispatch(navigatePush(STEP_DETAIL_SCREEN, { step }));
+    this.props.dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
   }
 
   hasReminders() {

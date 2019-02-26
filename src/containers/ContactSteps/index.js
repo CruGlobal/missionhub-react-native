@@ -25,7 +25,7 @@ import {
 import { promptToAssign } from '../../utils/promptToAssign';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
-import { STEP_DETAIL_SCREEN } from '../StepDetailScreen';
+import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 import { contactAssignmentSelector } from '../../selectors/people';
 import {
   assignContactAndPickStage,
@@ -54,7 +54,7 @@ class ContactSteps extends Component {
   };
 
   handleRowSelect = step => {
-    this.props.dispatch(navigatePush(STEP_DETAIL_SCREEN, { step }));
+    this.props.dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
   };
 
   handleRemove = async step => {
