@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`does not have organization renders correctly 1`] = `
+<ItemHeaderText
+  text="MissionHub user"
+/>
+`;
+
+exports[`global community renders correctly 1`] = `
+<ItemHeaderText
+  text="MissionHub user"
+/>
+`;
+
+exports[`has organization does not have subject person name renders correctly 1`] = `
+<ItemHeaderText
+  text="MissionHub user"
+/>
+`;
+
+exports[`has organization has subject person name renders correctly 1`] = `
+<Button
+  onPress={[Function]}
+  type="transparent"
+>
+  <ItemHeaderText
+    text="Roger Goers"
+  />
+</Button>
+`;

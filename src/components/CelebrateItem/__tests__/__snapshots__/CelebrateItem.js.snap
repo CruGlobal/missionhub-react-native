@@ -26,8 +26,23 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "celebrateable_type": "accepted_community_challenge",
+              "changed_attribute_name": "accepted_at",
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 0,
+              "object_description": "Invite a friend to church",
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -118,8 +133,23 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "celebrateable_type": "accepted_community_challenge",
+              "changed_attribute_name": "completed_at",
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 0,
+              "object_description": "Invite a friend to church",
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -210,14 +240,25 @@ exports[`CelebrateItem message renders created community event 1`] = `
           }
         }
       >
-        <Button
-          onPress={[Function]}
-          type="transparent"
-        >
-          <ItemHeaderText
-            text="John Smith"
-          />
-        </Button>
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "celebrateable_type": "organization",
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 0,
+              "organization": Object {
+                "name": "Celebration Community",
+              },
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
+        />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
         />
@@ -286,8 +327,18 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="MissionHub user"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "adjective_attribute_value": "3",
+              "celebrateable_type": "accepted_challenge",
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 0,
+              "subject_person": null,
+              "subject_person_name": null,
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -351,14 +402,25 @@ exports[`CelebrateItem message renders joined community event 1`] = `
           }
         }
       >
-        <Button
-          onPress={[Function]}
-          type="transparent"
-        >
-          <ItemHeaderText
-            text="John Smith"
-          />
-        </Button>
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "celebrateable_type": "organizational_permission",
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 0,
+              "organization": Object {
+                "name": "Celebration Community",
+              },
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
+        />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
         />
@@ -427,8 +489,22 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "adjective_attribute_value": 2,
+              "celebrateable_type": "interaction",
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 0,
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -496,8 +572,22 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "adjective_attribute_value": 4,
+              "celebrateable_type": "interaction",
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 0,
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -565,8 +655,22 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "adjective_attribute_value": 11,
+              "celebrateable_type": "interaction",
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 0,
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -634,8 +738,22 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "adjective_attribute_value": "3",
+              "celebrateable_type": "accepted_challenge",
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 0,
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -703,8 +821,21 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "celebrateable_type": "accepted_challenge",
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 0,
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -771,8 +902,20 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 0,
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -836,8 +979,20 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 1,
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -901,8 +1056,20 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": true,
+              "likes_count": 1,
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -966,8 +1133,20 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": false,
+              "likes_count": 0,
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "456",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -1031,8 +1210,20 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "liked": true,
+              "likes_count": 1,
+              "subject_person": Object {
+                "first_name": "John",
+                "id": "456",
+                "last_name": "Smith",
+              },
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -1096,8 +1287,13 @@ exports[`CelebrateItem renders event with no subject person (global community ev
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "subject_person_name": "John Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -1154,8 +1350,13 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="MissionHub user"
+        <Connect(Translate(CelebrateItemName))
+          event={
+            Object {
+              "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+              "subject_person_name": null,
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"

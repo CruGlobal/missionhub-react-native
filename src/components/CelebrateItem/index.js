@@ -13,10 +13,10 @@ import {
 import { navigatePush } from '../../actions/navigation';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
 import { getFirstNameAndLastInitial } from '../../utils/common';
-import ItemHeaderText from '../../components/ItemHeaderText';
 import CardTime from '../CardTime';
 import CommentLikeComponent from '../../containers/CommentLikeComponent';
 import { navToPersonScreen } from '../../actions/person';
+import CelebrateItemName from '../CelebrateItemName';
 
 import styles from './styles';
 
@@ -209,38 +209,6 @@ class CelebrateItem extends Component {
     ) : null;
   }
 
-  renderName() {
-    const {
-      t,
-      event: { subject_person_name },
-    } = this.props;
-
-    return (
-      <ItemHeaderText
-        text={subject_person_name ? subject_person_name : t('missionHubUser')}
-      />
-    );
-  }
-
-  renderPersonText() {
-    const { event } = this.props;
-    const { subject_person_name } = event;
-
-    if (
-      !event.organization ||
-      event.organization.id === GLOBAL_COMMUNITY_ID ||
-      !subject_person_name
-    ) {
-      return this.renderName();
-    }
-
-    return (
-      <Button type="transparent" onPress={this.onPressNameLink}>
-        {this.renderName()}
-      </Button>
-    );
-  }
-
   render() {
     const { event, onPressItem, cardStyle, rightCorner } = this.props;
     const { changed_attribute_value } = event;
@@ -251,7 +219,7 @@ class CelebrateItem extends Component {
         <Flex value={1} direction={'column'} style={styles.content}>
           <View style={top}>
             <View style={topLeft}>
-              {this.renderPersonText()}
+              <CelebrateItemName event={event} />
               <CardTime date={changed_attribute_value} />
             </View>
             {rightCorner}
