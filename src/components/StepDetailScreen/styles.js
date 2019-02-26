@@ -9,18 +9,11 @@ export default StyleSheet.create({
   backButton: {
     color: theme.inactiveColor,
   },
-  completedStepText: {
-    fontSize: 14,
-    lineHeight: 20,
-  },
-  removeStepButton: {
-    paddingRight: 10,
-  },
-  removeStepButtonText: {
-    color: theme.inactiveColor,
-    fontSize: 14,
-    fontWeight: 'bold',
-    letterSpacing: 1,
+  bodyStyle: {
+    flex: 1,
+    marginVertical: 26,
+    paddingHorizontal: 32,
+    paddingBottom: 14,
   },
   stepTitleText: {
     fontSize: 32,
@@ -28,11 +21,6 @@ export default StyleSheet.create({
     fontWeight: '300',
     marginVertical: 26,
     marginHorizontal: 32,
-  },
-  tipContainer: {
-    marginVertical: 26,
-    paddingHorizontal: 32,
-    paddingBottom: 14,
   },
 });
 

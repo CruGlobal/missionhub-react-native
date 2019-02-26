@@ -204,11 +204,15 @@ export default {
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
   },
-  stepDetail: {
-    removeStep: 'Remove Step',
-    completedStep: 'Completed Step',
+  suggestedStepDetail: {
     addStep: 'Add to My Steps',
+  },
+  acceptedStepDetail: {
+    removeStep: 'Remove Step',
     iDidIt: 'I Did It!',
+  },
+  completedStepDetail: {
+    completedStep: 'Completed Step',
   },
   selectStage: {
     meQuestion:

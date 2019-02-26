@@ -28,9 +28,15 @@ import AddChallengeScreen, {
 import ChallengeDetailScreen, {
   CHALLENGE_DETAIL_SCREEN,
 } from './containers/ChallengeDetailScreen';
-import StepDetailScreen, {
-  STEP_DETAIL_SCREEN,
-} from './containers/StepDetailScreen';
+import SuggestedStepDetailScreen, {
+  SUGGESTED_STEP_DETAIL_SCREEN,
+} from './containers/SuggestedStepDetailScreen';
+import AcceptedStepDetailScreen, {
+  ACCEPTED_STEP_DETAIL_SCREEN,
+} from './containers/AcceptedStepDetailScreen';
+import CompletedStepDetailScreen, {
+  COMPLETED_STEP_DETAIL_SCREEN,
+} from './containers/CompletedStepDetailScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, {
@@ -283,9 +289,17 @@ const buildPersonScreenRoute = screen =>
   );
 
 const screens = {
-  [STEP_DETAIL_SCREEN]: buildTrackedScreen(
-    StepDetailScreen,
-    buildTrackingObj('step : detail', 'step'),
+  [SUGGESTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
+    SuggestedStepDetailScreen,
+    buildTrackingObj('step : detail', 'suggested'),
+  ),
+  [ACCEPTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
+    AcceptedStepDetailScreen,
+    buildTrackingObj('step : detail', 'accepted'),
+  ),
+  [COMPLETED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
+    CompletedStepDetailScreen,
+    buildTrackingObj('step : detail', 'completed'),
   ),
   [UPGRADE_ACCOUNT_SCREEN]: buildTrackedScreen(
     UpgradeAccountScreen,
