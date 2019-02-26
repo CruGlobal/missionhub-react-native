@@ -32,6 +32,12 @@ import styles from './styles';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { hideCompleted: true };
+  }
+
   componentDidMount() {
     this.getSteps();
   }
@@ -139,19 +145,24 @@ class ContactSteps extends Component {
         : this.handleAssign();
   };
 
-  toggleCompletedSteps = () => {};
+  toggleCompletedSteps = () => {
+    this.setState({ hideCompleted: !this.state.hideCompleted });
+  };
 
   renderRow = ({ item }) => (
     <AcceptedStepItem step={item} onComplete={this.handleComplete} />
   );
 
   renderCompletedStepsButton = () => {
+    const { hideCompleted } = this.state;
     const { completedStepsButton, completedStepsButtonText } = styles;
 
     return (
       <Button
         pill={true}
-        text={this.props.t('showCompletedSteps').toUpperCase()}
+        text={this.props
+          .t(hideCompleted ? 'showCompletedSteps' : 'hideCompletedSteps')
+          .toUpperCase()}
         onPress={this.toggleCompletedSteps}
         style={completedStepsButton}
         buttonTextStyle={completedStepsButtonText}
@@ -179,11 +190,13 @@ class ContactSteps extends Component {
 
   renderSteps() {
     const { steps } = this.props;
+    const { hideCompleted } = this.state;
+
     return (
       <ScrollView flex={1}>
         {this.renderList(steps)}
         {this.renderCompletedStepsButton()}
-        {this.renderList([])}
+        {hideCompleted ? null : this.renderList([])}
       </ScrollView>
     );
   }

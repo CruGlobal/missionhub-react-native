@@ -12,6 +12,96 @@ exports[`renderItem renders row 1`] = `
 />
 `;
 
+exports[`renders correctly with completed steps 1`] = `
+<Component
+  flex={1}
+>
+  <ScrollView
+    flex={1}
+  >
+    <FlatList
+      bounces={true}
+      data={
+        Array [
+          Object {
+            "id": "1",
+            "title": "Test Step",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "#E6E8EC",
+          "flex": 1,
+          "paddingVertical": 16,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+    <Button
+      buttonTextStyle={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 14,
+          "letterSpacing": 1,
+          "lineHeight": 18,
+        }
+      }
+      onPress={[Function]}
+      pill={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderColor": "#A0A2A6",
+          "borderWidth": 1,
+          "height": 36,
+          "marginHorizontal": 68,
+        }
+      }
+      text="HIDE COMPLETED STEPS"
+    />
+    <FlatList
+      bounces={true}
+      data={Array []}
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "#E6E8EC",
+          "flex": 1,
+          "paddingVertical": 16,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </ScrollView>
+  <BottomButton
+    onPress={[Function]}
+    text="Add a step of faith"
+  />
+</Component>
+`;
+
 exports[`renders correctly with no steps 1`] = `
 <Component
   flex={1}
@@ -90,29 +180,6 @@ exports[`renders correctly with steps 1`] = `
         }
       }
       text="SHOW COMPLETED STEPS"
-    />
-    <FlatList
-      bounces={true}
-      data={Array []}
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      renderItem={[Function]}
-      scrollEventThrottle={50}
-      showsVerticalScrollIndicator={false}
-      style={
-        Object {
-          "backgroundColor": "#E6E8EC",
-          "flex": 1,
-          "paddingVertical": 16,
-        }
-      }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
     />
   </ScrollView>
   <BottomButton

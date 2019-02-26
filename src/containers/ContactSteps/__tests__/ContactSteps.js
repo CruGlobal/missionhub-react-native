@@ -86,7 +86,7 @@ beforeEach(() => {
 
 it('renders correctly with no steps', () => {
   testSnapshotShallow(
-    <ContactSteps {...props} navigation={createMockNavState()} />,
+    <ContactSteps {...props} navigation={navState} />,
     createMockStore({
       ...mockState,
       steps: {
@@ -98,10 +98,23 @@ it('renders correctly with no steps', () => {
 });
 
 it('renders correctly with steps', () => {
-  testSnapshotShallow(
-    <ContactSteps {...props} navigation={createMockNavState()} />,
+  testSnapshotShallow(<ContactSteps {...props} navigation={navState} />, store);
+});
+
+it('renders correctly with completed steps', () => {
+  const component = renderShallow(
+    <ContactSteps {...props} navigation={navState} />,
     store,
   );
+
+  component
+    .childAt(0)
+    .childAt(1)
+    .props()
+    .onPress();
+  component.update();
+
+  expect(component).toMatchSnapshot();
 });
 
 describe('renderItem', () => {
