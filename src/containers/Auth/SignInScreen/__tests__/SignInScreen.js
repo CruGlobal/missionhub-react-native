@@ -4,31 +4,38 @@ import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import KeyLoginScreen from '..';
+import SignInScreen from '..';
+
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import {
   createMockNavState,
-  createMockStore,
   renderShallow,
   testSnapshot,
 } from '../../../../../testUtils';
-import * as auth from '../../../../actions/auth';
+import {
+  openKeyURL,
+  keyLogin,
+  keyLoginWithAuthorizationCode,
+} from '../../../../actions/auth/key';
 import { trackActionWithoutData } from '../../../../actions/analytics';
 import { ACTIONS, MFA_REQUIRED } from '../../../../constants';
-import { facebookLoginWithUsernamePassword } from '../../../../actions/facebook';
-import { navigatePush } from '../../../../actions/navigation';
-import { MFA_CODE_SCREEN } from '../../MFACodeScreen';
+import {
+  facebookLoginWithAccessToken,
+  facebookPromptLogin,
+} from '../../../../actions/auth/facebook';
 
-let store;
+const store = configureStore([thunk])();
 
 jest.mock('react-native-device-info');
-jest.mock('../../../../actions/auth', () => ({
-  keyLogin: jest.fn().mockReturnValue({ type: 'test' }),
-  openKeyURL: jest.fn(),
-}));
-jest.mock('../../../../actions/facebook');
-facebookLoginWithUsernamePassword.mockReturnValue({ type: 'test' });
+jest.mock('../../../../actions/auth/auth');
+jest.mock('../../../../actions/auth/facebook');
+facebookPromptLogin.mockReturnValue({ type: 'test' });
+facebookLoginWithAccessToken.mockReturnValue({ type: 'test' });
+jest.mock('../../../../actions/auth/key');
 jest.mock('../../../../actions/navigation');
+
 jest.mock('react-native-fbsdk', () => ({
   LoginManager: {
     logInWithReadPermissions: jest
@@ -43,18 +50,37 @@ jest.mock('react-native-fbsdk', () => ({
   GraphRequest: jest.fn((param1, param2, cb) => cb(undefined, {})),
   GraphRequestManager: () => ({ addRequest: () => ({ start: jest.fn() }) }),
 }));
-jest.mock('../../../../actions/analytics', () => ({
-  trackActionWithoutData: jest.fn(),
-}));
+jest.mock('../../../../actions/analytics');
+
+const nextAction = { type: 'test-next' };
+const next = jest.fn(() => nextAction);
+
+const code = 'test code';
+const codeVerifier = 'test codeVerifier';
+const redirectUri = 'test redirectUri';
+const openKeyResponse = {
+  type: 'open key',
+  code,
+  codeVerifier,
+  redirectUri,
+};
+const keyLoginWithAuthorizationCodeResponse = {
+  type: 'test keyLoginWithAuthorizationCode',
+};
+
+openKeyURL.mockReturnValue(openKeyResponse);
+keyLoginWithAuthorizationCode.mockReturnValue(
+  keyLoginWithAuthorizationCodeResponse,
+);
 
 beforeEach(() => {
-  store = createMockStore();
+  store.clearActions();
 });
 
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <KeyLoginScreen navigation={createMockNavState({})} />
+      <SignInScreen navigation={createMockNavState({})} next={next} />
     </Provider>,
   );
 });
@@ -62,7 +88,10 @@ it('renders correctly', () => {
 it('renders correctly for forced logout', () => {
   testSnapshot(
     <Provider store={store}>
-      <KeyLoginScreen navigation={createMockNavState({ forcedLogout: true })} />
+      <SignInScreen
+        navigation={createMockNavState({ forcedLogout: true })}
+        next={next}
+      />
     </Provider>,
   );
 });
@@ -70,7 +99,7 @@ it('renders correctly for forced logout', () => {
 describe('keyboard listeners', () => {
   it('should hide sign in logo when the keyboard comes up', () => {
     const component = renderShallow(
-      <KeyLoginScreen navigation={createMockNavState({})} />,
+      <SignInScreen navigation={createMockNavState({})} next={next} />,
     );
 
     component.instance().keyboardShowListener.listener();
@@ -81,7 +110,7 @@ describe('keyboard listeners', () => {
 
   it('should remove the listeners on unmount', () => {
     const instance = renderShallow(
-      <KeyLoginScreen navigation={createMockNavState({})} />,
+      <SignInScreen navigation={createMockNavState({})} next={next} />,
     ).instance();
     instance.keyboardShowListener.remove = jest.fn();
     instance.keyboardHideListener.remove = jest.fn();
@@ -99,29 +128,27 @@ describe('a login button is clicked', () => {
 
   beforeEach(() => {
     screen = renderShallow(
-      <KeyLoginScreen
+      <SignInScreen
         navigation={createMockNavState({ upgradeAccount: true })}
+        next={next}
       />,
       store,
     );
   });
 
   describe('facebook login button is pressed', () => {
-    beforeEach(() => {
-      facebookLoginWithUsernamePassword.mockImplementation(
-        (isUpgrade, startLoad, onComplete) => {
-          startLoad();
-          return onComplete();
-        },
-      );
-
-      screen.find({ name: 'facebookButton' }).simulate('press');
+    it('facebook button handler is called', async () => {
+      await screen.find({ name: 'facebookButton' }).simulate('press'); // NOTE: await here is a hack. simulate doesn't return a promise but await lets us win the race condition by waiting a tick
+      expect(facebookPromptLogin).toHaveBeenCalledTimes(1);
+      expect(facebookLoginWithAccessToken).toHaveBeenCalledTimes(1);
     });
-
-    it('facebook login is called', () => {
-      expect(facebookLoginWithUsernamePassword).toHaveBeenCalledTimes(1);
+    it('facebook login is called', async () => {
+      await screen.instance().facebookLogin();
+      expect(facebookPromptLogin).toHaveBeenCalledTimes(1);
+      expect(facebookLoginWithAccessToken).toHaveBeenCalledTimes(1);
     });
-    it('loading wheel appears', () => {
+    it('loading wheel appears', async () => {
+      await screen.instance().facebookLogin();
       screen.update();
       expect(screen).toMatchSnapshot();
     });
@@ -132,10 +159,6 @@ describe('a login button is clicked', () => {
       screen.find({ name: 'loginButton' }).simulate('press');
 
     const mockTrackActionResult = { type: 'tracked action' };
-    const expectTrackAction = expected => {
-      expect(trackActionWithoutData).toHaveBeenCalledWith(expected);
-      expect(store.dispatch).toHaveBeenLastCalledWith(mockTrackActionResult);
-    };
 
     const credentials = {
       email: 'klas&jflk@lkjasdf.com',
@@ -144,11 +167,7 @@ describe('a login button is clicked', () => {
 
     beforeEach(() => {
       screen.setState(credentials);
-      auth.keyLogin.mockImplementation((email, password) => {
-        return email === credentials.email && password === credentials.password
-          ? loginResult
-          : undefined;
-      });
+      keyLogin.mockReturnValue(loginResult);
 
       trackActionWithoutData.mockReturnValue(mockTrackActionResult);
     });
@@ -156,7 +175,11 @@ describe('a login button is clicked', () => {
     it('key login is called', async () => {
       await clickLoginButton();
 
-      expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
+      expect(keyLogin).toHaveBeenCalledWith(
+        credentials.email,
+        credentials.password,
+      );
+      expect(store.getActions()).toEqual([loginResult, nextAction]);
     });
 
     it('loading wheel appears', () => {
@@ -167,7 +190,7 @@ describe('a login button is clicked', () => {
     });
 
     it('shows invalid credentials message and tracks user error when invalid credentials are entered', async () => {
-      auth.keyLogin.mockReturnValue(
+      keyLogin.mockReturnValue(() =>
         Promise.reject({
           apiError: { thekey_authn_error: 'invalid_credentials' },
         }),
@@ -177,11 +200,12 @@ describe('a login button is clicked', () => {
 
       screen.update();
       expect(screen).toMatchSnapshot();
-      expectTrackAction(ACTIONS.USER_ERROR);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.USER_ERROR);
+      expect(store.getActions()).toEqual([nextAction, mockTrackActionResult]);
     });
 
     it('shows invalid credentials message and tracks user error when email or password is missing', async () => {
-      auth.keyLogin.mockReturnValue(
+      keyLogin.mockReturnValue(() =>
         Promise.reject({ apiError: { error: 'invalid_request' } }),
       );
 
@@ -189,11 +213,12 @@ describe('a login button is clicked', () => {
 
       screen.update();
       expect(screen).toMatchSnapshot();
-      expectTrackAction(ACTIONS.USER_ERROR);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.USER_ERROR);
+      expect(store.getActions()).toEqual([mockTrackActionResult]);
     });
 
     it('shows email verification required message and tracks user error when email has not been verified', async () => {
-      auth.keyLogin.mockReturnValue(
+      keyLogin.mockReturnValue(() =>
         Promise.reject({
           apiError: { thekey_authn_error: 'email_unverified' },
         }),
@@ -203,33 +228,34 @@ describe('a login button is clicked', () => {
 
       screen.update();
       expect(screen).toMatchSnapshot();
-      expectTrackAction(ACTIONS.USER_ERROR);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.USER_ERROR);
+      expect(store.getActions()).toEqual([mockTrackActionResult]);
     });
 
     it('tracks system error for unexpected error', async () => {
-      auth.keyLogin.mockReturnValue(
+      keyLogin.mockReturnValue(() =>
         Promise.reject({ apiError: { error: 'invalid_grant' } }),
       );
 
       await clickLoginButton();
 
-      expectTrackAction(ACTIONS.SYSTEM_ERROR);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SYSTEM_ERROR);
+      expect(store.getActions()).toEqual([mockTrackActionResult]);
     });
 
     describe('mfa_required is returned from the Key', () => {
       beforeEach(() =>
-        auth.keyLogin.mockReturnValue(
+        keyLogin.mockReturnValue(() =>
           Promise.reject({ apiError: { thekey_authn_error: MFA_REQUIRED } }),
         ));
 
       it('should send user to MFA screen', async () => {
         await clickLoginButton();
 
-        expect(navigatePush).toHaveBeenCalledWith(MFA_CODE_SCREEN, {
+        expect(next).toHaveBeenCalledWith({
+          requires2FA: true,
           email: credentials.email,
           password: credentials.password,
-          upgradeAccount: true,
-          next: null,
         });
       });
 
@@ -243,19 +269,26 @@ describe('a login button is clicked', () => {
   });
 
   describe('forgot password button is pressed', () => {
-    beforeEach(() => {
+    it('forgot password button handler is called', () => {
       screen.find({ name: 'forgotPasswordButton' }).simulate('press');
-    });
-
-    it('forgot password is called', () => {
-      expect(auth.openKeyURL).toHaveBeenCalledWith(
+      expect(openKeyURL).toHaveBeenCalledWith(
         'service/selfservice?target=displayForgotPassword',
-        screen.instance().startLoad,
-        true,
+      );
+      // Can't do further testing here since enzyme doesn't return a promise from simulate(...)
+    });
+    it('forgot password is called', async () => {
+      await screen.instance().handleForgotPassword();
+      expect(openKeyURL).toHaveBeenCalledWith(
+        'service/selfservice?target=displayForgotPassword',
+      );
+      expect(keyLoginWithAuthorizationCode).toHaveBeenCalledWith(
+        code,
+        codeVerifier,
+        redirectUri,
       );
     });
-    it('loading wheel to be rendered', () => {
-      screen.instance().startLoad();
+    it('loading wheel to be rendered', async () => {
+      await screen.instance().handleForgotPassword();
       screen.update();
       expect(screen).toMatchSnapshot();
     });

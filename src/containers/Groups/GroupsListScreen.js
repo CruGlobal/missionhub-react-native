@@ -12,17 +12,18 @@ import {
   Button,
   Flex,
 } from '../../components/common';
-import { upgradeAccount } from '../../actions/auth';
-import { navigatePush, navigateNestedReset } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, refresh } from '../../utils/common';
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
-import { ACTIONS, MAIN_TABS, GROUPS_TAB } from '../../constants';
-import { JOIN_BY_CODE_FLOW } from '../../routes/constants';
-import { SIGNUP_TYPES } from '../Auth/UpgradeAccountScreen';
+import { ACTIONS, GROUPS_TAB } from '../../constants';
+import {
+  CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
+  JOIN_BY_CODE_FLOW,
+} from '../../routes/constants';
 import TrackTabChange from '../TrackTabChange';
 
 import { getScreenForOrg } from './GroupScreen';
@@ -74,13 +75,13 @@ class GroupsListScreen extends Component {
 
   create = () => {
     const { dispatch, isFirstTime } = this.props;
-    const screen = CREATE_GROUP_SCREEN;
-    const onComplete = () => dispatch(navigateNestedReset(MAIN_TABS, screen));
 
     dispatch(
-      isFirstTime
-        ? upgradeAccount(SIGNUP_TYPES.CREATE_COMMUNITY, onComplete)
-        : navigatePush(screen),
+      navigatePush(
+        isFirstTime
+          ? CREATE_COMMUNITY_UNAUTHENTICATED_FLOW
+          : CREATE_GROUP_SCREEN,
+      ),
     );
   };
 

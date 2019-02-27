@@ -6,12 +6,9 @@ import { translate } from 'react-i18next';
 import { LINKS } from '../../constants';
 import { isAndroid } from '../../utils/common';
 import SideMenu from '../../components/SideMenu';
-import {
-  logout,
-  upgradeAccount,
-  upgradeAccountSignIn,
-} from '../../actions/auth';
-import { SIGNUP_TYPES } from '../../containers/Auth/UpgradeAccountScreen';
+import { logout } from '../../actions/auth/auth';
+import { SIGN_IN_FLOW, SIGN_UP_FLOW } from '../../routes/constants';
+import { navigatePush } from '../../actions/navigation';
 
 @translate('settingsMenu')
 export class SettingsMenu extends Component {
@@ -29,21 +26,6 @@ export class SettingsMenu extends Component {
 
   render() {
     const { t, dispatch, isFirstTime } = this.props;
-
-    const upgradeAccountItems = [
-      {
-        label: t('signIn'),
-        action: () => dispatch(upgradeAccountSignIn()),
-      },
-      {
-        label: t('signUp'),
-        action: () => dispatch(upgradeAccount(SIGNUP_TYPES.SETTINGS_MENU)),
-      },
-    ];
-    const signOut = {
-      label: t('signOut'),
-      action: () => dispatch(logout()),
-    };
 
     const menuItems = [
       {
@@ -72,7 +54,23 @@ export class SettingsMenu extends Component {
         label: t('tos'),
         action: () => this.openUrl(LINKS.terms),
       },
-      ...(isFirstTime ? upgradeAccountItems : [signOut]),
+      ...(isFirstTime
+        ? [
+            {
+              label: t('signIn'),
+              action: () => dispatch(navigatePush(SIGN_IN_FLOW)),
+            },
+            {
+              label: t('signUp'),
+              action: () => dispatch(navigatePush(SIGN_UP_FLOW)),
+            },
+          ]
+        : [
+            {
+              label: t('signOut'),
+              action: () => dispatch(logout()),
+            },
+          ]),
     ];
 
     return <SideMenu menuItems={menuItems} />;
