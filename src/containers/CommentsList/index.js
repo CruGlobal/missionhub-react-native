@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FlatList } from 'react-native';
+import i18n from 'i18next';
 
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import {
@@ -10,8 +11,10 @@ import {
 } from '../../actions/celebrateComments';
 import LoadMore from '../../components/LoadMore';
 import RefreshControl from '../../components/RefreshControl';
-import { refresh } from '../../utils/common';
+import { refresh, showMenu } from '../../utils/common';
 import CommentItem from '../../components/CommentItem';
+import { orgPermissionSelector } from '../../selectors/people';
+import { ORG_PERMISSIONS } from '../../constants';
 
 import styles from './styles';
 
@@ -38,10 +41,68 @@ class CommentsList extends Component {
     dispatch(getCelebrateCommentsNextPage(event));
   };
 
+  // eslint-disable-next-line
+  handleEdit = item => {
+    // TODO: Edit comment
+  };
+
+  // eslint-disable-next-line
+  handleDelete = item => {
+    // TODO: Delete comment
+  };
+
+  // eslint-disable-next-line
+  handleReport = item => {
+    // TODO: Report comment
+  };
+
   keyExtractor = i => i.id;
 
+  handleLongPress = (item, componentRef) => {
+    const {
+      event: { organization },
+      me,
+    } = this.props;
+
+    const actions = [];
+    const deleteAction = {
+      text: i18n.t('delete'),
+      onPress: () => this.handleDelete(item),
+      destructive: true,
+    };
+
+    if (me.id === item.person.id) {
+      actions.push({
+        text: i18n.t('edit'),
+        onPress: () => this.handleEdit(item),
+      });
+      actions.push(deleteAction);
+    } else {
+      const orgPermission =
+        orgPermissionSelector(null, {
+          person: me,
+          organization,
+        }) || {};
+      if (orgPermission.permission_id === ORG_PERMISSIONS.ADMIN) {
+        actions.push(deleteAction);
+      } else {
+        actions.push({
+          text: i18n.t('report'),
+          onPress: () => this.handleReport(item),
+          destructive: true,
+        });
+      }
+    }
+
+    showMenu(actions, componentRef);
+  };
+
   renderItem = ({ item }) => (
-    <CommentItem item={item} organization={this.props.event.organization} />
+    <CommentItem
+      item={item}
+      onLongPress={this.handleLongPress}
+      organization={this.props.event.organization}
+    />
   );
 
   render() {
@@ -73,7 +134,8 @@ CommentsList.propTypes = {
   event: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ celebrateComments }, { event }) => ({
+const mapStateToProps = ({ auth, celebrateComments }, { event }) => ({
+  me: auth.person,
   celebrateComments: celebrateCommentsSelector(
     { celebrateComments },
     { eventId: event.id },
