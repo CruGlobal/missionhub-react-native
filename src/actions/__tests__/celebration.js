@@ -52,6 +52,8 @@ describe('getGroupCelebrateFeed', () => {
         limit: DEFAULT_PAGE_LIMIT,
         offset: DEFAULT_PAGE_LIMIT * currentPage,
       },
+      include:
+        'subject_person.organizational_permissions,subject_person.contact_assignments',
       orgId,
     });
     expect(store.getActions()).toEqual([apiResult]);

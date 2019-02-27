@@ -248,3 +248,34 @@ it('should save new people and update existing people from steps', () => {
     },
   });
 });
+
+it('should add people from celebrate items', () => {
+  const personFromItem1 = { id: '142354234' };
+  const personFromItem2 = { id: '78943' };
+
+  const {
+    allByOrg: {
+      [orgId]: { people: result },
+    },
+  } = people(
+    { allByOrg: orgs },
+    {
+      type: REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS,
+      results: {
+        response: [
+          { subject_person: personFromItem1 },
+          { subject_person: personFromItem2 },
+        ],
+      },
+      query: { orgId },
+    },
+  );
+
+  expect(result).toEqual(
+    expect.objectContaining({
+      [personFromItem1.id]: personFromItem1,
+      [personFromItem2.id]: personFromItem2,
+    }),
+  );
+  expect(Object.keys(result).length).toEqual(4);
+});
