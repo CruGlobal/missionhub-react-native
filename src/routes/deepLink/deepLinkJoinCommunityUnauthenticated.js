@@ -47,7 +47,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
       dispatch(firstTime());
       dispatch(completeOnboarding());
       await dispatch(showNotificationPrompt());
-      await dispatch(finishAuth());
+      dispatch(finishAuth());
     }),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
