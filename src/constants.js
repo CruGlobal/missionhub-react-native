@@ -108,6 +108,7 @@ export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
 export const MAIN_TAB_CHANGED = 'analytics/MAIN_TAB_CHANGED';
 export const GROUP_TAB_CHANGED = 'analytics/GROUP_TAB_CHANGED';
+export const TRACK_TAB = 'analytics/TRACK_TAB';
 export const PERSON_VIEWED_STAGE_CHANGED =
   'analytics/PERSON_VIEWED_STAGE_CHANGED';
 export const SELF_VIEWED_STAGE_CHANGED = 'analytics/SELF_VIEWED_STAGE_CHANGED';

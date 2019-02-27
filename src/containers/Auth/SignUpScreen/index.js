@@ -1,7 +1,7 @@
 /* eslint max-lines-per-function: 0 */
 
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { SafeAreaView, Image } from 'react-native';
 import { translate } from 'react-i18next';
 import i18Next from 'i18next';
 import PropTypes from 'prop-types';
@@ -24,7 +24,6 @@ import {
   facebookPromptLogin,
   facebookLoginWithAccessToken,
 } from '../../../actions/auth/facebook';
-import Header from '../../Header';
 import BackButton from '../../BackButton';
 import TosPrivacy from '../../../components/TosPrivacy';
 
@@ -109,8 +108,7 @@ class SignUpScreen extends Component {
     const headerContent = headerContentOptions[signUpType];
 
     return (
-      <Flex style={styles.container}>
-        <Header left={<BackButton />} />
+      <SafeAreaView style={styles.container}>
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
             {headerContent
@@ -178,7 +176,8 @@ class SignUpScreen extends Component {
           </Flex>
         </Flex>
         {isLoading ? <LoadingWheel /> : null}
-      </Flex>
+        <BackButton absolute={true} />
+      </SafeAreaView>
     );
   }
 }

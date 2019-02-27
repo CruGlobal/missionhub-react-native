@@ -112,7 +112,8 @@ describe('CreateGroupScreen', () => {
     Keyboard.dismiss = jest.fn();
     const component = buildScreen();
     const result = await component
-      .childAt(2)
+      .childAt(1)
+      .childAt(1)
       .childAt(0)
       .props()
       .onPress();
@@ -129,7 +130,8 @@ describe('CreateGroupScreen', () => {
     organizationSelector.mockReturnValue(undefined);
 
     await component
-      .childAt(2)
+      .childAt(1)
+      .childAt(1)
       .childAt(0)
       .props()
       .onPress();
@@ -153,7 +155,8 @@ describe('CreateGroupScreen', () => {
     organizationSelector.mockReturnValue(org);
 
     await component
-      .childAt(2)
+      .childAt(1)
+      .childAt(1)
       .childAt(0)
       .props()
       .onPress();
@@ -182,7 +185,8 @@ describe('CreateGroupScreen', () => {
     organizationSelector.mockReturnValue(org);
 
     await component
-      .childAt(2)
+      .childAt(1)
+      .childAt(1)
       .childAt(0)
       .props()
       .onPress();

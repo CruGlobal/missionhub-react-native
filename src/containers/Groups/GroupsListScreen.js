@@ -19,11 +19,12 @@ import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, GROUPS_TAB } from '../../constants';
 import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
 } from '../../routes/constants';
+import TrackTabChange from '../TrackTabChange';
 
 import { getScreenForOrg } from './GroupScreen';
 import styles from './styles';
@@ -121,6 +122,7 @@ class GroupsListScreen extends Component {
 
     return (
       <View style={{ flex: 1 }}>
+        <TrackTabChange screen={GROUPS_TAB} />
         <Header
           left={
             <IconButton
@@ -153,7 +155,7 @@ class GroupsListScreen extends Component {
           </Flex>
         </Flex>
         <ScrollView
-          style={{ flex: 1 }}
+          style={styles.scrollView}
           refreshControl={
             <RefreshControl
               refreshing={this.state.refreshing}

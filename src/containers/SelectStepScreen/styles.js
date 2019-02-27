@@ -16,8 +16,8 @@ export default StyleSheet.create({
     color: theme.secondaryColor,
   },
   collapsedHeader: {
-    paddingTop: theme.notchHeight,
     height: '100%',
+    marginTop: 15,
   },
   collapsedHeaderTitle: {
     fontSize: 14,

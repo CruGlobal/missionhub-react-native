@@ -30,6 +30,7 @@ jest.mock('../../../actions/swipe', () => ({
   resetScrollGroups: jest.fn(() => ({ type: 'reset' })),
 }));
 jest.mock('../../../actions/analytics');
+jest.mock('../../TrackTabChange', () => () => null);
 
 const mockStore = configureStore();
 const organizations = {
@@ -78,7 +79,7 @@ describe('GroupsListScreen', () => {
     it('navigates to groups screen', () => {
       const organization = organizations.all[0];
       const item = component
-        .childAt(2)
+        .childAt(3)
         .childAt(0)
         .props()
         .renderItem({ item: organization });
@@ -97,7 +98,7 @@ describe('GroupsListScreen', () => {
     it('navigates to user created org screen', () => {
       const organization = organizations.all[1];
       const item = component
-        .childAt(2)
+        .childAt(3)
         .childAt(0)
         .props()
         .renderItem({ item: organization });
@@ -222,7 +223,7 @@ describe('GroupsListScreen', () => {
 
   it('navigates to join group screen', () => {
     component
-      .childAt(1)
+      .childAt(2)
       .childAt(0)
       .childAt(0)
       .props()
@@ -233,7 +234,7 @@ describe('GroupsListScreen', () => {
 
   it('navigates to create group screen', () => {
     component
-      .childAt(1)
+      .childAt(2)
       .childAt(1)
       .childAt(0)
       .props()
@@ -252,7 +253,7 @@ describe('GroupsListScreen', () => {
     component = renderShallow(<GroupsListScreen />, store);
 
     component
-      .childAt(1)
+      .childAt(2)
       .childAt(1)
       .childAt(0)
       .props()

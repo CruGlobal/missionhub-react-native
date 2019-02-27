@@ -91,12 +91,15 @@ it('should render empty correctly', () => {
 });
 
 it('should refresh correctly', async () => {
-  const instance = renderShallow(
+  const component = renderShallow(
     <GroupCelebrate organization={org} store={createMockStore(store)} />,
     store,
   );
 
-  await instance.props().refreshCallback();
+  await component
+    .childAt(0)
+    .props()
+    .refreshCallback();
 
   expect(refreshCommunity).toHaveBeenCalledWith(org.id);
   expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(org.id);
