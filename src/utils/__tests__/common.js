@@ -2,6 +2,7 @@
 
 import { DrawerActions } from 'react-navigation';
 import Config from 'react-native-config';
+import { Platform, ActionSheetIOS, UIManager } from 'react-native';
 
 import {
   buildTrackingObj,
@@ -489,4 +490,62 @@ describe('getCommunityUrl', () => {
     );
   });
   it('should handle null', () => expect(getCommunityUrl(null)).toEqual(''));
+});
+
+describe('showMenu on iOS', () => {
+  it('should call action sheet', () => {
+    const actions = [
+      {
+        text: 'test',
+        onPress: jest.fn(),
+      },
+      {
+        text: 'test2',
+        onPress: jest.fn(),
+        destructive: true,
+      },
+    ];
+    Platform.OS = 'ios';
+    ActionSheetIOS.showActionSheetWithOptions = jest.fn((a, b) => b(0));
+
+    require('../common').showMenu(actions);
+    expect(ActionSheetIOS.showActionSheetWithOptions).toHaveBeenCalledWith(
+      {
+        cancelButtonIndex: 2,
+        destructiveButtonIndex: 1,
+        options: ['test', 'test2', 'Cancel'],
+      },
+      expect.any(Function),
+    );
+    expect(actions[0].onPress).toHaveBeenCalled();
+  });
+});
+
+describe('showMenu on Android', () => {
+  it('should call menu', () => {
+    jest.resetModules(); //reset isAndroid const
+    Platform.OS = 'android';
+    const actions = [
+      {
+        text: 'test',
+        onPress: jest.fn(),
+      },
+      {
+        text: 'test2',
+        onPress: jest.fn(),
+      },
+    ];
+    // eslint-disable-next-line
+    UIManager.showPopupMenu = jest.fn((a, b, c, d) => d(null, 0));
+
+    require('../common').showMenu(actions, 'testRef');
+
+    expect(UIManager.showPopupMenu).toHaveBeenCalledWith(
+      undefined,
+      ['test', 'test2'],
+      expect.any(Function),
+      expect.any(Function),
+    );
+    expect(actions[0].onPress).toHaveBeenCalled();
+  });
 });

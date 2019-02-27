@@ -1,66 +1,117 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PopupMenu Android renders with 1 button 1`] = `
-<TouchableOpacity
+<View
   accessibilityTraits="button"
-  activeOpacity={0.6}
-  borderless={true}
-  onPress={[Function]}
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-      undefined,
-    ]
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "opacity": 1,
+    }
   }
 >
-  <Icon
-    name="moreIcon"
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
     style={
       Array [
         Object {
-          "color": "#B2B0B2",
-          "paddingHorizontal": 10,
+          "color": undefined,
+          "fontSize": 12,
         },
-        undefined,
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 18,
+          },
+          Array [
+            Object {
+              "color": "#B2B0B2",
+              "paddingHorizontal": 10,
+            },
+            undefined,
+          ],
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
       ]
     }
-    type="MissionHub"
-  />
-</TouchableOpacity>
+  >
+    
+  </Text>
+</View>
 `;
 
 exports[`PopupMenu Android renders with icon props 1`] = `
-<TouchableOpacity
+<View
   accessibilityTraits="button"
-  activeOpacity={0.6}
-  borderless={true}
-  onPress={[Function]}
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-      undefined,
-    ]
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "opacity": 1,
+    }
   }
 >
-  <Icon
-    name="moreIcon"
-    size={24}
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
     style={
       Array [
         Object {
-          "color": "#B2B0B2",
-          "paddingHorizontal": 10,
+          "color": undefined,
+          "fontSize": 12,
         },
-        undefined,
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 24,
+          },
+          Array [
+            Object {
+              "color": "#B2B0B2",
+              "paddingHorizontal": 10,
+            },
+            undefined,
+          ],
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
       ]
     }
-    type="MissionHub"
-  />
-</TouchableOpacity>
+  >
+    
+  </Text>
+</View>
 `;
