@@ -4,7 +4,7 @@ import { View } from 'react-native';
 
 import { Text, Touchable } from '../common';
 import CardTime from '../CardTime';
-import ItemHeaderText from '../ItemHeaderText';
+import CelebrateItemName from '../../containers/CelebrateItemName';
 
 import styles from './styles';
 
@@ -18,18 +18,20 @@ export default class CommentItem extends Component {
 
   render() {
     const {
-      item: {
-        content,
-        created_at,
-        person: { first_name, last_name },
-      },
+      item: { content, created_at, person, organization },
       onLongPress,
     } = this.props;
     const { itemStyle, text } = styles;
+    const { first_name, last_name } = person;
 
     const component = (
       <View ref={this.ref} style={itemStyle}>
-        <ItemHeaderText text={`${first_name} ${last_name}`} />
+        <CelebrateItemName
+          name={`${first_name} ${last_name}`}
+          person={person}
+          organization={organization}
+          pressable={true}
+        />
         <Text style={text}>{content}</Text>
         <CardTime date={created_at} />
       </View>
@@ -45,5 +47,6 @@ export default class CommentItem extends Component {
 
 CommentItem.propTypes = {
   item: PropTypes.object.isRequired,
+  organization: PropTypes.object.isRequired,
   onLongPress: PropTypes.func,
 };

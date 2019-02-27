@@ -58,6 +58,11 @@ exports[`with comments with next page renders item correctly 1`] = `
     }
   }
   onLongPress={[Function]}
+  organization={
+    Object {
+      "id": "24234234",
+    }
+  }
 />
 `;
 

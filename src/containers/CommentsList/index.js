@@ -98,7 +98,11 @@ class CommentsList extends Component {
   };
 
   renderItem = ({ item }) => (
-    <CommentItem item={item} onLongPress={this.handleLongPress} />
+    <CommentItem
+      item={item}
+      onLongPress={this.handleLongPress}
+      organization={this.props.event.organization}
+    />
   );
 
   render() {

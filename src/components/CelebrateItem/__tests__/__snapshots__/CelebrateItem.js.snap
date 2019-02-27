@@ -26,8 +26,15 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          person={
+            Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -118,8 +125,15 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          person={
+            Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -210,8 +224,20 @@ exports[`CelebrateItem message renders created community event 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          organization={
+            Object {
+              "name": "Celebration Community",
+            }
+          }
+          person={
+            Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -281,8 +307,9 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="MissionHub user"
+        <Connect(Translate(CelebrateItemName))
+          name={null}
+          person={null}
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -346,8 +373,20 @@ exports[`CelebrateItem message renders joined community event 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          organization={
+            Object {
+              "name": "Celebration Community",
+            }
+          }
+          person={
+            Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -417,8 +456,15 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          person={
+            Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -486,8 +532,15 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          person={
+            Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -555,8 +608,15 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          person={
+            Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -624,8 +684,15 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          person={
+            Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -693,8 +760,15 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          person={
+            Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -761,8 +835,15 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          person={
+            Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -826,8 +907,15 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          person={
+            Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -891,8 +979,15 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          person={
+            Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -956,8 +1051,15 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          person={
+            Object {
+              "first_name": "John",
+              "id": "456",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -1021,8 +1123,15 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
+          person={
+            Object {
+              "first_name": "John",
+              "id": "456",
+              "last_name": "Smith",
+            }
+          }
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -1086,8 +1195,8 @@ exports[`CelebrateItem renders event with no subject person (global community ev
           }
         }
       >
-        <ItemHeaderText
-          text="John Smith"
+        <Connect(Translate(CelebrateItemName))
+          name="John Smith"
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"
@@ -1144,8 +1253,8 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
           }
         }
       >
-        <ItemHeaderText
-          text="MissionHub user"
+        <Connect(Translate(CelebrateItemName))
+          name={null}
         />
         <CardTime
           date="2004-04-04 00:00:00 UTC"

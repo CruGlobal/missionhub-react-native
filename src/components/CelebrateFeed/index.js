@@ -42,7 +42,7 @@ class CelebrateFeed extends Component {
   };
 
   renderItem = ({ item }) => {
-    const { organization } = this.props;
+    const { organization, itemNamePressable } = this.props;
 
     return (
       <CelebrateItem
@@ -50,6 +50,7 @@ class CelebrateFeed extends Component {
         onPressItem={
           organization.id !== GLOBAL_COMMUNITY_ID && this.onPressItem
         }
+        namePressable={itemNamePressable}
       />
     );
   };
@@ -102,6 +103,7 @@ CelebrateFeed.propTypes = {
   items: PropTypes.array.isRequired,
   organization: PropTypes.object.isRequired,
   refreshing: PropTypes.bool,
+  itemNamePressable: PropTypes.bool,
 };
 
 export default connect()(CelebrateFeed);

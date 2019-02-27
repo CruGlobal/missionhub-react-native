@@ -13,9 +13,9 @@ import {
 import { navigatePush } from '../../actions/navigation';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
 import { getFirstNameAndLastInitial } from '../../utils/common';
-import ItemHeaderText from '../../components/ItemHeaderText';
 import CardTime from '../CardTime';
 import CommentLikeComponent from '../../containers/CommentLikeComponent';
+import CelebrateItemName from '../../containers/CelebrateItemName';
 
 import styles from './styles';
 
@@ -200,8 +200,19 @@ class CelebrateItem extends Component {
   }
 
   render() {
-    const { event, t, onPressItem, cardStyle, rightCorner } = this.props;
-    const { changed_attribute_value, subject_person_name } = event;
+    const {
+      event,
+      onPressItem,
+      cardStyle,
+      rightCorner,
+      namePressable,
+    } = this.props;
+    const {
+      changed_attribute_value,
+      organization,
+      subject_person,
+      subject_person_name,
+    } = event;
     const { top, topLeft } = styles;
 
     return (
@@ -209,12 +220,11 @@ class CelebrateItem extends Component {
         <Flex value={1} direction={'column'} style={styles.content}>
           <View style={top}>
             <View style={topLeft}>
-              <ItemHeaderText
-                text={
-                  subject_person_name
-                    ? subject_person_name
-                    : t('missionHubUser')
-                }
+              <CelebrateItemName
+                name={subject_person_name}
+                person={subject_person}
+                organization={organization}
+                pressable={namePressable}
               />
               <CardTime date={changed_attribute_value} />
             </View>
@@ -231,6 +241,7 @@ class CelebrateItem extends Component {
 
 CelebrateItem.propTypes = {
   event: PropTypes.object.isRequired,
+  namePressable: PropTypes.bool,
 };
 
 export default connect()(CelebrateItem);
