@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<Component
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -10,6 +10,12 @@ exports[`renders correctly 1`] = `
     }
   }
 >
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
   <Connect(Translate(CelebrateItem))
     cardStyle={
       Object {
@@ -60,5 +66,5 @@ exports[`renders correctly 1`] = `
       }
     }
   />
-</Component>
+</SafeAreaView>
 `;

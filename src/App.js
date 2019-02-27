@@ -28,7 +28,7 @@ import { navigateReset } from './actions/navigation';
 import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
-import { COLORS } from './theme';
+import theme from './theme';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -177,10 +177,7 @@ export default class App extends Component {
   render() {
     return (
       <Fragment>
-        <StatusBar
-          backgroundColor={COLORS.DARK_BLUE}
-          barStyle="light-content"
-        />
+        <StatusBar {...theme.statusBar.lightContent} />
         <Provider store={store}>
           <PersistGate
             loading={<LoadingScreen />}
