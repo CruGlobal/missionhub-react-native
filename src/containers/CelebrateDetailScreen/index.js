@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -8,6 +8,7 @@ import CelebrateItem from '../../components/CelebrateItem';
 import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
 import CelebrateCommentBox from '../../components/CelebrateCommentBox';
+import theme from '../../theme';
 
 import styles from './styles';
 
@@ -17,7 +18,8 @@ class CelebrateDetailScreen extends Component {
     const { container, cardStyle, backButtonStyle } = styles;
 
     return (
-      <View style={container}>
+      <SafeAreaView style={container}>
+        <StatusBar {...theme.statusBar.darkContent} />
         <CelebrateItem
           event={event}
           cardStyle={cardStyle}
@@ -27,7 +29,7 @@ class CelebrateDetailScreen extends Component {
         />
         <CommentsList event={event} organizationId={event.organization.id} />
         <CelebrateCommentBox event={event} />
-      </View>
+      </SafeAreaView>
     );
   }
 }
