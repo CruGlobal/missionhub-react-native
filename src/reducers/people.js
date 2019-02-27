@@ -58,8 +58,6 @@ export default function peopleReducer(state = initialState, action) {
       return loadPeople(state, action);
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
       return loadContactsFromSteps(state, action);
-    case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
-      return loadPeopleFromCelebrateItems(state, action);
     case LOGOUT:
       return initialState;
     case PEOPLE_WITH_ORG_SECTIONS:
@@ -124,35 +122,6 @@ function loadContactsFromSteps(state, action) {
     ...state,
     allByOrg,
   };
-}
-
-function loadPeopleFromCelebrateItems(
-  state,
-  { query: { orgId }, results: { response } },
-) {
-  const org = state.allByOrg[orgId];
-  const people = org.people;
-
-  return {
-    ...state,
-    allByOrg: {
-      ...state.allByOrg,
-      [orgId]: {
-        ...org,
-        people: {
-          ...getPeopleFromItems(response), //don't overwrite existing people
-          ...people,
-        },
-      },
-    },
-  };
-}
-
-function getPeopleFromItems(items) {
-  return items
-    .map(item => item.subject_person)
-    .filter(person => !!person)
-    .reduce((acc, person) => ({ ...acc, [person.id]: person }), {});
 }
 
 function updateAllPersonInstances(allByOrg, updatedPerson, replace = false) {
