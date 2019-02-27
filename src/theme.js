@@ -129,11 +129,11 @@ export default {
   notchHeight,
   swipeTabHeight: 48,
   statusBar: {
-    light: {
+    lightContent: {
       ...statusBar,
       barStyle: 'light-content',
     },
-    dark: {
+    darkContent: {
       ...statusBar,
       barStyle: isAndroid ? 'light-content' : 'dark-content',
     },

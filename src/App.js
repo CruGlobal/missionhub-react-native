@@ -177,7 +177,7 @@ export default class App extends Component {
   render() {
     return (
       <Fragment>
-        <StatusBar {...theme.statusBar.light} />
+        <StatusBar {...theme.statusBar.lightContent} />
         <Provider store={store}>
           <PersistGate
             loading={<LoadingScreen />}

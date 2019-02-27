@@ -19,7 +19,7 @@ class CelebrateDetailScreen extends Component {
 
     return (
       <SafeAreaView style={container}>
-        <StatusBar {...theme.statusBar.dark} />
+        <StatusBar {...theme.statusBar.darkContent} />
         <CelebrateItem
           event={event}
           cardStyle={cardStyle}
