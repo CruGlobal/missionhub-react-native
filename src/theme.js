@@ -77,6 +77,15 @@ const ACCENT = COLORS.ACCENT_BLUE;
 const iPhoneHeaderHeight = 65;
 const notchHeight = hasNotch() ? 20 : 0;
 
+const statusBar = {
+  backgroundColor: colorConvert({
+    color: COLORS.DARK_BLUE,
+    darken: 0.1,
+    hex: true,
+  }),
+  animated: true,
+};
+
 export default {
   // base theme
   loadingColor: COLORS.WHITE,
@@ -90,7 +99,6 @@ export default {
   darkText: COLORS.CHARCOAL,
   iconColor: COLORS.WHITE,
   transparent: COLORS.TRANSPARENT,
-  statusBarColor: colorConvert({ color: SECONDARY, darken: 0.3, hex: true }),
   buttonHeight: 60,
   buttonBackgroundColor: COLORS.TRANSPARENT,
   buttonBorderColor: COLORS.WHITE,
@@ -120,4 +128,14 @@ export default {
   headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + notchHeight,
   notchHeight,
   swipeTabHeight: 48,
+  statusBar: {
+    light: {
+      ...statusBar,
+      barStyle: 'light-content',
+    },
+    dark: {
+      ...statusBar,
+      barStyle: isAndroid ? 'light-content' : 'dark-content',
+    },
+  },
 };
