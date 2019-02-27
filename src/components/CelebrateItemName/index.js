@@ -15,24 +15,17 @@ class CelebrateItemName extends Component {
     dispatch(navToPersonScreen(person, organization));
   };
 
-  renderName(text) {
-    return <ItemHeaderText text={text} />;
-  }
-
   render() {
     const { name, t, pressable } = this.props;
+    const content = <ItemHeaderText text={name || t('missionHubUser')} />;
 
-    if (!name) {
-      return this.renderName(t('missionHubUser'));
-    }
-
-    if (!pressable) {
-      return this.renderName(name);
+    if (!name || !pressable) {
+      return content;
     }
 
     return (
       <Button type="transparent" onPress={this.onPressNameLink}>
-        {this.renderName(name)}
+        {content}
       </Button>
     );
   }
