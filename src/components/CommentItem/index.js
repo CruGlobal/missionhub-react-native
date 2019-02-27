@@ -4,7 +4,7 @@ import { View } from 'react-native';
 
 import { Text } from '../common';
 import CardTime from '../CardTime';
-import CelebrateItemName from '../CelebrateItemName';
+import CelebrateItemName from '../../containers/CelebrateItemName';
 
 import styles from './styles';
 

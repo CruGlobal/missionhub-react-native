@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { Button } from '../../components/common';
-import ItemHeaderText from '../../components/ItemHeaderText';
+import ItemHeaderText from '../../components/ItemHeaderText/index';
 import { navToPersonScreen } from '../../actions/person';
 
 @translate('celebrateFeeds')

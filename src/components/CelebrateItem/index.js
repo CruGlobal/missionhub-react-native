@@ -15,7 +15,7 @@ import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen'
 import { getFirstNameAndLastInitial } from '../../utils/common';
 import CardTime from '../CardTime';
 import CommentLikeComponent from '../../containers/CommentLikeComponent';
-import CelebrateItemName from '../CelebrateItemName';
+import CelebrateItemName from '../../containers/CelebrateItemName';
 
 import styles from './styles';
 

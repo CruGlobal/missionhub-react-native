@@ -1,9 +1,8 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import CelebrateItemName from '..';
-
-import { renderShallow } from '../../../../testUtils';
+import CelebrateItemName from '../index';
+import { renderShallow } from '../../../../testUtils/index';
 import { navToPersonScreen } from '../../../actions/person';
 
 const mockStore = configureStore();
