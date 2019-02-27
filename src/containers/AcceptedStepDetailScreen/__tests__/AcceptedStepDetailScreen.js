@@ -3,10 +3,10 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { createMockNavState, renderShallow } from '../../../../testUtils';
+import { completeStep } from '../../../actions/steps';
+import { SET_COMPLETE_STEP_EXTRA_BACK } from '../../../constants';
 
 import AcceptedStepDetailScreen from '..';
-
-import { completeStep } from '../../../actions/steps';
 
 jest.mock('../../../actions/steps');
 
@@ -42,6 +42,9 @@ describe('bottomButtonProps', () => {
     screen.props().bottomButtonProps.onPress();
 
     expect(completeStep).toHaveBeenCalledWith(step, 'Step Detail');
-    expect(store.getActions()).toEqual([completeStepResult]);
+    expect(store.getActions()).toEqual([
+      { type: SET_COMPLETE_STEP_EXTRA_BACK, value: true },
+      completeStepResult,
+    ]);
   });
 });

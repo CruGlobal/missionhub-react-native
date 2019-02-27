@@ -1,3 +1,5 @@
+/* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
+
 import {
   LOGOUT,
   SWIPE_REMINDER_STEPS_HOME,

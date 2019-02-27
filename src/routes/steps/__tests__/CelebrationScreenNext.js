@@ -15,7 +15,7 @@ jest.mock('../../../actions/journey');
 const myId = '111';
 const orgId = '123';
 
-const store = configureStore([thunk])();
+let store = configureStore([thunk])();
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
   const Component = CompleteStepFlowScreens[screen];
@@ -37,38 +37,87 @@ const buildAndCallNext = async (screen, navParams, nextProps) => {
 };
 
 const navigatePushResponse = { type: 'navigate push' };
+const reloadJourneyResponse = { type: 'reload journey' };
+const popToTopResponse = { type: 'pop to top of stack' };
+const popResponse = { type: 'pop once' };
 
 beforeEach(() => {
   store.clearActions();
   jest.clearAllMocks();
   navigatePush.mockReturnValue(navigatePushResponse);
+  reactNavigation.StackActions.popToTop = jest
+    .fn()
+    .mockReturnValue(popToTopResponse);
+  reactNavigation.StackActions.pop = jest.fn().mockReturnValue(popResponse);
+  reloadJourney.mockReturnValue(reloadJourneyResponse);
 });
 
 describe('CelebrationScreen next', () => {
-  const reloadJourneyResponse = { type: 'reload journey' };
-  const popToTopResponse = { type: 'pop to top of stack' };
-  const popResponse = { type: 'pop once' };
+  describe('extra back is false', () => {
+    beforeEach(async () => {
+      store = configureStore([thunk])({
+        swipe: {
+          completeStepExtraBack: false,
+        },
+      });
 
-  beforeEach(() => {
-    reactNavigation.StackActions.popToTop = jest
-      .fn()
-      .mockReturnValue(popToTopResponse);
-    reactNavigation.StackActions.pop = jest.fn().mockReturnValue(popResponse);
-    reloadJourney.mockReturnValue(reloadJourneyResponse);
+      await buildAndCallNext(
+        CELEBRATION_SCREEN,
+        { contactId: myId, orgId },
+        { contactId: myId, orgId },
+      );
+    });
+
+    it('should reload journey', () => {
+      expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
+    });
+
+    it('should return to top of stack', () => {
+      expect(reactNavigation.StackActions.popToTop).toHaveBeenCalledTimes(1);
+    });
+
+    it('should navigate back', () => {
+      expect(reactNavigation.StackActions.pop).toHaveBeenCalledWith({
+        immediate: true,
+      });
+    });
+
+    it('should fire required next actions', () => {
+      expect(store.getActions()).toMatchSnapshot();
+    });
   });
 
-  it('should fire required next actions', async () => {
-    await buildAndCallNext(
-      CELEBRATION_SCREEN,
-      { contactId: myId, orgId },
-      { contactId: myId, orgId },
-    );
+  describe('extra back is true', () => {
+    beforeEach(async () => {
+      store = configureStore([thunk])({
+        swipe: {
+          completeStepExtraBack: true,
+        },
+      });
 
-    expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
-    expect(reactNavigation.StackActions.popToTop).toHaveBeenCalledTimes(1);
-    expect(reactNavigation.StackActions.pop).toHaveBeenCalledWith({
-      immediate: true,
+      await buildAndCallNext(
+        CELEBRATION_SCREEN,
+        { contactId: myId, orgId },
+        { contactId: myId, orgId },
+      );
     });
-    expect(store.getActions()).toMatchSnapshot();
+
+    it('should reload journey', () => {
+      expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
+    });
+
+    it('should return to top of stack', () => {
+      expect(reactNavigation.StackActions.popToTop).toHaveBeenCalledTimes(1);
+    });
+
+    it('should navigate back', () => {
+      expect(reactNavigation.StackActions.pop).toHaveBeenCalledWith({
+        immediate: true,
+      });
+    });
+
+    it('should fire required next actions', () => {
+      expect(store.getActions()).toMatchSnapshot();
+    });
   });
 });
