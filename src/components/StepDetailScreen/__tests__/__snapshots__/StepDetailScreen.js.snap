@@ -1,0 +1,245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`markdown is not null renders correctly 1`] = `
+<View
+  flex={1}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <Connect(Header)
+    center={
+      Object {
+        "prop": "center header",
+      }
+    }
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#A0A2A6",
+          }
+        }
+      />
+    }
+    right={
+      Object {
+        "prop": "right header",
+      }
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 32,
+        "fontWeight": "300",
+        "lineHeight": 38,
+        "marginHorizontal": 32,
+        "marginVertical": 26,
+      }
+    }
+  >
+    Roge is well behaved
+  </MyText>
+  <Connect(Translate(ReminderButton)) />
+  <Component
+    style={
+      Object {
+        "flex": 1,
+        "marginVertical": 26,
+        "paddingBottom": 14,
+        "paddingHorizontal": 32,
+      }
+    }
+  >
+    <ScrollView>
+      <Markdown
+        blacklist={Array []}
+        rules={Object {}}
+        styles={
+          Object {
+            "heading1": Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+            },
+            "listItemBullet": Object {
+              "alignSelf": "flex-start",
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "lineHeight": 26,
+              "paddingRight": 16,
+            },
+            "strong": Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "lineHeight": 26,
+            },
+            "text": Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "lineHeight": 26,
+            },
+          }
+        }
+        whitelist={Array []}
+      >
+        ROBERT ROBERT ROBERT
+      </Markdown>
+    </ScrollView>
+  </Component>
+</View>
+`;
+
+exports[`markdown is null bottomButtonProps are not null renders correctly 1`] = `
+<View
+  flex={1}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <Connect(Header)
+    center={
+      Object {
+        "prop": "center header",
+      }
+    }
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#A0A2A6",
+          }
+        }
+      />
+    }
+    right={
+      Object {
+        "prop": "right header",
+      }
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 32,
+        "fontWeight": "300",
+        "lineHeight": 38,
+        "marginHorizontal": 32,
+        "marginVertical": 26,
+      }
+    }
+  >
+    Roge is well behaved
+  </MyText>
+  <Connect(Translate(ReminderButton)) />
+  <Component
+    style={
+      Object {
+        "flex": 1,
+        "marginVertical": 26,
+        "paddingBottom": 14,
+        "paddingHorizontal": 32,
+      }
+    }
+  />
+  <BottomButton
+    onPress={[Function]}
+    text="bottom button props"
+  />
+</View>
+`;
+
+exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
+<View
+  flex={1}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <Connect(Header)
+    center={
+      Object {
+        "prop": "center header",
+      }
+    }
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#A0A2A6",
+          }
+        }
+      />
+    }
+    right={
+      Object {
+        "prop": "right header",
+      }
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 32,
+        "fontWeight": "300",
+        "lineHeight": 38,
+        "marginHorizontal": 32,
+        "marginVertical": 26,
+      }
+    }
+  >
+    Roge is well behaved
+  </MyText>
+  <Connect(Translate(ReminderButton)) />
+  <Component
+    style={
+      Object {
+        "flex": 1,
+        "marginVertical": 26,
+        "paddingBottom": 14,
+        "paddingHorizontal": 32,
+      }
+    }
+  />
+</View>
+`;

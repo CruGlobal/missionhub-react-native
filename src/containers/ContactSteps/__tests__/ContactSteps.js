@@ -14,7 +14,7 @@ import {
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { SELECT_MY_STEP_SCREEN } from '../../SelectMyStepScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../PersonSelectStepScreen';
-import { STEP_DETAIL_SCREEN } from '../../StepDetailScreen';
+import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
 import { buildTrackingObj } from '../../../utils/common';
 import {
   getContactSteps,
@@ -263,7 +263,7 @@ describe('handleRowSelect', () => {
 
     component.handleRowSelect(steps[0]);
 
-    expect(navigatePush).toHaveBeenCalledWith(STEP_DETAIL_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
       step: steps[0],
     });
   });
