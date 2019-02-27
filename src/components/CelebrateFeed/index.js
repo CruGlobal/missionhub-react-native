@@ -44,7 +44,6 @@ class CelebrateFeed extends Component {
   renderItem = ({ item }) => {
     const { organization, itemNamePressable } = this.props;
 
-    //TODO remove global check here?
     return (
       <CelebrateItem
         event={item}

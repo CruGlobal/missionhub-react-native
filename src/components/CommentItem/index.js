@@ -15,8 +15,6 @@ export default function CommentItem({
   const { first_name, last_name } = person;
   const { itemStyle, text } = styles;
 
-  //todo need to 1) store comments people in people reducer, and 2) include org permissions
-
   return (
     <View style={itemStyle}>
       <CelebrateItemName
