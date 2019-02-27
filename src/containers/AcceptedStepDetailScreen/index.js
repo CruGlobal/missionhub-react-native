@@ -4,8 +4,9 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Button } from '../../components/common';
-import { completeStep } from '../../actions/steps';
+import { completeStep, deleteStepWithTracking } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
+import { navigateBack } from '../../actions/navigation';
 
 import styles from './styles';
 
@@ -17,7 +18,12 @@ class AcceptedStepDetailScreen extends Component {
     dispatch(completeStep(step, 'Step Detail'));
   };
 
-  removeStep = () => {};
+  removeStep = () => {
+    const { dispatch, step } = this.props;
+
+    dispatch(deleteStepWithTracking(step, 'Step Detail'));
+    dispatch(navigateBack());
+  };
 
   render() {
     const { t, step } = this.props;
