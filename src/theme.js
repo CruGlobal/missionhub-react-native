@@ -130,12 +130,15 @@ const textStyle = {
   fontSize: 16,
   lineHeight: 22,
   borderWidth: 1,
+  padding: 0,
+  marginBottom: 16,
 };
 const heading1Style = {
   ...textStyle,
   fontFamily: 'SourceSansPro-Light',
   fontSize: 32,
   lineHeight: 38,
+  marginBottom: 20,
 };
 const heading2Style = {
   ...heading1Style,
@@ -156,13 +159,21 @@ const emphasisStyle = {
   ...textStyle,
   fontStyle: 'italic',
 };
+const paragraph = {
+  padding: 0,
+  margin: 0,
+};
+const listItemStyle = {
+  padding: 0,
+};
 const listItemOrderedIconStyle = {
   ...textStyle,
-  margin: 0,
+  marginRight: 16,
+  alignSelf: 'center',
 };
 const listItemUnorderedIconStyle = {
   ...listItemOrderedIconStyle,
-  fontSize: 24,
+  fontSize: 30,
 };
 const listItemTextStyle = {
   ...textStyle,
@@ -171,6 +182,7 @@ const listItemTextStyle = {
 };
 const linkStyle = {
   ...textStyle,
+  lineHeight: 22,
   color: COLORS.BLUE,
   textDecorationColor: COLORS.BLUE,
   textDecorationLine: 'underline',
@@ -193,6 +205,8 @@ export const markdownTheme = StyleSheet.create({
   heading3: heading3Style,
   strong: strongStyle,
   em: emphasisStyle,
+  paragraph: paragraph,
+  listItem: listItemStyle,
   listUnorderedItemIcon: listItemUnorderedIconStyle,
   listOrderedItemIcon: listItemOrderedIconStyle,
   listUnorderedItemText: listItemTextStyle,
