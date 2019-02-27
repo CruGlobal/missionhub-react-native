@@ -27,7 +27,6 @@ import {
   getStageIndex,
   getFirstNameAndLastInitial,
   getCommunityUrl,
-  showMenu,
 } from '../common';
 import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../constants';
 
@@ -508,7 +507,8 @@ describe('showMenu on iOS', () => {
     ];
     Platform.OS = 'ios';
     ActionSheetIOS.showActionSheetWithOptions = jest.fn((a, b) => b(0));
-    showMenu(actions);
+
+    require('../common').showMenu(actions);
     expect(ActionSheetIOS.showActionSheetWithOptions).toHaveBeenCalledWith(
       {
         cancelButtonIndex: 2,
@@ -523,6 +523,7 @@ describe('showMenu on iOS', () => {
 
 describe('showMenu on Android', () => {
   it('should call menu', () => {
+    jest.resetModules(); //reset isAndroid const
     Platform.OS = 'android';
     const actions = [
       {
@@ -537,7 +538,7 @@ describe('showMenu on Android', () => {
     // eslint-disable-next-line
     UIManager.showPopupMenu = jest.fn((a, b, c, d) => d(null, 0));
 
-    showMenu(actions, 'testRef', true);
+    require('../common').showMenu(actions, 'testRef');
 
     expect(UIManager.showPopupMenu).toHaveBeenCalledWith(
       undefined,

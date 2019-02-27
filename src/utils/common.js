@@ -314,7 +314,7 @@ export function copyText(string) {
 }
 
 // Actions should be array of [{ text: '', onPress: fn, destructive: Bool (iOS) }]
-export function showMenu(actions, ref, setAndroidForTesting) {
+export function showMenu(actions, ref) {
   const actionsText = actions.map(a => a.text);
   const select = i => {
     if (actions[i] && isFunction(actions[i].onPress)) {
@@ -322,7 +322,7 @@ export function showMenu(actions, ref, setAndroidForTesting) {
     }
   };
 
-  if (isAndroid || setAndroidForTesting) {
+  if (isAndroid) {
     // Android menu
     const handleError = () => {};
     const handleItemPress = (e, i) => select(i);
