@@ -2,18 +2,23 @@ import 'react-native';
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import i18n from 'i18next';
 
 import CommentsList from '..';
 
 import { renderShallow } from '../../../../testUtils';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
+import { orgPermissionSelector } from '../../../selectors/people';
 import {
   reloadCelebrateComments,
   getCelebrateCommentsNextPage,
 } from '../../../actions/celebrateComments';
+import * as common from '../../../utils/common';
+import { ORG_PERMISSIONS } from '../../../constants';
 
 jest.mock('../../../actions/celebrateComments');
 jest.mock('../../../selectors/celebration');
+jest.mock('../../../selectors/people');
 jest.mock('../../../selectors/celebrateComments');
 
 const mockStore = configureStore([thunk]);
@@ -40,10 +45,13 @@ getCelebrateCommentsNextPage.mockReturnValue(dispatch =>
   dispatch(getCelebrateCommentsNextPageResult),
 );
 
+const me = { id: '1' };
+
 beforeEach(() => {
   jest.clearAllMocks();
 
   store = mockStore({
+    auth: { person: me },
     organizations,
     celebrateComments: celebrateCommentsState,
   });
@@ -110,5 +118,190 @@ describe('with comments', () => {
     it('renders correctly', () => {
       expect(screen).toMatchSnapshot();
     });
+  });
+});
+
+describe('comments sets up actions as author', () => {
+  it('handleLongPress', () => {
+    common.showMenu = jest.fn();
+    const person = { id: '1' };
+    const comment = { id: 'comment1', person };
+    store = mockStore({
+      auth: { person: me },
+      organizations,
+      celebrateComments: {
+        comments: [comment],
+        pagination: {},
+      },
+    });
+
+    screen = renderShallow(
+      <CommentsList event={event} organizationId={organizationId} />,
+      store,
+    );
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
+
+    screen.instance().handleLongPress(comment, 'testRef');
+    expect(common.showMenu).toHaveBeenCalledWith(
+      [
+        {
+          text: i18n.t('edit'),
+          onPress: expect.any(Function),
+        },
+        {
+          text: i18n.t('delete'),
+          onPress: expect.any(Function),
+          destructive: true,
+        },
+      ],
+      'testRef',
+    );
+  });
+});
+
+describe('comments sets up actions as owner', () => {
+  it('handleLongPress', () => {
+    common.showMenu = jest.fn();
+    const person = { id: '2' };
+    const comment = { id: 'comment1', person };
+    store = mockStore({
+      auth: { person: me },
+      organizations,
+      celebrateComments: {
+        comments: [comment],
+        pagination: {},
+      },
+    });
+
+    screen = renderShallow(
+      <CommentsList event={event} organizationId={organizationId} />,
+      store,
+    );
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
+
+    screen.instance().handleLongPress(comment, 'testRef');
+    expect(common.showMenu).toHaveBeenCalledWith(
+      [
+        {
+          text: i18n.t('delete'),
+          onPress: expect.any(Function),
+          destructive: true,
+        },
+      ],
+      'testRef',
+    );
+  });
+});
+
+describe('comments sets up actions as user', () => {
+  it('handleLongPress', () => {
+    common.showMenu = jest.fn();
+    const person = { id: '2' };
+    const comment = { id: 'comment1', person };
+    store = mockStore({
+      auth: { person: me },
+      organizations,
+      celebrateComments: {
+        comments: [comment],
+        pagination: {},
+      },
+    });
+
+    screen = renderShallow(
+      <CommentsList event={event} organizationId={organizationId} />,
+      store,
+    );
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.USER,
+    });
+
+    const instance = screen.instance();
+    instance.handleReport = jest.fn();
+
+    screen.instance().handleLongPress(comment, 'testRef');
+    expect(common.showMenu).toHaveBeenCalledWith(
+      [
+        {
+          text: i18n.t('report'),
+          onPress: expect.any(Function),
+          destructive: true,
+        },
+      ],
+      'testRef',
+    );
+  });
+});
+
+describe('comment action for author', () => {
+  let instance;
+  const person = { id: '1' };
+  const comment = { id: 'comment1', person };
+  beforeEach(() => {
+    store = mockStore({
+      auth: { person: me },
+      organizations,
+      celebrateComments: {
+        comments: [comment],
+        pagination: {},
+      },
+    });
+
+    screen = renderShallow(
+      <CommentsList event={event} organizationId={organizationId} />,
+      store,
+    );
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
+
+    instance = screen.instance();
+    instance.handleEdit = jest.fn();
+    instance.handleDelete = jest.fn();
+  });
+  it('handleEdit', () => {
+    common.showMenu = jest.fn(a => a[0].onPress());
+    instance.handleLongPress(comment, 'testRef');
+    expect(instance.handleEdit).toHaveBeenCalledWith(comment);
+  });
+  it('handleDelete', () => {
+    common.showMenu = jest.fn(a => a[1].onPress());
+    instance.handleLongPress(comment, 'testRef');
+    expect(instance.handleDelete).toHaveBeenCalledWith(comment);
+  });
+});
+
+describe('comment action for user', () => {
+  let instance;
+  const person = { id: '2' };
+  const comment = { id: 'comment1', person };
+  beforeEach(() => {
+    store = mockStore({
+      auth: { person: me },
+      organizations,
+      celebrateComments: {
+        comments: [comment],
+        pagination: {},
+      },
+    });
+
+    screen = renderShallow(
+      <CommentsList event={event} organizationId={organizationId} />,
+      store,
+    );
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.USER,
+    });
+
+    instance = screen.instance();
+    instance.handleReport = jest.fn();
+  });
+  it('handleReport', () => {
+    common.showMenu = jest.fn(a => a[0].onPress());
+    instance.handleLongPress(comment, 'testRef');
+    expect(instance.handleReport).toHaveBeenCalledWith(comment);
   });
 });
