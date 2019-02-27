@@ -136,7 +136,6 @@ const heading1Style = {
   fontFamily: 'SourceSansPro-Light',
   fontSize: 32,
   lineHeight: 38,
-  paddingHorizontal: 32,
 };
 const heading2Style = {
   ...heading1Style,
@@ -148,7 +147,6 @@ const heading3Style = {
   fontSize: 20,
   lineHeight: 24,
 };
-paragraph;
 const strongStyle = {
   ...textStyle,
   fontFamily: 'SourceSansPro-Bold',
@@ -161,7 +159,6 @@ const emphasisStyle = {
 const listItemOrderedIconStyle = {
   ...textStyle,
   margin: 0,
-  alignSelf: 'center',
 };
 const listItemUnorderedIconStyle = {
   ...listItemOrderedIconStyle,
@@ -184,6 +181,7 @@ const horizontalLineStyle = {
   backgroundColor: COLORS.EXTRA_LIGHT_GREY,
 };
 const imageStyle = {
+  left: -32,
   height: 200,
   width: deviceWidth,
 };
