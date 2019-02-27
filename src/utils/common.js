@@ -317,7 +317,7 @@ export function copyText(string) {
 export function showMenu(actions, ref, setAndroidForTesting) {
   const actionsText = actions.map(a => a.text);
   const select = i => {
-    if (exists(i) && i >= 0 && actions[i] && isFunction(actions[i].onPress)) {
+    if (actions[i] && isFunction(actions[i].onPress)) {
       actions[i].onPress();
     }
   };
