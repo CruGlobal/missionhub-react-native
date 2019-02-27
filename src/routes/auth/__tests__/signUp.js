@@ -5,14 +5,18 @@ import thunk from 'redux-thunk';
 import { SignUpFlowScreens } from '../signUp';
 import { renderShallow } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
-import { navigateToPostAuthScreen } from '../../../actions/auth/auth';
+import { innerNavigateToPostAuthScreen } from '../../../actions/auth/auth'; //eslint-disable-line import/named
 import { SIGN_UP_SCREEN } from '../../../containers/Auth/SignUpScreen';
 import { SIGN_IN_SCREEN } from '../../../containers/Auth/SignInScreen';
 
-jest.mock('../../../actions/auth/auth');
+jest.mock('../../../actions/auth/auth', () => ({
+  get navigateToPostAuthScreen() {
+    return () => this.innerNavigateToPostAuthScreen;
+  },
+  innerNavigateToPostAuthScreen: jest.fn(),
+}));
 jest.mock('../../../actions/navigation');
 navigatePush.mockReturnValue(() => {});
-navigateToPostAuthScreen.mockReturnValue(() => {});
 
 const store = configureStore([thunk])();
 
@@ -33,7 +37,7 @@ describe('SignUpScreen next', () => {
         .props.next(),
     );
 
-    expect(navigateToPostAuthScreen).toHaveBeenCalled();
+    expect(innerNavigateToPostAuthScreen).toHaveBeenCalled();
   });
   it('should navigate to sign in screen', async () => {
     const Component = SignUpFlowScreens[SIGN_UP_SCREEN].screen;
@@ -53,7 +57,7 @@ describe('SignUpScreen next', () => {
         }),
     );
 
-    expect(navigateToPostAuthScreen).not.toHaveBeenCalled();
+    expect(innerNavigateToPostAuthScreen).not.toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(SIGN_IN_SCREEN);
   });
 });

@@ -16,12 +16,8 @@ import DeepLinkConfirmJoinGroupScreen, {
 } from '../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
-import SignInScreen, {
-  SIGN_IN_SCREEN,
-} from '../../containers/Auth/SignInScreen';
-import MFACodeScreen, {
-  MFA_CODE_SCREEN,
-} from '../../containers/Auth/MFACodeScreen';
+import { SIGN_IN_SCREEN } from '../../containers/Auth/SignInScreen';
+import { authFlowGenerator } from '../auth/authFlowGenerator';
 
 const finishAuth = () => async dispatch => {
   await dispatch(joinStashedCommunity());
@@ -55,20 +51,10 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     }),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
-  [SIGN_IN_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      SignInScreen,
-      ({ requires2FA, email, password } = {}) =>
-        requires2FA
-          ? navigatePush(MFA_CODE_SCREEN, { email, password })
-          : finishAuth(),
-    ),
-    buildTrackingObj('auth : sign in', 'auth'),
-  ),
-  [MFA_CODE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(MFACodeScreen, finishAuth),
-    buildTrackingObj('auth : verification', 'auth'),
-  ),
+  ...authFlowGenerator({
+    completeAction: finishAuth(),
+    includeSignUp: false,
+  }),
 };
 
 export const DeepLinkJoinCommunityUnauthenticatedNavigator = createStackNavigator(
