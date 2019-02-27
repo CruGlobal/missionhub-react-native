@@ -1,13 +1,11 @@
+/* eslint max-lines-per-function: 0 */
 import { createStackNavigator, StackActions } from 'react-navigation';
 
 import { wrapNextAction, wrapNextScreen } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
 import { reloadJourney } from '../../actions/journey';
-import {
-  RESET_STEP_COUNT,
-  SET_COMPLETE_STEP_EXTRA_BACK,
-} from '../../constants';
+import { RESET_STEP_COUNT } from '../../constants';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import StageScreen, { STAGE_SCREEN } from '../../containers/StageScreen';
 import PersonStageScreen, {
@@ -25,7 +23,7 @@ import CelebrationScreen, {
 
 import { paramsforStageNavigation } from './utils';
 
-export const CompleteStepFlowScreens = {
+export const CompleteStepFlowScreens = (extraBack = false) => ({
   [ADD_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
     ({ personId, orgId }) => (dispatch, getState) => {
@@ -115,25 +113,30 @@ export const CompleteStepFlowScreens = {
   ),
   [CELEBRATION_SCREEN]: wrapNextAction(
     CelebrationScreen,
-    ({ contactId, orgId }) => (dispatch, getState) => {
-      const {
-        swipe: { completeStepExtraBack },
-      } = getState();
-
+    ({ contactId, orgId }) => dispatch => {
       dispatch(reloadJourney(contactId, orgId));
       dispatch(StackActions.popToTop());
 
       const popAction = StackActions.pop({ immediate: true });
       dispatch(popAction);
-      if (completeStepExtraBack) {
+      if (extraBack) {
         dispatch(popAction);
-        dispatch({ type: SET_COMPLETE_STEP_EXTRA_BACK, value: false });
       }
     },
   ),
-};
+});
+
 export const CompleteStepFlowNavigator = createStackNavigator(
-  CompleteStepFlowScreens,
+  CompleteStepFlowScreens(),
+  {
+    navigationOptions: {
+      header: null,
+    },
+  },
+);
+
+export const CompleteStepFlowAndNavigateBackNavigator = createStackNavigator(
+  CompleteStepFlowScreens(true),
   {
     navigationOptions: {
       header: null,

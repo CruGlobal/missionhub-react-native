@@ -17,8 +17,8 @@ const orgId = '123';
 
 let store = configureStore([thunk])();
 
-const buildAndCallNext = async (screen, navParams, nextProps) => {
-  const Component = CompleteStepFlowScreens[screen];
+const buildAndCallNext = async (screen, navParams, nextProps, extraBack) => {
+  const Component = CompleteStepFlowScreens(extraBack)[screen];
 
   await store.dispatch(
     renderShallow(
@@ -65,6 +65,7 @@ describe('CelebrationScreen next', () => {
         CELEBRATION_SCREEN,
         { contactId: myId, orgId },
         { contactId: myId, orgId },
+        false,
       );
     });
 
@@ -99,6 +100,7 @@ describe('CelebrationScreen next', () => {
         CELEBRATION_SCREEN,
         { contactId: myId, orgId },
         { contactId: myId, orgId },
+        true,
       );
     });
 

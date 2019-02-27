@@ -28,9 +28,5 @@ Array [
   Object {
     "type": "pop once",
   },
-  Object {
-    "type": "app/SET_COMPLETE_STEP_EXTRA_BACK",
-    "value": false,
-  },
 ]
 `;

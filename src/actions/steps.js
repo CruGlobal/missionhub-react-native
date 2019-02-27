@@ -16,7 +16,10 @@ import {
   getAnalyticsSubsection,
   isCustomStep,
 } from '../utils/common';
-import { COMPLETE_STEP_FLOW } from '../routes/constants';
+import {
+  COMPLETE_STEP_FLOW,
+  COMPLETE_STEP_FLOW_NAVIGATE_BACK,
+} from '../routes/constants';
 
 import { refreshImpact } from './impact';
 import { navigatePush } from './navigation';
@@ -166,9 +169,11 @@ export function completeStepReminder(step, screen) {
   };
 }
 
-export function completeStep(step, screen) {
+export function completeStep(step, screen, extraBack) {
   return async dispatch => {
-    const result = await dispatch(challengeCompleteAction(step, screen));
+    const result = await dispatch(
+      challengeCompleteAction(step, screen, extraBack),
+    );
 
     dispatch(getMySteps());
     dispatch(
@@ -194,7 +199,7 @@ function buildChallengeData(attributes) {
   };
 }
 
-function challengeCompleteAction(step, screen) {
+function challengeCompleteAction(step, screen, extraBack = false) {
   return async (dispatch, getState) => {
     const {
       auth: {
@@ -215,18 +220,21 @@ function challengeCompleteAction(step, screen) {
     const subsection = getAnalyticsSubsection(receiverId, myId);
 
     dispatch(
-      navigatePush(COMPLETE_STEP_FLOW, {
-        stepId,
-        personId: receiverId,
-        orgId,
-        type: STEP_NOTE,
-        trackingObj: buildTrackingObj(
-          `people : ${subsection} : steps : complete comment`,
-          'people',
-          subsection,
-          'steps',
-        ),
-      }),
+      navigatePush(
+        extraBack ? COMPLETE_STEP_FLOW_NAVIGATE_BACK : COMPLETE_STEP_FLOW,
+        {
+          stepId,
+          personId: receiverId,
+          orgId,
+          type: STEP_NOTE,
+          trackingObj: buildTrackingObj(
+            `people : ${subsection} : steps : complete comment`,
+            'people',
+            subsection,
+            'steps',
+          ),
+        },
+      ),
     );
 
     dispatch(

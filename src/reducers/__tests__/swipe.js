@@ -7,7 +7,6 @@ import {
   GROUP_ONBOARDING_CARD,
   GROUP_INVITE_INFO,
   GROUP_TAB_SCROLL_ON_MOUNT,
-  SET_COMPLETE_STEP_EXTRA_BACK,
 } from '../../constants';
 import { GROUP_ONBOARDING_TYPES } from '../../containers/Groups/OnboardingCard';
 
@@ -144,26 +143,4 @@ it('updates group tab scroll to be false', () => {
     },
   );
   expect(state.groupScrollToId).toBe(null);
-});
-
-it('updates complete step extra back to be true', () => {
-  const state = swipe(
-    { completeStepExtraBack: false },
-    {
-      type: SET_COMPLETE_STEP_EXTRA_BACK,
-      value: true,
-    },
-  );
-  expect(state.completeStepExtraBack).toBe(true);
-});
-
-it('updates complete step extra back to be false', () => {
-  const state = swipe(
-    { completeStepExtraBack: true },
-    {
-      type: SET_COMPLETE_STEP_EXTRA_BACK,
-      value: false,
-    },
-  );
-  expect(state.completeStepExtraBack).toBe(false);
 });
