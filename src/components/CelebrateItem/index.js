@@ -42,15 +42,6 @@ class CelebrateItem extends Component {
     }
   };
 
-  onPressNameLink = () => {
-    const {
-      dispatch,
-      event: { subject_person, organization },
-    } = this.props;
-
-    dispatch(navToPersonScreen(subject_person, organization));
-  };
-
   renderMessage() {
     const { t, event } = this.props;
     const {
