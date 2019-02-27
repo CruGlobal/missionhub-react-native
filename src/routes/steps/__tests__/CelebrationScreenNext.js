@@ -15,9 +15,11 @@ jest.mock('../../../actions/journey');
 const myId = '111';
 const orgId = '123';
 
+let extraBack = false;
+
 let store = configureStore([thunk])();
 
-const buildAndCallNext = async (screen, navParams, nextProps, extraBack) => {
+const buildAndCallNext = async (screen, navParams, nextProps) => {
   const Component = CompleteStepFlowScreens(extraBack)[screen];
 
   await store.dispatch(
@@ -61,11 +63,12 @@ describe('CelebrationScreen next', () => {
         },
       });
 
+      extraBack = false;
+
       await buildAndCallNext(
         CELEBRATION_SCREEN,
         { contactId: myId, orgId },
         { contactId: myId, orgId },
-        false,
       );
     });
 
@@ -96,11 +99,12 @@ describe('CelebrationScreen next', () => {
         },
       });
 
+      extraBack = true;
+
       await buildAndCallNext(
         CELEBRATION_SCREEN,
         { contactId: myId, orgId },
         { contactId: myId, orgId },
-        true,
       );
     });
 
