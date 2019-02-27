@@ -27,7 +27,6 @@ const initialState = {
   },
   groupInviteInfo: true,
   groupScrollToId: null,
-  completeStepExtraBack: false,
 };
 
 function swipeReducer(state = initialState, action) {
