@@ -9,10 +9,8 @@ export default StyleSheet.create({
   backButton: {
     color: theme.inactiveColor,
   },
-  bodyStyle: {
-    flex: 1,
-    marginVertical: 26,
-    paddingHorizontal: 32,
+  body: {
+    paddingTop: 26,
     paddingBottom: 14,
   },
   stepTitleText: {
