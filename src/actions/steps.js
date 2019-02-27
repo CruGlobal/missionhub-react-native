@@ -167,20 +167,21 @@ export function completeStepReminder(step, screen) {
 }
 
 export function completeStep(step, screen) {
-  return dispatch => {
-    return dispatch(challengeCompleteAction(step, screen)).then(r => {
-      dispatch(getMySteps());
-      dispatch(
-        getContactSteps(
-          step.receiver && step.receiver.id,
-          step.organization && step.organization.id,
-        ),
-      );
-      if (step.organization) {
-        dispatch(reloadGroupCelebrateFeed(step.organization.id));
-      }
-      return r;
-    });
+  return async dispatch => {
+    const result = await dispatch(challengeCompleteAction(step, screen));
+
+    dispatch(getMySteps());
+    dispatch(
+      getContactSteps(
+        step.receiver && step.receiver.id,
+        step.organization && step.organization.id,
+      ),
+    );
+
+    if (step.organization) {
+      dispatch(reloadGroupCelebrateFeed(step.organization.id));
+    }
+    return result;
   };
 }
 

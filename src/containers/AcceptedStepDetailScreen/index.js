@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { Button } from '../../components/common';
 import { completeStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
+import { SET_COMPLETE_STEP_EXTRA_BACK } from '../../constants';
 
 import styles from './styles';
 
@@ -14,6 +15,7 @@ class AcceptedStepDetailScreen extends Component {
   completeStep = () => {
     const { dispatch, step } = this.props;
 
+    dispatch({ type: SET_COMPLETE_STEP_EXTRA_BACK, value: true });
     dispatch(completeStep(step, 'Step Detail'));
   };
 

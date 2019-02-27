@@ -7,6 +7,7 @@ import {
   GROUP_ONBOARDING_CARD,
   GROUP_INVITE_INFO,
   GROUP_TAB_SCROLL_ON_MOUNT,
+  SET_COMPLETE_STEP_EXTRA_BACK,
 } from '../constants';
 import { exists } from '../utils/common';
 import { GROUP_ONBOARDING_TYPES } from '../containers/Groups/OnboardingCard';
@@ -27,6 +28,7 @@ const initialState = {
   },
   groupInviteInfo: true,
   groupScrollToId: null,
+  completeStepExtraBack: false,
 };
 
 function swipeReducer(state = initialState, action) {
@@ -52,6 +54,8 @@ function swipeReducer(state = initialState, action) {
         ...state,
         groupOnboarding: { ...state.groupOnboarding, [target]: action.value },
       };
+    case SET_COMPLETE_STEP_EXTRA_BACK:
+      return { ...state, completeStepExtraBack: action.value };
     case LOGOUT:
       return initialState;
     default:

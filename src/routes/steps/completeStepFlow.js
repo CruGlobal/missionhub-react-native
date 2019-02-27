@@ -4,7 +4,10 @@ import { wrapNextAction, wrapNextScreen } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
 import { reloadJourney } from '../../actions/journey';
-import { RESET_STEP_COUNT } from '../../constants';
+import {
+  RESET_STEP_COUNT,
+  SET_COMPLETE_STEP_EXTRA_BACK,
+} from '../../constants';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import StageScreen, { STAGE_SCREEN } from '../../containers/StageScreen';
 import PersonStageScreen, {
@@ -112,12 +115,20 @@ export const CompleteStepFlowScreens = {
   ),
   [CELEBRATION_SCREEN]: wrapNextAction(
     CelebrationScreen,
-    ({ contactId, orgId }) => dispatch => {
+    ({ contactId, orgId }) => (dispatch, getState) => {
+      const {
+        swipe: { completeStepExtraBack },
+      } = getState();
+
       dispatch(reloadJourney(contactId, orgId));
       dispatch(StackActions.popToTop());
 
       const popAction = StackActions.pop({ immediate: true });
       dispatch(popAction);
+      if (completeStepExtraBack) {
+        dispatch(popAction);
+        dispatch({ type: SET_COMPLETE_STEP_EXTRA_BACK, value: false });
+      }
     },
   ),
 };
