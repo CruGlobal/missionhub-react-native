@@ -12,6 +12,8 @@ export default function celebrateCommentsReducer(state = initialState, action) {
       return addCommentsToState(state, action);
     case REQUESTS.CREATE_CELEBRATE_COMMENT.SUCCESS:
       return addCreatedCommentToState(state, action);
+    case REQUESTS.UPDATE_CELEBRATE_COMMENT.SUCCESS:
+      return editCommentsInState(state, action);
     case LOGOUT:
       return initialState;
     default:
@@ -49,6 +51,27 @@ function addCreatedCommentToState(state, action) {
 
   const event = state.all[eventId];
   const comments = [...event.comments, response];
+
+  return {
+    ...state,
+    all: {
+      ...state.all,
+      [eventId]: {
+        ...event,
+        comments,
+      },
+    },
+  };
+}
+
+function editCommentsInState(state, action) {
+  const {
+    results: { response },
+    query: { eventId, commentId },
+  } = action;
+
+  const event = state.all[eventId];
+  const comments = event.comments.map(c => (c.id === commentId ? response : c));
 
   return {
     ...state,

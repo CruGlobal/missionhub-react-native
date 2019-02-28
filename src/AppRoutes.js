@@ -170,6 +170,9 @@ import {
 import CelebrateDetailScreen, {
   CELEBRATE_DETAIL_SCREEN,
 } from './containers/CelebrateDetailScreen';
+import EditCommentScreen, {
+  EDIT_COMMENT_SCREEN,
+} from './containers/EditCommentScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -454,6 +457,13 @@ const screens = {
     CelebrateDetailScreen,
     buildTrackingObj('community : celebrate : detail', 'celebrate : detail'),
     { gesturesEnabled: true },
+  ),
+  [EDIT_COMMENT_SCREEN]: buildTrackedScreen(
+    EditCommentScreen,
+    buildTrackingObj(
+      'community : celebrate : comment : edit',
+      'celebrate : comment : edit',
+    ),
   ),
 };
 

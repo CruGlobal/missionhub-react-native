@@ -59,3 +59,22 @@ export function createCelebrateComment(event, content) {
       ),
     );
 }
+
+export function updateCelebrateComment(item, content) {
+  return dispatch =>
+    dispatch(
+      callApi(
+        REQUESTS.UPDATE_CELEBRATE_COMMENT,
+        {
+          orgId: item.organization_celebration_item.organization.id,
+          eventId: item.organization_celebration_item.id,
+          commentId: item.id,
+        },
+        {
+          data: {
+            attributes: { content },
+          },
+        },
+      ),
+    );
+}

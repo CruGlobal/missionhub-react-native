@@ -44,6 +44,7 @@ class CommentsList extends Component {
   // eslint-disable-next-line
   handleEdit = item => {
     // TODO: Edit comment
+    this.props.onEdit(item);
   };
 
   // eslint-disable-next-line
@@ -132,6 +133,7 @@ class CommentsList extends Component {
 
 CommentsList.propTypes = {
   event: PropTypes.object.isRequired,
+  onEdit: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ auth, celebrateComments }, { event }) => ({
