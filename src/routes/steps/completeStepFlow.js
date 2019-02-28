@@ -23,7 +23,7 @@ import CelebrationScreen, {
 
 import { paramsforStageNavigation } from './utils';
 
-export const CompleteStepFlowScreens = (extraBack = false) => ({
+export const CompleteStepFlowScreens = onFlowComplete => ({
   [ADD_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
     ({ personId, orgId }) => (dispatch, getState) => {
@@ -117,11 +117,8 @@ export const CompleteStepFlowScreens = (extraBack = false) => ({
       dispatch(reloadJourney(contactId, orgId));
       dispatch(StackActions.popToTop());
 
-      const popAction = StackActions.pop({ immediate: true });
-      dispatch(popAction);
-      if (extraBack) {
-        dispatch(popAction);
-      }
+      dispatch(StackActions.pop({ immediate: true }));
+      onFlowComplete && dispatch(onFlowComplete());
     },
   ),
 });
@@ -136,7 +133,7 @@ export const CompleteStepFlowNavigator = createStackNavigator(
 );
 
 export const CompleteStepFlowAndNavigateBackNavigator = createStackNavigator(
-  CompleteStepFlowScreens(true),
+  CompleteStepFlowScreens(() => StackActions.pop({ immediate: true })),
   {
     navigationOptions: {
       header: null,
