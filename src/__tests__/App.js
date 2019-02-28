@@ -11,7 +11,7 @@ import {
   INVALID_GRANT,
   NETWORK_REQUEST_FAILED,
 } from '../constants';
-import * as auth from '../actions/auth';
+import * as auth from '../actions/auth/auth';
 import locale from '../i18n/locales/en-US';
 import { rollbar } from '../utils/rollbar.config';
 

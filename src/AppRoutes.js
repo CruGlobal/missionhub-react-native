@@ -9,9 +9,6 @@ import {
 import i18next from 'i18next';
 
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
-import KeyLoginScreen, {
-  KEY_LOGIN_SCREEN,
-} from './containers/Auth/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
 import SelectMyStepScreen, {
@@ -67,15 +64,9 @@ import SearchPeopleFilterScreen, {
 import SearchPeopleFilterRefineScreen, {
   SEARCH_REFINE_SCREEN,
 } from './containers/SearchPeopleFilterRefineScreen';
-import UpgradeAccountScreen, {
-  UPGRADE_ACCOUNT_SCREEN,
-} from './containers/Auth/UpgradeAccountScreen';
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
-import MFACodeScreen, {
-  MFA_CODE_SCREEN,
-} from './containers/Auth/MFACodeScreen';
 import {
   ALL_PERSON_TAB_ROUTES,
   CONTACT_PERSON_SCREEN,
@@ -145,6 +136,9 @@ import {
   JOIN_BY_CODE_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
   COMPLETE_STEP_FLOW,
+  SIGN_IN_FLOW,
+  SIGN_UP_FLOW,
+  CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
 } from './routes/constants';
 import {
   JoinByCodeFlowNavigator,
@@ -166,6 +160,12 @@ import {
   CompleteStepFlowNavigator,
   CompleteStepFlowScreens,
 } from './routes/steps/completeStepFlow';
+import { SignInFlowScreens, SignInFlowNavigator } from './routes/auth/signIn';
+import { SignUpFlowScreens, SignUpFlowNavigator } from './routes/auth/signUp';
+import {
+  CreateCommunityUnauthenticatedFlowNavigator,
+  CreateCommunityUnauthenticatedFlowScreens,
+} from './routes/groups/createCommunityUnauthenticatedFlow';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -277,19 +277,6 @@ const buildPersonScreenRoute = screen =>
   );
 
 const screens = {
-  [UPGRADE_ACCOUNT_SCREEN]: buildTrackedScreen(
-    UpgradeAccountScreen,
-    buildTrackingObj('auth', 'auth'),
-  ),
-  [KEY_LOGIN_SCREEN]: buildTrackedScreen(
-    KeyLoginScreen,
-    buildTrackingObj('auth : sign in', 'auth'),
-    { gesturesEnabled: true },
-  ),
-  [MFA_CODE_SCREEN]: buildTrackedScreen(
-    MFACodeScreen,
-    buildTrackingObj('auth : verification', 'auth'),
-  ),
   [WELCOME_SCREEN]: buildTrackedScreen(
     wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
     buildTrackingObj('onboarding : welcome', 'onboarding'),
@@ -438,6 +425,9 @@ const screens = {
   ),
   [ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoute(MeCommunityPersonScreen),
   [MAIN_TABS]: MAIN_TABS_SCREEN,
+  [SIGN_IN_FLOW]: SignInFlowNavigator,
+  [SIGN_UP_FLOW]: SignUpFlowNavigator,
+  [CREATE_COMMUNITY_UNAUTHENTICATED_FLOW]: CreateCommunityUnauthenticatedFlowNavigator,
   [JOIN_BY_CODE_FLOW]: JoinByCodeFlowNavigator,
   [JOIN_BY_CODE_ONBOARDING_FLOW]: JoinByCodeOnboardingFlowNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,
@@ -455,6 +445,9 @@ export const trackableScreens = {
   ...DeepLinkJoinCommunityAuthenticatedScreens,
   ...DeepLinkJoinCommunityUnauthenticatedScreens,
   ...CompleteStepFlowScreens,
+  ...CreateCommunityUnauthenticatedFlowScreens,
+  ...SignInFlowScreens,
+  ...SignUpFlowScreens,
 };
 
 export const MainStackRoutes = createStackNavigator(
