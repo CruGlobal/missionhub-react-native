@@ -154,6 +154,7 @@ import {
   JOIN_BY_CODE_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
   COMPLETE_STEP_FLOW,
+  COMPLETE_STEP_FLOW_NAVIGATE_BACK,
 } from './routes/constants';
 import {
   JoinByCodeFlowNavigator,
@@ -173,6 +174,7 @@ import {
 } from './routes/deepLink/deepLinkJoinCommunityUnauthenticated';
 import {
   CompleteStepFlowNavigator,
+  CompleteStepFlowAndNavigateBackNavigator,
   CompleteStepFlowScreens,
 } from './routes/steps/completeStepFlow';
 
@@ -467,6 +469,7 @@ const screens = {
   [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityUnauthenticatedNavigator,
   [COMPLETE_STEP_FLOW]: CompleteStepFlowNavigator,
+  [COMPLETE_STEP_FLOW_NAVIGATE_BACK]: CompleteStepFlowAndNavigateBackNavigator,
 };
 
 export const trackableScreens = {
