@@ -46,9 +46,8 @@ class CommentsList extends Component {
     // TODO: Edit comment
   };
 
-  // eslint-disable-next-line
   handleDelete = item => {
-    // TODO: Delete comment
+    this.props.onDelete(item);
   };
 
   // eslint-disable-next-line
@@ -132,6 +131,7 @@ class CommentsList extends Component {
 
 CommentsList.propTypes = {
   event: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ auth, celebrateComments }, { event }) => ({

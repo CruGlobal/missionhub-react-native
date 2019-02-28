@@ -54,6 +54,7 @@ exports[`renders correctly 1`] = `
         },
       }
     }
+    onDelete={[Function]}
     organizationId="24234234"
   />
   <Connect(CelebrateCommentBox)

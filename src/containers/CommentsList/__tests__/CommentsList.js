@@ -240,6 +240,7 @@ describe('comment action for author', () => {
   let instance;
   const person = { id: '1' };
   const comment = { id: 'comment1', person };
+  const onDelete = jest.fn();
   beforeEach(() => {
     store = mockStore({
       auth: { person: me },
@@ -251,7 +252,11 @@ describe('comment action for author', () => {
     });
 
     screen = renderShallow(
-      <CommentsList event={event} organizationId={organizationId} />,
+      <CommentsList
+        event={event}
+        organizationId={organizationId}
+        onDelete={onDelete}
+      />,
       store,
     );
     orgPermissionSelector.mockReturnValue({
@@ -260,7 +265,6 @@ describe('comment action for author', () => {
 
     instance = screen.instance();
     instance.handleEdit = jest.fn();
-    instance.handleDelete = jest.fn();
   });
   it('handleEdit', () => {
     common.showMenu = jest.fn(a => a[0].onPress());
@@ -270,7 +274,7 @@ describe('comment action for author', () => {
   it('handleDelete', () => {
     common.showMenu = jest.fn(a => a[1].onPress());
     instance.handleLongPress(comment, 'testRef');
-    expect(instance.handleDelete).toHaveBeenCalledWith(comment);
+    expect(onDelete).toHaveBeenCalledWith(comment);
   });
 });
 
