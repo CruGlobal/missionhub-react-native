@@ -3,33 +3,44 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: theme.white,
+  list: {
+    paddingVertical: 16,
+    backgroundColor: theme.transparent,
   },
   headerIcon: {
-    fontSize: 36,
+    fontSize: 40,
     color: theme.secondaryColor,
   },
   headerTitle: {
     fontSize: 36,
+    lineHeight: 48,
+    letterSpacing: 2,
     color: theme.secondaryColor,
   },
-  collapsedHeader: {
-    paddingTop: theme.notchHeight,
-    height: '100%',
+  headerText: {
+    fontSize: 16,
+    lineHeight: 24,
+    color: theme.white,
+    paddingHorizontal: 50,
+    paddingBottom: 36,
+    textAlign: 'center',
   },
   collapsedHeaderTitle: {
     fontSize: 14,
     color: theme.white,
   },
-  headerText: {
-    fontSize: 16,
-    color: theme.white,
-    paddingHorizontal: 50,
-    paddingVertical: 10,
-    textAlign: 'center',
-    backgroundColor: 'rgba(0,0,0,0)',
-    lineHeight: 24,
+  loadMoreStepsButton: {
+    backgroundColor: theme.transparent,
+    height: 36,
+    borderColor: theme.inactiveColor,
+    borderWidth: theme.buttonBorderWidth,
+    marginTop: 18,
+    marginHorizontal: 68,
+  },
+  loadMoreStepsButtonText: {
+    color: theme.inactiveColor,
+    fontSize: 14,
+    letterSpacing: 1,
+    lineHeight: 18,
   },
 });

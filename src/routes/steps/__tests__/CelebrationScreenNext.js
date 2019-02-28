@@ -5,7 +5,7 @@ import * as reactNavigation from 'react-navigation';
 
 import { renderShallow } from '../../../../testUtils';
 import { CompleteStepFlowScreens } from '../completeStepFlow';
-import { navigatePush, navigateBack } from '../../../actions/navigation';
+import { navigatePush } from '../../../actions/navigation';
 import { reloadJourney } from '../../../actions/journey';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 
@@ -47,13 +47,13 @@ beforeEach(() => {
 describe('CelebrationScreen next', () => {
   const reloadJourneyResponse = { type: 'reload journey' };
   const popToTopResponse = { type: 'pop to top of stack' };
-  const navigateBackResponse = { type: 'navigate back' };
+  const popResponse = { type: 'pop once' };
 
   beforeEach(() => {
     reactNavigation.StackActions.popToTop = jest
       .fn()
       .mockReturnValue(popToTopResponse);
-    navigateBack.mockReturnValue(navigateBackResponse);
+    reactNavigation.StackActions.pop = jest.fn().mockReturnValue(popResponse);
     reloadJourney.mockReturnValue(reloadJourneyResponse);
   });
 
@@ -66,6 +66,9 @@ describe('CelebrationScreen next', () => {
 
     expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
     expect(reactNavigation.StackActions.popToTop).toHaveBeenCalledTimes(1);
-    expect(navigateBack).toHaveBeenCalledTimes(1);
+    expect(reactNavigation.StackActions.pop).toHaveBeenCalledWith({
+      immediate: true,
+    });
+    expect(store.getActions()).toMatchSnapshot();
   });
 });

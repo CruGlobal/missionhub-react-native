@@ -26,7 +26,7 @@ import {
 } from '../../../actions/steps';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
-import { STEP_DETAIL_SCREEN } from '../../StepDetailScreen';
+import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
 
 jest.mock('../../../selectors/steps');
 jest.mock('../../../actions/analytics');
@@ -414,7 +414,9 @@ describe('StepsScreen', () => {
 
       listItem.props().onSelect(step);
 
-      expect(navigatePush).toHaveBeenCalledWith(STEP_DETAIL_SCREEN, { step });
+      expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
+        step,
+      });
     });
   });
 });

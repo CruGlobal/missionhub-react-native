@@ -200,15 +200,19 @@ export default {
     meHeader: 'How do you want to move forward on your spiritual journey?',
     personHeader: 'What will you do to help {{name}} experience God?',
     addStep: 'ADD TO MY STEPS',
-    createStep: 'Create your own step...',
+    createStep: 'CREATE YOUR OWN STEP',
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
   },
-  stepDetail: {
-    removeStep: 'Remove Step',
-    completedStep: 'Completed Step',
+  suggestedStepDetail: {
     addStep: 'Add to My Steps',
+  },
+  acceptedStepDetail: {
+    removeStep: 'Remove Step',
     iDidIt: 'I Did It!',
+  },
+  completedStepDetail: {
+    completedStep: 'Completed Step',
   },
   selectStage: {
     meQuestion:
