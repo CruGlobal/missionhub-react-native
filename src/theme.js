@@ -129,16 +129,15 @@ const textStyle = {
   fontFamily: 'SourceSansPro-Regular',
   fontSize: 16,
   lineHeight: 22,
-  borderWidth: 1,
   padding: 0,
-  marginBottom: 16,
+  margin: 0,
 };
 const heading1Style = {
   ...textStyle,
   fontFamily: 'SourceSansPro-Light',
   fontSize: 32,
   lineHeight: 38,
-  marginBottom: 20,
+  marginVertical: 10,
 };
 const heading2Style = {
   ...heading1Style,
@@ -162,6 +161,7 @@ const emphasisStyle = {
 const paragraph = {
   padding: 0,
   margin: 0,
+  marginVertical: 8,
 };
 const listItemStyle = {
   padding: 0,
@@ -186,11 +186,21 @@ const linkStyle = {
   color: COLORS.BLUE,
   textDecorationColor: COLORS.BLUE,
   textDecorationLine: 'underline',
+  padding: 0,
+  margin: 0,
 };
-const blockQuoteStyle = {};
+const blockQuoteStyle = {
+  left: -32,
+  width: deviceWidth,
+  backgroundColor: COLORS.EXTRA_LIGHT_GREY,
+  paddingVertical: 16,
+  paddingHorizontal: 32,
+};
 const horizontalLineStyle = {
   height: 1,
   backgroundColor: COLORS.EXTRA_LIGHT_GREY,
+  padding: 0,
+  margin: 8,
 };
 const imageStyle = {
   left: -32,
@@ -212,7 +222,7 @@ export const markdownTheme = StyleSheet.create({
   listUnorderedItemText: listItemTextStyle,
   listOrderedItemText: listItemTextStyle,
   link: linkStyle,
-  blockQuote: blockQuoteStyle,
+  blockquote: blockQuoteStyle,
   hr: horizontalLineStyle,
   image: imageStyle,
 });

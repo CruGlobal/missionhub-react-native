@@ -18,7 +18,7 @@ export default StyleSheet.create({
     fontSize: 32,
     lineHeight: 38,
     fontWeight: '300',
-    marginVertical: 26,
+    marginVertical: 16,
     marginHorizontal: 32,
   },
 });
