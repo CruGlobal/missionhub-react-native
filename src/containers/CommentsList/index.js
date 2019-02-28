@@ -41,69 +41,31 @@ class CommentsList extends Component {
     dispatch(getCelebrateCommentsNextPage(event));
   };
 
-  // eslint-disable-next-line
-  handleEdit = item => {
-    // TODO: Edit comment
-  };
-
-  // eslint-disable-next-line
-  handleDelete = item => {
-    // TODO: Delete comment
-  };
-
-  // eslint-disable-next-line
-  handleReport = item => {
-    // TODO: Report comment
-  };
-
   keyExtractor = i => i.id;
 
-  handleLongPress = (item, componentRef) => {
-    const {
-      event: { organization },
-      me,
-    } = this.props;
-
-    const actions = [];
-    const deleteAction = {
-      text: i18n.t('delete'),
-      onPress: () => this.handleDelete(item),
-      destructive: true,
+  renderItem = ({ item }) => {
+    const props = {
+      item: item,
+      onLongPress: this.handleLongPress,
+      organization: this.props.event.organization,
     };
 
     if (me.id === item.person.id) {
-      actions.push({
-        text: i18n.t('edit'),
-        onPress: () => this.handleEdit(item),
-      });
-      actions.push(deleteAction);
-    } else {
-      const orgPermission =
-        orgPermissionSelector(null, {
-          person: me,
-          organization,
-        }) || {};
-      if (orgPermission.permission_id === ORG_PERMISSIONS.ADMIN) {
-        actions.push(deleteAction);
-      } else {
-        actions.push({
-          text: i18n.t('report'),
-          onPress: () => this.handleReport(item),
-          destructive: true,
-        });
-      }
+      return <MeCommentItem {...props} />;
     }
 
-    showMenu(actions, componentRef);
-  };
+    const orgPermission =
+      orgPermissionSelector(null, {
+        person: me,
+        organization,
+      }) || {};
 
-  renderItem = ({ item }) => (
-    <CommentItem
-      item={item}
-      onLongPress={this.handleLongPress}
-      organization={this.props.event.organization}
-    />
-  );
+    if (orgPermission.permission_id === ORG_PERMISSIONS.ADMIN) {
+      return <AdminCommentItem {...props} />;
+    }
+
+    return <OtherCommentItem {...props} />;
+  };
 
   render() {
     const { celebrateComments: { comments, pagination } = {} } = this.props;
