@@ -129,8 +129,6 @@ const textStyle = {
   fontFamily: 'SourceSansPro-Regular',
   fontSize: 16,
   lineHeight: 22,
-  padding: 0,
-  margin: 0,
 };
 const heading1Style = {
   ...textStyle,
@@ -152,19 +150,13 @@ const heading3Style = {
 const strongStyle = {
   ...textStyle,
   fontFamily: 'SourceSansPro-Bold',
-  fontWeight: 'bold',
 };
 const emphasisStyle = {
   ...textStyle,
-  fontStyle: 'italic',
+  fontFamily: 'SourceSansPro-Italic',
 };
 const paragraph = {
-  padding: 0,
-  margin: 0,
   marginVertical: 8,
-};
-const listItemStyle = {
-  padding: 0,
 };
 const listItemOrderedIconStyle = {
   ...textStyle,
@@ -175,31 +167,25 @@ const listItemUnorderedIconStyle = {
   ...listItemOrderedIconStyle,
   fontSize: 30,
 };
-const listItemTextStyle = {
-  ...textStyle,
-  color: COLORS.RED,
-  paddingHorizontal: 0,
-};
 const linkStyle = {
   ...textStyle,
   lineHeight: 22,
   color: COLORS.BLUE,
   textDecorationColor: COLORS.BLUE,
   textDecorationLine: 'underline',
-  padding: 0,
-  margin: 0,
 };
 const blockQuoteStyle = {
-  left: -32,
+  left: -60,
   width: deviceWidth,
   backgroundColor: COLORS.EXTRA_LIGHT_GREY,
   paddingVertical: 16,
   paddingHorizontal: 32,
 };
 const horizontalLineStyle = {
+  left: -32,
   height: 1,
+  width: deviceWidth,
   backgroundColor: COLORS.EXTRA_LIGHT_GREY,
-  padding: 0,
   margin: 8,
 };
 const imageStyle = {
@@ -216,11 +202,8 @@ export const markdownTheme = StyleSheet.create({
   strong: strongStyle,
   em: emphasisStyle,
   paragraph: paragraph,
-  listItem: listItemStyle,
   listUnorderedItemIcon: listItemUnorderedIconStyle,
   listOrderedItemIcon: listItemOrderedIconStyle,
-  listUnorderedItemText: listItemTextStyle,
-  listOrderedItemText: listItemTextStyle,
   link: linkStyle,
   blockquote: blockQuoteStyle,
   hr: horizontalLineStyle,
