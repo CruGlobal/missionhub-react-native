@@ -5,13 +5,19 @@ import theme from '../../theme';
 export default StyleSheet.create({
   reminderButton: {
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     flexDirection: 'row',
     borderColor: theme.extraLightGrey,
     borderBottomWidth: 1,
     borderTopWidth: 1,
     paddingHorizontal: 16,
     paddingVertical: 10,
+  },
+  reminderContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
   },
   reminderIconCircle: {
     height: 32,
@@ -23,11 +29,26 @@ export default StyleSheet.create({
     margin: 8,
   },
   reminderIcon: {
-    fontSize: 16,
+    fontSize: 18,
     color: theme.white,
   },
   reminderText: {
     color: theme.secondaryColor,
     fontSize: 16,
+  },
+  cancelIconButton: {
+    height: 32,
+    width: 32,
+    borderRadius: 16,
+    backgroundColor: theme.white,
+    borderWidth: 1,
+    borderColor: theme.inactiveColor,
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+    margin: 8,
+  },
+  cancelIcon: {
+    fontSize: 18,
+    color: theme.inactiveColor,
   },
 });
