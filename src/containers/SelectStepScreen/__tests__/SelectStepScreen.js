@@ -212,6 +212,7 @@ describe('Navigation', () => {
     expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
       trackingObj: createStepTracking,
+      onComplete: expect.any(Function),
     });
   });
 });
