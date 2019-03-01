@@ -1,7 +1,6 @@
 import 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 import SelectStepScreen, { mapStateToProps } from '..';
 
@@ -15,12 +14,14 @@ import { ADD_STEP_SCREEN } from '../../AddStepScreen';
 import { getStepSuggestions } from '../../../actions/steps';
 import { shuffleArray } from '../../../utils/common';
 import { CREATE_STEP } from '../../../constants';
-
-Enzyme.configure({ adapter: new Adapter() });
+import { addSteps } from '../../../actions/steps';
+import { buildCustomStep } from '../../../utils/steps';
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/steps');
+jest.mock('../../../utils/steps');
 jest.mock('../../../utils/common');
+
 shuffleArray.mockImplementation(arr => arr);
 
 const testName = 'Bill';
@@ -56,6 +57,7 @@ const steps = {
     [contactStageId]: suggestions,
   },
 };
+const customStep = { body: 'some custom step' };
 
 let store = createMockStore({
   auth,
@@ -214,6 +216,24 @@ describe('Navigation', () => {
       trackingObj: createStepTracking,
       onComplete: expect.any(Function),
     });
+  });
+
+  it('passes callback to create a custom step', async () => {
+    buildCustomStep.mockReturnValue(customStep);
+    const text = 'custom step roge';
+    navigation.navigatePush = jest.fn((screen, props) => {
+      props.onComplete(text);
+    });
+
+    await createComponent();
+
+    instance.handleCreateStep();
+
+    expect(addSteps).toHaveBeenCalledWith([customStep], receiverId, org);
+    expect(buildCustomStep).toHaveBeenCalledWith(
+      text,
+      receiverId === auth.person.id,
+    );
   });
 });
 
