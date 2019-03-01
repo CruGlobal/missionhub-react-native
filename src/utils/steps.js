@@ -5,7 +5,6 @@ import { CUSTOM_STEP_TYPE } from '../constants';
 
 export function buildCustomStep(text, self_step) {
   return {
-    id: uuidv4(), //todo need?
     body: text,
     locale: i18next.language,
     challenge_type: CUSTOM_STEP_TYPE,
