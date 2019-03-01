@@ -14,7 +14,7 @@ class AcceptedStepDetailScreen extends Component {
   completeStep = () => {
     const { dispatch, step } = this.props;
 
-    dispatch(completeStep(step, 'Step Detail'));
+    dispatch(completeStep(step, 'Step Detail', true));
   };
 
   removeStep = () => {};
