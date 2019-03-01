@@ -1,0 +1,12 @@
+//
+//  Release.xcconfig
+//  MissionHub
+//
+//  Created by Daniel Goers on 2/28/19.
+//  Copyright © 2019 Facebook. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+ADB_CONFIG=ADBMobileConfig
