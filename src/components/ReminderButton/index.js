@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -20,16 +21,11 @@ class ReminderButton extends Component {
     const { reminderButton, reminderIcon, reminderText } = styles;
 
     return (
-      <Touchable onPress={this.handlePress}>
-        <Flex
-          align="center"
-          justify="start"
-          style={reminderButton}
-          direction="row"
-        >
+      <Touchable style={reminderButton} onPress={this.handlePress}>
+        <View style={styles.reminderIconCircle}>
           <Icon name="bellIcon" type="MissionHub" style={reminderIcon} />
-          <Text style={reminderText}>{t('addStep:setReminder')}</Text>
-        </Flex>
+        </View>
+        <Text style={reminderText}>{t('addStep:setReminder')}</Text>
       </Touchable>
     );
   }
