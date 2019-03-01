@@ -1,4 +1,3 @@
-import uuidv4 from 'uuid/v4';
 import i18next from 'i18next';
 
 import { CUSTOM_STEP_TYPE } from '../constants';
