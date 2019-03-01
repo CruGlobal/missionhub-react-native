@@ -246,15 +246,13 @@ function challengeCompleteAction(step, screen, extraBack = false) {
 }
 
 export function deleteStepWithTracking(step, screen) {
-  return dispatch => {
-    return dispatch(deleteStep(step)).then(r => {
-      dispatch(
-        trackAction(`${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`, {
-          [ACTIONS.STEP_REMOVED.key]: null,
-        }),
-      );
-      return r;
-    });
+  return async dispatch => {
+    await dispatch(deleteStep(step));
+    dispatch(
+      trackAction(`${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`, {
+        [ACTIONS.STEP_REMOVED.key]: null,
+      }),
+    );
   };
 }
 
