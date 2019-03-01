@@ -8,6 +8,7 @@ import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import {
   reloadCelebrateComments,
   getCelebrateCommentsNextPage,
+  deleteCelebrateComment,
 } from '../../actions/celebrateComments';
 import LoadMore from '../../components/LoadMore';
 import RefreshControl from '../../components/RefreshControl';
@@ -46,9 +47,9 @@ class CommentsList extends Component {
     // TODO: Edit comment
   };
 
-  // eslint-disable-next-line
   handleDelete = item => {
-    // TODO: Delete comment
+    const { dispatch, event } = this.props;
+    dispatch(deleteCelebrateComment(event, item));
   };
 
   // eslint-disable-next-line

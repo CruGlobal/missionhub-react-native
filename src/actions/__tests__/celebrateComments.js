@@ -6,6 +6,7 @@ import {
   getCelebrateCommentsNextPage,
   reloadCelebrateComments,
   createCelebrateComment,
+  deleteCelebrateComment,
 } from '../celebrateComments';
 import callApi, { REQUESTS } from '../api';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
@@ -92,6 +93,25 @@ describe('createCelebrateComment', () => {
       baseQuery,
       { data: { attributes: { content } } },
     );
+  });
+
+  it('should return api response', () => {
+    expect(response).toEqual(callApiResponse);
+  });
+});
+
+describe('deleteCelebrateComment', () => {
+  const item = { id: 'comment1' };
+  let response;
+
+  beforeEach(() =>
+    (response = store.dispatch(deleteCelebrateComment(event, item))));
+
+  it('should callApi with no page', () => {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CELEBRATE_COMMENT, {
+      ...baseQuery,
+      commentId: item.id,
+    });
   });
 
   it('should return api response', () => {

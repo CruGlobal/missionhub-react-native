@@ -203,6 +203,10 @@ export default {
     endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments`,
     method: 'post',
   },
+  DELETE_CELEBRATE_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments/:commentId`,
+    method: 'delete',
+  },
   ORGANIZATION_NEW_CODE: {
     endpoint: `${ORG_URL}/:orgId/community_code`,
     method: 'put',
