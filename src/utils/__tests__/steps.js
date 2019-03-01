@@ -20,7 +20,6 @@ describe('buildCustomStep', () => {
     expect(buildCustomStep(text, self_step)).toEqual({
       id,
       body: text,
-      selected: true,
       locale,
       challenge_type: CUSTOM_STEP_TYPE,
       self_step,
