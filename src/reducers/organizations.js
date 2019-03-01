@@ -176,9 +176,9 @@ function organizationsReducer(state = initialState, action) {
         ),
       };
     case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
-      return toggleCelebrationLike(action, state, true);
+      return toggleOrgCelebrationLike(action, state, true);
     case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
-      return toggleCelebrationLike(action, state, false);
+      return toggleOrgCelebrationLike(action, state, false);
     case REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS:
       return toggleGlobalCelebrationLike(action, state, true);
     case REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS:
@@ -254,9 +254,20 @@ function organizationsReducer(state = initialState, action) {
   }
 }
 
-function toggleCelebrationLike(action, state, liked) {
-  const query = action.query;
-  const org = state.all.find(o => o.id === query.orgId);
+function toggleOrgCelebrationLike({ query: { orgId, eventId } }, state, liked) {
+  return toggleCelebrationLike({ id: orgId, eventId }, state, liked);
+}
+
+function toggleGlobalCelebrationLike({ query: { eventId } }, state, liked) {
+  return toggleCelebrationLike(
+    { id: GLOBAL_COMMUNITY_ID, eventId },
+    state,
+    liked,
+  );
+}
+
+function toggleCelebrationLike({ id, eventId }, state, liked) {
+  const org = state.all.find(o => o.id === id);
   if (!org) {
     return state; // Return if the organization does not exist
   }
@@ -264,7 +275,7 @@ function toggleCelebrationLike(action, state, liked) {
     ...org,
     celebrateItems: org.celebrateItems.map(
       c =>
-        c.id === query.eventId
+        c.id === eventId
           ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
           : c,
     ),
@@ -272,25 +283,7 @@ function toggleCelebrationLike(action, state, liked) {
 
   return {
     ...state,
-    all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
-  };
-}
-
-//TODO refactor
-function toggleGlobalCelebrationLike(action, state, liked) {
-  const query = action.query;
-  const org = state.all.find(o => o.id === GLOBAL_COMMUNITY_ID);
-
-  const newOrg = {
-    ...org,
-    celebrateItems: org.celebrateItems.map(
-      c => (c.id === query.eventId ? { ...c, liked } : c),
-    ),
-  };
-
-  return {
-    ...state,
-    all: state.all.map(o => (o.id === GLOBAL_COMMUNITY_ID ? newOrg : o)),
+    all: state.all.map(o => (o.id === id ? newOrg : o)),
   };
 }
 

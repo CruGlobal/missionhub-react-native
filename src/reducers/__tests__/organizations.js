@@ -1076,7 +1076,7 @@ describe('global like/unlike', () => {
             {
               id: GLOBAL_COMMUNITY_ID,
               celebrateItems: expect.arrayContaining([
-                { id: itemOne.id, liked: true },
+                expect.objectContaining({ id: itemOne.id, liked: true }),
               ]),
             },
           ]),
@@ -1098,7 +1098,10 @@ describe('global like/unlike', () => {
             {
               id: GLOBAL_COMMUNITY_ID,
               celebrateItems: expect.arrayContaining([
-                { id: itemTwo.id, liked: false },
+                expect.objectContaining({
+                  id: itemTwo.id,
+                  liked: false,
+                }),
               ]),
             },
           ]),
