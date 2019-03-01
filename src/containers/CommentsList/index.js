@@ -8,6 +8,7 @@ import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import {
   reloadCelebrateComments,
   getCelebrateCommentsNextPage,
+  deleteCelebrateComment,
 } from '../../actions/celebrateComments';
 import LoadMore from '../../components/LoadMore';
 import RefreshControl from '../../components/RefreshControl';
@@ -47,7 +48,8 @@ class CommentsList extends Component {
   };
 
   handleDelete = item => {
-    this.props.onDelete(item);
+    const { dispatch, event } = this.props;
+    dispatch(deleteCelebrateComment(event, item));
   };
 
   // eslint-disable-next-line
@@ -131,7 +133,6 @@ class CommentsList extends Component {
 
 CommentsList.propTypes = {
   event: PropTypes.object.isRequired,
-  onDelete: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ auth, celebrateComments }, { event }) => ({

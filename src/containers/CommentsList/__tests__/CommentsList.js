@@ -12,6 +12,7 @@ import { orgPermissionSelector } from '../../../selectors/people';
 import {
   reloadCelebrateComments,
   getCelebrateCommentsNextPage,
+  deleteCelebrateComment,
 } from '../../../actions/celebrateComments';
 import * as common from '../../../utils/common';
 import { ORG_PERMISSIONS } from '../../../constants';
@@ -35,6 +36,7 @@ const organizations = [event.organization];
 const celebrateCommentsState = [celebrateComments];
 const reloadCelebrateCommentsResult = { type: 'loaded comments' };
 const getCelebrateCommentsNextPageResult = { type: 'got next page' };
+const deleteCelebrateCommentResult = { type: 'delete comment' };
 
 let screen;
 
@@ -43,6 +45,9 @@ reloadCelebrateComments.mockReturnValue(dispatch =>
 );
 getCelebrateCommentsNextPage.mockReturnValue(dispatch =>
   dispatch(getCelebrateCommentsNextPageResult),
+);
+deleteCelebrateComment.mockReturnValue(dispatch =>
+  dispatch(deleteCelebrateCommentResult),
 );
 
 const me = { id: '1' };
@@ -240,7 +245,6 @@ describe('comment action for author', () => {
   let instance;
   const person = { id: '1' };
   const comment = { id: 'comment1', person };
-  const onDelete = jest.fn();
   beforeEach(() => {
     store = mockStore({
       auth: { person: me },
@@ -252,11 +256,7 @@ describe('comment action for author', () => {
     });
 
     screen = renderShallow(
-      <CommentsList
-        event={event}
-        organizationId={organizationId}
-        onDelete={onDelete}
-      />,
+      <CommentsList event={event} organizationId={organizationId} />,
       store,
     );
     orgPermissionSelector.mockReturnValue({
@@ -274,7 +274,7 @@ describe('comment action for author', () => {
   it('handleDelete', () => {
     common.showMenu = jest.fn(a => a[1].onPress());
     instance.handleLongPress(comment, 'testRef');
-    expect(onDelete).toHaveBeenCalledWith(comment);
+    expect(deleteCelebrateComment).toHaveBeenCalledWith(event, comment);
   });
 });
 

@@ -7,12 +7,8 @@ import CelebrateDetailScreen from '..';
 
 import { renderShallow } from '../../../../testUtils';
 import { celebrationItemSelector } from '../../../selectors/celebration';
-import { deleteCelebrateComment } from '../../../actions/celebrateComments';
 
 jest.mock('../../../selectors/celebration');
-jest.mock('../../../actions/celebrateComments', () => ({
-  deleteCelebrateComment: jest.fn(() => ({ type: 'delete' })),
-}));
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -51,13 +47,4 @@ it('should call celebrationItemSelector', () => {
     { organizations },
     { eventId: event.id, organizationId },
   );
-});
-
-it('should call handleDelete', () => {
-  const item = { id: 'test' };
-  screen
-    .childAt(2)
-    .props()
-    .onDelete(item);
-  expect(deleteCelebrateComment).toHaveBeenCalledWith(event, item);
 });

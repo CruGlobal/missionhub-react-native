@@ -9,16 +9,10 @@ import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
 import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 import theme from '../../theme';
-import { deleteCelebrateComment } from '../../actions/celebrateComments';
 
 import styles from './styles';
 
 class CelebrateDetailScreen extends Component {
-  handleDelete = item => {
-    const { dispatch, event } = this.props;
-    dispatch(deleteCelebrateComment(event, item));
-  };
-
   render() {
     const { event } = this.props;
     const { container, cardStyle, backButtonStyle } = styles;
@@ -34,11 +28,7 @@ class CelebrateDetailScreen extends Component {
           }
           namePressable={true}
         />
-        <CommentsList
-          event={event}
-          organizationId={event.organization.id}
-          onDelete={this.handleDelete}
-        />
+        <CommentsList event={event} organizationId={event.organization.id} />
         <CelebrateCommentBox event={event} />
       </SafeAreaView>
     );
