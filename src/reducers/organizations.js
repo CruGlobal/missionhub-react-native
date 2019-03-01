@@ -179,6 +179,10 @@ function organizationsReducer(state = initialState, action) {
       return toggleCelebrationLike(action, state, true);
     case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
       return toggleCelebrationLike(action, state, false);
+    case REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS:
+      return toggleGlobalCelebrationLike(action, state, true);
+    case REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS:
+      return toggleGlobalCelebrationLike(action, state, false);
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;
       const currentMemberOrg = state.all.find(o => o.id === memberOrgId);
@@ -269,6 +273,27 @@ function toggleCelebrationLike(action, state, liked) {
   return {
     ...state,
     all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+  };
+}
+
+//TODO refactor
+function toggleGlobalCelebrationLike(action, state, liked) {
+  const query = action.query;
+  const org = state.all.find(o => o.id === GLOBAL_COMMUNITY_ID);
+
+  const newOrg = {
+    ...org,
+    celebrateItems: org.celebrateItems.map(
+      c =>
+        c.id === query.eventId
+          ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
+          : c,
+    ),
+  };
+
+  return {
+    ...state,
+    all: state.all.map(o => (o.id === GLOBAL_COMMUNITY_ID ? newOrg : o)),
   };
 }
 
