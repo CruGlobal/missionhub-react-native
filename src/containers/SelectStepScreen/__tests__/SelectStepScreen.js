@@ -204,9 +204,18 @@ describe('renderBackButton', () => {
 });
 
 describe('Navigation', () => {
-  it('navigates to add step screen', async () => {
-    navigation.navigatePush = jest.fn();
+  const text = 'custom step roge';
+
+  beforeEach(() => {
+    navigation.navigatePush = jest.fn((screen, props) => {
+      props.onComplete(text);
+    });
+
+    buildCustomStep.mockReturnValue(customStep);
     createStepTracking = { test: 'this is a test tracking property' };
+  });
+
+  it('navigates to add step screen', async () => {
     await createComponent();
 
     instance.handleCreateStep();
@@ -219,12 +228,6 @@ describe('Navigation', () => {
   });
 
   it('passes callback to create a custom step', async () => {
-    buildCustomStep.mockReturnValue(customStep);
-    const text = 'custom step roge';
-    navigation.navigatePush = jest.fn((screen, props) => {
-      props.onComplete(text);
-    });
-
     await createComponent();
 
     instance.handleCreateStep();
