@@ -9,7 +9,7 @@ import BackButton from '../../containers/BackButton/index';
 import BottomButton from '../BottomButton/index';
 import ReminderButton from '../ReminderButton/index';
 import { Text } from '../common';
-import { markdownTheme } from '../../theme';
+import markdownStyles from '../../markdownStyles';
 
 import styles from './styles';
 
@@ -36,7 +36,7 @@ export default function StepDetailScreen({
       <View flex={1}>
         {markdown && (
           <ScrollView style={styles.body}>
-            <Markdown style={markdownTheme}>{markdown}</Markdown>
+            <Markdown style={markdownStyles}>{markdown}</Markdown>
           </ScrollView>
         )}
       </View>
