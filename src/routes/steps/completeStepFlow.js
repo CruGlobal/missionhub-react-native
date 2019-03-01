@@ -1,3 +1,4 @@
+/* eslint max-lines-per-function: 0 */
 import { createStackNavigator, StackActions } from 'react-navigation';
 
 import { wrapNextAction, wrapNextScreen } from '../helpers';
@@ -22,7 +23,7 @@ import CelebrationScreen, {
 
 import { paramsforStageNavigation } from './utils';
 
-export const CompleteStepFlowScreens = {
+export const CompleteStepFlowScreens = onFlowComplete => ({
   [ADD_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
     ({ personId, orgId }) => (dispatch, getState) => {
@@ -116,14 +117,23 @@ export const CompleteStepFlowScreens = {
       dispatch(reloadJourney(contactId, orgId));
       dispatch(StackActions.popToTop());
 
-      const popAction = StackActions.pop({ immediate: true });
-      dispatch(popAction);
-      dispatch(popAction);
+      dispatch(StackActions.pop({ immediate: true }));
+      onFlowComplete && dispatch(onFlowComplete());
     },
   ),
-};
+});
+
 export const CompleteStepFlowNavigator = createStackNavigator(
-  CompleteStepFlowScreens,
+  CompleteStepFlowScreens(),
+  {
+    navigationOptions: {
+      header: null,
+    },
+  },
+);
+
+export const CompleteStepFlowAndNavigateBackNavigator = createStackNavigator(
+  CompleteStepFlowScreens(() => StackActions.pop({ immediate: true })),
   {
     navigationOptions: {
       header: null,

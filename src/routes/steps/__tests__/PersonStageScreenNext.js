@@ -27,7 +27,7 @@ const store = configureStore([thunk])({
 });
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
-  const Component = CompleteStepFlowScreens[screen];
+  const Component = CompleteStepFlowScreens()[screen];
 
   await store.dispatch(
     renderShallow(

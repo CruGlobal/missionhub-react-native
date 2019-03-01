@@ -1,21 +1,14 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush, navigateBack } from '../../actions/navigation';
-import { removeSwipeStepsContact } from '../../actions/swipe';
-import {
-  getContactSteps,
-  completeStep,
-  deleteStepWithTracking,
-} from '../../actions/steps';
-import { reloadJourney } from '../../actions/journey';
-import { Flex } from '../../components/common';
+import { getContactSteps } from '../../actions/steps';
+import { Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import StepItem from '../../components/StepItem';
-import RowSwipeable from '../../components/RowSwipeable';
+import AcceptedStepItem from '../../components/AcceptedStepItem';
 import NULL from '../../../assets/images/footprints.png';
 import {
   buildTrackingObj,
@@ -25,27 +18,29 @@ import {
 import { promptToAssign } from '../../utils/promptToAssign';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
-import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
-import { contactAssignmentSelector } from '../../selectors/people';
+import {
+  contactAssignmentSelector,
+  personSelector,
+} from '../../selectors/people';
 import {
   assignContactAndPickStage,
   navigateToStageScreen,
 } from '../../actions/misc';
 import NullStateComponent from '../../components/NullStateComponent';
-import { personSelector } from '../../selectors/people';
-import { CONTACT_STEPS } from '../../constants';
 
 import styles from './styles';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { hideCompleted: true };
+  }
+
   componentDidMount() {
     this.getSteps();
   }
-
-  bumpComplete = () => {
-    this.props.dispatch(removeSwipeStepsContact());
-  };
 
   getSteps = () => {
     const { dispatch, person, organization = {} } = this.props;
@@ -53,22 +48,8 @@ class ContactSteps extends Component {
     dispatch(getContactSteps(person.id, organization.id));
   };
 
-  handleRowSelect = step => {
-    this.props.dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
-  };
-
-  handleRemove = async step => {
-    await this.props.dispatch(deleteStepWithTracking(step, CONTACT_STEPS));
+  handleComplete = () => {
     this.getSteps();
-  };
-
-  handleComplete = async step => {
-    const { dispatch, person, organization } = this.props;
-    await dispatch(completeStep(step, CONTACT_STEPS));
-    this.getSteps();
-    dispatch(
-      reloadJourney(person.id, organization ? organization.id : undefined),
-    );
   };
 
   handleSaveNewSteps = async () => {
@@ -164,20 +145,28 @@ class ContactSteps extends Component {
         : this.handleAssign();
   };
 
-  renderRow = ({ item, index }) => {
-    const { showBump } = this.props;
+  toggleCompletedSteps = () => {
+    this.setState({ hideCompleted: !this.state.hideCompleted });
+  };
+
+  renderRow = ({ item }) => (
+    <AcceptedStepItem step={item} onComplete={this.handleComplete} />
+  );
+
+  renderCompletedStepsButton = () => {
+    const { hideCompleted } = this.state;
+    const { completedStepsButton, completedStepsButtonText } = styles;
+
     return (
-      <RowSwipeable
-        key={item.id}
-        bump={showBump && index === 0}
-        onBumpComplete={this.bumpComplete}
-        deletePressProps={[item]}
-        completePressProps={[item]}
-        onDelete={this.handleRemove}
-        onComplete={this.handleComplete}
-      >
-        <StepItem step={item} type="contact" onSelect={this.handleRowSelect} />
-      </RowSwipeable>
+      <Button
+        pill={true}
+        text={this.props
+          .t(hideCompleted ? 'showCompletedSteps' : 'hideCompletedSteps')
+          .toUpperCase()}
+        onPress={this.toggleCompletedSteps}
+        style={completedStepsButton}
+        buttonTextStyle={completedStepsButtonText}
+      />
     );
   };
 
@@ -185,18 +174,30 @@ class ContactSteps extends Component {
 
   keyExtractor = i => i.id;
 
-  renderList() {
-    const { steps } = this.props;
+  renderList(data) {
     return (
       <FlatList
         ref={this.ref}
-        style={styles.list}
-        data={steps}
+        style={styles.container}
+        data={data}
         keyExtractor={this.keyExtractor}
         renderItem={this.renderRow}
         bounces={true}
         showsVerticalScrollIndicator={false}
       />
+    );
+  }
+
+  renderSteps() {
+    const { steps } = this.props;
+    const { hideCompleted } = this.state;
+
+    return (
+      <ScrollView flex={1}>
+        {this.renderList(steps)}
+        {this.renderCompletedStepsButton()}
+        {hideCompleted ? null : this.renderList([])}
+      </ScrollView>
     );
   }
 
@@ -216,15 +217,8 @@ class ContactSteps extends Component {
   render() {
     const { t, steps } = this.props;
     return (
-      <View style={{ flex: 1 }}>
-        <Flex
-          align="center"
-          justify="center"
-          value={1}
-          style={styles.container}
-        >
-          {steps.length > 0 ? this.renderList() : this.renderNull()}
-        </Flex>
+      <View flex={1}>
+        {steps.length > 0 ? this.renderSteps() : this.renderNull()}
         <BottomButton onPress={this.handleCreateStep} text={t('addStep')} />
       </View>
     );
