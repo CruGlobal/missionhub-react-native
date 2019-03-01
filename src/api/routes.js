@@ -197,11 +197,11 @@ export default {
     method: 'delete',
   },
   LIKE_GLOBAL_CELEBRATE_ITEM: {
-    endpoint: `${ORG_URL}/global_celebration_items/:eventId/like`,
+    endpoint: `${API_URL}/global_celebration_items/:eventId/like`,
     method: 'post',
   },
   UNLIKE_GLOBAL_CELEBRATE_ITEM: {
-    endpoint: `${ORG_URL}/global_celebration_items/:eventId/like`,
+    endpoint: `${API_URL}/global_celebration_items/:eventId/like`,
     method: 'delete',
   },
   GET_CELEBRATE_COMMENTS: {

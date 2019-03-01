@@ -15,9 +15,13 @@ export function reloadGroupCelebrateFeed(orgId) {
 }
 
 export function toggleLike(orgId, eventId, liked) {
-  const request = liked
-    ? REQUESTS.UNLIKE_CELEBRATE_ITEM
-    : REQUESTS.LIKE_CELEBRATE_ITEM;
+  const request = orgId
+    ? liked
+      ? REQUESTS.UNLIKE_CELEBRATE_ITEM
+      : REQUESTS.LIKE_CELEBRATE_ITEM
+    : liked
+      ? REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM
+      : REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM;
 
   return async dispatch => {
     await dispatch(callApi(request, { orgId, eventId }));

@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders nothing with no subject person 1`] = `""`;
-
-exports[`with subject person renders for me 1`] = `
+exports[`renders nothing with no subject person 1`] = `
 <Flex
   align="end"
   direction="row"
@@ -18,21 +16,61 @@ exports[`with subject person renders for me 1`] = `
         "fontSize": 14,
       }
     }
-  >
-    15
-  </MyText>
-  <Image
-    source={
-      Object {
-        "testUri": "../../../assets/images/comments.png",
-      }
-    }
+  />
+  <Button
+    onPress={[Function]}
     style={
       Object {
-        "marginHorizontal": 10,
+        "height": 24,
+        "margin": 0,
+        "width": 24,
       }
     }
-  />
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/heart-grey.png",
+        }
+      }
+    />
+  </Button>
+</Flex>
+`;
+
+exports[`with subject person renders for me 1`] = `
+<Flex
+  align="end"
+  direction="row"
+  justify="end"
+>
+  <React.Fragment>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#505256",
+          "fontSize": 14,
+        }
+      }
+    >
+      15
+    </MyText>
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/comments.png",
+        }
+      }
+      style={
+        Object {
+          "marginHorizontal": 10,
+        }
+      }
+    />
+  </React.Fragment>
   <MyText
     accessible={true}
     allowFontScaling={true}
@@ -71,31 +109,33 @@ exports[`with subject person renders for someone else 1`] = `
   direction="row"
   justify="end"
 >
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#505256",
-        "fontSize": 14,
+  <React.Fragment>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#505256",
+          "fontSize": 14,
+        }
       }
-    }
-  >
-    15
-  </MyText>
-  <Image
-    source={
-      Object {
-        "testUri": "../../../assets/images/comments.png",
+    >
+      15
+    </MyText>
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/comments.png",
+        }
       }
-    }
-    style={
-      Object {
-        "marginHorizontal": 10,
+      style={
+        Object {
+          "marginHorizontal": 10,
+        }
       }
-    }
-  />
+    />
+  </React.Fragment>
   <MyText
     accessible={true}
     allowFontScaling={true}
@@ -136,31 +176,33 @@ exports[`with subject person renders when liked 1`] = `
   direction="row"
   justify="end"
 >
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#505256",
-        "fontSize": 14,
+  <React.Fragment>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#505256",
+          "fontSize": 14,
+        }
       }
-    }
-  >
-    15
-  </MyText>
-  <Image
-    source={
-      Object {
-        "testUri": "../../../assets/images/comments.png",
+    >
+      15
+    </MyText>
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/comments.png",
+        }
       }
-    }
-    style={
-      Object {
-        "marginHorizontal": 10,
+      style={
+        Object {
+          "marginHorizontal": 10,
+        }
       }
-    }
-  />
+    />
+  </React.Fragment>
   <MyText
     accessible={true}
     allowFontScaling={true}

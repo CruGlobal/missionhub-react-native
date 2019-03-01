@@ -70,7 +70,7 @@ describe('with subject person', () => {
   describe('onPress like button', () => {
     beforeEach(() =>
       renderShallow(<CommentLikeComponent event={event} />, store)
-        .childAt(3)
+        .childAt(2)
         .props()
         .onPress());
 
