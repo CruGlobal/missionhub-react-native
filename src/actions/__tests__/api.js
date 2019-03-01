@@ -11,9 +11,16 @@ import {
   INVALID_GRANT,
   UPDATE_TOKEN,
 } from '../../constants';
-import { mockFnWithParams } from '../../../testUtils';
-import * as auth from '../auth';
-import * as facebook from '../facebook';
+import { refreshAnonymousLogin } from '../auth/anonymous';
+import { logout } from '../auth/auth';
+import { refreshMissionHubFacebookAccess } from '../auth/facebook';
+import { refreshAccessToken } from '../auth/key';
+
+jest.mock('../../api');
+jest.mock('../auth/anonymous');
+jest.mock('../auth/auth');
+jest.mock('../auth/facebook');
+jest.mock('../auth/key');
 
 const token = 'alsnjfjwqfpuqfeownposfnjnsaobjfaslkklnsfd';
 const refreshToken = 'refresh';
@@ -35,11 +42,8 @@ const invalidGrantError = { error: INVALID_GRANT };
 
 global.APILOG = jest.fn();
 
-beforeEach(() => expect.assertions(1));
-
 async function test(
   state,
-  obj,
   request,
   error,
   method,
@@ -49,18 +53,15 @@ async function test(
   data,
 ) {
   store = mockStore({ auth: { ...mockAuthState, ...state } });
-  mockFnWithParams(
-    API_CALLS,
-    request.name,
-    Promise.reject({ apiError: error }),
-    query,
-    data,
-  );
-  mockFnWithParams(obj, method, apiResult, ...methodParams);
+  API_CALLS[request.name].mockReturnValue(Promise.reject({ apiError: error }));
+  method.mockReturnValue(apiResult);
 
   try {
     await store.dispatch(callApi(request, query, data));
   } catch (e) {
+    expect(API_CALLS[request.name]).toHaveBeenCalledWith(query, data);
+    expect(method).toHaveBeenCalledWith(...methodParams);
+
     expect(store.getActions()).toEqual([
       {
         data,
@@ -75,10 +76,9 @@ async function test(
 it('should refresh key access token if user is logged in with TheKey with expired token', () => {
   return test(
     { refreshToken: 'refresh' },
-    auth,
     getMeRequest,
     expiredTokenError,
-    'refreshAccessToken',
+    refreshAccessToken,
     [],
     { type: 'refreshed token' },
     accessTokenQuery,
@@ -88,10 +88,9 @@ it('should refresh key access token if user is logged in with TheKey with expire
 it('should refresh key access token if user is logged in with TheKey with invalid token', () => {
   return test(
     { refreshToken: 'refresh' },
-    auth,
     getMeRequest,
     invalidTokenError,
-    'refreshAccessToken',
+    refreshAccessToken,
     [],
     { type: 'refreshed token' },
     accessTokenQuery,
@@ -102,10 +101,9 @@ it('should refresh key access token if user is logged in with TheKey with invali
 it('should refresh anonymous login if user is Try It Now with expired token', () => {
   return test(
     { isFirstTime: true },
-    auth,
     getMeRequest,
     expiredTokenError,
-    'refreshAnonymousLogin',
+    refreshAnonymousLogin,
     [],
     { type: 'refreshed anonymous token' },
     accessTokenQuery,
@@ -115,10 +113,9 @@ it('should refresh anonymous login if user is Try It Now with expired token', ()
 it('should refresh anonymous login if user is Try It Now with invalid token', () => {
   return test(
     { isFirstTime: true },
-    auth,
     getMeRequest,
     invalidTokenError,
-    'refreshAnonymousLogin',
+    refreshAnonymousLogin,
     [],
     { type: 'refreshed anonymous token' },
     accessTokenQuery,
@@ -129,10 +126,9 @@ it('should refresh anonymous login if user is Try It Now with invalid token', ()
 it('should refresh facebook login if user is not logged in with TheKey or Try It Now with expired token', () => {
   return test(
     {},
-    facebook,
     getMeRequest,
     expiredTokenError,
-    'refreshMissionHubFacebookAccess',
+    refreshMissionHubFacebookAccess,
     [],
     { type: 'refreshed fb login' },
     accessTokenQuery,
@@ -142,10 +138,9 @@ it('should refresh facebook login if user is not logged in with TheKey or Try It
 it('should refresh facebook login if user is not logged in with TheKey or Try It Now with invalid token', () => {
   return test(
     {},
-    facebook,
     getMeRequest,
     invalidTokenError,
-    'refreshMissionHubFacebookAccess',
+    refreshMissionHubFacebookAccess,
     [],
     { type: 'refreshed fb login' },
     accessTokenQuery,
@@ -156,10 +151,9 @@ it('should refresh facebook login if user is not logged in with TheKey or Try It
 it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', () => {
   return test(
     { refreshToken: 'refresh' },
-    auth,
     refreshRequest,
     invalidGrantError,
-    'logout',
+    logout,
     [true],
     { type: 'logged out' },
     {},
@@ -167,34 +161,41 @@ it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', () => {
   );
 });
 
-it("should not logout if invalid_grant is returned and request wasn't KEY_REFRESH_TOKEN", () => {
-  auth.logout = jest.fn();
+it("should not logout if invalid_grant is returned and request wasn't KEY_REFRESH_TOKEN", async () => {
   store = mockStore({ auth: { ...mockAuthState } });
 
-  mockFnWithParams(
-    API_CALLS,
-    getMeRequest.name,
+  API_CALLS[getMeRequest.name].mockReturnValue(
     Promise.reject({ apiError: invalidGrantError }),
+  );
+
+  await expect(store.dispatch(callApi(getMeRequest, {}, {}))).rejects.toEqual({
+    apiError: {
+      error: 'invalid_grant',
+    },
+  });
+
+  expect(API_CALLS[getMeRequest.name]).toHaveBeenCalledWith(
     accessTokenQuery,
     {},
   );
-
-  expect(auth.logout).not.toHaveBeenCalled();
+  expect(logout).not.toHaveBeenCalled();
 });
 
 it('should update token if present in response', async () => {
   store = mockStore({ auth: { ...mockAuthState } });
   const newToken =
     'pfiqwfioqwioefiqowfejiqwfipoioqwefpiowqniopnifiooiwfemiopqwoimefimwqefponioqwfenoiwefinonoiwqefnoip';
-  mockFnWithParams(
-    API_CALLS,
-    getMeRequest.name,
+
+  API_CALLS[getMeRequest.name].mockReturnValue(
     Promise.resolve({ sessionHeader: newToken }),
-    accessTokenQuery,
-    {},
   );
 
   await store.dispatch(callApi(getMeRequest, {}, {}));
+
+  expect(API_CALLS[getMeRequest.name]).toHaveBeenCalledWith(
+    accessTokenQuery,
+    {},
+  );
 
   expect(store.getActions()).toEqual([
     {

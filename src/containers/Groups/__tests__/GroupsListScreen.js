@@ -5,7 +5,6 @@ import configureStore from 'redux-mock-store';
 
 import GroupsListScreen from '../GroupsListScreen';
 import { renderShallow } from '../../../../testUtils';
-import { upgradeAccount } from '../../../actions/auth';
 import { navigatePush } from '../../../actions/navigation';
 import { getMyCommunities } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
@@ -13,13 +12,14 @@ import { communitiesSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
-import { SIGNUP_TYPES } from '../../Auth/UpgradeAccountScreen';
 import { resetScrollGroups } from '../../../actions/swipe';
 import { ACTIONS } from '../../../constants';
-import { JOIN_BY_CODE_FLOW } from '../../../routes/constants';
+import {
+  CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
+  JOIN_BY_CODE_FLOW,
+} from '../../../routes/constants';
 
 jest.mock('../../../selectors/organizations');
-jest.mock('../../../actions/auth');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
@@ -249,8 +249,6 @@ describe('GroupsListScreen', () => {
       auth: { isFirstTime: true },
       swipe,
     });
-    const upgradeAccountResponse = { type: 'upgrade account' };
-    upgradeAccount.mockReturnValue(upgradeAccountResponse);
 
     component = renderShallow(<GroupsListScreen />, store);
 
@@ -261,9 +259,8 @@ describe('GroupsListScreen', () => {
       .props()
       .onPress();
 
-    expect(upgradeAccount).toHaveBeenCalledWith(
-      SIGNUP_TYPES.CREATE_COMMUNITY,
-      expect.any(Function),
+    expect(navigatePush).toHaveBeenCalledWith(
+      CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
     );
   });
 });

@@ -6,10 +6,12 @@ import { translate } from 'react-i18next';
 import { Button, Flex, Text } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
-import { KEY_LOGIN_SCREEN } from '../Auth/KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
-import { firstTime } from '../../actions/auth';
-import { JOIN_BY_CODE_ONBOARDING_FLOW } from '../../routes/constants';
+import { firstTime } from '../../actions/auth/userData';
+import {
+  JOIN_BY_CODE_ONBOARDING_FLOW,
+  SIGN_IN_FLOW,
+} from '../../routes/constants';
 
 import styles from './styles';
 
@@ -25,7 +27,7 @@ class LandingScreen extends Component {
   };
 
   signIn = () => {
-    this.props.dispatch(navigatePush(KEY_LOGIN_SCREEN));
+    this.props.dispatch(navigatePush(SIGN_IN_FLOW));
   };
 
   render() {
@@ -83,9 +85,5 @@ class LandingScreen extends Component {
   }
 }
 
-const mapStateToProps = (_, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
-
-export default connect(mapStateToProps)(LandingScreen);
+export default connect()(LandingScreen);
 export const LANDING_SCREEN = 'nav/LANDING';

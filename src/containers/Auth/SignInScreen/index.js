@@ -1,10 +1,11 @@
-/* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
+/* eslint max-lines-per-function: 0 */
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, Keyboard, View } from 'react-native';
 import { translate } from 'react-i18next';
 import i18n from 'i18next';
+import PropTypes from 'prop-types';
 
 import {
   Button,
@@ -14,21 +15,25 @@ import {
   LoadingWheel,
 } from '../../../components/common';
 import Input from '../../../components/Input';
-import { keyLogin, openKeyURL } from '../../../actions/auth';
+import {
+  keyLoginWithAuthorizationCode,
+  keyLogin,
+  openKeyURL,
+} from '../../../actions/auth/key';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS, MFA_REQUIRED } from '../../../constants';
 import { isAndroid } from '../../../utils/common';
-import { onSuccessfulLogin } from '../../../actions/login';
-import { facebookLoginWithUsernamePassword } from '../../../actions/facebook';
+import {
+  facebookPromptLogin,
+  facebookLoginWithAccessToken,
+} from '../../../actions/auth/facebook';
 import BackButton from '../../BackButton';
-import { navigatePush } from '../../../actions/navigation';
-import { MFA_CODE_SCREEN } from '../MFACodeScreen';
 import Header from '../../Header';
 
 import styles from './styles';
 
 @translate('keyLogin')
-class KeyLoginScreen extends Component {
+class SignInScreen extends Component {
   state = {
     email: '',
     password: '',
@@ -69,43 +74,32 @@ class KeyLoginScreen extends Component {
     this.setState({ password });
   };
 
-  startLoad = () => {
-    this.setState({ isLoading: true });
-  };
-
-  navigateToNext = () => {
+  handleForgotPassword = async () => {
     const { dispatch, next } = this.props;
-    dispatch(next());
-  };
-
-  handleForgotPassword = () => {
-    const { dispatch, upgradeAccount } = this.props;
-    dispatch(
-      openKeyURL(
-        'service/selfservice?target=displayForgotPassword',
-        this.startLoad,
-        upgradeAccount,
-      ),
+    const { code, codeVerifier, redirectUri } = await dispatch(
+      openKeyURL('service/selfservice?target=displayForgotPassword'),
     );
+    this.setState({ isLoading: true });
+    try {
+      await dispatch(
+        keyLoginWithAuthorizationCode(code, codeVerifier, redirectUri),
+      );
+      dispatch(next());
+    } catch (e) {
+      this.setState({ isLoading: false });
+    }
   };
 
   login = async () => {
-    const { dispatch, upgradeAccount, next } = this.props;
+    const { dispatch, next } = this.props;
     const { email, password } = this.state;
 
     this.setState({ errorMessage: '', isLoading: true });
 
     try {
-      await dispatch(
-        keyLogin(
-          email,
-          password,
-          null,
-          upgradeAccount,
-          next ? this.navigateToNext : null,
-        ),
-      );
+      await dispatch(keyLogin(email, password));
       Keyboard.dismiss();
+      dispatch(next());
     } catch (error) {
       this.setState({ isLoading: false });
 
@@ -122,11 +116,10 @@ class KeyLoginScreen extends Component {
         errorMessage = i18n.t('keyLogin:verifyEmailMessage');
       } else if (apiError['thekey_authn_error'] === MFA_REQUIRED) {
         dispatch(
-          navigatePush(MFA_CODE_SCREEN, {
+          next({
+            requires2FA: true,
             email,
             password,
-            upgradeAccount,
-            next: next ? this.navigateToNext : null,
           }),
         );
         this.setState({ email: '', password: '' });
@@ -144,22 +137,17 @@ class KeyLoginScreen extends Component {
     }
   };
 
-  facebookLogin = () => {
-    const { dispatch, upgradeAccount, next } = this.props;
+  facebookLogin = async () => {
+    const { dispatch, next } = this.props;
 
-    dispatch(
-      facebookLoginWithUsernamePassword(
-        upgradeAccount || false,
-        this.startLoad,
-        () => onSuccessfulLogin(next ? this.navigateToNext : null),
-      ),
-    ).then(result => {
-      if (result) {
-        this.setState({ isLoading: true });
-      } else {
-        this.setState({ isLoading: false });
-      }
-    });
+    try {
+      await dispatch(facebookPromptLogin());
+      this.setState({ isLoading: true });
+      await dispatch(facebookLoginWithAccessToken());
+      dispatch(next());
+    } catch (error) {
+      this.setState({ isLoading: false });
+    }
   };
 
   renderErrorMessage() {
@@ -279,11 +267,15 @@ class KeyLoginScreen extends Component {
   }
 }
 
-const mapStateToProps = (_, { navigation }) => {
-  const { upgradeAccount, forcedLogout } = navigation.state.params || {};
-
-  return { upgradeAccount, forcedLogout };
+SignInScreen.propTypes = {
+  next: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps)(KeyLoginScreen);
-export const KEY_LOGIN_SCREEN = 'nav/KEY_LOGIN';
+const mapStateToProps = (_, { navigation }) => {
+  const { forcedLogout } = navigation.state.params || {};
+
+  return { forcedLogout };
+};
+
+export default connect(mapStateToProps)(SignInScreen);
+export const SIGN_IN_SCREEN = 'nav/SIGN_IN_SCREEN';

@@ -92,6 +92,7 @@ describe('navigateNestedReset', () => {
 
     expect(StackActions.reset).toHaveBeenCalledWith({
       index: 1,
+      key: null,
       actions: [{ routeName: screen1 }, { routeName: screen2 }],
     });
   });
