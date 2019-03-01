@@ -1049,3 +1049,61 @@ describe('GET_USERS_REPORT.SUCCESS', () => {
     ).toMatchSnapshot();
   });
 });
+
+describe('global like/unlike', () => {
+  const itemOne = { id: '2423421531', liked: false };
+  const itemTwo = { id: '1789987897', liked: true };
+
+  const state = {
+    all: [
+      {
+        id: GLOBAL_COMMUNITY_ID,
+        celebrateItems: [itemOne, itemTwo],
+      },
+    ],
+  };
+
+  describe('REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS', () => {
+    it('should mark item as liked', () => {
+      expect(
+        organizations(state, {
+          type: REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS,
+          query: { eventId: itemOne.id },
+        }),
+      ).toEqual(
+        expect.objectContaining({
+          all: expect.arrayContaining([
+            {
+              id: GLOBAL_COMMUNITY_ID,
+              celebrateItems: expect.arrayContaining([
+                { id: itemOne.id, liked: true },
+              ]),
+            },
+          ]),
+        }),
+      );
+    });
+  });
+
+  describe('REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS', () => {
+    it('should mark item as unliked', () => {
+      expect(
+        organizations(state, {
+          type: REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS,
+          query: { eventId: itemTwo.id },
+        }),
+      ).toEqual(
+        expect.objectContaining({
+          all: expect.arrayContaining([
+            {
+              id: GLOBAL_COMMUNITY_ID,
+              celebrateItems: expect.arrayContaining([
+                { id: itemTwo.id, liked: false },
+              ]),
+            },
+          ]),
+        }),
+      );
+    });
+  });
+});

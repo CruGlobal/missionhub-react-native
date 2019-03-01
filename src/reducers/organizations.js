@@ -284,10 +284,7 @@ function toggleGlobalCelebrationLike(action, state, liked) {
   const newOrg = {
     ...org,
     celebrateItems: org.celebrateItems.map(
-      c =>
-        c.id === query.eventId
-          ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
-          : c,
+      c => (c.id === query.eventId ? { ...c, liked } : c),
     ),
   };
 
