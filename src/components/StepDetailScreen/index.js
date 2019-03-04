@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
-import Markdown from 'react-native-simple-markdown';
+import Markdown from 'react-native-markdown-renderer';
 import { ScrollView } from 'react-native';
 
 import Header from '../../containers/Header/index';
@@ -9,8 +9,9 @@ import BackButton from '../../containers/BackButton/index';
 import BottomButton from '../BottomButton/index';
 import ReminderButton from '../ReminderButton/index';
 import { Text } from '../common';
+import markdownStyles from '../../markdownStyles';
 
-import styles, { markdownStyles } from './styles';
+import styles from './styles';
 
 export default function StepDetailScreen({
   text,
@@ -19,7 +20,7 @@ export default function StepDetailScreen({
   RightHeader,
   bottomButtonProps,
 }) {
-  const { container, stepTitleText, bodyStyle, backButton } = styles;
+  const { container, stepTitleText, backButton } = styles;
 
   return (
     <View flex={1} style={container}>
@@ -32,10 +33,10 @@ export default function StepDetailScreen({
       />
       <Text style={stepTitleText}>{text}</Text>
       <ReminderButton />
-      <View style={bodyStyle}>
+      <View flex={1}>
         {markdown && (
-          <ScrollView>
-            <Markdown styles={markdownStyles}>{markdown}</Markdown>
+          <ScrollView style={styles.body}>
+            <Markdown style={markdownStyles}>{markdown}</Markdown>
           </ScrollView>
         )}
       </View>
