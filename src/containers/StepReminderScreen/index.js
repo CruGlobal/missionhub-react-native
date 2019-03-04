@@ -14,16 +14,46 @@ import { translate } from 'react-i18next';
 import BackButton from '../BackButton';
 import DatePicker from '../../components/DatePicker';
 import BottomButton from '../../components/BottomButton';
+import { Button } from '../../components/common';
 
 import styles from './styles';
 
-@translate()
+@translate('stepReminder')
 class StepReminderScreen extends Component {
   render() {
+    const { t } = this.props;
+    const {
+      container,
+      buttonContainer,
+      button,
+      buttonInactive,
+      buttonActive,
+      buttonText,
+      buttonTextInactive,
+      buttonTextActive,
+    } = styles;
+
     return (
-      <View style={styles.container}>
+      <View style={container}>
         <DatePicker />
-        <BottomButton text={this.props.t('done')} />
+        <View style={buttonContainer}>
+          <Button
+            style={[button, buttonInactive]}
+            buttonTextStyle={[buttonText, buttonTextInactive]}
+            text={t('daily')}
+          />
+          <Button
+            style={[button, buttonActive]}
+            buttonTextStyle={[buttonText, buttonTextActive]}
+            text={t('weekly')}
+          />
+          <Button
+            style={[button, buttonInactive]}
+            buttonTextStyle={[buttonText, buttonTextInactive]}
+            text={t('monthly')}
+          />
+        </View>
+        <BottomButton text={t('done')} />
         <BackButton absolute={true} />
       </View>
     );

@@ -4,9 +4,12 @@ import React from 'react';
 import { Animated, TimePickerAndroid, DatePickerAndroid } from 'react-native';
 import MockDate from 'mockdate';
 
-import DatePicker from '..';
+import DatePicker from '../../DatePicker/index';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import {
+  testSnapshotShallow,
+  renderShallow,
+} from '../../../../testUtils/index';
 import * as common from '../../../utils/common';
 
 const mockDate = '2018-09-12 12:00:00 PM GMT+0';

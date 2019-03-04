@@ -194,7 +194,12 @@ export default {
     editJourneyButton: 'Save',
     makeShorter:
       'Thanks for creating a step! But we need you to make it a little shorter so it can fit.',
+  },
+  stepReminder: {
     setReminder: 'Set a Reminder',
+    daily: 'Daily',
+    weekly: 'Weekly',
+    monthly: 'Monthly',
   },
   selectStep: {
     meHeader: 'How do you want to move forward on your spiritual journey?',

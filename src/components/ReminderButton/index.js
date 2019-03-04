@@ -9,7 +9,7 @@ import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
 
 import styles from './styles';
 
-@translate()
+@translate('stepReminder')
 class ReminderButton extends Component {
   handleSetReminder = () => {
     const { dispatch, step } = this.props;
@@ -36,7 +36,7 @@ class ReminderButton extends Component {
           <View style={reminderIconCircle}>
             <Icon name="bellIcon" type="MissionHub" style={reminderIcon} />
           </View>
-          <Text style={reminderText}>{t('addStep:setReminder')}</Text>
+          <Text style={reminderText}>{t('setReminder')}</Text>
         </View>
         <Button onPress={this.handleRemoveReminder} style={cancelIconButton}>
           <Icon name="close" type="Material" style={cancelIcon} />
