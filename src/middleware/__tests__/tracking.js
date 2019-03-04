@@ -31,7 +31,6 @@ const back = { type: NAVIGATE_BACK };
 const trackStateResult = { type: 'tracked state' };
 
 beforeEach(() => {
-  trackState.mockReset();
   trackState.mockReturnValue(trackStateResult);
 });
 

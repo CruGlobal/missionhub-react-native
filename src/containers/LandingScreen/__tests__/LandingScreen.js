@@ -7,16 +7,17 @@ import LandingScreen from '..';
 import {
   createMockStore,
   testSnapshot,
-  createMockNavState,
   renderShallow,
 } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
-import { KEY_LOGIN_SCREEN } from '../../Auth/KeyLoginScreen';
 import { WELCOME_SCREEN } from '../../WelcomeScreen';
-import { firstTime } from '../../../actions/auth';
-import { JOIN_BY_CODE_ONBOARDING_FLOW } from '../../../routes/constants';
+import { firstTime } from '../../../actions/auth/userData';
+import {
+  JOIN_BY_CODE_ONBOARDING_FLOW,
+  SIGN_IN_FLOW,
+} from '../../../routes/constants';
 
-jest.mock('../../../actions/auth');
+jest.mock('../../../actions/auth/userData');
 
 let store;
 
@@ -31,7 +32,7 @@ beforeEach(() => {
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <LandingScreen navigation={createMockNavState({})} />
+      <LandingScreen />
     </Provider>,
   );
 });
@@ -40,10 +41,7 @@ describe('a button is clicked', () => {
   let screen;
 
   beforeEach(() => {
-    screen = renderShallow(
-      <LandingScreen navigation={createMockNavState({})} />,
-      store,
-    );
+    screen = renderShallow(<LandingScreen />, store);
   });
 
   it('get started to be called', () => {
@@ -59,6 +57,6 @@ describe('a button is clicked', () => {
 
   it('sign in button to be called', () => {
     screen.find({ name: 'signInButton' }).simulate('press');
-    expect(navigatePush).toHaveBeenCalledWith(KEY_LOGIN_SCREEN);
+    expect(navigatePush).toHaveBeenCalledWith(SIGN_IN_FLOW);
   });
 });

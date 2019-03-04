@@ -148,10 +148,6 @@ const feed = [
 
 callApi.mockReturnValue(() => Promise.resolve({ response: { all: feed } }));
 
-beforeEach(() => {
-  callApi.mockClear();
-});
-
 describe('reload journey', () => {
   it('should not load if journey has not been fetched for org', async () => {
     store = mockStore({ journey: { personal: {} } });

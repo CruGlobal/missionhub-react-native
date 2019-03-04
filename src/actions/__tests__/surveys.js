@@ -13,7 +13,6 @@ let store;
 
 beforeEach(() => {
   store = configureStore([thunk])();
-  callApi.mockClear();
 });
 
 describe('getMySurveys', () => {

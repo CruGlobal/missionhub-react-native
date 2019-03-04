@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { SafeAreaView } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../actions/navigation';
@@ -36,23 +37,25 @@ class GetStartedScreen extends Component {
     const name = firstName.toLowerCase();
 
     return (
-      <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Flex align="start" justify="center" value={4}>
-          <Text type="header" style={styles.headerTitle}>
-            {t('hi', { name })}
-          </Text>
-          <Text style={styles.text}>{t('tagline')}</Text>
-        </Flex>
+      <SafeAreaView style={styles.container}>
+        <Flex align="center" justify="center" value={1} style={styles.content}>
+          <Flex align="start" justify="center" value={4}>
+            <Text type="header" style={styles.headerTitle}>
+              {t('hi', { name })}
+            </Text>
+            <Text style={styles.text}>{t('tagline')}</Text>
+          </Flex>
 
-        <Flex value={1} align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.navigateNext}
-            text={t('getStarted').toUpperCase()}
-            style={{ width: theme.fullWidth }}
-          />
+          <Flex value={1} align="stretch" justify="end">
+            <Button
+              type="secondary"
+              onPress={this.navigateNext}
+              text={t('getStarted').toUpperCase()}
+              style={{ width: theme.fullWidth }}
+            />
+          </Flex>
         </Flex>
-      </Flex>
+      </SafeAreaView>
     );
   }
 }

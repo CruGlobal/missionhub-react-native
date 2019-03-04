@@ -4,7 +4,6 @@ import Config from 'react-native-config';
 
 export const LOGOUT = 'app/LOGOUT';
 export const FIRST_TIME = 'app/FIRST_TIME';
-export const OPEN_URL = 'app/OPEN_URL';
 export const FIRST_NAME_CHANGED = 'app/FIRST_NAME_CHANGED';
 export const LAST_NAME_CHANGED = 'app/LAST_NAME_CHANGED';
 export const PERSON_FIRST_NAME_CHANGED = 'app/PERSON_FIRST_NAME_CHANGED';
@@ -67,6 +66,7 @@ export const MAIN_TABS = 'nav/MAIN_TABS';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const PERSON_MENU_DRAWER = 'nav/drawer/person';
 export const UPDATE_TOKEN = 'app/UPDATE_TOKEN';
+export const CLEAR_UPGRADE_TOKEN = 'app/CLEAR_UPGRADE_TOKEN';
 
 // Errors
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
@@ -108,6 +108,7 @@ export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
 export const MAIN_TAB_CHANGED = 'analytics/MAIN_TAB_CHANGED';
 export const GROUP_TAB_CHANGED = 'analytics/GROUP_TAB_CHANGED';
+export const TRACK_TAB = 'analytics/TRACK_TAB';
 export const PERSON_VIEWED_STAGE_CHANGED =
   'analytics/PERSON_VIEWED_STAGE_CHANGED';
 export const SELF_VIEWED_STAGE_CHANGED = 'analytics/SELF_VIEWED_STAGE_CHANGED';

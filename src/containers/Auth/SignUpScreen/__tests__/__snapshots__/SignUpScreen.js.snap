@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`a login button is clicked email signup button is pressed loading wheel to be rendered 1`] = `
-<Flex
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -10,9 +10,6 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
     }
   }
 >
-  <Connect(Header)
-    left={<Connect(BackButton) />}
-  />
   <Flex
     align="center"
     justify="center"
@@ -204,11 +201,14 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
     </Flex>
   </Flex>
   <LoadingWheel />
-</Flex>
+  <Connect(BackButton)
+    absolute={true}
+  />
+</SafeAreaView>
 `;
 
 exports[`a login button is clicked facebook signup button is pressed loading wheel to be rendered 1`] = `
-<Flex
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -217,9 +217,6 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
     }
   }
 >
-  <Connect(Header)
-    left={<Connect(BackButton) />}
-  />
   <Flex
     align="center"
     justify="center"
@@ -411,155 +408,22 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
     </Flex>
   </Flex>
   <LoadingWheel />
-</Flex>
+  <Connect(BackButton)
+    absolute={true}
+  />
+</SafeAreaView>
 `;
 
 exports[`renders correctly for Create Community 1`] = `
-<View
+<RCTSafeAreaView
   style={
-    Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-      Object {},
-    ]
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "justifyContent": "center",
+    }
   }
 >
-  <View
-    style={
-      Array [
-        Array [
-          Object {
-            "backgroundColor": "#007398",
-            "height": 65,
-            "paddingTop": 20,
-          },
-          undefined,
-          Object {
-            "elevation": 4,
-          },
-        ],
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "marginTop": 0,
-            "paddingLeft": 5,
-          },
-          Object {
-            "alignItems": "flex-start",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <View
-        style={
-          Array [
-            Array [
-              null,
-              null,
-            ],
-            Object {
-              "alignItems": "flex-start",
-              "alignSelf": "flex-start",
-              "justifyContent": "center",
-            },
-          ]
-        }
-      >
-        <View
-          accessibilityTraits="button"
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "marginTop": 0,
-            "paddingRight": 5,
-          },
-          Object {
-            "alignItems": "flex-end",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    />
-  </View>
   <View
     style={
       Array [
@@ -1222,155 +1086,102 @@ exports[`renders correctly for Create Community 1`] = `
       </View>
     </View>
   </View>
-</View>
-`;
-
-exports[`renders correctly with logo 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-      Object {},
-    ]
-  }
->
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          Object {
-            "backgroundColor": "#007398",
-            "height": 65,
-            "paddingTop": 20,
-          },
-          undefined,
-          Object {
-            "elevation": 4,
-          },
-        ],
         Object {
-          "flexDirection": "row",
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
         },
       ]
     }
   >
     <View
+      accessibilityTraits="button"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "marginTop": 0,
-            "paddingLeft": 5,
-          },
-          Object {
-            "alignItems": "flex-start",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "opacity": 1,
+        }
       }
     >
       <View
         style={
           Array [
-            Array [
-              null,
-              null,
-            ],
             Object {
-              "alignItems": "flex-start",
-              "alignSelf": "flex-start",
-              "justifyContent": "center",
+              "backgroundColor": "transparent",
             },
+            null,
+            Object {},
+            null,
           ]
         }
       >
-        <View
-          accessibilityTraits="button"
+        <Text
           accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
           style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <View
-            style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "color": "#ffffff",
                 },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
+                Object {
+                  "fontSize": 18,
+                },
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
+                    "margin": 10,
                   },
                   Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
-    <View
-      style={
-        Array [
-          Object {
-            "marginTop": 0,
-            "paddingRight": 5,
-          },
-          Object {
-            "alignItems": "flex-end",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    />
-  </View>
+  </RCTSafeAreaView>
+</RCTSafeAreaView>
+`;
+
+exports[`renders correctly with logo 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
   <View
     style={
       Array [
@@ -1972,5 +1783,88 @@ exports[`renders correctly with logo 1`] = `
       </View>
     </View>
   </View>
-</View>
+  <RCTSafeAreaView
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityTraits="button"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {},
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</RCTSafeAreaView>
 `;

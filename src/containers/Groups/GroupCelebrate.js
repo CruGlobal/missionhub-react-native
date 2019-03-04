@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import moment from 'moment';
@@ -55,14 +56,16 @@ export class GroupCelebrate extends Component {
     const { celebrateItems, organization } = this.props;
 
     return (
-      <CelebrateFeed
-        organization={organization}
-        items={celebrateItems}
-        loadMoreItemsCallback={this.loadItems}
-        refreshCallback={this.refreshItems}
-        refreshing={refreshing}
-        itemNamePressable={organization.id !== GLOBAL_COMMUNITY_ID}
-      />
+      <SafeAreaView style={{ flex: 1 }}>
+        <CelebrateFeed
+          organization={organization}
+          items={celebrateItems}
+          loadMoreItemsCallback={this.loadItems}
+          refreshCallback={this.refreshItems}
+          refreshing={refreshing}
+          itemNamePressable={organization.id !== GLOBAL_COMMUNITY_ID}
+        />
+      </SafeAreaView>
     );
   }
 }

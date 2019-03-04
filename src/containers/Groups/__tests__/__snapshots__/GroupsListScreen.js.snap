@@ -8,6 +8,9 @@ exports[`GroupsListScreen should render correctly 1`] = `
     }
   }
 >
+  <Component
+    screen="GroupsTab"
+  />
   <Connect(Header)
     left={
       <IconButton
@@ -96,6 +99,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
     }
     style={
       Object {
+        "backgroundColor": "#E6E8EC",
         "flex": 1,
       }
     }
@@ -168,6 +172,9 @@ exports[`should render null state 1`] = `
     }
   }
 >
+  <Component
+    screen="GroupsTab"
+  />
   <Connect(Header)
     left={
       <IconButton
@@ -256,6 +263,7 @@ exports[`should render null state 1`] = `
     }
     style={
       Object {
+        "backgroundColor": "#E6E8EC",
         "flex": 1,
       }
     }

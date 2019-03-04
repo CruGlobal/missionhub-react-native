@@ -14,7 +14,7 @@ exports[`onSubmit changes loading property 1`] = `
   isLoading={true}
   onChangeText={[Function]}
   onSubmit={[Function]}
-  value=""
+  value="123456"
 />
 `;
 

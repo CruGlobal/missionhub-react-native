@@ -23,8 +23,7 @@ export function toggleLike(orgId, eventId, liked) {
       ? REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM
       : REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM;
 
-  return async dispatch => {
-    await dispatch(callApi(request, { orgId, eventId }));
-    return dispatch(reloadGroupCelebrateFeed(orgId));
+  return dispatch => {
+    return dispatch(callApi(request, { orgId, eventId }));
   };
 }

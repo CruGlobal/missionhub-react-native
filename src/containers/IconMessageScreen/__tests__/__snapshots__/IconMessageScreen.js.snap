@@ -5,8 +5,10 @@ exports[`renders button text correctly 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "backgroundColor": "#007398",
         "flex": 1,
+        "justifyContent": "center",
         "paddingHorizontal": 60,
       },
       Object {
@@ -63,82 +65,90 @@ exports[`renders button text correctly 1`] = `
       
     </Text>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "stretch",
-          "flex": 1,
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <View
-      accessibilityTraits="button"
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {},
+          Object {
+            "alignItems": "stretch",
+            "flex": 1,
+            "justifyContent": "flex-end",
+          },
+        ]
       }
     >
       <View
+        accessibilityTraits="button"
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
-          ]
+          Object {
+            "opacity": 1,
+          }
         }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
               },
+              null,
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "width": 750,
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
+              null,
             ]
           }
         >
-          Click me
-        </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            Click me
+          </Text>
+        </View>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -147,8 +157,10 @@ exports[`renders icon correctly 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "backgroundColor": "#007398",
         "flex": 1,
+        "justifyContent": "center",
         "paddingHorizontal": 60,
       },
       Object {
@@ -210,53 +222,61 @@ exports[`renders icon correctly 1`] = `
       
     </Text>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "stretch",
-          "flex": 1,
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <View
-      accessibilityTraits="button"
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {},
+          Object {
+            "alignItems": "stretch",
+            "flex": 1,
+            "justifyContent": "flex-end",
+          },
+        ]
       }
     >
       <View
+        accessibilityTraits="button"
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
-          ]
+          Object {
+            "opacity": 1,
+          }
         }
-      />
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "width": 750,
+              },
+              null,
+            ]
+          }
+        />
+      </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -265,8 +285,10 @@ exports[`renders main text correctly 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "backgroundColor": "#007398",
         "flex": 1,
+        "justifyContent": "center",
         "paddingHorizontal": 60,
       },
       Object {
@@ -323,53 +345,61 @@ exports[`renders main text correctly 1`] = `
       Hello, world!
     </Text>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "stretch",
-          "flex": 1,
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <View
-      accessibilityTraits="button"
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {},
+          Object {
+            "alignItems": "stretch",
+            "flex": 1,
+            "justifyContent": "flex-end",
+          },
+        ]
       }
     >
       <View
+        accessibilityTraits="button"
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
-          ]
+          Object {
+            "opacity": 1,
+          }
         }
-      />
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "width": 750,
+              },
+              null,
+            ]
+          }
+        />
+      </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -378,8 +408,10 @@ exports[`renders skip button correctly 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "backgroundColor": "#007398",
         "flex": 1,
+        "justifyContent": "center",
         "paddingHorizontal": 60,
       },
       Object {
@@ -436,63 +468,68 @@ exports[`renders skip button correctly 1`] = `
       
     </Text>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "stretch",
-          "flex": 1,
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <View
-      accessibilityTraits="button"
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {},
+          Object {
+            "alignItems": "stretch",
+            "flex": 1,
+            "justifyContent": "flex-end",
+          },
+        ]
       }
     >
       <View
+        accessibilityTraits="button"
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
-          ]
+          Object {
+            "opacity": 1,
+          }
         }
-      />
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "width": 750,
+              },
+              null,
+            ]
+          }
+        />
+      </View>
     </View>
-  </View>
-  <View
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
     style={
-      Array [
-        Object {
-          "position": "absolute",
-          "right": 10,
-          "top": 35,
-        },
-        Object {},
-      ]
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 0,
+      }
     }
   >
     <View
@@ -557,6 +594,6 @@ exports[`renders skip button correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </View>
 `;

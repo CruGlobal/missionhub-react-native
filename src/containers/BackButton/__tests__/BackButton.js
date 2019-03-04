@@ -25,7 +25,7 @@ describe('back button', () => {
   });
 
   it('renders normally', () => {
-    expect(shallowScreen.dive()).toMatchSnapshot();
+    expect(shallowScreen).toMatchSnapshot();
   });
 
   it('calls navigate back once', () => {

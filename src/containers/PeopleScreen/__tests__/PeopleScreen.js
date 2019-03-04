@@ -15,6 +15,7 @@ import { navToPersonScreen } from '../../../actions/person';
 
 jest.mock('../../../actions/person');
 jest.mock('../../../selectors/people');
+jest.mock('../../TrackTabChange', () => () => null);
 
 jest.mock('../../../actions/people', () => ({
   getMyPeople: jest.fn(),
@@ -182,7 +183,7 @@ describe('PeopleScreen', () => {
       const person = org.people[0];
       const screen = renderShallow(<PeopleScreen {...props} />);
       screen
-        .childAt(1)
+        .childAt(2)
         .props()
         .onSelect(person, org);
 
@@ -194,7 +195,7 @@ describe('PeopleScreen', () => {
       const person = org.people[0];
       const screen = renderShallow(<PeopleScreen {...props} />);
       screen
-        .childAt(1)
+        .childAt(2)
         .props()
         .onSelect(person, org);
 

@@ -41,7 +41,6 @@ const baseEvent = {
 beforeEach(() => {
   store = mockStore({ auth: { person: { id: myId } } });
 
-  jest.clearAllMocks();
   trackActionWithoutData.mockReturnValue(trackActionResult);
 });
 

@@ -8,32 +8,37 @@ import { renderShallow } from '../../../../../testUtils';
 
 import MFACodeScreen from '..';
 
-import { keyLogin } from '../../../../actions/auth';
+import { keyLogin } from '../../../../actions/auth/key';
 import { MFA_REQUIRED } from '../../../../constants';
 
-jest.mock('../../../../actions/auth');
+jest.mock('../../../../actions/auth/key');
 
 const mockStore = configureStore([thunk]);
 const store = mockStore({});
 
 const email = 'roger@test.com';
 const password = 'my password';
-const upgradeAccount = true;
+const mfaCode = '123456';
 
 const navigation = {
   state: {
     params: {
       email,
       password,
-      upgradeAccount,
     },
   },
 };
 
+const nextAction = { type: 'test-next' };
+const next = jest.fn(() => nextAction);
+
 let screen;
 
 beforeEach(() => {
-  screen = renderShallow(<MFACodeScreen navigation={navigation} />, store);
+  screen = renderShallow(
+    <MFACodeScreen navigation={navigation} next={next} />,
+    store,
+  );
 });
 
 it('renders correctly', () => {
@@ -49,6 +54,7 @@ it('changes text', () => {
 
 describe('onSubmit', () => {
   const clickLoginButton = () => screen.props().onSubmit();
+  beforeEach(() => screen.setState({ mfaCode }));
 
   it('logs in with email, password, mfa code, and upgrade account', async () => {
     const mockKeyLoginResult = { type: 'logged in with the Key' };
@@ -56,7 +62,9 @@ describe('onSubmit', () => {
 
     await clickLoginButton();
 
-    expect(store.getActions()).toEqual([mockKeyLoginResult]);
+    expect(keyLogin).toHaveBeenCalledWith(email, password, mfaCode);
+    expect(next).toHaveBeenCalled();
+    expect(store.getActions()).toEqual([mockKeyLoginResult, nextAction]);
   });
 
   it('shows error modal if mfa code is incorrect', async () => {
@@ -65,21 +73,21 @@ describe('onSubmit', () => {
       Promise.reject({ apiError: { thekey_authn_error: MFA_REQUIRED } }),
     );
 
-    await clickLoginButton();
+    await expect(clickLoginButton()).resolves.toBeUndefined();
 
+    expect(keyLogin).toHaveBeenCalledWith(email, password, mfaCode);
+    expect(next).not.toHaveBeenCalled();
     expect(Alert.alert).toHaveBeenCalledWith(i18n.t('mfaLogin:mfaIncorrect'));
   });
 
   it('it throws unexpected errors', async () => {
-    expect.assertions(1);
     const error = { apiError: { message: 'some error' } };
     keyLogin.mockReturnValue(() => Promise.reject(error));
 
-    try {
-      await clickLoginButton();
-    } catch (e) {
-      expect(e).toEqual(error);
-    }
+    await expect(clickLoginButton()).rejects.toEqual(error);
+
+    expect(keyLogin).toHaveBeenCalledWith(email, password, mfaCode);
+    expect(next).not.toHaveBeenCalled();
   });
 
   it('changes loading property', () => {

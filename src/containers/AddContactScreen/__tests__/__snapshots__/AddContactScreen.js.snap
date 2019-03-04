@@ -6,8 +6,6 @@ exports[`renders correctly 1`] = `
     Object {
       "backgroundColor": "#007398",
       "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
     }
   }
 >
@@ -22,26 +20,34 @@ exports[`renders correctly 1`] = `
     shadow={false}
     title="ADD SOMEONE"
   />
-  <ScrollView
+  <SafeAreaView
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <Connect(Translate(AddContactFields))
-      onUpdateData={[Function]}
-    />
-  </ScrollView>
-  <Button
-    onPress={[Function]}
-    style={
-      Object {
-        "width": 750,
+    <ScrollView
+      style={
+        Object {
+          "flex": 1,
+        }
       }
-    }
-    text="DONE"
-    type="secondary"
-  />
+    >
+      <Connect(Translate(AddContactFields))
+        onUpdateData={[Function]}
+      />
+    </ScrollView>
+    <Button
+      onPress={[Function]}
+      style={
+        Object {
+          "width": 750,
+        }
+      }
+      text="DONE"
+      type="secondary"
+    />
+  </SafeAreaView>
 </Component>
 `;

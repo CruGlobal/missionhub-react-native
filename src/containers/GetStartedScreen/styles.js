@@ -6,6 +6,8 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.primaryColor,
+  },
+  content: {
     paddingHorizontal: 60,
   },
   headerTitle: {
