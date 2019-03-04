@@ -26,6 +26,7 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   datePickerBox: {
+    flex: 1,
     backgroundColor: theme.white,
     height: 0,
     overflow: 'hidden',

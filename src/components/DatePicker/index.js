@@ -16,7 +16,7 @@ import {
 import moment from 'moment';
 import { translate } from 'react-i18next';
 
-import { Text, Touchable } from '../common';
+import { Text, Touchable, Button } from '../common';
 import { isAndroid, locale, isFunction } from '../../utils/common';
 
 import styles from './styles';
@@ -77,12 +77,12 @@ class DatePicker extends Component {
   };
 
   onPressConfirm = () => {
+    const { onCloseModal } = this.props;
+
     this.datePicked();
     this.closeModal();
 
-    if (isFunction(this.props.onCloseModal)) {
-      this.props.onCloseModal();
-    }
+    isFunction(onCloseModal) && onCloseModal();
   };
 
   getDate(date = this.props.date) {
@@ -272,7 +272,7 @@ class DatePicker extends Component {
       locale,
       title,
     } = this.props;
-    const { modalVisible, date } = this.state;
+    const { modalVisible, animatedHeight, date } = this.state;
     const {
       datePickerMask,
       datePickerBox,
@@ -289,45 +289,42 @@ class DatePicker extends Component {
         visible={modalVisible}
         onRequestClose={this.closeModal}
       >
-        <View style={{ flex: 1 }}>
-          <Touchable
-            style={datePickerMask}
-            activeOpacity={1}
-            onPress={this.onPressCancel}
-          >
-            {' '}
-            <Animated.View
-              style={[datePickerBox, { height: this.state.animatedHeight }]}
-            >
-              <DatePickerIOS
-                date={date}
-                mode={mode}
-                minimumDate={minDate && this.getDate(minDate)}
-                maximumDate={maxDate && this.getDate(maxDate)}
-                onDateChange={this.onDateChange}
-                minuteInterval={minuteInterval}
-                timeZoneOffsetInMinutes={
-                  timeZoneOffsetInMinutes ? timeZoneOffsetInMinutes : null
-                }
-                style={[styles.datePicker, customStyles.datePicker]}
-                locale={locale}
+        <Touchable
+          style={datePickerMask}
+          activeOpacity={1}
+          onPress={this.onPressCancel}
+        >
+          <Animated.View style={[datePickerBox, { height: animatedHeight }]}>
+            <DatePickerIOS
+              date={date}
+              mode={mode}
+              minimumDate={minDate && this.getDate(minDate)}
+              maximumDate={maxDate && this.getDate(maxDate)}
+              onDateChange={this.onDateChange}
+              minuteInterval={minuteInterval}
+              timeZoneOffsetInMinutes={
+                timeZoneOffsetInMinutes ? timeZoneOffsetInMinutes : null
+              }
+              style={[styles.datePicker, customStyles.datePicker]}
+              locale={locale}
+            />
+            <View style={topWrap}>
+              <Button
+                type={'transparent'}
+                onPress={this.onPressCancel}
+                text={cancelBtnText || t('cancel')}
+                buttonTextStyle={[btnText, btnTextCancel]}
               />
-              <View style={topWrap}>
-                <Touchable onPress={this.onPressCancel}>
-                  <Text style={[btnText, btnTextCancel]}>
-                    {cancelBtnText || t('cancel')}
-                  </Text>
-                </Touchable>
-                <Text style={titleText}>{title || t('date')}</Text>
-                <Touchable onPress={this.onPressConfirm}>
-                  <Text style={[btnText, customStyles.btnTextConfirm]}>
-                    {doneBtnText || t('done')}
-                  </Text>
-                </Touchable>
-              </View>
-            </Animated.View>
-          </Touchable>
-        </View>
+              <Text style={titleText}>{title || t('date')}</Text>
+              <Button
+                type={'transparent'}
+                onPress={this.onPressConfirm}
+                text={doneBtnText || t('done')}
+                buttonTextStyle={[btnText, customStyles.btnTextConfirm]}
+              />
+            </View>
+          </Animated.View>
+        </Touchable>
       </Modal>
     );
   };
