@@ -1,7 +1,7 @@
 import { createStackNavigator } from 'react-navigation';
 
 import { navigatePush } from '../../actions/navigation';
-import { firstTime, loadHome } from '../../actions/auth';
+import { firstTime, loadHome } from '../../actions/auth/userData';
 import {
   completeOnboarding,
   stashCommunityToJoin,

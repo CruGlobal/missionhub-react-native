@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -63,7 +63,7 @@ export class GroupChallenges extends Component {
     const { t, challengeItems, organization, myOrgPermissions } = this.props;
 
     return (
-      <View style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1 }}>
         <ChallengeFeed
           organization={organization}
           items={challengeItems}
@@ -80,7 +80,7 @@ export class GroupChallenges extends Component {
             />
           </Flex>
         ) : null}
-      </View>
+      </SafeAreaView>
     );
   }
 }

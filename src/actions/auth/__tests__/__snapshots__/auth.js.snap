@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`logout should perform the needed actions for forced signing out 1`] = `
+Array [
+  Object {
+    "type": "DELETE_PUSH_TOKEN_SUCCESS",
+  },
+  Object {
+    "type": "app/LOGOUT",
+  },
+  Object {
+    "actions": Array [
+      Object {
+        "params": Object {
+          "forcedLogout": true,
+        },
+        "routeName": "nav/SIGN_IN_FLOW",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": null,
+    "type": "Navigation/RESET",
+  },
+]
+`;
+
+exports[`logout should perform the needed actions for signing out 1`] = `
+Array [
+  Object {
+    "type": "DELETE_PUSH_TOKEN_SUCCESS",
+  },
+  Object {
+    "type": "app/LOGOUT",
+  },
+  Object {
+    "actions": Array [
+      Object {
+        "params": Object {},
+        "routeName": "nav/LANDING",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": null,
+    "type": "Navigation/RESET",
+  },
+]
+`;
+
+exports[`navigateToPostAuthScreen should navigate to add someone if user has pathway_stage_id and no contact assignments 1`] = `
+Array [
+  Object {
+    "actions": Array [
+      Object {
+        "params": Object {},
+        "routeName": "nav/ADD_SOMEONE",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": null,
+    "type": "Navigation/RESET",
+  },
+]
+`;
+
+exports[`navigateToPostAuthScreen should navigate to get started if user's pathway_stage_id is missing 1`] = `
+Array [
+  Object {
+    "actions": Array [
+      Object {
+        "params": Object {},
+        "routeName": "nav/GET_STARTED",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": null,
+    "type": "Navigation/RESET",
+  },
+]
+`;
+
+exports[`navigateToPostAuthScreen should navigate to main tabs if user has pathway_stage_id and contact assignments 1`] = `
+Array [
+  Object {
+    "type": "app/COMPLETE_ONBOARDING",
+  },
+  Object {
+    "actions": Array [
+      Object {
+        "params": Object {},
+        "routeName": "nav/MAIN_TABS",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": null,
+    "type": "Navigation/RESET",
+  },
+]
+`;

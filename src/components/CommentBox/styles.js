@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
-import { hasNotch } from '../../utils/common';
 
 export default StyleSheet.create({
   container: {
@@ -10,7 +9,7 @@ export default StyleSheet.create({
     borderTopColor: theme.grey1,
     borderTopWidth: theme.separatorHeight,
     paddingTop: 5,
-    paddingBottom: hasNotch() ? 25 : 5,
+    paddingBottom: 5,
   },
   actionSelectionWrap: {
     backgroundColor: theme.primaryColor,

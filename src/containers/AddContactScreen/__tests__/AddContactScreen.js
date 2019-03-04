@@ -69,7 +69,6 @@ function buildScreenInstance(props) {
 }
 
 beforeEach(() => {
-  jest.clearAllMocks();
   organizations.addNewPerson.mockImplementation(
     jest.fn(() => mockAddNewPerson),
   );

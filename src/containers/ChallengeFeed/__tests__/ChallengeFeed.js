@@ -100,7 +100,6 @@ const props = {
 };
 
 beforeEach(() => {
-  jest.clearAllMocks();
   component = renderShallow(
     <ChallengeFeed
       {...props}

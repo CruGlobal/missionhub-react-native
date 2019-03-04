@@ -10,7 +10,7 @@ import {
   removeSwipeStepsHome,
   removeSwipeStepsReminder,
 } from '../../actions/swipe';
-import { loadHome } from '../../actions/auth';
+import { loadHome } from '../../actions/auth/userData';
 import {
   showReminderScreen,
   showWelcomeNotification,
@@ -41,9 +41,10 @@ import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
 import { openMainMenu, refresh, toast } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, STEPS_TAB } from '../../constants';
 import { navToPersonScreen } from '../../actions/person';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
+import TrackTabChange from '../TrackTabChange';
 
 import styles from './styles';
 
@@ -360,6 +361,7 @@ export class StepsScreen extends Component {
 
     return (
       <View style={{ flex: 1 }}>
+        <TrackTabChange screen={STEPS_TAB} />
         <Header
           left={
             <IconButton

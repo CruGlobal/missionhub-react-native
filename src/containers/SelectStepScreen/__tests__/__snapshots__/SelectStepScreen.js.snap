@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SelectStepScreen renders correctly 1`] = `
-<Flex
+<Component
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -34,7 +34,8 @@ exports[`SelectStepScreen renders correctly 1`] = `
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
-</Flex>
+  <SafeAreaView />
+</Component>
 `;
 
 exports[`SelectStepScreen should render foreground header correctly 1`] = `
@@ -53,11 +54,6 @@ exports[`SelectStepScreen should render foreground header correctly 1`] = `
   <Flex
     align="center"
     justify="center"
-    style={
-      Object {
-        "marginTop": 0,
-      }
-    }
     value={1}
   >
     <Icon
@@ -105,34 +101,63 @@ exports[`SelectStepScreen should render foreground header correctly 1`] = `
 `;
 
 exports[`SelectStepScreen should render sticky header correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Array [
       Object {
-        "height": "100%",
-        "paddingTop": 0,
+        "backgroundColor": "#007398",
+        "flexDirection": "row",
+        "height": 65,
+        "paddingTop": 20,
       },
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
+      undefined,
+      null,
     ]
   }
 >
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+  <Flex
+    align="start"
+    justify="center"
     style={
       Object {
-        "color": "#ffffff",
-        "fontSize": 14,
+        "paddingLeft": 5,
       }
     }
+    value={1}
+  />
+  <Flex
+    align="center"
+    justify="center"
+    style={Object {}}
+    value={4}
   >
-    ADD STEPS OF FAITH
-  </MyText>
-</View>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 14,
+          "fontWeight": "500",
+        }
+      }
+    >
+      ADD STEPS OF FAITH
+    </MyText>
+  </Flex>
+  <Flex
+    align="end"
+    justify="center"
+    style={
+      Object {
+        "paddingRight": 5,
+      }
+    }
+    value={1}
+  />
+</SafeAreaView>
 `;
 
 exports[`mapStateToProps should provide necessary props for me 1`] = `
@@ -160,7 +185,7 @@ Object {
 `;
 
 exports[`renderBackButton should render back button 1`] = `
-<Flex
+<Component
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -193,15 +218,16 @@ exports[`renderBackButton should render back button 1`] = `
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
+  <SafeAreaView />
   <Connect(BackButton)
     absolute={true}
     customNavigate={[Function]}
   />
-</Flex>
+</Component>
 `;
 
 exports[`renderSaveButton should render save button 1`] = `
-<Flex
+<Component
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -254,20 +280,22 @@ exports[`renderSaveButton should render save button 1`] = `
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
-  <Flex
-    align="center"
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      style={
-        Object {
-          "width": 750,
+  <SafeAreaView>
+    <Flex
+      align="center"
+      justify="end"
+    >
+      <Button
+        onPress={[Function]}
+        style={
+          Object {
+            "width": 750,
+          }
         }
-      }
-      text="ADD TO MY STEPS"
-      type="secondary"
-    />
-  </Flex>
-</Flex>
+        text="ADD TO MY STEPS"
+        type="secondary"
+      />
+    </Flex>
+  </SafeAreaView>
+</Component>
 `;

@@ -22,11 +22,6 @@ const mockResponse = {
 global.APILOG = jest.fn();
 global.fetch = jest.fn(() => Promise.resolve(mockResponse));
 
-beforeEach(() => {
-  mockResponse.text.mockClear();
-  mockResponse.headers.get.mockClear();
-});
-
 it('should return session header and empty response object if there was no body', async () => {
   mockResponseBody = null;
 

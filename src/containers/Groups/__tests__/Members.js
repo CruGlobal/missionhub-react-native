@@ -62,10 +62,6 @@ const store = createMockStore({
   swipe: { groupInviteInfo: true },
 });
 
-beforeEach(() => {
-  jest.clearAllMocks();
-});
-
 describe('Members', () => {
   const component = <Members organization={organization} />;
 

@@ -46,6 +46,7 @@ export function navigateNestedReset(...screens) {
     dispatch(
       StackActions.reset({
         index: actions.length - 1,
+        key: null, // Reset root stack navigator
         actions,
       }),
     );

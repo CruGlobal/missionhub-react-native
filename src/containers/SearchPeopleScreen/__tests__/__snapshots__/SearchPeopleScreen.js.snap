@@ -24,22 +24,18 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          Object {
-            "backgroundColor": "#007398",
-            "height": 65,
-            "paddingTop": 20,
-          },
-          undefined,
-          Object {
-            "elevation": 4,
-          },
-        ],
         Object {
+          "backgroundColor": "#007398",
           "flexDirection": "row",
+          "height": 65,
+          "paddingTop": 20,
+        },
+        undefined,
+        Object {
+          "elevation": 4,
         },
       ]
     }
@@ -48,7 +44,6 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
-            "marginTop": 0,
             "paddingLeft": 5,
           },
           Object {
@@ -62,15 +57,13 @@ exports[`renders correctly 1`] = `
       <View
         style={
           Array [
-            Array [
-              null,
-              null,
-            ],
             Object {
               "alignItems": "flex-start",
               "alignSelf": "flex-start",
               "justifyContent": "center",
             },
+            undefined,
+            null,
           ]
         }
       >
@@ -144,9 +137,7 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Array [
-          Object {
-            "marginTop": 0,
-          },
+          Object {},
           Object {
             "alignItems": "center",
             "flex": 5,
@@ -211,7 +202,6 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
-            "marginTop": 0,
             "paddingRight": 5,
           },
           Object {
@@ -288,7 +278,7 @@ exports[`renders correctly 1`] = `
         </View>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
   <View
     style={
       Array [
