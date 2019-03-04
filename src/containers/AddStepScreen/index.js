@@ -53,6 +53,7 @@ class AddStepScreen extends Component {
       Alert.alert('', t('makeShorter'));
     }
   };
+
   saveStep() {
     const {
       type,

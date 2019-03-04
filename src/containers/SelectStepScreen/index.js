@@ -7,7 +7,8 @@ import PropTypes from 'prop-types';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
-import { getStepSuggestions } from '../../actions/steps';
+import { getStepSuggestions, addSteps } from '../../actions/steps';
+import { buildCustomStep } from '../../utils/steps';
 import StepSuggestionItem from '../../components/StepSuggestionItem';
 import { Text, Icon, Button } from '../../components/common';
 import BackButton from '../BackButton';
@@ -97,6 +98,18 @@ class SelectStepScreen extends Component {
     return newSuggestions;
   }
 
+  createCustomStep = text => {
+    const { dispatch, myId, receiverId, organization } = this.props;
+
+    dispatch(
+      addSteps(
+        [buildCustomStep(text, myId === receiverId)],
+        receiverId,
+        organization,
+      ),
+    );
+  };
+
   handleCreateStep = () => {
     const { dispatch, createStepTracking } = this.props;
 
@@ -104,6 +117,7 @@ class SelectStepScreen extends Component {
       navigatePush(ADD_STEP_SCREEN, {
         type: CREATE_STEP,
         trackingObj: createStepTracking,
+        onComplete: this.createCustomStep,
       }),
     );
   };
