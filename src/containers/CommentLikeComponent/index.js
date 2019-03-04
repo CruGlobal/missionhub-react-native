@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -15,36 +15,45 @@ import styles from './styles';
 
 class CommentLikeComponent extends Component {
   onPressLikeIcon = () => {
-    const { event, dispatch } = this.props;
-    dispatch(toggleLike(event.organization.id, event.id, event.liked));
-    !event.liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
+    const {
+      event: { organization, id, liked },
+      dispatch,
+    } = this.props;
+
+    dispatch(toggleLike(organization && organization.id, id, liked));
+    !liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
   };
+
+  renderCommentSection() {
+    const {
+      event: { comments_count },
+    } = this.props;
+
+    return (
+      <Fragment>
+        <Text style={styles.likeCount}>{comments_count || 0}</Text>
+        <Image source={COMMENTS} style={{ marginHorizontal: 10 }} />
+      </Fragment>
+    );
+  }
 
   render() {
     const { myId, event } = this.props;
-    const { subject_person, likes_count, comments_count, liked } = event;
-
-    if (!subject_person) {
-      return null;
-    }
+    const { subject_person, likes_count, liked } = event;
 
     const displayLikeCount =
       likes_count > 0 && subject_person && subject_person.id === myId;
 
     return (
-      subject_person && (
-        <Flex direction={'row'} align="end" justify="end">
-          <Text style={styles.likeCount}>{comments_count || 0}</Text>
-          <Image source={COMMENTS} style={{ marginHorizontal: 10 }} />
-
-          <Text style={styles.likeCount}>
-            {displayLikeCount ? likes_count : null}
-          </Text>
-          <Button onPress={this.onPressLikeIcon} style={styles.icon}>
-            <Image source={liked ? BLUE_HEART : GREY_HEART} />
-          </Button>
-        </Flex>
-      )
+      <Flex direction={'row'} align="end" justify="end">
+        {subject_person && this.renderCommentSection()}
+        <Text style={styles.likeCount}>
+          {displayLikeCount ? likes_count : null}
+        </Text>
+        <Button onPress={this.onPressLikeIcon} style={styles.icon}>
+          <Image source={liked ? BLUE_HEART : GREY_HEART} />
+        </Button>
+      </Flex>
     );
   }
 }
