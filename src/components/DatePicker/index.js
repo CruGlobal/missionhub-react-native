@@ -11,6 +11,7 @@ import {
   DatePickerIOS,
   Animated,
   Keyboard,
+  TextInput,
 } from 'react-native';
 import moment from 'moment';
 import { translate } from 'react-i18next';
@@ -257,115 +258,102 @@ class DatePicker extends Component {
     }
   };
 
-  renderInput() {
-    const { date, placeholder, customStyles, disabled } = this.props;
-
-    const dateInputStyle = [
-      styles.dateInput,
-      customStyles.dateInput,
-      disabled && styles.disabled,
-      disabled && customStyles.disabled,
-    ];
-    return (
-      <View style={dateInputStyle}>
-        <Text style={[styles.dateText, customStyles.dateText]}>
-          {!date && placeholder ? placeholder : this.getDateStr()}
-        </Text>
-      </View>
-    );
-  }
-
-  render() {
+  renderIOSModal = () => {
     const {
       t,
       mode,
-      style,
-      customStyles,
       minDate,
       maxDate,
       minuteInterval,
       timeZoneOffsetInMinutes,
+      customStyles,
       cancelBtnText,
       doneBtnText,
+      locale,
       title,
     } = this.props;
+    const { modalVisible, date } = this.state;
+    const {
+      datePickerMask,
+      datePickerBox,
+      topWrap,
+      btnText,
+      btnTextCancel,
+      titleText,
+    } = styles;
 
     return (
-      <Touchable
-        style={style}
-        underlayColor={'transparent'}
-        onPress={this.onPressDate}
+      <Modal
+        transparent={true}
+        animationType="none"
+        visible={modalVisible}
+        onRequestClose={this.closeModal}
       >
-        <View>
-          {!this.props.hideText ? this.renderInput() : <View />}
-          {!isAndroid ? (
-            <Modal
-              transparent={true}
-              animationType="none"
-              visible={this.state.modalVisible}
-              onRequestClose={this.closeModal}
+        <View style={{ flex: 1 }}>
+          <Touchable
+            style={datePickerMask}
+            activeOpacity={1}
+            onPress={this.onPressCancel}
+          >
+            {' '}
+            <Animated.View
+              style={[datePickerBox, { height: this.state.animatedHeight }]}
             >
-              <View style={{ flex: 1 }}>
-                <Touchable
-                  style={styles.datePickerMask}
-                  activeOpacity={1}
-                  onPress={this.onPressCancel}
-                >
-                  <Touchable activeOpacity={1} style={{ flex: 1 }}>
-                    <Animated.View
-                      style={[
-                        styles.datePickerBox,
-                        { height: this.state.animatedHeight },
-                      ]}
-                    >
-                      <View
-                        pointerEvents={
-                          this.state.allowPointerEvents ? 'auto' : 'none'
-                        }
-                      >
-                        <DatePickerIOS
-                          date={this.state.date}
-                          mode={mode}
-                          minimumDate={minDate && this.getDate(minDate)}
-                          maximumDate={maxDate && this.getDate(maxDate)}
-                          onDateChange={this.onDateChange}
-                          minuteInterval={minuteInterval}
-                          timeZoneOffsetInMinutes={
-                            timeZoneOffsetInMinutes
-                              ? timeZoneOffsetInMinutes
-                              : null
-                          }
-                          style={[styles.datePicker, customStyles.datePicker]}
-                          locale={locale}
-                        />
-                      </View>
-                      <View style={styles.topWrap}>
-                        <Touchable onPress={this.onPressCancel}>
-                          <Text style={[styles.btnText, styles.btnTextCancel]}>
-                            {cancelBtnText || t('cancel')}
-                          </Text>
-                        </Touchable>
-                        <Text style={styles.titleText}>
-                          {title || t('date')}
-                        </Text>
-                        <Touchable onPress={this.onPressConfirm}>
-                          <Text
-                            style={[
-                              styles.btnText,
-                              customStyles.btnTextConfirm,
-                            ]}
-                          >
-                            {doneBtnText || t('done')}
-                          </Text>
-                        </Touchable>
-                      </View>
-                    </Animated.View>
-                  </Touchable>
+              <DatePickerIOS
+                date={date}
+                mode={mode}
+                minimumDate={minDate && this.getDate(minDate)}
+                maximumDate={maxDate && this.getDate(maxDate)}
+                onDateChange={this.onDateChange}
+                minuteInterval={minuteInterval}
+                timeZoneOffsetInMinutes={
+                  timeZoneOffsetInMinutes ? timeZoneOffsetInMinutes : null
+                }
+                style={[styles.datePicker, customStyles.datePicker]}
+                locale={locale}
+              />
+              <View style={topWrap}>
+                <Touchable onPress={this.onPressCancel}>
+                  <Text style={[btnText, btnTextCancel]}>
+                    {cancelBtnText || t('cancel')}
+                  </Text>
+                </Touchable>
+                <Text style={titleText}>{title || t('date')}</Text>
+                <Touchable onPress={this.onPressConfirm}>
+                  <Text style={[btnText, customStyles.btnTextConfirm]}>
+                    {doneBtnText || t('done')}
+                  </Text>
                 </Touchable>
               </View>
-            </Modal>
-          ) : null}
+            </Animated.View>
+          </Touchable>
         </View>
+      </Modal>
+    );
+  };
+
+  render() {
+    const { date, placeholder, disabled, hideText, customStyles } = this.props;
+
+    const dateInputStyle = [
+      styles.dateInput,
+      customStyles.dateInput || {},
+      disabled && styles.disabled,
+      (disabled && customStyles.disabled) || {},
+    ];
+
+    return (
+      <Touchable underlayColor={'transparent'} onPress={this.onPressDate}>
+        {!hideText ? (
+          <View style={dateInputStyle}>
+            <Text style={[styles.dateText, customStyles.dateText || {}]}>
+              {!date && placeholder ? placeholder : this.getDateStr()}
+            </Text>
+          </View>
+        ) : (
+          <View />
+        )}
+        {!isAndroid ? this.renderIOSModal() : null}
       </Touchable>
     );
   }
