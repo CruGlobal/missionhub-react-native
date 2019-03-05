@@ -86,18 +86,23 @@ class StepsList extends Component {
 StepsList.propTypes = {
   personFirstName: PropTypes.string,
   contactName: PropTypes.string,
-  receiverId: PropTypes.string,
+  receiverId: PropTypes.string.isRequired,
   organization: PropTypes.object,
   contactStageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     .isRequired,
-  isMe: PropTypes.bool.isRequired, //todo don't pass this
+  isMe: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ auth, steps }, { isMe, contactStageId }) => ({
-  myId: auth.person.id,
-  suggestions: isMe
-    ? steps.suggestedForMe[contactStageId]
-    : steps.suggestedForOthers[contactStageId],
-});
+const mapStateToProps = ({ auth, steps }, { contactStageId, receiverId }) => {
+  const myId = auth.person.id;
+  const isMe = receiverId === myId;
 
+  return {
+    myId,
+    isMe,
+    suggestions: isMe
+      ? steps.suggestedForMe[contactStageId]
+      : steps.suggestedForOthers[contactStageId],
+  };
+};
 export default connect(mapStateToProps)(StepsList);

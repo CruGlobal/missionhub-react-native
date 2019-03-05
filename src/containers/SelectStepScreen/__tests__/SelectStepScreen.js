@@ -74,7 +74,6 @@ const createComponent = async () => {
   );
   component = renderShallow(
     <SelectStepScreen
-      isMe={false}
       headerText={headerText}
       contactStageId={contactStageId}
       createStepTracking={createStepTracking}

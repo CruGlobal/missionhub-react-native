@@ -38,15 +38,9 @@ class SelectStepScreen extends Component {
   }
 
   createCustomStep = text => {
-    const { dispatch, myId, receiverId, organization } = this.props;
+    const { dispatch, isMe, receiverId, organization } = this.props;
 
-    dispatch(
-      addSteps(
-        [buildCustomStep(text, myId === receiverId)],
-        receiverId,
-        organization,
-      ),
-    );
+    dispatch(addSteps([buildCustomStep(text, isMe)], receiverId, organization));
   };
 
   handleCreateStep = () => {
@@ -111,7 +105,6 @@ class SelectStepScreen extends Component {
       receiverId,
       organization,
       contactStageId,
-      isMe,
     } = this.props;
 
     return (
@@ -130,7 +123,6 @@ class SelectStepScreen extends Component {
             receiverId={receiverId}
             organization={organization}
             contactStageId={contactStageId}
-            isMe={isMe}
           />
         </ParallaxScrollView>
         {this.renderCreateStepButton()}
@@ -145,16 +137,19 @@ SelectStepScreen.propTypes = {
   createStepTracking: PropTypes.object.isRequired,
   personFirstName: PropTypes.string,
   contact: PropTypes.object,
-  receiverId: PropTypes.string,
+  receiverId: PropTypes.string.isRequired,
   enableBackButton: PropTypes.bool,
   organization: PropTypes.object,
   contactStageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     .isRequired,
-  isMe: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ auth }) => ({
-  myId: auth.person.id,
-});
+const mapStateToProps = ({ auth }, { receiverId }) => {
+  const myId = auth.person.id;
 
+  return {
+    myId,
+    isMe: receiverId === myId,
+  };
+};
 export default connect(mapStateToProps)(SelectStepScreen);
