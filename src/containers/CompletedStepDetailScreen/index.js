@@ -10,13 +10,15 @@ import StepDetailScreen from '../../components/StepDetailScreen';
 class CompletedStepDetailScreen extends Component {
   render() {
     const { t, step } = this.props;
-    const { challenge_suggestion: { description_markdown } = {} } = step;
+    const { challenge_suggestion } = step;
 
     return (
       <StepDetailScreen
         CenterHeader={<Text>{t('completedStep')}</Text>}
         RightHeader={null}
-        markdown={description_markdown}
+        markdown={
+          challenge_suggestion && challenge_suggestion.description_markdown
+        }
         text={step.title}
         bottomButtonProps={null}
       />

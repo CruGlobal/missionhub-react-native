@@ -75,7 +75,7 @@ describe('with challenge suggestion', () => {
 
 describe('without challenge suggestion', () => {
   beforeAll(() => {
-    challenge_suggestion = undefined;
+    challenge_suggestion = null;
   });
 
   it('renders correctly', () => {

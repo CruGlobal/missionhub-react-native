@@ -6,6 +6,7 @@ import { createMockNavState, renderShallow } from '../../../../testUtils';
 
 import CompletedStepDetailScreen from '..';
 
+let step;
 let challenge_suggestion;
 let screen;
 
@@ -17,13 +18,14 @@ beforeEach(() => {
 
   store = mockStore();
 
+  step = {
+    title: 'SCOTTY',
+    challenge_suggestion,
+  };
   screen = renderShallow(
     <CompletedStepDetailScreen
       navigation={createMockNavState({
-        step: {
-          title: 'SCOTTY',
-          challenge_suggestion,
-        },
+        step,
       })}
     />,
     store,
@@ -42,7 +44,7 @@ describe('with challenge suggestion', () => {
 
 describe('without challenge suggestion', () => {
   beforeAll(() => {
-    challenge_suggestion = undefined;
+    challenge_suggestion = null;
   });
 
   it('renders correctly', () => {
