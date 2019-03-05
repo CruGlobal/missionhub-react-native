@@ -196,7 +196,7 @@ class SelectStepScreen extends Component {
   keyExtractor = item => item.id;
 
   render() {
-    const suggestions = this.getSuggestionSubset();
+    const { suggestionIndex, suggestions } = this.state;
 
     return (
       <View flex={1}>
@@ -211,11 +211,13 @@ class SelectStepScreen extends Component {
           <FlatList
             ref={this.stepsListRef}
             keyExtractor={this.keyExtractor}
-            data={suggestions}
+            data={this.getSuggestionSubset()}
             renderItem={this.renderItem}
             scrollEnabled={true}
             style={styles.list}
-            ListFooterComponent={this.renderLoadMore}
+            ListFooterComponent={
+              suggestions.length > suggestionIndex && this.renderLoadMore
+            }
           />
         </ParallaxScrollView>
         {this.renderCreateStepButton()}

@@ -454,7 +454,7 @@ exports[`handleLoadSteps Loads last suggestion 1`] = `
     stickyHeaderHeight={65}
   >
     <FlatList
-      ListFooterComponent={[Function]}
+      ListFooterComponent={false}
       data={
         Array [
           Object {
@@ -543,7 +543,7 @@ exports[`handleLoadSteps loads no more because all suggestions are displayed 1`]
     stickyHeaderHeight={65}
   >
     <FlatList
-      ListFooterComponent={[Function]}
+      ListFooterComponent={false}
       data={
         Array [
           Object {
