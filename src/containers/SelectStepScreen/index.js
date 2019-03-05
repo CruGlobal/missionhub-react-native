@@ -187,7 +187,7 @@ class SelectStepScreen extends Component {
   renderCreateStepButton = () => (
     <BottomButton
       onPress={this.handleCreateStep}
-      text={this.props.t('createStep').toUpperCase()}
+      text={this.props.t('createStep')}
     />
   );
 
