@@ -542,6 +542,8 @@
 		EAF0B65AF72844C4A2103B73 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		F0E1C28726F34264B450C581 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		F2960542B760438B8F59CE0A /* SourceSansPro-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-ExtraLight.ttf"; path = "../assets/fonts/SourceSansPro-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FA3BFDF522288E0700517C52 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		FA3BFE2C22288EE200517C52 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		FA45FFBE1FFE7D9600153E56 /* ADBMobile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADBMobile.h; sourceTree = "<group>"; };
 		FA45FFBF1FFE7D9600153E56 /* ADBMobileConfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ADBMobileConfig.json; sourceTree = "<group>"; };
 		FA45FFC21FFE7D9600153E56 /* AdobeMobileLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = AdobeMobileLibrary.a; sourceTree = "<group>"; };
@@ -880,6 +882,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				FA3BFE2C22288EE200517C52 /* Release.xcconfig */,
+				FA3BFDF522288E0700517C52 /* Debug.xcconfig */,
 				4FC01F02205C574F0079E21F /* fastlane */,
 				4FC01FA6205C574F0079E21F /* Gemfile */,
 				13B07FAE1A68108700A75B9A /* MissionHub */,
@@ -1823,7 +1827,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7624;
+				CURRENT_PROJECT_VERSION = 7971;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1866,6 +1870,7 @@
 		};
 		7D695A2C219FA3F20038B0D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA3BFE2C22288EE200517C52 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1914,7 +1919,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7624;
+				CURRENT_PROJECT_VERSION = 7971;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = DQ48D9BF2V;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2003,6 +2008,7 @@
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA3BFDF522288E0700517C52 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

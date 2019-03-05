@@ -136,8 +136,6 @@ describe('add step methods for stepNote with onComplete', () => {
   common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
   beforeEach(() => {
-    jest.clearAllMocks();
-
     screen = renderShallow(
       <AddStepScreen
         navigation={createMockNavState({
@@ -154,9 +152,9 @@ describe('add step methods for stepNote with onComplete', () => {
 
   it('runs skip', () => {
     screen
-      .childAt(0)
-      .childAt(0)
-      .simulate('press');
+      .childAt(3)
+      .props()
+      .onSkip();
 
     expect(mockComplete).toHaveBeenCalledTimes(1);
   });
@@ -170,7 +168,7 @@ describe('add step methods for stepNote with onComplete', () => {
     screen.update();
 
     screen
-      .childAt(3)
+      .childAt(2)
       .childAt(0)
       .simulate('press');
 
@@ -190,8 +188,6 @@ describe('add step methods for stepNote with next', () => {
   common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
   beforeEach(() => {
-    jest.clearAllMocks();
-
     screen = renderShallow(
       <AddStepScreen
         navigation={createMockNavState({
@@ -211,9 +207,9 @@ describe('add step methods for stepNote with next', () => {
 
   it('runs skip', () => {
     screen
-      .childAt(0)
-      .childAt(0)
-      .simulate('press');
+      .childAt(3)
+      .props()
+      .onSkip();
 
     expect(mockNext).toHaveBeenCalledWith({ personId, orgId });
   });
@@ -227,7 +223,7 @@ describe('add step methods for stepNote with next', () => {
     screen.update();
 
     screen
-      .childAt(3)
+      .childAt(2)
       .childAt(0)
       .simulate('press');
 

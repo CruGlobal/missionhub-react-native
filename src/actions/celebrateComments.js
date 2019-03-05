@@ -78,3 +78,14 @@ export function updateCelebrateComment(item, content) {
       ),
     );
 }
+
+export function deleteCelebrateComment(event, item) {
+  return dispatch =>
+    dispatch(
+      callApi(REQUESTS.DELETE_CELEBRATE_COMMENT, {
+        orgId: event.organization.id,
+        eventId: event.id,
+        commentId: item.id,
+      }),
+    );
+}

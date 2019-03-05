@@ -3,6 +3,11 @@
 exports[`Member Feed rendering renders correctly for member feed 1`] = `
 <SectionList
   ListHeaderComponent={[Function]}
+  contentContainerStyle={
+    Object {
+      "paddingBottom": 10,
+    }
+  }
   data={Array []}
   disableVirtualization={false}
   extraData={

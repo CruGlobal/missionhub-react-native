@@ -70,8 +70,6 @@ const loadStepsJourneyResult = { type: 'load steps and journey' };
 
 beforeEach(() => {
   uuidv4.mockReturnValue('some key');
-  getPersonEmailAddress.mockReset();
-  getPersonPhoneNumber.mockReset();
   createContactAssignment.mockReturnValue(createContactAssignmentResult);
   navigatePush.mockReturnValue(navigatePushResult);
   getStageIndex.mockReturnValue(myStageId);
@@ -371,7 +369,7 @@ describe('isContact', () => {
           },
         ],
       });
-      expect(loadStepsAndJourney).toHaveBeenCalledWith(person, organization);
+      expect(loadStepsAndJourney).toHaveBeenCalledWith(newPerson, organization);
     });
 
     it('navigates to status select screen', () => {

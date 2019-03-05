@@ -41,8 +41,6 @@ describe('welcome screen methods', () => {
   let component;
 
   beforeEach(() => {
-    jest.clearAllMocks();
-
     const screen = shallow(
       <WelcomeScreen
         navigation={createMockNavState()}

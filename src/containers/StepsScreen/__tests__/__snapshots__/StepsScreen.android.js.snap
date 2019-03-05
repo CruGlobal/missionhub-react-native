@@ -8,6 +8,9 @@ exports[`renders android correctly 1`] = `
     }
   }
 >
+  <Component
+    screen="StepsTab"
+  />
   <Connect(Header)
     left={
       <IconButton
@@ -167,6 +170,9 @@ exports[`renders loading on Android correctly 1`] = `
     }
   }
 >
+  <Component
+    screen="StepsTab"
+  />
   <Connect(Header)
     left={
       <IconButton

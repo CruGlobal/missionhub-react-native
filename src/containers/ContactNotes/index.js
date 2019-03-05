@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Keyboard } from 'react-native';
+import { SafeAreaView, ScrollView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -148,7 +148,7 @@ export class ContactNotes extends Component {
   render() {
     const { text, editing } = this.state;
     return (
-      <View style={{ flex: 1 }}>
+      <SafeAreaView style={styles.container}>
         {text || editing ? this.renderNotes() : this.renderEmpty()}
         <Flex align="stretch" justify="end">
           <Button
@@ -157,7 +157,7 @@ export class ContactNotes extends Component {
             text={this.getButtonText()}
           />
         </Flex>
-      </View>
+      </SafeAreaView>
     );
   }
 }

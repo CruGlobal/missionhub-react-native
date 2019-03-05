@@ -103,3 +103,32 @@ describe('REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS', () => {
     );
   });
 });
+
+describe('REQUESTS.DELETE_CELEBRATE_COMMENTS.SUCCESS', () => {
+  const eventId = '13407923';
+  const commentId = 'comment five';
+  const existingComment1 = { id: commentId };
+  const existingComment2 = { id: 'comment six' };
+  const stateWithExistingComments = {
+    all: {
+      [eventId]: { comments: [existingComment1, existingComment2] },
+    },
+  };
+
+  const action = {
+    type: REQUESTS.DELETE_CELEBRATE_COMMENT.SUCCESS,
+    query: { eventId, commentId },
+  };
+
+  it('should remove item from the list', () => {
+    expect(celebrateCommentsReducer(stateWithExistingComments, action)).toEqual(
+      {
+        all: {
+          [eventId]: expect.objectContaining({
+            comments: [existingComment2],
+          }),
+        },
+      },
+    );
+  });
+});

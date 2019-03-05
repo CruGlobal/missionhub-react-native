@@ -75,7 +75,6 @@ const BACKGROUND = COLORS.LIGHT_BLUE;
 const ACCENT = COLORS.ACCENT_BLUE;
 
 const iPhoneHeaderHeight = 65;
-const notchHeight = hasNotch() ? 20 : 0;
 
 const statusBar = {
   backgroundColor: colorConvert({
@@ -125,8 +124,7 @@ export default {
   contactHeaderIconActiveColor: 'rgba(255,255,255,1)',
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
 
-  headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + notchHeight,
-  notchHeight,
+  headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + (hasNotch() ? 20 : 0),
   swipeTabHeight: 48,
   statusBar: {
     lightContent: {

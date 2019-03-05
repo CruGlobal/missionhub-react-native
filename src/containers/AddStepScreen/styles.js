@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
-import { hasNotch } from '../../utils/common';
 
 export default StyleSheet.create({
   container: {
@@ -26,14 +25,5 @@ export default StyleSheet.create({
   },
   createButton: {
     width: theme.fullWidth,
-  },
-  skipBtn: {
-    marginTop: hasNotch() ? 17 : 0,
-    padding: 30,
-  },
-  skipBtnText: {
-    fontSize: 14,
-    color: theme.white,
-    fontWeight: 'bold',
   },
 });

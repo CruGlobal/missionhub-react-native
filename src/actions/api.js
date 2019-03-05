@@ -13,8 +13,10 @@ import {
   UPDATE_TOKEN,
 } from '../constants';
 
-import { logout, refreshAccessToken, refreshAnonymousLogin } from './auth';
-import { refreshMissionHubFacebookAccess } from './facebook';
+import { logout } from './auth/auth';
+import { refreshAccessToken } from './auth/key';
+import { refreshAnonymousLogin } from './auth/anonymous';
+import { refreshMissionHubFacebookAccess } from './auth/facebook';
 
 // WARNING: You shouldn't have to touch this file to change routes/mapping
 // Put new routes in '../api/routes';
