@@ -15,7 +15,7 @@ import BackButton from '../BackButton';
 import Header from '../Header';
 import BottomButton from '../../components/BottomButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { disableBack, shuffleArray } from '../../utils/common';
+import { disableBack } from '../../utils/common';
 import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
 import LoadMore from '../../components/LoadMore';
@@ -24,14 +24,9 @@ import styles from './styles';
 
 @translate('selectStep')
 class SelectStepScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      suggestions: [],
-      suggestionIndex: 4,
-    };
-  }
+  state = {
+    suggestionIndex: 4,
+  };
 
   insertName(steps) {
     const { contactName, personFirstName } = this.props;
@@ -44,7 +39,7 @@ class SelectStepScreen extends Component {
     }));
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const {
       dispatch,
       enableBackButton,
@@ -52,21 +47,14 @@ class SelectStepScreen extends Component {
       isMe,
       contactStageId,
     } = this.props;
+
     if (!enableBackButton) {
       disableBack.add();
     }
 
-    let suggestionList;
-    if (suggestions.length > 0) {
-      suggestionList = suggestions;
-    } else {
-      const { response } = await dispatch(
-        getStepSuggestions(isMe, contactStageId),
-      );
-      suggestionList = response;
+    if (suggestions.length === 0) {
+      dispatch(getStepSuggestions(isMe, contactStageId));
     }
-
-    this.setState({ suggestions: shuffleArray(suggestionList) });
   }
 
   componentWillUnmount() {
@@ -76,27 +64,17 @@ class SelectStepScreen extends Component {
   }
 
   handleLoadSteps = () => {
-    const { suggestionIndex, suggestions = [] } = this.state;
+    const { suggestionIndex } = this.state;
 
-    let newSuggestionIndex = suggestionIndex + 4;
-    if (newSuggestionIndex > suggestions.length) {
-      newSuggestionIndex = suggestions.length;
-    }
-
-    this.setState({ suggestionIndex: newSuggestionIndex });
+    this.setState({ suggestionIndex: suggestionIndex + 4 });
   };
 
   getSuggestionSubset() {
-    const { suggestionIndex, suggestions = [] } = this.state;
-    const { isMe } = this.props;
+    const { suggestionIndex } = this.state;
+    const { isMe, suggestions } = this.props;
 
-    let newSuggestions = suggestions.slice(0, suggestionIndex);
-
-    if (!isMe) {
-      newSuggestions = this.insertName(newSuggestions);
-    }
-
-    return newSuggestions;
+    const newSuggestions = suggestions.slice(0, suggestionIndex);
+    return isMe ? newSuggestions : this.insertName(newSuggestions);
   }
 
   createCustomStep = text => {
@@ -190,7 +168,8 @@ class SelectStepScreen extends Component {
   keyExtractor = item => item.id;
 
   render() {
-    const { suggestionIndex, suggestions } = this.state;
+    const { suggestions } = this.props;
+    const { suggestionIndex } = this.state;
 
     return (
       <View flex={1}>
