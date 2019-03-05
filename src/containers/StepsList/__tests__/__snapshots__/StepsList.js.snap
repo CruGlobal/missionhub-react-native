@@ -3,7 +3,6 @@
 exports[`for another person renders correctly 1`] = `
 <FlatList
   ListFooterComponent={false}
-  data={Array []}
   disableVirtualization={false}
   horizontal={false}
   initialNumToRender={10}
@@ -28,7 +27,6 @@ exports[`for another person renders correctly 1`] = `
 exports[`for me renders correctly 1`] = `
 <FlatList
   ListFooterComponent={false}
-  data={Array []}
   disableVirtualization={false}
   horizontal={false}
   initialNumToRender={10}

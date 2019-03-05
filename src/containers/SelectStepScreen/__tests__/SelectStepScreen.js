@@ -7,6 +7,8 @@ import SelectStepScreen from '..';
 
 import { renderShallow } from '../../../../testUtils';
 
+jest.mock('../../../utils/steps');
+
 const mockStore = configureStore([thunk]);
 let store;
 
