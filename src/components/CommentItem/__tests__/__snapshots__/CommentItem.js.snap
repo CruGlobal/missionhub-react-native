@@ -14,6 +14,11 @@ exports[`renders correctly 1`] = `
 >
   <Connect(Translate(CelebrateItemName))
     name="Roge Goers"
+    organization={
+      Object {
+        "id": "w342342",
+      }
+    }
     person={
       Object {
         "first_name": "Roge",
@@ -60,6 +65,11 @@ exports[`renders correctly with onLongPress 1`] = `
   >
     <Connect(Translate(CelebrateItemName))
       name="Roge Goers"
+      organization={
+        Object {
+          "id": "w342342",
+        }
+      }
       person={
         Object {
           "first_name": "Roge",
