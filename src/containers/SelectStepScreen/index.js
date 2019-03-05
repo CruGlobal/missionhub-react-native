@@ -8,7 +8,7 @@ import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
-import { buildCustomStep } from '../../utils/steps';
+import { buildCustomStep, insertName } from '../../utils/steps';
 import StepSuggestionItem from '../../components/StepSuggestionItem';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
@@ -28,33 +28,14 @@ class SelectStepScreen extends Component {
     suggestionIndex: 4,
   };
 
-  insertName(steps) {
-    const { contactName, personFirstName } = this.props;
-    return steps.map(step => ({
-      ...step,
-      body: step.body.replace(
-        '<<name>>',
-        contactName ? contactName : personFirstName,
-      ),
-    }));
-  }
-
   componentDidMount() {
-    const {
-      dispatch,
-      enableBackButton,
-      suggestions = [],
-      isMe,
-      contactStageId,
-    } = this.props;
+    const { dispatch, enableBackButton, isMe, contactStageId } = this.props;
 
     if (!enableBackButton) {
       disableBack.add();
     }
 
-    if (suggestions.length === 0) {
-      dispatch(getStepSuggestions(isMe, contactStageId));
-    }
+    dispatch(getStepSuggestions(isMe, contactStageId));
   }
 
   componentWillUnmount() {
@@ -71,10 +52,12 @@ class SelectStepScreen extends Component {
 
   getSuggestionSubset() {
     const { suggestionIndex } = this.state;
-    const { isMe, suggestions } = this.props;
+    const { isMe, suggestions, contactName, personFirstName } = this.props;
 
     const newSuggestions = suggestions.slice(0, suggestionIndex);
-    return isMe ? newSuggestions : this.insertName(newSuggestions);
+    return isMe
+      ? newSuggestions
+      : insertName(newSuggestions, contactName || personFirstName);
   }
 
   createCustomStep = text => {
