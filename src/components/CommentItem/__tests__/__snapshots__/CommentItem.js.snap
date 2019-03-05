@@ -1,11 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`with onLongPress renders correctly with onLongPress 1`] = `
-<TouchableOpacity
-  accessibilityTraits="button"
-  activeOpacity={0.6}
+<TouchableIOS
   onLongPress={[Function]}
-  onPress={[Function]}
 >
   <Component
     style={
@@ -49,11 +46,11 @@ exports[`with onLongPress renders correctly with onLongPress 1`] = `
       date="2018-06-11 12:00:00 UTC"
     />
   </Component>
-</TouchableOpacity>
+</TouchableIOS>
 `;
 
 exports[`without onLongPress renders correctly 1`] = `
-<View
+<Component
   style={
     Object {
       "backgroundColor": "#E6E8EC",
@@ -94,5 +91,5 @@ exports[`without onLongPress renders correctly 1`] = `
   <CardTime
     date="2018-06-11 12:00:00 UTC"
   />
-</View>
+</Component>
 `;
