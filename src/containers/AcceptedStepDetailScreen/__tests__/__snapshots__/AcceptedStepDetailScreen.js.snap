@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`with challenge suggestion renders correctly 1`] = `
 <StepDetailScreen
   CenterHeader={null}
   RightHeader={
@@ -30,6 +30,40 @@ exports[`renders correctly 1`] = `
     }
   }
   markdown="roge rules"
+  text="ROBERT"
+/>
+`;
+
+exports[`without challenge suggestion renders correctly 1`] = `
+<StepDetailScreen
+  CenterHeader={null}
+  RightHeader={
+    <Button
+      buttonTextStyle={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+        }
+      }
+      onPress={[Function]}
+      style={
+        Object {
+          "paddingRight": 10,
+        }
+      }
+      text="REMOVE STEP"
+      type="transparent"
+    />
+  }
+  bottomButtonProps={
+    Object {
+      "onPress": [Function],
+      "text": "I Did It!",
+    }
+  }
+  markdown={null}
   text="ROBERT"
 />
 `;

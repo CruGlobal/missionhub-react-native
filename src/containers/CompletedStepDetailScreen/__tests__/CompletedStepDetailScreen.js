@@ -6,26 +6,46 @@ import { createMockNavState, renderShallow } from '../../../../testUtils';
 
 import CompletedStepDetailScreen from '..';
 
-const step = {
-  title: 'SCOTTY',
-  challenge_suggestion: { description_markdown: 'roge rules' },
-};
+let step;
+let challenge_suggestion;
 let screen;
 
 const mockStore = configureStore([thunk]);
 let store;
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore();
 
+  step = {
+    title: 'SCOTTY',
+    challenge_suggestion,
+  };
   screen = renderShallow(
-    <CompletedStepDetailScreen navigation={createMockNavState({ step })} />,
+    <CompletedStepDetailScreen
+      navigation={createMockNavState({
+        step,
+      })}
+    />,
     store,
   );
 });
 
-it('renders correctly', () => {
-  expect(screen).toMatchSnapshot();
+describe('with challenge suggestion', () => {
+  beforeAll(() => {
+    challenge_suggestion = { description_markdown: 'roge rules' };
+  });
+
+  it('renders correctly', () => {
+    expect(screen).toMatchSnapshot();
+  });
+});
+
+describe('without challenge suggestion', () => {
+  beforeAll(() => {
+    challenge_suggestion = null;
+  });
+
+  it('renders correctly', () => {
+    expect(screen).toMatchSnapshot();
+  });
 });
