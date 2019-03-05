@@ -12,40 +12,65 @@ const item = {
   person: { first_name: 'Roge', last_name: 'Goers' },
 };
 
-const organization = { id: 'w342342' };
+const organization = { id: '7342342' };
 
-it('renders correctly', () => {
-  testSnapshotShallow(<CommentItem item={item} organization={organization} />);
+let onLongPress;
+
+describe('with onLongPress', () => {
+  beforeAll(() => {
+    onLongPress = jest.fn();
+  });
+
+  it('renders correctly with onLongPress', () => {
+    testSnapshotShallow(
+      <CommentItem
+        item={item}
+        onLongPress={onLongPress}
+        organization={organization}
+      />,
+    );
+  });
+
+  it('calls onLongPress', () => {
+    const component = shallow(
+      <CommentItem
+        item={item}
+        onLongPress={onLongPress}
+        organization={organization}
+      />,
+    );
+
+    component.props().onLongPress();
+
+    expect(onLongPress).toHaveBeenCalledWith(item, undefined);
+  });
 });
 
-it('renders correctly with onLongPress', () => {
-  testSnapshotShallow(
-    <CommentItem
-      item={item}
-      onLongPress={jest.fn()}
-      organization={organization}
-    />,
-  );
-});
+describe('without onLongPress', () => {
+  beforeAll(() => {
+    onLongPress = null;
+  });
 
-it('renders correctly with onLongPress', () => {
-  const onLongPress = jest.fn();
-  const component = shallow(
-    <CommentItem
-      item={item}
-      onLongPress={onLongPress}
-      organization={organization}
-    />,
-  );
-  component.props().onLongPress();
-  expect(onLongPress).toHaveBeenCalledWith(item, undefined);
-});
+  it('renders correctly', () => {
+    testSnapshotShallow(
+      <CommentItem
+        item={item}
+        organization={organization}
+        onLongPress={onLongPress}
+      />,
+    );
+  });
 
-it('calls ref', () => {
-  const instance = shallow(
-    <CommentItem item={item} organization={organization} />,
-  ).instance();
-  instance.view = null;
-  instance.ref('test');
-  expect(instance.view).toEqual('test');
+  it('calls ref', () => {
+    const instance = shallow(
+      <CommentItem
+        item={item}
+        organization={organization}
+        onLongPress={onLongPress}
+      />,
+    ).instance();
+    instance.view = null;
+    instance.ref('test');
+    expect(instance.view).toEqual('test');
+  });
 });
