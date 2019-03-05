@@ -132,3 +132,38 @@ describe('REQUESTS.DELETE_CELEBRATE_COMMENTS.SUCCESS', () => {
     );
   });
 });
+
+describe('REQUESTS.UPDATE_CELEBRATE_COMMENTS.SUCCESS', () => {
+  const eventId = '13407923';
+  const commentId = 'comment five';
+  const existingComment1 = { id: commentId, content: 'text 1' };
+  const existingComment2 = { id: 'comment six', content: 'text 2' };
+  const stateWithExistingComments = {
+    all: {
+      [eventId]: { comments: [existingComment1, existingComment2] },
+    },
+  };
+
+  const updated = 'text 1 updated';
+  const response = { id: commentId, content: updated };
+  const action = {
+    type: REQUESTS.UPDATE_CELEBRATE_COMMENT.SUCCESS,
+    results: { response },
+    query: { eventId, commentId },
+  };
+
+  it('should update item in the list', () => {
+    expect(celebrateCommentsReducer(stateWithExistingComments, action)).toEqual(
+      {
+        all: {
+          [eventId]: expect.objectContaining({
+            comments: [
+              { ...existingComment1, content: updated },
+              existingComment2,
+            ],
+          }),
+        },
+      },
+    );
+  });
+});
