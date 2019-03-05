@@ -49,13 +49,6 @@ class StepsList extends Component {
     );
   };
 
-  renderLoadMore = () => (
-    <LoadMore
-      onPress={this.handleLoadSteps}
-      text={this.props.t('loadMoreSteps').toUpperCase()}
-    />
-  );
-
   stepsListRef = c => (this.stepsList = c);
 
   keyExtractor = item => item.id;
@@ -74,7 +67,12 @@ class StepsList extends Component {
         scrollEnabled={true}
         style={list}
         ListFooterComponent={
-          suggestions.length > suggestionIndex && this.renderLoadMore
+          suggestions.length > suggestionIndex && (
+            <LoadMore
+              onPress={this.handleLoadSteps}
+              text={this.props.t('loadMoreSteps').toUpperCase()}
+            />
+          )
         }
       />
     );

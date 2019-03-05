@@ -57,16 +57,6 @@ class SelectStepScreen extends Component {
 
   navigateBackTwoScreens = () => this.props.dispatch(navigateBack(2));
 
-  renderBackButton() {
-    const { enableBackButton, contact } = this.props;
-    return enableBackButton ? (
-      <BackButton
-        customNavigate={contact ? undefined : this.navigateBackTwoScreens}
-        absolute={true}
-      />
-    ) : null;
-  }
-
   renderForeground = () => {
     const { t, headerText } = this.props;
     return (
@@ -104,6 +94,8 @@ class SelectStepScreen extends Component {
       receiverId,
       organization,
       contactStageId,
+      enableBackButton,
+      contact,
     } = this.props;
 
     return (
@@ -123,8 +115,16 @@ class SelectStepScreen extends Component {
             contactStageId={contactStageId}
           />
         </ParallaxScrollView>
-        {this.renderCreateStepButton()}
-        {this.renderBackButton()}
+        <BottomButton
+          onPress={this.handleCreateStep}
+          text={this.props.t('createStep')}
+        />
+        {enableBackButton && (
+          <BackButton
+            customNavigate={contact ? undefined : this.navigateBackTwoScreens}
+            absolute={true}
+          />
+        )}
       </View>
     );
   }
