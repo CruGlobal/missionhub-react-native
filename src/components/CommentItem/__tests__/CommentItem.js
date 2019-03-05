@@ -1,10 +1,11 @@
 import 'react-native';
 import React from 'react';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import CommentItem from '..';
 
-import { testSnapshotShallow } from '../../../../testUtils';
+Enzyme.configure({ adapter: new Adapter() });
 
 const item = {
   content: 'hello roge',
@@ -12,26 +13,51 @@ const item = {
   person: { first_name: 'Roge', last_name: 'Goers' },
 };
 
-it('renders correctly', () => {
-  testSnapshotShallow(<CommentItem item={item} />);
-});
+const organization = { id: '7342342' };
 
-it('renders correctly with onLongPress', () => {
-  testSnapshotShallow(<CommentItem item={item} onLongPress={jest.fn()} />);
-});
+let onLongPress;
 
-it('renders correctly with onLongPress', () => {
-  const onLongPress = jest.fn();
-  const component = shallow(
-    <CommentItem item={item} onLongPress={onLongPress} />,
+let screen;
+
+beforeEach(() => {
+  screen = shallow(
+    <CommentItem
+      item={item}
+      organization={organization}
+      onLongPress={onLongPress}
+    />,
   );
-  component.props().onLongPress();
-  expect(onLongPress).toHaveBeenCalledWith(item, undefined);
 });
 
-it('calls ref', () => {
-  const instance = shallow(<CommentItem item={item} />).instance();
-  instance.view = null;
-  instance.ref('test');
-  expect(instance.view).toEqual('test');
+describe('with onLongPress', () => {
+  beforeAll(() => {
+    onLongPress = jest.fn();
+  });
+
+  it('renders correctly with onLongPress', () => {
+    expect(screen).toMatchSnapshot();
+  });
+
+  it('calls onLongPress', () => {
+    screen.props().onLongPress();
+
+    expect(onLongPress).toHaveBeenCalledWith(item, undefined);
+  });
+});
+
+describe('without onLongPress', () => {
+  beforeAll(() => {
+    onLongPress = null;
+  });
+
+  it('renders correctly', () => {
+    expect(screen).toMatchSnapshot();
+  });
+
+  it('calls ref', () => {
+    const instance = screen.instance();
+    instance.view = null;
+    instance.ref('test');
+    expect(instance.view).toEqual('test');
+  });
 });
