@@ -156,10 +156,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
         type: action.SUCCESS,
       });
 
-      if (
-        response.sessionHeader &&
-        getState().auth.token !== response.sessionHeader
-      ) {
+      if (response.sessionHeader) {
         dispatch({
           type: UPDATE_TOKEN,
           token: response.sessionHeader,
