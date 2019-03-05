@@ -2,7 +2,7 @@ import 'react-native';
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import SelectStepScreen, { mapStateToProps } from '..';
+import SelectStepScreen from '..';
 
 import {
   renderShallow,
@@ -90,56 +90,6 @@ const createComponent = async () => {
   instance = component.instance();
   await Promise.resolve();
 };
-
-describe('mapStateToProps', () => {
-  it('should provide necessary props for me', () => {
-    expect(
-      mapStateToProps(
-        {
-          auth: {
-            person: {
-              id: '123',
-            },
-          },
-          steps: {
-            suggestedForMe: {
-              [contactStageId]: [{ id: '1', body: 'test 1' }],
-            },
-            suggestedForOthers: {},
-          },
-        },
-        {
-          isMe: true,
-          contactStageId,
-        },
-      ),
-    ).toMatchSnapshot();
-  });
-
-  it('should provide necessary props for others', () => {
-    expect(
-      mapStateToProps(
-        {
-          auth: {
-            person: {
-              id: '123',
-            },
-          },
-          steps: {
-            suggestedForMe: {},
-            suggestedForOthers: {
-              [contactStageId]: [{ id: '1', body: 'test 1' }],
-            },
-          },
-        },
-        {
-          isMe: false,
-          contactStageId,
-        },
-      ),
-    ).toMatchSnapshot();
-  });
-});
 
 describe('SelectStepScreen', () => {
   beforeEach(async () => {

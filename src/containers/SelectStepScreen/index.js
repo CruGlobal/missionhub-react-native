@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, View } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -7,9 +7,8 @@ import PropTypes from 'prop-types';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
-import { getStepSuggestions, addSteps } from '../../actions/steps';
-import { buildCustomStep, insertName } from '../../utils/steps';
-import StepSuggestionItem from '../../components/StepSuggestionItem';
+import { addSteps } from '../../actions/steps';
+import { buildCustomStep } from '../../utils/steps';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import Header from '../Header';
@@ -18,46 +17,24 @@ import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
 import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
-import LoadMore from '../../components/LoadMore';
+import StepsList from '../StepsList';
 
 import styles from './styles';
 
 @translate('selectStep')
 class SelectStepScreen extends Component {
-  state = {
-    suggestionIndex: 4,
-  };
-
   componentDidMount() {
-    const { dispatch, enableBackButton, isMe, contactStageId } = this.props;
+    const { enableBackButton } = this.props;
 
     if (!enableBackButton) {
       disableBack.add();
     }
-
-    dispatch(getStepSuggestions(isMe, contactStageId));
   }
 
   componentWillUnmount() {
     if (!this.props.enableBackButton) {
       disableBack.remove();
     }
-  }
-
-  handleLoadSteps = () => {
-    const { suggestionIndex } = this.state;
-
-    this.setState({ suggestionIndex: suggestionIndex + 4 });
-  };
-
-  getSuggestionSubset() {
-    const { suggestionIndex } = this.state;
-    const { isMe, suggestions, contactName, personFirstName } = this.props;
-
-    const newSuggestions = suggestions.slice(0, suggestionIndex);
-    return isMe
-      ? newSuggestions
-      : insertName(newSuggestions, contactName || personFirstName);
   }
 
   createCustomStep = text => {
@@ -120,25 +97,6 @@ class SelectStepScreen extends Component {
     />
   );
 
-  renderItem = ({ item }) => {
-    const { organization, receiverId } = this.props;
-
-    return (
-      <StepSuggestionItem
-        step={item}
-        receiverId={receiverId}
-        orgId={organization && organization.id}
-      />
-    );
-  };
-
-  renderLoadMore = () => (
-    <LoadMore
-      onPress={this.handleLoadSteps}
-      text={this.props.t('loadMoreSteps').toUpperCase()}
-    />
-  );
-
   renderCreateStepButton = () => (
     <BottomButton
       onPress={this.handleCreateStep}
@@ -146,13 +104,15 @@ class SelectStepScreen extends Component {
     />
   );
 
-  stepsListRef = c => (this.stepsList = c);
-
-  keyExtractor = item => item.id;
-
   render() {
-    const { suggestions } = this.props;
-    const { suggestionIndex } = this.state;
+    const {
+      personFirstName,
+      contactName,
+      receiverId,
+      organization,
+      contactStageId,
+      isMe,
+    } = this.props;
 
     return (
       <View flex={1}>
@@ -164,16 +124,13 @@ class SelectStepScreen extends Component {
           stickyHeaderHeight={theme.headerHeight}
           renderStickyHeader={this.renderStickHeader}
         >
-          <FlatList
-            ref={this.stepsListRef}
-            keyExtractor={this.keyExtractor}
-            data={this.getSuggestionSubset()}
-            renderItem={this.renderItem}
-            scrollEnabled={true}
-            style={styles.list}
-            ListFooterComponent={
-              suggestions.length > suggestionIndex && this.renderLoadMore
-            }
+          <StepsList
+            personFirstName={personFirstName}
+            contactName={contactName}
+            receiverId={receiverId}
+            organization={organization}
+            contactStageId={contactStageId}
+            isMe={isMe}
           />
         </ParallaxScrollView>
         {this.renderCreateStepButton()}
@@ -196,11 +153,8 @@ SelectStepScreen.propTypes = {
   isMe: PropTypes.bool.isRequired,
 };
 
-export const mapStateToProps = ({ auth, steps }, { isMe, contactStageId }) => ({
+const mapStateToProps = ({ auth }) => ({
   myId: auth.person.id,
-  suggestions: isMe
-    ? steps.suggestedForMe[contactStageId]
-    : steps.suggestedForOthers[contactStageId],
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);
