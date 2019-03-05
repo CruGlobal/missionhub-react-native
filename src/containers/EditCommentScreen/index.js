@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatusBar, SafeAreaView, Keyboard } from 'react-native';
+import { View, StatusBar, SafeAreaView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -31,10 +31,10 @@ class EditCommentScreen extends Component {
 
   saveNote = async () => {
     Keyboard.dismiss();
-    const { item } = this.props;
+    const { dispatch, item } = this.props;
     const { text } = this.state;
 
-    await this.props.dispatch(updateCelebrateComment(item, text));
+    await dispatch(updateCelebrateComment(item, text));
     this.close();
   };
 
@@ -45,37 +45,39 @@ class EditCommentScreen extends Component {
     const { t } = this.props;
     const { text } = this.state;
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <StatusBar {...theme.statusBar.lightContent} />
         <Header
           left={<BackButton customNavigate={this.close} />}
           title={t('edit')}
         />
-        <Touchable
-          activeOpacity={1}
-          isAndroidOpacity={true}
-          onPress={this.focus}
-          style={styles.content}
-        >
-          <Input
-            ref={this.inputRef}
-            onChangeText={this.onTextChanged}
-            value={text}
-            style={styles.text}
-            multiline={true}
-            blurOnSubmit={false}
-            autoGrow={false}
-            autoCorrect={true}
-          />
-        </Touchable>
-        <Flex align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.saveNote}
-            text={t('saveChanges')}
-          />
-        </Flex>
-      </SafeAreaView>
+        <SafeAreaView style={styles.content}>
+          <Touchable
+            activeOpacity={1}
+            isAndroidOpacity={true}
+            onPress={this.focus}
+            style={styles.content}
+          >
+            <Input
+              ref={this.inputRef}
+              onChangeText={this.onTextChanged}
+              value={text}
+              style={styles.text}
+              multiline={true}
+              blurOnSubmit={false}
+              autoGrow={false}
+              autoCorrect={true}
+            />
+          </Touchable>
+          <Flex align="stretch" justify="end">
+            <Button
+              type="secondary"
+              onPress={this.saveNote}
+              text={t('saveChanges')}
+            />
+          </Flex>
+        </SafeAreaView>
+      </View>
     );
   }
 }

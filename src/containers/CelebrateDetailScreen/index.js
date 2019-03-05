@@ -9,17 +9,10 @@ import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
 import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 import theme from '../../theme';
-import { navigatePush } from '../../actions/navigation';
-import { EDIT_COMMENT_SCREEN } from '../EditCommentScreen';
 
 import styles from './styles';
 
 class CelebrateDetailScreen extends Component {
-  handleEdit = item => {
-    const { dispatch } = this.props;
-    dispatch(navigatePush(EDIT_COMMENT_SCREEN, { item }));
-  };
-
   render() {
     const { event } = this.props;
     const { container, cardStyle, backButtonStyle } = styles;
@@ -36,11 +29,7 @@ class CelebrateDetailScreen extends Component {
           namePressable={true}
         />
         <SafeAreaView style={{ flex: 1 }}>
-          <CommentsList
-            event={event}
-            organizationId={event.organization.id}
-            onEdit={this.handleEdit}
-          />
+          <CommentsList event={event} organizationId={event.organization.id} />
           <CelebrateCommentBox event={event} />
         </SafeAreaView>
       </View>

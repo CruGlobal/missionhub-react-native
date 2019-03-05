@@ -16,8 +16,11 @@ import {
 } from '../../../actions/celebrateComments';
 import * as common from '../../../utils/common';
 import { ORG_PERMISSIONS } from '../../../constants';
+import { navigatePush } from '../../../actions/navigation';
+import { EDIT_COMMENT_SCREEN } from '../../EditCommentScreen';
 
 jest.mock('../../../actions/celebrateComments');
+jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/people');
 jest.mock('../../../selectors/celebrateComments');
@@ -37,6 +40,7 @@ const celebrateCommentsState = [celebrateComments];
 const reloadCelebrateCommentsResult = { type: 'loaded comments' };
 const getCelebrateCommentsNextPageResult = { type: 'got next page' };
 const deleteCelebrateCommentResult = { type: 'delete comment' };
+const navigatePushResult = { type: 'navigate push' };
 
 let screen;
 
@@ -49,6 +53,7 @@ getCelebrateCommentsNextPage.mockReturnValue(dispatch =>
 deleteCelebrateComment.mockReturnValue(dispatch =>
   dispatch(deleteCelebrateCommentResult),
 );
+navigatePush.mockReturnValue(dispatch => dispatch(navigatePushResult));
 
 const me = { id: '1' };
 
@@ -264,12 +269,13 @@ describe('comment action for author', () => {
     });
 
     instance = screen.instance();
-    instance.handleEdit = jest.fn();
   });
   it('handleEdit', () => {
     common.showMenu = jest.fn(a => a[0].onPress());
     instance.handleLongPress(comment, 'testRef');
-    expect(instance.handleEdit).toHaveBeenCalledWith(comment);
+    expect(navigatePush).toHaveBeenCalledWith(EDIT_COMMENT_SCREEN, {
+      item: comment,
+    });
   });
   it('handleDelete', () => {
     common.showMenu = jest.fn(a => a[1].onPress());
