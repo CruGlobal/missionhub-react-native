@@ -100,7 +100,6 @@ class SelectStepScreen extends Component {
 
   render() {
     const {
-      personFirstName,
       contactName,
       receiverId,
       organization,
@@ -118,7 +117,6 @@ class SelectStepScreen extends Component {
           renderStickyHeader={this.renderStickHeader}
         >
           <StepsList
-            personFirstName={personFirstName}
             contactName={contactName}
             receiverId={receiverId}
             organization={organization}
@@ -135,7 +133,6 @@ class SelectStepScreen extends Component {
 SelectStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
   createStepTracking: PropTypes.object.isRequired,
-  personFirstName: PropTypes.string,
   contact: PropTypes.object,
   receiverId: PropTypes.string.isRequired,
   enableBackButton: PropTypes.bool,

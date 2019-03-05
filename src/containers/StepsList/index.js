@@ -31,12 +31,10 @@ class StepsList extends Component {
 
   getSuggestionSubset() {
     const { suggestionIndex } = this.state;
-    const { isMe, suggestions, contactName, personFirstName } = this.props;
+    const { isMe, suggestions, contactName } = this.props;
 
     const newSuggestions = suggestions.slice(0, suggestionIndex);
-    return isMe
-      ? newSuggestions
-      : insertName(newSuggestions, contactName || personFirstName);
+    return isMe ? newSuggestions : insertName(newSuggestions, contactName);
   }
 
   renderItem = ({ item }) => {
@@ -84,7 +82,6 @@ class StepsList extends Component {
 }
 
 StepsList.propTypes = {
-  personFirstName: PropTypes.string,
   contactName: PropTypes.string,
   receiverId: PropTypes.string.isRequired,
   organization: PropTypes.object,
