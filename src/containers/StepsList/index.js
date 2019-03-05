@@ -97,9 +97,10 @@ const mapStateToProps = ({ auth, steps }, { contactStageId, receiverId }) => {
   return {
     myId,
     isMe,
-    suggestions: isMe
-      ? steps.suggestedForMe[contactStageId]
-      : steps.suggestedForOthers[contactStageId],
+    suggestions:
+      (isMe
+        ? steps.suggestedForMe[contactStageId]
+        : steps.suggestedForOthers[contactStageId]) || [],
   };
 };
 export default connect(mapStateToProps)(StepsList);
