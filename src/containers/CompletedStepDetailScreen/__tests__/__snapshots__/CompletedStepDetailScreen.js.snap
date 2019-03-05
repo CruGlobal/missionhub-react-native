@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`with challenge suggestion renders correctly 1`] = `
 <StepDetailScreen
   CenterHeader={
     <MyText
@@ -14,6 +14,23 @@ exports[`renders correctly 1`] = `
   RightHeader={null}
   bottomButtonProps={null}
   markdown="roge rules"
+  text="SCOTTY"
+/>
+`;
+
+exports[`without challenge suggestion renders correctly 1`] = `
+<StepDetailScreen
+  CenterHeader={
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Completed Step
+    </MyText>
+  }
+  RightHeader={null}
+  bottomButtonProps={null}
   text="SCOTTY"
 />
 `;

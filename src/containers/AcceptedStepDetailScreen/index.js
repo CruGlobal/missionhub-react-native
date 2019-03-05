@@ -27,9 +27,7 @@ class AcceptedStepDetailScreen extends Component {
 
   render() {
     const { t, step } = this.props;
-    const {
-      challenge_suggestion: { description_markdown },
-    } = step;
+    const { challenge_suggestion: { description_markdown } = {} } = step;
     const { removeStepButton, removeStepButtonText } = styles;
 
     return (
