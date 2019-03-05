@@ -1,51 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#E6E8EC",
-      "borderRadius": 8,
-      "marginVertical": 5,
-      "paddingHorizontal": 10,
-      "paddingVertical": 5,
-    }
-  }
->
-  <Connect(Translate(CelebrateItemName))
-    name="Roge Goers"
-    person={
-      Object {
-        "first_name": "Roge",
-        "last_name": "Goers",
-      }
-    }
-    pressable={true}
-  />
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "paddingVertical": 3,
-      }
-    }
-  >
-    hello roge
-  </MyText>
-  <CardTime
-    date="2018-06-11 12:00:00 UTC"
-  />
-</View>
-`;
-
-exports[`renders correctly with onLongPress 1`] = `
-<TouchableOpacity
-  accessibilityTraits="button"
-  activeOpacity={0.6}
+exports[`with onLongPress renders correctly with onLongPress 1`] = `
+<TouchableIOS
   onLongPress={[Function]}
-  onPress={[Function]}
 >
   <Component
     style={
@@ -60,6 +17,11 @@ exports[`renders correctly with onLongPress 1`] = `
   >
     <Connect(Translate(CelebrateItemName))
       name="Roge Goers"
+      organization={
+        Object {
+          "id": "7342342",
+        }
+      }
       person={
         Object {
           "first_name": "Roge",
@@ -84,5 +46,50 @@ exports[`renders correctly with onLongPress 1`] = `
       date="2018-06-11 12:00:00 UTC"
     />
   </Component>
-</TouchableOpacity>
+</TouchableIOS>
+`;
+
+exports[`without onLongPress renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#E6E8EC",
+      "borderRadius": 8,
+      "marginVertical": 5,
+      "paddingHorizontal": 10,
+      "paddingVertical": 5,
+    }
+  }
+>
+  <Connect(Translate(CelebrateItemName))
+    name="Roge Goers"
+    organization={
+      Object {
+        "id": "7342342",
+      }
+    }
+    person={
+      Object {
+        "first_name": "Roge",
+        "last_name": "Goers",
+      }
+    }
+    pressable={true}
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "paddingVertical": 3,
+      }
+    }
+  >
+    hello roge
+  </MyText>
+  <CardTime
+    date="2018-06-11 12:00:00 UTC"
+  />
+</Component>
 `;
