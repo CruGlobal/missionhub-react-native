@@ -41,8 +41,14 @@ class DatePicker extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.date !== this.props.date) {
-      this.setState({ date: this.getDate(nextProps.date) });
+    const dateChange = nextProps.date !== this.props.date;
+    const visibleChange = nextProps.visible !== this.props.modalVisible;
+
+    if (dateChange || visibleChange) {
+      this.setState({
+        date: this.getDate(nextProps.date),
+        visible: !!nextProps.visible,
+      });
     }
   }
 
@@ -258,7 +264,7 @@ class DatePicker extends Component {
     }
   };
 
-  renderIOSModal = () => {
+  render() {
     const {
       t,
       mode,
@@ -336,32 +342,6 @@ class DatePicker extends Component {
           </Animated.View>
         </Touchable>
       </Modal>
-    );
-  };
-
-  render() {
-    const { date, placeholder, disabled, hideText, customStyles } = this.props;
-
-    const dateInputStyle = [
-      styles.dateInput,
-      customStyles.dateInput || {},
-      disabled && styles.disabled,
-      (disabled && customStyles.disabled) || {},
-    ];
-
-    return (
-      <Touchable underlayColor={'transparent'} onPress={this.onPressDate}>
-        {!hideText ? (
-          <View style={dateInputStyle}>
-            <Text style={[styles.dateText, customStyles.dateText || {}]}>
-              {!date && placeholder ? placeholder : this.getDateStr()}
-            </Text>
-          </View>
-        ) : (
-          <View />
-        )}
-        {!isAndroid ? this.renderIOSModal() : null}
-      </Touchable>
     );
   }
 }
