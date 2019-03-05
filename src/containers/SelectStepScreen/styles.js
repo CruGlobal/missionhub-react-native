@@ -29,18 +29,4 @@ export default StyleSheet.create({
     fontSize: 14,
     color: theme.white,
   },
-  loadMoreStepsButton: {
-    backgroundColor: theme.transparent,
-    height: 36,
-    borderColor: theme.inactiveColor,
-    borderWidth: theme.buttonBorderWidth,
-    marginTop: 18,
-    marginHorizontal: 68,
-  },
-  loadMoreStepsButtonText: {
-    color: theme.inactiveColor,
-    fontSize: 14,
-    letterSpacing: 1,
-    lineHeight: 18,
-  },
 });

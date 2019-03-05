@@ -122,68 +122,28 @@ exports[`SelectStepScreen should render foreground header correctly 1`] = `
 `;
 
 exports[`SelectStepScreen should render load more button correctly 1`] = `
-<TouchableOpacity
-  accessibilityTraits="button"
-  activeOpacity={0.6}
-  disabled={false}
-  onPress={[Function]}
->
-  <Component
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
-        },
-        null,
-        Object {
-          "backgroundColor": "transparent",
-          "borderColor": "#A0A2A6",
-          "borderWidth": 1,
-          "height": 36,
-          "marginHorizontal": 68,
-          "marginTop": 18,
-        },
-        Object {
-          "borderRadius": 50,
-        },
-      ]
+<Button
+  buttonTextStyle={
+    Object {
+      "color": "#B2B0B2",
+      "fontSize": 18,
     }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "rgba(0,0,0,0)",
-            "color": "#ffffff",
-            "fontSize": 18,
-            "fontWeight": "500",
-            "letterSpacing": 1.5,
-            "textAlign": "center",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 14,
-            "letterSpacing": 1,
-            "lineHeight": 18,
-          },
-        ]
-      }
-    >
-      SHOW MORE STEPS
-    </MyText>
-  </Component>
-</TouchableOpacity>
+  }
+  onPress={[Function]}
+  style={
+    Object {
+      "alignSelf": "center",
+      "borderColor": "#B2B0B2",
+      "borderRadius": 25,
+      "borderWidth": 1,
+      "marginVertical": 20,
+      "paddingVertical": 7,
+      "width": 250,
+    }
+  }
+  text="SHOW MORE STEPS"
+  type="transparent"
+/>
 `;
 
 exports[`SelectStepScreen should render step item correctly 1`] = `

@@ -10,7 +10,7 @@ import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import { buildCustomStep } from '../../utils/steps';
 import StepSuggestionItem from '../../components/StepSuggestionItem';
-import { Text, Icon, Button } from '../../components/common';
+import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import Header from '../Header';
 import BottomButton from '../../components/BottomButton';
@@ -18,6 +18,7 @@ import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, shuffleArray } from '../../utils/common';
 import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
+import LoadMore from '../../components/LoadMore';
 
 import styles from './styles';
 
@@ -170,19 +171,12 @@ class SelectStepScreen extends Component {
     );
   };
 
-  renderLoadMore = () => {
-    const { loadMoreStepsButton, loadMoreStepsButtonText } = styles;
-
-    return (
-      <Button
-        pill={true}
-        text={this.props.t('loadMoreSteps').toUpperCase()}
-        onPress={this.handleLoadSteps}
-        style={loadMoreStepsButton}
-        buttonTextStyle={loadMoreStepsButtonText}
-      />
-    );
-  };
+  renderLoadMore = () => (
+    <LoadMore
+      onPress={this.handleLoadSteps}
+      text={this.props.t('loadMoreSteps').toUpperCase()}
+    />
+  );
 
   renderCreateStepButton = () => (
     <BottomButton
