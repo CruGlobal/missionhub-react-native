@@ -50,6 +50,8 @@ export default StyleSheet.create({
   btnText: {
     fontSize: 16,
     color: theme.iosBlue,
+    fontWeight: 'normal',
+    letterSpacing: 1,
   },
   btnTextCancel: {
     textAlign: 'left',
