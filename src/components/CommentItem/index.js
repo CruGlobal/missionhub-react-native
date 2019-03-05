@@ -18,7 +18,8 @@ export default class CommentItem extends Component {
 
   render() {
     const {
-      item: { content, created_at, person, organization },
+      item: { content, created_at, person },
+      organization,
       onLongPress,
     } = this.props;
     const { itemStyle, text } = styles;
