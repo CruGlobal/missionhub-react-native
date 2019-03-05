@@ -3,48 +3,44 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import SelectStepScreen from '..';
+import StepsList from '..';
 
 import { renderShallow } from '../../../../testUtils';
 
 const mockStore = configureStore([thunk]);
 let store;
 
-const onComplete = jest.fn();
+let personId;
+let screen;
+
 const organization = { id: '4234234' };
 const contactStageId = '3';
 const receiverId = '252342354234';
-const createStepTracking = { prop: 'hello world' };
-const auth = { person: { id: '89123' } };
-const contactName = 'roger';
-
-let screen;
-let contact;
-let enableBackButton;
+const auth = { person: { id: personId } };
+const contactName = 'bill';
 
 beforeEach(() => {
   jest.clearAllMocks();
 
-  store = mockStore({ auth });
+  store = mockStore({
+    auth,
+    steps: { suggestedForMe: {}, suggestedForOthers: {} },
+  });
 
   screen = renderShallow(
-    <SelectStepScreen
-      contact={contact}
-      onComplete={onComplete}
+    <StepsList
       contactStageId={contactStageId}
       organization={organization}
       receiverId={receiverId}
-      enableBackButton={enableBackButton}
-      createStepTracking={createStepTracking}
       contactName={contactName}
     />,
     store,
   );
 });
 
-describe('without enableBackButton', () => {
+describe('for me', () => {
   beforeAll(() => {
-    enableBackButton = false;
+    personId = receiverId;
   });
 
   it('renders correctly', () => {
@@ -52,9 +48,9 @@ describe('without enableBackButton', () => {
   });
 });
 
-describe('with enableBackButton', () => {
+describe('for another person', () => {
   beforeAll(() => {
-    enableBackButton = true;
+    personId = '99900111';
   });
 
   it('renders correctly', () => {

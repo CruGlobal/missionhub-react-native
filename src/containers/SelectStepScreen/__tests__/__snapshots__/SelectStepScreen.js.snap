@@ -21,6 +21,7 @@ exports[`with enableBackButton renders correctly 1`] = `
     stickyHeaderHeight={65}
   >
     <Connect(Translate(StepsList))
+      contactName="roger"
       contactStageId="3"
       organization={
         Object {
@@ -62,6 +63,7 @@ exports[`without enableBackButton renders correctly 1`] = `
     stickyHeaderHeight={65}
   >
     <Connect(Translate(StepsList))
+      contactName="roger"
       contactStageId="3"
       organization={
         Object {
