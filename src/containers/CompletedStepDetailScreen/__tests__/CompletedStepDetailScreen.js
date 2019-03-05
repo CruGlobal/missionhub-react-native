@@ -14,8 +14,6 @@ const mockStore = configureStore([thunk]);
 let store;
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore();
 
   step = {
