@@ -41,14 +41,14 @@ class DatePicker extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const dateChange = nextProps.date !== this.props.date;
-    const visibleChange = nextProps.visible !== this.props.modalVisible;
-
-    if (dateChange || visibleChange) {
+    console.log(nextProps);
+    if (nextProps.date !== this.props.date) {
       this.setState({
         date: this.getDate(nextProps.date),
-        visible: !!nextProps.visible,
       });
+    }
+    if (nextProps.visible !== this.props.visible) {
+      this.setModalVisible(nextProps.visible);
     }
   }
 
@@ -77,7 +77,6 @@ class DatePicker extends Component {
     const { onCloseModal } = this.props;
 
     this.closeModal();
-
     isFunction(onCloseModal) && onCloseModal();
   };
 
@@ -86,7 +85,6 @@ class DatePicker extends Component {
 
     this.datePicked();
     this.closeModal();
-
     isFunction(onCloseModal) && onCloseModal();
   };
 
@@ -277,7 +275,6 @@ class DatePicker extends Component {
       doneBtnText,
       locale,
       title,
-      children,
     } = this.props;
     const {
       modalVisible,
@@ -294,6 +291,7 @@ class DatePicker extends Component {
       titleText,
     } = styles;
 
+    console.log(modalVisible);
     return (
       <Modal
         transparent={true}
@@ -323,7 +321,6 @@ class DatePicker extends Component {
               style={[styles.datePicker, customStyles.datePicker]}
               locale={locale}
             />
-            {children}
             <View style={topWrap}>
               <Button
                 type={'transparent'}
