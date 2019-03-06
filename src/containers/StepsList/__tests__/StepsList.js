@@ -45,8 +45,6 @@ const suggestedForOthers = {
 
 const insertNameResult = [{ body: 'take a step with roge' }];
 
-insertName.mockReturnValue(insertNameResult);
-
 beforeEach(() => {
   jest.clearAllMocks();
 
@@ -108,6 +106,7 @@ describe('for another person', () => {
   describe('without steps', () => {
     beforeAll(() => {
       contactStageId = '100';
+      insertName.mockReturnValue([]);
     });
 
     it('renders correctly', () => {
@@ -118,6 +117,7 @@ describe('for another person', () => {
   describe('with steps', () => {
     beforeAll(() => {
       contactStageId = stageIdWithSteps;
+      insertName.mockReturnValue(insertNameResult);
     });
 
     it('renders correctly', () => {

@@ -70,13 +70,7 @@ exports[`for another person with steps renders correctly 1`] = `
 exports[`for another person without steps renders correctly 1`] = `
 <FlatList
   ListFooterComponent={false}
-  data={
-    Array [
-      Object {
-        "body": "take a step with roge",
-      },
-    ]
-  }
+  data={Array []}
   disableVirtualization={false}
   horizontal={false}
   initialNumToRender={10}
