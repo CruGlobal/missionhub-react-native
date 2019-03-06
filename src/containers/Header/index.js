@@ -3,8 +3,6 @@ import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-// import { logout } from '../../actions/auth';
-// import { navigatePush } from '../../actions/navigation';
 import { Flex, Text, Button } from '../../components/common';
 
 import styles from './styles';
