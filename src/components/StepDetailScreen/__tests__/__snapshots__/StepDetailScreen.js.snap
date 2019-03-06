@@ -502,7 +502,7 @@ exports[`markdown is not null renders correctly 1`] = `
           Object {
             "blockquote": Object {
               "backgroundColor": "#E6E8EC",
-              "left": -60,
+              "left": -32,
               "paddingHorizontal": 32,
               "paddingVertical": 16,
               "width": 750,
@@ -538,7 +538,8 @@ exports[`markdown is not null renders correctly 1`] = `
               "backgroundColor": "#E6E8EC",
               "height": 1,
               "left": -32,
-              "margin": 8,
+              "marginHorizontal": 0,
+              "marginVertical": 8,
               "width": 750,
             },
             "image": Object {

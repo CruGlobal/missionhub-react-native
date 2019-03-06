@@ -53,7 +53,7 @@ const linkStyle = {
   textDecorationLine: 'underline',
 };
 const blockQuoteStyle = {
-  left: -60,
+  left: -32,
   width: theme.fullWidth,
   backgroundColor: theme.extraLightGrey,
   paddingVertical: 16,
@@ -64,7 +64,8 @@ const horizontalLineStyle = {
   height: 1,
   width: theme.fullWidth,
   backgroundColor: theme.separatorColor,
-  margin: 8,
+  marginVertical: 8,
+  marginHorizontal: 0,
 };
 const imageStyle = {
   left: -32,
