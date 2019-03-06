@@ -105,6 +105,7 @@ exports[`renders correctly 1`] = `
     outputScaleValue={5}
     parallaxHeaderHeight={215}
     renderBackground={[Function]}
+    renderContentBackground={[Function]}
     renderForeground={[Function]}
     renderParallaxHeader={[Function]}
     renderScrollComponent={[Function]}
