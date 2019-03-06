@@ -1,76 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SelectStepScreen renders correctly 1`] = `
+exports[`renderForeground renders correctly 1`] = `
 <Component
-  flex={1}
->
-  <ParallaxScrollView
-    backgroundColor="#007398"
-    backgroundScrollSpeed={5}
-    contentBackgroundColor="#E6E8EC"
-    contentContainerStyle={null}
-    fadeOutForeground={true}
-    onChangeHeaderVisibility={[Function]}
-    outputScaleValue={5}
-    parallaxHeaderHeight={240}
-    renderBackground={[Function]}
-    renderForeground={[Function]}
-    renderParallaxHeader={[Function]}
-    renderScrollComponent={[Function]}
-    renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
-  >
-    <FlatList
-      ListFooterComponent={[Function]}
-      data={
-        Array [
-          Object {
-            "body": "test 1",
-            "id": "1",
-          },
-          Object {
-            "body": "test 2",
-            "id": "2",
-          },
-          Object {
-            "body": "test 3",
-            "id": "3",
-          },
-          Object {
-            "body": "test 4",
-            "id": "4",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      renderItem={[Function]}
-      scrollEnabled={true}
-      scrollEventThrottle={50}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "paddingVertical": 16,
-        }
-      }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
-  </ParallaxScrollView>
-  <BottomButton
-    onPress={[Function]}
-    text="CREATE YOUR OWN STEP"
-  />
-</Component>
-`;
-
-exports[`SelectStepScreen should render foreground header correctly 1`] = `
-<View
   alignItems="center"
   flex={1}
 >
@@ -115,142 +46,13 @@ exports[`SelectStepScreen should render foreground header correctly 1`] = `
         "textAlign": "center",
       }
     }
-  >
-    header
-  </MyText>
-</View>
-`;
-
-exports[`SelectStepScreen should render load more button correctly 1`] = `
-<TouchableOpacity
-  accessibilityTraits="button"
-  activeOpacity={0.6}
-  disabled={false}
-  onPress={[Function]}
->
-  <Component
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
-        },
-        null,
-        Object {
-          "backgroundColor": "transparent",
-          "borderColor": "#A0A2A6",
-          "borderWidth": 1,
-          "height": 36,
-          "marginHorizontal": 68,
-          "marginTop": 18,
-        },
-        Object {
-          "borderRadius": 50,
-        },
-      ]
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "rgba(0,0,0,0)",
-            "color": "#ffffff",
-            "fontSize": 18,
-            "fontWeight": "500",
-            "letterSpacing": 1.5,
-            "textAlign": "center",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 14,
-            "letterSpacing": 1,
-            "lineHeight": 18,
-          },
-        ]
-      }
-    >
-      SHOW MORE STEPS
-    </MyText>
-  </Component>
-</TouchableOpacity>
-`;
-
-exports[`SelectStepScreen should render step item correctly 1`] = `
-<Card
-  onPress={[Function]}
-  style={
-    Object {
-      "marginHorizontal": 20,
-      "marginVertical": 4,
-      "padding": 20,
-    }
-  }
->
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "fontSize": 16,
-        "lineHeight": 22,
-      }
-    }
-  >
-    test 1
-  </MyText>
-</Card>
-`;
-
-exports[`SelectStepScreen should render sticky header correctly 1`] = `
-<Flex
-  direction="row"
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#007398",
-        "height": 65,
-        "paddingTop": 20,
-      },
-      undefined,
-      Object {
-        "elevation": 4,
-      },
-    ]
-  }
->
-  <Flex
-    align="start"
-    justify="center"
-    style={
-      Object {
-        "marginTop": 0,
-        "paddingLeft": 5,
-      }
-    }
-    value={1}
   />
-  <Flex
-    align="center"
-    justify="center"
-    style={
-      Object {
-        "marginTop": 0,
-      }
-    }
-    value={5}
-  >
+</Component>
+`;
+
+exports[`renderStickyHeader renders correctly 1`] = `
+<Connect(Header)
+  center={
     <MyText
       accessible={true}
       allowFontScaling={true}
@@ -264,22 +66,11 @@ exports[`SelectStepScreen should render sticky header correctly 1`] = `
     >
       ADD STEPS OF FAITH
     </MyText>
-  </Flex>
-  <Flex
-    align="end"
-    justify="center"
-    style={
-      Object {
-        "marginTop": 0,
-        "paddingRight": 5,
-      }
-    }
-    value={1}
-  />
-</Flex>
+  }
+/>
 `;
 
-exports[`handleLoadSteps Initially displays four suggestions 1`] = `
+exports[`with enableBackButton renders correctly 1`] = `
 <Component
   flex={1}
 >
@@ -299,402 +90,15 @@ exports[`handleLoadSteps Initially displays four suggestions 1`] = `
     renderStickyHeader={[Function]}
     stickyHeaderHeight={65}
   >
-    <FlatList
-      ListFooterComponent={[Function]}
-      data={
-        Array [
-          Object {
-            "body": "test 1",
-            "id": "1",
-          },
-          Object {
-            "body": "test 2",
-            "id": "2",
-          },
-          Object {
-            "body": "test 3",
-            "id": "3",
-          },
-          Object {
-            "body": "test 4",
-            "id": "4",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      renderItem={[Function]}
-      scrollEnabled={true}
-      scrollEventThrottle={50}
-      style={
+    <Connect(Translate(StepsList))
+      contactName="roger"
+      contactStageId="3"
+      organization={
         Object {
-          "backgroundColor": "transparent",
-          "paddingVertical": 16,
+          "id": "4234234",
         }
       }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
-  </ParallaxScrollView>
-  <BottomButton
-    onPress={[Function]}
-    text="CREATE YOUR OWN STEP"
-  />
-</Component>
-`;
-
-exports[`handleLoadSteps Loads four more suggestions 1`] = `
-<Component
-  flex={1}
->
-  <ParallaxScrollView
-    backgroundColor="#007398"
-    backgroundScrollSpeed={5}
-    contentBackgroundColor="#E6E8EC"
-    contentContainerStyle={null}
-    fadeOutForeground={true}
-    onChangeHeaderVisibility={[Function]}
-    outputScaleValue={5}
-    parallaxHeaderHeight={240}
-    renderBackground={[Function]}
-    renderForeground={[Function]}
-    renderParallaxHeader={[Function]}
-    renderScrollComponent={[Function]}
-    renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
-  >
-    <FlatList
-      ListFooterComponent={[Function]}
-      data={
-        Array [
-          Object {
-            "body": "test 1",
-            "id": "1",
-          },
-          Object {
-            "body": "test 2",
-            "id": "2",
-          },
-          Object {
-            "body": "test 3",
-            "id": "3",
-          },
-          Object {
-            "body": "test 4",
-            "id": "4",
-          },
-          Object {
-            "body": "test 5",
-            "id": "5",
-          },
-          Object {
-            "body": "test 6",
-            "id": "6",
-          },
-          Object {
-            "body": "test 7",
-            "id": "7",
-          },
-          Object {
-            "body": "test 8",
-            "id": "8",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      renderItem={[Function]}
-      scrollEnabled={true}
-      scrollEventThrottle={50}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "paddingVertical": 16,
-        }
-      }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
-  </ParallaxScrollView>
-  <BottomButton
-    onPress={[Function]}
-    text="CREATE YOUR OWN STEP"
-  />
-</Component>
-`;
-
-exports[`handleLoadSteps Loads last suggestion 1`] = `
-<Component
-  flex={1}
->
-  <ParallaxScrollView
-    backgroundColor="#007398"
-    backgroundScrollSpeed={5}
-    contentBackgroundColor="#E6E8EC"
-    contentContainerStyle={null}
-    fadeOutForeground={true}
-    onChangeHeaderVisibility={[Function]}
-    outputScaleValue={5}
-    parallaxHeaderHeight={240}
-    renderBackground={[Function]}
-    renderForeground={[Function]}
-    renderParallaxHeader={[Function]}
-    renderScrollComponent={[Function]}
-    renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
-  >
-    <FlatList
-      ListFooterComponent={[Function]}
-      data={
-        Array [
-          Object {
-            "body": "test 1",
-            "id": "1",
-          },
-          Object {
-            "body": "test 2",
-            "id": "2",
-          },
-          Object {
-            "body": "test 3",
-            "id": "3",
-          },
-          Object {
-            "body": "test 4",
-            "id": "4",
-          },
-          Object {
-            "body": "test 5",
-            "id": "5",
-          },
-          Object {
-            "body": "test 6",
-            "id": "6",
-          },
-          Object {
-            "body": "test 7",
-            "id": "7",
-          },
-          Object {
-            "body": "test 8",
-            "id": "8",
-          },
-          Object {
-            "body": "test 9",
-            "id": "9",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      renderItem={[Function]}
-      scrollEnabled={true}
-      scrollEventThrottle={50}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "paddingVertical": 16,
-        }
-      }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
-  </ParallaxScrollView>
-  <BottomButton
-    onPress={[Function]}
-    text="CREATE YOUR OWN STEP"
-  />
-</Component>
-`;
-
-exports[`handleLoadSteps loads no more because all suggestions are displayed 1`] = `
-<Component
-  flex={1}
->
-  <ParallaxScrollView
-    backgroundColor="#007398"
-    backgroundScrollSpeed={5}
-    contentBackgroundColor="#E6E8EC"
-    contentContainerStyle={null}
-    fadeOutForeground={true}
-    onChangeHeaderVisibility={[Function]}
-    outputScaleValue={5}
-    parallaxHeaderHeight={240}
-    renderBackground={[Function]}
-    renderForeground={[Function]}
-    renderParallaxHeader={[Function]}
-    renderScrollComponent={[Function]}
-    renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
-  >
-    <FlatList
-      ListFooterComponent={[Function]}
-      data={
-        Array [
-          Object {
-            "body": "test 1",
-            "id": "1",
-          },
-          Object {
-            "body": "test 2",
-            "id": "2",
-          },
-          Object {
-            "body": "test 3",
-            "id": "3",
-          },
-          Object {
-            "body": "test 4",
-            "id": "4",
-          },
-          Object {
-            "body": "test 5",
-            "id": "5",
-          },
-          Object {
-            "body": "test 6",
-            "id": "6",
-          },
-          Object {
-            "body": "test 7",
-            "id": "7",
-          },
-          Object {
-            "body": "test 8",
-            "id": "8",
-          },
-          Object {
-            "body": "test 9",
-            "id": "9",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      renderItem={[Function]}
-      scrollEnabled={true}
-      scrollEventThrottle={50}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "paddingVertical": 16,
-        }
-      }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
-  </ParallaxScrollView>
-  <BottomButton
-    onPress={[Function]}
-    text="CREATE YOUR OWN STEP"
-  />
-</Component>
-`;
-
-exports[`mapStateToProps should provide necessary props for me 1`] = `
-Object {
-  "myId": "123",
-  "suggestions": Array [
-    Object {
-      "body": "test 1",
-      "id": "1",
-    },
-  ],
-}
-`;
-
-exports[`mapStateToProps should provide necessary props for others 1`] = `
-Object {
-  "myId": "123",
-  "suggestions": Array [
-    Object {
-      "body": "test 1",
-      "id": "1",
-    },
-  ],
-}
-`;
-
-exports[`renderBackButton should render back button 1`] = `
-<Component
-  flex={1}
->
-  <ParallaxScrollView
-    backgroundColor="#007398"
-    backgroundScrollSpeed={5}
-    contentBackgroundColor="#E6E8EC"
-    contentContainerStyle={null}
-    fadeOutForeground={true}
-    onChangeHeaderVisibility={[Function]}
-    outputScaleValue={5}
-    parallaxHeaderHeight={240}
-    renderBackground={[Function]}
-    renderForeground={[Function]}
-    renderParallaxHeader={[Function]}
-    renderScrollComponent={[Function]}
-    renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
-  >
-    <FlatList
-      ListFooterComponent={[Function]}
-      data={
-        Array [
-          Object {
-            "body": "test 1",
-            "id": "1",
-          },
-          Object {
-            "body": "test 2",
-            "id": "2",
-          },
-          Object {
-            "body": "test 3",
-            "id": "3",
-          },
-          Object {
-            "body": "test 4",
-            "id": "4",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      renderItem={[Function]}
-      scrollEnabled={true}
-      scrollEventThrottle={50}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "paddingVertical": 16,
-        }
-      }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
+      receiverId="252342354234"
     />
   </ParallaxScrollView>
   <BottomButton
@@ -704,6 +108,44 @@ exports[`renderBackButton should render back button 1`] = `
   <Connect(BackButton)
     absolute={true}
     customNavigate={[Function]}
+  />
+</Component>
+`;
+
+exports[`without enableBackButton renders correctly 1`] = `
+<Component
+  flex={1}
+>
+  <ParallaxScrollView
+    backgroundColor="#007398"
+    backgroundScrollSpeed={5}
+    contentBackgroundColor="#E6E8EC"
+    contentContainerStyle={null}
+    fadeOutForeground={true}
+    onChangeHeaderVisibility={[Function]}
+    outputScaleValue={5}
+    parallaxHeaderHeight={240}
+    renderBackground={[Function]}
+    renderForeground={[Function]}
+    renderParallaxHeader={[Function]}
+    renderScrollComponent={[Function]}
+    renderStickyHeader={[Function]}
+    stickyHeaderHeight={65}
+  >
+    <Connect(Translate(StepsList))
+      contactName="roger"
+      contactStageId="3"
+      organization={
+        Object {
+          "id": "4234234",
+        }
+      }
+      receiverId="252342354234"
+    />
+  </ParallaxScrollView>
+  <BottomButton
+    onPress={[Function]}
+    text="CREATE YOUR OWN STEP"
   />
 </Component>
 `;

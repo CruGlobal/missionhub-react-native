@@ -1,246 +1,135 @@
 import 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
-import SelectStepScreen, { mapStateToProps } from '..';
+import SelectStepScreen from '..';
 
-import {
-  renderShallow,
-  createMockStore,
-  testSnapshotShallow,
-} from '../../../../testUtils';
-import * as navigation from '../../../actions/navigation';
-import { ADD_STEP_SCREEN } from '../../AddStepScreen';
-import { getStepSuggestions } from '../../../actions/steps';
-import { shuffleArray } from '../../../utils/common';
+import { renderShallow } from '../../../../testUtils';
+import { navigatePush } from '../../../actions/navigation';
+import { buildCustomStep } from '../../../utils/steps';
 import { CREATE_STEP } from '../../../constants';
+import { ADD_STEP_SCREEN } from '../../AddStepScreen';
+import { addSteps } from '../../../actions/steps';
 
-Enzyme.configure({ adapter: new Adapter() });
-
-jest.mock('react-native-device-info');
+jest.mock('../../../utils/steps');
 jest.mock('../../../actions/steps');
-jest.mock('../../../utils/common');
-shuffleArray.mockImplementation(arr => arr);
+jest.mock('../../../actions/navigation');
 
-const testName = 'Bill';
+const mockStore = configureStore([thunk]);
+let store;
 
-const contactStageId = 5;
+const onComplete = jest.fn();
+const organization = { id: '4234234' };
+const contactStageId = '3';
+const receiverId = '252342354234';
+const createStepTracking = { prop: 'hello world' };
+const auth = { person: { id: '89123' } };
+const contactName = 'roger';
+const customStep = { body: 'some custom step' };
+const addStepsResult = { type: 'added steps' };
 
-const suggestions = [
-  { id: '1', body: 'test 1' },
-  { id: '2', body: 'test 2' },
-  { id: '3', body: 'test 3' },
-  { id: '4', body: 'test 4' },
-  { id: '5', body: 'test 5' },
-  { id: '6', body: 'test 6' },
-  { id: '7', body: 'test 7' },
-  { id: '8', body: 'test 8' },
-  { id: '9', body: 'test 9' },
-];
+let screen;
+let contact;
+let enableBackButton;
 
-const auth = {
-  person: {
-    id: '123',
-  },
-};
+navigatePush.mockImplementation((screen, props) => () =>
+  props.onComplete(customStep.body),
+);
+buildCustomStep.mockReturnValue(customStep);
+addSteps.mockReturnValue(addStepsResult);
 
-const org = { id: 2 };
+beforeEach(() => {
+  jest.clearAllMocks();
 
-const receiverId = '1';
+  store = mockStore({ auth });
 
-const headerText = 'header';
-
-const steps = {
-  suggestedForOthers: {
-    [contactStageId]: suggestions,
-  },
-};
-
-let store = createMockStore({
-  auth,
-  steps,
-});
-
-let component, parallaxProps, flatListProps, instance;
-let createStepTracking = {};
-let enableBackButton = false;
-
-const createComponent = async () => {
-  getStepSuggestions.mockReturnValue(
-    Promise.resolve({ response: suggestions }),
-  );
-  component = renderShallow(
+  screen = renderShallow(
     <SelectStepScreen
-      isMe={false}
-      headerText={headerText}
+      contact={contact}
+      onComplete={onComplete}
       contactStageId={contactStageId}
-      createStepTracking={createStepTracking}
-      personFirstName={testName}
-      enableBackButton={enableBackButton}
+      organization={organization}
       receiverId={receiverId}
-      organization={org}
+      enableBackButton={enableBackButton}
+      createStepTracking={createStepTracking}
+      contactName={contactName}
     />,
     store,
   );
-  parallaxProps = component.find('ParallaxScrollView').props();
-  flatListProps = component.find('FlatList').props();
-  instance = component.instance();
-  await Promise.resolve();
-};
-
-describe('mapStateToProps', () => {
-  it('should provide necessary props for me', () => {
-    expect(
-      mapStateToProps(
-        {
-          auth: {
-            person: {
-              id: '123',
-            },
-          },
-          steps: {
-            suggestedForMe: {
-              [contactStageId]: [{ id: '1', body: 'test 1' }],
-            },
-            suggestedForOthers: {},
-          },
-        },
-        {
-          isMe: true,
-          contactStageId,
-        },
-      ),
-    ).toMatchSnapshot();
-  });
-
-  it('should provide necessary props for others', () => {
-    expect(
-      mapStateToProps(
-        {
-          auth: {
-            person: {
-              id: '123',
-            },
-          },
-          steps: {
-            suggestedForMe: {},
-            suggestedForOthers: {
-              [contactStageId]: [{ id: '1', body: 'test 1' }],
-            },
-          },
-        },
-        {
-          isMe: false,
-          contactStageId,
-        },
-      ),
-    ).toMatchSnapshot();
-  });
 });
 
-describe('SelectStepScreen', () => {
-  beforeEach(async () => {
-    await createComponent();
+describe('without enableBackButton', () => {
+  beforeAll(() => {
+    enableBackButton = false;
   });
 
   it('renders correctly', () => {
-    expect(component).toMatchSnapshot();
+    expect(screen).toMatchSnapshot();
+  });
+});
+
+describe('with enableBackButton', () => {
+  beforeAll(() => {
+    enableBackButton = true;
   });
 
-  it('should render foreground header correctly', () => {
+  it('renders correctly', () => {
+    expect(screen).toMatchSnapshot();
+  });
+});
+
+describe('renderForeground', () => {
+  it('renders correctly', () => {
     expect(
-      shallow(parallaxProps.renderForeground(), {
-        t: jest.fn(),
-        headerText: 'text',
-      }),
+      screen
+        .childAt(0)
+        .props()
+        .renderForeground(),
     ).toMatchSnapshot();
   });
+});
 
-  it('should render sticky header correctly', () => {
-    testSnapshotShallow(parallaxProps.renderStickyHeader());
-  });
-
-  it('should render step item correctly', () => {
-    testSnapshotShallow(flatListProps.renderItem({ item: suggestions[0] }));
-  });
-
-  it('should render load more button correctly', () => {
-    testSnapshotShallow(flatListProps.ListFooterComponent());
-  });
-
-  it('should call navigate back two screens', () => {
-    navigation.navigateBack = jest.fn();
-    instance.navigateBackTwoScreens();
-    expect(navigation.navigateBack).toHaveBeenCalledWith(2);
-  });
-
-  it('should call steps list ref', () => {
-    instance.stepsListRef('test');
-    expect(instance.stepsList).toEqual('test');
+describe('renderStickyHeader', () => {
+  it('renders correctly', () => {
+    expect(
+      screen
+        .childAt(0)
+        .props()
+        .renderStickyHeader(),
+    ).toMatchSnapshot();
   });
 });
 
-describe('componentDidMount', () => {
-  it('should call getStepSuggestions every time component mounts', async () => {
-    store = createMockStore({ auth, steps: { suggestedForOthers: {} } });
-    await createComponent();
-
-    expect(getStepSuggestions).toHaveBeenCalled();
-    store = createMockStore({ auth, steps });
+describe('BottomButton', () => {
+  beforeEach(() => {
+    screen
+      .childAt(1)
+      .props()
+      .onPress();
   });
-});
 
-describe('renderBackButton', () => {
-  it('should render back button', async () => {
-    enableBackButton = true;
-    await createComponent();
-
-    expect(component).toMatchSnapshot();
-    enableBackButton = false;
-  });
-});
-
-describe('Navigation', () => {
-  it('navigates to add step screen', async () => {
-    navigation.navigatePush = jest.fn();
-    createStepTracking = { test: 'this is a test tracking property' };
-    await createComponent();
-
-    instance.handleCreateStep();
-
-    expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
+  it('navigates to add step screen', () => {
+    expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
       trackingObj: createStepTracking,
+      onComplete: expect.any(Function),
     });
   });
-});
 
-describe('handleLoadSteps', () => {
-  beforeAll(async () => {
-    await createComponent();
+  it('passes callback to create a custom step', () => {
+    expect(addSteps).toHaveBeenCalledWith(
+      [customStep],
+      receiverId,
+      organization,
+    );
+    expect(buildCustomStep).toHaveBeenCalledWith(
+      customStep.body,
+      receiverId === auth.person.id,
+    );
   });
 
-  it('Initially displays four suggestions', () => {
-    expect(instance.state.suggestionIndex).toEqual(4);
-    expect(component).toMatchSnapshot();
-  });
-  it('Loads four more suggestions', () => {
-    instance.handleLoadSteps();
-    component.update();
-    expect(instance.state.suggestionIndex).toEqual(8);
-    expect(component).toMatchSnapshot();
-  });
-  it('Loads last suggestion', () => {
-    instance.handleLoadSteps();
-    component.update();
-    expect(instance.state.suggestionIndex).toEqual(9);
-    expect(component).toMatchSnapshot();
-  });
-  it('loads no more because all suggestions are displayed', () => {
-    instance.handleLoadSteps();
-    component.update();
-    expect(instance.state.suggestionIndex).toEqual(9);
-    expect(component).toMatchSnapshot();
+  it('dispatches actions to store', () => {
+    expect(store.getActions()).toEqual([addStepsResult]);
   });
 });

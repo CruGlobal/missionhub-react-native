@@ -4,8 +4,9 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Button } from '../../components/common';
-import { completeStep } from '../../actions/steps';
+import { completeStep, deleteStepWithTracking } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
+import { navigateBack } from '../../actions/navigation';
 
 import styles from './styles';
 
@@ -17,13 +18,16 @@ class AcceptedStepDetailScreen extends Component {
     dispatch(completeStep(step, 'Step Detail', true));
   };
 
-  removeStep = () => {};
+  removeStep = () => {
+    const { dispatch, step } = this.props;
+
+    dispatch(deleteStepWithTracking(step, 'Step Detail'));
+    dispatch(navigateBack());
+  };
 
   render() {
     const { t, step } = this.props;
-    const markdown =
-      step.challenge_suggestion &&
-      step.challenge_suggestion.description_markdown;
+    const { challenge_suggestion } = step;
     const { removeStepButton, removeStepButtonText } = styles;
 
     return (
@@ -38,7 +42,9 @@ class AcceptedStepDetailScreen extends Component {
             buttonTextStyle={removeStepButtonText}
           />
         }
-        markdown={markdown}
+        markdown={
+          challenge_suggestion && challenge_suggestion.description_markdown
+        }
         text={step.title}
         bottomButtonProps={{
           onPress: this.completeStep,
