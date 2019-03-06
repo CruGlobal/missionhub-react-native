@@ -16,4 +16,10 @@ export default StyleSheet.create({
     marginTop: hasNotch() ? 50 : 25,
   },
   backButtonStyle: { color: theme.black },
+  headerStyle: { backgroundColor: theme.white },
+  rightHeaderItemStyle: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
 });

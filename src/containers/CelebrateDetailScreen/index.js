@@ -41,24 +41,19 @@ class CelebrateDetailScreen extends Component {
   renderStickyHeader = () => {
     const { event } = this.props;
     const { subject_person_name } = event;
+    const { headerStyle, rightHeaderItemStyle } = styles;
 
     return (
       <Header
         shadow={false}
         left={<ItemHeaderText text={subject_person_name} />}
         right={
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-            }}
-          >
+          <View style={rightHeaderItemStyle}>
             <CommentLikeComponent event={event} />
             {this.renderBackButton()}
           </View>
         }
-        style={{ backgroundColor: theme.white }}
+        style={headerStyle}
       />
     );
   };

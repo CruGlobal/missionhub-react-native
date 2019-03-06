@@ -16,6 +16,7 @@ exports[`renderForeground renders correctly 1`] = `
       "organization": Object {
         "id": "24234234",
       },
+      "subject_person_name": "Roger",
     }
   }
   namePressable={true}
@@ -34,7 +35,11 @@ exports[`renderForeground renders correctly 1`] = `
 
 exports[`renderStickyHeader renders correctly 1`] = `
 <Connect(Header)
-  left={<ItemHeaderText />}
+  left={
+    <ItemHeaderText
+      text="Roger"
+    />
+  }
   right={
     <Component
       style={
@@ -52,6 +57,7 @@ exports[`renderStickyHeader renders correctly 1`] = `
             "organization": Object {
               "id": "24234234",
             },
+            "subject_person_name": "Roger",
           }
         }
       />
@@ -113,6 +119,7 @@ exports[`renders correctly 1`] = `
           "organization": Object {
             "id": "24234234",
           },
+          "subject_person_name": "Roger",
         }
       }
       organizationId="24234234"
@@ -124,6 +131,7 @@ exports[`renders correctly 1`] = `
           "organization": Object {
             "id": "24234234",
           },
+          "subject_person_name": "Roger",
         }
       }
     />
