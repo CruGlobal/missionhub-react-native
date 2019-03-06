@@ -75,10 +75,10 @@ describe('for me', () => {
   });
 
   describe('loadMore', () => {
-    it('should show more steps', () => {
-      screen.props().ListFooterComponent.props.onPress();
+    it('should show more steps and hide button', () => {
+      pressLoadMore();
 
-      expect(screen.update()).toMatchSnapshot();
+      expect(screen).toMatchSnapshot();
     });
   });
 });
@@ -100,17 +100,15 @@ describe('for another person', () => {
   });
 
   describe('loadMore', () => {
-    it('should show more steps', () => {
-      screen.props().ListFooterComponent.props.onPress();
+    beforeEach(() => {
+      pressLoadMore();
+    });
 
-      expect(screen.update()).toMatchSnapshot();
+    it('should show more steps and hide button', () => {
+      expect(screen).toMatchSnapshot();
     });
 
     it('should insert name', () => {
-      screen.props().ListFooterComponent.props.onPress();
-
-      screen.update();
-
       expect(insertName).toHaveBeenCalledWith(
         suggestedForOthers[contactStageId].slice(0, 8),
         contactName,
@@ -124,3 +122,8 @@ describe('renderItem', () => {
     expect(screen.props().renderItem({ item })).toMatchSnapshot();
   });
 });
+
+function pressLoadMore() {
+  screen.props().ListFooterComponent.props.onPress();
+  screen.update();
+}

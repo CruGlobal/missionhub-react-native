@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`for another person loadMore should show more steps 1`] = `
+exports[`for another person loadMore should show more steps and hide button 1`] = `
 <FlatList
   ListFooterComponent={false}
   data={
@@ -67,7 +67,7 @@ exports[`for another person renders correctly with steps 1`] = `
 />
 `;
 
-exports[`for me loadMore should show more steps 1`] = `
+exports[`for me loadMore should show more steps and hide button 1`] = `
 <FlatList
   ListFooterComponent={false}
   data={
