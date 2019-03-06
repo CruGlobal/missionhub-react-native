@@ -20,6 +20,7 @@ const contactStageId = '3';
 const receiverId = '252342354234';
 const auth = { person: { id: personId } };
 const contactName = 'bill';
+const item = { body: 'some step' };
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -57,5 +58,11 @@ describe('for another person', () => {
 
   it('renders correctly', () => {
     expect(screen).toMatchSnapshot();
+  });
+});
+
+describe('renderItem', () => {
+  it('renders correctly', () => {
+    expect(screen.props().renderItem({ item })).toMatchSnapshot();
   });
 });

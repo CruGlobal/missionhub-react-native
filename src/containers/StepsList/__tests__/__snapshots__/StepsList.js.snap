@@ -47,3 +47,15 @@ exports[`for me renders correctly 1`] = `
   windowSize={21}
 />
 `;
+
+exports[`renderItem renders correctly 1`] = `
+<Connect(StepSuggestionItem)
+  orgId="4234234"
+  receiverId="252342354234"
+  step={
+    Object {
+      "body": "some step",
+    }
+  }
+/>
+`;
