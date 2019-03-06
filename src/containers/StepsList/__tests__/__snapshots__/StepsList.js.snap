@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`for another person renders correctly 1`] = `
+exports[`for another person renders correctly with steps 1`] = `
 <FlatList
-  ListFooterComponent={false}
+  ListFooterComponent={
+    <Translate(LoadMore)
+      onPress={[Function]}
+      text="SHOW MORE STEPS"
+    />
+  }
   disableVirtualization={false}
   horizontal={false}
   initialNumToRender={10}
@@ -24,9 +29,14 @@ exports[`for another person renders correctly 1`] = `
 />
 `;
 
-exports[`for me renders correctly 1`] = `
+exports[`for me renders correctly with steps 1`] = `
 <FlatList
-  ListFooterComponent={false}
+  ListFooterComponent={
+    <Translate(LoadMore)
+      onPress={[Function]}
+      text="SHOW MORE STEPS"
+    />
+  }
   disableVirtualization={false}
   horizontal={false}
   initialNumToRender={10}

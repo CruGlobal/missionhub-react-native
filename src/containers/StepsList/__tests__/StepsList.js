@@ -21,13 +21,33 @@ const receiverId = '252342354234';
 const auth = { person: { id: personId } };
 const contactName = 'bill';
 const item = { body: 'some step' };
+const suggestedForMe = {
+  [contactStageId]: [
+    { id: '1' },
+    { id: '2' },
+    { id: '3' },
+    { id: '4' },
+    { id: '5' },
+    { id: '6' },
+  ],
+};
+const suggestedForOthers = {
+  [contactStageId]: [
+    { id: '7' },
+    { id: '8' },
+    { id: '9' },
+    { id: '10' },
+    { id: '11' },
+    { id: '12' },
+  ],
+};
 
 beforeEach(() => {
   jest.clearAllMocks();
 
   store = mockStore({
     auth,
-    steps: { suggestedForMe: {}, suggestedForOthers: {} },
+    steps: { suggestedForMe, suggestedForOthers },
   });
 
   screen = renderShallow(
@@ -46,7 +66,7 @@ describe('for me', () => {
     personId = receiverId;
   });
 
-  it('renders correctly', () => {
+  it('renders correctly with steps', () => {
     expect(screen).toMatchSnapshot();
   });
 });
@@ -56,7 +76,7 @@ describe('for another person', () => {
     personId = '99900111';
   });
 
-  it('renders correctly', () => {
+  it('renders correctly with steps', () => {
     expect(screen).toMatchSnapshot();
   });
 });
