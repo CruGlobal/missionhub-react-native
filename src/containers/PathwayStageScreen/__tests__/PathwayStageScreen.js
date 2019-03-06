@@ -3,14 +3,17 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
-import { createMockStore, testSnapshot } from '../../../../testUtils';
+import { testSnapshot } from '../../../../testUtils';
 
 import PathwayStageScreen from '..';
 
 import * as common from '../../../utils/common';
 
-const store = createMockStore({
+const mockStore = configureStore([thunk]);
+const store = {
   stages: {
     stages: [
       { id: 1, name: 'Stage 1', description: 'Stage 1 description' },
@@ -18,7 +21,7 @@ const store = createMockStore({
       { id: 3, name: 'Stage 3', description: 'Stage 3 description' },
     ],
   },
-});
+};
 
 jest.mock('react-native-device-info');
 
@@ -31,7 +34,7 @@ const mockProps = {
 
 it('renders correctly', () => {
   testSnapshot(
-    <Provider store={store}>
+    <Provider store={mockStore(store)}>
       <PathwayStageScreen {...mockProps} />
     </Provider>,
   );
@@ -39,7 +42,7 @@ it('renders correctly', () => {
 
 it('renders firstItem correctly', () => {
   testSnapshot(
-    <Provider store={store}>
+    <Provider store={mockStore(store)}>
       <PathwayStageScreen {...mockProps} firstItem={1} />
     </Provider>,
   );
@@ -47,7 +50,7 @@ it('renders firstItem correctly', () => {
 
 it('renders correctly without stages', () => {
   testSnapshot(
-    <Provider store={createMockStore({ stages: {} })}>
+    <Provider store={mockStore({ stages: {} })}>
       <PathwayStageScreen {...mockProps} />
     </Provider>,
   );
@@ -55,7 +58,7 @@ it('renders correctly without stages', () => {
 
 it('renders back button correctly', () => {
   testSnapshot(
-    <Provider store={store}>
+    <Provider store={mockStore(store)}>
       <PathwayStageScreen {...mockProps} enableBackButton={true} />
     </Provider>,
   );
@@ -68,7 +71,7 @@ describe('pathway stage screen methods', () => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
       <PathwayStageScreen {...mockProps} onSelect={mockSelect} />,
-      { context: { store } },
+      { context: { store: mockStore(store) } },
     );
 
     component = screen.dive().instance();
@@ -86,7 +89,7 @@ describe('pathway stage screen methods without back', () => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
       <PathwayStageScreen {...mockProps} enableBackButton={false} />,
-      { context: { store } },
+      { context: { store: mockStore(store) } },
     );
 
     component = screen.dive().instance();
