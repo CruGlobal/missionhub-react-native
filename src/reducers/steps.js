@@ -7,7 +7,7 @@ import {
   COMPLETED_STEP_COUNT,
   RESET_STEP_COUNT,
 } from '../constants';
-import { getPagination } from '../utils/common';
+import { getPagination, shuffleArray } from '../utils/common';
 
 const initialState = {
   mine: null, // null indicates user has never loaded. [] indicates loaded but user doesn't have any
@@ -26,7 +26,8 @@ export default function stepsReducer(state = initialState, action) {
     case REQUESTS.GET_CHALLENGE_SUGGESTIONS.SUCCESS:
       const contactStageId = action.query.filters.pathway_stage_id;
       const isMe = action.query.filters.self_step;
-      const suggestions = action.results.response;
+      const suggestions = shuffleArray(action.results.response);
+
       return {
         ...state,
         suggestedForMe: {

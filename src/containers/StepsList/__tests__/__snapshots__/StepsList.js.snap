@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`for another person with steps loadMore should show more steps and hide button 1`] = `
+<FlatList
+  ListFooterComponent={false}
+  data={
+    Array [
+      Object {
+        "body": "take a step with roge",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  renderItem={[Function]}
+  scrollEnabled={true}
+  scrollEventThrottle={50}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "paddingVertical": 16,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
+exports[`for another person with steps renders correctly 1`] = `
+<FlatList
+  ListFooterComponent={
+    <Translate(LoadMore)
+      onPress={[Function]}
+      text="SHOW MORE STEPS"
+    />
+  }
+  data={
+    Array [
+      Object {
+        "body": "take a step with roge",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  renderItem={[Function]}
+  scrollEnabled={true}
+  scrollEventThrottle={50}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "paddingVertical": 16,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
+exports[`for another person without steps renders correctly 1`] = `
+<FlatList
+  ListFooterComponent={false}
+  data={Array []}
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  renderItem={[Function]}
+  scrollEnabled={true}
+  scrollEventThrottle={50}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "paddingVertical": 16,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
+exports[`for me with steps loadMore should show more steps and hide button 1`] = `
+<FlatList
+  ListFooterComponent={false}
+  data={
+    Array [
+      Object {
+        "id": "1",
+      },
+      Object {
+        "id": "2",
+      },
+      Object {
+        "id": "3",
+      },
+      Object {
+        "id": "4",
+      },
+      Object {
+        "id": "5",
+      },
+      Object {
+        "id": "6",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  renderItem={[Function]}
+  scrollEnabled={true}
+  scrollEventThrottle={50}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "paddingVertical": 16,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
+exports[`for me with steps renders correctly 1`] = `
+<FlatList
+  ListFooterComponent={
+    <Translate(LoadMore)
+      onPress={[Function]}
+      text="SHOW MORE STEPS"
+    />
+  }
+  data={
+    Array [
+      Object {
+        "id": "1",
+      },
+      Object {
+        "id": "2",
+      },
+      Object {
+        "id": "3",
+      },
+      Object {
+        "id": "4",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  renderItem={[Function]}
+  scrollEnabled={true}
+  scrollEventThrottle={50}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "paddingVertical": 16,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
+exports[`for me without steps renders correctly 1`] = `
+<FlatList
+  ListFooterComponent={false}
+  data={Array []}
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  renderItem={[Function]}
+  scrollEnabled={true}
+  scrollEventThrottle={50}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "paddingVertical": 16,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
+exports[`renderItem renders correctly 1`] = `
+<Connect(StepSuggestionItem)
+  orgId="4234234"
+  receiverId="252342354234"
+  step={
+    Object {
+      "body": "some step",
+    }
+  }
+/>
+`;

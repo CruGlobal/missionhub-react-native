@@ -10,3 +10,10 @@ export function buildCustomStep(text, self_step) {
     self_step,
   };
 }
+
+export function insertName(steps, name) {
+  return steps.map(step => ({
+    ...step,
+    body: step.body.replace('<<name>>', name),
+  }));
+}

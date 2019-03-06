@@ -50,7 +50,6 @@ class PersonSelectStepScreen extends Component {
 
     return (
       <SelectStepScreen
-        isMe={false}
         contactStageId={stageId}
         receiverId={contactId ? contactId : personId}
         contactName={name}
