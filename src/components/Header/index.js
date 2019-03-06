@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { SafeAreaView } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { Flex, Text, Button } from '../../components/common';
+import { Flex, Text, Button } from '../common';
 
 import styles from './styles';
 

@@ -13,7 +13,7 @@ import {
   thirtyDaysFilter,
 } from '../../utils/filters';
 import { buildTrackingObj } from '../../utils/common';
-import Header from '../Header';
+import Header from '../../components/Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
 import { buildUpdatedPagination } from '../../utils/pagination';
