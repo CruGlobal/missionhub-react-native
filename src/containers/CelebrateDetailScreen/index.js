@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar } from 'react-native';
+import { View, SafeAreaView, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
@@ -64,7 +64,7 @@ class CelebrateDetailScreen extends Component {
     const { container } = styles;
 
     return (
-      <View style={container}>
+      <SafeAreaView style={container}>
         <StatusBar {...theme.statusBar.darkContent} />
         <ParallaxScrollView
           backgroundColor={theme.white}
@@ -76,7 +76,7 @@ class CelebrateDetailScreen extends Component {
           <CommentsList event={event} organizationId={event.organization.id} />
           <CelebrateCommentBox event={event} />
         </ParallaxScrollView>
-      </View>
+      </SafeAreaView>
     );
   }
 }

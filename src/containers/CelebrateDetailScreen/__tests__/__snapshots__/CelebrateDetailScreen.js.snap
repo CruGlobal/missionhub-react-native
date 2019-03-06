@@ -5,7 +5,6 @@ exports[`renderForeground renders correctly 1`] = `
   cardStyle={
     Object {
       "marginHorizontal": 3,
-      "marginTop": 25,
       "shadowOpacity": 0,
       "shadowRadius": 0,
     }
@@ -81,7 +80,7 @@ exports[`renderStickyHeader renders correctly 1`] = `
 `;
 
 exports[`renders correctly 1`] = `
-<Component
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -136,5 +135,5 @@ exports[`renders correctly 1`] = `
       }
     />
   </ParallaxScrollView>
-</Component>
+</SafeAreaView>
 `;
