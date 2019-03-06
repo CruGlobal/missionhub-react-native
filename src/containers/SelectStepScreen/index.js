@@ -71,7 +71,7 @@ class SelectStepScreen extends Component {
     );
   };
 
-  renderStickHeader = () => (
+  renderStickyHeader = () => (
     <Header
       center={
         <Text style={styles.collapsedHeaderTitle}>
@@ -106,7 +106,7 @@ class SelectStepScreen extends Component {
           parallaxHeaderHeight={240 + theme.notchHeight}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={theme.headerHeight}
-          renderStickyHeader={this.renderStickHeader}
+          renderStickyHeader={this.renderStickyHeader}
         >
           <StepsList
             contactName={contactName}
