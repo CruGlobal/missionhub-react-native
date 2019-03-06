@@ -14,15 +14,16 @@ const mockStore = configureStore([thunk]);
 let store;
 
 let personId;
+let contactStageId;
 let screen;
 
 const organization = { id: '4234234' };
-const contactStageId = '3';
+const stageIdWithSteps = '3';
 const receiverId = '252342354234';
 const contactName = 'bill';
 const item = { body: 'some step' };
 const suggestedForMe = {
-  [contactStageId]: [
+  [stageIdWithSteps]: [
     { id: '1' },
     { id: '2' },
     { id: '3' },
@@ -32,7 +33,7 @@ const suggestedForMe = {
   ],
 };
 const suggestedForOthers = {
-  [contactStageId]: [
+  [stageIdWithSteps]: [
     { id: '7' },
     { id: '8' },
     { id: '9' },
@@ -70,15 +71,31 @@ describe('for me', () => {
     personId = receiverId;
   });
 
-  it('renders correctly with steps', () => {
-    expect(screen).toMatchSnapshot();
+  describe('without steps', () => {
+    beforeAll(() => {
+      contactStageId = '100';
+    });
+
+    it('renders correctly', () => {
+      expect(screen).toMatchSnapshot();
+    });
   });
 
-  describe('loadMore', () => {
-    it('should show more steps and hide button', () => {
-      pressLoadMore();
+  describe('with steps', () => {
+    beforeAll(() => {
+      contactStageId = stageIdWithSteps;
+    });
 
+    it('renders correctly', () => {
       expect(screen).toMatchSnapshot();
+    });
+
+    describe('loadMore', () => {
+      it('should show more steps and hide button', () => {
+        pressLoadMore();
+
+        expect(screen).toMatchSnapshot();
+      });
     });
   });
 });
@@ -88,31 +105,47 @@ describe('for another person', () => {
     personId = '99900111';
   });
 
-  it('renders correctly with steps', () => {
-    expect(screen).toMatchSnapshot();
-  });
-
-  it('inserts name into steps', () => {
-    expect(insertName).toHaveBeenCalledWith(
-      suggestedForOthers[contactStageId].slice(0, 4),
-      contactName,
-    );
-  });
-
-  describe('loadMore', () => {
-    beforeEach(() => {
-      pressLoadMore();
+  describe('without steps', () => {
+    beforeAll(() => {
+      contactStageId = '100';
     });
 
-    it('should show more steps and hide button', () => {
+    it('renders correctly', () => {
+      expect(screen).toMatchSnapshot();
+    });
+  });
+
+  describe('with steps', () => {
+    beforeAll(() => {
+      contactStageId = stageIdWithSteps;
+    });
+
+    it('renders correctly', () => {
       expect(screen).toMatchSnapshot();
     });
 
-    it('should insert name', () => {
+    it('inserts name into steps', () => {
       expect(insertName).toHaveBeenCalledWith(
-        suggestedForOthers[contactStageId].slice(0, 8),
+        suggestedForOthers[contactStageId].slice(0, 4),
         contactName,
       );
+    });
+
+    describe('loadMore', () => {
+      beforeEach(() => {
+        pressLoadMore();
+      });
+
+      it('should show more steps and hide button', () => {
+        expect(screen).toMatchSnapshot();
+      });
+
+      it('should insert name', () => {
+        expect(insertName).toHaveBeenCalledWith(
+          suggestedForOthers[contactStageId].slice(0, 8),
+          contactName,
+        );
+      });
     });
   });
 });
