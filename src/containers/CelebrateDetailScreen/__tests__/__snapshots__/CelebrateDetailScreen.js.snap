@@ -1,5 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renderForeground renders correctly 1`] = `
+<Connect(Translate(CelebrateItem))
+  cardStyle={
+    Object {
+      "marginHorizontal": 3,
+      "marginTop": 25,
+      "shadowOpacity": 0,
+      "shadowRadius": 0,
+    }
+  }
+  event={
+    Object {
+      "id": "90001",
+      "organization": Object {
+        "id": "24234234",
+      },
+    }
+  }
+  namePressable={true}
+  rightCorner={
+    <Connect(BackButton)
+      customIcon="deleteIcon"
+      iconStyle={
+        Object {
+          "color": "#000000",
+        }
+      }
+    />
+  }
+/>
+`;
+
+exports[`renderStickyHeader renders correctly 1`] = `
+<Connect(Header)
+  left={<ItemHeaderText />}
+  right={
+    <Component
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "id": "90001",
+            "organization": Object {
+              "id": "24234234",
+            },
+          }
+        }
+      />
+      <Connect(BackButton)
+        customIcon="deleteIcon"
+        iconStyle={
+          Object {
+            "color": "#000000",
+          }
+        }
+      />
+    </Component>
+  }
+  shadow={false}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+/>
+`;
+
 exports[`renders correctly 1`] = `
 <Component
   style={

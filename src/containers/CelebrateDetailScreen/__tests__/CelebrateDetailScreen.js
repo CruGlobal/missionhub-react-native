@@ -42,6 +42,28 @@ it('renders correctly', () => {
   expect(screen).toMatchSnapshot();
 });
 
+describe('renderForeground', () => {
+  it('renders correctly', () => {
+    expect(
+      screen
+        .childAt(1)
+        .props()
+        .renderForeground(),
+    ).toMatchSnapshot();
+  });
+});
+
+describe('renderStickyHeader', () => {
+  it('renders correctly', () => {
+    expect(
+      screen
+        .childAt(1)
+        .props()
+        .renderStickyHeader(),
+    ).toMatchSnapshot();
+  });
+});
+
 it('should call celebrationItemSelector', () => {
   expect(celebrationItemSelector).toHaveBeenCalledWith(
     { organizations },
