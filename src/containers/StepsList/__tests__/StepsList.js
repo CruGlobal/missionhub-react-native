@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import StepsList from '..';
 
 import { renderShallow } from '../../../../testUtils';
+import { insertName } from '../../../utils/steps';
 
 jest.mock('../../../utils/steps');
 
@@ -18,7 +19,6 @@ let screen;
 const organization = { id: '4234234' };
 const contactStageId = '3';
 const receiverId = '252342354234';
-const auth = { person: { id: personId } };
 const contactName = 'bill';
 const item = { body: 'some step' };
 const suggestedForMe = {
@@ -42,11 +42,15 @@ const suggestedForOthers = {
   ],
 };
 
+const insertNameResult = [{ body: 'take a step with roge' }];
+
+insertName.mockReturnValue(insertNameResult);
+
 beforeEach(() => {
   jest.clearAllMocks();
 
   store = mockStore({
-    auth,
+    auth: { person: { id: personId } },
     steps: { suggestedForMe, suggestedForOthers },
   });
 
@@ -78,6 +82,13 @@ describe('for another person', () => {
 
   it('renders correctly with steps', () => {
     expect(screen).toMatchSnapshot();
+  });
+
+  it('inserts name into steps', () => {
+    expect(insertName).toHaveBeenCalledWith(
+      suggestedForOthers[contactStageId].slice(0, 4),
+      contactName,
+    );
   });
 });
 

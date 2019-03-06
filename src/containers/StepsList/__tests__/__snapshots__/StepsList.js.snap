@@ -8,6 +8,13 @@ exports[`for another person renders correctly with steps 1`] = `
       text="SHOW MORE STEPS"
     />
   }
+  data={
+    Array [
+      Object {
+        "body": "take a step with roge",
+      },
+    ]
+  }
   disableVirtualization={false}
   horizontal={false}
   initialNumToRender={10}
@@ -36,6 +43,22 @@ exports[`for me renders correctly with steps 1`] = `
       onPress={[Function]}
       text="SHOW MORE STEPS"
     />
+  }
+  data={
+    Array [
+      Object {
+        "id": "1",
+      },
+      Object {
+        "id": "2",
+      },
+      Object {
+        "id": "3",
+      },
+      Object {
+        "id": "4",
+      },
+    ]
   }
   disableVirtualization={false}
   horizontal={false}
