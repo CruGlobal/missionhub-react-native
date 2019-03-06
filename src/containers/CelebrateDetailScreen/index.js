@@ -42,12 +42,17 @@ class CelebrateDetailScreen extends Component {
   renderStickyHeader = () => {
     const { event } = this.props;
     const { subject_person_name } = event;
-    const { headerStyle, rightHeaderItemStyle } = styles;
+    const { headerStyle, leftHeaderItemStyle, rightHeaderItemStyle } = styles;
 
     return (
       <Header
         shadow={false}
-        left={<ItemHeaderText text={subject_person_name} />}
+        left={
+          <ItemHeaderText
+            text={subject_person_name}
+            style={leftHeaderItemStyle}
+          />
+        }
         right={
           <View style={rightHeaderItemStyle}>
             <CommentLikeComponent event={event} />

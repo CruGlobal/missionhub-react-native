@@ -13,11 +13,16 @@ exports[`renders correctly 1`] = `
       Object {
         "fontFamily": "SourceSansPro-Regular",
       },
-      Object {
-        "color": "#007398",
-        "fontSize": 16,
-        "fontWeight": "bold",
-      },
+      Array [
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        },
+        Object {
+          "prop": "some prop",
+        },
+      ],
     ]
   }
 >

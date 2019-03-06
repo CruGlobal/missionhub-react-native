@@ -15,6 +15,7 @@ export default StyleSheet.create({
   },
   backButtonStyle: { color: theme.black },
   headerStyle: { backgroundColor: theme.white },
+  leftHeaderItemStyle: { marginLeft: 25 },
   rightHeaderItemStyle: {
     flexDirection: 'row',
     justifyContent: 'flex-end',

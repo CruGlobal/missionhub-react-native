@@ -36,6 +36,11 @@ exports[`renderStickyHeader renders correctly 1`] = `
 <Connect(Header)
   left={
     <ItemHeaderText
+      style={
+        Object {
+          "marginLeft": 25,
+        }
+      }
       text="Roger"
     />
   }
