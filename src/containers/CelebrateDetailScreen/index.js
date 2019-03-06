@@ -79,8 +79,8 @@ class CelebrateDetailScreen extends Component {
           renderStickyHeader={this.renderStickyHeader}
         >
           <CommentsList event={event} organizationId={event.organization.id} />
-          <CelebrateCommentBox event={event} />
         </ParallaxScrollView>
+        <CelebrateCommentBox event={event} />
       </SafeAreaView>
     );
   }

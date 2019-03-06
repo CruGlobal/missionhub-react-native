@@ -129,17 +129,17 @@ exports[`renders correctly 1`] = `
       }
       organizationId="24234234"
     />
-    <Connect(CelebrateCommentBox)
-      event={
-        Object {
-          "id": "90001",
-          "organization": Object {
-            "id": "24234234",
-          },
-          "subject_person_name": "Roger",
-        }
-      }
-    />
   </ParallaxScrollView>
+  <Connect(CelebrateCommentBox)
+    event={
+      Object {
+        "id": "90001",
+        "organization": Object {
+          "id": "24234234",
+        },
+        "subject_person_name": "Roger",
+      }
+    }
+  />
 </SafeAreaView>
 `;
