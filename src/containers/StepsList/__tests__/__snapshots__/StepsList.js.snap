@@ -1,5 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`for another person loadMore should show more steps 1`] = `
+<FlatList
+  ListFooterComponent={false}
+  data={
+    Array [
+      Object {
+        "body": "take a step with roge",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  renderItem={[Function]}
+  scrollEnabled={true}
+  scrollEventThrottle={50}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "paddingVertical": 16,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
 exports[`for another person renders correctly with steps 1`] = `
 <FlatList
   ListFooterComponent={
@@ -12,6 +43,52 @@ exports[`for another person renders correctly with steps 1`] = `
     Array [
       Object {
         "body": "take a step with roge",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  renderItem={[Function]}
+  scrollEnabled={true}
+  scrollEventThrottle={50}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "paddingVertical": 16,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
+exports[`for me loadMore should show more steps 1`] = `
+<FlatList
+  ListFooterComponent={false}
+  data={
+    Array [
+      Object {
+        "id": "1",
+      },
+      Object {
+        "id": "2",
+      },
+      Object {
+        "id": "3",
+      },
+      Object {
+        "id": "4",
+      },
+      Object {
+        "id": "5",
+      },
+      Object {
+        "id": "6",
       },
     ]
   }

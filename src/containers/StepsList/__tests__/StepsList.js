@@ -73,6 +73,14 @@ describe('for me', () => {
   it('renders correctly with steps', () => {
     expect(screen).toMatchSnapshot();
   });
+
+  describe('loadMore', () => {
+    it('should show more steps', () => {
+      screen.props().ListFooterComponent.props.onPress();
+
+      expect(screen.update()).toMatchSnapshot();
+    });
+  });
 });
 
 describe('for another person', () => {
@@ -89,6 +97,25 @@ describe('for another person', () => {
       suggestedForOthers[contactStageId].slice(0, 4),
       contactName,
     );
+  });
+
+  describe('loadMore', () => {
+    it('should show more steps', () => {
+      screen.props().ListFooterComponent.props.onPress();
+
+      expect(screen.update()).toMatchSnapshot();
+    });
+
+    it('should insert name', () => {
+      screen.props().ListFooterComponent.props.onPress();
+
+      screen.update();
+
+      expect(insertName).toHaveBeenCalledWith(
+        suggestedForOthers[contactStageId].slice(0, 8),
+        contactName,
+      );
+    });
   });
 });
 
