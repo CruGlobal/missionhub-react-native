@@ -11,7 +11,7 @@ exports[`renders android correctly 1`] = `
   <Component
     screen="StepsTab"
   />
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -19,6 +19,7 @@ exports[`renders android correctly 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <Component
@@ -173,7 +174,7 @@ exports[`renders loading on Android correctly 1`] = `
   <Component
     screen="StepsTab"
   />
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -181,6 +182,7 @@ exports[`renders loading on Android correctly 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <LoadingGuy />

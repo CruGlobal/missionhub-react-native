@@ -165,7 +165,7 @@ it('should call joinChallenge from press', () => {
     store,
   );
   component
-    .find('Connect(Header)')
+    .find('Header')
     .props()
     .right.props.onPress();
 
@@ -178,7 +178,7 @@ it('should call completeChallenge from press', () => {
     store,
   );
   component
-    .find('Connect(Header)')
+    .find('Header')
     .props()
     .right.props.onPress();
 
@@ -218,7 +218,7 @@ it('should call navigateBack from press', () => {
     store,
   );
   component
-    .find('Connect(Header)')
+    .find('Header')
     .props()
     .left.props.onPress();
 

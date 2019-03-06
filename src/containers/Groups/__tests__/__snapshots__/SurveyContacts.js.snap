@@ -9,7 +9,7 @@ exports[`SurveyContacts should render correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     right={
       <Translate(ShareSurveyMenu)
@@ -21,6 +21,7 @@ exports[`SurveyContacts should render correctly 1`] = `
         }
       />
     }
+    shadow={true}
     title="Test Org"
   />
   <SafeAreaView

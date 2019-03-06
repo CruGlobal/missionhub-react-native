@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { SafeAreaView } from 'react-native';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { Flex, Text, Button } from '../../components/common';
@@ -11,7 +10,7 @@ export const HeaderIcon = ({ ...rest }) => (
   <Button type="transparent" style={styles.headerIcon} {...rest} />
 );
 
-class Header extends Component {
+export default class Header extends Component {
   renderLeft() {
     const { left } = this.props;
     return (
@@ -91,5 +90,3 @@ Header.propTypes = {
 Header.defaultProps = {
   shadow: true,
 };
-
-export default connect()(Header);

@@ -11,7 +11,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"
@@ -147,7 +147,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"
