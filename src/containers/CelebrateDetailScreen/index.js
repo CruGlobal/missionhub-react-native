@@ -1,37 +1,85 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView, StatusBar } from 'react-native';
+import { View, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/default
+import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
+import CommentLikeComponent from '../CommentLikeComponent';
 import { celebrationItemSelector } from '../../selectors/celebration';
 import CelebrateItem from '../../components/CelebrateItem';
 import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
 import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 import theme from '../../theme';
+import Header from '../../containers/Header';
+import ItemHeaderText from '../../components/ItemHeaderText';
 
 import styles from './styles';
 
 class CelebrateDetailScreen extends Component {
+  renderBackButton = () => {
+    const { backButtonStyle } = styles;
+
+    return <BackButton iconStyle={backButtonStyle} customIcon="deleteIcon" />;
+  };
+
+  renderForeground = () => {
+    const { event } = this.props;
+    const { cardStyle } = styles;
+
+    return (
+      <CelebrateItem
+        event={event}
+        cardStyle={cardStyle}
+        rightCorner={this.renderBackButton()}
+        namePressable={true}
+      />
+    );
+  };
+
+  renderStickyHeader = () => {
+    const { event } = this.props;
+    const { subject_person_name } = event;
+
+    return (
+      <Header
+        shadow={false}
+        left={<ItemHeaderText text={subject_person_name} />}
+        right={
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+            }}
+          >
+            <CommentLikeComponent event={event} />
+            {this.renderBackButton()}
+          </View>
+        }
+        style={{ backgroundColor: theme.white }}
+      />
+    );
+  };
+
   render() {
     const { event } = this.props;
-    const { container, cardStyle, backButtonStyle } = styles;
+    const { container } = styles;
 
     return (
       <View style={container}>
         <StatusBar {...theme.statusBar.darkContent} />
-        <CelebrateItem
-          event={event}
-          cardStyle={cardStyle}
-          rightCorner={
-            <BackButton iconStyle={backButtonStyle} customIcon="deleteIcon" />
-          }
-          namePressable={true}
-        />
-        <SafeAreaView style={{ flex: 1 }}>
+        <ParallaxScrollView
+          backgroundColor={theme.white}
+          parallaxHeaderHeight={215}
+          renderForeground={this.renderForeground}
+          stickyHeaderHeight={theme.headerHeight}
+          renderStickyHeader={this.renderStickyHeader}
+        >
           <CommentsList event={event} organizationId={event.organization.id} />
           <CelebrateCommentBox event={event} />
-        </SafeAreaView>
+        </ParallaxScrollView>
       </View>
     );
   }

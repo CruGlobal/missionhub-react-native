@@ -16,41 +16,21 @@ exports[`renders correctly 1`] = `
     barStyle="dark-content"
     showHideTransition="fade"
   />
-  <Connect(Translate(CelebrateItem))
-    cardStyle={
-      Object {
-        "marginHorizontal": 3,
-        "marginTop": 25,
-        "shadowOpacity": 0,
-        "shadowRadius": 0,
-      }
-    }
-    event={
-      Object {
-        "id": "90001",
-        "organization": Object {
-          "id": "24234234",
-        },
-      }
-    }
-    namePressable={true}
-    rightCorner={
-      <Connect(BackButton)
-        customIcon="deleteIcon"
-        iconStyle={
-          Object {
-            "color": "#000000",
-          }
-        }
-      />
-    }
-  />
-  <SafeAreaView
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
+  <ParallaxScrollView
+    backgroundColor="#ffffff"
+    backgroundScrollSpeed={5}
+    contentBackgroundColor="#fff"
+    contentContainerStyle={null}
+    fadeOutForeground={true}
+    onChangeHeaderVisibility={[Function]}
+    outputScaleValue={5}
+    parallaxHeaderHeight={215}
+    renderBackground={[Function]}
+    renderForeground={[Function]}
+    renderParallaxHeader={[Function]}
+    renderScrollComponent={[Function]}
+    renderStickyHeader={[Function]}
+    stickyHeaderHeight={65}
   >
     <Connect(CommentsList)
       event={
@@ -73,6 +53,6 @@ exports[`renders correctly 1`] = `
         }
       }
     />
-  </SafeAreaView>
+  </ParallaxScrollView>
 </Component>
 `;
