@@ -81,13 +81,6 @@ class SelectStepScreen extends Component {
     />
   );
 
-  renderCreateStepButton = () => (
-    <BottomButton
-      onPress={this.handleCreateStep}
-      text={this.props.t('createStep')}
-    />
-  );
-
   render() {
     const {
       contactName,
