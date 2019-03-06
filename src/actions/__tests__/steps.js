@@ -17,8 +17,7 @@ import {
 } from '../steps';
 import { reloadGroupCelebrateFeed } from '../celebration';
 import { refreshImpact } from '../impact';
-import * as analytics from '../analytics';
-import { mockFnWithParams } from '../../../testUtils';
+import { trackStepsAdded, trackAction } from '../analytics';
 import * as common from '../../utils/common';
 import { buildTrackingObj } from '../../utils/common';
 import {
@@ -187,10 +186,11 @@ describe('addSteps', () => {
       REQUESTS.GET_MY_CHALLENGES,
       expect.anything(),
     );
+    expect(trackStepsAdded).toHaveBeenCalledWith(steps);
   };
 
   beforeEach(() => {
-    mockFnWithParams(analytics, 'trackStepsAdded', stepAddedResult, steps);
+    trackStepsAdded.mockReturnValue(stepAddedResult);
     callApi.mockReturnValue(() => Promise.resolve());
   });
 
@@ -260,7 +260,7 @@ describe('complete challenge', () => {
       steps: { userStepCount: { [receiverId]: 2 } },
     });
 
-    analytics.trackAction.mockReturnValue(trackActionResult);
+    trackAction.mockReturnValue(trackActionResult);
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
     refreshImpact.mockReturnValue(impactResponse);
     reloadGroupCelebrateFeed.mockReturnValue(celebrateResponse);
@@ -277,7 +277,7 @@ describe('complete challenge', () => {
       REQUESTS.GET_MY_CHALLENGES,
       stepsQuery,
     );
-    expect(analytics.trackAction).toHaveBeenCalledWith(
+    expect(trackAction).toHaveBeenCalledWith(
       `${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`,
       { [ACTIONS.STEP_COMPLETED.key]: null },
     );
@@ -482,13 +482,7 @@ describe('deleteStepWithTracking', () => {
 
   it('should delete a step', async () => {
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
-    mockFnWithParams(
-      analytics,
-      'trackAction',
-      trackActionResult,
-      `${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`,
-      { [ACTIONS.STEP_REMOVED.key]: null },
-    );
+    trackAction.mockReturnValue(trackActionResult);
 
     await store.dispatch(deleteStepWithTracking(step, screen));
 
@@ -500,6 +494,10 @@ describe('deleteStepWithTracking', () => {
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_MY_CHALLENGES,
       expect.anything(),
+    );
+    expect(trackAction).toHaveBeenCalledWith(
+      `${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`,
+      { [ACTIONS.STEP_REMOVED.key]: null },
     );
     expect(store.getActions()).toEqual([trackActionResult]);
   });
