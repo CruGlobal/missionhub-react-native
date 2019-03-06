@@ -6469,10 +6469,9 @@ react-native-image-picker@^0.27.1:
   version "0.0.1"
   resolved "https://github.com/CruGlobal/react-native-omniture#d52d0637e0bb758bff92c3896dd7b07e37be6239"
 
-react-native-parallax-scroll-view@^0.21.0:
+"react-native-parallax-scroll-view@https://github.com/nicotroia/react-native-parallax-scroll-view.git#fix/sticky-header-position-when-hidden":
   version "0.21.3"
-  resolved "https://registry.yarnpkg.com/react-native-parallax-scroll-view/-/react-native-parallax-scroll-view-0.21.3.tgz#d956ad224ce3b0a2725b80574bcbf688bbeda14e"
-  integrity sha512-oVbZPijNGYGcpU2z7k/ZOOnl0vYxch7qtVvaJpH4+wLVnEP49NC2diCzjFGz8PE0yEcgyeTdkpdUK8RTD3QEew==
+  resolved "https://github.com/nicotroia/react-native-parallax-scroll-view.git#25f3f4a931c01789d55c46f1fbd7791a7c14dfc1"
   dependencies:
     prop-types "^15.6.0"
 
