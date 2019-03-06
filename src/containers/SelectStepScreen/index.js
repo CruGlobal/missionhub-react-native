@@ -15,7 +15,11 @@ import { Flex, Text, Button, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, shuffleArray } from '../../utils/common';
-import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
+import {
+  CREATE_STEP,
+  CUSTOM_STEP_TYPE,
+  PARALLAX_HEADER_HEIGHT,
+} from '../../constants';
 import theme from '../../theme';
 import Header from '../Header';
 
@@ -211,7 +215,7 @@ class SelectStepScreen extends Component {
       <View style={styles.container}>
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
-          parallaxHeaderHeight={215}
+          parallaxHeaderHeight={PARALLAX_HEADER_HEIGHT}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={theme.headerHeight}
           renderStickyHeader={this.renderStickyHeader}

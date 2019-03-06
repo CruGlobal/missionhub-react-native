@@ -14,6 +14,7 @@ import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 import theme from '../../theme';
 import Header from '../../containers/Header';
 import ItemHeaderText from '../../components/ItemHeaderText';
+import { PARALLAX_HEADER_HEIGHT } from '../../constants';
 
 import styles from './styles';
 
@@ -67,7 +68,7 @@ class CelebrateDetailScreen extends Component {
         <StatusBar {...theme.statusBar.darkContent} />
         <ParallaxScrollView
           backgroundColor={theme.white}
-          parallaxHeaderHeight={215}
+          parallaxHeaderHeight={PARALLAX_HEADER_HEIGHT}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={theme.headerHeight}
           renderStickyHeader={this.renderStickyHeader}

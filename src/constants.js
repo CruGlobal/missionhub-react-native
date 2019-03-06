@@ -432,3 +432,5 @@ export const CELEBRATEABLE_TYPES = {
   createdCommunity: 'organization',
   joinedCommunity: 'organizational_permission',
 };
+
+export const PARALLAX_HEADER_HEIGHT = 215;
