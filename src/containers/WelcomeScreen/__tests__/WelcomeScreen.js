@@ -14,7 +14,6 @@ import * as common from '../../../utils/common';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
 
-const mockStore = createThunkStore();
 let store;
 
 const next = jest.fn(() => ({ type: 'next' }));
@@ -25,7 +24,7 @@ jest.mock('../../../actions/analytics');
 trackActionWithoutData.mockReturnValue({ type: 'tracked action without data' });
 
 beforeEach(() => {
-  store = mockStore();
+  store = createThunkStore();
 });
 
 it('renders correctly', () => {

@@ -23,9 +23,9 @@ export const testSnapshot = data => {
   expect(renderer.create(data)).toMatchSnapshot();
 };
 
-export const createThunkStore = () => configureStore([thunk]);
+export const createThunkStore = configureStore([thunk]);
 
-export const renderShallow = (component, store = createThunkStore()()) => {
+export const renderShallow = (component, store = createThunkStore()) => {
   let renderedComponent = shallow(component, { context: { store: store } });
 
   // If component has translation wrappers, dive deeper
@@ -38,10 +38,7 @@ export const renderShallow = (component, store = createThunkStore()()) => {
   return renderedComponent;
 };
 
-export const testSnapshotShallow = (
-  component,
-  store = createThunkStore()(),
-) => {
+export const testSnapshotShallow = (component, store = createThunkStore()) => {
   const renderedComponent = renderShallow(component, store);
   expect(renderedComponent).toMatchSnapshot();
   return renderedComponent;

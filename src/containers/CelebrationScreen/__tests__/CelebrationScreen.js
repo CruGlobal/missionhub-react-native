@@ -15,7 +15,6 @@ import { navigateReset } from '../../../actions/navigation';
 import { MAIN_TABS } from '../../../constants';
 import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen';
 
-const mockStore = createThunkStore();
 let store;
 
 jest.mock('react-native-device-info');
@@ -28,7 +27,7 @@ global.Math = mockMath;
 navigateReset.mockReturnValue({ type: 'navigated reset' });
 
 beforeEach(() => {
-  store = mockStore();
+  store = createThunkStore();
 });
 
 it('renders correctly', () => {
