@@ -125,6 +125,7 @@ export default {
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
 
   headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + (hasNotch() ? 20 : 0),
+  parallaxHeaderHeight: 215,
   swipeTabHeight: 48,
   statusBar: {
     lightContent: {
