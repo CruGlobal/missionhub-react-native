@@ -38,6 +38,7 @@ function getCelebrateComments(event, page) {
         orgId: event.organization.id,
         eventId: event.id,
         page,
+        include: 'organization_celebration_item,person',
       }),
     );
 }
@@ -50,6 +51,25 @@ export function createCelebrateComment(event, content) {
         {
           orgId: event.organization.id,
           eventId: event.id,
+        },
+        {
+          data: {
+            attributes: { content },
+          },
+        },
+      ),
+    );
+}
+
+export function updateCelebrateComment(item, content) {
+  return dispatch =>
+    dispatch(
+      callApi(
+        REQUESTS.UPDATE_CELEBRATE_COMMENT,
+        {
+          orgId: item.organization_celebration_item.organization.id,
+          eventId: item.organization_celebration_item.id,
+          commentId: item.id,
         },
         {
           data: {

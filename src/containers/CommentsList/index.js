@@ -16,6 +16,8 @@ import { refresh, showMenu } from '../../utils/common';
 import CommentItem from '../../components/CommentItem';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
+import { navigatePush } from '../../actions/navigation';
+import { EDIT_COMMENT_SCREEN } from '../EditCommentScreen';
 
 import styles from './styles';
 
@@ -42,9 +44,9 @@ class CommentsList extends Component {
     dispatch(getCelebrateCommentsNextPage(event));
   };
 
-  // eslint-disable-next-line
   handleEdit = item => {
-    // TODO: Edit comment
+    const { dispatch } = this.props;
+    dispatch(navigatePush(EDIT_COMMENT_SCREEN, { item }));
   };
 
   handleDelete = item => {

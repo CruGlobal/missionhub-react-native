@@ -7,6 +7,7 @@ import {
   reloadCelebrateComments,
   createCelebrateComment,
   deleteCelebrateComment,
+  updateCelebrateComment,
 } from '../celebrateComments';
 import callApi, { REQUESTS } from '../api';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
@@ -22,6 +23,7 @@ const baseQuery = {
   orgId: event.organization.id,
   eventId: event.id,
 };
+const include = 'organization_celebration_item,person';
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -51,6 +53,7 @@ describe('getCelebrateCommentsNextPage', () => {
   it('should callApi with next page', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CELEBRATE_COMMENTS, {
       ...baseQuery,
+      include,
       page: {
         limit: DEFAULT_PAGE_LIMIT,
         offset: DEFAULT_PAGE_LIMIT * comment.pagination.page,
@@ -69,10 +72,10 @@ describe('reloadCelebrateComments', () => {
   beforeEach(() => (response = store.dispatch(reloadCelebrateComments(event))));
 
   it('should callApi with no page', () => {
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_CELEBRATE_COMMENTS,
-      baseQuery,
-    );
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CELEBRATE_COMMENTS, {
+      ...baseQuery,
+      include,
+    });
   });
 
   it('should return api response', () => {
@@ -107,11 +110,39 @@ describe('deleteCelebrateComment', () => {
   beforeEach(() =>
     (response = store.dispatch(deleteCelebrateComment(event, item))));
 
-  it('should callApi with no page', () => {
+  it('should callApi for delete', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CELEBRATE_COMMENT, {
       ...baseQuery,
       commentId: item.id,
     });
+  });
+
+  it('should return api response', () => {
+    expect(response).toEqual(callApiResponse);
+  });
+});
+
+describe('updateCelebrateComment', () => {
+  const item = { id: 'comment1', organization_celebration_item: event };
+  const text = 'text';
+  let response;
+
+  beforeEach(() =>
+    (response = store.dispatch(updateCelebrateComment(item, text))));
+
+  it('should callApi', () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_CELEBRATE_COMMENT,
+      {
+        ...baseQuery,
+        commentId: item.id,
+      },
+      {
+        data: {
+          attributes: { content: text },
+        },
+      },
+    );
   });
 
   it('should return api response', () => {
