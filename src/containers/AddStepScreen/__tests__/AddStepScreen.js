@@ -1,13 +1,14 @@
 import { Alert } from 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import AddStepScreen from '..';
 
 import {
   createMockNavState,
   testSnapshot,
-  createMockStore,
   renderShallow,
 } from '../../../../testUtils';
 import { CREATE_STEP, STEP_NOTE, ACTIONS } from '../../../constants';
@@ -16,7 +17,8 @@ import { trackAction } from '../../../actions/analytics';
 import * as common from '../../../utils/common';
 import locale from '../../../i18n/locales/en-US';
 
-const store = createMockStore();
+const mockStore = configureStore([thunk]);
+const store = { auth: { person: { id: ' 123123' } } };
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/steps');
@@ -24,7 +26,7 @@ jest.mock('../../../actions/analytics');
 
 it('renders correctly', () => {
   testSnapshot(
-    <Provider store={store}>
+    <Provider store={mockStore(store)}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
@@ -37,7 +39,7 @@ it('renders correctly', () => {
 
 it('renders journey correctly', () => {
   testSnapshot(
-    <Provider store={store}>
+    <Provider store={mockStore(store)}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
@@ -50,7 +52,7 @@ it('renders journey correctly', () => {
 
 it('renders edit journey correctly', () => {
   testSnapshot(
-    <Provider store={store}>
+    <Provider store={mockStore(store)}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
@@ -65,7 +67,7 @@ it('renders edit journey correctly', () => {
 
 it('renders step note correctly', () => {
   testSnapshot(
-    <Provider store={store}>
+    <Provider store={mockStore(store)}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
@@ -79,7 +81,7 @@ it('renders step note correctly', () => {
 
 it('renders interaction without skip correctly', () => {
   testSnapshot(
-    <Provider store={store}>
+    <Provider store={mockStore(store)}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
@@ -93,7 +95,7 @@ it('renders interaction without skip correctly', () => {
 
 it('renders interaction with skip correctly', () => {
   testSnapshot(
-    <Provider store={store}>
+    <Provider store={mockStore(store)}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
@@ -118,7 +120,7 @@ describe('add step methods', () => {
           text: 'Comment',
         })}
       />,
-      store,
+      mockStore(store),
     );
 
     component = screen.instance();
@@ -146,7 +148,7 @@ describe('add step methods for stepNote with onComplete', () => {
           text: 'Comment',
         })}
       />,
-      store,
+      mockStore(store),
     );
 
     expect(common.disableBack.add).toHaveBeenCalledTimes(1);
@@ -183,7 +185,11 @@ describe('add step methods for stepNote with next', () => {
   const personId = '111';
   const orgId = '11';
   const text = 'Comment';
-  const mockNext = jest.fn();
+  const mockNext = jest.fn(() => ({
+    type: 'next',
+  }));
+  updateChallengeNote.mockReturnValue({ type: 'updated challenge note' });
+  trackAction.mockReturnValue({ type: 'tracked action' });
   common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
   beforeEach(() => {
@@ -200,7 +206,7 @@ describe('add step methods for stepNote with next', () => {
           stepId,
         })}
       />,
-      store,
+      mockStore(store),
     );
 
     expect(common.disableBack.add).toHaveBeenCalledTimes(1);
@@ -245,7 +251,7 @@ describe('add step methods without edit', () => {
           type: 'journey',
         })}
       />,
-      store,
+      mockStore(store),
     );
 
     component = screen.instance();
@@ -271,7 +277,7 @@ describe('Caps create step at 255 characters', () => {
           type: CREATE_STEP,
         })}
       />,
-      store,
+      mockStore(store),
     );
 
     component = screen.instance();
