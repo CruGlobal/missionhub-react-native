@@ -4,11 +4,9 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { addNewInteraction, editComment } from '../interactions';
-import * as api from '../api';
-import { REQUESTS } from '../api';
-import * as analytics from '../analytics';
-import * as impact from '../impact';
-import { mockFnWithParams } from '../../../testUtils';
+import callApi, { REQUESTS } from '../api';
+import { trackActionWithoutData, trackAction } from '../analytics';
+import { refreshImpact } from '../impact';
 import { ACTIONS, INTERACTION_TYPES } from '../../constants';
 import { reloadGroupCelebrateFeed } from '../celebration';
 import { reloadJourney } from '../journey';
@@ -17,9 +15,9 @@ let store;
 
 jest.mock('../celebration');
 jest.mock('../journey');
-
-const mockApi = (result, ...expectedParams) =>
-  mockFnWithParams(api, 'default', result, ...expectedParams);
+jest.mock('../api');
+jest.mock('../impact');
+jest.mock('../analytics');
 
 beforeEach(() =>
   (store = configureStore([thunk])({
@@ -60,13 +58,7 @@ describe('add comment', () => {
   };
 
   beforeEach(() => {
-    mockFnWithParams(
-      analytics,
-      'trackAction',
-      trackActionResult,
-      ACTIONS.INTERACTION.name,
-      { [interaction.tracking]: null },
-    );
+    trackAction.mockReturnValue(trackActionResult);
     reloadGroupCelebrateFeed.mockReturnValue(celebrationFeedResult);
   });
 
@@ -99,12 +91,19 @@ describe('add comment', () => {
     };
 
     it('should add a new comment', async () => {
-      mockFnWithParams(impact, 'refreshImpact', refreshImpactResult, undefined);
-
-      mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
+      refreshImpact.mockReturnValue(refreshImpactResult);
+      callApi.mockReturnValue(action);
 
       await store.dispatch(addNewInteraction(personId, interaction, comment));
 
+      expect(callApi).toHaveBeenCalledWith(
+        REQUESTS.ADD_NEW_INTERACTION,
+        {},
+        expectedBody,
+      );
+      expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
+        [interaction.tracking]: null,
+      });
       expect(store.getActions()).toEqual([
         addCommentResult,
         trackActionResult,
@@ -150,12 +149,21 @@ describe('add comment', () => {
     };
 
     it('should add a new comment', async () => {
-      mockFnWithParams(impact, 'refreshImpact', refreshImpactResult, orgId);
-      mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
+      refreshImpact.mockReturnValue(refreshImpactResult);
+      callApi.mockReturnValue(action);
 
       await store.dispatch(
         addNewInteraction(personId, interaction, comment, orgId),
       );
+
+      expect(callApi).toHaveBeenCalledWith(
+        REQUESTS.ADD_NEW_INTERACTION,
+        {},
+        expectedBody,
+      );
+      expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
+        [interaction.tracking]: null,
+      });
       expect(store.getActions()).toEqual([
         addCommentResult,
         trackActionResult,
@@ -166,7 +174,7 @@ describe('add comment', () => {
     });
 
     it('should not add new comment, no personId', async () => {
-      mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
+      callApi.mockReturnValue(action);
 
       try {
         await store.dispatch(
@@ -202,18 +210,19 @@ describe('edit comment', () => {
   };
 
   beforeEach(() => {
-    mockApi(action, REQUESTS.EDIT_COMMENT, expectedQuery, expectedBody);
-    mockFnWithParams(
-      analytics,
-      'trackActionWithoutData',
-      trackActionResult,
-      ACTIONS.JOURNEY_EDITED,
-    );
+    callApi.mockReturnValue(action);
+    trackActionWithoutData.mockReturnValue(trackActionResult);
   });
 
   it('should edit a comment', async () => {
     await store.dispatch(editComment({ id: interaction.id }, comment));
 
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.EDIT_COMMENT,
+      expectedQuery,
+      expectedBody,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.JOURNEY_EDITED);
     expect(store.getActions()).toEqual([editCommentResult, trackActionResult]);
   });
 
