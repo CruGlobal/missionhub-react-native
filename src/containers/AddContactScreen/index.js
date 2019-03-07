@@ -11,7 +11,7 @@ import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewPerson } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
 import { Button, IconButton } from '../../components/common';
-import Header from '../Header';
+import Header from '../../components/Header';
 import AddContactFields from '../AddContactFields';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, CANNOT_EDIT_FIRST_NAME } from '../../constants';

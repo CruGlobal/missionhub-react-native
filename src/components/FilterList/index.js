@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Header from '../../containers/Header';
+import Header from '../Header';
 import BackButton from '../../containers/BackButton';
 import FilterItem from '../FilterItem';
 

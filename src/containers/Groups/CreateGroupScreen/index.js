@@ -17,7 +17,7 @@ import {
   IconButton,
   Button,
 } from '../../../components/common';
-import Header from '../../Header';
+import Header from '../../../components/Header';
 import theme from '../../../theme';
 import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import {
