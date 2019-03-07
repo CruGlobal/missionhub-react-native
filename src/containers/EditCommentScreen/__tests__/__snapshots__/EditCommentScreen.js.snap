@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="light-content"
+    showHideTransition="fade"
+  />
+  <Connect(Header)
+    left={
+      <BackButton
+        customNavigate={[Function]}
+      />
+    }
+    title="Edit"
+  />
+  <SafeAreaView
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+  >
+    <TouchableIOS
+      activeOpacity={1}
+      isAndroidOpacity={true}
+      onPress={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "flex": 1,
+        }
+      }
+    >
+      <Input
+        autoCorrect={true}
+        autoGrow={false}
+        blurOnSubmit={false}
+        multiline={true}
+        onChangeText={[Function]}
+        style={
+          Object {
+            "borderBottomWidth": 0,
+            "color": "#505256",
+            "fontSize": 16,
+            "marginTop": 30,
+            "paddingBottom": 30,
+            "paddingHorizontal": 30,
+            "textAlign": "left",
+          }
+        }
+        value="comment text"
+      />
+    </TouchableIOS>
+    <Flex
+      align="stretch"
+      justify="end"
+    >
+      <Button
+        onPress={[Function]}
+        text="Save Changes"
+        type="secondary"
+      />
+    </Flex>
+  </SafeAreaView>
+</Component>
+`;

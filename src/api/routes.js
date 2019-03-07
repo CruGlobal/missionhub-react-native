@@ -211,6 +211,10 @@ export default {
     endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments`,
     method: 'post',
   },
+  UPDATE_CELEBRATE_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments/:commentId`,
+    method: 'put',
+  },
   DELETE_CELEBRATE_COMMENT: {
     endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments/:commentId`,
     method: 'delete',

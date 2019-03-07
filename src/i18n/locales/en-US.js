@@ -711,4 +711,7 @@ export default {
     haveCode: 'I have a Community Code',
     member: 'Already a Member?',
   },
+  editComment: {
+    saveChanges: 'Save Changes',
+  },
 };
