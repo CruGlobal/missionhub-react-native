@@ -15,6 +15,7 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
 
 const mockStore = createThunkStore();
+let store;
 
 const next = jest.fn(() => ({ type: 'next' }));
 
@@ -23,9 +24,13 @@ jest.mock('../../../actions/analytics');
 
 trackActionWithoutData.mockReturnValue({ type: 'tracked action without data' });
 
+beforeEach(() => {
+  store = mockStore();
+});
+
 it('renders correctly', () => {
   testSnapshot(
-    <Provider store={mockStore()}>
+    <Provider store={store}>
       <WelcomeScreen navigation={createMockNavState()} />
     </Provider>,
   );
@@ -33,7 +38,7 @@ it('renders correctly', () => {
 
 it('renders correctly for allow sign in', () => {
   testSnapshot(
-    <Provider store={mockStore()}>
+    <Provider store={store}>
       <WelcomeScreen allowSignIn={true} navigation={createMockNavState()} />
     </Provider>,
   );
@@ -50,7 +55,7 @@ describe('welcome screen methods', () => {
         next={next}
       />,
       {
-        context: { store: mockStore() },
+        context: { store },
       },
     );
 

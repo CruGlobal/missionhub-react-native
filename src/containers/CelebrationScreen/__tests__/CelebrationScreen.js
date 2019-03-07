@@ -16,6 +16,7 @@ import { MAIN_TABS } from '../../../constants';
 import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen';
 
 const mockStore = createThunkStore();
+let store;
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/navigation');
@@ -26,9 +27,13 @@ global.Math = mockMath;
 
 navigateReset.mockReturnValue({ type: 'navigated reset' });
 
+beforeEach(() => {
+  store = mockStore();
+});
+
 it('renders correctly', () => {
   testSnapshot(
-    <Provider store={mockStore()}>
+    <Provider store={store}>
       <CelebrationScreen navigation={createMockNavState()} />
     </Provider>,
   );
@@ -48,7 +53,7 @@ describe('celebration screen methods', () => {
             onComplete: mockComplete,
           })}
         />,
-        mockStore(),
+        store,
       );
       component = screen.instance();
 
@@ -63,7 +68,7 @@ describe('celebration screen methods', () => {
             next: mockNext,
           })}
         />,
-        mockStore(),
+        store,
       );
       component = screen.instance();
 
@@ -74,7 +79,7 @@ describe('celebration screen methods', () => {
     it('runs navigateReset with MAIN_TABS', () => {
       screen = renderShallow(
         <CelebrationScreen navigation={createMockNavState()} />,
-        mockStore(),
+        store,
       );
       component = screen.instance();
 
@@ -87,7 +92,7 @@ describe('celebration screen methods', () => {
         <CelebrationScreen
           navigation={createMockNavState({ nextScreen: CONTACT_PERSON_SCREEN })}
         />,
-        mockStore(),
+        store,
       );
       component = screen.instance();
 
