@@ -8,7 +8,7 @@ import PersonStageScreen from '../PersonStageScreen';
 import {
   testSnapshot,
   createMockNavState,
-  createMockStore,
+  createThunkStore,
   renderShallow,
 } from '../../../testUtils';
 import * as navigation from '../../actions/navigation';
@@ -36,7 +36,8 @@ const mockStage = {
   id: 1,
 };
 
-const store = createMockStore(mockState);
+let store;
+
 const mockNavState = {
   name: 'Test',
   contactId: '123',
@@ -64,12 +65,14 @@ function buildScreen(mockNavState, store) {
 }
 
 navigation.navigatePush = jest.fn();
-navigation.navigateBack = jest.fn();
+navigation.navigateBack = jest.fn(() => ({ type: 'navigated back' }));
 
 beforeEach(() => {
   navigation.navigatePush.mockReturnValue({ type: 'navigated forward' });
 
   analytics.trackState = jest.fn(() => trackStateResult);
+
+  store = createThunkStore(mockState);
 });
 
 it('renders correctly', () => {
@@ -101,8 +104,12 @@ describe('person stage screen methods with onComplete prop', () => {
   });
 
   it('runs select stage', async () => {
-    selectStage.updateUserStage = jest.fn();
-    navigation.navigatePush = jest.fn((_, params) => params.onSaveNewSteps());
+    selectStage.updateUserStage = jest.fn(() => ({
+      type: 'updated user stage',
+    }));
+    navigation.navigatePush = jest.fn((_, params) => () =>
+      params.onSaveNewSteps(),
+    );
 
     await component.handleSelectStage(mockStage, false);
 
@@ -214,7 +221,7 @@ describe('person stage screen methods', () => {
 
 describe('person stage screen methods with next', () => {
   let component;
-  const mockNext = jest.fn();
+  const mockNext = jest.fn(() => ({ type: 'next' }));
 
   beforeEach(() => {
     component = buildScreen(
@@ -227,7 +234,9 @@ describe('person stage screen methods with next', () => {
   });
 
   it('runs select stage with stage not previously selected', async () => {
-    selectStage.updateUserStage = jest.fn();
+    selectStage.updateUserStage = jest.fn(() => ({
+      type: 'updated user stage',
+    }));
 
     await component.handleSelectStage(mockStage, false);
 
@@ -239,7 +248,9 @@ describe('person stage screen methods with next', () => {
   });
 
   it('runs select stage with stage previously selected', async () => {
-    selectStage.updateUserStage = jest.fn();
+    selectStage.updateUserStage = jest.fn(() => ({
+      type: 'updated user stage',
+    }));
 
     await component.handleSelectStage(mockStage, true);
 

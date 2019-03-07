@@ -4,17 +4,17 @@ import { Provider } from 'react-redux';
 
 import theme from '../../theme';
 import {
-  createMockStore,
+  createThunkStore,
   testSnapshot,
   createMockNavState,
 } from '../../../testUtils';
-import { navItem } from '../..//AppRoutes';
+import { navItem } from '../../AppRoutes';
 import { communitiesSelector } from '../../selectors/organizations';
 import MainTabs from '../../containers/MainTabs';
 
 jest.mock('../../selectors/organizations');
 
-const store = createMockStore({
+const state = {
   auth: {
     isFirstTime: false,
   },
@@ -46,9 +46,14 @@ const store = createMockStore({
   organizations: {
     all: [],
   },
-});
+};
+let store;
 
 communitiesSelector.mockReturnValue([]);
+
+beforeEach(() => {
+  store = createThunkStore(state);
+});
 
 it('renders home screen with tab bar with steps tab selected correctly', () => {
   testSnapshot(
