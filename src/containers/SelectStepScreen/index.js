@@ -206,14 +206,15 @@ class SelectStepScreen extends Component {
 
   render() {
     const { t } = this.props;
+    const { primaryColor, parallaxHeaderHeight, headerHeight } = theme;
 
     return (
       <View style={styles.container}>
         <ParallaxScrollView
-          backgroundColor={theme.primaryColor}
-          parallaxHeaderHeight={theme.parallaxHeaderHeight}
+          backgroundColor={primaryColor}
+          parallaxHeaderHeight={parallaxHeaderHeight}
           renderForeground={this.renderForeground}
-          stickyHeaderHeight={theme.headerHeight}
+          stickyHeaderHeight={headerHeight}
           renderStickyHeader={this.renderStickyHeader}
         >
           <StepsList

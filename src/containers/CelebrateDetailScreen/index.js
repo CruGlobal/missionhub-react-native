@@ -66,15 +66,21 @@ class CelebrateDetailScreen extends Component {
   render() {
     const { event } = this.props;
     const { container } = styles;
+    const {
+      white,
+      parallaxHeaderHeight,
+      headerHeight,
+      statusBar: { darkContent },
+    } = theme;
 
     return (
       <SafeAreaView style={container}>
-        <StatusBar {...theme.statusBar.darkContent} />
+        <StatusBar {...darkContent} />
         <ParallaxScrollView
-          backgroundColor={theme.white}
-          parallaxHeaderHeight={theme.parallaxHeaderHeight}
+          backgroundColor={white}
+          parallaxHeaderHeight={parallaxHeaderHeight}
           renderForeground={this.renderForeground}
-          stickyHeaderHeight={theme.headerHeight}
+          stickyHeaderHeight={headerHeight}
           renderStickyHeader={this.renderStickyHeader}
         >
           <CommentsList event={event} organizationId={event.organization.id} />
