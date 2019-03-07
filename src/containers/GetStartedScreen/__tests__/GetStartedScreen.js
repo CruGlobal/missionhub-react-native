@@ -9,7 +9,7 @@ import GetStartedScreen from '..';
 import {
   createMockNavState,
   testSnapshot,
-  createMockStore,
+  createThunkStore,
 } from '../../../../testUtils';
 import * as navigation from '../../../actions/navigation';
 import * as common from '../../../utils/common';
@@ -20,9 +20,13 @@ const mockState = {
   },
 };
 
-const store = createMockStore(mockState);
+let store;
 
 jest.mock('react-native-device-info');
+
+beforeEach(() => {
+  store = createThunkStore(mockState);
+});
 
 it('renders correctly', () => {
   testSnapshot(
@@ -52,7 +56,7 @@ describe('get started methods', () => {
   });
 
   it('saves a step', () => {
-    navigation.navigatePush = jest.fn();
+    navigation.navigatePush = jest.fn(() => ({ type: 'navigated' }));
     component.navigateNext();
     expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
   });
