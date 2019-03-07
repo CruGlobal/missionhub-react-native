@@ -18,15 +18,21 @@ import * as common from '../../../utils/common';
 import locale from '../../../i18n/locales/en-US';
 
 const mockStore = configureStore([thunk]);
-const store = { auth: { person: { id: ' 123123' } } };
+let store;
+
+const auth = { person: { id: '123123' } };
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/analytics');
 
+beforeEach(() => {
+  store = mockStore({ auth });
+});
+
 it('renders correctly', () => {
   testSnapshot(
-    <Provider store={mockStore(store)}>
+    <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
@@ -39,7 +45,7 @@ it('renders correctly', () => {
 
 it('renders journey correctly', () => {
   testSnapshot(
-    <Provider store={mockStore(store)}>
+    <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
@@ -52,7 +58,7 @@ it('renders journey correctly', () => {
 
 it('renders edit journey correctly', () => {
   testSnapshot(
-    <Provider store={mockStore(store)}>
+    <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
@@ -67,7 +73,7 @@ it('renders edit journey correctly', () => {
 
 it('renders step note correctly', () => {
   testSnapshot(
-    <Provider store={mockStore(store)}>
+    <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
@@ -81,13 +87,13 @@ it('renders step note correctly', () => {
 
 it('renders step note correctly for me', () => {
   testSnapshot(
-    <Provider store={mockStore(store)}>
+    <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
           type: STEP_NOTE,
           text: 'Comment',
-          personId: store.auth.person.id,
+          personId: auth.person.id,
         })}
       />
     </Provider>,
@@ -96,7 +102,7 @@ it('renders step note correctly for me', () => {
 
 it('renders interaction without skip correctly', () => {
   testSnapshot(
-    <Provider store={mockStore(store)}>
+    <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
@@ -110,7 +116,7 @@ it('renders interaction without skip correctly', () => {
 
 it('renders interaction with skip correctly', () => {
   testSnapshot(
-    <Provider store={mockStore(store)}>
+    <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
@@ -135,7 +141,7 @@ describe('add step methods', () => {
           text: 'Comment',
         })}
       />,
-      mockStore(store),
+      store,
     );
 
     component = screen.instance();
@@ -163,7 +169,7 @@ describe('add step methods for stepNote with onComplete', () => {
           text: 'Comment',
         })}
       />,
-      mockStore(store),
+      store,
     );
 
     expect(common.disableBack.add).toHaveBeenCalledTimes(1);
@@ -221,7 +227,7 @@ describe('add step methods for stepNote with next', () => {
           stepId,
         })}
       />,
-      mockStore(store),
+      store,
     );
 
     expect(common.disableBack.add).toHaveBeenCalledTimes(1);
@@ -266,7 +272,7 @@ describe('add step methods without edit', () => {
           type: 'journey',
         })}
       />,
-      mockStore(store),
+      store,
     );
 
     component = screen.instance();
@@ -292,7 +298,7 @@ describe('Caps create step at 255 characters', () => {
           type: CREATE_STEP,
         })}
       />,
-      mockStore(store),
+      store,
     );
 
     component = screen.instance();
