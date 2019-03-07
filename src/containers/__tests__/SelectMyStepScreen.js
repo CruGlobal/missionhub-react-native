@@ -4,7 +4,7 @@ import React from 'react';
 import SelectMyStepScreen from '../SelectMyStepScreen';
 import {
   createMockNavState,
-  createMockStore,
+  createThunkStore,
   testSnapshotShallow,
   renderShallow,
 } from '../../../testUtils';
@@ -14,7 +14,7 @@ jest.mock('react-native-device-info');
 const myId = '1234';
 const orgId = '11';
 
-const store = createMockStore({
+const state = {
   steps: {
     suggestedForMe: {
       3: [{ id: '1', body: 'test' }],
@@ -28,10 +28,10 @@ const store = createMockStore({
       user: {},
     },
   },
-});
+};
 
 const mockSaveSteps = jest.fn();
-const mockNext = jest.fn();
+const mockNext = jest.fn(() => ({ type: 'next' }));
 
 const navProps = {
   onSaveNewSteps: mockSaveSteps,
@@ -42,6 +42,12 @@ const navProps = {
 
 let enableBackButton;
 let isOnboarding;
+
+let store;
+
+beforeEach(() => {
+  store = createThunkStore(state);
+});
 
 const test = () => {
   testSnapshotShallow(
