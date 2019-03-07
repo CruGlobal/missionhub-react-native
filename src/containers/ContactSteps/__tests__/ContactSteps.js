@@ -6,7 +6,7 @@ import React from 'react';
 import ContactSteps from '..';
 
 import {
-  createMockStore,
+  createThunkStore,
   createMockNavState,
   testSnapshotShallow,
   renderShallow,
@@ -73,9 +73,20 @@ const trackingObj = buildTrackingObj(
   'steps',
 );
 
-getContactSteps.mockReturnValue({ response: steps });
+getContactSteps.mockReturnValue(() => {
+  response: steps;
+});
+navigatePush.mockReturnValue({ type: 'navigated push' });
+navigateBack.mockReturnValue({ type: 'navigated back' });
+navigateToStageScreen.mockReturnValue({ type: 'navigated to stage screen' });
+completeStep.mockReturnValue({ type: 'completed step' });
+reloadJourney.mockReturnValue({ type: 'reloaded journey' });
+deleteStepWithTracking.mockReturnValue({ type: 'deleted step with tracking' });
+removeSwipeStepsContact.mockReturnValue({
+  type: 'removed swipe steps contact',
+});
 
-const store = createMockStore(mockState);
+const store = createThunkStore(mockState);
 let component;
 
 const createComponent = (isCurrentUser = false, person, org) => {
@@ -97,7 +108,7 @@ it('renders correctly with no steps', () => {
       person={mockPerson}
       navigation={createMockNavState()}
     />,
-    createMockStore({
+    createThunkStore({
       ...mockState,
       steps: {
         ...mockState.steps,
