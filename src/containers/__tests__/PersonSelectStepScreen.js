@@ -4,7 +4,7 @@ import React from 'react';
 import PersonSelectStepScreen from '../PersonSelectStepScreen';
 import {
   createMockNavState,
-  createMockStore,
+  createThunkStore,
   testSnapshotShallow,
   renderShallow,
 } from '../../../testUtils';
@@ -21,7 +21,7 @@ const mockState = {
   },
 };
 const mockSaveSteps = jest.fn();
-const mockNext = jest.fn();
+const mockNext = jest.fn(() => ({ type: 'next' }));
 
 const navProps = {
   contactName: 'Ron',
@@ -33,7 +33,7 @@ const navProps = {
   organization,
 };
 
-const store = createMockStore(mockState);
+const store = createThunkStore(mockState);
 
 jest.mock('react-native-device-info');
 jest.mock('../../selectors/people');
