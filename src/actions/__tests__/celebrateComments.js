@@ -23,7 +23,7 @@ const baseQuery = {
   orgId: event.organization.id,
   eventId: event.id,
 };
-const include = 'organization_celebration_item.organization,person';
+const include = 'organization_celebration_item,person';
 
 const mockStore = configureStore([thunk]);
 let store;

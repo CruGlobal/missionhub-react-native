@@ -38,7 +38,7 @@ function getCelebrateComments(event, page) {
         orgId: event.organization.id,
         eventId: event.id,
         page,
-        include: 'organization_celebration_item.organization,person',
+        include: 'organization_celebration_item,person',
       }),
     );
 }
