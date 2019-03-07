@@ -79,6 +79,21 @@ it('renders step note correctly', () => {
   );
 });
 
+it('renders step note correctly for me', () => {
+  testSnapshot(
+    <Provider store={mockStore(store)}>
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: jest.fn(),
+          type: STEP_NOTE,
+          text: 'Comment',
+          personId: store.auth.person.id,
+        })}
+      />
+    </Provider>,
+  );
+});
+
 it('renders interaction without skip correctly', () => {
   testSnapshot(
     <Provider store={mockStore(store)}>

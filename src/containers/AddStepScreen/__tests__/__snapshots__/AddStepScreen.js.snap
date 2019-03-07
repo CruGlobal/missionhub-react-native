@@ -1572,3 +1572,226 @@ exports[`renders step note correctly 1`] = `
   </View>
 </View>
 `;
+
+exports[`renders step note correctly for me 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "flex-end",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "marginTop": 0,
+              "padding": 30,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                },
+              ],
+            ]
+          }
+        >
+          SKIP
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingTop": 10,
+        },
+        Object {
+          "alignItems": "stretch",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={true}
+      autoFocus={true}
+      blurOnSubmit={true}
+      maxLength={undefined}
+      multiline={true}
+      onChangeText={[Function]}
+      placeholder="What did you see God do?"
+      placeholderTextColor="#B4B6BA"
+      returnKeyType="done"
+      selectionColor="#005A7F"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "letterSpacing": 0.25,
+            "paddingVertical": 5,
+          },
+          Object {
+            "borderBottomColor": "transparent",
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "paddingHorizontal": 45,
+          },
+        ]
+      }
+      underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
+    />
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits="button"
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#52C5DC",
+            "height": 60,
+            "justifyContent": "center",
+          },
+          null,
+          Object {
+            "width": 750,
+          },
+          null,
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "color": "#ffffff",
+                "fontSize": 18,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ]
+        }
+      >
+        ADD TO MY JOURNEY
+      </Text>
+    </View>
+  </View>
+</View>
+`;
