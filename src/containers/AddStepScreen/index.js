@@ -112,7 +112,7 @@ class AddStepScreen extends Component {
     const { t, type, personId, myId } = this.props;
     let text = t('selectStep:addStep');
     if (type === 'journey' || type === STEP_NOTE || type === 'interaction') {
-      text = personId === myId ? t('addJourneyMe') : t('addJourneyPerson');
+      text = t(personId === myId ? 'addJourneyMe' : 'addJourneyPerson');
     } else if (type === 'editJourney') {
       text = t('editJourneyButton');
     }
