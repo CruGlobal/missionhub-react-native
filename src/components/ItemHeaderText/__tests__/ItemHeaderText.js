@@ -8,5 +8,7 @@ import { testSnapshotShallow } from '../../../../testUtils';
 const text = 'Roge Goers';
 
 it('renders correctly', () => {
-  testSnapshotShallow(<ItemHeaderText text={text} />);
+  testSnapshotShallow(
+    <ItemHeaderText text={text} style={{ prop: 'some prop' }} />,
+  );
 });

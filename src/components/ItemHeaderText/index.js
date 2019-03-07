@@ -5,8 +5,8 @@ import { Text } from '../../components/common';
 
 import styles from './styles';
 
-export default function ItemHeaderText({ text }) {
-  return <Text style={styles.name}>{text.toUpperCase()}</Text>;
+export default function ItemHeaderText({ text, style }) {
+  return <Text style={[styles.name, style]}>{text.toUpperCase()}</Text>;
 }
 
 ItemHeaderText.propTypes = {

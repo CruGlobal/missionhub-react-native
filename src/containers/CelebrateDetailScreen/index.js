@@ -2,37 +2,91 @@ import React, { Component } from 'react';
 import { View, SafeAreaView, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/default
+import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
+import CommentLikeComponent from '../CommentLikeComponent';
 import { celebrationItemSelector } from '../../selectors/celebration';
 import CelebrateItem from '../../components/CelebrateItem';
 import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
 import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 import theme from '../../theme';
+import Header from '../../containers/Header';
+import ItemHeaderText from '../../components/ItemHeaderText';
 
 import styles from './styles';
 
 class CelebrateDetailScreen extends Component {
-  render() {
+  renderBackButton = () => {
+    const { backButtonStyle } = styles;
+
+    return <BackButton iconStyle={backButtonStyle} customIcon="deleteIcon" />;
+  };
+
+  renderForeground = () => {
     const { event } = this.props;
-    const { container, cardStyle, backButtonStyle } = styles;
+    const { cardStyle } = styles;
 
     return (
-      <View style={container}>
-        <StatusBar {...theme.statusBar.darkContent} />
-        <CelebrateItem
-          event={event}
-          cardStyle={cardStyle}
-          rightCorner={
-            <BackButton iconStyle={backButtonStyle} customIcon="deleteIcon" />
-          }
-          namePressable={true}
-        />
-        <SafeAreaView style={{ flex: 1 }}>
+      <CelebrateItem
+        event={event}
+        cardStyle={cardStyle}
+        rightCorner={this.renderBackButton()}
+        namePressable={true}
+      />
+    );
+  };
+
+  renderStickyHeader = () => {
+    const { event } = this.props;
+    const { subject_person_name } = event;
+    const { headerStyle, leftHeaderItemStyle, rightHeaderItemStyle } = styles;
+
+    return (
+      <Header
+        shadow={false}
+        left={
+          <ItemHeaderText
+            text={subject_person_name}
+            style={leftHeaderItemStyle}
+          />
+        }
+        right={
+          <View style={rightHeaderItemStyle}>
+            <CommentLikeComponent event={event} />
+            {this.renderBackButton()}
+          </View>
+        }
+        style={headerStyle}
+      />
+    );
+  };
+
+  render() {
+    const { event } = this.props;
+    const { container } = styles;
+    const {
+      white,
+      parallaxHeaderHeight,
+      headerHeight,
+      statusBar: { darkContent },
+    } = theme;
+
+    return (
+      <SafeAreaView style={container}>
+        <StatusBar {...darkContent} />
+        <ParallaxScrollView
+          backgroundColor={white}
+          parallaxHeaderHeight={parallaxHeaderHeight}
+          renderForeground={this.renderForeground}
+          stickyHeaderHeight={headerHeight}
+          renderStickyHeader={this.renderStickyHeader}
+        >
           <CommentsList event={event} organizationId={event.organization.id} />
-          <CelebrateCommentBox event={event} />
-        </SafeAreaView>
-      </View>
+        </ParallaxScrollView>
+        <CelebrateCommentBox event={event} />
+      </SafeAreaView>
     );
   }
 }

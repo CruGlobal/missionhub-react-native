@@ -14,7 +14,11 @@ const mockStore = configureStore([thunk]);
 let store;
 
 const organizationId = '24234234';
-const event = { id: '90001', organization: { id: organizationId } };
+const event = {
+  id: '90001',
+  organization: { id: organizationId },
+  subject_person_name: 'Roger',
+};
 const organizations = [event.organization];
 
 let screen;
@@ -42,9 +46,25 @@ it('renders correctly', () => {
   expect(screen).toMatchSnapshot();
 });
 
+describe('renderForeground', () => {
+  it('renders correctly', () => {
+    expect(parallaxScrollView().renderForeground()).toMatchSnapshot();
+  });
+});
+
+describe('renderStickyHeader', () => {
+  it('renders correctly', () => {
+    expect(parallaxScrollView().renderStickyHeader()).toMatchSnapshot();
+  });
+});
+
 it('should call celebrationItemSelector', () => {
   expect(celebrationItemSelector).toHaveBeenCalledWith(
     { organizations },
     { eventId: event.id, organizationId },
   );
 });
+
+function parallaxScrollView() {
+  return screen.childAt(1).props();
+}
