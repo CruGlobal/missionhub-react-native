@@ -44,3 +44,5 @@ export const testSnapshotShallow = (
   expect(renderedComponent).toMatchSnapshot();
   return renderedComponent;
 };
+
+export const createThunkStore = () => configureStore([thunk]);
