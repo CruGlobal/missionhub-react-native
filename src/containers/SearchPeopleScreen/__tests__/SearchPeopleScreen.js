@@ -8,12 +8,12 @@ import SearchPeopleScreenConnected, { SearchPeopleScreen } from '..';
 
 import {
   testSnapshot,
-  createMockStore,
+  createThunkStore,
   renderShallow,
 } from '../../../../testUtils';
 import { navToPersonScreen } from '../../../actions/person';
 
-const store = createMockStore();
+const store = createThunkStore();
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/person');
