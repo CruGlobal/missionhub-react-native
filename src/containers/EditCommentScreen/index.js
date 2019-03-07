@@ -10,6 +10,7 @@ import { BackButton } from '../BackButton';
 import Header from '../Header';
 import theme from '../../theme';
 import { navigateBack } from '../../actions/navigation';
+import { celebrateCommentsCommentSelector } from '../../selectors/celebrateComments';
 
 import styles from './styles';
 
@@ -86,8 +87,20 @@ EditCommentScreen.propTypes = {
   item: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (reduxState, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = (
+  { celebrateComments },
+  {
+    navigation: {
+      state: {
+        params: { item },
+      },
+    },
+  },
+) => ({
+  item: celebrateCommentsCommentSelector(
+    { celebrateComments },
+    { eventId: item.organization_celebration_item.id, commentId: item.id },
+  ),
 });
 
 export default connect(mapStateToProps)(EditCommentScreen);

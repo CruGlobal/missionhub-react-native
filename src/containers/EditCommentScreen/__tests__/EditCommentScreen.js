@@ -8,8 +8,10 @@ import EditCommentScreen from '..';
 import { renderShallow, createMockNavState } from '../../../../testUtils';
 import { updateCelebrateComment } from '../../../actions/celebrateComments';
 import { navigateBack } from '../../../actions/navigation';
+import { celebrateCommentsCommentSelector } from '../../../selectors/celebrateComments';
 
 jest.mock('../../../actions/celebrateComments');
+jest.mock('../../../selectors/celebrateComments');
 jest.mock('../../../actions/navigation');
 
 const mockStore = configureStore([thunk]);
@@ -26,12 +28,27 @@ updateCelebrateComment.mockReturnValue(dispatch =>
 navigateBack.mockReturnValue(dispatch => dispatch(navigateBackResult));
 Keyboard.dismiss = jest.fn();
 
-const comment = { id: 'comment1', content: 'comment text' };
+const event = { id: 'celebrate1' };
+const comment = {
+  id: 'comment1',
+  content: 'comment text',
+  organization_celebration_item: event,
+};
+const celebrateComments = {
+  comments: [comment, { content: 'another comment' }],
+  pagination: {},
+};
+const celebrateCommentsState = {
+  all: { [event.id]: { ...event, comments: celebrateComments } },
+};
+celebrateCommentsCommentSelector.mockReturnValue(comment);
 
 beforeEach(() => {
   jest.clearAllMocks();
 
-  store = mockStore({});
+  store = mockStore({
+    celebrateComments: celebrateCommentsState,
+  });
 
   component = renderShallow(
     <EditCommentScreen
