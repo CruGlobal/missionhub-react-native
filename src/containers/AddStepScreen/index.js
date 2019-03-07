@@ -109,10 +109,10 @@ class AddStepScreen extends Component {
   }
 
   getButtonText() {
-    const { t, type } = this.props;
+    const { t, type, personId, myId } = this.props;
     let text = t('selectStep:addStep');
     if (type === 'journey' || type === STEP_NOTE || type === 'interaction') {
-      text = t('addJourney');
+      text = personId === myId ? t('addJourneyMe') : t('addJourneyPerson');
     } else if (type === 'editJourney') {
       text = t('editJourneyButton');
     }
@@ -202,8 +202,9 @@ AddStepScreen.propTypes = {
   orgId: PropTypes.string,
 };
 
-const mapStateToProps = (reduxState, { navigation }) => ({
+const mapStateToProps = ({ auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
+  myId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(AddStepScreen);
