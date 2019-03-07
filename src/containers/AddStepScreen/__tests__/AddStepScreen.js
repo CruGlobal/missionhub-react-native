@@ -1,13 +1,14 @@
 import { Alert } from 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import AddStepScreen from '..';
 
 import {
   createMockNavState,
   testSnapshot,
-  createMockStore,
   renderShallow,
 } from '../../../../testUtils';
 import { CREATE_STEP, STEP_NOTE, ACTIONS } from '../../../constants';
@@ -16,11 +17,18 @@ import { trackAction } from '../../../actions/analytics';
 import * as common from '../../../utils/common';
 import locale from '../../../i18n/locales/en-US';
 
-const store = createMockStore();
+const mockStore = configureStore([thunk]);
+let store;
+
+const auth = { person: { id: '123123' } };
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/analytics');
+
+beforeEach(() => {
+  store = mockStore({ auth });
+});
 
 it('renders correctly', () => {
   testSnapshot(
@@ -71,6 +79,21 @@ it('renders step note correctly', () => {
           onComplete: jest.fn(),
           type: STEP_NOTE,
           text: 'Comment',
+        })}
+      />
+    </Provider>,
+  );
+});
+
+it('renders step note correctly for me', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: jest.fn(),
+          type: STEP_NOTE,
+          text: 'Comment',
+          personId: auth.person.id,
         })}
       />
     </Provider>,
@@ -183,7 +206,11 @@ describe('add step methods for stepNote with next', () => {
   const personId = '111';
   const orgId = '11';
   const text = 'Comment';
-  const mockNext = jest.fn();
+  const mockNext = jest.fn(() => ({
+    type: 'next',
+  }));
+  updateChallengeNote.mockReturnValue({ type: 'updated challenge note' });
+  trackAction.mockReturnValue({ type: 'tracked action' });
   common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
   beforeEach(() => {
