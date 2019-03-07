@@ -7,7 +7,7 @@ import AddStepScreen from '..';
 import {
   createMockNavState,
   testSnapshot,
-  createThunkStore,
+  createMockStore,
   renderShallow,
 } from '../../../../testUtils';
 import { CREATE_STEP, STEP_NOTE, ACTIONS } from '../../../constants';
@@ -16,7 +16,8 @@ import { trackAction } from '../../../actions/analytics';
 import * as common from '../../../utils/common';
 import locale from '../../../i18n/locales/en-US';
 
-const store = createThunkStore();
+//fixed in steps-improvement
+const store = createMockStore();
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/steps');
