@@ -4,11 +4,14 @@ import GroupChallenges, { mapStateToProps } from '../GroupChallenges';
 import {
   renderShallow,
   testSnapshotShallow,
-  createMockStore,
+  createThunkStore,
 } from '../../../../testUtils';
 import { organizationSelector } from '../../../selectors/organizations';
 import { challengesSelector } from '../../../selectors/challenges';
-import * as challenges from '../../../actions/challenges';
+import {
+  getGroupChallengeFeed,
+  createChallenge,
+} from '../../../actions/challenges';
 import * as common from '../../../utils/common';
 import * as navigation from '../../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
@@ -92,6 +95,8 @@ const store = {
   },
 };
 
+getGroupChallengeFeed.mockReturnValue({ type: 'got group challenge feed' });
+
 beforeEach(() => {
   challengesSelector.mockReturnValue(challengeSelectorReturnValue);
 });
@@ -112,20 +117,20 @@ describe('mapStateToProps', () => {
 
 it('should render correctly', () => {
   testSnapshotShallow(
-    <GroupChallenges organization={org} store={createMockStore(store)} />,
+    <GroupChallenges organization={org} store={createThunkStore(store)} />,
   );
 });
 
 it('should render empty correctly', () => {
   challengesSelector.mockReturnValue(emptyChallengeSelectorReturnValue);
   testSnapshotShallow(
-    <GroupChallenges organization={org} store={createMockStore(store)} />,
+    <GroupChallenges organization={org} store={createThunkStore(store)} />,
   );
 });
 
 it('should refresh items properly', () => {
   const component = renderShallow(
-    <GroupChallenges organization={org} store={createMockStore(store)} />,
+    <GroupChallenges organization={org} store={createThunkStore(store)} />,
     store,
   );
 
@@ -141,7 +146,7 @@ it('should refresh items properly', () => {
 
 it('should call create', () => {
   const component = renderShallow(
-    <GroupChallenges organization={org} store={createMockStore(store)} />,
+    <GroupChallenges organization={org} store={createThunkStore(store)} />,
     store,
   );
 
@@ -162,13 +167,13 @@ it('should call create', () => {
 
 it('should call API to create', () => {
   const instance = renderShallow(
-    <GroupChallenges organization={org} store={createMockStore(store)} />,
+    <GroupChallenges organization={org} store={createThunkStore(store)} />,
     store,
   ).instance();
-  challenges.createChallenge = jest.fn(() => ({ type: 'create' }));
+  createChallenge.mockReturnValue({ type: 'create' });
 
   const challenge = { id: '1', title: 'Test Challenge' };
   instance.createChallenge(challenge);
 
-  expect(challenges.createChallenge).toHaveBeenCalledWith(challenge, org.id);
+  expect(createChallenge).toHaveBeenCalledWith(challenge, org.id);
 });

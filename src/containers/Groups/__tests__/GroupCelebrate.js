@@ -5,11 +5,14 @@ import GroupCelebrate, { mapStateToProps } from '../GroupCelebrate';
 import {
   renderShallow,
   testSnapshotShallow,
-  createMockStore,
+  createThunkStore,
 } from '../../../../testUtils';
 import { organizationSelector } from '../../../selectors/organizations';
 import { celebrationSelector } from '../../../selectors/celebration';
-import { reloadGroupCelebrateFeed } from '../../../actions/celebration';
+import {
+  reloadGroupCelebrateFeed,
+  getGroupCelebrateFeed,
+} from '../../../actions/celebration';
 import { refreshCommunity } from '../../../actions/organizations';
 import * as common from '../../../utils/common';
 
@@ -65,6 +68,10 @@ const store = {
   },
 };
 
+reloadGroupCelebrateFeed.mockReturnValue(() => Promise.resolve());
+getGroupCelebrateFeed.mockReturnValue({ type: 'got group celebrate feed' });
+refreshCommunity.mockReturnValue({ type: 'refreshed community' });
+
 describe('mapStateToProps', () => {
   it('provides props correctly', () => {
     organizationSelector.mockReturnValue(org);
@@ -79,20 +86,20 @@ describe('mapStateToProps', () => {
 
 it('should render correctly', () => {
   testSnapshotShallow(
-    <GroupCelebrate organization={org} store={createMockStore(store)} />,
+    <GroupCelebrate organization={org} store={createThunkStore(store)} />,
   );
 });
 
 it('should render empty correctly', () => {
   celebrationSelector.mockReturnValue([]);
   testSnapshotShallow(
-    <GroupCelebrate organization={org} store={createMockStore(store)} />,
+    <GroupCelebrate organization={org} store={createThunkStore(store)} />,
   );
 });
 
 it('should refresh correctly', async () => {
   const component = renderShallow(
-    <GroupCelebrate organization={org} store={createMockStore(store)} />,
+    <GroupCelebrate organization={org} store={createThunkStore(store)} />,
     store,
   );
 
@@ -107,7 +114,7 @@ it('should refresh correctly', async () => {
 
 it('should refresh items properly', () => {
   const instance = renderShallow(
-    <GroupCelebrate organization={org} store={createMockStore(store)} />,
+    <GroupCelebrate organization={org} store={createThunkStore(store)} />,
     store,
   ).instance();
 
