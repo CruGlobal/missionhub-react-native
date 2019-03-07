@@ -9,7 +9,7 @@ import {
   renderShallow,
   createMockNavState,
   testSnapshotShallow,
-  createMockStore,
+  createThunkStore,
 } from '../../../../../testUtils';
 import {
   navigateBack,
@@ -50,8 +50,16 @@ beforeEach(() => {
   );
 });
 
-const store = createMockStore({
+let store;
+
+const state = {
   organizations: { all: [] },
+};
+
+trackActionWithoutData.mockReturnValue({ type: 'tracked action without data' });
+
+beforeEach(() => {
+  store = createThunkStore(state);
 });
 
 function buildScreen(props) {
@@ -138,7 +146,6 @@ describe('CreateGroupScreen', () => {
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, null);
-    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewOrg);
     expect(getMyCommunities).toHaveBeenCalled();
     expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
       startTab: 'groups',
@@ -163,7 +170,6 @@ describe('CreateGroupScreen', () => {
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, null);
-    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewOrg);
     expect(getMyCommunities).toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
       organization: org,
@@ -193,7 +199,6 @@ describe('CreateGroupScreen', () => {
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, data);
-    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewOrg);
     expect(getMyCommunities).toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
       organization: org,
