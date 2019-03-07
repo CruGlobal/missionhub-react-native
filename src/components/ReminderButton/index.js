@@ -13,21 +13,10 @@ import styles from './styles';
 
 @translate('stepReminder')
 class ReminderButton extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      visible: false,
-    };
-  }
-
-  handleSetReminder = () => {
-    if (isAndroid) {
-      const { dispatch, step } = this.props;
-      dispatch(navigatePush(STEP_REMINDER_SCREEN, { step }));
-    } else {
-      this.setState({ visible: true });
-    }
+  //for Android, navigate to step reminder screen
+  handlePressAndroid = () => {
+    const { dispatch, step } = this.props;
+    dispatch(navigatePush(STEP_REMINDER_SCREEN, { step }));
   };
 
   handleRemoveReminder = () => {};
@@ -45,18 +34,19 @@ class ReminderButton extends Component {
     } = styles;
 
     return (
-      <Touchable style={reminderButton} onPress={this.handleSetReminder}>
-        <View style={reminderContainer}>
-          <View style={reminderIconCircle}>
-            <Icon name="bellIcon" type="MissionHub" style={reminderIcon} />
+      <DatePicker onPressAndroid={this.handlePressAndroid}>
+        <View style={reminderButton}>
+          <View style={reminderContainer}>
+            <View style={reminderIconCircle}>
+              <Icon name="bellIcon" type="MissionHub" style={reminderIcon} />
+            </View>
+            <Text style={reminderText}>{t('setReminder')}</Text>
           </View>
-          <Text style={reminderText}>{t('setReminder')}</Text>
+          <Button onPress={this.handleRemoveReminder} style={cancelIconButton}>
+            <Icon name="close" type="Material" style={cancelIcon} />
+          </Button>
         </View>
-        <Button onPress={this.handleRemoveReminder} style={cancelIconButton}>
-          <Icon name="close" type="Material" style={cancelIcon} />
-        </Button>
-        <DatePicker visible={this.state.visible} />
-      </Touchable>
+      </DatePicker>
     );
   }
 }

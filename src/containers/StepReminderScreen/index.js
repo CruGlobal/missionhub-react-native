@@ -20,6 +20,14 @@ import styles from './styles';
 
 @translate('stepReminder')
 class StepReminderScreen extends Component {
+  renderDateInput() {
+    return (
+      <View>
+        <Text>date</Text>
+      </View>
+    );
+  }
+
   render() {
     const { t } = this.props;
     const {
@@ -35,7 +43,7 @@ class StepReminderScreen extends Component {
 
     return (
       <View style={container}>
-        <DatePicker />
+        <DatePicker>{this.renderDateInput()}</DatePicker>
         <View style={buttonContainer}>
           <Button
             style={[button, buttonInactive]}
