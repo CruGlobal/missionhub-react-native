@@ -22,6 +22,24 @@ import styles from './styles';
 
 @translate('stepReminder')
 class StepReminderScreen extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      date: '',
+      disableBtn: true,
+    };
+
+    this.today = new Date();
+  }
+  handleChangeDate = date => {
+    if (!date) {
+      this.setState({ date: '', disableBtn: true });
+    } else {
+      this.setState({ date, disableBtn: false });
+    }
+  };
+
   handleSetReminder = () => {
     this.props.dispatch(navigateBack());
   };
@@ -58,7 +76,12 @@ class StepReminderScreen extends Component {
     return (
       <View style={dateInputContainer}>
         <Text style={inputHeaderStyle}>{t('endDate')}</Text>
-        <DatePicker>
+        <DatePicker
+          date={this.state.date}
+          mode="datetime"
+          minDate={this.today}
+          onDateChange={this.handleChangeDate}
+        >
           <Text style={inputContentStyle}>
             {!date ? t('endDatePlaceholder') : date}
           </Text>
@@ -111,7 +134,11 @@ class StepReminderScreen extends Component {
           {this.renderDateInput()}
           {this.renderRepeatButtons()}
         </View>
-        <BottomButton text={t('done')} onPress={this.handleSetReminder} />
+        <BottomButton
+          disabled={this.state.disableBtn}
+          text={t('done')}
+          onPress={this.handleSetReminder}
+        />
       </View>
     );
   }
