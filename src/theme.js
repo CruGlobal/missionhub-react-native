@@ -118,6 +118,7 @@ export default {
   grey: COLORS.GREY,
   grey1: '#B2B0B2',
   grey2: '#4E4C4E',
+  grey3: '#C5C7CB',
   lightGrey: COLORS.LIGHT_GREY,
   iosBlue: COLORS.IOS_BLUE,
 

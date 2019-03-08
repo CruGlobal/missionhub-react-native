@@ -457,14 +457,17 @@ exports[`renders with an organization correctly 1`] = `
     <View
       style={
         Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderTopColor": "#B2B0B2",
-            "borderTopWidth": 1,
-            "paddingBottom": 5,
-            "paddingTop": 5,
-            "width": 750,
-          },
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderTopColor": "#B2B0B2",
+              "borderTopWidth": 1,
+              "paddingBottom": 5,
+              "paddingTop": 5,
+              "width": 750,
+            },
+            undefined,
+          ],
           Object {
             "flexDirection": "column",
           },

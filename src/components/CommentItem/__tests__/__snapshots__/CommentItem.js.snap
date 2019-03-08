@@ -1,21 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`with onLongPress renders correctly with onLongPress 1`] = `
-<TouchableIOS
-  onLongPress={[Function]}
->
-  <Component
-    style={
-      Object {
-        "backgroundColor": "#E6E8EC",
-        "borderRadius": 8,
-        "marginVertical": 5,
-        "paddingHorizontal": 10,
-        "paddingVertical": 5,
-      }
+exports[`renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "marginTop": 15,
     }
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
   >
     <Connect(Translate(CelebrateItemName))
+      customContent={
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "paddingLeft": 10,
+              "paddingRight": 5,
+            }
+          }
+        >
+          Roge Goers
+        </MyText>
+      }
       name="Roge Goers"
       organization={
         Object {
@@ -30,66 +43,117 @@ exports[`with onLongPress renders correctly with onLongPress 1`] = `
       }
       pressable={true}
     />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "paddingVertical": 3,
-        }
-      }
-    >
-      hello roge
-    </MyText>
     <CardTime
       date="2018-06-11 12:00:00 UTC"
     />
-  </Component>
-</TouchableIOS>
+  </Flex>
+  <Flex
+    direction="row"
+  >
+    <Component
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 8,
+            "marginVertical": 5,
+            "paddingHorizontal": 13,
+            "paddingVertical": 8,
+          },
+          null,
+        ]
+      }
+    >
+      <TouchableIOS
+        onLongPress={[Function]}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "paddingVertical": 3,
+              },
+              null,
+            ]
+          }
+        >
+          hello roge
+        </MyText>
+      </TouchableIOS>
+    </Component>
+    <Flex
+      value={1}
+    />
+  </Flex>
+</Component>
 `;
 
-exports[`without onLongPress renders correctly 1`] = `
+exports[`renders correctly as mine 1`] = `
 <Component
   style={
     Object {
-      "backgroundColor": "#E6E8EC",
-      "borderRadius": 8,
-      "marginVertical": 5,
-      "paddingHorizontal": 10,
-      "paddingVertical": 5,
+      "marginTop": 15,
     }
   }
 >
-  <Connect(Translate(CelebrateItemName))
-    name="Roge Goers"
-    organization={
-      Object {
-        "id": "7342342",
-      }
-    }
-    person={
-      Object {
-        "first_name": "Roge",
-        "last_name": "Goers",
-      }
-    }
-    pressable={true}
-  />
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "paddingVertical": 3,
-      }
-    }
+  <Flex
+    align="center"
+    direction="row"
   >
-    hello roge
-  </MyText>
-  <CardTime
-    date="2018-06-11 12:00:00 UTC"
-  />
+    <Flex
+      value={1}
+    />
+    <CardTime
+      date="2018-06-11 12:00:00 UTC"
+    />
+  </Flex>
+  <Flex
+    direction="row"
+  >
+    <Flex
+      value={1}
+    />
+    <Component
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 8,
+            "marginVertical": 5,
+            "paddingHorizontal": 13,
+            "paddingVertical": 8,
+          },
+          Object {
+            "backgroundColor": "#52C5DC",
+          },
+        ]
+      }
+    >
+      <TouchableIOS
+        onLongPress={[Function]}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "paddingVertical": 3,
+              },
+              Object {
+                "color": "#ffffff",
+              },
+            ]
+          }
+        >
+          hello roge
+        </MyText>
+      </TouchableIOS>
+    </Component>
+  </Flex>
 </Component>
 `;

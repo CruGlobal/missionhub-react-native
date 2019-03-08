@@ -29,35 +29,36 @@ beforeEach(() => {
   );
 });
 
-describe('with onLongPress', () => {
+it('renders correctly', () => {
+  expect(screen).toMatchSnapshot();
+});
+
+it('renders correctly as mine', () => {
+  expect(
+    shallow(
+      <CommentItem
+        item={item}
+        organization={organization}
+        onLongPress={onLongPress}
+        isMine={true}
+      />,
+    ),
+  ).toMatchSnapshot();
+});
+
+describe('onLongPress', () => {
   beforeAll(() => {
     onLongPress = jest.fn();
   });
 
-  it('renders correctly with onLongPress', () => {
-    expect(screen).toMatchSnapshot();
-  });
-
   it('calls onLongPress', () => {
-    screen.props().onLongPress();
+    screen
+      .childAt(1)
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .onLongPress();
 
     expect(onLongPress).toHaveBeenCalledWith(item, undefined);
-  });
-});
-
-describe('without onLongPress', () => {
-  beforeAll(() => {
-    onLongPress = null;
-  });
-
-  it('renders correctly', () => {
-    expect(screen).toMatchSnapshot();
-  });
-
-  it('calls ref', () => {
-    const instance = screen.instance();
-    instance.view = null;
-    instance.ref('test');
-    expect(instance.view).toEqual('test');
   });
 });

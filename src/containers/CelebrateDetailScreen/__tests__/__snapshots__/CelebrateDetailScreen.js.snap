@@ -103,7 +103,7 @@ exports[`renders correctly 1`] = `
   <ParallaxScrollView
     backgroundColor="#ffffff"
     backgroundScrollSpeed={5}
-    contentBackgroundColor="#fff"
+    contentBackgroundColor="#505256"
     contentContainerStyle={null}
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}

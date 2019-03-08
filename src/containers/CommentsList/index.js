@@ -103,6 +103,7 @@ class CommentsList extends Component {
   renderItem = ({ item }) => (
     <CommentItem
       item={item}
+      isMine={this.props.me.id === item.person.id}
       onLongPress={this.handleLongPress}
       organization={this.props.event.organization}
     />

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import CommentBox from '../CommentBox';
 import { createCelebrateComment } from '../../actions/celebrateComments';
+import theme from '../../theme';
 
 class CelebrateCommentBox extends Component {
   submitComment = (action, text) => {
@@ -18,6 +19,7 @@ class CelebrateCommentBox extends Component {
         placeholderTextKey={'celebrateCommentBox:placeholder'}
         onSubmit={this.submitComment}
         hideActions={true}
+        containerStyle={{ backgroundColor: theme.grey3 }}
       />
     );
   }

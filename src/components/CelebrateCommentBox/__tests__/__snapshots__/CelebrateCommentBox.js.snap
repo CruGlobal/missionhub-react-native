@@ -2,6 +2,11 @@
 
 exports[`renders correctly 1`] = `
 <Translate(CommentBox)
+  containerStyle={
+    Object {
+      "backgroundColor": "#C5C7CB",
+    }
+  }
   hideActions={true}
   onSubmit={[Function]}
   placeholderTextKey="celebrateCommentBox:placeholder"

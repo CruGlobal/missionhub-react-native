@@ -78,6 +78,7 @@ class CelebrateDetailScreen extends Component {
         <StatusBar {...darkContent} />
         <ParallaxScrollView
           backgroundColor={white}
+          contentBackgroundColor={theme.grey}
           parallaxHeaderHeight={parallaxHeaderHeight}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={headerHeight}
