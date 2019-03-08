@@ -12,26 +12,64 @@ import moment from 'moment';
 import { translate } from 'react-i18next';
 
 import BackButton from '../BackButton';
+import Header from '../Header';
 import DatePicker from '../../components/DatePicker';
 import BottomButton from '../../components/BottomButton';
-import { Button } from '../../components/common';
+import { Button, Text } from '../../components/common';
+import { navigateBack } from '../../actions/navigation';
 
 import styles from './styles';
 
 @translate('stepReminder')
 class StepReminderScreen extends Component {
-  renderDateInput() {
+  handleSetReminder = () => {
+    this.props.dispatch(navigateBack());
+  };
+
+  renderHeader() {
+    const { header, backButton, headerText } = styles;
+
     return (
-      <View>
-        <Text>date</Text>
+      <Header
+        style={header}
+        shadow={false}
+        left={<BackButton iconStyle={backButton} />}
+        center={<Text style={headerText}>{this.props.t('setReminder')}</Text>}
+      />
+    );
+  }
+
+  renderDateInput() {
+    const { t, date, placeholder, customStyles, disabled } = this.props;
+    const {
+      dateInputContainer,
+      inputHeaderText,
+      inputContentText,
+      inputTextInactive,
+      inputTextFull,
+    } = styles;
+
+    const inputHeaderStyle = [inputHeaderText, date ? inputTextInactive : null];
+    const inputContentStyle = [
+      inputContentText,
+      date ? inputTextFull : inputTextInactive,
+    ];
+
+    return (
+      <View style={dateInputContainer}>
+        <Text style={inputHeaderStyle}>{t('endDate')}</Text>
+        <DatePicker>
+          <Text style={inputContentStyle}>
+            {!date ? t('endDatePlaceholder') : date}
+          </Text>
+        </DatePicker>
       </View>
     );
   }
 
-  render() {
+  renderRepeatButtons() {
     const { t } = this.props;
     const {
-      container,
       buttonContainer,
       button,
       buttonInactive,
@@ -42,27 +80,38 @@ class StepReminderScreen extends Component {
     } = styles;
 
     return (
+      <View style={buttonContainer}>
+        <Button
+          style={[button, buttonInactive]}
+          buttonTextStyle={[buttonText, buttonTextInactive]}
+          text={t('daily')}
+        />
+        <Button
+          style={[button, buttonActive]}
+          buttonTextStyle={[buttonText, buttonTextActive]}
+          text={t('weekly')}
+        />
+        <Button
+          style={[button, buttonInactive]}
+          buttonTextStyle={[buttonText, buttonTextInactive]}
+          text={t('monthly')}
+        />
+      </View>
+    );
+  }
+
+  render() {
+    const { t } = this.props;
+    const { container, inputContainer } = styles;
+
+    return (
       <View style={container}>
-        <DatePicker>{this.renderDateInput()}</DatePicker>
-        <View style={buttonContainer}>
-          <Button
-            style={[button, buttonInactive]}
-            buttonTextStyle={[buttonText, buttonTextInactive]}
-            text={t('daily')}
-          />
-          <Button
-            style={[button, buttonActive]}
-            buttonTextStyle={[buttonText, buttonTextActive]}
-            text={t('weekly')}
-          />
-          <Button
-            style={[button, buttonInactive]}
-            buttonTextStyle={[buttonText, buttonTextInactive]}
-            text={t('monthly')}
-          />
+        {this.renderHeader()}
+        <View style={inputContainer}>
+          {this.renderDateInput()}
+          {this.renderRepeatButtons()}
         </View>
-        <BottomButton text={t('done')} />
-        <BackButton absolute={true} />
+        <BottomButton text={t('done')} onPress={this.handleSetReminder} />
       </View>
     );
   }

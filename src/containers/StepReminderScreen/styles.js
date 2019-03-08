@@ -6,13 +6,48 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.white,
-    justifyContent: 'space-between',
     flexDirection: 'column',
   },
-  buttonContainer: {
+  inputContainer: {
     flex: 1,
+    justifyContent: 'center',
+  },
+  dateInputContainer: {
+    paddingHorizontal: 48,
+    paddingBottom: 36,
+  },
+  buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
+  },
+  header: {
+    backgroundColor: theme.white,
+  },
+  backButton: {
+    color: theme.lightGrey,
+  },
+  headerText: {
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  inputHeaderText: {
+    fontSize: 12,
+    lineHeight: 16,
+    textAlignVertical: 'center',
+  },
+  inputContentText: {
+    fontSize: 16,
+    lineHeight: 24,
+    textAlignVertical: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: theme.lightGrey,
+    paddingBottom: 6,
+  },
+  inputTextInactive: {
+    color: theme.lightGrey,
+  },
+  inputTextFull: {
+    color: theme.primaryColor,
   },
   button: {
     height: 70,
@@ -25,7 +60,7 @@ export default StyleSheet.create({
   buttonInactive: {
     backgroundColor: theme.white,
     borderWidth: 1,
-    borderColor: theme.secondaryColor,
+    borderColor: theme.lightGrey,
   },
   buttonActive: {
     backgroundColor: theme.secondaryColor,
@@ -37,7 +72,7 @@ export default StyleSheet.create({
     fontWeight: 'normal',
   },
   buttonTextInactive: {
-    color: theme.secondaryColor,
+    color: theme.lightGrey,
   },
   buttonTextActive: {
     color: theme.white,

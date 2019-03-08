@@ -16,13 +16,12 @@ export default class BottomButton extends Component {
     return (
       <Button
         flex={0}
-        align="stretch"
-        justify="end"
+        alignItems="stretch"
+        justifyContent="flex-end"
         type="secondary"
         disabled={disabled}
         onPress={this.handlePress}
         text={text.toUpperCase()}
-        style={{ width: theme.fullWidth }}
       />
     );
   }

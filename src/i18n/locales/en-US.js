@@ -197,6 +197,8 @@ export default {
   },
   stepReminder: {
     setReminder: 'Set a Reminder',
+    endDate: 'End Date',
+    endDatePlaceholder: 'End Date (Required)',
     daily: 'Daily',
     weekly: 'Weekly',
     monthly: 'Monthly',
