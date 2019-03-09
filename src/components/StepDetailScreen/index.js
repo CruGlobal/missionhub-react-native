@@ -14,6 +14,7 @@ import markdownStyles from '../../markdownStyles';
 import styles from './styles';
 
 export default function StepDetailScreen({
+  step,
   text,
   markdown,
   CenterHeader,
@@ -32,7 +33,7 @@ export default function StepDetailScreen({
         style={container}
       />
       <Text style={stepTitleText}>{text}</Text>
-      <ReminderButton />
+      <ReminderButton step={step} />
       <View flex={1}>
         {markdown && (
           <ScrollView style={styles.body}>
@@ -46,6 +47,7 @@ export default function StepDetailScreen({
 }
 
 StepDetailScreen.propTypes = {
+  step: PropTypes.object.isRequired,
   text: PropTypes.string.isRequired,
   markdown: PropTypes.string,
   CenterHeader: PropTypes.object,

@@ -6,12 +6,13 @@ import { translate } from 'react-i18next';
 
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
-import { Text, Card, Button } from '../common';
+import { Text, Card, Button, Flex } from '../common';
 import { completeStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../containers/AcceptedStepDetailScreen';
 import { CONTACT_STEPS } from '../../constants';
 import Icon from '../Icon/index';
+import ReminderText from '../ReminderText';
 
 import styles from './styles';
 
@@ -33,8 +34,7 @@ class AcceptedStepItem extends Component {
 
   render() {
     const {
-      t,
-      step: { title, completed_at },
+      step: { title, completed_at, reminder },
     } = this.props;
     const {
       card,
@@ -47,27 +47,20 @@ class AcceptedStepItem extends Component {
     } = styles;
 
     return (
-      <Card
-        flex={1}
-        flexDirection="row"
-        alignItems="center"
-        onPress={this.handleNavigate}
-        style={card}
-      >
-        <View flex={1} flexDirection="column">
+      <Card alignItems="center" onPress={this.handleNavigate} style={card}>
+        <Flex value={1} direction="column">
           <Button
             type="transparent"
-            flexDirection="row"
             style={reminderButton}
             onPress={this.handleSetReminder}
           >
-            <View flexDirection="row">
+            <Flex direction="row">
               <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-              <Text style={reminderText}>{t('setReminder')}</Text>
-            </View>
+              <ReminderText reminder={reminder} style={reminderText} />
+            </Flex>
           </Button>
           <Text style={stepText}>{title}</Text>
-        </View>
+        </Flex>
         <Button onPress={this.handleCompleteStep} style={iconButton}>
           <Image
             source={completed_at ? GREY_CHECKBOX : BLUE_CHECKBOX}

@@ -18,15 +18,14 @@ class SuggestedStepSetailScreen extends Component {
   };
 
   render() {
-    const {
-      t,
-      step: { body, description_markdown },
-    } = this.props;
+    const { t, step } = this.props;
+    const { body, description_markdown } = step;
 
     return (
       <StepDetailScreen
         CenterHeader={null}
         RightHeader={null}
+        step={step}
         text={body}
         markdown={description_markdown}
         bottomButtonProps={{

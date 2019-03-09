@@ -17,8 +17,6 @@ export default StyleSheet.create({
     color: theme.secondaryColor,
   },
   reminderText: {
-    color: theme.secondaryColor,
-    paddingLeft: 8,
     fontSize: 14,
     lineHeight: 18,
   },

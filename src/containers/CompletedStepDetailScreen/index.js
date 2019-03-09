@@ -20,6 +20,7 @@ class CompletedStepDetailScreen extends Component {
           challenge_suggestion && challenge_suggestion.description_markdown
         }
         text={step.title}
+        step={step}
         bottomButtonProps={null}
       />
     );

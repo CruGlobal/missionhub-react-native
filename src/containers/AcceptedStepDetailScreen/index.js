@@ -46,6 +46,7 @@ class AcceptedStepDetailScreen extends Component {
           challenge_suggestion && challenge_suggestion.description_markdown
         }
         text={step.title}
+        step={step}
         bottomButtonProps={{
           onPress: this.completeStep,
           text: t('iDidIt'),

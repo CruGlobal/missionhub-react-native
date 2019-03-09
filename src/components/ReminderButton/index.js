@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { Flex, Touchable, Icon, Text } from '../common';
+import ReminderText from '../ReminderText';
 
 import styles from './styles';
 
 @translate()
 class ReminderButton extends Component {
   render() {
-    const { t } = this.props;
+    const { t, step } = this.props;
     const { reminderButton, reminderIcon, reminderText } = styles;
 
     return (
@@ -21,7 +22,7 @@ class ReminderButton extends Component {
           direction="row"
         >
           <Icon name="bellIcon" type="MissionHub" style={reminderIcon} />
-          <Text style={reminderText}>{t('addStep:setReminder')}</Text>
+          <ReminderText reminder={step.reminder} style={reminderText} />
         </Flex>
       </Touchable>
     );
