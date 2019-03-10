@@ -20,7 +20,6 @@ exports[`renders correctly with completed steps 1`] = `
     flex={1}
   >
     <FlatList
-      bounces={true}
       data={
         Array [
           Object {
@@ -41,9 +40,8 @@ exports[`renders correctly with completed steps 1`] = `
       showsVerticalScrollIndicator={false}
       style={
         Object {
-          "backgroundColor": "#E6E8EC",
           "flex": 1,
-          "paddingVertical": 16,
+          "paddingTop": 16,
         }
       }
       updateCellsBatchingPeriod={50}
@@ -67,12 +65,41 @@ exports[`renders correctly with completed steps 1`] = `
           "borderWidth": 1,
           "height": 36,
           "marginHorizontal": 68,
+          "marginVertical": 15,
         }
       }
       text="HIDE COMPLETED STEPS"
     />
     <FlatList
-      bounces={true}
+      data={
+        Array [
+          Object {
+            "completed_at": "time",
+            "id": "1",
+            "title": "Test Step",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "flex": 1,
+          "paddingBottom": 16,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+    <FlatList
       data={Array []}
       disableVirtualization={false}
       horizontal={false}
@@ -86,9 +113,8 @@ exports[`renders correctly with completed steps 1`] = `
       showsVerticalScrollIndicator={false}
       style={
         Object {
-          "backgroundColor": "#E6E8EC",
           "flex": 1,
-          "paddingVertical": 16,
+          "paddingTop": 16,
         }
       }
       updateCellsBatchingPeriod={50}
@@ -130,7 +156,6 @@ exports[`renders correctly with steps 1`] = `
     flex={1}
   >
     <FlatList
-      bounces={true}
       data={
         Array [
           Object {
@@ -151,35 +176,12 @@ exports[`renders correctly with steps 1`] = `
       showsVerticalScrollIndicator={false}
       style={
         Object {
-          "backgroundColor": "#E6E8EC",
           "flex": 1,
-          "paddingVertical": 16,
+          "paddingTop": 16,
         }
       }
       updateCellsBatchingPeriod={50}
       windowSize={21}
-    />
-    <Button
-      buttonTextStyle={
-        Object {
-          "color": "#A0A2A6",
-          "fontSize": 14,
-          "letterSpacing": 1,
-          "lineHeight": 18,
-        }
-      }
-      onPress={[Function]}
-      pill={true}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "borderColor": "#A0A2A6",
-          "borderWidth": 1,
-          "height": 36,
-          "marginHorizontal": 68,
-        }
-      }
-      text="SHOW COMPLETED STEPS"
     />
   </ScrollView>
   <BottomButton

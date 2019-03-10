@@ -31,13 +31,30 @@ jest.mock('../../../actions/swipe');
 jest.mock('../../../actions/journey');
 
 const steps = [{ id: '1', title: 'Test Step' }];
+const completedSteps = [{ id: '1', title: 'Test Step', completed_at: 'time' }];
 
 const myId = '123';
 const mockState = {
   steps: {
     mine: [],
     contactSteps: {
-      '1-personal': steps,
+      '1-personal': { steps, completedSteps: [] },
+    },
+  },
+  swipe: {
+    stepsContact: true,
+  },
+  auth: {
+    person: {
+      id: myId,
+    },
+  },
+};
+const mockStateCompleted = {
+  steps: {
+    mine: [],
+    contactSteps: {
+      '1-personal': { steps, completedSteps },
     },
   },
   swipe: {
@@ -105,7 +122,7 @@ it('renders correctly with steps', () => {
 it('renders correctly with completed steps', () => {
   const component = renderShallow(
     <ContactSteps {...props} navigation={navState} />,
-    store,
+    createMockStore(mockStateCompleted),
   );
 
   component

@@ -154,15 +154,19 @@ class ContactSteps extends Component {
   );
 
   renderCompletedStepsButton = () => {
+    const { t, completedSteps } = this.props;
     const { hideCompleted } = this.state;
     const { completedStepsButton, completedStepsButtonText } = styles;
+    if (completedSteps.length === 0) {
+      return null;
+    }
 
     return (
       <Button
         pill={true}
-        text={this.props
-          .t(hideCompleted ? 'showCompletedSteps' : 'hideCompletedSteps')
-          .toUpperCase()}
+        text={t(
+          hideCompleted ? 'showCompletedSteps' : 'hideCompletedSteps',
+        ).toUpperCase()}
         onPress={this.toggleCompletedSteps}
         style={completedStepsButton}
         buttonTextStyle={completedStepsButtonText}
@@ -178,24 +182,40 @@ class ContactSteps extends Component {
     return (
       <FlatList
         ref={this.ref}
-        style={styles.container}
+        style={styles.topList}
         data={data}
         keyExtractor={this.keyExtractor}
         renderItem={this.renderRow}
-        bounces={true}
+        showsVerticalScrollIndicator={false}
+      />
+    );
+  }
+
+  renderCompletedList(data) {
+    const { hideCompleted } = this.state;
+    if (hideCompleted) {
+      return null;
+    }
+    return (
+      <FlatList
+        style={styles.bottomList}
+        data={data}
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderRow}
         showsVerticalScrollIndicator={false}
       />
     );
   }
 
   renderSteps() {
-    const { steps } = this.props;
+    const { steps, completedSteps } = this.props;
     const { hideCompleted } = this.state;
 
     return (
       <ScrollView flex={1}>
         {this.renderList(steps)}
         {this.renderCompletedStepsButton()}
+        {this.renderCompletedList(completedSteps)}
         {hideCompleted ? null : this.renderList([])}
       </ScrollView>
     );
@@ -242,12 +262,14 @@ const mapStateToProps = (
       { personId: navPerson.id, orgId: organization.id },
     ) || navPerson;
 
+  const allSteps =
+    steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || {};
   return {
     showAssignPrompt: orgIsCru(organization),
     showBump: swipe.stepsContact,
     myId: auth.person.id,
-    steps:
-      steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [],
+    steps: allSteps.steps || [],
+    completedSteps: allSteps.completedSteps || [],
     contactAssignment: contactAssignmentSelector(
       { auth },
       { person, orgId: organization.id },

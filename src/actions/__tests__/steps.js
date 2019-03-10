@@ -117,7 +117,6 @@ describe('getContactSteps', () => {
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: {
-        completed: false,
         receiver_ids: personId,
         organization_ids: orgId,
       },
