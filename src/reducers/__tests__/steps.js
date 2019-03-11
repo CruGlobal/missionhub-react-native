@@ -207,6 +207,26 @@ it('receives contact steps', () => {
   });
 });
 
+it('deletes contact steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
+  const state = steps(
+    {
+      contactSteps: {
+        '123-456': [{ id: '6' }, { id: '3' }],
+        '987-': [{ id: '3' }, { id: '6' }],
+      },
+    },
+    {
+      type: REQUESTS.DELETE_CHALLENGE.SUCCESS,
+      query: { challenge_id: '3' },
+    },
+  );
+
+  expect(state.contactSteps).toEqual({
+    '123-456': [{ id: '6' }],
+    '987-': [{ id: '6' }],
+  });
+});
+
 describe('it should toggle step focus', () => {
   const existingSteps = [
     { id: '1', focus: false },
