@@ -69,6 +69,18 @@ export default function stepsReducer(state = initialState, action) {
           [`${personId}-${orgId}`]: action.results.response,
         },
       };
+    case REQUESTS.DELETE_CHALLENGE.SUCCESS:
+      const { challenge_id: stepId } = action.query;
+      return {
+        ...state,
+        contactSteps: Object.entries(state.contactSteps).reduce(
+          (acc, [personOrgId, steps]) => ({
+            ...acc,
+            [personOrgId]: steps.filter(({ id }) => id !== stepId),
+          }),
+          {},
+        ),
+      };
     case TOGGLE_STEP_FOCUS:
       return {
         ...state,
