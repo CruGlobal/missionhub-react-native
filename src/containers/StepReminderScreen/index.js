@@ -33,6 +33,7 @@ class StepReminderScreen extends Component {
     this.today = new Date();
   }
   handleChangeDate = date => {
+    console.log(date);
     if (!date) {
       this.setState({ date: '', disableBtn: true });
     } else {
