@@ -87,7 +87,7 @@ class CelebrateDetailScreen extends Component {
           stickyHeaderHeight={headerHeight}
           renderStickyHeader={this.renderStickyHeader}
         >
-          <View style={{ minHeight: theme.fullHeight * 0.8 }}>
+          <View style={styles.scrollContent}>
             <Image source={TRAILS1} style={styles.trailsTop} />
             <Image source={TRAILS2} style={styles.trailsBottom} />
             <CommentsList

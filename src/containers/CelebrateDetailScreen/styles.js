@@ -31,4 +31,7 @@ export default StyleSheet.create({
     bottom: 0,
     left: 0,
   },
+  scrollContent: {
+    minHeight: theme.fullHeight * 0.8,
+  },
 });
