@@ -5,17 +5,6 @@ import theme from '../../theme';
 const topHeight = 60;
 
 export default StyleSheet.create({
-  dateInput: {
-    borderBottomWidth: 1,
-    borderBottomColor: theme.secondaryColor,
-  },
-  dateText: {
-    backgroundColor: theme.transparent,
-    paddingVertical: 5,
-    color: theme.white,
-    fontSize: 16,
-    letterSpacing: 0.25,
-  },
   placeholderText: {
     color: theme.white,
   },
@@ -63,8 +52,5 @@ export default StyleSheet.create({
     marginTop: topHeight,
     borderTopColor: '#ccc',
     borderTopWidth: 1,
-  },
-  disabled: {
-    backgroundColor: '#eee',
   },
 });

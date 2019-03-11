@@ -21,6 +21,8 @@ class ReminderButton extends Component {
 
   handleRemoveReminder = () => {};
 
+  handleChangeDate = () => {};
+
   render() {
     const { t } = this.props;
     const {
@@ -34,7 +36,10 @@ class ReminderButton extends Component {
     } = styles;
 
     return (
-      <DatePicker onPressAndroid={this.handlePressAndroid}>
+      <DatePicker
+        onPressAndroid={this.handlePressAndroid}
+        onChangeDate={this.handleChangeDate}
+      >
         <View style={reminderButton}>
           <View style={reminderContainer}>
             <View style={reminderIconCircle}>

@@ -30,6 +30,16 @@ class AddChallengeScreen extends Component {
     this.today = new Date();
   }
 
+  getDateStr(date = this.props.date) {
+    const dateInstance = date instanceof Date ? date : this.getDate(date);
+
+    if (isFunction(getDateStr)) {
+      return getDateStr(dateInstance);
+    }
+
+    return moment(dateInstance).format('YYYY-MM-DD HH:mm');
+  }
+
   onChangeTitle = title => {
     this.setState({ title, disableBtn: !(title && this.state.date) });
   };
@@ -63,6 +73,19 @@ class AddChallengeScreen extends Component {
 
     this.props.onComplete(newChallenge);
   };
+
+  renderInput() {
+    const { t, disabled } = this.props;
+    const { date } = this.state;
+    const { dateInput, dateText } = styles;
+
+    const dateInputStyle = [styles.dateInput, disabled && styles.disabled];
+    return (
+      <View style={dateInputStyle}>
+        <Text style={dateText}>{!date ? t('datePlaceholder') : date}</Text>
+      </View>
+    );
+  }
 
   render() {
     const { t, isEdit } = this.props;
@@ -102,7 +125,9 @@ class AddChallengeScreen extends Component {
             placeholder={t('datePlaceholder')}
             minDate={this.today}
             onDateChange={this.onChangeDate}
-          />
+          >
+            {this.renderInput()}
+          </DatePicker>
         </Flex>
         <BottomButton
           disabled={disableBtn}

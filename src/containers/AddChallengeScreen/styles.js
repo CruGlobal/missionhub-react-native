@@ -26,4 +26,18 @@ export default StyleSheet.create({
     marginTop: 15,
     marginBottom: 5,
   },
+  dateInput: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme.secondaryColor,
+  },
+  dateText: {
+    backgroundColor: theme.transparent,
+    paddingVertical: 5,
+    color: theme.white,
+    fontSize: 16,
+    letterSpacing: 0.25,
+  },
+  disabled: {
+    backgroundColor: '#eee',
+  },
 });
