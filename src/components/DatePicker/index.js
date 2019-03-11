@@ -149,6 +149,48 @@ class DatePicker extends Component {
     }, 200);
   };
 
+  onPressDate = () => {
+    const { disabled, onPressIOS, onPressAndroid } = this.props;
+
+    if (disabled) {
+      return true;
+    }
+
+    Keyboard.dismiss();
+
+    this.setState({
+      date: this.getDate(),
+    });
+
+    if (isAndroid) {
+      if (onPressAndroid) {
+        return onPressAndroid();
+      }
+      return this.showAndroidModal();
+    } else {
+      if (onPressIOS) {
+        return onPressIOS();
+      }
+      return this.showIOSModal();
+    }
+  };
+
+  showIOSModal() {
+    this.setModalVisible(true);
+  }
+
+  showAndroidModal() {
+    const { mode } = this.props;
+
+    if (mode === 'date') {
+      this.androidPickDate();
+    } else if (mode === 'time') {
+      this.androidPickTime();
+    } else if (mode === 'datetime') {
+      this.androidPickDateTime();
+    }
+  }
+
   async androidPickDate() {
     const { androidMode, minDate, maxDate } = this.props;
 
@@ -234,52 +276,6 @@ class DatePicker extends Component {
       }
     }
     this.onPressCancel();
-  }
-
-  onPressDate = () => {
-    const { disabled, onPressIOS, onPressAndroid } = this.props;
-
-    if (disabled) {
-      return true;
-    }
-
-    Keyboard.dismiss();
-
-    if (isAndroid) {
-      if (onPressAndroid) {
-        return onPressAndroid();
-      }
-      return this.showAndroidModal();
-    } else {
-      if (onPressIOS) {
-        return onPressIOS();
-      }
-      return this.showIOSModal();
-    }
-  };
-
-  async showAndroidModal() {
-    this.setState({
-      date: this.getDate(),
-    });
-
-    const { mode } = this.props;
-
-    if (mode === 'date') {
-      this.androidPickDate();
-    } else if (mode === 'time') {
-      this.androidPickTime();
-    } else if (mode === 'datetime') {
-      this.androidPickDateTime();
-    }
-  }
-
-  showIOSModal() {
-    this.setState({
-      date: this.getDate(),
-    });
-
-    this.setModalVisible(true);
   }
 
   render() {

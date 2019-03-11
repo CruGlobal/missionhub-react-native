@@ -26,12 +26,13 @@ class StepReminderScreen extends Component {
     super(props);
 
     this.state = {
-      date: '',
+      date: props.date,
       disableBtn: true,
     };
 
     this.today = new Date();
   }
+
   handleChangeDate = date => {
     console.log(date);
     if (!date) {
@@ -59,7 +60,8 @@ class StepReminderScreen extends Component {
   }
 
   renderDateInput() {
-    const { t, date, placeholder, customStyles, disabled } = this.props;
+    const { t, placeholder, customStyles, disabled } = this.props;
+    const { date } = this.state;
     const {
       dateInputContainer,
       inputHeaderText,
@@ -78,7 +80,7 @@ class StepReminderScreen extends Component {
       <View style={dateInputContainer}>
         <Text style={inputHeaderStyle}>{t('endDate')}</Text>
         <DatePicker
-          date={this.state.date}
+          date={date}
           mode="datetime"
           minDate={this.today}
           onDateChange={this.handleChangeDate}
