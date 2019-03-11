@@ -179,6 +179,9 @@ class ContactSteps extends Component {
   keyExtractor = i => i.id;
 
   renderList(data) {
+    if (data.length === 0) {
+      return null;
+    }
     return (
       <FlatList
         ref={this.ref}
@@ -192,10 +195,6 @@ class ContactSteps extends Component {
   }
 
   renderCompletedList(data) {
-    const { hideCompleted } = this.state;
-    if (hideCompleted) {
-      return null;
-    }
     return (
       <FlatList
         style={styles.bottomList}
@@ -215,8 +214,7 @@ class ContactSteps extends Component {
       <ScrollView flex={1}>
         {this.renderList(steps)}
         {this.renderCompletedStepsButton()}
-        {this.renderCompletedList(completedSteps)}
-        {hideCompleted ? null : this.renderList([])}
+        {hideCompleted ? null : this.renderCompletedList(completedSteps)}
       </ScrollView>
     );
   }
@@ -230,15 +228,19 @@ class ContactSteps extends Component {
         imageSource={NULL}
         headerText={t('header').toUpperCase()}
         descriptionText={t('stepNull', { name })}
+        content={this.renderCompletedStepsButton()}
       />
     );
   }
 
   render() {
     const { t, steps } = this.props;
+    const { hideCompleted } = this.state;
     return (
       <View flex={1}>
-        {steps.length > 0 ? this.renderSteps() : this.renderNull()}
+        {steps.length > 0 || !hideCompleted
+          ? this.renderSteps()
+          : this.renderNull()}
         <BottomButton onPress={this.handleCreateStep} text={t('addStep')} />
       </View>
     );

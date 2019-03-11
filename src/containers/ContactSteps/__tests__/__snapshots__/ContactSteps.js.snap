@@ -99,27 +99,6 @@ exports[`renders correctly with completed steps 1`] = `
       updateCellsBatchingPeriod={50}
       windowSize={21}
     />
-    <FlatList
-      data={Array []}
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      renderItem={[Function]}
-      scrollEventThrottle={50}
-      showsVerticalScrollIndicator={false}
-      style={
-        Object {
-          "flex": 1,
-          "paddingTop": 16,
-        }
-      }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
   </ScrollView>
   <BottomButton
     onPress={[Function]}
@@ -133,6 +112,7 @@ exports[`renders correctly with no steps 1`] = `
   flex={1}
 >
   <NullStateComponent
+    content={null}
     descriptionText="Your Steps of Faith with ben appear here."
     headerText="STEPS OF FAITH"
     imageSource={
