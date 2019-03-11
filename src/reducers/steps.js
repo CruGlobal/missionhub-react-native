@@ -62,11 +62,15 @@ export default function stepsReducer(state = initialState, action) {
         receiver_ids: personId,
         organization_ids: orgId,
       } = action.query.filters;
+      const allStepsFilter = action.results.response || [];
       return {
         ...state,
         contactSteps: {
           ...state.contactSteps,
-          [`${personId}-${orgId}`]: action.results.response,
+          [`${personId}-${orgId}`]: {
+            steps: allStepsFilter.filter(s => !s.completed_at),
+            completedSteps: allStepsFilter.filter(s => s.completed_at),
+          },
         },
       };
     case TOGGLE_STEP_FOCUS:

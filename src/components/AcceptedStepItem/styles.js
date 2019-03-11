@@ -29,6 +29,9 @@ export default StyleSheet.create({
     fontSize: 16,
     lineHeight: 22,
   },
+  stepTextCompleted: {
+    color: theme.lightGrey,
+  },
   iconButton: {
     paddingHorizontal: 4,
     paddingVertical: 4,

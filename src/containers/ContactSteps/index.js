@@ -154,15 +154,19 @@ class ContactSteps extends Component {
   );
 
   renderCompletedStepsButton = () => {
+    const { t, completedSteps } = this.props;
     const { hideCompleted } = this.state;
     const { completedStepsButton, completedStepsButtonText } = styles;
+    if (completedSteps.length === 0) {
+      return null;
+    }
 
     return (
       <Button
         pill={true}
-        text={this.props
-          .t(hideCompleted ? 'showCompletedSteps' : 'hideCompletedSteps')
-          .toUpperCase()}
+        text={t(
+          hideCompleted ? 'showCompletedSteps' : 'hideCompletedSteps',
+        ).toUpperCase()}
         onPress={this.toggleCompletedSteps}
         style={completedStepsButton}
         buttonTextStyle={completedStepsButtonText}
@@ -175,28 +179,42 @@ class ContactSteps extends Component {
   keyExtractor = i => i.id;
 
   renderList(data) {
+    if (data.length === 0) {
+      return null;
+    }
     return (
       <FlatList
         ref={this.ref}
-        style={styles.container}
+        style={styles.topList}
         data={data}
         keyExtractor={this.keyExtractor}
         renderItem={this.renderRow}
-        bounces={true}
+        showsVerticalScrollIndicator={false}
+      />
+    );
+  }
+
+  renderCompletedList(data) {
+    return (
+      <FlatList
+        style={styles.bottomList}
+        data={data}
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderRow}
         showsVerticalScrollIndicator={false}
       />
     );
   }
 
   renderSteps() {
-    const { steps } = this.props;
+    const { steps, completedSteps } = this.props;
     const { hideCompleted } = this.state;
 
     return (
       <ScrollView flex={1}>
         {this.renderList(steps)}
         {this.renderCompletedStepsButton()}
-        {hideCompleted ? null : this.renderList([])}
+        {hideCompleted ? null : this.renderCompletedList(completedSteps)}
       </ScrollView>
     );
   }
@@ -210,15 +228,19 @@ class ContactSteps extends Component {
         imageSource={NULL}
         headerText={t('header').toUpperCase()}
         descriptionText={t('stepNull', { name })}
+        content={this.renderCompletedStepsButton()}
       />
     );
   }
 
   render() {
     const { t, steps } = this.props;
+    const { hideCompleted } = this.state;
     return (
       <View flex={1}>
-        {steps.length > 0 ? this.renderSteps() : this.renderNull()}
+        {steps.length > 0 || !hideCompleted
+          ? this.renderSteps()
+          : this.renderNull()}
         <BottomButton onPress={this.handleCreateStep} text={t('addStep')} />
       </View>
     );
@@ -242,12 +264,14 @@ const mapStateToProps = (
       { personId: navPerson.id, orgId: organization.id },
     ) || navPerson;
 
+  const allSteps =
+    steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || {};
   return {
     showAssignPrompt: orgIsCru(organization),
     showBump: swipe.stepsContact,
     myId: auth.person.id,
-    steps:
-      steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [],
+    steps: allSteps.steps || [],
+    completedSteps: allSteps.completedSteps || [],
     contactAssignment: contactAssignmentSelector(
       { auth },
       { person, orgId: organization.id },
