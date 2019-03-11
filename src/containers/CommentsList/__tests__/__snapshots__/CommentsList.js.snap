@@ -42,7 +42,6 @@ exports[`with comments with next page renders correctly 1`] = `
   scrollEventThrottle={50}
   style={
     Object {
-      "backgroundColor": "#505256",
       "paddingBottom": 15,
       "paddingHorizontal": 20,
     }
@@ -109,7 +108,6 @@ exports[`with comments without next page renders correctly 1`] = `
   scrollEventThrottle={50}
   style={
     Object {
-      "backgroundColor": "#505256",
       "paddingBottom": 15,
       "paddingHorizontal": 20,
     }
@@ -146,7 +144,6 @@ exports[`with no comments renders correctly 1`] = `
   scrollEventThrottle={50}
   style={
     Object {
-      "backgroundColor": "#505256",
       "paddingBottom": 15,
       "paddingHorizontal": 20,
     }

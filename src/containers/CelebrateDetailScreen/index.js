@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView, StatusBar } from 'react-native';
+import { Image, View, SafeAreaView, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
@@ -14,6 +14,8 @@ import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 import theme from '../../theme';
 import Header from '../../containers/Header';
 import ItemHeaderText from '../../components/ItemHeaderText';
+import TRAILS1 from '../../../assets/images/Trailss.png';
+import TRAILS2 from '../../../assets/images/TrailGrey.png';
 
 import styles from './styles';
 
@@ -68,6 +70,7 @@ class CelebrateDetailScreen extends Component {
     const { container } = styles;
     const {
       white,
+      grey,
       parallaxHeaderHeight,
       headerHeight,
       statusBar: { darkContent },
@@ -78,13 +81,26 @@ class CelebrateDetailScreen extends Component {
         <StatusBar {...darkContent} />
         <ParallaxScrollView
           backgroundColor={white}
-          contentBackgroundColor={theme.grey}
+          contentBackgroundColor={grey}
           parallaxHeaderHeight={parallaxHeaderHeight}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={headerHeight}
           renderStickyHeader={this.renderStickyHeader}
         >
-          <CommentsList event={event} organizationId={event.organization.id} />
+          <View style={{ minHeight: theme.fullHeight * 0.8 }}>
+            <Image
+              source={TRAILS1}
+              style={{ position: 'absolute', top: 0, right: 0 }}
+            />
+            <Image
+              source={TRAILS2}
+              style={{ position: 'absolute', bottom: 0, left: 0 }}
+            />
+            <CommentsList
+              event={event}
+              organizationId={event.organization.id}
+            />
+          </View>
         </ParallaxScrollView>
         <CelebrateCommentBox event={event} />
       </SafeAreaView>
