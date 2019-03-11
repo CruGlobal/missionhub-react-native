@@ -88,14 +88,8 @@ class CelebrateDetailScreen extends Component {
           renderStickyHeader={this.renderStickyHeader}
         >
           <View style={{ minHeight: theme.fullHeight * 0.8 }}>
-            <Image
-              source={TRAILS1}
-              style={{ position: 'absolute', top: 0, right: 0 }}
-            />
-            <Image
-              source={TRAILS2}
-              style={{ position: 'absolute', bottom: 0, left: 0 }}
-            />
+            <Image source={TRAILS1} style={styles.trailsTop} />
+            <Image source={TRAILS2} style={styles.trailsBottom} />
             <CommentsList
               event={event}
               organizationId={event.organization.id}

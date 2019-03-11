@@ -21,4 +21,14 @@ export default StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
+  trailsTop: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+  },
+  trailsBottom: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+  },
 });

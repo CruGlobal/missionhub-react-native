@@ -38,14 +38,14 @@ class CommentLikeComponent extends Component {
   }
 
   render() {
-    const { myId, event } = this.props;
+    const { myId, event, style } = this.props;
     const { subject_person, likes_count, liked } = event;
 
     const displayLikeCount =
       likes_count > 0 && subject_person && subject_person.id === myId;
 
     return (
-      <Flex direction={'row'} align="end" justify="end">
+      <Flex direction={'row'} align="end" justify="end" style={style}>
         {subject_person && this.renderCommentSection()}
         <Text style={styles.likeCount}>
           {displayLikeCount ? likes_count : null}
@@ -61,6 +61,11 @@ class CommentLikeComponent extends Component {
 CommentLikeComponent.propTypes = {
   event: PropTypes.object.isRequired,
   myId: PropTypes.string.isRequired,
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array,
+  ]),
 };
 
 const mapStateToProps = ({ auth }) => ({

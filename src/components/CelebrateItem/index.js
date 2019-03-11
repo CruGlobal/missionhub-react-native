@@ -235,9 +235,7 @@ class CelebrateItem extends Component {
             {this.renderChallengeLink()}
           </Flex>
           <Separator />
-          <Flex style={styles.content}>
-            <CommentLikeComponent event={event} />
-          </Flex>
+          <CommentLikeComponent event={event} style={styles.content} />
         </Flex>
       </Card>
     );
