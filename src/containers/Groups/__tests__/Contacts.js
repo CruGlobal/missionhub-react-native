@@ -4,12 +4,14 @@ import React from 'react';
 
 import Contacts from '../Contacts';
 import {
-  createMockStore,
+  createThunkStore,
   renderShallow,
   testSnapshotShallow,
 } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import { navToPersonScreen } from '../../../actions/person';
+import { getOrganizationContacts } from '../../../actions/organizations';
+import { buildUpdatedPagination } from '../../../utils/pagination';
 
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
@@ -18,18 +20,20 @@ jest.mock('../../../actions/person', () => ({
   navToPersonScreen: jest.fn(() => ({ type: 'test' })),
 }));
 
-jest.mock('../../../actions/organizations', () => ({
-  getOrganizationContacts: jest.fn(() => ({
-    response: [{ id: '1' }, { id: '2' }],
-    meta: { total: 42 },
-  })),
-}));
+jest.mock('../../../actions/organizations');
+jest.mock('../../../utils/pagination');
 
 const people = [{ id: '1' }, { id: '2' }];
 
-const store = createMockStore({});
+const store = createThunkStore({});
 
 const organization = { id: '1', name: 'Test Org' };
+
+getOrganizationContacts.mockReturnValue({
+  type: 'got org contacts',
+  response: people,
+});
+buildUpdatedPagination.mockReturnValue({});
 
 describe('Contacts', () => {
   const component = <Contacts organization={organization} />;
