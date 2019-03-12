@@ -3,7 +3,7 @@ import React from 'react';
 import SurveyContactsFilter from '..';
 
 import {
-  createMockStore,
+  createThunkStore,
   renderShallow,
   testSnapshotShallow,
   createMockNavState,
@@ -27,7 +27,7 @@ jest.mock('../../../../actions/labels', () => ({
   })),
 }));
 
-const store = createMockStore({});
+let store;
 const timeFilter30 = { id: 'time30', value: 30, text: 'Last 30 days' };
 const filters = {
   unassigned: {
@@ -39,6 +39,10 @@ const filters = {
 };
 const survey = { id: '11' };
 const organization = { id: '22' };
+
+beforeEach(() => {
+  store = createThunkStore();
+});
 
 describe('SurveyContactsFilter', () => {
   const onFilter = jest.fn();
