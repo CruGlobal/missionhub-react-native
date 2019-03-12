@@ -42,9 +42,7 @@ class DatePicker extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.date !== this.props.date) {
-      this.setState({
-        date: this.getDate(nextProps.date),
-      });
+      this.setState({ date: this.getDate(nextProps.date) });
     }
   }
 
@@ -55,17 +53,10 @@ class DatePicker extends Component {
     this.setState({ modalVisible: visible });
 
     // slide animation
-    if (visible) {
-      return Animated.timing(animatedHeight, {
-        toValue: height,
-        duration: duration,
-      }).start();
-    } else {
-      return Animated.timing(animatedHeight, {
-        toValue: 0,
-        duration: duration,
-      }).start();
-    }
+    return Animated.timing(animatedHeight, {
+      toValue: visible ? height : 0,
+      duration: duration,
+    }).start();
   };
 
   closeModal = () => this.setModalVisible(false);
@@ -150,32 +141,6 @@ class DatePicker extends Component {
       });
       clearTimeout(timeoutId);
     }, 200);
-  };
-
-  onPressDate = () => {
-    const { disabled, onPressIOS, onPressAndroid } = this.props;
-
-    if (disabled) {
-      return true;
-    }
-
-    Keyboard.dismiss();
-
-    this.setState({
-      date: this.getDate(),
-    });
-
-    if (isAndroid) {
-      if (isFunction(onPressAndroid)) {
-        return onPressAndroid();
-      }
-      return this.showAndroidModal();
-    } else {
-      if (isFunction(onPressIOS)) {
-        return onPressIOS();
-      }
-      return this.showIOSModal();
-    }
   };
 
   showAndroidModal() {
@@ -276,6 +241,32 @@ class DatePicker extends Component {
     }
     this.onPressCancel();
   }
+
+  onPressDate = () => {
+    const { disabled, onPressIOS, onPressAndroid } = this.props;
+
+    if (disabled) {
+      return true;
+    }
+
+    Keyboard.dismiss();
+
+    this.setState({
+      date: this.getDate(),
+    });
+
+    if (isAndroid) {
+      if (isFunction(onPressAndroid)) {
+        return onPressAndroid();
+      }
+      return this.showAndroidModal();
+    } else {
+      if (isFunction(onPressIOS)) {
+        return onPressIOS();
+      }
+      return this.showIOSModal();
+    }
+  };
 
   render() {
     const {

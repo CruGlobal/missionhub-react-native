@@ -30,16 +30,6 @@ class AddChallengeScreen extends Component {
     this.today = new Date();
   }
 
-  getDateStr(date = this.props.date) {
-    const dateInstance = date instanceof Date ? date : this.getDate(date);
-
-    if (isFunction(getDateStr)) {
-      return getDateStr(dateInstance);
-    }
-
-    return moment(dateInstance).format('YYYY-MM-DD HH:mm');
-  }
-
   onChangeTitle = title => {
     this.setState({ title, disableBtn: !(title && this.state.date) });
   };
@@ -74,15 +64,50 @@ class AddChallengeScreen extends Component {
     this.props.onComplete(newChallenge);
   };
 
-  renderInput() {
+  renderTitleInput() {
+    const { t } = this.props;
+    const { title } = this.state;
+
+    return (
+      <View>
+        <Text style={styles.label}>{t('titleLabel')}</Text>
+        <Input
+          onChangeText={this.onChangeTitle}
+          value={title}
+          autoFocus={false}
+          autoCorrect={true}
+          selectionColor={theme.white}
+          returnKeyType="done"
+          blurOnSubmit={true}
+          placeholder={t('titlePlaceholder')}
+          placeholderTextColor={theme.white}
+        />
+      </View>
+    );
+  }
+
+  renderDateInput() {
     const { t, disabled } = this.props;
     const { date } = this.state;
     const { dateInput, dateText } = styles;
 
     const dateInputStyle = [styles.dateInput, disabled && styles.disabled];
     return (
-      <View style={dateInputStyle}>
-        <Text style={dateText}>{!date ? t('datePlaceholder') : date}</Text>
+      <View>
+        <Text style={styles.label}>{t('dateLabel')}</Text>
+        <DatePicker
+          date={date}
+          mode="date"
+          placeholder={t('datePlaceholder')}
+          minDate={this.today}
+          onDateChange={this.onChangeDate}
+        >
+          <View style={dateInputStyle}>
+            <Text style={dateText}>
+              {!date ? t('datePlaceholder') : moment(date).format('LL')}
+            </Text>
+          </View>
+        </DatePicker>
       </View>
     );
   }
@@ -93,42 +118,21 @@ class AddChallengeScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Flex
-          value={0.9}
-          align="center"
-          justify="center"
+        <View
+          flex={0.9}
+          alignItems="center"
+          justifyContent="center"
           style={styles.imageWrap}
         >
           <Image source={CHALLENGE} resizeMode="contain" />
           <Text type="header" style={styles.header}>
             {isEdit ? t('editHeader') : t('addHeader')}
           </Text>
-        </Flex>
-
-        <Flex value={1} style={styles.fieldWrap}>
-          <Text style={styles.label}>{t('titleLabel')}</Text>
-          <Input
-            onChangeText={this.onChangeTitle}
-            value={title}
-            autoFocus={false}
-            autoCorrect={true}
-            selectionColor={theme.white}
-            returnKeyType="done"
-            blurOnSubmit={true}
-            placeholder={t('titlePlaceholder')}
-            placeholderTextColor={theme.white}
-          />
-          <Text style={styles.label}>{t('dateLabel')}</Text>
-          <DatePicker
-            date={date}
-            mode="date"
-            placeholder={t('datePlaceholder')}
-            minDate={this.today}
-            onDateChange={this.onChangeDate}
-          >
-            {this.renderInput()}
-          </DatePicker>
-        </Flex>
+        </View>
+        <View flex={1} style={styles.fieldWrap}>
+          {this.renderTitleInput()}
+          {this.renderDateInput()}
+        </View>
         <BottomButton
           disabled={disableBtn}
           onPress={this.saveChallenge}
