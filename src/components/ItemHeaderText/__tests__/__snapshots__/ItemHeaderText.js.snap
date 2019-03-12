@@ -20,7 +20,7 @@ exports[`renders correctly 1`] = `
           "fontWeight": "bold",
         },
         Object {
-          "prop": "some prop",
+          "fontSize": 12,
         },
       ],
     ]

@@ -106,6 +106,7 @@ describe('with comments', () => {
         screen.props().renderItem({
           item: {
             content: 'hello roge',
+            person: { id: '1' },
           },
         }),
       ).toMatchSnapshot();

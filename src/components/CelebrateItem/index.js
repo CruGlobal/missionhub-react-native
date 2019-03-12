@@ -4,7 +4,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Card, Text, Flex, Button } from '../../components/common';
+import { Card, Text, Flex, Button, Separator } from '../../components/common';
 import {
   INTERACTION_TYPES,
   CELEBRATEABLE_TYPES,
@@ -217,22 +217,25 @@ class CelebrateItem extends Component {
 
     return (
       <Card onPress={onPressItem && this.onPressItem} style={cardStyle}>
-        <Flex value={1} direction={'column'} style={styles.content}>
-          <View style={top}>
-            <View style={topLeft}>
-              <CelebrateItemName
-                name={subject_person_name}
-                person={subject_person}
-                organization={organization}
-                pressable={namePressable}
-              />
-              <CardTime date={changed_attribute_value} />
+        <Flex value={1} direction="column">
+          <Flex direction="column" style={styles.content}>
+            <View style={top}>
+              <View style={topLeft}>
+                <CelebrateItemName
+                  name={subject_person_name}
+                  person={subject_person}
+                  organization={organization}
+                  pressable={namePressable}
+                />
+                <CardTime date={changed_attribute_value} />
+              </View>
+              {rightCorner}
             </View>
-            {rightCorner}
-          </View>
-          <Text style={styles.description}>{this.renderMessage()}</Text>
-          {this.renderChallengeLink()}
-          <CommentLikeComponent event={event} />
+            <Text style={styles.description}>{this.renderMessage()}</Text>
+            {this.renderChallengeLink()}
+          </Flex>
+          <Separator />
+          <CommentLikeComponent event={event} style={styles.content} />
         </Flex>
       </Card>
     );

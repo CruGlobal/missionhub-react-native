@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
 
+import theme from '../../theme';
+
 export default StyleSheet.create({
-  list: {
-    paddingHorizontal: 20,
-    paddingBottom: 15,
+  container: {
+    backgroundColor: theme.grey3,
   },
 });

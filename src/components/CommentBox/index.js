@@ -205,6 +205,7 @@ export default class CommentBox extends Component {
               type="MissionHub"
               onPress={this.submit}
               style={submitIcon}
+              size={22}
             />
           ) : null}
         </Flex>
@@ -213,7 +214,7 @@ export default class CommentBox extends Component {
   }
 
   render() {
-    const { hideActions } = this.props;
+    const { hideActions, containerStyle } = this.props;
     const { showActions, action } = this.state;
     const {
       container,
@@ -224,7 +225,7 @@ export default class CommentBox extends Component {
     } = styles;
 
     return (
-      <Flex direction="column" style={container}>
+      <Flex direction="column" style={[container, containerStyle]}>
         <Flex direction="row" align="center" justify="center" style={boxWrap}>
           {!hideActions && !action ? (
             <Flex
@@ -252,5 +253,10 @@ export default class CommentBox extends Component {
 CommentBox.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   hideActions: PropTypes.bool,
+  containerStyle: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.number,
+  ]),
   placeholderTextKey: PropTypes.string.isRequired,
 };

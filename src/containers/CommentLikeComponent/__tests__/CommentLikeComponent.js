@@ -37,6 +37,15 @@ it('renders nothing with no subject person', () => {
   ).toMatchSnapshot();
 });
 
+it('renders with custom style', () => {
+  expect(
+    renderShallow(
+      <CommentLikeComponent event={{}} style={{ padding: 10 }} />,
+      store,
+    ),
+  ).toMatchSnapshot();
+});
+
 describe('with subject person', () => {
   const event = {
     id: '777711',

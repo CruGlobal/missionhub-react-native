@@ -16,8 +16,10 @@ class CelebrateItemName extends Component {
   };
 
   render() {
-    const { name, t, pressable } = this.props;
-    const content = <ItemHeaderText text={name || t('missionHubUser')} />;
+    const { name, t, customContent, pressable } = this.props;
+    const content = customContent || (
+      <ItemHeaderText text={name || t('missionHubUser')} />
+    );
 
     if (!name || !pressable) {
       return content;

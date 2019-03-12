@@ -43,6 +43,12 @@ it('renders without actions', () => {
   testSnapshotShallow(<CommentBox {...props} hideActions={true} />);
 });
 
+it('renders with custom style', () => {
+  testSnapshotShallow(
+    <CommentBox {...props} containerStyle={{ backgroundColor: 'green' }} />,
+  );
+});
+
 it('handles text changes', () => {
   const text = 'test';
   const instance = renderShallow(<CommentBox {...props} />).instance();

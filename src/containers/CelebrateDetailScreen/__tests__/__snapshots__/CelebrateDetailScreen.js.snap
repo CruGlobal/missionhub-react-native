@@ -103,7 +103,7 @@ exports[`renders correctly 1`] = `
   <ParallaxScrollView
     backgroundColor="#ffffff"
     backgroundScrollSpeed={5}
-    contentBackgroundColor="#fff"
+    contentBackgroundColor="#505256"
     contentContainerStyle={null}
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}
@@ -117,18 +117,54 @@ exports[`renders correctly 1`] = `
     renderStickyHeader={[Function]}
     stickyHeaderHeight={65}
   >
-    <Connect(CommentsList)
-      event={
+    <Component
+      style={
         Object {
-          "id": "90001",
-          "organization": Object {
-            "id": "24234234",
-          },
-          "subject_person_name": "Roger",
+          "minHeight": 1067.2,
         }
       }
-      organizationId="24234234"
-    />
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/Trailss.png",
+          }
+        }
+        style={
+          Object {
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      />
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/TrailGrey.png",
+          }
+        }
+        style={
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+          }
+        }
+      />
+      <Connect(CommentsList)
+        event={
+          Object {
+            "id": "90001",
+            "organization": Object {
+              "id": "24234234",
+            },
+            "subject_person_name": "Roger",
+          }
+        }
+        organizationId="24234234"
+      />
+    </Component>
   </ParallaxScrollView>
   <Connect(CelebrateCommentBox)
     event={

@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import CommentBox from '../CommentBox';
 import { createCelebrateComment } from '../../actions/celebrateComments';
 
+import styles from './styles';
+
 class CelebrateCommentBox extends Component {
   submitComment = (action, text) => {
     const { dispatch, event } = this.props;
@@ -18,6 +20,7 @@ class CelebrateCommentBox extends Component {
         placeholderTextKey={'celebrateCommentBox:placeholder'}
         onSubmit={this.submitComment}
         hideActions={true}
+        containerStyle={styles.container}
       />
     );
   }

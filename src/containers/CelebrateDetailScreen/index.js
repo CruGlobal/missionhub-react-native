@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView, StatusBar } from 'react-native';
+import { Image, View, SafeAreaView, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
@@ -14,6 +14,8 @@ import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 import theme from '../../theme';
 import Header from '../../containers/Header';
 import ItemHeaderText from '../../components/ItemHeaderText';
+import TRAILS1 from '../../../assets/images/Trailss.png';
+import TRAILS2 from '../../../assets/images/TrailGrey.png';
 
 import styles from './styles';
 
@@ -68,6 +70,7 @@ class CelebrateDetailScreen extends Component {
     const { container } = styles;
     const {
       white,
+      grey,
       parallaxHeaderHeight,
       headerHeight,
       statusBar: { darkContent },
@@ -78,12 +81,20 @@ class CelebrateDetailScreen extends Component {
         <StatusBar {...darkContent} />
         <ParallaxScrollView
           backgroundColor={white}
+          contentBackgroundColor={grey}
           parallaxHeaderHeight={parallaxHeaderHeight}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={headerHeight}
           renderStickyHeader={this.renderStickyHeader}
         >
-          <CommentsList event={event} organizationId={event.organization.id} />
+          <View style={styles.scrollContent}>
+            <Image source={TRAILS1} style={styles.trailsTop} />
+            <Image source={TRAILS2} style={styles.trailsBottom} />
+            <CommentsList
+              event={event}
+              organizationId={event.organization.id}
+            />
+          </View>
         </ParallaxScrollView>
         <CelebrateCommentBox event={event} />
       </SafeAreaView>
