@@ -7,14 +7,6 @@ import thunk from 'redux-thunk';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-export const createMockStore = (state = {}) => {
-  return {
-    getState: jest.fn(() => state),
-    dispatch: jest.fn(response => Promise.resolve(response)),
-    subscribe: jest.fn(),
-  };
-};
-
 export const createMockNavState = (params = {}) => {
   return { state: { params } };
 };
