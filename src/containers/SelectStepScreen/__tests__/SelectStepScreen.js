@@ -5,7 +5,7 @@ import SelectStepScreen, { mapStateToProps } from '..';
 
 import {
   renderShallow,
-  createMockStore,
+  createMockStore, //fixed in steps-improvement
   testSnapshotShallow,
 } from '../../../../testUtils';
 import * as navigation from '../../../actions/navigation';
