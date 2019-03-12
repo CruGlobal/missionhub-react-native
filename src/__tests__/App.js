@@ -32,7 +32,7 @@ jest.mock('react-navigation-redux-helpers', () => ({
 }));
 
 jest.mock('../store', () => ({
-  store: require('../../testUtils').createMockStore(),
+  store: require('../../testUtils').createThunkStore(),
   persistor: {},
 }));
 
