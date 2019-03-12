@@ -13,7 +13,7 @@ import {
 import LoadMore from '../../components/LoadMore';
 import RefreshControl from '../../components/RefreshControl';
 import { refresh, showMenu } from '../../utils/common';
-import CommentItem from '../../components/CommentItem';
+import CommentItem from '../CommentItem';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
 import { navigatePush } from '../../actions/navigation';
@@ -103,7 +103,6 @@ class CommentsList extends Component {
   renderItem = ({ item }) => (
     <CommentItem
       item={item}
-      isMine={this.props.me.id === item.person.id}
       onLongPress={this.handleLongPress}
       organization={this.props.event.organization}
     />

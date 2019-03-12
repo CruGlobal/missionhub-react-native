@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
+import { connect } from 'react-redux';
 
-import { Text, Touchable, Flex } from '../common';
-import CardTime from '../CardTime';
+import { Text, Touchable, Flex } from '../../components/common';
+import CardTime from '../../components/CardTime';
 import CelebrateItemName from '../../containers/CelebrateItemName';
 
 import styles from './styles';
 
-export default class CommentItem extends Component {
+class CommentItem extends Component {
   ref = c => (this.view = c);
 
   handleLongPress = () => {
@@ -20,7 +21,7 @@ export default class CommentItem extends Component {
     const {
       item: { content, created_at, person },
       organization,
-      isMine,
+      me,
     } = this.props;
     const {
       content: contentStyle,
@@ -32,6 +33,8 @@ export default class CommentItem extends Component {
     } = styles;
 
     const name = `${person.first_name} ${person.last_name}`;
+    const isMine = person.id === me.id;
+
     return (
       <View style={contentStyle}>
         <Flex direction="row" align="center">
@@ -50,11 +53,11 @@ export default class CommentItem extends Component {
         </Flex>
         <Flex direction="row">
           {isMine ? <Flex value={1} /> : null}
-          <View ref={this.ref} style={[itemStyle, isMine ? myStyle : null]}>
-            <Touchable onLongPress={this.handleLongPress}>
+          <Touchable onLongPress={this.handleLongPress}>
+            <View ref={this.ref} style={[itemStyle, isMine ? myStyle : null]}>
               <Text style={[text, isMine ? myText : null]}>{content}</Text>
-            </Touchable>
-          </View>
+            </View>
+          </Touchable>
           {!isMine ? <Flex value={1} /> : null}
         </Flex>
       </View>
@@ -68,3 +71,8 @@ CommentItem.propTypes = {
   onLongPress: PropTypes.func.isRequired,
   isMine: PropTypes.bool,
 };
+const mapStateToProps = ({ auth }) => ({
+  me: auth.person,
+});
+
+export default connect(mapStateToProps)(CommentItem);

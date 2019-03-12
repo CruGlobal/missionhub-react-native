@@ -52,8 +52,7 @@ exports[`with comments with next page renders correctly 1`] = `
 `;
 
 exports[`with comments with next page renders item correctly 1`] = `
-<CommentItem
-  isMine={true}
+<Connect(CommentItem)
   item={
     Object {
       "content": "hello roge",

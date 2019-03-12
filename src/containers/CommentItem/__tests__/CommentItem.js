@@ -1,7 +1,11 @@
 import 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
+import { renderShallow } from '../../../../testUtils';
 
 import CommentItem from '..';
 
@@ -10,7 +14,7 @@ Enzyme.configure({ adapter: new Adapter() });
 const item = {
   content: 'hello roge',
   created_at: '2018-06-11 12:00:00 UTC',
-  person: { first_name: 'Roge', last_name: 'Goers' },
+  person: { id: 'notme', first_name: 'Roge', last_name: 'Goers' },
 };
 
 const organization = { id: '7342342' };
@@ -18,14 +22,19 @@ const organization = { id: '7342342' };
 let onLongPress;
 
 let screen;
+const me = { id: 'me' };
+const store = configureStore([thunk])({
+  auth: { person: me },
+});
 
 beforeEach(() => {
-  screen = shallow(
+  screen = renderShallow(
     <CommentItem
       item={item}
       organization={organization}
       onLongPress={onLongPress}
     />,
+    store,
   );
 });
 
@@ -35,13 +44,14 @@ it('renders correctly', () => {
 
 it('renders correctly as mine', () => {
   expect(
-    shallow(
+    renderShallow(
       <CommentItem
-        item={item}
+        item={{ ...item, person: { ...item.person, ...me } }}
         organization={organization}
         onLongPress={onLongPress}
         isMine={true}
       />,
+      store,
     ),
   ).toMatchSnapshot();
 });
@@ -54,7 +64,6 @@ describe('onLongPress', () => {
   it('calls onLongPress', () => {
     screen
       .childAt(1)
-      .childAt(0)
       .childAt(0)
       .props()
       .onLongPress();

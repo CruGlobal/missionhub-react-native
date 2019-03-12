@@ -38,6 +38,7 @@ exports[`renders correctly 1`] = `
       person={
         Object {
           "first_name": "Roge",
+          "id": "notme",
           "last_name": "Goers",
         }
       }
@@ -50,22 +51,22 @@ exports[`renders correctly 1`] = `
   <Flex
     direction="row"
   >
-    <Component
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderRadius": 8,
-            "marginVertical": 5,
-            "paddingHorizontal": 13,
-            "paddingVertical": 8,
-          },
-          null,
-        ]
-      }
+    <TouchableIOS
+      onLongPress={[Function]}
     >
-      <TouchableIOS
-        onLongPress={[Function]}
+      <Component
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "marginVertical": 5,
+              "paddingHorizontal": 13,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
       >
         <MyText
           accessible={true}
@@ -82,8 +83,8 @@ exports[`renders correctly 1`] = `
         >
           hello roge
         </MyText>
-      </TouchableIOS>
-    </Component>
+      </Component>
+    </TouchableIOS>
     <Flex
       value={1}
     />
@@ -116,24 +117,24 @@ exports[`renders correctly as mine 1`] = `
     <Flex
       value={1}
     />
-    <Component
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderRadius": 8,
-            "marginVertical": 5,
-            "paddingHorizontal": 13,
-            "paddingVertical": 8,
-          },
-          Object {
-            "backgroundColor": "#52C5DC",
-          },
-        ]
-      }
+    <TouchableIOS
+      onLongPress={[Function]}
     >
-      <TouchableIOS
-        onLongPress={[Function]}
+      <Component
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "marginVertical": 5,
+              "paddingHorizontal": 13,
+              "paddingVertical": 8,
+            },
+            Object {
+              "backgroundColor": "#52C5DC",
+            },
+          ]
+        }
       >
         <MyText
           accessible={true}
@@ -152,8 +153,8 @@ exports[`renders correctly as mine 1`] = `
         >
           hello roge
         </MyText>
-      </TouchableIOS>
-    </Component>
+      </Component>
+    </TouchableIOS>
   </Flex>
 </Component>
 `;
