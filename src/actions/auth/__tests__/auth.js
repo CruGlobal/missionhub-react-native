@@ -30,6 +30,11 @@ describe('logout', () => {
     await store.dispatch(logout(true));
     expect(store.getActions()).toMatchSnapshot();
   });
+  it('should perform the needed actions even after push token deletion failure', async () => {
+    deletePushToken.mockReturnValue(() => () => Promise.reject());
+    await store.dispatch(logout(true));
+    expect(store.getActions()).toMatchSnapshot();
+  });
 });
 
 describe('navigateToPostAuthScreen', () => {
