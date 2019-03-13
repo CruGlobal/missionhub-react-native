@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { Icon, Text, Button } from '../common';
+import ReminderRepeatButtons from '../ReminderRepeatButtons';
 import { navigatePush } from '../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
 import DatePicker from '../DatePicker';
@@ -38,6 +39,8 @@ class ReminderButton extends Component {
       <DatePicker
         onPressAndroid={this.handlePressAndroid}
         onChangeDate={this.handleChangeDate}
+        iOSModalContent={<ReminderRepeatButtons />}
+        height={378}
       >
         <View style={reminderButton}>
           <View style={reminderContainer}>

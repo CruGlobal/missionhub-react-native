@@ -7,6 +7,8 @@ import { translate } from 'react-i18next';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
 import { Text, Card, Button } from '../common';
+import DatePicker from '../DatePicker';
+import ReminderRepeatButtons from '../ReminderRepeatButtons';
 import { completeStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../containers/AcceptedStepDetailScreen';
@@ -55,17 +57,16 @@ class AcceptedStepItem extends Component {
         style={card}
       >
         <View flex={1} flexDirection="column">
-          <Button
-            type="transparent"
-            flexDirection="row"
-            style={reminderButton}
-            onPress={this.handleSetReminder}
+          <DatePicker
+            onChangeDate={this.handleSetReminder}
+            iOSModalContent={<ReminderRepeatButtons />}
+            height={378}
           >
-            <View flexDirection="row">
+            <View flexDirection="row" style={reminderButton}>
               <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
               <Text style={reminderText}>{t('setReminder')}</Text>
             </View>
-          </Button>
+          </DatePicker>
           <Text style={stepText}>{title}</Text>
         </View>
         <Button onPress={this.handleCompleteStep} style={iconButton}>

@@ -268,6 +268,7 @@ class DatePicker extends Component {
       doneBtnText,
       title,
       children,
+      iOSModalContent,
     } = this.props;
     const {
       modalVisible,
@@ -315,6 +316,7 @@ class DatePicker extends Component {
                 style={[styles.datePicker, customStyles.datePicker]}
                 locale={locale}
               />
+              {iOSModalContent}
               <View style={topWrap}>
                 <Button
                   type={'transparent'}

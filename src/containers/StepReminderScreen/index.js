@@ -7,6 +7,7 @@ import BackButton from '../BackButton';
 import Header from '../Header';
 import DatePicker from '../../components/DatePicker';
 import BottomButton from '../../components/BottomButton';
+import ReminderRepeatButtons from '../../components/ReminderRepeatButtons';
 import { Button, Text } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 
@@ -84,39 +85,6 @@ class StepReminderScreen extends Component {
     );
   }
 
-  renderRepeatButtons() {
-    const { t } = this.props;
-    const {
-      buttonContainer,
-      button,
-      buttonInactive,
-      buttonActive,
-      buttonText,
-      buttonTextInactive,
-      buttonTextActive,
-    } = styles;
-
-    return (
-      <View style={buttonContainer}>
-        <Button
-          style={[button, buttonInactive]}
-          buttonTextStyle={[buttonText, buttonTextInactive]}
-          text={t('daily')}
-        />
-        <Button
-          style={[button, buttonActive]}
-          buttonTextStyle={[buttonText, buttonTextActive]}
-          text={t('weekly')}
-        />
-        <Button
-          style={[button, buttonInactive]}
-          buttonTextStyle={[buttonText, buttonTextInactive]}
-          text={t('monthly')}
-        />
-      </View>
-    );
-  }
-
   render() {
     const { t } = this.props;
     const { container, inputContainer } = styles;
@@ -126,7 +94,7 @@ class StepReminderScreen extends Component {
         {this.renderHeader()}
         <View style={inputContainer}>
           {this.renderDateInput()}
-          {this.renderRepeatButtons()}
+          <ReminderRepeatButtons />
         </View>
         <BottomButton
           disabled={this.state.disableBtn}
