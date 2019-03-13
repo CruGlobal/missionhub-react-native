@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { translate } from 'react-i18next';
+import moment from 'moment';
 
 import BackButton from '../BackButton';
 import Header from '../Header';
 import DatePicker from '../../components/DatePicker';
 import BottomButton from '../../components/BottomButton';
 import ReminderRepeatButtons from '../../components/ReminderRepeatButtons';
-import { Button, Text } from '../../components/common';
+import { Text } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 
 import styles from './styles';
@@ -78,7 +79,9 @@ class StepReminderScreen extends Component {
           onDateChange={this.handleChangeDate}
         >
           <Text style={inputContentStyle}>
-            {!date ? t('endDatePlaceholder') : date}
+            {!date
+              ? t('endDatePlaceholder')
+              : moment(date).format('YYYY-MM-DD HH:mm')}
           </Text>
         </DatePicker>
       </View>
