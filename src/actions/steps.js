@@ -259,9 +259,6 @@ export function deleteStepWithTracking(step, screen) {
 function deleteStep(step) {
   return dispatch => {
     const query = { challenge_id: step.id };
-    return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then(r => {
-      dispatch(getMySteps());
-      return r;
-    });
+    return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {}));
   };
 }
