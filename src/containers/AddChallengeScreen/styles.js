@@ -30,14 +30,14 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: theme.secondaryColor,
   },
+  disabledInput: {
+    backgroundColor: '#eee',
+  },
   dateText: {
     backgroundColor: theme.transparent,
     paddingVertical: 5,
     color: theme.white,
     fontSize: 16,
     letterSpacing: 0.25,
-  },
-  disabled: {
-    backgroundColor: '#eee',
   },
 });

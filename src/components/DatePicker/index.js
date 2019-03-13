@@ -11,7 +11,6 @@ import {
   DatePickerIOS,
   Animated,
   Keyboard,
-  TextInput,
 } from 'react-native';
 import moment from 'moment';
 import { translate } from 'react-i18next';
@@ -109,24 +108,12 @@ class DatePicker extends Component {
     return moment(date, format).toDate();
   }
 
-  getDateStr(date = this.props.date) {
-    const { mode, format = FORMATS[mode], getDateStr } = this.props;
-
-    const dateInstance = date instanceof Date ? date : this.getDate(date);
-
-    if (isFunction(getDateStr)) {
-      return getDateStr(dateInstance);
-    }
-
-    return moment(dateInstance).format(format);
-  }
-
   datePicked() {
     const { onDateChange } = this.props;
     const { date } = this.state;
 
     if (isFunction(onDateChange)) {
-      onDateChange(this.getDateStr(date), date);
+      onDateChange(date);
     }
   }
 
@@ -279,7 +266,6 @@ class DatePicker extends Component {
       customStyles,
       cancelBtnText,
       doneBtnText,
-      locale,
       title,
       children,
     } = this.props;

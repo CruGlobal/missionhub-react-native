@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import moment from 'moment';
 
 import CHALLENGE from '../../../assets/images/challenge_bullseye.png';
-import { Text, Flex, Input } from '../../components/common';
+import { Text, Input } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
 import BackButton from '../BackButton';
@@ -89,12 +89,11 @@ class AddChallengeScreen extends Component {
   renderDateInput() {
     const { t, disabled } = this.props;
     const { date } = this.state;
-    const { dateInput, dateText } = styles;
+    const { dateInput, disabledInput, label, dateText } = styles;
 
-    const dateInputStyle = [styles.dateInput, disabled && styles.disabled];
     return (
       <View>
-        <Text style={styles.label}>{t('dateLabel')}</Text>
+        <Text style={label}>{t('dateLabel')}</Text>
         <DatePicker
           date={date}
           mode="date"
@@ -102,7 +101,7 @@ class AddChallengeScreen extends Component {
           minDate={this.today}
           onDateChange={this.onChangeDate}
         >
-          <View style={dateInputStyle}>
+          <View style={[dateInput, disabled && disabledInput]}>
             <Text style={dateText}>
               {!date ? t('datePlaceholder') : moment(date).format('LL')}
             </Text>
@@ -114,22 +113,23 @@ class AddChallengeScreen extends Component {
 
   render() {
     const { t, isEdit } = this.props;
-    const { disableBtn, title, date } = this.state;
+    const { disableBtn } = this.state;
+    const { container, imageWrap, header, fieldWrap } = styles;
 
     return (
-      <View style={styles.container}>
+      <View style={container}>
         <View
           flex={0.9}
           alignItems="center"
           justifyContent="center"
-          style={styles.imageWrap}
+          style={imageWrap}
         >
           <Image source={CHALLENGE} resizeMode="contain" />
-          <Text type="header" style={styles.header}>
+          <Text type="header" style={header}>
             {isEdit ? t('editHeader') : t('addHeader')}
           </Text>
         </View>
-        <View flex={1} style={styles.fieldWrap}>
+        <View flex={1} style={fieldWrap}>
           {this.renderTitleInput()}
           {this.renderDateInput()}
         </View>

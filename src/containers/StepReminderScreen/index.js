@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  View,
-  DatePickerAndroid,
-  TimePickerAndroid,
-  DatePickerIOS,
-  Animated,
-  Keyboard,
-} from 'react-native';
-import moment from 'moment';
+import { View } from 'react-native';
 import { translate } from 'react-i18next';
 
 import BackButton from '../BackButton';
@@ -34,7 +26,6 @@ class StepReminderScreen extends Component {
   }
 
   handleChangeDate = date => {
-    console.log(date);
     if (!date) {
       this.setState({ date: '', disableBtn: true });
     } else {
@@ -60,7 +51,7 @@ class StepReminderScreen extends Component {
   }
 
   renderDateInput() {
-    const { t, placeholder, customStyles, disabled } = this.props;
+    const { t } = this.props;
     const { date } = this.state;
     const {
       dateInputContainer,
