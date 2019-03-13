@@ -80,7 +80,6 @@ export function getContactSteps(personId, orgId) {
   return dispatch => {
     const query = {
       filters: {
-        completed: false,
         receiver_ids: personId,
         organization_ids: orgId || 'personal',
       },

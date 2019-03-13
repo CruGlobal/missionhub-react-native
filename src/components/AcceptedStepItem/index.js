@@ -44,9 +44,27 @@ class AcceptedStepItem extends Component {
       bellIcon,
       reminderText,
       stepText,
+      stepTextCompleted,
       iconButton,
       checkIcon,
     } = styles;
+
+    if (completed_at) {
+      return (
+        <Card
+          flex={1}
+          flexDirection="row"
+          alignItems="center"
+          onPress={this.handleNavigate}
+          style={card}
+        >
+          <View flex={1} flexDirection="column">
+            <Text style={[stepText, stepTextCompleted]}>{title}</Text>
+          </View>
+          <Image source={GREY_CHECKBOX} style={checkIcon} />
+        </Card>
+      );
+    }
 
     return (
       <Card
@@ -70,10 +88,7 @@ class AcceptedStepItem extends Component {
           <Text style={stepText}>{title}</Text>
         </View>
         <Button onPress={this.handleCompleteStep} style={iconButton}>
-          <Image
-            source={completed_at ? GREY_CHECKBOX : BLUE_CHECKBOX}
-            style={checkIcon}
-          />
+          <Image source={BLUE_CHECKBOX} style={checkIcon} />
         </Button>
       </Card>
     );

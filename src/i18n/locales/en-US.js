@@ -190,7 +190,8 @@ export default {
     header: 'Create your own step',
     journeyHeader: 'What did you see God do?',
     editJourneyHeader: 'Edit your comment',
-    addJourney: 'Add to Our Journey',
+    addJourneyPerson: 'Add to Our Journey',
+    addJourneyMe: 'Add to my Journey',
     editJourneyButton: 'Save',
     makeShorter:
       'Thanks for creating a step! But we need you to make it a little shorter so it can fit.',
