@@ -26,6 +26,7 @@ const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter(
 const initialState = {
   text: '',
   isFocused: false,
+  isEditing: false,
   showActions: false,
   action: null,
 };
@@ -33,6 +34,28 @@ const initialState = {
 @translate('actions')
 export default class CommentBox extends Component {
   state = initialState;
+
+  componentDidMount() {
+    if (this.props.editingComment) {
+      this.startEdit(this.props.editingComment);
+    }
+  }
+
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.editingComment && !this.props.editingComment) {
+      this.startEdit(nextProps.editingComment);
+    }
+  }
+
+  cancel = () => {
+    this.setState(initialState);
+    this.props.onCancel();
+  };
+
+  startEdit = comment => {
+    this.setState({ isEditing: true, text: comment.content });
+    this.commentInput.focus();
+  };
 
   submit = async () => {
     const { onSubmit } = this.props;
@@ -120,7 +143,7 @@ export default class CommentBox extends Component {
     );
   }
 
-  ref = c => (this.searchInput = c);
+  ref = c => (this.commentInput = c);
 
   renderInput() {
     const { t, placeholderTextKey } = this.props;
@@ -215,13 +238,15 @@ export default class CommentBox extends Component {
 
   render() {
     const { hideActions, containerStyle } = this.props;
-    const { showActions, action } = this.state;
+    const { showActions, action, isEditing } = this.state;
     const {
       container,
       boxWrap,
       actionSelectionWrap,
       actionsOpen,
       actionSelection,
+      cancelWrap,
+      cancelIcon,
     } = styles;
 
     return (
@@ -242,6 +267,16 @@ export default class CommentBox extends Component {
               />
             </Flex>
           ) : null}
+          {!action && isEditing ? (
+            <IconButton
+              name="deleteIcon"
+              type="MissionHub"
+              onPress={this.cancel}
+              style={cancelIcon}
+              buttonStyle={cancelWrap}
+              size={12}
+            />
+          ) : null}
           {this.renderInput()}
         </Flex>
         {this.renderActions()}
@@ -252,6 +287,7 @@ export default class CommentBox extends Component {
 
 CommentBox.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  onCancel: PropTypes.func,
   hideActions: PropTypes.bool,
   containerStyle: PropTypes.oneOfType([
     PropTypes.array,

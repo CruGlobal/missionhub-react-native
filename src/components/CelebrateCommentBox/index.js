@@ -3,15 +3,33 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import CommentBox from '../CommentBox';
-import { createCelebrateComment } from '../../actions/celebrateComments';
+import {
+  createCelebrateComment,
+  resetCelebrateEditingComment,
+  updateCelebrateComment,
+} from '../../actions/celebrateComments';
+import { celebrationItemSelector } from '../../selectors/celebration';
 
 import styles from './styles';
 
 class CelebrateCommentBox extends Component {
-  submitComment = (action, text) => {
-    const { dispatch, event } = this.props;
+  componentWillUnmount() {
+    this.cancel();
+  }
 
-    dispatch(createCelebrateComment(event, text));
+  submitComment = (action, text) => {
+    const { dispatch, event, editingComment } = this.props;
+
+    if (editingComment) {
+      this.cancel();
+      return dispatch(updateCelebrateComment(editingComment, text));
+    }
+
+    return dispatch(createCelebrateComment(event, text));
+  };
+
+  cancel = () => {
+    this.props.dispatch(resetCelebrateEditingComment());
   };
 
   render() {
@@ -20,6 +38,8 @@ class CelebrateCommentBox extends Component {
         placeholderTextKey={'celebrateCommentBox:placeholder'}
         onSubmit={this.submitComment}
         hideActions={true}
+        editingComment={this.props.editingComment}
+        onCancel={this.cancel}
         containerStyle={styles.container}
       />
     );
@@ -28,6 +48,16 @@ class CelebrateCommentBox extends Component {
 
 CelebrateCommentBox.propTypes = {
   event: PropTypes.object.isRequired,
+  editingComment: PropTypes.object,
 };
 
-export default connect()(CelebrateCommentBox);
+const mapStateToProps = ({ organizations, celebrateComments }, { event }) => ({
+  editingComment: celebrateComments.editingComment,
+  event:
+    celebrationItemSelector(
+      { organizations },
+      { eventId: event.id, organizationId: event.organization.id },
+    ) || event,
+});
+
+export default connect(mapStateToProps)(CelebrateCommentBox);

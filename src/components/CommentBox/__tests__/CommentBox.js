@@ -20,6 +20,7 @@ const props = {
   person: { id: '1' },
   onSubmit: jest.fn(),
   placeholderTextKey: 'actions:commentBoxPlaceholder',
+  onCancel: jest.fn(),
 };
 
 const action = {
@@ -29,6 +30,13 @@ const action = {
   isOnAction: true,
 };
 const addNewInteractionResult = { type: 'added interaction' };
+const initialState = {
+  text: '',
+  isFocused: false,
+  isEditing: false,
+  showActions: false,
+  action: null,
+};
 
 beforeEach(() => {
   store = mockStore();
@@ -76,6 +84,26 @@ it('handles blur', () => {
   instance.blur();
 
   expect(instance.state.isFocused).toEqual(false);
+});
+
+it('handles cancel', () => {
+  const instance = renderShallow(<CommentBox {...props} />).instance();
+  instance.cancel();
+
+  expect(instance.state).toEqual(initialState);
+  expect(props.onCancel).toHaveBeenCalled();
+});
+
+it('handles start edit', () => {
+  const instance = renderShallow(<CommentBox {...props} />).instance();
+  const comment = { content: 'test' };
+  const focus = jest.fn();
+  instance.commentInput = { focus };
+  instance.startEdit(comment);
+
+  expect(instance.state.isEditing).toEqual(true);
+  expect(instance.state.text).toEqual(comment.content);
+  expect(focus).toHaveBeenCalled();
 });
 
 it('handles select and clear action', () => {

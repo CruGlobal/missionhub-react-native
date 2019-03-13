@@ -110,4 +110,12 @@ export default StyleSheet.create({
     borderRadius: 25,
     padding: 8,
   },
+  cancelWrap: {
+    backgroundColor: theme.grey,
+    borderRadius: 25,
+    marginRight: 10,
+  },
+  cancelIcon: {
+    color: theme.white,
+  },
 });

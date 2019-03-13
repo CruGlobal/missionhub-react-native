@@ -9,6 +9,8 @@ import {
   reloadCelebrateComments,
   getCelebrateCommentsNextPage,
   deleteCelebrateComment,
+  setCelebrateEditingComment,
+  resetCelebrateEditingComment,
 } from '../../actions/celebrateComments';
 import LoadMore from '../../components/LoadMore';
 import RefreshControl from '../../components/RefreshControl';
@@ -16,8 +18,6 @@ import { refresh, showMenu } from '../../utils/common';
 import CommentItem from '../CommentItem';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
-import { navigatePush } from '../../actions/navigation';
-import { EDIT_COMMENT_SCREEN } from '../EditCommentScreen';
 
 import styles from './styles';
 
@@ -28,6 +28,7 @@ class CommentsList extends Component {
 
   componentDidMount() {
     this.refreshComments();
+    this.props.dispatch(resetCelebrateEditingComment());
   }
 
   refreshComments = () => {
@@ -45,8 +46,7 @@ class CommentsList extends Component {
   };
 
   handleEdit = item => {
-    const { dispatch } = this.props;
-    dispatch(navigatePush(EDIT_COMMENT_SCREEN, { item }));
+    this.props.dispatch(setCelebrateEditingComment(item));
   };
 
   handleDelete = item => {

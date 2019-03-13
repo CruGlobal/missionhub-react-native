@@ -164,9 +164,6 @@ import {
 import CelebrateDetailScreen, {
   CELEBRATE_DETAIL_SCREEN,
 } from './containers/CelebrateDetailScreen';
-import EditCommentScreen, {
-  EDIT_COMMENT_SCREEN,
-} from './containers/EditCommentScreen';
 import { SignInFlowScreens, SignInFlowNavigator } from './routes/auth/signIn';
 import { SignUpFlowScreens, SignUpFlowNavigator } from './routes/auth/signUp';
 import {
@@ -444,13 +441,6 @@ const screens = {
     CelebrateDetailScreen,
     buildTrackingObj('community : celebrate : detail', 'celebrate : detail'),
     { gesturesEnabled: true },
-  ),
-  [EDIT_COMMENT_SCREEN]: buildTrackedScreen(
-    EditCommentScreen,
-    buildTrackingObj(
-      'community : celebrate : comment : edit',
-      'celebrate : comment : edit',
-    ),
   ),
 };
 
