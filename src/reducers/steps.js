@@ -75,12 +75,17 @@ export default function stepsReducer(state = initialState, action) {
       };
     case REQUESTS.DELETE_CHALLENGE.SUCCESS:
       const { challenge_id: stepId } = action.query;
+
+      const removeStepById = (stepId, steps) =>
+        steps.filter(({ id }) => id !== stepId);
+
       return {
         ...state,
+        mine: state.mine === null ? null : removeStepById(stepId, state.mine),
         contactSteps: Object.entries(state.contactSteps).reduce(
           (acc, [personOrgId, steps]) => ({
             ...acc,
-            [personOrgId]: steps.filter(({ id }) => id !== stepId),
+            [personOrgId]: removeStepById(stepId, steps),
           }),
           {},
         ),

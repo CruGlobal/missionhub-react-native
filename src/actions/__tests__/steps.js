@@ -516,10 +516,6 @@ describe('deleteStepWithTracking', () => {
       { challenge_id: step.id },
       {},
     );
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_MY_CHALLENGES,
-      expect.anything(),
-    );
     expect(store.getActions()).toEqual([trackActionResult]);
   });
 });

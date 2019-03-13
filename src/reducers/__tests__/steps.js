@@ -207,9 +207,10 @@ it('receives contact steps', () => {
   });
 });
 
-it('deletes contact steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
+it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
   const state = steps(
     {
+      mine: [{ id: '6' }, { id: '3' }],
       contactSteps: {
         '123-456': [{ id: '6' }, { id: '3' }],
         '987-': [{ id: '3' }, { id: '6' }],
@@ -221,9 +222,12 @@ it('deletes contact steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
     },
   );
 
-  expect(state.contactSteps).toEqual({
-    '123-456': [{ id: '6' }],
-    '987-': [{ id: '6' }],
+  expect(state).toEqual({
+    mine: [{ id: '6' }],
+    contactSteps: {
+      '123-456': [{ id: '6' }],
+      '987-': [{ id: '6' }],
+    },
   });
 });
 
