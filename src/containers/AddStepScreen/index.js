@@ -165,6 +165,7 @@ class AddStepScreen extends Component {
             onChangeText={this.onChangeText}
             value={this.state.step}
             multiline={true}
+            textAlignVertical="top"
             autoFocus={true}
             autoCorrect={true}
             returnKeyType="done"
