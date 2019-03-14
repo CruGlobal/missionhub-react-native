@@ -11,9 +11,12 @@ import {
 } from '../celebrateComments';
 import callApi, { REQUESTS } from '../api';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
+import { trackActionWithoutData } from '../analytics';
+import { ACTIONS } from '../../constants';
 
 jest.mock('../api');
 jest.mock('../../selectors/celebrateComments');
+jest.mock('../analytics');
 
 const event = { id: '80890', organization: { id: '645654' } };
 const comment = { pagination: { page: 2, hasNextPage: true } };
@@ -24,12 +27,14 @@ const baseQuery = {
   eventId: event.id,
 };
 const include = 'organization_celebration_item,person';
+const trackActionResult = { type: 'tracked action' };
 
 const mockStore = configureStore([thunk]);
 let store;
 
 callApi.mockReturnValue(() => callApiResponse);
 celebrateCommentsSelector.mockReturnValue(comment);
+trackActionWithoutData.mockReturnValue(trackActionResult);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -87,8 +92,8 @@ describe('createCelebrateComment', () => {
   const content = 'this is a comment';
   let response;
 
-  beforeEach(() =>
-    (response = store.dispatch(createCelebrateComment(event, content))));
+  beforeEach(async () =>
+    (response = await store.dispatch(createCelebrateComment(event, content))));
 
   it('should callApi with no page', () => {
     expect(callApi).toHaveBeenCalledWith(
@@ -100,6 +105,13 @@ describe('createCelebrateComment', () => {
 
   it('should return api response', () => {
     expect(response).toEqual(callApiResponse);
+  });
+
+  it('should track action', () => {
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CELEBRATE_COMMENT_ADDED,
+    );
+    expect(store.getActions()).toEqual([trackActionResult]);
   });
 });
 

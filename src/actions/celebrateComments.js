@@ -1,7 +1,9 @@
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 import { celebrateCommentsSelector } from '../selectors/celebrateComments';
+import { ACTIONS } from '../constants';
 
 import callApi, { REQUESTS } from './api';
+import { trackActionWithoutData } from './analytics';
 
 export function getCelebrateCommentsNextPage(event) {
   return (dispatch, getState) => {
@@ -44,8 +46,8 @@ function getCelebrateComments(event, page) {
 }
 
 export function createCelebrateComment(event, content) {
-  return dispatch =>
-    dispatch(
+  return async dispatch => {
+    const result = await dispatch(
       callApi(
         REQUESTS.CREATE_CELEBRATE_COMMENT,
         {
@@ -59,6 +61,10 @@ export function createCelebrateComment(event, content) {
         },
       ),
     );
+
+    dispatch(trackActionWithoutData(ACTIONS.CELEBRATE_COMMENT_ADDED));
+    return result;
+  };
 }
 
 export function updateCelebrateComment(item, content) {
