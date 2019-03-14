@@ -442,7 +442,11 @@ const screens = {
   [COMPLETE_STEP_FLOW]: CompleteStepFlowNavigator,
   [CELEBRATE_DETAIL_SCREEN]: buildTrackedScreen(
     CelebrateDetailScreen,
-    buildTrackingObj('community : celebrate : detail', 'celebrate : detail'),
+    buildTrackingObj(
+      'communities : celebration : comment',
+      'communities',
+      'celebration',
+    ),
     { gesturesEnabled: true },
   ),
   [EDIT_COMMENT_SCREEN]: buildTrackedScreen(
