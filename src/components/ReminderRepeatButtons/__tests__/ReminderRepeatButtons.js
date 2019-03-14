@@ -1,14 +1,8 @@
 import React from 'react';
-import MockDate from 'mockdate';
 
 import ReminderRepeatButtons from '..';
 
-import {
-  createMockNavState,
-  testSnapshot,
-  createMockStore,
-  renderShallow,
-} from '../../../../testUtils';
+import { renderShallow } from '../../../../testUtils';
 
 let component;
 let instance;

@@ -47,12 +47,11 @@ class DatePicker extends Component {
 
   setModalVisible = visible => {
     const { height, duration } = this.props;
-    const { animatedHeight } = this.state;
 
     this.setState({ modalVisible: visible });
 
     // slide animation
-    return Animated.timing(animatedHeight, {
+    return Animated.timing(this.state.animatedHeight, {
       toValue: visible ? height : 0,
       duration: duration,
     }).start();
@@ -112,9 +111,7 @@ class DatePicker extends Component {
     const { onDateChange } = this.props;
     const { date } = this.state;
 
-    if (isFunction(onDateChange)) {
-      onDateChange(date);
-    }
+    isFunction(onDateChange) && onDateChange(date);
   }
 
   onDateChange = date => {
@@ -202,7 +199,12 @@ class DatePicker extends Component {
       is24Hour = !format.match(/h|a/),
     } = this.props;
 
-    const { dateAction, year, month, day } = await DatePickerAndroid.open({
+    const {
+      action: dateAction,
+      year,
+      month,
+      day,
+    } = await DatePickerAndroid.open({
       date: this.state.date,
       minDate: minDate && this.getDate(minDate),
       maxDate: maxDate && this.getDate(maxDate),
@@ -212,12 +214,14 @@ class DatePicker extends Component {
     if (dateAction !== DatePickerAndroid.dismissedAction) {
       const timeMoment = moment(this.state.date);
 
-      const { timeAction, hour, minute } = await TimePickerAndroid.open({
-        hour: timeMoment.hour(),
-        minute: timeMoment.minutes(),
-        is24Hour: is24Hour,
-        mode: androidMode,
-      });
+      const { action: timeAction, hour, minute } = await TimePickerAndroid.open(
+        {
+          hour: timeMoment.hour(),
+          minute: timeMoment.minutes(),
+          is24Hour: is24Hour,
+          mode: androidMode,
+        },
+      );
 
       if (timeAction !== DatePickerAndroid.dismissedAction) {
         this.setState({
@@ -259,11 +263,11 @@ class DatePicker extends Component {
     const {
       t,
       mode,
+      customStyles,
       minDate,
       maxDate,
       minuteInterval,
       timeZoneOffsetInMinutes,
-      customStyles,
       cancelBtnText,
       doneBtnText,
       title,
@@ -279,6 +283,7 @@ class DatePicker extends Component {
     const {
       datePickerMask,
       datePickerBox,
+      datePicker,
       topWrap,
       btnText,
       btnTextCancel,
@@ -313,7 +318,7 @@ class DatePicker extends Component {
                 timeZoneOffsetInMinutes={
                   timeZoneOffsetInMinutes ? timeZoneOffsetInMinutes : null
                 }
-                style={[styles.datePicker, customStyles.datePicker]}
+                style={[datePicker, customStyles.datePicker]}
                 locale={locale}
               />
               {iOSModalContent}
@@ -351,8 +356,6 @@ DatePicker.defaultProps = {
   duration: 300,
   customStyles: {},
   disabled: false,
-  hideText: false,
-  placeholder: '',
 };
 
 DatePicker.propTypes = {
@@ -374,9 +377,14 @@ DatePicker.propTypes = {
   disabled: PropTypes.bool,
   onDateChange: PropTypes.func,
   onCloseModal: PropTypes.func,
-  placeholder: PropTypes.string,
   is24Hour: PropTypes.bool,
-  getDateStr: PropTypes.func,
+  onPressIOS: PropTypes.func,
+  onPressAndroid: PropTypes.func,
+  minuteInterval: PropTypes.number,
+  timeZoneOffsetInMinutes: PropTypes.number,
+  title: PropTypes.string,
+  children: PropTypes.element,
+  iOSModalConent: PropTypes.element,
 };
 
 export default DatePicker;

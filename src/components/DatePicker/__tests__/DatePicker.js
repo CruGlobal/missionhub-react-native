@@ -1,10 +1,14 @@
 /* eslint max-lines: 0, max-lines-per-function: 0 */
 
 import React from 'react';
-import { Animated, TimePickerAndroid, DatePickerAndroid } from 'react-native';
+import {
+  Animated,
+  TimePickerAndroid,
+  DatePickerAndroid,
+  Text,
+} from 'react-native';
 import MockDate from 'mockdate';
-
-import DatePicker from '../../DatePicker/index';
+import moment from 'moment';
 
 import {
   testSnapshotShallow,
@@ -12,24 +16,17 @@ import {
 } from '../../../../testUtils/index';
 import * as common from '../../../utils/common';
 
+import DatePicker from '..';
+
 const mockDate = '2018-09-12 12:00:00 PM GMT+0';
 MockDate.set(mockDate);
-
-jest.mock('moment', () => {
-  const moment = require.requireActual('moment');
-  return moment.utc;
-});
 
 Animated.timing = jest.fn(() => ({
   start: jest.fn(a => a && a()),
 }));
 
-TimePickerAndroid.open = jest.fn(() => ({
-  then: jest.fn(a => a && a()),
-}));
-DatePickerAndroid.open = jest.fn(() => ({
-  then: jest.fn(a => a && a()),
-}));
+TimePickerAndroid.open = jest.fn();
+DatePickerAndroid.open = jest.fn();
 
 const today = new Date();
 
@@ -61,9 +58,11 @@ it('renders date only date picker with max date', () => {
   );
 });
 
-it('renders date only date picker with placeholder', () => {
+it('renders with child component', () => {
   testSnapshotShallow(
-    <DatePicker date={today} mode="date" placeholder="Test Placeholder" />,
+    <DatePicker date={today}>
+      <Text>Child Component</Text>
+    </DatePicker>,
   );
 });
 
@@ -91,24 +90,7 @@ describe('date methods', () => {
     );
     instance = component.instance();
     instance.datePicked(date);
-    const dateStr = instance.getDateStr(date);
-    expect(mockChange).toHaveBeenCalledWith(dateStr, date);
-  });
-
-  it('change date called with custom date string', () => {
-    const date = new Date();
-    const customFormat = 'custom format';
-    const mockDateStr = jest.fn(() => customFormat);
-    component = renderShallow(
-      <DatePicker
-        date={date}
-        onDateChange={mockChange}
-        getDateStr={mockDateStr}
-      />,
-    );
-    instance = component.instance();
-    instance.datePicked(date);
-    expect(mockChange).toHaveBeenCalledWith(customFormat, date);
+    expect(mockChange).toHaveBeenCalledWith(date);
   });
 
   it('get date', () => {
@@ -128,16 +110,15 @@ describe('date methods', () => {
     );
     instance = component.instance();
 
-    component.props().onPress();
+    component
+      .childAt(0)
+      .props()
+      .onPress();
     component.update();
     // date change
     const newDate = new Date('2019-09-01');
     component
-      .childAt(0)
       .childAt(1)
-      .childAt(0)
-      .childAt(0)
-      .childAt(0)
       .childAt(0)
       .childAt(0)
       .childAt(0)
@@ -160,14 +141,14 @@ describe('date methods', () => {
     instance.datePicked = jest.fn();
     instance.closeModal = jest.fn();
 
-    component.props().onPress();
+    component
+      .childAt(0)
+      .props()
+      .onPress();
     component.update();
     // Confirm button
     component
-      .childAt(0)
       .childAt(1)
-      .childAt(0)
-      .childAt(0)
       .childAt(0)
       .childAt(0)
       .childAt(1)
@@ -192,14 +173,14 @@ describe('date methods', () => {
     instance = component.instance();
     instance.closeModal = jest.fn();
 
-    component.props().onPress();
+    component
+      .childAt(0)
+      .props()
+      .onPress();
     component.update();
     // Cancel button
     component
-      .childAt(0)
       .childAt(1)
-      .childAt(0)
-      .childAt(0)
       .childAt(0)
       .childAt(0)
       .childAt(1)
@@ -222,13 +203,14 @@ describe('date methods', () => {
     instance = component.instance();
     instance.closeModal = jest.fn();
 
-    component.props().onPress();
+    component
+      .childAt(0)
+      .props()
+      .onPress();
     component.update();
     // Cancel button
     component
-      .childAt(0)
       .childAt(1)
-      .childAt(0)
       .childAt(0)
       .props()
       .onPress();
@@ -243,12 +225,14 @@ describe('date methods', () => {
     );
     instance = component.instance();
     instance.setModalVisible = jest.fn();
-    component.props().onPress();
+    component
+      .childAt(0)
+      .props()
+      .onPress();
 
     // Have to update the component because the internal state has changed
     component.update();
     component
-      .childAt(0)
       .childAt(1)
       .props()
       .onRequestClose();
@@ -260,16 +244,14 @@ describe('date methods', () => {
     component = renderShallow(
       <DatePicker date={date} onDateChange={mockChange} />,
     );
-    component.props().onPress();
+    component
+      .childAt(0)
+      .props()
+      .onPress();
 
     // Have to update the component because the internal state has changed
     component.update();
-    expect(
-      component
-        .childAt(0)
-        .childAt(1)
-        .props().visible,
-    ).toEqual(true);
+    expect(component.childAt(1).props().visible).toEqual(true);
   });
 
   it('set modal visible false', () => {
@@ -277,113 +259,18 @@ describe('date methods', () => {
     component = renderShallow(
       <DatePicker date={date} onDateChange={mockChange} />,
     );
-    component.props().onPress();
-    component.update();
     component
       .childAt(0)
+      .props()
+      .onPress();
+    component.update();
+    component
       .childAt(1)
       .props()
       .onRequestClose();
     component.update();
 
-    expect(
-      component
-        .childAt(0)
-        .childAt(1)
-        .props().visible,
-    ).toEqual(false);
-  });
-
-  it('onDatePicked method', () => {
-    const date = new Date();
-    component = renderShallow(
-      <DatePicker date={date} onDateChange={mockChange} />,
-    );
-    instance = component.instance();
-    const action = {
-      action: 'test',
-      year: '2018',
-      month: '08',
-      day: '13',
-    };
-    instance.onDatePicked(action);
-    expect(instance.state.date).toEqual(
-      new Date(action.year, action.month, action.day),
-    );
-  });
-
-  it('onDatePicked method canceled', () => {
-    const date = new Date();
-    component = renderShallow(
-      <DatePicker date={date} onDateChange={mockChange} />,
-    );
-    instance = component.instance();
-    instance.onPressCancel = jest.fn();
-    const action = {
-      action: DatePickerAndroid.dismissedAction,
-      year: '2018',
-      month: '08',
-      day: '13',
-    };
-    instance.onDatePicked(action);
-    expect(instance.onPressCancel).toHaveBeenCalled();
-  });
-
-  it('onTimePicked method', () => {
-    const date = new Date();
-    component = renderShallow(
-      <DatePicker date={date} onDateChange={mockChange} />,
-    );
-    instance = component.instance();
-    instance.onPressCancel = jest.fn();
-    const action = {
-      action: DatePickerAndroid.dismissedAction,
-      hour: '10',
-      minute: '30',
-    };
-    instance.onTimePicked(action);
-    expect(instance.onPressCancel).toHaveBeenCalled();
-  });
-
-  it('onDatetimePicked method', () => {
-    const date = new Date();
-    component = renderShallow(
-      <DatePicker date={date} onDateChange={mockChange} />,
-    );
-    instance = component.instance();
-    instance.onPressCancel = jest.fn();
-    const action = {
-      action: DatePickerAndroid.dismissedAction,
-      year: '2018',
-      month: '08',
-      day: '13',
-    };
-    instance.onDatetimePicked(action);
-    expect(instance.onPressCancel).toHaveBeenCalled();
-  });
-
-  it('onDatetimeTimePicked method', () => {
-    const date = new Date();
-    component = renderShallow(
-      <DatePicker date={date} onDateChange={mockChange} />,
-    );
-    instance = component.instance();
-    instance.onPressCancel = jest.fn();
-    const action = {
-      action: DatePickerAndroid.dismissedAction,
-      year: '2018',
-      month: '08',
-      day: '13',
-      hour: '10',
-      minute: '30',
-    };
-    instance.onDatetimeTimePicked(
-      action.year,
-      action.month,
-      action.day,
-      action,
-    );
-    expect(instance.onPressCancel).toHaveBeenCalled();
+    expect(component.childAt(1).props().visible).toEqual(false);
   });
 
   it('modal visible snapshot', () => {
@@ -393,17 +280,9 @@ describe('date methods', () => {
     );
     instance = component.instance();
     instance.setModalVisible(true);
-    expect(component).toMatchSnapshot();
-  });
+    component.update();
 
-  it('input component snapshot', () => {
-    const date = new Date();
-    component = renderShallow(
-      <DatePicker date={date} onDateChange={mockChange} />,
-    );
-    instance = component.instance();
-    const inputComponent = instance.renderInput();
-    expect(inputComponent).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 
   it('modal visible snapshot with title', () => {
@@ -413,6 +292,8 @@ describe('date methods', () => {
     );
     instance = component.instance();
     instance.setModalVisible(true);
+    component.update();
+
     expect(component).toMatchSnapshot();
   });
 });
@@ -420,56 +301,214 @@ describe('date methods', () => {
 describe('android date methods', () => {
   let component;
   let instance;
+  const date = new Date();
+  const minDate = new Date();
+  const maxDate = new Date();
   const mockChange = jest.fn();
+  const androidMode = 'default';
 
-  it('on press date mode date', () => {
-    const date = new Date();
+  beforeEach(() => {
     common.isAndroid = true;
-    component = renderShallow(
-      <DatePicker date={date} onDateChange={mockChange} mode="date" />,
-    );
-    instance = component.instance();
-    instance.onDatePicked = jest.fn();
-
-    component.props().onPress();
-
-    expect(instance.onDatePicked).toHaveBeenCalled();
   });
 
-  it('on press date mode time', () => {
-    const date = new Date();
-    common.isAndroid = true;
-    component = renderShallow(
-      <DatePicker date={date} onDateChange={mockChange} mode="time" />,
-    );
-    instance = component.instance();
-    instance.onTimePicked = jest.fn();
-
-    component.props().onPress();
-
-    expect(instance.onTimePicked).toHaveBeenCalled();
-  });
-
-  it('on press date mode datetime', () => {
-    const date = new Date();
-    common.isAndroid = true;
-    component = renderShallow(
-      <DatePicker date={date} onDateChange={mockChange} mode="datetime" />,
-    );
-    instance = component.instance();
-    instance.onDatetimePicked = jest.fn();
-
-    component.props().onPress();
-
-    expect(instance.onDatetimePicked).toHaveBeenCalled();
-  });
-
-  it('android render', () => {
-    const date = new Date();
-    common.isAndroid = true;
+  it('renders for Android', () => {
     component = renderShallow(
       <DatePicker date={date} onDateChange={mockChange} />,
     );
     expect(component).toMatchSnapshot();
+  });
+
+  describe('mode is date', () => {
+    beforeEach(() => {
+      component = renderShallow(
+        <DatePicker
+          date={date}
+          minDate={minDate}
+          maxDate={maxDate}
+          onDateChange={mockChange}
+          androidMode={androidMode}
+          mode="date"
+        />,
+      );
+
+      instance = component.instance();
+      instance.datePicked = jest.fn();
+      instance.onPressCancel = jest.fn();
+    });
+
+    it('calls androidPickDate on press', () => {
+      instance.androidPickDate = jest.fn();
+
+      component
+        .childAt(0)
+        .props()
+        .onPress();
+
+      expect(instance.androidPickDate).toHaveBeenCalled();
+    });
+
+    it('loads DatePickerAndroid and picks date', async () => {
+      const action = {
+        action: 'test',
+        year: '2018',
+        month: '08',
+        day: '13',
+      };
+      DatePickerAndroid.open.mockReturnValue(action);
+
+      await instance.androidPickDate();
+
+      expect(DatePickerAndroid.open).toHaveBeenCalledWith({
+        date,
+        minDate,
+        maxDate,
+        mode: androidMode,
+      });
+      expect(instance.state.date).toEqual(
+        new Date(action.year, action.month, action.day),
+      );
+      expect(instance.datePicked).toHaveBeenCalled();
+    });
+
+    it('loads DatePickerAndroid and cancels', async () => {
+      const action = {
+        action: DatePickerAndroid.dismissedAction,
+      };
+      DatePickerAndroid.open.mockReturnValue(action);
+
+      await instance.androidPickDate();
+
+      expect(DatePickerAndroid.open).toHaveBeenCalledWith({
+        date,
+        minDate,
+        maxDate,
+        mode: androidMode,
+      });
+      expect(instance.onPressCancel).toHaveBeenCalled();
+    });
+  });
+
+  describe('mode is time', () => {
+    beforeEach(() => {
+      component = renderShallow(
+        <DatePicker
+          date={date}
+          onDateChange={mockChange}
+          androidMode={androidMode}
+          mode="time"
+        />,
+      );
+
+      instance = component.instance();
+      instance.datePicked = jest.fn();
+      instance.onPressCancel = jest.fn();
+    });
+
+    it('calls androidPickTime on press', () => {
+      instance.androidPickTime = jest.fn();
+
+      component
+        .childAt(0)
+        .props()
+        .onPress();
+
+      expect(instance.androidPickTime).toHaveBeenCalled();
+    });
+
+    it('time picked', async () => {
+      const action = {
+        action: 'test',
+        hour: '1',
+        minute: '30',
+      };
+      TimePickerAndroid.open.mockReturnValue(action);
+
+      await instance.androidPickTime();
+
+      expect(TimePickerAndroid.open).toHaveBeenCalledWith({
+        hour: moment(date).hour(),
+        minute: moment(date).minutes(),
+        is24Hour: true,
+        mode: androidMode,
+      });
+      expect(instance.state.date).toEqual(
+        moment()
+          .hour(action.hour)
+          .minute(action.minute)
+          .toDate(),
+      );
+      expect(instance.datePicked).toHaveBeenCalled();
+    });
+  });
+
+  describe('mode is datetime', () => {
+    beforeEach(() => {
+      component = renderShallow(
+        <DatePicker
+          date={date}
+          minDate={minDate}
+          maxDate={maxDate}
+          onDateChange={mockChange}
+          androidMode={androidMode}
+          mode="datetime"
+        />,
+      );
+
+      instance = component.instance();
+      instance.datePicked = jest.fn();
+      instance.onPressCancel = jest.fn();
+    });
+
+    it('calls androidPickDateTime on press', () => {
+      instance.androidPickDateTime = jest.fn();
+
+      component
+        .childAt(0)
+        .props()
+        .onPress();
+
+      expect(instance.androidPickDateTime).toHaveBeenCalled();
+    });
+
+    it('datetime picked', async () => {
+      const dateAction = {
+        action: 'test',
+        year: '2018',
+        month: '08',
+        day: '13',
+      };
+      DatePickerAndroid.open.mockReturnValue(dateAction);
+      const timeAction = {
+        action: 'test',
+        hour: '1',
+        minute: '30',
+      };
+      TimePickerAndroid.open.mockReturnValue(timeAction);
+
+      await instance.androidPickDateTime();
+
+      expect(DatePickerAndroid.open).toHaveBeenCalledWith({
+        date,
+        minDate,
+        maxDate,
+        mode: androidMode,
+      });
+      expect(TimePickerAndroid.open).toHaveBeenCalledWith({
+        hour: moment(date).hour(),
+        minute: moment(date).minutes(),
+        is24Hour: true,
+        mode: androidMode,
+      });
+      expect(instance.state.date).toEqual(
+        new Date(
+          dateAction.year,
+          dateAction.month,
+          dateAction.day,
+          timeAction.hour,
+          timeAction.minute,
+        ),
+      );
+      expect(instance.datePicked).toHaveBeenCalled();
+    });
   });
 });

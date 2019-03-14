@@ -3,12 +3,7 @@ import MockDate from 'mockdate';
 
 import SetReminderScreen from '..';
 
-import {
-  createMockNavState,
-  testSnapshot,
-  createMockStore,
-  renderShallow,
-} from '../../../../testUtils';
+import { createMockStore, renderShallow } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 
 jest.mock('../../../actions/navigation');
