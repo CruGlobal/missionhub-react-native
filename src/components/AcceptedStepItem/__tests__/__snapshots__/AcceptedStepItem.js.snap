@@ -18,19 +18,25 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
     flex={1}
     flexDirection="column"
   >
-    <Button
-      flexDirection="row"
-      onPress={[Function]}
-      style={
-        Object {
-          "justifyContent": "flex-start",
-          "padding": 4,
-        }
-      }
-      type="transparent"
+    <Translate(DatePicker)
+      androidMode="default"
+      customStyles={Object {}}
+      date=""
+      disabled={false}
+      duration={300}
+      height={378}
+      iOSModalContent={<Translate(ReminderRepeatButtons) />}
+      mode="date"
+      onChangeDate={[Function]}
     >
       <Component
         flexDirection="row"
+        style={
+          Object {
+            "justifyContent": "flex-start",
+            "padding": 4,
+          }
+        }
       >
         <Icon
           name="bellIcon"
@@ -58,7 +64,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
           Set a Reminder
         </MyText>
       </Component>
-    </Button>
+    </Translate(DatePicker)>
     <MyText
       accessible={true}
       allowFontScaling={true}

@@ -84,11 +84,9 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
         disabled={false}
         duration={300}
         height={259}
-        hideText={false}
         minDate={2018-09-01T00:00:00.000Z}
         mode="datetime"
         onDateChange={[Function]}
-        placeholder=""
       >
         <MyText
           accessible={true}
@@ -208,11 +206,9 @@ exports[`render date in props renders correctly 1`] = `
         disabled={false}
         duration={300}
         height={259}
-        hideText={false}
         minDate={2018-09-01T00:00:00.000Z}
         mode="datetime"
         onDateChange={[Function]}
-        placeholder=""
       >
         <MyText
           accessible={true}
@@ -330,11 +326,9 @@ exports[`render no date in props renders correctly 1`] = `
         disabled={false}
         duration={300}
         height={259}
-        hideText={false}
         minDate={2018-09-01T00:00:00.000Z}
         mode="datetime"
         onDateChange={[Function]}
-        placeholder=""
       >
         <MyText
           accessible={true}

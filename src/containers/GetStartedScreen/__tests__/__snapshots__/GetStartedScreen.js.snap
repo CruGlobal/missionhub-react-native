@@ -112,9 +112,7 @@ Let's figure out where you are on your journey.
             "justifyContent": "center",
           },
           null,
-          Object {
-            "width": 750,
-          },
+          Object {},
           null,
         ]
       }
