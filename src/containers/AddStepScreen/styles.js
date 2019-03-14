@@ -31,5 +31,6 @@ export default StyleSheet.create({
     color: theme.lightGrey,
     paddingHorizontal: 45,
     fontFamily: 'SourceSansPro-Light',
+    minHeight: 90.5,
   },
 });

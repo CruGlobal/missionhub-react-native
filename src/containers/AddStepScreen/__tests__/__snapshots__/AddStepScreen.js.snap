@@ -54,10 +54,12 @@ exports[`renders correctly 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
+            "minHeight": 90.5,
             "paddingHorizontal": 45,
           },
         ]
       }
+      textAlignVertical="top"
       underlineColorAndroid="rgba(0,0,0,0)"
       value=""
     />
@@ -1074,10 +1076,12 @@ exports[`renders edit journey correctly 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
+            "minHeight": 90.5,
             "paddingHorizontal": 45,
           },
         ]
       }
+      textAlignVertical="top"
       underlineColorAndroid="rgba(0,0,0,0)"
       value="Comment"
     />
@@ -1391,10 +1395,12 @@ exports[`renders interaction with skip correctly 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
+            "minHeight": 90.5,
             "paddingHorizontal": 45,
           },
         ]
       }
+      textAlignVertical="top"
       underlineColorAndroid="rgba(0,0,0,0)"
       value=""
     />
@@ -1622,10 +1628,12 @@ exports[`renders interaction without skip correctly 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
+            "minHeight": 90.5,
             "paddingHorizontal": 45,
           },
         ]
       }
+      textAlignVertical="top"
       underlineColorAndroid="rgba(0,0,0,0)"
       value=""
     />
@@ -1853,10 +1861,12 @@ exports[`renders journey correctly 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
+            "minHeight": 90.5,
             "paddingHorizontal": 45,
           },
         ]
       }
+      textAlignVertical="top"
       underlineColorAndroid="rgba(0,0,0,0)"
       value=""
     />
@@ -2170,10 +2180,12 @@ exports[`renders step note correctly 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
+            "minHeight": 90.5,
             "paddingHorizontal": 45,
           },
         ]
       }
+      textAlignVertical="top"
       underlineColorAndroid="rgba(0,0,0,0)"
       value=""
     />
@@ -2391,10 +2403,12 @@ exports[`renders step note correctly for me 1`] = `
             "color": "#B4B6BA",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
+            "minHeight": 90.5,
             "paddingHorizontal": 45,
           },
         ]
       }
+      textAlignVertical="top"
       underlineColorAndroid="rgba(0,0,0,0)"
       value=""
     />
