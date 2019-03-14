@@ -13,6 +13,7 @@ import { addNewInteraction } from '../../../actions/interactions';
 jest.mock('../../../actions/interactions');
 
 MockDate.set('2017-06-18');
+Keyboard.dismiss = jest.fn();
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -77,6 +78,7 @@ it('handles cancel', () => {
 
   expect(instance.state).toEqual(initialState);
   expect(props.onCancel).toHaveBeenCalled();
+  expect(Keyboard.dismiss).toHaveBeenCalled();
 });
 
 it('handles start edit', () => {
@@ -182,7 +184,6 @@ describe('click submit button', () => {
 
   it('calls onSubmit prop', async () => {
     const onSubmit = jest.fn();
-    Keyboard.dismiss = jest.fn();
     component = renderShallow(
       <CommentBox
         {...props}

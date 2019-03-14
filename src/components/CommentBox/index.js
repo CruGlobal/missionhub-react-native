@@ -50,6 +50,7 @@ export default class CommentBox extends Component {
   cancel = () => {
     this.setState(initialState);
     this.props.onCancel();
+    Keyboard.dismiss();
   };
 
   startEdit = comment => {
