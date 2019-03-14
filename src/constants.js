@@ -248,6 +248,10 @@ export const ACTIONS = {
     name: 'Celebrate Item Liked',
     key: 'cru.celebrateitemliked',
   },
+  CELEBRATE_COMMENT_ADDED: {
+    name: 'Celebrate Comment Added',
+    key: 'cru.sendcelebratecomment',
+  },
   ASSIGNED_TO_ME: {
     name: 'Assigned to Me',
     key: 'cru.assignedtome',
