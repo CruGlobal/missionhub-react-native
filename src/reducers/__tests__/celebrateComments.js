@@ -1,7 +1,10 @@
 import { REQUESTS } from '../../actions/api';
 import celebrateCommentsReducer from '../celebrateComments';
 import { getPagination } from '../../utils/common';
-import { SET_CELEBRATE_EDITING_COMMENT } from '../../constants';
+import {
+  SET_CELEBRATE_EDITING_COMMENT,
+  RESET_CELEBRATE_EDITING_COMMENT,
+} from '../../constants';
 
 jest.mock('../../utils/common');
 
@@ -193,4 +196,14 @@ it('sets editing comment', () => {
     },
   );
   expect(state.editingComment).toEqual(comment);
+});
+
+it('resets editing comment', () => {
+  const state = celebrateCommentsReducer(
+    {},
+    {
+      type: RESET_CELEBRATE_EDITING_COMMENT,
+    },
+  );
+  expect(state.editingComment).toEqual(null);
 });

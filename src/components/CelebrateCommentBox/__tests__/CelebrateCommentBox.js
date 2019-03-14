@@ -76,12 +76,16 @@ describe('onSubmit', () => {
   });
 });
 
-describe('onCancel', () => {
-  it('cancels editing', () => {
-    screen.props().onCancel();
+it('onCancel', () => {
+  screen.props().onCancel();
 
-    expect(resetCelebrateEditingComment).toHaveBeenCalled();
-  });
+  expect(resetCelebrateEditingComment).toHaveBeenCalled();
+});
+
+it('componentWillUnmount', () => {
+  screen.instance().componentWillUnmount();
+
+  expect(resetCelebrateEditingComment).toHaveBeenCalled();
 });
 
 it('calls update', () => {
