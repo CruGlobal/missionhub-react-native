@@ -119,8 +119,8 @@ describe('deleteCelebrateComment', () => {
   const item = { id: 'comment1' };
   let response;
 
-  beforeEach(() =>
-    (response = store.dispatch(deleteCelebrateComment(event, item))));
+  beforeEach(async () =>
+    (response = await store.dispatch(deleteCelebrateComment(event, item))));
 
   it('should callApi for delete', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CELEBRATE_COMMENT, {
@@ -132,6 +132,13 @@ describe('deleteCelebrateComment', () => {
   it('should return api response', () => {
     expect(response).toEqual(callApiResponse);
   });
+
+  it('should track action', () => {
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CELEBRATE_COMMENT_DELETED,
+    );
+    expect(store.getActions()).toEqual([trackActionResult]);
+  });
 });
 
 describe('updateCelebrateComment', () => {
@@ -139,8 +146,8 @@ describe('updateCelebrateComment', () => {
   const text = 'text';
   let response;
 
-  beforeEach(() =>
-    (response = store.dispatch(updateCelebrateComment(item, text))));
+  beforeEach(async () =>
+    (response = await store.dispatch(updateCelebrateComment(item, text))));
 
   it('should callApi', () => {
     expect(callApi).toHaveBeenCalledWith(
@@ -159,5 +166,12 @@ describe('updateCelebrateComment', () => {
 
   it('should return api response', () => {
     expect(response).toEqual(callApiResponse);
+  });
+
+  it('should track action', () => {
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CELEBRATE_COMMENT_EDITED,
+    );
+    expect(store.getActions()).toEqual([trackActionResult]);
   });
 });

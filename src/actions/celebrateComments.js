@@ -68,8 +68,8 @@ export function createCelebrateComment(event, content) {
 }
 
 export function updateCelebrateComment(item, content) {
-  return dispatch =>
-    dispatch(
+  return async dispatch => {
+    const result = await dispatch(
       callApi(
         REQUESTS.UPDATE_CELEBRATE_COMMENT,
         {
@@ -84,15 +84,23 @@ export function updateCelebrateComment(item, content) {
         },
       ),
     );
+
+    dispatch(trackActionWithoutData(ACTIONS.CELEBRATE_COMMENT_EDITED));
+    return result;
+  };
 }
 
 export function deleteCelebrateComment(event, item) {
-  return dispatch =>
-    dispatch(
+  return async dispatch => {
+    const result = await dispatch(
       callApi(REQUESTS.DELETE_CELEBRATE_COMMENT, {
         orgId: event.organization.id,
         eventId: event.id,
         commentId: item.id,
       }),
     );
+
+    dispatch(trackActionWithoutData(ACTIONS.CELEBRATE_COMMENT_DELETED));
+    return result;
+  };
 }
