@@ -153,6 +153,31 @@ it('renders without actions and selected action', () => {
   expect(component).toMatchSnapshot();
 });
 
+it('UNSAFE_componentWillReceiveProps', () => {
+  const shallowScreen = renderShallow(<CommentBox {...props} />);
+  jest.spyOn(shallowScreen.instance(), 'startEdit');
+  shallowScreen.instance().commentInput = { focus: jest.fn() };
+
+  const comment = { id: 'editing' };
+  shallowScreen
+    .instance()
+    .UNSAFE_componentWillReceiveProps({ editingComment: comment });
+
+  expect(shallowScreen.instance().startEdit).toHaveBeenCalledWith(comment);
+});
+
+it('componentDidMount', () => {
+  const comment = { id: 'editing' };
+  const shallowScreen = renderShallow(<CommentBox {...props} />);
+  jest.spyOn(shallowScreen.instance(), 'startEdit');
+  shallowScreen.instance().commentInput = { focus: jest.fn() };
+  shallowScreen.setProps({ editingComment: comment });
+
+  shallowScreen.instance().componentDidMount();
+
+  expect(shallowScreen.instance().startEdit).toHaveBeenCalledWith(comment);
+});
+
 describe('click submit button', () => {
   const person = { id: '1' };
   const organization = { id: '100' };
@@ -183,6 +208,7 @@ describe('click submit button', () => {
     const onSubmit = jest.fn();
     component = renderShallow(
       <CommentBox
+        {...props}
         person={person}
         organization={organization}
         onSubmit={onSubmit}

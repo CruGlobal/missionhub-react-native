@@ -295,4 +295,5 @@ CommentBox.propTypes = {
     PropTypes.number,
   ]),
   placeholderTextKey: PropTypes.string.isRequired,
+  editingComment: PropTypes.object,
 };

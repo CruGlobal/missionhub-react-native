@@ -3,9 +3,13 @@
 exports[`renders correctly 1`] = `
 <Component
   style={
-    Object {
-      "marginTop": 15,
-    }
+    Array [
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      },
+      null,
+    ]
   }
 >
   <Flex
@@ -95,9 +99,13 @@ exports[`renders correctly 1`] = `
 exports[`renders correctly as mine 1`] = `
 <Component
   style={
-    Object {
-      "marginTop": 15,
-    }
+    Array [
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      },
+      null,
+    ]
   }
 >
   <Flex
@@ -155,6 +163,104 @@ exports[`renders correctly as mine 1`] = `
         </MyText>
       </Component>
     </TouchableIOS>
+  </Flex>
+</Component>
+`;
+
+exports[`renders editing correctly 1`] = `
+<Component
+  style={
+    Array [
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      },
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.5)",
+      },
+    ]
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+  >
+    <Connect(Translate(CelebrateItemName))
+      customContent={
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "paddingLeft": 10,
+              "paddingRight": 5,
+            }
+          }
+        >
+          Roge Goers
+        </MyText>
+      }
+      name="Roge Goers"
+      organization={
+        Object {
+          "id": "7342342",
+        }
+      }
+      person={
+        Object {
+          "first_name": "Roge",
+          "id": "notme",
+          "last_name": "Goers",
+        }
+      }
+      pressable={true}
+    />
+    <CardTime
+      date="2018-06-11 12:00:00 UTC"
+    />
+  </Flex>
+  <Flex
+    direction="row"
+  >
+    <TouchableIOS
+      onLongPress={[Function]}
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "marginVertical": 5,
+              "paddingHorizontal": 13,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "paddingVertical": 3,
+              },
+              null,
+            ]
+          }
+        >
+          hello roge
+        </MyText>
+      </Component>
+    </TouchableIOS>
+    <Flex
+      value={1}
+    />
   </Flex>
 </Component>
 `;

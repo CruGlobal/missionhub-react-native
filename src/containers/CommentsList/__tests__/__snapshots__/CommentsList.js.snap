@@ -42,8 +42,7 @@ exports[`with comments with next page renders correctly 1`] = `
   scrollEventThrottle={50}
   style={
     Object {
-      "paddingBottom": 15,
-      "paddingHorizontal": 20,
+      "paddingVertical": 15,
     }
   }
   updateCellsBatchingPeriod={50}
@@ -107,8 +106,7 @@ exports[`with comments without next page renders correctly 1`] = `
   scrollEventThrottle={50}
   style={
     Object {
-      "paddingBottom": 15,
-      "paddingHorizontal": 20,
+      "paddingVertical": 15,
     }
   }
   updateCellsBatchingPeriod={50}
@@ -143,8 +141,7 @@ exports[`with no comments renders correctly 1`] = `
   scrollEventThrottle={50}
   style={
     Object {
-      "paddingBottom": 15,
-      "paddingHorizontal": 20,
+      "paddingVertical": 15,
     }
   }
   updateCellsBatchingPeriod={50}

@@ -20,11 +20,11 @@ export default class IconButton extends Component {
       name,
       type,
       style = {},
-      onPress,
-      pressProps,
+      onPress, // eslint-disable-line no-unused-vars
+      pressProps, // eslint-disable-line no-unused-vars
       buttonStyle,
       ...rest
-    } = this.props; // eslint-disable-line no-unused-vars
+    } = this.props;
 
     return (
       <Button
