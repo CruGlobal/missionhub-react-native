@@ -8,7 +8,7 @@ import { getPagination } from '../utils/common';
 
 const initialState = {
   all: {},
-  editingComment: null,
+  editingCommentId: null,
 };
 
 export default function celebrateCommentsReducer(state = initialState, action) {
@@ -24,12 +24,13 @@ export default function celebrateCommentsReducer(state = initialState, action) {
     case SET_CELEBRATE_EDITING_COMMENT:
       return {
         ...state,
-        editingComment: action.comment,
+        editingCommentId: action.commentId,
       };
     case RESET_CELEBRATE_EDITING_COMMENT:
       return {
         ...state,
-        editingComment: null,
+        editingCommentId: null,
+        editingComment: undefined,
       };
     case LOGOUT:
       return initialState;

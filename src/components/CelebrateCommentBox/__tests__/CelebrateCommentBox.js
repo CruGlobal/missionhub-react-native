@@ -9,10 +9,12 @@ import {
   updateCelebrateComment,
 } from '../../../actions/celebrateComments';
 import { celebrationItemSelector } from '../../../selectors/celebration';
+import { celebrateCommentsCommentSelector } from '../../../selectors/celebrateComments';
 
 import CelebrateCommentBox from '..';
 
 jest.mock('../../../selectors/celebration');
+jest.mock('../../../selectors/celebrateComments');
 jest.mock('../../../actions/celebrateComments');
 
 const mockStore = configureStore([thunk]);
@@ -42,7 +44,7 @@ beforeEach(() => {
   store = mockStore({
     organizations: [],
     celebrateComments: {
-      editingComment: null,
+      editingCommentId: null,
     },
   });
 
@@ -50,18 +52,6 @@ beforeEach(() => {
 });
 
 it('renders correctly', () => {
-  expect(screen).toMatchSnapshot();
-});
-
-it('renders editing correctly', () => {
-  store = mockStore({
-    organizations: [],
-    celebrateComments: {
-      editingComment,
-    },
-  });
-
-  screen = renderShallow(<CelebrateCommentBox event={event} />, store);
   expect(screen).toMatchSnapshot();
 });
 
@@ -74,6 +64,19 @@ describe('onSubmit', () => {
     expect(createCelebrateComment).toHaveBeenCalledWith(event, text);
     expect(store.getActions()).toEqual([createCelebrateCommentResult]);
   });
+});
+
+it('renders editing correctly', () => {
+  celebrateCommentsCommentSelector.mockReturnValue(editingComment);
+  store = mockStore({
+    organizations: [],
+    celebrateComments: {
+      editingCommentId: editingComment.id,
+    },
+  });
+
+  screen = renderShallow(<CelebrateCommentBox event={event} />, store);
+  expect(screen).toMatchSnapshot();
 });
 
 it('onCancel', () => {
@@ -89,10 +92,11 @@ it('componentWillUnmount', () => {
 });
 
 it('calls update', () => {
+  celebrateCommentsCommentSelector.mockReturnValue(editingComment);
   store = mockStore({
     organizations: [],
     celebrateComments: {
-      editingComment,
+      editingCommentId: editingComment.id,
     },
   });
 

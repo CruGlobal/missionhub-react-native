@@ -10,7 +10,7 @@ jest.mock('../../utils/common');
 
 beforeEach(() => jest.clearAllMocks());
 
-const editingComment = null;
+const editingCommentId = null;
 const getPaginationResult = { page: 4 };
 const pagination = getPaginationResult;
 getPagination.mockReturnValue(getPaginationResult);
@@ -31,7 +31,7 @@ describe('REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS', () => {
         all: {
           [eventId]: expect.objectContaining({ comments: response }),
         },
-        editingComment,
+        editingCommentId,
       });
     });
   });
@@ -52,7 +52,7 @@ describe('state has existing comments', () => {
     all: {
       [eventId]: { comments: existingComments },
     },
-    editingComment,
+    editingCommentId,
   };
 
   it('should add objects from next page', () => {
@@ -68,7 +68,7 @@ describe('state has existing comments', () => {
           pagination,
         },
       },
-      editingComment,
+      editingCommentId,
     });
   });
 
@@ -79,7 +79,7 @@ describe('state has existing comments', () => {
       all: {
         [eventId]: expect.objectContaining({ comments: response }),
       },
-      editingComment,
+      editingCommentId,
     });
   });
   it('should update pagination data', () => {
@@ -87,7 +87,7 @@ describe('state has existing comments', () => {
       all: {
         [eventId]: expect.objectContaining({ pagination: getPaginationResult }),
       },
-      editingComment,
+      editingCommentId,
     });
     expect(getPagination).toHaveBeenCalledWith(baseAction, response.length);
   });
@@ -192,10 +192,10 @@ it('sets editing comment', () => {
     {},
     {
       type: SET_CELEBRATE_EDITING_COMMENT,
-      comment,
+      commentId: comment.id,
     },
   );
-  expect(state.editingComment).toEqual(comment);
+  expect(state.editingCommentId).toEqual(comment.id);
 });
 
 it('resets editing comment', () => {
@@ -205,5 +205,5 @@ it('resets editing comment', () => {
       type: RESET_CELEBRATE_EDITING_COMMENT,
     },
   );
-  expect(state.editingComment).toEqual(null);
+  expect(state.editingCommentId).toEqual(null);
 });

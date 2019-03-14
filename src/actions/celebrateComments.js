@@ -7,10 +7,10 @@ import { celebrateCommentsSelector } from '../selectors/celebrateComments';
 
 import callApi, { REQUESTS } from './api';
 
-export function setCelebrateEditingComment(comment) {
+export function setCelebrateEditingComment(commentId) {
   return dispatch => {
     dispatch(resetCelebrateEditingComment());
-    dispatch({ type: SET_CELEBRATE_EDITING_COMMENT, comment });
+    dispatch({ type: SET_CELEBRATE_EDITING_COMMENT, commentId });
   };
 }
 

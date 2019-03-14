@@ -1,4 +1,5 @@
 import React from 'react';
+import { Keyboard } from 'react-native';
 import MockDate from 'mockdate';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
@@ -32,8 +33,6 @@ const action = {
 const addNewInteractionResult = { type: 'added interaction' };
 const initialState = {
   text: '',
-  isFocused: false,
-  isEditing: false,
   showActions: false,
   action: null,
 };
@@ -72,20 +71,6 @@ it('handles action press', () => {
   expect(instance.state.showActions).toEqual(true);
 });
 
-it('handles focus', () => {
-  const instance = renderShallow(<CommentBox {...props} />).instance();
-  instance.focus();
-
-  expect(instance.state.isFocused).toEqual(true);
-});
-
-it('handles blur', () => {
-  const instance = renderShallow(<CommentBox {...props} />).instance();
-  instance.blur();
-
-  expect(instance.state.isFocused).toEqual(false);
-});
-
 it('handles cancel', () => {
   const instance = renderShallow(<CommentBox {...props} />).instance();
   instance.cancel();
@@ -101,7 +86,6 @@ it('handles start edit', () => {
   instance.commentInput = { focus };
   instance.startEdit(comment);
 
-  expect(instance.state.isEditing).toEqual(true);
   expect(instance.state.text).toEqual(comment.content);
   expect(focus).toHaveBeenCalled();
 });
@@ -119,13 +103,6 @@ it('handles select and clear action', () => {
 it('renders with text', () => {
   const component = renderShallow(<CommentBox {...props} />).setState({
     text: 'test',
-  });
-  expect(component).toMatchSnapshot();
-});
-
-it('renders focused', () => {
-  const component = renderShallow(<CommentBox {...props} />).setState({
-    isFocused: true,
   });
   expect(component).toMatchSnapshot();
 });
@@ -153,15 +130,14 @@ it('renders without actions and selected action', () => {
   expect(component).toMatchSnapshot();
 });
 
-it('UNSAFE_componentWillReceiveProps', () => {
+it('componentDidUpdate', () => {
   const shallowScreen = renderShallow(<CommentBox {...props} />);
   jest.spyOn(shallowScreen.instance(), 'startEdit');
   shallowScreen.instance().commentInput = { focus: jest.fn() };
 
   const comment = { id: 'editing' };
-  shallowScreen
-    .instance()
-    .UNSAFE_componentWillReceiveProps({ editingComment: comment });
+  shallowScreen.setProps({ editingComment: comment });
+  shallowScreen.instance().componentDidUpdate({ editingComment: null });
 
   expect(shallowScreen.instance().startEdit).toHaveBeenCalledWith(comment);
 });
@@ -206,6 +182,7 @@ describe('click submit button', () => {
 
   it('calls onSubmit prop', async () => {
     const onSubmit = jest.fn();
+    Keyboard.dismiss = jest.fn();
     component = renderShallow(
       <CommentBox
         {...props}
@@ -220,5 +197,6 @@ describe('click submit button', () => {
     await clickSubmit();
 
     expect(onSubmit).toHaveBeenCalledWith(null, text);
+    expect(Keyboard.dismiss).toHaveBeenCalled();
   });
 });

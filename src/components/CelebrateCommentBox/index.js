@@ -9,6 +9,7 @@ import {
   updateCelebrateComment,
 } from '../../actions/celebrateComments';
 import { celebrationItemSelector } from '../../selectors/celebration';
+import { celebrateCommentsCommentSelector } from '../../selectors/celebrateComments';
 
 import styles from './styles';
 
@@ -52,7 +53,10 @@ CelebrateCommentBox.propTypes = {
 };
 
 const mapStateToProps = ({ organizations, celebrateComments }, { event }) => ({
-  editingComment: celebrateComments.editingComment,
+  editingComment: celebrateCommentsCommentSelector(
+    { celebrateComments },
+    { eventId: event.id, commentId: celebrateComments.editingCommentId },
+  ),
   event:
     celebrationItemSelector(
       { organizations },

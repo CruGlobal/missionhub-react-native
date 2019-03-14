@@ -164,14 +164,14 @@ it('resetCelebrateEditingComment', () => {
 
 it('setCelebrateEditingComment', () => {
   const comment = { id: 'test' };
-  store.dispatch(setCelebrateEditingComment(comment));
+  store.dispatch(setCelebrateEditingComment(comment.id));
   expect(store.getActions()).toEqual([
     {
       type: RESET_CELEBRATE_EDITING_COMMENT,
     },
     {
       type: SET_CELEBRATE_EDITING_COMMENT,
-      comment,
+      commentId: comment.id,
     },
   ]);
 });

@@ -28,7 +28,7 @@ let store;
 beforeEach(() => {
   store = configureStore([thunk])({
     auth: { person: me },
-    celebrateComments: { editingComment: null },
+    celebrateComments: { editingCommentId: null },
   });
   screen = renderShallow(
     <CommentItem
@@ -47,7 +47,7 @@ it('renders correctly', () => {
 it('renders editing correctly', () => {
   store = configureStore([thunk])({
     auth: { person: me },
-    celebrateComments: { editingComment: item },
+    celebrateComments: { editingCommentId: item.id },
   });
   screen = renderShallow(
     <CommentItem

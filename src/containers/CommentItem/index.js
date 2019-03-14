@@ -74,11 +74,11 @@ CommentItem.propTypes = {
   isMine: PropTypes.bool,
 };
 const mapStateToProps = (
-  { auth, celebrateComments: { editingComment } },
+  { auth, celebrateComments: { editingCommentId } },
   { item },
 ) => ({
   me: auth.person,
-  isEditing: editingComment ? editingComment.id === item.id : false,
+  isEditing: editingCommentId === item.id,
 });
 
 export default connect(mapStateToProps)(CommentItem);

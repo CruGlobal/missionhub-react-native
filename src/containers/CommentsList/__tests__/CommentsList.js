@@ -283,7 +283,7 @@ describe('comment action for author', () => {
   it('handleEdit', () => {
     common.showMenu = jest.fn(a => a[0].onPress());
     instance.handleLongPress(comment, 'testRef');
-    expect(setCelebrateEditingComment).toHaveBeenCalledWith(comment);
+    expect(setCelebrateEditingComment).toHaveBeenCalledWith(comment.id);
   });
   it('handleDelete', () => {
     common.showMenu = jest.fn(a => a[1].onPress());

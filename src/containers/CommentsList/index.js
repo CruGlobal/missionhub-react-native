@@ -46,7 +46,7 @@ class CommentsList extends Component {
   };
 
   handleEdit = item => {
-    this.props.dispatch(setCelebrateEditingComment(item));
+    this.props.dispatch(setCelebrateEditingComment(item.id));
   };
 
   handleDelete = item => {

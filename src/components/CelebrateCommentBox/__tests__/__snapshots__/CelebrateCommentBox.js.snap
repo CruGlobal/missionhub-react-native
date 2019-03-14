@@ -7,7 +7,6 @@ exports[`renders correctly 1`] = `
       "backgroundColor": "#C5C7CB",
     }
   }
-  editingComment={null}
   hideActions={true}
   onCancel={[Function]}
   onSubmit={[Function]}
