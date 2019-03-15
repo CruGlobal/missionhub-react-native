@@ -30,7 +30,6 @@ export default function celebrateCommentsReducer(state = initialState, action) {
       return {
         ...state,
         editingCommentId: null,
-        editingComment: undefined,
       };
     case LOGOUT:
       return initialState;
