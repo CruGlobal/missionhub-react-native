@@ -157,6 +157,8 @@ import {
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
   ADD_MY_STEP_FLOW,
   ADD_PERSON_STEP_FLOW,
+  SELECT_MY_STAGE_FLOW,
+  SELECT_PERSON_STAGE_FLOW,
 } from './routes/constants';
 import {
   JoinByCodeFlowNavigator,
@@ -187,6 +189,14 @@ import {
   AddPersonStepFlowNavigator,
   AddPersonStepFlowScreens,
 } from './routes/steps/addPersonStepFlow';
+import {
+  SelectMyStageFlowNavigator,
+  SelectMyStageFlowScreens,
+} from './routes/stage/selectMyStageFlow';
+import {
+  SelectPersonStageFlowNavigator,
+  SelectPersonStageFlowScreens,
+} from './routes/stage/selectPersonStageFlow';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -482,6 +492,8 @@ const screens = {
   [COMPLETE_STEP_FLOW_NAVIGATE_BACK]: CompleteStepFlowAndNavigateBackNavigator,
   [ADD_MY_STEP_FLOW]: AddMyStepFlowNavigator,
   [ADD_PERSON_STEP_FLOW]: AddPersonStepFlowNavigator,
+  [SELECT_MY_STAGE_FLOW]: SelectMyStageFlowNavigator,
+  [SELECT_PERSON_STAGE_FLOW]: SelectPersonStageFlowNavigator,
 };
 
 export const trackableScreens = {

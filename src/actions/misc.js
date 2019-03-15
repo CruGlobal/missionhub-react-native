@@ -43,7 +43,7 @@ export function openCommunicationLink(url, action) {
       .catch(err => WARN('An unexpected error happened', err));
 }
 
-export function loadStepsAndJourney({ id: personId }, { id: organizationId }) {
+export function loadStepsAndJourney(personId, organizationId) {
   return dispatch => {
     dispatch(getContactSteps(personId, organizationId));
     dispatch(reloadJourney(personId, organizationId));
@@ -89,7 +89,7 @@ export function assignContactAndPickStage(person, organization) {
         contactAssignmentId: contactAssignment.id,
         name: resultPerson.first_name,
         onComplete: () => {
-          dispatch(loadStepsAndJourney(resultPerson, organization));
+          dispatch(loadStepsAndJourney(personId, orgId));
         },
         section: 'people',
         subsection: 'person',
@@ -117,7 +117,7 @@ export function navigateToStageScreen(
                 user: { pathway_stage_id: stage.id },
               }),
             );
-            dispatch(loadStepsAndJourney(person, organization));
+            dispatch(loadStepsAndJourney(person.id, organization.id));
             onComplete && onComplete(stage);
           },
           firstItem: firstItemIndex,
@@ -144,7 +144,7 @@ export function navigateToStageScreen(
                   }),
                 )
               : dispatch(getPersonDetails(person.id, organization.id));
-            dispatch(loadStepsAndJourney(person, organization));
+            dispatch(loadStepsAndJourney(person.id, organization.id));
             onComplete && onComplete(stage);
           },
           firstItem: firstItemIndex,
