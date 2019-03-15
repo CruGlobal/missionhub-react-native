@@ -4,12 +4,11 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { addSteps } from '../../actions/steps';
-import { navigateBack } from '../../actions/navigation';
 import StepDetailScreen from '../../components/StepDetailScreen';
 
 @translate('suggestedStepDetail')
 class SuggestedStepSetailScreen extends Component {
-  addStep = async () => {
+  addStep = () => {
     const { dispatch, step, receiverId, orgId, onComplete } = this.props;
 
     dispatch(addSteps([step], receiverId, { id: orgId }));

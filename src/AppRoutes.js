@@ -155,6 +155,8 @@ import {
   JOIN_BY_CODE_ONBOARDING_FLOW,
   COMPLETE_STEP_FLOW,
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
+  ADD_MY_STEP_FLOW,
+  ADD_PERSON_STEP_FLOW,
 } from './routes/constants';
 import {
   JoinByCodeFlowNavigator,
@@ -177,6 +179,14 @@ import {
   CompleteStepFlowAndNavigateBackNavigator,
   CompleteStepFlowScreens,
 } from './routes/steps/completeStepFlow';
+import {
+  AddMyStepFlowNavigator,
+  AddMyStepFlowScreens,
+} from './routes/steps/addMyStepFlow';
+import {
+  AddPersonStepFlowNavigator,
+  AddPersonStepFlowScreens,
+} from './routes/steps/addPersonStepFlow';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -470,6 +480,8 @@ const screens = {
   [DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityUnauthenticatedNavigator,
   [COMPLETE_STEP_FLOW]: CompleteStepFlowNavigator,
   [COMPLETE_STEP_FLOW_NAVIGATE_BACK]: CompleteStepFlowAndNavigateBackNavigator,
+  [ADD_MY_STEP_FLOW]: AddMyStepFlowNavigator,
+  [ADD_PERSON_STEP_FLOW]: AddPersonStepFlowNavigator,
 };
 
 export const trackableScreens = {
