@@ -234,9 +234,9 @@ describe('handleCreateStep', () => {
       instance.handleCreateStep();
 
       expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
-        onSaveNewSteps: expect.any(Function),
         enableBackButton: true,
         trackingObj,
+        next: expect.any(Function),
       });
     });
   });
@@ -285,7 +285,6 @@ describe('handleCreateStep', () => {
         contactId: mockPerson.id,
         contact: mockPerson,
         organization: undefined,
-        onSaveNewSteps: expect.any(Function),
         createStepTracking: buildTrackingObj(
           'people : person : steps : create',
           'people',
@@ -293,6 +292,7 @@ describe('handleCreateStep', () => {
           'steps',
         ),
         trackingObj,
+        next: expect.any(Function),
       });
     });
   });

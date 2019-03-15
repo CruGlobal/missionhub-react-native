@@ -52,10 +52,10 @@ class ContactSteps extends Component {
     this.getSteps();
   };
 
-  handleSaveNewSteps = async () => {
+  handleSaveNewSteps = () => async dispatch => {
     await this.getSteps();
     this.list && this.list.scrollToEnd();
-    this.props.dispatch(navigateBack());
+    dispatch(navigateBack());
   };
 
   handleNavToStage() {
@@ -88,11 +88,9 @@ class ContactSteps extends Component {
       dispatch(
         navigatePush(SELECT_MY_STEP_SCREEN, {
           ...trackingParams,
-          onSaveNewSteps: () => {
-            this.handleSaveNewSteps();
-          },
           enableBackButton: true,
           organization,
+          next: this.handleSaveNewSteps,
         }),
       );
     } else {
@@ -103,15 +101,13 @@ class ContactSteps extends Component {
           contactId: person.id,
           contact: person,
           organization,
-          onSaveNewSteps: () => {
-            this.handleSaveNewSteps();
-          },
           createStepTracking: buildTrackingObj(
             `people : ${subsection} : steps : create`,
             'people',
             subsection,
             'steps',
           ),
+          next: this.handleSaveNewSteps,
         }),
       );
     }

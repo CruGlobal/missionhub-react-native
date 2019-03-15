@@ -3,7 +3,7 @@ import { NavigationActions, StackActions } from 'react-navigation';
 export function navigatePush(screen, props = {}) {
   return dispatch => {
     dispatch(
-      NavigationActions.navigate({
+      StackActions.push({
         routeName: screen,
         params: props,
       }),
@@ -11,10 +11,10 @@ export function navigatePush(screen, props = {}) {
   };
 }
 
-export function navigateBack(times) {
+export function navigateBack(times, immediate = true) {
   return dispatch => {
     if (times && times > 1) {
-      dispatch(StackActions.pop({ n: times, immediate: true }));
+      dispatch(StackActions.pop({ n: times, immediate }));
     } else {
       dispatch(NavigationActions.back());
     }

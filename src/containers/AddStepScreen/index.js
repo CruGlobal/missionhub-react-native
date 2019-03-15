@@ -4,12 +4,9 @@ import { View, Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { navigateBack } from '../../actions/navigation';
-import { updateChallengeNote } from '../../actions/steps';
-import { trackAction } from '../../actions/analytics';
 import { Button, Flex, Input } from '../../components/common';
 import theme from '../../theme';
-import { STEP_NOTE, CREATE_STEP, ACTIONS } from '../../constants';
+import { STEP_NOTE, CREATE_STEP } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
@@ -54,16 +51,13 @@ class AddStepScreen extends Component {
     }
   };
 
+  next = text => {
+    const { next, dispatch, stepId, personId, orgId } = this.props;
+    dispatch(next({ text, stepId, personId, orgId }));
+  };
+
   saveStep() {
-    const {
-      type,
-      dispatch,
-      next,
-      onComplete,
-      stepId,
-      personId,
-      orgId,
-    } = this.props;
+    const { type } = this.props;
     Keyboard.dismiss();
 
     const text = (this.state.step || '').trim();
@@ -72,40 +66,15 @@ class AddStepScreen extends Component {
     }
     if (type === STEP_NOTE) {
       disableBack.remove();
-
-      if (next) {
-        if (text) {
-          dispatch(updateChallengeNote(stepId, text));
-          dispatch(
-            trackAction(ACTIONS.INTERACTION.name, {
-              [ACTIONS.INTERACTION.COMMENT]: null,
-            }),
-          );
-        }
-
-        return dispatch(next({ personId, orgId }));
-      }
     }
 
-    onComplete(text);
-
-    if (type !== STEP_NOTE) {
-      dispatch(navigateBack());
-    }
+    this.next(text);
   }
 
   skip() {
-    const { type, dispatch, next, onComplete, personId, orgId } = this.props;
     Keyboard.dismiss();
 
-    if (type === STEP_NOTE && next) {
-      return dispatch(next({ personId, orgId }));
-    }
-
-    onComplete(null);
-    if (type === 'interaction') {
-      dispatch(navigateBack());
-    }
+    this.next();
   }
 
   getButtonText() {
@@ -187,7 +156,6 @@ class AddStepScreen extends Component {
 
 AddStepScreen.propTypes = {
   next: PropTypes.func,
-  onComplete: PropTypes.func,
   type: PropTypes.oneOf([
     'journey',
     'editJourney',

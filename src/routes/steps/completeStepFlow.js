@@ -5,7 +5,7 @@ import { wrapNextAction, wrapNextScreen } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
 import { reloadJourney } from '../../actions/journey';
-import { RESET_STEP_COUNT } from '../../constants';
+import { RESET_STEP_COUNT, ACTIONS } from '../../constants';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import StageScreen, { STAGE_SCREEN } from '../../containers/StageScreen';
 import PersonStageScreen, {
@@ -20,13 +20,15 @@ import PersonSelectStepScreen, {
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
+import { updateChallengeNote } from '../../actions/steps';
+import { trackAction } from '../../actions/analytics';
 
 import { paramsforStageNavigation } from './utils';
 
 export const CompleteStepFlowScreens = onFlowComplete => ({
   [ADD_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
-    ({ personId, orgId }) => (dispatch, getState) => {
+    ({ text, stepId, personId, orgId }) => (dispatch, getState) => {
       const {
         isMe,
         hasHitCount,
@@ -37,6 +39,15 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
         assignment,
         name,
       } = paramsforStageNavigation(personId, orgId, getState);
+
+      if (text) {
+        dispatch(updateChallengeNote(stepId, text));
+        dispatch(
+          trackAction(ACTIONS.INTERACTION.name, {
+            [ACTIONS.INTERACTION.COMMENT]: null,
+          }),
+        );
+      }
 
       // If person hasn't hit the count and they're NOT on the "not sure" stage
       // Send them through to celebrate and complete

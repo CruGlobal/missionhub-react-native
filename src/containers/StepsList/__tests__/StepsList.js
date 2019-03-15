@@ -45,6 +45,8 @@ const suggestedForOthers = {
 
 const insertNameResult = [{ body: 'take a step with roge' }];
 
+const next = jest.fn();
+
 beforeEach(() => {
   jest.clearAllMocks();
 
@@ -59,6 +61,7 @@ beforeEach(() => {
       organization={organization}
       receiverId={receiverId}
       contactName={contactName}
+      next={next}
     />,
     store,
   );

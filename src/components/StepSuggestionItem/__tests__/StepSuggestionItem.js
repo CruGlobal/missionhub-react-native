@@ -14,7 +14,7 @@ const step = {
   body: 'Step of Faith',
 };
 
-const props = { receiverId, orgId, step };
+const props = { receiverId, orgId, step, next: 'hello world' };
 
 navigatePush.mockReturnValue({ type: 'navigate push' });
 
