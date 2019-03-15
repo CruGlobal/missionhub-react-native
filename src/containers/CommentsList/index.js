@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { FlatList } from 'react-native';
-import i18n from 'i18next';
+import { Alert, FlatList } from 'react-native';
+import { translate } from 'react-i18next';
 
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import {
@@ -21,6 +21,7 @@ import { ORG_PERMISSIONS } from '../../constants';
 
 import styles from './styles';
 
+@translate('commentsList')
 class CommentsList extends Component {
   state = {
     refreshing: false,
@@ -51,32 +52,58 @@ class CommentsList extends Component {
 
   handleDelete = item => {
     const { dispatch, event } = this.props;
-    dispatch(deleteCelebrateComment(event, item));
+
+    const { t } = this.props;
+    Alert.alert(t('deletePostHeader'), t('deleteAreYouSure'), [
+      {
+        text: t('cancel'),
+        style: 'cancel',
+      },
+      {
+        text: t('deletePost'),
+        onPress: () => {
+          dispatch(deleteCelebrateComment(event, item));
+        },
+      },
+    ]);
   };
 
   // eslint-disable-next-line
   handleReport = item => {
-    // TODO: Report comment
+    const { t } = this.props;
+    Alert.alert(t('reportToOwnerHeader'), t('reportAreYouSure'), [
+      {
+        text: t('cancel'),
+        style: 'cancel',
+      },
+      {
+        text: t('reportPost'),
+        onPress: () => {
+          // dispatch(reportCelebrateComment(event, item));
+        },
+      },
+    ]);
   };
 
   keyExtractor = i => i.id;
 
   handleLongPress = (item, componentRef) => {
     const {
+      t,
       event: { organization },
       me,
     } = this.props;
 
     const actions = [];
     const deleteAction = {
-      text: i18n.t('delete'),
+      text: t('deletePost'),
       onPress: () => this.handleDelete(item),
       destructive: true,
     };
 
     if (me.id === item.person.id) {
       actions.push({
-        text: i18n.t('edit'),
+        text: t('editPost'),
         onPress: () => this.handleEdit(item),
       });
       actions.push(deleteAction);
@@ -90,9 +117,8 @@ class CommentsList extends Component {
         actions.push(deleteAction);
       } else {
         actions.push({
-          text: i18n.t('report'),
+          text: t('reportToOwner'),
           onPress: () => this.handleReport(item),
-          destructive: true,
         });
       }
     }

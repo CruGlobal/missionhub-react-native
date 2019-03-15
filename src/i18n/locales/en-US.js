@@ -711,7 +711,16 @@ export default {
     haveCode: 'I have a Community Code',
     member: 'Already a Member?',
   },
-  editComment: {
-    saveChanges: 'Save Changes',
+  commentsList: {
+    editPost: 'Edit Post',
+    deletePost: 'Delete Post',
+    reportPost: 'Report Post',
+    reportToOwner: 'Report to Owner',
+    reportToOwnerHeader: 'Report to Owner?',
+    reportAreYouSure:
+      'Are you sure you want to report this comment to the community owner?',
+    deletePostHeader: 'Delete Post?',
+    deleteAreYouSure:
+      'This post will be deleted and you won’t be able to find it anymore.',
   },
 };

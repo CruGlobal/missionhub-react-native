@@ -1,5 +1,6 @@
-import 'react-native';
+/* eslint-disable max-lines */
 import React from 'react';
+import { Alert } from 'react-native';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import i18n from 'i18next';
@@ -63,6 +64,7 @@ setCelebrateEditingComment.mockReturnValue(dispatch =>
   dispatch(setCelebrateEditingCommentResult),
 );
 navigatePush.mockReturnValue(dispatch => dispatch(navigatePushResult));
+Alert.alert = jest.fn();
 
 const me = { id: '1' };
 
@@ -167,11 +169,11 @@ describe('comments sets up actions as author', () => {
     expect(common.showMenu).toHaveBeenCalledWith(
       [
         {
-          text: i18n.t('edit'),
+          text: i18n.t('commentsList:editPost'),
           onPress: expect.any(Function),
         },
         {
-          text: i18n.t('delete'),
+          text: i18n.t('commentsList:deletePost'),
           onPress: expect.any(Function),
           destructive: true,
         },
@@ -207,7 +209,7 @@ describe('comments sets up actions as owner', () => {
     expect(common.showMenu).toHaveBeenCalledWith(
       [
         {
-          text: i18n.t('delete'),
+          text: i18n.t('commentsList:deletePost'),
           onPress: expect.any(Function),
           destructive: true,
         },
@@ -246,9 +248,8 @@ describe('comments sets up actions as user', () => {
     expect(common.showMenu).toHaveBeenCalledWith(
       [
         {
-          text: i18n.t('report'),
+          text: i18n.t('commentsList:reportToOwner'),
           onPress: expect.any(Function),
-          destructive: true,
         },
       ],
       'testRef',
@@ -286,9 +287,24 @@ describe('comment action for author', () => {
     expect(setCelebrateEditingComment).toHaveBeenCalledWith(comment.id);
   });
   it('handleDelete', () => {
+    Alert.alert = jest.fn((a, b, c) => c[1].onPress());
     common.showMenu = jest.fn(a => a[1].onPress());
     instance.handleLongPress(comment, 'testRef');
     expect(deleteCelebrateComment).toHaveBeenCalledWith(event, comment);
+    expect(Alert.alert).toHaveBeenCalledWith(
+      i18n.t('commentsList:deletePostHeader'),
+      i18n.t('commentsList:deleteAreYouSure'),
+      [
+        {
+          text: i18n.t('cancel'),
+          style: 'cancel',
+        },
+        {
+          text: i18n.t('commentsList:deletePost'),
+          onPress: expect.any(Function),
+        },
+      ],
+    );
   });
 });
 
@@ -315,11 +331,24 @@ describe('comment action for user', () => {
     });
 
     instance = screen.instance();
-    instance.handleReport = jest.fn();
   });
   it('handleReport', () => {
+    Alert.alert = jest.fn((a, b, c) => c[1].onPress());
     common.showMenu = jest.fn(a => a[0].onPress());
     instance.handleLongPress(comment, 'testRef');
-    expect(instance.handleReport).toHaveBeenCalledWith(comment);
+    expect(Alert.alert).toHaveBeenCalledWith(
+      i18n.t('commentsList:reportToOwnerHeader'),
+      i18n.t('commentsList:reportAreYouSure'),
+      [
+        {
+          text: i18n.t('cancel'),
+          style: 'cancel',
+        },
+        {
+          text: i18n.t('commentsList:reportPost'),
+          onPress: expect.any(Function),
+        },
+      ],
+    );
   });
 });
