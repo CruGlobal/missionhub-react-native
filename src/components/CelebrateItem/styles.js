@@ -9,7 +9,6 @@ export default StyleSheet.create({
   description: {
     paddingTop: 12,
     fontSize: 14,
-    minHeight: 70, // Any lower and the text may get cut off
   },
   challengeLinkButton: {
     marginTop: 4,

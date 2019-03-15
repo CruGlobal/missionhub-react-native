@@ -71,7 +71,6 @@ class CelebrateDetailScreen extends Component {
     const {
       white,
       grey,
-      parallaxHeaderHeight,
       headerHeight,
       statusBar: { darkContent },
     } = theme;
@@ -82,7 +81,7 @@ class CelebrateDetailScreen extends Component {
         <ParallaxScrollView
           backgroundColor={white}
           contentBackgroundColor={grey}
-          parallaxHeaderHeight={parallaxHeaderHeight}
+          parallaxHeaderHeight={180}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={headerHeight}
           renderStickyHeader={this.renderStickyHeader}
