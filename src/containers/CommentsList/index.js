@@ -51,37 +51,43 @@ class CommentsList extends Component {
     this.props.dispatch(setCelebrateEditingComment(item.id));
   };
 
-  handleDelete = item => {
-    const { t, dispatch, event } = this.props;
-    Alert.alert(t('deletePostHeader'), t('deleteAreYouSure'), [
+  alert = ({ title, message, actionText, action }) => {
+    const { t } = this.props;
+    Alert.alert(title, message, [
       {
         text: t('cancel'),
         style: 'cancel',
       },
       {
-        text: t('deletePost'),
-        onPress: () => {
-          dispatch(deleteCelebrateComment(event, item));
-        },
+        text: actionText,
+        onPress: action,
       },
     ]);
   };
 
-  // eslint-disable-next-line
+  handleDelete = item => {
+    const { t, dispatch, event } = this.props;
+
+    this.alert({
+      title: t('deletePostHeader'),
+      message: t('deleteAreYouSure'),
+      actionText: t('deletePost'),
+      action: () => {
+        dispatch(deleteCelebrateComment(event, item));
+      },
+    });
+  };
+
   handleReport = item => {
-    const { t, event, dispatch } = this.props;
-    Alert.alert(t('reportToOwnerHeader'), t('reportAreYouSure'), [
-      {
-        text: t('cancel'),
-        style: 'cancel',
+    const { t, dispatch, event } = this.props;
+    this.alert({
+      title: t('reportToOwnerHeader'),
+      message: t('reportAreYouSure'),
+      actionText: t('reportPost'),
+      action: () => {
+        dispatch(reportComment(event, item));
       },
-      {
-        text: t('reportPost'),
-        onPress: () => {
-          dispatch(reportComment(event, item));
-        },
-      },
-    ]);
+    });
   };
 
   keyExtractor = i => i.id;
