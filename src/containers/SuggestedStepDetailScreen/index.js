@@ -8,7 +8,7 @@ import { navigateBack } from '../../actions/navigation';
 import StepDetailScreen from '../../components/StepDetailScreen';
 
 @translate('suggestedStepDetail')
-class SuggestedStepSetailScreen extends Component {
+class SuggestedStepDetailScreen extends Component {
   addStep = async () => {
     const { dispatch, step, receiverId, orgId } = this.props;
 
@@ -38,7 +38,7 @@ class SuggestedStepSetailScreen extends Component {
   }
 }
 
-SuggestedStepSetailScreen.propTypes = {
+SuggestedStepDetailScreen.propTypes = {
   step: PropTypes.object.isRequired,
   receiverId: PropTypes.string.isRequired,
   orgId: PropTypes.string,
@@ -58,5 +58,5 @@ const mapStateToProps = (
   receiverId,
   orgId,
 });
-export default connect(mapStateToProps)(SuggestedStepSetailScreen);
+export default connect(mapStateToProps)(SuggestedStepDetailScreen);
 export const SUGGESTED_STEP_DETAIL_SCREEN = 'nav/SUGGESTED_STEP_DETAIL_SCREEN';
