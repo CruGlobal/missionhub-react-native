@@ -11,6 +11,7 @@ import {
   deleteCelebrateComment,
   setCelebrateEditingComment,
   resetCelebrateEditingComment,
+  reportComment,
 } from '../../actions/celebrateComments';
 import LoadMore from '../../components/LoadMore';
 import RefreshControl from '../../components/RefreshControl';
@@ -51,9 +52,7 @@ class CommentsList extends Component {
   };
 
   handleDelete = item => {
-    const { dispatch, event } = this.props;
-
-    const { t } = this.props;
+    const { t, dispatch, event } = this.props;
     Alert.alert(t('deletePostHeader'), t('deleteAreYouSure'), [
       {
         text: t('cancel'),
@@ -70,7 +69,7 @@ class CommentsList extends Component {
 
   // eslint-disable-next-line
   handleReport = item => {
-    const { t } = this.props;
+    const { t, event, dispatch } = this.props;
     Alert.alert(t('reportToOwnerHeader'), t('reportAreYouSure'), [
       {
         text: t('cancel'),
@@ -79,7 +78,7 @@ class CommentsList extends Component {
       {
         text: t('reportPost'),
         onPress: () => {
-          // dispatch(reportCelebrateComment(event, item));
+          dispatch(reportComment(event, item));
         },
       },
     ]);

@@ -12,8 +12,15 @@ import {
 import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
-import { momentUtc, refresh } from '../../utils/common';
+import { momentUtc, refresh, isOwner } from '../../utils/common';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
+import Flex from '../../components/Flex';
+import { Touchable, Icon, Text, Card } from '../../components/common';
+import { navigatePush } from '../../actions/navigation';
+import { orgPermissionSelector } from '../../selectors/people';
+
+import { GROUPS_REPORT_SCREEN } from './GroupReport';
+import styles from './styles';
 
 @translate('groupsCelebrate')
 export class GroupCelebrate extends Component {
@@ -51,12 +58,41 @@ export class GroupCelebrate extends Component {
     refresh(this, this.reloadItems);
   };
 
+  report = () => this.props.dispatch(navigatePush(GROUPS_REPORT_SCREEN));
+
+  renderReportData() {
+    const { t, reportItems, isOwner } = this.props;
+    if (!isOwner) {
+      return null;
+    }
+    const count = reportItems.length;
+    if (count === 0) {
+      return null;
+    }
+    return (
+      <Flex style={styles.reportItemWrap}>
+        <Card onPress={this.report} style={styles.reportItem}>
+          <Icon
+            name="surveyIcon"
+            type="MissionHub"
+            size={20}
+            style={styles.reportItemIcon}
+          />
+          <Text style={styles.reportItemText}>
+            {t('reports', { count: 0 })}
+          </Text>
+        </Card>
+      </Flex>
+    );
+  }
+
   render() {
     const { refreshing } = this.state;
     const { celebrateItems, organization } = this.props;
 
     return (
       <SafeAreaView style={{ flex: 1 }}>
+        {this.renderReportData()}
         <CelebrateFeed
           organization={organization}
           items={celebrateItems}
@@ -70,7 +106,10 @@ export class GroupCelebrate extends Component {
   }
 }
 
-export const mapStateToProps = ({ organizations }, { organization = {} }) => {
+export const mapStateToProps = (
+  { auth, organizations, celebrateComments },
+  { organization = {} },
+) => {
   const selectorOrg =
     organizationSelector({ organizations }, { orgId: organization.id }) ||
     organization;
@@ -78,8 +117,14 @@ export const mapStateToProps = ({ organizations }, { organization = {} }) => {
   const celebrateItems = celebrationSelector({
     celebrateItems: selectorOrg.celebrateItems || [],
   });
+  const myOrgPerm = orgPermissionSelector(null, {
+    person: auth.person,
+    organization: { id: selectorOrg.id },
+  });
 
   return {
+    isOwner: isOwner(myOrgPerm),
+    reportItems: celebrateComments.reportItems,
     celebrateItems,
     pagination: selectorOrg && selectorOrg.celebratePagination,
   };

@@ -5,6 +5,7 @@ import {
 } from '../constants';
 import { celebrateCommentsSelector } from '../selectors/celebrateComments';
 import { ACTIONS } from '../constants';
+import { formatApiDate } from '../utils/common';
 
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
@@ -82,7 +83,7 @@ export function createCelebrateComment(event, content) {
   };
 }
 
-export function updateCelebrateComment(item, content) {
+function updateComment(item, data) {
   return dispatch =>
     dispatch(
       callApi(
@@ -92,12 +93,20 @@ export function updateCelebrateComment(item, content) {
           eventId: item.organization_celebration_item.id,
           commentId: item.id,
         },
-        {
-          data: {
-            attributes: { content },
-          },
-        },
+        { data },
       ),
+    );
+}
+
+export function updateCelebrateComment(item, content) {
+  return dispatch => dispatch(updateComment(item, { attributes: { content } }));
+}
+export function updateCelebrateCommentIgnore(item) {
+  return dispatch =>
+    dispatch(
+      updateComment(item, {
+        attributes: { ignored_at: formatApiDate() },
+      }),
     );
 }
 
@@ -110,4 +119,41 @@ export function deleteCelebrateComment(event, item) {
         commentId: item.id,
       }),
     );
+}
+
+export function reportComment(event, item) {
+  return dispatch =>
+    dispatch(
+      callApi(
+        REQUESTS.CREATE_REPORT_COMMENT,
+        {
+          orgId: event.organization.id,
+        },
+        {
+          comment_id: item.id,
+          person_id: item.person.id,
+        },
+      ),
+    );
+}
+
+export function updateReportComment(event, item) {
+  return dispatch =>
+    dispatch(
+      callApi(
+        REQUESTS.CREATE_REPORT_COMMENT,
+        {
+          orgId: event.organization.id,
+        },
+        {
+          comment_id: item.id,
+          person_id: item.person.id,
+        },
+      ),
+    );
+}
+
+export function getReportedComments(orgId) {
+  return dispatch =>
+    dispatch(callApi(REQUESTS.GET_REPORTED_COMMENTS, { orgId }));
 }

@@ -77,4 +77,27 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: theme.white,
   },
+  reportHeader: {
+    backgroundColor: theme.red,
+  },
+  reportItemWrap: {
+    padding: 20,
+    borderBottomColor: theme.grey,
+    borderBottomWidth: theme.separatorHeight,
+  },
+  reportItem: {
+    marginHorizontal: 0,
+    marginVertical: 0,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 8,
+    backgroundColor: theme.red,
+  },
+  reportItemIcon: {
+    color: theme.white,
+  },
+  reportItemText: {
+    marginLeft: 15,
+    color: theme.white,
+  },
 });
