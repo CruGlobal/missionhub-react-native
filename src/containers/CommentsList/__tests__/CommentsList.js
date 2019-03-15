@@ -1,4 +1,3 @@
-/* eslint-disable max-lines */
 import React from 'react';
 import { Alert } from 'react-native';
 import configureStore from 'redux-mock-store';
@@ -143,27 +142,32 @@ describe('with comments', () => {
   });
 });
 
+function buildScreenWithComment(comment) {
+  common.showMenu = jest.fn();
+  store = mockStore({
+    auth: { person: me },
+    organizations,
+    celebrateComments: {
+      comments: [comment],
+      pagination: {},
+    },
+  });
+
+  screen = renderShallow(
+    <CommentsList event={event} organizationId={organizationId} />,
+    store,
+  );
+}
+
 describe('comments sets up actions as author', () => {
   it('handleLongPress', () => {
-    common.showMenu = jest.fn();
     const person = { id: '1' };
     const comment = { id: 'comment1', person };
-    store = mockStore({
-      auth: { person: me },
-      organizations,
-      celebrateComments: {
-        comments: [comment],
-        pagination: {},
-      },
-    });
 
-    screen = renderShallow(
-      <CommentsList event={event} organizationId={organizationId} />,
-      store,
-    );
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.ADMIN,
     });
+    buildScreenWithComment(comment);
 
     screen.instance().handleLongPress(comment, 'testRef');
     expect(common.showMenu).toHaveBeenCalledWith(
@@ -185,22 +189,10 @@ describe('comments sets up actions as author', () => {
 
 describe('comments sets up actions as owner', () => {
   it('handleLongPress', () => {
-    common.showMenu = jest.fn();
     const person = { id: '2' };
     const comment = { id: 'comment1', person };
-    store = mockStore({
-      auth: { person: me },
-      organizations,
-      celebrateComments: {
-        comments: [comment],
-        pagination: {},
-      },
-    });
+    buildScreenWithComment(comment);
 
-    screen = renderShallow(
-      <CommentsList event={event} organizationId={organizationId} />,
-      store,
-    );
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.ADMIN,
     });
@@ -221,22 +213,10 @@ describe('comments sets up actions as owner', () => {
 
 describe('comments sets up actions as user', () => {
   it('handleLongPress', () => {
-    common.showMenu = jest.fn();
     const person = { id: '2' };
     const comment = { id: 'comment1', person };
-    store = mockStore({
-      auth: { person: me },
-      organizations,
-      celebrateComments: {
-        comments: [comment],
-        pagination: {},
-      },
-    });
+    buildScreenWithComment(comment);
 
-    screen = renderShallow(
-      <CommentsList event={event} organizationId={organizationId} />,
-      store,
-    );
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.USER,
     });
@@ -244,7 +224,7 @@ describe('comments sets up actions as user', () => {
     const instance = screen.instance();
     instance.handleReport = jest.fn();
 
-    screen.instance().handleLongPress(comment, 'testRef');
+    instance.handleLongPress(comment, 'testRef');
     expect(common.showMenu).toHaveBeenCalledWith(
       [
         {
@@ -262,19 +242,8 @@ describe('comment action for author', () => {
   const person = { id: '1' };
   const comment = { id: 'comment1', person };
   beforeEach(() => {
-    store = mockStore({
-      auth: { person: me },
-      organizations,
-      celebrateComments: {
-        comments: [comment],
-        pagination: {},
-      },
-    });
+    buildScreenWithComment(comment);
 
-    screen = renderShallow(
-      <CommentsList event={event} organizationId={organizationId} />,
-      store,
-    );
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.ADMIN,
     });
@@ -313,19 +282,8 @@ describe('comment action for user', () => {
   const person = { id: '2' };
   const comment = { id: 'comment1', person };
   beforeEach(() => {
-    store = mockStore({
-      auth: { person: me },
-      organizations,
-      celebrateComments: {
-        comments: [comment],
-        pagination: {},
-      },
-    });
+    buildScreenWithComment(comment);
 
-    screen = renderShallow(
-      <CommentsList event={event} organizationId={organizationId} />,
-      store,
-    );
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.USER,
     });
