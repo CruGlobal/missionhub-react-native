@@ -293,15 +293,23 @@ const buildPersonScreenRoute = screen =>
 const screens = {
   [SUGGESTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
     SuggestedStepDetailScreen,
-    buildTrackingObj('step : detail', 'suggested'),
+    buildTrackingObj('mh : people : steps : add : detail', 'people', 'steps'),
   ),
   [ACCEPTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
     AcceptedStepDetailScreen,
-    buildTrackingObj('step : detail', 'accepted'),
+    buildTrackingObj(
+      'mh : people : steps : accepted : detail',
+      'people',
+      'steps',
+    ),
   ),
   [COMPLETED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
     CompletedStepDetailScreen,
-    buildTrackingObj('step : detail', 'completed'),
+    buildTrackingObj(
+      'mh : people : steps : completed : detail',
+      'people',
+      'steps',
+    ),
   ),
   [UPGRADE_ACCOUNT_SCREEN]: buildTrackedScreen(
     UpgradeAccountScreen,
