@@ -23,11 +23,13 @@ let onLongPress;
 
 let screen;
 const me = { id: 'me' };
-const store = configureStore([thunk])({
-  auth: { person: me },
-});
+let store;
 
 beforeEach(() => {
+  store = configureStore([thunk])({
+    auth: { person: me },
+    celebrateComments: { editingCommentId: null },
+  });
   screen = renderShallow(
     <CommentItem
       item={item}
@@ -39,6 +41,22 @@ beforeEach(() => {
 });
 
 it('renders correctly', () => {
+  expect(screen).toMatchSnapshot();
+});
+
+it('renders editing correctly', () => {
+  store = configureStore([thunk])({
+    auth: { person: me },
+    celebrateComments: { editingCommentId: item.id },
+  });
+  screen = renderShallow(
+    <CommentItem
+      item={item}
+      organization={organization}
+      onLongPress={onLongPress}
+    />,
+    store,
+  );
   expect(screen).toMatchSnapshot();
 });
 

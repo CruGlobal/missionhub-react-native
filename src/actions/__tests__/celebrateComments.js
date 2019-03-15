@@ -1,13 +1,19 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { DEFAULT_PAGE_LIMIT } from '../../constants';
+import {
+  DEFAULT_PAGE_LIMIT,
+  RESET_CELEBRATE_EDITING_COMMENT,
+  SET_CELEBRATE_EDITING_COMMENT,
+} from '../../constants';
 import {
   getCelebrateCommentsNextPage,
   reloadCelebrateComments,
   createCelebrateComment,
   deleteCelebrateComment,
   updateCelebrateComment,
+  resetCelebrateEditingComment,
+  setCelebrateEditingComment,
 } from '../celebrateComments';
 import callApi, { REQUESTS } from '../api';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
@@ -160,4 +166,24 @@ describe('updateCelebrateComment', () => {
   it('should return api response', () => {
     expect(response).toEqual(callApiResponse);
   });
+});
+
+it('resetCelebrateEditingComment', () => {
+  expect(resetCelebrateEditingComment()).toEqual({
+    type: RESET_CELEBRATE_EDITING_COMMENT,
+  });
+});
+
+it('setCelebrateEditingComment', () => {
+  const comment = { id: 'test' };
+  store.dispatch(setCelebrateEditingComment(comment.id));
+  expect(store.getActions()).toEqual([
+    {
+      type: RESET_CELEBRATE_EDITING_COMMENT,
+    },
+    {
+      type: SET_CELEBRATE_EDITING_COMMENT,
+      commentId: comment.id,
+    },
+  ]);
 });
