@@ -50,39 +50,44 @@ class CommentsList extends Component {
     this.props.dispatch(setCelebrateEditingComment(item.id));
   };
 
-  handleDelete = item => {
-    const { dispatch, event } = this.props;
-
+  alert = ({ title, message, actionText, action }) => {
     const { t } = this.props;
-    Alert.alert(t('deletePostHeader'), t('deleteAreYouSure'), [
+    Alert.alert(title, message, [
       {
         text: t('cancel'),
         style: 'cancel',
       },
       {
-        text: t('deletePost'),
-        onPress: () => {
-          dispatch(deleteCelebrateComment(event, item));
-        },
+        text: actionText,
+        onPress: action,
       },
     ]);
+  };
+
+  handleDelete = item => {
+    const { t, dispatch, event } = this.props;
+
+    this.alert({
+      title: t('deletePostHeader'),
+      message: t('deleteAreYouSure'),
+      actionText: t('deletePost'),
+      action: () => {
+        dispatch(deleteCelebrateComment(event, item));
+      },
+    });
   };
 
   // eslint-disable-next-line
   handleReport = item => {
     const { t } = this.props;
-    Alert.alert(t('reportToOwnerHeader'), t('reportAreYouSure'), [
-      {
-        text: t('cancel'),
-        style: 'cancel',
+    this.alert({
+      title: t('reportToOwnerHeader'),
+      message: t('reportAreYouSure'),
+      actionText: t('reportPost'),
+      action: () => {
+        // dispatch(reportCelebrateComment(event, item));
       },
-      {
-        text: t('reportPost'),
-        onPress: () => {
-          // dispatch(reportCelebrateComment(event, item));
-        },
-      },
-    ]);
+    });
   };
 
   keyExtractor = i => i.id;
