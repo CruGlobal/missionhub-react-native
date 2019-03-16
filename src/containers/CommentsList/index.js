@@ -73,7 +73,7 @@ class CommentsList extends Component {
       message: t('deleteAreYouSure'),
       actionText: t('deletePost'),
       action: () => {
-        dispatch(deleteCelebrateComment(event, item));
+        dispatch(deleteCelebrateComment(event.organization.id, event, item));
       },
     });
   };
@@ -85,7 +85,7 @@ class CommentsList extends Component {
       message: t('reportAreYouSure'),
       actionText: t('reportPost'),
       action: () => {
-        dispatch(reportComment(event, item));
+        dispatch(reportComment(event.organization.id, item));
       },
     });
   };

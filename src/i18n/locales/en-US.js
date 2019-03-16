@@ -723,13 +723,13 @@ export default {
     deleteAreYouSure:
       'This post will be deleted and you won’t be able to find it anymore.',
   },
-  groupsCelebrate: {
+  groupsReport: {
     reports: '{{count}} new reported comment',
     reports_plural: '{{count}} new reported comments',
-  },
-  groupsReport: {
     title: 'Reported Comment',
     header: 'No Reported Comments',
     reportNull: 'No comments have been reported.',
+    deleteTitle:
+      'Deleting this comment removes it completely and it will no longer be found.',
   },
 };

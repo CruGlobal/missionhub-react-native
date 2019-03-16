@@ -15,6 +15,7 @@ import {
   deleteCelebrateComment,
   resetCelebrateEditingComment,
   setCelebrateEditingComment,
+  reportComment,
 } from '../../../actions/celebrateComments';
 import * as common from '../../../utils/common';
 import { ORG_PERMISSIONS } from '../../../constants';
@@ -42,7 +43,8 @@ const reloadCelebrateCommentsResult = { type: 'loaded comments' };
 const getCelebrateCommentsNextPageResult = { type: 'got next page' };
 const deleteCelebrateCommentResult = { type: 'delete comment' };
 const resetCelebrateEditingCommentResult = { type: 'reset edit comment' };
-const setCelebrateEditingCommentResult = { type: 'reset edit comment' };
+const setCelebrateEditingCommentResult = { type: 'set edit comment' };
+const reportCommentResult = { type: 'report comment' };
 const navigatePushResult = { type: 'navigate push' };
 
 let screen;
@@ -63,6 +65,7 @@ setCelebrateEditingComment.mockReturnValue(dispatch =>
   dispatch(setCelebrateEditingCommentResult),
 );
 navigatePush.mockReturnValue(dispatch => dispatch(navigatePushResult));
+reportComment.mockReturnValue(dispatch => dispatch(reportCommentResult));
 Alert.alert = jest.fn();
 
 const me = { id: '1' };
@@ -259,7 +262,11 @@ describe('comment action for author', () => {
     Alert.alert = jest.fn((a, b, c) => c[1].onPress());
     common.showMenu = jest.fn(a => a[1].onPress());
     instance.handleLongPress(comment, 'testRef');
-    expect(deleteCelebrateComment).toHaveBeenCalledWith(event, comment);
+    expect(deleteCelebrateComment).toHaveBeenCalledWith(
+      organizationId,
+      event,
+      comment,
+    );
     expect(Alert.alert).toHaveBeenCalledWith(
       i18n.t('commentsList:deletePostHeader'),
       i18n.t('commentsList:deleteAreYouSure'),
@@ -294,6 +301,7 @@ describe('comment action for user', () => {
     Alert.alert = jest.fn((a, b, c) => c[1].onPress());
     common.showMenu = jest.fn(a => a[0].onPress());
     instance.handleLongPress(comment, 'testRef');
+    expect(reportComment).toHaveBeenCalledWith(organizationId, comment);
     expect(Alert.alert).toHaveBeenCalledWith(
       i18n.t('commentsList:reportToOwnerHeader'),
       i18n.t('commentsList:reportAreYouSure'),

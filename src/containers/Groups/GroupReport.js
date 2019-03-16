@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
-import { FlatList, View, SafeAreaView } from 'react-native';
+import { Alert, FlatList, View, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { refresh } from '../../utils/common';
+import { refresh, keyExtractorId } from '../../utils/common';
 import Header from '../Header';
 import { IconButton, RefreshControl } from '../../components/common';
 import NullStateComponent from '../../components/NullStateComponent';
-import ReportCommentItem from '../ReportCommentItem';
-import { getReportedComments } from '../../actions/celebrateComments';
+import {
+  getReportedComments,
+  ignoreReportComment,
+  deleteCelebrateComment,
+} from '../../actions/celebrateComments';
 import NULL from '../../../assets/images/curiousIcon.png';
 import { navigateBack } from '../../actions/navigation';
+import { organizationSelector } from '../../selectors/organizations';
+import ReportCommentItem from '../../components/ReportCommentItem';
 
 import styles from './styles';
 
@@ -27,14 +32,49 @@ export class GroupReport extends Component {
     refresh(this, this.loadItems);
   };
 
-  renderItem = ({ item }) => <ReportCommentItem item={item} />;
+  renderItem = ({ item }) => (
+    <ReportCommentItem
+      item={item}
+      onIgnore={this.handleIgnore}
+      onDelete={this.handleDelete}
+    />
+  );
 
   navigateBack = () => this.props.dispatch(navigateBack());
 
+  handleIgnore = async item => {
+    const { dispatch, organization } = this.props;
+    await dispatch(ignoreReportComment(organization.id, item.id));
+    this.loadItems();
+  };
+
+  handleDelete = item => {
+    const { t, dispatch, organization } = this.props;
+    Alert.alert(t('deleteTitle'), '', [
+      {
+        text: t('cancel'),
+        style: 'cancel',
+      },
+      {
+        text: t('ok'),
+        onPress: async () => {
+          await dispatch(
+            deleteCelebrateComment(
+              organization.id,
+              item.organization_celebration_item,
+              item,
+            ),
+          );
+          this.loadItems();
+        },
+      },
+    ]);
+  };
+
   renderList = () => {
     const { refreshing } = this.state;
-    const { t, reportItems } = this.props;
-    if (reportItems.length === 0) {
+    const { t, reportedComments } = this.props;
+    if (reportedComments.length === 0) {
       return (
         <NullStateComponent
           imageSource={NULL}
@@ -45,9 +85,9 @@ export class GroupReport extends Component {
     }
     return (
       <FlatList
-        style={styles.list}
-        data={reportItems}
-        keyExtractor={this.keyExtractor}
+        style={styles.reportList}
+        data={reportedComments}
+        keyExtractor={keyExtractorId}
         renderItem={this.renderItem}
         refreshControl={
           <RefreshControl
@@ -81,10 +121,26 @@ export class GroupReport extends Component {
   }
 }
 
-const mapStateToProps = ({ celebrateComments }, { navigation }) => ({
-  ...(navigation.state.params || {}),
-  reportItems: celebrateComments.reportItems,
-});
+const mapStateToProps = (
+  { organizations },
+  {
+    navigation: {
+      state: {
+        params: { organization },
+      },
+    },
+  },
+) => {
+  const selectorOrg =
+    organizationSelector({ organizations }, { orgId: organization.id }) ||
+    organization;
+
+  const reportedComments = selectorOrg.reportedComments || [];
+  return {
+    organization: selectorOrg,
+    reportedComments,
+  };
+};
 
 export default connect(mapStateToProps)(GroupReport);
 export const GROUPS_REPORT_SCREEN = 'nav/GROUPS_REPORT_SCREEN';

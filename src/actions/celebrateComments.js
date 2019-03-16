@@ -83,7 +83,7 @@ export function createCelebrateComment(event, content) {
   };
 }
 
-function updateComment(item, data) {
+export function updateCelebrateComment(item, content) {
   return dispatch =>
     dispatch(
       callApi(
@@ -93,61 +93,59 @@ function updateComment(item, data) {
           eventId: item.organization_celebration_item.id,
           commentId: item.id,
         },
-        { data },
+        { data: { attributes: { content } } },
       ),
     );
 }
 
-export function updateCelebrateComment(item, content) {
-  return dispatch => dispatch(updateComment(item, { attributes: { content } }));
-}
-export function updateCelebrateCommentIgnore(item) {
-  return dispatch =>
-    dispatch(
-      updateComment(item, {
-        attributes: { ignored_at: formatApiDate() },
-      }),
-    );
-}
-
-export function deleteCelebrateComment(event, item) {
+export function deleteCelebrateComment(orgId, event, item) {
   return dispatch =>
     dispatch(
       callApi(REQUESTS.DELETE_CELEBRATE_COMMENT, {
-        orgId: event.organization.id,
+        orgId,
         eventId: event.id,
         commentId: item.id,
       }),
     );
 }
 
-export function reportComment(event, item) {
-  return dispatch =>
-    dispatch(
+export function reportComment(orgId, item) {
+  return (dispatch, getState) => {
+    const { id: myId } = getState().auth.person;
+    const commentId = item.id;
+    return dispatch(
       callApi(
         REQUESTS.CREATE_REPORT_COMMENT,
         {
-          orgId: event.organization.id,
+          orgId,
+          commentId,
         },
         {
-          comment_id: item.id,
-          person_id: item.person.id,
+          data: {
+            attributes: {
+              comment_id: commentId,
+              person_id: myId,
+            },
+          },
         },
       ),
     );
+  };
 }
 
-export function updateReportComment(event, item) {
+export function ignoreReportComment(orgId, reportCommentId) {
   return dispatch =>
     dispatch(
       callApi(
-        REQUESTS.CREATE_REPORT_COMMENT,
+        REQUESTS.UPDATE_REPORT_COMMENT,
         {
-          orgId: event.organization.id,
+          orgId,
+          reportCommentId,
         },
         {
-          comment_id: item.id,
-          person_id: item.person.id,
+          data: {
+            attributes: { ignored_at: formatApiDate() },
+          },
         },
       ),
     );
@@ -155,5 +153,10 @@ export function updateReportComment(event, item) {
 
 export function getReportedComments(orgId) {
   return dispatch =>
-    dispatch(callApi(REQUESTS.GET_REPORTED_COMMENTS, { orgId }));
+    dispatch(
+      callApi(REQUESTS.GET_REPORTED_COMMENTS, {
+        orgId,
+        include: 'comment,person',
+      }),
+    );
 }

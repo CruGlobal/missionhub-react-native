@@ -8,7 +8,6 @@ import { getPagination } from '../utils/common';
 
 const initialState = {
   all: {},
-  reportItems: [],
   editingCommentId: null,
 };
 
@@ -22,11 +21,6 @@ export default function celebrateCommentsReducer(state = initialState, action) {
       return editCommentsInState(state, action);
     case REQUESTS.DELETE_CELEBRATE_COMMENT.SUCCESS:
       return removeCommentFromState(state, action);
-    case REQUESTS.GET_REPORTED_COMMENTS.SUCCESS:
-      return {
-        ...state,
-        reportItems: action.results,
-      };
     case SET_CELEBRATE_EDITING_COMMENT:
       return {
         ...state,

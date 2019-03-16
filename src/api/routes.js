@@ -223,7 +223,12 @@ export default {
     endpoint: `${ORG_URL}/:orgId/comment_reports`,
   },
   CREATE_REPORT_COMMENT: {
-    endpoint: `${ORG_URL}/:orgId/comment_reports/:commentId`,
+    endpoint: `${ORG_URL}/:orgId/comment_reports`,
+    method: 'post',
+  },
+  UPDATE_REPORT_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/comment_reports/:reportCommentId`,
+    method: 'put',
   },
   ORGANIZATION_NEW_CODE: {
     endpoint: `${ORG_URL}/:orgId/community_code`,

@@ -1110,3 +1110,21 @@ describe('global like/unlike', () => {
     });
   });
 });
+
+describe('REQUESTS.GET_REPORTED_COMMENTS.SUCCESS', () => {
+  const orgId = '1';
+  const items = [{ id: 'reportedComment1' }];
+
+  it('loads challenge items with pagination', () => {
+    const state = organizations(
+      { all: [{ id: orgId }] },
+      {
+        type: REQUESTS.GET_REPORTED_COMMENTS.SUCCESS,
+        query: { orgId },
+        results: { response: items },
+      },
+    );
+
+    expect(state.all[0].reportedComments).toEqual(items);
+  });
+});

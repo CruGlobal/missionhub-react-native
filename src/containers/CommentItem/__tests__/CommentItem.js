@@ -43,6 +43,13 @@ beforeEach(() => {
 it('renders correctly', () => {
   expect(screen).toMatchSnapshot();
 });
+it('renders not pressable', () => {
+  screen = renderShallow(
+    <CommentItem item={item} isPressable={false} organization={organization} />,
+    store,
+  );
+  expect(screen).toMatchSnapshot();
+});
 
 it('renders editing correctly', () => {
   store = configureStore([thunk])({

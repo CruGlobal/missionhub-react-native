@@ -23,6 +23,7 @@ class CommentItem extends Component {
       organization,
       me,
       isEditing,
+      isPressable,
     } = this.props;
     const {
       content: contentStyle,
@@ -47,7 +48,7 @@ class CommentItem extends Component {
               name={name}
               person={person}
               organization={organization}
-              pressable={true}
+              pressable={isPressable !== false}
               customContent={<Text style={nameStyle}>{name}</Text>}
             />
           )}
@@ -55,7 +56,10 @@ class CommentItem extends Component {
         </Flex>
         <Flex direction="row">
           {isMine ? <Flex value={1} /> : null}
-          <Touchable onLongPress={this.handleLongPress}>
+          <Touchable
+            disabled={isPressable === false}
+            onLongPress={this.handleLongPress}
+          >
             <View ref={this.ref} style={[itemStyle, isMine ? myStyle : null]}>
               <Text style={[text, isMine ? myText : null]}>{content}</Text>
             </View>
@@ -69,9 +73,9 @@ class CommentItem extends Component {
 
 CommentItem.propTypes = {
   item: PropTypes.object.isRequired,
-  organization: PropTypes.object.isRequired,
-  onLongPress: PropTypes.func.isRequired,
-  isMine: PropTypes.bool,
+  organization: PropTypes.object,
+  onLongPress: PropTypes.func,
+  isPressable: PropTypes.bool,
 };
 const mapStateToProps = (
   { auth, celebrateComments: { editingCommentId } },
