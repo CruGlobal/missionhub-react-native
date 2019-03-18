@@ -51,12 +51,6 @@ class ContactSteps extends Component {
     this.getSteps();
   };
 
-  handleSaveNewSteps = () => async dispatch => {
-    await this.getSteps();
-    this.list && this.list.scrollToEnd();
-    dispatch(navigateBack());
-  };
-
   handleNavToStage() {
     const { dispatch, person, contactAssignment, organization } = this.props;
 
@@ -89,7 +83,6 @@ class ContactSteps extends Component {
           ...trackingParams,
           enableBackButton: true,
           organization,
-          next: this.handleSaveNewSteps,
         }),
       );
     } else {
@@ -106,7 +99,6 @@ class ContactSteps extends Component {
             subsection,
             'steps',
           ),
-          next: this.handleSaveNewSteps,
         }),
       );
     }
