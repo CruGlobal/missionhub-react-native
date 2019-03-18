@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import { Flex, Text, Card, Button } from '../../components/common';
 import CommentItem from '../../containers/CommentItem';
 
 import styles from './styles';
 
+@translate('reportComment')
 class ReportCommentItem extends Component {
   ignore = () => this.props.onIgnore(this.props.item);
   delete = () => this.props.onDelete(this.props.item);
 
   render() {
     const {
+      t,
       item: { comment, person },
     } = this.props;
 
@@ -22,13 +25,13 @@ class ReportCommentItem extends Component {
       <Card style={styles.card}>
         <Flex direction="row" style={styles.users}>
           <Flex value={1}>
-            <Text style={styles.label}>Reported By:</Text>
+            <Text style={styles.label}>{t('reportedBy')}:</Text>
             <Text style={styles.user} numberOfLines={1}>
               {reportedBy}
             </Text>
           </Flex>
           <Flex value={1}>
-            <Text style={styles.label}>Comment By:</Text>
+            <Text style={styles.label}>{t('commentBy')}:</Text>
             <Text style={styles.user} numberOfLines={1}>
               {commentBy}
             </Text>
@@ -42,7 +45,7 @@ class ReportCommentItem extends Component {
             <Button
               type="secondary"
               onPress={this.ignore}
-              text={'IGNORE'}
+              text={t('ignore')}
               style={[styles.button, styles.buttonLeft]}
             />
           </Flex>
@@ -50,7 +53,7 @@ class ReportCommentItem extends Component {
             <Button
               type="secondary"
               onPress={this.delete}
-              text={'DELETE'}
+              text={t('delete')}
               style={[styles.button, styles.buttonRight]}
             />
           </Flex>

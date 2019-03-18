@@ -32,7 +32,7 @@ exports[`owner renders owner with 1 reported comment 1`] = `
     }
   >
     <Icon
-      name="surveyIcon"
+      name="uncontactedIcon"
       size={20}
       style={
         Object {

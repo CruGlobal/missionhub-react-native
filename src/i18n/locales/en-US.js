@@ -91,6 +91,7 @@ export default {
     loading: 'Loading',
     save: 'Save',
     delete: 'Delete',
+    ignore: 'Ignore',
     report: 'Report',
     cancel: 'Cancel',
     continue: 'Continue',
@@ -731,5 +732,10 @@ export default {
     reportNull: 'No comments have been reported.',
     deleteTitle:
       'Deleting this comment removes it completely and it will no longer be found.',
+  },
+  reportComment: {
+    reportedBy: 'Reported By',
+    commentBy: 'Comment By',
+    reportedBy: 'Reported By',
   },
 };

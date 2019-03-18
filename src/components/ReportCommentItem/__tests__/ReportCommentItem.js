@@ -1,8 +1,6 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 
-import { testSnapshotShallow } from '../../../../testUtils';
+import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 
 import ReportCommentItem from '..';
 
@@ -33,8 +31,7 @@ it('renders correctly', () => {
 describe('ignore and delete', () => {
   let component;
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    component = shallow(<ReportCommentItem {...props} />);
+    component = renderShallow(<ReportCommentItem {...props} />);
   });
 
   it('calls ignore', () => {

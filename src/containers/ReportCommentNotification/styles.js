@@ -3,9 +3,6 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  header: {
-    backgroundColor: theme.red,
-  },
   itemWrap: {
     padding: 20,
     borderBottomColor: theme.grey,
