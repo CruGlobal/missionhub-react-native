@@ -1,5 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`report item call handleDelete 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    right={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    style={
+      Object {
+        "backgroundColor": "#FF5532",
+      }
+    }
+    title="Reported Comment"
+  />
+  <SafeAreaView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <FlatList
+      contentContainerStyle={
+        Object {
+          "paddingVertical": 15,
+        }
+      }
+      data={
+        Array [
+          Object {
+            "comment": Object {
+              "id": "comment1",
+              "organization_celebration_item": Object {
+                "id": "eventId",
+              },
+            },
+            "id": "report1",
+            "person": Object {
+              "full_name": "person full name",
+              "id": "person1",
+            },
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      refreshControl={
+        <MyRefreshControl
+          colors={
+            Array [
+              "#ffffff",
+              "#52C5DC",
+            ]
+          }
+          onRefresh={[Function]}
+          progressBackgroundColor="#007398"
+          refreshing={false}
+          tintColor="#007398"
+        />
+      }
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </SafeAreaView>
+</Component>
+`;
+
 exports[`should render correctly 1`] = `
 <Component
   style={
@@ -43,7 +127,7 @@ exports[`should render correctly 1`] = `
             "comment": Object {
               "id": "comment1",
               "organization_celebration_item": Object {
-                "id": "eventId ",
+                "id": "eventId",
               },
             },
             "id": "report1",
