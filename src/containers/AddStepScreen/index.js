@@ -89,7 +89,7 @@ class AddStepScreen extends Component {
 
     onComplete(text);
 
-    if (type !== STEP_NOTE) {
+    if (type !== STEP_NOTE && type !== CREATE_STEP) {
       dispatch(navigateBack());
     }
   }
