@@ -50,7 +50,6 @@ export class GroupReport extends Component {
 
   handleDelete = item => {
     const { t, dispatch, organization } = this.props;
-    console.log('in here 1');
     Alert.alert(t('deleteTitle'), '', [
       {
         text: t('cancel'),
@@ -59,7 +58,6 @@ export class GroupReport extends Component {
       {
         text: t('ok'),
         onPress: async () => {
-          console.log('in here');
           await dispatch(
             deleteCelebrateComment(
               organization.id,
