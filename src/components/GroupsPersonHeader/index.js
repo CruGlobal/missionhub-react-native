@@ -46,46 +46,6 @@ export default class GroupsPersonHeader extends Component {
       : [...personStageButton, ...statusButton, ...contactButtons];
   }
 
-  selectSelfStage = () => {
-    const { dispatch, person, myStageId, stages } = this.props;
-
-    dispatch(
-      navigatePush(SELECT_MY_STAGE_FLOW, {
-        firstItem: getStageIndex(stages, myStageId),
-        contactId: person.id,
-        section: 'people',
-        subsection: 'self',
-        enableBackButton: true,
-      }),
-    );
-  };
-
-  selectPersonStage = () => {
-    const {
-      contactAssignment,
-      dispatch,
-      person,
-      organization,
-      stages,
-    } = this.props;
-
-    const firstItemIndex =
-      contactAssignment &&
-      getStageIndex(stages, contactAssignment.pathway_stage_id);
-
-    dispatch(
-      navigatePush(SELECT_PERSON_STAGE_FLOW, {
-        firstItem: firstItemIndex,
-        name: person.first_name,
-        contactId: person.id,
-        contactAssignmentId: contactAssignment && contactAssignment.id,
-        orgId: organization.id,
-        section: 'people',
-        subsection: 'person',
-      }),
-    );
-  };
-
   getSelfStageButton() {
     const { myStageId } = this.props;
 
@@ -240,12 +200,7 @@ export default class GroupsPersonHeader extends Component {
     ) : (
       <Flex>
         {contactAssignment || myId === person.id ? (
-          <AssignStageButton
-            person={person}
-            organization={organization}
-            selectMyStage={this.selectSelfStage}
-            selectPersonStage={this.selectPersonStage}
-          />
+          <AssignStageButton person={person} organization={organization} />
         ) : null}
       </Flex>
     );
@@ -258,7 +213,6 @@ GroupsPersonHeader.propTypes = {
   organization: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
   myId: PropTypes.string.isRequired,
-  stages: PropTypes.array.isRequired,
   isVisible: PropTypes.bool,
   isCruOrg: PropTypes.bool,
   contactAssignment: PropTypes.object,

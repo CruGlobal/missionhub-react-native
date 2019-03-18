@@ -253,8 +253,6 @@ export class AssignedPersonScreen extends Component {
             dispatch={dispatch}
             organization={organization}
             myId={myId}
-            myStageId={myStageId}
-            stages={stages}
             isCruOrg={isCruOrg}
           />
         </Flex>
@@ -299,7 +297,6 @@ export const mapStateToProps = (
     organization,
     stages: stages.stages,
     myId: authPerson.id,
-    myStageId: authPerson.user.pathway_stage_id,
     isCruOrg: orgIsCru(organization),
   };
 };
