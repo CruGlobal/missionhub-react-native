@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { FlatList } from 'react-native';
-import i18n from 'i18next';
+import { Alert, FlatList } from 'react-native';
+import { translate } from 'react-i18next';
 
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import {
   reloadCelebrateComments,
   getCelebrateCommentsNextPage,
   deleteCelebrateComment,
+  setCelebrateEditingComment,
+  resetCelebrateEditingComment,
 } from '../../actions/celebrateComments';
 import LoadMore from '../../components/LoadMore';
 import RefreshControl from '../../components/RefreshControl';
@@ -16,11 +18,10 @@ import { refresh, showMenu } from '../../utils/common';
 import CommentItem from '../CommentItem';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
-import { navigatePush } from '../../actions/navigation';
-import { EDIT_COMMENT_SCREEN } from '../EditCommentScreen';
 
 import styles from './styles';
 
+@translate('commentsList')
 class CommentsList extends Component {
   state = {
     refreshing: false,
@@ -28,6 +29,7 @@ class CommentsList extends Component {
 
   componentDidMount() {
     this.refreshComments();
+    this.props.dispatch(resetCelebrateEditingComment());
   }
 
   refreshComments = () => {
@@ -45,38 +47,68 @@ class CommentsList extends Component {
   };
 
   handleEdit = item => {
-    const { dispatch } = this.props;
-    dispatch(navigatePush(EDIT_COMMENT_SCREEN, { item }));
+    this.props.dispatch(setCelebrateEditingComment(item.id));
+  };
+
+  alert = ({ title, message, actionText, action }) => {
+    const { t } = this.props;
+    Alert.alert(title, message, [
+      {
+        text: t('cancel'),
+        style: 'cancel',
+      },
+      {
+        text: actionText,
+        onPress: action,
+      },
+    ]);
   };
 
   handleDelete = item => {
-    const { dispatch, event } = this.props;
-    dispatch(deleteCelebrateComment(event, item));
+    const { t, dispatch, event } = this.props;
+
+    this.alert({
+      title: t('deletePostHeader'),
+      message: t('deleteAreYouSure'),
+      actionText: t('deletePost'),
+      action: () => {
+        dispatch(deleteCelebrateComment(event, item));
+      },
+    });
   };
 
   // eslint-disable-next-line
   handleReport = item => {
-    // TODO: Report comment
+    const { t } = this.props;
+    this.alert({
+      title: t('reportToOwnerHeader'),
+      message: t('reportAreYouSure'),
+      actionText: t('reportPost'),
+      action: () => {
+        // dispatch(reportCelebrateComment(event, item));
+      },
+    });
   };
 
   keyExtractor = i => i.id;
 
   handleLongPress = (item, componentRef) => {
     const {
+      t,
       event: { organization },
       me,
     } = this.props;
 
     const actions = [];
     const deleteAction = {
-      text: i18n.t('delete'),
+      text: t('deletePost'),
       onPress: () => this.handleDelete(item),
       destructive: true,
     };
 
     if (me.id === item.person.id) {
       actions.push({
-        text: i18n.t('edit'),
+        text: t('editPost'),
         onPress: () => this.handleEdit(item),
       });
       actions.push(deleteAction);
@@ -90,9 +122,8 @@ class CommentsList extends Component {
         actions.push(deleteAction);
       } else {
         actions.push({
-          text: i18n.t('report'),
+          text: t('reportToOwner'),
           onPress: () => this.handleReport(item),
-          destructive: true,
         });
       }
     }

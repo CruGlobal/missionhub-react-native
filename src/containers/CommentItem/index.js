@@ -22,9 +22,11 @@ class CommentItem extends Component {
       item: { content, created_at, person },
       organization,
       me,
+      isEditing,
     } = this.props;
     const {
       content: contentStyle,
+      editingStyle,
       itemStyle,
       myStyle,
       text,
@@ -36,7 +38,7 @@ class CommentItem extends Component {
     const isMine = person.id === me.id;
 
     return (
-      <View style={contentStyle}>
+      <View style={[contentStyle, isEditing ? editingStyle : null]}>
         <Flex direction="row" align="center">
           {isMine ? (
             <Flex value={1} />
@@ -71,8 +73,12 @@ CommentItem.propTypes = {
   onLongPress: PropTypes.func.isRequired,
   isMine: PropTypes.bool,
 };
-const mapStateToProps = ({ auth }) => ({
+const mapStateToProps = (
+  { auth, celebrateComments: { editingCommentId } },
+  { item },
+) => ({
   me: auth.person,
+  isEditing: editingCommentId === item.id,
 });
 
 export default connect(mapStateToProps)(CommentItem);

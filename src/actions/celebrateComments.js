@@ -1,9 +1,24 @@
-import { DEFAULT_PAGE_LIMIT } from '../constants';
+import {
+  DEFAULT_PAGE_LIMIT,
+  RESET_CELEBRATE_EDITING_COMMENT,
+  SET_CELEBRATE_EDITING_COMMENT,
+} from '../constants';
 import { celebrateCommentsSelector } from '../selectors/celebrateComments';
 import { ACTIONS } from '../constants';
 
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
+
+export function setCelebrateEditingComment(commentId) {
+  return dispatch => {
+    dispatch(resetCelebrateEditingComment());
+    dispatch({ type: SET_CELEBRATE_EDITING_COMMENT, commentId });
+  };
+}
+
+export function resetCelebrateEditingComment() {
+  return { type: RESET_CELEBRATE_EDITING_COMMENT };
+}
 
 export function getCelebrateCommentsNextPage(event) {
   return (dispatch, getState) => {

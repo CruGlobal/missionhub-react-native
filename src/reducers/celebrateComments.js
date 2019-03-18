@@ -1,9 +1,14 @@
-import { LOGOUT } from '../constants';
+import {
+  LOGOUT,
+  SET_CELEBRATE_EDITING_COMMENT,
+  RESET_CELEBRATE_EDITING_COMMENT,
+} from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
 
 const initialState = {
   all: {},
+  editingCommentId: null,
 };
 
 export default function celebrateCommentsReducer(state = initialState, action) {
@@ -16,6 +21,16 @@ export default function celebrateCommentsReducer(state = initialState, action) {
       return editCommentsInState(state, action);
     case REQUESTS.DELETE_CELEBRATE_COMMENT.SUCCESS:
       return removeCommentFromState(state, action);
+    case SET_CELEBRATE_EDITING_COMMENT:
+      return {
+        ...state,
+        editingCommentId: action.commentId,
+      };
+    case RESET_CELEBRATE_EDITING_COMMENT:
+      return {
+        ...state,
+        editingCommentId: null,
+      };
     case LOGOUT:
       return initialState;
     default:

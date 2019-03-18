@@ -4,7 +4,11 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   content: {
-    marginTop: 15,
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+  },
+  editingStyle: {
+    backgroundColor: theme.convert({ color: theme.black, alpha: 0.5 }),
   },
   itemStyle: {
     backgroundColor: theme.white,

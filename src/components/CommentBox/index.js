@@ -1,6 +1,6 @@
 /* eslint max-lines-per-function: 0 */
-
 import React, { Component } from 'react';
+import { Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
@@ -25,7 +25,6 @@ const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter(
 
 const initialState = {
   text: '',
-  isFocused: false,
   showActions: false,
   action: null,
 };
@@ -34,11 +33,37 @@ const initialState = {
 export default class CommentBox extends Component {
   state = initialState;
 
+  componentDidMount() {
+    const { editingComment } = this.props;
+    if (editingComment) {
+      this.startEdit(editingComment);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { editingComment } = this.props;
+    if (!prevProps.editingComment && editingComment) {
+      this.startEdit(editingComment);
+    }
+  }
+
+  cancel = () => {
+    this.setState(initialState);
+    this.props.onCancel();
+    Keyboard.dismiss();
+  };
+
+  startEdit = comment => {
+    this.setState({ text: comment.content });
+    this.commentInput.focus();
+  };
+
   submit = async () => {
     const { onSubmit } = this.props;
     const { action, text } = this.state;
 
     await onSubmit(action, text);
+    Keyboard.dismiss();
 
     this.setState(initialState);
   };
@@ -49,14 +74,6 @@ export default class CommentBox extends Component {
 
   handleActionPress = () => {
     this.setState({ showActions: !this.state.showActions });
-  };
-
-  focus = () => {
-    this.setState({ isFocused: true });
-  };
-
-  blur = () => {
-    this.setState({ isFocused: false });
   };
 
   selectAction = item => {
@@ -120,7 +137,7 @@ export default class CommentBox extends Component {
     );
   }
 
-  ref = c => (this.searchInput = c);
+  ref = c => (this.commentInput = c);
 
   renderInput() {
     const { t, placeholderTextKey } = this.props;
@@ -187,8 +204,6 @@ export default class CommentBox extends Component {
         >
           <Input
             ref={this.ref}
-            onFocus={this.focus}
-            onBlur={this.blur}
             onChangeText={this.handleTextChange}
             value={text}
             style={input}
@@ -214,7 +229,7 @@ export default class CommentBox extends Component {
   }
 
   render() {
-    const { hideActions, containerStyle } = this.props;
+    const { hideActions, editingComment, containerStyle } = this.props;
     const { showActions, action } = this.state;
     const {
       container,
@@ -222,6 +237,8 @@ export default class CommentBox extends Component {
       actionSelectionWrap,
       actionsOpen,
       actionSelection,
+      cancelWrap,
+      cancelIcon,
     } = styles;
 
     return (
@@ -242,6 +259,17 @@ export default class CommentBox extends Component {
               />
             </Flex>
           ) : null}
+          {!action && editingComment ? (
+            <Flex style={cancelWrap}>
+              <IconButton
+                name="deleteIcon"
+                type="MissionHub"
+                onPress={this.cancel}
+                style={cancelIcon}
+                size={12}
+              />
+            </Flex>
+          ) : null}
           {this.renderInput()}
         </Flex>
         {this.renderActions()}
@@ -252,6 +280,7 @@ export default class CommentBox extends Component {
 
 CommentBox.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  onCancel: PropTypes.func,
   hideActions: PropTypes.bool,
   containerStyle: PropTypes.oneOfType([
     PropTypes.array,
@@ -259,4 +288,5 @@ CommentBox.propTypes = {
     PropTypes.number,
   ]),
   placeholderTextKey: PropTypes.string.isRequired,
+  editingComment: PropTypes.object,
 };
