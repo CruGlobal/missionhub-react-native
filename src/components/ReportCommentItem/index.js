@@ -11,19 +11,12 @@ class ReportCommentItem extends Component {
   delete = () => this.props.onDelete(this.props.item);
 
   render() {
-    let {
+    const {
       item: { comment, person },
     } = this.props;
-    // TODO: Remove this and use the comment logic instead
-    comment = {
-      id: comment.id,
-      content: 'Test comment reported',
-      person,
-      created_at: '2019-03-16T10:15:00',
-    };
 
-    const reportedBy = `${person.first_name} ${person.last_name}`;
-    const commentBy = `${person.first_name} ${person.last_name}`;
+    const reportedBy = person.full_name;
+    const commentBy = comment.person.full_name;
 
     return (
       <Card style={styles.card}>
@@ -42,7 +35,7 @@ class ReportCommentItem extends Component {
           </Flex>
         </Flex>
         <Flex style={styles.comment}>
-          <CommentItem item={comment} isPressable={false} />
+          <CommentItem item={comment} isReported={true} />
         </Flex>
         <Flex direction="row" style={styles.buttons}>
           <Flex value={1}>

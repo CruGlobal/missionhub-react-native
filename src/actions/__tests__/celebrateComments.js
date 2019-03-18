@@ -199,7 +199,8 @@ describe('report comments', () => {
     const response = store.dispatch(getReportedComments(orgId));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_REPORTED_COMMENTS, {
       orgId,
-      include: 'comment,person',
+      filters: { ignored: false },
+      include: 'comment,comment.person,person',
     });
     expect(response).toEqual(callApiResponse);
   });

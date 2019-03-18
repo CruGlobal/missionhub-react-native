@@ -43,9 +43,20 @@ beforeEach(() => {
 it('renders correctly', () => {
   expect(screen).toMatchSnapshot();
 });
-it('renders not pressable', () => {
+it('renders reported comment', () => {
   screen = renderShallow(
-    <CommentItem item={item} isPressable={false} organization={organization} />,
+    <CommentItem item={item} isReported={false} organization={organization} />,
+    store,
+  );
+  expect(screen).toMatchSnapshot();
+});
+it('renders my reported comment', () => {
+  screen = renderShallow(
+    <CommentItem
+      item={{ ...item, person: { ...item.person, id: me.id } }}
+      isReported={false}
+      organization={organization}
+    />,
     store,
   );
   expect(screen).toMatchSnapshot();

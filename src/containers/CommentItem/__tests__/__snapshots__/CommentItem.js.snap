@@ -56,7 +56,6 @@ exports[`renders correctly 1`] = `
     direction="row"
   >
     <TouchableIOS
-      disabled={false}
       onLongPress={[Function]}
     >
       <Component
@@ -127,7 +126,6 @@ exports[`renders correctly as mine 1`] = `
       value={1}
     />
     <TouchableIOS
-      disabled={false}
       onLongPress={[Function]}
     >
       <Component
@@ -227,7 +225,6 @@ exports[`renders editing correctly 1`] = `
     direction="row"
   >
     <TouchableIOS
-      disabled={false}
       onLongPress={[Function]}
     >
       <Component
@@ -268,7 +265,79 @@ exports[`renders editing correctly 1`] = `
 </Component>
 `;
 
-exports[`renders not pressable 1`] = `
+exports[`renders my reported comment 1`] = `
+<Component
+  style={
+    Array [
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      },
+      null,
+    ]
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+  >
+    <Flex
+      value={1}
+    />
+    <CardTime
+      date="2018-06-11 12:00:00 UTC"
+    />
+  </Flex>
+  <Flex
+    direction="row"
+  >
+    <Flex
+      value={1}
+    />
+    <TouchableIOS
+      disabled={false}
+      onLongPress={[Function]}
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "marginVertical": 5,
+              "paddingHorizontal": 13,
+              "paddingVertical": 8,
+            },
+            Object {
+              "backgroundColor": "#52C5DC",
+            },
+          ]
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "paddingVertical": 3,
+              },
+              Object {
+                "color": "#ffffff",
+              },
+            ]
+          }
+        >
+          hello roge
+        </MyText>
+      </Component>
+    </TouchableIOS>
+  </Flex>
+</Component>
+`;
+
+exports[`renders reported comment 1`] = `
 <Component
   style={
     Array [
@@ -314,7 +383,7 @@ exports[`renders not pressable 1`] = `
           "last_name": "Goers",
         }
       }
-      pressable={false}
+      pressable={true}
     />
     <CardTime
       date="2018-06-11 12:00:00 UTC"
@@ -324,7 +393,7 @@ exports[`renders not pressable 1`] = `
     direction="row"
   >
     <TouchableIOS
-      disabled={true}
+      disabled={false}
       onLongPress={[Function]}
     >
       <Component

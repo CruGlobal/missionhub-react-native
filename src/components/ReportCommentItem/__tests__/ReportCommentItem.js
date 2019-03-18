@@ -9,12 +9,15 @@ import ReportCommentItem from '..';
 const comment = {
   id: 'commentId',
   content: 'something',
-  person: { first_name: 'commentFirst', last_name: 'commentLast' },
+  person: {
+    first_name: 'commentFirst',
+    last_name: 'commentLast',
+    full_name: 'commentFirst commentLast',
+  },
 };
 const person = {
   id: 'personId',
-  first_name: 'personFirst',
-  last_name: 'personLast',
+  full_name: 'person full name',
 };
 const item = { comment, person };
 const props = {

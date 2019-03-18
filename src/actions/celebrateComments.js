@@ -156,7 +156,8 @@ export function getReportedComments(orgId) {
     dispatch(
       callApi(REQUESTS.GET_REPORTED_COMMENTS, {
         orgId,
-        include: 'comment,person',
+        filters: { ignored: false },
+        include: 'comment,comment.person,person',
       }),
     );
 }

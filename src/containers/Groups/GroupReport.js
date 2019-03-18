@@ -61,8 +61,8 @@ export class GroupReport extends Component {
           await dispatch(
             deleteCelebrateComment(
               organization.id,
-              item.organization_celebration_item,
-              item,
+              item.comment.organization_celebration_item,
+              item.comment,
             ),
           );
           this.loadItems();
@@ -85,7 +85,7 @@ export class GroupReport extends Component {
     }
     return (
       <FlatList
-        style={styles.reportList}
+        contentContainerStyle={styles.reportList}
         data={reportedComments}
         keyExtractor={keyExtractorId}
         renderItem={this.renderItem}

@@ -33,9 +33,8 @@ class ReportCommentNotification extends Component {
     return (
       <Flex style={styles.itemWrap}>
         <Card onPress={this.report} style={styles.item}>
-          {/* TODO: Get the right icon */}
           <Icon
-            name="surveyIcon"
+            name="uncontactedIcon"
             type="MissionHub"
             size={20}
             style={styles.itemIcon}

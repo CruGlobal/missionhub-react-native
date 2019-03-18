@@ -23,7 +23,7 @@ class CommentItem extends Component {
       organization,
       me,
       isEditing,
-      isPressable,
+      isReported,
     } = this.props;
     const {
       content: contentStyle,
@@ -37,34 +37,37 @@ class CommentItem extends Component {
 
     const name = `${person.first_name} ${person.last_name}`;
     const isMine = person.id === me.id;
+    const isMineNotReported = isMine && !isReported;
 
     return (
       <View style={[contentStyle, isEditing ? editingStyle : null]}>
         <Flex direction="row" align="center">
-          {isMine ? (
+          {isMineNotReported ? (
             <Flex value={1} />
           ) : (
             <CelebrateItemName
               name={name}
               person={person}
               organization={organization}
-              pressable={isPressable !== false}
+              pressable={!isReported}
               customContent={<Text style={nameStyle}>{name}</Text>}
             />
           )}
           <CardTime date={created_at} />
         </Flex>
         <Flex direction="row">
-          {isMine ? <Flex value={1} /> : null}
-          <Touchable
-            disabled={isPressable === false}
-            onLongPress={this.handleLongPress}
-          >
-            <View ref={this.ref} style={[itemStyle, isMine ? myStyle : null]}>
-              <Text style={[text, isMine ? myText : null]}>{content}</Text>
+          {isMineNotReported ? <Flex value={1} /> : null}
+          <Touchable disabled={isReported} onLongPress={this.handleLongPress}>
+            <View
+              ref={this.ref}
+              style={[itemStyle, isMineNotReported ? myStyle : null]}
+            >
+              <Text style={[text, isMineNotReported ? myText : null]}>
+                {content}
+              </Text>
             </View>
           </Touchable>
-          {!isMine ? <Flex value={1} /> : null}
+          {!isMineNotReported ? <Flex value={1} /> : null}
         </Flex>
       </View>
     );
@@ -75,7 +78,7 @@ CommentItem.propTypes = {
   item: PropTypes.object.isRequired,
   organization: PropTypes.object,
   onLongPress: PropTypes.func,
-  isPressable: PropTypes.bool,
+  isReported: PropTypes.bool,
 };
 const mapStateToProps = (
   { auth, celebrateComments: { editingCommentId } },

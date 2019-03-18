@@ -10,6 +10,7 @@ import {
 import { organizationSelector } from '../../../selectors/organizations';
 import { celebrationSelector } from '../../../selectors/celebration';
 import { reloadGroupCelebrateFeed } from '../../../actions/celebration';
+import { getReportedComments } from '../../../actions/celebrateComments';
 import { refreshCommunity } from '../../../actions/organizations';
 import * as common from '../../../utils/common';
 
@@ -17,6 +18,7 @@ jest.mock('../../../actions/organizations');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/celebration');
 jest.mock('../../../actions/celebration');
+jest.mock('../../../actions/celebrateComments');
 
 MockDate.set('2017-06-18');
 const celebrate1 = {
@@ -97,11 +99,12 @@ it('should refresh correctly', async () => {
   );
 
   await component
-    .childAt(1)
+    .childAt(0)
     .props()
     .refreshCallback();
 
   expect(refreshCommunity).toHaveBeenCalledWith(org.id);
+  expect(getReportedComments).toHaveBeenCalledWith(org.id);
   expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(org.id);
 });
 

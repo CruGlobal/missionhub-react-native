@@ -67,7 +67,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        personFirst personLast
+        person full name
       </MyText>
     </Flex>
     <Flex
@@ -96,7 +96,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        personFirst personLast
+        commentFirst commentLast
       </MyText>
     </Flex>
   </Flex>
@@ -108,16 +108,15 @@ exports[`renders correctly 1`] = `
     }
   >
     <Connect(CommentItem)
-      isPressable={false}
+      isReported={true}
       item={
         Object {
-          "content": "Test comment reported",
-          "created_at": "2019-03-16T10:15:00",
+          "content": "something",
           "id": "commentId",
           "person": Object {
-            "first_name": "personFirst",
-            "id": "personId",
-            "last_name": "personLast",
+            "first_name": "commentFirst",
+            "full_name": "commentFirst commentLast",
+            "last_name": "commentLast",
           },
         }
       }
