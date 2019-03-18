@@ -20,7 +20,7 @@ class AssignStageButton extends Component {
       dispatch,
       isMe,
       person,
-      contactAssignment,
+      contactAssignment = null,
       organization,
       firstItemIndex,
     } = this.props;
@@ -86,17 +86,15 @@ const mapStateToProps = (
     { auth },
     { person: loadedPerson, orgId },
   );
-  const firstItemIndex =
-    contactAssignment &&
-    getStageIndex(stagesList, contactAssignment.pathway_stage_id);
+  const personStageId = contactAssignment && contactAssignment.pathway_stage_id;
 
   return {
     isMe: false,
     pathwayStage:
-      contactAssignment &&
-      stagesList.find(s => s.id === `${contactAssignment.pathway_stage_id}`),
+      contactAssignment && stagesList.find(s => s.id === `${personStageId}`),
+    firstItemIndex:
+      contactAssignment && getStageIndex(stagesList, personStageId),
     contactAssignment,
-    firstItemIndex,
   };
 };
 
