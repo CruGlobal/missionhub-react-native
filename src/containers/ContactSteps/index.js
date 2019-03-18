@@ -17,7 +17,6 @@ import {
 } from '../../utils/common';
 import { promptToAssign } from '../../utils/promptToAssign';
 import { ADD_MY_STEP_FLOW, ADD_PERSON_STEP_FLOW } from '../../routes/constants';
-import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
 import {
   contactAssignmentSelector,
   personSelector,

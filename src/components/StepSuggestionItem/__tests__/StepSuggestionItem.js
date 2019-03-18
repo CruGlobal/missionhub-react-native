@@ -13,8 +13,9 @@ const step = {
   id: '1',
   body: 'Step of Faith',
 };
+const onComplete = jest.fn();
 
-const props = { receiverId, orgId, step };
+const props = { receiverId, orgId, step, onComplete };
 
 navigatePush.mockReturnValue({ type: 'navigate push' });
 

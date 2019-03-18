@@ -6,8 +6,6 @@ import { translate } from 'react-i18next';
 import uuidv4 from 'uuid/v4';
 
 import { STATUS_SELECT_SCREEN } from '../../containers/StatusSelectScreen';
-import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
-import { loadStepsAndJourney } from '../../actions/misc';
 import { navigatePush } from '../../actions/navigation';
 import {
   SELECT_MY_STAGE_FLOW,
@@ -49,7 +47,7 @@ export default class GroupsPersonHeader extends Component {
   }
 
   selectSelfStage = () => {
-    const { dispatch, person, organization, myStageId, stages } = this.props;
+    const { dispatch, person, myStageId, stages } = this.props;
 
     dispatch(
       navigatePush(SELECT_MY_STAGE_FLOW, {

@@ -181,22 +181,10 @@ import {
   CompleteStepFlowAndNavigateBackNavigator,
   CompleteStepFlowScreens,
 } from './routes/steps/completeStepFlow';
-import {
-  AddMyStepFlowNavigator,
-  AddMyStepFlowScreens,
-} from './routes/steps/addMyStepFlow';
-import {
-  AddPersonStepFlowNavigator,
-  AddPersonStepFlowScreens,
-} from './routes/steps/addPersonStepFlow';
-import {
-  SelectMyStageFlowNavigator,
-  SelectMyStageFlowScreens,
-} from './routes/stage/selectMyStageFlow';
-import {
-  SelectPersonStageFlowNavigator,
-  SelectPersonStageFlowScreens,
-} from './routes/stage/selectPersonStageFlow';
+import { AddMyStepFlowNavigator } from './routes/steps/addMyStepFlow';
+import { AddPersonStepFlowNavigator } from './routes/steps/addPersonStepFlow';
+import { SelectMyStageFlowNavigator } from './routes/stage/selectMyStageFlow';
+import { SelectPersonStageFlowNavigator } from './routes/stage/selectPersonStageFlow';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';

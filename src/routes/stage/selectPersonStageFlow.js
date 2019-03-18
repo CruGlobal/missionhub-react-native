@@ -7,15 +7,9 @@ import { reloadJourney } from '../../actions/journey';
 import { loadStepsAndJourney } from '../../actions/misc';
 import { updatePersonAttributes, getPersonDetails } from '../../actions/person';
 import { personSelector } from '../../selectors/people';
-import { RESET_STEP_COUNT } from '../../constants';
-import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
-import StageScreen, { STAGE_SCREEN } from '../../containers/StageScreen';
 import PersonStageScreen, {
   PERSON_STAGE_SCREEN,
 } from '../../containers/PersonStageScreen';
-import SelectMyStepScreen, {
-  SELECT_MY_STEP_SCREEN,
-} from '../../containers/SelectMyStepScreen';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
@@ -36,7 +30,6 @@ export const SelectPersonStageFlowScreens = onFlowComplete => ({
     }) => (dispatch, getState) => {
       const { people } = getState();
       const person = personSelector({ people }, { personId: contactId, orgId });
-      console.log(person);
 
       contactAssignmentId
         ? dispatch(

@@ -22,12 +22,14 @@ import {
 } from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { STATUS_SELECT_SCREEN } from '../../../containers/StatusSelectScreen';
-import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
-import { STAGE_SCREEN } from '../../../containers/StageScreen';
 import {
   openCommunicationLink,
   loadStepsAndJourney,
 } from '../../../actions/misc';
+import {
+  SELECT_MY_STAGE_FLOW,
+  SELECT_PERSON_STAGE_FLOW,
+} from '../../../routes/constants';
 
 jest.mock('uuid/v4');
 jest.mock('../../../utils/common');
@@ -104,13 +106,7 @@ describe('is self', () => {
     );
   });
 
-  it('should navigate to stage screen', () => {
-    const stage = { id: '5' };
-    navigatePush.mockImplementation((_, { onComplete }) => {
-      onComplete && onComplete(stage);
-      return navigatePushResult;
-    });
-
+  it('should navigate to select stage flow', () => {
     const screen = renderShallow(
       <GroupsPersonHeader
         {...props}
@@ -127,24 +123,15 @@ describe('is self', () => {
       .props()
       .onClick();
 
-    expect(navigatePush).toHaveBeenCalledWith(STAGE_SCREEN, {
-      onComplete: expect.anything(),
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_FLOW, {
       firstItem: myStageId,
       contactId: person.id,
       section: 'people',
       subsection: 'self',
       enableBackButton: true,
     });
-    expect(store.getActions()).toEqual([
-      updatePersonResult,
-      loadStepsJourneyResult,
-      navigatePushResult,
-    ]);
+    expect(store.getActions()).toEqual([navigatePushResult]);
     expect(getStageIndex).toHaveBeenCalledWith(stages, myStageId);
-    expect(updatePersonAttributes).toHaveBeenCalledWith(person.id, {
-      user: { pathway_stage_id: stage.id },
-    });
-    expect(loadStepsAndJourney).toHaveBeenCalledWith(person, organization);
   });
 });
 
@@ -314,13 +301,7 @@ describe('isContact', () => {
       );
     });
 
-    it('should navigate to person stage screen, contact assignment', () => {
-      const stage = { id: '5' };
-      navigatePush.mockImplementation((_, { onComplete }) => {
-        onComplete && onComplete(stage);
-        return navigatePushResult;
-      });
-
+    it('should navigate to select person stage flow, contact assignment', () => {
       const reverseContactAssignment = {
         id: contactAssignment.id,
       };
@@ -344,8 +325,7 @@ describe('isContact', () => {
         .props()
         .onClick();
 
-      expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
-        onComplete: expect.anything(),
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
         firstItem: myStageId,
         name: person.first_name,
         contactId: person.id,
@@ -354,24 +334,11 @@ describe('isContact', () => {
         section: 'people',
         subsection: 'person',
       });
-      expect(store.getActions()).toEqual([
-        updatePersonResult,
-        loadStepsJourneyResult,
-        navigatePushResult,
-      ]);
+      expect(store.getActions()).toEqual([navigatePushResult]);
       expect(getStageIndex).toHaveBeenCalledWith(
         stages,
         contactAssignment.pathway_stage_id,
       );
-      expect(updatePersonAttributes).toHaveBeenCalledWith(person.id, {
-        reverse_contact_assignments: [
-          {
-            ...reverseContactAssignment,
-            pathway_stage_id: stage.id,
-          },
-        ],
-      });
-      expect(loadStepsAndJourney).toHaveBeenCalledWith(person, organization);
     });
 
     it('navigates to status select screen', () => {

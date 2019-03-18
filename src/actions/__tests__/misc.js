@@ -122,7 +122,7 @@ describe('openCommunicationLink', () => {
 
 describe('loadStepsAndJourney', () => {
   it('should load steps and reload journey', () => {
-    store.dispatch(loadStepsAndJourney(person, organization));
+    store.dispatch(loadStepsAndJourney(person.id, organization.id));
 
     expect(store.getActions()).toEqual([getStepsResult, reloadJourneyResult]);
     expect(getContactSteps).toHaveBeenCalledWith(person.id, organization.id);
