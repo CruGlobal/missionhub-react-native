@@ -155,7 +155,7 @@ class AddStepScreen extends Component {
 }
 
 AddStepScreen.propTypes = {
-  next: PropTypes.func,
+  next: PropTypes.func.isRequired,
   type: PropTypes.oneOf([
     'journey',
     'editJourney',

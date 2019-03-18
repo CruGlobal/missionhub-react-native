@@ -16,8 +16,7 @@ import {
   orgIsCru,
 } from '../../utils/common';
 import { promptToAssign } from '../../utils/promptToAssign';
-import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
-import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
+import { ADD_MY_STEP_FLOW, ADD_PERSON_STEP_FLOW } from '../../routes/constants';
 import {
   contactAssignmentSelector,
   personSelector,
@@ -86,7 +85,7 @@ class ContactSteps extends Component {
 
     if (isMe) {
       dispatch(
-        navigatePush(SELECT_MY_STEP_SCREEN, {
+        navigatePush(ADD_MY_STEP_FLOW, {
           ...trackingParams,
           enableBackButton: true,
           organization,
@@ -95,7 +94,7 @@ class ContactSteps extends Component {
       );
     } else {
       dispatch(
-        navigatePush(PERSON_SELECT_STEP_SCREEN, {
+        navigatePush(ADD_PERSON_STEP_FLOW, {
           ...trackingParams,
           contactName: person.first_name,
           contactId: person.id,

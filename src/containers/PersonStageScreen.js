@@ -65,12 +65,20 @@ class PersonStageScreen extends Component {
       dispatch,
       contactId,
       orgId,
+      contactAssignmentId,
       name,
     } = this.props;
 
     if (next) {
       return dispatch(
-        next({ stage, contactId, name, orgId, isAlreadySelected }),
+        next({
+          stage,
+          contactId,
+          name,
+          orgId,
+          isAlreadySelected,
+          contactAssignmentId,
+        }),
       );
     }
 

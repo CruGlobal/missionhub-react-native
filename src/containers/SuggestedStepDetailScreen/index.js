@@ -40,6 +40,7 @@ class SuggestedStepDetailScreen extends Component {
 SuggestedStepDetailScreen.propTypes = {
   step: PropTypes.object.isRequired,
   receiverId: PropTypes.string.isRequired,
+  onComplete: PropTypes.func.isRequired,
   orgId: PropTypes.string,
   next: PropTypes.func.isRequired,
 };

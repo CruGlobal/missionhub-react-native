@@ -5,6 +5,10 @@ import { Linking } from 'react-native';
 import { contactAssignmentSelector } from '../selectors/people';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
+import {
+  SELECT_MY_STAGE_FLOW,
+  SELECT_PERSON_STAGE_FLOW,
+} from '../routes/constants';
 
 import { trackActionWithoutData } from './analytics';
 import { getContactSteps } from './steps';
@@ -43,7 +47,7 @@ export function openCommunicationLink(url, action) {
       .catch(err => WARN('An unexpected error happened', err));
 }
 
-export function loadStepsAndJourney({ id: personId }, { id: organizationId }) {
+export function loadStepsAndJourney(personId, organizationId) {
   return dispatch => {
     dispatch(getContactSteps(personId, organizationId));
     dispatch(reloadJourney(personId, organizationId));
@@ -89,7 +93,7 @@ export function assignContactAndPickStage(person, organization) {
         contactAssignmentId: contactAssignment.id,
         name: resultPerson.first_name,
         onComplete: () => {
-          dispatch(loadStepsAndJourney(resultPerson, organization));
+          dispatch(loadStepsAndJourney(personId, orgId));
         },
         section: 'people',
         subsection: 'person',
@@ -105,21 +109,11 @@ export function navigateToStageScreen(
   organization = {},
   firstItemIndex, //todo find a way to not pass this
   noNav = false,
-  onComplete = null,
 ) {
   return dispatch => {
     if (personIsCurrentUser) {
       dispatch(
-        navigatePush(STAGE_SCREEN, {
-          onComplete: stage => {
-            dispatch(
-              updatePersonAttributes(person.id, {
-                user: { pathway_stage_id: stage.id },
-              }),
-            );
-            dispatch(loadStepsAndJourney(person, organization));
-            onComplete && onComplete(stage);
-          },
+        navigatePush(SELECT_MY_STAGE_FLOW, {
           firstItem: firstItemIndex,
           contactId: person.id,
           section: 'people',
@@ -130,23 +124,7 @@ export function navigateToStageScreen(
       );
     } else {
       dispatch(
-        navigatePush(PERSON_STAGE_SCREEN, {
-          onComplete: stage => {
-            contactAssignment
-              ? dispatch(
-                  updatePersonAttributes(person.id, {
-                    reverse_contact_assignments: person.reverse_contact_assignments.map(
-                      assignment =>
-                        assignment.id === contactAssignment.id
-                          ? { ...assignment, pathway_stage_id: stage.id }
-                          : assignment,
-                    ),
-                  }),
-                )
-              : dispatch(getPersonDetails(person.id, organization.id));
-            dispatch(loadStepsAndJourney(person, organization));
-            onComplete && onComplete(stage);
-          },
+        navigatePush(SELECT_PERSON_STAGE_FLOW, {
           firstItem: firstItemIndex,
           name: person.first_name,
           contactId: person.id,

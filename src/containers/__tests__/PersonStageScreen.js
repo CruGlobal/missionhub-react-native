@@ -238,7 +238,14 @@ describe('person stage screen methods with next', () => {
       mockNavState.contactAssignmentId,
       mockStage.id,
     );
-    expect(mockNext).toHaveBeenCalledTimes(1);
+    expect(mockNext).toHaveBeenCalledWith({
+      stage: mockStage,
+      contactId: mockNavState.contactId,
+      name: mockNavState.name,
+      orgId: mockNavState.orgId,
+      isAlreadySelected: false,
+      contactAssignmentId: mockNavState.contactAssignmentId,
+    });
   });
 
   it('runs select stage with stage previously selected', async () => {
@@ -247,6 +254,13 @@ describe('person stage screen methods with next', () => {
     await component.handleSelectStage(mockStage, true);
 
     expect(selectStage.updateUserStage).not.toHaveBeenCalled();
-    expect(mockNext).toHaveBeenCalledTimes(1);
+    expect(mockNext).toHaveBeenCalledWith({
+      stage: mockStage,
+      contactId: mockNavState.contactId,
+      name: mockNavState.name,
+      orgId: mockNavState.orgId,
+      isAlreadySelected: true,
+      contactAssignmentId: mockNavState.contactAssignmentId,
+    });
   });
 });

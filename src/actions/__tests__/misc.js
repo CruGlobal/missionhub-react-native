@@ -27,6 +27,10 @@ import {
   orgPermissionSelector,
 } from '../../selectors/people';
 import { hasOrgPermissions } from '../../utils/common';
+import {
+  SELECT_MY_STAGE_FLOW,
+  SELECT_PERSON_STAGE_FLOW,
+} from '../../routes/constants';
 
 jest.mock('../analytics');
 jest.mock('../steps');
@@ -85,8 +89,8 @@ beforeEach(() => {
   orgPermissionSelector.mockReturnValue(orgPermission);
   hasOrgPermissions.mockReturnValue(hasOrgPermissionsResult);
 
-  navigatePush.mockImplementation((_, props) => {
-    props.onComplete(stage);
+  navigatePush.mockImplementation((_, { onComplete }) => {
+    onComplete && onComplete(stage);
     return navigatePushResult;
   });
   navigateReplace.mockReturnValue(navigateReplaceResult);
@@ -122,7 +126,7 @@ describe('openCommunicationLink', () => {
 
 describe('loadStepsAndJourney', () => {
   it('should load steps and reload journey', () => {
-    store.dispatch(loadStepsAndJourney(person, organization));
+    store.dispatch(loadStepsAndJourney(person.id, organization.id));
 
     expect(store.getActions()).toEqual([getStepsResult, reloadJourneyResult]);
     expect(getContactSteps).toHaveBeenCalledWith(person.id, organization.id);
@@ -182,8 +186,7 @@ describe('navigateToStageScreen', () => {
       ),
     );
 
-    expect(navigatePush).toHaveBeenCalledWith(STAGE_SCREEN, {
-      onComplete: expect.anything(),
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_FLOW, {
       firstItem: firstItemIndex,
       contactId: person.id,
       section: 'people',
@@ -191,15 +194,7 @@ describe('navigateToStageScreen', () => {
       enableBackButton: true,
       noNav: true,
     });
-    expect(updatePersonAttributes).toHaveBeenCalledWith(person.id, {
-      user: { pathway_stage_id: stage.id },
-    });
-    expect(store.getActions()).toEqual([
-      updatePersonAttributesResult,
-      getStepsResult,
-      reloadJourneyResult,
-      navigatePushResult,
-    ]);
+    expect(store.getActions()).toEqual([navigatePushResult]);
   });
 
   it('should navigate to person stage screen if first param is false', async () => {
@@ -217,8 +212,7 @@ describe('navigateToStageScreen', () => {
       ),
     );
 
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
-      onComplete: expect.anything(),
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
       firstItem: firstItemIndex,
       name: person.first_name,
       contactId: person.id,
@@ -228,16 +222,6 @@ describe('navigateToStageScreen', () => {
       subsection: 'person',
       noNav: true,
     });
-    expect(updatePersonAttributes).toHaveBeenCalledWith(person.id, {
-      reverse_contact_assignments: [
-        { id: contactAssignment.id, pathway_stage_id: stage.id },
-      ],
-    });
-    expect(store.getActions()).toEqual([
-      updatePersonAttributesResult,
-      getStepsResult,
-      reloadJourneyResult,
-      navigatePushResult,
-    ]);
+    expect(store.getActions()).toEqual([navigatePushResult]);
   });
 });
