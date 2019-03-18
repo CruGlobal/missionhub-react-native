@@ -1,5 +1,5 @@
-import 'react-native';
 import React from 'react';
+import { Alert } from 'react-native';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import i18n from 'i18next';
@@ -63,6 +63,7 @@ setCelebrateEditingComment.mockReturnValue(dispatch =>
   dispatch(setCelebrateEditingCommentResult),
 );
 navigatePush.mockReturnValue(dispatch => dispatch(navigatePushResult));
+Alert.alert = jest.fn();
 
 const me = { id: '1' };
 
@@ -141,37 +142,42 @@ describe('with comments', () => {
   });
 });
 
+function buildScreenWithComment(comment) {
+  common.showMenu = jest.fn();
+  store = mockStore({
+    auth: { person: me },
+    organizations,
+    celebrateComments: {
+      comments: [comment],
+      pagination: {},
+    },
+  });
+
+  screen = renderShallow(
+    <CommentsList event={event} organizationId={organizationId} />,
+    store,
+  );
+}
+
 describe('comments sets up actions as author', () => {
   it('handleLongPress', () => {
-    common.showMenu = jest.fn();
     const person = { id: '1' };
     const comment = { id: 'comment1', person };
-    store = mockStore({
-      auth: { person: me },
-      organizations,
-      celebrateComments: {
-        comments: [comment],
-        pagination: {},
-      },
-    });
 
-    screen = renderShallow(
-      <CommentsList event={event} organizationId={organizationId} />,
-      store,
-    );
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.ADMIN,
     });
+    buildScreenWithComment(comment);
 
     screen.instance().handleLongPress(comment, 'testRef');
     expect(common.showMenu).toHaveBeenCalledWith(
       [
         {
-          text: i18n.t('edit'),
+          text: i18n.t('commentsList:editPost'),
           onPress: expect.any(Function),
         },
         {
-          text: i18n.t('delete'),
+          text: i18n.t('commentsList:deletePost'),
           onPress: expect.any(Function),
           destructive: true,
         },
@@ -183,22 +189,10 @@ describe('comments sets up actions as author', () => {
 
 describe('comments sets up actions as owner', () => {
   it('handleLongPress', () => {
-    common.showMenu = jest.fn();
     const person = { id: '2' };
     const comment = { id: 'comment1', person };
-    store = mockStore({
-      auth: { person: me },
-      organizations,
-      celebrateComments: {
-        comments: [comment],
-        pagination: {},
-      },
-    });
+    buildScreenWithComment(comment);
 
-    screen = renderShallow(
-      <CommentsList event={event} organizationId={organizationId} />,
-      store,
-    );
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.ADMIN,
     });
@@ -207,7 +201,7 @@ describe('comments sets up actions as owner', () => {
     expect(common.showMenu).toHaveBeenCalledWith(
       [
         {
-          text: i18n.t('delete'),
+          text: i18n.t('commentsList:deletePost'),
           onPress: expect.any(Function),
           destructive: true,
         },
@@ -219,22 +213,10 @@ describe('comments sets up actions as owner', () => {
 
 describe('comments sets up actions as user', () => {
   it('handleLongPress', () => {
-    common.showMenu = jest.fn();
     const person = { id: '2' };
     const comment = { id: 'comment1', person };
-    store = mockStore({
-      auth: { person: me },
-      organizations,
-      celebrateComments: {
-        comments: [comment],
-        pagination: {},
-      },
-    });
+    buildScreenWithComment(comment);
 
-    screen = renderShallow(
-      <CommentsList event={event} organizationId={organizationId} />,
-      store,
-    );
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.USER,
     });
@@ -242,13 +224,12 @@ describe('comments sets up actions as user', () => {
     const instance = screen.instance();
     instance.handleReport = jest.fn();
 
-    screen.instance().handleLongPress(comment, 'testRef');
+    instance.handleLongPress(comment, 'testRef');
     expect(common.showMenu).toHaveBeenCalledWith(
       [
         {
-          text: i18n.t('report'),
+          text: i18n.t('commentsList:reportToOwner'),
           onPress: expect.any(Function),
-          destructive: true,
         },
       ],
       'testRef',
@@ -261,19 +242,8 @@ describe('comment action for author', () => {
   const person = { id: '1' };
   const comment = { id: 'comment1', person };
   beforeEach(() => {
-    store = mockStore({
-      auth: { person: me },
-      organizations,
-      celebrateComments: {
-        comments: [comment],
-        pagination: {},
-      },
-    });
+    buildScreenWithComment(comment);
 
-    screen = renderShallow(
-      <CommentsList event={event} organizationId={organizationId} />,
-      store,
-    );
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.ADMIN,
     });
@@ -286,9 +256,24 @@ describe('comment action for author', () => {
     expect(setCelebrateEditingComment).toHaveBeenCalledWith(comment.id);
   });
   it('handleDelete', () => {
+    Alert.alert = jest.fn((a, b, c) => c[1].onPress());
     common.showMenu = jest.fn(a => a[1].onPress());
     instance.handleLongPress(comment, 'testRef');
     expect(deleteCelebrateComment).toHaveBeenCalledWith(event, comment);
+    expect(Alert.alert).toHaveBeenCalledWith(
+      i18n.t('commentsList:deletePostHeader'),
+      i18n.t('commentsList:deleteAreYouSure'),
+      [
+        {
+          text: i18n.t('cancel'),
+          style: 'cancel',
+        },
+        {
+          text: i18n.t('commentsList:deletePost'),
+          onPress: expect.any(Function),
+        },
+      ],
+    );
   });
 });
 
@@ -297,29 +282,31 @@ describe('comment action for user', () => {
   const person = { id: '2' };
   const comment = { id: 'comment1', person };
   beforeEach(() => {
-    store = mockStore({
-      auth: { person: me },
-      organizations,
-      celebrateComments: {
-        comments: [comment],
-        pagination: {},
-      },
-    });
+    buildScreenWithComment(comment);
 
-    screen = renderShallow(
-      <CommentsList event={event} organizationId={organizationId} />,
-      store,
-    );
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.USER,
     });
 
     instance = screen.instance();
-    instance.handleReport = jest.fn();
   });
   it('handleReport', () => {
+    Alert.alert = jest.fn((a, b, c) => c[1].onPress());
     common.showMenu = jest.fn(a => a[0].onPress());
     instance.handleLongPress(comment, 'testRef');
-    expect(instance.handleReport).toHaveBeenCalledWith(comment);
+    expect(Alert.alert).toHaveBeenCalledWith(
+      i18n.t('commentsList:reportToOwnerHeader'),
+      i18n.t('commentsList:reportAreYouSure'),
+      [
+        {
+          text: i18n.t('cancel'),
+          style: 'cancel',
+        },
+        {
+          text: i18n.t('commentsList:reportPost'),
+          onPress: expect.any(Function),
+        },
+      ],
+    );
   });
 });

@@ -152,7 +152,7 @@ exports[`renders correctly 1`] = `
           }
         }
       />
-      <Connect(CommentsList)
+      <Connect(Translate(CommentsList))
         event={
           Object {
             "id": "90001",
