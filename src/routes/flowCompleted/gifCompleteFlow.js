@@ -1,6 +1,6 @@
 import { createStackNavigator, StackActions } from 'react-navigation';
 
-import { wrapNextAction, wrapNextScreen } from '../helpers';
+import { wrapNextAction } from '../helpers';
 import { reloadJourney } from '../../actions/journey';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,

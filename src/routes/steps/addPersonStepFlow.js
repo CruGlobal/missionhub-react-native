@@ -1,7 +1,6 @@
-import { createStackNavigator, StackActions } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
-import { wrapNextAction, wrapNextScreen } from '../helpers';
-import { reloadJourney } from '../../actions/journey';
+import { wrapNextScreen } from '../helpers';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';

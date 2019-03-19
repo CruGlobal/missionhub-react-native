@@ -1,22 +1,13 @@
-import { createStackNavigator, StackActions } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
-import { wrapNextAction, wrapNextScreen } from '../helpers';
+import { wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
-import { reloadJourney } from '../../actions/journey';
-import { loadStepsAndJourney } from '../../actions/misc';
-import { updatePersonAttributes, getPersonDetails } from '../../actions/person';
-import { personSelector } from '../../selectors/people';
 import PersonStageScreen, {
   PERSON_STAGE_SCREEN,
 } from '../../containers/PersonStageScreen';
-import PersonSelectStepScreen, {
-  PERSON_SELECT_STEP_SCREEN,
-} from '../../containers/PersonSelectStepScreen';
-import CelebrationScreen, {
-  CELEBRATION_SCREEN,
-} from '../../containers/CelebrationScreen';
-
+import { PERSON_SELECT_STEP_SCREEN } from '../../containers/PersonSelectStepScreen';
+import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { AddPersonStepFlowScreens } from '../steps/addPersonStepFlow';
 
 export const SelectPersonStageFlowScreens = {

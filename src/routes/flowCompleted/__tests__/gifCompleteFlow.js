@@ -15,7 +15,7 @@ jest.mock('../../../actions/journey');
 const myId = '111';
 const orgId = '123';
 
-let store = configureStore([thunk])({
+const store = configureStore([thunk])({
   swipe: {
     completeStepExtraBack: false,
   },
@@ -44,7 +44,6 @@ const navigatePushResponse = { type: 'navigate push' };
 const reloadJourneyResponse = { type: 'reload journey' };
 const popToTopResponse = { type: 'pop to top of stack' };
 const popResponse = { type: 'pop once' };
-const flowCompleteResponse = { type: 'on flow complete' };
 
 beforeEach(() => {
   store.clearActions();

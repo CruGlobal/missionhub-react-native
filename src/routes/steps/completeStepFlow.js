@@ -1,22 +1,12 @@
-/* eslint max-lines-per-function: 0 */
 import { createStackNavigator, StackActions } from 'react-navigation';
 
-import { wrapNextAction, wrapNextScreen } from '../helpers';
-import { buildTrackingObj } from '../../utils/common';
+import { wrapNextAction } from '../helpers';
 import { navigatePush } from '../../actions/navigation';
 import { reloadJourney } from '../../actions/journey';
 import { RESET_STEP_COUNT } from '../../constants';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
-import StageScreen, { STAGE_SCREEN } from '../../containers/StageScreen';
-import PersonStageScreen, {
-  PERSON_STAGE_SCREEN,
-} from '../../containers/PersonStageScreen';
-import SelectMyStepScreen, {
-  SELECT_MY_STEP_SCREEN,
-} from '../../containers/SelectMyStepScreen';
-import PersonSelectStepScreen, {
-  PERSON_SELECT_STEP_SCREEN,
-} from '../../containers/PersonSelectStepScreen';
+import { STAGE_SCREEN } from '../../containers/StageScreen';
+import { PERSON_STAGE_SCREEN } from '../../containers/PersonStageScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';

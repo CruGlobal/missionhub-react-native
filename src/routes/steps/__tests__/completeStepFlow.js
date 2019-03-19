@@ -1,3 +1,4 @@
+/* eslint max-lines-per-function: 0 max-lines: 0 */
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
