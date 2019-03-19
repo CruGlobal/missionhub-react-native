@@ -12,8 +12,9 @@ import SelectMyStepScreen, {
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
+import { AddMyStepFlowScreens } from '../steps/addMyStepFlow';
 
-export const SelectMyStageFlowScreens = onFlowComplete => ({
+export const SelectMyStageFlowScreens = {
   [STAGE_SCREEN]: wrapNextAction(
     StageScreen,
     ({ stage, contactId, orgId, isAlreadySelected }) => dispatch => {
@@ -37,24 +38,11 @@ export const SelectMyStageFlowScreens = onFlowComplete => ({
       );
     },
   ),
-  [SELECT_MY_STEP_SCREEN]: wrapNextScreen(
-    SelectMyStepScreen,
-    CELEBRATION_SCREEN,
-  ),
-  [CELEBRATION_SCREEN]: wrapNextAction(
-    CelebrationScreen,
-    ({ contactId, orgId }) => dispatch => {
-      dispatch(reloadJourney(contactId, orgId));
-      dispatch(StackActions.popToTop());
-
-      dispatch(StackActions.pop({ immediate: true }));
-      onFlowComplete && dispatch(onFlowComplete());
-    },
-  ),
-});
+  ...AddMyStepFlowScreens,
+};
 
 export const SelectMyStageFlowNavigator = createStackNavigator(
-  SelectMyStageFlowScreens(),
+  SelectMyStageFlowScreens,
   {
     navigationOptions: {
       header: null,

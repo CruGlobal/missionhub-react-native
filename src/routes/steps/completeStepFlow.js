@@ -20,6 +20,8 @@ import PersonSelectStepScreen, {
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
+import { SelectMyStageFlowScreens } from '../stage/selectMyStageFlow';
+import { SelectPersonStageFlowScreens } from '../stage/selectPersonStageFlow';
 
 import { paramsforStageNavigation } from './utils';
 
@@ -67,50 +69,8 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
       );
     },
   ),
-  [STAGE_SCREEN]: wrapNextAction(
-    StageScreen,
-    ({ stage, contactId, orgId, isAlreadySelected }) => dispatch => {
-      dispatch(
-        isAlreadySelected
-          ? navigatePush(CELEBRATION_SCREEN, { contactId, orgId })
-          : navigatePush(SELECT_MY_STEP_SCREEN, {
-              enableBackButton: true,
-              contactId,
-              contactStage: stage,
-              organization: { id: orgId },
-            }),
-      );
-    },
-  ),
-  [PERSON_STAGE_SCREEN]: wrapNextAction(
-    PersonStageScreen,
-    ({ stage, contactId, name, orgId, isAlreadySelected }) => dispatch => {
-      dispatch(
-        isAlreadySelected
-          ? navigatePush(CELEBRATION_SCREEN, { contactId, orgId })
-          : navigatePush(PERSON_SELECT_STEP_SCREEN, {
-              contactStage: stage,
-              contactId,
-              organization: { id: orgId },
-              contactName: name,
-              createStepTracking: buildTrackingObj(
-                'people : person : steps : create',
-                'people',
-                'person',
-                'steps',
-              ),
-            }),
-      );
-    },
-  ),
-  [SELECT_MY_STEP_SCREEN]: wrapNextScreen(
-    SelectMyStepScreen,
-    CELEBRATION_SCREEN,
-  ),
-  [PERSON_SELECT_STEP_SCREEN]: wrapNextScreen(
-    PersonSelectStepScreen,
-    CELEBRATION_SCREEN,
-  ),
+  ...SelectMyStageFlowScreens,
+  ...SelectPersonStageFlowScreens,
   [CELEBRATION_SCREEN]: wrapNextAction(
     CelebrationScreen,
     ({ contactId, orgId }) => dispatch => {

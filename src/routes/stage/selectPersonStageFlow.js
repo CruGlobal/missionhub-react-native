@@ -17,7 +17,9 @@ import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
 
-export const SelectPersonStageFlowScreens = onFlowComplete => ({
+import { AddPersonStepFlowScreens } from '../steps/addPersonStepFlow';
+
+export const SelectPersonStageFlowScreens = {
   [PERSON_STAGE_SCREEN]: wrapNextAction(
     PersonStageScreen,
     ({
@@ -63,24 +65,11 @@ export const SelectPersonStageFlowScreens = onFlowComplete => ({
       );
     },
   ),
-  [PERSON_SELECT_STEP_SCREEN]: wrapNextScreen(
-    PersonSelectStepScreen,
-    CELEBRATION_SCREEN,
-  ),
-  [CELEBRATION_SCREEN]: wrapNextAction(
-    CelebrationScreen,
-    ({ contactId, orgId }) => dispatch => {
-      dispatch(reloadJourney(contactId, orgId));
-      dispatch(StackActions.popToTop());
-
-      dispatch(StackActions.pop({ immediate: true }));
-      onFlowComplete && dispatch(onFlowComplete());
-    },
-  ),
-});
+  ...AddPersonStepFlowScreens,
+};
 
 export const SelectPersonStageFlowNavigator = createStackNavigator(
-  SelectPersonStageFlowScreens(),
+  SelectPersonStageFlowScreens,
   {
     navigationOptions: {
       header: null,

@@ -5,29 +5,19 @@ import { reloadJourney } from '../../actions/journey';
 import SelectMyStepScreen, {
   SELECT_MY_STEP_SCREEN,
 } from '../../containers/SelectMyStepScreen';
-import CelebrationScreen, {
-  CELEBRATION_SCREEN,
-} from '../../containers/CelebrationScreen';
+import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
+import { GifCompleteFlowScreens } from '../flowCompleted/gifCompleteFlow';
 
-export const AddMyStepFlowScreens = onFlowComplete => ({
+export const AddMyStepFlowScreens = {
   [SELECT_MY_STEP_SCREEN]: wrapNextScreen(
     SelectMyStepScreen,
     CELEBRATION_SCREEN,
   ),
-  [CELEBRATION_SCREEN]: wrapNextAction(
-    CelebrationScreen,
-    ({ contactId, orgId }) => dispatch => {
-      dispatch(reloadJourney(contactId, orgId));
-      dispatch(StackActions.popToTop());
-
-      dispatch(StackActions.pop({ immediate: true }));
-      onFlowComplete && dispatch(onFlowComplete());
-    },
-  ),
-});
+  ...GifCompleteFlowScreens,
+};
 
 export const AddMyStepFlowNavigator = createStackNavigator(
-  AddMyStepFlowScreens(),
+  AddMyStepFlowScreens,
   {
     navigationOptions: {
       header: null,
