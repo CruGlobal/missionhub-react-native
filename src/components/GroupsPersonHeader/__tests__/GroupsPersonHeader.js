@@ -27,10 +27,6 @@ import {
   loadStepsAndJourney,
   navigateToStageScreen,
 } from '../../../actions/misc';
-import {
-  SELECT_MY_STAGE_FLOW,
-  SELECT_PERSON_STAGE_FLOW,
-} from '../../../routes/constants';
 
 jest.mock('uuid/v4');
 jest.mock('../../../utils/common');

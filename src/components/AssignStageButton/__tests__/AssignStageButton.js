@@ -6,10 +6,6 @@ import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import { contactAssignmentSelector } from '../../../selectors/people';
 import { navigateToStageScreen } from '../../../actions/misc';
 import { getStageIndex } from '../../../utils/common';
-import {
-  SELECT_MY_STAGE_FLOW,
-  SELECT_PERSON_STAGE_FLOW,
-} from '../../../routes/constants';
 
 import AssignStageButton from '..';
 

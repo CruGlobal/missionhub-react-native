@@ -4,7 +4,6 @@ import { Linking } from 'react-native';
 
 import { contactAssignmentSelector } from '../selectors/people';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
-import { STAGE_SCREEN } from '../containers/StageScreen';
 import {
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
@@ -13,12 +12,7 @@ import {
 import { trackActionWithoutData } from './analytics';
 import { getContactSteps } from './steps';
 import { reloadJourney } from './journey';
-import {
-  createContactAssignment,
-  updatePersonAttributes,
-  getPersonDetails,
-  getPersonScreenRoute,
-} from './person';
+import { createContactAssignment, getPersonScreenRoute } from './person';
 import { navigatePush, navigateReplace } from './navigation';
 
 export function openCommunicationLink(url, action) {

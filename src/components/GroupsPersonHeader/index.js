@@ -7,10 +7,6 @@ import uuidv4 from 'uuid/v4';
 
 import { STATUS_SELECT_SCREEN } from '../../containers/StatusSelectScreen';
 import { navigatePush } from '../../actions/navigation';
-import {
-  SELECT_MY_STAGE_FLOW,
-  SELECT_PERSON_STAGE_FLOW,
-} from '../../routes/constants';
 import { ACTIONS } from '../../constants';
 import {
   getPersonEmailAddress,
