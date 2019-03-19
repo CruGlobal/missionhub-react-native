@@ -83,9 +83,12 @@ export default function stepsReducer(state = initialState, action) {
         ...state,
         mine: state.mine === null ? null : removeStepById(stepId, state.mine),
         contactSteps: Object.entries(state.contactSteps).reduce(
-          (acc, [personOrgId, steps]) => ({
+          (acc, [personOrgId, combinedSteps]) => ({
             ...acc,
-            [personOrgId]: removeStepById(stepId, steps),
+            [personOrgId]: {
+              ...combinedSteps,
+              steps: removeStepById(stepId, combinedSteps.steps),
+            },
           }),
           {},
         ),
