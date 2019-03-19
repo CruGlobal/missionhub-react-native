@@ -23,66 +23,14 @@ exports[`renders correctly 1`] = `
       }
     }
   >
-    <Flex
-      value={1}
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#A0A2A6",
-          }
-        }
-      >
-        Reported By
-        :
-      </MyText>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        numberOfLines={1}
-        style={
-          Object {
-            "color": "#ffffff",
-          }
-        }
-      >
-        person full name
-      </MyText>
-    </Flex>
-    <Flex
-      value={1}
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#A0A2A6",
-          }
-        }
-      >
-        Comment By
-        :
-      </MyText>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        numberOfLines={1}
-        style={
-          Object {
-            "color": "#ffffff",
-          }
-        }
-      >
-        commentFirst commentLast
-      </MyText>
-    </Flex>
+    <ReportCommentLabel
+      label="Reported By"
+      user="person full name"
+    />
+    <ReportCommentLabel
+      label="Comment By"
+      user="commentFirst commentLast"
+    />
   </Flex>
   <Flex
     style={
@@ -97,6 +45,9 @@ exports[`renders correctly 1`] = `
         Object {
           "content": "something",
           "id": "commentId",
+          "organization_celebration_item": Object {
+            "id": "eventId",
+          },
           "person": Object {
             "first_name": "commentFirst",
             "full_name": "commentFirst commentLast",
@@ -116,7 +67,7 @@ exports[`renders correctly 1`] = `
         onPress={[Function]}
         style={
           Array [
-            Object {},
+            undefined,
             Object {
               "borderBottomLeftRadius": 8,
               "borderRightColor": "#ffffff",
@@ -135,7 +86,7 @@ exports[`renders correctly 1`] = `
         onPress={[Function]}
         style={
           Array [
-            Object {},
+            undefined,
             Object {
               "borderBottomRightRadius": 8,
             },

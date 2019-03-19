@@ -11,7 +11,7 @@ import OnboardingCard, {
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { navigatePush } from '../../actions/navigation';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
-import ReportCommentNotification from '../../containers/ReportCommentNotification';
+import ReportCommentNotifier from '../../containers/ReportCommentNotifier';
 
 import styles from './styles';
 
@@ -78,7 +78,7 @@ class CelebrateFeed extends Component {
   renderHeader = () => (
     <Fragment>
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
-      <ReportCommentNotification organization={this.props.organization} />
+      <ReportCommentNotifier organization={this.props.organization} />
     </Fragment>
   );
 

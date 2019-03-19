@@ -471,7 +471,7 @@ export const trackableScreens = {
   ...SignUpFlowScreens,
 };
 
-const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN];
+const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, GROUPS_REPORT_SCREEN];
 
 export const MainStackRoutes = createStackNavigator(
   {

@@ -10,7 +10,7 @@ import { ORG_PERMISSIONS } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import { GROUPS_REPORT_SCREEN } from '../../Groups/GroupReport';
 
-import ReportCommentNotification from '..';
+import ReportCommentNotifier from '..';
 
 jest.mock('../../../selectors/people');
 jest.mock('../../../selectors/organizations');
@@ -44,7 +44,7 @@ beforeEach(() => {
 
 function buildScreen() {
   return renderShallow(
-    <ReportCommentNotification organization={organization} />,
+    <ReportCommentNotifier organization={organization} />,
     store,
   );
 }
@@ -53,6 +53,7 @@ describe('owner', () => {
   it('renders owner with 1 reported comment', () => {
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
+    expect(getReportedComments).toHaveBeenCalledWith(organization.id);
   });
   it('renders owner with 0 reported comment', () => {
     organizationSelector.mockReturnValue({
@@ -61,6 +62,7 @@ describe('owner', () => {
     });
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
+    expect(getReportedComments).toHaveBeenCalledWith(organization.id);
   });
 });
 
@@ -71,6 +73,7 @@ describe('not owner', () => {
     });
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
+    expect(getReportedComments).not.toHaveBeenCalled();
   });
   it('renders user', () => {
     orgPermissionSelector.mockReturnValue({
@@ -78,6 +81,7 @@ describe('not owner', () => {
     });
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
+    expect(getReportedComments).not.toHaveBeenCalled();
   });
   it('renders contact', () => {
     orgPermissionSelector.mockReturnValue({
@@ -85,14 +89,8 @@ describe('not owner', () => {
     });
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
+    expect(getReportedComments).not.toHaveBeenCalled();
   });
-});
-
-it('componentDidMount', () => {
-  const screen = buildScreen();
-  screen.instance().componentDidMount();
-
-  expect(getReportedComments).toHaveBeenCalledWith(organization.id);
 });
 
 it('navigates to group report screen', () => {

@@ -179,7 +179,7 @@ describe('report comments', () => {
     const response = store.dispatch(reportComment(orgId, item));
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.CREATE_REPORT_COMMENT,
-      { orgId, commentId: item.id },
+      { orgId },
       { data: { attributes: { comment_id: item.id, person_id: me.id } } },
     );
     expect(response).toEqual(callApiResponse);

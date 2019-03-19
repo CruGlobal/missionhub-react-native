@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`report item call handleDelete 1`] = `
+exports[`report item render row 1`] = `
 <Component
   style={
     Object {

@@ -730,12 +730,12 @@ export default {
     title: 'Reported Comment',
     header: 'No Reported Comments',
     reportNull: 'No comments have been reported.',
-    deleteTitle:
-      'Deleting this comment removes it completely and it will no longer be found.',
   },
   reportComment: {
     reportedBy: 'Reported By',
     commentBy: 'Comment By',
     reportedBy: 'Reported By',
+    deleteTitle:
+      'Deleting this comment removes it completely and it will no longer be found.',
   },
 };

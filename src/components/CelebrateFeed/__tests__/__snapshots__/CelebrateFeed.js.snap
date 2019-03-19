@@ -113,7 +113,7 @@ exports[`renderHeader match snapshot 1`] = `
   <Connect(Translate(OnboardingCard))
     type="celebrate"
   />
-  <Connect(Translate(ReportCommentNotification))
+  <Connect(Translate(ReportCommentNotifier))
     organization={
       Object {
         "id": "456",

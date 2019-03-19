@@ -14,10 +14,12 @@ import { GROUPS_REPORT_SCREEN } from '../Groups/GroupReport';
 import styles from './styles';
 
 @translate('groupsReport')
-class ReportCommentNotification extends Component {
+class ReportCommentNotifier extends Component {
   componentDidMount() {
-    const { dispatch, organization } = this.props;
-    return dispatch(getReportedComments(organization.id));
+    const { dispatch, organization, isOwner } = this.props;
+    if (isOwner) {
+      dispatch(getReportedComments(organization.id));
+    }
   }
 
   report = () => {
@@ -46,7 +48,7 @@ class ReportCommentNotification extends Component {
   }
 }
 
-ReportCommentNotification.propTypes = {
+ReportCommentNotifier.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
@@ -73,4 +75,4 @@ export const mapStateToProps = (
   };
 };
 
-export default connect(mapStateToProps)(ReportCommentNotification);
+export default connect(mapStateToProps)(ReportCommentNotifier);

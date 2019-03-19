@@ -16,16 +16,9 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: theme.inactiveColor,
   },
-  label: {
-    color: theme.inactiveColor,
-  },
-  user: {
-    color: theme.white,
-  },
   comment: {
     paddingVertical: 15,
   },
-  button: {},
   buttonLeft: {
     borderRightWidth: 1,
     borderRightColor: theme.white,

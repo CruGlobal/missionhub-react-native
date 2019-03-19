@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, FlatList, View, SafeAreaView } from 'react-native';
+import { FlatList, View, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -7,15 +7,11 @@ import { refresh, keyExtractorId } from '../../utils/common';
 import Header from '../Header';
 import { IconButton, RefreshControl } from '../../components/common';
 import NullStateComponent from '../../components/NullStateComponent';
-import {
-  getReportedComments,
-  ignoreReportComment,
-  deleteCelebrateComment,
-} from '../../actions/celebrateComments';
+import { getReportedComments } from '../../actions/celebrateComments';
 import NULL from '../../../assets/images/curiousIcon.png';
 import { navigateBack } from '../../actions/navigation';
 import { organizationSelector } from '../../selectors/organizations';
-import ReportCommentItem from '../../components/ReportCommentItem';
+import ReportCommentItem from '../ReportCommentItem';
 
 import styles from './styles';
 
@@ -33,43 +29,10 @@ export class GroupReport extends Component {
   };
 
   renderItem = ({ item }) => (
-    <ReportCommentItem
-      item={item}
-      onIgnore={this.handleIgnore}
-      onDelete={this.handleDelete}
-    />
+    <ReportCommentItem item={item} organization={this.props.organization} />
   );
 
   navigateBack = () => this.props.dispatch(navigateBack());
-
-  handleIgnore = async item => {
-    const { dispatch, organization } = this.props;
-    await dispatch(ignoreReportComment(organization.id, item.id));
-    this.loadItems();
-  };
-
-  handleDelete = item => {
-    const { t, dispatch, organization } = this.props;
-    Alert.alert(t('deleteTitle'), '', [
-      {
-        text: t('cancel'),
-        style: 'cancel',
-      },
-      {
-        text: t('ok'),
-        onPress: async () => {
-          await dispatch(
-            deleteCelebrateComment(
-              organization.id,
-              item.comment.organization_celebration_item,
-              item.comment,
-            ),
-          );
-          this.loadItems();
-        },
-      },
-    ]);
-  };
 
   renderList = () => {
     const { refreshing } = this.state;

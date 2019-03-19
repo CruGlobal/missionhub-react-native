@@ -116,10 +116,7 @@ export function reportComment(orgId, item) {
     return dispatch(
       callApi(
         REQUESTS.CREATE_REPORT_COMMENT,
-        {
-          orgId,
-          commentId,
-        },
+        { orgId },
         {
           data: {
             attributes: {
