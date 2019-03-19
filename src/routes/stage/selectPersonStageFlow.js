@@ -22,31 +22,7 @@ import { AddPersonStepFlowScreens } from '../steps/addPersonStepFlow';
 export const SelectPersonStageFlowScreens = {
   [PERSON_STAGE_SCREEN]: wrapNextAction(
     PersonStageScreen,
-    ({
-      stage,
-      contactId,
-      name,
-      orgId,
-      isAlreadySelected,
-      contactAssignmentId,
-    }) => (dispatch, getState) => {
-      const { people } = getState();
-      const person = personSelector({ people }, { personId: contactId, orgId });
-
-      contactAssignmentId
-        ? dispatch(
-            updatePersonAttributes(contactId, {
-              reverse_contact_assignments: person.reverse_contact_assignments.map(
-                assignment =>
-                  assignment.id === contactAssignmentId
-                    ? { ...assignment, pathway_stage_id: stage.id }
-                    : assignment,
-              ),
-            }),
-          )
-        : dispatch(getPersonDetails(contactId, orgId));
-      dispatch(loadStepsAndJourney(contactId, orgId));
-
+    ({ stage, contactId, name, orgId, isAlreadySelected }) => dispatch => {
       dispatch(
         isAlreadySelected
           ? navigatePush(CELEBRATION_SCREEN, { contactId, orgId })

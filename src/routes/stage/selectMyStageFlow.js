@@ -19,14 +19,6 @@ export const SelectMyStageFlowScreens = {
     StageScreen,
     ({ stage, contactId, orgId, isAlreadySelected }) => dispatch => {
       dispatch(
-        updatePersonAttributes(contactId, {
-          user: { pathway_stage_id: stage.id },
-        }),
-      );
-
-      dispatch(loadStepsAndJourney(contactId, orgId));
-
-      dispatch(
         isAlreadySelected
           ? navigatePush(CELEBRATION_SCREEN, { contactId, orgId })
           : navigatePush(SELECT_MY_STEP_SCREEN, {

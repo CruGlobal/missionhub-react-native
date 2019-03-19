@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { renderShallow } from '../../../../testUtils';
-import { CompleteStepFlowScreens } from '../completeStepFlow';
+import { AddMyStepFlowScreens } from '../addMyStepFlow';
 import { navigatePush } from '../../../actions/navigation';
 import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
@@ -20,7 +20,7 @@ const store = configureStore([thunk])({
 });
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
-  const Component = CompleteStepFlowScreens()[screen];
+  const Component = AddMyStepFlowScreens[screen];
 
   await store.dispatch(
     renderShallow(
@@ -47,7 +47,7 @@ beforeEach(() => {
 });
 
 describe('SelectMyStepScreen next', () => {
-  it('should fire required next actions', async () => {
+  it('navigate to CelebrationScreen', async () => {
     await buildAndCallNext(
       SELECT_MY_STEP_SCREEN,
       {

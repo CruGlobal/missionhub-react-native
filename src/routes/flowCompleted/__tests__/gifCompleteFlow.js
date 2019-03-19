@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import * as reactNavigation from 'react-navigation';
 
 import { renderShallow } from '../../../../testUtils';
-import { CompleteStepFlowScreens } from '../completeStepFlow';
+import { GifCompleteFlowScreens } from '../gifCompleteFlow';
 import { navigatePush } from '../../../actions/navigation';
 import { reloadJourney } from '../../../actions/journey';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
@@ -15,12 +15,14 @@ jest.mock('../../../actions/journey');
 const myId = '111';
 const orgId = '123';
 
-let onFlowComplete = undefined;
-
-let store = configureStore([thunk])();
+let store = configureStore([thunk])({
+  swipe: {
+    completeStepExtraBack: false,
+  },
+});
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
-  const Component = CompleteStepFlowScreens(onFlowComplete)[screen];
+  const Component = GifCompleteFlowScreens[screen];
 
   await store.dispatch(
     renderShallow(
@@ -55,16 +57,8 @@ beforeEach(() => {
   reloadJourney.mockReturnValue(reloadJourneyResponse);
 });
 
-describe('onFlowComplete is false', () => {
+describe('CelebrationScreen next', () => {
   beforeEach(async () => {
-    store = configureStore([thunk])({
-      swipe: {
-        completeStepExtraBack: false,
-      },
-    });
-
-    onFlowComplete = undefined;
-
     await buildAndCallNext(
       CELEBRATION_SCREEN,
       { contactId: myId, orgId },
@@ -91,51 +85,6 @@ describe('onFlowComplete is false', () => {
       reloadJourneyResponse,
       popToTopResponse,
       popResponse,
-    ]);
-  });
-});
-
-describe('onFlowComplete is true', () => {
-  beforeEach(async () => {
-    store = configureStore([thunk])({
-      swipe: {
-        completeStepExtraBack: true,
-      },
-    });
-
-    onFlowComplete = jest.fn().mockReturnValue(flowCompleteResponse);
-
-    await buildAndCallNext(
-      CELEBRATION_SCREEN,
-      { contactId: myId, orgId },
-      { contactId: myId, orgId },
-    );
-  });
-
-  it('should reload journey', () => {
-    expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
-  });
-
-  it('should return to top of stack', () => {
-    expect(reactNavigation.StackActions.popToTop).toHaveBeenCalledTimes(1);
-  });
-
-  it('should navigate back', () => {
-    expect(reactNavigation.StackActions.pop).toHaveBeenCalledWith({
-      immediate: true,
-    });
-  });
-
-  it('should call onFlowComplete', () => {
-    expect(onFlowComplete).toHaveBeenCalledTimes(1);
-  });
-
-  it('should fire required next actions', () => {
-    expect(store.getActions()).toEqual([
-      reloadJourneyResponse,
-      popToTopResponse,
-      popResponse,
-      flowCompleteResponse,
     ]);
   });
 });
