@@ -20,16 +20,15 @@ class StageSuccessScreen extends Component {
     disableBack.remove();
   }
 
-  handleNavigate = () => dispatch => dispatch(navigatePush(ADD_SOMEONE_SCREEN));
-
-  handleNavigateToStep = () => {
+  complete = () => {
     disableBack.remove();
-    this.props.dispatch(
-      navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, {
+
+    const { dispatch, next } = this.props;
+    dispatch(
+      next({
         onboarding: true,
         contactStage: this.props.selectedStage,
         enableBackButton: false,
-        next: this.handleNavigate,
       }),
     );
   };
@@ -56,7 +55,7 @@ class StageSuccessScreen extends Component {
       <IconMessageScreen
         mainText={message}
         buttonText={t('chooseSteps')}
-        onComplete={this.handleNavigateToStep}
+        onComplete={this.complete}
         iconPath={require('../../assets/images/pathFinder.png')}
       />
     );

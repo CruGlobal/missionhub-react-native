@@ -162,6 +162,7 @@ import {
   ADD_PERSON_STEP_FLOW,
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
+  TRY_IT_NOW_ONBOARDING_FLOW,
 } from './routes/constants';
 import {
   JoinByCodeFlowNavigator,
@@ -188,6 +189,10 @@ import { AddMyStepFlowNavigator } from './routes/steps/addMyStepFlow';
 import { AddPersonStepFlowNavigator } from './routes/steps/addPersonStepFlow';
 import { SelectMyStageFlowNavigator } from './routes/stage/selectMyStageFlow';
 import { SelectPersonStageFlowNavigator } from './routes/stage/selectPersonStageFlow';
+import {
+  TryItNowOnboardingFlowScreens,
+  TryItNowOnboardingFlowNavigator,
+} from './routes/onboarding/tryItNowOnboardingFlow';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -339,54 +344,13 @@ const screens = {
     MFACodeScreen,
     buildTrackingObj('auth : verification', 'auth'),
   ),
-  [WELCOME_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
-    buildTrackingObj('onboarding : welcome', 'onboarding'),
-  ),
-  [SETUP_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(SetupScreen, GET_STARTED_SCREEN),
-    buildTrackingObj('onboarding : name', 'onboarding'),
-  ),
-  [GET_STARTED_SCREEN]: buildTrackedScreen(
-    GetStartedScreen,
-    buildTrackingObj('onboarding : get started', 'onboarding'),
-  ),
-  [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
-    StageSuccessScreen,
-    buildTrackingObj(
-      'onboarding : self : choose my steps',
-      'onboarding',
-      'self',
-    ),
-  ),
   [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
     SelectMyStepScreen,
     buildTrackingObj('people : self : steps : add', 'people', 'self', 'steps'),
   ),
-  [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(
-    SelectMyStepScreen,
-    buildTrackingObj(
-      'onboarding : self : steps : add',
-      'onboarding',
-      'self',
-      'steps',
-    ),
-  ),
-  [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
-    AddSomeoneScreen,
-    buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
-  ),
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(
     AddContactScreen,
     buildTrackingObj('people : add person', 'people', 'add person'),
-  ),
-  [SETUP_PERSON_SCREEN]: buildTrackedScreen(
-    SetupPersonScreen,
-    buildTrackingObj(
-      'onboarding : add person : name',
-      'onboarding',
-      'add person',
-    ),
   ),
   [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(
     NotificationPrimerScreen,
@@ -497,6 +461,7 @@ const screens = {
   [ADD_PERSON_STEP_FLOW]: AddPersonStepFlowNavigator,
   [SELECT_MY_STAGE_FLOW]: SelectMyStageFlowNavigator,
   [SELECT_PERSON_STAGE_FLOW]: SelectPersonStageFlowNavigator,
+  [TRY_IT_NOW_ONBOARDING_FLOW]: TryItNowOnboardingFlowNavigator,
 };
 
 export const trackableScreens = {
@@ -514,8 +479,8 @@ export const trackableScreens = {
 export const MainStackRoutes = createStackNavigator(
   {
     ...screens,
+    ...TryItNowOnboardingFlowScreens,
     [LANDING_SCREEN]: { screen: LandingScreen },
-    [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
     [PERSON_SELECT_STEP_SCREEN]: {
       screen: PersonSelectStepScreen,
       navigationOptions: { gesturesEnabled: true },

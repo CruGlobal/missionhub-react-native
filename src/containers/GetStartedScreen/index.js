@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
@@ -22,8 +23,10 @@ class GetStartedScreen extends Component {
 
   navigateNext = () => {
     disableBack.remove();
-    this.props.dispatch(
-      navigatePush(STAGE_ONBOARDING_SCREEN, {
+    const { dispatch, next } = this.props;
+
+    dispatch(
+      next({
         section: 'onboarding',
         subsection: 'self',
         enableBackButton: false,
@@ -55,6 +58,10 @@ const mapStateToProps = ({ profile }, { navigation }) => {
     id: navParams.id || '',
     firstName: profile.firstName,
   };
+};
+
+GetStartedScreen.propTypes = {
+  next: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps)(GetStartedScreen);

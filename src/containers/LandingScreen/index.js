@@ -9,7 +9,10 @@ import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { KEY_LOGIN_SCREEN } from '../Auth/KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { firstTime } from '../../actions/auth';
-import { JOIN_BY_CODE_ONBOARDING_FLOW } from '../../routes/constants';
+import {
+  JOIN_BY_CODE_ONBOARDING_FLOW,
+  TRY_IT_NOW_ONBOARDING_FLOW,
+} from '../../routes/constants';
 
 import styles from './styles';
 
@@ -17,7 +20,7 @@ import styles from './styles';
 class LandingScreen extends Component {
   tryItNow = () => {
     this.props.dispatch(firstTime());
-    this.props.dispatch(navigatePush(WELCOME_SCREEN));
+    this.props.dispatch(navigatePush(TRY_IT_NOW_ONBOARDING_FLOW));
   };
 
   communityCode = () => {
