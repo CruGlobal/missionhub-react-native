@@ -21,7 +21,10 @@ import AssignToMeButton from '../AssignToMeButton/index';
 import AssignStageButton from '../AssignStageButton';
 import CenteredIconButtonWithText from '../CenteredIconButtonWithText';
 import { Flex } from '../common';
-import { openCommunicationLink } from '../../actions/misc';
+import {
+  openCommunicationLink,
+  navigateToStageScreen,
+} from '../../actions/misc';
 
 import styles from './styles';
 
@@ -49,14 +52,14 @@ export default class GroupsPersonHeader extends Component {
   getSelfStageButton() {
     const { myStageId } = this.props;
 
-    return this.getStageButton(this.selectSelfStage, myStageId);
+    return this.getStageButton(this.handleSelectStage, myStageId);
   }
 
   getPersonStageButton() {
     const { contactAssignment } = this.props;
 
     return this.getStageButton(
-      this.selectPersonStage,
+      this.handleSelectStage,
       contactAssignment.pathway_stage_id,
     );
   }
@@ -174,6 +177,36 @@ export default class GroupsPersonHeader extends Component {
     );
   }
 
+  handleSelectStage = () => {
+    const {
+      dispatch,
+      myId,
+      person,
+      contactAssignment = null,
+      organization,
+      myStageId,
+      stages,
+    } = this.props;
+
+    const isMe = person.id === myId;
+    const stageId = getStageIndex(
+      stages,
+      isMe
+        ? myStageId
+        : contactAssignment && contactAssignment.pathway_stage_id,
+    );
+
+    dispatch(
+      navigateToStageScreen(
+        isMe,
+        person,
+        contactAssignment,
+        organization,
+        stageId,
+      ),
+    );
+  };
+
   render() {
     const buttons = this.computeButtons();
     const {
@@ -213,6 +246,8 @@ GroupsPersonHeader.propTypes = {
   organization: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
   myId: PropTypes.string.isRequired,
+  myStageId: PropTypes.number,
+  stages: PropTypes.array.isRequired,
   isVisible: PropTypes.bool,
   isCruOrg: PropTypes.bool,
   contactAssignment: PropTypes.object,

@@ -25,6 +25,7 @@ import { STATUS_SELECT_SCREEN } from '../../../containers/StatusSelectScreen';
 import {
   openCommunicationLink,
   loadStepsAndJourney,
+  navigateToStageScreen,
 } from '../../../actions/misc';
 import {
   SELECT_MY_STAGE_FLOW,
@@ -44,12 +45,13 @@ const organization = { id: '50' };
 const dispatch = store.dispatch;
 const myId = '1001';
 const stages = [];
+const myStageId = 4;
+const personStageId = 3;
 const contactAssignment = {
   id: '500',
-  pathway_stage_id: 3,
+  pathway_stage_id: personStageId,
   organization: { id: '231413' },
 };
-const myStageId = 4;
 const isCruOrg = true;
 
 const props = {
@@ -69,6 +71,7 @@ const navigatePushResult = { type: 'navigated' };
 const updatePersonResult = { type: 'update person attributes' };
 const getPersonResult = { type: 'get person details' };
 const loadStepsJourneyResult = { type: 'load steps and journey' };
+const navigateToStageResult = { type: 'navigate to stage screen ' };
 
 beforeEach(() => {
   uuidv4.mockReturnValue('some key');
@@ -81,6 +84,7 @@ beforeEach(() => {
   updatePersonAttributes.mockReturnValue(updatePersonResult);
   getPersonDetails.mockReturnValue(getPersonResult);
   loadStepsAndJourney.mockReturnValue(loadStepsJourneyResult);
+  navigateToStageScreen.mockReturnValue(navigateToStageResult);
   store.clearActions();
 });
 
@@ -123,14 +127,14 @@ describe('is self', () => {
       .props()
       .onClick();
 
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_FLOW, {
-      firstItem: myStageId,
-      contactId: person.id,
-      section: 'people',
-      subsection: 'self',
-      enableBackButton: true,
-    });
-    expect(store.getActions()).toEqual([navigatePushResult]);
+    expect(navigateToStageScreen).toHaveBeenCalledWith(
+      true,
+      person,
+      contactAssignment,
+      organization,
+      myStageId,
+    );
+    expect(store.getActions()).toEqual([navigateToStageResult]);
     expect(getStageIndex).toHaveBeenCalledWith(stages, myStageId);
   });
 });
@@ -302,20 +306,14 @@ describe('isContact', () => {
     });
 
     it('should navigate to select person stage flow, contact assignment', () => {
-      const reverseContactAssignment = {
-        id: contactAssignment.id,
-      };
-      const newPerson = {
-        ...person,
-        reverse_contact_assignments: [reverseContactAssignment],
-      };
+      getStageIndex.mockReturnValue(personStageId);
 
       const screen = renderShallow(
         <GroupsPersonHeader
           {...props}
-          isMember={true}
+          isMember={false}
           contactAssignment={contactAssignment}
-          person={newPerson}
+          person={person}
         />,
       );
 
@@ -325,20 +323,15 @@ describe('isContact', () => {
         .props()
         .onClick();
 
-      expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
-        firstItem: myStageId,
-        name: person.first_name,
-        contactId: person.id,
-        contactAssignmentId: contactAssignment.id,
-        orgId: organization.id,
-        section: 'people',
-        subsection: 'person',
-      });
-      expect(store.getActions()).toEqual([navigatePushResult]);
-      expect(getStageIndex).toHaveBeenCalledWith(
-        stages,
-        contactAssignment.pathway_stage_id,
+      expect(navigateToStageScreen).toHaveBeenCalledWith(
+        false,
+        person,
+        contactAssignment,
+        organization,
+        personStageId,
       );
+      expect(store.getActions()).toEqual([navigateToStageResult]);
+      expect(getStageIndex).toHaveBeenCalledWith(stages, personStageId);
     });
 
     it('navigates to status select screen', () => {
