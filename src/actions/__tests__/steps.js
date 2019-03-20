@@ -11,14 +11,13 @@ import {
   getMyStepsNextPage,
   getContactSteps,
   setStepFocus,
-  addSteps,
+  addStep,
   completeStepReminder,
   deleteStepWithTracking,
 } from '../steps';
 import { reloadGroupCelebrateFeed } from '../celebration';
 import { refreshImpact } from '../impact';
-import * as analytics from '../analytics';
-import { mockFnWithParams } from '../../../testUtils';
+import { trackStepAdded, trackAction } from '../analytics';
 import * as common from '../../utils/common';
 import { buildTrackingObj } from '../../utils/common';
 import {
@@ -127,86 +126,44 @@ describe('getContactSteps', () => {
   });
 });
 
-describe('addSteps', () => {
-  const step1 = {
+describe('addStep', () => {
+  const stepSuggestion = {
     id: '100',
     body: 'System generated step',
   };
-  const step2 = {
+  const customStepSuggestion = {
     id: 'f53836fd-c6e3-4c69-bcd3-362928c5c924',
     body: 'Hello world',
     challenge_type: CUSTOM_STEP_TYPE,
   };
-  const step3 = {
-    id: '25fc6712-67c2-4774-88dd-083f138a8011',
-    body: 'another custom step',
-    challenge_type: CUSTOM_STEP_TYPE,
-  };
-  const steps = [step1, step2, step3];
-
-  const acceptedChallenges = [
-    {
-      type: ACCEPTED_STEP,
-      attributes: {
-        title: step1.body,
-        challenge_suggestion_id: step1.id,
-      },
-    },
-    {
-      type: ACCEPTED_STEP,
-      attributes: {
-        title: step2.body,
-        challenge_suggestion_id: null,
-      },
-    },
-    {
-      type: ACCEPTED_STEP,
-      attributes: {
-        title: step3.body,
-        challenge_suggestion_id: null,
-      },
-    },
-  ];
+  const organization = { id: '200' };
 
   const stepAddedResult = { type: 'added steps tracked' };
 
-  const test = async (organization, expectedIncluded) => {
-    const expectedApiParam = {
-      included: expectedIncluded,
-      include: 'received_challenges',
-    };
-
-    await store.dispatch(addSteps(steps, receiverId, organization));
-
-    expect(store.getActions()).toEqual([stepAddedResult]);
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.ADD_CHALLENGES,
-      { person_id: receiverId },
-      expectedApiParam,
-    );
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_MY_CHALLENGES,
-      expect.anything(),
-    );
-  };
-
   beforeEach(() => {
-    mockFnWithParams(analytics, 'trackStepsAdded', stepAddedResult, steps);
     callApi.mockReturnValue(() => Promise.resolve());
+    trackStepAdded.mockReturnValue(stepAddedResult);
   });
 
-  it('creates steps without org', () => {
-    return test(null, acceptedChallenges);
+  it('creates step without org', async () => {
+    await store.dispatch(addStep(stepSuggestion, receiverId));
+
+    expect(callApi).toMatchSnapshot();
+    expect(store.getActions()).toEqual([stepAddedResult]);
   });
 
-  it('creates steps with org', () => {
-    const organization = { id: '200' };
-    const expectedIncluded = acceptedChallenges.map(c => ({
-      ...c,
-      attributes: { ...c.attributes, organization_id: organization.id },
-    }));
+  it('creates step with org', async () => {
+    await store.dispatch(addStep(stepSuggestion, receiverId, organization));
 
-    return test(organization, expectedIncluded);
+    expect(callApi).toMatchSnapshot();
+    expect(store.getActions()).toEqual([stepAddedResult]);
+  });
+
+  it('creates step with custom step suggestion', async () => {
+    await store.dispatch(addStep(customStepSuggestion, receiverId));
+
+    expect(callApi).toMatchSnapshot();
+    expect(store.getActions()).toEqual([stepAddedResult]);
   });
 });
 
@@ -261,7 +218,7 @@ describe('complete challenge', () => {
       steps: { userStepCount: { [receiverId]: 2 } },
     });
 
-    analytics.trackAction.mockReturnValue(trackActionResult);
+    trackAction.mockReturnValue(trackActionResult);
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
     refreshImpact.mockReturnValue(impactResponse);
     reloadGroupCelebrateFeed.mockReturnValue(celebrateResponse);
@@ -287,7 +244,7 @@ describe('complete challenge', () => {
         }),
       }),
     );
-    expect(analytics.trackAction).toHaveBeenCalledWith(
+    expect(trackAction).toHaveBeenCalledWith(
       `${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`,
       { [ACTIONS.STEP_COMPLETED.key]: null },
     );
@@ -501,13 +458,7 @@ describe('deleteStepWithTracking', () => {
 
   it('should delete a step', async () => {
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
-    mockFnWithParams(
-      analytics,
-      'trackAction',
-      trackActionResult,
-      `${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`,
-      { [ACTIONS.STEP_REMOVED.key]: null },
-    );
+    trackAction.mockReturnValue(trackActionResult);
 
     await store.dispatch(deleteStepWithTracking(step, screen));
 
@@ -517,5 +468,9 @@ describe('deleteStepWithTracking', () => {
       {},
     );
     expect(store.getActions()).toEqual([trackActionResult]);
+    expect(trackAction).toHaveBeenCalledWith(
+      `${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`,
+      { [ACTIONS.STEP_REMOVED.key]: null },
+    );
   });
 });

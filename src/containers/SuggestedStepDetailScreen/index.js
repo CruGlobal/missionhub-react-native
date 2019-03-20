@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { addSteps } from '../../actions/steps';
+import { addStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 
 @translate('suggestedStepDetail')
@@ -11,7 +11,7 @@ class SuggestedStepDetailScreen extends Component {
   addStep = async () => {
     const { dispatch, step, receiverId, orgId, next } = this.props;
 
-    await dispatch(addSteps([step], receiverId, { id: orgId }));
+    await dispatch(addStep(step, receiverId, orgId ? { id: orgId } : null));
 
     dispatch(next({ contactId: receiverId, orgId }));
   };

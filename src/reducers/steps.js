@@ -73,6 +73,33 @@ export default function stepsReducer(state = initialState, action) {
           },
         },
       };
+    case REQUESTS.ADD_CHALLENGE.SUCCESS: {
+      const newStep = action.results.response;
+
+      const {
+        receiver: { id: personId },
+        organization,
+      } = newStep;
+
+      const personOrgId = `${personId}-${(organization || {}).id ||
+        'personal'}`;
+      const personOrgValue = state.contactSteps[personOrgId] || {
+        steps: [],
+        completedSteps: [],
+      };
+
+      return {
+        ...state,
+        mine: [newStep, ...(state.mine || [])],
+        contactSteps: {
+          ...state.contactSteps,
+          [personOrgId]: {
+            ...personOrgValue,
+            steps: [newStep, ...personOrgValue.steps],
+          },
+        },
+      };
+    }
     case REQUESTS.DELETE_CHALLENGE.SUCCESS:
       const { challenge_id: stepId } = action.query;
 
