@@ -2,21 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
-  Modal,
   DatePickerAndroid,
   TimePickerAndroid,
-  DatePickerIOS,
-  Animated,
   Keyboard,
 } from 'react-native';
 import moment from 'moment';
 import { translate } from 'react-i18next';
 
-import { Text, Touchable, Button } from '../common';
+import { Touchable } from '../common';
 import { getDate, modeIs24Hour } from '../../utils/date';
-import { isAndroid, locale, isFunction } from '../../utils/common';
-
-import styles from './styles';
+import { isFunction } from '../../utils/common';
 
 @translate('datePicker')
 class MyDatePickerAndroid extends Component {

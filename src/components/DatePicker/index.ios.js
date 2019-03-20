@@ -1,20 +1,12 @@
+/* eslint max-lines-per-function: 0 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  View,
-  Modal,
-  DatePickerAndroid,
-  TimePickerAndroid,
-  DatePickerIOS,
-  Animated,
-  Keyboard,
-} from 'react-native';
-import moment from 'moment';
+import { View, Modal, DatePickerIOS, Animated, Keyboard } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { Text, Touchable, Button } from '../common';
 import { getDate } from '../../utils/date';
-import { isAndroid, locale, isFunction } from '../../utils/common';
+import { locale, isFunction } from '../../utils/common';
 
 import styles from './styles';
 
@@ -224,7 +216,7 @@ MyDatePickerIOS.propTypes = {
   timeZoneOffsetInMinutes: PropTypes.number,
   title: PropTypes.string,
   children: PropTypes.element,
-  iOSModalConent: PropTypes.element,
+  iOSModalContent: PropTypes.element,
 };
 
 export default MyDatePickerIOS;
