@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { navigatePush, navigateBack } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { getContactSteps } from '../../actions/steps';
 import { Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
