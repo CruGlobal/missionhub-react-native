@@ -212,8 +212,8 @@ it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
     {
       mine: [{ id: '6' }, { id: '3' }],
       contactSteps: {
-        '123-456': [{ id: '6' }, { id: '3' }],
-        '987-': [{ id: '3' }, { id: '6' }],
+        '123-456': { steps: [{ id: '6' }, { id: '3' }], completedSteps: [] },
+        '987-': { steps: [{ id: '3' }, { id: '6' }], completedSteps: [] },
       },
     },
     {
@@ -225,8 +225,8 @@ it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
   expect(state).toEqual({
     mine: [{ id: '6' }],
     contactSteps: {
-      '123-456': [{ id: '6' }],
-      '987-': [{ id: '6' }],
+      '123-456': { steps: [{ id: '6' }], completedSteps: [] },
+      '987-': { steps: [{ id: '6' }], completedSteps: [] },
     },
   });
 });
