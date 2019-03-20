@@ -118,10 +118,10 @@ export function deleteCelebrateComment(orgId, event, item) {
 }
 
 export function reportComment(orgId, item) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const { id: myId } = getState().auth.person;
     const commentId = item.id;
-    return dispatch(
+    const result = await dispatch(
       callApi(
         REQUESTS.CREATE_REPORT_COMMENT,
         { orgId },
@@ -135,6 +135,9 @@ export function reportComment(orgId, item) {
         },
       ),
     );
+
+    dispatch(trackActionWithoutData(ACTIONS.CELEBRATE_COMMENT_REPORTED));
+    return result;
   };
 }
 
