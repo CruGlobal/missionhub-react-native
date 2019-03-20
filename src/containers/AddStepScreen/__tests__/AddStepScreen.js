@@ -33,7 +33,7 @@ it('renders correctly', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: jest.fn(),
+          next: jest.fn(),
           type: CREATE_STEP,
         })}
       />
@@ -46,7 +46,7 @@ it('renders journey correctly', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: jest.fn(),
+          next: jest.fn(),
           type: 'journey',
         })}
       />
@@ -59,7 +59,7 @@ it('renders edit journey correctly', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: jest.fn(),
+          next: jest.fn(),
           type: 'editJourney',
           isEdit: true,
           text: 'Comment',
@@ -74,7 +74,7 @@ it('renders step note correctly', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: jest.fn(),
+          next: jest.fn(),
           type: STEP_NOTE,
           text: 'Comment',
         })}
@@ -88,7 +88,7 @@ it('renders step note correctly for me', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: jest.fn(),
+          next: jest.fn(),
           type: STEP_NOTE,
           text: 'Comment',
           personId: auth.person.id,
@@ -103,7 +103,7 @@ it('renders interaction without skip correctly', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: jest.fn(),
+          next: jest.fn(),
           type: 'interaction',
           hideSkip: true,
         })}
@@ -117,7 +117,7 @@ it('renders interaction with skip correctly', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: jest.fn(),
+          next: jest.fn(),
           type: 'interaction',
           hideSkip: false,
         })}
@@ -128,12 +128,12 @@ it('renders interaction with skip correctly', () => {
 
 describe('add step methods', () => {
   let component;
-  const mockComplete = jest.fn();
+  const next = jest.fn(() => ({ type: 'next' }));
   beforeEach(() => {
     const screen = renderShallow(
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: mockComplete,
+          next,
           type: 'editJourney',
           isEdit: true,
           text: 'Comment',
@@ -145,15 +145,15 @@ describe('add step methods', () => {
     component = screen.instance();
   });
 
-  xit('saves a step', () => {
+  it('saves a step', () => {
     component.saveStep();
-    expect(mockComplete).toHaveBeenCalledTimes(1);
+    expect(next).toHaveBeenCalledTimes(1);
   });
 });
 
-describe('add step methods for stepNote with onComplete', () => {
+describe('add step methods for stepNote with next', () => {
   let screen;
-  const mockComplete = jest.fn();
+  const next = jest.fn(() => ({ type: 'next' }));
   common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
   beforeEach(() => {
@@ -162,7 +162,7 @@ describe('add step methods for stepNote with onComplete', () => {
     screen = renderShallow(
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: mockComplete,
+          next,
           type: STEP_NOTE,
           text: 'Comment',
         })}
@@ -179,7 +179,7 @@ describe('add step methods for stepNote with onComplete', () => {
       .childAt(0)
       .simulate('press');
 
-    expect(mockComplete).toHaveBeenCalledTimes(1);
+    expect(next).toHaveBeenCalledTimes(1);
   });
 
   it('runs saveStep', () => {
@@ -193,18 +193,18 @@ describe('add step methods for stepNote with onComplete', () => {
     screen.childAt(2).simulate('press');
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
-    expect(mockComplete).toHaveBeenCalledTimes(1);
+    expect(next).toHaveBeenCalledTimes(1);
   });
 });
 
 describe('add step methods without edit', () => {
   let component;
-  const mockComplete = jest.fn();
+  const next = jest.fn();
   beforeEach(() => {
     const screen = renderShallow(
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: mockComplete,
+          next,
           type: 'journey',
         })}
       />,
@@ -216,13 +216,13 @@ describe('add step methods without edit', () => {
 
   it('doesnt save a step', () => {
     component.saveStep();
-    expect(mockComplete).toHaveBeenCalledTimes(0);
+    expect(next).toHaveBeenCalledTimes(0);
   });
 });
 
 describe('Caps create step at 255 characters', () => {
   let component;
-  const mockComplete = jest.fn();
+  const next = jest.fn();
   Alert.alert = jest.fn();
   const { makeShorter } = locale.addStep;
 
@@ -230,7 +230,7 @@ describe('Caps create step at 255 characters', () => {
     const screen = renderShallow(
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: mockComplete,
+          next,
           type: CREATE_STEP,
         })}
       />,
