@@ -11,6 +11,7 @@ import {
   deleteCelebrateComment,
   setCelebrateEditingComment,
   resetCelebrateEditingComment,
+  reportComment,
 } from '../../actions/celebrateComments';
 import LoadMore from '../../components/LoadMore';
 import RefreshControl from '../../components/RefreshControl';
@@ -52,40 +53,39 @@ class CommentsList extends Component {
 
   alert = ({ title, message, actionText, action }) => {
     const { t } = this.props;
-    Alert.alert(title, message, [
+    Alert.alert(t(title), t(message), [
       {
         text: t('cancel'),
         style: 'cancel',
       },
       {
-        text: actionText,
+        text: t(actionText),
         onPress: action,
       },
     ]);
   };
 
   handleDelete = item => {
-    const { t, dispatch, event } = this.props;
+    const { dispatch, event } = this.props;
 
     this.alert({
-      title: t('deletePostHeader'),
-      message: t('deleteAreYouSure'),
-      actionText: t('deletePost'),
+      title: 'deletePostHeader',
+      message: 'deleteAreYouSure',
+      actionText: 'deletePost',
       action: () => {
-        dispatch(deleteCelebrateComment(event, item));
+        dispatch(deleteCelebrateComment(event.organization.id, event, item));
       },
     });
   };
 
-  // eslint-disable-next-line
   handleReport = item => {
-    const { t } = this.props;
+    const { dispatch, event } = this.props;
     this.alert({
-      title: t('reportToOwnerHeader'),
-      message: t('reportAreYouSure'),
-      actionText: t('reportPost'),
+      title: 'reportToOwnerHeader',
+      message: 'reportAreYouSure',
+      actionText: 'reportPost',
       action: () => {
-        // dispatch(reportCelebrateComment(event, item));
+        dispatch(reportComment(event.organization.id, item));
       },
     });
   };

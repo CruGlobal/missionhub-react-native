@@ -105,6 +105,9 @@ import {
 import SurveyContacts, {
   GROUPS_SURVEY_CONTACTS,
 } from './containers/Groups/SurveyContacts';
+import GroupReport, {
+  GROUPS_REPORT_SCREEN,
+} from './containers/Groups/GroupReport';
 import UnassignedPersonScreen, {
   UNASSIGNED_PERSON_SCREEN,
 } from './containers/Groups/UnassignedPersonScreen';
@@ -378,6 +381,11 @@ const screens = {
     ),
     { gesturesEnabled: true },
   ),
+  [GROUPS_REPORT_SCREEN]: buildTrackedScreen(
+    GroupReport,
+    buildTrackingObj('communities : report', 'communities', 'report'),
+    { gesturesEnabled: true },
+  ),
   [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     SurveyContactsFilter,
     buildTrackingObj(
@@ -463,7 +471,7 @@ export const trackableScreens = {
   ...SignUpFlowScreens,
 };
 
-const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN];
+const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, GROUPS_REPORT_SCREEN];
 
 export const MainStackRoutes = createStackNavigator(
   {

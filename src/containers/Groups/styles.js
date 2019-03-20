@@ -77,4 +77,10 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: theme.white,
   },
+  reportHeader: {
+    backgroundColor: theme.red,
+  },
+  reportList: {
+    paddingVertical: 15,
+  },
 });

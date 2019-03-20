@@ -352,3 +352,5 @@ export function showMenu(actions, ref) {
     );
   }
 }
+
+export const keyExtractorId = item => item.id;

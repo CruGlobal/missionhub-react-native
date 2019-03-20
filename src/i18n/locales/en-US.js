@@ -91,6 +91,7 @@ export default {
     loading: 'Loading',
     save: 'Save',
     delete: 'Delete',
+    ignore: 'Ignore',
     report: 'Report',
     cancel: 'Cancel',
     continue: 'Continue',
@@ -722,5 +723,19 @@ export default {
     deletePostHeader: 'Delete Post?',
     deleteAreYouSure:
       'This post will be deleted and you won’t be able to find it anymore.',
+  },
+  groupsReport: {
+    reports: '{{count}} new reported comment',
+    reports_plural: '{{count}} new reported comments',
+    title: 'Reported Comment',
+    header: 'No Reported Comments',
+    reportNull: 'No comments have been reported.',
+  },
+  reportComment: {
+    reportedBy: 'Reported By',
+    commentBy: 'Comment By',
+    reportedBy: 'Reported By',
+    deleteTitle:
+      'Deleting this comment removes it completely and it will no longer be found.',
   },
 };

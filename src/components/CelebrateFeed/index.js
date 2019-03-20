@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { SectionList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -11,6 +11,7 @@ import OnboardingCard, {
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { navigatePush } from '../../actions/navigation';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
+import ReportCommentNotifier from '../../containers/ReportCommentNotifier';
 
 import styles from './styles';
 
@@ -75,7 +76,10 @@ class CelebrateFeed extends Component {
   };
 
   renderHeader = () => (
-    <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
+    <Fragment>
+      <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
+      <ReportCommentNotifier organization={this.props.organization} />
+    </Fragment>
   );
 
   render() {
