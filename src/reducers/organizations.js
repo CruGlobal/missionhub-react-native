@@ -101,20 +101,6 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         surveysPagination: getPagination(action, allSurveys.length),
       };
-    case REQUESTS.GET_REPORTED_COMMENTS.SUCCESS:
-      const {
-        query: { orgId: reportedCommentsOrgId },
-        results: { response: reportedComments = [] },
-      } = action;
-      return {
-        ...state,
-        all: reportedCommentsOrgId
-          ? state.all.map(
-              o =>
-                o.id === reportedCommentsOrgId ? { ...o, reportedComments } : o,
-            )
-          : state.all,
-      };
     case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
     case REQUESTS.GET_GLOBAL_CELEBRATE_FEED.SUCCESS:
     case REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS:

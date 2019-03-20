@@ -10,7 +10,6 @@ import NullStateComponent from '../../components/NullStateComponent';
 import { getReportedComments } from '../../actions/celebrateComments';
 import NULL from '../../../assets/images/curiousIcon.png';
 import { navigateBack } from '../../actions/navigation';
-import { organizationSelector } from '../../selectors/organizations';
 import ReportCommentItem from '../ReportCommentItem';
 
 import styles from './styles';
@@ -85,7 +84,7 @@ export class GroupReport extends Component {
 }
 
 const mapStateToProps = (
-  { organizations },
+  { reportedComments },
   {
     navigation: {
       state: {
@@ -93,17 +92,10 @@ const mapStateToProps = (
       },
     },
   },
-) => {
-  const selectorOrg =
-    organizationSelector({ organizations }, { orgId: organization.id }) ||
-    organization;
-
-  const reportedComments = selectorOrg.reportedComments || [];
-  return {
-    organization: selectorOrg,
-    reportedComments,
-  };
-};
+) => ({
+  organization,
+  reportedComments: reportedComments.all[organization.id] || [],
+});
 
 export default connect(mapStateToProps)(GroupReport);
 export const GROUPS_REPORT_SCREEN = 'nav/GROUPS_REPORT_SCREEN';

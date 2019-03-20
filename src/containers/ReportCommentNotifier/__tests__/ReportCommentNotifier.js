@@ -28,18 +28,25 @@ const organization = {
 };
 const me = { id: 'myId' };
 
-const store = mockStore({
+const mockStoreObj = {
   organizations: [],
   auth: {
     person: me,
   },
-});
+  reportedComments: {
+    all: {
+      [organization.id]: [comment1],
+    },
+  },
+};
+let store;
 
 beforeEach(() => {
   organizationSelector.mockReturnValue(organization);
   orgPermissionSelector.mockReturnValue({
     permission_id: ORG_PERMISSIONS.OWNER,
   });
+  store = mockStore(mockStoreObj);
 });
 
 function buildScreen() {
@@ -56,10 +63,7 @@ describe('owner', () => {
     expect(getReportedComments).toHaveBeenCalledWith(organization.id);
   });
   it('renders owner with 0 reported comment', () => {
-    organizationSelector.mockReturnValue({
-      ...organization,
-      reportedComments: [],
-    });
+    store = mockStore({ ...mockStoreObj, reportedComments: { all: {} } });
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).toHaveBeenCalledWith(organization.id);

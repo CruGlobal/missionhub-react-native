@@ -7,7 +7,6 @@ import {
   createMockNavState,
   createMockStore,
 } from '../../../../testUtils';
-import { organizationSelector } from '../../../selectors/organizations';
 import {
   getReportedComments,
   deleteCelebrateComment,
@@ -16,7 +15,6 @@ import {
 import * as common from '../../../utils/common';
 import { navigateBack } from '../../../actions/navigation';
 
-jest.mock('../../../selectors/organizations');
 jest.mock('../../../actions/celebrateComments');
 jest.mock('../../../actions/navigation');
 
@@ -36,11 +34,14 @@ const report1 = {
   person,
 };
 
-const org = { id: 'orgId', reportedComments: [report1] };
+const org = { id: 'orgId' };
 let store;
 const mockStore = {
   organizations: {
     all: [org],
+  },
+  reportedComments: {
+    all: { [org.id]: [report1] },
   },
 };
 
@@ -50,39 +51,29 @@ navigateBack.mockReturnValue({ type: 'navigate back' });
 
 beforeEach(() => {
   store = createMockStore(mockStore);
-  organizationSelector.mockReturnValue(org);
 });
 
 it('should render correctly', () => {
   const component = renderShallow(
-    <GroupReport
-      organization={org}
-      navigation={createMockNavState({ organization: org })}
-    />,
+    <GroupReport navigation={createMockNavState({ organization: org })} />,
     store,
   );
   expect(component).toMatchSnapshot();
 });
 
 it('should render empty correctly', () => {
-  organizationSelector.mockReturnValue({ ...org, reportedComments: [] });
+  store = createMockStore({ ...mockStore, reportedComments: { all: {} } });
   const component = renderShallow(
-    <GroupReport
-      organization={org}
-      navigation={createMockNavState({ organization: org })}
-    />,
+    <GroupReport navigation={createMockNavState({ organization: org })} />,
     store,
   );
   expect(component).toMatchSnapshot();
 });
 
 it('should call navigate back', () => {
-  organizationSelector.mockReturnValue({ ...org, reportedComments: [] });
+  store = createMockStore({ ...mockStore, reportedComments: { all: {} } });
   const component = renderShallow(
-    <GroupReport
-      organization={org}
-      navigation={createMockNavState({ organization: org })}
-    />,
+    <GroupReport navigation={createMockNavState({ organization: org })} />,
     store,
   );
   component
@@ -94,10 +85,7 @@ it('should call navigate back', () => {
 
 it('should refresh correctly', async () => {
   const component = renderShallow(
-    <GroupReport
-      organization={org}
-      navigation={createMockNavState({ organization: org })}
-    />,
+    <GroupReport navigation={createMockNavState({ organization: org })} />,
     store,
   );
 
@@ -112,10 +100,7 @@ it('should refresh correctly', async () => {
 
 it('should refresh items properly', () => {
   const instance = renderShallow(
-    <GroupReport
-      organization={org}
-      navigation={createMockNavState({ organization: org })}
-    />,
+    <GroupReport navigation={createMockNavState({ organization: org })} />,
     store,
   ).instance();
 
@@ -126,15 +111,18 @@ it('should refresh items properly', () => {
 });
 
 describe('report item', () => {
+  store = createMockStore(mockStore);
   const component = renderShallow(
-    <GroupReport
-      organization={org}
-      navigation={createMockNavState({ organization: org })}
-    />,
+    <GroupReport navigation={createMockNavState({ organization: org })} />,
     store,
   );
 
   it('render row', () => {
-    expect(component).toMatchSnapshot();
+    const item = component
+      .childAt(1)
+      .childAt(0)
+      .props()
+      .renderItem({ item: report1 });
+    expect(item).toMatchSnapshot();
   });
 });

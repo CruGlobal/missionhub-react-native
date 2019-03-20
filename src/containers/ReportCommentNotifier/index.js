@@ -53,7 +53,7 @@ ReportCommentNotifier.propTypes = {
 };
 
 export const mapStateToProps = (
-  { auth, organizations },
+  { auth, organizations, reportedComments },
   { organization = {} },
 ) => {
   const selectorOrg =
@@ -64,13 +64,13 @@ export const mapStateToProps = (
     person: auth.person,
     organization: { id: selectorOrg.id },
   });
-  const reportedComments = selectorOrg.reportedComments || [];
-  const count = reportedComments.length;
+  const allReportedComments = reportedComments.all[selectorOrg.id] || [];
+  const count = allReportedComments.length;
 
   return {
     organization: selectorOrg,
     isOwner: isOwner(myOrgPerm),
-    reportedComments,
+    reportedComments: allReportedComments,
     count,
   };
 };
