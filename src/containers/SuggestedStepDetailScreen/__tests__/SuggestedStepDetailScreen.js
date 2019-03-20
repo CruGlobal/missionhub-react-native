@@ -6,7 +6,7 @@ import { createMockNavState, renderShallow } from '../../../../testUtils';
 
 import SuggestedStepDetailScreen from '..';
 
-import { addSteps } from '../../../actions/steps';
+import { addStep } from '../../../actions/steps';
 
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/navigation');
@@ -23,7 +23,7 @@ let screen;
 const mockStore = configureStore([thunk]);
 let store;
 
-addSteps.mockReturnValue(() => Promise.resolve());
+addStep.mockReturnValue(() => Promise.resolve());
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -46,7 +46,7 @@ describe('bottomButtonProps', () => {
   it('adds step', async () => {
     await screen.props().bottomButtonProps.onPress();
 
-    expect(addSteps).toHaveBeenCalledWith([step], receiverId, { id: orgId });
+    expect(addStep).toHaveBeenCalledWith(step, receiverId, { id: orgId });
     expect(onComplete).toHaveBeenCalledTimes(1);
   });
 });

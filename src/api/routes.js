@@ -90,9 +90,9 @@ export default {
     endpoint: `${API_URL}/challenge_suggestions`,
     anonymous: true,
   },
-  ADD_CHALLENGES: {
-    endpoint: `${PEOPLE_URL}/:person_id`,
-    method: 'put',
+  ADD_CHALLENGE: {
+    endpoint: CHALLENGES_URL,
+    method: 'post',
   },
   GET_MY_CHALLENGES: {
     endpoint: CHALLENGES_URL,

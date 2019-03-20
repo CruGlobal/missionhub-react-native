@@ -41,29 +41,27 @@ export function updateAnalyticsContext(analyticsContext) {
   };
 }
 
-export function trackStepsAdded(steps) {
+export function trackStepAdded(step) {
   return dispatch => {
-    steps.forEach(step => {
-      let trackedStep = `${step.challenge_type} | ${
-        step.self_step ? 'Y' : 'N'
-      } | ${step.locale}`;
+    let trackedStep = `${step.challenge_type} | ${
+      step.self_step ? 'Y' : 'N'
+    } | ${step.locale}`;
 
-      if (isCustomStep(step)) {
-        dispatch(trackActionWithoutData(ACTIONS.STEP_CREATED));
-      } else {
-        trackedStep = `${trackedStep} | ${step.id} | ${step.pathway_stage.id}`;
-      }
+    if (isCustomStep(step)) {
+      dispatch(trackActionWithoutData(ACTIONS.STEP_CREATED));
+    } else {
+      trackedStep = `${trackedStep} | ${step.id} | ${step.pathway_stage.id}`;
+    }
 
-      dispatch(
-        trackAction(ACTIONS.STEP_DETAIL.name, {
-          [ACTIONS.STEP_DETAIL.key]: trackedStep,
-        }),
-      );
-    });
+    dispatch(
+      trackAction(ACTIONS.STEP_DETAIL.name, {
+        [ACTIONS.STEP_DETAIL.key]: trackedStep,
+      }),
+    );
 
     dispatch(
       trackAction(ACTIONS.STEPS_ADDED.name, {
-        [ACTIONS.STEPS_ADDED.key]: steps.length,
+        [ACTIONS.STEPS_ADDED.key]: 1, // One step of faith added. Historically multiple could be added at once and needed to be tracked.
       }),
     );
   };
