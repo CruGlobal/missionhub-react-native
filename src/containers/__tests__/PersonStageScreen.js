@@ -102,13 +102,13 @@ describe('person stage screen methods with onComplete prop', () => {
     );
   });
 
-  xit('runs select stage', async () => {
+  it('runs select stage', async () => {
     selectStage.updateUserStage = jest.fn();
-    navigation.navigatePush = jest.fn();
+    navigation.navigatePush = jest.fn((screen, { next }) => next()(jest.fn()));
 
     await component.handleSelectStage(mockStage, false);
 
-    expect(navigation.navigateBack).toHaveBeenCalledWith(2);
+    expect(navigation.navigateBack).toHaveBeenCalledWith(3, false);
     expect(selectStage.updateUserStage).toHaveBeenCalledTimes(1);
   });
 
@@ -157,10 +157,10 @@ describe('person stage screen methods with add contact flow', () => {
     );
   });
 
-  xit('runs handle navigate', () => {
+  it('runs handle navigate', () => {
     component.celebrateAndFinish = jest.fn();
 
-    component.handleNavigate();
+    component.handleNavigate()();
 
     expect(component.celebrateAndFinish).toHaveBeenCalledTimes(1);
   });
