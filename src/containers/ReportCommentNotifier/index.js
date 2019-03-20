@@ -70,7 +70,6 @@ export const mapStateToProps = (
   return {
     organization: selectorOrg,
     isOwner: isOwner(myOrgPerm),
-    reportedComments: allReportedComments,
     count,
   };
 };
