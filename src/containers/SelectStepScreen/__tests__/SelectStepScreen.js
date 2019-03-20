@@ -10,7 +10,7 @@ import { navigatePush } from '../../../actions/navigation';
 import { buildCustomStep } from '../../../utils/steps';
 import { CREATE_STEP } from '../../../constants';
 import { ADD_STEP_SCREEN } from '../../AddStepScreen';
-import { addSteps } from '../../../actions/steps';
+import { addStep } from '../../../actions/steps';
 
 jest.mock('../../../utils/steps');
 jest.mock('../../../actions/steps');
@@ -37,7 +37,7 @@ navigatePush.mockImplementation((screen, props) => () =>
   props.onComplete(customStep.body),
 );
 buildCustomStep.mockReturnValue(customStep);
-addSteps.mockReturnValue(addStepsResult);
+addStep.mockReturnValue(addStepsResult);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -118,11 +118,7 @@ describe('BottomButton', () => {
   });
 
   it('passes callback to create a custom step', () => {
-    expect(addSteps).toHaveBeenCalledWith(
-      [customStep],
-      receiverId,
-      organization,
-    );
+    expect(addStep).toHaveBeenCalledWith(customStep, receiverId, organization);
     expect(buildCustomStep).toHaveBeenCalledWith(
       customStep.body,
       receiverId === auth.person.id,
