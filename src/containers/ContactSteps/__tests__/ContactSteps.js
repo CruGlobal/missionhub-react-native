@@ -12,7 +12,7 @@ import {
   testSnapshotShallow,
   renderShallow,
 } from '../../../../testUtils';
-import { navigatePush, navigateBack } from '../../../actions/navigation';
+import { navigatePush } from '../../../actions/navigation';
 import { buildTrackingObj } from '../../../utils/common';
 import { getContactSteps } from '../../../actions/steps';
 import { contactAssignmentSelector } from '../../../selectors/people';
@@ -205,22 +205,6 @@ describe('handleComplete', () => {
   });
 });
 
-describe('handleSaveNewSteps', () => {
-  beforeAll(() => {
-    props = {
-      isMe: false,
-      person: mockPerson,
-    };
-  });
-
-  it('saves new steps', async () => {
-    await instance.handleSaveNewSteps();
-
-    expect(getContactSteps).toHaveBeenCalled();
-    expect(navigateBack).toHaveBeenCalled();
-  });
-});
-
 describe('handleCreateStep', () => {
   describe('for me', () => {
     beforeAll(() => {
@@ -238,7 +222,6 @@ describe('handleCreateStep', () => {
       expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW, {
         enableBackButton: true,
         trackingObj,
-        next: expect.any(Function),
       });
     });
   });
@@ -294,7 +277,6 @@ describe('handleCreateStep', () => {
           'steps',
         ),
         trackingObj,
-        next: expect.any(Function),
       });
     });
   });
