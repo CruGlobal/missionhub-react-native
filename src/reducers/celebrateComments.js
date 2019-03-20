@@ -87,6 +87,10 @@ function removeCommentFromState(state, action) {
   } = action;
 
   const event = state.all[eventId];
+  // This can happen when deleting a reported comment without loading the celebrate comments for that item
+  if (!event) {
+    return state;
+  }
   const comments = event.comments.filter(c => c.id !== commentId);
 
   return {

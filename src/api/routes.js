@@ -219,6 +219,17 @@ export default {
     endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments/:commentId`,
     method: 'delete',
   },
+  GET_REPORTED_COMMENTS: {
+    endpoint: `${ORG_URL}/:orgId/comment_reports`,
+  },
+  CREATE_REPORT_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/comment_reports`,
+    method: 'post',
+  },
+  UPDATE_REPORT_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/comment_reports/:reportCommentId`,
+    method: 'put',
+  },
   ORGANIZATION_NEW_CODE: {
     endpoint: `${ORG_URL}/:orgId/community_code`,
     method: 'put',

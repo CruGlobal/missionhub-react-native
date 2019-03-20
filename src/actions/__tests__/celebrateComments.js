@@ -14,24 +14,27 @@ import {
   updateCelebrateComment,
   resetCelebrateEditingComment,
   setCelebrateEditingComment,
+  reportComment,
+  ignoreReportComment,
+  getReportedComments,
 } from '../celebrateComments';
 import callApi, { REQUESTS } from '../api';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import { trackActionWithoutData } from '../analytics';
 import { ACTIONS } from '../../constants';
+import * as common from '../../utils/common';
 
 jest.mock('../api');
 jest.mock('../../selectors/celebrateComments');
 jest.mock('../analytics');
 
-const event = { id: '80890', organization: { id: '645654' } };
+const orgId = '645654';
+const event = { id: '80890', organization: { id: orgId } };
 const comment = { pagination: { page: 2, hasNextPage: true } };
 const callApiResponse = { result: 'hello world' };
 const celebrateComments = { someProp: 'asdfasdfasdf' };
-const baseQuery = {
-  orgId: event.organization.id,
-  eventId: event.id,
-};
+const baseQuery = { orgId, eventId: event.id };
+const me = { id: 'myId' };
 const include = 'organization_celebration_item,person';
 const trackActionResult = { type: 'tracked action' };
 
@@ -45,7 +48,7 @@ trackActionWithoutData.mockReturnValue(trackActionResult);
 beforeEach(() => {
   jest.clearAllMocks();
 
-  store = mockStore({ celebrateComments });
+  store = mockStore({ auth: { person: me }, celebrateComments });
 });
 
 describe('getCelebrateCommentsNextPage', () => {
@@ -126,7 +129,9 @@ describe('deleteCelebrateComment', () => {
   let response;
 
   beforeEach(() =>
-    (response = store.dispatch(deleteCelebrateComment(event, item))));
+    (response = store.dispatch(
+      deleteCelebrateComment(event.organization.id, event, item),
+    )));
 
   it('should callApi for delete', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CELEBRATE_COMMENT, {
@@ -164,6 +169,39 @@ describe('updateCelebrateComment', () => {
   });
 
   it('should return api response', () => {
+    expect(response).toEqual(callApiResponse);
+  });
+});
+
+describe('report comments', () => {
+  const item = { id: 'comment1' };
+  it('should callApi for report', () => {
+    const response = store.dispatch(reportComment(orgId, item));
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CREATE_REPORT_COMMENT,
+      { orgId },
+      { data: { attributes: { comment_id: item.id, person_id: me.id } } },
+    );
+    expect(response).toEqual(callApiResponse);
+  });
+  it('should callApi for ignore', () => {
+    const fakeDate = '2018-09-06T14:13:21Z';
+    common.formatApiDate = jest.fn(() => fakeDate);
+    const response = store.dispatch(ignoreReportComment(orgId, item.id));
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_REPORT_COMMENT,
+      { orgId, reportCommentId: item.id },
+      { data: { attributes: { ignored_at: fakeDate } } },
+    );
+    expect(response).toEqual(callApiResponse);
+  });
+  it('should callApi for get reported comments', () => {
+    const response = store.dispatch(getReportedComments(orgId));
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_REPORTED_COMMENTS, {
+      orgId,
+      filters: { ignored: false },
+      include: 'comment,comment.person,person',
+    });
     expect(response).toEqual(callApiResponse);
   });
 });
