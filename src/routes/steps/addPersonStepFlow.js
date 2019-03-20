@@ -1,33 +1,22 @@
-import { createStackNavigator, StackActions } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
-import { wrapNextAction, wrapNextScreen } from '../helpers';
-import { reloadJourney } from '../../actions/journey';
+import { wrapNextScreen } from '../helpers';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
-import CelebrationScreen, {
-  CELEBRATION_SCREEN,
-} from '../../containers/CelebrationScreen';
+import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
+import { GifCompleteFlowScreens } from '../flowCompleted/gifCompleteFlow';
 
-export const AddPersonStepFlowScreens = onFlowComplete => ({
+export const AddPersonStepFlowScreens = {
   [PERSON_SELECT_STEP_SCREEN]: wrapNextScreen(
     PersonSelectStepScreen,
     CELEBRATION_SCREEN,
   ),
-  [CELEBRATION_SCREEN]: wrapNextAction(
-    CelebrationScreen,
-    ({ contactId, orgId }) => dispatch => {
-      dispatch(reloadJourney(contactId, orgId));
-      dispatch(StackActions.popToTop());
-
-      dispatch(StackActions.pop({ immediate: true }));
-      onFlowComplete && dispatch(onFlowComplete());
-    },
-  ),
-});
+  ...GifCompleteFlowScreens,
+};
 
 export const AddPersonStepFlowNavigator = createStackNavigator(
-  AddPersonStepFlowScreens(),
+  AddPersonStepFlowScreens,
   {
     navigationOptions: {
       header: null,

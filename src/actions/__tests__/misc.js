@@ -20,7 +20,6 @@ import { getContactSteps } from '../steps';
 import { reloadJourney } from '../journey';
 import { navigatePush, navigateReplace } from '../navigation';
 import { PERSON_STAGE_SCREEN } from '../../containers/PersonStageScreen';
-import { STAGE_SCREEN } from '../../containers/StageScreen';
 import { CONTACT_PERSON_SCREEN } from '../../containers/Groups/AssignedPersonScreen';
 import {
   contactAssignmentSelector,

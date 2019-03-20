@@ -37,7 +37,7 @@ class AssignStageButton extends Component {
   };
 
   render() {
-    const { t, pathwayStage, isMe } = this.props;
+    const { t, pathwayStage } = this.props;
 
     return (
       <Button

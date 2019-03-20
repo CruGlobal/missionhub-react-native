@@ -1,30 +1,16 @@
-import { createStackNavigator, StackActions } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
-import { wrapNextAction, wrapNextScreen } from '../helpers';
+import { wrapNextAction } from '../helpers';
 import { navigatePush } from '../../actions/navigation';
-import { reloadJourney } from '../../actions/journey';
-import { loadStepsAndJourney } from '../../actions/misc';
-import { updatePersonAttributes } from '../../actions/person';
 import StageScreen, { STAGE_SCREEN } from '../../containers/StageScreen';
-import SelectMyStepScreen, {
-  SELECT_MY_STEP_SCREEN,
-} from '../../containers/SelectMyStepScreen';
-import CelebrationScreen, {
-  CELEBRATION_SCREEN,
-} from '../../containers/CelebrationScreen';
+import { SELECT_MY_STEP_SCREEN } from '../../containers/SelectMyStepScreen';
+import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
+import { AddMyStepFlowScreens } from '../steps/addMyStepFlow';
 
-export const SelectMyStageFlowScreens = onFlowComplete => ({
+export const SelectMyStageFlowScreens = {
   [STAGE_SCREEN]: wrapNextAction(
     StageScreen,
     ({ stage, contactId, orgId, isAlreadySelected }) => dispatch => {
-      dispatch(
-        updatePersonAttributes(contactId, {
-          user: { pathway_stage_id: stage.id },
-        }),
-      );
-
-      dispatch(loadStepsAndJourney(contactId, orgId));
-
       dispatch(
         isAlreadySelected
           ? navigatePush(CELEBRATION_SCREEN, { contactId, orgId })
@@ -37,24 +23,11 @@ export const SelectMyStageFlowScreens = onFlowComplete => ({
       );
     },
   ),
-  [SELECT_MY_STEP_SCREEN]: wrapNextScreen(
-    SelectMyStepScreen,
-    CELEBRATION_SCREEN,
-  ),
-  [CELEBRATION_SCREEN]: wrapNextAction(
-    CelebrationScreen,
-    ({ contactId, orgId }) => dispatch => {
-      dispatch(reloadJourney(contactId, orgId));
-      dispatch(StackActions.popToTop());
-
-      dispatch(StackActions.pop({ immediate: true }));
-      onFlowComplete && dispatch(onFlowComplete());
-    },
-  ),
-});
+  ...AddMyStepFlowScreens,
+};
 
 export const SelectMyStageFlowNavigator = createStackNavigator(
-  SelectMyStageFlowScreens(),
+  SelectMyStageFlowScreens,
   {
     navigationOptions: {
       header: null,
