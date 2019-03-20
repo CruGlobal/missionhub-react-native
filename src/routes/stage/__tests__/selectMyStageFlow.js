@@ -1,15 +1,20 @@
+/* eslint max-lines-per-function: 0 */
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { renderShallow } from '../../../../testUtils';
 import { SelectMyStageFlowScreens } from '../selectMyStageFlow';
+import { updatePersonAttributes } from '../../../actions/person';
+import { loadStepsAndJourney } from '../../../actions/misc';
 import { navigatePush } from '../../../actions/navigation';
 import { STAGE_SCREEN } from '../../../containers/StageScreen';
 import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/person');
+jest.mock('../../../actions/misc');
 
 const myId = '111';
 const myName = 'Me';
@@ -42,11 +47,15 @@ const buildAndCallNext = async (screen, navParams, nextProps) => {
   );
 };
 
+const updatePersonResponse = { type: 'update person attributes' };
+const loadStepsJourneyResponse = { type: 'load steps and journey' };
 const navigatePushResponse = { type: 'navigate push' };
 
 beforeEach(() => {
   store.clearActions();
   jest.clearAllMocks();
+  updatePersonAttributes.mockReturnValue(updatePersonResponse);
+  loadStepsAndJourney.mockReturnValue(loadStepsJourneyResponse);
   navigatePush.mockReturnValue(navigatePushResponse);
 });
 
@@ -69,11 +78,29 @@ describe('StageScreen next', () => {
       );
     });
 
+    it('should update person', () => {
+      expect(updatePersonAttributes).toHaveBeenCalledWith(myId, {
+        user: { pathway_stage_id: stage.id },
+      });
+    });
+
+    it('should load steps and journey', () => {
+      expect(loadStepsAndJourney).toHaveBeenCalledWith(myId, orgId);
+    });
+
     it('should navigate to CelebrationScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
         contactId: myId,
         orgId,
       });
+    });
+
+    it('fires correct actions', () => {
+      expect(store.getActions()).toEqual([
+        updatePersonResponse,
+        loadStepsJourneyResponse,
+        navigatePushResponse,
+      ]);
     });
   });
 
@@ -95,6 +122,16 @@ describe('StageScreen next', () => {
       );
     });
 
+    it('should update person', () => {
+      expect(updatePersonAttributes).toHaveBeenCalledWith(myId, {
+        user: { pathway_stage_id: stage.id },
+      });
+    });
+
+    it('should load steps and journey', () => {
+      expect(loadStepsAndJourney).toHaveBeenCalledWith(myId, orgId);
+    });
+
     it('should navigate to SelectMyStepScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
         contactId: myId,
@@ -102,6 +139,14 @@ describe('StageScreen next', () => {
         contactStage: stage,
         organization: { id: orgId },
       });
+    });
+
+    it('fires correct actions', () => {
+      expect(store.getActions()).toEqual([
+        updatePersonResponse,
+        loadStepsJourneyResponse,
+        navigatePushResponse,
+      ]);
     });
   });
 });
