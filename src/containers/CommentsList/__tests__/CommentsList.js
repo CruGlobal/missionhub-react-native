@@ -15,13 +15,14 @@ import {
   deleteCelebrateComment,
   resetCelebrateEditingComment,
   setCelebrateEditingComment,
-  reportComment,
 } from '../../../actions/celebrateComments';
+import { reportComment } from '../../../actions/reportComments';
 import * as common from '../../../utils/common';
 import { ORG_PERMISSIONS } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 
 jest.mock('../../../actions/celebrateComments');
+jest.mock('../../../actions/reportComments');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/people');

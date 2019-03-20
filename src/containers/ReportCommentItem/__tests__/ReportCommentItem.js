@@ -7,15 +7,16 @@ import {
   renderShallow,
   createMockStore,
 } from '../../../../testUtils';
+import { deleteCelebrateComment } from '../../../actions/celebrateComments';
 import {
-  deleteCelebrateComment,
   ignoreReportComment,
   getReportedComments,
-} from '../../../actions/celebrateComments';
+} from '../../../actions/reportComments';
 
 import ReportCommentItem from '..';
 
 jest.mock('../../../actions/celebrateComments');
+jest.mock('../../../actions/reportComments');
 
 deleteCelebrateComment.mockReturnValue({ type: 'delete comment' });
 ignoreReportComment.mockReturnValue({ type: 'ignore comment' });

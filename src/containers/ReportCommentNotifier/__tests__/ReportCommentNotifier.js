@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { renderShallow } from '../../../../testUtils';
-import { getReportedComments } from '../../../actions/celebrateComments';
+import { getReportedComments } from '../../../actions/reportComments';
 import { orgPermissionSelector } from '../../../selectors/people';
 import { organizationSelector } from '../../../selectors/organizations';
 import { ORG_PERMISSIONS } from '../../../constants';
@@ -14,7 +14,7 @@ import ReportCommentNotifier from '..';
 
 jest.mock('../../../selectors/people');
 jest.mock('../../../selectors/organizations');
-jest.mock('../../../actions/celebrateComments');
+jest.mock('../../../actions/reportComments');
 jest.mock('../../../actions/navigation');
 
 getReportedComments.mockReturnValue(() => ({ type: 'getReportedComments' }));

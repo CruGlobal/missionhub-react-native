@@ -7,15 +7,16 @@ import {
   createMockNavState,
   createMockStore,
 } from '../../../../testUtils';
+import { deleteCelebrateComment } from '../../../actions/celebrateComments';
 import {
   getReportedComments,
-  deleteCelebrateComment,
   ignoreReportComment,
-} from '../../../actions/celebrateComments';
+} from '../../../actions/reportComments';
 import * as common from '../../../utils/common';
 import { navigateBack } from '../../../actions/navigation';
 
 jest.mock('../../../actions/celebrateComments');
+jest.mock('../../../actions/reportComments');
 jest.mock('../../../actions/navigation');
 
 MockDate.set('2017-06-18');

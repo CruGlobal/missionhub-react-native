@@ -14,7 +14,7 @@ import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
 import { momentUtc, refresh } from '../../utils/common';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
-import { getReportedComments } from '../../actions/celebrateComments';
+import { getReportedComments } from '../../actions/reportComments';
 
 @translate('groupsCelebrate')
 export class GroupCelebrate extends Component {

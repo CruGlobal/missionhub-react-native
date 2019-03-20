@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { getReportedComments } from '../../actions/celebrateComments';
+import { getReportedComments } from '../../actions/reportComments';
 import { Flex, Text, Card, Icon } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgPermissionSelector } from '../../selectors/people';

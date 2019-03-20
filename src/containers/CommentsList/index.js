@@ -11,8 +11,8 @@ import {
   deleteCelebrateComment,
   setCelebrateEditingComment,
   resetCelebrateEditingComment,
-  reportComment,
 } from '../../actions/celebrateComments';
+import { reportComment } from '../../actions/reportComments';
 import LoadMore from '../../components/LoadMore';
 import RefreshControl from '../../components/RefreshControl';
 import { refresh, showMenu } from '../../utils/common';

@@ -10,7 +10,7 @@ import {
 import { organizationSelector } from '../../../selectors/organizations';
 import { celebrationSelector } from '../../../selectors/celebration';
 import { reloadGroupCelebrateFeed } from '../../../actions/celebration';
-import { getReportedComments } from '../../../actions/celebrateComments';
+import { getReportedComments } from '../../../actions/reportComments';
 import { refreshCommunity } from '../../../actions/organizations';
 import * as common from '../../../utils/common';
 
@@ -18,7 +18,7 @@ jest.mock('../../../actions/organizations');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/celebration');
 jest.mock('../../../actions/celebration');
-jest.mock('../../../actions/celebrateComments');
+jest.mock('../../../actions/reportComments');
 
 MockDate.set('2017-06-18');
 const celebrate1 = {
