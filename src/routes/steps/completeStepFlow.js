@@ -4,7 +4,9 @@ import { wrapNextAction } from '../helpers';
 import { navigatePush } from '../../actions/navigation';
 import { reloadJourney } from '../../actions/journey';
 import { RESET_STEP_COUNT, ACTIONS } from '../../constants';
-import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
+import AddStepScreen, {
+  COMPLETE_STEP_SCREEN,
+} from '../../containers/AddStepScreen';
 import { STAGE_SCREEN } from '../../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../../containers/PersonStageScreen';
 import CelebrationScreen, {
@@ -18,7 +20,7 @@ import { SelectPersonStageFlowScreens } from '../stage/selectPersonStageFlow';
 import { paramsforStageNavigation } from './utils';
 
 export const CompleteStepFlowScreens = onFlowComplete => ({
-  [ADD_STEP_SCREEN]: wrapNextAction(
+  [COMPLETE_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
     ({ text, stepId, personId, orgId }) => (dispatch, getState) => {
       const {

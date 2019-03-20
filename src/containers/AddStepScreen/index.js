@@ -178,3 +178,4 @@ const mapStateToProps = ({ auth }, { navigation }) => ({
 
 export default connect(mapStateToProps)(AddStepScreen);
 export const ADD_STEP_SCREEN = 'nav/ADD_STEP';
+export const COMPLETE_STEP_SCREEN = 'nav/COMPLETE_STEP';
