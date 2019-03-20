@@ -4,7 +4,6 @@ import { wrapNextScreen } from '../helpers';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
-
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { GifCompleteFlowScreens } from '../flowCompleted/gifCompleteFlow';
 

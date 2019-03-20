@@ -1,4 +1,4 @@
-import { createStackNavigator, StackActions } from 'react-navigation';
+import { StackActions } from 'react-navigation';
 
 import { wrapNextAction, wrapNextScreen } from '../helpers';
 import { reloadJourney } from '../../actions/journey';
@@ -19,7 +19,6 @@ export const GifCompleteFlowScreens = {
   [CELEBRATION_SCREEN]: wrapNextAction(
     CelebrationScreen,
     ({ contactId, orgId }) => dispatch => {
-      console.log('celebration screen next');
       dispatch(reloadJourney(contactId, orgId));
       dispatch(StackActions.popToTop());
 
