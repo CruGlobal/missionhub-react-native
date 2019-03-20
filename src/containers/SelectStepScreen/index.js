@@ -38,9 +38,10 @@ class SelectStepScreen extends Component {
   }
 
   createCustomStep = text => {
-    const { dispatch, isMe, receiverId, organization } = this.props;
+    const { dispatch, isMe, receiverId, organization, onComplete } = this.props;
 
     dispatch(addSteps([buildCustomStep(text, isMe)], receiverId, organization));
+    onComplete();
   };
 
   handleCreateStep = () => {
@@ -89,6 +90,7 @@ class SelectStepScreen extends Component {
       contactStageId,
       enableBackButton,
       contact,
+      onComplete,
     } = this.props;
 
     return (
@@ -106,6 +108,7 @@ class SelectStepScreen extends Component {
             receiverId={receiverId}
             organization={organization}
             contactStageId={contactStageId}
+            onComplete={onComplete}
           />
         </ParallaxScrollView>
         <BottomButton

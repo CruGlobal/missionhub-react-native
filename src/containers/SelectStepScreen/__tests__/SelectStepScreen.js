@@ -127,6 +127,7 @@ describe('BottomButton', () => {
       customStep.body,
       receiverId === auth.person.id,
     );
+    expect(onComplete).toHaveBeenCalled();
   });
 
   it('dispatches actions to store', () => {
