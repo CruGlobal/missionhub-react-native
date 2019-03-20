@@ -104,8 +104,8 @@ describe('handleSelectStage', () => {
   const nextResponse = { type: 'next' };
 
   selectStage.selectMyStage = jest.fn(() => selectStageAction);
-  navigation.navigatePush = jest.fn(() => {
-    // params.onSaveNewSteps();
+  navigation.navigatePush = jest.fn((screen, { next }) => {
+    store.dispatch(next());
     return selectMyStepNavAction;
   });
   navigation.navigateBack = jest.fn(() => navigateBackAction);
@@ -119,7 +119,7 @@ describe('handleSelectStage', () => {
       });
 
       describe('and no nav is false', () => {
-        xit('should select stage, navigate to select step screen, then onComplete navigates to contact screen', async () => {
+        it('should select stage, navigate to select step screen, then onComplete navigates to contact screen', async () => {
           await component.handleSelectStage(mockStage, false);
 
           expect(store.getActions()).toEqual([
