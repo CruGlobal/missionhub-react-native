@@ -14,15 +14,11 @@ import {
   updateCelebrateComment,
   resetCelebrateEditingComment,
   setCelebrateEditingComment,
-  reportComment,
-  ignoreReportComment,
-  getReportedComments,
 } from '../celebrateComments';
 import callApi, { REQUESTS } from '../api';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import { trackActionWithoutData } from '../analytics';
 import { ACTIONS } from '../../constants';
-import * as common from '../../utils/common';
 
 jest.mock('../api');
 jest.mock('../../selectors/celebrateComments');
@@ -128,8 +124,8 @@ describe('deleteCelebrateComment', () => {
   const item = { id: 'comment1' };
   let response;
 
-  beforeEach(() =>
-    (response = store.dispatch(
+  beforeEach(async () =>
+    (response = await store.dispatch(
       deleteCelebrateComment(event.organization.id, event, item),
     )));
 
@@ -143,6 +139,13 @@ describe('deleteCelebrateComment', () => {
   it('should return api response', () => {
     expect(response).toEqual(callApiResponse);
   });
+
+  it('should track action', () => {
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CELEBRATE_COMMENT_DELETED,
+    );
+    expect(store.getActions()).toEqual([trackActionResult]);
+  });
 });
 
 describe('updateCelebrateComment', () => {
@@ -150,8 +153,8 @@ describe('updateCelebrateComment', () => {
   const text = 'text';
   let response;
 
-  beforeEach(() =>
-    (response = store.dispatch(updateCelebrateComment(item, text))));
+  beforeEach(async () =>
+    (response = await store.dispatch(updateCelebrateComment(item, text))));
 
   it('should callApi', () => {
     expect(callApi).toHaveBeenCalledWith(
@@ -171,38 +174,12 @@ describe('updateCelebrateComment', () => {
   it('should return api response', () => {
     expect(response).toEqual(callApiResponse);
   });
-});
 
-describe('report comments', () => {
-  const item = { id: 'comment1' };
-  it('should callApi for report', () => {
-    const response = store.dispatch(reportComment(orgId, item));
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.CREATE_REPORT_COMMENT,
-      { orgId },
-      { data: { attributes: { comment_id: item.id, person_id: me.id } } },
+  it('should track action', () => {
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CELEBRATE_COMMENT_EDITED,
     );
-    expect(response).toEqual(callApiResponse);
-  });
-  it('should callApi for ignore', () => {
-    const fakeDate = '2018-09-06T14:13:21Z';
-    common.formatApiDate = jest.fn(() => fakeDate);
-    const response = store.dispatch(ignoreReportComment(orgId, item.id));
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.UPDATE_REPORT_COMMENT,
-      { orgId, reportCommentId: item.id },
-      { data: { attributes: { ignored_at: fakeDate } } },
-    );
-    expect(response).toEqual(callApiResponse);
-  });
-  it('should callApi for get reported comments', () => {
-    const response = store.dispatch(getReportedComments(orgId));
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_REPORTED_COMMENTS, {
-      orgId,
-      filters: { ignored: false },
-      include: 'comment,comment.person,person',
-    });
-    expect(response).toEqual(callApiResponse);
+    expect(store.getActions()).toEqual([trackActionResult]);
   });
 });
 

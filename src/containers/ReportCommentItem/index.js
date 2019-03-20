@@ -7,11 +7,11 @@ import { connect } from 'react-redux';
 import { Flex, Card, Button } from '../../components/common';
 import CommentItem from '../CommentItem';
 import ReportCommentLabel from '../../components/ReportCommentLabel';
+import { deleteCelebrateComment } from '../../actions/celebrateComments';
 import {
   ignoreReportComment,
-  deleteCelebrateComment,
   getReportedComments,
-} from '../../actions/celebrateComments';
+} from '../../actions/reportComments';
 
 import styles from './styles';
 

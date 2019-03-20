@@ -252,6 +252,18 @@ export const ACTIONS = {
     name: 'Celebrate Comment Added',
     key: 'cru.sendcelebratecomment',
   },
+  CELEBRATE_COMMENT_EDITED: {
+    name: 'Celebrate Comment Edited',
+    key: 'cru.editcelebratecomment',
+  },
+  CELEBRATE_COMMENT_DELETED: {
+    name: 'Celebrate Comment Deleted',
+    key: 'cru.deletecelebratecomment',
+  },
+  CELEBRATE_COMMENT_REPORTED: {
+    name: 'Celebrate Comment Reported',
+    key: 'cru.reportcelebratecomment',
+  },
   ASSIGNED_TO_ME: {
     name: 'Assigned to Me',
     key: 'cru.assignedtome',

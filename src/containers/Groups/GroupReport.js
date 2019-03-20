@@ -7,7 +7,7 @@ import { refresh, keyExtractorId } from '../../utils/common';
 import Header from '../Header';
 import { IconButton, RefreshControl } from '../../components/common';
 import NullStateComponent from '../../components/NullStateComponent';
-import { getReportedComments } from '../../actions/celebrateComments';
+import { getReportedComments } from '../../actions/reportComments';
 import NULL from '../../../assets/images/curiousIcon.png';
 import { navigateBack } from '../../actions/navigation';
 import ReportCommentItem from '../ReportCommentItem';
