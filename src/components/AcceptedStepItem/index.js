@@ -79,6 +79,7 @@ class AcceptedStepItem extends Component {
             onChangeDate={this.handleSetReminder}
             iOSModalContent={<ReminderRepeatButtons />}
             height={378}
+            mode="datetime"
           >
             <View flexDirection="row" style={reminderButton}>
               <Icon name="bellIcon" type="MissionHub" style={bellIcon} />

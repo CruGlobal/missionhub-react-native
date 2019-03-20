@@ -41,6 +41,7 @@ class ReminderButton extends Component {
         onChangeDate={this.handleChangeDate}
         iOSModalContent={<ReminderRepeatButtons />}
         height={378}
+        mode="datetime"
       >
         <View style={reminderButton}>
           <View style={reminderContainer}>
