@@ -41,7 +41,9 @@ class SelectStepScreen extends Component {
     const { isMe, receiverId, organization, next } = this.props;
 
     dispatch(addSteps([buildCustomStep(text, isMe)], receiverId, organization));
-    dispatch(next());
+    dispatch(
+      next({ contactId: receiverId, orgId: organization && organization.id }),
+    );
   };
 
   handleCreateStep = () => {

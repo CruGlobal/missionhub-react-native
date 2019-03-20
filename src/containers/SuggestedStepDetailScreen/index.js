@@ -13,7 +13,7 @@ class SuggestedStepDetailScreen extends Component {
 
     await dispatch(addSteps([step], receiverId, { id: orgId }));
 
-    dispatch(next());
+    dispatch(next({ contactId: receiverId, orgId }));
   };
 
   render() {
