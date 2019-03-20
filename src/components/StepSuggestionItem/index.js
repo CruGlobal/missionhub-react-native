@@ -10,9 +10,14 @@ import styles from './styles';
 
 class StepSuggestionItem extends Component {
   handlePress = () => {
-    const { dispatch, step, receiverId, orgId } = this.props;
+    const { dispatch, step, receiverId, orgId, onComplete } = this.props;
     dispatch(
-      navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, { step, receiverId, orgId }),
+      navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
+        step,
+        receiverId,
+        orgId,
+        onComplete,
+      }),
     );
   };
 
@@ -34,6 +39,7 @@ StepSuggestionItem.propTypes = {
     body: PropTypes.string.isRequired,
   }).isRequired,
   receiverId: PropTypes.string.isRequired,
+  onComplete: PropTypes.func.isRequired,
   orgId: PropTypes.string,
 };
 

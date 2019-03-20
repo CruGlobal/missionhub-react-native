@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 
 import { renderShallow } from '../../../../testUtils';
 import { buildTrackingObj } from '../../../utils/common';
-import { CompleteStepFlowScreens } from '../completeStepFlow';
+import { AddPersonStepFlowScreens } from '../addPersonStepFlow';
 import { navigatePush } from '../../../actions/navigation';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
@@ -24,7 +24,7 @@ const store = configureStore([thunk])({
 });
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
-  const Component = CompleteStepFlowScreens()[screen];
+  const Component = AddPersonStepFlowScreens[screen];
 
   await store.dispatch(
     renderShallow(
@@ -51,7 +51,7 @@ beforeEach(() => {
 });
 
 describe('PersonSelectStepScreen next', () => {
-  it('should fire required next actions', async () => {
+  it('should navigate to CelebrationScreen', async () => {
     await buildAndCallNext(
       PERSON_SELECT_STEP_SCREEN,
       {
