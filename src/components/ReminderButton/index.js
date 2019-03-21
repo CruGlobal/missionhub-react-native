@@ -30,20 +30,13 @@ class ReminderButton extends Component {
     const { recurrence } = this.state;
     const { stepId, dispatch } = this.props;
 
-    if (recurrence) {
-      console.log(recurrence);
-      dispatch(createStepReminder(stepId, date, recurrence));
-    } else {
-      console.log('no recurrence');
-      dispatch(createStepReminder(stepId, date));
-    }
+    dispatch(createStepReminder(stepId, date, recurrence));
 
     this.setState({ recurrence: null });
   };
 
   onRecurrenceChange = recurrence => {
     this.setState({ recurrence });
-    console.log(this.state.recurrence);
   };
 
   render() {

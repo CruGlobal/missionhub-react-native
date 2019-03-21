@@ -25,8 +25,10 @@ import callApi, { REQUESTS } from './api';
 import { trackAction, trackStepAdded } from './analytics';
 import { reloadGroupCelebrateFeed } from './celebration';
 
-export function createStepReminder(challenge_id, at, type = 'once') {
+export function createStepReminder(challenge_id, at, recurrence) {
   return dispatch => {
+    const type = recurrence || 'once';
+
     const payload = {
       data: {
         type: 'accepted_challenge_reminder',
@@ -41,7 +43,6 @@ export function createStepReminder(challenge_id, at, type = 'once') {
       },
     };
 
-    console.log(new Date().getTimezoneOffset());
     console.log(challenge_id);
     console.log(payload);
 
