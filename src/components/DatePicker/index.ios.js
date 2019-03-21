@@ -64,6 +64,7 @@ class MyDatePickerIOS extends Component {
   }
 
   onDateChange = date => {
+    console.log(date);
     this.setState({
       allowPointerEvents: false,
       date: date,

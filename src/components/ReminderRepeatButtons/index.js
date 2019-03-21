@@ -20,14 +20,17 @@ export default class ReminderRepeatButtons extends Component {
 
   handleSetDaily = () => {
     this.setButtonState(!this.state.dailyActive, false, false);
+    this.props.onRecurrenceChange(this.state.dailyActive && 'daily');
   };
 
   handleSetWeekly = () => {
     this.setButtonState(false, !this.state.weeklyActive, false);
+    this.props.onRecurrenceChange(this.state.weeklyActive && 'weekly');
   };
 
   handleSetMonthly = () => {
     this.setButtonState(false, false, !this.state.monthlyActive);
+    this.props.onRecurrenceChange(this.state.monthlyActive && 'monthly');
   };
 
   render() {

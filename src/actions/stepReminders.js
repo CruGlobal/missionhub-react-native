@@ -32,11 +32,16 @@ export function createStepReminder(challenge_id, at, type = 'once') {
         type: 'accepted_challenge_reminder',
         attributes: {
           type,
-          at: type === 'once' ? at.toISOString() : at,
+          at:
+            type === 'once'
+              ? at.toISOString()
+              : at.toLocaleTimeString(undefined, { hour12: false }),
+          on: createOn(at, type),
         },
       },
     };
 
+    console.log(new Date().getTimezoneOffset());
     console.log(challenge_id);
     console.log(payload);
 
@@ -45,3 +50,33 @@ export function createStepReminder(challenge_id, at, type = 'once') {
     );
   };
 }
+
+function createOn(at, type) {
+  if (type === 'once') {
+    return undefined;
+  }
+
+  if (type === 'daily') {
+    return undefined;
+  }
+
+  if (type === 'weekly') {
+    return [
+      'sunday',
+      'monday',
+      'tuesday',
+      'wednesday',
+      'thursday',
+      'friday',
+      'saturday',
+    ][at.getDay()];
+  }
+
+  return at.getDate();
+}
+
+// todo handle days greater than 28
+// todo refactor ReminderRepeatButtons
+// todo refactor this class
+// todo refactor Reminder Button
+// todo check suggested step detail screen
