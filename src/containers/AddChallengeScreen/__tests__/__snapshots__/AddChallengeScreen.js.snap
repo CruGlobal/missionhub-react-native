@@ -741,8 +741,7 @@ exports[`renders edit challenge correctly 1`] = `
       >
         End Date
       </MyText>
-      <Translate(DatePicker)
-        androidMode="default"
+      <Translate(MyDatePickerIOS)
         customStyles={Object {}}
         date="2018-09-30 23:59:59"
         disabled={false}
@@ -781,7 +780,7 @@ exports[`renders edit challenge correctly 1`] = `
             September 30, 2018
           </MyText>
         </Component>
-      </Translate(DatePicker)>
+      </Translate(MyDatePickerIOS)>
     </Component>
   </Component>
   <BottomButton

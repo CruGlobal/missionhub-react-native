@@ -1,15 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<Translate(DatePicker)
-  androidMode="default"
+<Translate(MyDatePickerIOS)
   customStyles={Object {}}
   date=""
   disabled={false}
   duration={300}
   height={378}
   iOSModalContent={<Translate(ReminderRepeatButtons) />}
-  mode="date"
+  mode="datetime"
   onChangeDate={[Function]}
   onPressAndroid={[Function]}
 >
@@ -103,5 +102,5 @@ exports[`renders correctly 1`] = `
       />
     </Button>
   </Component>
-</Translate(DatePicker)>
+</Translate(MyDatePickerIOS)>
 `;
