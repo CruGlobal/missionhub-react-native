@@ -13,14 +13,16 @@ import {
   renderShallow,
 } from '../../../../testUtils';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
-import { SELECT_MY_STEP_SCREEN } from '../../SelectMyStepScreen';
-import { PERSON_SELECT_STEP_SCREEN } from '../../PersonSelectStepScreen';
 import { buildTrackingObj } from '../../../utils/common';
 import { getContactSteps } from '../../../actions/steps';
 import { contactAssignmentSelector } from '../../../selectors/people';
 import { assignContactAndPickStage } from '../../../actions/misc';
 import { promptToAssign } from '../../../utils/promptToAssign';
 import { navigateToStageScreen } from '../../../actions/misc';
+import {
+  ADD_MY_STEP_FLOW,
+  ADD_PERSON_STEP_FLOW,
+} from '../../../routes/constants';
 
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/navigation');
@@ -230,10 +232,10 @@ describe('handleCreateStep', () => {
       };
     });
 
-    it('navigates to select my steps', () => {
+    it('navigates to select my steps flow', () => {
       instance.handleCreateStep();
 
-      expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW, {
         onSaveNewSteps: expect.any(Function),
         enableBackButton: true,
         trackingObj,
@@ -251,7 +253,7 @@ describe('handleCreateStep', () => {
       };
     });
 
-    it('navigates to select stage', () => {
+    it('navigates to select stage flow', () => {
       instance.handleCreateStep();
 
       expect(navigateToStageScreen).toHaveBeenCalledWith(
@@ -277,10 +279,10 @@ describe('handleCreateStep', () => {
       };
     });
 
-    it('navigates to person steps', () => {
+    it('navigates to person steps flow', () => {
       instance.handleCreateStep();
 
-      expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(ADD_PERSON_STEP_FLOW, {
         contactName: mockPerson.first_name,
         contactId: mockPerson.id,
         contact: mockPerson,

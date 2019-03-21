@@ -24,7 +24,7 @@ import {
 import { refreshImpact } from './impact';
 import { navigatePush } from './navigation';
 import callApi, { REQUESTS } from './api';
-import { trackAction, trackStepsAdded } from './analytics';
+import { trackAction, trackStepAdded } from './analytics';
 import { reloadGroupCelebrateFeed } from './celebration';
 
 export function getStepSuggestions(isMe, contactStageId) {
@@ -90,32 +90,46 @@ export function getContactSteps(personId, orgId) {
   };
 }
 
-export function addSteps(steps, receiverId, organization) {
-  return dispatch => {
-    const query = {
-      person_id: receiverId,
-    };
-    const newSteps = steps.map(s => ({
-      type: ACCEPTED_STEP,
-      attributes: {
-        title: s.body,
-        challenge_suggestion_id: s && isCustomStep(s) ? null : (s || {}).id,
-        ...(organization && organization.id !== 'personal'
-          ? { organization_id: organization.id }
-          : {}),
+export function addStep(stepSuggestion, receiverId, organization) {
+  return async dispatch => {
+    const payload = {
+      data: {
+        type: ACCEPTED_STEP,
+        attributes: {
+          title: stepSuggestion.body,
+        },
+        relationships: {
+          receiver: {
+            data: {
+              type: 'person',
+              id: receiverId,
+            },
+          },
+          challenge_suggestion: {
+            data: {
+              type: 'challenge_suggestion',
+              id:
+                stepSuggestion && isCustomStep(stepSuggestion)
+                  ? null
+                  : (stepSuggestion || {}).id,
+            },
+          },
+          ...(organization && organization.id !== 'personal'
+            ? {
+                organization: {
+                  data: {
+                    type: 'organization',
+                    id: organization.id,
+                  },
+                },
+              }
+            : {}),
+        },
       },
-    }));
-
-    const data = {
-      included: newSteps,
-      include: 'received_challenges',
     };
-    return dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data)).then(r => {
-      dispatch(getMySteps());
-      dispatch(trackStepsAdded(steps));
 
-      return r;
-    });
+    await dispatch(callApi(REQUESTS.ADD_CHALLENGE, {}, payload));
+    dispatch(trackStepAdded(stepSuggestion));
   };
 }
 

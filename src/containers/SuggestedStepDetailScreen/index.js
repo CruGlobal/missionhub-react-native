@@ -3,18 +3,16 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { addSteps } from '../../actions/steps';
-import { navigateBack } from '../../actions/navigation';
+import { addStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 
 @translate('suggestedStepDetail')
 class SuggestedStepSetailScreen extends Component {
-  addStep = async () => {
-    const { dispatch, step, receiverId, orgId } = this.props;
+  addStep = () => {
+    const { dispatch, step, receiverId, orgId, onComplete } = this.props;
 
-    await dispatch(addSteps([step], receiverId, { id: orgId }));
-
-    dispatch(navigateBack());
+    dispatch(addStep(step, receiverId, orgId ? { id: orgId } : null));
+    onComplete();
   };
 
   render() {
@@ -41,6 +39,7 @@ class SuggestedStepSetailScreen extends Component {
 SuggestedStepSetailScreen.propTypes = {
   step: PropTypes.object.isRequired,
   receiverId: PropTypes.string.isRequired,
+  onComplete: PropTypes.func.isRequired,
   orgId: PropTypes.string,
 };
 
@@ -49,7 +48,7 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { step, receiverId, orgId },
+        params: { step, receiverId, orgId, onComplete },
       },
     },
   },
@@ -57,6 +56,7 @@ const mapStateToProps = (
   step,
   receiverId,
   orgId,
+  onComplete,
 });
 export default connect(mapStateToProps)(SuggestedStepSetailScreen);
 export const SUGGESTED_STEP_DETAIL_SCREEN = 'nav/SUGGESTED_STEP_DETAIL_SCREEN';

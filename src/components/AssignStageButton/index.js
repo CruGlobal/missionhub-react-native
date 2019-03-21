@@ -8,24 +8,41 @@ import {
   contactAssignmentSelector,
   personSelector,
 } from '../../selectors/people';
+import { navigateToStageScreen } from '../../actions/misc';
+import { getStageIndex } from '../../utils/common';
 
 import styles from './styles';
 
 @translate('contactHeader')
 class AssignStageButton extends Component {
-  render() {
+  assignStage = () => {
     const {
-      t,
-      pathwayStage,
-      selectMyStage,
-      selectPersonStage,
+      dispatch,
       isMe,
+      person,
+      contactAssignment = null,
+      organization,
+      firstItemIndex,
     } = this.props;
+
+    dispatch(
+      navigateToStageScreen(
+        isMe,
+        person,
+        contactAssignment,
+        organization,
+        firstItemIndex,
+      ),
+    );
+  };
+
+  render() {
+    const { t, pathwayStage } = this.props;
 
     return (
       <Button
         type="transparent"
-        onPress={isMe ? selectMyStage : selectPersonStage}
+        onPress={this.assignStage}
         text={(pathwayStage
           ? pathwayStage.name
           : t('selectStage')
@@ -43,8 +60,6 @@ class AssignStageButton extends Component {
 AssignStageButton.propTypes = {
   person: PropTypes.object.isRequired,
   organization: PropTypes.object.isRequired,
-  selectMyStage: PropTypes.func.isRequired,
-  selectPersonStage: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (
@@ -57,11 +72,11 @@ const mapStateToProps = (
   const stagesList = stages.stages || [];
 
   if (authPerson.id === personId) {
+    const myStageId = authPerson.user.pathway_stage_id;
     return {
       isMe: true,
-      pathwayStage: stagesList.find(
-        s => s.id === `${authPerson.user.pathway_stage_id}`,
-      ),
+      pathwayStage: stagesList.find(s => s.id === `${myStageId}`),
+      firstItemIndex: getStageIndex(stagesList, myStageId),
     };
   }
 
@@ -71,12 +86,15 @@ const mapStateToProps = (
     { auth },
     { person: loadedPerson, orgId },
   );
+  const personStageId = contactAssignment && contactAssignment.pathway_stage_id;
 
   return {
     isMe: false,
     pathwayStage:
-      contactAssignment &&
-      stagesList.find(s => s.id === `${contactAssignment.pathway_stage_id}`),
+      contactAssignment && stagesList.find(s => s.id === `${personStageId}`),
+    firstItemIndex:
+      contactAssignment && getStageIndex(stagesList, personStageId),
+    contactAssignment,
   };
 };
 

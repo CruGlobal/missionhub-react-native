@@ -6,11 +6,7 @@ import { translate } from 'react-i18next';
 import uuidv4 from 'uuid/v4';
 
 import { STATUS_SELECT_SCREEN } from '../../containers/StatusSelectScreen';
-import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
-import { loadStepsAndJourney } from '../../actions/misc';
 import { navigatePush } from '../../actions/navigation';
-import { PERSON_STAGE_SCREEN } from '../../containers/PersonStageScreen';
-import { STAGE_SCREEN } from '../../containers/StageScreen';
 import { ACTIONS } from '../../constants';
 import {
   getPersonEmailAddress,
@@ -21,7 +17,10 @@ import AssignToMeButton from '../AssignToMeButton/index';
 import AssignStageButton from '../AssignStageButton';
 import CenteredIconButtonWithText from '../CenteredIconButtonWithText';
 import { Flex } from '../common';
-import { openCommunicationLink } from '../../actions/misc';
+import {
+  openCommunicationLink,
+  navigateToStageScreen,
+} from '../../actions/misc';
 
 import styles from './styles';
 
@@ -46,80 +45,17 @@ export default class GroupsPersonHeader extends Component {
       : [...personStageButton, ...statusButton, ...contactButtons];
   }
 
-  selectSelfStage = () => {
-    const { dispatch, person, organization, myStageId, stages } = this.props;
-
-    dispatch(
-      navigatePush(STAGE_SCREEN, {
-        onComplete: stage => {
-          dispatch(
-            updatePersonAttributes(person.id, {
-              user: { pathway_stage_id: stage.id },
-            }),
-          );
-          dispatch(loadStepsAndJourney(person, organization));
-        },
-        firstItem: getStageIndex(stages, myStageId),
-        contactId: person.id,
-        section: 'people',
-        subsection: 'self',
-        enableBackButton: true,
-      }),
-    );
-  };
-
-  selectPersonStage = () => {
-    const {
-      contactAssignment,
-      dispatch,
-      person,
-      organization,
-      stages,
-    } = this.props;
-
-    const firstItemIndex =
-      contactAssignment &&
-      getStageIndex(stages, contactAssignment.pathway_stage_id);
-
-    dispatch(
-      navigatePush(PERSON_STAGE_SCREEN, {
-        onComplete: stage => {
-          contactAssignment
-            ? dispatch(
-                updatePersonAttributes(person.id, {
-                  reverse_contact_assignments: person.reverse_contact_assignments.map(
-                    assignment =>
-                      assignment.id === contactAssignment.id
-                        ? { ...assignment, pathway_stage_id: stage.id }
-                        : assignment,
-                  ),
-                }),
-              )
-            : dispatch(getPersonDetails(person.id, organization.id));
-          dispatch(loadStepsAndJourney(person, organization));
-        },
-        firstItem: firstItemIndex,
-        name: person.first_name,
-        contactId: person.id,
-        contactAssignmentId: contactAssignment && contactAssignment.id,
-        orgId: organization.id,
-        section: 'people',
-        subsection: 'person',
-      }),
-    );
-  };
-
   getSelfStageButton() {
     const { myStageId } = this.props;
 
-    return this.getStageButton(this.selectSelfStage, myStageId);
+    return this.getStageButton(this.handleSelectStage, myStageId);
   }
 
   getPersonStageButton() {
     const { contactAssignment } = this.props;
 
     return this.getStageButton(
-      this.selectPersonStage,
+      this.handleSelectStage,
       contactAssignment.pathway_stage_id,
     );
   }
@@ -237,6 +173,36 @@ export default class GroupsPersonHeader extends Component {
     );
   }
 
+  handleSelectStage = () => {
+    const {
+      dispatch,
+      myId,
+      person,
+      contactAssignment = null,
+      organization,
+      myStageId,
+      stages,
+    } = this.props;
+
+    const isMe = person.id === myId;
+    const stageId = getStageIndex(
+      stages,
+      isMe
+        ? myStageId
+        : contactAssignment && contactAssignment.pathway_stage_id,
+    );
+
+    dispatch(
+      navigateToStageScreen(
+        isMe,
+        person,
+        contactAssignment,
+        organization,
+        stageId,
+      ),
+    );
+  };
+
   render() {
     const buttons = this.computeButtons();
     const {
@@ -263,12 +229,7 @@ export default class GroupsPersonHeader extends Component {
     ) : (
       <Flex>
         {contactAssignment || myId === person.id ? (
-          <AssignStageButton
-            person={person}
-            organization={organization}
-            selectMyStage={this.selectSelfStage}
-            selectPersonStage={this.selectPersonStage}
-          />
+          <AssignStageButton person={person} organization={organization} />
         ) : null}
       </Flex>
     );
@@ -281,6 +242,7 @@ GroupsPersonHeader.propTypes = {
   organization: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
   myId: PropTypes.string.isRequired,
+  myStageId: PropTypes.number,
   stages: PropTypes.array.isRequired,
   isVisible: PropTypes.bool,
   isCruOrg: PropTypes.bool,

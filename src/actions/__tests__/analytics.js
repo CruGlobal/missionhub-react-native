@@ -8,7 +8,7 @@ import { Tracker } from '@ringierag/snowplow-reactjs-native-tracker';
 import {
   trackAction,
   trackState,
-  trackStepsAdded,
+  trackStepAdded,
   updateAnalyticsContext,
   logInAnalytics,
   trackActionWithoutData,
@@ -306,35 +306,44 @@ describe('trackState', () => {
   // });
 });
 
-describe('trackStepsAdded', () => {
-  const step1 = {
-    challenge_type: 'affirm',
-    id: 1,
-    pathway_stage: { id: 1 },
-    self_step: false,
-    locale: 'en',
-  };
-  const step2 = {
-    challenge_type: CUSTOM_STEP_TYPE,
-    id: 2,
-    self_step: true,
-    locale: 'es',
-  };
-  const steps = [step1, step2];
-
-  it('should track steps', async () => {
-    await store.dispatch(trackStepsAdded(steps));
+describe('trackStepAdded', () => {
+  it('should track suggested steps', async () => {
+    const step = {
+      challenge_type: 'affirm',
+      id: 1,
+      pathway_stage: { id: 1 },
+      self_step: false,
+      locale: 'en',
+    };
+    await store.dispatch(trackStepAdded(step));
 
     expect(store.getActions()).toEqual([]);
-    expect(RNOmniture.trackAction).toHaveBeenCalledTimes(4);
+    expect(RNOmniture.trackAction).toHaveBeenCalledTimes(2);
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(
       ACTIONS.STEP_DETAIL.name,
       {
-        [ACTIONS.STEP_DETAIL.key]: `${step1.challenge_type} | N | ${
-          step1.locale
-        } | ${step1.id} | ${step1.pathway_stage.id}`,
+        [ACTIONS.STEP_DETAIL.key]: `${step.challenge_type} | N | ${
+          step.locale
+        } | ${step.id} | ${step.pathway_stage.id}`,
       },
     );
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(
+      ACTIONS.STEPS_ADDED.name,
+      { [ACTIONS.STEPS_ADDED.key]: 1 },
+    );
+  });
+
+  it('should track custom steps', async () => {
+    const step = {
+      challenge_type: CUSTOM_STEP_TYPE,
+      id: 2,
+      self_step: true,
+      locale: 'es',
+    };
+    await store.dispatch(trackStepAdded(step));
+
+    expect(store.getActions()).toEqual([]);
+    expect(RNOmniture.trackAction).toHaveBeenCalledTimes(3);
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(
       ACTIONS.STEP_CREATED.name,
       { [ACTIONS.STEP_CREATED.key]: '1' },
@@ -342,12 +351,12 @@ describe('trackStepsAdded', () => {
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(
       ACTIONS.STEP_DETAIL.name,
       {
-        [ACTIONS.STEP_DETAIL.key]: `${CUSTOM_STEP_TYPE} | Y | ${step2.locale}`,
+        [ACTIONS.STEP_DETAIL.key]: `${CUSTOM_STEP_TYPE} | Y | ${step.locale}`,
       },
     );
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(
       ACTIONS.STEPS_ADDED.name,
-      { [ACTIONS.STEPS_ADDED.key]: steps.length },
+      { [ACTIONS.STEPS_ADDED.key]: 1 },
     );
   });
 });
