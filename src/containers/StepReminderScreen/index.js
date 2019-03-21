@@ -16,16 +16,12 @@ import styles from './styles';
 
 @translate('stepReminder')
 class StepReminderScreen extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    date: this.props.date,
+    disableBtn: true,
+  };
 
-    this.state = {
-      date: props.date,
-      disableBtn: true,
-    };
-
-    this.today = new Date();
-  }
+  today = new Date();
 
   handleChangeDate = date => {
     if (!date) {

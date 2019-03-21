@@ -8,15 +8,11 @@ import styles from './styles';
 
 @translate('stepReminder')
 export default class ReminderRepeatButtons extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      dailyActive: false,
-      weeklyActive: false,
-      monthlyActive: false,
-    };
-  }
+  state = {
+    dailyActive: false,
+    weeklyActive: false,
+    monthlyActive: false,
+  };
 
   setButtonState(dailyActive, weeklyActive, monthlyActive) {
     this.setState({ dailyActive, weeklyActive, monthlyActive });

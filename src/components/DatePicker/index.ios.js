@@ -12,16 +12,12 @@ import styles from './styles';
 
 @translate('datePicker')
 class MyDatePickerIOS extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      date: getDate(props.date),
-      modalVisible: false,
-      animatedHeight: new Animated.Value(0),
-      allowPointerEvents: true,
-    };
-  }
+  state = {
+    date: getDate(this.props.date),
+    modalVisible: false,
+    animatedHeight: new Animated.Value(0),
+    allowPointerEvents: true,
+  };
 
   componentWillReceiveProps({ date }) {
     if (date !== this.props.date) {
