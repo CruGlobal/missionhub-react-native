@@ -8,7 +8,7 @@ import { navigatePush } from '../../actions/navigation';
 import Header from '../../components/Header';
 import FilterItem from '../../components/FilterItem';
 import { trackSearchFilter } from '../../actions/analytics';
-import { buildTrackingObj } from '../../utils/common';
+import { buildTrackingObj, keyExtractorId } from '../../utils/common';
 import BackButton from '../BackButton';
 
 import styles from './styles';
@@ -78,8 +78,6 @@ export class SearchPeopleFilterRefineScreen extends Component {
     this.props.onFilter(item);
   }
 
-  keyExtractor = i => i.id;
-
   renderItem = ({ item }) => (
     <FilterItem
       item={item}
@@ -98,7 +96,7 @@ export class SearchPeopleFilterRefineScreen extends Component {
           <FlatList
             style={styles.list}
             data={this.state.options}
-            keyExtractor={this.keyExtractor}
+            keyExtractor={keyExtractorId}
             initialNumToRender={15}
             renderItem={this.renderItem}
           />

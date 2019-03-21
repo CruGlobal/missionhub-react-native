@@ -20,6 +20,7 @@ import {
   buildTrackingObj,
   getAnalyticsSubsection,
   orgIsCru,
+  keyExtractorId,
 } from '../../utils/common';
 import { promptToAssign } from '../../utils/promptToAssign';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
@@ -177,8 +178,6 @@ class ContactSteps extends Component {
 
   ref = c => (this.list = c);
 
-  keyExtractor = i => i.id;
-
   renderList() {
     const { steps } = this.props;
     return (
@@ -186,7 +185,7 @@ class ContactSteps extends Component {
         ref={this.ref}
         style={styles.list}
         data={steps}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         renderItem={this.renderRow}
         bounces={true}
         showsVerticalScrollIndicator={false}

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import { ACTIONS } from '../../constants';
 import { Flex, RefreshControl, Button } from '../../components/common';
-import { refresh, getCommunityUrl } from '../../utils/common';
+import { refresh, getCommunityUrl, keyExtractorId } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
 import {
@@ -55,8 +55,6 @@ class Members extends Component {
     dispatch(getOrganizationMembersNextPage(organization.id));
   };
 
-  keyExtractor = i => i.id;
-
   handleInvite = async () => {
     const { t, organization, groupInviteInfo, dispatch } = this.props;
     const url = getCommunityUrl(organization.community_url);
@@ -95,7 +93,7 @@ class Members extends Component {
         <FlatList
           data={members}
           ListHeaderComponent={this.renderHeader}
-          keyExtractor={this.keyExtractor}
+          keyExtractor={keyExtractorId}
           style={styles.cardList}
           renderItem={this.renderItem}
           refreshControl={

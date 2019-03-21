@@ -129,9 +129,4 @@ describe('button presses', () => {
     });
     expect(renderedItem).toMatchSnapshot();
   });
-  it('should return key extractor', () => {
-    const item = { id: '1' };
-    const result = componentInstance.keyExtractor(item);
-    expect(result).toEqual(item.id);
-  });
 });

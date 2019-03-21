@@ -378,12 +378,6 @@ describe('StepsScreen', () => {
       instance.listRef(ref);
       expect(instance.list).toEqual(ref);
     });
-    it('should list key extractor', () => {
-      const instance = createComponent(baseProps).instance();
-      const item = { id: '1' };
-      const result = instance.listKeyExtractor(item);
-      expect(result).toEqual(item.id);
-    });
     it('should open main menu', () => {
       const instance = createComponent(baseProps).instance();
       common.openMainMenu = jest.fn();
