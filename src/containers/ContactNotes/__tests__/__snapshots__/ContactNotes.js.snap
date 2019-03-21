@@ -82,6 +82,37 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
 </_class>
 `;
 
+exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
+<_class
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <NullStateComponent
+    descriptionText="Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God."
+    headerText="MY NOTES"
+    imageSource={
+      Object {
+        "testUri": "../../../assets/images/myNotes.png",
+      }
+    }
+  />
+  <Flex
+    align="stretch"
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      text="ADD PRIVATE NOTES"
+      type="secondary"
+    />
+  </Flex>
+</_class>
+`;
+
 exports[`contact notes notes are shown 1`] = `
 <_class
   style={

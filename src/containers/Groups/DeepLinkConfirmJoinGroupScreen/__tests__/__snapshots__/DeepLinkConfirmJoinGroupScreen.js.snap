@@ -9,7 +9,7 @@ exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"
@@ -65,7 +65,7 @@ exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"
@@ -121,7 +121,7 @@ exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"

@@ -11,7 +11,7 @@ exports[`a login button is clicked facebook login button is pressed loading whee
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     shadow={false}
   />
@@ -204,7 +204,7 @@ exports[`a login button is clicked forgot password button is pressed loading whe
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     shadow={false}
   />
@@ -397,7 +397,7 @@ exports[`a login button is clicked key login button is pressed loading wheel app
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     shadow={false}
   />
@@ -540,7 +540,7 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     shadow={false}
   />
@@ -757,7 +757,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
       Verify your account via Email
     </MyText>
   </Component>
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     shadow={false}
   />
@@ -924,7 +924,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       Your Email or Password is Incorrect
     </MyText>
   </Component>
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     shadow={false}
   />
@@ -1091,7 +1091,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       Your Email or Password is Incorrect
     </MyText>
   </Component>
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     shadow={false}
   />
@@ -1233,7 +1233,7 @@ exports[`keyboard listeners should hide sign in logo when the keyboard comes up 
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     shadow={false}
   />

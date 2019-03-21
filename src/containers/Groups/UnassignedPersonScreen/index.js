@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { getGroupJourney } from '../../../actions/journey';
 import JourneyCommentBox from '../../../components/JourneyCommentBox';
 import GroupsContactList from '../../../components/GroupsContactList';
-import Header from '../../Header';
+import Header from '../../../components/Header';
 import BackButton from '../../BackButton';
 import { organizationSelector } from '../../../selectors/organizations';
 import { personSelector } from '../../../selectors/people';

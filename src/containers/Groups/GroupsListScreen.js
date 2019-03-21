@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { communitiesSelector } from '../../selectors/organizations';
-import Header from '../../containers/Header';
+import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
 import {
   IconButton,

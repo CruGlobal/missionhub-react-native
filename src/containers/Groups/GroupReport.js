@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { refresh, keyExtractorId } from '../../utils/common';
-import Header from '../Header';
+import Header from '../../components/Header';
 import { IconButton, RefreshControl } from '../../components/common';
 import NullStateComponent from '../../components/NullStateComponent';
 import { getReportedComments } from '../../actions/reportComments';

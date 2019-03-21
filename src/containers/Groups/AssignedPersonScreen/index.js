@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { DrawerActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 
-import Header from '../../Header';
+import Header from '../../../components/Header';
 import BackButton from '../../BackButton';
 import MemberCelebrate from '../../MemberCelebrate';
 import ContactSteps from '../../ContactSteps';

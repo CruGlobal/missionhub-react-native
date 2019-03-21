@@ -28,7 +28,7 @@ import {
   facebookLoginWithAccessToken,
 } from '../../../actions/auth/facebook';
 import BackButton from '../../BackButton';
-import Header from '../../Header';
+import Header from '../../../components/Header';
 
 import styles from './styles';
 

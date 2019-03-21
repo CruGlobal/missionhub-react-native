@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import i18next from 'i18next';
 
-import Header from '../Header/index';
+import Header from '../../components/Header/index';
 import {
   navigatePush,
   navigateBack,

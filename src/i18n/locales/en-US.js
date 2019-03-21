@@ -326,6 +326,8 @@ export default {
     edit: 'EDIT PRIVATE NOTES',
     prompt:
       'Remember important details about {{personFirstName}}, like favorite food, hobbies they love or something interesting they said.',
+    promptMe:
+      'Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God.',
   },
   search: {
     inputPlaceholder: 'Search',

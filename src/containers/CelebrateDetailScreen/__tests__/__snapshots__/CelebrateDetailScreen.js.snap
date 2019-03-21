@@ -33,7 +33,7 @@ exports[`renderForeground renders correctly 1`] = `
 `;
 
 exports[`renderStickyHeader renders correctly 1`] = `
-<Connect(Header)
+<Header
   left={
     <ItemHeaderText
       style={

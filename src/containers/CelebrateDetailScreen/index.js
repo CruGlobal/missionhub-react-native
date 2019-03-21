@@ -12,7 +12,7 @@ import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
 import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 import theme from '../../theme';
-import Header from '../../containers/Header';
+import Header from '../../components/Header';
 import ItemHeaderText from '../../components/ItemHeaderText';
 import TRAILS1 from '../../../assets/images/Trailss.png';
 import TRAILS2 from '../../../assets/images/TrailGrey.png';

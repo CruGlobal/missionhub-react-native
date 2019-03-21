@@ -37,7 +37,7 @@ import {
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import FooterLoading from '../../components/FooterLoading';
-import Header from '../Header';
+import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
 import { openMainMenu, refresh, toast } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';

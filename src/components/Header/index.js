@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { SafeAreaView } from 'react-native';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-// import { logout } from '../../actions/auth';
-// import { navigatePush } from '../../actions/navigation';
-import { Flex, Text, Button } from '../../components/common';
+import { Flex, Text, Button } from '../common';
 
 import styles from './styles';
 
@@ -13,7 +10,7 @@ export const HeaderIcon = ({ ...rest }) => (
   <Button type="transparent" style={styles.headerIcon} {...rest} />
 );
 
-class Header extends Component {
+export default class Header extends Component {
   renderLeft() {
     const { left } = this.props;
     return (
@@ -93,5 +90,3 @@ Header.propTypes = {
 Header.defaultProps = {
   shadow: true,
 };
-
-export default connect()(Header);

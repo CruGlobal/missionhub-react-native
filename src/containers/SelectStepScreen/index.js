@@ -17,7 +17,7 @@ import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, shuffleArray } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
-import Header from '../Header';
+import Header from '../../components/Header';
 
 import styles from './styles';
 

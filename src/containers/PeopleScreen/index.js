@@ -12,7 +12,7 @@ import { navigatePush, navigateBack } from '../../actions/navigation';
 import { getStagesIfNotExists } from '../../actions/stages';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
-import Header from '../Header';
+import Header from '../../components/Header';
 import { openMainMenu, refresh } from '../../utils/common';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
