@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Flex, Text, Separator, Touchable, Icon } from '../common';
 import Button from '../Button';
+import { keyExtractorId } from '../../utils/common';
 
 import styles from './styles';
 
@@ -71,15 +72,13 @@ export default class StepsList extends Component {
 
   ref = c => (this.listView = c);
 
-  keyExtractor = item => item.id;
-
   itemSeparatorComponent = (sectionID, rowID) => <Separator key={rowID} />;
 
   render() {
     return (
       <FlatList
         ref={this.ref}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         data={this.props.items}
         renderItem={this.renderRow}
         scrollEnabled={true}

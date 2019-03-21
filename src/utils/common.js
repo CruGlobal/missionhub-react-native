@@ -309,3 +309,5 @@ export function copyText(string) {
   Clipboard.setString(string);
   toast(i18n.t('copyMessage'));
 }
+
+export const keyExtractorId = item => item.id;

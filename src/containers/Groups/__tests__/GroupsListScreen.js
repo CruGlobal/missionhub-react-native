@@ -124,13 +124,6 @@ describe('GroupsListScreen', () => {
     expect(common.openMainMenu).toHaveBeenCalled();
   });
 
-  it('should call key extractor', () => {
-    const instance = component.instance();
-    const item = { id: '1' };
-    const result = instance.keyExtractor(item);
-    expect(result).toEqual(item.id);
-  });
-
   it('should render item', () => {
     const instance = component.instance();
     const renderedItem = instance.renderItem({

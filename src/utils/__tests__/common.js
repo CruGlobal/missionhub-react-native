@@ -26,6 +26,7 @@ import {
   getStageIndex,
   getFirstNameAndLastInitial,
   getCommunityUrl,
+  keyExtractorId,
 } from '../common';
 import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../constants';
 
@@ -489,4 +490,12 @@ describe('getCommunityUrl', () => {
     );
   });
   it('should handle null', () => expect(getCommunityUrl(null)).toEqual(''));
+});
+
+describe('keyExtractorId', () => {
+  it('should get id', () => {
+    const item = { id: 'test' };
+    const result = keyExtractorId(item);
+    expect(result).toEqual(item.id);
+  });
 });
