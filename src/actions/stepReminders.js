@@ -1,3 +1,5 @@
+import { DAYS_OF_THE_WEEK } from '../constants';
+
 import callApi, { REQUESTS } from './api';
 
 export function createStepReminder(challenge_id, at, recurrence) {
@@ -6,7 +8,6 @@ export function createStepReminder(challenge_id, at, recurrence) {
 
     const payload = {
       data: {
-        type: 'accepted_challenge_reminder',
         attributes: {
           type,
           at:
@@ -34,20 +35,13 @@ function createOn(at, type) {
   }
 
   if (type === 'weekly') {
-    return [
-      'sunday',
-      'monday',
-      'tuesday',
-      'wednesday',
-      'thursday',
-      'friday',
-      'saturday',
-    ][at.getDay()];
+    return DAYS_OF_THE_WEEK[at.getDay()];
   }
 
   return at.getDate();
 }
 
+// todo use default params
 // todo handle days greater than 28
 // todo refactor ReminderRepeatButtons
 // todo refactor this class

@@ -434,3 +434,13 @@ export const CELEBRATEABLE_TYPES = {
   createdCommunity: 'organization',
   joinedCommunity: 'organizational_permission',
 };
+
+export const DAYS_OF_THE_WEEK = [
+  'sunday',
+  'monday',
+  'tuesday',
+  'wednesday',
+  'thursday',
+  'friday',
+  'saturday',
+];
