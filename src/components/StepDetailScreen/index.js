@@ -19,6 +19,7 @@ export default function StepDetailScreen({
   CenterHeader,
   RightHeader,
   bottomButtonProps,
+  stepId,
 }) {
   const { container, stepTitleText, backButton } = styles;
 
@@ -32,7 +33,7 @@ export default function StepDetailScreen({
         style={container}
       />
       <Text style={stepTitleText}>{text}</Text>
-      <ReminderButton />
+      <ReminderButton stepId={stepId} />
       <View flex={1}>
         {markdown && (
           <ScrollView style={styles.body}>

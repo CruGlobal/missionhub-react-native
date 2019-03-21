@@ -27,7 +27,7 @@ class AcceptedStepDetailScreen extends Component {
 
   render() {
     const { t, step } = this.props;
-    const { challenge_suggestion } = step;
+    const { challenge_suggestion, title, id } = step;
     const { removeStepButton, removeStepButtonText } = styles;
 
     return (
@@ -45,11 +45,12 @@ class AcceptedStepDetailScreen extends Component {
         markdown={
           challenge_suggestion && challenge_suggestion.description_markdown
         }
-        text={step.title}
+        text={title}
         bottomButtonProps={{
           onPress: this.completeStep,
           text: t('iDidIt'),
         }}
+        stepId={id}
       />
     );
   }

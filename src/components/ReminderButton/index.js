@@ -8,20 +8,35 @@ import ReminderRepeatButtons from '../ReminderRepeatButtons';
 import { navigatePush } from '../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
 import DatePicker from '../DatePicker';
-
+import { createStepReminder } from '../../actions/stepReminders';
 import styles from './styles';
 
 @translate('stepReminder')
 class ReminderButton extends Component {
+  state = {
+    occurence: null,
+  };
+
   //for Android, navigate to step reminder screen
   handlePressAndroid = () => {
-    const { dispatch, step } = this.props;
-    dispatch(navigatePush(STEP_REMINDER_SCREEN, { step }));
+    const { dispatch, stepId } = this.props;
+    dispatch(navigatePush(STEP_REMINDER_SCREEN, { stepId }));
   };
 
   handleRemoveReminder = () => {};
 
-  handleChangeDate = () => {};
+  handleChangeDate = date => {
+    const { occurence } = this.state;
+    const { stepId, dispatch } = this.props;
+
+    if (occurence) {
+      console.log(occurence);
+      dispatch(createStepReminder(stepId, date, occurence));
+    } else {
+      console.log('no recurrence');
+      dispatch(createStepReminder(stepId, date));
+    }
+  };
 
   render() {
     const { t } = this.props;
@@ -38,7 +53,7 @@ class ReminderButton extends Component {
     return (
       <DatePicker
         onPressAndroid={this.handlePressAndroid}
-        onChangeDate={this.handleChangeDate}
+        onDateChange={this.handleChangeDate}
         iOSModalContent={<ReminderRepeatButtons />}
         height={378}
         mode="datetime"
