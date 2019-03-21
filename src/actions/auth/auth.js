@@ -1,3 +1,5 @@
+import PushNotification from 'react-native-push-notification';
+
 import {
   ACTIONS,
   CLEAR_UPGRADE_TOKEN,
@@ -25,6 +27,7 @@ export function logout(forcedLogout = false) {
           ? navigateReset(SIGN_IN_FLOW, { forcedLogout })
           : navigateReset(LANDING_SCREEN),
       );
+      PushNotification.unregister();
       rollbar.clearPerson();
     }
   };
