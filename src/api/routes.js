@@ -112,6 +112,10 @@ export default {
     endpoint: `${CHALLENGES_URL}/:challenge_id`,
     method: 'put',
   },
+  CHALLENGE_REMINDER_DELETE: {
+    endpoint: `${CHALLENGES_URL}/:challenge_id/reminder`,
+    method: 'delete',
+  },
   GET_PEOPLE_LIST: {
     endpoint: PEOPLE_URL,
   },

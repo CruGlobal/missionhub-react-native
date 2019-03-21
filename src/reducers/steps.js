@@ -100,26 +100,24 @@ export default function stepsReducer(state = initialState, action) {
         },
       };
     }
-    case REQUESTS.DELETE_CHALLENGE.SUCCESS:
+    case REQUESTS.DELETE_CHALLENGE.SUCCESS: {
       const { challenge_id: stepId } = action.query;
 
       const removeStepById = (stepId, steps) =>
         steps.filter(({ id }) => id !== stepId);
 
-      return {
-        ...state,
-        mine: state.mine === null ? null : removeStepById(stepId, state.mine),
-        contactSteps: Object.entries(state.contactSteps).reduce(
-          (acc, [personOrgId, combinedSteps]) => ({
-            ...acc,
-            [personOrgId]: {
-              ...combinedSteps,
-              steps: removeStepById(stepId, combinedSteps.steps),
-            },
-          }),
-          {},
-        ),
-      };
+      return updateAllStepInstances(state, stepId, removeStepById);
+    }
+    case REQUESTS.CHALLENGE_REMINDER_DELETE.SUCCESS: {
+      const { challenge_id: stepId } = action.query;
+
+      const updateStepById = (stepId, steps) =>
+        steps.map(
+          step => (step.id === stepId ? { ...step, reminder: {} } : step),
+        );
+
+      return updateAllStepInstances(state, stepId, updateStepById);
+    }
     case TOGGLE_STEP_FOCUS:
       return {
         ...state,
@@ -154,3 +152,17 @@ const toggleStepReminder = (steps, step) =>
     ...s,
     focus: s && s.id === step.id ? !s.focus : s.focus,
   }));
+
+const updateAllStepInstances = (state, stepId, updateMethod) => ({
+  ...state,
+  mine: state.mine === null ? null : updateMethod(stepId, state.mine),
+  contactSteps: Object.entries(state.contactSteps).reduce(
+    (acc, [personOrgId, combinedSteps]) => ({
+      ...acc,
+      [personOrgId]: {
+        ...combinedSteps,
+        steps: updateMethod(stepId, combinedSteps.steps),
+      },
+    }),
+  ),
+});
