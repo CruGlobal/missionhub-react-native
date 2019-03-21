@@ -13,6 +13,12 @@ import { Touchable } from '../common';
 import { getDate, modeIs24Hour } from '../../utils/date';
 import { isFunction } from '../../utils/common';
 
+const FORMATS = {
+  date: 'LL',
+  datetime: 'YYYY-MM-DD HH:mm',
+  time: 'HH:mm',
+};
+
 @translate('datePicker')
 class MyDatePickerAndroid extends Component {
   constructor(props) {
@@ -75,7 +81,12 @@ class MyDatePickerAndroid extends Component {
   }
 
   async androidPickTime() {
-    const { mode, androidMode, is24Hour = modeIs24Hour(mode) } = this.props;
+    const {
+      mode,
+      format = FORMATS[mode],
+      androidMode,
+      is24Hour = modeIs24Hour(format),
+    } = this.props;
 
     const timeMoment = moment(this.state.date);
 
@@ -102,10 +113,11 @@ class MyDatePickerAndroid extends Component {
   async androidPickDateTime() {
     const {
       mode,
+      format = FORMATS[mode],
       androidMode,
       minDate,
       maxDate,
-      is24Hour = modeIs24Hour(mode),
+      is24Hour = modeIs24Hour(format),
     } = this.props;
 
     const {

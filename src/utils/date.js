@@ -1,13 +1,7 @@
 /* eslint max-params: 0 */
 import moment from 'moment';
 
-const FORMATS = {
-  date: 'LL',
-  datetime: 'YYYY-MM-DD HH:mm',
-  time: 'HH:mm',
-};
-
-export function getDate(date, minDate, maxDate, mode, format = FORMATS[mode]) {
+export function getDate(date, minDate, maxDate, format) {
   if (!date) {
     const now = new Date();
     if (minDate) {
@@ -36,6 +30,6 @@ export function getDate(date, minDate, maxDate, mode, format = FORMATS[mode]) {
   return moment(date, format).toDate();
 }
 
-export function modeIs24Hour(mode) {
-  return !FORMATS[mode].match(/h|a/);
+export function modeIs24Hour(format) {
+  return !format.match(/h|a/);
 }
