@@ -9,6 +9,7 @@ import CelebrateItem from '../../components/CelebrateItem';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../../containers/Groups/OnboardingCard';
+import { keyExtractorId } from '../../utils/common';
 
 import styles from './styles';
 
@@ -36,8 +37,6 @@ class CelebrateFeed extends Component {
       onToggleLike={this.handleToggleLike}
     />
   );
-
-  keyExtractor = item => item.id;
 
   handleOnEndReached = () => {
     if (this.state.isListScrolled) {
@@ -74,7 +73,7 @@ class CelebrateFeed extends Component {
         ListHeaderComponent={this.renderHeader}
         renderSectionHeader={this.renderSectionHeader}
         renderItem={this.renderItem}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         onEndReachedThreshold={0.2}
         onEndReached={this.handleOnEndReached}
         onScrollEndDrag={this.handleEndDrag}

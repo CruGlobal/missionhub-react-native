@@ -251,13 +251,6 @@ describe('handleCreateStep', () => {
   });
 });
 
-it('should call key extractor', () => {
-  createComponent(false, mockPerson);
-
-  const item = { id: '1' };
-  const result = component.keyExtractor(item);
-  expect(result).toEqual(item.id);
-});
 it('should call ref', () => {
   createComponent(false, mockPerson);
   const ref = 'test';

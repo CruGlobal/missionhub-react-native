@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { RefreshControl } from '../../components/common';
-import { refresh } from '../../utils/common';
+import { refresh, keyExtractorId } from '../../utils/common';
 import GroupSurveyItem from '../../components/GroupSurveyItem';
 import LoadMore from '../../components/LoadMore';
 import { navigatePush } from '../../actions/navigation';
@@ -54,8 +54,6 @@ class Surveys extends Component {
     dispatch(getOrgSurveysNextPage(organization.id));
   };
 
-  keyExtractor = i => i.id;
-
   renderItem = ({ item }) => (
     <GroupSurveyItem survey={item} onSelect={this.handleSelect} />
   );
@@ -69,7 +67,7 @@ class Surveys extends Component {
         <FlatList
           data={surveys}
           ListHeaderComponent={this.renderHeader}
-          keyExtractor={this.keyExtractor}
+          keyExtractor={keyExtractorId}
           style={styles.flatList}
           renderItem={this.renderItem}
           refreshControl={
