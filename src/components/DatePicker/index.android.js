@@ -21,13 +21,9 @@ const FORMATS = {
 
 @translate('datePicker')
 class MyDatePickerAndroid extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      date: getDate(props.date),
-    };
-  }
+  state = {
+    date: getDate(this.props.date),
+  };
 
   componentWillReceiveProps({ date }) {
     if (date !== this.props.date) {
