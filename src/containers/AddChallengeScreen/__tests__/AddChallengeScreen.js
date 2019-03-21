@@ -114,6 +114,7 @@ describe('create methods', () => {
     const title = 'New Title';
     component
       .childAt(1)
+      .childAt(0)
       .childAt(1)
       .props()
       .onChangeText(title);
@@ -124,7 +125,8 @@ describe('create methods', () => {
     const date = new Date();
     component
       .childAt(1)
-      .childAt(3)
+      .childAt(1)
+      .childAt(1)
       .props()
       .onDateChange(date);
     expect(instance.state.date).toEqual(date);

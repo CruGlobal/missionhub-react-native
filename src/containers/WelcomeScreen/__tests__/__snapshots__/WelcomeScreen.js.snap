@@ -110,9 +110,7 @@ exports[`renders correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {
-            "width": 750,
-          },
+          Object {},
           null,
         ]
       }
@@ -260,9 +258,7 @@ exports[`renders correctly for allow sign in 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {
-            "width": 750,
-          },
+          Object {},
           null,
         ]
       }

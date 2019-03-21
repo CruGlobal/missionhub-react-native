@@ -1,0 +1,110 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { View } from 'react-native';
+import { translate } from 'react-i18next';
+import moment from 'moment';
+
+import BackButton from '../BackButton';
+import Header from '../Header';
+import DatePicker from '../../components/DatePicker';
+import BottomButton from '../../components/BottomButton';
+import ReminderRepeatButtons from '../../components/ReminderRepeatButtons';
+import { Text } from '../../components/common';
+import { navigateBack } from '../../actions/navigation';
+
+import styles from './styles';
+
+@translate('stepReminder')
+class StepReminderScreen extends Component {
+  state = {
+    date: this.props.date,
+    disableBtn: true,
+  };
+
+  today = new Date();
+
+  handleChangeDate = date => {
+    if (!date) {
+      this.setState({ date: '', disableBtn: true });
+    } else {
+      this.setState({ date, disableBtn: false });
+    }
+  };
+
+  handleSetReminder = () => {
+    this.props.dispatch(navigateBack());
+  };
+
+  renderHeader() {
+    const { header, backButton, headerText } = styles;
+
+    return (
+      <Header
+        style={header}
+        shadow={false}
+        left={<BackButton iconStyle={backButton} />}
+        center={<Text style={headerText}>{this.props.t('setReminder')}</Text>}
+      />
+    );
+  }
+
+  renderDateInput() {
+    const { t } = this.props;
+    const { date } = this.state;
+    const {
+      dateInputContainer,
+      inputHeaderText,
+      inputContentText,
+      inputTextInactive,
+      inputTextFull,
+    } = styles;
+
+    const inputHeaderStyle = [inputHeaderText, date ? inputTextInactive : null];
+    const inputContentStyle = [
+      inputContentText,
+      date ? inputTextFull : inputTextInactive,
+    ];
+
+    return (
+      <View style={dateInputContainer}>
+        <Text style={inputHeaderStyle}>{t('endDate')}</Text>
+        <DatePicker
+          date={date}
+          mode="datetime"
+          minDate={this.today}
+          onDateChange={this.handleChangeDate}
+        >
+          <Text style={inputContentStyle}>
+            {!date
+              ? t('endDatePlaceholder')
+              : moment(date).format('YYYY-MM-DD HH:mm')}
+          </Text>
+        </DatePicker>
+      </View>
+    );
+  }
+
+  render() {
+    const { t } = this.props;
+    const { container, inputContainer } = styles;
+
+    return (
+      <View style={container}>
+        {this.renderHeader()}
+        <View style={inputContainer}>
+          {this.renderDateInput()}
+          <ReminderRepeatButtons />
+        </View>
+        <BottomButton
+          disabled={this.state.disableBtn}
+          text={t('done')}
+          onPress={this.handleSetReminder}
+        />
+      </View>
+    );
+  }
+}
+
+export default connect()(StepReminderScreen);
+
+export const STEP_REMINDER_SCREEN = 'nav/STEP_REMINDER';

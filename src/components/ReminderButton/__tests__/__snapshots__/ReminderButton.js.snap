@@ -1,44 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<TouchableIOS>
-  <Flex
-    align="center"
-    direction="row"
-    justify="start"
+<Translate(MyDatePickerIOS)
+  customStyles={Object {}}
+  date=""
+  disabled={false}
+  duration={300}
+  height={378}
+  iOSModalContent={<Translate(ReminderRepeatButtons) />}
+  mode="datetime"
+  onChangeDate={[Function]}
+  onPressAndroid={[Function]}
+>
+  <Component
     style={
       Object {
+        "alignItems": "center",
         "borderBottomWidth": 1,
         "borderColor": "#E6E8EC",
         "borderTopWidth": 1,
-        "paddingHorizontal": 30,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingHorizontal": 16,
+        "paddingVertical": 10,
       }
     }
   >
-    <Icon
-      name="bellIcon"
+    <Component
       style={
         Object {
-          "color": "#52C5DC",
-          "fontSize": 35,
-          "padding": 10,
-        }
-      }
-      type="MissionHub"
-    />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 16,
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
         }
       }
     >
-      Set a Reminder
-    </MyText>
-  </Flex>
-</TouchableIOS>
+      <Component
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#52C5DC",
+            "borderRadius": 16,
+            "height": 32,
+            "justifyContent": "center",
+            "margin": 8,
+            "width": 32,
+          }
+        }
+      >
+        <Icon
+          name="bellIcon"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+            }
+          }
+          type="MissionHub"
+        />
+      </Component>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 16,
+          }
+        }
+      >
+        Set a Reminder
+      </MyText>
+    </Component>
+    <Button
+      onPress={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#A0A2A6",
+          "borderRadius": 16,
+          "borderWidth": 1,
+          "height": 32,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 32,
+        }
+      }
+    >
+      <Icon
+        name="close"
+        style={
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 18,
+          }
+        }
+        type="Material"
+      />
+    </Button>
+  </Component>
+</Translate(MyDatePickerIOS)>
 `;
