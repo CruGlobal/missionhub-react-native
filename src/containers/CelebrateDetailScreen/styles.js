@@ -9,6 +9,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   cardStyle: {
+    elevation: 0,
     shadowOpacity: 0,
     shadowRadius: 0,
     marginHorizontal: 3,
