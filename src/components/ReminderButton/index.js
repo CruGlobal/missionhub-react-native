@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { Icon, Text, Button } from '../common';
 import ReminderRepeatButtons from '../ReminderRepeatButtons';
 import { navigatePush } from '../../actions/navigation';
+import { removeStepReminder } from '../../actions/stepReminders';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
 import DatePicker from '../DatePicker';
 
@@ -19,7 +21,10 @@ class ReminderButton extends Component {
     dispatch(navigatePush(STEP_REMINDER_SCREEN, { step }));
   };
 
-  handleRemoveReminder = () => {};
+  handleRemoveReminder = () => {
+    const { dispatch, step } = this.props;
+    dispatch(removeStepReminder(step.id));
+  };
 
   handleChangeDate = () => {};
 
@@ -58,5 +63,11 @@ class ReminderButton extends Component {
     );
   }
 }
+
+ReminderButton.propTypes = {
+  step: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default connect()(ReminderButton);
