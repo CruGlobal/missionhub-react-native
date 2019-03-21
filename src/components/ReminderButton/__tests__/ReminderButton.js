@@ -8,13 +8,13 @@ import ReminderButton from '..';
 
 jest.mock('../../../actions/navigation');
 
-const step = { id: '1' };
+const stepId = '1';
 
 const store = createMockStore();
 let component;
 
 beforeEach(() => {
-  component = renderShallow(<ReminderButton step={step} />, store);
+  component = renderShallow(<ReminderButton stepId={stepId} />, store);
 });
 
 it('renders correctly', () => {
@@ -27,6 +27,6 @@ describe('handlePressAndroid', () => {
   });
 
   it('navigates to step reminder screen', () => {
-    expect(navigatePush).toHaveBeenCalledWith(STEP_REMINDER_SCREEN, { step });
+    expect(navigatePush).toHaveBeenCalledWith(STEP_REMINDER_SCREEN, { stepId });
   });
 });

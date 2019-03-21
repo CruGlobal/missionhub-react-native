@@ -7,9 +7,13 @@ exports[`renders correctly 1`] = `
   disabled={false}
   duration={300}
   height={378}
-  iOSModalContent={<Translate(ReminderRepeatButtons) />}
+  iOSModalContent={
+    <Translate(ReminderRepeatButtons)
+      onRecurrenceChange={[Function]}
+    />
+  }
   mode="datetime"
-  onChangeDate={[Function]}
+  onDateChange={[Function]}
   onPressAndroid={[Function]}
 >
   <Component

@@ -22,101 +22,101 @@ beforeEach(() => {
   jest.clearAllMocks();
   store = mockStore();
 });
+//todo fix
+//describe('createStepReminder', () => {
+beforeEach(() => {
+  store.dispatch(createStepReminder(challenge_id, at, recurrence));
+});
 
-describe('createStepReminder', () => {
-  beforeEach(() => {
-    store.dispatch(createStepReminder(challenge_id, at, recurrence));
+it('dispatches result to store', () => {
+  expect(store.getActions()).toEqual([callApiResponse]);
+});
+
+describe('with null recurrence', () => {
+  beforeAll(() => {
+    recurrence = null;
   });
 
-  it('dispatches result to store', () => {
-    expect(store.getActions()).toEqual([callApiResponse]);
-  });
-
-  describe('with null recurrence', () => {
-    beforeAll(() => {
-      recurrence = null;
-    });
-
-    it('calls api with correct payload', () => {
-      expect(callApi).toHaveBeenCalledWith(
-        REQUESTS.CREATE_CHALLENGE_REMINDER,
-        { challenge_id },
-        {
-          data: {
-            attributes: {
-              type: 'once',
-              at: at.toISOString(),
-              on: undefined,
-            },
+  it('calls api with correct payload', () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CREATE_CHALLENGE_REMINDER,
+      { challenge_id },
+      {
+        data: {
+          attributes: {
+            type: 'once',
+            at: at.toISOString(),
+            on: undefined,
           },
         },
-      );
-    });
-  });
-
-  describe('with daily recurrence', () => {
-    beforeAll(() => {
-      recurrence = 'daily';
-    });
-
-    it('calls api with correct payload', () => {
-      expect(callApi).toHaveBeenCalledWith(
-        REQUESTS.CREATE_CHALLENGE_REMINDER,
-        { challenge_id },
-        {
-          data: {
-            attributes: {
-              type: 'daily',
-              at: at.toLocaleTimeString(undefined, { hour12: false }),
-              on: undefined,
-            },
-          },
-        },
-      );
-    });
-  });
-
-  describe('with weekly recurrence', () => {
-    beforeAll(() => {
-      recurrence = 'weekly';
-    });
-
-    it('calls api with correct payload', () => {
-      expect(callApi).toHaveBeenCalledWith(
-        REQUESTS.CREATE_CHALLENGE_REMINDER,
-        { challenge_id },
-        {
-          data: {
-            attributes: {
-              type: 'weekly',
-              at: at.toLocaleTimeString(undefined, { hour12: false }),
-              on: DAYS_OF_THE_WEEK[at.getDay()],
-            },
-          },
-        },
-      );
-    });
-  });
-
-  describe('with monthly recurrence', () => {
-    beforeAll(() => {
-      recurrence = 'monthly';
-    });
-
-    it('calls api with correct payload', () => {
-      expect(callApi).toHaveBeenCalledWith(
-        REQUESTS.CREATE_CHALLENGE_REMINDER,
-        { challenge_id },
-        {
-          data: {
-            attributes: {
-              type: 'monthly',
-              at: at.toLocaleTimeString(undefined, { hour12: false }),
-              on: at.getDate(),
-            },
-          },
-        },
-      );
-    });
+      },
+    );
   });
 });
+
+describe('with daily recurrence', () => {
+  beforeAll(() => {
+    recurrence = 'daily';
+  });
+
+  it('calls api with correct payload', () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CREATE_CHALLENGE_REMINDER,
+      { challenge_id },
+      {
+        data: {
+          attributes: {
+            type: 'daily',
+            at: at.toLocaleTimeString(undefined, { hour12: false }),
+            on: undefined,
+          },
+        },
+      },
+    );
+  });
+});
+
+describe('with weekly recurrence', () => {
+  beforeAll(() => {
+    recurrence = 'weekly';
+  });
+
+  it('calls api with correct payload', () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CREATE_CHALLENGE_REMINDER,
+      { challenge_id },
+      {
+        data: {
+          attributes: {
+            type: 'weekly',
+            at: at.toLocaleTimeString(undefined, { hour12: false }),
+            on: DAYS_OF_THE_WEEK[at.getDay()],
+          },
+        },
+      },
+    );
+  });
+});
+
+describe('with monthly recurrence', () => {
+  beforeAll(() => {
+    recurrence = 'monthly';
+  });
+
+  it('calls api with correct payload', () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CREATE_CHALLENGE_REMINDER,
+      { challenge_id },
+      {
+        data: {
+          attributes: {
+            type: 'monthly',
+            at: at.toLocaleTimeString(undefined, { hour12: false }),
+            on: at.getDate(),
+          },
+        },
+      },
+    );
+  });
+});
+//});
