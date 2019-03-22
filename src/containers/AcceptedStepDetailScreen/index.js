@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Button } from '../../components/common';
+import { Button, Icon, Text } from '../../components/common';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
+import ReminderButton from '../../components/ReminderButton';
 
 import styles from './styles';
 
@@ -25,9 +27,43 @@ class AcceptedStepDetailScreen extends Component {
     dispatch(navigateBack());
   };
 
+  handleRemoveReminder = () => {};
+
+  renderReminderButton() {
+    const {
+      t,
+      step: { id },
+    } = this.props;
+    const {
+      reminderButton,
+      reminderContainer,
+      reminderIconCircle,
+      reminderIcon,
+      reminderText,
+      cancelIconButton,
+      cancelIcon,
+    } = styles;
+
+    return (
+      <ReminderButton stepId={id}>
+        <View style={reminderButton}>
+          <View style={reminderContainer}>
+            <View style={reminderIconCircle}>
+              <Icon name="bellIcon" type="MissionHub" style={reminderIcon} />
+            </View>
+            <Text style={reminderText}>{t('stepReminder:setReminder')}</Text>
+          </View>
+          <Button onPress={this.handleRemoveReminder} style={cancelIconButton}>
+            <Icon name="close" type="Material" style={cancelIcon} />
+          </Button>
+        </View>
+      </ReminderButton>
+    );
+  }
+
   render() {
     const { t, step } = this.props;
-    const { challenge_suggestion } = step;
+    const { challenge_suggestion, title } = step;
     const { removeStepButton, removeStepButtonText } = styles;
 
     return (
@@ -42,10 +78,11 @@ class AcceptedStepDetailScreen extends Component {
             buttonTextStyle={removeStepButtonText}
           />
         }
+        CenterContent={this.renderReminderButton()}
         markdown={
           challenge_suggestion && challenge_suggestion.description_markdown
         }
-        text={step.title}
+        text={title}
         bottomButtonProps={{
           onPress: this.completeStep,
           text: t('iDidIt'),

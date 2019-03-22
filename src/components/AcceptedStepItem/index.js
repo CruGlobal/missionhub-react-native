@@ -7,9 +7,7 @@ import { translate } from 'react-i18next';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
 import { Text, Card, Button } from '../common';
-import DatePicker from '../DatePicker';
-import ReminderRepeatButtons from '../ReminderRepeatButtons';
-import ReminderDateText from '../ReminderDateText';
+import ReminderButton from '../ReminderButton';
 import { completeStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../containers/AcceptedStepDetailScreen';
@@ -59,9 +57,18 @@ class AcceptedStepItem extends Component {
   render() {
     const {
       t,
-      step: { title, completed_at },
+      step: { title, completed_at, id },
     } = this.props;
-    const { card, stepText, stepTextCompleted, iconButton, checkIcon } = styles;
+    const {
+      card,
+      stepText,
+      stepTextCompleted,
+      iconButton,
+      checkIcon,
+      reminderButton,
+      bellIcon,
+      reminderText,
+    } = styles;
 
     return completed_at ? (
       <Card
@@ -85,7 +92,12 @@ class AcceptedStepItem extends Component {
         style={card}
       >
         <View flex={1} flexDirection="column">
-          {this.renderReminderButton()}
+          <ReminderButton stepId={id}>
+            <View flexDirection="row" style={reminderButton}>
+              <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
+              <Text style={reminderText}>{t('stepReminder:setReminder')}</Text>
+            </View>
+          </ReminderButton>
           <Text style={stepText}>{title}</Text>
         </View>
         <Button onPress={this.handleCompleteStep} style={iconButton}>

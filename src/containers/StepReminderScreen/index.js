@@ -11,6 +11,7 @@ import BottomButton from '../../components/BottomButton';
 import ReminderRepeatButtons from '../../components/ReminderRepeatButtons';
 import { Text } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
+import { createStepReminder } from '../../actions/stepReminders';
 
 import styles from './styles';
 
@@ -19,6 +20,7 @@ class StepReminderScreen extends Component {
   state = {
     date: this.props.date,
     disableBtn: true,
+    recurrence: null,
   };
 
   today = new Date();
@@ -32,7 +34,15 @@ class StepReminderScreen extends Component {
   };
 
   handleSetReminder = () => {
-    this.props.dispatch(navigateBack());
+    const { dispatch, stepId } = this.props;
+    const { date, recurrence } = this.state;
+
+    dispatch(navigateBack());
+    dispatch(createStepReminder(stepId, date, recurrence));
+  };
+
+  onRecurrenceChange = recurrence => {
+    this.setState({ recurrence });
   };
 
   renderHeader() {
@@ -93,7 +103,7 @@ class StepReminderScreen extends Component {
         {this.renderHeader()}
         <View style={inputContainer}>
           {this.renderDateInput()}
-          <ReminderRepeatButtons />
+          <ReminderRepeatButtons onRecurrenceChange={this.onRecurrenceChange} />
         </View>
         <BottomButton
           disabled={this.state.disableBtn}
@@ -105,6 +115,17 @@ class StepReminderScreen extends Component {
   }
 }
 
-export default connect()(StepReminderScreen);
-
+const mapStateToProps = (
+  _,
+  {
+    navigation: {
+      state: {
+        params: { stepId },
+      },
+    },
+  },
+) => ({
+  stepId,
+});
+export default connect(mapStateToProps)(StepReminderScreen);
 export const STEP_REMINDER_SCREEN = 'nav/STEP_REMINDER';

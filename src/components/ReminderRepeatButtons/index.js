@@ -3,38 +3,42 @@ import { View } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { Button } from '../common';
+import { REMINDER_RECURRENCES } from '../../constants';
 
 import styles from './styles';
+
+const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
 @translate('stepReminder')
 export default class ReminderRepeatButtons extends Component {
   state = {
-    dailyActive: false,
-    weeklyActive: false,
-    monthlyActive: false,
+    recurrence: ONCE,
   };
 
-  setButtonState(dailyActive, weeklyActive, monthlyActive) {
-    this.setState({ dailyActive, weeklyActive, monthlyActive });
+  componentDidMount() {
+    this.props.onRecurrenceChange(ONCE);
   }
 
-  handleSetDaily = () => {
-    this.setButtonState(!this.state.dailyActive, false, false);
-  };
+  setButtonState(clickedRecurrence) {
+    const { recurrence: currentRecurrence } = this.state;
+    const recurrence =
+      currentRecurrence === clickedRecurrence ? ONCE : clickedRecurrence;
 
-  handleSetWeekly = () => {
-    this.setButtonState(false, !this.state.weeklyActive, false);
-  };
+    this.setState({ recurrence });
 
-  handleSetMonthly = () => {
-    this.setButtonState(false, false, !this.state.monthlyActive);
-  };
+    this.props.onRecurrenceChange(recurrence);
+  }
 
-  render() {
+  handleSetDaily = () => this.setButtonState(DAILY);
+
+  handleSetWeekly = () => this.setButtonState(WEEKLY);
+
+  handleSetMonthly = () => this.setButtonState(MONTHLY);
+
+  renderReminderButton(recurrence, onPress) {
     const { t } = this.props;
-    const { dailyActive, weeklyActive, monthlyActive } = this.state;
+    const { recurrence: currentRecurrence } = this.state;
     const {
-      container,
       button,
       buttonInactive,
       buttonActive,
@@ -43,35 +47,29 @@ export default class ReminderRepeatButtons extends Component {
       buttonTextActive,
     } = styles;
 
+    const active = currentRecurrence === recurrence;
+
+    return (
+      <Button
+        style={[button, active ? buttonActive : buttonInactive]}
+        buttonTextStyle={[
+          buttonText,
+          active ? buttonTextActive : buttonTextInactive,
+        ]}
+        text={t(recurrence)}
+        onPress={onPress}
+      />
+    );
+  }
+
+  render() {
+    const { container } = styles;
+
     return (
       <View style={container}>
-        <Button
-          style={[button, dailyActive ? buttonActive : buttonInactive]}
-          buttonTextStyle={[
-            buttonText,
-            dailyActive ? buttonTextActive : buttonTextInactive,
-          ]}
-          text={t('daily')}
-          onPress={this.handleSetDaily}
-        />
-        <Button
-          style={[button, weeklyActive ? buttonActive : buttonInactive]}
-          buttonTextStyle={[
-            buttonText,
-            weeklyActive ? buttonTextActive : buttonTextInactive,
-          ]}
-          text={t('weekly')}
-          onPress={this.handleSetWeekly}
-        />
-        <Button
-          style={[button, monthlyActive ? buttonActive : buttonInactive]}
-          buttonTextStyle={[
-            buttonText,
-            monthlyActive ? buttonTextActive : buttonTextInactive,
-          ]}
-          text={t('monthly')}
-          onPress={this.handleSetMonthly}
-        />
+        {this.renderReminderButton(DAILY, this.handleSetDaily)}
+        {this.renderReminderButton(WEEKLY, this.handleSetWeekly)}
+        {this.renderReminderButton(MONTHLY, this.handleSetMonthly)}
       </View>
     );
   }

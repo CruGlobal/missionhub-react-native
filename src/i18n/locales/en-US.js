@@ -257,7 +257,6 @@ export default {
     showCompletedSteps: 'SHOW COMPLETED STEPS',
     hideCompletedSteps: 'HIDE COMPLETED STEPS',
     addStep: 'Add a step of faith',
-    setReminder: 'Set a Reminder',
   },
   contactJourney: {
     loading: 'Loading Journey Items',
