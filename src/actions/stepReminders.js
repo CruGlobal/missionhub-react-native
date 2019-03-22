@@ -1,6 +1,6 @@
 import callApi, { REQUESTS } from './api';
 
-export async function removeStepReminder(stepId) {
+export function removeStepReminder(stepId) {
   return dispatch => {
     const query = { challenge_id: stepId };
 
