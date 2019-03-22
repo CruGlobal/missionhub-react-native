@@ -78,7 +78,9 @@ class CelebrateFeed extends Component {
   renderHeader = () => (
     <Fragment>
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
-      <ReportCommentNotifier organization={this.props.organization} />
+      {this.props.isMember ? null : (
+        <ReportCommentNotifier organization={this.props.organization} />
+      )}
     </Fragment>
   );
 
@@ -109,6 +111,7 @@ CelebrateFeed.propTypes = {
   organization: PropTypes.object.isRequired,
   refreshing: PropTypes.bool,
   itemNamePressable: PropTypes.bool,
+  isMember: PropTypes.bool,
 };
 
 export default connect()(CelebrateFeed);

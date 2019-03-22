@@ -69,7 +69,7 @@ class ReportCommentItem extends Component {
             <Button
               type="secondary"
               onPress={this.handleIgnore}
-              text={t('ignore')}
+              text={t('ignore').toUpperCase()}
               style={[styles.button, styles.buttonLeft]}
             />
           </Flex>
@@ -77,7 +77,7 @@ class ReportCommentItem extends Component {
             <Button
               type="secondary"
               onPress={this.handleDelete}
-              text={t('delete')}
+              text={t('delete').toUpperCase()}
               style={[styles.button, styles.buttonRight]}
             />
           </Flex>

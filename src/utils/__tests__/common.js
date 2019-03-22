@@ -28,6 +28,7 @@ import {
   getFirstNameAndLastInitial,
   getCommunityUrl,
   keyExtractorId,
+  isAdmin,
 } from '../common';
 import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../constants';
 
@@ -172,6 +173,24 @@ describe('isOwner', () => {
   });
   it('should return false if there is no org permission', () => {
     expect(isOwner()).toEqual(false);
+  });
+});
+
+describe('isAdmin', () => {
+  it('should return true for admins', () => {
+    expect(isAdmin({ permission_id: 1 })).toEqual(true);
+  });
+  it('should return false for owners', () => {
+    expect(isAdmin({ permission_id: 3 })).toEqual(false);
+  });
+  it('should return false for users', () => {
+    expect(isAdmin({ permission_id: 4 })).toEqual(false);
+  });
+  it('should return false for contacts', () => {
+    expect(isAdmin({ permission_id: 2 })).toEqual(false);
+  });
+  it('should return false if there is no org permission', () => {
+    expect(isAdmin()).toEqual(false);
   });
 });
 

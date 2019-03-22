@@ -7,7 +7,7 @@ import { getReportedComments } from '../../actions/reportComments';
 import { Flex, Text, Card, Icon } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgPermissionSelector } from '../../selectors/people';
-import { isOwner } from '../../utils/common';
+import { isOwner, orgIsCru, isAdmin } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
 import { GROUPS_REPORT_SCREEN } from '../Groups/GroupReport';
 
@@ -16,8 +16,8 @@ import styles from './styles';
 @translate('groupsReport')
 class ReportCommentNotifier extends Component {
   componentDidMount() {
-    const { dispatch, organization, isOwner } = this.props;
-    if (isOwner) {
+    const { dispatch, organization, isVisible } = this.props;
+    if (isVisible) {
       dispatch(getReportedComments(organization.id));
     }
   }
@@ -28,8 +28,8 @@ class ReportCommentNotifier extends Component {
   };
 
   render() {
-    const { t, count, isOwner } = this.props;
-    if (!isOwner || count === 0) {
+    const { t, count, isVisible } = this.props;
+    if (!isVisible || count === 0) {
       return null;
     }
     return (
@@ -67,9 +67,13 @@ export const mapStateToProps = (
   const allReportedComments = reportedComments.all[selectorOrg.id] || [];
   const count = allReportedComments.length;
 
+  const isUserOwner = isOwner(myOrgPerm);
+  const isUserAdmin = isAdmin(myOrgPerm);
+  const isCruOrg = orgIsCru(selectorOrg);
+
   return {
     organization: selectorOrg,
-    isOwner: isOwner(myOrgPerm),
+    isVisible: isCruOrg ? isUserAdmin : isUserOwner,
     count,
   };
 };

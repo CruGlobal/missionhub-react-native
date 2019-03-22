@@ -24,6 +24,7 @@ const mockStore = configureStore([thunk]);
 const comment1 = { id: 'reported1' };
 const organization = {
   id: '1',
+  user_created: true,
   reportedComments: [comment1],
 };
 const me = { id: 'myId' };
@@ -67,6 +68,62 @@ describe('owner', () => {
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).toHaveBeenCalledWith(organization.id);
+  });
+});
+
+describe('admin', () => {
+  beforeEach(() => {
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
+  });
+  it('renders admin of cru org with 1 reported comment', () => {
+    organizationSelector.mockReturnValue({
+      ...organization,
+      user_created: false,
+    });
+    const screen = buildScreen();
+    expect(screen).toMatchSnapshot();
+    expect(getReportedComments).toHaveBeenCalledWith(organization.id);
+  });
+  it('renders admin of not cru org', () => {
+    organizationSelector.mockReturnValue(organization);
+    const screen = buildScreen();
+    expect(screen).toMatchSnapshot();
+    expect(getReportedComments).not.toHaveBeenCalled();
+  });
+});
+
+describe('cru community org', () => {
+  beforeEach(() => {
+    organizationSelector.mockReturnValue({
+      ...organization,
+      user_created: false,
+    });
+  });
+  it('renders user', () => {
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.USER,
+    });
+    const screen = buildScreen();
+    expect(screen).toMatchSnapshot();
+    expect(getReportedComments).not.toHaveBeenCalled();
+  });
+  it('renders contact', () => {
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.CONTACT,
+    });
+    const screen = buildScreen();
+    expect(screen).toMatchSnapshot();
+    expect(getReportedComments).not.toHaveBeenCalled();
+  });
+  it('renders owner', () => {
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.OWNER,
+    });
+    const screen = buildScreen();
+    expect(screen).toMatchSnapshot();
+    expect(getReportedComments).not.toHaveBeenCalled();
   });
 });
 

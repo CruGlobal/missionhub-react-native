@@ -75,7 +75,7 @@ exports[`renders correctly 1`] = `
             },
           ]
         }
-        text="Ignore"
+        text="IGNORE"
         type="secondary"
       />
     </Flex>
@@ -92,7 +92,7 @@ exports[`renders correctly 1`] = `
             },
           ]
         }
-        text="Delete"
+        text="DELETE"
         type="secondary"
       />
     </Flex>
