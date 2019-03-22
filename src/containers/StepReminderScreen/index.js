@@ -38,9 +38,7 @@ class StepReminderScreen extends Component {
     const { date, recurrence } = this.state;
 
     dispatch(navigateBack());
-
     dispatch(createStepReminder(stepId, date, recurrence));
-    this.setState({ recurrence: null });
   };
 
   onRecurrenceChange = recurrence => {
