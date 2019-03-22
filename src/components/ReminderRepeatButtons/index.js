@@ -35,13 +35,10 @@ export default class ReminderRepeatButtons extends Component {
 
   handleSetMonthly = () => this.setButtonState(MONTHLY);
 
-  renderReminderButton() {}
-
-  render() {
+  renderReminderButton(recurrence, i18nKey, onPress) {
     const { t } = this.props;
-    const { recurrence } = this.state;
+    const { recurrence: currentRecurrence } = this.state;
     const {
-      container,
       button,
       buttonInactive,
       buttonActive,
@@ -50,42 +47,29 @@ export default class ReminderRepeatButtons extends Component {
       buttonTextActive,
     } = styles;
 
-    //todo refactor
+    const active = currentRecurrence === recurrence;
+
+    return (
+      <Button
+        style={[button, active ? buttonActive : buttonInactive]}
+        buttonTextStyle={[
+          buttonText,
+          active ? buttonTextActive : buttonTextInactive,
+        ]}
+        text={t(i18nKey)}
+        onPress={onPress}
+      />
+    );
+  }
+
+  render() {
+    const { container } = styles;
+
     return (
       <View style={container}>
-        <Button
-          style={[button, recurrence === DAILY ? buttonActive : buttonInactive]}
-          buttonTextStyle={[
-            buttonText,
-            recurrence === DAILY ? buttonTextActive : buttonTextInactive,
-          ]}
-          text={t('daily')}
-          onPress={this.handleSetDaily}
-        />
-        <Button
-          style={[
-            button,
-            recurrence === WEEKLY ? buttonActive : buttonInactive,
-          ]}
-          buttonTextStyle={[
-            buttonText,
-            recurrence === WEEKLY ? buttonTextActive : buttonTextInactive,
-          ]}
-          text={t('weekly')}
-          onPress={this.handleSetWeekly}
-        />
-        <Button
-          style={[
-            button,
-            recurrence === MONTHLY ? buttonActive : buttonInactive,
-          ]}
-          buttonTextStyle={[
-            buttonText,
-            recurrence === MONTHLY ? buttonTextActive : buttonTextInactive,
-          ]}
-          text={t('monthly')}
-          onPress={this.handleSetMonthly}
-        />
+        {this.renderReminderButton(DAILY, 'daily', this.handleSetDaily)}
+        {this.renderReminderButton(WEEKLY, 'weekly', this.handleSetWeekly)}
+        {this.renderReminderButton(MONTHLY, 'monthly', this.handleSetMonthly)}
       </View>
     );
   }

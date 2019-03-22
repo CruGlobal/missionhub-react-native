@@ -43,7 +43,6 @@ function createOn(at, type) {
   }
 }
 
-// todo use default params
 // todo handle days greater than 28
-// todo refactor ReminderRepeatButtons
 // todo check suggested step detail screen
+// todo also check add step screen
