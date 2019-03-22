@@ -4,9 +4,7 @@ import callApi, { REQUESTS } from './api';
 
 const { ONCE, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
-export function createStepReminder(challenge_id, at, recurrence) {
-  const type = recurrence || ONCE;
-
+export function createStepReminder(challenge_id, at, type) {
   return dispatch =>
     dispatch(
       callApi(

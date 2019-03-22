@@ -34,9 +34,9 @@ it('dispatches result to store', () => {
   expect(store.getActions()).toEqual([callApiResponse]);
 });
 
-describe('with null recurrence', () => {
+describe('with once recurrence', () => {
   beforeAll(() => {
-    recurrence = null;
+    recurrence = ONCE;
   });
 
   it('calls api with correct payload', () => {
