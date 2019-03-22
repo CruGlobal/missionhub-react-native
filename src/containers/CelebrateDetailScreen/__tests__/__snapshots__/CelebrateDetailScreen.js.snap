@@ -4,6 +4,7 @@ exports[`renderForeground renders correctly 1`] = `
 <Connect(Translate(CelebrateItem))
   cardStyle={
     Object {
+      "elevation": 0,
       "marginHorizontal": 3,
       "shadowOpacity": 0,
       "shadowRadius": 0,
