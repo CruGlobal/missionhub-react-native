@@ -24,6 +24,7 @@ const mockStore = configureStore([thunk]);
 const comment1 = { id: 'reported1' };
 const organization = {
   id: '1',
+  user_created: true,
   reportedComments: [comment1],
 };
 const me = { id: 'myId' };
@@ -64,6 +65,24 @@ describe('owner', () => {
   });
   it('renders owner with 0 reported comment', () => {
     store = mockStore({ ...mockStoreObj, reportedComments: { all: {} } });
+    const screen = buildScreen();
+    expect(screen).toMatchSnapshot();
+    expect(getReportedComments).toHaveBeenCalledWith(organization.id);
+  });
+});
+
+describe('admin', () => {
+  organizationSelector.mockReturnValue({
+    ...organization,
+    user_created: false,
+  });
+  it('renders admin of cru org with 1 reported comment', () => {
+    const screen = buildScreen();
+    expect(screen).toMatchSnapshot();
+    expect(getReportedComments).toHaveBeenCalledWith(organization.id);
+  });
+  it('renders admin of not cru org', () => {
+    organizationSelector.mockReturnValue(organization);
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).toHaveBeenCalledWith(organization.id);

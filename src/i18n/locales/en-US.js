@@ -715,9 +715,9 @@ export default {
     member: 'Already a Member?',
   },
   commentsList: {
-    editPost: 'Edit Post',
-    deletePost: 'Delete Post',
-    reportPost: 'Report Post',
+    editPost: 'Edit Comment',
+    deletePost: 'Delete Comment',
+    reportPost: 'Report Comment',
     reportToOwner: 'Report to Owner',
     reportToOwnerHeader: 'Report to Owner?',
     reportAreYouSure:

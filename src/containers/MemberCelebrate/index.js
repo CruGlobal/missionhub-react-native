@@ -51,6 +51,7 @@ class MemberCelebrate extends Component {
         loadMoreItemsCallback={this.loadItems}
         refreshCallback={this.refreshItems}
         itemNamePressable={false}
+        isMember={true}
       />
     );
   }
