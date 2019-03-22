@@ -34,8 +34,7 @@ beforeEach(() => {
   store = mockStore({ auth });
 });
 
-//todo fix
-xit('renders correctly', () => {
+it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <AddStepScreen
