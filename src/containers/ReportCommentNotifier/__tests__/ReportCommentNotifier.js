@@ -72,20 +72,26 @@ describe('owner', () => {
 });
 
 describe('admin', () => {
-  organizationSelector.mockReturnValue({
-    ...organization,
-    user_created: false,
-  });
   it('renders admin of cru org with 1 reported comment', () => {
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
+    organizationSelector.mockReturnValue({
+      ...organization,
+      user_created: false,
+    });
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).toHaveBeenCalledWith(organization.id);
   });
   it('renders admin of not cru org', () => {
     organizationSelector.mockReturnValue(organization);
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
-    expect(getReportedComments).toHaveBeenCalledWith(organization.id);
+    expect(getReportedComments).not.toHaveBeenCalled();
   });
 });
 

@@ -50,55 +50,7 @@ exports[`admin renders admin of cru org with 1 reported comment 1`] = `
 </Flex>
 `;
 
-exports[`admin renders admin of not cru org 1`] = `
-<Flex
-  style={
-    Object {
-      "borderBottomColor": "#505256",
-      "borderBottomWidth": 1,
-      "padding": 20,
-    }
-  }
->
-  <Card
-    onPress={[Function]}
-    style={
-      Object {
-        "backgroundColor": "#FF5532",
-        "borderRadius": 8,
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "paddingHorizontal": 15,
-        "paddingVertical": 10,
-      }
-    }
-  >
-    <Icon
-      name="uncontactedIcon"
-      size={20}
-      style={
-        Object {
-          "color": "#ffffff",
-        }
-      }
-      type="MissionHub"
-    />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "marginLeft": 15,
-        }
-      }
-    >
-      1 new reported comment
-    </MyText>
-  </Card>
-</Flex>
-`;
+exports[`admin renders admin of not cru org 1`] = `""`;
 
 exports[`not owner renders admin 1`] = `""`;
 
