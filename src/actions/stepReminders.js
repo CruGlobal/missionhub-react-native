@@ -50,6 +50,3 @@ function getDayOfMonth(day) {
 
   return day;
 }
-
-// todo check suggested step detail screen
-// todo also check add step screen
