@@ -164,5 +164,6 @@ const updateAllStepInstances = (state, stepId, updateMethod) => ({
         steps: updateMethod(stepId, combinedSteps.steps),
       },
     }),
+    {},
   ),
 });

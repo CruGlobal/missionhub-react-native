@@ -1,3 +1,4 @@
+/* eslint max-lines: 0 */
 import { REQUESTS } from '../../actions/api';
 import steps from '../steps';
 import {
@@ -241,30 +242,81 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
   });
 });
 
-it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
-  const state = steps(
-    {
-      mine: [{ id: '6' }, { id: '3' }],
+describe('REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
+  const stepId = '3';
+  const otherId = '6';
+  const step = { id: stepId };
+  const otherStep = { id: otherId };
+
+  it('deletes steps locally', () => {
+    const state = steps(
+      {
+        mine: [otherStep, step],
+        contactSteps: {
+          '123-456': { steps: [otherStep, step], completedSteps: [] },
+          '987-personal': {
+            steps: [step, otherStep],
+            completedSteps: [],
+          },
+        },
+      },
+      {
+        type: REQUESTS.DELETE_CHALLENGE.SUCCESS,
+        query: { challenge_id: '3' },
+      },
+    );
+
+    expect(state).toEqual({
+      mine: [otherStep],
       contactSteps: {
-        '123-456': { steps: [{ id: '6' }, { id: '3' }], completedSteps: [] },
+        '123-456': { steps: [otherStep], completedSteps: [] },
+        '987-personal': { steps: [otherStep], completedSteps: [] },
+      },
+    });
+  });
+});
+
+describe('REQUESTS.CHALLENGE_REMINDER_DELETE.SUCCESS', () => {
+  const stepId = '3';
+  const otherId = '6';
+  const stepWithReminder = { id: stepId, reminder: { id: '123' } };
+  const stepWithoutReminder = { id: stepId, reminder: {} };
+  const otherStep = { id: otherId };
+
+  it('deletes reminder from steps with stepId', () => {
+    const state = steps(
+      {
+        mine: [otherStep, stepWithReminder],
+        contactSteps: {
+          '123-456': {
+            steps: [otherStep, stepWithReminder],
+            completedSteps: [],
+          },
+          '987-personal': {
+            steps: [otherStep, stepWithReminder],
+            completedSteps: [],
+          },
+        },
+      },
+      {
+        type: REQUESTS.CHALLENGE_REMINDER_DELETE.SUCCESS,
+        query: { challenge_id: stepId },
+      },
+    );
+
+    expect(state).toEqual({
+      mine: [otherStep, stepWithoutReminder],
+      contactSteps: {
+        '123-456': {
+          steps: [otherStep, stepWithoutReminder],
+          completedSteps: [],
+        },
         '987-personal': {
-          steps: [{ id: '3' }, { id: '6' }],
+          steps: [otherStep, stepWithoutReminder],
           completedSteps: [],
         },
       },
-    },
-    {
-      type: REQUESTS.DELETE_CHALLENGE.SUCCESS,
-      query: { challenge_id: '3' },
-    },
-  );
-
-  expect(state).toEqual({
-    mine: [{ id: '6' }],
-    contactSteps: {
-      '123-456': { steps: [{ id: '6' }], completedSteps: [] },
-      '987-personal': { steps: [{ id: '6' }], completedSteps: [] },
-    },
+    });
   });
 });
 
