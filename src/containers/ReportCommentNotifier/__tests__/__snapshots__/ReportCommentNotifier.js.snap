@@ -52,6 +52,12 @@ exports[`admin renders admin of cru org with 1 reported comment 1`] = `
 
 exports[`admin renders admin of not cru org 1`] = `""`;
 
+exports[`cru community org renders contact 1`] = `""`;
+
+exports[`cru community org renders owner 1`] = `""`;
+
+exports[`cru community org renders user 1`] = `""`;
+
 exports[`not owner renders admin 1`] = `""`;
 
 exports[`not owner renders contact 1`] = `""`;
