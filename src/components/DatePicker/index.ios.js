@@ -205,7 +205,7 @@ MyDatePickerIOS.propTypes = {
   cancelBtnText: PropTypes.string,
   customStyles: PropTypes.object,
   disabled: PropTypes.bool,
-  onDateChange: PropTypes.func,
+  onDateChange: PropTypes.func.isRequired,
   onCloseModal: PropTypes.func,
   onPressIOS: PropTypes.func,
   minuteInterval: PropTypes.number,

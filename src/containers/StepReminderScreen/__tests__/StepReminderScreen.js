@@ -1,23 +1,43 @@
 import React from 'react';
 import MockDate from 'mockdate';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import SetReminderScreen from '..';
 
-import { createMockStore, renderShallow } from '../../../../testUtils';
+import { renderShallow, createMockNavState } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
+import { createStepReminder } from '../../../actions/stepReminders';
 
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/stepReminders');
 
 const mockDate = '2018-09-01';
 MockDate.set(mockDate);
 
-const store = createMockStore();
+const mockStore = configureStore([thunk]);
+const stepId = '42234';
 let date = '';
 let component;
 let instance;
+let store;
+
+const navigateBackResult = { type: 'navigated back' };
+const createStepReminderResult = { type: 'created step reminder' };
+
+navigateBack.mockReturnValue(navigateBackResult);
+createStepReminder.mockReturnValue(createStepReminderResult);
 
 const createComponent = () => {
-  component = renderShallow(<SetReminderScreen date={date} />, store);
+  store = mockStore();
+
+  component = renderShallow(
+    <SetReminderScreen
+      date={date}
+      navigation={createMockNavState({ stepId })}
+    />,
+    store,
+  );
   instance = component.instance();
 };
 
@@ -64,7 +84,11 @@ describe('handleChangeDate', () => {
     });
 
     it('sets new state', () => {
-      expect(instance.state).toEqual({ date: mockDate, disableBtn: false });
+      expect(instance.state).toEqual({
+        date: mockDate,
+        disableBtn: false,
+        recurrence: null,
+      });
     });
 
     it('renders correctly', () => {
@@ -85,13 +109,30 @@ describe('handleChangeDate', () => {
     });
 
     it('sets new state', () => {
-      expect(instance.state).toEqual({ date: '', disableBtn: true });
+      expect(instance.state).toEqual({
+        date: '',
+        disableBtn: true,
+        recurrence: null,
+      });
     });
   });
 });
 
 describe('handleSetReminder', () => {
+  const recurrence = 'ROBERT';
+
   beforeEach(() => {
+    component
+      .childAt(1)
+      .childAt(0)
+      .childAt(1)
+      .props()
+      .onDateChange(mockDate);
+    component
+      .childAt(1)
+      .childAt(1)
+      .props()
+      .onRecurrenceChange(recurrence);
     component
       .childAt(2)
       .props()
@@ -100,7 +141,16 @@ describe('handleSetReminder', () => {
     component.update();
   });
 
-  it('navigates back', () => {
+  it('navigates back and creates step', () => {
     expect(navigateBack).toHaveBeenCalled();
+    expect(createStepReminder).toHaveBeenCalledWith(
+      stepId,
+      mockDate,
+      recurrence,
+    );
+    expect(store.getActions()).toEqual([
+      navigateBackResult,
+      createStepReminderResult,
+    ]);
   });
 });

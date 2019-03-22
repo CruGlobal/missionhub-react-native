@@ -2,6 +2,16 @@
 
 exports[`renders correctly 1`] = `
 <StepDetailScreen
+  CenterContent={
+    <Component
+      style={
+        Object {
+          "borderBottomWidth": 1,
+          "borderColor": "#E6E8EC",
+        }
+      }
+    />
+  }
   CenterHeader={null}
   RightHeader={null}
   bottomButtonProps={
