@@ -3,7 +3,11 @@ import MockDate from 'mockdate';
 
 import SetReminderScreen from '..';
 
-import { createMockStore, renderShallow } from '../../../../testUtils';
+import {
+  createMockStore,
+  renderShallow,
+  createMockNavState,
+} from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 
 jest.mock('../../../actions/navigation');
@@ -12,12 +16,19 @@ const mockDate = '2018-09-01';
 MockDate.set(mockDate);
 
 const store = createMockStore();
+const stepId = '42234';
 let date = '';
 let component;
 let instance;
 
 const createComponent = () => {
-  component = renderShallow(<SetReminderScreen date={date} />, store);
+  component = renderShallow(
+    <SetReminderScreen
+      date={date}
+      navigation={createMockNavState({ stepId })}
+    />,
+    store,
+  );
   instance = component.instance();
 };
 
@@ -64,7 +75,11 @@ describe('handleChangeDate', () => {
     });
 
     it('sets new state', () => {
-      expect(instance.state).toEqual({ date: mockDate, disableBtn: false });
+      expect(instance.state).toEqual({
+        date: mockDate,
+        disableBtn: false,
+        recurrence: null,
+      });
     });
 
     it('renders correctly', () => {
@@ -85,7 +100,11 @@ describe('handleChangeDate', () => {
     });
 
     it('sets new state', () => {
-      expect(instance.state).toEqual({ date: '', disableBtn: true });
+      expect(instance.state).toEqual({
+        date: '',
+        disableBtn: true,
+        recurrence: null,
+      });
     });
   });
 });

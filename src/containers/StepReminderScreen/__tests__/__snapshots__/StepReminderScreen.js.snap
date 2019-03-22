@@ -111,7 +111,9 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
         </MyText>
       </Translate(MyDatePickerIOS)>
     </Component>
-    <Translate(ReminderRepeatButtons) />
+    <Translate(ReminderRepeatButtons)
+      onRecurrenceChange={[Function]}
+    />
   </Component>
   <BottomButton
     disabled={false}
@@ -232,7 +234,9 @@ exports[`render date in props renders correctly 1`] = `
         </MyText>
       </Translate(MyDatePickerIOS)>
     </Component>
-    <Translate(ReminderRepeatButtons) />
+    <Translate(ReminderRepeatButtons)
+      onRecurrenceChange={[Function]}
+    />
   </Component>
   <BottomButton
     disabled={true}
@@ -351,7 +355,9 @@ exports[`render no date in props renders correctly 1`] = `
         </MyText>
       </Translate(MyDatePickerIOS)>
     </Component>
-    <Translate(ReminderRepeatButtons) />
+    <Translate(ReminderRepeatButtons)
+      onRecurrenceChange={[Function]}
+    />
   </Component>
   <BottomButton
     disabled={true}
