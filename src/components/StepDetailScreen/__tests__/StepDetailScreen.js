@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from 'react-native';
 
 import { renderShallow } from '../../../../testUtils/index';
 import StepDetailScreen from '../index';
@@ -15,6 +16,7 @@ beforeEach(() => {
       text="Roge is well behaved"
       CenterHeader={{ prop: 'center header' }}
       RightHeader={{ prop: 'right header' }}
+      CenterContent={<Text>Center content</Text>}
       markdown={markdown}
       bottomButtonProps={bottomButtonProps}
     />,

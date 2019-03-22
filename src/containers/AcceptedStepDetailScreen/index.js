@@ -7,6 +7,7 @@ import { Button } from '../../components/common';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
+import ReminderButton from '../../components/ReminderButton';
 
 import styles from './styles';
 
@@ -42,6 +43,7 @@ class AcceptedStepDetailScreen extends Component {
             buttonTextStyle={removeStepButtonText}
           />
         }
+        CenterContent={<ReminderButton stepId={id} />}
         markdown={
           challenge_suggestion && challenge_suggestion.description_markdown
         }
@@ -50,7 +52,6 @@ class AcceptedStepDetailScreen extends Component {
           onPress: this.completeStep,
           text: t('iDidIt'),
         }}
-        stepId={id}
       />
     );
   }

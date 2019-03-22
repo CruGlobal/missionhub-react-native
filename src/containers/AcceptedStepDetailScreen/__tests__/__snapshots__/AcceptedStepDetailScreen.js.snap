@@ -2,6 +2,11 @@
 
 exports[`with challenge suggestion renders correctly 1`] = `
 <StepDetailScreen
+  CenterContent={
+    <Connect(Translate(ReminderButton))
+      stepId="234242"
+    />
+  }
   CenterHeader={null}
   RightHeader={
     <Button
@@ -30,13 +35,17 @@ exports[`with challenge suggestion renders correctly 1`] = `
     }
   }
   markdown="roge rules"
-  stepId="234242"
   text="ROBERT"
 />
 `;
 
 exports[`without challenge suggestion renders correctly 1`] = `
 <StepDetailScreen
+  CenterContent={
+    <Connect(Translate(ReminderButton))
+      stepId="234242"
+    />
+  }
   CenterHeader={null}
   RightHeader={
     <Button
@@ -65,7 +74,6 @@ exports[`without challenge suggestion renders correctly 1`] = `
     }
   }
   markdown={null}
-  stepId="234242"
   text="ROBERT"
 />
 `;
