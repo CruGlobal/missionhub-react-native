@@ -12,7 +12,7 @@ const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 const mockStore = configureStore([thunk]);
 
 const challenge_id = '442324';
-const at = new Date();
+const at = new Date('2019-3-21 15:45:32');
 const callApiResponse = { type: 'called api' };
 
 let recurrence;
@@ -92,7 +92,7 @@ describe('with weekly recurrence', () => {
           attributes: {
             type: WEEKLY,
             at: at.toLocaleTimeString(undefined, { hour12: false }),
-            on: DAYS_OF_THE_WEEK[at.getDay()],
+            on: DAYS_OF_THE_WEEK[4],
           },
         },
       },

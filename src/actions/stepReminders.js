@@ -37,12 +37,19 @@ function createOn(at, type) {
     case WEEKLY:
       return DAYS_OF_THE_WEEK[at.getDay()];
     case MONTHLY:
-      return at.getDate();
+      return getDayOfMonth(at.getDate());
     default:
       return undefined;
   }
 }
 
-// todo handle days greater than 28
+function getDayOfMonth(day) {
+  if (day > 28) {
+    return day - 32;
+  }
+
+  return day;
+}
+
 // todo check suggested step detail screen
 // todo also check add step screen
