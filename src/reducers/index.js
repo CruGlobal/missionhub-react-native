@@ -18,6 +18,7 @@ import swipe from './swipe';
 import drawer from './drawer';
 import journey from './journey';
 import tabs from './tabs';
+import stepReminders from './stepReminders';
 
 export default combineReducers({
   analytics,
@@ -35,6 +36,7 @@ export default combineReducers({
   personProfile,
   profile,
   stages,
+  stepReminders,
   steps,
   surveys,
   swipe,
