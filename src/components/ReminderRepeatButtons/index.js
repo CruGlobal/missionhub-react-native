@@ -35,7 +35,7 @@ export default class ReminderRepeatButtons extends Component {
 
   handleSetMonthly = () => this.setButtonState(MONTHLY);
 
-  renderReminderButton(recurrence, i18nKey, onPress) {
+  renderReminderButton(recurrence, onPress) {
     const { t } = this.props;
     const { recurrence: currentRecurrence } = this.state;
     const {
@@ -56,7 +56,7 @@ export default class ReminderRepeatButtons extends Component {
           buttonText,
           active ? buttonTextActive : buttonTextInactive,
         ]}
-        text={t(i18nKey)}
+        text={t(recurrence)}
         onPress={onPress}
       />
     );
@@ -67,9 +67,9 @@ export default class ReminderRepeatButtons extends Component {
 
     return (
       <View style={container}>
-        {this.renderReminderButton(DAILY, 'daily', this.handleSetDaily)}
-        {this.renderReminderButton(WEEKLY, 'weekly', this.handleSetWeekly)}
-        {this.renderReminderButton(MONTHLY, 'monthly', this.handleSetMonthly)}
+        {this.renderReminderButton(DAILY, this.handleSetDaily)}
+        {this.renderReminderButton(WEEKLY, this.handleSetWeekly)}
+        {this.renderReminderButton(MONTHLY, this.handleSetMonthly)}
       </View>
     );
   }
