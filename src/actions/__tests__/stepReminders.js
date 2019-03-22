@@ -1,11 +1,13 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { DAYS_OF_THE_WEEK } from '../../constants';
+import { DAYS_OF_THE_WEEK, REMINDER_RECURRENCES } from '../../constants';
 import callApi, { REQUESTS } from '../api';
 import { createStepReminder } from '../stepReminders';
 
 jest.mock('../api');
+
+const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
 const mockStore = configureStore([thunk]);
 
@@ -44,7 +46,7 @@ describe('with null recurrence', () => {
       {
         data: {
           attributes: {
-            type: 'once',
+            type: ONCE,
             at: at.toISOString(),
             on: undefined,
           },
@@ -56,7 +58,7 @@ describe('with null recurrence', () => {
 
 describe('with daily recurrence', () => {
   beforeAll(() => {
-    recurrence = 'daily';
+    recurrence = DAILY;
   });
 
   it('calls api with correct payload', () => {
@@ -66,7 +68,7 @@ describe('with daily recurrence', () => {
       {
         data: {
           attributes: {
-            type: 'daily',
+            type: DAILY,
             at: at.toLocaleTimeString(undefined, { hour12: false }),
             on: undefined,
           },
@@ -78,7 +80,7 @@ describe('with daily recurrence', () => {
 
 describe('with weekly recurrence', () => {
   beforeAll(() => {
-    recurrence = 'weekly';
+    recurrence = WEEKLY;
   });
 
   it('calls api with correct payload', () => {
@@ -88,7 +90,7 @@ describe('with weekly recurrence', () => {
       {
         data: {
           attributes: {
-            type: 'weekly',
+            type: WEEKLY,
             at: at.toLocaleTimeString(undefined, { hour12: false }),
             on: DAYS_OF_THE_WEEK[at.getDay()],
           },
@@ -100,7 +102,7 @@ describe('with weekly recurrence', () => {
 
 describe('with monthly recurrence', () => {
   beforeAll(() => {
-    recurrence = 'monthly';
+    recurrence = MONTHLY;
   });
 
   it('calls api with correct payload', () => {
@@ -110,7 +112,7 @@ describe('with monthly recurrence', () => {
       {
         data: {
           attributes: {
-            type: 'monthly',
+            type: MONTHLY,
             at: at.toLocaleTimeString(undefined, { hour12: false }),
             on: at.getDate(),
           },

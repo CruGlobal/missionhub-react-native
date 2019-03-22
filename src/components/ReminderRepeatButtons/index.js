@@ -3,8 +3,11 @@ import { View } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { Button } from '../common';
+import { REMINDER_RECURRENCES } from '../../constants';
 
 import styles from './styles';
+
+const { DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
 @translate('stepReminder')
 export default class ReminderRepeatButtons extends Component {
@@ -20,17 +23,17 @@ export default class ReminderRepeatButtons extends Component {
 
   handleSetDaily = () => {
     this.setButtonState(!this.state.dailyActive, false, false);
-    this.props.onRecurrenceChange(this.state.dailyActive && 'daily');
+    this.props.onRecurrenceChange(this.state.dailyActive && DAILY);
   };
 
   handleSetWeekly = () => {
     this.setButtonState(false, !this.state.weeklyActive, false);
-    this.props.onRecurrenceChange(this.state.weeklyActive && 'weekly');
+    this.props.onRecurrenceChange(this.state.weeklyActive && WEEKLY);
   };
 
   handleSetMonthly = () => {
     this.setButtonState(false, false, !this.state.monthlyActive);
-    this.props.onRecurrenceChange(this.state.monthlyActive && 'monthly');
+    this.props.onRecurrenceChange(this.state.monthlyActive && MONTHLY);
   };
 
   render() {

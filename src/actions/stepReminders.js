@@ -1,9 +1,11 @@
-import { DAYS_OF_THE_WEEK } from '../constants';
+import { DAYS_OF_THE_WEEK, REMINDER_RECURRENCES } from '../constants';
 
 import callApi, { REQUESTS } from './api';
 
+const { ONCE, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
+
 export function createStepReminder(challenge_id, at, recurrence) {
-  const type = recurrence || 'once';
+  const type = recurrence || ONCE;
 
   return dispatch =>
     dispatch(
@@ -25,7 +27,7 @@ export function createStepReminder(challenge_id, at, recurrence) {
 
 function createAt(at, type) {
   switch (type) {
-    case 'once':
+    case ONCE:
       return at.toISOString();
     default:
       return at.toLocaleTimeString(undefined, { hour12: false });
@@ -34,9 +36,9 @@ function createAt(at, type) {
 
 function createOn(at, type) {
   switch (type) {
-    case 'weekly':
+    case WEEKLY:
       return DAYS_OF_THE_WEEK[at.getDay()];
-    case 'monthly':
+    case MONTHLY:
       return at.getDate();
     default:
       return undefined;
@@ -46,5 +48,4 @@ function createOn(at, type) {
 // todo use default params
 // todo handle days greater than 28
 // todo refactor ReminderRepeatButtons
-// todo refactor Reminder Button
 // todo check suggested step detail screen

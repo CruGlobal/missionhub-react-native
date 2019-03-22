@@ -444,3 +444,9 @@ export const DAYS_OF_THE_WEEK = [
   'friday',
   'saturday',
 ];
+export const REMINDER_RECURRENCES = {
+  ONCE: 'once',
+  DAILY: 'daily',
+  WEEKLY: 'weekly',
+  MONTHLY: 'monthly',
+};
