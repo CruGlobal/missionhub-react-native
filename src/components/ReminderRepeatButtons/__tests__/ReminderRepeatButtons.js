@@ -10,7 +10,9 @@ let instance;
 const test = () => expect(component).toMatchSnapshot();
 
 beforeEach(() => {
-  component = renderShallow(<ReminderRepeatButtons />);
+  component = renderShallow(
+    <ReminderRepeatButtons onRecurrenceChange={jest.fn()} />,
+  );
   instance = component.instance();
 });
 
