@@ -18,15 +18,8 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
     flex={1}
     flexDirection="column"
   >
-    <Translate(MyDatePickerIOS)
-      customStyles={Object {}}
-      date=""
-      disabled={false}
-      duration={300}
-      height={378}
-      iOSModalContent={<Translate(ReminderRepeatButtons) />}
-      mode="datetime"
-      onChangeDate={[Function]}
+    <Connect(ReminderButton)
+      stepId="1"
     >
       <Component
         flexDirection="row"
@@ -63,7 +56,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
           Set a Reminder
         </MyText>
       </Component>
-    </Translate(MyDatePickerIOS)>
+    </Connect(ReminderButton)>
     <MyText
       accessible={true}
       allowFontScaling={true}
