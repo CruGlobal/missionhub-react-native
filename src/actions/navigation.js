@@ -11,10 +11,10 @@ export function navigatePush(screen, props = {}) {
   };
 }
 
-export function navigateBack(times, immediate = true) {
+export function navigateBack(times) {
   return dispatch => {
     if (times && times > 1) {
-      dispatch(StackActions.pop({ n: times, immediate }));
+      dispatch(StackActions.pop({ n: times, immediate: true }));
     } else {
       dispatch(NavigationActions.back());
     }

@@ -34,7 +34,7 @@ class StageScreen extends Component {
           navigatePush(SELECT_MY_STEP_SCREEN, {
             next: () => dispatch => {
               onComplete(stage);
-              dispatch(navigateBack(3, false));
+              dispatch(navigateBack(3));
             },
             enableBackButton: true,
             contactStage: stage,

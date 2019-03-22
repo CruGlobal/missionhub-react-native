@@ -89,7 +89,7 @@ class PersonStageScreen extends Component {
           navigatePush(PERSON_SELECT_STEP_SCREEN, {
             next: () => dispatch => {
               onComplete(stage);
-              dispatch(navigateBack(3, false));
+              dispatch(navigateBack(3));
             },
             contactStage: stage,
             createStepTracking: buildTrackingObj(

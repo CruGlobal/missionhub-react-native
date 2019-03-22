@@ -50,7 +50,7 @@ export class GroupScreen extends Component {
         organization: organization.id ? organization : undefined,
         onComplete: () => {
           // You go through 4 screens for adding a person, so pop back to the first one
-          dispatch(navigateBack(5, false));
+          dispatch(navigateBack(5));
           // refresh the members list after creating a new person
           if (organization.id) {
             dispatch(getOrganizationMembers(organization.id));

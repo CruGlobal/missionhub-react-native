@@ -108,7 +108,7 @@ describe('person stage screen methods with onComplete prop', () => {
 
     await component.handleSelectStage(mockStage, false);
 
-    expect(navigation.navigateBack).toHaveBeenCalledWith(3, false);
+    expect(navigation.navigateBack).toHaveBeenCalledWith(3);
     expect(selectStage.updateUserStage).toHaveBeenCalledTimes(1);
   });
 
