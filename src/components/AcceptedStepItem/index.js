@@ -9,6 +9,7 @@ import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
 import { Text, Card, Button } from '../common';
 import DatePicker from '../DatePicker';
 import ReminderRepeatButtons from '../ReminderRepeatButtons';
+import ReminderDateText from '../ReminderDateText';
 import { completeStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../containers/AcceptedStepDetailScreen';
@@ -33,40 +34,36 @@ class AcceptedStepItem extends Component {
 
   handleSetReminder = () => {};
 
+  renderReminderButton() {
+    const {
+      step: { reminder },
+    } = this.props;
+    const { reminderButton, bellIcon } = styles;
+
+    return (
+      <DatePicker
+        date={reminder && reminder.at}
+        onChangeDate={this.handleSetReminder}
+        iOSModalContent={<ReminderRepeatButtons />}
+        height={378}
+        mode="datetime"
+      >
+        <View flexDirection="row" style={reminderButton}>
+          <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
+          <ReminderDateText reminder={reminder} />
+        </View>
+      </DatePicker>
+    );
+  }
+
   render() {
     const {
       t,
       step: { title, completed_at },
     } = this.props;
-    const {
-      card,
-      reminderButton,
-      bellIcon,
-      reminderText,
-      stepText,
-      stepTextCompleted,
-      iconButton,
-      checkIcon,
-    } = styles;
+    const { card, stepText, stepTextCompleted, iconButton, checkIcon } = styles;
 
-    if (completed_at) {
-      return (
-        <Card
-          flex={1}
-          flexDirection="row"
-          alignItems="center"
-          onPress={this.handleNavigate}
-          style={card}
-        >
-          <View flex={1} flexDirection="column">
-            <Text style={[stepText, stepTextCompleted]}>{title}</Text>
-          </View>
-          <Image source={GREY_CHECKBOX} style={checkIcon} />
-        </Card>
-      );
-    }
-
-    return (
+    return completed_at ? (
       <Card
         flex={1}
         flexDirection="row"
@@ -75,17 +72,20 @@ class AcceptedStepItem extends Component {
         style={card}
       >
         <View flex={1} flexDirection="column">
-          <DatePicker
-            onChangeDate={this.handleSetReminder}
-            iOSModalContent={<ReminderRepeatButtons />}
-            height={378}
-            mode="datetime"
-          >
-            <View flexDirection="row" style={reminderButton}>
-              <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-              <Text style={reminderText}>{t('setReminder')}</Text>
-            </View>
-          </DatePicker>
+          <Text style={[stepText, stepTextCompleted]}>{title}</Text>
+        </View>
+        <Image source={GREY_CHECKBOX} style={checkIcon} />
+      </Card>
+    ) : (
+      <Card
+        flex={1}
+        flexDirection="row"
+        alignItems="center"
+        onPress={this.handleNavigate}
+        style={card}
+      >
+        <View flex={1} flexDirection="column">
+          {this.renderReminderButton()}
           <Text style={stepText}>{title}</Text>
         </View>
         <Button onPress={this.handleCompleteStep} style={iconButton}>
@@ -100,6 +100,7 @@ AcceptedStepItem.propTypes = {
   step: PropTypes.shape({
     title: PropTypes.string.isRequired,
     completed_at: PropTypes.string,
+    reminder: PropTypes.object,
   }).isRequired,
   onComplete: PropTypes.func,
 };

@@ -83,7 +83,7 @@ export function getContactSteps(personId, orgId) {
         receiver_ids: personId,
         organization_ids: orgId || 'personal',
       },
-      include: 'receiver,challenge_suggestion',
+      include: 'receiver,challenge_suggestion,reminder',
       page: { limit: 1000 },
     };
     return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
