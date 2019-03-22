@@ -12,6 +12,6 @@ describe('REQUESTS.CREATE_CHALLENGE_REMINDER.SUCCESS', () => {
         results: { response },
         query: { challenge_id },
       }),
-    ).toEqual({ [challenge_id]: response });
+    ).toEqual({ all: { [challenge_id]: response } });
   });
 });

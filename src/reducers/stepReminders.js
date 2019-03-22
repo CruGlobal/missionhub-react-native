@@ -1,7 +1,7 @@
 import { LOGOUT } from '../constants';
 import { REQUESTS } from '../actions/api';
 
-const initialState = {};
+const initialState = { all: {} };
 
 export default function stepRemindersReducer(state = initialState, action) {
   switch (action.type) {
@@ -20,6 +20,9 @@ function addCreatedReminderToState(
 ) {
   return {
     ...state,
-    [challenge_id]: response,
+    all: {
+      ...state.all,
+      [challenge_id]: response,
+    },
   };
 }
