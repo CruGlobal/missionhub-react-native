@@ -198,7 +198,7 @@ describe('comments sets up actions as owner', () => {
     buildScreenWithComment(comment);
 
     orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.ADMIN,
+      permission_id: ORG_PERMISSIONS.OWNER,
     });
 
     screen.instance().handleLongPress(comment, 'testRef');

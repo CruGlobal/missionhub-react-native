@@ -118,7 +118,7 @@ class CommentsList extends Component {
           person: me,
           organization,
         }) || {};
-      if (orgPermission.permission_id === ORG_PERMISSIONS.ADMIN) {
+      if (orgPermission.permission_id === ORG_PERMISSIONS.OWNER) {
         actions.push(deleteAction);
       } else {
         actions.push({
