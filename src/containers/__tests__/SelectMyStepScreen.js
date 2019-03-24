@@ -76,7 +76,7 @@ it('renders correctly for onboarding', () => {
 });
 
 describe('SelectMyStepScreen methods', () => {
-  describe('handleNavigate', () => {
+  describe('handleNavigateAcceptedDetailScreen', () => {
     it('runs onSaveNewSteps', () => {
       const screen = renderShallow(
         <SelectMyStepScreen navigation={createMockNavState(navProps)} />,

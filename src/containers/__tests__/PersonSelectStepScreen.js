@@ -57,7 +57,7 @@ it('allows for undefined organization', () => {
   );
 });
 
-describe('handleNavigate', () => {
+describe('handleNavigateAcceptedDetailScreen', () => {
   let screen;
 
   it('runs onSaveNewSteps', () => {
