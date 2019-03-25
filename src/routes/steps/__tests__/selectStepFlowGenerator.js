@@ -80,18 +80,22 @@ beforeEach(() => {
 });
 
 describe('first screen next', () => {
+  let isAddingCustomStep;
+
+  beforeEach(() =>
+    buildAndCallNext(
+      firstScreenRoute,
+      {},
+      {
+        isAddingCustomStep,
+        receiverId: personId,
+        orgId,
+        step,
+      },
+    ));
+
   describe('not adding custom step', () => {
-    beforeEach(() =>
-      buildAndCallNext(
-        firstScreenRoute,
-        {},
-        {
-          isAddingCustomStep: false,
-          receiverId: personId,
-          orgId,
-          step,
-        },
-      ));
+    beforeAll(() => (isAddingCustomStep = false));
 
     it('navigates to SuggestedStepDetailScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
@@ -107,17 +111,7 @@ describe('first screen next', () => {
   });
 
   describe('adding custom step', () => {
-    beforeEach(() =>
-      buildAndCallNext(
-        firstScreenRoute,
-        {},
-        {
-          isAddingCustomStep: true,
-          receiverId: personId,
-          orgId,
-          step,
-        },
-      ));
+    beforeAll(() => (isAddingCustomStep = true));
 
     it('navigates to AddStepScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
