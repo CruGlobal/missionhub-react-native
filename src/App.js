@@ -24,7 +24,7 @@ import {
 } from './constants';
 import { isAndroid } from './utils/common';
 import { initialRoute } from './actions/navigationInit';
-import { navigateReset } from './actions/navigation';
+import { navigateReset, navigateNestedReset } from './actions/navigation';
 import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
@@ -50,7 +50,7 @@ export default class App extends Component {
 
   onBeforeLift = () => {
     this.checkOldAppToken();
-    store.dispatch(navigateReset(initialRoute(store.getState())));
+    store.dispatch(navigateNestedReset(initialRoute(store.getState()))); //todo test
     store.dispatch(configureNotificationHandler());
     store.dispatch(setupFirebaseDynamicLinks());
     this.collectLifecycleData();

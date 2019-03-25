@@ -1,11 +1,12 @@
-import { createStackNavigator, StackActions } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
+import { addStep } from '../../actions/steps';
+import { buildCustomStep } from '../../utils/steps';
 import { updatePersonAttributes } from '../../actions/person';
-import { reloadJourney } from '../../actions/journey';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateReset } from '../../actions/navigation';
 import { completeOnboarding } from '../../actions/onboardingProfile';
 import { buildTrackedScreen, wrapNextAction, wrapNextScreen } from '../helpers';
-import { buildTrackingObj } from '../../utils/common';
+import { buildTrackingObj, isAndroid } from '../../utils/common';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import GetStartedScreen, {
@@ -18,10 +19,8 @@ import StageSuccessScreen, {
 import SelectMyStepScreen, {
   SELECT_MY_STEP_SCREEN,
 } from '../../containers/SelectMyStepScreen';
-import SuggestedStepDetailScreen, {
-  SUGGESTED_STEP_DETAIL_SCREEN,
-} from '../../containers/SuggestedStepDetailScreen';
-import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
+import SuggestedStepDetailScreen from '../../containers/SuggestedStepDetailScreen';
+import AddStepScreen from '../../containers/AddStepScreen';
 import AddSomeoneScreen, {
   ADD_SOMEONE_SCREEN,
 } from '../../containers/AddSomeoneScreen';
@@ -40,6 +39,14 @@ import NotificationPrimerScreen, {
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
+import { MAIN_TABS, CREATE_STEP } from '../../constants';
+
+const ME_SUGGESTED_STEP_DETAIL_SCREEN = 'nav/ME_SUGGESTED_STEP_DETAIL_SCREEN';
+const PERSON_SUGGESTED_STEP_DETAIL_SCREEN =
+  'nav/PERSON_SUGGESTED_STEP_DETAIL_SCREEN';
+
+const ME_ADD_STEP_SCREEN = 'nav/ME_ADD_STEP_SCREEN';
+const PERSON_ADD_STEP_SCREEN = 'person/ME_ADD_STEP_SCREEN';
 
 export const TryItNowOnboardingFlowScreens = {
   [WELCOME_SCREEN]: buildTrackedScreen(
@@ -56,8 +63,7 @@ export const TryItNowOnboardingFlowScreens = {
   ),
   [STAGE_SCREEN]: wrapNextAction(
     StageScreen,
-    ({ stage, contactId, orgId, isAlreadySelected }) => dispatch => {
-      console.log(stage);
+    ({ stage, contactId }) => dispatch => {
       dispatch(
         updatePersonAttributes(contactId, {
           user: { pathway_stage_id: stage.id },
@@ -76,7 +82,28 @@ export const TryItNowOnboardingFlowScreens = {
     ),
   ),
   [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(SelectMyStepScreen, ADD_SOMEONE_SCREEN),
+    wrapNextAction(
+      SelectMyStepScreen,
+      ({ isAddingCustomStep, receiverId, orgId, step }) => dispatch => {
+        console.log(isAddingCustomStep);
+
+        return isAddingCustomStep
+          ? dispatch(
+              navigatePush(ME_ADD_STEP_SCREEN, {
+                personId: receiverId,
+                orgId,
+                type: CREATE_STEP,
+              }),
+            )
+          : dispatch(
+              navigatePush(ME_SUGGESTED_STEP_DETAIL_SCREEN, {
+                step,
+                receiverId,
+                orgId,
+              }),
+            );
+      },
+    ),
     buildTrackingObj(
       'onboarding : self : steps : add',
       'onboarding',
@@ -84,11 +111,23 @@ export const TryItNowOnboardingFlowScreens = {
       'steps',
     ),
   ),
-  [SUGGESTED_STEP_DETAIL_SCREEN]: {
-    screen: wrapNextScreen(AddStepScreen, ADD_SOMEONE_SCREEN),
+  [ME_SUGGESTED_STEP_DETAIL_SCREEN]: {
+    screen: wrapNextScreen(SuggestedStepDetailScreen, ADD_SOMEONE_SCREEN),
   },
-  [ADD_STEP_SCREEN]: {
-    screen: wrapNextScreen(AddStepScreen, ADD_SOMEONE_SCREEN),
+  [ME_ADD_STEP_SCREEN]: {
+    screen: wrapNextAction(
+      AddStepScreen,
+      ({ text, personId, orgId }) => (dispatch, getState) => {
+        dispatch(
+          addStep(
+            buildCustomStep(text, getState().auth.person.id === personId),
+            personId,
+            { id: orgId },
+          ),
+        );
+        dispatch(navigatePush(ADD_SOMEONE_SCREEN));
+      },
+    ),
   },
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
     wrapNextScreen(AddSomeoneScreen, SETUP_PERSON_SCREEN),
@@ -107,8 +146,55 @@ export const TryItNowOnboardingFlowScreens = {
     navigationOptions: { gesturesEnabled: true },
   },
   [PERSON_SELECT_STEP_SCREEN]: {
-    screen: wrapNextScreen(PersonSelectStepScreen, NOTIFICATION_PRIMER_SCREEN),
+    screen: wrapNextAction(
+      PersonSelectStepScreen,
+      ({ isAddingCustomStep, receiverId, orgId, step }) => dispatch => {
+        console.log(isAddingCustomStep);
+
+        return isAddingCustomStep
+          ? dispatch(
+              navigatePush(PERSON_ADD_STEP_SCREEN, {
+                personId: receiverId,
+                orgId,
+                type: CREATE_STEP,
+              }),
+            )
+          : dispatch(
+              navigatePush(PERSON_SUGGESTED_STEP_DETAIL_SCREEN, {
+                step,
+                receiverId,
+                orgId,
+              }),
+            );
+      },
+    ),
     navigationOptions: { gesturesEnabled: true },
+  },
+  [PERSON_SUGGESTED_STEP_DETAIL_SCREEN]: {
+    screen: wrapNextScreen(
+      SuggestedStepDetailScreen,
+      NOTIFICATION_PRIMER_SCREEN,
+    ),
+  },
+  [PERSON_ADD_STEP_SCREEN]: {
+    screen: wrapNextAction(
+      AddStepScreen,
+      ({ text, personId, orgId }) => (dispatch, getState) => {
+        dispatch(
+          addStep(
+            buildCustomStep(text, getState().auth.person.id === personId),
+            personId,
+            { id: orgId },
+          ),
+        );
+
+        return dispatch(
+          navigatePush(
+            isAndroid ? CELEBRATION_SCREEN : NOTIFICATION_PRIMER_SCREEN,
+          ),
+        );
+      },
+    ),
   },
   [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(
     wrapNextScreen(NotificationPrimerScreen, CELEBRATION_SCREEN),
@@ -118,16 +204,10 @@ export const TryItNowOnboardingFlowScreens = {
       'notifications',
     ),
   ),
-  [CELEBRATION_SCREEN]: wrapNextAction(
-    CelebrationScreen,
-    ({ contactId, orgId }) => dispatch => {
-      dispatch(reloadJourney(contactId, orgId));
-      dispatch(completeOnboarding());
-      dispatch(StackActions.popToTop());
-
-      dispatch(StackActions.pop({ immediate: true }));
-    },
-  ),
+  [CELEBRATION_SCREEN]: wrapNextAction(CelebrationScreen, () => dispatch => {
+    dispatch(completeOnboarding());
+    dispatch(navigateReset(MAIN_TABS));
+  }),
 };
 export const TryItNowOnboardingFlowNavigator = createStackNavigator(
   TryItNowOnboardingFlowScreens,

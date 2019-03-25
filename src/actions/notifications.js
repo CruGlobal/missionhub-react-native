@@ -54,7 +54,7 @@ export function showReminderScreen(descriptionText) {
         // If none of the other cases hit, show allow/not allow page
         dispatch(
           navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-            onComplete: () => dispatch(navigateBack()),
+            next: () => dispatch(navigateBack()),
             descriptionText,
           }),
         );

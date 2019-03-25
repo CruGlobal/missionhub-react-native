@@ -47,6 +47,7 @@ class CelebrationScreen extends Component {
     disableBack.remove();
 
     if (next) {
+      console.log('dispatching next in celebration screen');
       dispatch(next({ contactId, orgId }));
     } else if (onComplete) {
       onComplete();

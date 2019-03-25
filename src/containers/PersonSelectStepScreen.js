@@ -29,6 +29,9 @@ class PersonSelectStepScreen extends Component {
     } = this.props;
 
     const name = contactName ? contactName : personFirstName;
+    console.log(contactAssignment);
+    console.log(contactStage);
+
     const stageId = contactAssignment
       ? contactAssignment.pathway_stage_id
       : contactStage.id;
@@ -52,7 +55,7 @@ class PersonSelectStepScreen extends Component {
 PersonSelectStepScreen.propTypes = {
   contactName: PropTypes.string,
   contactId: PropTypes.string,
-  createStepTracking: PropTypes.object.isRequired,
+  createStepTracking: PropTypes.object,
   contact: PropTypes.object,
   organization: PropTypes.object,
   next: PropTypes.func.isRequired,

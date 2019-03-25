@@ -36,6 +36,8 @@ export function navigateReset(screen, props = {}) {
 }
 
 export function navigateNestedReset(...screens) {
+  console.log(screens);
+
   const actions = screens.reduce(
     (actionsAccumulator, routeName) =>
       actionsAccumulator.concat([NavigationActions.navigate({ routeName })]),

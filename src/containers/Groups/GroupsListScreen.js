@@ -74,7 +74,7 @@ class GroupsListScreen extends Component {
   create = () => {
     const { dispatch, isFirstTime } = this.props;
     const screen = CREATE_GROUP_SCREEN;
-    const onComplete = () => dispatch(navigateNestedReset(MAIN_TABS, screen));
+    const onComplete = () => dispatch(navigateNestedReset(MAIN_TABS, screen)); //todo fix
 
     dispatch(
       isFirstTime

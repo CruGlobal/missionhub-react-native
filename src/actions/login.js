@@ -10,6 +10,7 @@ import { navigateReset } from './navigation';
 import { logInAnalytics, trackActionWithoutData } from './analytics';
 import { completeOnboarding } from './onboardingProfile';
 
+//todo test here
 export function onSuccessfulLogin(onComplete) {
   return async (dispatch, getState) => {
     dispatch(logInAnalytics());

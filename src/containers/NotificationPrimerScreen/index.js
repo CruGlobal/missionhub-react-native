@@ -21,17 +21,21 @@ class NotificationPrimerScreen extends Component {
   }
 
   notNow() {
-    this.props.onComplete();
-    this.props.dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
+    const { dispatch, next } = this.props;
+
+    dispatch(next());
+    dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
   }
 
   async allow() {
+    const { dispatch, next } = this.props;
+
     try {
-      await this.props.dispatch(requestNativePermissions());
+      await dispatch(requestNativePermissions());
     } finally {
-      this.props.onComplete();
+      dispatch(next());
     }
-    this.props.dispatch(trackActionWithoutData(ACTIONS.ALLOW));
+    dispatch(trackActionWithoutData(ACTIONS.ALLOW));
   }
 
   render() {
@@ -75,7 +79,7 @@ class NotificationPrimerScreen extends Component {
 }
 
 NotificationPrimerScreen.propTypes = {
-  onComplete: PropTypes.func.isRequired,
+  next: PropTypes.func.isRequired,
   descriptionText: PropTypes.string,
 };
 

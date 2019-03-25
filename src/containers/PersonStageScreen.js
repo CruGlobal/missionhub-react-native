@@ -49,7 +49,7 @@ class PersonStageScreen extends Component {
     if (!isAndroid) {
       dispatch(
         navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-          onComplete: this.celebrateAndFinishOnboarding,
+          next: this.celebrateAndFinishOnboarding,
         }),
       );
     } else {
@@ -73,6 +73,7 @@ class PersonStageScreen extends Component {
       return dispatch(
         next({
           stage,
+          contactStage: stage,
           contactId,
           name,
           orgId,

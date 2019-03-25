@@ -137,7 +137,7 @@ export function skipOnboarding() {
     if (!isAndroid) {
       return dispatch(
         navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-          onComplete: () => dispatch(skipOnboardingComplete()),
+          next: () => dispatch(skipOnboardingComplete()),
         }),
       );
     }
@@ -164,7 +164,7 @@ export function showNotificationPrompt() {
       await new Promise(resolve =>
         dispatch(
           navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-            onComplete: resolve,
+            next: resolve,
             descriptionText: i18next.t(
               'notificationPrimer:onboardingDescription',
             ),

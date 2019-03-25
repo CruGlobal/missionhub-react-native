@@ -116,7 +116,7 @@ class SelectStepScreen extends Component {
 }
 
 SelectStepScreen.propTypes = {
-  createStepTracking: PropTypes.object.isRequired,
+  createStepTracking: PropTypes.object,
   contact: PropTypes.object,
   receiverId: PropTypes.string.isRequired,
   enableBackButton: PropTypes.bool,

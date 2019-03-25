@@ -28,6 +28,9 @@ class SelectMyStepScreen extends Component {
     const section = this.props.onboarding ? 'onboarding' : 'people';
     const stageId = contactStage ? contactStage.id : myStageId;
 
+    console.log(contactStage);
+    console.log(myStageId);
+
     return (
       <SelectStepScreen
         contactStageId={stageId}

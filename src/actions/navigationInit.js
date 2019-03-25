@@ -3,6 +3,7 @@ import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
 import { MAIN_TABS } from '../constants';
+import { TRY_IT_NOW_ONBOARDING_FLOW } from '../routes/constants';
 
 export function initialRoute({ auth, personProfile, people }) {
   if (auth && isAuthenticated(auth)) {
