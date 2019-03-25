@@ -12,15 +12,20 @@ import { completeStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../containers/AcceptedStepDetailScreen';
 import { CONTACT_STEPS } from '../../constants';
+import { COMPLETED_STEP_DETAIL_SCREEN } from '../../containers/CompletedStepDetailScreen';
 import Icon from '../Icon/index';
 
 import styles from './styles';
 
 @translate('contactSteps')
 class AcceptedStepItem extends Component {
-  handleNavigate = () => {
+  handleNavigateAcceptedDetailScreen = () => {
     const { dispatch, step } = this.props;
     dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
+  };
+  handleNavigateCompletedDetailScreen = () => {
+    const { dispatch, step } = this.props;
+    dispatch(navigatePush(COMPLETED_STEP_DETAIL_SCREEN, { step }));
   };
 
   handleCompleteStep = async () => {
@@ -54,7 +59,7 @@ class AcceptedStepItem extends Component {
           flex={1}
           flexDirection="row"
           alignItems="center"
-          onPress={this.handleNavigate}
+          onPress={this.handleNavigateCompletedDetailScreen}
           style={card}
         >
           <View flex={1} flexDirection="column">
@@ -70,7 +75,7 @@ class AcceptedStepItem extends Component {
         flex={1}
         flexDirection="row"
         alignItems="center"
-        onPress={this.handleNavigate}
+        onPress={this.handleNavigateAcceptedDetailScreen}
         style={card}
       >
         <View flex={1} flexDirection="column">

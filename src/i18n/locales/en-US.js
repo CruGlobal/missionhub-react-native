@@ -221,6 +221,7 @@ export default {
   },
   completedStepDetail: {
     completedStep: 'Completed Step',
+    completedOn: 'Completed {{date}}',
   },
   selectStage: {
     meQuestion:
