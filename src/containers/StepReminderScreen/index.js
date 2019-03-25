@@ -9,9 +9,11 @@ import Header from '../Header';
 import DatePicker from '../../components/DatePicker';
 import BottomButton from '../../components/BottomButton';
 import ReminderRepeatButtons from '../../components/ReminderRepeatButtons';
+import ReminderDateText from '../../components/ReminderDateText';
 import { Text } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import { createStepReminder } from '../../actions/stepReminders';
+import { reminderSelector } from '../../selectors/stepReminders';
 
 import styles from './styles';
 
@@ -59,7 +61,7 @@ class StepReminderScreen extends Component {
   }
 
   renderDateInput() {
-    const { t } = this.props;
+    const { t, reminder } = this.props;
     const { date } = this.state;
     const {
       dateInputContainer,
@@ -84,11 +86,7 @@ class StepReminderScreen extends Component {
           minDate={this.today}
           onDateChange={this.handleChangeDate}
         >
-          <Text style={inputContentStyle}>
-            {!date
-              ? t('endDatePlaceholder')
-              : moment(date).format('YYYY-MM-DD HH:mm')}
-          </Text>
+          <ReminderDateText style={inputContentStyle} reminder={reminder} />
         </DatePicker>
       </View>
     );
@@ -116,7 +114,7 @@ class StepReminderScreen extends Component {
 }
 
 const mapStateToProps = (
-  _,
+  { stepReminders },
   {
     navigation: {
       state: {
@@ -126,6 +124,7 @@ const mapStateToProps = (
   },
 ) => ({
   stepId,
+  reminder: reminderSelector({ stepReminders }, { stepId }),
 });
 export default connect(mapStateToProps)(StepReminderScreen);
 export const STEP_REMINDER_SCREEN = 'nav/STEP_REMINDER';

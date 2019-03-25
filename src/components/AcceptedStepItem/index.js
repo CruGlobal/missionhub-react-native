@@ -71,7 +71,7 @@ class AcceptedStepItem extends Component {
         style={card}
       >
         <View flex={1} flexDirection="column">
-          <ReminderButton stepId={id}>
+          <ReminderButton stepId={id} reminder={reminder}>
             <View flexDirection="row" style={reminderButton}>
               <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
               <ReminderDateText reminder={reminder} />

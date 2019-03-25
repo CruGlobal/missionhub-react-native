@@ -9,6 +9,8 @@ import { completeStep, deleteStepWithTracking } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
 import ReminderButton from '../../components/ReminderButton';
+import ReminderDateText from '../../components/ReminderDateText';
+import { reminderSelector } from '../../selectors/stepReminders';
 
 import styles from './styles';
 
@@ -33,6 +35,7 @@ class AcceptedStepDetailScreen extends Component {
     const {
       t,
       step: { id },
+      reminder,
     } = this.props;
     const {
       reminderButton,
@@ -45,13 +48,13 @@ class AcceptedStepDetailScreen extends Component {
     } = styles;
 
     return (
-      <ReminderButton stepId={id}>
+      <ReminderButton stepId={id} reminder={reminder}>
         <View style={reminderButton}>
           <View style={reminderContainer}>
             <View style={reminderIconCircle}>
               <Icon name="bellIcon" type="MissionHub" style={reminderIcon} />
             </View>
-            <Text style={reminderText}>{t('stepReminder:setReminder')}</Text>
+            <ReminderDateText style={reminderText} reminder={reminder} />
           </View>
           <Button onPress={this.handleRemoveReminder} style={cancelIconButton}>
             <Icon name="close" type="Material" style={cancelIcon} />
@@ -95,7 +98,7 @@ class AcceptedStepDetailScreen extends Component {
 AcceptedStepDetailScreen.propTypes = { step: PropTypes.object.isRequired };
 
 const mapStateToProps = (
-  _,
+  { stepReminders },
   {
     navigation: {
       state: {
@@ -105,6 +108,7 @@ const mapStateToProps = (
   },
 ) => ({
   step,
+  reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
 });
 export default connect(mapStateToProps)(AcceptedStepDetailScreen);
 export const ACCEPTED_STEP_DETAIL_SCREEN = 'nav/ACCEPTED_STEP_DETAIL_SCREEN';
