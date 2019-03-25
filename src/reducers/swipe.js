@@ -1,8 +1,5 @@
 import {
   LOGOUT,
-  SWIPE_REMINDER_STEPS_HOME,
-  SWIPE_REMINDER_STEPS_CONTACT,
-  SWIPE_REMINDER_STEPS_REMINDER,
   SWIPE_REMINDER_JOURNEY,
   GROUP_ONBOARDING_CARD,
   GROUP_INVITE_INFO,
@@ -13,9 +10,6 @@ import { GROUP_ONBOARDING_TYPES } from '../containers/Groups/OnboardingCard';
 
 // Keep track of all the swipeable rows and whether or not to show a reminder
 const initialState = {
-  stepsHome: true,
-  stepsContact: true,
-  stepsReminder: false, // Never show on the reminders anymore
   journey: true,
   groupOnboarding: {
     [GROUP_ONBOARDING_TYPES.celebrate]: true,
@@ -31,12 +25,6 @@ const initialState = {
 
 function swipeReducer(state = initialState, action) {
   switch (action.type) {
-    case SWIPE_REMINDER_STEPS_HOME:
-      return { ...state, stepsHome: false };
-    case SWIPE_REMINDER_STEPS_CONTACT:
-      return { ...state, stepsContact: false };
-    case SWIPE_REMINDER_STEPS_REMINDER:
-      return { ...state, stepsReminder: false };
     case SWIPE_REMINDER_JOURNEY:
       return { ...state, journey: false };
     case GROUP_INVITE_INFO:

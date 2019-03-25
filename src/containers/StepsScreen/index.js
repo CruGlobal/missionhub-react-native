@@ -6,10 +6,6 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import debounce from 'lodash/debounce';
 
-import {
-  removeSwipeStepsHome,
-  removeSwipeStepsReminder,
-} from '../../actions/swipe';
 import { loadHome } from '../../actions/auth';
 import {
   showReminderScreen,
@@ -18,9 +14,7 @@ import {
 import {
   getMySteps,
   setStepFocus,
-  completeStepReminder,
   getMyStepsNextPage,
-  deleteStepWithTracking,
 } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
 import {
@@ -36,7 +30,6 @@ import {
   LoadingGuy,
 } from '../../components/common';
 import StepItem from '../../components/StepItem';
-import RowSwipeable from '../../components/RowSwipeable';
 import FooterLoading from '../../components/FooterLoading';
 import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
@@ -49,7 +42,6 @@ import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 import styles from './styles';
 
 const MAX_REMINDERS = 3;
-const NAME = 'Steps';
 
 function isCloseToBottom({ layoutMeasurement, contentOffset, contentSize }) {
   const paddingToBottom = 20;
@@ -71,8 +63,6 @@ export class StepsScreen extends Component {
     };
 
     this.getSteps = this.getSteps.bind(this);
-    this.completeStepBump = this.completeStepBump.bind(this);
-    this.completeReminderBump = this.completeReminderBump.bind(this);
     this.handleSetReminder = this.handleSetReminder.bind(this);
     this.handleRemoveReminder = this.handleRemoveReminder.bind(this);
     this.handleRowSelect = this.handleRowSelect.bind(this);
@@ -88,14 +78,6 @@ export class StepsScreen extends Component {
 
   getSteps() {
     return this.props.dispatch(getMySteps());
-  }
-
-  completeStepBump() {
-    this.props.dispatch(removeSwipeStepsHome());
-  }
-
-  completeReminderBump() {
-    this.props.dispatch(removeSwipeStepsReminder());
   }
 
   handleRowSelect(step) {
@@ -145,14 +127,6 @@ export class StepsScreen extends Component {
     dispatch(trackActionWithoutData(ACTIONS.STEP_DEPRIORITIZED));
     dispatch(setStepFocus(step, false));
   }
-
-  handleCompleteReminder = step => {
-    this.props.dispatch(completeStepReminder(step, NAME));
-  };
-
-  handleDeleteReminder = step => {
-    this.props.dispatch(deleteStepWithTracking(step, NAME));
-  };
 
   handleRefresh() {
     refresh(this, this.getSteps);
@@ -221,33 +195,20 @@ export class StepsScreen extends Component {
   }
 
   renderReminders() {
-    const { reminders, showStepReminderBump } = this.props;
+    const { reminders } = this.props;
     const focusedSteps = reminders.filter(r => r && r.id);
 
     if (this.hasReminders()) {
       return (
         <Flex align="center" style={[styles.top]}>
-          {focusedSteps.map((s, index) => (
-            <RowSwipeable
+          {focusedSteps.map(s => (
+            <StepItem
+              step={s}
               key={s.id}
-              bump={showStepReminderBump && index === 0}
-              onBumpComplete={
-                showStepReminderBump && index === 0
-                  ? this.completeReminderBump
-                  : undefined
-              }
-              deletePressProps={[s]}
-              completePressProps={[s]}
-              onDelete={this.handleDeleteReminder}
-              onComplete={this.handleCompleteReminder}
-            >
-              <StepItem
-                step={s}
-                type="reminder"
-                onSelect={this.handleRowSelect}
-                onAction={this.handleRemoveReminder}
-              />
-            </RowSwipeable>
+              type="reminder"
+              onSelect={this.handleRowSelect}
+              onAction={this.handleRemoveReminder}
+            />
           ))}
         </Flex>
       );
@@ -258,29 +219,15 @@ export class StepsScreen extends Component {
 
   listKeyExtractor = i => i.id;
 
-  renderItem = ({ item, index }) => {
-    const { showStepBump } = this.props;
-
+  renderItem = ({ item }) => {
     return (
-      <RowSwipeable
-        bump={showStepBump && index === 0}
-        onBumpComplete={
-          showStepBump && index === 0 ? this.completeStepBump : undefined
-        }
-        key={item.id}
-        deletePressProps={[item]}
-        completePressProps={[item]}
-        onDelete={this.handleDeleteReminder}
-        onComplete={this.handleCompleteReminder}
-      >
-        <StepItem
-          step={item}
-          type="swipeable"
-          hideAction={this.canHideStars()}
-          onSelect={this.handleRowSelect}
-          onAction={this.handleSetReminder}
-        />
-      </RowSwipeable>
+      <StepItem
+        step={item}
+        type="swipeable"
+        hideAction={this.canHideStars()}
+        onSelect={this.handleRowSelect}
+        onAction={this.handleSetReminder}
+      />
     );
   };
 
@@ -377,11 +324,9 @@ export class StepsScreen extends Component {
   }
 }
 
-export const mapStateToProps = ({ steps, people, notifications, swipe }) => ({
+export const mapStateToProps = ({ steps, people, notifications }) => ({
   steps: nonReminderStepsSelector({ steps, people }),
   reminders: reminderStepsSelector({ steps, people }),
-  showStepBump: swipe.stepsHome,
-  showStepReminderBump: swipe.stepsReminder,
   hasMoreSteps: steps.pagination.hasNextPage,
   pushtoken: notifications.token,
 });

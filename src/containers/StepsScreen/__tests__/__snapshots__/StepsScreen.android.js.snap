@@ -74,41 +74,18 @@ exports[`renders android correctly 1`] = `
           ]
         }
       >
-        <Translate(RowSwipeable)
-          bump={true}
-          completePressProps={
-            Array [
-              Object {
-                "id": 1,
-                "reminder": true,
-              },
-            ]
-          }
-          deletePressProps={
-            Array [
-              Object {
-                "id": 1,
-                "reminder": true,
-              },
-            ]
-          }
+        <Connect(Translate(StepItem))
           key="1"
-          onBumpComplete={[Function]}
-          onComplete={[Function]}
-          onDelete={[Function]}
-        >
-          <Connect(Translate(StepItem))
-            onAction={[Function]}
-            onSelect={[Function]}
-            step={
-              Object {
-                "id": 1,
-                "reminder": true,
-              }
+          onAction={[Function]}
+          onSelect={[Function]}
+          step={
+            Object {
+              "id": 1,
+              "reminder": true,
             }
-            type="reminder"
-          />
-        </Translate(RowSwipeable)>
+          }
+          type="reminder"
+        />
       </Flex>
       <FlatList
         ListFooterComponent={null}

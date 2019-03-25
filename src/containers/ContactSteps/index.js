@@ -242,7 +242,7 @@ ContactSteps.propTypes = {
 };
 
 const mapStateToProps = (
-  { swipe, auth, steps, people },
+  { auth, steps, people },
   { person: navPerson, organization = {} },
 ) => {
   const person =
@@ -255,7 +255,6 @@ const mapStateToProps = (
     steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || {};
   return {
     showAssignPrompt: orgIsCru(organization),
-    showBump: swipe.stepsContact,
     myId: auth.person.id,
     steps: allSteps.steps || [],
     completedSteps: allSteps.completedSteps || [],
