@@ -6,16 +6,12 @@ import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
-import { navigateBack, navigatePush } from '../../actions/navigation';
-import { addStep } from '../../actions/steps';
-import { buildCustomStep } from '../../utils/steps';
+import { navigateBack } from '../../actions/navigation';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import Header from '../Header';
 import BottomButton from '../../components/BottomButton';
-import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
-import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 
@@ -37,21 +33,14 @@ class SelectStepScreen extends Component {
     }
   }
 
-  createCustomStep = text => {
-    const { dispatch, isMe, receiverId, organization, onComplete } = this.props;
-
-    dispatch(addStep(buildCustomStep(text, isMe), receiverId, organization));
-    onComplete();
-  };
-
   handleCreateStep = () => {
-    const { dispatch, createStepTracking } = this.props;
+    const { dispatch, next, receiverId, organization } = this.props;
 
     dispatch(
-      navigatePush(ADD_STEP_SCREEN, {
-        type: CREATE_STEP,
-        trackingObj: createStepTracking,
-        onComplete: this.createCustomStep,
+      next({
+        isAddingCustomStep: true,
+        receiverId,
+        orgId: organization && organization.id,
       }),
     );
   };
@@ -90,7 +79,7 @@ class SelectStepScreen extends Component {
       contactStageId,
       enableBackButton,
       contact,
-      onComplete,
+      next,
     } = this.props;
 
     return (
@@ -108,7 +97,7 @@ class SelectStepScreen extends Component {
             receiverId={receiverId}
             organization={organization}
             contactStageId={contactStageId}
-            onComplete={onComplete}
+            next={next}
           />
         </ParallaxScrollView>
         <BottomButton
@@ -127,7 +116,6 @@ class SelectStepScreen extends Component {
 }
 
 SelectStepScreen.propTypes = {
-  onComplete: PropTypes.func.isRequired,
   createStepTracking: PropTypes.object.isRequired,
   contact: PropTypes.object,
   receiverId: PropTypes.string.isRequired,
@@ -135,6 +123,7 @@ SelectStepScreen.propTypes = {
   organization: PropTypes.object,
   contactStageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     .isRequired,
+  next: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ auth }, { receiverId }) => {

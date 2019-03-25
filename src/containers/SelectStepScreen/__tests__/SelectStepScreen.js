@@ -6,20 +6,17 @@ import thunk from 'redux-thunk';
 import SelectStepScreen from '..';
 
 import { renderShallow } from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
 import { buildCustomStep } from '../../../utils/steps';
-import { CREATE_STEP } from '../../../constants';
-import { ADD_STEP_SCREEN } from '../../AddStepScreen';
 import { addStep } from '../../../actions/steps';
 
 jest.mock('../../../utils/steps');
 jest.mock('../../../actions/steps');
-jest.mock('../../../actions/navigation');
 
 const mockStore = configureStore([thunk]);
 let store;
 
-const onComplete = jest.fn();
+const nextResult = { type: 'next' };
+const next = jest.fn(() => nextResult);
 const organization = { id: '4234234' };
 const contactStageId = '3';
 const receiverId = '252342354234';
@@ -33,9 +30,6 @@ let screen;
 let contact;
 let enableBackButton;
 
-navigatePush.mockImplementation((screen, props) => () =>
-  props.onComplete(customStep.body),
-);
 buildCustomStep.mockReturnValue(customStep);
 addStep.mockReturnValue(addStepsResult);
 
@@ -47,13 +41,13 @@ beforeEach(() => {
   screen = renderShallow(
     <SelectStepScreen
       contact={contact}
-      onComplete={onComplete}
       contactStageId={contactStageId}
       organization={organization}
       receiverId={receiverId}
       enableBackButton={enableBackButton}
       createStepTracking={createStepTracking}
       contactName={contactName}
+      next={next}
     />,
     store,
   );
@@ -109,24 +103,12 @@ describe('BottomButton', () => {
       .onPress();
   });
 
-  it('navigates to add step screen', () => {
-    expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
-      type: CREATE_STEP,
-      trackingObj: createStepTracking,
-      onComplete: expect.any(Function),
+  it('executes next', () => {
+    expect(next).toHaveBeenCalledWith({
+      isAddingCustomStep: true,
+      receiverId,
+      orgId: organization.id,
     });
-  });
-
-  it('passes callback to create a custom step', () => {
-    expect(addStep).toHaveBeenCalledWith(customStep, receiverId, organization);
-    expect(buildCustomStep).toHaveBeenCalledWith(
-      customStep.body,
-      receiverId === auth.person.id,
-    );
-    expect(onComplete).toHaveBeenCalled();
-  });
-
-  it('dispatches actions to store', () => {
-    expect(store.getActions()).toEqual([addStepsResult]);
+    expect(store.getActions()).toEqual([nextResult]);
   });
 });

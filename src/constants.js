@@ -62,7 +62,7 @@ export const STEPS_TAB = 'StepsTab';
 export const PEOPLE_TAB = 'PeopleTab';
 export const GROUPS_TAB = 'GroupsTab';
 
-export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';
+export const NAVIGATE_FORWARD = 'Navigation/PUSH';
 export const NAVIGATE_RESET = 'Navigation/RESET';
 export const NAVIGATE_BACK = 'Navigation/BACK';
 export const NAVIGATE_POP = 'Navigation/POP';
