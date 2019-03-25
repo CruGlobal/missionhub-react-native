@@ -52,7 +52,13 @@ exports[`markdown is not null renders correctly 1`] = `
   >
     Roge is well behaved
   </MyText>
-  <Connect(Translate(ReminderButton)) />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Center content
+  </Text>
   <Component
     flex={1}
   >
@@ -648,7 +654,13 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
   >
     Roge is well behaved
   </MyText>
-  <Connect(Translate(ReminderButton)) />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Center content
+  </Text>
   <Component
     flex={1}
   />
@@ -711,7 +723,13 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
   >
     Roge is well behaved
   </MyText>
-  <Connect(Translate(ReminderButton)) />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Center content
+  </Text>
   <Component
     flex={1}
   />
