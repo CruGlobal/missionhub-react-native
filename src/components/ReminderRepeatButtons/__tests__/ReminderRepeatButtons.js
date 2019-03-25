@@ -3,6 +3,9 @@ import React from 'react';
 import ReminderRepeatButtons from '..';
 
 import { renderShallow } from '../../../../testUtils';
+import { REMINDER_RECURRENCES } from '../../../constants';
+
+const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
 let component;
 let instance;
@@ -10,7 +13,9 @@ let instance;
 const test = () => expect(component).toMatchSnapshot();
 
 beforeEach(() => {
-  component = renderShallow(<ReminderRepeatButtons />);
+  component = renderShallow(
+    <ReminderRepeatButtons onRecurrenceChange={jest.fn()} />,
+  );
   instance = component.instance();
 });
 
@@ -21,9 +26,7 @@ describe('none selected', () => {
 
   it('updates state', () => {
     expect(instance.state).toEqual({
-      dailyActive: false,
-      weeklyActive: false,
-      monthlyActive: false,
+      recurrence: ONCE,
     });
   });
 });
@@ -43,9 +46,7 @@ describe('select daily button', () => {
 
   it('updates state', () => {
     expect(instance.state).toEqual({
-      dailyActive: true,
-      weeklyActive: false,
-      monthlyActive: false,
+      recurrence: DAILY,
     });
   });
 
@@ -64,9 +65,7 @@ describe('select daily button', () => {
 
     it('updates state', () => {
       expect(instance.state).toEqual({
-        dailyActive: false,
-        weeklyActive: false,
-        monthlyActive: false,
+        recurrence: ONCE,
       });
     });
   });
@@ -86,9 +85,7 @@ describe('select daily button', () => {
 
     it('updates state', () => {
       expect(instance.state).toEqual({
-        dailyActive: false,
-        weeklyActive: true,
-        monthlyActive: false,
+        recurrence: WEEKLY,
       });
     });
   });
@@ -109,9 +106,7 @@ describe('select weekly button', () => {
 
   it('updates state', () => {
     expect(instance.state).toEqual({
-      dailyActive: false,
-      weeklyActive: true,
-      monthlyActive: false,
+      recurrence: WEEKLY,
     });
   });
 });
@@ -131,9 +126,7 @@ describe('select monthly button', () => {
 
   it('updates state', () => {
     expect(instance.state).toEqual({
-      dailyActive: false,
-      weeklyActive: false,
-      monthlyActive: true,
+      recurrence: MONTHLY,
     });
   });
 });
