@@ -12,10 +12,13 @@ import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepD
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { addStep } from '../../../actions/steps';
 import SelectMyStepScreen from '../../../containers/SelectMyStepScreen';
+import { CREATE_STEP } from '../../../constants';
+import { buildCustomStep } from '../../../utils/steps';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/journey');
 jest.mock('../../../actions/steps');
+jest.mock('../../../utils/steps');
 
 const myId = '111';
 const personId = '2342342';
@@ -63,6 +66,7 @@ const popResponse = { type: 'pop once' };
 const addStepResponse = { type: 'added step' };
 
 addStep.mockReturnValue(addStepResponse);
+buildCustomStep.mockReturnValue(step);
 navigatePush.mockReturnValue(navigatePushResponse);
 reloadJourney.mockReturnValue(reloadJourneyResponse);
 reactNavigation.StackActions.popToTop = jest
@@ -90,7 +94,15 @@ describe('first screen next', () => {
       ));
 
     it('navigates to SuggestedStepDetailScreen', () => {
-      expect(navigatePush).toHaveBeenCalled();
+      expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
+        step,
+        receiverId: personId,
+        orgId,
+      });
+    });
+
+    it('should fire required next actions', () => {
+      expect(store.getActions()).toEqual([navigatePushResponse]);
     });
   });
 
@@ -108,7 +120,15 @@ describe('first screen next', () => {
       ));
 
     it('navigates to AddStepScreen', () => {
-      expect(navigatePush).toHaveBeenCalled();
+      expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
+        personId,
+        orgId,
+        type: CREATE_STEP,
+      });
+    });
+
+    it('should fire required next actions', () => {
+      expect(store.getActions()).toEqual([navigatePushResponse]);
     });
   });
 });
@@ -122,6 +142,10 @@ describe('SuggestedStepDetailScreen next', () => {
 
   it('navigates to CelebrationScreen', () => {
     expect(navigatePush).toHaveBeenCalled();
+  });
+
+  it('should fire required next actions', () => {
+    expect(store.getActions()).toEqual([navigatePushResponse]);
   });
 });
 
@@ -138,6 +162,14 @@ describe('AddStepScreen next', () => {
       contactId: personId,
       orgId,
     });
+  });
+
+  it('creates custom step', () => {
+    expect(buildCustomStep).toHaveBeenCalledWith(text, false);
+  });
+
+  it('sends step to api', () => {
+    expect(addStep).toHaveBeenCalledWith(step, personId, { id: orgId });
   });
 
   it('should fire required next actions', () => {
