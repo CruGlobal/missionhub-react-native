@@ -19,6 +19,7 @@ beforeEach(() => {
   step = {
     title: 'SCOTTY',
     challenge_suggestion,
+    completed_at: '2018-01-03',
   };
   screen = renderShallow(
     <CompletedStepDetailScreen

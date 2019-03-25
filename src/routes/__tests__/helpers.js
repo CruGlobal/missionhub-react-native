@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { NavigationActions } from 'react-navigation';
+import { StackActions } from 'react-navigation';
 
 import {
   wrapNextScreen,
@@ -33,7 +33,7 @@ describe('wrapNextScreen', () => {
     renderShallow(<WrappedTestComponent />, store).dive();
 
     expect(store.getActions()).toEqual([
-      NavigationActions.navigate({
+      StackActions.push({
         routeName: nextScreenName,
         params: routeParams,
       }),
@@ -51,7 +51,7 @@ describe('wrapNextScreenFn', () => {
     renderShallow(<WrappedTestComponent />, store).dive();
 
     expect(store.getActions()).toEqual([
-      NavigationActions.navigate({
+      StackActions.push({
         routeName: nextScreenName,
         params: routeParams,
       }),

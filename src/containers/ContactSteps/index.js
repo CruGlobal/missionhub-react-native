@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { navigatePush, navigateBack } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { getContactSteps } from '../../actions/steps';
 import { Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -51,12 +51,6 @@ class ContactSteps extends Component {
     this.getSteps();
   };
 
-  handleSaveNewSteps = async () => {
-    await this.getSteps();
-    this.list && this.list.scrollToEnd();
-    this.props.dispatch(navigateBack());
-  };
-
   handleNavToStage() {
     const { dispatch, person, contactAssignment, organization } = this.props;
 
@@ -87,9 +81,6 @@ class ContactSteps extends Component {
       dispatch(
         navigatePush(ADD_MY_STEP_FLOW, {
           ...trackingParams,
-          onSaveNewSteps: () => {
-            this.handleSaveNewSteps();
-          },
           enableBackButton: true,
           organization,
         }),
@@ -102,9 +93,6 @@ class ContactSteps extends Component {
           contactId: person.id,
           contact: person,
           organization,
-          onSaveNewSteps: () => {
-            this.handleSaveNewSteps();
-          },
           createStepTracking: buildTrackingObj(
             `people : ${subsection} : steps : create`,
             'people',
