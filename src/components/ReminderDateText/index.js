@@ -10,7 +10,7 @@ import styles from './styles';
 export default class ReminderDateText extends Component {
   render() {
     const { t, reminder, style } = this.props;
-    const { type, at } = reminder || {};
+    const { type, at } = reminder;
 
     return (
       <Text style={[styles.reminderText, style]}>
@@ -21,8 +21,5 @@ export default class ReminderDateText extends Component {
 }
 
 ReminderDateText.propTypes = {
-  reminder: PropTypes.shape({
-    type: PropTypes.string,
-    at: PropTypes.string,
-  }),
+  reminder: PropTypes.object.isRequired,
 };

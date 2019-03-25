@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import ReminderRepeatButtons from '../ReminderRepeatButtons';
 import { navigatePush } from '../../actions/navigation';
@@ -49,5 +50,10 @@ class ReminderButton extends Component {
     );
   }
 }
+
+ReminderButton.propTypes = {
+  stepId: PropTypes.string.isRequired,
+  reminder: PropTypes.object.isRequired,
+};
 
 export default connect()(ReminderButton);

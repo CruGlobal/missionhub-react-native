@@ -12,6 +12,7 @@ import ReminderDateText from '../ReminderDateText';
 import { completeStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../containers/AcceptedStepDetailScreen';
+import { reminderSelector } from '../../selectors/stepReminders';
 import { CONTACT_STEPS } from '../../constants';
 import Icon from '../Icon/index';
 
@@ -31,12 +32,11 @@ class AcceptedStepItem extends Component {
     onComplete && onComplete();
   };
 
-  handleSetReminder = () => {};
-
   render() {
     const {
       t,
-      step: { title, completed_at, id, reminder },
+      step: { title, completed_at, id },
+      reminder,
     } = this.props;
     const {
       card,
@@ -91,9 +91,12 @@ AcceptedStepItem.propTypes = {
   step: PropTypes.shape({
     title: PropTypes.string.isRequired,
     completed_at: PropTypes.string,
-    reminder: PropTypes.object,
   }).isRequired,
   onComplete: PropTypes.func,
 };
 
-export default connect()(AcceptedStepItem);
+const mapStateToProps = ({ stepReminders }, { step }) => ({
+  reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
+});
+
+export default connect(mapStateToProps)(AcceptedStepItem);
