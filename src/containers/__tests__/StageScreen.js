@@ -104,8 +104,8 @@ describe('handleSelectStage', () => {
   const nextResponse = { type: 'next' };
 
   selectStage.selectMyStage = jest.fn(() => selectStageAction);
-  navigation.navigatePush = jest.fn((screen, { next }) => {
-    store.dispatch(next());
+  navigation.navigatePush = jest.fn((_, params) => {
+    params.onSaveNewSteps();
     return selectMyStepNavAction;
   });
   navigation.navigateBack = jest.fn(() => navigateBackAction);

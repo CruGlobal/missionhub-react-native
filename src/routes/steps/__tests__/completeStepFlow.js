@@ -4,24 +4,21 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as reactNavigation from 'react-navigation';
 
-import { RESET_STEP_COUNT, STEP_NOTE, ACTIONS } from '../../../constants';
+import { RESET_STEP_COUNT, STEP_NOTE } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
 import { CompleteStepFlowScreens } from '../completeStepFlow';
 import { paramsforStageNavigation } from '../utils';
 import { navigatePush } from '../../../actions/navigation';
 import { reloadJourney } from '../../../actions/journey';
-import { COMPLETE_STEP_SCREEN } from '../../../containers/AddStepScreen';
+import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { STAGE_SCREEN } from '../../../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
-import { updateChallengeNote } from '../../../actions/steps';
-import { trackAction } from '../../../actions/analytics';
 
 jest.mock('../utils');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/journey');
-jest.mock('../../../actions/analytics');
 
 const myId = '111';
 const otherId = '222';
@@ -64,8 +61,6 @@ const reloadJourneyResponse = { type: 'reload journey' };
 const popToTopResponse = { type: 'pop to top of stack' };
 const popResponse = { type: 'pop once' };
 const flowCompleteResponse = { type: 'on flow complete' };
-const updateChallengeNoteResponse = { type: 'updated challenge note' };
-const trackActionResponse = { type: 'tracked action' };
 
 beforeEach(() => {
   store.clearActions();
@@ -76,8 +71,6 @@ beforeEach(() => {
     .mockReturnValue(popToTopResponse);
   reactNavigation.StackActions.pop = jest.fn().mockReturnValue(popResponse);
   reloadJourney.mockReturnValue(reloadJourneyResponse);
-  updateChallengeNote.mockReturnValue(updateChallengeNoteResponse);
-  trackAction.mockReturnValue(trackActionResponse);
 });
 
 describe('AddStepScreen next', () => {
@@ -103,7 +96,7 @@ describe('AddStepScreen next', () => {
 
     it('should fire required next actions', async () => {
       await buildAndCallNext(
-        COMPLETE_STEP_SCREEN,
+        ADD_STEP_SCREEN,
         { stepId, personId: myId, orgId, type: STEP_NOTE },
         { personId: myId, orgId },
       );
@@ -137,7 +130,7 @@ describe('AddStepScreen next', () => {
 
     it('should fire required next actions', async () => {
       await buildAndCallNext(
-        COMPLETE_STEP_SCREEN,
+        ADD_STEP_SCREEN,
         { stepId, personId: myId, orgId, type: STEP_NOTE },
         { personId: myId, orgId },
       );
@@ -182,7 +175,7 @@ describe('AddStepScreen next', () => {
 
     it('should fire required next actions', async () => {
       await buildAndCallNext(
-        COMPLETE_STEP_SCREEN,
+        ADD_STEP_SCREEN,
         { stepId, personId: myId, orgId, type: STEP_NOTE },
         { personId: myId, orgId },
       );
@@ -219,7 +212,7 @@ describe('AddStepScreen next', () => {
 
     it('should fire required next actions', async () => {
       await buildAndCallNext(
-        COMPLETE_STEP_SCREEN,
+        ADD_STEP_SCREEN,
         { stepId, personId: otherId, orgId, type: STEP_NOTE },
         { personId: otherId, orgId },
       );
@@ -248,7 +241,7 @@ describe('AddStepScreen next', () => {
 
     it('should fire required next actions', async () => {
       await buildAndCallNext(
-        COMPLETE_STEP_SCREEN,
+        ADD_STEP_SCREEN,
         { stepId, personId: otherId, orgId, type: STEP_NOTE },
         { personId: otherId, orgId },
       );
@@ -288,7 +281,7 @@ describe('AddStepScreen next', () => {
 
     it('should fire required next actions', async () => {
       await buildAndCallNext(
-        COMPLETE_STEP_SCREEN,
+        ADD_STEP_SCREEN,
         { stepId, personId: otherId, orgId, type: STEP_NOTE },
         { personId: otherId, orgId },
       );
@@ -306,46 +299,6 @@ describe('AddStepScreen next', () => {
         name: otherName,
       });
       expect(store.getActions()).toEqual([navigatePushResponse]);
-    });
-  });
-
-  describe('text is passed in', () => {
-    const text = 'roge rules';
-
-    beforeEach(() => {
-      paramsforStageNavigation.mockReturnValue({
-        isMe: false,
-        hasHitCount: true,
-        isNotSure: false,
-        subsection: 'person',
-        firstItemIndex: 0,
-        questionText,
-        assignment: reverseContactAssignment,
-        name: otherName,
-      });
-    });
-
-    it('should fire required next actions', async () => {
-      await buildAndCallNext(
-        COMPLETE_STEP_SCREEN,
-        { stepId, personId: otherId, orgId, type: STEP_NOTE },
-        {
-          personId: otherId,
-          orgId,
-          text,
-          stepId,
-        },
-      );
-
-      expect(updateChallengeNote).toHaveBeenCalledWith(stepId, text);
-      expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
-        [ACTIONS.INTERACTION.COMMENT]: null,
-      });
-      expect(store.getActions()).toEqual([
-        updateChallengeNoteResponse,
-        trackActionResponse,
-        navigatePushResponse,
-      ]);
     });
   });
 });

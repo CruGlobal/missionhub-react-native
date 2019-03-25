@@ -3,7 +3,7 @@ import { NavigationActions, StackActions } from 'react-navigation';
 export function navigatePush(screen, props = {}) {
   return dispatch => {
     dispatch(
-      StackActions.push({
+      NavigationActions.navigate({
         routeName: screen,
         params: props,
       }),

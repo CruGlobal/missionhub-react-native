@@ -10,13 +10,12 @@ import StepDetailScreen from '../../components/StepDetailScreen';
 import styles from './styles';
 
 @translate('suggestedStepDetail')
-class SuggestedStepDetailScreen extends Component {
-  addStep = async () => {
-    const { dispatch, step, receiverId, orgId, next } = this.props;
+class SuggestedStepSetailScreen extends Component {
+  addStep = () => {
+    const { dispatch, step, receiverId, orgId, onComplete } = this.props;
 
-    await dispatch(addStep(step, receiverId, orgId ? { id: orgId } : null));
-
-    dispatch(next({ contactId: receiverId, orgId }));
+    dispatch(addStep(step, receiverId, orgId ? { id: orgId } : null));
+    onComplete();
   };
 
   render() {
@@ -42,11 +41,11 @@ class SuggestedStepDetailScreen extends Component {
   }
 }
 
-SuggestedStepDetailScreen.propTypes = {
+SuggestedStepSetailScreen.propTypes = {
   step: PropTypes.object.isRequired,
   receiverId: PropTypes.string.isRequired,
+  onComplete: PropTypes.func.isRequired,
   orgId: PropTypes.string,
-  next: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (
@@ -54,7 +53,7 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { step, receiverId, orgId },
+        params: { step, receiverId, orgId, onComplete },
       },
     },
   },
@@ -62,6 +61,7 @@ const mapStateToProps = (
   step,
   receiverId,
   orgId,
+  onComplete,
 });
-export default connect(mapStateToProps)(SuggestedStepDetailScreen);
+export default connect(mapStateToProps)(SuggestedStepSetailScreen);
 export const SUGGESTED_STEP_DETAIL_SCREEN = 'nav/SUGGESTED_STEP_DETAIL_SCREEN';

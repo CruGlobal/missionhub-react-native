@@ -62,7 +62,7 @@ class ContactJourney extends Component {
 
     this.props.dispatch(
       navigatePush(ADD_STEP_SCREEN, {
-        next: this.handleEditComment,
+        onComplete: this.handleEditComment,
         type: 'editJourney',
         isEdit: true,
         text,
@@ -70,7 +70,7 @@ class ContactJourney extends Component {
     );
   }
 
-  handleEditComment({ text }) {
+  handleEditComment(text) {
     const { editingInteraction } = this.state;
     const action =
       editingInteraction._type === ACCEPTED_STEP

@@ -13,6 +13,22 @@ class PersonSelectStepScreen extends Component {
     super(props);
   }
 
+  handleNavigate = () => {
+    const {
+      dispatch,
+      next,
+      onSaveNewSteps,
+      contactId,
+      organization,
+    } = this.props;
+
+    if (next) {
+      dispatch(next({ contactId, orgId: organization.id }));
+    } else if (onSaveNewSteps) {
+      onSaveNewSteps();
+    }
+  };
+
   render() {
     const {
       t,
@@ -25,7 +41,6 @@ class PersonSelectStepScreen extends Component {
       contact,
       organization,
       createStepTracking,
-      next,
     } = this.props;
 
     const name = contactName ? contactName : personFirstName;
@@ -41,9 +56,9 @@ class PersonSelectStepScreen extends Component {
         headerText={t('personHeader', { name })}
         contact={contact ? contact : null}
         organization={organization}
+        onComplete={this.handleNavigate}
         createStepTracking={createStepTracking}
         enableBackButton
-        next={next}
       />
     );
   }
@@ -55,7 +70,8 @@ PersonSelectStepScreen.propTypes = {
   createStepTracking: PropTypes.object.isRequired,
   contact: PropTypes.object,
   organization: PropTypes.object,
-  next: PropTypes.func.isRequired,
+  next: PropTypes.func,
+  onSaveNewSteps: PropTypes.func,
 };
 
 const mapStateToProps = ({ personProfile, auth }, { navigation }) => {

@@ -17,13 +17,11 @@ const step = {
 };
 const receiverId = '423325';
 const orgId = '880124';
+const onComplete = jest.fn();
 let screen;
 
 const mockStore = configureStore([thunk]);
 let store;
-
-const nextResult = { type: 'next' };
-const next = jest.fn(() => nextResult);
 
 addStep.mockReturnValue(() => Promise.resolve());
 
@@ -34,12 +32,7 @@ beforeEach(() => {
 
   screen = renderShallow(
     <SuggestedStepDetailScreen
-      navigation={createMockNavState({
-        step,
-        receiverId,
-        orgId,
-      })}
-      next={next}
+      navigation={createMockNavState({ step, receiverId, orgId, onComplete })}
     />,
     store,
   );
@@ -50,14 +43,10 @@ it('renders correctly', () => {
 });
 
 describe('bottomButtonProps', () => {
-  beforeEach(() => screen.props().bottomButtonProps.onPress());
+  it('adds step', async () => {
+    await screen.props().bottomButtonProps.onPress();
 
-  it('adds step', () => {
     expect(addStep).toHaveBeenCalledWith(step, receiverId, { id: orgId });
-  });
-
-  it('executes next', () => {
-    expect(next).toHaveBeenCalledWith({ contactId: receiverId, orgId });
-    expect(store.getActions()).toEqual([nextResult]);
+    expect(onComplete).toHaveBeenCalledTimes(1);
   });
 });
