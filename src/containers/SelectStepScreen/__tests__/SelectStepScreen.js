@@ -6,15 +6,11 @@ import thunk from 'redux-thunk';
 import SelectStepScreen from '..';
 
 import { renderShallow } from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
 import { buildCustomStep } from '../../../utils/steps';
-import { CREATE_STEP } from '../../../constants';
-import { ADD_STEP_SCREEN } from '../../AddStepScreen';
 import { addStep } from '../../../actions/steps';
 
 jest.mock('../../../utils/steps');
 jest.mock('../../../actions/steps');
-jest.mock('../../../actions/navigation');
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -34,9 +30,6 @@ let screen;
 let contact;
 let enableBackButton;
 
-navigatePush.mockImplementation((screen, props) => () => {
-  store.dispatch(props.next({ text: customStep.body }));
-});
 buildCustomStep.mockReturnValue(customStep);
 addStep.mockReturnValue(addStepsResult);
 
@@ -110,24 +103,12 @@ describe('BottomButton', () => {
       .onPress();
   });
 
-  it('navigates to add step screen', () => {
-    expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
-      type: CREATE_STEP,
-      trackingObj: createStepTracking,
-      next: expect.any(Function),
+  it('executes next', () => {
+    expect(next).toHaveBeenCalledWith({
+      isAddingCustomStep: true,
+      receiverId,
+      orgId: organization.id,
     });
-  });
-
-  it('passes callback to create a custom step', () => {
-    expect(addStep).toHaveBeenCalledWith(customStep, receiverId, organization);
-    expect(buildCustomStep).toHaveBeenCalledWith(
-      customStep.body,
-      receiverId === auth.person.id,
-    );
-    expect(next).toHaveBeenCalled();
-  });
-
-  it('dispatches actions to store', () => {
-    expect(store.getActions()).toEqual([addStepsResult, nextResult]);
+    expect(store.getActions()).toEqual([nextResult]);
   });
 });

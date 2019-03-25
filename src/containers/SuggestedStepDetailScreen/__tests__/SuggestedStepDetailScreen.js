@@ -22,7 +22,8 @@ let screen;
 const mockStore = configureStore([thunk]);
 let store;
 
-const next = { type: 'next' };
+const nextResult = { type: 'next' };
+const next = jest.fn(() => nextResult);
 
 addStep.mockReturnValue(() => Promise.resolve());
 
@@ -37,8 +38,8 @@ beforeEach(() => {
         step,
         receiverId,
         orgId,
-        next: () => next,
       })}
+      next={next}
     />,
     store,
   );
@@ -49,10 +50,14 @@ it('renders correctly', () => {
 });
 
 describe('bottomButtonProps', () => {
-  it('adds step', async () => {
-    await screen.props().bottomButtonProps.onPress();
+  beforeEach(() => screen.props().bottomButtonProps.onPress());
 
+  it('adds step', () => {
     expect(addStep).toHaveBeenCalledWith(step, receiverId, { id: orgId });
-    expect(store.getActions()).toEqual([next]);
+  });
+
+  it('executes next', () => {
+    expect(next).toHaveBeenCalledWith({ contactId: receiverId, orgId });
+    expect(store.getActions()).toEqual([nextResult]);
   });
 });

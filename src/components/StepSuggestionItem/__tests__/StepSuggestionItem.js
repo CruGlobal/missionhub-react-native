@@ -1,9 +1,7 @@
 import React from 'react';
 
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
 import StepSuggestionItem from '../';
-import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 
 jest.mock('.../../../actions/navigation');
 
@@ -13,24 +11,25 @@ const step = {
   id: '1',
   body: 'Step of Faith',
 };
+const next = jest.fn(() => ({ type: 'hello world' }));
 
-const props = { receiverId, orgId, step, next: 'hello world' };
-
-navigatePush.mockReturnValue({ type: 'navigate push' });
+const props = { receiverId, orgId, step, next };
 
 describe('StepSuggestionScreen', () => {
   it('renders correctly', () => {
     testSnapshotShallow(<StepSuggestionItem {...props} />);
   });
 
-  it('navigates to StepDetailScreen', () => {
+  it('executes next', () => {
     const component = renderShallow(<StepSuggestionItem {...props} />);
 
     component.props().onPress();
 
-    expect(navigatePush).toHaveBeenCalledWith(
-      SUGGESTED_STEP_DETAIL_SCREEN,
-      props,
-    );
+    expect(next).toHaveBeenCalledWith({
+      isAddingCustomStep: false,
+      step,
+      receiverId,
+      orgId,
+    });
   });
 });
