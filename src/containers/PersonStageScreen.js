@@ -40,14 +40,14 @@ class PersonStageScreen extends Component {
     this.props.dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
   };
 
-  handleNavigate = () => {
+  handleNavigate = () => dispatch => {
     if (this.props.addingContactFlow) {
       this.celebrateAndFinish();
       return;
     }
     // Android doesn't need a primer for notifications the way iOS does
     if (!isAndroid) {
-      this.props.dispatch(
+      dispatch(
         navigatePush(NOTIFICATION_PRIMER_SCREEN, {
           onComplete: this.celebrateAndFinishOnboarding,
         }),
@@ -87,9 +87,9 @@ class PersonStageScreen extends Component {
       if (!noNav) {
         dispatch(
           navigatePush(PERSON_SELECT_STEP_SCREEN, {
-            onSaveNewSteps: () => {
+            next: () => dispatch => {
               onComplete(stage);
-              dispatch(navigateBack(2));
+              dispatch(navigateBack(3));
             },
             contactStage: stage,
             createStepTracking: buildTrackingObj(
@@ -152,7 +152,6 @@ class PersonStageScreen extends Component {
         .then(() => {
           this.props.dispatch(
             navigatePush(PERSON_SELECT_STEP_SCREEN, {
-              onSaveNewSteps: this.handleNavigate,
               contactStage: stage,
               createStepTracking: buildTrackingObj(
                 `${trackingScreen} : add person : steps : create`,
@@ -169,6 +168,7 @@ class PersonStageScreen extends Component {
                 'add person',
                 'steps',
               ),
+              next: this.handleNavigate,
             }),
           );
 

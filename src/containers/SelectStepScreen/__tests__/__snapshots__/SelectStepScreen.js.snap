@@ -93,7 +93,7 @@ exports[`with enableBackButton renders correctly 1`] = `
     <Connect(Translate(StepsList))
       contactName="roger"
       contactStageId="3"
-      onComplete={[MockFunction]}
+      next={[MockFunction]}
       organization={
         Object {
           "id": "4234234",
@@ -136,7 +136,7 @@ exports[`without enableBackButton renders correctly 1`] = `
     <Connect(Translate(StepsList))
       contactName="roger"
       contactStageId="3"
-      onComplete={[MockFunction]}
+      next={[MockFunction]}
       organization={
         Object {
           "id": "4234234",
