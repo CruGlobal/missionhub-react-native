@@ -3,14 +3,7 @@ import { createStackNavigator, StackActions } from 'react-navigation';
 import { updatePersonAttributes } from '../../actions/person';
 import { reloadJourney } from '../../actions/journey';
 import { navigatePush } from '../../actions/navigation';
-import { firstTime, loadHome } from '../../actions/auth';
-import {
-  completeOnboarding,
-  stashCommunityToJoin,
-  joinStashedCommunity,
-  showNotificationPrompt,
-  landOnStashedCommunityScreen,
-} from '../../actions/onboardingProfile';
+import { completeOnboarding } from '../../actions/onboardingProfile';
 import { buildTrackedScreen, wrapNextAction, wrapNextScreen } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
@@ -129,6 +122,7 @@ export const TryItNowOnboardingFlowScreens = {
     CelebrationScreen,
     ({ contactId, orgId }) => dispatch => {
       dispatch(reloadJourney(contactId, orgId));
+      dispatch(completeOnboarding());
       dispatch(StackActions.popToTop());
 
       dispatch(StackActions.pop({ immediate: true }));

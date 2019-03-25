@@ -3,12 +3,9 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 import { connect } from 'react-redux';
 
-import { navigatePush } from '../actions/navigation';
 import { disableBack } from '../utils/common';
 
 import IconMessageScreen from './IconMessageScreen/index';
-import { SELECT_MY_STEP_ONBOARDING_SCREEN } from './SelectMyStepScreen';
-import { ADD_SOMEONE_SCREEN } from './AddSomeoneScreen';
 
 @translate('stageSuccess')
 class StageSuccessScreen extends Component {

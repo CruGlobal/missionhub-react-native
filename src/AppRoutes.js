@@ -15,7 +15,6 @@ import KeyLoginScreen, {
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
 import SelectMyStepScreen, {
-  SELECT_MY_STEP_ONBOARDING_SCREEN,
   SELECT_MY_STEP_SCREEN,
 } from './containers/SelectMyStepScreen';
 import PersonSelectStepScreen, {
@@ -40,30 +39,13 @@ import AcceptedStepDetailScreen, {
 import CompletedStepDetailScreen, {
   COMPLETED_STEP_DETAIL_SCREEN,
 } from './containers/CompletedStepDetailScreen';
-import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
-import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
-import GetStartedScreen, {
-  GET_STARTED_SCREEN,
-} from './containers/GetStartedScreen';
-import StageScreen, {
-  STAGE_ONBOARDING_SCREEN,
-  STAGE_SCREEN,
-} from './containers/StageScreen';
-import StageSuccessScreen, {
-  STAGE_SUCCESS_SCREEN,
-} from './containers/StageSuccessScreen';
-import AddSomeoneScreen, {
-  ADD_SOMEONE_SCREEN,
-} from './containers/AddSomeoneScreen';
+import StageScreen, { STAGE_SCREEN } from './containers/StageScreen';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
 } from './containers/AddContactScreen';
 import NotificationPrimerScreen, {
   NOTIFICATION_PRIMER_SCREEN,
 } from './containers/NotificationPrimerScreen';
-import SetupPersonScreen, {
-  SETUP_PERSON_SCREEN,
-} from './containers/SetupPersonScreen';
 import PersonStageScreen, {
   PERSON_STAGE_SCREEN,
 } from './containers/PersonStageScreen';
@@ -150,7 +132,7 @@ import StatusReason, {
   STATUS_REASON_SCREEN,
 } from './containers/StatusReasonScreen';
 import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
-import { buildTrackedScreen, wrapNextScreen } from './routes/helpers';
+import { buildTrackedScreen } from './routes/helpers';
 import {
   DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
