@@ -8,16 +8,25 @@ import { selectStepFlowGenerator } from '../selectStepFlowGenerator';
 import { navigatePush } from '../../../actions/navigation';
 import { reloadJourney } from '../../../actions/journey';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen/index';
+import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
+import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
+import { addStep } from '../../../actions/steps';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/journey');
+jest.mock('../../../actions/steps');
 
 const myId = '111';
+const personId = '2342342';
 const orgId = '123';
+const text = 'some step';
 
 const store = configureStore([thunk])({
   swipe: {
     completeStepExtraBack: false,
+  },
+  auth: {
+    person: { id: myId },
   },
 });
 
@@ -49,7 +58,9 @@ const navigatePushResponse = { type: 'navigate push' };
 const reloadJourneyResponse = { type: 'reload journey' };
 const popToTopResponse = { type: 'pop to top of stack' };
 const popResponse = { type: 'pop once' };
+const addStepResponse = { type: 'added step' };
 
+addStep.mockReturnValue(addStepResponse);
 navigatePush.mockReturnValue(navigatePushResponse);
 reloadJourney.mockReturnValue(reloadJourneyResponse);
 reactNavigation.StackActions.popToTop = jest
@@ -62,14 +73,45 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
+describe('SuggestedStepDetailScreen next', () => {
+  beforeEach(() =>
+    buildAndCallNext(SUGGESTED_STEP_DETAIL_SCREEN, {
+      step: {},
+      receiverId: personId,
+    }));
+
+  it('navigates to CelebrationScreen', () => {
+    expect(navigatePush).toHaveBeenCalled();
+  });
+});
+
+describe('AddStepScreen next', () => {
+  beforeEach(() =>
+    buildAndCallNext(
+      ADD_STEP_SCREEN,
+      { contactId: personId, orgId },
+      { text, personId, orgId },
+    ));
+
+  it('navigates to CelebrationScreen', () => {
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
+      contactId: personId,
+      orgId,
+    });
+  });
+
+  it('should fire required next actions', () => {
+    expect(store.getActions()).toEqual([addStepResponse, navigatePushResponse]);
+  });
+});
+
 describe('CelebrationScreen next', () => {
-  beforeEach(async () => {
-    await buildAndCallNext(
+  beforeEach(() =>
+    buildAndCallNext(
       CELEBRATION_SCREEN,
       { contactId: myId, orgId },
       { contactId: myId, orgId },
-    );
-  });
+    ));
 
   it('should reload journey', () => {
     expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
