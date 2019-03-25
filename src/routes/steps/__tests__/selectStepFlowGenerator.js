@@ -11,6 +11,7 @@ import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen/index'
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { addStep } from '../../../actions/steps';
+import SelectMyStepScreen from '../../../containers/SelectMyStepScreen';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/journey');
@@ -20,23 +21,24 @@ const myId = '111';
 const personId = '2342342';
 const orgId = '123';
 const text = 'some step';
+const step = { id: '424234243' };
 
 const store = configureStore([thunk])({
   swipe: {
     completeStepExtraBack: false,
   },
   auth: {
-    person: { id: myId },
+    person: { id: myId, user: {} },
   },
 });
 
 const firstScreenRoute = 'nav/FIRST SCREEN';
-const firstScreen = 'first screen';
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
-  const Component = selectStepFlowGenerator(firstScreenRoute, firstScreen)[
-    screen
-  ];
+  const Component = selectStepFlowGenerator(
+    firstScreenRoute,
+    SelectMyStepScreen,
+  )[screen];
 
   await store.dispatch(
     renderShallow(
@@ -73,10 +75,48 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
+describe('first screen next', () => {
+  describe('not adding custom step', () => {
+    beforeEach(() =>
+      buildAndCallNext(
+        firstScreenRoute,
+        {},
+        {
+          isAddingCustomStep: false,
+          receiverId: personId,
+          orgId,
+          step,
+        },
+      ));
+
+    it('navigates to SuggestedStepDetailScreen', () => {
+      expect(navigatePush).toHaveBeenCalled();
+    });
+  });
+
+  describe('adding custom step', () => {
+    beforeEach(() =>
+      buildAndCallNext(
+        firstScreenRoute,
+        {},
+        {
+          isAddingCustomStep: true,
+          receiverId: personId,
+          orgId,
+          step,
+        },
+      ));
+
+    it('navigates to AddStepScreen', () => {
+      expect(navigatePush).toHaveBeenCalled();
+    });
+  });
+});
+
 describe('SuggestedStepDetailScreen next', () => {
   beforeEach(() =>
     buildAndCallNext(SUGGESTED_STEP_DETAIL_SCREEN, {
-      step: {},
+      step,
       receiverId: personId,
     }));
 
