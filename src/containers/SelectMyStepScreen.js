@@ -13,6 +13,22 @@ class SelectMyStepScreen extends Component {
     super(props);
   }
 
+  handleNavigate = () => {
+    const {
+      dispatch,
+      next,
+      onSaveNewSteps,
+      contactId,
+      organization,
+    } = this.props;
+
+    if (next) {
+      dispatch(next({ contactId, orgId: organization.id }));
+    } else if (onSaveNewSteps) {
+      onSaveNewSteps();
+    }
+  };
+
   render() {
     const {
       t,
@@ -22,7 +38,6 @@ class SelectMyStepScreen extends Component {
       contactStage,
       organization,
       myStageId,
-      next,
     } = this.props;
 
     const section = this.props.onboarding ? 'onboarding' : 'people';
@@ -34,6 +49,7 @@ class SelectMyStepScreen extends Component {
         receiverId={personId}
         contact={me}
         organization={organization}
+        onComplete={this.handleNavigate}
         headerText={t('meHeader')}
         createStepTracking={buildTrackingObj(
           `${section} : self : steps : create`,
@@ -42,14 +58,14 @@ class SelectMyStepScreen extends Component {
           'steps',
         )}
         enableBackButton={enableBackButton}
-        next={next}
       />
     );
   }
 }
 
 SelectMyStepScreen.propTypes = {
-  next: PropTypes.func.isRequired,
+  next: PropTypes.func,
+  onSaveNewSteps: PropTypes.func,
   enableBackButton: PropTypes.bool,
   contactStage: PropTypes.object,
   contactId: PropTypes.string,

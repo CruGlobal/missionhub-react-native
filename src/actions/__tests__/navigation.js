@@ -9,7 +9,6 @@ jest.mock('react-navigation', () => ({
     pop: jest.fn(),
     reset: jest.fn(),
     replace: jest.fn(),
-    push: jest.fn(),
   },
 }));
 import {
@@ -26,14 +25,14 @@ const params = { prop1: 'value1' };
 describe('navigatePush', () => {
   it('should push new screen onto the stack', () => {
     navigatePush(routeName, params)(jest.fn());
-    expect(StackActions.push).toHaveBeenCalledWith({
+    expect(NavigationActions.navigate).toHaveBeenCalledWith({
       routeName,
       params,
     });
   });
   it('should push new screen onto the stack with no props', () => {
     navigatePush(routeName)(jest.fn());
-    expect(StackActions.push).toHaveBeenCalledWith({
+    expect(NavigationActions.navigate).toHaveBeenCalledWith({
       routeName,
       params,
     });

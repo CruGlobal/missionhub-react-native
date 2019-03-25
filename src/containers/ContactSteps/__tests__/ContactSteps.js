@@ -12,7 +12,7 @@ import {
   testSnapshotShallow,
   renderShallow,
 } from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
+import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { buildTrackingObj } from '../../../utils/common';
 import { getContactSteps } from '../../../actions/steps';
 import { contactAssignmentSelector } from '../../../selectors/people';
@@ -205,6 +205,22 @@ describe('handleComplete', () => {
   });
 });
 
+describe('handleSaveNewSteps', () => {
+  beforeAll(() => {
+    props = {
+      isMe: false,
+      person: mockPerson,
+    };
+  });
+
+  it('saves new steps', async () => {
+    await instance.handleSaveNewSteps();
+
+    expect(getContactSteps).toHaveBeenCalled();
+    expect(navigateBack).toHaveBeenCalled();
+  });
+});
+
 describe('handleCreateStep', () => {
   describe('for me', () => {
     beforeAll(() => {
@@ -220,6 +236,7 @@ describe('handleCreateStep', () => {
       instance.handleCreateStep();
 
       expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW, {
+        onSaveNewSteps: expect.any(Function),
         enableBackButton: true,
         trackingObj,
       });
@@ -270,6 +287,7 @@ describe('handleCreateStep', () => {
         contactId: mockPerson.id,
         contact: mockPerson,
         organization: undefined,
+        onSaveNewSteps: expect.any(Function),
         createStepTracking: buildTrackingObj(
           'people : person : steps : create',
           'people',

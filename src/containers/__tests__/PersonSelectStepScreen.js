@@ -20,15 +20,17 @@ const mockState = {
     },
   },
 };
+const mockSaveSteps = jest.fn();
+const mockNext = jest.fn();
 
 const navProps = {
   contactName: 'Ron',
   contactId: contactId,
   contactStage: { id: 2 },
   contact: { id: contactId },
+  onSaveNewSteps: mockSaveSteps,
   createStepTracking: {},
   organization,
-  next: jest.fn(),
 };
 
 const store = createMockStore(mockState);
@@ -53,4 +55,39 @@ it('allows for undefined organization', () => {
     />,
     store,
   );
+});
+
+describe('handleNavigate', () => {
+  let screen;
+
+  it('runs onSaveNewSteps', () => {
+    screen = renderShallow(
+      <PersonSelectStepScreen navigation={createMockNavState(navProps)} />,
+      store,
+    );
+
+    screen.props().onComplete();
+
+    expect(mockSaveSteps).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs next', () => {
+    screen = renderShallow(
+      <PersonSelectStepScreen
+        navigation={createMockNavState({
+          ...navProps,
+          onSaveNewSteps: undefined,
+          next: mockNext,
+        })}
+      />,
+      store,
+    );
+
+    screen.props().onComplete();
+
+    expect(mockNext).toHaveBeenCalledWith({
+      contactId,
+      orgId: organization.id,
+    });
+  });
 });
