@@ -12,7 +12,6 @@ import {
   getContactSteps,
   setStepFocus,
   addStep,
-  completeStepReminder,
   deleteStepWithTracking,
 } from '../steps';
 import { reloadGroupCelebrateFeed } from '../celebration';
@@ -312,40 +311,6 @@ describe('complete challenge', () => {
           personId: receiverId,
           stepId,
           orgId: null,
-          trackingObj: buildTrackingObj(
-            'people : person : steps : complete comment',
-            'people',
-            'person',
-            'steps',
-          ),
-        },
-      },
-      trackActionResult,
-    ]);
-  });
-
-  it('completes step reminder', async () => {
-    await store.dispatch(completeStepReminder(step, screen));
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_MY_CHALLENGES,
-      stepsQuery,
-    );
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.CHALLENGE_COMPLETE,
-      challengeCompleteQuery,
-      data,
-    );
-    expect(store.getActions()).toEqual([
-      { type: COMPLETED_STEP_COUNT, userId: receiverId },
-      impactResponse,
-      {
-        type: NAVIGATE_FORWARD,
-        routeName: COMPLETE_STEP_FLOW,
-        params: {
-          type: STEP_NOTE,
-          personId: receiverId,
-          stepId,
-          orgId: stepOrgId,
           trackingObj: buildTrackingObj(
             'people : person : steps : complete comment',
             'people',

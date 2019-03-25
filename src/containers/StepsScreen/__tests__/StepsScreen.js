@@ -19,11 +19,7 @@ import {
   showReminderScreen,
   showWelcomeNotification,
 } from '../../../actions/notifications';
-import {
-  completeStepReminder,
-  deleteStepWithTracking,
-  setStepFocus,
-} from '../../../actions/steps';
+import { setStepFocus } from '../../../actions/steps';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
@@ -48,10 +44,6 @@ const store = {
   notifications: {
     token: '',
     showReminder: true,
-  },
-  swipe: {
-    stepsHome: true,
-    stepsReminder: true,
   },
 };
 
@@ -337,34 +329,6 @@ describe('StepsScreen', () => {
         ACTIONS.STEP_DEPRIORITIZED,
       );
       expect(setStepFocus).toHaveBeenCalledWith(step, false);
-    });
-  });
-
-  describe('completing a step', () => {
-    it('should complete the step', () => {
-      const step = 'some step';
-      const component = createComponent({
-        ...baseProps,
-        reminders: [step],
-      });
-
-      component.instance().handleCompleteReminder(step);
-
-      expect(completeStepReminder).toHaveBeenCalledWith(step, 'Steps');
-    });
-  });
-
-  describe('deleting a step', () => {
-    it('should delete the step', () => {
-      const step = 'some step';
-      const component = createComponent({
-        ...baseProps,
-        reminders: [step],
-      });
-
-      component.instance().handleDeleteReminder(step);
-
-      expect(deleteStepWithTracking).toHaveBeenCalledWith(step, 'Steps');
     });
   });
 
