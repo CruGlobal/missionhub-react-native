@@ -354,44 +354,33 @@ describe('updates celebrate item comment', () => {
   const orgId = '1';
   const eventId = '3';
   const comments = 3;
-  const startItems = [
-    { id: eventId, comments_count: comments },
-    { id: '123', comments_count: 1 },
-  ];
+  const reduxState = (comments_count = comments) => ({
+    all: [
+      {
+        id: orgId,
+        celebrateItems: [
+          { id: eventId, comments_count },
+          { id: '123', comments_count: 1 },
+        ],
+      },
+    ],
+  });
 
   it('increments comment count', () => {
-    const resultItems = [
-      { id: eventId, comments_count: comments + 1 },
-      { id: '123', comments_count: 1 },
-    ];
-    const state = organizations(
-      { all: [{ id: orgId, celebrateItems: startItems }] },
-      {
-        type: REQUESTS.CREATE_CELEBRATE_COMMENT.SUCCESS,
-        query: { orgId, eventId },
-      },
-    );
-
-    expect(state).toEqual({
-      all: [{ id: orgId, celebrateItems: resultItems }],
+    const state = organizations(reduxState(), {
+      type: REQUESTS.CREATE_CELEBRATE_COMMENT.SUCCESS,
+      query: { orgId, eventId },
     });
+
+    expect(state).toEqual(reduxState(comments + 1));
   });
   it('decrements comment count', () => {
-    const resultItems = [
-      { id: eventId, comments_count: comments - 1 },
-      { id: '123', comments_count: 1 },
-    ];
-    const state = organizations(
-      { all: [{ id: orgId, celebrateItems: startItems }] },
-      {
-        type: REQUESTS.DELETE_CELEBRATE_COMMENT.SUCCESS,
-        query: { orgId, eventId },
-      },
-    );
-
-    expect(state).toEqual({
-      all: [{ id: orgId, celebrateItems: resultItems }],
+    const state = organizations(reduxState(), {
+      type: REQUESTS.DELETE_CELEBRATE_COMMENT.SUCCESS,
+      query: { orgId, eventId },
     });
+
+    expect(state).toEqual(reduxState(comments - 1));
   });
 });
 
