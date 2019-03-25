@@ -365,18 +365,14 @@ describe('StepsScreen', () => {
     it('should navigate to person screen', () => {
       const step = baseProps.steps[0];
       const screen = createComponent(baseProps);
-      const listItem = renderShallow(
-        screen
-          .childAt(1)
-          .childAt(0)
-          .childAt(1)
-          .props()
-          .renderItem({ item: step }),
-      )
+      const listItem = screen
         .childAt(1)
-        .childAt(0);
+        .childAt(0)
+        .childAt(1)
+        .props()
+        .renderItem({ item: step });
 
-      listItem.props().onSelect(step);
+      listItem.props.onSelect(step);
 
       expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
         step,
