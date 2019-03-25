@@ -24,20 +24,6 @@ exports[`with comments with next page renders correctly 1`] = `
   maxToRenderPerBatch={10}
   numColumns={1}
   onEndReachedThreshold={2}
-  refreshControl={
-    <MyRefreshControl
-      colors={
-        Array [
-          "#ffffff",
-          "#52C5DC",
-        ]
-      }
-      onRefresh={[Function]}
-      progressBackgroundColor="#007398"
-      refreshing={false}
-      tintColor="#007398"
-    />
-  }
   renderItem={[Function]}
   scrollEventThrottle={50}
   style={
@@ -88,20 +74,6 @@ exports[`with comments without next page renders correctly 1`] = `
   maxToRenderPerBatch={10}
   numColumns={1}
   onEndReachedThreshold={2}
-  refreshControl={
-    <MyRefreshControl
-      colors={
-        Array [
-          "#ffffff",
-          "#52C5DC",
-        ]
-      }
-      onRefresh={[Function]}
-      progressBackgroundColor="#007398"
-      refreshing={false}
-      tintColor="#007398"
-    />
-  }
   renderItem={[Function]}
   scrollEventThrottle={50}
   style={
@@ -123,20 +95,6 @@ exports[`with no comments renders correctly 1`] = `
   maxToRenderPerBatch={10}
   numColumns={1}
   onEndReachedThreshold={2}
-  refreshControl={
-    <MyRefreshControl
-      colors={
-        Array [
-          "#ffffff",
-          "#52C5DC",
-        ]
-      }
-      onRefresh={[Function]}
-      progressBackgroundColor="#007398"
-      refreshing={false}
-      tintColor="#007398"
-    />
-  }
   renderItem={[Function]}
   scrollEventThrottle={50}
   style={

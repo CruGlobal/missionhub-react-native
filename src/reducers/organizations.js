@@ -175,6 +175,10 @@ function organizationsReducer(state = initialState, action) {
               : o,
         ),
       };
+    case REQUESTS.CREATE_CELEBRATE_COMMENT.SUCCESS:
+      return changeOrgCelebrationComment(action, state, true);
+    case REQUESTS.DELETE_CELEBRATE_COMMENT.SUCCESS:
+      return changeOrgCelebrationComment(action, state, false);
     case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
       return toggleOrgCelebrationLike(action, state, true);
     case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
@@ -254,31 +258,49 @@ function organizationsReducer(state = initialState, action) {
   }
 }
 
-function toggleOrgCelebrationLike({ query: { orgId, eventId } }, state, liked) {
-  return toggleCelebrationLike({ id: orgId, eventId }, state, liked);
+function changeOrgCelebrationComment(
+  { query: { orgId, eventId } },
+  state,
+  isIncrement,
+) {
+  return updateCelebrationItem({ id: orgId, eventId }, state, c => ({
+    ...c,
+    comments_count: c.comments_count + (isIncrement ? 1 : -1),
+  }));
 }
 
-function toggleGlobalCelebrationLike({ query: { eventId } }, state, liked) {
-  return toggleCelebrationLike(
-    { id: GLOBAL_COMMUNITY_ID, eventId },
-    state,
+function toggleLiked(liked) {
+  return c => ({
+    ...c,
     liked,
+    likes_count: c.likes_count + (liked ? 1 : -1),
+  });
+}
+
+function toggleOrgCelebrationLike({ query: { orgId, eventId } }, state, liked) {
+  return updateCelebrationItem(
+    { id: orgId, eventId },
+    state,
+    toggleLiked(liked),
   );
 }
 
-function toggleCelebrationLike({ id, eventId }, state, liked) {
+function toggleGlobalCelebrationLike({ query: { eventId } }, state, liked) {
+  return updateCelebrationItem(
+    { id: GLOBAL_COMMUNITY_ID, eventId },
+    state,
+    toggleLiked(liked),
+  );
+}
+
+function updateCelebrationItem({ id, eventId }, state, fn) {
   const org = state.all.find(o => o.id === id);
   if (!org) {
     return state; // Return if the organization does not exist
   }
   const newOrg = {
     ...org,
-    celebrateItems: org.celebrateItems.map(
-      c =>
-        c.id === eventId
-          ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
-          : c,
-    ),
+    celebrateItems: org.celebrateItems.map(c => (c.id === eventId ? fn(c) : c)),
   };
 
   return {

@@ -16,10 +16,23 @@ import Header from '../../components/Header';
 import ItemHeaderText from '../../components/ItemHeaderText';
 import TRAILS1 from '../../../assets/images/Trailss.png';
 import TRAILS2 from '../../../assets/images/TrailGrey.png';
+import { refresh } from '../../utils/common';
+import { reloadCelebrateComments } from '../../actions/celebrateComments';
+import { RefreshControl } from '../../components/common';
 
 import styles from './styles';
 
 class CelebrateDetailScreen extends Component {
+  state = { refreshing: false };
+
+  refreshComments = () => {
+    const { dispatch, event } = this.props;
+
+    return dispatch(reloadCelebrateComments(event));
+  };
+
+  handleRefresh = () => refresh(this, this.refreshComments);
+
   renderBackButton = () => {
     const { backButtonStyle } = styles;
 
@@ -86,6 +99,12 @@ class CelebrateDetailScreen extends Component {
           renderForeground={this.renderForeground}
           stickyHeaderHeight={headerHeight}
           renderStickyHeader={this.renderStickyHeader}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.handleRefresh}
+            />
+          }
         >
           <View style={styles.scrollContent}>
             <Image source={TRAILS1} style={styles.trailsTop} />
