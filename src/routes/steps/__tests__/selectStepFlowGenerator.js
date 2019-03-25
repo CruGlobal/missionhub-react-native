@@ -3,11 +3,11 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as reactNavigation from 'react-navigation';
 
-import { renderShallow } from '../../../../testUtils';
-import { GifCompleteFlowScreens } from '../gifCompleteFlow';
+import { renderShallow } from '../../../../testUtils/index';
+import { selectStepFlowGenerator } from '../selectStepFlowGenerator';
 import { navigatePush } from '../../../actions/navigation';
 import { reloadJourney } from '../../../actions/journey';
-import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
+import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen/index';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/journey');
@@ -21,8 +21,13 @@ const store = configureStore([thunk])({
   },
 });
 
+const firstScreenRoute = 'nav/FIRST SCREEN';
+const firstScreen = 'first screen';
+
 const buildAndCallNext = async (screen, navParams, nextProps) => {
-  const Component = GifCompleteFlowScreens[screen];
+  const Component = selectStepFlowGenerator(firstScreenRoute, firstScreen)[
+    screen
+  ];
 
   await store.dispatch(
     renderShallow(
@@ -45,15 +50,16 @@ const reloadJourneyResponse = { type: 'reload journey' };
 const popToTopResponse = { type: 'pop to top of stack' };
 const popResponse = { type: 'pop once' };
 
+navigatePush.mockReturnValue(navigatePushResponse);
+reloadJourney.mockReturnValue(reloadJourneyResponse);
+reactNavigation.StackActions.popToTop = jest
+  .fn()
+  .mockReturnValue(popToTopResponse);
+reactNavigation.StackActions.pop = jest.fn().mockReturnValue(popResponse);
+
 beforeEach(() => {
   store.clearActions();
   jest.clearAllMocks();
-  navigatePush.mockReturnValue(navigatePushResponse);
-  reactNavigation.StackActions.popToTop = jest
-    .fn()
-    .mockReturnValue(popToTopResponse);
-  reactNavigation.StackActions.pop = jest.fn().mockReturnValue(popResponse);
-  reloadJourney.mockReturnValue(reloadJourneyResponse);
 });
 
 describe('CelebrationScreen next', () => {

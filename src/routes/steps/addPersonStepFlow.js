@@ -3,14 +3,13 @@ import { createStackNavigator } from 'react-navigation';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
-import { GifCompleteFlowScreens } from '../flowCompleted/gifCompleteFlow';
 
-import { selectStepFlowGenerator } from './helpers';
+import { selectStepFlowGenerator } from './selectStepFlowGenerator';
 
-export const AddPersonStepFlowScreens = {
-  [PERSON_SELECT_STEP_SCREEN]: selectStepFlowGenerator(PersonSelectStepScreen),
-  ...GifCompleteFlowScreens,
-};
+export const AddPersonStepFlowScreens = selectStepFlowGenerator(
+  PERSON_SELECT_STEP_SCREEN,
+  PersonSelectStepScreen,
+);
 
 export const AddPersonStepFlowNavigator = createStackNavigator(
   AddPersonStepFlowScreens,
