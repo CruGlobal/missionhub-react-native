@@ -8,6 +8,7 @@ import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
 import { Text, Card, Button } from '../common';
 import ReminderButton from '../ReminderButton';
+import ReminderDateText from '../ReminderDateText';
 import { completeStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../containers/AcceptedStepDetailScreen';
@@ -32,32 +33,10 @@ class AcceptedStepItem extends Component {
 
   handleSetReminder = () => {};
 
-  renderReminderButton() {
-    const {
-      step: { reminder },
-    } = this.props;
-    const { reminderButton, bellIcon } = styles;
-
-    return (
-      <DatePicker
-        date={reminder && reminder.at}
-        onChangeDate={this.handleSetReminder}
-        iOSModalContent={<ReminderRepeatButtons />}
-        height={378}
-        mode="datetime"
-      >
-        <View flexDirection="row" style={reminderButton}>
-          <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-          <ReminderDateText reminder={reminder} />
-        </View>
-      </DatePicker>
-    );
-  }
-
   render() {
     const {
       t,
-      step: { title, completed_at, id },
+      step: { title, completed_at, id, reminder },
     } = this.props;
     const {
       card,
@@ -95,7 +74,7 @@ class AcceptedStepItem extends Component {
           <ReminderButton stepId={id}>
             <View flexDirection="row" style={reminderButton}>
               <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-              <Text style={reminderText}>{t('stepReminder:setReminder')}</Text>
+              <ReminderDateText reminder={reminder} />
             </View>
           </ReminderButton>
           <Text style={stepText}>{title}</Text>
