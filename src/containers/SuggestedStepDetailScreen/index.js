@@ -49,7 +49,7 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { step, receiverId, orgId, next },
+        params: { step, receiverId, orgId },
       },
     },
   },
@@ -57,7 +57,6 @@ const mapStateToProps = (
   step,
   receiverId,
   orgId,
-  next,
 });
 export default connect(mapStateToProps)(SuggestedStepDetailScreen);
 export const SUGGESTED_STEP_DETAIL_SCREEN = 'nav/SUGGESTED_STEP_DETAIL_SCREEN';

@@ -7,6 +7,7 @@ import SelectMyStepScreen, {
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { GifCompleteFlowScreens } from '../flowCompleted/gifCompleteFlow';
 
+//todo fix
 export const AddMyStepFlowScreens = {
   [SELECT_MY_STEP_SCREEN]: wrapNextScreen(
     SelectMyStepScreen,

@@ -6,16 +6,12 @@ import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
-import { navigateBack, navigatePush } from '../../actions/navigation';
-import { addStep } from '../../actions/steps';
-import { buildCustomStep } from '../../utils/steps';
+import { navigateBack } from '../../actions/navigation';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import Header from '../Header';
 import BottomButton from '../../components/BottomButton';
-import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
-import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 
@@ -37,23 +33,14 @@ class SelectStepScreen extends Component {
     }
   }
 
-  createCustomStep = ({ text }) => dispatch => {
-    const { isMe, receiverId, organization, next } = this.props;
-
-    dispatch(addStep(buildCustomStep(text, isMe), receiverId, organization));
-    dispatch(
-      next({ contactId: receiverId, orgId: organization && organization.id }),
-    );
-  };
-
   handleCreateStep = () => {
-    const { dispatch, createStepTracking } = this.props;
+    const { dispatch, next, receiverId, organization } = this.props;
 
     dispatch(
-      navigatePush(ADD_STEP_SCREEN, {
-        type: CREATE_STEP,
-        trackingObj: createStepTracking,
-        next: this.createCustomStep,
+      next({
+        isAddingCustomStep: true,
+        receiverId,
+        orgId: organization && organization.id,
       }),
     );
   };

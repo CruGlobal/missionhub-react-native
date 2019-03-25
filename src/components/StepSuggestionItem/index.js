@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { Text, Card } from '../common';
-import { navigatePush } from '../../actions/navigation';
-import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../containers/SuggestedStepDetailScreen';
 
 import styles from './styles';
 
@@ -12,11 +10,11 @@ class StepSuggestionItem extends Component {
   handlePress = () => {
     const { dispatch, step, receiverId, orgId, next } = this.props;
     dispatch(
-      navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
+      next({
+        isAddingCustomStep: false,
         step,
         receiverId,
         orgId,
-        next,
       }),
     );
   };
