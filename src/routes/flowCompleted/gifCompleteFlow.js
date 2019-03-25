@@ -13,7 +13,6 @@ import { navigatePush } from '../../actions/navigation';
 import { addStep } from '../../actions/steps';
 import { buildCustomStep } from '../../utils/steps';
 
-//todo rename
 export const GifCompleteFlowScreens = {
   [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextScreen(
     SuggestedStepDetailScreen,
