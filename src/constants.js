@@ -14,10 +14,6 @@ export const REMOVE_STEP_REMINDER = 'app/REMOVE_STEP_REMINDER';
 export const TOGGLE_STEP_FOCUS = 'app/TOGGLE_STEP_FOCUS';
 export const DISABLE_WELCOME_NOTIFICATION = 'app/DISABLE_WELCOME_NOTIFICATION';
 export const PEOPLE_WITH_ORG_SECTIONS = 'app/PEOPLE_WITH_ORG_SECTIONS';
-export const SWIPE_REMINDER_STEPS_HOME = 'app/SWIPE_REMINDER_STEPS_HOME';
-export const SWIPE_REMINDER_STEPS_CONTACT = 'app/SWIPE_REMINDER_STEPS_CONTACT';
-export const SWIPE_REMINDER_STEPS_REMINDER =
-  'app/SWIPE_REMINDER_STEPS_REMINDER';
 export const SWIPE_REMINDER_JOURNEY = 'app/SWIPE_REMINDER_JOURNEY';
 export const GROUP_INVITE_INFO = 'app/GROUP_INVITE_INFO';
 export const GROUP_ONBOARDING_CARD = 'app/GROUP_ONBOARDING_CARD';
@@ -433,4 +429,20 @@ export const CELEBRATEABLE_TYPES = {
   },
   createdCommunity: 'organization',
   joinedCommunity: 'organizational_permission',
+};
+
+export const DAYS_OF_THE_WEEK = [
+  'sunday',
+  'monday',
+  'tuesday',
+  'wednesday',
+  'thursday',
+  'friday',
+  'saturday',
+];
+export const REMINDER_RECURRENCES = {
+  ONCE: 'once',
+  DAILY: 'daily',
+  WEEKLY: 'weekly',
+  MONTHLY: 'monthly',
 };

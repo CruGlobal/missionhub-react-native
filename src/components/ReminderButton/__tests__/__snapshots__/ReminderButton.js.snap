@@ -1,44 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<TouchableIOS>
-  <Flex
-    align="center"
-    direction="row"
-    justify="start"
-    style={
-      Object {
-        "borderBottomWidth": 1,
-        "borderColor": "#E6E8EC",
-        "borderTopWidth": 1,
-        "paddingHorizontal": 30,
-      }
-    }
-  >
-    <Icon
-      name="bellIcon"
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 35,
-          "padding": 10,
-        }
-      }
-      type="MissionHub"
+<Translate(MyDatePickerIOS)
+  customStyles={Object {}}
+  date=""
+  disabled={false}
+  duration={300}
+  height={378}
+  iOSModalContent={
+    <Translate(ReminderRepeatButtons)
+      onRecurrenceChange={[Function]}
     />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 16,
-        }
-      }
-    >
-      Set a Reminder
-    </MyText>
-  </Flex>
-</TouchableIOS>
+  }
+  mode="datetime"
+  onDateChange={[Function]}
+  onPressAndroid={[Function]}
+/>
 `;

@@ -10,7 +10,6 @@ import { STEP_NOTE, CREATE_STEP } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
-import ReminderButton from '../../components/ReminderButton';
 
 import styles from './styles';
 
@@ -143,7 +142,6 @@ class AddStepScreen extends Component {
             placeholderTextColor={lightGrey}
             maxLength={type === CREATE_STEP ? characterLimit : undefined}
           />
-          {type === CREATE_STEP && <ReminderButton />}
         </Flex>
         <BottomButton onPress={this.saveStep} text={this.getButtonText()} />
         {type !== STEP_NOTE ? (

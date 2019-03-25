@@ -195,7 +195,14 @@ export default {
     editJourneyButton: 'Save',
     makeShorter:
       'Thanks for creating a step! But we need you to make it a little shorter so it can fit.',
+  },
+  stepReminder: {
     setReminder: 'Set a Reminder',
+    endDate: 'End Date',
+    endDatePlaceholder: 'End Date (Required)',
+    daily: 'Daily',
+    weekly: 'Weekly',
+    monthly: 'Monthly',
   },
   selectStep: {
     meHeader: 'How do you want to move forward on your spiritual journey?',
@@ -214,6 +221,7 @@ export default {
   },
   completedStepDetail: {
     completedStep: 'Completed Step',
+    completedOn: 'Completed {{date}}',
   },
   selectStage: {
     meQuestion:
@@ -250,7 +258,6 @@ export default {
     showCompletedSteps: 'SHOW COMPLETED STEPS',
     hideCompletedSteps: 'HIDE COMPLETED STEPS',
     addStep: 'Add a step of faith',
-    setReminder: 'Set a Reminder',
   },
   contactJourney: {
     loading: 'Loading Journey Items',

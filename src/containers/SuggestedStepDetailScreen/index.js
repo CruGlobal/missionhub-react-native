@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
+import { View } from 'react-native';
 
 import { addStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
+
+import styles from './styles';
 
 @translate('suggestedStepDetail')
 class SuggestedStepDetailScreen extends Component {
@@ -21,11 +24,13 @@ class SuggestedStepDetailScreen extends Component {
       t,
       step: { body, description_markdown },
     } = this.props;
+    const { centerContent } = styles;
 
     return (
       <StepDetailScreen
         CenterHeader={null}
         RightHeader={null}
+        CenterContent={<View style={centerContent} />}
         text={body}
         markdown={description_markdown}
         bottomButtonProps={{

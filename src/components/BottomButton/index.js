@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from '../../components/common';
-import theme from '../../theme';
 
 export default class BottomButton extends Component {
   handlePress = () => {
@@ -16,13 +15,12 @@ export default class BottomButton extends Component {
     return (
       <Button
         flex={0}
-        align="stretch"
-        justify="end"
+        alignItems="stretch"
+        justifyContent="flex-end"
         type="secondary"
         disabled={disabled}
         onPress={this.handlePress}
         text={text.toUpperCase()}
-        style={{ width: theme.fullWidth }}
       />
     );
   }

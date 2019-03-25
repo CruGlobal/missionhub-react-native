@@ -32,6 +32,7 @@ beforeEach(() => {
   store = mockStore();
 
   step = {
+    id: '234242',
     title: 'ROBERT',
     challenge_suggestion,
   };

@@ -4,18 +4,22 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   reminderButton: {
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
     borderColor: theme.extraLightGrey,
     borderBottomWidth: 1,
     borderTopWidth: 1,
-    paddingHorizontal: 30,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
   },
-  reminderIcon: {
-    padding: 10,
-    fontSize: 35,
-    color: theme.secondaryColor,
+  completedIcon: {
+    margin: 10,
+    height: 24,
+    width: 24,
   },
-  reminderText: {
-    color: theme.secondaryColor,
+  completedText: {
+    color: theme.textColor,
     fontSize: 16,
   },
 });

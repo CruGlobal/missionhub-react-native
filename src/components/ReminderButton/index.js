@@ -1,29 +1,51 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
 
-import { Flex, Touchable, Icon, Text } from '../common';
+import ReminderRepeatButtons from '../ReminderRepeatButtons';
+import { navigatePush } from '../../actions/navigation';
+import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
+import DatePicker from '../DatePicker';
+import { createStepReminder } from '../../actions/stepReminders';
 
-import styles from './styles';
-
-@translate()
 class ReminderButton extends Component {
+  state = {
+    recurrence: null,
+  };
+
+  //for Android, navigate to step reminder screen
+  handlePressAndroid = () => {
+    const { dispatch, stepId } = this.props;
+    dispatch(navigatePush(STEP_REMINDER_SCREEN, { stepId }));
+  };
+
+  handleChangeDate = date => {
+    const { recurrence } = this.state;
+    const { stepId, dispatch } = this.props;
+
+    dispatch(createStepReminder(stepId, date, recurrence));
+
+    this.setState({ recurrence: null });
+  };
+
+  onRecurrenceChange = recurrence => {
+    this.setState({ recurrence });
+  };
+
   render() {
-    const { t } = this.props;
-    const { reminderButton, reminderIcon, reminderText } = styles;
+    const { children } = this.props;
 
     return (
-      <Touchable>
-        <Flex
-          align="center"
-          justify="start"
-          style={reminderButton}
-          direction="row"
-        >
-          <Icon name="bellIcon" type="MissionHub" style={reminderIcon} />
-          <Text style={reminderText}>{t('addStep:setReminder')}</Text>
-        </Flex>
-      </Touchable>
+      <DatePicker
+        onPressAndroid={this.handlePressAndroid}
+        onDateChange={this.handleChangeDate}
+        iOSModalContent={
+          <ReminderRepeatButtons onRecurrenceChange={this.onRecurrenceChange} />
+        }
+        height={378}
+        mode="datetime"
+      >
+        {children}
+      </DatePicker>
     );
   }
 }

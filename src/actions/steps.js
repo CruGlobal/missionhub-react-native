@@ -172,16 +172,6 @@ export function updateChallengeNote(stepId, note) {
   };
 }
 
-export function completeStepReminder(step, screen) {
-  return dispatch => {
-    return dispatch(challengeCompleteAction(step, screen)).then(r => {
-      dispatch(getMySteps());
-      dispatch(setStepFocus(step, false));
-      return r;
-    });
-  };
-}
-
 export function completeStep(step, screen, extraBack) {
   return async dispatch => {
     const result = await dispatch(
