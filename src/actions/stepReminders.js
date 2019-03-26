@@ -34,7 +34,7 @@ export function createStepReminder(challenge_id, at, type) {
         apiError.errors[0].detail && //todo extract
         apiError.errors[0].detail.recurrence_rule &&
         apiError.errors[0].detail.recurrence_rule[0].includes(
-          "Value of 'at' is invalid,",
+          "Value of 'at' is invalid, expected timestamp to be in the future",
         )
       ) {
         Alert.alert(

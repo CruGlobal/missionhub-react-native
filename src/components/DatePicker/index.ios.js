@@ -123,7 +123,16 @@ class MyDatePickerIOS extends Component {
       titleText,
     } = styles;
 
+    const theDate = new Date();
+    theDate.setDate(theDate.getDate() - 3);
+    const oldDate = new Date();
+    oldDate.setMinutes(oldDate.getMinutes() + 5);
+
+    //if we lock the datepicker we have to show the "next" occurence.
+    // //might be easier to not lock it but then show an error message if user attempts
+
     //todo set min date
+    //todo what if recurring and date is in the past?
     return (
       <View>
         <Touchable onPress={this.onPressDate}>{children}</Touchable>
@@ -145,7 +154,7 @@ class MyDatePickerIOS extends Component {
               <DatePickerIOS
                 date={date}
                 mode={mode}
-                minimumDate={minDate && getDate(minDate)}
+                minimumDate={oldDate}
                 maximumDate={maxDate && getDate(maxDate)}
                 onDateChange={this.onDateChange}
                 minuteInterval={minuteInterval}
