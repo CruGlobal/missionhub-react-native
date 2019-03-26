@@ -14,8 +14,7 @@ import {
 } from '../../actions/celebrateComments';
 import { reportComment } from '../../actions/reportComments';
 import LoadMore from '../../components/LoadMore';
-import RefreshControl from '../../components/RefreshControl';
-import { refresh, showMenu } from '../../utils/common';
+import { showMenu } from '../../utils/common';
 import CommentItem from '../CommentItem';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
@@ -24,22 +23,12 @@ import styles from './styles';
 
 @translate('commentsList')
 class CommentsList extends Component {
-  state = {
-    refreshing: false,
-  };
-
   componentDidMount() {
-    this.refreshComments();
-    this.props.dispatch(resetCelebrateEditingComment());
-  }
-
-  refreshComments = () => {
     const { dispatch, event } = this.props;
 
-    return dispatch(reloadCelebrateComments(event));
-  };
-
-  handleRefresh = () => refresh(this, this.refreshComments);
+    dispatch(reloadCelebrateComments(event));
+    dispatch(resetCelebrateEditingComment());
+  }
 
   handleLoadMore = () => {
     const { dispatch, event } = this.props;
@@ -149,12 +138,6 @@ class CommentsList extends Component {
         keyExtractor={this.keyExtractor}
         renderItem={this.renderItem}
         style={list}
-        refreshControl={
-          <RefreshControl
-            refreshing={this.state.refreshing}
-            onRefresh={this.handleRefresh}
-          />
-        }
         ListFooterComponent={
           pagination &&
           pagination.hasNextPage && <LoadMore onPress={this.handleLoadMore} />

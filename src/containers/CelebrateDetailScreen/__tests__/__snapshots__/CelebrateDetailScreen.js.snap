@@ -110,6 +110,20 @@ exports[`renders correctly 1`] = `
     onChangeHeaderVisibility={[Function]}
     outputScaleValue={5}
     parallaxHeaderHeight={215}
+    refreshControl={
+      <MyRefreshControl
+        colors={
+          Array [
+            "#ffffff",
+            "#52C5DC",
+          ]
+        }
+        onRefresh={[Function]}
+        progressBackgroundColor="#007398"
+        refreshing={false}
+        tintColor="#007398"
+      />
+    }
     renderBackground={[Function]}
     renderContentBackground={[Function]}
     renderForeground={[Function]}

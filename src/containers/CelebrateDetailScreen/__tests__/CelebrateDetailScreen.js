@@ -7,8 +7,13 @@ import CelebrateDetailScreen from '..';
 
 import { renderShallow } from '../../../../testUtils';
 import { celebrationItemSelector } from '../../../selectors/celebration';
+import * as common from '../../../utils/common';
+import { reloadCelebrateComments } from '../../../actions/celebrateComments';
 
 jest.mock('../../../selectors/celebration');
+jest.mock('../../../actions/celebrateComments');
+
+reloadCelebrateComments.mockReturnValue({ type: 'reloadCelebrateComments' });
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -68,3 +73,18 @@ it('should call celebrationItemSelector', () => {
 function parallaxScrollView() {
   return screen.childAt(1).props();
 }
+
+describe('refresh', () => {
+  it('calls refreshComments', () => {
+    screen.instance().refreshComments();
+    expect(reloadCelebrateComments).toHaveBeenCalledWith(event);
+  });
+  it('calls handleRefresh', () => {
+    common.refresh = jest.fn();
+    parallaxScrollView().refreshControl.props.onRefresh();
+    expect(common.refresh).toHaveBeenCalledWith(
+      screen.instance(),
+      screen.instance().refreshComments,
+    );
+  });
+});
