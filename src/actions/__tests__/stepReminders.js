@@ -1,5 +1,7 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { Alert } from 'react-native';
+import i18n from 'i18next';
 
 import { DAYS_OF_THE_WEEK, REMINDER_RECURRENCES } from '../../constants';
 import callApi, { REQUESTS } from '../api';
@@ -19,10 +21,43 @@ let recurrence;
 let store;
 
 callApi.mockReturnValue(callApiResponse);
+Alert.alert = jest.fn();
 
 beforeEach(() => {
   jest.clearAllMocks();
   store = mockStore();
+});
+
+//todo refactor
+describe('with a date in the past', () => {
+  it('handles error', async () => {
+    expect.assertions(1);
+    callApi.mockReturnValue(() =>
+      Promise.reject({
+        apiError: {
+          errors: [
+            {
+              detail: {
+                recurrence_rule: ["Value of 'at' is invalid, you dummy"],
+              },
+            },
+          ],
+        },
+      }),
+    );
+    try {
+      await store.dispatch(
+        createStepReminder(challenge_id, new Date(), recurrence),
+      );
+    } catch (error) {
+      expect(Alert.alert).toHaveBeenCalledWith(
+        i18n.t('stepReminder:invalidReminderErrorHeader'),
+        i18n.t('stepReminder:invalidReminderErrorBody'),
+      );
+    }
+
+    callApi.mockReturnValue(callApiResponse);
+  });
 });
 
 describe('createStepReminder', () => {

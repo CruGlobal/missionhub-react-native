@@ -203,6 +203,8 @@ export default {
     daily: 'Daily',
     weekly: 'Weekly',
     monthly: 'Monthly',
+    invalidReminderErrorHeader: 'Error',
+    invalidReminderErrorBody: 'Please choose a date and time in the future',
   },
   selectStep: {
     meHeader: 'How do you want to move forward on your spiritual journey?',

@@ -171,6 +171,7 @@ class MyDatePickerAndroid extends Component {
   render() {
     const { children } = this.props;
 
+    //todo set min date
     return (
       <View>
         <Touchable onPress={this.onPressDate}>{children}</Touchable>

@@ -1,6 +1,7 @@
 /* eslint max-params: 0 */
 import moment from 'moment';
 
+//todo clean up
 export function getDate(date, minDate, maxDate, format) {
   if (!date) {
     const now = new Date();

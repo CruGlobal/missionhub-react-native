@@ -123,6 +123,7 @@ class MyDatePickerIOS extends Component {
       titleText,
     } = styles;
 
+    //todo set min date
     return (
       <View>
         <Touchable onPress={this.onPressDate}>{children}</Touchable>
