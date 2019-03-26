@@ -9,19 +9,68 @@ import Text from '../Text';
 const Constants = {
   today: 'today',
   yesterday: 'yesterday',
+  comment: 'comment',
   relative: 'relative',
   Formats: {
     dayOnly: 'dddd',
     dayMonthDate: 'dddd, MMMM D',
     fullDate: 'dddd, MMMM D YYYY',
+    monthDayYearAtTime: 'MMMM D, YYYY @ h:mm A',
+    monthDayAtTime: 'MMMM D @ h:mm A',
+    dayAtTime: 'dddd @ h:mm A',
+    timeOnly: 'h:mm A',
   },
 };
+
+function formatComment(date, t) {
+  let momentDate;
+  const now = moment();
+  if (isString(date) && date.indexOf('UTC') >= 0) {
+    momentDate = momentUtc(date).local();
+  } else {
+    momentDate = moment(date);
+  }
+
+  if (momentDate.format('DD-MM-YYYY') === now.format('DD-MM-YYYY')) {
+    return momentDate.format(Constants.Formats.timeOnly);
+  }
+  // Check if yesterday
+  if (
+    momentDate.isSame(
+      now
+        .clone()
+        .subtract(1, 'days')
+        .startOf('day'),
+      'd',
+    )
+  ) {
+    return `${t('dates.yesterday')} @ ${momentDate.format(
+      Constants.Formats.timeOnly,
+    )}`;
+  }
+  // Check if within the last week
+  if (
+    momentDate.isAfter(
+      now
+        .clone()
+        .subtract(6, 'days')
+        .startOf('day'),
+    )
+  ) {
+    return momentDate.format(Constants.Formats.dayAtTime);
+  }
+  if (momentDate.year() !== now.year()) {
+    return momentDate.format(Constants.Formats.monthDayYearAtTime);
+  }
+
+  return momentDate.format(Constants.Formats.monthDayAtTime);
+}
 
 @translate()
 export default class DateComponent extends Component {
   render() {
     const { t, date, format, style } = this.props;
-    const { relative, yesterday, today } = Constants;
+    const { relative, yesterday, comment, today } = Constants;
 
     let dateFormat = format;
     if (format === relative) {
@@ -33,6 +82,8 @@ export default class DateComponent extends Component {
       text = t('dates.today');
     } else if (dateFormat === yesterday) {
       text = t('dates.yesterday');
+    } else if (dateFormat === comment) {
+      text = formatComment(date, t);
     } else if (isString(date) && date.indexOf('UTC') >= 0) {
       text = momentUtc(date)
         .local()

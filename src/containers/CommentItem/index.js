@@ -41,7 +41,7 @@ class CommentItem extends Component {
 
     return (
       <View style={[contentStyle, isEditing ? editingStyle : null]}>
-        <Flex direction="row" align="center">
+        <Flex direction="row" align="end">
           {isMineNotReported ? (
             <Flex value={1} />
           ) : (
@@ -53,7 +53,7 @@ class CommentItem extends Component {
               customContent={<Text style={nameStyle}>{name}</Text>}
             />
           )}
-          <CardTime date={created_at} />
+          <CardTime date={created_at} format="comment" />
         </Flex>
         <Flex direction="row">
           {isMineNotReported ? <Flex value={1} /> : null}

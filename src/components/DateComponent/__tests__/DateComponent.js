@@ -45,3 +45,38 @@ describe('relative formatting', () => {
     testDateFormat('2005-02-14 12:00:00 UTC', 'Monday, February 14 2005');
   });
 });
+
+describe('comment formatting', () => {
+  const testDateFormat = (date, formattedText) => {
+    const component = renderShallow(
+      <DateComponent date={date} format={'comment'} />,
+    );
+
+    const text = component.find('MyText').props().children;
+
+    expect(text).toEqual(formattedText);
+  };
+
+  it('renders today', () => {
+    testDateFormat('2018-06-11 12:00:00 UTC', '8:00 AM');
+  });
+
+  it('renders yesterday', () => {
+    testDateFormat('2018-06-10 12:00:00 UTC', 'Yesterday @ 8:00 AM');
+  });
+
+  it('renders date from last week', () => {
+    testDateFormat('2018-06-09 12:00:00 UTC', 'Saturday @ 8:00 AM');
+    testDateFormat('2018-06-07 12:00:00 UTC', 'Thursday @ 8:00 AM');
+  });
+
+  it('renders from this year', () => {
+    testDateFormat('2018-06-03 12:00:00 UTC', 'June 3 @ 8:00 AM');
+    testDateFormat('2018-05-23 12:00:00 UTC', 'May 23 @ 8:00 AM');
+  });
+
+  it('renders from before this year', () => {
+    testDateFormat('2017-12-31 12:00:00 UTC', 'December 31, 2017 @ 7:00 AM');
+    testDateFormat('2005-02-14 12:00:00 UTC', 'February 14, 2005 @ 7:00 AM');
+  });
+});

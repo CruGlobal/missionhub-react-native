@@ -13,7 +13,7 @@ exports[`renders correctly 1`] = `
   }
 >
   <Flex
-    align="center"
+    align="end"
     direction="row"
   >
     <Connect(Translate(CelebrateItemName))
@@ -50,6 +50,7 @@ exports[`renders correctly 1`] = `
     />
     <CardTime
       date="2018-06-11 12:00:00 UTC"
+      format="comment"
     />
   </Flex>
   <Flex
@@ -109,7 +110,7 @@ exports[`renders correctly as mine 1`] = `
   }
 >
   <Flex
-    align="center"
+    align="end"
     direction="row"
   >
     <Flex
@@ -117,6 +118,7 @@ exports[`renders correctly as mine 1`] = `
     />
     <CardTime
       date="2018-06-11 12:00:00 UTC"
+      format="comment"
     />
   </Flex>
   <Flex
@@ -182,7 +184,7 @@ exports[`renders editing correctly 1`] = `
   }
 >
   <Flex
-    align="center"
+    align="end"
     direction="row"
   >
     <Connect(Translate(CelebrateItemName))
@@ -219,6 +221,7 @@ exports[`renders editing correctly 1`] = `
     />
     <CardTime
       date="2018-06-11 12:00:00 UTC"
+      format="comment"
     />
   </Flex>
   <Flex
@@ -278,7 +281,7 @@ exports[`renders my reported comment 1`] = `
   }
 >
   <Flex
-    align="center"
+    align="end"
     direction="row"
   >
     <Flex
@@ -286,6 +289,7 @@ exports[`renders my reported comment 1`] = `
     />
     <CardTime
       date="2018-06-11 12:00:00 UTC"
+      format="comment"
     />
   </Flex>
   <Flex
@@ -350,7 +354,7 @@ exports[`renders reported comment 1`] = `
   }
 >
   <Flex
-    align="center"
+    align="end"
     direction="row"
   >
     <Connect(Translate(CelebrateItemName))
@@ -387,6 +391,7 @@ exports[`renders reported comment 1`] = `
     />
     <CardTime
       date="2018-06-11 12:00:00 UTC"
+      format="comment"
     />
   </Flex>
   <Flex
