@@ -512,7 +512,9 @@ exports[`renders correctly 1`] = `
           Object {
             "opacity": 0.6,
           },
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }

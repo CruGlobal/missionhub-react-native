@@ -103,7 +103,9 @@ exports[`renders correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }
@@ -244,7 +246,9 @@ exports[`renders correctly with default state 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }
