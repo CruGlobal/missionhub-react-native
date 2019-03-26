@@ -13,6 +13,8 @@ class ReminderButton extends Component {
     recurrence: null,
   };
 
+  today = new Date();
+
   //for Android, navigate to step reminder screen
   handlePressAndroid = () => {
     const { dispatch, stepId } = this.props;
@@ -37,6 +39,7 @@ class ReminderButton extends Component {
 
     return (
       <DatePicker
+        minDate={this.today}
         onPressAndroid={this.handlePressAndroid}
         onDateChange={this.handleChangeDate}
         iOSModalContent={

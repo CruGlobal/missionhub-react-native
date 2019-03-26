@@ -81,7 +81,6 @@ class StepReminderScreen extends Component {
       <View style={dateInputContainer}>
         <Text style={inputHeaderStyle}>{t('endDate')}</Text>
         <DatePicker
-          date={date}
           mode="datetime"
           minDate={this.today}
           onDateChange={this.handleChangeDate}

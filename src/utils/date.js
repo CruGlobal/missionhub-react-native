@@ -54,30 +54,37 @@ export function reminderToDate({ type, at, on }) {
 
 function getDailyReminderDate(type, at) {
   const today = new Date();
-  const reminderTime = new Date(at);
-  console.log(reminderTime);
+  const reminderTime = moment(at, 'HH:mm:ss').toDate();
 
-  let todayReminder = today;
-  todayReminder.setHours(reminderTime.getHours());
-  todayReminder.setMinutes(reminderTime.getMinutes());
+  let reminderDate = new Date();
+  reminderDate.setHours(reminderTime.getHours());
+  reminderDate.setMinutes(reminderTime.getMinutes());
 
-  return todayReminder - today > 0
-    ? todayReminder
-    : todayReminder.getDate() + 1;
+  if (reminderDate - today > 0) {
+    return reminderDate;
+  }
+
+  reminderDate.setDate(reminderDate.getDate() + 1);
+  return reminderDate;
 }
 
 function getWeeklyReminderDate(type, at, on) {
   const today = new Date();
-  const reminderTime = new Date(at);
+  const reminderTime = moment(at, 'HH:mm:ss').toDate();
 
   const todayIndex = today.getDay();
   const reminderIndex = DAYS_OF_THE_WEEK.indexOf(on);
 
-  const thisWeekReminder = today.getDate() + (reminderIndex - todayIndex);
-  thisWeekReminder.setHours(reminderTime.getHours());
-  thisWeekReminder.setMinutes(reminderTime.getMinutes());
+  const reminderDate = new Date();
+  reminderDate.setDate(reminderDate.getDate() + (reminderIndex - todayIndex));
+  reminderDate.setHours(reminderTime.getHours());
+  reminderDate.setMinutes(reminderTime.getMinutes());
+  console.log(`${today} , ${reminderDate}`);
 
-  return thisWeekReminder - today > 0
-    ? thisWeekReminder
-    : thisWeekReminder.getDate() + 7;
+  if (reminderDate - today > 0) {
+    return reminderDate;
+  }
+
+  reminderDate.setDate(reminderDate.getDate() + 7);
+  return reminderDate;
 }

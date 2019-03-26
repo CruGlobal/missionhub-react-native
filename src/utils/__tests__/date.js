@@ -6,10 +6,13 @@ import { DAYS_OF_THE_WEEK, REMINDER_RECURRENCES } from '../../constants';
 
 const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
-const mockDate = '2018-09-12T12:00:00+00:00';
-const mockMinDate = '2019-10-13T12:00:00+00:00';
-const mockMaxDate = '2017-08-10T12:00:00+00:00';
-MockDate.set(mockDate);
+const mockDate = '2018-09-12T12:00:00';
+const mockMinDate = '2019-10-13T12:00:00';
+const mockMaxDate = '2017-08-10T12:00:00';
+
+beforeEach(() => {
+  MockDate.set(mockDate);
+});
 
 describe('getDate', () => {
   it('formats date string', () => {
@@ -55,43 +58,68 @@ describe('reminderToDate', () => {
     it('returns date as is', () => {
       reminder = { type: ONCE, at: '2018-10-23T12:00:00+00:00' };
 
-      expect(reminderToDate(reminder)).toEqual('');
+      expect(reminderToDate(reminder)).toEqual(new Date(reminder.at));
     });
   });
 
   describe('daily', () => {
     it('returns reminder for today', () => {
-      reminder = { type: DAILY, at: '14:00:00' };
+      reminder = { type: DAILY, at: '18:16:00' };
+      const reminderTime = moment(reminder.at, 'HH:mm:ss').toDate();
+      let reminderDate = new Date();
+      reminderDate.setHours(reminderTime.getHours());
+      reminderDate.setMinutes(reminderTime.getMinutes());
 
-      expect(reminderToDate(reminder)).toEqual('');
+      expect(reminderToDate(reminder)).toEqual(reminderDate);
     });
 
     it('returns reminder for tomorrow', () => {
-      reminder = { type: DAILY, at: '10:00:00' };
+      reminder = { type: DAILY, at: '06:16:00' };
+      const reminderTime = moment(reminder.at, 'HH:mm:ss').toDate();
+      let reminderDate = new Date();
+      reminderDate.setDate(reminderDate.getDate() + 1);
+      reminderDate.setHours(reminderTime.getHours());
+      reminderDate.setMinutes(reminderTime.getMinutes());
 
-      expect(reminderToDate(reminder)).toEqual('');
+      expect(reminderToDate(reminder)).toEqual(reminderDate);
     });
   });
 
   describe('weekly', () => {
+    const mockDateIndex = new Date().getDay();
+
     it('returns reminder for this week', () => {
+      const index = 6;
       reminder = {
         type: WEEKLY,
-        at: '14:00:00',
-        on: DAYS_OF_THE_WEEK[6],
+        at: '18:16:00',
+        on: DAYS_OF_THE_WEEK[index],
       };
+      const reminderTime = moment(reminder.at, 'HH:mm:ss').toDate();
+      const reminderDate = new Date();
+      reminderDate.setDate(reminderDate.getDate() + (index - mockDateIndex));
+      reminderDate.setHours(reminderTime.getHours());
+      reminderDate.setMinutes(reminderTime.getMinutes());
 
-      expect(reminderToDate(reminder)).toEqual('');
+      expect(reminderToDate(reminder)).toEqual(reminderDate);
     });
 
-    it('returns reminder for tomorrow', () => {
+    it('returns reminder for next week', () => {
+      const index = 0;
       reminder = {
         type: WEEKLY,
-        at: '10:00:00',
-        on: DAYS_OF_THE_WEEK[0],
+        at: '06:16:00',
+        on: DAYS_OF_THE_WEEK[index],
       };
+      const reminderTime = moment(reminder.at, 'HH:mm:ss').toDate();
+      const reminderDate = new Date();
+      reminderDate.setDate(
+        reminderDate.getDate() + (index - mockDateIndex + 7),
+      );
+      reminderDate.setHours(reminderTime.getHours());
+      reminderDate.setMinutes(reminderTime.getMinutes());
 
-      expect(reminderToDate(reminder)).toEqual('');
+      expect(reminderToDate(reminder)).toEqual(reminderDate);
     });
   });
 });
