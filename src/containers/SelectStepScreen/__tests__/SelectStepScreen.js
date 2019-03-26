@@ -19,7 +19,8 @@ jest.mock('../../../actions/navigation');
 const mockStore = configureStore([thunk]);
 let store;
 
-const onComplete = jest.fn();
+const nextResult = { type: 'next' };
+const next = jest.fn(() => nextResult);
 const organization = { id: '4234234' };
 const contactStageId = '3';
 const receiverId = '252342354234';
@@ -33,9 +34,9 @@ let screen;
 let contact;
 let enableBackButton;
 
-navigatePush.mockImplementation((screen, props) => () =>
-  props.onComplete(customStep.body),
-);
+navigatePush.mockImplementation((screen, props) => () => {
+  store.dispatch(props.next({ text: customStep.body }));
+});
 buildCustomStep.mockReturnValue(customStep);
 addStep.mockReturnValue(addStepsResult);
 
@@ -47,13 +48,13 @@ beforeEach(() => {
   screen = renderShallow(
     <SelectStepScreen
       contact={contact}
-      onComplete={onComplete}
       contactStageId={contactStageId}
       organization={organization}
       receiverId={receiverId}
       enableBackButton={enableBackButton}
       createStepTracking={createStepTracking}
       contactName={contactName}
+      next={next}
     />,
     store,
   );
@@ -113,7 +114,7 @@ describe('BottomButton', () => {
     expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
       trackingObj: createStepTracking,
-      onComplete: expect.any(Function),
+      next: expect.any(Function),
     });
   });
 
@@ -123,10 +124,10 @@ describe('BottomButton', () => {
       customStep.body,
       receiverId === auth.person.id,
     );
-    expect(onComplete).toHaveBeenCalled();
+    expect(next).toHaveBeenCalled();
   });
 
   it('dispatches actions to store', () => {
-    expect(store.getActions()).toEqual([addStepsResult]);
+    expect(store.getActions()).toEqual([addStepsResult, nextResult]);
   });
 });

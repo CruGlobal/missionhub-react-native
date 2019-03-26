@@ -17,11 +17,12 @@ const step = {
 };
 const receiverId = '423325';
 const orgId = '880124';
-const onComplete = jest.fn();
 let screen;
 
 const mockStore = configureStore([thunk]);
 let store;
+
+const next = { type: 'next' };
 
 addStep.mockReturnValue(() => Promise.resolve());
 
@@ -32,7 +33,12 @@ beforeEach(() => {
 
   screen = renderShallow(
     <SuggestedStepDetailScreen
-      navigation={createMockNavState({ step, receiverId, orgId, onComplete })}
+      navigation={createMockNavState({
+        step,
+        receiverId,
+        orgId,
+        next: () => next,
+      })}
     />,
     store,
   );
@@ -47,6 +53,6 @@ describe('bottomButtonProps', () => {
     await screen.props().bottomButtonProps.onPress();
 
     expect(addStep).toHaveBeenCalledWith(step, receiverId, { id: orgId });
-    expect(onComplete).toHaveBeenCalledTimes(1);
+    expect(store.getActions()).toEqual([next]);
   });
 });
