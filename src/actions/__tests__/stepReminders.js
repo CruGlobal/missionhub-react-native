@@ -30,7 +30,7 @@ describe('removeStepReminder', () => {
   });
 
   it('should remove reminder from step', () => {
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_REMINDER_DELETE, {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CHALLENGE_REMINDER, {
       challenge_id,
     });
   });
