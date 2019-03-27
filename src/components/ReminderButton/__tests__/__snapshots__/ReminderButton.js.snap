@@ -12,6 +12,7 @@ exports[`renders correctly 1`] = `
       onRecurrenceChange={[Function]}
     />
   }
+  minDate={2019-03-27T14:23:23.750Z}
   mode="datetime"
   onDateChange={[Function]}
   onPressAndroid={[Function]}

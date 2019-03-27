@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<MyText
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#52C5DC",
+        "fontSize": 14,
+        "lineHeight": 18,
+      },
+      undefined,
+    ]
+  }
+>
+  2019-3-27T00:00:00 once
+</MyText>
+`;

@@ -10,21 +10,21 @@ import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../../containers/AcceptedStepDet
 import { CONTACT_STEPS } from '../../../constants';
 import { reminderSelector } from '../../../selectors/stepReminders';
 
-jest.mock('.../../../actions/navigation');
+jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
 jest.mock('../../../selectors/stepReminders');
 
 const stepId = '1';
 const reminderId = '11';
-const reminder = { id: '11' };
+const reminder = { id: reminderId };
 const step = {
   id: '1',
   body: 'Step of Faith',
   reminder,
 };
 const stepReminders = {
-  all: {
-    [reminderId]: reminder,
+  allByStep: {
+    [stepId]: reminder,
   },
 };
 
