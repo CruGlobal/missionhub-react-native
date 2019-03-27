@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockDate from 'mockdate';
 
-import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScreen';
+import { CELEBRATE_DETAIL_SCREEN } from '../../CelebrateDetailScreen';
 
 import CelebrateFeed from '..';
 
