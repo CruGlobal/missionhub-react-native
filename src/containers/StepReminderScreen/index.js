@@ -19,7 +19,7 @@ import styles from './styles';
 @translate('stepReminder')
 class StepReminderScreen extends Component {
   state = {
-    date: this.props.date,
+    date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',
     disableBtn: true,
     recurrence: null,
   };
@@ -80,6 +80,7 @@ class StepReminderScreen extends Component {
       <View style={dateInputContainer}>
         <Text style={inputHeaderStyle}>{t('endDate')}</Text>
         <DatePicker
+          date={date}
           mode="datetime"
           minDate={this.today}
           onDateChange={this.handleChangeDate}

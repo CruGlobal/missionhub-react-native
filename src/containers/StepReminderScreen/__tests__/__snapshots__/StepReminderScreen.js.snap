@@ -79,7 +79,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
       </MyText>
       <Translate(MyDatePickerIOS)
         customStyles={Object {}}
-        date=""
+        date="2018-09-01"
         disabled={false}
         duration={300}
         height={259}
@@ -88,6 +88,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
         onDateChange={[Function]}
       >
         <Translate(ReminderDateText)
+          reminder={null}
           style={
             Array [
               Object {
@@ -118,125 +119,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
 </Component>
 `;
 
-exports[`render date in props renders correctly 1`] = `
-<Component
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-      "flexDirection": "column",
-    }
-  }
->
-  <Connect(Header)
-    center={
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 16,
-            "lineHeight": 24,
-          }
-        }
-      >
-        Set a Reminder
-      </MyText>
-    }
-    left={
-      <Connect(BackButton)
-        iconStyle={
-          Object {
-            "color": "#B4B6BA",
-          }
-        }
-      />
-    }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
-  />
-  <Component
-    style={
-      Object {
-        "flex": 1,
-        "justifyContent": "center",
-      }
-    }
-  >
-    <Component
-      style={
-        Object {
-          "paddingBottom": 36,
-          "paddingHorizontal": 48,
-        }
-      }
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "fontSize": 12,
-              "lineHeight": 16,
-              "textAlignVertical": "center",
-            },
-            Object {
-              "color": "#B4B6BA",
-            },
-          ]
-        }
-      >
-        End Date
-      </MyText>
-      <Translate(MyDatePickerIOS)
-        customStyles={Object {}}
-        date=""
-        disabled={false}
-        duration={300}
-        height={259}
-        minDate={2018-09-01T00:00:00.000Z}
-        mode="datetime"
-        onDateChange={[Function]}
-      >
-        <Translate(ReminderDateText)
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#B4B6BA",
-                "borderBottomWidth": 1,
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingBottom": 6,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#007398",
-              },
-            ]
-          }
-        />
-      </Translate(MyDatePickerIOS)>
-    </Component>
-    <Translate(ReminderRepeatButtons)
-      onRecurrenceChange={[Function]}
-    />
-  </Component>
-  <BottomButton
-    disabled={true}
-    onPress={[Function]}
-    text="Done"
-  />
-</Component>
-`;
-
-exports[`render no date in props renders correctly 1`] = `
+exports[`render no reminder in props renders correctly 1`] = `
 <Component
   style={
     Object {
@@ -322,6 +205,129 @@ exports[`render no date in props renders correctly 1`] = `
         onDateChange={[Function]}
       >
         <Translate(ReminderDateText)
+          reminder={null}
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#B4B6BA",
+                "borderBottomWidth": 1,
+                "fontSize": 16,
+                "lineHeight": 24,
+                "paddingBottom": 6,
+                "textAlignVertical": "center",
+              },
+              Object {
+                "color": "#B4B6BA",
+              },
+            ]
+          }
+        />
+      </Translate(MyDatePickerIOS)>
+    </Component>
+    <Translate(ReminderRepeatButtons)
+      onRecurrenceChange={[Function]}
+    />
+  </Component>
+  <BottomButton
+    disabled={true}
+    onPress={[Function]}
+    text="Done"
+  />
+</Component>
+`;
+
+exports[`render reminder in props renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <Connect(Header)
+    center={
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 16,
+            "lineHeight": 24,
+          }
+        }
+      >
+        Set a Reminder
+      </MyText>
+    }
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#B4B6BA",
+          }
+        }
+      />
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <Component
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "paddingBottom": 36,
+          "paddingHorizontal": 48,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontSize": 12,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+            },
+            null,
+          ]
+        }
+      >
+        End Date
+      </MyText>
+      <Translate(MyDatePickerIOS)
+        customStyles={Object {}}
+        date=""
+        disabled={false}
+        duration={300}
+        height={259}
+        minDate={2018-09-01T00:00:00.000Z}
+        mode="datetime"
+        onDateChange={[Function]}
+      >
+        <Translate(ReminderDateText)
+          reminder={
+            Object {
+              "id": "1",
+              "next_occurance_at": "2018-09-01",
+            }
+          }
           style={
             Array [
               Object {

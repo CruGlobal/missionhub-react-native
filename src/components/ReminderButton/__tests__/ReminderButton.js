@@ -13,9 +13,12 @@ import ReminderButton from '..';
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');
 
-MockDate.set('2018-09-12T12:00:00');
-
 const stepId = '1';
+const mockDate = '2018-09-12T12:00:00';
+const reminder = { id: '11', next_occurrence_at: mockDate };
+
+MockDate.set(mockDate);
+
 const navigatePushResult = { type: 'navigated push' };
 const createStepReminderResult = { type: 'create step reminder' };
 
@@ -26,17 +29,34 @@ let component;
 navigatePush.mockReturnValue(navigatePushResult);
 createStepReminder.mockReturnValue(createStepReminderResult);
 
-beforeEach(() => {
+const createComponent = props => {
   store = mockStore();
-  component = renderShallow(<ReminderButton stepId={stepId} />, store);
+  component = renderShallow(<ReminderButton {...props} />, store);
+};
+
+describe('reminder passed in', () => {
+  beforeEach(() => {
+    createComponent({ stepId, reminder });
+  });
+
+  it('renders correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
 });
 
-it('renders correctly', () => {
-  expect(component).toMatchSnapshot();
+describe('reminder not passed in', () => {
+  beforeEach(() => {
+    createComponent({ stepId });
+  });
+
+  it('renders correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
 });
 
 describe('handlePressAndroid', () => {
   beforeEach(() => {
+    createComponent({ stepId, reminder });
     component.props().onPressAndroid();
   });
 
@@ -50,6 +70,7 @@ describe('onDateChange', () => {
   const recurrence = 'weekLEE';
 
   beforeEach(() => {
+    createComponent({ stepId, reminder });
     component.props().iOSModalContent.props.onRecurrenceChange(recurrence);
     component.props().onDateChange(date);
   });

@@ -1,9 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`reminder not passed in renders correctly 1`] = `
 <Translate(MyDatePickerIOS)
   customStyles={Object {}}
   date=""
+  disabled={false}
+  duration={300}
+  height={378}
+  iOSModalContent={
+    <Translate(ReminderRepeatButtons)
+      onRecurrenceChange={[Function]}
+    />
+  }
+  minDate={2018-09-12T16:00:00.000Z}
+  mode="datetime"
+  onDateChange={[Function]}
+  onPressAndroid={[Function]}
+/>
+`;
+
+exports[`reminder passed in renders correctly 1`] = `
+<Translate(MyDatePickerIOS)
+  customStyles={Object {}}
+  date="2018-09-12T12:00:00"
   disabled={false}
   duration={300}
   height={378}

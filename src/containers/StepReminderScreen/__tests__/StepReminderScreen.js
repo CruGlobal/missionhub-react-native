@@ -20,14 +20,13 @@ MockDate.set(mockDate);
 const mockStore = configureStore([thunk]);
 const stepId = '42234';
 const reminderId = '1';
-const reminder = { id: reminderId };
+const reminder = { id: reminderId, next_occurance_at: mockDate };
 const stepReminders = {
   all: {
     [reminderId]: reminder,
   },
 };
 
-let date = '';
 let component;
 let instance;
 let store;
@@ -42,19 +41,16 @@ const createComponent = () => {
   store = mockStore({ stepReminders });
 
   component = renderShallow(
-    <SetReminderScreen
-      date={date}
-      navigation={createMockNavState({ stepId })}
-    />,
+    <SetReminderScreen navigation={createMockNavState({ stepId })} />,
     store,
   );
   instance = component.instance();
 };
 
 describe('render', () => {
-  describe('date in props', () => {
+  describe('reminder in props', () => {
     beforeEach(() => {
-      date = mockDate;
+      reminderSelector.mockReturnValue(reminder);
       createComponent();
     });
 
@@ -70,9 +66,9 @@ describe('render', () => {
     });
   });
 
-  describe('no date in props', () => {
+  describe('no reminder in props', () => {
     beforeEach(() => {
-      date = null;
+      reminderSelector.mockReturnValue(null);
       createComponent();
     });
 
@@ -84,7 +80,7 @@ describe('render', () => {
 
 describe('handleChangeDate', () => {
   beforeEach(() => {
-    date = null;
+    reminderSelector.mockReturnValue(null);
     createComponent();
   });
 
