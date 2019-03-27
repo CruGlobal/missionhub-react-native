@@ -241,7 +241,7 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
   });
 });
 
-it('deletes steps locally on REQUESTS/DELETE_CHALLENGE.SUCCESS', () => {
+it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
   const state = steps(
     {
       mine: [{ id: '6' }, { id: '3' }],

@@ -5,13 +5,14 @@ import { DAYS_OF_THE_WEEK, REMINDER_RECURRENCES } from '../../constants';
 import { removeStepReminder, createStepReminder } from '../stepReminders';
 import callApi, { REQUESTS } from '../api';
 
+jest.mock('../api');
+
 const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
-jest.mock('../api');
+const mockStore = configureStore([thunk]);
 
 const challenge_id = '442324';
 const callApiResponse = { type: 'called api' };
-const mockStore = configureStore([thunk]);
 
 let at;
 let recurrence;
