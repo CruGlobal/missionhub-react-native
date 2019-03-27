@@ -74,6 +74,7 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "flex": 1,
+        "justifyContent": "flex-end",
       }
     }
   >
@@ -218,6 +219,7 @@ exports[`renders correctly with default state 1`] = `
     style={
       Object {
         "flex": 1,
+        "justifyContent": "flex-end",
       }
     }
   >

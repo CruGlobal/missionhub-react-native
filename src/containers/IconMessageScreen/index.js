@@ -20,7 +20,7 @@ class IconMessageScreen extends Component {
           <Text style={styles.text}>{mainText}</Text>
         </Flex>
 
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1, justifyContent: 'flex-end' }}>
           <BottomButton onPress={onComplete} text={buttonText} />
         </SafeAreaView>
         {onSkip ? <AbsoluteSkip onSkip={onSkip} /> : null}

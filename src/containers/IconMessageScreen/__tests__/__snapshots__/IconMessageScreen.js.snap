@@ -69,6 +69,7 @@ exports[`renders button text correctly 1`] = `
     style={
       Object {
         "flex": 1,
+        "justifyContent": "flex-end",
       }
     }
   >
@@ -213,6 +214,7 @@ exports[`renders icon correctly 1`] = `
     style={
       Object {
         "flex": 1,
+        "justifyContent": "flex-end",
       }
     }
   >
@@ -323,6 +325,7 @@ exports[`renders main text correctly 1`] = `
     style={
       Object {
         "flex": 1,
+        "justifyContent": "flex-end",
       }
     }
   >
@@ -433,6 +436,7 @@ exports[`renders skip button correctly 1`] = `
     style={
       Object {
         "flex": 1,
+        "justifyContent": "flex-end",
       }
     }
   >

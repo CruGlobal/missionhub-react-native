@@ -13,7 +13,7 @@ import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { disableBack } from '../../utils/common';
+import { disableBack, hasNotch } from '../../utils/common';
 import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
 import StepsList from '../StepsList';
@@ -94,14 +94,14 @@ class SelectStepScreen extends Component {
       contact,
       next,
     } = this.props;
-    const { headerHeight } = theme;
+    const { headerHeight, parallaxHeaderHeight } = theme;
 
     return (
       <View flex={1}>
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
           contentBackgroundColor={theme.extraLightGrey}
-          parallaxHeaderHeight={240 + theme.notchHeight}
+          parallaxHeaderHeight={parallaxHeaderHeight + (hasNotch() ? 20 : 0)}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={headerHeight}
           renderStickyHeader={this.renderStickyHeader}
