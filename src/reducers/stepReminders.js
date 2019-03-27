@@ -8,7 +8,7 @@ export default function stepRemindersReducer(state = initialState, action) {
     case REQUESTS.CREATE_CHALLENGE_REMINDER.SUCCESS:
       return addCreatedReminderToState(state, action);
     case REQUESTS.DELETE_CHALLENGE_REMINDER.SUCCESS:
-
+      return removeReminderFromState(state, action);
     case LOGOUT:
       return initialState;
     default:

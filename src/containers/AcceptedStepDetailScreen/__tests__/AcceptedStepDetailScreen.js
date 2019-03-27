@@ -4,17 +4,21 @@ import thunk from 'redux-thunk';
 
 import { createMockNavState, renderShallow } from '../../../../testUtils';
 import { completeStep, deleteStepWithTracking } from '../../../actions/steps';
+import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
 
 import AcceptedStepDetailScreen from '..';
 
 jest.mock('../../../actions/steps');
+jest.mock('../../../actions/stepReminders');
 jest.mock('../../../actions/navigation');
 
 const completeStepResult = { type: 'completed step' };
 const deleteStepResult = { type: 'deleted step' };
+const removeReminderResult = { type: 'remove reminder' };
 const navigateBackResult = { type: 'navigate back' };
 
+const stepId = '234242';
 let step;
 let challenge_suggestion;
 let screen;
@@ -24,6 +28,7 @@ let store;
 
 completeStep.mockReturnValue(completeStepResult);
 deleteStepWithTracking.mockReturnValue(deleteStepResult);
+removeStepReminder.mockReturnValue(removeReminderResult);
 navigateBack.mockReturnValue(navigateBackResult);
 
 beforeEach(() => {
@@ -32,7 +37,7 @@ beforeEach(() => {
   store = mockStore();
 
   step = {
-    id: '234242',
+    id: stepId,
     title: 'ROBERT',
     challenge_suggestion,
   };
@@ -81,5 +86,22 @@ describe('without challenge suggestion', () => {
 
   it('renders correctly', () => {
     expect(screen).toMatchSnapshot();
+  });
+});
+
+describe('handleRemoveReminder', () => {
+  let centerContent;
+
+  beforeEach(() => {
+    centerContent = renderShallow(screen.props().CenterContent, store);
+    centerContent
+      .childAt(0)
+      .childAt(1)
+      .props()
+      .onPress();
+  });
+
+  it('removes reminder', () => {
+    expect(removeStepReminder).toHaveBeenCalledWith(stepId);
   });
 });

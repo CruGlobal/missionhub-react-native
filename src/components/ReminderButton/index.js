@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import ReminderRepeatButtons from '../ReminderRepeatButtons';
 import { navigatePush } from '../../actions/navigation';
-import { removeStepReminder } from '../../actions/stepReminders';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
 import DatePicker from '../DatePicker';
 import { createStepReminder } from '../../actions/stepReminders';
@@ -18,11 +17,6 @@ class ReminderButton extends Component {
   handlePressAndroid = () => {
     const { dispatch, stepId } = this.props;
     dispatch(navigatePush(STEP_REMINDER_SCREEN, { stepId }));
-  };
-
-  handleRemoveReminder = () => {
-    const { dispatch, stepId } = this.props;
-    dispatch(removeStepReminder(stepId));
   };
 
   handleChangeDate = date => {

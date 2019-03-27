@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 
 import { renderShallow } from '../../../../testUtils/index';
 import { navigatePush } from '../../../actions/navigation';
-import { removeStepReminder } from '../../../actions/stepReminders';
 import { STEP_REMINDER_SCREEN } from '../../../containers/StepReminderScreen';
 import { createStepReminder } from '../../../actions/stepReminders';
 
@@ -55,19 +54,5 @@ describe('onDateChange', () => {
   it('creates step reminder', () => {
     expect(createStepReminder).toHaveBeenCalledWith(stepId, date, recurrence);
     expect(store.getActions()).toEqual([createStepReminderResult]);
-  });
-});
-
-describe('handleRemoveReminder', () => {
-  beforeEach(() => {
-    component
-      .childAt(0)
-      .childAt(1)
-      .props()
-      .onPress();
-  });
-
-  it('removes reminder', () => {
-    expect(removeStepReminder).toHaveBeenCalledWith(stepId);
   });
 });
