@@ -11,11 +11,6 @@ export default StyleSheet.create({
     borderBottomWidth: theme.separatorHeight,
     borderBottomColor: theme.separatorColor,
   },
-  name: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: theme.primaryColor,
-  },
   stage: {
     fontSize: 14,
     color: theme.inactiveColor,

@@ -12,7 +12,7 @@ exports[`renders correctly 1`] = `
   createStepTracking={Object {}}
   enableBackButton={true}
   headerText="What will you do to help Ron experience God?"
-  onComplete={[Function]}
+  next={[MockFunction]}
   organization={
     Object {
       "id": "889",

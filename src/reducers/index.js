@@ -18,6 +18,8 @@ import swipe from './swipe';
 import drawer from './drawer';
 import journey from './journey';
 import tabs from './tabs';
+import celebrateComments from './celebrateComments';
+import reportedComments from './reportedComments';
 import stepReminders from './stepReminders';
 
 export default combineReducers({
@@ -40,4 +42,6 @@ export default combineReducers({
   steps,
   surveys,
   swipe,
+  celebrateComments,
+  reportedComments,
 });

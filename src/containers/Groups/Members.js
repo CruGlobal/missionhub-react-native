@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Alert, Share, FlatList } from 'react-native';
+import { SafeAreaView, Alert, Share, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { ACTIONS } from '../../constants';
-import { Flex, RefreshControl } from '../../components/common';
+import { RefreshControl } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import { refresh, getCommunityUrl } from '../../utils/common';
+import { refresh, getCommunityUrl, keyExtractorId } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
 import {
@@ -56,8 +56,6 @@ class Members extends Component {
     dispatch(getOrganizationMembersNextPage(organization.id));
   };
 
-  keyExtractor = i => i.id;
-
   handleInvite = async () => {
     const { t, organization, groupInviteInfo, dispatch } = this.props;
     const url = getCommunityUrl(organization.community_url);
@@ -66,10 +64,12 @@ class Members extends Component {
     const { action } = await Share.share({
       message: t('sendInviteMessage', { url, code }),
     });
-    if (groupInviteInfo && action === Share.sharedAction) {
-      Alert.alert('', t('invited', { orgName: organization.name }));
-      dispatch(removeGroupInviteInfo());
+    if (action === Share.sharedAction) {
       dispatch(trackActionWithoutData(ACTIONS.SEND_COMMUNITY_INVITE));
+      if (groupInviteInfo) {
+        Alert.alert('', t('invited', { orgName: organization.name }));
+        dispatch(removeGroupInviteInfo());
+      }
     }
   };
 
@@ -90,11 +90,11 @@ class Members extends Component {
   render() {
     const { t, members, pagination } = this.props;
     return (
-      <Flex value={1}>
+      <SafeAreaView style={{ flex: 1 }}>
         <FlatList
           data={members}
           ListHeaderComponent={this.renderHeader}
-          keyExtractor={this.keyExtractor}
+          keyExtractor={keyExtractorId}
           style={styles.cardList}
           renderItem={this.renderItem}
           refreshControl={
@@ -112,7 +112,7 @@ class Members extends Component {
           }
         />
         <BottomButton onPress={this.handleInvite} text={t('invite')} />
-      </Flex>
+      </SafeAreaView>
     );
   }
 }

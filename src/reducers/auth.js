@@ -1,6 +1,12 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
 
-import { FIRST_TIME, LOGOUT, UPDATE_STAGES, UPDATE_TOKEN } from '../constants';
+import {
+  CLEAR_UPGRADE_TOKEN,
+  FIRST_TIME,
+  LOGOUT,
+  UPDATE_STAGES,
+  UPDATE_TOKEN,
+} from '../constants';
 import { userIsJean } from '../utils/common';
 import { REQUESTS } from '../actions/api';
 
@@ -105,6 +111,11 @@ function authReducer(state = initialAuthState, action) {
       return {
         ...state,
         token: action.token,
+      };
+    case CLEAR_UPGRADE_TOKEN:
+      return {
+        ...state,
+        upgradeToken: initialAuthState.upgradeToken,
       };
     case LOGOUT:
       return initialAuthState;

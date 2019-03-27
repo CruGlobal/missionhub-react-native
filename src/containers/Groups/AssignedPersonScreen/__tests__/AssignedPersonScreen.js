@@ -81,7 +81,6 @@ const props = {
 };
 
 beforeEach(() => {
-  jest.clearAllMocks();
   contactAssignmentSelector.mockReturnValue(contactAssignment);
 });
 
@@ -139,7 +138,7 @@ describe('Contact', () => {
       <AssignedPersonScreen {...props} dispatch={dispatch} />,
     );
     component
-      .find('Connect(Header)')
+      .find('Header')
       .props()
       .right.props.onPress();
 

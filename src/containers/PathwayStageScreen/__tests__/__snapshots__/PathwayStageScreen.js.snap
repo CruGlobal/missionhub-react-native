@@ -36,36 +36,27 @@ exports[`renders back button correctly 1`] = `
       ]
     }
   />
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
         },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
       ]
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
       accessibilityTraits="button"
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -77,8 +68,6 @@ exports[`renders back button correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
         style={
@@ -129,7 +118,7 @@ exports[`renders back button correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -167,7 +156,6 @@ exports[`renders back button correctly 1`] = `
     autoplayDelay={5000}
     autoplayInterval={3000}
     callbackOffsetMargin={5}
-    collapsable={undefined}
     containerCustomStyle={
       Object {
         "flex": 0,
@@ -212,14 +200,12 @@ exports[`renders back button correctly 1`] = `
     firstItem={0}
     getItem={[Function]}
     getItemCount={[Function]}
-    getItemLayout={undefined}
     hasParallaxImages={false}
     horizontal={true}
     inactiveSlideOpacity={1}
     inactiveSlideScale={1}
     inactiveSlideShift={0}
     initialNumToRender={7}
-    initialScrollIndex={undefined}
     invertStickyHeaders={false}
     inverted={false}
     itemWidth={680}
@@ -371,16 +357,9 @@ exports[`renders back button correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -392,8 +371,6 @@ exports[`renders back button correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={
@@ -513,16 +490,9 @@ exports[`renders back button correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -534,8 +504,6 @@ exports[`renders back button correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={
@@ -655,16 +623,9 @@ exports[`renders back button correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -676,8 +637,6 @@ exports[`renders back button correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={
@@ -776,7 +735,6 @@ exports[`renders correctly 1`] = `
     autoplayDelay={5000}
     autoplayInterval={3000}
     callbackOffsetMargin={5}
-    collapsable={undefined}
     containerCustomStyle={
       Object {
         "flex": 0,
@@ -821,14 +779,12 @@ exports[`renders correctly 1`] = `
     firstItem={0}
     getItem={[Function]}
     getItemCount={[Function]}
-    getItemLayout={undefined}
     hasParallaxImages={false}
     horizontal={true}
     inactiveSlideOpacity={1}
     inactiveSlideScale={1}
     inactiveSlideShift={0}
     initialNumToRender={7}
-    initialScrollIndex={undefined}
     invertStickyHeaders={false}
     inverted={false}
     itemWidth={680}
@@ -980,16 +936,9 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1001,8 +950,6 @@ exports[`renders correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={
@@ -1122,16 +1069,9 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1143,8 +1083,6 @@ exports[`renders correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={
@@ -1264,16 +1202,9 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1285,8 +1216,6 @@ exports[`renders correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={
@@ -1450,7 +1379,6 @@ exports[`renders firstItem correctly 1`] = `
     autoplayDelay={5000}
     autoplayInterval={3000}
     callbackOffsetMargin={5}
-    collapsable={undefined}
     containerCustomStyle={
       Object {
         "flex": 0,
@@ -1495,14 +1423,12 @@ exports[`renders firstItem correctly 1`] = `
     firstItem={1}
     getItem={[Function]}
     getItemCount={[Function]}
-    getItemLayout={undefined}
     hasParallaxImages={false}
     horizontal={true}
     inactiveSlideOpacity={1}
     inactiveSlideScale={1}
     inactiveSlideShift={0}
     initialNumToRender={7}
-    initialScrollIndex={undefined}
     invertStickyHeaders={false}
     inverted={false}
     itemWidth={680}
@@ -1654,16 +1580,9 @@ exports[`renders firstItem correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1675,8 +1594,6 @@ exports[`renders firstItem correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={
@@ -1796,16 +1713,9 @@ exports[`renders firstItem correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1817,8 +1727,6 @@ exports[`renders firstItem correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={
@@ -1938,16 +1846,9 @@ exports[`renders firstItem correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
               accessibilityTraits="button"
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1959,8 +1860,6 @@ exports[`renders firstItem correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 style={

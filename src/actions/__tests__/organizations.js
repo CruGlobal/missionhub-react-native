@@ -57,9 +57,7 @@ let store;
 const auth = { person: { user: {}, id: myId }, token: 'something' };
 
 beforeEach(() => {
-  jest.clearAllMocks();
   store = mockStore({ auth, organizations: { all: [] } });
-  callApi.mockClear();
 });
 
 describe('getMyOrganizations', () => {
@@ -574,7 +572,6 @@ describe('addNewOrganization', () => {
   const trackActionResponse = { type: 'track action' };
 
   beforeEach(() => {
-    jest.clearAllMocks();
     callApi.mockReturnValue(apiResponse);
     getMe.mockReturnValue(getMeResponse);
     trackActionWithoutData.mockReturnValue(trackActionResponse);

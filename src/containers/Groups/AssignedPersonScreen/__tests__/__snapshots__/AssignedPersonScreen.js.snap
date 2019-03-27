@@ -2,7 +2,7 @@
 
 exports[`Contact hides the header when the keyboard is shown 1`] = `
 <Component>
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     right={
       <IconButton
@@ -62,6 +62,12 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
               [Function],
             ],
           ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
         }
       }
       isCruOrg={true}
@@ -95,7 +101,7 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
 
 exports[`Contact should render AssignedPersonScreen correctly with stage for User-Created Community 1`] = `
 <View>
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     right={
       <IconButton
@@ -141,6 +147,12 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for Use
             Array [
               [Function],
             ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
           ],
         }
       }
@@ -175,7 +187,7 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for Use
 
 exports[`Contact should render AssignedPersonScreen correctly with stage for cru community 1`] = `
 <View>
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     right={
       <IconButton
@@ -231,6 +243,12 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for cru
               [Function],
             ],
           ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
         }
       }
       isCruOrg={true}
@@ -264,7 +282,7 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for cru
 
 exports[`Contact should render AssignedPersonScreen correctly without stage 1`] = `
 <View>
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     right={
       <IconButton
@@ -319,6 +337,12 @@ exports[`Contact should render AssignedPersonScreen correctly without stage 1`] 
             Array [
               [Function],
             ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
           ],
         }
       }

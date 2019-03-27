@@ -3,9 +3,17 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
+  pageContainer: {
+    flex: 1,
+    backgroundColor: theme.white,
+  },
   flatList: {
     flex: 1,
     backgroundColor: theme.white,
+  },
+  scrollView: {
+    flex: 1,
+    backgroundColor: theme.lightGrey,
   },
   cardList: {
     flex: 1,
@@ -68,5 +76,11 @@ export default StyleSheet.create({
     fontSize: 12,
     fontWeight: 'bold',
     color: theme.white,
+  },
+  reportHeader: {
+    backgroundColor: theme.red,
+  },
+  reportList: {
+    paddingVertical: 15,
   },
 });

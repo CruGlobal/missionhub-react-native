@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`contact notes and editing is set to true button message changes to DONE 1`] = `
-<View
+<_class
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -41,13 +42,14 @@ exports[`contact notes and editing is set to true button message changes to DONE
     onPress={[Function]}
     text="Done"
   />
-</View>
+</_class>
 `;
 
 exports[`contact notes icon and prompt are shown if no notes 1`] = `
-<View
+<_class
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -65,13 +67,39 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
     onPress={[Function]}
     text="ADD PRIVATE NOTES"
   />
-</View>
+</_class>
+`;
+
+exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
+<_class
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <NullStateComponent
+    descriptionText="Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God."
+    headerText="MY NOTES"
+    imageSource={
+      Object {
+        "testUri": "../../../assets/images/myNotes.png",
+      }
+    }
+  />
+  <BottomButton
+    onPress={[Function]}
+    text="ADD PRIVATE NOTES"
+  />
+</_class>
 `;
 
 exports[`contact notes notes are shown 1`] = `
-<View
+<_class
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -110,5 +138,5 @@ exports[`contact notes notes are shown 1`] = `
     onPress={[Function]}
     text="EDIT PRIVATE NOTES"
   />
-</View>
+</_class>
 `;

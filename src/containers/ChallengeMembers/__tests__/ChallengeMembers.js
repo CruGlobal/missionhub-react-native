@@ -82,10 +82,6 @@ let props = {
 
 let component;
 
-beforeEach(() => {
-  jest.clearAllMocks();
-});
-
 const buildComponent = () => {
   component = renderShallow(<ChallengeMembers {...props} />, store);
 

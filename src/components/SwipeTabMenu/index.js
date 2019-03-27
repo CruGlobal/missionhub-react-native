@@ -3,11 +3,13 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
-import { createMaterialTopTabNavigator } from 'react-navigation';
+import {
+  createMaterialTopTabNavigator,
+  NavigationActions,
+} from 'react-navigation';
 import ViewOverflow from 'react-native-view-overflow';
 
 import { Flex, Touchable } from '../common';
-import { navigatePush } from '../../actions/navigation';
 import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
@@ -67,7 +69,12 @@ export class SwipeTabMenu extends Component {
     const { tabs, dispatch, navigation } = this.props;
 
     if (index !== navigation.state.index) {
-      dispatch(navigatePush(tabs[index].navigationAction));
+      dispatch(
+        NavigationActions.navigate({
+          routeName: tabs[index].navigationAction,
+          params: {},
+        }),
+      );
     }
 
     this.setState({

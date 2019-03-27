@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { getGroupJourney } from '../../../actions/journey';
-import GroupsContactList from '../../../components/GroupsContactList/index';
-import CommentBox from '../../../components/CommentBox/index';
-import Header from '../../Header/index';
-import BackButton from '../../BackButton/index';
+import JourneyCommentBox from '../../../components/JourneyCommentBox';
+import GroupsContactList from '../../../components/GroupsContactList';
+import Header from '../../../components/Header';
+import BackButton from '../../BackButton';
 import { organizationSelector } from '../../../selectors/organizations';
 import { personSelector } from '../../../selectors/people';
 
@@ -37,18 +37,21 @@ class UnassignedPersonScreen extends Component {
           title={organization.name}
           shadow={false}
         />
-        <GroupsContactList
-          activity={activity}
-          person={person}
-          organization={organization}
-          myId={me.id}
-          onAssign={onAssign}
-        />
-        <CommentBox
-          onSubmit={this.loadFeed}
-          person={person}
-          organization={organization}
-        />
+
+        <SafeAreaView style={styles.content}>
+          <GroupsContactList
+            activity={activity}
+            person={person}
+            organization={organization}
+            myId={me.id}
+            onAssign={onAssign}
+          />
+          <JourneyCommentBox
+            onSubmit={this.loadFeed}
+            person={person}
+            organization={organization}
+          />
+        </SafeAreaView>
       </View>
     );
   }

@@ -12,6 +12,7 @@ jest.mock('../../../utils/common', () => ({
   hasNotch: jest.fn(),
   buildTrackingObj: jest.fn(),
 }));
+jest.mock('../../TrackTabChange', () => () => null);
 
 const props = {
   areNotificationsOff: true,

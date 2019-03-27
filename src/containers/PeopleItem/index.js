@@ -10,6 +10,7 @@ import { navigatePush } from '../../actions/navigation';
 import { getMyPeople } from '../../actions/people';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { hasOrgPermissions, orgIsCru } from '../../utils/common';
+import ItemHeaderText from '../../components/ItemHeaderText';
 
 import styles from './styles';
 
@@ -100,7 +101,7 @@ export class PeopleItem extends Component {
       <Touchable highlight={true} onPress={this.handleSelect}>
         <Flex direction="row" align="center" style={styles.row}>
           <Flex justify="center" value={1}>
-            <Text style={styles.name}>{personName}</Text>
+            <ItemHeaderText text={personName} />
             <Flex direction="row" align="center">
               <Text style={styles.stage}>{stage ? stage.name : ''}</Text>
               <Text style={styles.stage}>
