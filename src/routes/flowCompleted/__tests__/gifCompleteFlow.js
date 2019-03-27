@@ -47,7 +47,6 @@ const popResponse = { type: 'pop once' };
 
 beforeEach(() => {
   store.clearActions();
-  jest.clearAllMocks();
   navigatePush.mockReturnValue(navigatePushResponse);
   reactNavigation.StackActions.popToTop = jest
     .fn()

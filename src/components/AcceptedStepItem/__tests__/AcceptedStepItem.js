@@ -6,6 +6,7 @@ import { navigatePush } from '../../../actions/navigation';
 import StepSuggestionItem from '../';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../../containers/AcceptedStepDetailScreen';
 import { CONTACT_STEPS } from '../../../constants';
+import { COMPLETED_STEP_DETAIL_SCREEN } from '../../../containers/CompletedStepDetailScreen';
 
 jest.mock('.../../../actions/navigation');
 jest.mock('.../../../actions/steps');
@@ -26,7 +27,7 @@ describe('AcceptedStepItem', () => {
     );
   });
 
-  it('navigates to StepDetailScreen', () => {
+  it('navigates to AcceptedStepDetailScreen', () => {
     navigatePush.mockReturnValue({ type: 'navigate push' });
 
     const component = renderShallow(<StepSuggestionItem step={step} />);
@@ -35,6 +36,21 @@ describe('AcceptedStepItem', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
       step,
+    });
+  });
+
+  it('navigates to CompletedStepDetailScreen', () => {
+    const completedStep = { ...step, completed_at: '2018' };
+    navigatePush.mockReturnValue({ type: 'navigate push' });
+
+    const component = renderShallow(
+      <StepSuggestionItem step={completedStep} />,
+    );
+
+    component.props().onPress();
+
+    expect(navigatePush).toHaveBeenCalledWith(COMPLETED_STEP_DETAIL_SCREEN, {
+      step: completedStep,
     });
   });
 

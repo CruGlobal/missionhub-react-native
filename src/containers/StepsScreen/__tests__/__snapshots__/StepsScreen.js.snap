@@ -1,56 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StepsScreen arrow functions should render item correctly 1`] = `
-<Translate(RowSwipeable)
-  bump={true}
-  completePressProps={
-    Array [
-      Object {
-        "id": 0,
-        "organization": Object {
-          "id": "000",
-        },
-        "receiver": Object {
-          "id": "00",
-        },
+<Connect(Translate(StepItem))
+  hideAction={true}
+  onAction={[Function]}
+  onSelect={[Function]}
+  step={
+    Object {
+      "id": 0,
+      "organization": Object {
+        "id": "000",
       },
-    ]
-  }
-  deletePressProps={
-    Array [
-      Object {
-        "id": 0,
-        "organization": Object {
-          "id": "000",
-        },
-        "receiver": Object {
-          "id": "00",
-        },
+      "receiver": Object {
+        "id": "00",
       },
-    ]
-  }
-  onBumpComplete={[Function]}
-  onComplete={[Function]}
-  onDelete={[Function]}
->
-  <Connect(Translate(StepItem))
-    hideAction={true}
-    onAction={[Function]}
-    onSelect={[Function]}
-    step={
-      Object {
-        "id": 0,
-        "organization": Object {
-          "id": "000",
-        },
-        "receiver": Object {
-          "id": "00",
-        },
-      }
     }
-    type="swipeable"
-  />
-</Translate(RowSwipeable)>
+  }
+  type="swipeable"
+/>
 `;
 
 exports[`StepsScreen mapStateToProps should provide the necessary props 1`] = `
@@ -63,8 +30,6 @@ Object {
       "reminder": true,
     },
   ],
-  "showStepBump": true,
-  "showStepReminderBump": true,
   "steps": Array [
     Object {
       "id": 2,
@@ -84,7 +49,10 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Component
+    screen="StepsTab"
+  />
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -92,6 +60,7 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <Component
@@ -207,7 +176,10 @@ exports[`StepsScreen renders loading screen correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Component
+    screen="StepsTab"
+  />
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -215,6 +187,7 @@ exports[`StepsScreen renders loading screen correctly 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <LoadingGuy />
@@ -229,7 +202,10 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
     }
   }
 >
-  <Connect(Header)
+  <Component
+    screen="StepsTab"
+  />
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -237,6 +213,7 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <Component
@@ -382,7 +359,10 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Component
+    screen="StepsTab"
+  />
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -390,6 +370,7 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <Component
@@ -448,75 +429,30 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
           ]
         }
       >
-        <Translate(RowSwipeable)
-          bump={true}
-          completePressProps={
-            Array [
-              Object {
-                "id": 1,
-                "reminder": true,
-              },
-            ]
-          }
-          deletePressProps={
-            Array [
-              Object {
-                "id": 1,
-                "reminder": true,
-              },
-            ]
-          }
+        <Connect(Translate(StepItem))
           key="1"
-          onBumpComplete={[Function]}
-          onComplete={[Function]}
-          onDelete={[Function]}
-        >
-          <Connect(Translate(StepItem))
-            onAction={[Function]}
-            onSelect={[Function]}
-            step={
-              Object {
-                "id": 1,
-                "reminder": true,
-              }
+          onAction={[Function]}
+          onSelect={[Function]}
+          step={
+            Object {
+              "id": 1,
+              "reminder": true,
             }
-            type="reminder"
-          />
-        </Translate(RowSwipeable)>
-        <Translate(RowSwipeable)
-          bump={false}
-          completePressProps={
-            Array [
-              Object {
-                "id": 2,
-                "reminder": true,
-              },
-            ]
           }
-          deletePressProps={
-            Array [
-              Object {
-                "id": 2,
-                "reminder": true,
-              },
-            ]
-          }
+          type="reminder"
+        />
+        <Connect(Translate(StepItem))
           key="2"
-          onComplete={[Function]}
-          onDelete={[Function]}
-        >
-          <Connect(Translate(StepItem))
-            onAction={[Function]}
-            onSelect={[Function]}
-            step={
-              Object {
-                "id": 2,
-                "reminder": true,
-              }
+          onAction={[Function]}
+          onSelect={[Function]}
+          step={
+            Object {
+              "id": 2,
+              "reminder": true,
             }
-            type="reminder"
-          />
-        </Translate(RowSwipeable)>
+          }
+          type="reminder"
+        />
       </Flex>
       <FlatList
         ListFooterComponent={null}
@@ -605,7 +541,10 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
     }
   }
 >
-  <Connect(Header)
+  <Component
+    screen="StepsTab"
+  />
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -613,6 +552,7 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <Component
@@ -738,7 +678,10 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Component
+    screen="StepsTab"
+  />
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -746,6 +689,7 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <Component
@@ -930,7 +874,10 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
     }
   }
 >
-  <Connect(Header)
+  <Component
+    screen="StepsTab"
+  />
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -938,6 +885,7 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <Component

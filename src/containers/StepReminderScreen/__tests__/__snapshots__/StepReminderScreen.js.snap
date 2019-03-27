@@ -10,7 +10,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <MyText
         accessible={true}
@@ -133,7 +133,7 @@ exports[`render date in props renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <MyText
         accessible={true}
@@ -256,7 +256,7 @@ exports[`render no date in props renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <MyText
         accessible={true}

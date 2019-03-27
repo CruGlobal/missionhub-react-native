@@ -38,8 +38,6 @@ const mockStore = configureStore([thunk]);
 let props;
 let store;
 
-beforeEach(() => jest.clearAllMocks());
-
 const test = () => {
   testSnapshotShallow(<MemberOptionsMenu {...props} />);
 };
@@ -200,10 +198,6 @@ describe('confirm screen', () => {
   Alert.alert = jest.fn();
 
   let screen;
-
-  beforeEach(() => {
-    Alert.alert.mockClear();
-  });
 
   describe('Make Admin', () => {
     const makeAdminResponse = { type: 'make admin' };

@@ -22,7 +22,6 @@ jest.mock('../../../actions/api');
 
 beforeEach(() => {
   store.clearActions();
-  jest.clearAllMocks();
 });
 
 it('renders correctly', () => {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`filters out celebrate items it cannot render 1`] = `
+exports[`celebrationSelector filters out celebrate items it cannot render 1`] = `
 Array [
   Object {
     "data": Array [
@@ -113,7 +113,7 @@ Array [
 ]
 `;
 
-exports[`sorts items into sections by date 1`] = `
+exports[`celebrationSelector sorts items into sections by date 1`] = `
 Array [
   Object {
     "data": Array [

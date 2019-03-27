@@ -11,6 +11,7 @@ import {
   communityChallengeSelector,
   acceptedChallengesSelector,
 } from '../../selectors/challenges';
+import { keyExtractorId } from '../../utils/common';
 
 import styles from './styles';
 
@@ -19,8 +20,6 @@ class ChallengeMembers extends Component {
     const { dispatch, organization } = this.props;
     dispatch(navToPersonScreen(person, organization));
   };
-
-  keyExtractor = i => i.id;
 
   renderItem = ({ item }) => {
     const { organization } = this.props;
@@ -42,7 +41,7 @@ class ChallengeMembers extends Component {
       <Flex value={1}>
         <FlatList
           data={members}
-          keyExtractor={this.keyExtractor}
+          keyExtractor={keyExtractorId}
           style={styles.flatList}
           renderItem={this.renderItem}
         />

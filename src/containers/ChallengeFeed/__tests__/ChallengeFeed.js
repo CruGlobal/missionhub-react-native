@@ -100,7 +100,6 @@ const props = {
 };
 
 beforeEach(() => {
-  jest.clearAllMocks();
   component = renderShallow(
     <ChallengeFeed
       {...props}
@@ -156,12 +155,6 @@ it('renders item', () => {
     .props()
     .renderItem({ item: challengeItems[0].data[0] });
   expect(renderedItem).toMatchSnapshot();
-});
-
-it('calls key extractor', () => {
-  const item = challengeItems[0].data[0];
-  const result = component.props().keyExtractor(item);
-  expect(result).toEqual(item.id);
 });
 
 it('calls handleOnEndReached', () => {

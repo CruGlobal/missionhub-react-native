@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
-import { hasNotch } from '../../utils/common';
 
 const common = {
   height: theme.buttonHeight,
@@ -30,7 +29,7 @@ export default StyleSheet.create({
   secondary: {
     backgroundColor: theme.secondaryColor,
     ...common,
-    height: hasNotch() ? common.height + 25 : common.height,
+    height: common.height,
   },
   disabled: {
     opacity: 0.6,

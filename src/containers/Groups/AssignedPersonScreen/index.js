@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { DrawerActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 
-import Header from '../../Header';
+import Header from '../../../components/Header';
 import BackButton from '../../BackButton';
 import MemberCelebrate from '../../MemberCelebrate';
 import ContactSteps from '../../ContactSteps';
@@ -285,7 +285,8 @@ export const mapStateToProps = (
 
   const organization =
     organizationSelector({ organizations }, { orgId }) || navOrg;
-  const person = personSelector({ people }, { personId, orgId }) || navPerson;
+  const person = personSelector({ people }, { orgId, personId }) || navPerson;
+
   const contactAssignment = contactAssignmentSelector(
     { auth },
     { person, orgId: organization.id },

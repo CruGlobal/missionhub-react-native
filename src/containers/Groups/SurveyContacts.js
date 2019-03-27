@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import PersonListItem from '../../components/PersonListItem';
 import {
@@ -13,7 +13,7 @@ import {
   thirtyDaysFilter,
 } from '../../utils/filters';
 import { buildTrackingObj } from '../../utils/common';
-import Header from '../Header';
+import Header from '../../components/Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
 import { buildUpdatedPagination } from '../../utils/pagination';
@@ -21,6 +21,7 @@ import ShareSurveyMenu from '../../components/ShareSurveyMenu';
 import { getOrganizationContacts } from '../../actions/organizations';
 
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
+import styles from './styles';
 
 @translate('groupsSurveyContacts')
 class SurveyContacts extends Component {
@@ -146,26 +147,28 @@ class SurveyContacts extends Component {
     const { filters, defaultResults } = this.state;
     const orgName = organization ? organization.name : undefined;
     return (
-      <Flex value={1}>
+      <View style={styles.pageContainer}>
         <Header
           left={<BackButton />}
           title={orgName}
           right={<ShareSurveyMenu survey={survey} header={true} />}
         />
-        <SearchList
-          ref={this.ref}
-          defaultData={defaultResults}
-          onFilterPress={this.handleFilterPress}
-          listProps={{
-            renderItem: this.renderItem,
-          }}
-          onSearch={this.handleSearch}
-          onRemoveFilter={this.handleRemoveFilter}
-          onLoadMore={this.handleLoadMore}
-          filters={filters}
-          placeholder={t('searchPlaceholder')}
-        />
-      </Flex>
+        <SafeAreaView style={{ flex: 1 }}>
+          <SearchList
+            ref={this.ref}
+            defaultData={defaultResults}
+            onFilterPress={this.handleFilterPress}
+            listProps={{
+              renderItem: this.renderItem,
+            }}
+            onSearch={this.handleSearch}
+            onRemoveFilter={this.handleRemoveFilter}
+            onLoadMore={this.handleLoadMore}
+            filters={filters}
+            placeholder={t('searchPlaceholder')}
+          />
+        </SafeAreaView>
+      </View>
     );
   }
 }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { SafeAreaView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import CommentBox from '../../components/CommentBox';
+import JourneyCommentBox from '../../components/JourneyCommentBox';
 import { navigatePush } from '../../actions/navigation';
 import { getJourney } from '../../actions/journey';
 import { Flex, Separator, LoadingGuy } from '../../components/common';
@@ -62,7 +62,7 @@ class ContactJourney extends Component {
 
     this.props.dispatch(
       navigatePush(ADD_STEP_SCREEN, {
-        onComplete: this.handleEditComment,
+        next: this.handleEditComment,
         type: 'editJourney',
         isEdit: true,
         text,
@@ -70,7 +70,7 @@ class ContactJourney extends Component {
     );
   }
 
-  handleEditComment(text) {
+  handleEditComment({ text }) {
     const { editingInteraction } = this.state;
     const action =
       editingInteraction._type === ACCEPTED_STEP
@@ -168,16 +168,16 @@ class ContactJourney extends Component {
     const { isPersonalMinistry } = this.state;
     const { person, organization, isUserCreatedOrg } = this.props;
     return (
-      <View style={{ flex: 1 }}>
+      <SafeAreaView style={styles.container}>
         {this.renderContent()}
         <Flex justify="end">
-          <CommentBox
+          <JourneyCommentBox
             person={person}
             organization={organization}
             hideActions={isPersonalMinistry || isUserCreatedOrg}
           />
         </Flex>
-      </View>
+      </SafeAreaView>
     );
   }
 }

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { SafeAreaView, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../actions/navigation';
-import Header from '../Header';
+import Header from '../../components/Header';
 import FilterItem from '../../components/FilterItem';
 import { trackSearchFilter } from '../../actions/analytics';
-import { buildTrackingObj } from '../../utils/common';
+import { buildTrackingObj, keyExtractorId } from '../../utils/common';
 import BackButton from '../BackButton';
 
 import styles from './styles';
@@ -78,8 +78,6 @@ export class SearchPeopleFilterRefineScreen extends Component {
     this.props.onFilter(item);
   }
 
-  keyExtractor = i => i.id;
-
   renderItem = ({ item }) => (
     <FilterItem
       item={item}
@@ -94,13 +92,15 @@ export class SearchPeopleFilterRefineScreen extends Component {
     return (
       <View style={styles.pageContainer}>
         <Header left={<BackButton />} title={title || t('title')} />
-        <FlatList
-          style={styles.list}
-          data={this.state.options}
-          keyExtractor={this.keyExtractor}
-          initialNumToRender={15}
-          renderItem={this.renderItem}
-        />
+        <SafeAreaView style={{ flex: 1 }}>
+          <FlatList
+            style={styles.list}
+            data={this.state.options}
+            keyExtractor={keyExtractorId}
+            initialNumToRender={15}
+            renderItem={this.renderItem}
+          />
+        </SafeAreaView>
       </View>
     );
   }

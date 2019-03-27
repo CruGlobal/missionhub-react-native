@@ -22,20 +22,9 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"
@@ -106,20 +95,9 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"
@@ -190,20 +168,9 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"
@@ -300,20 +267,9 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"
@@ -410,20 +366,9 @@ exports[`render contacts count cru org should render 0 assigned 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"
@@ -494,20 +439,9 @@ exports[`render contacts count cru org should render 0 uncontacted 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"
@@ -555,20 +489,9 @@ exports[`render contacts count cru org should render assigned and uncontacted 1`
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"
@@ -639,20 +562,9 @@ exports[`render contacts count user created org should render no stage, admin pe
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"
@@ -700,20 +612,9 @@ exports[`render contacts count user created org should render no stage, member p
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"
@@ -747,20 +648,9 @@ exports[`render contacts count user created org should render no stage, owner pe
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"
@@ -808,20 +698,9 @@ exports[`render contacts count user created org should render stage, admin permi
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"
@@ -890,20 +769,9 @@ exports[`render contacts count user created org should render stage, member perm
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"
@@ -951,20 +819,9 @@ exports[`render contacts count user created org should render stage, owner permi
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
+      <ItemHeaderText
+        text="Full Name"
+      />
       <Flex
         align="center"
         direction="row"

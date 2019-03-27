@@ -19,11 +19,7 @@ import {
   showReminderScreen,
   showWelcomeNotification,
 } from '../../../actions/notifications';
-import {
-  completeStepReminder,
-  deleteStepWithTracking,
-  setStepFocus,
-} from '../../../actions/steps';
+import { setStepFocus } from '../../../actions/steps';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
@@ -34,6 +30,7 @@ jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/person');
+jest.mock('../../TrackTabChange', () => () => null);
 
 const dispatch = jest.fn(async () => {});
 
@@ -48,10 +45,6 @@ const store = {
   notifications: {
     token: '',
     showReminder: true,
-  },
-  swipe: {
-    stepsHome: true,
-    stepsReminder: true,
   },
 };
 
@@ -107,10 +100,6 @@ const baseProps = {
 common.toast = jest.fn();
 
 describe('StepsScreen', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
   let component;
   let props;
 
@@ -340,34 +329,6 @@ describe('StepsScreen', () => {
     });
   });
 
-  describe('completing a step', () => {
-    it('should complete the step', () => {
-      const step = 'some step';
-      const component = createComponent({
-        ...baseProps,
-        reminders: [step],
-      });
-
-      component.instance().handleCompleteReminder(step);
-
-      expect(completeStepReminder).toHaveBeenCalledWith(step, 'Steps');
-    });
-  });
-
-  describe('deleting a step', () => {
-    it('should delete the step', () => {
-      const step = 'some step';
-      const component = createComponent({
-        ...baseProps,
-        reminders: [step],
-      });
-
-      component.instance().handleDeleteReminder(step);
-
-      expect(deleteStepWithTracking).toHaveBeenCalledWith(step, 'Steps');
-    });
-  });
-
   describe('arrow functions', () => {
     it('should render item correctly', () => {
       const component = createComponent(baseProps);
@@ -383,12 +344,6 @@ describe('StepsScreen', () => {
       instance.listRef(ref);
       expect(instance.list).toEqual(ref);
     });
-    it('should list key extractor', () => {
-      const instance = createComponent(baseProps).instance();
-      const item = { id: '1' };
-      const result = instance.listKeyExtractor(item);
-      expect(result).toEqual(item.id);
-    });
     it('should open main menu', () => {
       const instance = createComponent(baseProps).instance();
       common.openMainMenu = jest.fn();
@@ -401,18 +356,14 @@ describe('StepsScreen', () => {
     it('should navigate to person screen', () => {
       const step = baseProps.steps[0];
       const screen = createComponent(baseProps);
-      const listItem = renderShallow(
-        screen
-          .childAt(1)
-          .childAt(0)
-          .childAt(1)
-          .props()
-          .renderItem({ item: step }),
-      )
+      const listItem = screen
+        .childAt(2)
+        .childAt(0)
         .childAt(1)
-        .childAt(0);
+        .props()
+        .renderItem({ item: step });
 
-      listItem.props().onSelect(step);
+      listItem.props.onSelect(step);
 
       expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
         step,

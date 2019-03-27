@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Keyboard, Alert } from 'react-native';
+import { SafeAreaView, Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { navigateBack } from '../../actions/navigation';
-import { updateChallengeNote } from '../../actions/steps';
-import { trackAction } from '../../actions/analytics';
 import { Button, Flex, Input } from '../../components/common';
 import theme from '../../theme';
-import { STEP_NOTE, CREATE_STEP, ACTIONS } from '../../constants';
+import { STEP_NOTE, CREATE_STEP } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
+import AbsoluteSkip from '../../components/AbsoluteSkip';
 import BottomButton from '../../components/BottomButton';
 
 import styles from './styles';
@@ -53,16 +51,13 @@ class AddStepScreen extends Component {
     }
   };
 
+  next = text => {
+    const { next, dispatch, stepId, personId, orgId } = this.props;
+    dispatch(next({ text, stepId, personId, orgId }));
+  };
+
   saveStep() {
-    const {
-      type,
-      dispatch,
-      next,
-      onComplete,
-      stepId,
-      personId,
-      orgId,
-    } = this.props;
+    const { type } = this.props;
     Keyboard.dismiss();
 
     const text = (this.state.step || '').trim();
@@ -71,40 +66,15 @@ class AddStepScreen extends Component {
     }
     if (type === STEP_NOTE) {
       disableBack.remove();
-
-      if (next) {
-        if (text) {
-          dispatch(updateChallengeNote(stepId, text));
-          dispatch(
-            trackAction(ACTIONS.INTERACTION.name, {
-              [ACTIONS.INTERACTION.COMMENT]: null,
-            }),
-          );
-        }
-
-        return dispatch(next({ personId, orgId }));
-      }
     }
 
-    onComplete(text);
-
-    if (type !== STEP_NOTE && type !== CREATE_STEP) {
-      dispatch(navigateBack());
-    }
+    this.next(text);
   }
 
   skip() {
-    const { type, dispatch, next, onComplete, personId, orgId } = this.props;
     Keyboard.dismiss();
 
-    if (type === STEP_NOTE && next) {
-      return dispatch(next({ personId, orgId }));
-    }
-
-    onComplete(null);
-    if (type === 'interaction') {
-      dispatch(navigateBack());
-    }
+    this.next();
   }
 
   getButtonText() {
@@ -134,12 +104,12 @@ class AddStepScreen extends Component {
   ref = c => (this.stepInput = c);
 
   render() {
-    const { t, type, hideSkip } = this.props;
+    const { type, hideSkip, t } = this.props;
     const { lightGrey } = theme;
     const { backButtonStyle, input } = styles;
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
           <Flex align="end" justify="center">
             <Button
@@ -178,14 +148,16 @@ class AddStepScreen extends Component {
         {type !== STEP_NOTE ? (
           <BackButton absolute={true} iconStyle={backButtonStyle} />
         ) : null}
-      </View>
+        {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
+          <AbsoluteSkip onSkip={this.skip} />
+        ) : null}
+      </SafeAreaView>
     );
   }
 }
 
 AddStepScreen.propTypes = {
-  next: PropTypes.func,
-  onComplete: PropTypes.func,
+  next: PropTypes.func.isRequired,
   type: PropTypes.oneOf([
     'journey',
     'editJourney',
@@ -208,3 +180,4 @@ const mapStateToProps = ({ auth }, { navigation }) => ({
 
 export default connect(mapStateToProps)(AddStepScreen);
 export const ADD_STEP_SCREEN = 'nav/ADD_STEP';
+export const COMPLETE_STEP_SCREEN = 'nav/COMPLETE_STEP';

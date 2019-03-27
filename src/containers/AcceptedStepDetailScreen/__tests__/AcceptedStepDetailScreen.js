@@ -32,8 +32,6 @@ removeStepReminder.mockReturnValue(removeReminderResult);
 navigateBack.mockReturnValue(navigateBackResult);
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore();
 
   step = {

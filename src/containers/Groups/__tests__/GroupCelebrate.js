@@ -10,6 +10,7 @@ import {
 import { organizationSelector } from '../../../selectors/organizations';
 import { celebrationSelector } from '../../../selectors/celebration';
 import { reloadGroupCelebrateFeed } from '../../../actions/celebration';
+import { getReportedComments } from '../../../actions/reportComments';
 import { refreshCommunity } from '../../../actions/organizations';
 import * as common from '../../../utils/common';
 import { ACCEPTED_STEP } from '../../../constants';
@@ -18,6 +19,7 @@ jest.mock('../../../actions/organizations');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/celebration');
 jest.mock('../../../actions/celebration');
+jest.mock('../../../actions/reportComments');
 
 MockDate.set('2017-06-18');
 const celebrate1 = {
@@ -92,14 +94,18 @@ it('should render empty correctly', () => {
 });
 
 it('should refresh correctly', async () => {
-  const instance = renderShallow(
+  const component = renderShallow(
     <GroupCelebrate organization={org} store={createMockStore(store)} />,
     store,
   );
 
-  await instance.props().refreshCallback();
+  await component
+    .childAt(0)
+    .props()
+    .refreshCallback();
 
   expect(refreshCommunity).toHaveBeenCalledWith(org.id);
+  expect(getReportedComments).toHaveBeenCalledWith(org.id);
   expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(org.id);
 });
 

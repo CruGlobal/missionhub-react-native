@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderForeground renders correctly 1`] = `
+<Connect(Translate(CelebrateItem))
+  cardStyle={
+    Object {
+      "elevation": 0,
+      "marginHorizontal": 3,
+      "shadowOpacity": 0,
+      "shadowRadius": 0,
+    }
+  }
+  event={
+    Object {
+      "id": "90001",
+      "organization": Object {
+        "id": "24234234",
+      },
+      "subject_person_name": "Roger",
+    }
+  }
+  namePressable={true}
+  rightCorner={
+    <Connect(BackButton)
+      customIcon="deleteIcon"
+      iconStyle={
+        Object {
+          "color": "#000000",
+        }
+      }
+    />
+  }
+/>
+`;
+
+exports[`renderStickyHeader renders correctly 1`] = `
+<Header
+  left={
+    <ItemHeaderText
+      style={
+        Object {
+          "marginLeft": 25,
+        }
+      }
+      text="Roger"
+    />
+  }
+  right={
+    <Component
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "id": "90001",
+            "organization": Object {
+              "id": "24234234",
+            },
+            "subject_person_name": "Roger",
+          }
+        }
+      />
+      <Connect(BackButton)
+        customIcon="deleteIcon"
+        iconStyle={
+          Object {
+            "color": "#000000",
+          }
+        }
+      />
+    </Component>
+  }
+  shadow={false}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+/>
+`;
+
+exports[`renders correctly 1`] = `
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
+  <ParallaxScrollView
+    backgroundColor="#ffffff"
+    backgroundScrollSpeed={5}
+    contentBackgroundColor="#505256"
+    contentContainerStyle={null}
+    fadeOutForeground={true}
+    onChangeHeaderVisibility={[Function]}
+    outputScaleValue={5}
+    parallaxHeaderHeight={215}
+    refreshControl={
+      <MyRefreshControl
+        colors={
+          Array [
+            "#ffffff",
+            "#52C5DC",
+          ]
+        }
+        onRefresh={[Function]}
+        progressBackgroundColor="#007398"
+        refreshing={false}
+        tintColor="#007398"
+      />
+    }
+    renderBackground={[Function]}
+    renderContentBackground={[Function]}
+    renderForeground={[Function]}
+    renderParallaxHeader={[Function]}
+    renderScrollComponent={[Function]}
+    renderStickyHeader={[Function]}
+    stickyHeaderHeight={65}
+  >
+    <Component
+      style={
+        Object {
+          "minHeight": 1067.2,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/Trailss.png",
+          }
+        }
+        style={
+          Object {
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      />
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/TrailGrey.png",
+          }
+        }
+        style={
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+          }
+        }
+      />
+      <Connect(Translate(CommentsList))
+        event={
+          Object {
+            "id": "90001",
+            "organization": Object {
+              "id": "24234234",
+            },
+            "subject_person_name": "Roger",
+          }
+        }
+        organizationId="24234234"
+      />
+    </Component>
+  </ParallaxScrollView>
+  <Connect(CelebrateCommentBox)
+    event={
+      Object {
+        "id": "90001",
+        "organization": Object {
+          "id": "24234234",
+        },
+        "subject_person_name": "Roger",
+      }
+    }
+  />
+</SafeAreaView>
+`;

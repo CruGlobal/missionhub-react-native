@@ -61,7 +61,7 @@ Array [
 `;
 
 exports[`GroupScreen should render header correctly 1`] = `
-<Connect(Header)
+<Header
   left={
     <IconButton
       name="homeIcon"
@@ -84,7 +84,7 @@ exports[`GroupScreen should render header correctly 1`] = `
 `;
 
 exports[`GroupScreen should render header correctly for global community 1`] = `
-<Connect(Header)
+<Header
   left={
     <IconButton
       name="homeIcon"
@@ -100,7 +100,7 @@ exports[`GroupScreen should render header correctly for global community 1`] = `
 `;
 
 exports[`GroupScreen should render header correctly for user_created org 1`] = `
-<Connect(Header)
+<Header
   left={
     <IconButton
       name="homeIcon"

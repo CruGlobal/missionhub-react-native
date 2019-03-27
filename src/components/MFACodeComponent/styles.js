@@ -1,9 +1,8 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
-import { hasNotch } from '../../utils/common';
 
-const marginTop = hasNotch() ? 50 : 25;
+const marginTop = 25;
 
 export default StyleSheet.create({
   container: {
