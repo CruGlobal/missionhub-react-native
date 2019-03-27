@@ -25,7 +25,7 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
   <Flex
     justify="end"
   >
-    <Connect(Translate(CommentBox))
+    <Connect(JourneyCommentBox)
       hideActions={true}
       person={
         Object {
@@ -76,7 +76,7 @@ exports[`ContactJourney renders null screen correctly 1`] = `
   <Flex
     justify="end"
   >
-    <Connect(Translate(CommentBox))
+    <Connect(JourneyCommentBox)
       hideActions={true}
       person={
         Object {
@@ -150,7 +150,7 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
   <Flex
     justify="end"
   >
-    <Connect(Translate(CommentBox))
+    <Connect(JourneyCommentBox)
       hideActions={true}
       person={
         Object {
@@ -224,7 +224,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
   <Flex
     justify="end"
   >
-    <Connect(Translate(CommentBox))
+    <Connect(JourneyCommentBox)
       hideActions={true}
       person={
         Object {
@@ -457,14 +457,17 @@ exports[`renders with an organization correctly 1`] = `
     <View
       style={
         Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderTopColor": "#B2B0B2",
-            "borderTopWidth": 1,
-            "paddingBottom": 5,
-            "paddingTop": 5,
-            "width": 750,
-          },
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderTopColor": "#B2B0B2",
+              "borderTopWidth": 1,
+              "paddingBottom": 5,
+              "paddingTop": 5,
+              "width": 750,
+            },
+            undefined,
+          ],
           Object {
             "flexDirection": "column",
           },
@@ -554,10 +557,7 @@ exports[`renders with an organization correctly 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Array [
-                          undefined,
-                          null,
-                        ],
+                        Object {},
                       ],
                     ],
                     Object {
@@ -614,9 +614,7 @@ exports[`renders with an organization correctly 1`] = `
               autoFocus={false}
               blurOnSubmit={true}
               multiline={false}
-              onBlur={[Function]}
               onChangeText={[Function]}
-              onFocus={[Function]}
               placeholder="Share something to be remembered..."
               placeholderTextColor="#B2B0B2"
               returnKeyType="done"

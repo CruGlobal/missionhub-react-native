@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Flex, Text, Icon, DateComponent } from '../common';
-import { INTERACTION_TYPES } from '../../constants';
+import { INTERACTION_TYPES, ACCEPTED_STEP } from '../../constants';
 import { getAssignedByName, getAssignedToName } from '../../utils/common';
 
 import styles from './styles';
@@ -25,9 +25,7 @@ export default class JourneyItem extends Component {
     return (
       <DateComponent
         date={
-          item._type === 'accepted_challenge'
-            ? item.completed_at
-            : item.created_at
+          item._type === ACCEPTED_STEP ? item.completed_at : item.created_at
         }
         style={styles.date}
         format="LL"
@@ -60,7 +58,7 @@ export default class JourneyItem extends Component {
       item: { _type },
     } = this.props;
     let title;
-    if (_type === 'accepted_challenge') {
+    if (_type === ACCEPTED_STEP) {
       const pathwayStage =
         item.challenge_suggestion &&
         item.challenge_suggestion.pathway_stage &&
@@ -115,7 +113,7 @@ export default class JourneyItem extends Component {
       item: { _type },
     } = this.props;
     let text;
-    if (_type === 'accepted_challenge') {
+    if (_type === ACCEPTED_STEP) {
       text = item.title;
       if (item.note) {
         text = `${text}\n\n${item.note}`;
@@ -151,7 +149,7 @@ export default class JourneyItem extends Component {
       item: { _type },
     } = this.props;
     let iconType;
-    if (_type === 'accepted_challenge') {
+    if (_type === ACCEPTED_STEP) {
       iconType = 'stepsIcon';
     } else if (_type === 'pathway_progression_audit') {
       iconType = 'journeyIcon';
@@ -235,7 +233,7 @@ JourneyItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
     _type: PropTypes.oneOf([
-      'accepted_challenge',
+      ACCEPTED_STEP,
       'pathway_progression_audit',
       'answer_sheet',
       'interaction',

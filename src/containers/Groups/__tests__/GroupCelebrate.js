@@ -13,13 +13,16 @@ import {
   reloadGroupCelebrateFeed,
   getGroupCelebrateFeed,
 } from '../../../actions/celebration';
+import { getReportedComments } from '../../../actions/reportComments';
 import { refreshCommunity } from '../../../actions/organizations';
 import * as common from '../../../utils/common';
+import { ACCEPTED_STEP } from '../../../constants';
 
 jest.mock('../../../actions/organizations');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/celebration');
 jest.mock('../../../actions/celebration');
+jest.mock('../../../actions/reportComments');
 
 MockDate.set('2017-06-18');
 const celebrate1 = {
@@ -29,7 +32,7 @@ const celebrate1 = {
 };
 const celebrate2 = {
   id: '20',
-  celebrateable_type: 'accepted_challenge',
+  celebrateable_type: ACCEPTED_STEP,
   changed_attribute_value: '2018-06-10 00:00:00 UTC',
 };
 const celebrate3 = {
@@ -68,6 +71,7 @@ const store = {
   },
 };
 
+getReportedComments.mockReturnValue(() => ({ type: 'got repoerted comments' }));
 reloadGroupCelebrateFeed.mockReturnValue(() => Promise.resolve());
 getGroupCelebrateFeed.mockReturnValue({ type: 'got group celebrate feed' });
 refreshCommunity.mockReturnValue({ type: 'refreshed community' });
@@ -109,6 +113,7 @@ it('should refresh correctly', async () => {
     .refreshCallback();
 
   expect(refreshCommunity).toHaveBeenCalledWith(org.id);
+  expect(getReportedComments).toHaveBeenCalledWith(org.id);
   expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(org.id);
 });
 

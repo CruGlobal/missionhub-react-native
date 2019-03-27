@@ -5,6 +5,7 @@ import { translate } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../common';
 import theme from '../../theme';
+import ItemHeaderText from '../ItemHeaderText';
 
 import styles from './styles';
 
@@ -91,9 +92,7 @@ class StepItem extends Component {
       >
         <Flex ref={this.ref} align="center" direction="row" style={styles.row}>
           <Flex value={1} justify="center" direction="column">
-            {type === 'contact' ? null : (
-              <Text style={styles.person}>{ownerName}</Text>
-            )}
+            {type === 'contact' ? null : <ItemHeaderText text={ownerName} />}
             <Text style={styles.description}>{step.title}</Text>
           </Flex>
           {this.renderIcon()}

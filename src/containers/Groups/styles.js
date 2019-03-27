@@ -17,7 +17,7 @@ export default StyleSheet.create({
   },
   cardList: {
     flex: 1,
-    backgroundColor: theme.lightGrey,
+    backgroundColor: theme.extraLightGrey,
   },
   cardSectionHeader: {
     marginVertical: 8,
@@ -76,5 +76,11 @@ export default StyleSheet.create({
     fontSize: 12,
     fontWeight: 'bold',
     color: theme.white,
+  },
+  reportHeader: {
+    backgroundColor: theme.red,
+  },
+  reportList: {
+    paddingVertical: 15,
   },
 });

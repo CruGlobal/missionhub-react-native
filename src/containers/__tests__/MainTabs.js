@@ -38,9 +38,6 @@ const state = {
     pushDeviceId: '',
   },
   swipe: {
-    stepsHome: true,
-    stepsContact: true,
-    stepsReminder: false, // Never show on the reminders anymore
     journey: true,
   },
   organizations: {

@@ -157,12 +157,6 @@ it('renders item', () => {
   expect(renderedItem).toMatchSnapshot();
 });
 
-it('calls key extractor', () => {
-  const item = challengeItems[0].data[0];
-  const result = component.props().keyExtractor(item);
-  expect(result).toEqual(item.id);
-});
-
 it('calls handleOnEndReached', () => {
   const instance = component.instance();
   instance.setState({ isListScrolled: true });

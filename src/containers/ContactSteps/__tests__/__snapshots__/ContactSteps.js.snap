@@ -1,57 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly with no steps 1`] = `
-<SafeAreaView
-  style={
+exports[`renderItem renders row 1`] = `
+<Connect(Translate(AcceptedStepItem))
+  onComplete={[Function]}
+  step={
     Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
+      "id": "1",
+      "title": "Test Step",
     }
   }
->
-  <Flex
-    align="center"
-    justify="center"
-    value={1}
-  >
-    <NullStateComponent
-      descriptionText="Your Steps of Faith with ben appear here."
-      headerText="STEPS OF FAITH"
-      imageSource={
-        Object {
-          "testUri": "../../../assets/images/footprints.png",
-        }
-      }
-    />
-  </Flex>
-  <Flex
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      text="ADD A STEP OF FAITH"
-      type="secondary"
-    />
-  </Flex>
-</SafeAreaView>
+/>
 `;
 
-exports[`renders correctly with steps 1`] = `
+exports[`renders correctly with completed steps 1`] = `
 <SafeAreaView
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
+  flex={1}
 >
-  <Flex
-    align="center"
-    justify="center"
-    value={1}
+  <ScrollView
+    flex={1}
   >
     <FlatList
-      bounces={true}
       data={
         Array [
           Object {
@@ -72,21 +40,133 @@ exports[`renders correctly with steps 1`] = `
       showsVerticalScrollIndicator={false}
       style={
         Object {
-          "backgroundColor": "transparent",
+          "flex": 1,
+          "paddingTop": 16,
         }
       }
       updateCellsBatchingPeriod={50}
       windowSize={21}
     />
-  </Flex>
-  <Flex
-    justify="end"
-  >
     <Button
+      buttonTextStyle={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 14,
+          "letterSpacing": 1,
+          "lineHeight": 18,
+        }
+      }
       onPress={[Function]}
-      text="ADD A STEP OF FAITH"
-      type="secondary"
+      pill={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderColor": "#A0A2A6",
+          "borderWidth": 1,
+          "height": 36,
+          "marginHorizontal": 68,
+          "marginVertical": 15,
+        }
+      }
+      text="HIDE COMPLETED STEPS"
     />
-  </Flex>
+    <FlatList
+      data={
+        Array [
+          Object {
+            "completed_at": "time",
+            "id": "1",
+            "title": "Test Step",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "flex": 1,
+          "paddingBottom": 16,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </ScrollView>
+  <BottomButton
+    onPress={[Function]}
+    text="Add a step of faith"
+  />
+</SafeAreaView>
+`;
+
+exports[`renders correctly with no steps 1`] = `
+<SafeAreaView
+  flex={1}
+>
+  <NullStateComponent
+    content={null}
+    descriptionText="Your Steps of Faith with ben appear here."
+    headerText="STEPS OF FAITH"
+    imageSource={
+      Object {
+        "testUri": "../../../assets/images/footprints.png",
+      }
+    }
+  />
+  <BottomButton
+    onPress={[Function]}
+    text="Add a step of faith"
+  />
+</SafeAreaView>
+`;
+
+exports[`renders correctly with steps 1`] = `
+<SafeAreaView
+  flex={1}
+>
+  <ScrollView
+    flex={1}
+  >
+    <FlatList
+      data={
+        Array [
+          Object {
+            "id": "1",
+            "title": "Test Step",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "flex": 1,
+          "paddingTop": 16,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </ScrollView>
+  <BottomButton
+    onPress={[Function]}
+    text="Add a step of faith"
+  />
 </SafeAreaView>
 `;

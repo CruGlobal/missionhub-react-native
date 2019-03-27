@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { Text, Flex, Button, Input } from '../../components/common';
+import { Text, Flex, Input } from '../../components/common';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
 import { buildTrackingObj } from '../../utils/common';
 import { trackState } from '../../actions/analytics';
 import NullStateComponent from '../../components/NullStateComponent';
+import BottomButton from '../../components/BottomButton';
 
 import styles from './styles';
 
@@ -40,9 +41,11 @@ export class ContactNotes extends Component {
   }
 
   async getNote() {
-    const { person, myId } = this.props;
+    const { person, myUserId } = this.props;
 
-    const results = await this.props.dispatch(getPersonNote(person.id, myId));
+    const results = await this.props.dispatch(
+      getPersonNote(person.id, myUserId),
+    );
 
     const text = results ? results.content : undefined;
     const noteId = results ? results.id : null;
@@ -62,7 +65,7 @@ export class ContactNotes extends Component {
           this.props.person.id,
           this.state.text,
           this.state.noteId,
-          this.props.myId,
+          this.props.myUserId,
         ),
       );
     }
@@ -95,7 +98,7 @@ export class ContactNotes extends Component {
     const t = this.props.t;
 
     if (this.state.editing) {
-      return t('done').toUpperCase();
+      return t('done');
     } else if (this.state.text) {
       return t('edit');
     } else {
@@ -133,8 +136,11 @@ export class ContactNotes extends Component {
   }
 
   renderEmpty() {
-    const { t, person } = this.props;
-    const text = t('prompt', { personFirstName: person.first_name });
+    const { t, person, myPersonId } = this.props;
+    const isMe = person.id === myPersonId;
+    const text = t(isMe ? 'promptMe' : 'prompt', {
+      personFirstName: person.first_name,
+    });
 
     return (
       <NullStateComponent
@@ -150,13 +156,10 @@ export class ContactNotes extends Component {
     return (
       <SafeAreaView style={styles.container}>
         {text || editing ? this.renderNotes() : this.renderEmpty()}
-        <Flex align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.onButtonPress}
-            text={this.getButtonText()}
-          />
-        </Flex>
+        <BottomButton
+          onPress={this.onButtonPress}
+          text={this.getButtonText()}
+        />
       </SafeAreaView>
     );
   }
@@ -167,6 +170,9 @@ ContactNotes.propTypes = {
   organization: PropTypes.object,
 };
 
-const mapStateToProps = ({ auth }) => ({ myId: auth.person.user.id });
+const mapStateToProps = ({ auth }) => ({
+  myPersonId: auth.person.id,
+  myUserId: auth.person.user.id,
+});
 
 export default connect(mapStateToProps)(ContactNotes);

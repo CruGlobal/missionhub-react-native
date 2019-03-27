@@ -5,17 +5,6 @@ import theme from '../../theme';
 const topHeight = 60;
 
 export default StyleSheet.create({
-  dateInput: {
-    borderBottomWidth: 1,
-    borderBottomColor: theme.secondaryColor,
-  },
-  dateText: {
-    backgroundColor: theme.transparent,
-    paddingVertical: 5,
-    color: theme.white,
-    fontSize: 16,
-    letterSpacing: 0.25,
-  },
   placeholderText: {
     color: theme.white,
   },
@@ -26,6 +15,7 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   datePickerBox: {
+    flex: 1,
     backgroundColor: theme.white,
     height: 0,
     overflow: 'hidden',
@@ -49,6 +39,8 @@ export default StyleSheet.create({
   btnText: {
     fontSize: 16,
     color: theme.iosBlue,
+    fontWeight: 'normal',
+    letterSpacing: 1,
   },
   btnTextCancel: {
     textAlign: 'left',
@@ -60,8 +52,5 @@ export default StyleSheet.create({
     marginTop: topHeight,
     borderTopColor: '#ccc',
     borderTopWidth: 1,
-  },
-  disabled: {
-    backgroundColor: '#eee',
   },
 });

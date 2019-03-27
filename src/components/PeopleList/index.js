@@ -10,7 +10,7 @@ UIManager.setLayoutAnimationEnabledExperimental &&
 
 import PeopleItem from '../../containers/PeopleItem';
 import { Flex, Text, RefreshControl } from '../common';
-import { merge } from '../../utils/common';
+import { merge, keyExtractorId } from '../../utils/common';
 import IconButton from '../IconButton';
 
 import styles from './styles';
@@ -51,8 +51,6 @@ export default class PeopleList extends Component {
     this.setState({ items });
   };
 
-  keyExtractor = i => i.id;
-
   // This still technically creates an arrow function every time it gets rendered, thus breaking
   // the "react/jsx-no-bind" linting rule. But there's not really another way around it unless
   // we create an entirely new component wrapper around the <FlatList> that applies props to it.
@@ -72,7 +70,7 @@ export default class PeopleList extends Component {
       <FlatList
         style={styles.list}
         data={items}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         scrollEnabled={!sections}
         renderItem={this.renderItem(organization)}
         refreshControl={

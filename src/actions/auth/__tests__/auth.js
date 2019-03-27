@@ -1,10 +1,12 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import PushNotification from 'react-native-push-notification';
 
 import { REQUESTS } from '../../api';
 import { logout, navigateToPostAuthScreen } from '../auth';
 import { deletePushToken } from '../../notifications';
 
+jest.mock('react-native-push-notification');
 jest.mock('../../notifications');
 
 const mockStore = configureStore([thunk]);
@@ -22,6 +24,7 @@ describe('logout', () => {
     });
     await store.dispatch(logout());
     expect(store.getActions()).toMatchSnapshot();
+    expect(PushNotification.unregister).toHaveBeenCalled();
   });
   it('should perform the needed actions for forced signing out', async () => {
     deletePushToken.mockReturnValue({
@@ -29,6 +32,13 @@ describe('logout', () => {
     });
     await store.dispatch(logout(true));
     expect(store.getActions()).toMatchSnapshot();
+    expect(PushNotification.unregister).toHaveBeenCalled();
+  });
+  it('should perform the needed actions even after push token deletion failure', async () => {
+    deletePushToken.mockReturnValue(() => () => Promise.reject());
+    await store.dispatch(logout(true));
+    expect(store.getActions()).toMatchSnapshot();
+    expect(PushNotification.unregister).toHaveBeenCalled();
   });
 });
 

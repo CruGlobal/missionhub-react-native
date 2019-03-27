@@ -41,8 +41,6 @@ exports[`is self renders for User Created Community 1`] = `
         "id": "1002",
       }
     }
-    selectMyStage={[Function]}
-    selectPersonStage={[Function]}
   />
 </Flex>
 `;
@@ -101,8 +99,6 @@ exports[`isContact with contact assignment renders no contact buttons if not Cru
         "id": "1002",
       }
     }
-    selectMyStage={[Function]}
-    selectPersonStage={[Function]}
   />
 </Flex>
 `;
@@ -230,8 +226,6 @@ exports[`isMember has contact info and contact assignment renders for User-Creat
         "id": "1002",
       }
     }
-    selectMyStage={[Function]}
-    selectPersonStage={[Function]}
   />
 </Flex>
 `;

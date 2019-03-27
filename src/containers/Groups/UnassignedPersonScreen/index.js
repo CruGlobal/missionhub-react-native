@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { getGroupJourney } from '../../../actions/journey';
+import JourneyCommentBox from '../../../components/JourneyCommentBox';
 import GroupsContactList from '../../../components/GroupsContactList';
-import CommentBox from '../../../components/CommentBox';
 import Header from '../../../components/Header';
 import BackButton from '../../BackButton';
 import { organizationSelector } from '../../../selectors/organizations';
@@ -37,6 +37,7 @@ class UnassignedPersonScreen extends Component {
           title={organization.name}
           shadow={false}
         />
+
         <SafeAreaView style={styles.content}>
           <GroupsContactList
             activity={activity}
@@ -45,7 +46,7 @@ class UnassignedPersonScreen extends Component {
             myId={me.id}
             onAssign={onAssign}
           />
-          <CommentBox
+          <JourneyCommentBox
             onSubmit={this.loadFeed}
             person={person}
             organization={organization}

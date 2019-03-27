@@ -91,6 +91,8 @@ export default {
     loading: 'Loading',
     save: 'Save',
     delete: 'Delete',
+    ignore: 'Ignore',
+    report: 'Report',
     cancel: 'Cancel',
     continue: 'Continue',
     your: 'your',
@@ -187,22 +189,41 @@ export default {
       'You are not allowed to edit first names of other MissionHub users',
   },
   addStep: {
-    header: 'My Step of Faith',
-    createStep: 'Create Step',
+    header: 'Create your own step',
     journeyHeader: 'What did you see God do?',
     editJourneyHeader: 'Edit your comment',
-    addJourney: 'Add to Our Journey',
+    addJourneyPerson: 'Add to Our Journey',
+    addJourneyMe: 'Add to my Journey',
     editJourneyButton: 'Save',
     makeShorter:
       'Thanks for creating a step! But we need you to make it a little shorter so it can fit.',
+  },
+  stepReminder: {
+    setReminder: 'Set a Reminder',
+    endDate: 'End Date',
+    endDatePlaceholder: 'End Date (Required)',
+    daily: 'Daily',
+    weekly: 'Weekly',
+    monthly: 'Monthly',
   },
   selectStep: {
     meHeader: 'How do you want to move forward on your spiritual journey?',
     personHeader: 'What will you do to help {{name}} experience God?',
     addStep: 'ADD TO MY STEPS',
-    createStep: 'Create your own step...',
+    createStep: 'CREATE YOUR OWN STEP',
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
+  },
+  suggestedStepDetail: {
+    addStep: 'Add to My Steps',
+  },
+  acceptedStepDetail: {
+    removeStep: 'Remove Step',
+    iDidIt: 'I Did It!',
+  },
+  completedStepDetail: {
+    completedStep: 'Completed Step',
+    completedOn: 'Completed {{date}}',
   },
   selectStage: {
     meQuestion:
@@ -236,6 +257,8 @@ export default {
   contactSteps: {
     header: 'STEPS OF FAITH',
     stepNull: 'Your Steps of Faith with {{name}} appear here.',
+    showCompletedSteps: 'SHOW COMPLETED STEPS',
+    hideCompletedSteps: 'HIDE COMPLETED STEPS',
     addStep: 'Add a step of faith',
   },
   contactJourney: {
@@ -315,12 +338,17 @@ export default {
     interactionNote: 'Comment',
     commentBoxPlaceholder: 'Share something to be remembered...',
   },
+  celebrateCommentBox: {
+    placeholder: 'Write a comment...',
+  },
   notes: {
     header: 'MY NOTES',
     add: 'ADD PRIVATE NOTES',
     edit: 'EDIT PRIVATE NOTES',
     prompt:
       'Remember important details about {{personFirstName}}, like favorite food, hobbies they love or something interesting they said.',
+    promptMe:
+      'Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God.',
   },
   search: {
     inputPlaceholder: 'Search',
@@ -651,9 +679,6 @@ export default {
   loadMore: {
     load: 'Load More',
   },
-  commentBox: {
-    placeholder: 'Comment',
-  },
   statusSelect: {
     header: 'Status',
     cancel: 'Cancel',
@@ -709,5 +734,31 @@ export default {
     tryItNow: 'Try It Now',
     haveCode: 'I have a Community Code',
     member: 'Already a Member?',
+  },
+  commentsList: {
+    editPost: 'Edit Comment',
+    deletePost: 'Delete Comment',
+    reportPost: 'Report Comment',
+    reportToOwner: 'Report to Owner',
+    reportToOwnerHeader: 'Report to Owner?',
+    reportAreYouSure:
+      'Are you sure you want to report this comment to the community owner?',
+    deletePostHeader: 'Delete Post?',
+    deleteAreYouSure:
+      'This post will be deleted and you won’t be able to find it anymore.',
+  },
+  groupsReport: {
+    reports: '{{count}} new reported comment',
+    reports_plural: '{{count}} new reported comments',
+    title: 'Reported Comment',
+    header: 'No Reported Comments',
+    reportNull: 'No comments have been reported.',
+  },
+  reportComment: {
+    reportedBy: 'Reported By',
+    commentBy: 'Comment By',
+    reportedBy: 'Reported By',
+    deleteTitle:
+      'Deleting this comment removes it completely and it will no longer be found.',
   },
 };

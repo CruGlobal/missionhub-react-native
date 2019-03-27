@@ -19,7 +19,7 @@ exports[`Contact should render correctly 1`] = `
   <SafeAreaView
     style={
       Object {
-        "backgroundColor": "#E6E8EC",
+        "backgroundColor": "#B4B6BA",
         "flex": 1,
       }
     }
@@ -41,7 +41,7 @@ exports[`Contact should render correctly 1`] = `
         }
       }
     />
-    <Connect(Translate(CommentBox))
+    <Connect(JourneyCommentBox)
       onSubmit={[Function]}
       organization={
         Object {

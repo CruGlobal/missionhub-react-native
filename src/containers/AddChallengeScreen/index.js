@@ -6,10 +6,11 @@ import { translate } from 'react-i18next';
 import moment from 'moment';
 
 import CHALLENGE from '../../../assets/images/challenge_bullseye.png';
-import { Button, Text, Flex, Input } from '../../components/common';
+import { Text, Input } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
 import BackButton from '../BackButton';
+import BottomButton from '../../components/BottomButton';
 
 import styles from './styles';
 
@@ -63,60 +64,82 @@ class AddChallengeScreen extends Component {
     this.props.onComplete(newChallenge);
   };
 
-  render() {
-    const { t, isEdit } = this.props;
-    const { disableBtn, title, date } = this.state;
+  renderTitleInput() {
+    const { t } = this.props;
+    const { title } = this.state;
 
     return (
-      <View style={styles.container}>
-        <Flex
-          value={0.9}
-          align="center"
-          justify="center"
-          style={styles.imageWrap}
+      <View>
+        <Text style={styles.label}>{t('titleLabel')}</Text>
+        <Input
+          onChangeText={this.onChangeTitle}
+          value={title}
+          autoFocus={false}
+          autoCorrect={true}
+          selectionColor={theme.white}
+          returnKeyType="done"
+          blurOnSubmit={true}
+          placeholder={t('titlePlaceholder')}
+          placeholderTextColor={theme.white}
+        />
+      </View>
+    );
+  }
+
+  renderDateInput() {
+    const { t, disabled } = this.props;
+    const { date } = this.state;
+    const { dateInput, disabledInput, label, dateText } = styles;
+
+    return (
+      <View>
+        <Text style={label}>{t('dateLabel')}</Text>
+        <DatePicker
+          date={date}
+          mode="date"
+          placeholder={t('datePlaceholder')}
+          minDate={this.today}
+          onDateChange={this.onChangeDate}
+        >
+          <View style={[dateInput, disabled && disabledInput]}>
+            <Text style={dateText}>
+              {!date ? t('datePlaceholder') : moment(date).format('LL')}
+            </Text>
+          </View>
+        </DatePicker>
+      </View>
+    );
+  }
+
+  render() {
+    const { t, isEdit } = this.props;
+    const { disableBtn } = this.state;
+    const { container, imageWrap, header, fieldWrap } = styles;
+
+    return (
+      <SafeAreaView style={container}>
+        <View
+          flex={0.9}
+          alignItems="center"
+          justifyContent="center"
+          style={imageWrap}
         >
           <Image source={CHALLENGE} resizeMode="contain" />
-          <Text type="header" style={styles.header}>
+          <Text type="header" style={header}>
             {isEdit ? t('editHeader') : t('addHeader')}
           </Text>
-        </Flex>
-
-        <Flex value={1} style={styles.fieldWrap}>
-          <Text style={styles.label}>{t('titleLabel')}</Text>
-          <Input
-            onChangeText={this.onChangeTitle}
-            value={title}
-            autoFocus={false}
-            autoCorrect={true}
-            selectionColor={theme.white}
-            returnKeyType="done"
-            blurOnSubmit={true}
-            placeholder={t('titlePlaceholder')}
-            placeholderTextColor={theme.white}
-          />
-          <Text style={styles.label}>{t('dateLabel')}</Text>
-          <DatePicker
-            date={date}
-            mode="date"
-            placeholder={t('datePlaceholder')}
-            minDate={this.today}
-            onDateChange={this.onChangeDate}
-          />
-        </Flex>
-
-        <SafeAreaView style={{ flex: 1 }}>
-          <Flex value={1} align="stretch" justify="end">
-            <Button
-              disabled={disableBtn}
-              type="secondary"
-              onPress={this.saveChallenge}
-              text={(isEdit ? t('save') : t('add')).toUpperCase()}
-              style={styles.createButton}
-            />
-          </Flex>
-        </SafeAreaView>
+        </View>
+        <View flex={1} style={fieldWrap}>
+          {this.renderTitleInput()}
+          {this.renderDateInput()}
+        </View>
+        <BottomButton
+          disabled={disableBtn}
+          onPress={this.saveChallenge}
+          text={isEdit ? t('save') : t('add')}
+        />
         <BackButton customIcon="deleteIcon" absolute={true} />
-      </View>
+      </SafeAreaView>
     );
   }
 }

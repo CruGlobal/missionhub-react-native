@@ -40,7 +40,4 @@ export default StyleSheet.create({
     color: theme.white,
     textAlign: 'center',
   },
-  createButton: {
-    width: theme.fullWidth,
-  },
 });
