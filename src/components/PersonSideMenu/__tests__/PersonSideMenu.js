@@ -61,8 +61,6 @@ const store = createMockStore({
 
 personSelector.mockReturnValue(person);
 
-beforeEach(() => jest.clearAllMocks());
-
 let component;
 
 const createComponent = (extraProps = {}) => {
@@ -82,14 +80,21 @@ describe('PersonSideMenu', () => {
   describe('person has org permission', () => {
     beforeEach(() => orgPermissionSelector.mockReturnValue(orgPermission));
 
-    it('renders unassign correctly', () => {
-      contactAssignmentSelector.mockReturnValue(contactAssignment);
-      createComponent();
+    describe('unassign', () => {
+      it('renders correctly', () => {
+        contactAssignmentSelector.mockReturnValue(contactAssignment);
+        createComponent();
 
-      expect(component).toMatchSnapshot();
-      testEditClick(component);
-      navigatePush.mockClear();
-      testUnassignClick(component);
+        expect(component).toMatchSnapshot();
+      });
+
+      it('edit button works', () => {
+        testEditClick(component);
+      });
+
+      it('unassign button works', () => {
+        testUnassignClick(component);
+      });
     });
 
     it('renders assign correctly', () => {

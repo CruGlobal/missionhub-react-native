@@ -3,12 +3,15 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockDate from 'mockdate';
 
+import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScreen';
+
 import CelebrateFeed from '..';
 
+import { navigatePush } from '../../../actions/navigation';
 import { renderShallow } from '../../../../testUtils';
-import { toggleLike } from '../../../actions/celebration';
 import { ACCEPTED_STEP } from '../../../constants';
 
+jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/celebration');
 
 const myId = '123';
@@ -60,7 +63,11 @@ const celebrationItems = [
   },
 ];
 
+const navigatePushResult = { type: 'navigated' };
+
 let component;
+
+navigatePush.mockReturnValue(dispatch => dispatch(navigatePushResult));
 
 beforeEach(() => {
   component = renderShallow(
@@ -75,21 +82,6 @@ describe('Member Feed rendering', () => {
   });
 });
 
-describe('handleToggleLike', () => {
-  const toggleResult = { type: 'toggle success' };
-  const eventId = '222';
-  const liked = true;
-
-  toggleLike.mockReturnValue(toggleResult);
-
-  it('calls toggleLike', () => {
-    component.instance().handleToggleLike(eventId, liked);
-
-    expect(toggleLike).toHaveBeenCalledWith(organization.id, eventId, liked);
-    expect(store.getActions()).toEqual([toggleResult]);
-  });
-});
-
 it('renders section header', () => {
   const renderedItem = component
     .instance()
@@ -97,17 +89,29 @@ it('renders section header', () => {
   expect(renderedItem).toMatchSnapshot();
 });
 
-it('renders item', () => {
-  const renderedItem = component
-    .instance()
-    .renderItem({ item: celebrationItems[0] });
-  expect(renderedItem).toMatchSnapshot();
-});
+describe('item', () => {
+  it('renders correctly', () => {
+    const renderedItem = component
+      .instance()
+      .renderItem({ item: celebrationItems[0] });
+    expect(renderedItem).toMatchSnapshot();
+  });
 
-it('calls key extractor', () => {
-  const item = celebrationItems[0];
-  const result = component.instance().keyExtractor(item);
-  expect(result).toEqual(item.id);
+  it('navigates to CELEBRATE_DETAIL_SCREEN on press', () => {
+    const item = celebrationItems[0];
+
+    component
+      .instance()
+      .renderItem({ item })
+      .props.onPressItem({ ...item });
+
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_DETAIL_SCREEN, {
+      event: item,
+    });
+    expect(store.getActions()).toEqual(
+      expect.arrayContaining([navigatePushResult]),
+    );
+  });
 });
 
 it('renderHeader match snapshot', () => {

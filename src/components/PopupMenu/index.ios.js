@@ -1,36 +1,15 @@
 import React, { Component } from 'react';
-import { ActionSheetIOS } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
 
 import { Touchable, Icon } from '../common';
-import { isFunction } from '../../utils/common';
+import { showMenu } from '../../utils/common';
 
 import styles from './styles';
 
 // iOS only component
-@translate()
 class PopupMenu extends Component {
   open = () => {
-    const { t, actions } = this.props;
-    const options = actions.map(o => o.text).concat(t('cancel'));
-
-    let destructiveButtonIndex = actions.findIndex(o => o.destructive);
-    if (destructiveButtonIndex < 0) {
-      destructiveButtonIndex = undefined;
-    }
-
-    const params = {
-      options,
-      cancelButtonIndex: options.length - 1,
-      destructiveButtonIndex,
-    };
-
-    ActionSheetIOS.showActionSheetWithOptions(params, buttonIndex => {
-      if (actions[buttonIndex] && isFunction(actions[buttonIndex].onPress)) {
-        actions[buttonIndex].onPress();
-      }
-    });
+    showMenu(this.props.actions);
   };
 
   render() {
@@ -53,6 +32,7 @@ PopupMenu.propTypes = {
     PropTypes.shape({
       text: PropTypes.string.isRequired,
       onPress: PropTypes.func.isRequired,
+      destructive: PropTypes.bool,
     }),
   ).isRequired,
   iconProps: PropTypes.object,

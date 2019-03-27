@@ -27,8 +27,6 @@ deleteStepWithTracking.mockReturnValue(deleteStepResult);
 navigateBack.mockReturnValue(navigateBackResult);
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore();
 
   step = {

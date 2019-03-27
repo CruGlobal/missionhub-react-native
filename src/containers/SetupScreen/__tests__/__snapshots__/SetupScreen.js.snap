@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -108,7 +108,6 @@ exports[`renders correctly 1`] = `
           ]
         }
         underlineColorAndroid="rgba(0,0,0,0)"
-        value={undefined}
       />
     </View>
     <View
@@ -145,7 +144,6 @@ exports[`renders correctly 1`] = `
           ]
         }
         underlineColorAndroid="rgba(0,0,0,0)"
-        value={undefined}
       />
     </View>
     <View
@@ -197,16 +195,9 @@ exports[`renders correctly 1`] = `
         }
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
           accessibilityTraits="button"
           accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -218,8 +209,6 @@ exports[`renders correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={
@@ -295,16 +284,9 @@ exports[`renders correctly 1`] = `
           and
         </Text>
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
           accessibilityTraits="button"
           accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -316,8 +298,6 @@ exports[`renders correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={
@@ -373,16 +353,9 @@ exports[`renders correctly 1`] = `
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
     accessibilityTraits="button"
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -394,8 +367,6 @@ exports[`renders correctly 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -444,5 +415,5 @@ exports[`renders correctly 1`] = `
       </Text>
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;

@@ -1,7 +1,7 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
 
 import React, { Component } from 'react';
-import { View, ScrollView, Alert } from 'react-native';
+import { SafeAreaView, View, ScrollView, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -12,7 +12,7 @@ import { addNewPerson } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
 import { IconButton } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import Header from '../Header';
+import Header from '../../components/Header';
 import AddContactFields from '../AddContactFields';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, CANNOT_EDIT_FIRST_NAME } from '../../constants';
@@ -189,16 +189,19 @@ class AddContactScreen extends Component {
                 : t('addSomeone').toUpperCase()
           }
         />
-        <ScrollView style={styles.scrollView}>
-          <AddContactFields
-            person={person}
-            organization={organization}
-            isJean={isJean}
-            isGroupInvite={isInvite}
-            onUpdateData={this.handleUpdateData}
-          />
-        </ScrollView>
-        <BottomButton onPress={this.savePerson} text={t('done')} />
+        <SafeAreaView style={{ flex: 1 }}>
+          <ScrollView style={styles.scrollView}>
+            <AddContactFields
+              person={person}
+              organization={organization}
+              isJean={isJean}
+              isGroupInvite={isInvite}
+              onUpdateData={this.handleUpdateData}
+            />
+          </ScrollView>
+
+          <BottomButton onPress={this.savePerson} text={t('done')} />
+        </SafeAreaView>
       </View>
     );
   }

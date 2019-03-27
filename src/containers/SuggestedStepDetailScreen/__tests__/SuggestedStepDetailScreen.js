@@ -27,8 +27,6 @@ const next = { type: 'next' };
 addStep.mockReturnValue(() => Promise.resolve());
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore();
 
   screen = renderShallow(

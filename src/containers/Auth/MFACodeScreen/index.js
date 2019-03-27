@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { keyLogin } from '../../../actions/auth';
+import { keyLogin } from '../../../actions/auth/key';
 import { MFA_REQUIRED } from '../../../constants';
 import MFACodeComponent from '../../../components/MFACodeComponent';
 
@@ -20,14 +20,15 @@ class MFACodeScreen extends Component {
   };
 
   completeMfa = async () => {
-    const { email, password, upgradeAccount, next, dispatch, t } = this.props;
+    const { email, password, next, dispatch, t } = this.props;
     const { mfaCode } = this.state;
 
     this.setState({ isLoading: true });
 
     try {
-      await dispatch(keyLogin(email, password, mfaCode, upgradeAccount, next));
+      await dispatch(keyLogin(email, password, mfaCode));
       Keyboard.dismiss();
+      dispatch(next());
     } catch (error) {
       this.setState({ isLoading: false });
 
@@ -57,12 +58,13 @@ class MFACodeScreen extends Component {
 MFACodeScreen.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
+  next: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (_, { navigation }) => {
-  const { email, password, upgradeAccount } = navigation.state.params || {};
+  const { email, password } = navigation.state.params || {};
 
-  return { email, password, upgradeAccount };
+  return { email, password };
 };
 
 export default connect(mapStateToProps)(MFACodeScreen);

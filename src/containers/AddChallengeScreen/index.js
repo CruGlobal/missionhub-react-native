@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Keyboard, Image } from 'react-native';
+import { SafeAreaView, View, Keyboard, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 import moment from 'moment';
@@ -117,7 +117,7 @@ class AddChallengeScreen extends Component {
     const { container, imageWrap, header, fieldWrap } = styles;
 
     return (
-      <View style={container}>
+      <SafeAreaView style={container}>
         <View
           flex={0.9}
           alignItems="center"
@@ -139,7 +139,7 @@ class AddChallengeScreen extends Component {
           text={isEdit ? t('save') : t('add')}
         />
         <BackButton customIcon="deleteIcon" absolute={true} />
-      </View>
+      </SafeAreaView>
     );
   }
 }

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`does not have name renders correctly 1`] = `
+<ItemHeaderText
+  text="MissionHub user"
+/>
+`;
+
+exports[`has name is not pressable renders correctly 1`] = `
+<ItemHeaderText
+  text="Roger Goers"
+/>
+`;
+
+exports[`has name is pressable renders correctly 1`] = `
+<Button
+  onPress={[Function]}
+  type="transparent"
+>
+  <ItemHeaderText
+    text="Roger Goers"
+  />
+</Button>
+`;

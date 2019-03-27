@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -65,16 +65,9 @@ exports[`renders correctly 1`] = `
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
     accessibilityTraits="button"
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -86,8 +79,6 @@ exports[`renders correctly 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -136,36 +127,27 @@ exports[`renders correctly 1`] = `
       </Text>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
         },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
       ]
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
       accessibilityTraits="button"
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -177,8 +159,6 @@ exports[`renders correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
         style={
@@ -231,12 +211,12 @@ exports[`renders correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
-</View>
+  </RCTSafeAreaView>
+</RCTSafeAreaView>
 `;
 
 exports[`renders edit journey correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -265,7 +245,6 @@ exports[`renders edit journey correctly 1`] = `
       autoCorrect={true}
       autoFocus={true}
       blurOnSubmit={true}
-      maxLength={undefined}
       multiline={true}
       onChangeText={[Function]}
       placeholder="Edit your comment"
@@ -300,16 +279,9 @@ exports[`renders edit journey correctly 1`] = `
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
     accessibilityTraits="button"
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -321,8 +293,6 @@ exports[`renders edit journey correctly 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -371,36 +341,27 @@ exports[`renders edit journey correctly 1`] = `
       </Text>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
         },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
       ]
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
       accessibilityTraits="button"
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -412,8 +373,6 @@ exports[`renders edit journey correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
         style={
@@ -466,12 +425,12 @@ exports[`renders edit journey correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
-</View>
+  </RCTSafeAreaView>
+</RCTSafeAreaView>
 `;
 
 exports[`renders interaction with skip correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -493,16 +452,9 @@ exports[`renders interaction with skip correctly 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
       accessibilityTraits="button"
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -514,8 +466,6 @@ exports[`renders interaction with skip correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
         style={
@@ -525,7 +475,6 @@ exports[`renders interaction with skip correctly 1`] = `
             },
             null,
             Object {
-              "marginTop": 0,
               "padding": 30,
             },
             null,
@@ -586,7 +535,6 @@ exports[`renders interaction with skip correctly 1`] = `
       autoCorrect={true}
       autoFocus={true}
       blurOnSubmit={true}
-      maxLength={undefined}
       multiline={true}
       onChangeText={[Function]}
       placeholder="What did you see God do?"
@@ -621,16 +569,9 @@ exports[`renders interaction with skip correctly 1`] = `
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
     accessibilityTraits="button"
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -642,8 +583,6 @@ exports[`renders interaction with skip correctly 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -692,36 +631,27 @@ exports[`renders interaction with skip correctly 1`] = `
       </Text>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
         },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
       ]
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
       accessibilityTraits="button"
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -733,8 +663,6 @@ exports[`renders interaction with skip correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
         style={
@@ -787,12 +715,84 @@ exports[`renders interaction with skip correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
-</View>
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
+    style={
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessibilityTraits="button"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "padding": 15,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                },
+              ],
+            ]
+          }
+        >
+          SKIP
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</RCTSafeAreaView>
 `;
 
 exports[`renders interaction without skip correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -821,7 +821,6 @@ exports[`renders interaction without skip correctly 1`] = `
       autoCorrect={true}
       autoFocus={true}
       blurOnSubmit={true}
-      maxLength={undefined}
       multiline={true}
       onChangeText={[Function]}
       placeholder="What did you see God do?"
@@ -856,16 +855,9 @@ exports[`renders interaction without skip correctly 1`] = `
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
     accessibilityTraits="button"
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -877,8 +869,6 @@ exports[`renders interaction without skip correctly 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -927,36 +917,27 @@ exports[`renders interaction without skip correctly 1`] = `
       </Text>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
         },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
       ]
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
       accessibilityTraits="button"
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -968,8 +949,6 @@ exports[`renders interaction without skip correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
         style={
@@ -1022,12 +1001,12 @@ exports[`renders interaction without skip correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
-</View>
+  </RCTSafeAreaView>
+</RCTSafeAreaView>
 `;
 
 exports[`renders journey correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -1056,7 +1035,6 @@ exports[`renders journey correctly 1`] = `
       autoCorrect={true}
       autoFocus={true}
       blurOnSubmit={true}
-      maxLength={undefined}
       multiline={true}
       onChangeText={[Function]}
       placeholder="What did you see God do?"
@@ -1091,16 +1069,9 @@ exports[`renders journey correctly 1`] = `
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
     accessibilityTraits="button"
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -1112,8 +1083,6 @@ exports[`renders journey correctly 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -1162,36 +1131,27 @@ exports[`renders journey correctly 1`] = `
       </Text>
     </View>
   </View>
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          null,
-          Object {
-            "left": 5,
-            "position": "absolute",
-            "top": 25,
-          },
-        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
         },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
       ]
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
       accessibilityTraits="button"
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1203,8 +1163,6 @@ exports[`renders journey correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
         style={
@@ -1257,12 +1215,12 @@ exports[`renders journey correctly 1`] = `
         </Text>
       </View>
     </View>
-  </View>
-</View>
+  </RCTSafeAreaView>
+</RCTSafeAreaView>
 `;
 
 exports[`renders step note correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -1284,16 +1242,9 @@ exports[`renders step note correctly 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
       accessibilityTraits="button"
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1305,8 +1256,6 @@ exports[`renders step note correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
         style={
@@ -1316,7 +1265,6 @@ exports[`renders step note correctly 1`] = `
             },
             null,
             Object {
-              "marginTop": 0,
               "padding": 30,
             },
             null,
@@ -1377,7 +1325,6 @@ exports[`renders step note correctly 1`] = `
       autoCorrect={true}
       autoFocus={true}
       blurOnSubmit={true}
-      maxLength={undefined}
       multiline={true}
       onChangeText={[Function]}
       placeholder="What did you see God do?"
@@ -1412,16 +1359,9 @@ exports[`renders step note correctly 1`] = `
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
     accessibilityTraits="button"
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -1433,8 +1373,6 @@ exports[`renders step note correctly 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -1483,11 +1421,83 @@ exports[`renders step note correctly 1`] = `
       </Text>
     </View>
   </View>
-</View>
+  <RCTSafeAreaView
+    style={
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessibilityTraits="button"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "padding": 15,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                },
+              ],
+            ]
+          }
+        >
+          SKIP
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</RCTSafeAreaView>
 `;
 
 exports[`renders step note correctly for me 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -1509,16 +1519,9 @@ exports[`renders step note correctly for me 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
       accessibilityTraits="button"
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1530,8 +1533,6 @@ exports[`renders step note correctly for me 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
         style={
@@ -1541,7 +1542,6 @@ exports[`renders step note correctly for me 1`] = `
             },
             null,
             Object {
-              "marginTop": 0,
               "padding": 30,
             },
             null,
@@ -1602,7 +1602,6 @@ exports[`renders step note correctly for me 1`] = `
       autoCorrect={true}
       autoFocus={true}
       blurOnSubmit={true}
-      maxLength={undefined}
       multiline={true}
       onChangeText={[Function]}
       placeholder="What did you see God do?"
@@ -1637,16 +1636,9 @@ exports[`renders step note correctly for me 1`] = `
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
     accessibilityTraits="button"
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -1658,8 +1650,6 @@ exports[`renders step note correctly for me 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -1708,5 +1698,77 @@ exports[`renders step note correctly for me 1`] = `
       </Text>
     </View>
   </View>
-</View>
+  <RCTSafeAreaView
+    style={
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessibilityTraits="button"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "padding": 15,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                },
+              ],
+            ]
+          }
+        >
+          SKIP
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</RCTSafeAreaView>
 `;

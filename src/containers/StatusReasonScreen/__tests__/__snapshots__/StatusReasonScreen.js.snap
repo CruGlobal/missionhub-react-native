@@ -9,7 +9,7 @@ exports[`StatusReasonScreen should render correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     right={
       <Button

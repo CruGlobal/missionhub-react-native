@@ -69,7 +69,6 @@ const trackActionResponse = { type: 'tracked action' };
 
 beforeEach(() => {
   store.clearActions();
-  jest.clearAllMocks();
   navigatePush.mockReturnValue(navigatePushResponse);
   reactNavigation.StackActions.popToTop = jest
     .fn()

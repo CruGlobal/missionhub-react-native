@@ -83,9 +83,6 @@ describe('mapStateToProps', () => {
 });
 
 describe('StatusSelectScreen', () => {
-  beforeEach(() => {
-    navigation.navigatePush.mockClear();
-  });
   let instance;
 
   const component = (

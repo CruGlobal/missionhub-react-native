@@ -4,7 +4,6 @@ exports[`renders animation correctly 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
-  collapsable={undefined}
   ellipsizeMode="tail"
   style={
     Object {

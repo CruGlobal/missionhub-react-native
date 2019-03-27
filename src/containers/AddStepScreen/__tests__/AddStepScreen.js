@@ -161,8 +161,6 @@ describe('add step methods for stepNote with next', () => {
   common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
   beforeEach(() => {
-    jest.clearAllMocks();
-
     screen = renderShallow(
       <AddStepScreen
         navigation={createMockNavState({
@@ -179,9 +177,9 @@ describe('add step methods for stepNote with next', () => {
 
   it('runs skip', () => {
     screen
-      .childAt(0)
-      .childAt(0)
-      .simulate('press');
+      .childAt(3)
+      .props()
+      .onSkip();
 
     expect(next).toHaveBeenCalledTimes(1);
   });

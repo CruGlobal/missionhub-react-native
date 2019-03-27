@@ -91,6 +91,8 @@ export default {
     loading: 'Loading',
     save: 'Save',
     delete: 'Delete',
+    ignore: 'Ignore',
+    report: 'Report',
     cancel: 'Cancel',
     continue: 'Continue',
     your: 'your',
@@ -295,7 +297,7 @@ export default {
   impact: {
     header: 'Impact',
     stepsSentence:
-      "In {{year}}, {{numInitiators}} {{initiator}} {{initiatorSuffix}} taken $t(steps, {'count': {{stepsCount}} }) of faith with $t(people, {'count': {{receiversCount}} }){{scope}}.",
+      "{{beginningScope}}{{numInitiators}}{{initiator}} {{initiatorSuffix}} taken $t(steps, {'count': {{stepsCount}} }) of faith with $t(people, {'count': {{receiversCount}} }){{endingScope}}.",
     stepsSentence_empty:
       'Here you will see all the steps {{initiator}} {{initiatorSuffix}} taken.',
     stepsSentence_emptyGlobal:
@@ -311,10 +313,12 @@ export default {
     people_plural: '{{count}} people',
     you: 'you',
     we: 'we',
+    togetherWe: 'together we',
     users: 'users',
     allOfUs: 'all of us',
     haveSuffix: 'have',
     hasSuffix: 'has',
+    inYear: 'in {{year}}',
     inTheirLife: ' in their life',
     atOrgName: ' at {{orgName}}',
     interactionSpiritualConversation: 'Spiritual Conversations',
@@ -334,12 +338,17 @@ export default {
     interactionNote: 'Comment',
     commentBoxPlaceholder: 'Share something to be remembered...',
   },
+  celebrateCommentBox: {
+    placeholder: 'Write a comment...',
+  },
   notes: {
     header: 'MY NOTES',
     add: 'ADD PRIVATE NOTES',
     edit: 'EDIT PRIVATE NOTES',
     prompt:
       'Remember important details about {{personFirstName}}, like favorite food, hobbies they love or something interesting they said.',
+    promptMe:
+      'Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God.',
   },
   search: {
     inputPlaceholder: 'Search',
@@ -670,9 +679,6 @@ export default {
   loadMore: {
     load: 'Load More',
   },
-  commentBox: {
-    placeholder: 'Comment',
-  },
   statusSelect: {
     header: 'Status',
     cancel: 'Cancel',
@@ -728,5 +734,31 @@ export default {
     tryItNow: 'Try It Now',
     haveCode: 'I have a Community Code',
     member: 'Already a Member?',
+  },
+  commentsList: {
+    editPost: 'Edit Comment',
+    deletePost: 'Delete Comment',
+    reportPost: 'Report Comment',
+    reportToOwner: 'Report to Owner',
+    reportToOwnerHeader: 'Report to Owner?',
+    reportAreYouSure:
+      'Are you sure you want to report this comment to the community owner?',
+    deletePostHeader: 'Delete Post?',
+    deleteAreYouSure:
+      'This post will be deleted and you won’t be able to find it anymore.',
+  },
+  groupsReport: {
+    reports: '{{count}} new reported comment',
+    reports_plural: '{{count}} new reported comments',
+    title: 'Reported Comment',
+    header: 'No Reported Comments',
+    reportNull: 'No comments have been reported.',
+  },
+  reportComment: {
+    reportedBy: 'Reported By',
+    commentBy: 'Comment By',
+    reportedBy: 'Reported By',
+    deleteTitle:
+      'Deleting this comment removes it completely and it will no longer be found.',
   },
 };

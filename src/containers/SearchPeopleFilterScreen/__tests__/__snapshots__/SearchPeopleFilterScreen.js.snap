@@ -9,22 +9,18 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          Object {
-            "backgroundColor": "#007398",
-            "height": 65,
-            "paddingTop": 20,
-          },
-          undefined,
-          Object {
-            "elevation": 4,
-          },
-        ],
         Object {
+          "backgroundColor": "#007398",
           "flexDirection": "row",
+          "height": 65,
+          "paddingTop": 20,
+        },
+        undefined,
+        Object {
+          "elevation": 4,
         },
       ]
     }
@@ -33,7 +29,6 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
-            "marginTop": 0,
             "paddingLeft": 5,
           },
           Object {
@@ -47,29 +42,20 @@ exports[`renders correctly 1`] = `
       <View
         style={
           Array [
-            Array [
-              null,
-              null,
-            ],
             Object {
               "alignItems": "flex-start",
               "alignSelf": "flex-start",
               "justifyContent": "center",
             },
+            undefined,
+            null,
           ]
         }
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
           accessibilityTraits="button"
           accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -81,8 +67,6 @@ exports[`renders correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={
@@ -138,9 +122,7 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Array [
-          Object {
-            "marginTop": 0,
-          },
+          Object {},
           Object {
             "alignItems": "center",
             "flex": 4,
@@ -177,7 +159,6 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
-            "marginTop": 0,
             "paddingRight": 5,
           },
           Object {
@@ -188,7 +169,7 @@ exports[`renders correctly 1`] = `
         ]
       }
     />
-  </View>
+  </RCTSafeAreaView>
   <RCTScrollView
     refreshControl={
       <MyRefreshControl
@@ -213,15 +194,9 @@ exports[`renders correctly 1`] = `
     <RCTRefreshControl />
     <View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
         accessibilityTraits="button"
         accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -229,8 +204,6 @@ exports[`renders correctly 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={null}
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <View
           style={
@@ -346,15 +319,9 @@ exports[`renders correctly 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
         accessibilityTraits="button"
         accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -362,8 +329,6 @@ exports[`renders correctly 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={null}
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <View
           style={
@@ -479,15 +444,9 @@ exports[`renders correctly 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
         accessibilityTraits="button"
         accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -495,8 +454,6 @@ exports[`renders correctly 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={null}
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <View
           style={
@@ -612,15 +569,9 @@ exports[`renders correctly 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
         accessibilityTraits="button"
         accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -628,8 +579,6 @@ exports[`renders correctly 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={null}
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <View
           style={
@@ -745,15 +694,9 @@ exports[`renders correctly 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
         accessibilityTraits="button"
         accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -761,8 +704,6 @@ exports[`renders correctly 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={null}
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <View
           style={

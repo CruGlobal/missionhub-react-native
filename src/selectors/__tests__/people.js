@@ -150,7 +150,7 @@ describe('peopleByOrgSelector', () => {
   afterEach(() =>
     expect(removeHiddenOrgs).toHaveBeenCalledWith(
       expect.anything(),
-      auth.person,
+      expect.objectContaining({ id: auth.person.id }),
     ));
 
   it('should exclude someone not assigned to me', () => {
@@ -161,7 +161,12 @@ describe('peopleByOrgSelector', () => {
   });
 
   it('should take the allByOrg object and transform it to sorted arrays', () => {
-    expect(peopleByOrgSelector({ people, auth })).toMatchSnapshot();
+    expect(
+      peopleByOrgSelector({
+        people,
+        auth: { ...auth, person: { ...auth.person } }, //reset cache of selector
+      }),
+    ).toMatchSnapshot();
   });
 
   it('should sort by user order', () => {

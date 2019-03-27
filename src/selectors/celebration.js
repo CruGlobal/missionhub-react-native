@@ -3,6 +3,17 @@ import { createSelector } from 'reselect';
 import { momentUtc } from '../utils/common';
 import { CELEBRATEABLE_TYPES } from '../constants';
 
+export const celebrationItemSelector = createSelector(
+  ({ organizations }) => organizations.all,
+  (_, { eventId }) => eventId,
+  (_, { organizationId }) => organizationId,
+  (orgs, eventId, organizationId) => {
+    const { celebrateItems } = orgs.find(({ id }) => id === organizationId);
+
+    return celebrateItems && celebrateItems.find(({ id }) => id === eventId);
+  },
+);
+
 export const celebrationSelector = createSelector(
   ({ celebrateItems }) => celebrateItems,
   celebrateItems => {

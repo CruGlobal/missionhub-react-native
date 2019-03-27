@@ -16,7 +16,6 @@ const apiResponse = { type: 'test' };
 callApi.mockReturnValue(apiResponse);
 
 beforeEach(() => {
-  callApi.mockClear();
   store.clearActions();
 });
 

@@ -74,7 +74,6 @@ beforeEach(() => {
     organizations,
     people,
   });
-  jest.clearAllMocks();
 });
 
 describe('get me', () => {

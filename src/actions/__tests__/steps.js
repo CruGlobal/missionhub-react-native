@@ -45,7 +45,6 @@ jest.mock('../celebration');
 jest.mock('../analytics');
 
 beforeEach(() => {
-  jest.clearAllMocks();
   store = mockStore();
 });
 

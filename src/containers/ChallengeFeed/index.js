@@ -13,6 +13,7 @@ import { completeChallenge, joinChallenge } from '../../actions/challenges';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
 import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
+import { keyExtractorId } from '../../utils/common';
 
 import styles from './styles';
 
@@ -44,8 +45,6 @@ class ChallengeFeed extends Component {
       acceptedChallenge={this.getAcceptedChallenge(item)}
     />
   );
-
-  keyExtractor = item => item.id;
 
   handleOnEndReached = () => {
     if (this.state.isListScrolled && !this.props.refreshing) {
@@ -105,13 +104,14 @@ class ChallengeFeed extends Component {
         ListHeaderComponent={this.renderHeader}
         renderSectionHeader={this.renderSectionHeader}
         renderItem={this.renderItem}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         onEndReachedThreshold={0.2}
         onEndReached={this.handleOnEndReached}
         onScrollEndDrag={this.handleEndDrag}
         onRefresh={this.handleRefreshing}
         refreshing={refreshing || false}
         extraData={this.state}
+        contentContainerStyle={styles.list}
       />
     );
   }

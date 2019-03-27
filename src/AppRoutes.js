@@ -5,13 +5,11 @@ import {
   createBottomTabNavigator,
   createDrawerNavigator,
   createStackNavigator,
+  StackViewTransitionConfigs,
 } from 'react-navigation';
 import i18next from 'i18next';
 
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
-import KeyLoginScreen, {
-  KEY_LOGIN_SCREEN,
-} from './containers/Auth/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
 import SelectMyStepScreen, {
@@ -79,15 +77,9 @@ import SearchPeopleFilterScreen, {
 import SearchPeopleFilterRefineScreen, {
   SEARCH_REFINE_SCREEN,
 } from './containers/SearchPeopleFilterRefineScreen';
-import UpgradeAccountScreen, {
-  UPGRADE_ACCOUNT_SCREEN,
-} from './containers/Auth/UpgradeAccountScreen';
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
-import MFACodeScreen, {
-  MFA_CODE_SCREEN,
-} from './containers/Auth/MFACodeScreen';
 import {
   ALL_PERSON_TAB_ROUTES,
   CONTACT_PERSON_SCREEN,
@@ -125,6 +117,9 @@ import {
 import SurveyContacts, {
   GROUPS_SURVEY_CONTACTS,
 } from './containers/Groups/SurveyContacts';
+import GroupReport, {
+  GROUPS_REPORT_SCREEN,
+} from './containers/Groups/GroupReport';
 import UnassignedPersonScreen, {
   UNASSIGNED_PERSON_SCREEN,
 } from './containers/Groups/UnassignedPersonScreen';
@@ -157,6 +152,9 @@ import {
   JOIN_BY_CODE_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
   COMPLETE_STEP_FLOW,
+  SIGN_IN_FLOW,
+  SIGN_UP_FLOW,
+  CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
   ADD_MY_STEP_FLOW,
   ADD_PERSON_STEP_FLOW,
@@ -184,6 +182,15 @@ import {
   CompleteStepFlowAndNavigateBackNavigator,
   CompleteStepFlowScreens,
 } from './routes/steps/completeStepFlow';
+import CelebrateDetailScreen, {
+  CELEBRATE_DETAIL_SCREEN,
+} from './containers/CelebrateDetailScreen';
+import { SignInFlowScreens, SignInFlowNavigator } from './routes/auth/signIn';
+import { SignUpFlowScreens, SignUpFlowNavigator } from './routes/auth/signUp';
+import {
+  CreateCommunityUnauthenticatedFlowNavigator,
+  CreateCommunityUnauthenticatedFlowScreens,
+} from './routes/groups/createCommunityUnauthenticatedFlow';
 import { AddMyStepFlowNavigator } from './routes/steps/addMyStepFlow';
 import { AddPersonStepFlowNavigator } from './routes/steps/addPersonStepFlow';
 import { SelectMyStageFlowNavigator } from './routes/stage/selectMyStageFlow';
@@ -270,18 +277,15 @@ export const MainTabBarStartSteps = createTabs(STEPS_TAB);
 // Create another set of tabs with a different default tab
 export const MainTabBarStartGroups = createTabs(GROUPS_TAB);
 
-export const MAIN_TABS_SCREEN = buildTrackedScreen(
-  createDrawerNavigator(
-    {
-      Main: { screen: MainTabs },
-    },
-    {
-      contentComponent: SettingsMenu,
-      navigationOptions: { drawerLockMode: 'locked-closed' },
-      backBehavior: 'none', // We're handling it on our own
-    },
-  ),
-  stepsTab, //stepsTab is shown when MainTabs first opens
+export const MAIN_TABS_SCREEN = createDrawerNavigator(
+  {
+    Main: { screen: MainTabs },
+  },
+  {
+    contentComponent: SettingsMenu,
+    navigationOptions: { drawerLockMode: 'locked-closed' },
+    backBehavior: 'none', // We're handling it on our own
+  },
 );
 
 const buildPersonScreenRoute = screen =>
@@ -325,19 +329,6 @@ const screens = {
   [STEP_REMINDER_SCREEN]: buildTrackedScreen(
     StepReminderScreen,
     buildTrackingObj('step : detail : reminder', 'step', 'detail'),
-  ),
-  [UPGRADE_ACCOUNT_SCREEN]: buildTrackedScreen(
-    UpgradeAccountScreen,
-    buildTrackingObj('auth', 'auth'),
-  ),
-  [KEY_LOGIN_SCREEN]: buildTrackedScreen(
-    KeyLoginScreen,
-    buildTrackingObj('auth : sign in', 'auth'),
-    { gesturesEnabled: true },
-  ),
-  [MFA_CODE_SCREEN]: buildTrackedScreen(
-    MFACodeScreen,
-    buildTrackingObj('auth : verification', 'auth'),
   ),
   [WELCOME_SCREEN]: buildTrackedScreen(
     wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
@@ -436,6 +427,11 @@ const screens = {
     ),
     { gesturesEnabled: true },
   ),
+  [GROUPS_REPORT_SCREEN]: buildTrackedScreen(
+    GroupReport,
+    buildTrackingObj('communities : report', 'communities', 'report'),
+    { gesturesEnabled: true },
+  ),
   [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     SurveyContactsFilter,
     buildTrackingObj(
@@ -487,11 +483,23 @@ const screens = {
   ),
   [ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoute(MeCommunityPersonScreen),
   [MAIN_TABS]: MAIN_TABS_SCREEN,
+  [SIGN_IN_FLOW]: SignInFlowNavigator,
+  [SIGN_UP_FLOW]: SignUpFlowNavigator,
+  [CREATE_COMMUNITY_UNAUTHENTICATED_FLOW]: CreateCommunityUnauthenticatedFlowNavigator,
   [JOIN_BY_CODE_FLOW]: JoinByCodeFlowNavigator,
   [JOIN_BY_CODE_ONBOARDING_FLOW]: JoinByCodeOnboardingFlowNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityUnauthenticatedNavigator,
   [COMPLETE_STEP_FLOW]: CompleteStepFlowNavigator,
+  [CELEBRATE_DETAIL_SCREEN]: buildTrackedScreen(
+    CelebrateDetailScreen,
+    buildTrackingObj(
+      'communities : celebration : comment',
+      'communities',
+      'celebration',
+    ),
+    { gesturesEnabled: true },
+  ),
   [COMPLETE_STEP_FLOW_NAVIGATE_BACK]: CompleteStepFlowAndNavigateBackNavigator,
   [ADD_MY_STEP_FLOW]: AddMyStepFlowNavigator,
   [ADD_PERSON_STEP_FLOW]: AddPersonStepFlowNavigator,
@@ -509,7 +517,12 @@ export const trackableScreens = {
   ...DeepLinkJoinCommunityAuthenticatedScreens,
   ...DeepLinkJoinCommunityUnauthenticatedScreens,
   ...CompleteStepFlowScreens,
+  ...CreateCommunityUnauthenticatedFlowScreens,
+  ...SignInFlowScreens,
+  ...SignUpFlowScreens,
 };
+
+const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, GROUPS_REPORT_SCREEN];
 
 export const MainStackRoutes = createStackNavigator(
   {
@@ -560,6 +573,17 @@ export const MainStackRoutes = createStackNavigator(
       header: null,
       gesturesEnabled: false,
     },
+    transitionConfig: (transitionProps, prevTransitionProps) =>
+      StackViewTransitionConfigs.defaultTransitionConfig(
+        transitionProps,
+        prevTransitionProps,
+        MODAL_SCREENS.some(
+          screenName =>
+            screenName === transitionProps.scene.route.routeName ||
+            (prevTransitionProps &&
+              screenName === prevTransitionProps.scene.route.routeName),
+        ),
+      ),
   },
 );
 

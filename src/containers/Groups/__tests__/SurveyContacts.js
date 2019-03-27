@@ -29,11 +29,6 @@ const organization = { id: '1', name: 'Test Org' };
 const survey = { id: '11' };
 const people = [{ id: '1' }, { id: '2' }];
 
-beforeEach(() => {
-  navigatePush.mockClear();
-  navToPersonScreen.mockClear();
-});
-
 describe('SurveyContacts', () => {
   const component = (
     <SurveyContacts
@@ -116,6 +111,7 @@ describe('SurveyContacts', () => {
     const screen = renderShallow(component, store);
     const listItem = screen
       .childAt(1)
+      .childAt(0)
       .props()
       .listProps.renderItem({ item: person });
 

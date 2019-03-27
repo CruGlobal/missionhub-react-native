@@ -30,7 +30,7 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"
@@ -138,7 +138,7 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"
@@ -234,7 +234,7 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"

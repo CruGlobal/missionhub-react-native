@@ -48,8 +48,6 @@ const insertNameResult = [{ body: 'take a step with roge' }];
 const next = jest.fn();
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore({
     auth: { person: { id: personId } },
     steps: { suggestedForMe, suggestedForOthers },

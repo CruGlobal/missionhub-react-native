@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -11,13 +11,13 @@ import { addStep } from '../../actions/steps';
 import { buildCustomStep } from '../../utils/steps';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
-import Header from '../Header';
 import BottomButton from '../../components/BottomButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
 import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
 import StepsList from '../StepsList';
+import Header from '../../components/Header';
 
 import styles from './styles';
 
@@ -94,6 +94,7 @@ class SelectStepScreen extends Component {
       contact,
       next,
     } = this.props;
+    const { headerHeight } = theme;
 
     return (
       <View flex={1}>
@@ -102,7 +103,7 @@ class SelectStepScreen extends Component {
           contentBackgroundColor={theme.extraLightGrey}
           parallaxHeaderHeight={240 + theme.notchHeight}
           renderForeground={this.renderForeground}
-          stickyHeaderHeight={theme.headerHeight}
+          stickyHeaderHeight={headerHeight}
           renderStickyHeader={this.renderStickyHeader}
         >
           <StepsList
@@ -113,10 +114,12 @@ class SelectStepScreen extends Component {
             next={next}
           />
         </ParallaxScrollView>
-        <BottomButton
-          onPress={this.handleCreateStep}
-          text={this.props.t('createStep')}
-        />
+        <SafeAreaView>
+          <BottomButton
+            onPress={this.handleCreateStep}
+            text={this.props.t('createStep')}
+          />
+        </SafeAreaView>
         {enableBackButton && (
           <BackButton
             customNavigate={contact ? undefined : this.navigateBackTwoScreens}

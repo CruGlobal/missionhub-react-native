@@ -36,6 +36,12 @@ exports[`addStep creates step with custom step suggestion 1`] = `
       },
     ],
   ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": [Function],
+    },
+  ],
 }
 `;
 
@@ -81,6 +87,12 @@ exports[`addStep creates step with org 1`] = `
       },
     ],
   ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": [Function],
+    },
+  ],
 }
 `;
 
@@ -119,6 +131,12 @@ exports[`addStep creates step without org 1`] = `
         },
       },
     ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": [Function],
+    },
   ],
 }
 `;
