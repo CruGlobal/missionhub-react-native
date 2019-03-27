@@ -1,6 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import MockDate from 'mockdate';
 
 import { renderShallow } from '../../../../testUtils/index';
 import { navigatePush } from '../../../actions/navigation';
@@ -11,6 +12,8 @@ import ReminderButton from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');
+
+MockDate.set('2018-09-12T12:00:00');
 
 const stepId = '1';
 const navigatePushResult = { type: 'navigated push' };

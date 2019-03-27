@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Button, Icon, Text } from '../../components/common';
+import { Button, Icon } from '../../components/common';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
@@ -33,7 +33,6 @@ class AcceptedStepDetailScreen extends Component {
 
   renderReminderButton() {
     const {
-      t,
       step: { id },
       reminder,
     } = this.props;

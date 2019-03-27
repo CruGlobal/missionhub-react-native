@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
 
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
@@ -18,7 +17,6 @@ import Icon from '../Icon/index';
 
 import styles from './styles';
 
-@translate('contactSteps')
 class AcceptedStepItem extends Component {
   handleNavigate = () => {
     const { dispatch, step } = this.props;
@@ -34,7 +32,6 @@ class AcceptedStepItem extends Component {
 
   render() {
     const {
-      t,
       step: { title, completed_at, id },
       reminder,
     } = this.props;
@@ -46,7 +43,6 @@ class AcceptedStepItem extends Component {
       checkIcon,
       reminderButton,
       bellIcon,
-      reminderText,
     } = styles;
 
     return completed_at ? (

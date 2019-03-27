@@ -52,7 +52,7 @@ describe('AcceptedStepItem', () => {
   });
 
   it('selects reminder from Redux', () => {
-    const component = renderShallow(<StepSuggestionItem step={step} />, store);
+    renderShallow(<StepSuggestionItem step={step} />, store);
 
     expect(reminderSelector).toHaveBeenCalledWith(
       { stepReminders },

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Text, Card, Button } from '../common';
+import { Text } from '../common';
 
 import styles from './styles';
 

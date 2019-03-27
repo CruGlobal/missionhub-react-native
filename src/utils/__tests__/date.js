@@ -10,9 +10,7 @@ const mockDate = '2018-09-12T12:00:00';
 const mockMinDate = '2019-10-13T12:00:00';
 const mockMaxDate = '2017-08-10T12:00:00';
 
-beforeEach(() => {
-  MockDate.set(mockDate);
-});
+beforeEach(() => {});
 
 describe('getDate', () => {
   it('formats date string', () => {

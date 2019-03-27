@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { translate } from 'react-i18next';
-import moment from 'moment';
 
 import BackButton from '../BackButton';
 import Header from '../Header';
