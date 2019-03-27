@@ -22,41 +22,42 @@ export const DateConstants = {
   },
 };
 
-function formatComment(date, t) {
-  let momentDate;
-  const now = moment();
+function getMomentDate(date) {
   if (isString(date) && date.indexOf('UTC') >= 0) {
-    momentDate = momentUtc(date).local();
-  } else {
-    momentDate = moment(date);
+    return momentUtc(date).local();
   }
+  return moment(date);
+}
+function isYesterday(momentDate) {
+  return momentDate.isSame(moment().subtract(1, 'days'), 'day');
+}
+function isToday(momentDate) {
+  return momentDate.isSame(moment(), 'day');
+}
+function inLastWeek(momentDate) {
+  return momentDate.isBetween(
+    moment().subtract(7, 'days'),
+    moment(),
+    'day',
+    '[]',
+  );
+}
 
-  if (momentDate.format('DD-MM-YYYY') === now.format('DD-MM-YYYY')) {
+function formatComment(date, t) {
+  const momentDate = getMomentDate(date);
+  const now = moment();
+
+  if (isToday(momentDate)) {
     return momentDate.format(DateConstants.Formats.timeOnly);
   }
   // Check if yesterday
-  if (
-    momentDate.isSame(
-      now
-        .clone()
-        .subtract(1, 'days')
-        .startOf('day'),
-      'd',
-    )
-  ) {
+  if (isYesterday(momentDate)) {
     return `${t('dates.yesterday')} @ ${momentDate.format(
       DateConstants.Formats.timeOnly,
     )}`;
   }
   // Check if within the last week
-  if (
-    momentDate.isAfter(
-      now
-        .clone()
-        .subtract(6, 'days')
-        .startOf('day'),
-    )
-  ) {
+  if (inLastWeek(momentDate)) {
     return momentDate.format(DateConstants.Formats.dayAtTime);
   }
   if (momentDate.year() !== now.year()) {
@@ -84,12 +85,8 @@ export default class DateComponent extends Component {
       text = t('dates.yesterday');
     } else if (dateFormat === comment) {
       text = formatComment(date, t);
-    } else if (isString(date) && date.indexOf('UTC') >= 0) {
-      text = momentUtc(date)
-        .local()
-        .format(dateFormat);
     } else {
-      text = moment(date).format(dateFormat);
+      text = getMomentDate(date).format(dateFormat);
     }
     return <Text style={style}>{text}</Text>;
   }
@@ -107,17 +104,14 @@ DateComponent.defaultProps = {
 
 const relativeFormat = date => {
   const today = moment();
-  const other = momentUtc(date).local();
-
-  const lastWeek = moment().subtract(7, 'days');
-  const yesterday = moment().subtract(1, 'days');
+  const other = getMomentDate(date);
 
   if (other.isSame(today, 'year')) {
-    if (other.isBetween(lastWeek, today, 'day', '[]')) {
-      if (other.isSame(yesterday, 'day')) {
+    if (inLastWeek(other)) {
+      if (isYesterday(other)) {
         return DateConstants.yesterday;
       }
-      if (other.isSame(today, 'day')) {
+      if (isToday(other)) {
         return DateConstants.today;
       }
       return DateConstants.Formats.dayOnly;

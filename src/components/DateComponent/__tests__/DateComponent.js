@@ -62,6 +62,7 @@ describe('comment formatting', () => {
   it('renders date from last week', () => {
     testDateFormat('2018-06-09 12:00:00', 'Saturday @ 12:00 PM');
     testDateFormat('2018-06-07 12:00:00', 'Thursday @ 12:00 PM');
+    testDateFormat('2018-06-04 12:00:00', 'Monday @ 12:00 PM');
   });
 
   it('renders from this year', () => {
