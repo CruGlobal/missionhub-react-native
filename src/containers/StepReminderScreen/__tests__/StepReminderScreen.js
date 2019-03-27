@@ -8,15 +8,25 @@ import SetReminderScreen from '..';
 import { renderShallow, createMockNavState } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 import { createStepReminder } from '../../../actions/stepReminders';
+import { reminderSelector } from '../../../selectors/stepReminders';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');
+jest.mock('../../../selectors/stepReminders');
 
 const mockDate = '2018-09-01';
 MockDate.set(mockDate);
 
 const mockStore = configureStore([thunk]);
 const stepId = '42234';
+const reminderId = '1';
+const reminder = { id: reminderId };
+const stepReminders = {
+  all: {
+    [reminderId]: reminder,
+  },
+};
+
 let date = '';
 let component;
 let instance;
@@ -29,7 +39,7 @@ navigateBack.mockReturnValue(navigateBackResult);
 createStepReminder.mockReturnValue(createStepReminderResult);
 
 const createComponent = () => {
-  store = mockStore();
+  store = mockStore({ stepReminders });
 
   component = renderShallow(
     <SetReminderScreen
@@ -50,6 +60,13 @@ describe('render', () => {
 
     it('renders correctly', () => {
       expect(component).toMatchSnapshot();
+    });
+
+    it('selects reminder from Redux', () => {
+      expect(reminderSelector).toHaveBeenCalledWith(
+        { stepReminders },
+        { stepId },
+      );
     });
   });
 

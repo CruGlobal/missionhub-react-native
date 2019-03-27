@@ -120,7 +120,7 @@ describe('getContactSteps', () => {
         organization_ids: orgId,
       },
       page: { limit: 1000 },
-      include: 'receiver,challenge_suggestion',
+      include: 'receiver,challenge_suggestion,reminder',
     });
     expect(store.getActions()).toEqual([apiResult]);
   });

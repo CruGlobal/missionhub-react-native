@@ -79,7 +79,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
       </MyText>
       <Translate(MyDatePickerIOS)
         customStyles={Object {}}
-        date="2018-09-01"
+        date=""
         disabled={false}
         duration={300}
         height={259}
@@ -87,10 +87,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <Translate(ReminderDateText)
           style={
             Array [
               Object {
@@ -106,9 +103,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
               },
             ]
           }
-        >
-          2018-09-01 00:00
-        </MyText>
+        />
       </Translate(MyDatePickerIOS)>
     </Component>
     <Translate(ReminderRepeatButtons)
@@ -202,7 +197,7 @@ exports[`render date in props renders correctly 1`] = `
       </MyText>
       <Translate(MyDatePickerIOS)
         customStyles={Object {}}
-        date="2018-09-01"
+        date=""
         disabled={false}
         duration={300}
         height={259}
@@ -210,10 +205,7 @@ exports[`render date in props renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <Translate(ReminderDateText)
           style={
             Array [
               Object {
@@ -229,9 +221,7 @@ exports[`render date in props renders correctly 1`] = `
               },
             ]
           }
-        >
-          2018-09-01 00:00
-        </MyText>
+        />
       </Translate(MyDatePickerIOS)>
     </Component>
     <Translate(ReminderRepeatButtons)
@@ -323,7 +313,7 @@ exports[`render no date in props renders correctly 1`] = `
       </MyText>
       <Translate(MyDatePickerIOS)
         customStyles={Object {}}
-        date={null}
+        date=""
         disabled={false}
         duration={300}
         height={259}
@@ -331,10 +321,7 @@ exports[`render no date in props renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <Translate(ReminderDateText)
           style={
             Array [
               Object {
@@ -350,9 +337,7 @@ exports[`render no date in props renders correctly 1`] = `
               },
             ]
           }
-        >
-          End Date (Required)
-        </MyText>
+        />
       </Translate(MyDatePickerIOS)>
     </Component>
     <Translate(ReminderRepeatButtons)
