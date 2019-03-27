@@ -12,6 +12,7 @@ import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen'
 import { navigatePush } from '../../actions/navigation';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import ReportCommentNotifier from '../../containers/ReportCommentNotifier';
+import { keyExtractorId } from '../../utils/common';
 
 import styles from './styles';
 
@@ -56,8 +57,6 @@ class CelebrateFeed extends Component {
     );
   };
 
-  keyExtractor = item => item.id;
-
   handleOnEndReached = () => {
     if (this.state.isListScrolled) {
       this.props.loadMoreItemsCallback();
@@ -93,7 +92,7 @@ class CelebrateFeed extends Component {
         ListHeaderComponent={this.renderHeader}
         renderSectionHeader={this.renderSectionHeader}
         renderItem={this.renderItem}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         onEndReachedThreshold={0.2}
         onEndReached={this.handleOnEndReached}
         onScrollEndDrag={this.handleEndDrag}

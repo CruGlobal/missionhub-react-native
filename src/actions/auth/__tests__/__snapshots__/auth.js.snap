@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`logout should perform the needed actions even after push token deletion failure 1`] = `
+Array [
+  Object {
+    "type": "app/LOGOUT",
+  },
+  Object {
+    "actions": Array [
+      Object {
+        "params": Object {
+          "forcedLogout": true,
+        },
+        "routeName": "nav/SIGN_IN_FLOW",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": null,
+    "type": "Navigation/RESET",
+  },
+]
+`;
+
 exports[`logout should perform the needed actions for forced signing out 1`] = `
 Array [
   Object {

@@ -39,7 +39,12 @@ import RowSwipeable from '../../components/RowSwipeable';
 import FooterLoading from '../../components/FooterLoading';
 import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
-import { openMainMenu, refresh, toast } from '../../utils/common';
+import {
+  openMainMenu,
+  refresh,
+  toast,
+  keyExtractorId,
+} from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, STEPS_TAB } from '../../constants';
 import { navToPersonScreen } from '../../actions/person';
@@ -256,8 +261,6 @@ export class StepsScreen extends Component {
 
   listRef = c => (this.list = c);
 
-  listKeyExtractor = i => i.id;
-
   renderItem = ({ item, index }) => {
     const { showStepBump } = this.props;
 
@@ -308,7 +311,7 @@ export class StepsScreen extends Component {
         style={[styles.list, { paddingBottom: hasMoreSteps ? 40 : undefined }]}
         data={steps}
         extraData={{ hideStars: this.canHideStars() }}
-        keyExtractor={this.listKeyExtractor}
+        keyExtractor={keyExtractorId}
         renderItem={this.renderItem}
         removeClippedSubviews={false}
         bounces={false}
