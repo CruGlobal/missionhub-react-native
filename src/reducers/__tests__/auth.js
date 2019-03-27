@@ -1,6 +1,11 @@
 import auth from '../auth';
 import { REQUESTS } from '../../actions/api';
-import { UPDATE_STAGES, UPDATE_TOKEN } from '../../constants';
+import {
+  CLEAR_UPGRADE_TOKEN,
+  LOGOUT,
+  UPDATE_STAGES,
+  UPDATE_TOKEN,
+} from '../../constants';
 import { userIsJean } from '../../utils/common';
 
 jest.mock('../../utils/common');
@@ -147,4 +152,40 @@ it('updates a user token', () => {
   );
 
   expect(state).toEqual({ token });
+});
+
+it("should clear the user's upgradeToken", () => {
+  const state = auth(
+    { upgradeToken: 'something' },
+    {
+      type: CLEAR_UPGRADE_TOKEN,
+    },
+  );
+
+  expect(state).toEqual({ upgradeToken: null });
+});
+
+it('should reset state on logout', () => {
+  const state = auth(
+    {
+      isFirstTime: true,
+      token: 'some token',
+      refreshToken: 'some refresh token',
+      person: { user: { id: '1' } },
+      isJean: true,
+      upgradeToken: 'some upgrade token',
+    },
+    {
+      type: LOGOUT,
+    },
+  );
+
+  expect(state).toEqual({
+    isFirstTime: false,
+    token: '',
+    refreshToken: '',
+    person: { user: {} },
+    isJean: false,
+    upgradeToken: null,
+  });
 });

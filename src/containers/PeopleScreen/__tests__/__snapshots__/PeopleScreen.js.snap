@@ -109,7 +109,10 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Component
+    screen="PeopleTab"
+  />
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -163,7 +166,10 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Component
+    screen="PeopleTab"
+  />
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -244,7 +250,10 @@ exports[`PeopleScreen renders empty correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Component
+    screen="PeopleTab"
+  />
+  <Header
     left={
       <IconButton
         name="menuIcon"

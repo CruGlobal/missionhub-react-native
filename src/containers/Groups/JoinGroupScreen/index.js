@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 
 import { Flex, Text, Input, IconButton } from '../../../components/common';
 import GroupCardItem from '../../../components/GroupCardItem';
-import Header from '../../Header';
+import Header from '../../../components/Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
 import { navigateBack } from '../../../actions/navigation';

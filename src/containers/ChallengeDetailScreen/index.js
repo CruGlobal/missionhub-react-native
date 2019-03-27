@@ -13,7 +13,7 @@ import {
   updateChallenge,
 } from '../../actions/challenges';
 import { IconButton, Button } from '../../components/common';
-import Header from '../Header';
+import Header from '../../components/Header';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ChallengeMembers from '../ChallengeMembers';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
-import Header from '../../Header';
+import Header from '../../../components/Header';
 import FilterItem from '../../../components/FilterItem';
 import { buildTrackingObj, isString } from '../../../utils/common';
 import {

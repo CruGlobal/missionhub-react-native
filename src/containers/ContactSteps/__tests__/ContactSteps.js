@@ -12,7 +12,7 @@ import {
   testSnapshotShallow,
   renderShallow,
 } from '../../../../testUtils';
-import { navigatePush, navigateBack } from '../../../actions/navigation';
+import { navigatePush } from '../../../actions/navigation';
 import { buildTrackingObj } from '../../../utils/common';
 import { getContactSteps } from '../../../actions/steps';
 import { contactAssignmentSelector } from '../../../selectors/people';
@@ -96,7 +96,6 @@ let component;
 let instance;
 
 beforeEach(() => {
-  jest.clearAllMocks();
   component = renderShallow(
     <ContactSteps {...props} navigation={navState} />,
     store,
@@ -205,22 +204,6 @@ describe('handleComplete', () => {
   });
 });
 
-describe('handleSaveNewSteps', () => {
-  beforeAll(() => {
-    props = {
-      isMe: false,
-      person: mockPerson,
-    };
-  });
-
-  it('saves new steps', async () => {
-    await instance.handleSaveNewSteps();
-
-    expect(getContactSteps).toHaveBeenCalled();
-    expect(navigateBack).toHaveBeenCalled();
-  });
-});
-
 describe('handleCreateStep', () => {
   describe('for me', () => {
     beforeAll(() => {
@@ -236,7 +219,6 @@ describe('handleCreateStep', () => {
       instance.handleCreateStep();
 
       expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW, {
-        onSaveNewSteps: expect.any(Function),
         enableBackButton: true,
         trackingObj,
       });
@@ -287,7 +269,6 @@ describe('handleCreateStep', () => {
         contactId: mockPerson.id,
         contact: mockPerson,
         organization: undefined,
-        onSaveNewSteps: expect.any(Function),
         createStepTracking: buildTrackingObj(
           'people : person : steps : create',
           'people',
@@ -342,21 +323,6 @@ describe('handleCreateStep', () => {
       );
       expect(promptToAssign).not.toHaveBeenCalled();
     });
-  });
-});
-
-describe('key extractor', () => {
-  beforeAll(() => {
-    props = {
-      isMe: false,
-      person: mockPerson,
-    };
-  });
-
-  it('should call key extractor', () => {
-    const item = { id: '1' };
-    const result = instance.keyExtractor(item);
-    expect(result).toEqual(item.id);
   });
 });
 

@@ -21,7 +21,6 @@ let store;
 callApi.mockReturnValue(callApiResponse);
 
 beforeEach(() => {
-  jest.clearAllMocks();
   store = mockStore();
 });
 

@@ -4,9 +4,9 @@ import thunk from 'redux-thunk';
 
 import { DeepLinkJoinCommunityUnauthenticatedScreens } from '../deepLinkJoinCommunityUnauthenticated';
 import { renderShallow } from '../../../../testUtils';
-import * as navigationActions from '../../../actions/navigation';
+import { navigatePush } from '../../../actions/navigation';
 import * as common from '../../../utils/common';
-import { firstTime, loadHome } from '../../../actions/auth';
+import { firstTime, loadHome } from '../../../actions/auth/userData';
 import {
   completeOnboarding,
   stashCommunityToJoin,
@@ -15,12 +15,13 @@ import {
   landOnStashedCommunityScreen,
 } from '../../../actions/onboardingProfile';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
-import { KEY_LOGIN_SCREEN } from '../../../containers/Auth/KeyLoginScreen';
+import { SIGN_IN_SCREEN } from '../../../containers/Auth/SignInScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import { DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN } from '../../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
+import { MFA_CODE_SCREEN } from '../../../containers/Auth/MFACodeScreen';
 
 jest.mock('../../../actions/api');
-jest.mock('../../../actions/auth');
+jest.mock('../../../actions/auth/userData');
 jest.mock('../../../actions/onboardingProfile');
 jest.mock('../../../actions/navigation');
 common.isAndroid = false;
@@ -37,8 +38,7 @@ const store = configureStore([thunk])({
 
 beforeEach(() => {
   store.clearActions();
-  jest.clearAllMocks();
-  navigationActions.navigatePush.mockReturnValue(() => Promise.resolve());
+  navigatePush.mockReturnValue(() => Promise.resolve());
 });
 
 describe('JoinGroupScreen next', () => {
@@ -66,12 +66,9 @@ describe('JoinGroupScreen next', () => {
     );
 
     expect(stashCommunityToJoin).toHaveBeenCalledWith({ community });
-    expect(navigationActions.navigatePush).toHaveBeenCalledWith(
-      WELCOME_SCREEN,
-      {
-        allowSignIn: true,
-      },
-    );
+    expect(navigatePush).toHaveBeenCalledWith(WELCOME_SCREEN, {
+      allowSignIn: true,
+    });
   });
 });
 
@@ -95,9 +92,7 @@ describe('WelcomeScreen next', () => {
         }),
     );
 
-    expect(navigationActions.navigatePush).toHaveBeenCalledWith(
-      KEY_LOGIN_SCREEN,
-    );
+    expect(navigatePush).toHaveBeenCalledWith(SIGN_IN_SCREEN);
   });
 
   it('should fire required next actions for signup', async () => {
@@ -119,7 +114,7 @@ describe('WelcomeScreen next', () => {
         }),
     );
 
-    expect(navigationActions.navigatePush).toHaveBeenCalledWith(SETUP_SCREEN);
+    expect(navigatePush).toHaveBeenCalledWith(SETUP_SCREEN);
   });
 });
 
@@ -157,14 +152,14 @@ describe('SetupScreen next', () => {
   });
 });
 
-describe('KeyLoginScreen next', () => {
-  it('should fire required next actions', async () => {
+describe('SignInScreen next', () => {
+  it('should finish auth', async () => {
     joinStashedCommunity.mockReturnValue(() => Promise.resolve());
     loadHome.mockReturnValue(() => Promise.resolve());
     landOnStashedCommunityScreen.mockReturnValue(() => Promise.resolve());
 
     const Component =
-      DeepLinkJoinCommunityUnauthenticatedScreens[KEY_LOGIN_SCREEN].screen;
+      DeepLinkJoinCommunityUnauthenticatedScreens[SIGN_IN_SCREEN].screen;
 
     await store.dispatch(
       renderShallow(
@@ -182,5 +177,41 @@ describe('KeyLoginScreen next', () => {
     expect(joinStashedCommunity).toHaveBeenCalled();
     expect(loadHome).toHaveBeenCalled();
     expect(landOnStashedCommunityScreen).toHaveBeenCalled();
+  });
+  it('should navigate to mfa code screen', async () => {
+    const email = 'test@test.com';
+    const password = 'test1234';
+
+    joinStashedCommunity.mockReturnValue(() => Promise.resolve());
+    loadHome.mockReturnValue(() => Promise.resolve());
+    landOnStashedCommunityScreen.mockReturnValue(() => Promise.resolve());
+
+    const Component =
+      DeepLinkJoinCommunityUnauthenticatedScreens[SIGN_IN_SCREEN].screen;
+
+    await store.dispatch(
+      renderShallow(
+        <Component
+          navigation={{
+            state: { params: {} },
+          }}
+        />,
+        store,
+      )
+        .instance()
+        .props.next({
+          requires2FA: true,
+          email,
+          password,
+        }),
+    );
+
+    expect(joinStashedCommunity).not.toHaveBeenCalled();
+    expect(loadHome).not.toHaveBeenCalled();
+    expect(landOnStashedCommunityScreen).not.toHaveBeenCalled();
+    expect(navigatePush).toHaveBeenCalledWith(MFA_CODE_SCREEN, {
+      email,
+      password,
+    });
   });
 });

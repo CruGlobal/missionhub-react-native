@@ -61,7 +61,6 @@ const baseState = {
 const getState = jest.fn();
 
 beforeEach(() => {
-  jest.clearAllMocks();
   personSelector.mockReturnValue(otherPerson);
   getState.mockReturnValue(baseState);
 });

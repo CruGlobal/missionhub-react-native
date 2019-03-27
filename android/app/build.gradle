@@ -106,7 +106,7 @@ android {
         applicationId "com.missionhub"
         minSdkVersion 19
         targetSdkVersion 26
-        versionName "5.0.3"
+        versionName "5.0.5"
         versionCode grgit.log(includes:['HEAD']).size() + 363
         ndk {
             abiFilters "armeabi-v7a", "x86"

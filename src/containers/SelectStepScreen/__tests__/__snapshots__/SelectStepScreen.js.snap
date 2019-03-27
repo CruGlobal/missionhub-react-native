@@ -5,7 +5,9 @@ exports[`renderForeground renders correctly 1`] = `
   alignItems="center"
   flex={1}
 >
-  <Connect(Header) />
+  <Header
+    shadow={true}
+  />
   <Icon
     name="addStepIcon"
     style={
@@ -51,7 +53,7 @@ exports[`renderForeground renders correctly 1`] = `
 `;
 
 exports[`renderStickyHeader renders correctly 1`] = `
-<Connect(Header)
+<Header
   center={
     <MyText
       accessible={true}
@@ -67,6 +69,7 @@ exports[`renderStickyHeader renders correctly 1`] = `
       ADD STEPS OF FAITH
     </MyText>
   }
+  shadow={true}
 />
 `;
 
@@ -82,8 +85,9 @@ exports[`with enableBackButton renders correctly 1`] = `
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}
     outputScaleValue={5}
-    parallaxHeaderHeight={240}
+    parallaxHeaderHeight={215}
     renderBackground={[Function]}
+    renderContentBackground={[Function]}
     renderForeground={[Function]}
     renderParallaxHeader={[Function]}
     renderScrollComponent={[Function]}
@@ -93,7 +97,7 @@ exports[`with enableBackButton renders correctly 1`] = `
     <Connect(Translate(StepsList))
       contactName="roger"
       contactStageId="3"
-      onComplete={[MockFunction]}
+      next={[MockFunction]}
       organization={
         Object {
           "id": "4234234",
@@ -102,10 +106,12 @@ exports[`with enableBackButton renders correctly 1`] = `
       receiverId="252342354234"
     />
   </ParallaxScrollView>
-  <BottomButton
-    onPress={[Function]}
-    text="CREATE YOUR OWN STEP"
-  />
+  <SafeAreaView>
+    <BottomButton
+      onPress={[Function]}
+      text="CREATE YOUR OWN STEP"
+    />
+  </SafeAreaView>
   <Connect(BackButton)
     absolute={true}
     customNavigate={[Function]}
@@ -125,8 +131,9 @@ exports[`without enableBackButton renders correctly 1`] = `
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}
     outputScaleValue={5}
-    parallaxHeaderHeight={240}
+    parallaxHeaderHeight={215}
     renderBackground={[Function]}
+    renderContentBackground={[Function]}
     renderForeground={[Function]}
     renderParallaxHeader={[Function]}
     renderScrollComponent={[Function]}
@@ -136,7 +143,7 @@ exports[`without enableBackButton renders correctly 1`] = `
     <Connect(Translate(StepsList))
       contactName="roger"
       contactStageId="3"
-      onComplete={[MockFunction]}
+      next={[MockFunction]}
       organization={
         Object {
           "id": "4234234",
@@ -145,9 +152,11 @@ exports[`without enableBackButton renders correctly 1`] = `
       receiverId="252342354234"
     />
   </ParallaxScrollView>
-  <BottomButton
-    onPress={[Function]}
-    text="CREATE YOUR OWN STEP"
-  />
+  <SafeAreaView>
+    <BottomButton
+      onPress={[Function]}
+      text="CREATE YOUR OWN STEP"
+    />
+  </SafeAreaView>
 </Component>
 `;

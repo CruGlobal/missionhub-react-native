@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard } from 'react-native';
+import { View, SafeAreaView, Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { navigateBack } from '../../actions/navigation';
-import { Flex } from '../../components/common';
 import IconButton from '../../components/IconButton';
 
 import styles from './styles';
@@ -19,12 +18,14 @@ export class BackButton extends Component {
 
   render() {
     const { absolute, style, customIcon, iconStyle } = this.props;
+    const Wrapper = absolute ? SafeAreaView : View;
     return (
-      <Flex
-        self="start"
-        align="start"
-        justify="center"
-        style={[style || null, absolute ? styles.absoluteTopLeft : null]}
+      <Wrapper
+        style={[
+          styles.container,
+          style,
+          absolute ? styles.absoluteTopLeft : null,
+        ]}
       >
         <IconButton
           name={customIcon || 'backIcon'}
@@ -32,7 +33,7 @@ export class BackButton extends Component {
           onPress={this.onPress}
           style={iconStyle}
         />
-      </Flex>
+      </Wrapper>
     );
   }
 }

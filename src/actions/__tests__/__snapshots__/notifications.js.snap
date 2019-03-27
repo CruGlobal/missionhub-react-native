@@ -10,7 +10,7 @@ Array [
       },
     },
     "routeName": "nav/GROUP_SCREEN",
-    "type": "Navigation/NAVIGATE",
+    "type": "Navigation/PUSH",
   },
   Object {
     "type": "app/REQUEST_NOTIFICATIONS",
@@ -39,7 +39,7 @@ Array [
       },
     },
     "routeName": "nav/GROUP_SCREEN",
-    "type": "Navigation/NAVIGATE",
+    "type": "Navigation/PUSH",
   },
 ]
 `;
@@ -73,7 +73,7 @@ Array [
       },
     },
     "routeName": "nav/ADD_CONTACT",
-    "type": "Navigation/NAVIGATE",
+    "type": "Navigation/PUSH",
   },
   Object {
     "type": "app/REQUEST_NOTIFICATIONS",
@@ -279,7 +279,7 @@ Array [
       "onComplete": [Function],
     },
     "routeName": "nav/NOTIFICATION_PRIMER",
-    "type": "Navigation/NAVIGATE",
+    "type": "Navigation/PUSH",
   },
   Object {
     "immediate": undefined,

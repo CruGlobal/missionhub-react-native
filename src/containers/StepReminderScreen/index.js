@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { translate } from 'react-i18next';
 
 import BackButton from '../BackButton';
-import Header from '../Header';
+import Header from '../../components/Header';
 import DatePicker from '../../components/DatePicker';
 import BottomButton from '../../components/BottomButton';
 import ReminderRepeatButtons from '../../components/ReminderRepeatButtons';

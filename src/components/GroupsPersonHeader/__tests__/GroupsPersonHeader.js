@@ -71,8 +71,6 @@ const navigateToStageResult = { type: 'navigate to stage screen ' };
 
 beforeEach(() => {
   uuidv4.mockReturnValue('some key');
-  getPersonEmailAddress.mockReset();
-  getPersonPhoneNumber.mockReset();
   createContactAssignment.mockReturnValue(createContactAssignmentResult);
   navigatePush.mockReturnValue(navigatePushResult);
   getStageIndex.mockReturnValue(myStageId);

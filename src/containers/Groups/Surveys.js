@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { SafeAreaView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Flex, RefreshControl } from '../../components/common';
-import { refresh } from '../../utils/common';
+import { RefreshControl } from '../../components/common';
+import { refresh, keyExtractorId } from '../../utils/common';
 import GroupSurveyItem from '../../components/GroupSurveyItem';
 import LoadMore from '../../components/LoadMore';
 import { navigatePush } from '../../actions/navigation';
@@ -54,8 +54,6 @@ class Surveys extends Component {
     dispatch(getOrgSurveysNextPage(organization.id));
   };
 
-  keyExtractor = i => i.id;
-
   renderItem = ({ item }) => (
     <GroupSurveyItem survey={item} onSelect={this.handleSelect} />
   );
@@ -65,11 +63,11 @@ class Surveys extends Component {
   render() {
     const { surveys, pagination } = this.props;
     return (
-      <Flex value={1}>
+      <SafeAreaView style={styles.pageContainer}>
         <FlatList
           data={surveys}
           ListHeaderComponent={this.renderHeader}
-          keyExtractor={this.keyExtractor}
+          keyExtractor={keyExtractorId}
           style={styles.flatList}
           renderItem={this.renderItem}
           refreshControl={
@@ -86,7 +84,7 @@ class Surveys extends Component {
             )
           }
         />
-      </Flex>
+      </SafeAreaView>
     );
   }
 }

@@ -39,7 +39,7 @@ class RowSwipeable extends Component {
     this.handleSelect = this.handleSelect.bind(this);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.panResponder = PanResponder.create({
       onMoveShouldSetPanResponderCapture: (...args) =>
         this.checkShouldMove(...args),

@@ -10,7 +10,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <MyText
         accessible={true}
@@ -129,7 +129,7 @@ exports[`render no reminder in props renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <MyText
         accessible={true}
@@ -246,7 +246,7 @@ exports[`render reminder in props renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <MyText
         accessible={true}

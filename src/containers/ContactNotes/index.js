@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Keyboard } from 'react-native';
+import { SafeAreaView, ScrollView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -34,16 +34,18 @@ export class ContactNotes extends Component {
     this.getNote();
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     if (!props.isActiveTab) {
       this.saveNote();
     }
   }
 
   async getNote() {
-    const { person, myId } = this.props;
+    const { person, myUserId } = this.props;
 
-    const results = await this.props.dispatch(getPersonNote(person.id, myId));
+    const results = await this.props.dispatch(
+      getPersonNote(person.id, myUserId),
+    );
 
     const text = results ? results.content : undefined;
     const noteId = results ? results.id : null;
@@ -63,7 +65,7 @@ export class ContactNotes extends Component {
           this.props.person.id,
           this.state.text,
           this.state.noteId,
-          this.props.myId,
+          this.props.myUserId,
         ),
       );
     }
@@ -134,8 +136,11 @@ export class ContactNotes extends Component {
   }
 
   renderEmpty() {
-    const { t, person } = this.props;
-    const text = t('prompt', { personFirstName: person.first_name });
+    const { t, person, myPersonId } = this.props;
+    const isMe = person.id === myPersonId;
+    const text = t(isMe ? 'promptMe' : 'prompt', {
+      personFirstName: person.first_name,
+    });
 
     return (
       <NullStateComponent
@@ -149,13 +154,13 @@ export class ContactNotes extends Component {
   render() {
     const { text, editing } = this.state;
     return (
-      <View style={{ flex: 1 }}>
+      <SafeAreaView style={styles.container}>
         {text || editing ? this.renderNotes() : this.renderEmpty()}
         <BottomButton
           onPress={this.onButtonPress}
           text={this.getButtonText()}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -165,6 +170,9 @@ ContactNotes.propTypes = {
   organization: PropTypes.object,
 };
 
-const mapStateToProps = ({ auth }) => ({ myId: auth.person.user.id });
+const mapStateToProps = ({ auth }) => ({
+  myPersonId: auth.person.id,
+  myUserId: auth.person.user.id,
+});
 
 export default connect(mapStateToProps)(ContactNotes);

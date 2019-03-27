@@ -86,7 +86,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
         underlineColorAndroid="transparent"
         value="Test Organization"
       />
-      <Translate(PopupMenu)
+      <PopupMenu
         actions={
           Array [
             Object {

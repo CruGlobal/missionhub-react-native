@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Markdown from 'react-native-markdown-renderer';
 import { ScrollView } from 'react-native';
 
-import Header from '../../containers/Header/index';
+import Header from '../Header/index';
 import BackButton from '../../containers/BackButton/index';
 import BottomButton from '../BottomButton/index';
 import { Text } from '../common';

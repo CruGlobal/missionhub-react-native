@@ -40,6 +40,7 @@ reminderSelector.mockReturnValue(reminder);
 
 beforeEach(() => {
   jest.clearAllMocks();
+  store = mockStore();
 
   step = {
     id: stepId,

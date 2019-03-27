@@ -200,6 +200,40 @@ export default {
     endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/like`,
     method: 'delete',
   },
+  LIKE_GLOBAL_CELEBRATE_ITEM: {
+    endpoint: `${API_URL}/global_celebration_items/:eventId/like`,
+    method: 'post',
+  },
+  UNLIKE_GLOBAL_CELEBRATE_ITEM: {
+    endpoint: `${API_URL}/global_celebration_items/:eventId/like`,
+    method: 'delete',
+  },
+  GET_CELEBRATE_COMMENTS: {
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments`,
+  },
+  CREATE_CELEBRATE_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments`,
+    method: 'post',
+  },
+  UPDATE_CELEBRATE_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments/:commentId`,
+    method: 'put',
+  },
+  DELETE_CELEBRATE_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments/:commentId`,
+    method: 'delete',
+  },
+  GET_REPORTED_COMMENTS: {
+    endpoint: `${ORG_URL}/:orgId/comment_reports`,
+  },
+  CREATE_REPORT_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/comment_reports`,
+    method: 'post',
+  },
+  UPDATE_REPORT_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/comment_reports/:reportCommentId`,
+    method: 'put',
+  },
   ORGANIZATION_NEW_CODE: {
     endpoint: `${ORG_URL}/:orgId/community_code`,
     method: 'put',

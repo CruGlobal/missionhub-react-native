@@ -13,7 +13,7 @@ exports[`renderItem renders row 1`] = `
 `;
 
 exports[`renders correctly with completed steps 1`] = `
-<Component
+<SafeAreaView
   flex={1}
 >
   <ScrollView
@@ -104,11 +104,11 @@ exports[`renders correctly with completed steps 1`] = `
     onPress={[Function]}
     text="Add a step of faith"
   />
-</Component>
+</SafeAreaView>
 `;
 
 exports[`renders correctly with no steps 1`] = `
-<Component
+<SafeAreaView
   flex={1}
 >
   <NullStateComponent
@@ -125,11 +125,11 @@ exports[`renders correctly with no steps 1`] = `
     onPress={[Function]}
     text="Add a step of faith"
   />
-</Component>
+</SafeAreaView>
 `;
 
 exports[`renders correctly with steps 1`] = `
-<Component
+<SafeAreaView
   flex={1}
 >
   <ScrollView
@@ -168,5 +168,5 @@ exports[`renders correctly with steps 1`] = `
     onPress={[Function]}
     text="Add a step of faith"
   />
-</Component>
+</SafeAreaView>
 `;

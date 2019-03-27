@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 
 import { Flex, Text, Button } from '../../components/common';
 import { navigatePush, navigateBack } from '../../actions/navigation';
-import Header from '../Header';
+import Header from '../../components/Header';
 import BackButton from '../BackButton';
 import { STATUS_REASON_SCREEN } from '../StatusReasonScreen';
 

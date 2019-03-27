@@ -1,124 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders focused 1`] = `
-<Flex
-  direction="column"
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "borderTopColor": "#B2B0B2",
-      "borderTopWidth": 1,
-      "paddingBottom": 5,
-      "paddingTop": 5,
-      "width": 750,
-    }
-  }
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "marginBottom": 5,
-        "marginHorizontal": 10,
-        "paddingHorizontal": 5,
-      }
-    }
-  >
-    <Flex
-      align="center"
-      justify="center"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#007398",
-            "borderRadius": 25,
-            "marginRight": 15,
-          },
-          null,
-        ]
-      }
-    >
-      <IconButton
-        name="plusIcon"
-        onPress={[Function]}
-        size={13}
-        style={
-          Array [
-            undefined,
-            null,
-          ]
-        }
-        type="MissionHub"
-      />
-    </Flex>
-    <Flex
-      align="center"
-      direction="column"
-      justify="center"
-      self="stretch"
-      style={
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderColor": "#B2B0B2",
-          "borderRadius": 20,
-          "borderWidth": 1,
-        }
-      }
-      value={1}
-    >
-      <Flex
-        align="center"
-        direction="row"
-        justify="center"
-        self="stretch"
-        style={
-          Object {
-            "paddingLeft": 13,
-          }
-        }
-      >
-        <Input
-          autoCorrect={true}
-          autoFocus={false}
-          blurOnSubmit={true}
-          onBlur={[Function]}
-          onChangeText={[Function]}
-          onFocus={[Function]}
-          placeholder="Share something to be remembered..."
-          placeholderTextColor="#B2B0B2"
-          returnKeyType="done"
-          style={
-            Object {
-              "borderBottomWidth": 0,
-              "color": "#4E4C4E",
-              "flex": 1,
-              "fontSize": 16,
-              "paddingLeft": 5,
-              "paddingVertical": 7,
-            }
-          }
-          value=""
-        />
-      </Flex>
-    </Flex>
-  </Flex>
-</Flex>
-`;
-
 exports[`renders with actions 1`] = `
 <Flex
   direction="column"
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "borderTopColor": "#B2B0B2",
-      "borderTopWidth": 1,
-      "paddingBottom": 5,
-      "paddingTop": 5,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderTopColor": "#B2B0B2",
+        "borderTopWidth": 1,
+        "paddingBottom": 5,
+        "paddingTop": 5,
+        "width": 750,
+      },
+      undefined,
+    ]
   }
 >
   <Flex
@@ -151,12 +47,6 @@ exports[`renders with actions 1`] = `
         name="plusIcon"
         onPress={[Function]}
         size={13}
-        style={
-          Array [
-            undefined,
-            null,
-          ]
-        }
         type="MissionHub"
       />
     </Flex>
@@ -190,9 +80,7 @@ exports[`renders with actions 1`] = `
           autoCorrect={true}
           autoFocus={false}
           blurOnSubmit={true}
-          onBlur={[Function]}
           onChangeText={[Function]}
-          onFocus={[Function]}
           placeholder="Share something to be remembered..."
           placeholderTextColor="#B2B0B2"
           returnKeyType="done"
@@ -218,14 +106,17 @@ exports[`renders with actions 2`] = `
 <Flex
   direction="column"
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "borderTopColor": "#B2B0B2",
-      "borderTopWidth": 1,
-      "paddingBottom": 5,
-      "paddingTop": 5,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderTopColor": "#B2B0B2",
+        "borderTopWidth": 1,
+        "paddingBottom": 5,
+        "paddingTop": 5,
+        "width": 750,
+      },
+      undefined,
+    ]
   }
 >
   <Flex
@@ -260,12 +151,6 @@ exports[`renders with actions 2`] = `
         name="deleteIcon"
         onPress={[Function]}
         size={13}
-        style={
-          Array [
-            undefined,
-            undefined,
-          ]
-        }
         type="MissionHub"
       />
     </Flex>
@@ -299,9 +184,7 @@ exports[`renders with actions 2`] = `
           autoCorrect={true}
           autoFocus={false}
           blurOnSubmit={true}
-          onBlur={[Function]}
           onChangeText={[Function]}
-          onFocus={[Function]}
           placeholder="Share something to be remembered..."
           placeholderTextColor="#B2B0B2"
           returnKeyType="done"
@@ -638,14 +521,17 @@ exports[`renders with actions and selected action 1`] = `
 <Flex
   direction="column"
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "borderTopColor": "#B2B0B2",
-      "borderTopWidth": 1,
-      "paddingBottom": 5,
-      "paddingTop": 5,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderTopColor": "#B2B0B2",
+        "borderTopWidth": 1,
+        "paddingBottom": 5,
+        "paddingTop": 5,
+        "width": 750,
+      },
+      undefined,
+    ]
   }
 >
   <Flex
@@ -785,9 +671,7 @@ exports[`renders with actions and selected action 1`] = `
           autoCorrect={true}
           autoFocus={false}
           blurOnSubmit={true}
-          onBlur={[Function]}
           onChangeText={[Function]}
-          onFocus={[Function]}
           placeholder="Share something to be remembered..."
           placeholderTextColor="#B2B0B2"
           returnKeyType="done"
@@ -806,6 +690,7 @@ exports[`renders with actions and selected action 1`] = `
         <IconButton
           name="upArrow"
           onPress={[Function]}
+          size={22}
           style={
             Object {
               "color": "#007398",
@@ -1132,18 +1017,23 @@ exports[`renders with actions and selected action 1`] = `
 </Flex>
 `;
 
-exports[`renders with text 1`] = `
+exports[`renders with custom style 1`] = `
 <Flex
   direction="column"
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "borderTopColor": "#B2B0B2",
-      "borderTopWidth": 1,
-      "paddingBottom": 5,
-      "paddingTop": 5,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderTopColor": "#B2B0B2",
+        "borderTopWidth": 1,
+        "paddingBottom": 5,
+        "paddingTop": 5,
+        "width": 750,
+      },
+      Object {
+        "backgroundColor": "green",
+      },
+    ]
   }
 >
   <Flex
@@ -1176,12 +1066,6 @@ exports[`renders with text 1`] = `
         name="plusIcon"
         onPress={[Function]}
         size={13}
-        style={
-          Array [
-            undefined,
-            null,
-          ]
-        }
         type="MissionHub"
       />
     </Flex>
@@ -1215,9 +1099,109 @@ exports[`renders with text 1`] = `
           autoCorrect={true}
           autoFocus={false}
           blurOnSubmit={true}
-          onBlur={[Function]}
           onChangeText={[Function]}
-          onFocus={[Function]}
+          placeholder="Share something to be remembered..."
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingLeft": 5,
+              "paddingVertical": 7,
+            }
+          }
+          value=""
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</Flex>
+`;
+
+exports[`renders with text 1`] = `
+<Flex
+  direction="column"
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderTopColor": "#B2B0B2",
+        "borderTopWidth": 1,
+        "paddingBottom": 5,
+        "paddingTop": 5,
+        "width": 750,
+      },
+      undefined,
+    ]
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 5,
+        "marginHorizontal": 10,
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="center"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#007398",
+            "borderRadius": 25,
+            "marginRight": 15,
+          },
+          null,
+        ]
+      }
+    >
+      <IconButton
+        name="plusIcon"
+        onPress={[Function]}
+        size={13}
+        type="MissionHub"
+      />
+    </Flex>
+    <Flex
+      align="center"
+      direction="column"
+      justify="center"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+        }
+      }
+      value={1}
+    >
+      <Flex
+        align="center"
+        direction="row"
+        justify="center"
+        self="stretch"
+        style={
+          Object {
+            "paddingLeft": 13,
+          }
+        }
+      >
+        <Input
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
           placeholder="Share something to be remembered..."
           placeholderTextColor="#B2B0B2"
           returnKeyType="done"
@@ -1236,6 +1220,7 @@ exports[`renders with text 1`] = `
         <IconButton
           name="upArrow"
           onPress={[Function]}
+          size={22}
           style={
             Object {
               "color": "#007398",
@@ -1253,14 +1238,17 @@ exports[`renders without actions 1`] = `
 <Flex
   direction="column"
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "borderTopColor": "#B2B0B2",
-      "borderTopWidth": 1,
-      "paddingBottom": 5,
-      "paddingTop": 5,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderTopColor": "#B2B0B2",
+        "borderTopWidth": 1,
+        "paddingBottom": 5,
+        "paddingTop": 5,
+        "width": 750,
+      },
+      undefined,
+    ]
   }
 >
   <Flex
@@ -1305,9 +1293,7 @@ exports[`renders without actions 1`] = `
           autoCorrect={true}
           autoFocus={false}
           blurOnSubmit={true}
-          onBlur={[Function]}
           onChangeText={[Function]}
-          onFocus={[Function]}
           placeholder="Share something to be remembered..."
           placeholderTextColor="#B2B0B2"
           returnKeyType="done"
@@ -1333,14 +1319,17 @@ exports[`renders without actions and selected action 1`] = `
 <Flex
   direction="column"
   style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "borderTopColor": "#B2B0B2",
-      "borderTopWidth": 1,
-      "paddingBottom": 5,
-      "paddingTop": 5,
-      "width": 750,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderTopColor": "#B2B0B2",
+        "borderTopWidth": 1,
+        "paddingBottom": 5,
+        "paddingTop": 5,
+        "width": 750,
+      },
+      undefined,
+    ]
   }
 >
   <Flex
@@ -1480,9 +1469,7 @@ exports[`renders without actions and selected action 1`] = `
           autoCorrect={true}
           autoFocus={false}
           blurOnSubmit={true}
-          onBlur={[Function]}
           onChangeText={[Function]}
-          onFocus={[Function]}
           placeholder="Share something to be remembered..."
           placeholderTextColor="#B2B0B2"
           returnKeyType="done"
@@ -1501,6 +1488,7 @@ exports[`renders without actions and selected action 1`] = `
         <IconButton
           name="upArrow"
           onPress={[Function]}
+          size={22}
           style={
             Object {
               "color": "#007398",

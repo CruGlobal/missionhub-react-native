@@ -73,7 +73,15 @@ export function getFeed(type, orgId, personId = null) {
       // Does not have more data
       return Promise.resolve();
     }
-    const query = buildQuery(type, orgId, page, personId);
+    const query = {
+      ...buildQuery(type, orgId, page, personId),
+      ...(type === CELEBRATE
+        ? {
+            include:
+              'subject_person.organizational_permissions,subject_person.contact_assignments',
+          }
+        : {}),
+    };
 
     return dispatch(callApi(getFeedType(type, orgId), query));
   };

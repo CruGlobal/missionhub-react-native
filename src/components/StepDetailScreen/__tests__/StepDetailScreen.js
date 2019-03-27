@@ -9,8 +9,6 @@ let markdown;
 let screen;
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   screen = renderShallow(
     <StepDetailScreen
       text="Roge is well behaved"

@@ -1,26 +1,27 @@
 import React from 'react';
-import { ActionSheetIOS } from 'react-native';
+import { shallow } from 'enzyme';
 
 import PopupMenu from '../index.ios.js';
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { testSnapshot } from '../../../../testUtils';
+import * as common from '../../../utils/common';
 
 const onPress = jest.fn();
+common.showMenu = jest.fn();
 const props = {
   actions: [{ text: 'test', onPress }],
 };
 
 describe('PopupMenu iOS', () => {
   it('renders with 1 button', () => {
-    testSnapshotShallow(<PopupMenu {...props} />);
+    testSnapshot(<PopupMenu {...props} />);
   });
   it('renders with icon props', () => {
-    testSnapshotShallow(<PopupMenu {...props} iconProps={{ size: 24 }} />);
+    testSnapshot(<PopupMenu {...props} iconProps={{ size: 24 }} />);
   });
 
   it('calls the action sheet for ios', () => {
-    ActionSheetIOS.showActionSheetWithOptions = jest.fn();
-    const instance = renderShallow(<PopupMenu {...props} />).instance();
+    const instance = shallow(<PopupMenu {...props} />).instance();
     instance.open();
-    expect(ActionSheetIOS.showActionSheetWithOptions).toHaveBeenCalled();
+    expect(common.showMenu).toHaveBeenCalledWith(props.actions);
   });
 });

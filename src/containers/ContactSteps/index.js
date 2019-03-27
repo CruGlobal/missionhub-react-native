@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, FlatList, ScrollView } from 'react-native';
+import { SafeAreaView, FlatList, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { navigatePush, navigateBack } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { getContactSteps } from '../../actions/steps';
 import { Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -14,6 +14,7 @@ import {
   buildTrackingObj,
   getAnalyticsSubsection,
   orgIsCru,
+  keyExtractorId,
 } from '../../utils/common';
 import { promptToAssign } from '../../utils/promptToAssign';
 import { ADD_MY_STEP_FLOW, ADD_PERSON_STEP_FLOW } from '../../routes/constants';
@@ -51,12 +52,6 @@ class ContactSteps extends Component {
     this.getSteps();
   };
 
-  handleSaveNewSteps = async () => {
-    await this.getSteps();
-    this.list && this.list.scrollToEnd();
-    this.props.dispatch(navigateBack());
-  };
-
   handleNavToStage() {
     const { dispatch, person, contactAssignment, organization } = this.props;
 
@@ -87,9 +82,6 @@ class ContactSteps extends Component {
       dispatch(
         navigatePush(ADD_MY_STEP_FLOW, {
           ...trackingParams,
-          onSaveNewSteps: () => {
-            this.handleSaveNewSteps();
-          },
           enableBackButton: true,
           organization,
         }),
@@ -102,9 +94,6 @@ class ContactSteps extends Component {
           contactId: person.id,
           contact: person,
           organization,
-          onSaveNewSteps: () => {
-            this.handleSaveNewSteps();
-          },
           createStepTracking: buildTrackingObj(
             `people : ${subsection} : steps : create`,
             'people',
@@ -175,8 +164,6 @@ class ContactSteps extends Component {
 
   ref = c => (this.list = c);
 
-  keyExtractor = i => i.id;
-
   renderList(data) {
     if (data.length === 0) {
       return null;
@@ -186,7 +173,7 @@ class ContactSteps extends Component {
         ref={this.ref}
         style={styles.topList}
         data={data}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         renderItem={this.renderRow}
         showsVerticalScrollIndicator={false}
       />
@@ -236,12 +223,12 @@ class ContactSteps extends Component {
     const { t, steps } = this.props;
     const { hideCompleted } = this.state;
     return (
-      <View flex={1}>
+      <SafeAreaView flex={1}>
         {steps.length > 0 || !hideCompleted
           ? this.renderSteps()
           : this.renderNull()}
         <BottomButton onPress={this.handleCreateStep} text={t('addStep')} />
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -254,7 +241,7 @@ ContactSteps.propTypes = {
 };
 
 const mapStateToProps = (
-  { swipe, auth, steps, people },
+  { auth, steps, people },
   { person: navPerson, organization = {} },
 ) => {
   const person =
@@ -267,7 +254,6 @@ const mapStateToProps = (
     steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || {};
   return {
     showAssignPrompt: orgIsCru(organization),
-    showBump: swipe.stepsContact,
     myId: auth.person.id,
     steps: allSteps.steps || [],
     completedSteps: allSteps.completedSteps || [],

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -11,13 +11,13 @@ import { addStep } from '../../actions/steps';
 import { buildCustomStep } from '../../utils/steps';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
-import Header from '../Header';
 import BottomButton from '../../components/BottomButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { disableBack } from '../../utils/common';
+import { disableBack, hasNotch } from '../../utils/common';
 import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
 import StepsList from '../StepsList';
+import Header from '../../components/Header';
 
 import styles from './styles';
 
@@ -37,11 +37,13 @@ class SelectStepScreen extends Component {
     }
   }
 
-  createCustomStep = text => {
-    const { dispatch, isMe, receiverId, organization, onComplete } = this.props;
+  createCustomStep = ({ text }) => dispatch => {
+    const { isMe, receiverId, organization, next } = this.props;
 
     dispatch(addStep(buildCustomStep(text, isMe), receiverId, organization));
-    onComplete();
+    dispatch(
+      next({ contactId: receiverId, orgId: organization && organization.id }),
+    );
   };
 
   handleCreateStep = () => {
@@ -51,7 +53,7 @@ class SelectStepScreen extends Component {
       navigatePush(ADD_STEP_SCREEN, {
         type: CREATE_STEP,
         trackingObj: createStepTracking,
-        onComplete: this.createCustomStep,
+        next: this.createCustomStep,
       }),
     );
   };
@@ -90,17 +92,18 @@ class SelectStepScreen extends Component {
       contactStageId,
       enableBackButton,
       contact,
-      onComplete,
+      next,
     } = this.props;
+    const { headerHeight, parallaxHeaderHeight } = theme;
 
     return (
       <View flex={1}>
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
           contentBackgroundColor={theme.extraLightGrey}
-          parallaxHeaderHeight={240 + theme.notchHeight}
+          parallaxHeaderHeight={parallaxHeaderHeight + (hasNotch() ? 20 : 0)}
           renderForeground={this.renderForeground}
-          stickyHeaderHeight={theme.headerHeight}
+          stickyHeaderHeight={headerHeight}
           renderStickyHeader={this.renderStickyHeader}
         >
           <StepsList
@@ -108,13 +111,15 @@ class SelectStepScreen extends Component {
             receiverId={receiverId}
             organization={organization}
             contactStageId={contactStageId}
-            onComplete={onComplete}
+            next={next}
           />
         </ParallaxScrollView>
-        <BottomButton
-          onPress={this.handleCreateStep}
-          text={this.props.t('createStep')}
-        />
+        <SafeAreaView>
+          <BottomButton
+            onPress={this.handleCreateStep}
+            text={this.props.t('createStep')}
+          />
+        </SafeAreaView>
         {enableBackButton && (
           <BackButton
             customNavigate={contact ? undefined : this.navigateBackTwoScreens}
@@ -127,7 +132,6 @@ class SelectStepScreen extends Component {
 }
 
 SelectStepScreen.propTypes = {
-  onComplete: PropTypes.func.isRequired,
   createStepTracking: PropTypes.object.isRequired,
   contact: PropTypes.object,
   receiverId: PropTypes.string.isRequired,
@@ -135,6 +139,7 @@ SelectStepScreen.propTypes = {
   organization: PropTypes.object,
   contactStageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     .isRequired,
+  next: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ auth }, { receiverId }) => {
