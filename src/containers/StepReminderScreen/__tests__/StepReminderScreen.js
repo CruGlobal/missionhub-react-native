@@ -20,7 +20,7 @@ MockDate.set(mockDate);
 const mockStore = configureStore([thunk]);
 const stepId = '42234';
 const reminderId = '1';
-const reminder = { id: reminderId, next_occurance_at: mockDate };
+const reminder = { id: reminderId, next_occurrence_at: mockDate };
 const stepReminders = {
   all: {
     [reminderId]: reminder,

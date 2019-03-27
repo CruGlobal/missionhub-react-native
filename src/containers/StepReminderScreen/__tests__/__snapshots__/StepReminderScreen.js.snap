@@ -305,7 +305,9 @@ exports[`render reminder in props renders correctly 1`] = `
               "lineHeight": 16,
               "textAlignVertical": "center",
             },
-            null,
+            Object {
+              "color": "#B4B6BA",
+            },
           ]
         }
       >
@@ -313,7 +315,7 @@ exports[`render reminder in props renders correctly 1`] = `
       </MyText>
       <Translate(MyDatePickerIOS)
         customStyles={Object {}}
-        date=""
+        date="2018-09-01"
         disabled={false}
         duration={300}
         height={259}
@@ -325,7 +327,7 @@ exports[`render reminder in props renders correctly 1`] = `
           reminder={
             Object {
               "id": "1",
-              "next_occurance_at": "2018-09-01",
+              "next_occurrence_at": "2018-09-01",
             }
           }
           style={
@@ -339,7 +341,7 @@ exports[`render reminder in props renders correctly 1`] = `
                 "textAlignVertical": "center",
               },
               Object {
-                "color": "#B4B6BA",
+                "color": "#007398",
               },
             ]
           }

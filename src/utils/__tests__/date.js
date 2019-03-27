@@ -5,7 +5,7 @@ import { getDate, modeIs24Hour } from '../date';
 
 const mockDate = '2018-09-12 12:00:00 PM GMT+0';
 const mockMinDate = '2019-10-13 12:00:00 PM GMT+0';
-const mockMaxDate = '2017-08-10 12:00:00 PM GMT+0';
+const mockMaxDate = '2017-08-10 11:00:00 PM GMT+0';
 MockDate.set(mockDate);
 
 describe('getDate', () => {
