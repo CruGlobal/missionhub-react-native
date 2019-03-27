@@ -178,7 +178,9 @@ exports[`renders correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }

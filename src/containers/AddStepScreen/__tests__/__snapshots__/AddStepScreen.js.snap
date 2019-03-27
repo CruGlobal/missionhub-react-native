@@ -99,7 +99,9 @@ exports[`renders correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }
@@ -332,7 +334,9 @@ exports[`renders edit journey correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }
@@ -651,7 +655,9 @@ exports[`renders interaction with skip correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }
@@ -884,7 +890,9 @@ exports[`renders interaction without skip correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }
@@ -1117,7 +1125,9 @@ exports[`renders journey correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }
@@ -1436,7 +1446,9 @@ exports[`renders step note correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }
@@ -1659,7 +1671,9 @@ exports[`renders step note correctly for me 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }

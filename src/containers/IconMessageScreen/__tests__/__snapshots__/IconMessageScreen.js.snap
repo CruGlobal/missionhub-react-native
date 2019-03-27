@@ -99,7 +99,9 @@ exports[`renders button text correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }
@@ -240,7 +242,9 @@ exports[`renders icon correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }
@@ -348,7 +352,9 @@ exports[`renders main text correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }
@@ -456,7 +462,9 @@ exports[`renders skip button correctly 1`] = `
             "justifyContent": "center",
           },
           null,
-          Object {},
+          Object {
+            "width": 750,
+          },
           null,
         ]
       }

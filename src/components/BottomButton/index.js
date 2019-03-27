@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from '../../components/common';
+import theme from '../../theme';
 
 export default class BottomButton extends Component {
   handlePress = () => {
@@ -21,6 +22,7 @@ export default class BottomButton extends Component {
         disabled={disabled}
         onPress={this.handlePress}
         text={text.toUpperCase()}
+        style={{ width: theme.fullWidth }}
       />
     );
   }
