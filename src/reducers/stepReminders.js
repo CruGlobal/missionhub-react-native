@@ -30,12 +30,7 @@ function addCreatedReminderToState(
 }
 
 function removeReminderFromState(state, { query: { challenge_id } }) {
-  return {
-    ...state,
-    all: Object.entries(state.all).reduce(
-      (acc, [id, reminder]) =>
-        id === challenge_id ? acc : { ...acc, [id]: reminder },
-      {},
-    ),
-  };
+  const all = { ...state.all };
+  delete all[challenge_id];
+  return { ...state, all };
 }
