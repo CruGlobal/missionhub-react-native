@@ -102,11 +102,11 @@ describe('person stage screen methods with onComplete prop', () => {
 
   it('runs select stage', async () => {
     selectStage.updateUserStage = jest.fn();
-    navigation.navigatePush = jest.fn((_, params) => params.onSaveNewSteps());
+    navigation.navigatePush = jest.fn((screen, { next }) => next()(jest.fn()));
 
     await component.handleSelectStage(mockStage, false);
 
-    expect(navigation.navigateBack).toHaveBeenCalledWith(2);
+    expect(navigation.navigateBack).toHaveBeenCalledWith(3);
     expect(selectStage.updateUserStage).toHaveBeenCalledTimes(1);
   });
 
@@ -158,7 +158,7 @@ describe('person stage screen methods with add contact flow', () => {
   it('runs handle navigate', () => {
     component.celebrateAndFinish = jest.fn();
 
-    component.handleNavigate();
+    component.handleNavigate()();
 
     expect(component.celebrateAndFinish).toHaveBeenCalledTimes(1);
   });
@@ -235,7 +235,14 @@ describe('person stage screen methods with next', () => {
       mockNavState.contactAssignmentId,
       mockStage.id,
     );
-    expect(mockNext).toHaveBeenCalledTimes(1);
+    expect(mockNext).toHaveBeenCalledWith({
+      stage: mockStage,
+      contactId: mockNavState.contactId,
+      name: mockNavState.name,
+      orgId: mockNavState.orgId,
+      isAlreadySelected: false,
+      contactAssignmentId: mockNavState.contactAssignmentId,
+    });
   });
 
   it('runs select stage with stage previously selected', async () => {
@@ -244,6 +251,13 @@ describe('person stage screen methods with next', () => {
     await component.handleSelectStage(mockStage, true);
 
     expect(selectStage.updateUserStage).not.toHaveBeenCalled();
-    expect(mockNext).toHaveBeenCalledTimes(1);
+    expect(mockNext).toHaveBeenCalledWith({
+      stage: mockStage,
+      contactId: mockNavState.contactId,
+      name: mockNavState.name,
+      orgId: mockNavState.orgId,
+      isAlreadySelected: true,
+      contactAssignmentId: mockNavState.contactAssignmentId,
+    });
   });
 });

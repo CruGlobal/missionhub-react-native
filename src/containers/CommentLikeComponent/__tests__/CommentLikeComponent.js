@@ -26,8 +26,6 @@ trackActionWithoutData.mockReturnValue(dispatch =>
 );
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore({ auth: { person: { id: myId } } });
 });
 

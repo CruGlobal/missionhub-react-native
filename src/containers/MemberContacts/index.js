@@ -8,6 +8,7 @@ import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import PersonListItem from '../../components/PersonListItem';
 import { personSelector } from '../../selectors/people';
+import { keyExtractorId } from '../../utils/common';
 
 import styles from './styles';
 
@@ -20,15 +21,13 @@ class MemberContacts extends Component {
     return <PersonListItem person={item.person} organization={organization} />;
   };
 
-  keyExtractor = p => p.id;
-
   renderList() {
     const { contactAssignments } = this.props;
 
     return (
       <FlatList
         data={contactAssignments}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         renderItem={this.renderItem}
         style={styles.flatList}
       />

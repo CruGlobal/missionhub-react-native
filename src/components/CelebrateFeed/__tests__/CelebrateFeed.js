@@ -9,6 +9,7 @@ import CelebrateFeed from '..';
 
 import { navigatePush } from '../../../actions/navigation';
 import { renderShallow } from '../../../../testUtils';
+import { ACCEPTED_STEP } from '../../../constants';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/celebration');
@@ -24,7 +25,7 @@ const celebrationItems = [
       {
         id: '1',
         subject_person_name: 'Roge Dog',
-        celebrateable_type: 'accepted_challenge',
+        celebrateable_type: ACCEPTED_STEP,
         likes_count: 0,
         adjective_attribute_value: '2',
         changed_attribute_value: '2018-03-01 12:00:00',
@@ -45,7 +46,7 @@ const celebrationItems = [
       {
         id: '4',
         subject_person_name: 'Roge Dog',
-        celebrateable_type: 'accepted_challenge',
+        celebrateable_type: ACCEPTED_STEP,
         likes_count: 11,
         adjective_attribute_value: '1',
         changed_attribute_value: '2018-01-01 12:00:00',
@@ -111,12 +112,6 @@ describe('item', () => {
       expect.arrayContaining([navigatePushResult]),
     );
   });
-});
-
-it('calls key extractor', () => {
-  const item = celebrationItems[0];
-  const result = component.instance().keyExtractor(item);
-  expect(result).toEqual(item.id);
 });
 
 it('renderHeader match snapshot', () => {

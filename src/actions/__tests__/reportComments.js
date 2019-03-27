@@ -31,8 +31,6 @@ celebrateCommentsSelector.mockReturnValue(comment);
 trackActionWithoutData.mockReturnValue(trackActionResult);
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore({ auth: { person: me }, celebrateComments });
 });
 

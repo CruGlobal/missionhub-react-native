@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders date picker touchable 1`] = `
+<Component>
+  <TouchableIOS
+    onPress={[Function]}
+  />
+</Component>
+`;
+
+exports[`renders with child component 1`] = `
+<Component>
+  <TouchableIOS
+    onPress={[Function]}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Child Component
+    </Text>
+  </TouchableIOS>
+</Component>
+`;

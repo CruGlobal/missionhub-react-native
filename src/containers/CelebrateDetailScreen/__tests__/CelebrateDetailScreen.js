@@ -31,8 +31,6 @@ let screen;
 celebrationItemSelector.mockReturnValue(event);
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore({ organizations });
 
   screen = renderShallow(

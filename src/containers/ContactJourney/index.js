@@ -16,6 +16,7 @@ import { editComment } from '../../actions/interactions';
 import { removeSwipeJourney } from '../../actions/swipe';
 import { updateChallengeNote } from '../../actions/steps';
 import NullStateComponent from '../../components/NullStateComponent';
+import { ACCEPTED_STEP } from '../../constants';
 
 import styles from './styles';
 
@@ -55,13 +56,13 @@ class ContactJourney extends Component {
   handleEditInteraction(interaction) {
     this.setState({ editingInteraction: interaction });
     const text =
-      interaction._type === 'accepted_challenge'
+      interaction._type === ACCEPTED_STEP
         ? interaction.note
         : interaction.comment;
 
     this.props.dispatch(
       navigatePush(ADD_STEP_SCREEN, {
-        onComplete: this.handleEditComment,
+        next: this.handleEditComment,
         type: 'editJourney',
         isEdit: true,
         text,
@@ -69,10 +70,10 @@ class ContactJourney extends Component {
     );
   }
 
-  handleEditComment(text) {
+  handleEditComment({ text }) {
     const { editingInteraction } = this.state;
     const action =
-      editingInteraction._type === 'accepted_challenge'
+      editingInteraction._type === ACCEPTED_STEP
         ? updateChallengeNote(editingInteraction.id, text)
         : editComment(editingInteraction, text);
 

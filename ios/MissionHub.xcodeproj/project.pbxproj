@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -69,6 +68,7 @@
 		FB394A59B6DD495AA3350FB1 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28FF59D1AAAF4DD6B3FB604E /* FontAwesome5_Solid.ttf */; };
 		FD487B586E344F67806CD6AD /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 965575DE5A994FE09AA10EC4 /* SourceSansPro-Regular.ttf */; };
 		FEE571759377450BAF6BC4BB /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61DE556CDA154426A57159A9 /* Entypo.ttf */; };
+		C94332D1FCF94D2F8593997B /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7072D8285274B48B52A3361 /* SourceSansPro-Italic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -553,6 +553,7 @@
 		FD3231783EB74528B2EBC66A /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		FD6CC28137654F13A2DA021A /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/ios/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
 		FF878C8F4E13424EBEB08505 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
+		F7072D8285274B48B52A3361 /* SourceSansPro-Italic.ttf */ = {isa = PBXFileReference; name = "SourceSansPro-Italic.ttf"; path = "../assets/fonts/SourceSansPro-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -749,6 +750,7 @@
 				9D00323907AA4AE6983DC24D /* FontAwesome5_Brands.ttf */,
 				6C7F23C07FA14D1E84EAA13D /* FontAwesome5_Regular.ttf */,
 				28FF59D1AAAF4DD6B3FB604E /* FontAwesome5_Solid.ttf */,
+				F7072D8285274B48B52A3361 /* SourceSansPro-Italic.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1643,6 +1645,7 @@
 				33B0386D53CE49739F5D9211 /* FontAwesome5_Brands.ttf in Resources */,
 				9F46605033FE4372B99088CC /* FontAwesome5_Regular.ttf in Resources */,
 				FB394A59B6DD495AA3350FB1 /* FontAwesome5_Solid.ttf in Resources */,
+				C94332D1FCF94D2F8593997B /* SourceSansPro-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1827,7 +1830,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7971;
+				CURRENT_PROJECT_VERSION = 8079;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1919,7 +1922,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7971;
+				CURRENT_PROJECT_VERSION = 8079;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = DQ48D9BF2V;
 				FRAMEWORK_SEARCH_PATHS = (

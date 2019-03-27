@@ -39,8 +39,6 @@ const editingComment = {
 };
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore({
     organizations: [],
     celebrateComments: {

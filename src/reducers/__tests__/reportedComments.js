@@ -1,8 +1,6 @@
 import { REQUESTS } from '../../actions/api';
 import reportedCommentsReducer from '../reportedComments';
 
-beforeEach(() => jest.clearAllMocks());
-
 describe('REQUESTS.GET_REPORTED_COMMENTS.SUCCESS', () => {
   const orgId = '13407923';
   const response = [{ id: 'reportOne' }, { id: 'reportTwo' }];

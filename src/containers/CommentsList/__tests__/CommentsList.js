@@ -72,8 +72,6 @@ Alert.alert = jest.fn();
 const me = { id: '1' };
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore({
     auth: { person: me },
     organizations,

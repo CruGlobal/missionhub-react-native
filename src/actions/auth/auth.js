@@ -1,3 +1,5 @@
+import PushNotification from 'react-native-push-notification';
+
 import {
   ACTIONS,
   CLEAR_UPGRADE_TOKEN,
@@ -16,14 +18,18 @@ import { ADD_SOMEONE_SCREEN } from '../../containers/AddSomeoneScreen';
 
 export function logout(forcedLogout = false) {
   return async dispatch => {
-    await dispatch(deletePushToken());
-    dispatch({ type: LOGOUT });
-    dispatch(
-      forcedLogout
-        ? navigateReset(SIGN_IN_FLOW, { forcedLogout })
-        : navigateReset(LANDING_SCREEN),
-    );
-    rollbar.clearPerson();
+    try {
+      await dispatch(deletePushToken());
+    } finally {
+      dispatch({ type: LOGOUT });
+      dispatch(
+        forcedLogout
+          ? navigateReset(SIGN_IN_FLOW, { forcedLogout })
+          : navigateReset(LANDING_SCREEN),
+      );
+      PushNotification.unregister();
+      rollbar.clearPerson();
+    }
   };
 }
 

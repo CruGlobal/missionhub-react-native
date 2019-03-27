@@ -74,16 +74,10 @@ exports[`should render correctly 1`] = `
     refreshCallback={[Function]}
     refreshing={false}
   />
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      text="CREATE CHALLENGE"
-      type="secondary"
-    />
-  </Flex>
+  <BottomButton
+    onPress={[Function]}
+    text="Create Challenge"
+  />
 </SafeAreaView>
 `;
 
@@ -141,15 +135,9 @@ exports[`should render empty correctly 1`] = `
     refreshCallback={[Function]}
     refreshing={false}
   />
-  <Flex
-    align="stretch"
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      text="CREATE CHALLENGE"
-      type="secondary"
-    />
-  </Flex>
+  <BottomButton
+    onPress={[Function]}
+    text="Create Challenge"
+  />
 </SafeAreaView>
 `;

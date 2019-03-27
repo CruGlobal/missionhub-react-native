@@ -90,9 +90,9 @@ export default {
     endpoint: `${API_URL}/challenge_suggestions`,
     anonymous: true,
   },
-  ADD_CHALLENGES: {
-    endpoint: `${PEOPLE_URL}/:person_id`,
-    method: 'put',
+  ADD_CHALLENGE: {
+    endpoint: CHALLENGES_URL,
+    method: 'post',
   },
   GET_MY_CHALLENGES: {
     endpoint: CHALLENGES_URL,
@@ -110,6 +110,10 @@ export default {
   },
   CHALLENGE_SET_FOCUS: {
     endpoint: `${CHALLENGES_URL}/:challenge_id`,
+    method: 'put',
+  },
+  CREATE_CHALLENGE_REMINDER: {
+    endpoint: `${CHALLENGES_URL}/:challenge_id/reminder`,
     method: 'put',
   },
   GET_PEOPLE_LIST: {

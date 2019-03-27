@@ -8,8 +8,6 @@ import {
 
 jest.mock('../../utils/common');
 
-beforeEach(() => jest.clearAllMocks());
-
 const editingCommentId = null;
 const getPaginationResult = { page: 4 };
 const pagination = getPaginationResult;

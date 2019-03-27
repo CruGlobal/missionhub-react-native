@@ -5,25 +5,30 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.primaryColor,
+    backgroundColor: theme.white,
     justifyContent: 'space-between',
     flexDirection: 'column',
   },
-  header: {
-    fontSize: 36,
-    color: theme.white,
-  },
-  journeyHeader: {
-    fontSize: 36,
-    color: theme.secondaryColor,
-    paddingHorizontal: 60,
-    textAlign: 'center',
-  },
   fieldWrap: {
     paddingTop: 10,
-    paddingHorizontal: 30,
   },
-  createButton: {
-    width: theme.fullWidth,
+  skipBtn: {
+    padding: 30,
+  },
+  skipBtnText: {
+    fontSize: 14,
+    color: theme.lightGrey,
+    fontWeight: 'bold',
+  },
+  backButtonStyle: {
+    color: theme.lightGrey,
+  },
+  input: {
+    borderBottomColor: 'transparent',
+    fontSize: 32,
+    color: theme.lightGrey,
+    paddingHorizontal: 45,
+    fontFamily: 'SourceSansPro-Light',
+    minHeight: 90.5,
   },
 });

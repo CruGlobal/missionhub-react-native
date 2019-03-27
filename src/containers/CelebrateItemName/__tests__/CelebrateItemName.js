@@ -23,8 +23,6 @@ navToPersonScreen.mockReturnValue(navToPersonScreenResult);
 beforeEach(() => {
   store = mockStore();
 
-  jest.clearAllMocks();
-
   screen = renderShallow(
     <CelebrateItemName
       name={name}

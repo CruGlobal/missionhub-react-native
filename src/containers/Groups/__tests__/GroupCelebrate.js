@@ -13,6 +13,7 @@ import { reloadGroupCelebrateFeed } from '../../../actions/celebration';
 import { getReportedComments } from '../../../actions/reportComments';
 import { refreshCommunity } from '../../../actions/organizations';
 import * as common from '../../../utils/common';
+import { ACCEPTED_STEP } from '../../../constants';
 
 jest.mock('../../../actions/organizations');
 jest.mock('../../../selectors/organizations');
@@ -28,7 +29,7 @@ const celebrate1 = {
 };
 const celebrate2 = {
   id: '20',
-  celebrateable_type: 'accepted_challenge',
+  celebrateable_type: ACCEPTED_STEP,
   changed_attribute_value: '2018-06-10 00:00:00 UTC',
 };
 const celebrate3 = {

@@ -1,49 +1,46 @@
 import React, { Component } from 'react';
-import { SafeAreaView, FlatList } from 'react-native';
+import { SafeAreaView, FlatList, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { navigatePush, navigateBack } from '../../actions/navigation';
-import { removeSwipeStepsContact } from '../../actions/swipe';
-import {
-  getContactSteps,
-  completeStep,
-  deleteStepWithTracking,
-} from '../../actions/steps';
-import { reloadJourney } from '../../actions/journey';
-import { Flex, Button } from '../../components/common';
-import StepItem from '../../components/StepItem';
-import RowSwipeable from '../../components/RowSwipeable';
+import { navigatePush } from '../../actions/navigation';
+import { getContactSteps } from '../../actions/steps';
+import { Button } from '../../components/common';
+import BottomButton from '../../components/BottomButton';
+import AcceptedStepItem from '../../components/AcceptedStepItem';
 import NULL from '../../../assets/images/footprints.png';
 import {
   buildTrackingObj,
   getAnalyticsSubsection,
   orgIsCru,
+  keyExtractorId,
 } from '../../utils/common';
 import { promptToAssign } from '../../utils/promptToAssign';
-import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
-import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
-import { contactAssignmentSelector } from '../../selectors/people';
+import { ADD_MY_STEP_FLOW, ADD_PERSON_STEP_FLOW } from '../../routes/constants';
+import {
+  contactAssignmentSelector,
+  personSelector,
+} from '../../selectors/people';
 import {
   assignContactAndPickStage,
   navigateToStageScreen,
 } from '../../actions/misc';
 import NullStateComponent from '../../components/NullStateComponent';
-import { personSelector } from '../../selectors/people';
-import { CONTACT_STEPS } from '../../constants';
 
 import styles from './styles';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { hideCompleted: true };
+  }
+
   componentDidMount() {
     this.getSteps();
   }
-
-  bumpComplete = () => {
-    this.props.dispatch(removeSwipeStepsContact());
-  };
 
   getSteps = () => {
     const { dispatch, person, organization = {} } = this.props;
@@ -51,24 +48,8 @@ class ContactSteps extends Component {
     dispatch(getContactSteps(person.id, organization.id));
   };
 
-  handleRemove = async step => {
-    await this.props.dispatch(deleteStepWithTracking(step, CONTACT_STEPS));
+  handleComplete = () => {
     this.getSteps();
-  };
-
-  handleComplete = async step => {
-    const { dispatch, person, organization } = this.props;
-    await dispatch(completeStep(step, CONTACT_STEPS));
-    this.getSteps();
-    dispatch(
-      reloadJourney(person.id, organization ? organization.id : undefined),
-    );
-  };
-
-  handleSaveNewSteps = async () => {
-    await this.getSteps();
-    this.list && this.list.scrollToEnd();
-    this.props.dispatch(navigateBack());
   };
 
   handleNavToStage() {
@@ -99,26 +80,20 @@ class ContactSteps extends Component {
 
     if (isMe) {
       dispatch(
-        navigatePush(SELECT_MY_STEP_SCREEN, {
+        navigatePush(ADD_MY_STEP_FLOW, {
           ...trackingParams,
-          onSaveNewSteps: () => {
-            this.handleSaveNewSteps();
-          },
           enableBackButton: true,
           organization,
         }),
       );
     } else {
       dispatch(
-        navigatePush(PERSON_SELECT_STEP_SCREEN, {
+        navigatePush(ADD_PERSON_STEP_FLOW, {
           ...trackingParams,
           contactName: person.first_name,
           contactId: person.id,
           contact: person,
           organization,
-          onSaveNewSteps: () => {
-            this.handleSaveNewSteps();
-          },
           createStepTracking: buildTrackingObj(
             `people : ${subsection} : steps : create`,
             'people',
@@ -158,39 +133,75 @@ class ContactSteps extends Component {
         : this.handleAssign();
   };
 
-  renderRow = ({ item, index }) => {
-    const { showBump } = this.props;
+  toggleCompletedSteps = () => {
+    this.setState({ hideCompleted: !this.state.hideCompleted });
+  };
+
+  renderRow = ({ item }) => (
+    <AcceptedStepItem step={item} onComplete={this.handleComplete} />
+  );
+
+  renderCompletedStepsButton = () => {
+    const { t, completedSteps } = this.props;
+    const { hideCompleted } = this.state;
+    const { completedStepsButton, completedStepsButtonText } = styles;
+    if (completedSteps.length === 0) {
+      return null;
+    }
+
     return (
-      <RowSwipeable
-        key={item.id}
-        bump={showBump && index === 0}
-        onBumpComplete={this.bumpComplete}
-        deletePressProps={[item]}
-        completePressProps={[item]}
-        onDelete={this.handleRemove}
-        onComplete={this.handleComplete}
-      >
-        <StepItem step={item} type="contact" />
-      </RowSwipeable>
+      <Button
+        pill={true}
+        text={t(
+          hideCompleted ? 'showCompletedSteps' : 'hideCompletedSteps',
+        ).toUpperCase()}
+        onPress={this.toggleCompletedSteps}
+        style={completedStepsButton}
+        buttonTextStyle={completedStepsButtonText}
+      />
     );
   };
 
   ref = c => (this.list = c);
 
-  keyExtractor = i => i.id;
-
-  renderList() {
-    const { steps } = this.props;
+  renderList(data) {
+    if (data.length === 0) {
+      return null;
+    }
     return (
       <FlatList
         ref={this.ref}
-        style={styles.list}
-        data={steps}
-        keyExtractor={this.keyExtractor}
+        style={styles.topList}
+        data={data}
+        keyExtractor={keyExtractorId}
         renderItem={this.renderRow}
-        bounces={true}
         showsVerticalScrollIndicator={false}
       />
+    );
+  }
+
+  renderCompletedList(data) {
+    return (
+      <FlatList
+        style={styles.bottomList}
+        data={data}
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderRow}
+        showsVerticalScrollIndicator={false}
+      />
+    );
+  }
+
+  renderSteps() {
+    const { steps, completedSteps } = this.props;
+    const { hideCompleted } = this.state;
+
+    return (
+      <ScrollView flex={1}>
+        {this.renderList(steps)}
+        {this.renderCompletedStepsButton()}
+        {hideCompleted ? null : this.renderCompletedList(completedSteps)}
+      </ScrollView>
     );
   }
 
@@ -203,24 +214,20 @@ class ContactSteps extends Component {
         imageSource={NULL}
         headerText={t('header').toUpperCase()}
         descriptionText={t('stepNull', { name })}
+        content={this.renderCompletedStepsButton()}
       />
     );
   }
 
   render() {
     const { t, steps } = this.props;
+    const { hideCompleted } = this.state;
     return (
-      <SafeAreaView style={styles.container}>
-        <Flex align="center" justify="center" value={1}>
-          {steps.length > 0 ? this.renderList() : this.renderNull()}
-        </Flex>
-        <Flex justify="end">
-          <Button
-            type="secondary"
-            onPress={this.handleCreateStep}
-            text={t('addStep').toUpperCase()}
-          />
-        </Flex>
+      <SafeAreaView flex={1}>
+        {steps.length > 0 || !hideCompleted
+          ? this.renderSteps()
+          : this.renderNull()}
+        <BottomButton onPress={this.handleCreateStep} text={t('addStep')} />
       </SafeAreaView>
     );
   }
@@ -234,7 +241,7 @@ ContactSteps.propTypes = {
 };
 
 const mapStateToProps = (
-  { swipe, auth, steps, people },
+  { auth, steps, people },
   { person: navPerson, organization = {} },
 ) => {
   const person =
@@ -243,12 +250,13 @@ const mapStateToProps = (
       { personId: navPerson.id, orgId: organization.id },
     ) || navPerson;
 
+  const allSteps =
+    steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || {};
   return {
     showAssignPrompt: orgIsCru(organization),
-    showBump: swipe.stepsContact,
     myId: auth.person.id,
-    steps:
-      steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [],
+    steps: allSteps.steps || [],
+    completedSteps: allSteps.completedSteps || [],
     contactAssignment: contactAssignmentSelector(
       { auth },
       { person, orgId: organization.id },

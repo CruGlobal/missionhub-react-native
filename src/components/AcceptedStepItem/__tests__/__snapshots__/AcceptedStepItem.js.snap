@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AcceptedStepItem renders accepted correctly 1`] = `
+<Card
+  alignItems="center"
+  flex={1}
+  flexDirection="row"
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "marginVertical": 4,
+      "padding": 16,
+    }
+  }
+>
+  <Component
+    flex={1}
+    flexDirection="column"
+  >
+    <Connect(ReminderButton)
+      stepId="1"
+    >
+      <Component
+        flexDirection="row"
+        style={
+          Object {
+            "justifyContent": "flex-start",
+            "padding": 4,
+          }
+        }
+      >
+        <Icon
+          name="bellIcon"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 18,
+            }
+          }
+          type="MissionHub"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 14,
+              "lineHeight": 18,
+              "paddingLeft": 8,
+            }
+          }
+        >
+          Set a Reminder
+        </MyText>
+      </Component>
+    </Connect(ReminderButton)>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "flex": 1,
+          "fontSize": 16,
+          "lineHeight": 22,
+          "padding": 4,
+          "paddingRight": 32,
+        }
+      }
+    />
+  </Component>
+  <Button
+    onPress={[Function]}
+    style={
+      Object {
+        "paddingHorizontal": 4,
+        "paddingVertical": 4,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/checkIcon-blue.png",
+        }
+      }
+      style={
+        Object {
+          "height": 24,
+          "width": 24,
+        }
+      }
+    />
+  </Button>
+</Card>
+`;
+
+exports[`AcceptedStepItem renders completed correctly 1`] = `
+<Card
+  alignItems="center"
+  flex={1}
+  flexDirection="row"
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "marginVertical": 4,
+      "padding": 16,
+    }
+  }
+>
+  <Component
+    flex={1}
+    flexDirection="column"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "fontSize": 16,
+            "lineHeight": 22,
+            "padding": 4,
+            "paddingRight": 32,
+          },
+          Object {
+            "color": "#B4B6BA",
+          },
+        ]
+      }
+    />
+  </Component>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/checkIcon-grey.png",
+      }
+    }
+    style={
+      Object {
+        "height": 24,
+        "width": 24,
+      }
+    }
+  />
+</Card>
+`;

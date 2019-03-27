@@ -8,7 +8,7 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
   },
   searchWrap: {
-    backgroundColor: theme.lightGrey,
+    backgroundColor: theme.extraLightGrey,
     paddingLeft: 15,
     paddingVertical: 15,
   },

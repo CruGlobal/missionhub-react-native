@@ -10,7 +10,8 @@ import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewPerson } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
-import { Button, IconButton } from '../../components/common';
+import { IconButton } from '../../components/common';
+import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import AddContactFields from '../AddContactFields';
 import { trackActionWithoutData } from '../../actions/analytics';
@@ -199,12 +200,7 @@ class AddContactScreen extends Component {
             />
           </ScrollView>
 
-          <Button
-            type="secondary"
-            onPress={this.savePerson}
-            text={t('done').toUpperCase()}
-            style={styles.button}
-          />
+          <BottomButton onPress={this.savePerson} text={t('done')} />
         </SafeAreaView>
       </View>
     );

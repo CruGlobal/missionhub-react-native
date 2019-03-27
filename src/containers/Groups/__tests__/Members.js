@@ -155,13 +155,6 @@ describe('Members', () => {
     expect(common.refresh).toHaveBeenCalled();
   });
 
-  it('calls list key extractor', () => {
-    const instance = renderShallow(component, store).instance();
-    const item = { id: '1' };
-    const result = instance.keyExtractor(item);
-    expect(result).toEqual(item.id);
-  });
-
   it('calls render item', () => {
     const instance = renderShallow(component, store).instance();
     const renderedItem = instance.renderItem({ item: members[0] });
@@ -203,7 +196,6 @@ describe('Members', () => {
     common.getCommunityUrl = jest.fn(() => url);
     await component
       .childAt(1)
-      .childAt(0)
       .props()
       .onPress();
 
@@ -255,7 +247,6 @@ describe('Members', () => {
     common.getCommunityUrl = jest.fn(() => url);
     await component
       .childAt(1)
-      .childAt(0)
       .props()
       .onPress();
 

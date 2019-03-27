@@ -4,19 +4,20 @@ import {
   COMPLETED_STEP_COUNT,
   TOGGLE_STEP_FOCUS,
   RESET_STEP_COUNT,
+  STEP_SUGGESTION,
 } from '../../constants';
 
 it('loads step suggestions for me', () => {
   const stageId = 5;
   const oldSuggestions = [
-    { id: 1, type: 'challenge_suggestion' },
-    { id: 2, type: 'challenge_suggestion' },
-    { id: 3, type: 'challenge_suggestion' },
+    { id: 1, type: STEP_SUGGESTION },
+    { id: 2, type: STEP_SUGGESTION },
+    { id: 3, type: STEP_SUGGESTION },
   ];
   const newSuggestions = [
-    { id: 4, type: 'challenge_suggestion' },
-    { id: 5, type: 'challenge_suggestion' },
-    { id: 6, type: 'challenge_suggestion' },
+    { id: 4, type: STEP_SUGGESTION },
+    { id: 5, type: STEP_SUGGESTION },
+    { id: 6, type: STEP_SUGGESTION },
   ];
   newSuggestions.findAll = () => newSuggestions;
 
@@ -49,14 +50,14 @@ it('loads step suggestions for me', () => {
 it('loads step suggestions for others', () => {
   const stageId = 5;
   const oldSuggestions = [
-    { id: 1, type: 'challenge_suggestion' },
-    { id: 2, type: 'challenge_suggestion' },
-    { id: 3, type: 'challenge_suggestion' },
+    { id: 1, type: STEP_SUGGESTION },
+    { id: 2, type: STEP_SUGGESTION },
+    { id: 3, type: STEP_SUGGESTION },
   ];
   const newSuggestions = [
-    { id: 4, type: 'challenge_suggestion' },
-    { id: 5, type: 'challenge_suggestion' },
-    { id: 6, type: 'challenge_suggestion' },
+    { id: 4, type: STEP_SUGGESTION },
+    { id: 5, type: STEP_SUGGESTION },
+    { id: 6, type: STEP_SUGGESTION },
   ];
   newSuggestions.findAll = () => newSuggestions;
 
@@ -118,33 +119,7 @@ it('increments existing user step count', () => {
 it('adds new items to existing mine array', () => {
   const state = steps(
     {
-      mine: [
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-        { id: '1' },
-      ],
+      mine: Array(25).fill({ id: '1' }),
       reminders: [],
     },
     {
@@ -184,22 +159,112 @@ it('receives contact steps', () => {
   const state = steps(
     {
       contactSteps: {
-        '123-456': [{ id: '3' }],
-        '987-': [],
+        '123-456': { steps: [{ id: '3' }], completedSteps: [] },
+        '987-personal': { steps: [], completedSteps: [] },
       },
     },
     {
       type: REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS,
       results: {
-        response: [{ id: '1' }, { id: '2' }],
+        response: [{ id: '1', completed_at: 'time' }, { id: '2' }],
       },
       query: { filters: { receiver_ids: '123', organization_ids: '456' } },
     },
   );
 
   expect(state.contactSteps).toEqual({
-    '123-456': [{ id: '1' }, { id: '2' }],
-    '987-': [],
+    '123-456': {
+      steps: [{ id: '2' }],
+      completedSteps: [{ id: '1', completed_at: 'time' }],
+    },
+    '987-personal': { steps: [], completedSteps: [] },
+  });
+});
+describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
+  it('adds personal org steps locally', () => {
+    const newStep = {
+      id: '7',
+      organization: null,
+      receiver: { id: '987' },
+    };
+
+    const state = steps(
+      {
+        mine: [{ id: '6' }],
+        contactSteps: {
+          '123-456': { steps: [{ id: '6' }], completedSteps: [] },
+          '987-personal': { steps: [{ id: '6' }], completedSteps: [] },
+        },
+      },
+      {
+        type: REQUESTS.ADD_CHALLENGE.SUCCESS,
+        results: { response: newStep },
+      },
+    );
+
+    expect(state).toEqual({
+      mine: [newStep, { id: '6' }],
+      contactSteps: {
+        '123-456': { steps: [{ id: '6' }], completedSteps: [] },
+        '987-personal': { steps: [newStep, { id: '6' }], completedSteps: [] },
+      },
+    });
+  });
+  it('adds org steps locally', () => {
+    const newStep = {
+      id: '7',
+      organization: { id: '456' },
+      receiver: { id: '123' },
+    };
+
+    const state = steps(
+      {
+        mine: [{ id: '6' }],
+        contactSteps: {
+          '123-456': { steps: [{ id: '6' }], completedSteps: [] },
+          '987-personal': { steps: [{ id: '6' }], completedSteps: [] },
+        },
+      },
+      {
+        type: REQUESTS.ADD_CHALLENGE.SUCCESS,
+        results: { response: newStep },
+      },
+    );
+
+    expect(state).toEqual({
+      mine: [newStep, { id: '6' }],
+      contactSteps: {
+        '123-456': { steps: [newStep, { id: '6' }], completedSteps: [] },
+        '987-personal': { steps: [{ id: '6' }], completedSteps: [] },
+      },
+    });
+  });
+});
+
+it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
+  const state = steps(
+    {
+      mine: [{ id: '6' }, { id: '3' }],
+      contactSteps: {
+        '123-456': { steps: [{ id: '6' }, { id: '3' }], completedSteps: [] },
+        '987-personal': {
+          steps: [{ id: '3' }, { id: '6' }],
+          completedSteps: [],
+        },
+      },
+    },
+    {
+      type: REQUESTS.DELETE_CHALLENGE.SUCCESS,
+      query: { challenge_id: '3' },
+    },
+  );
+
+  expect(state).toEqual({
+    mine: [{ id: '6' }],
+    contactSteps: {
+      '123-456': { steps: [{ id: '6' }], completedSteps: [] },
+      '987-personal': { steps: [{ id: '6' }], completedSteps: [] },
+    },
   });
 });
 

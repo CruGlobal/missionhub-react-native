@@ -189,22 +189,41 @@ export default {
       'You are not allowed to edit first names of other MissionHub users',
   },
   addStep: {
-    header: 'My Step of Faith',
-    createStep: 'Create Step',
+    header: 'Create your own step',
     journeyHeader: 'What did you see God do?',
     editJourneyHeader: 'Edit your comment',
-    addJourney: 'Add to Our Journey',
+    addJourneyPerson: 'Add to Our Journey',
+    addJourneyMe: 'Add to my Journey',
     editJourneyButton: 'Save',
     makeShorter:
       'Thanks for creating a step! But we need you to make it a little shorter so it can fit.',
+  },
+  stepReminder: {
+    setReminder: 'Set a Reminder',
+    endDate: 'End Date',
+    endDatePlaceholder: 'End Date (Required)',
+    daily: 'Daily',
+    weekly: 'Weekly',
+    monthly: 'Monthly',
   },
   selectStep: {
     meHeader: 'How do you want to move forward on your spiritual journey?',
     personHeader: 'What will you do to help {{name}} experience God?',
     addStep: 'ADD TO MY STEPS',
-    createStep: 'Create your own step...',
+    createStep: 'CREATE YOUR OWN STEP',
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
+  },
+  suggestedStepDetail: {
+    addStep: 'Add to My Steps',
+  },
+  acceptedStepDetail: {
+    removeStep: 'Remove Step',
+    iDidIt: 'I Did It!',
+  },
+  completedStepDetail: {
+    completedStep: 'Completed Step',
+    completedOn: 'Completed {{date}}',
   },
   selectStage: {
     meQuestion:
@@ -238,6 +257,8 @@ export default {
   contactSteps: {
     header: 'STEPS OF FAITH',
     stepNull: 'Your Steps of Faith with {{name}} appear here.',
+    showCompletedSteps: 'SHOW COMPLETED STEPS',
+    hideCompletedSteps: 'HIDE COMPLETED STEPS',
     addStep: 'Add a step of faith',
   },
   contactJourney: {

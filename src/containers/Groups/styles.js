@@ -17,7 +17,7 @@ export default StyleSheet.create({
   },
   cardList: {
     flex: 1,
-    backgroundColor: theme.lightGrey,
+    backgroundColor: theme.extraLightGrey,
   },
   cardSectionHeader: {
     marginVertical: 8,

@@ -21,8 +21,6 @@ let store;
 addNewInteraction.mockReturnValue(() => Promise.resolve());
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore();
 
   screen = renderShallow(
