@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import { isString, momentUtc } from '../../utils/common';
 import Text from '../Text';
 
-const Constants = {
+export const DateConstants = {
   today: 'today',
   yesterday: 'yesterday',
   comment: 'comment',
@@ -32,7 +32,7 @@ function formatComment(date, t) {
   }
 
   if (momentDate.format('DD-MM-YYYY') === now.format('DD-MM-YYYY')) {
-    return momentDate.format(Constants.Formats.timeOnly);
+    return momentDate.format(DateConstants.Formats.timeOnly);
   }
   // Check if yesterday
   if (
@@ -45,7 +45,7 @@ function formatComment(date, t) {
     )
   ) {
     return `${t('dates.yesterday')} @ ${momentDate.format(
-      Constants.Formats.timeOnly,
+      DateConstants.Formats.timeOnly,
     )}`;
   }
   // Check if within the last week
@@ -57,20 +57,20 @@ function formatComment(date, t) {
         .startOf('day'),
     )
   ) {
-    return momentDate.format(Constants.Formats.dayAtTime);
+    return momentDate.format(DateConstants.Formats.dayAtTime);
   }
   if (momentDate.year() !== now.year()) {
-    return momentDate.format(Constants.Formats.monthDayYearAtTime);
+    return momentDate.format(DateConstants.Formats.monthDayYearAtTime);
   }
 
-  return momentDate.format(Constants.Formats.monthDayAtTime);
+  return momentDate.format(DateConstants.Formats.monthDayAtTime);
 }
 
 @translate()
 export default class DateComponent extends Component {
   render() {
     const { t, date, format, style } = this.props;
-    const { relative, yesterday, comment, today } = Constants;
+    const { relative, yesterday, comment, today } = DateConstants;
 
     let dateFormat = format;
     if (format === relative) {
@@ -115,14 +115,14 @@ const relativeFormat = date => {
   if (other.isSame(today, 'year')) {
     if (other.isBetween(lastWeek, today, 'day', '[]')) {
       if (other.isSame(yesterday, 'day')) {
-        return Constants.yesterday;
+        return DateConstants.yesterday;
       }
       if (other.isSame(today, 'day')) {
-        return Constants.today;
+        return DateConstants.today;
       }
-      return Constants.Formats.dayOnly;
+      return DateConstants.Formats.dayOnly;
     }
-    return Constants.Formats.dayMonthDate;
+    return DateConstants.Formats.dayMonthDate;
   }
-  return Constants.Formats.fullDate;
+  return DateConstants.Formats.fullDate;
 };

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { Text, Touchable, Flex } from '../../components/common';
 import CardTime from '../../components/CardTime';
 import CelebrateItemName from '../../containers/CelebrateItemName';
+import { DateConstants } from '../../components/DateComponent';
 
 import styles from './styles';
 
@@ -53,7 +54,7 @@ class CommentItem extends Component {
               customContent={<Text style={nameStyle}>{name}</Text>}
             />
           )}
-          <CardTime date={created_at} format="comment" />
+          <CardTime date={created_at} format={DateConstants.comment} />
         </Flex>
         <Flex direction="row">
           {isMineNotReported ? <Flex value={1} /> : null}
