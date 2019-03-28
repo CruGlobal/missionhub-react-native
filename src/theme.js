@@ -140,4 +140,5 @@ export default {
       barStyle: isAndroid ? 'light-content' : 'dark-content',
     },
   },
+  hitSlop: n => ({ top: n, right: n, left: n, bottom: n }),
 };

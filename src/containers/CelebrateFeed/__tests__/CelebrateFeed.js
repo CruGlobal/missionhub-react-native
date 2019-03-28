@@ -83,9 +83,10 @@ describe('Member Feed rendering', () => {
 });
 
 it('renders section header', () => {
+  MockDate.set('08/13/2018');
   const renderedItem = component
     .instance()
-    .renderSectionHeader({ section: { date: MockDate.set('08/13/2018') } });
+    .renderSectionHeader({ section: { date: new Date() } });
   expect(renderedItem).toMatchSnapshot();
 });
 

@@ -1,29 +1,49 @@
 import React, { Component, Fragment } from 'react';
+import { Image } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { getReportedComments } from '../../actions/reportComments';
-import { Flex, Text, Card, Icon } from '../../components/common';
+import { Flex, Text, Card, Icon, IconButton } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgPermissionSelector } from '../../selectors/people';
-import { isOwner, orgIsCru, isAdmin } from '../../utils/common';
+import { isOwner, orgIsCru, isAdmin, orgIsGlobal } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
 import { GROUPS_REPORT_SCREEN } from '../Groups/GroupReport';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../../containers/Groups/OnboardingCard';
+import theme from '../../theme';
+import COMMENTS from '../../../assets/images/comments.png';
+import {
+  getUnreadComments,
+  markCommentsRead,
+} from '../../actions/unreadComments';
 
 import styles from './styles';
 
-@translate('groupsReport')
+@translate('celebrateFeedHeader')
 class CelebrateFeedHeader extends Component {
   componentDidMount() {
-    const { dispatch, organization, shouldQueryReport } = this.props;
+    const {
+      dispatch,
+      organization: { id: orgId },
+      shouldQueryReport,
+      shouldQueryNewComments,
+    } = this.props;
     if (shouldQueryReport) {
-      dispatch(getReportedComments(organization.id));
+      dispatch(getReportedComments(orgId));
+    }
+    if (shouldQueryNewComments) {
+      dispatch(getUnreadComments(orgId));
     }
   }
+
+  closeCommentCard = () => {
+    const { dispatch } = this.props;
+    dispatch(markCommentsRead());
+  };
 
   report = () => {
     const { dispatch, organization } = this.props;
@@ -31,31 +51,56 @@ class CelebrateFeedHeader extends Component {
   };
 
   commentCard = () => {
-    console.log('comment card');
     // const { dispatch, organization } = this.props;
-    // dispatch(navigatePush(GROUPS_REPORT_SCREEN, { organization }));
+    // dispatch(navigatePush(GROUPS_UNREAD_COMMENTS_SCREEN, { organization }));
   };
 
   renderCommentCard() {
-    const { isCommentCardVisible } = this.props;
+    const { t, isCommentCardVisible, newCommentsCount } = this.props;
     if (!isCommentCardVisible) {
       return null;
     }
     return (
       <Card onPress={this.commentCard} style={styles.commentCard}>
-        <Flex>
+        <Flex value={1}>
           <Flex style={styles.commentCardContent}>
-            <Text style={styles.commentCardNumber}>12</Text>
-            <Text style={styles.commentCardDescription}>comments</Text>
+            <Text style={styles.commentCardNumber}>{newCommentsCount}</Text>
+            <Text style={styles.commentCardDescription}>
+              {t('newComments')}
+            </Text>
+            <Image source={COMMENTS} style={styles.commentCardBackground} />
           </Flex>
-          <Text style={styles.itemText}>VIEW -></Text>
+          <Flex
+            direction="row"
+            align="center"
+            style={styles.commentCardViewWrap}
+          >
+            <Text style={styles.commentCardViewText}>
+              {t('view').toUpperCase()}
+            </Text>
+            <Icon
+              name="rightArrowIcon"
+              type="MissionHub"
+              size={12}
+              style={styles.anyIcon}
+            />
+          </Flex>
+          <Flex style={styles.commentCardCloseWrap}>
+            <IconButton
+              name="deleteIcon"
+              type="MissionHub"
+              onPress={this.closeCommentCard}
+              hitSlop={theme.hitSlop(10)}
+              size={13}
+            />
+          </Flex>
         </Flex>
       </Card>
     );
   }
 
   renderReport() {
-    const { t, count, isReportVisible } = this.props;
+    const { t, reportedCount, isReportVisible } = this.props;
     if (!isReportVisible) {
       return null;
     }
@@ -67,7 +112,9 @@ class CelebrateFeedHeader extends Component {
           size={20}
           style={styles.itemIcon}
         />
-        <Text style={styles.itemText}>{t('reports', { count })}</Text>
+        <Text style={styles.itemText}>
+          {t('reports', { count: reportedCount })}
+        </Text>
       </Card>
     );
   }
@@ -111,20 +158,24 @@ export const mapStateToProps = (
     organization: { id: selectorOrg.id },
   });
   const allReportedComments = reportedComments.all[selectorOrg.id] || [];
-  const count = allReportedComments.length;
+  const reportedCount = allReportedComments.length;
 
   const isUserOwner = isOwner(myOrgPerm);
   const isUserAdmin = isAdmin(myOrgPerm);
   const isCruOrg = orgIsCru(selectorOrg);
 
   const shouldQueryReport = isCruOrg ? isUserAdmin : isUserOwner;
+  const shouldQueryNewComments = !orgIsGlobal(selectorOrg);
+  const newCommentsCount = 12; // TODO: Connect this to the right data
 
   return {
     organization: selectorOrg,
     shouldQueryReport,
-    isReportVisible: shouldQueryReport && count !== 0,
-    count,
-    isCommentCardVisible: true,
+    isReportVisible: shouldQueryReport && reportedCount !== 0,
+    reportedCount,
+    isCommentCardVisible: shouldQueryNewComments && newCommentsCount !== 0,
+    shouldQueryNewComments,
+    newCommentsCount,
   };
 };
 
