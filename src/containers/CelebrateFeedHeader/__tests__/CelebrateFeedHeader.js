@@ -143,14 +143,6 @@ describe('cru community org', () => {
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).not.toHaveBeenCalled();
   });
-  it('renders contact', () => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.CONTACT,
-    });
-    const screen = buildScreen();
-    expect(screen).toMatchSnapshot();
-    expect(getReportedComments).not.toHaveBeenCalled();
-  });
   it('renders owner', () => {
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.OWNER,
@@ -177,15 +169,6 @@ describe('global community org', () => {
     expect(getReportedComments).not.toHaveBeenCalled();
     expect(getUnreadComments).not.toHaveBeenCalled();
   });
-  it('renders contact', () => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.CONTACT,
-    });
-    const screen = buildScreen();
-    expect(screen).toMatchSnapshot();
-    expect(getReportedComments).not.toHaveBeenCalled();
-    expect(getUnreadComments).not.toHaveBeenCalled();
-  });
 });
 
 describe('not owner', () => {
@@ -200,14 +183,6 @@ describe('not owner', () => {
   it('renders user', () => {
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.USER,
-    });
-    const screen = buildScreen();
-    expect(screen).toMatchSnapshot();
-    expect(getReportedComments).not.toHaveBeenCalled();
-  });
-  it('renders contact', () => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.CONTACT,
     });
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
@@ -233,11 +208,8 @@ it('closes comment card', () => {
   screen
     .childAt(0)
     .childAt(0)
-    .childAt(0)
-    .childAt(2)
-    .childAt(0)
     .props()
-    .onPress();
+    .onClose();
 
   expect(markCommentsRead).toHaveBeenCalled();
 });

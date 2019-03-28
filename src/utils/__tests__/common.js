@@ -138,6 +138,9 @@ describe('orgIsGlobal', () => {
   it('returns false for user-created community', () => {
     expect(orgIsGlobal({ id: '1', user_created: true })).toEqual(false);
   });
+  it('returns false for cru community', () => {
+    expect(orgIsGlobal({ id: '1', user_created: false })).toEqual(false);
+  });
   it('returns true for global community', () => {
     expect(orgIsGlobal({ id: GLOBAL_COMMUNITY_ID })).toEqual(true);
   });

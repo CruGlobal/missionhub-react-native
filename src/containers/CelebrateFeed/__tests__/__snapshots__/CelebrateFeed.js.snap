@@ -109,7 +109,7 @@ exports[`item renders correctly 1`] = `
 `;
 
 exports[`renderHeader match snapshot 1`] = `
-<Connect(Translate(CelebrateFeedHeader))
+<Connect(CelebrateFeedHeader)
   organization={
     Object {
       "id": "456",
