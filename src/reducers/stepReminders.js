@@ -9,6 +9,8 @@ export default function stepRemindersReducer(state = initialState, action) {
       return addCreatedReminderToState(state, action);
     case REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS:
       return addChallengeRemindersToState(state, action);
+    case REQUESTS.DELETE_CHALLENGE_REMINDER.SUCCESS:
+      return removeReminderFromState(state, action);
     case LOGOUT:
       return initialState;
     default:
@@ -46,4 +48,10 @@ function addChallengeRemindersToState(state, { results: { response } }) {
       ),
     },
   };
+}
+
+function removeReminderFromState(state, { query: { challenge_id } }) {
+  const all = { ...state.all };
+  delete all[challenge_id];
+  return { ...state, all };
 }

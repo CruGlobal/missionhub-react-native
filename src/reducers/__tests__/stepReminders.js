@@ -14,6 +14,8 @@ const remindersObject = {
   [stepsWithReminders[2].id]: remindersArray[2],
 };
 
+const reminder = 'some reminder';
+
 describe('REQUESTS.CREATE_CHALLENGE_REMINDER.SUCCESS', () => {
   it('adds response to state', () => {
     const response = 'some reminder';
@@ -21,10 +23,10 @@ describe('REQUESTS.CREATE_CHALLENGE_REMINDER.SUCCESS', () => {
     expect(
       stepReminders(undefined, {
         type: REQUESTS.CREATE_CHALLENGE_REMINDER.SUCCESS,
-        results: { response },
+        results: { response: reminder },
         query: { challenge_id },
       }),
-    ).toEqual({ allByStep: { [challenge_id]: response } });
+    ).toEqual({ all: { [challenge_id]: reminder } });
   });
 });
 
@@ -74,5 +76,24 @@ describe('REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS', () => {
         results: { response },
       }),
     ).toEqual({ allByStep: remindersObject });
+  });
+});
+    
+
+describe('REQUESTS.DELETE_CHALLENGE_REMINDER.SUCCESS', () => {
+  it('removes reminder from state', () => {
+    expect(
+      stepReminders(
+        {
+          all: {
+            [challenge_id]: reminder,
+          },
+        },
+        {
+          type: REQUESTS.DELETE_CHALLENGE_REMINDER.SUCCESS,
+          query: { challenge_id },
+        },
+      ),
+    ).toEqual({ all: {} });
   });
 });

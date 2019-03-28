@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import { Button, Icon } from '../../components/common';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
+import { removeStepReminder } from '../../actions/stepReminders';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
 import ReminderButton from '../../components/ReminderButton';
@@ -29,7 +30,13 @@ class AcceptedStepDetailScreen extends Component {
     dispatch(navigateBack());
   };
 
-  handleRemoveReminder = () => {};
+  handleRemoveReminder = () => {
+    const {
+      dispatch,
+      step: { id },
+    } = this.props;
+    dispatch(removeStepReminder(id));
+  };
 
   renderReminderButton() {
     const {
