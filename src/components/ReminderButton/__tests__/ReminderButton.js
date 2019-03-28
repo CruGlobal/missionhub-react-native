@@ -14,7 +14,7 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');
 
 const stepId = '1';
-const mockDate = '2018-09-12T12:00:00';
+const mockDate = '2018-09-12 12:00:00 PM GMT+0';
 const reminder = { id: '11', next_occurrence_at: mockDate };
 
 MockDate.set(mockDate);
