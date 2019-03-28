@@ -47,7 +47,6 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
           type="MissionHub"
         />
         <Component
-          placeholder="Set a Reminder"
           reminder={
             Object {
               "id": "11",

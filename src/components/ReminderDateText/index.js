@@ -1,4 +1,5 @@
 import React from 'react';
+import i18n from 'i18next';
 
 import { Text } from '../common';
 
@@ -9,7 +10,9 @@ export default ({ reminder, style, placeholder }) => {
 
   return (
     <Text style={[styles.reminderText, style]}>
-      {type && at ? `${at} ${type}` : placeholder}
+      {type && at
+        ? `${at} ${type}`
+        : placeholder || i18n.t('stepReminder:setReminder')}
     </Text>
   );
 };

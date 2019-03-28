@@ -78,10 +78,7 @@ class AcceptedStepItem extends Component {
           <ReminderButton stepId={id} reminder={reminder}>
             <View flexDirection="row" style={reminderButton}>
               <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-              <ReminderDateText
-                reminder={reminder}
-                placeholder={t('setReminder')}
-              />
+              <ReminderDateText reminder={reminder} />
             </View>
           </ReminderButton>
           <Text style={stepText}>{title}</Text>

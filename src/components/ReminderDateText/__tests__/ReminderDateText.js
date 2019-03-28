@@ -10,6 +10,14 @@ const reminder = {
   at: '2019-3-27T00:00:00',
 };
 
-it('renders correctly', () => {
+it('renders with reminder correctly', () => {
   testSnapshotShallow(<ReminderDateText reminder={reminder} />);
+});
+
+it('renders with placeholder correctly', () => {
+  testSnapshotShallow(<ReminderDateText placeholder={'text'} />);
+});
+
+it('renders without reminder or placeholder correctly', () => {
+  testSnapshotShallow(<ReminderDateText />);
 });

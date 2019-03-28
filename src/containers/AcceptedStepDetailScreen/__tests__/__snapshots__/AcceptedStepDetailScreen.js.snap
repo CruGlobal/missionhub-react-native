@@ -60,7 +60,6 @@ exports[`with challenge suggestion renders correctly 1`] = `
             />
           </Component>
           <Unknown
-            placeholder="Set a Reminder"
             reminder={
               Object {
                 "id": "1",
@@ -195,7 +194,6 @@ exports[`without challenge suggestion renders correctly 1`] = `
             />
           </Component>
           <Unknown
-            placeholder="Set a Reminder"
             reminder={
               Object {
                 "id": "1",

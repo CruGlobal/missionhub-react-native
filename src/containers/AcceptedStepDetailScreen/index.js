@@ -54,11 +54,7 @@ class AcceptedStepDetailScreen extends Component {
             <View style={reminderIconCircle}>
               <Icon name="bellIcon" type="MissionHub" style={reminderIcon} />
             </View>
-            <ReminderDateText
-              style={reminderText}
-              reminder={reminder}
-              placeholder={t('stepReminder:setReminder')}
-            />
+            <ReminderDateText style={reminderText} reminder={reminder} />
           </View>
           <Button onPress={this.handleRemoveReminder} style={cancelIconButton}>
             <Icon name="close" type="Material" style={cancelIcon} />
