@@ -33,7 +33,6 @@ class AcceptedStepDetailScreen extends Component {
 
   renderReminderButton() {
     const {
-      t,
       step: { id },
       reminder,
     } = this.props;

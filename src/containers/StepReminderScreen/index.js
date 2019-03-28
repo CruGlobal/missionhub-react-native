@@ -24,8 +24,6 @@ class StepReminderScreen extends Component {
     recurrence: null,
   };
 
-  today = new Date();
-
   handleChangeDate = date => {
     if (!date) {
       this.setState({ date: '', disableBtn: true });
@@ -70,6 +68,8 @@ class StepReminderScreen extends Component {
       inputTextFull,
     } = styles;
 
+    const today = new Date();
+
     const inputHeaderStyle = [inputHeaderText, date ? inputTextInactive : null];
     const inputContentStyle = [
       inputContentText,
@@ -82,7 +82,7 @@ class StepReminderScreen extends Component {
         <DatePicker
           date={date}
           mode="datetime"
-          minDate={this.today}
+          minDate={today}
           onDateChange={this.handleChangeDate}
         >
           <ReminderDateText

@@ -39,7 +39,6 @@ class AcceptedStepItem extends Component {
 
   render() {
     const {
-      t,
       step: { title, completed_at, id },
       reminder,
     } = this.props;

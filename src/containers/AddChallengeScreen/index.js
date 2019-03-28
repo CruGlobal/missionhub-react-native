@@ -26,8 +26,6 @@ class AddChallengeScreen extends Component {
       date,
       disableBtn: true,
     };
-
-    this.today = new Date();
   }
 
   onChangeTitle = title => {
@@ -91,6 +89,8 @@ class AddChallengeScreen extends Component {
     const { date } = this.state;
     const { dateInput, disabledInput, label, dateText } = styles;
 
+    const today = new Date();
+
     return (
       <View>
         <Text style={label}>{t('dateLabel')}</Text>
@@ -98,7 +98,7 @@ class AddChallengeScreen extends Component {
           date={date}
           mode="date"
           placeholder={t('datePlaceholder')}
-          minDate={this.today}
+          minDate={today}
           onDateChange={this.onChangeDate}
         >
           <View style={[dateInput, disabled && disabledInput]}>
