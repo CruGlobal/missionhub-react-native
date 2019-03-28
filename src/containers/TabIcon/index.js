@@ -1,0 +1,43 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import i18next from 'i18next';
+
+import Flex from '../../components/Flex';
+import Icon from '../../components/Icon';
+import { Text } from '../../components/common';
+import { isAndroid } from '../../utils/common';
+
+import styles from './styles';
+
+function TabIcon({ name, tintColor, showNotification }) {
+  const icon = (
+    <Icon
+      type="MissionHub"
+      name={`${name}Icon`}
+      size={isAndroid ? 22 : 24}
+      style={{ color: tintColor }}
+    />
+  );
+
+  return (
+    <Flex value={1} align="center" justify="center">
+      {showNotification ? (
+        <Flex style={{ position: 'relative' }}>
+          {icon}
+          <Flex style={styles.badge} />
+        </Flex>
+      ) : (
+        icon
+      )}
+      <Text style={[styles.text, { color: tintColor }]}>
+        {i18next.t(`appRoutes:${name}`)}
+      </Text>
+    </Flex>
+  );
+}
+
+const mapStateToProps = ({ auth }, { name }) => ({
+  // TODO: Get the right variable here to show the notification dot
+  showNotification: name === 'group' && auth.person.hasActiveNotification,
+});
+export default connect(mapStateToProps)(TabIcon);
