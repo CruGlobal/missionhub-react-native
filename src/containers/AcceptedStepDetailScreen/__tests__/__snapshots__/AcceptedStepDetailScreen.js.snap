@@ -59,7 +59,8 @@ exports[`with challenge suggestion renders correctly 1`] = `
               type="MissionHub"
             />
           </Component>
-          <Translate(ReminderDateText)
+          <Unknown
+            placeholder="Set a Reminder"
             reminder={
               Object {
                 "id": "1",
@@ -193,7 +194,8 @@ exports[`without challenge suggestion renders correctly 1`] = `
               type="MissionHub"
             />
           </Component>
-          <Translate(ReminderDateText)
+          <Unknown
+            placeholder="Set a Reminder"
             reminder={
               Object {
                 "id": "1",

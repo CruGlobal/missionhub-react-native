@@ -4,7 +4,7 @@ import { Text } from '../common';
 
 import styles from './styles';
 
-export default (ReminderDateText = ({ reminder, style, placeholder }) => {
+export default ({ reminder, style, placeholder }) => {
   const { type, at } = reminder || {};
 
   return (
@@ -12,4 +12,4 @@ export default (ReminderDateText = ({ reminder, style, placeholder }) => {
       {type && at ? `${at} ${type}` : placeholder}
     </Text>
   );
-});
+};
