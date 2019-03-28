@@ -12,7 +12,7 @@ import { navigatePush, navigateBack } from '../../actions/navigation';
 import { getStagesIfNotExists } from '../../actions/stages';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
-import Header from '../Header';
+import Header from '../../components/Header';
 import { openMainMenu, refresh } from '../../utils/common';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
@@ -57,7 +57,7 @@ export class PeopleScreen extends Component {
         organization: org && org.id ? org : undefined,
         onComplete: () => {
           // You go through 4 screens for adding a person, so pop back to the first one
-          this.props.dispatch(navigateBack(4));
+          this.props.dispatch(navigateBack(5));
           this.getPeople();
         },
       }),

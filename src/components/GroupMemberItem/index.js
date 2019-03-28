@@ -10,6 +10,7 @@ import { Flex, Text, Dot, Card } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
 import { orgPermissionSelector } from '../../selectors/people';
 import { orgIsUserCreated, isAdminOrOwner, isOwner } from '../../utils/common';
+import ItemHeaderText from '../ItemHeaderText';
 
 import styles from './styles';
 
@@ -119,7 +120,7 @@ class GroupMemberItem extends Component {
           style={styles.content}
         >
           <Flex value={1} direction="column">
-            <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
+            <ItemHeaderText text={person.full_name} />
             <Flex align="center" direction="row">
               {isUserCreatedOrg
                 ? this.renderUserCreatedDetails(isMe)

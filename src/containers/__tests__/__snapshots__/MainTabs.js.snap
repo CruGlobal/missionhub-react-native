@@ -392,7 +392,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
             }
             style={
               Object {
-                "backgroundColor": "#E6E8EC",
+                "backgroundColor": "#B4B6BA",
                 "flex": 1,
               }
             }

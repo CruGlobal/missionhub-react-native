@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { SectionList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { toggleLike } from '../../actions/celebration';
 import { DateComponent, Flex } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../../containers/Groups/OnboardingCard';
+import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
+import { navigatePush } from '../../actions/navigation';
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
+import ReportCommentNotifier from '../../containers/ReportCommentNotifier';
+import { DateConstants } from '../DateComponent';
+import { keyExtractorId } from '../../utils/common';
 
 import styles from './styles';
 
@@ -24,20 +29,38 @@ class CelebrateFeed extends Component {
 
     return (
       <Flex style={header} align="center">
-        <DateComponent date={date} format={'relative'} style={title} />
+        <DateComponent
+          date={date}
+          format={DateConstants.relative}
+          style={title}
+        />
       </Flex>
     );
   };
 
-  renderItem = ({ item }) => (
-    <CelebrateItem
-      event={item}
-      myId={this.props.myId}
-      onToggleLike={this.handleToggleLike}
-    />
-  );
+  onPressItem = event => {
+    const { dispatch } = this.props;
 
-  keyExtractor = item => item.id;
+    dispatch(
+      navigatePush(CELEBRATE_DETAIL_SCREEN, {
+        event,
+      }),
+    );
+  };
+
+  renderItem = ({ item }) => {
+    const { organization, itemNamePressable } = this.props;
+
+    return (
+      <CelebrateItem
+        event={item}
+        onPressItem={
+          organization.id !== GLOBAL_COMMUNITY_ID && this.onPressItem
+        }
+        namePressable={itemNamePressable}
+      />
+    );
+  };
 
   handleOnEndReached = () => {
     if (this.state.isListScrolled) {
@@ -56,13 +79,13 @@ class CelebrateFeed extends Component {
     this.props.refreshCallback();
   };
 
-  handleToggleLike = (eventId, liked) => {
-    const { organization, dispatch } = this.props;
-    dispatch(toggleLike(organization.id, eventId, liked));
-  };
-
   renderHeader = () => (
-    <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
+    <Fragment>
+      <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
+      {this.props.isMember ? null : (
+        <ReportCommentNotifier organization={this.props.organization} />
+      )}
+    </Fragment>
   );
 
   render() {
@@ -74,7 +97,7 @@ class CelebrateFeed extends Component {
         ListHeaderComponent={this.renderHeader}
         renderSectionHeader={this.renderSectionHeader}
         renderItem={this.renderItem}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         onEndReachedThreshold={0.2}
         onEndReached={this.handleOnEndReached}
         onScrollEndDrag={this.handleEndDrag}
@@ -90,12 +113,9 @@ class CelebrateFeed extends Component {
 CelebrateFeed.propTypes = {
   items: PropTypes.array.isRequired,
   organization: PropTypes.object.isRequired,
-  myId: PropTypes.string.isRequired,
   refreshing: PropTypes.bool,
+  itemNamePressable: PropTypes.bool,
+  isMember: PropTypes.bool,
 };
 
-export const mapStateToProps = ({ auth }) => ({
-  myId: auth.person.id,
-});
-
-export default connect(mapStateToProps)(CelebrateFeed);
+export default connect()(CelebrateFeed);

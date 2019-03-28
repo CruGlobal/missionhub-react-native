@@ -13,10 +13,6 @@ export const REMOVE_STEP_REMINDER = 'app/REMOVE_STEP_REMINDER';
 export const TOGGLE_STEP_FOCUS = 'app/TOGGLE_STEP_FOCUS';
 export const DISABLE_WELCOME_NOTIFICATION = 'app/DISABLE_WELCOME_NOTIFICATION';
 export const PEOPLE_WITH_ORG_SECTIONS = 'app/PEOPLE_WITH_ORG_SECTIONS';
-export const SWIPE_REMINDER_STEPS_HOME = 'app/SWIPE_REMINDER_STEPS_HOME';
-export const SWIPE_REMINDER_STEPS_CONTACT = 'app/SWIPE_REMINDER_STEPS_CONTACT';
-export const SWIPE_REMINDER_STEPS_REMINDER =
-  'app/SWIPE_REMINDER_STEPS_REMINDER';
 export const SWIPE_REMINDER_JOURNEY = 'app/SWIPE_REMINDER_JOURNEY';
 export const GROUP_INVITE_INFO = 'app/GROUP_INVITE_INFO';
 export const GROUP_ONBOARDING_CARD = 'app/GROUP_ONBOARDING_CARD';
@@ -48,17 +44,24 @@ export const GET_ORGANIZATION_PEOPLE = 'app/GET_ORGANIZATION_PEOPLE';
 export const GET_ORGANIZATION_SURVEYS = 'app/GET_ORGANIZATION_SURVEYS';
 export const RESET_CELEBRATION_PAGINATION = 'app/RESET_CELEBRATION_PAGINATION';
 export const RESET_CHALLENGE_PAGINATION = 'app/RESET_CHALLENGE_PAGINATION';
+export const SET_CELEBRATE_EDITING_COMMENT =
+  'app/SET_CELEBRATE_EDITING_COMMENT';
+export const RESET_CELEBRATE_EDITING_COMMENT =
+  'app/RESET_CELEBRATE_EDITING_COMMENT';
 
 export const GLOBAL_COMMUNITY_ID = '_global_community_id';
 
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';
 
+export const STEP_SUGGESTION = 'challenge_suggestion';
+export const ACCEPTED_STEP = 'accepted_challenge';
+
 export const STEPS_TAB = 'StepsTab';
 export const PEOPLE_TAB = 'PeopleTab';
 export const GROUPS_TAB = 'GroupsTab';
 
-export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';
+export const NAVIGATE_FORWARD = 'Navigation/PUSH';
 export const NAVIGATE_RESET = 'Navigation/RESET';
 export const NAVIGATE_BACK = 'Navigation/BACK';
 export const NAVIGATE_POP = 'Navigation/POP';
@@ -243,6 +246,22 @@ export const ACTIONS = {
   ITEM_LIKED: {
     name: 'Celebrate Item Liked',
     key: 'cru.celebrateitemliked',
+  },
+  CELEBRATE_COMMENT_ADDED: {
+    name: 'Celebrate Comment Added',
+    key: 'cru.sendcelebratecomment',
+  },
+  CELEBRATE_COMMENT_EDITED: {
+    name: 'Celebrate Comment Edited',
+    key: 'cru.editcelebratecomment',
+  },
+  CELEBRATE_COMMENT_DELETED: {
+    name: 'Celebrate Comment Deleted',
+    key: 'cru.deletecelebratecomment',
+  },
+  CELEBRATE_COMMENT_REPORTED: {
+    name: 'Celebrate Comment Reported',
+    key: 'cru.reportcelebratecomment',
   },
   ASSIGNED_TO_ME: {
     name: 'Assigned to Me',
@@ -431,4 +450,20 @@ export const CELEBRATEABLE_TYPES = {
   },
   createdCommunity: 'organization',
   joinedCommunity: 'organizational_permission',
+};
+
+export const DAYS_OF_THE_WEEK = [
+  'sunday',
+  'monday',
+  'tuesday',
+  'wednesday',
+  'thursday',
+  'friday',
+  'saturday',
+];
+export const REMINDER_RECURRENCES = {
+  ONCE: 'once',
+  DAILY: 'daily',
+  WEEKLY: 'weekly',
+  MONTHLY: 'monthly',
 };

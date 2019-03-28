@@ -22,11 +22,10 @@ import {
 } from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { STATUS_SELECT_SCREEN } from '../../../containers/StatusSelectScreen';
-import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
-import { STAGE_SCREEN } from '../../../containers/StageScreen';
 import {
   openCommunicationLink,
   loadStepsAndJourney,
+  navigateToStageScreen,
 } from '../../../actions/misc';
 
 jest.mock('uuid/v4');
@@ -42,12 +41,13 @@ const organization = { id: '50' };
 const dispatch = store.dispatch;
 const myId = '1001';
 const stages = [];
+const myStageId = 4;
+const personStageId = 3;
 const contactAssignment = {
   id: '500',
-  pathway_stage_id: 3,
+  pathway_stage_id: personStageId,
   organization: { id: '231413' },
 };
-const myStageId = 4;
 const isCruOrg = true;
 
 const props = {
@@ -67,6 +67,7 @@ const navigatePushResult = { type: 'navigated' };
 const updatePersonResult = { type: 'update person attributes' };
 const getPersonResult = { type: 'get person details' };
 const loadStepsJourneyResult = { type: 'load steps and journey' };
+const navigateToStageResult = { type: 'navigate to stage screen ' };
 
 beforeEach(() => {
   uuidv4.mockReturnValue('some key');
@@ -77,6 +78,7 @@ beforeEach(() => {
   updatePersonAttributes.mockReturnValue(updatePersonResult);
   getPersonDetails.mockReturnValue(getPersonResult);
   loadStepsAndJourney.mockReturnValue(loadStepsJourneyResult);
+  navigateToStageScreen.mockReturnValue(navigateToStageResult);
   store.clearActions();
 });
 
@@ -102,13 +104,7 @@ describe('is self', () => {
     );
   });
 
-  it('should navigate to stage screen', () => {
-    const stage = { id: '5' };
-    navigatePush.mockImplementation((_, { onComplete }) => {
-      onComplete && onComplete(stage);
-      return navigatePushResult;
-    });
-
+  it('should navigate to select stage flow', () => {
     const screen = renderShallow(
       <GroupsPersonHeader
         {...props}
@@ -125,24 +121,15 @@ describe('is self', () => {
       .props()
       .onClick();
 
-    expect(navigatePush).toHaveBeenCalledWith(STAGE_SCREEN, {
-      onComplete: expect.anything(),
-      firstItem: myStageId,
-      contactId: person.id,
-      section: 'people',
-      subsection: 'self',
-      enableBackButton: true,
-    });
-    expect(store.getActions()).toEqual([
-      updatePersonResult,
-      loadStepsJourneyResult,
-      navigatePushResult,
-    ]);
+    expect(navigateToStageScreen).toHaveBeenCalledWith(
+      true,
+      person,
+      contactAssignment,
+      organization,
+      myStageId,
+    );
+    expect(store.getActions()).toEqual([navigateToStageResult]);
     expect(getStageIndex).toHaveBeenCalledWith(stages, myStageId);
-    expect(updatePersonAttributes).toHaveBeenCalledWith(person.id, {
-      user: { pathway_stage_id: stage.id },
-    });
-    expect(loadStepsAndJourney).toHaveBeenCalledWith(person, organization);
   });
 });
 
@@ -312,27 +299,15 @@ describe('isContact', () => {
       );
     });
 
-    it('should navigate to person stage screen, contact assignment', () => {
-      const stage = { id: '5' };
-      navigatePush.mockImplementation((_, { onComplete }) => {
-        onComplete && onComplete(stage);
-        return navigatePushResult;
-      });
-
-      const reverseContactAssignment = {
-        id: contactAssignment.id,
-      };
-      const newPerson = {
-        ...person,
-        reverse_contact_assignments: [reverseContactAssignment],
-      };
+    it('should navigate to select person stage flow, contact assignment', () => {
+      getStageIndex.mockReturnValue(personStageId);
 
       const screen = renderShallow(
         <GroupsPersonHeader
           {...props}
-          isMember={true}
+          isMember={false}
           contactAssignment={contactAssignment}
-          person={newPerson}
+          person={person}
         />,
       );
 
@@ -342,34 +317,15 @@ describe('isContact', () => {
         .props()
         .onClick();
 
-      expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
-        onComplete: expect.anything(),
-        firstItem: myStageId,
-        name: person.first_name,
-        contactId: person.id,
-        contactAssignmentId: contactAssignment.id,
-        orgId: organization.id,
-        section: 'people',
-        subsection: 'person',
-      });
-      expect(store.getActions()).toEqual([
-        updatePersonResult,
-        loadStepsJourneyResult,
-        navigatePushResult,
-      ]);
-      expect(getStageIndex).toHaveBeenCalledWith(
-        stages,
-        contactAssignment.pathway_stage_id,
+      expect(navigateToStageScreen).toHaveBeenCalledWith(
+        false,
+        person,
+        contactAssignment,
+        organization,
+        personStageId,
       );
-      expect(updatePersonAttributes).toHaveBeenCalledWith(person.id, {
-        reverse_contact_assignments: [
-          {
-            ...reverseContactAssignment,
-            pathway_stage_id: stage.id,
-          },
-        ],
-      });
-      expect(loadStepsAndJourney).toHaveBeenCalledWith(newPerson, organization);
+      expect(store.getActions()).toEqual([navigateToStageResult]);
+      expect(getStageIndex).toHaveBeenCalledWith(stages, personStageId);
     });
 
     it('navigates to status select screen', () => {

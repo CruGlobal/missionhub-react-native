@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`with challenge suggestion renders correctly 1`] = `
+<StepDetailScreen
+  CenterContent={
+    <Component
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomWidth": 1,
+          "borderColor": "#E6E8EC",
+          "borderTopWidth": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "paddingHorizontal": 16,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Component
+        alignItems="center"
+        flex={1}
+        flexDirection="row"
+        justifyContent="space-between"
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+            }
+          }
+        >
+          Completed Wednesday, January 3 2018
+        </MyText>
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/checkIcon-grey.png",
+            }
+          }
+          style={
+            Object {
+              "height": 24,
+              "margin": 10,
+              "width": 24,
+            }
+          }
+        />
+      </Component>
+    </Component>
+  }
+  CenterHeader={
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Completed Step
+    </MyText>
+  }
+  RightHeader={null}
+  bottomButtonProps={null}
+  markdown="roge rules"
+  text="SCOTTY"
+/>
+`;
+
+exports[`without challenge suggestion renders correctly 1`] = `
+<StepDetailScreen
+  CenterContent={
+    <Component
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomWidth": 1,
+          "borderColor": "#E6E8EC",
+          "borderTopWidth": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "paddingHorizontal": 16,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Component
+        alignItems="center"
+        flex={1}
+        flexDirection="row"
+        justifyContent="space-between"
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+            }
+          }
+        >
+          Completed Wednesday, January 3 2018
+        </MyText>
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/checkIcon-grey.png",
+            }
+          }
+          style={
+            Object {
+              "height": 24,
+              "margin": 10,
+              "width": 24,
+            }
+          }
+        />
+      </Component>
+    </Component>
+  }
+  CenterHeader={
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Completed Step
+    </MyText>
+  }
+  RightHeader={null}
+  bottomButtonProps={null}
+  markdown={null}
+  text="SCOTTY"
+/>
+`;

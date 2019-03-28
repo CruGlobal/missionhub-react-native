@@ -1,224 +1,117 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SelectStepScreen renders correctly 1`] = `
+exports[`renderForeground renders correctly 1`] = `
 <Component
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
+  alignItems="center"
+  flex={1}
 >
-  <ParallaxScrollView
-    backgroundColor="#007398"
-    backgroundScrollSpeed={5}
-    contentBackgroundColor="#fff"
-    contentContainerStyle={null}
-    fadeOutForeground={true}
-    onChangeHeaderVisibility={[Function]}
-    outputScaleValue={5}
-    parallaxHeaderHeight={215}
-    renderBackground={[Function]}
-    renderForeground={[Function]}
-    renderParallaxHeader={[Function]}
-    renderScrollComponent={[Function]}
-    renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
+  <Header
+    shadow={true}
+  />
+  <Icon
+    name="addStepIcon"
+    style={
+      Object {
+        "color": "#52C5DC",
+        "fontSize": 40,
+      }
+    }
+    type="MissionHub"
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#52C5DC",
+        "fontSize": 36,
+        "letterSpacing": 2,
+        "lineHeight": 48,
+      }
+    }
+    type="header"
   >
-    <StepsList
-      createStepText="Create your own step..."
-      items={Array []}
-      loadMoreStepsText="SHOW MORE STEPS"
-      onCreateStep={[Function]}
-      onLoadMoreSteps={[Function]}
-      onSelectStep={[Function]}
-    />
-  </ParallaxScrollView>
-  <SafeAreaView />
+    Add Steps of Faith
+  </MyText>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 16,
+        "lineHeight": 24,
+        "paddingBottom": 36,
+        "paddingHorizontal": 50,
+        "textAlign": "center",
+      }
+    }
+  />
 </Component>
 `;
 
-exports[`SelectStepScreen should render foreground header correctly 1`] = `
-<View
-  style={
-    Array [
-      Object {},
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-    ]
-  }
->
-  <Flex
-    align="center"
-    justify="center"
-    value={1}
-  >
-    <Icon
-      name="addStepIcon"
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 36,
-        }
-      }
-      type="MissionHub"
-    />
+exports[`renderStickyHeader renders correctly 1`] = `
+<Header
+  center={
     <MyText
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
         Object {
-          "color": "#52C5DC",
-          "fontSize": 36,
-        }
-      }
-      type="header"
-    >
-      Add Steps of Faith
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "backgroundColor": "rgba(0,0,0,0)",
           "color": "#ffffff",
-          "fontSize": 16,
-          "lineHeight": 24,
-          "paddingHorizontal": 50,
-          "paddingVertical": 10,
-          "textAlign": "center",
-        }
-      }
-    />
-  </Flex>
-</View>
-`;
-
-exports[`SelectStepScreen should render sticky header correctly 1`] = `
-<SafeAreaView
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flexDirection": "row",
-        "height": 65,
-        "paddingTop": 20,
-      },
-      undefined,
-      null,
-    ]
-  }
->
-  <Flex
-    align="start"
-    justify="center"
-    style={
-      Object {
-        "paddingLeft": 5,
-      }
-    }
-    value={1}
-  />
-  <Flex
-    align="center"
-    justify="center"
-    style={Object {}}
-    value={4}
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      numberOfLines={1}
-      style={
-        Object {
-          "color": "white",
           "fontSize": 14,
-          "fontWeight": "500",
         }
       }
     >
       ADD STEPS OF FAITH
     </MyText>
-  </Flex>
-  <Flex
-    align="end"
-    justify="center"
-    style={
-      Object {
-        "paddingRight": 5,
-      }
-    }
-    value={1}
-  />
-</SafeAreaView>
-`;
-
-exports[`mapStateToProps should provide necessary props for me 1`] = `
-Object {
-  "myId": "123",
-  "suggestions": Array [
-    Object {
-      "body": "test 1",
-      "id": "1",
-    },
-  ],
-}
-`;
-
-exports[`mapStateToProps should provide necessary props for others 1`] = `
-Object {
-  "myId": "123",
-  "suggestions": Array [
-    Object {
-      "body": "test 1",
-      "id": "1",
-    },
-  ],
-}
-`;
-
-exports[`renderBackButton should render back button 1`] = `
-<Component
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
   }
+  shadow={true}
+/>
+`;
+
+exports[`with enableBackButton renders correctly 1`] = `
+<Component
+  flex={1}
 >
   <ParallaxScrollView
     backgroundColor="#007398"
     backgroundScrollSpeed={5}
-    contentBackgroundColor="#fff"
+    contentBackgroundColor="#E6E8EC"
     contentContainerStyle={null}
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}
     outputScaleValue={5}
     parallaxHeaderHeight={215}
     renderBackground={[Function]}
+    renderContentBackground={[Function]}
     renderForeground={[Function]}
     renderParallaxHeader={[Function]}
     renderScrollComponent={[Function]}
     renderStickyHeader={[Function]}
     stickyHeaderHeight={65}
   >
-    <StepsList
-      createStepText="Create your own step..."
-      items={Array []}
-      loadMoreStepsText="SHOW MORE STEPS"
-      onCreateStep={[Function]}
-      onLoadMoreSteps={[Function]}
-      onSelectStep={[Function]}
+    <Connect(Translate(StepsList))
+      contactName="roger"
+      contactStageId="3"
+      next={[MockFunction]}
+      organization={
+        Object {
+          "id": "4234234",
+        }
+      }
+      receiverId="252342354234"
     />
   </ParallaxScrollView>
-  <SafeAreaView />
+  <SafeAreaView>
+    <BottomButton
+      onPress={[Function]}
+      text="CREATE YOUR OWN STEP"
+    />
+  </SafeAreaView>
   <Connect(BackButton)
     absolute={true}
     customNavigate={[Function]}
@@ -226,76 +119,44 @@ exports[`renderBackButton should render back button 1`] = `
 </Component>
 `;
 
-exports[`renderSaveButton should render save button 1`] = `
+exports[`without enableBackButton renders correctly 1`] = `
 <Component
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
+  flex={1}
 >
   <ParallaxScrollView
     backgroundColor="#007398"
     backgroundScrollSpeed={5}
-    contentBackgroundColor="#fff"
+    contentBackgroundColor="#E6E8EC"
     contentContainerStyle={null}
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}
     outputScaleValue={5}
     parallaxHeaderHeight={215}
     renderBackground={[Function]}
+    renderContentBackground={[Function]}
     renderForeground={[Function]}
     renderParallaxHeader={[Function]}
     renderScrollComponent={[Function]}
     renderStickyHeader={[Function]}
     stickyHeaderHeight={65}
   >
-    <StepsList
-      createStepText="Create your own step..."
-      items={
-        Array [
-          Object {
-            "body": "test 1",
-            "id": "1",
-            "selected": true,
-          },
-          Object {
-            "body": "test 2",
-            "id": "2",
-          },
-          Object {
-            "body": "test 3",
-            "id": "3",
-          },
-          Object {
-            "body": "test 4",
-            "id": "4",
-          },
-        ]
+    <Connect(Translate(StepsList))
+      contactName="roger"
+      contactStageId="3"
+      next={[MockFunction]}
+      organization={
+        Object {
+          "id": "4234234",
+        }
       }
-      loadMoreStepsText="SHOW MORE STEPS"
-      onCreateStep={[Function]}
-      onLoadMoreSteps={[Function]}
-      onSelectStep={[Function]}
+      receiverId="252342354234"
     />
   </ParallaxScrollView>
   <SafeAreaView>
-    <Flex
-      align="center"
-      justify="end"
-    >
-      <Button
-        onPress={[Function]}
-        style={
-          Object {
-            "width": 750,
-          }
-        }
-        text="ADD TO MY STEPS"
-        type="secondary"
-      />
-    </Flex>
+    <BottomButton
+      onPress={[Function]}
+      text="CREATE YOUR OWN STEP"
+    />
   </SafeAreaView>
 </Component>
 `;

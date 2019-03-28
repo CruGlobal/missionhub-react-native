@@ -54,11 +54,14 @@ exports[`renders cru org contact correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              },
+              undefined,
+            ],
           ]
         }
       >
@@ -201,11 +204,14 @@ exports[`renders cru org contact without stage correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              },
+              undefined,
+            ],
           ]
         }
       >
@@ -396,11 +402,14 @@ exports[`renders cru org member correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              },
+              undefined,
+            ],
           ]
         }
       >
@@ -541,11 +550,14 @@ exports[`renders me correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              },
+              undefined,
+            ],
           ]
         }
       >
@@ -686,11 +698,14 @@ exports[`renders personal ministry contact correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              },
+              undefined,
+            ],
           ]
         }
       >
@@ -831,11 +846,14 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              },
+              undefined,
+            ],
           ]
         }
       >

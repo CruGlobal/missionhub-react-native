@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<MyText
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "#B2B0B2",
+      "fontSize": 12,
+    }
+  }
+>
+  1:51 PM
+</MyText>
+`;
+
+exports[`renders correctly with format 1`] = `
+<MyText
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "#B2B0B2",
+      "fontSize": 12,
+    }
+  }
+>
+  Monday @ 1:51 PM
+</MyText>
+`;

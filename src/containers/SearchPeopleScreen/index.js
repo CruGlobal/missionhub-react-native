@@ -9,7 +9,7 @@ import SEARCH_NULL from '../../../assets/images/searchNull.png';
 import { navigatePush } from '../../actions/navigation';
 import { searchPeople } from '../../actions/people';
 import { Flex, IconButton, Input, Text } from '../../components/common';
-import Header from '../Header';
+import Header from '../../components/Header';
 import SearchPeopleItem from '../../components/SearchPeopleItem';
 import theme from '../../theme';
 import { SEARCH_FILTER_SCREEN } from '../SearchPeopleFilterScreen';

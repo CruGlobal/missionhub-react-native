@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Flex, Text, Button, Touchable, Icon } from '../../components/common';
-import Header from '../Header';
+import Header from '../../components/Header';
 import {
   contactAssignmentSelector,
   orgPermissionSelector,

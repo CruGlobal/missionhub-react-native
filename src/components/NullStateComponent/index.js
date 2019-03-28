@@ -8,7 +8,7 @@ import styles from './styles';
 
 export default class NullStateComponent extends Component {
   render() {
-    const { imageSource, headerText, descriptionText } = this.props;
+    const { imageSource, headerText, descriptionText, content } = this.props;
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Image
@@ -20,6 +20,7 @@ export default class NullStateComponent extends Component {
           {headerText}
         </Text>
         <Text style={styles.description}>{descriptionText}</Text>
+        {content}
       </Flex>
     );
   }

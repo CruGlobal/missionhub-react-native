@@ -10,14 +10,8 @@ import {
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import {
-  Flex,
-  Text,
-  Input,
-  IconButton,
-  Button,
-} from '../../../components/common';
-import Header from '../../Header';
+import { Flex, Text, Input, IconButton } from '../../../components/common';
+import Header from '../../../components/Header';
 import theme from '../../../theme';
 import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import {
@@ -34,6 +28,7 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
 import { USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { MAIN_TABS, ACTIONS } from '../../../constants';
+import BottomButton from '../../../components/BottomButton';
 
 import styles from './styles';
 
@@ -145,15 +140,11 @@ class CreateGroupScreen extends Component {
             </KeyboardAvoidingView>
           </ScrollView>
 
-          <Flex align="stretch" justify="end">
-            <Button
-              type="secondary"
-              disabled={!name}
-              onPress={this.createCommunity}
-              text={t('createCommunity').toUpperCase()}
-              style={styles.createButton}
-            />
-          </Flex>
+          <BottomButton
+            disabled={!name}
+            onPress={this.createCommunity}
+            text={t('createCommunity')}
+          />
         </SafeAreaView>
       </View>
     );

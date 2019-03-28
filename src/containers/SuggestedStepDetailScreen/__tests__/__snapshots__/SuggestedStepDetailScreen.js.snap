@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<StepDetailScreen
+  CenterContent={
+    <Component
+      style={
+        Object {
+          "borderBottomWidth": 1,
+          "borderColor": "#E6E8EC",
+        }
+      }
+    />
+  }
+  CenterHeader={null}
+  RightHeader={null}
+  bottomButtonProps={
+    Object {
+      "onPress": [Function],
+      "text": "Add to My Steps",
+    }
+  }
+  markdown="some markdown"
+  text="do this step"
+/>
+`;

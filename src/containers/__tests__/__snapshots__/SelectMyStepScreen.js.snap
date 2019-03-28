@@ -20,8 +20,7 @@ exports[`renders correctly for onboarding 1`] = `
   }
   enableBackButton={false}
   headerText="How do you want to move forward on your spiritual journey?"
-  isMe={true}
-  onComplete={[Function]}
+  next={[MockFunction]}
   receiverId="1234"
 />
 `;
@@ -46,8 +45,7 @@ exports[`renders correctly with back button 1`] = `
   }
   enableBackButton={true}
   headerText="How do you want to move forward on your spiritual journey?"
-  isMe={true}
-  onComplete={[Function]}
+  next={[MockFunction]}
   receiverId="1234"
 />
 `;
@@ -72,8 +70,7 @@ exports[`renders correctly without back button 1`] = `
   }
   enableBackButton={false}
   headerText="How do you want to move forward on your spiritual journey?"
-  isMe={true}
-  onComplete={[Function]}
+  next={[MockFunction]}
   receiverId="1234"
 />
 `;

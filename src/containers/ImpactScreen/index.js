@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { IconButton } from '../../components/common';
-import Header from '../Header';
+import Header from '../../components/Header';
 import ImpactView from '../ImpactView';
 import { openMainMenu } from '../../utils/common';
 

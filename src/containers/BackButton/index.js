@@ -17,7 +17,7 @@ export class BackButton extends Component {
   };
 
   render() {
-    const { absolute, style, customIcon } = this.props;
+    const { absolute, style, customIcon, iconStyle } = this.props;
     const Wrapper = absolute ? SafeAreaView : View;
     return (
       <Wrapper
@@ -31,6 +31,7 @@ export class BackButton extends Component {
           name={customIcon || 'backIcon'}
           type="MissionHub"
           onPress={this.onPress}
+          style={iconStyle}
         />
       </Wrapper>
     );

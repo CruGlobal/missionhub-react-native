@@ -10,7 +10,4 @@ export default StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-  button: {
-    width: theme.fullWidth,
-  },
 });

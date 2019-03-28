@@ -175,10 +175,18 @@ function organizationsReducer(state = initialState, action) {
               : o,
         ),
       };
+    case REQUESTS.CREATE_CELEBRATE_COMMENT.SUCCESS:
+      return changeOrgCelebrationComment(action, state, true);
+    case REQUESTS.DELETE_CELEBRATE_COMMENT.SUCCESS:
+      return changeOrgCelebrationComment(action, state, false);
     case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
-      return toggleCelebrationLike(action, state, true);
+      return toggleOrgCelebrationLike(action, state, true);
     case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
-      return toggleCelebrationLike(action, state, false);
+      return toggleOrgCelebrationLike(action, state, false);
+    case REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS:
+      return toggleGlobalCelebrationLike(action, state, true);
+    case REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS:
+      return toggleGlobalCelebrationLike(action, state, false);
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;
       const currentMemberOrg = state.all.find(o => o.id === memberOrgId);
@@ -250,25 +258,54 @@ function organizationsReducer(state = initialState, action) {
   }
 }
 
-function toggleCelebrationLike(action, state, liked) {
-  const query = action.query;
-  const org = state.all.find(o => o.id === query.orgId);
+function changeOrgCelebrationComment(
+  { query: { orgId, eventId } },
+  state,
+  isIncrement,
+) {
+  return updateCelebrationItem({ id: orgId, eventId }, state, c => ({
+    ...c,
+    comments_count: c.comments_count + (isIncrement ? 1 : -1),
+  }));
+}
+
+function toggleLiked(liked) {
+  return c => ({
+    ...c,
+    liked,
+    likes_count: c.likes_count + (liked ? 1 : -1),
+  });
+}
+
+function toggleOrgCelebrationLike({ query: { orgId, eventId } }, state, liked) {
+  return updateCelebrationItem(
+    { id: orgId, eventId },
+    state,
+    toggleLiked(liked),
+  );
+}
+
+function toggleGlobalCelebrationLike({ query: { eventId } }, state, liked) {
+  return updateCelebrationItem(
+    { id: GLOBAL_COMMUNITY_ID, eventId },
+    state,
+    toggleLiked(liked),
+  );
+}
+
+function updateCelebrationItem({ id, eventId }, state, fn) {
+  const org = state.all.find(o => o.id === id);
   if (!org) {
     return state; // Return if the organization does not exist
   }
   const newOrg = {
     ...org,
-    celebrateItems: org.celebrateItems.map(
-      c =>
-        c.id === query.eventId
-          ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
-          : c,
-    ),
+    celebrateItems: org.celebrateItems.map(c => (c.id === eventId ? fn(c) : c)),
   };
 
   return {
     ...state,
-    all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+    all: state.all.map(o => (o.id === id ? newOrg : o)),
   };
 }
 

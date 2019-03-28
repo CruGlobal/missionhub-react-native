@@ -7,7 +7,7 @@ exports[`renders correctly for me 1`] = `
       "fontSize": 14,
     }
   }
-  onPress={[MockFunction]}
+  onPress={[Function]}
   style={
     Array [
       Object {
@@ -34,7 +34,7 @@ exports[`renders correctly for me without stage 1`] = `
       "fontSize": 14,
     }
   }
-  onPress={[MockFunction]}
+  onPress={[Function]}
   style={
     Array [
       Object {
@@ -61,7 +61,7 @@ exports[`renders correctly for other 1`] = `
       "fontSize": 14,
     }
   }
-  onPress={[MockFunction]}
+  onPress={[Function]}
   style={
     Array [
       Object {
@@ -88,7 +88,7 @@ exports[`renders correctly for other without stage 1`] = `
       "fontSize": 14,
     }
   }
-  onPress={[MockFunction]}
+  onPress={[Function]}
   style={
     Array [
       Object {

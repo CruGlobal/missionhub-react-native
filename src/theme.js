@@ -59,7 +59,8 @@ export const COLORS = {
   BLACK: '#000000',
   GREY: '#505256',
   INACTIVE_GREY: '#A0A2A6',
-  LIGHT_GREY: '#E6E8EC',
+  LIGHT_GREY: '#B4B6BA',
+  EXTRA_LIGHT_GREY: '#E6E8EC',
   TRANSPARENT: 'transparent',
   BLUE_GREEN: '#50DCC8',
   IMPACT_BLUE: '#3EB1C8',
@@ -76,6 +77,15 @@ const ACCENT = COLORS.ACCENT_BLUE;
 
 const iPhoneHeaderHeight = 65;
 
+const statusBar = {
+  backgroundColor: colorConvert({
+    color: COLORS.DARK_BLUE,
+    darken: 0.1,
+    hex: true,
+  }),
+  animated: true,
+};
+
 export default {
   // base theme
   loadingColor: COLORS.WHITE,
@@ -89,14 +99,13 @@ export default {
   darkText: COLORS.CHARCOAL,
   iconColor: COLORS.WHITE,
   transparent: COLORS.TRANSPARENT,
-  statusBarColor: colorConvert({ color: SECONDARY, darken: 0.3, hex: true }),
   buttonHeight: 60,
   buttonBackgroundColor: COLORS.TRANSPARENT,
   buttonBorderColor: COLORS.WHITE,
   buttonBorderWidth: 1,
   buttonTextColor: COLORS.WHITE,
   buttonIconColor: COLORS.WHITE,
-  separatorColor: COLORS.LIGHT_GREY,
+  separatorColor: COLORS.EXTRA_LIGHT_GREY,
   separatorHeight: 1,
   headerTextColor: COLORS.WHITE,
   inactiveColor: COLORS.INACTIVE_GREY,
@@ -110,12 +119,25 @@ export default {
   grey: COLORS.GREY,
   grey1: '#B2B0B2',
   grey2: '#4E4C4E',
+  grey3: '#C5C7CB',
   lightGrey: COLORS.LIGHT_GREY,
+  extraLightGrey: COLORS.EXTRA_LIGHT_GREY,
   iosBlue: COLORS.IOS_BLUE,
 
   contactHeaderIconActiveColor: 'rgba(255,255,255,1)',
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
 
   headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + (hasNotch() ? 20 : 0),
+  parallaxHeaderHeight: 215,
   swipeTabHeight: 48,
+  statusBar: {
+    lightContent: {
+      ...statusBar,
+      barStyle: 'light-content',
+    },
+    darkContent: {
+      ...statusBar,
+      barStyle: isAndroid ? 'light-content' : 'dark-content',
+    },
+  },
 };

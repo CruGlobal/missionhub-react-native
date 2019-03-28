@@ -10,7 +10,7 @@ import { getPersonNote, savePersonNote } from '../../../actions/person';
 
 import { ContactNotes } from '..';
 
-import Button from '../../../components/Button';
+import BottomButton from '../../../components/BottomButton';
 import { trackState } from '../../../actions/analytics';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -19,7 +19,7 @@ const mockStore = configureStore([thunk]);
 let shallowScreen;
 
 const person = { id: '141234', first_name: 'Roger' };
-const myId = '1';
+const myUserId = '1';
 const note = { id: '988998', content: 'Roge rules' };
 
 getPersonNote.mockReturnValue(() => Promise.resolve(note));
@@ -34,7 +34,7 @@ beforeEach(() =>
   (shallowScreen = shallow(
     <ContactNotes
       person={person}
-      myId={myId}
+      myUserId={myUserId}
       dispatch={mockStore().dispatch}
     />,
   )
@@ -43,6 +43,19 @@ beforeEach(() =>
 
 describe('contact notes', () => {
   it('icon and prompt are shown if no notes', () => {
+    expect(shallowScreen.dive()).toMatchSnapshot();
+  });
+  it('icon and prompt are shown if no notes as me', () => {
+    shallowScreen = shallow(
+      <ContactNotes
+        person={person}
+        myPersonId={person.id}
+        myUserId={myUserId}
+        dispatch={mockStore().dispatch}
+      />,
+    )
+      .dive()
+      .dive();
     expect(shallowScreen.dive()).toMatchSnapshot();
   });
 
@@ -65,7 +78,7 @@ describe('contact notes', () => {
       ReactNative.Keyboard.dismiss = jest.fn();
       jest.spyOn(shallowScreen.instance(), 'saveNote');
 
-      shallowScreen.find(Button).simulate('press');
+      shallowScreen.find(BottomButton).simulate('press');
 
       expect(shallowScreen.state('editing')).toBe(false);
       expect(shallowScreen.instance().saveNote).toHaveBeenCalled();
@@ -79,7 +92,7 @@ describe('contact notes', () => {
       value: { focus: mockFocus },
     });
 
-    shallowScreen.find(Button).simulate('press');
+    shallowScreen.find(BottomButton).simulate('press');
 
     expect(shallowScreen.state('editing')).toBe(true);
     expect(mockFocus).toHaveBeenCalled();
@@ -102,7 +115,7 @@ describe('componentDidMount', () => {
   it('should load note', async () => {
     await shallowScreen.instance().componentDidMount();
 
-    expect(getPersonNote).toHaveBeenCalledWith(person.id, myId);
+    expect(getPersonNote).toHaveBeenCalledWith(person.id, myUserId);
     expect(shallowScreen.state()).toEqual({
       editing: false,
       noteId: note.id,

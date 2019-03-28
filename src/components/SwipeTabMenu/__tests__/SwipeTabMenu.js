@@ -1,16 +1,19 @@
 import React from 'react';
 import { Text, ScrollView } from 'react-native';
-import { createMaterialTopTabNavigator } from 'react-navigation';
+import {
+  createMaterialTopTabNavigator,
+  NavigationActions,
+} from 'react-navigation';
 
 import { SwipeTabMenu, generateSwipeTabMenuNavigator } from '..';
 
 import { Touchable } from '../../../../src/components/common';
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import * as common from '../../../utils/common';
-import { navigatePush } from '../../../actions/navigation';
 
 jest.mock('react-navigation', () => ({
   createMaterialTopTabNavigator: jest.fn(),
+  NavigationActions: { navigate: jest.fn(() => ({ type: 'navigated' })) },
 }));
 
 jest.mock('../../../actions/navigation', () => ({
@@ -94,7 +97,10 @@ it('should navigate on press', () => {
     .props()
     .onPress(1);
 
-  expect(navigatePush).toHaveBeenCalledWith(tabs[1].navigationAction);
+  expect(NavigationActions.navigate).toHaveBeenCalledWith({
+    routeName: tabs[1].navigationAction,
+    params: {},
+  });
 });
 
 it('should navigate on end of swipe scroll', () => {
@@ -115,7 +121,10 @@ it('should navigate on end of swipe scroll', () => {
       nativeEvent: { contentOffset: { x: 80 } },
     });
 
-  expect(navigatePush).toHaveBeenCalledWith(tabs[1].navigationAction);
+  expect(NavigationActions.navigate).toHaveBeenCalledWith({
+    routeName: tabs[1].navigationAction,
+    params: {},
+  });
 });
 
 it('should scroll on navigation state update', () => {
@@ -135,7 +144,7 @@ it('should scroll on navigation state update', () => {
 
   component.setState({ maxMenuItemWidth: 80, previousIndex: 0 });
 
-  expect(navigatePush).not.toHaveBeenCalled();
+  expect(NavigationActions.navigate).not.toHaveBeenCalled();
   expect(scrollToMock).toHaveBeenCalledWith({ x: 80, y: 0, animated: true });
 });
 
@@ -148,7 +157,7 @@ describe('componentDidMount', () => {
       />,
     );
 
-    expect(navigatePush).not.toHaveBeenCalled();
+    expect(NavigationActions.navigate).not.toHaveBeenCalled();
   });
 
   it('should do nothing if specified initialTab is not found', () => {
@@ -159,7 +168,7 @@ describe('componentDidMount', () => {
       />,
     );
 
-    expect(navigatePush).not.toHaveBeenCalled();
+    expect(NavigationActions.navigate).not.toHaveBeenCalled();
   });
 
   it('should navigate to specified initialTab if found', () => {
@@ -174,7 +183,10 @@ describe('componentDidMount', () => {
       />,
     );
 
-    expect(navigatePush).toHaveBeenCalledWith(initialTab);
+    expect(NavigationActions.navigate).toHaveBeenCalledWith({
+      routeName: initialTab,
+      params: {},
+    });
   });
 });
 

@@ -9,13 +9,13 @@ import styles from './styles';
 @translate('loadMore')
 class LoadMore extends Component {
   render() {
-    const { onPress, t } = this.props;
+    const { onPress, t, text } = this.props;
     return (
       <Button
         type="transparent"
         onPress={onPress}
         style={styles.button}
-        text={t('load').toUpperCase()}
+        text={text || t('load').toUpperCase()}
         buttonTextStyle={styles.text}
       />
     );

@@ -4,8 +4,8 @@ import { SafeAreaView } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../actions/navigation';
-import { Flex, Text, Button } from '../../components/common';
-import theme from '../../theme';
+import { Flex, Text } from '../../components/common';
+import BottomButton from '../../components/BottomButton';
 import { STAGE_ONBOARDING_SCREEN } from '../StageScreen';
 import { disableBack } from '../../utils/common';
 
@@ -46,14 +46,7 @@ class GetStartedScreen extends Component {
             <Text style={styles.text}>{t('tagline')}</Text>
           </Flex>
 
-          <Flex value={1} align="stretch" justify="end">
-            <Button
-              type="secondary"
-              onPress={this.navigateNext}
-              text={t('getStarted').toUpperCase()}
-              style={{ width: theme.fullWidth }}
-            />
-          </Flex>
+          <BottomButton onPress={this.navigateNext} text={t('getStarted')} />
         </Flex>
       </SafeAreaView>
     );

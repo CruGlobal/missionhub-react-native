@@ -8,7 +8,7 @@ export default StyleSheet.create({
   },
   header: {
     alignContent: 'center',
-    backgroundColor: theme.lightGrey,
+    backgroundColor: theme.extraLightGrey,
   },
   title: {
     fontSize: 12,

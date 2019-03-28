@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { communitiesSelector } from '../../selectors/organizations';
-import Header from '../../containers/Header';
+import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
 import {
   IconButton,
@@ -14,7 +14,7 @@ import {
 } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { openMainMenu, refresh } from '../../utils/common';
+import { openMainMenu, refresh, keyExtractorId } from '../../utils/common';
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import { getMyCommunities } from '../../actions/organizations';
@@ -85,8 +85,6 @@ class GroupsListScreen extends Component {
     );
   };
 
-  keyExtractor = i => i.id;
-
   renderItem = ({ item }) => (
     <GroupCardItem group={item} onPress={this.handlePress} />
   );
@@ -111,7 +109,7 @@ class GroupsListScreen extends Component {
         ref={this.refList}
         style={styles.cardList}
         data={this.props.orgs}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         renderItem={this.renderItem}
       />
     );

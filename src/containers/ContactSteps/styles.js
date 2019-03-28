@@ -3,11 +3,26 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  container: {
+  topList: {
     flex: 1,
-    backgroundColor: theme.white,
+    paddingTop: 16,
   },
-  list: {
+  bottomList: {
+    flex: 1,
+    paddingBottom: 16,
+  },
+  completedStepsButton: {
     backgroundColor: theme.transparent,
+    height: 36,
+    borderColor: theme.inactiveColor,
+    borderWidth: theme.buttonBorderWidth,
+    marginHorizontal: 68,
+    marginVertical: 15,
+  },
+  completedStepsButtonText: {
+    color: theme.inactiveColor,
+    fontSize: 14,
+    letterSpacing: 1,
+    lineHeight: 18,
   },
 });

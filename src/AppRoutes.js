@@ -5,6 +5,7 @@ import {
   createBottomTabNavigator,
   createDrawerNavigator,
   createStackNavigator,
+  StackViewTransitionConfigs,
 } from 'react-navigation';
 import i18next from 'i18next';
 
@@ -25,6 +26,18 @@ import AddChallengeScreen, {
 import ChallengeDetailScreen, {
   CHALLENGE_DETAIL_SCREEN,
 } from './containers/ChallengeDetailScreen';
+import StepReminderScreen, {
+  STEP_REMINDER_SCREEN,
+} from './containers/StepReminderScreen';
+import SuggestedStepDetailScreen, {
+  SUGGESTED_STEP_DETAIL_SCREEN,
+} from './containers/SuggestedStepDetailScreen';
+import AcceptedStepDetailScreen, {
+  ACCEPTED_STEP_DETAIL_SCREEN,
+} from './containers/AcceptedStepDetailScreen';
+import CompletedStepDetailScreen, {
+  COMPLETED_STEP_DETAIL_SCREEN,
+} from './containers/CompletedStepDetailScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, {
@@ -104,6 +117,9 @@ import {
 import SurveyContacts, {
   GROUPS_SURVEY_CONTACTS,
 } from './containers/Groups/SurveyContacts';
+import GroupReport, {
+  GROUPS_REPORT_SCREEN,
+} from './containers/Groups/GroupReport';
 import UnassignedPersonScreen, {
   UNASSIGNED_PERSON_SCREEN,
 } from './containers/Groups/UnassignedPersonScreen';
@@ -139,6 +155,11 @@ import {
   SIGN_IN_FLOW,
   SIGN_UP_FLOW,
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
+  COMPLETE_STEP_FLOW_NAVIGATE_BACK,
+  ADD_MY_STEP_FLOW,
+  ADD_PERSON_STEP_FLOW,
+  SELECT_MY_STAGE_FLOW,
+  SELECT_PERSON_STAGE_FLOW,
 } from './routes/constants';
 import {
   JoinByCodeFlowNavigator,
@@ -158,14 +179,22 @@ import {
 } from './routes/deepLink/deepLinkJoinCommunityUnauthenticated';
 import {
   CompleteStepFlowNavigator,
+  CompleteStepFlowAndNavigateBackNavigator,
   CompleteStepFlowScreens,
 } from './routes/steps/completeStepFlow';
+import CelebrateDetailScreen, {
+  CELEBRATE_DETAIL_SCREEN,
+} from './containers/CelebrateDetailScreen';
 import { SignInFlowScreens, SignInFlowNavigator } from './routes/auth/signIn';
 import { SignUpFlowScreens, SignUpFlowNavigator } from './routes/auth/signUp';
 import {
   CreateCommunityUnauthenticatedFlowNavigator,
   CreateCommunityUnauthenticatedFlowScreens,
 } from './routes/groups/createCommunityUnauthenticatedFlow';
+import { AddMyStepFlowNavigator } from './routes/steps/addMyStepFlow';
+import { AddPersonStepFlowNavigator } from './routes/steps/addPersonStepFlow';
+import { SelectMyStageFlowNavigator } from './routes/stage/selectMyStageFlow';
+import { SelectPersonStageFlowNavigator } from './routes/stage/selectPersonStageFlow';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -277,6 +306,30 @@ const buildPersonScreenRoute = screen =>
   );
 
 const screens = {
+  [SUGGESTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
+    SuggestedStepDetailScreen,
+    buildTrackingObj('mh : people : steps : add : detail', 'people', 'steps'),
+  ),
+  [ACCEPTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
+    AcceptedStepDetailScreen,
+    buildTrackingObj(
+      'mh : people : steps : accepted : detail',
+      'people',
+      'steps',
+    ),
+  ),
+  [COMPLETED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
+    CompletedStepDetailScreen,
+    buildTrackingObj(
+      'mh : people : steps : completed : detail',
+      'people',
+      'steps',
+    ),
+  ),
+  [STEP_REMINDER_SCREEN]: buildTrackedScreen(
+    StepReminderScreen,
+    buildTrackingObj('step : detail : reminder', 'step', 'detail'),
+  ),
   [WELCOME_SCREEN]: buildTrackedScreen(
     wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
     buildTrackingObj('onboarding : welcome', 'onboarding'),
@@ -374,6 +427,11 @@ const screens = {
     ),
     { gesturesEnabled: true },
   ),
+  [GROUPS_REPORT_SCREEN]: buildTrackedScreen(
+    GroupReport,
+    buildTrackingObj('communities : report', 'communities', 'report'),
+    { gesturesEnabled: true },
+  ),
   [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     SurveyContactsFilter,
     buildTrackingObj(
@@ -433,6 +491,20 @@ const screens = {
   [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityUnauthenticatedNavigator,
   [COMPLETE_STEP_FLOW]: CompleteStepFlowNavigator,
+  [CELEBRATE_DETAIL_SCREEN]: buildTrackedScreen(
+    CelebrateDetailScreen,
+    buildTrackingObj(
+      'communities : celebration : comment',
+      'communities',
+      'celebration',
+    ),
+    { gesturesEnabled: true },
+  ),
+  [COMPLETE_STEP_FLOW_NAVIGATE_BACK]: CompleteStepFlowAndNavigateBackNavigator,
+  [ADD_MY_STEP_FLOW]: AddMyStepFlowNavigator,
+  [ADD_PERSON_STEP_FLOW]: AddPersonStepFlowNavigator,
+  [SELECT_MY_STAGE_FLOW]: SelectMyStageFlowNavigator,
+  [SELECT_PERSON_STAGE_FLOW]: SelectPersonStageFlowNavigator,
 };
 
 export const trackableScreens = {
@@ -449,6 +521,8 @@ export const trackableScreens = {
   ...SignInFlowScreens,
   ...SignUpFlowScreens,
 };
+
+const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, GROUPS_REPORT_SCREEN];
 
 export const MainStackRoutes = createStackNavigator(
   {
@@ -499,6 +573,17 @@ export const MainStackRoutes = createStackNavigator(
       header: null,
       gesturesEnabled: false,
     },
+    transitionConfig: (transitionProps, prevTransitionProps) =>
+      StackViewTransitionConfigs.defaultTransitionConfig(
+        transitionProps,
+        prevTransitionProps,
+        MODAL_SCREENS.some(
+          screenName =>
+            screenName === transitionProps.scene.route.routeName ||
+            (prevTransitionProps &&
+              screenName === prevTransitionProps.scene.route.routeName),
+        ),
+      ),
   },
 );
 

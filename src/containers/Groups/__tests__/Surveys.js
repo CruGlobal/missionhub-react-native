@@ -14,7 +14,6 @@ import * as common from '../../../utils/common';
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/surveys');
 jest.mock('../../../actions/organizations');
-jest.mock('../../../utils/common');
 
 const surveys = [
   {
@@ -87,7 +86,7 @@ describe('Surveys', () => {
 
   it('should handleSelect correctly', () => {
     const buildTrackingResult = { name: 'screen name' };
-    common.buildTrackingObj.mockReturnValue(buildTrackingResult);
+    common.buildTrackingObj = jest.fn(() => buildTrackingResult);
 
     const instance = renderShallow(component, store).instance();
     instance.handleSelect({ id: '1' });
@@ -101,16 +100,11 @@ describe('Surveys', () => {
   });
 
   it('should handleRefresh correctly', () => {
+    const refresh = jest.fn();
+    common.refresh = refresh;
     const instance = renderShallow(component, store).instance();
     instance.handleRefresh();
-    expect(common.refresh).toHaveBeenCalled();
-  });
-
-  it('calls key extractor', () => {
-    const instance = renderShallow(component, store).instance();
-    const item = { id: '1' };
-    const result = instance.keyExtractor(item);
-    expect(result).toEqual(item.id);
+    expect(refresh).toHaveBeenCalled();
   });
 
   it('renders item', () => {

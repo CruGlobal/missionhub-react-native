@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import callApi, { REQUESTS } from '../api';
 import { getJourney, reloadJourney, getGroupJourney } from '../journey';
 import { isAdminOrOwner } from '../../utils/common';
+import { ACCEPTED_STEP } from '../../constants';
 
 jest.mock('../api');
 jest.mock('../../utils/common');
@@ -22,14 +23,14 @@ let store = mockStore();
 const feed = [
   {
     id: '1',
-    _type: 'accepted_challenge',
+    _type: ACCEPTED_STEP,
     title: 'Step in org',
     organization: { id: orgId },
     completed_at: '2018-02-09T00:00:00',
   },
   {
     id: '2',
-    _type: 'accepted_challenge',
+    _type: ACCEPTED_STEP,
     title: 'Step in personal org',
     organization: null,
     completed_at: '2018-02-10T00:00:00',

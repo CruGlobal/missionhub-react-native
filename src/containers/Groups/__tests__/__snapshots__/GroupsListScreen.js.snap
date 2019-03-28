@@ -11,7 +11,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
   <Component
     screen="GroupsTab"
   />
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -99,7 +99,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#E6E8EC",
+        "backgroundColor": "#B4B6BA",
         "flex": 1,
       }
     }
@@ -175,7 +175,7 @@ exports[`should render null state 1`] = `
   <Component
     screen="GroupsTab"
   />
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -263,7 +263,7 @@ exports[`should render null state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#E6E8EC",
+        "backgroundColor": "#B4B6BA",
         "flex": 1,
       }
     }

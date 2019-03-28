@@ -7,7 +7,7 @@ import {
   COMPLETED_STEP_COUNT,
   RESET_STEP_COUNT,
 } from '../constants';
-import { getPagination } from '../utils/common';
+import { getPagination, shuffleArray } from '../utils/common';
 
 const initialState = {
   mine: null, // null indicates user has never loaded. [] indicates loaded but user doesn't have any
@@ -26,7 +26,8 @@ export default function stepsReducer(state = initialState, action) {
     case REQUESTS.GET_CHALLENGE_SUGGESTIONS.SUCCESS:
       const contactStageId = action.query.filters.pathway_stage_id;
       const isMe = action.query.filters.self_step;
-      const suggestions = action.results.response;
+      const suggestions = shuffleArray(action.results.response);
+
       return {
         ...state,
         suggestedForMe: {
@@ -61,12 +62,63 @@ export default function stepsReducer(state = initialState, action) {
         receiver_ids: personId,
         organization_ids: orgId,
       } = action.query.filters;
+      const allStepsFilter = action.results.response || [];
       return {
         ...state,
         contactSteps: {
           ...state.contactSteps,
-          [`${personId}-${orgId}`]: action.results.response,
+          [`${personId}-${orgId}`]: {
+            steps: allStepsFilter.filter(s => !s.completed_at),
+            completedSteps: allStepsFilter.filter(s => s.completed_at),
+          },
         },
+      };
+    case REQUESTS.ADD_CHALLENGE.SUCCESS: {
+      const newStep = action.results.response;
+
+      const {
+        receiver: { id: personId },
+        organization,
+      } = newStep;
+
+      const personOrgId = `${personId}-${(organization || {}).id ||
+        'personal'}`;
+      const personOrgValue = state.contactSteps[personOrgId] || {
+        steps: [],
+        completedSteps: [],
+      };
+
+      return {
+        ...state,
+        mine: [newStep, ...(state.mine || [])],
+        contactSteps: {
+          ...state.contactSteps,
+          [personOrgId]: {
+            ...personOrgValue,
+            steps: [newStep, ...personOrgValue.steps],
+          },
+        },
+      };
+    }
+    case REQUESTS.DELETE_CHALLENGE.SUCCESS:
+      const { challenge_id: stepId } = action.query;
+
+      const removeStepById = (stepId, steps) =>
+        steps.filter(({ id }) => id !== stepId);
+
+      return {
+        ...state,
+        mine: state.mine === null ? null : removeStepById(stepId, state.mine),
+        contactSteps: Object.entries(state.contactSteps).reduce(
+          (acc, [personOrgId, combinedSteps]) => ({
+            ...acc,
+            [personOrgId]: {
+              ...combinedSteps,
+              steps: removeStepById(stepId, combinedSteps.steps),
+            },
+          }),
+          {},
+        ),
       };
     case TOGGLE_STEP_FOCUS:
       return {

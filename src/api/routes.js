@@ -90,9 +90,9 @@ export default {
     endpoint: `${API_URL}/challenge_suggestions`,
     anonymous: true,
   },
-  ADD_CHALLENGES: {
-    endpoint: `${PEOPLE_URL}/:person_id`,
-    method: 'put',
+  ADD_CHALLENGE: {
+    endpoint: CHALLENGES_URL,
+    method: 'post',
   },
   GET_MY_CHALLENGES: {
     endpoint: CHALLENGES_URL,
@@ -110,6 +110,14 @@ export default {
   },
   CHALLENGE_SET_FOCUS: {
     endpoint: `${CHALLENGES_URL}/:challenge_id`,
+    method: 'put',
+  },
+  DELETE_CHALLENGE_REMINDER: {
+    endpoint: `${CHALLENGES_URL}/:challenge_id/reminder`,
+    method: 'delete',
+  },
+  CREATE_CHALLENGE_REMINDER: {
+    endpoint: `${CHALLENGES_URL}/:challenge_id/reminder`,
     method: 'put',
   },
   GET_PEOPLE_LIST: {
@@ -195,6 +203,40 @@ export default {
   UNLIKE_CELEBRATE_ITEM: {
     endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/like`,
     method: 'delete',
+  },
+  LIKE_GLOBAL_CELEBRATE_ITEM: {
+    endpoint: `${API_URL}/global_celebration_items/:eventId/like`,
+    method: 'post',
+  },
+  UNLIKE_GLOBAL_CELEBRATE_ITEM: {
+    endpoint: `${API_URL}/global_celebration_items/:eventId/like`,
+    method: 'delete',
+  },
+  GET_CELEBRATE_COMMENTS: {
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments`,
+  },
+  CREATE_CELEBRATE_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments`,
+    method: 'post',
+  },
+  UPDATE_CELEBRATE_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments/:commentId`,
+    method: 'put',
+  },
+  DELETE_CELEBRATE_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments/:commentId`,
+    method: 'delete',
+  },
+  GET_REPORTED_COMMENTS: {
+    endpoint: `${ORG_URL}/:orgId/comment_reports`,
+  },
+  CREATE_REPORT_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/comment_reports`,
+    method: 'post',
+  },
+  UPDATE_REPORT_COMMENT: {
+    endpoint: `${ORG_URL}/:orgId/comment_reports/:reportCommentId`,
+    method: 'put',
   },
   ORGANIZATION_NEW_CODE: {
     endpoint: `${ORG_URL}/:orgId/community_code`,

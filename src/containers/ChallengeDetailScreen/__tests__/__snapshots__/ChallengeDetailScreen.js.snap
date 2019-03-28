@@ -2,7 +2,7 @@
 
 exports[`should render completed challenge correctly 1`] = `
 <Component>
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"
@@ -50,7 +50,7 @@ exports[`should render completed challenge correctly 1`] = `
 
 exports[`should render joined challenge correctly 1`] = `
 <Component>
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"
@@ -131,7 +131,7 @@ Array [
 
 exports[`should render unjoined challenge correctly 1`] = `
 <Component>
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"
@@ -197,7 +197,7 @@ exports[`should render unjoined challenge correctly 1`] = `
 
 exports[`should render without edit correctly 1`] = `
 <Component>
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"

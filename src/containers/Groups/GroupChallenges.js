@@ -9,7 +9,7 @@ import {
   reloadGroupChallengeFeed,
   createChallenge,
 } from '../../actions/challenges';
-import { Flex, Button } from '../../components/common';
+import BottomButton from '../../components/BottomButton';
 import { organizationSelector } from '../../selectors/organizations';
 import { refresh, isAdminOrOwner } from '../../utils/common';
 import { challengesSelector } from '../../selectors/challenges';
@@ -72,13 +72,7 @@ export class GroupChallenges extends Component {
           refreshing={refreshing}
         />
         {isAdminOrOwner(myOrgPermissions) ? (
-          <Flex align="stretch" justify="end">
-            <Button
-              type="secondary"
-              onPress={this.create}
-              text={t('create').toUpperCase()}
-            />
-          </Flex>
+          <BottomButton onPress={this.create} text={t('create')} />
         ) : null}
       </SafeAreaView>
     );

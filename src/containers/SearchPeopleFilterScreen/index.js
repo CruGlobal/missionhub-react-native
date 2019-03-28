@@ -11,7 +11,7 @@ import { getMyOrganizations } from '../../actions/organizations';
 import { getMyGroups } from '../../actions/groups';
 import { getMySurveys } from '../../actions/surveys';
 import { getMyLabels } from '../../actions/labels';
-import Header from '../Header';
+import Header from '../../components/Header';
 import { RefreshControl } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
 import { buildTrackingObj, isString } from '../../utils/common';

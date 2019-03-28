@@ -350,6 +350,40 @@ it('updates celebrate item from liked to unliked', () => {
   });
 });
 
+describe('updates celebrate item comment', () => {
+  const orgId = '1';
+  const eventId = '3';
+  const comments = 3;
+  const reduxState = (comments_count = comments) => ({
+    all: [
+      {
+        id: orgId,
+        celebrateItems: [
+          { id: eventId, comments_count },
+          { id: '123', comments_count: 1 },
+        ],
+      },
+    ],
+  });
+
+  it('increments comment count', () => {
+    const state = organizations(reduxState(), {
+      type: REQUESTS.CREATE_CELEBRATE_COMMENT.SUCCESS,
+      query: { orgId, eventId },
+    });
+
+    expect(state).toEqual(reduxState(comments + 1));
+  });
+  it('decrements comment count', () => {
+    const state = organizations(reduxState(), {
+      type: REQUESTS.DELETE_CELEBRATE_COMMENT.SUCCESS,
+      query: { orgId, eventId },
+    });
+
+    expect(state).toEqual(reduxState(comments - 1));
+  });
+});
+
 it('loads members for org with paging', () => {
   const orgId = '1';
   const oldMembers = [
@@ -1047,5 +1081,66 @@ describe('GET_USERS_REPORT.SUCCESS', () => {
         },
       ),
     ).toMatchSnapshot();
+  });
+});
+
+describe('global like/unlike', () => {
+  const itemOne = { id: '2423421531', liked: false };
+  const itemTwo = { id: '1789987897', liked: true };
+
+  const state = {
+    all: [
+      {
+        id: GLOBAL_COMMUNITY_ID,
+        celebrateItems: [itemOne, itemTwo],
+      },
+    ],
+  };
+
+  describe('REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS', () => {
+    it('should mark item as liked', () => {
+      expect(
+        organizations(state, {
+          type: REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS,
+          query: { eventId: itemOne.id },
+        }),
+      ).toEqual(
+        expect.objectContaining({
+          all: expect.arrayContaining([
+            {
+              id: GLOBAL_COMMUNITY_ID,
+              celebrateItems: expect.arrayContaining([
+                expect.objectContaining({ id: itemOne.id, liked: true }),
+              ]),
+            },
+          ]),
+        }),
+      );
+    });
+  });
+
+  describe('REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS', () => {
+    it('should mark item as unliked', () => {
+      expect(
+        organizations(state, {
+          type: REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS,
+          query: { eventId: itemTwo.id },
+        }),
+      ).toEqual(
+        expect.objectContaining({
+          all: expect.arrayContaining([
+            {
+              id: GLOBAL_COMMUNITY_ID,
+              celebrateItems: expect.arrayContaining([
+                expect.objectContaining({
+                  id: itemTwo.id,
+                  liked: false,
+                }),
+              ]),
+            },
+          ]),
+        }),
+      );
+    });
   });
 });

@@ -9,7 +9,7 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     right={
       <IconButton
         name="deleteIcon"
@@ -38,15 +38,9 @@ exports[`renders correctly 1`] = `
         onUpdateData={[Function]}
       />
     </ScrollView>
-    <Button
+    <BottomButton
       onPress={[Function]}
-      style={
-        Object {
-          "width": 750,
-        }
-      }
-      text="DONE"
-      type="secondary"
+      text="Done"
     />
   </SafeAreaView>
 </Component>

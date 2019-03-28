@@ -11,7 +11,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"
@@ -116,22 +116,11 @@ exports[`CreateGroupScreen renders correctly 1`] = `
         </Flex>
       </KeyboardAvoidingView>
     </ScrollView>
-    <Flex
-      align="stretch"
-      justify="end"
-    >
-      <Button
-        disabled={true}
-        onPress={[Function]}
-        style={
-          Object {
-            "width": 750,
-          }
-        }
-        text="CREATE COMMUNITY"
-        type="secondary"
-      />
-    </Flex>
+    <BottomButton
+      disabled={true}
+      onPress={[Function]}
+      text="Create Community"
+    />
   </SafeAreaView>
 </Component>
 `;
@@ -147,7 +136,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="deleteIcon"
@@ -260,22 +249,11 @@ exports[`CreateGroupScreen should update the image 1`] = `
         </Flex>
       </KeyboardAvoidingView>
     </ScrollView>
-    <Flex
-      align="stretch"
-      justify="end"
-    >
-      <Button
-        disabled={true}
-        onPress={[Function]}
-        style={
-          Object {
-            "width": 750,
-          }
-        }
-        text="CREATE COMMUNITY"
-        type="secondary"
-      />
-    </Flex>
+    <BottomButton
+      disabled={true}
+      onPress={[Function]}
+      text="Create Community"
+    />
   </SafeAreaView>
 </Component>
 `;
