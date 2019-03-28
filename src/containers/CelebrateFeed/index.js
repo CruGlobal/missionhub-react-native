@@ -8,6 +8,7 @@ import CelebrateItem from '../../components/CelebrateItem';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { navigatePush } from '../../actions/navigation';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
+import { DateConstants } from '../../components/DateComponent';
 import { keyExtractorId } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
 
@@ -25,7 +26,11 @@ class CelebrateFeed extends Component {
 
     return (
       <Flex style={header} align="center">
-        <DateComponent date={date} format={'relative'} style={title} />
+        <DateComponent
+          date={date}
+          format={DateConstants.relative}
+          style={title}
+        />
       </Flex>
     );
   };
