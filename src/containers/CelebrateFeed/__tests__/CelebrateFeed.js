@@ -1,7 +1,6 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import MockDate from 'mockdate';
 
 import { CELEBRATE_DETAIL_SCREEN } from '../../CelebrateDetailScreen';
 
@@ -83,10 +82,9 @@ describe('Member Feed rendering', () => {
 });
 
 it('renders section header', () => {
-  MockDate.set('08/13/2018');
   const renderedItem = component
     .instance()
-    .renderSectionHeader({ section: { date: new Date() } });
+    .renderSectionHeader({ section: { date: '2018-08-13T12:00:00.000Z' } });
   expect(renderedItem).toMatchSnapshot();
 });
 
