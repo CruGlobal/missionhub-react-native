@@ -18,15 +18,15 @@ const reminder = 'some reminder';
 
 describe('REQUESTS.CREATE_CHALLENGE_REMINDER.SUCCESS', () => {
   it('adds response to state', () => {
-    const response = 'some reminder';
+    const response = reminder;
 
     expect(
       stepReminders(undefined, {
         type: REQUESTS.CREATE_CHALLENGE_REMINDER.SUCCESS,
-        results: { response: reminder },
+        results: { response },
         query: { challenge_id },
       }),
-    ).toEqual({ all: { [challenge_id]: reminder } });
+    ).toEqual({ allByStep: { [challenge_id]: reminder } });
   });
 });
 
@@ -78,7 +78,6 @@ describe('REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS', () => {
     ).toEqual({ allByStep: remindersObject });
   });
 });
-    
 
 describe('REQUESTS.DELETE_CHALLENGE_REMINDER.SUCCESS', () => {
   it('removes reminder from state', () => {
