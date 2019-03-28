@@ -49,13 +49,13 @@ class AcceptedStepItem extends Component {
       reminderButton,
       bellIcon,
     } = styles;
-    
+
     return completed_at ? (
       <Card
         flex={1}
         flexDirection="row"
         alignItems="center"
-        onPress={this.handleNavigateAcceptedDetailScreen}
+        onPress={this.handleNavigateCompletedDetailScreen}
         style={card}
       >
         <View flex={1} flexDirection="column">
@@ -68,7 +68,7 @@ class AcceptedStepItem extends Component {
         flex={1}
         flexDirection="row"
         alignItems="center"
-        onPress={this.handleNavigate}
+        onPress={this.handleNavigateAcceptedDetailScreen}
         style={card}
       >
         <View flex={1} flexDirection="column">
