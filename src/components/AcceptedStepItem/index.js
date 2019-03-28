@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
@@ -18,6 +19,7 @@ import Icon from '../Icon/index';
 
 import styles from './styles';
 
+@translate('stepReminder')
 class AcceptedStepItem extends Component {
   handleNavigateAcceptedDetailScreen = () => {
     const { dispatch, step } = this.props;
@@ -37,6 +39,7 @@ class AcceptedStepItem extends Component {
 
   render() {
     const {
+      t,
       step: { title, completed_at, id },
       reminder,
     } = this.props;
@@ -75,7 +78,10 @@ class AcceptedStepItem extends Component {
           <ReminderButton stepId={id} reminder={reminder}>
             <View flexDirection="row" style={reminderButton}>
               <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-              <ReminderDateText reminder={reminder} />
+              <ReminderDateText
+                reminder={reminder}
+                placeholder={t('setReminder')}
+              />
             </View>
           </ReminderButton>
           <Text style={stepText}>{title}</Text>
