@@ -2,28 +2,27 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { translate } from 'react-i18next';
-import moment from 'moment';
 
 import BackButton from '../BackButton';
 import Header from '../../components/Header';
 import DatePicker from '../../components/DatePicker';
 import BottomButton from '../../components/BottomButton';
 import ReminderRepeatButtons from '../../components/ReminderRepeatButtons';
+import ReminderDateText from '../../components/ReminderDateText';
 import { Text } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import { createStepReminder } from '../../actions/stepReminders';
+import { reminderSelector } from '../../selectors/stepReminders';
 
 import styles from './styles';
 
 @translate('stepReminder')
 class StepReminderScreen extends Component {
   state = {
-    date: this.props.date,
+    date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',
     disableBtn: true,
     recurrence: null,
   };
-
-  today = new Date();
 
   handleChangeDate = date => {
     if (!date) {
@@ -59,7 +58,7 @@ class StepReminderScreen extends Component {
   }
 
   renderDateInput() {
-    const { t } = this.props;
+    const { t, reminder } = this.props;
     const { date } = this.state;
     const {
       dateInputContainer,
@@ -68,6 +67,8 @@ class StepReminderScreen extends Component {
       inputTextInactive,
       inputTextFull,
     } = styles;
+
+    const today = new Date();
 
     const inputHeaderStyle = [inputHeaderText, date ? inputTextInactive : null];
     const inputContentStyle = [
@@ -81,14 +82,14 @@ class StepReminderScreen extends Component {
         <DatePicker
           date={date}
           mode="datetime"
-          minDate={this.today}
+          minDate={today}
           onDateChange={this.handleChangeDate}
         >
-          <Text style={inputContentStyle}>
-            {!date
-              ? t('endDatePlaceholder')
-              : moment(date).format('YYYY-MM-DD HH:mm')}
-          </Text>
+          <ReminderDateText
+            style={inputContentStyle}
+            reminder={reminder}
+            placeholder={t('endDatePlaceholder')}
+          />
         </DatePicker>
       </View>
     );
@@ -116,7 +117,7 @@ class StepReminderScreen extends Component {
 }
 
 const mapStateToProps = (
-  _,
+  { stepReminders },
   {
     navigation: {
       state: {
@@ -126,6 +127,7 @@ const mapStateToProps = (
   },
 ) => ({
   stepId,
+  reminder: reminderSelector({ stepReminders }, { stepId }),
 });
 export default connect(mapStateToProps)(StepReminderScreen);
 export const STEP_REMINDER_SCREEN = 'nav/STEP_REMINDER';

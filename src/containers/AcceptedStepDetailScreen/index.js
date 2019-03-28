@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Button, Icon, Text } from '../../components/common';
+import { Button, Icon } from '../../components/common';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
 import { removeStepReminder } from '../../actions/stepReminders';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
 import ReminderButton from '../../components/ReminderButton';
+import ReminderDateText from '../../components/ReminderDateText';
+import { reminderSelector } from '../../selectors/stepReminders';
 
 import styles from './styles';
 
@@ -38,8 +40,8 @@ class AcceptedStepDetailScreen extends Component {
 
   renderReminderButton() {
     const {
-      t,
       step: { id },
+      reminder,
     } = this.props;
     const {
       reminderButton,
@@ -52,13 +54,13 @@ class AcceptedStepDetailScreen extends Component {
     } = styles;
 
     return (
-      <ReminderButton stepId={id}>
+      <ReminderButton stepId={id} reminder={reminder}>
         <View style={reminderButton}>
           <View style={reminderContainer}>
             <View style={reminderIconCircle}>
               <Icon name="bellIcon" type="MissionHub" style={reminderIcon} />
             </View>
-            <Text style={reminderText}>{t('stepReminder:setReminder')}</Text>
+            <ReminderDateText style={reminderText} reminder={reminder} />
           </View>
           <Button onPress={this.handleRemoveReminder} style={cancelIconButton}>
             <Icon name="close" type="Material" style={cancelIcon} />
@@ -102,7 +104,7 @@ class AcceptedStepDetailScreen extends Component {
 AcceptedStepDetailScreen.propTypes = { step: PropTypes.object.isRequired };
 
 const mapStateToProps = (
-  _,
+  { stepReminders },
   {
     navigation: {
       state: {
@@ -112,6 +114,7 @@ const mapStateToProps = (
   },
 ) => ({
   step,
+  reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
 });
 export default connect(mapStateToProps)(AcceptedStepDetailScreen);
 export const ACCEPTED_STEP_DETAIL_SCREEN = 'nav/ACCEPTED_STEP_DETAIL_SCREEN';

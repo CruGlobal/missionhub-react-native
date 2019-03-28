@@ -42,7 +42,6 @@ export default StyleSheet.create({
     color: theme.white,
   },
   reminderText: {
-    color: theme.secondaryColor,
     fontSize: 16,
   },
   cancelIconButton: {

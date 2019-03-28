@@ -10,6 +10,7 @@ import { createStepReminder } from '../../actions/stepReminders';
 
 class ReminderButton extends Component {
   state = {
+    date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',
     recurrence: null,
   };
 
@@ -25,7 +26,7 @@ class ReminderButton extends Component {
 
     dispatch(createStepReminder(stepId, date, recurrence));
 
-    this.setState({ recurrence: null });
+    this.setState({ recurrence: null, date });
   };
 
   onRecurrenceChange = recurrence => {
@@ -34,9 +35,14 @@ class ReminderButton extends Component {
 
   render() {
     const { children } = this.props;
+    const { date } = this.state;
+
+    const today = new Date();
 
     return (
       <DatePicker
+        date={date}
+        minDate={today}
         onPressAndroid={this.handlePressAndroid}
         onDateChange={this.handleChangeDate}
         iOSModalContent={
@@ -53,6 +59,7 @@ class ReminderButton extends Component {
 
 ReminderButton.propTypes = {
   stepId: PropTypes.string.isRequired,
+  reminder: PropTypes.object.isRequired,
 };
 
 export default connect()(ReminderButton);
