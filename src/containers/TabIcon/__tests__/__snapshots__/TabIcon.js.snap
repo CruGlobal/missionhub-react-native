@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders group 1`] = `
+<Flex
+  align="center"
+  justify="center"
+  value={1}
+>
+  <Icon
+    name="groupIcon"
+    size={24}
+    style={
+      Object {
+        "color": "blue",
+      }
+    }
+    type="MissionHub"
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontSize": 14,
+        },
+        Object {
+          "color": "blue",
+        },
+      ]
+    }
+  >
+    Communities
+  </MyText>
+</Flex>
+`;
+
+exports[`renders group with notification dot 1`] = `
+<Flex
+  align="center"
+  justify="center"
+  value={1}
+>
+  <Flex
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <Icon
+      name="groupIcon"
+      size={24}
+      style={
+        Object {
+          "color": "blue",
+        }
+      }
+      type="MissionHub"
+    />
+    <Flex
+      style={
+        Object {
+          "backgroundColor": "#FF5532",
+          "borderColor": "#ffffff",
+          "borderRadius": 8,
+          "borderWidth": 2,
+          "height": 16,
+          "position": "absolute",
+          "right": -10,
+          "top": -3,
+          "width": 16,
+        }
+      }
+    />
+  </Flex>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontSize": 14,
+        },
+        Object {
+          "color": "blue",
+        },
+      ]
+    }
+  >
+    Communities
+  </MyText>
+</Flex>
+`;
+
+exports[`renders people 1`] = `
+<Flex
+  align="center"
+  justify="center"
+  value={1}
+>
+  <Icon
+    name="peopleIcon"
+    size={24}
+    style={
+      Object {
+        "color": "blue",
+      }
+    }
+    type="MissionHub"
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontSize": 14,
+        },
+        Object {
+          "color": "blue",
+        },
+      ]
+    }
+  >
+    People
+  </MyText>
+</Flex>
+`;
+
+exports[`renders steps 1`] = `
+<Flex
+  align="center"
+  justify="center"
+  value={1}
+>
+  <Icon
+    name="stepsIcon"
+    size={24}
+    style={
+      Object {
+        "color": "blue",
+      }
+    }
+    type="MissionHub"
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontSize": 14,
+        },
+        Object {
+          "color": "blue",
+        },
+      ]
+    }
+  >
+    Steps
+  </MyText>
+</Flex>
+`;
+
+exports[`renders steps different tint color 1`] = `
+<Flex
+  align="center"
+  justify="center"
+  value={1}
+>
+  <Icon
+    name="stepsIcon"
+    size={24}
+    style={
+      Object {
+        "color": "grey",
+      }
+    }
+    type="MissionHub"
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontSize": 14,
+        },
+        Object {
+          "color": "grey",
+        },
+      ]
+    }
+  >
+    Steps
+  </MyText>
+</Flex>
+`;

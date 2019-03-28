@@ -8,7 +8,7 @@ import {
   testSnapshot,
   createMockNavState,
 } from '../../../testUtils';
-import { navItem } from '../..//AppRoutes';
+import { navItem } from '../../AppRoutes';
 import { communitiesSelector } from '../../selectors/organizations';
 import MainTabs from '../../containers/MainTabs';
 
@@ -17,6 +17,7 @@ jest.mock('../../selectors/organizations');
 const store = createMockStore({
   auth: {
     isFirstTime: false,
+    person: {},
   },
   steps: {
     mine: null,
