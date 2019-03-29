@@ -109,18 +109,13 @@ exports[`item renders correctly 1`] = `
 `;
 
 exports[`renderHeader match snapshot 1`] = `
-<React.Fragment>
-  <Connect(Translate(OnboardingCard))
-    type="celebrate"
-  />
-  <Connect(Translate(ReportCommentNotifier))
-    organization={
-      Object {
-        "id": "456",
-      }
+<Connect(CelebrateFeedHeader)
+  organization={
+    Object {
+      "id": "456",
     }
-  />
-</React.Fragment>
+  }
+/>
 `;
 
 exports[`renders section header 1`] = `
@@ -135,6 +130,7 @@ exports[`renders section header 1`] = `
   }
 >
   <Translate(DateComponent)
+    date="2018-08-13T12:00:00.000Z"
     format="relative"
     style={
       Object {
