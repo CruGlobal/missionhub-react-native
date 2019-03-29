@@ -22,7 +22,7 @@ class StepReminderScreen extends Component {
   state = {
     date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',
     disableBtn: true,
-    recurrence: null,
+    recurrence: (this.props.reminder && this.props.reminder.type) || null,
   };
 
   handleChangeDate = date => {
@@ -41,7 +41,7 @@ class StepReminderScreen extends Component {
     dispatch(createStepReminder(stepId, date, recurrence));
   };
 
-  onRecurrenceChange = recurrence => {
+  handleRecurrenceChange = recurrence => {
     this.setState({ recurrence });
   };
 
@@ -112,7 +112,9 @@ class StepReminderScreen extends Component {
         {this.renderHeader()}
         <View style={inputContainer}>
           {this.renderDateInput()}
-          <ReminderRepeatButtons onRecurrenceChange={this.onRecurrenceChange} />
+          <ReminderRepeatButtons
+            onRecurrenceChange={this.handleRecurrenceChange}
+          />
         </View>
         <BottomButton
           disabled={this.state.disableBtn}
