@@ -87,25 +87,32 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <Component
-          placeholder="End Date (Required)"
-          reminder={null}
-          style={
-            Array [
+        <Component>
+          <Component
+            placeholder="End Date (Required)"
+            reminder={
               Object {
-                "borderBottomColor": "#B4B6BA",
-                "borderBottomWidth": 1,
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingBottom": 6,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#007398",
-              },
-            ]
-          }
-        />
+                "next_occurrence_at": "2018-09-01",
+                "type": "once",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#B4B6BA",
+                  "borderBottomWidth": 1,
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "paddingBottom": 6,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "color": "#007398",
+                },
+              ]
+            }
+          />
+        </Component>
       </Translate(MyDatePickerIOS)>
     </Component>
     <Translate(ReminderRepeatButtons)
@@ -205,25 +212,27 @@ exports[`render no reminder in props renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <Component
-          placeholder="End Date (Required)"
-          reminder={null}
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#B4B6BA",
-                "borderBottomWidth": 1,
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingBottom": 6,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ]
-          }
-        />
+        <Component>
+          <Component
+            placeholder="End Date (Required)"
+            reminder=""
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#B4B6BA",
+                  "borderBottomWidth": 1,
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "paddingBottom": 6,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "color": "#B4B6BA",
+                },
+              ]
+            }
+          />
+        </Component>
       </Translate(MyDatePickerIOS)>
     </Component>
     <Translate(ReminderRepeatButtons)
@@ -325,30 +334,32 @@ exports[`render reminder in props renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <Component
-          placeholder="End Date (Required)"
-          reminder={
-            Object {
-              "id": "1",
-              "next_occurrence_at": "2018-09-01",
+        <Component>
+          <Component
+            placeholder="End Date (Required)"
+            reminder={
+              Object {
+                "next_occurrence_at": "2018-09-01",
+                "type": "once",
+              }
             }
-          }
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#B4B6BA",
-                "borderBottomWidth": 1,
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingBottom": 6,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#007398",
-              },
-            ]
-          }
-        />
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#B4B6BA",
+                  "borderBottomWidth": 1,
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "paddingBottom": 6,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "color": "#007398",
+                },
+              ]
+            }
+          />
+        </Component>
       </Translate(MyDatePickerIOS)>
     </Component>
     <Translate(ReminderRepeatButtons)

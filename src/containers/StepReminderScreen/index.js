@@ -13,6 +13,7 @@ import { Text } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import { createStepReminder } from '../../actions/stepReminders';
 import { reminderSelector } from '../../selectors/stepReminders';
+import { REMINDER_RECURRENCES } from '../../constants';
 
 import styles from './styles';
 
@@ -58,7 +59,7 @@ class StepReminderScreen extends Component {
   }
 
   renderDateInput() {
-    const { t, reminder } = this.props;
+    const { t } = this.props;
     const { date, recurrence } = this.state;
     const {
       dateInputContainer,
@@ -76,7 +77,10 @@ class StepReminderScreen extends Component {
       date ? inputTextFull : inputTextInactive,
     ];
 
-    const sampleReminder = { type: recurrence, next_occurrence_at: date };
+    const sampleReminder = date && {
+      type: recurrence || REMINDER_RECURRENCES.ONCE,
+      next_occurrence_at: date,
+    };
 
     return (
       <View style={dateInputContainer}>
