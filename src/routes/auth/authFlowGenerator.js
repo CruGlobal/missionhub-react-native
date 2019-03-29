@@ -13,16 +13,18 @@ export const authFlowGenerator = ({
   completeAction,
   includeSignUp = true,
 }) => ({
-  ...(includeSignUp && {
-    [SIGN_UP_SCREEN]: buildTrackedScreen(
-      wrapNextAction(
-        SignUpScreen,
-        ({ signIn } = {}) =>
-          signIn ? navigatePush(SIGN_IN_SCREEN) : completeAction,
-      ),
-      buildTrackingObj('auth', 'auth'),
-    ),
-  }),
+  ...(includeSignUp
+    ? {
+        [SIGN_UP_SCREEN]: buildTrackedScreen(
+          wrapNextAction(
+            SignUpScreen,
+            ({ signIn } = {}) =>
+              signIn ? navigatePush(SIGN_IN_SCREEN) : completeAction,
+          ),
+          buildTrackingObj('auth', 'auth'),
+        ),
+      }
+    : {}),
   [SIGN_IN_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       SignInScreen,

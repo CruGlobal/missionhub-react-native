@@ -88,7 +88,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
         onDateChange={[Function]}
       >
         <Component>
-          <Component
+          <ReminderDateText
             placeholder="End Date (Required)"
             reminder={
               Object {
@@ -213,7 +213,7 @@ exports[`handleRecurrenceChange renders correctly 1`] = `
         onDateChange={[Function]}
       >
         <Component>
-          <Component
+          <ReminderDateText
             placeholder="End Date (Required)"
             reminder=""
             style={
@@ -333,7 +333,7 @@ exports[`render no reminder in props renders correctly 1`] = `
         onDateChange={[Function]}
       >
         <Component>
-          <Component
+          <ReminderDateText
             placeholder="End Date (Required)"
             reminder=""
             style={
@@ -455,7 +455,7 @@ exports[`render reminder in props renders correctly 1`] = `
         onDateChange={[Function]}
       >
         <Component>
-          <Component
+          <ReminderDateText
             placeholder="End Date (Required)"
             reminder={
               Object {
