@@ -85,11 +85,13 @@ class StepReminderScreen extends Component {
           minDate={today}
           onDateChange={this.handleChangeDate}
         >
-          <ReminderDateText
-            style={inputContentStyle}
-            reminder={reminder}
-            placeholder={t('endDatePlaceholder')}
-          />
+          <View>
+            <ReminderDateText
+              style={inputContentStyle}
+              reminder={reminder}
+              placeholder={t('endDatePlaceholder')}
+            />
+          </View>
         </DatePicker>
       </View>
     );
