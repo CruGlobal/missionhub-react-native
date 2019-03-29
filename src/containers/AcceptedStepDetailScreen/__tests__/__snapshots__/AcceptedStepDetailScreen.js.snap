@@ -322,7 +322,7 @@ exports[`without reminder renders correctly 1`] = `
               type="MissionHub"
             />
           </Component>
-          <Unknown
+          <ReminderDateText
             style={
               Object {
                 "fontSize": 16,
