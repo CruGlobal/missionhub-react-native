@@ -59,7 +59,7 @@ class ReminderButton extends Component {
 
 ReminderButton.propTypes = {
   stepId: PropTypes.string.isRequired,
-  reminder: PropTypes.object.isRequired,
+  reminder: PropTypes.object,
 };
 
 export default connect()(ReminderButton);
