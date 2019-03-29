@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders tos and privacy 1`] = `
+exports[`renders correctly 1`] = `
 <View
   accessibilityTraits="button"
   accessible={true}
@@ -32,26 +32,16 @@ exports[`renders tos and privacy 1`] = `
   }
 >
   <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
-    }
+    flex={1}
   >
     <View
       style={
-        Array [
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          },
-          Object {},
-        ]
+        Object {
+          "borderBottomColor": "#ffffff",
+          "borderBottomWidth": 1,
+          "overflow": "hidden",
+          "padding": 12,
+        }
       }
     >
       <Text
@@ -116,286 +106,11 @@ exports[`renders tos and privacy 1`] = `
     </View>
     <View
       style={
-        Array [
-          Object {
-            "padding": 12,
-          },
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-          },
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "flex": 1,
-              "fontSize": 12,
-              "fontWeight": "bold",
-            },
-          ]
-        }
-      >
-        VIEW
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": undefined,
-              "fontSize": 12,
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 12,
-              },
-              Object {},
-            ],
-            Object {
-              "fontFamily": "icomoon",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          },
-          Object {},
-        ]
-      }
-    >
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        hitSlop={
-          Object {
-            "bottom": 10,
-            "left": 10,
-            "right": 10,
-            "top": 10,
-          }
-        }
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              null,
-              Object {},
-              null,
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 13,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {},
-                  ],
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`renders trial tos and privacy 1`] = `
-<View
-  accessibilityTraits="button"
-  accessible={true}
-  isTVSelectable={true}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#505256",
-      "borderRadius": 8,
-      "elevation": 4,
-      "flexDirection": "row",
-      "marginHorizontal": 0,
-      "marginVertical": 0,
-      "opacity": 1,
-      "shadowColor": "#000000",
-      "shadowOffset": Object {
-        "height": 2,
-        "width": 0,
-      },
-      "shadowOpacity": 0.3,
-      "shadowRadius": 2,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {},
         Object {
-          "flex": 1,
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          },
-          Object {},
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 48,
-            },
-          ]
+          "alignItems": "center",
+          "flexDirection": "row",
+          "padding": 12,
         }
-      >
-        12
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-            },
-          ]
-        }
-      >
-        New Comments
-      </Text>
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/comments.png",
-          }
-        }
-        style={
-          Object {
-            "height": 48,
-            "opacity": 0.35,
-            "position": "absolute",
-            "right": -15,
-            "top": 32,
-            "width": 48,
-          }
-        }
-      />
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "padding": 12,
-          },
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-          },
-        ]
       }
     >
       <Text
@@ -454,14 +169,11 @@ exports[`renders trial tos and privacy 1`] = `
     </View>
     <View
       style={
-        Array [
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          },
-          Object {},
-        ]
+        Object {
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
       }
     >
       <View

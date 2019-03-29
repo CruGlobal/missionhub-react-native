@@ -25,6 +25,8 @@ export default StyleSheet.create({
   },
   viewWrap: {
     padding: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   viewText: {
     flex: 1,

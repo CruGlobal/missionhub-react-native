@@ -5,11 +5,7 @@ import UnreadCommentCard from '..';
 import { testSnapshot, renderShallow } from '../../../../testUtils';
 
 const props = { count: 12, onPress: jest.fn(), onClose: jest.fn() };
-it('renders tos and privacy', () => {
-  testSnapshot(<UnreadCommentCard {...props} />);
-});
-
-it('renders trial tos and privacy', () => {
+it('renders correctly', () => {
   testSnapshot(<UnreadCommentCard {...props} />);
 });
 
