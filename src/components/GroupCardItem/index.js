@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { View, Image } from 'react-native';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Text, Flex, Card, Button } from '../common';
+import { Text, Flex, Card, Button, Icon } from '../common';
 import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.png';
 import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
 import Dot from '../Dot';
@@ -61,18 +61,25 @@ export default class GroupCardItem extends Component {
     );
   }
 
+  getSource() {
+    const { group } = this.props;
+    if (group.community_photo_url) {
+      return { uri: group.community_photo_url };
+    } else if (group.id === GLOBAL_COMMUNITY_ID) {
+      return GLOBAL_COMMUNITY_IMAGE;
+    } else if (group.user_created) {
+      return undefined;
+    } else {
+      return DEFAULT_MISSIONHUB_IMAGE;
+    }
+  }
+
   render() {
     const { t, group, onPress, onJoin } = this.props;
-    let source;
-    if (group.community_photo_url) {
-      source = { uri: group.community_photo_url };
-    } else if (group.id === GLOBAL_COMMUNITY_ID) {
-      source = GLOBAL_COMMUNITY_IMAGE;
-    } else if (group.user_created) {
-      source = undefined;
-    } else {
-      source = DEFAULT_MISSIONHUB_IMAGE;
-    }
+    const source = this.getSource();
+
+    // TODO: Figure this out from the API
+    const hasNotification = group.has_unread_comments_for_user;
 
     //not passing a value for onPress to Card makes the card unclickable.
     //In some cases we want to prevent clicking on GroupCardItem.
@@ -107,6 +114,17 @@ export default class GroupCardItem extends Component {
                   text={t('join').toUpperCase()}
                   onPress={this.handleJoin}
                 />
+              </Flex>
+            ) : null}
+            {!onJoin && hasNotification ? (
+              <Flex align="center" justify="center">
+                <Icon
+                  type="MissionHub"
+                  name="bellIcon"
+                  size={20}
+                  style={styles.notificationIcon}
+                />
+                <View style={styles.badge} />
               </Flex>
             ) : null}
           </Flex>
