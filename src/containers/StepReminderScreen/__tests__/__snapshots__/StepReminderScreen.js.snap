@@ -87,7 +87,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <Component
+        <ReminderDateText
           placeholder="End Date (Required)"
           reminder={null}
           style={
@@ -205,7 +205,7 @@ exports[`render no reminder in props renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <Component
+        <ReminderDateText
           placeholder="End Date (Required)"
           reminder={null}
           style={
@@ -325,7 +325,7 @@ exports[`render reminder in props renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <Component
+        <ReminderDateText
           placeholder="End Date (Required)"
           reminder={
             Object {
