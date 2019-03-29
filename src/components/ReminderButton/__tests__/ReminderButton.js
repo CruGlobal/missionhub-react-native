@@ -1,6 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import MockDate from 'mockdate';
 
 import { renderShallow } from '../../../../testUtils/index';
 import { navigatePush } from '../../../actions/navigation';
@@ -13,6 +14,11 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');
 
 const stepId = '1';
+const mockDate = '2018-09-12 12:00:00 PM GMT+0';
+const reminder = { id: '11', next_occurrence_at: mockDate };
+
+MockDate.set(mockDate);
+
 const navigatePushResult = { type: 'navigated push' };
 const createStepReminderResult = { type: 'create step reminder' };
 
@@ -23,17 +29,34 @@ let component;
 navigatePush.mockReturnValue(navigatePushResult);
 createStepReminder.mockReturnValue(createStepReminderResult);
 
-beforeEach(() => {
+const createComponent = props => {
   store = mockStore();
-  component = renderShallow(<ReminderButton stepId={stepId} />, store);
+  component = renderShallow(<ReminderButton {...props} />, store);
+};
+
+describe('reminder passed in', () => {
+  beforeEach(() => {
+    createComponent({ stepId, reminder });
+  });
+
+  it('renders correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
 });
 
-it('renders correctly', () => {
-  expect(component).toMatchSnapshot();
+describe('reminder not passed in', () => {
+  beforeEach(() => {
+    createComponent({ stepId });
+  });
+
+  it('renders correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
 });
 
 describe('handlePressAndroid', () => {
   beforeEach(() => {
+    createComponent({ stepId, reminder });
     component.props().onPressAndroid();
   });
 
@@ -47,6 +70,7 @@ describe('onDateChange', () => {
   const recurrence = 'weekLEE';
 
   beforeEach(() => {
+    createComponent({ stepId, reminder });
     component.props().iOSModalContent.props.onRecurrenceChange(recurrence);
     component.props().onDateChange(date);
   });

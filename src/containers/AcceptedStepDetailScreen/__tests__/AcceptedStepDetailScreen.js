@@ -6,12 +6,14 @@ import { createMockNavState, renderShallow } from '../../../../testUtils';
 import { completeStep, deleteStepWithTracking } from '../../../actions/steps';
 import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
+import { reminderSelector } from '../../../selectors/stepReminders';
 
 import AcceptedStepDetailScreen from '..';
 
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/stepReminders');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../selectors/stepReminders');
 
 const completeStepResult = { type: 'completed step' };
 const deleteStepResult = { type: 'deleted step' };
@@ -19,6 +21,14 @@ const removeReminderResult = { type: 'remove reminder' };
 const navigateBackResult = { type: 'navigate back' };
 
 const stepId = '234242';
+const reminderId = '1';
+const reminder = { id: reminderId };
+const stepReminders = {
+  all: {
+    [reminderId]: reminder,
+  },
+};
+
 let step;
 let challenge_suggestion;
 let screen;
@@ -30,8 +40,10 @@ completeStep.mockReturnValue(completeStepResult);
 deleteStepWithTracking.mockReturnValue(deleteStepResult);
 removeStepReminder.mockReturnValue(removeReminderResult);
 navigateBack.mockReturnValue(navigateBackResult);
+reminderSelector.mockReturnValue(reminder);
 
 beforeEach(() => {
+  jest.clearAllMocks();
   store = mockStore();
 
   step = {
@@ -39,10 +51,19 @@ beforeEach(() => {
     title: 'ROBERT',
     challenge_suggestion,
   };
+
+  store = mockStore({
+    stepReminders,
+  });
+
   screen = renderShallow(
     <AcceptedStepDetailScreen navigation={createMockNavState({ step })} />,
     store,
   );
+});
+
+it('selects reminder from Redux', () => {
+  expect(reminderSelector).toHaveBeenCalledWith({ stepReminders }, { stepId });
 });
 
 describe('with challenge suggestion', () => {

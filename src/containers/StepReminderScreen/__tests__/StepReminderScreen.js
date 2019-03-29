@@ -8,16 +8,25 @@ import SetReminderScreen from '..';
 import { renderShallow, createMockNavState } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 import { createStepReminder } from '../../../actions/stepReminders';
+import { reminderSelector } from '../../../selectors/stepReminders';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');
+jest.mock('../../../selectors/stepReminders');
 
 const mockDate = '2018-09-01';
 MockDate.set(mockDate);
 
 const mockStore = configureStore([thunk]);
 const stepId = '42234';
-let date = '';
+const reminderId = '1';
+const reminder = { id: reminderId, next_occurrence_at: mockDate };
+const stepReminders = {
+  all: {
+    [reminderId]: reminder,
+  },
+};
+
 let component;
 let instance;
 let store;
@@ -29,33 +38,37 @@ navigateBack.mockReturnValue(navigateBackResult);
 createStepReminder.mockReturnValue(createStepReminderResult);
 
 const createComponent = () => {
-  store = mockStore();
+  store = mockStore({ stepReminders });
 
   component = renderShallow(
-    <SetReminderScreen
-      date={date}
-      navigation={createMockNavState({ stepId })}
-    />,
+    <SetReminderScreen navigation={createMockNavState({ stepId })} />,
     store,
   );
   instance = component.instance();
 };
 
 describe('render', () => {
-  describe('date in props', () => {
+  describe('reminder in props', () => {
     beforeEach(() => {
-      date = mockDate;
+      reminderSelector.mockReturnValue(reminder);
       createComponent();
     });
 
     it('renders correctly', () => {
       expect(component).toMatchSnapshot();
     });
+
+    it('selects reminder from Redux', () => {
+      expect(reminderSelector).toHaveBeenCalledWith(
+        { stepReminders },
+        { stepId },
+      );
+    });
   });
 
-  describe('no date in props', () => {
+  describe('no reminder in props', () => {
     beforeEach(() => {
-      date = null;
+      reminderSelector.mockReturnValue(null);
       createComponent();
     });
 
@@ -67,7 +80,7 @@ describe('render', () => {
 
 describe('handleChangeDate', () => {
   beforeEach(() => {
-    date = null;
+    reminderSelector.mockReturnValue(null);
     createComponent();
   });
 
