@@ -46,7 +46,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
           }
           type="MissionHub"
         />
-        <Component
+        <ReminderDateText
           reminder={
             Object {
               "id": "11",
