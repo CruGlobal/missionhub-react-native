@@ -44,16 +44,15 @@ it('renders with custom style', () => {
   ).toMatchSnapshot();
 });
 
+const event = {
+  id: '777711',
+  liked: false,
+  subject_person: {},
+  likes_count: 54,
+  comments_count: 15,
+  organization: { id: '88732' },
+};
 describe('with subject person', () => {
-  const event = {
-    id: '777711',
-    liked: false,
-    subject_person: {},
-    likes_count: 54,
-    comments_count: 15,
-    organization: { id: '88732' },
-  };
-
   it('renders for me', () => {
     testSnapshotShallow(<CommentLikeComponent event={event} />, store);
   });
@@ -70,6 +69,20 @@ describe('with subject person', () => {
   it('renders when liked', () => {
     testSnapshotShallow(
       <CommentLikeComponent event={{ ...event, liked: true }} />,
+      store,
+    );
+  });
+
+  it('renders 0 comments_count', () => {
+    testSnapshotShallow(
+      <CommentLikeComponent event={{ ...event, comments_count: 0 }} />,
+      store,
+    );
+  });
+
+  it('renders 0 likes_count', () => {
+    testSnapshotShallow(
+      <CommentLikeComponent event={{ ...event, likes_count: 0 }} />,
       store,
     );
   });
