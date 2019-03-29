@@ -24,7 +24,7 @@ exports[`renders daily 1`] = `
     ]
   }
 >
-  Every day @ 3:00 PM
+  Every day @ 7:00 PM
 </Text>
 `;
 
@@ -52,7 +52,7 @@ exports[`renders monthly 1`] = `
     ]
   }
 >
-  Once a month on the 29th @ 3:00 PM
+  Once a month on the 29th @ 7:00 PM
 </Text>
 `;
 
@@ -80,7 +80,7 @@ exports[`renders once next month 1`] = `
     ]
   }
 >
-  Saturday, Apr 27 @ 1:00 PM
+  Saturday, Apr 27 @ 5:00 PM
 </Text>
 `;
 
@@ -108,7 +108,7 @@ exports[`renders once next week 1`] = `
     ]
   }
 >
-  Thursday, Apr 4 @ 7:00 PM
+  Thursday, Apr 4 @ 11:00 PM
 </Text>
 `;
 
@@ -136,7 +136,7 @@ exports[`renders once this week 1`] = `
     ]
   }
 >
-  Sunday @ 8:00 AM
+  Sunday @ 12:00 PM
 </Text>
 `;
 
@@ -164,7 +164,7 @@ exports[`renders once today 1`] = `
     ]
   }
 >
-  Today @ 12:00 PM
+  Today @ 4:00 PM
 </Text>
 `;
 
@@ -192,7 +192,7 @@ exports[`renders once tomorrow 1`] = `
     ]
   }
 >
-  Tomorrow @ 12:00 PM
+  Tomorrow @ 4:00 PM
 </Text>
 `;
 
@@ -220,7 +220,7 @@ exports[`renders weekly 1`] = `
     ]
   }
 >
-  Every Friday @ 3:00 PM
+  Every Friday @ 7:00 PM
 </Text>
 `;
 
@@ -276,7 +276,7 @@ exports[`renders with reminder correctly 1`] = `
     ]
   }
 >
-  Today @ 8:00 AM
+  Today @ 12:00 PM
 </Text>
 `;
 
