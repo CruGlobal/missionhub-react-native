@@ -59,7 +59,7 @@ class StepReminderScreen extends Component {
 
   renderDateInput() {
     const { t, reminder } = this.props;
-    const { date } = this.state;
+    const { date, recurrence } = this.state;
     const {
       dateInputContainer,
       inputHeaderText,
@@ -76,6 +76,8 @@ class StepReminderScreen extends Component {
       date ? inputTextFull : inputTextInactive,
     ];
 
+    const sampleReminder = { type: recurrence, next_occurrence_at: date };
+
     return (
       <View style={dateInputContainer}>
         <Text style={inputHeaderStyle}>{t('endDate')}</Text>
@@ -88,7 +90,7 @@ class StepReminderScreen extends Component {
           <View>
             <ReminderDateText
               style={inputContentStyle}
-              reminder={reminder}
+              reminder={sampleReminder}
               placeholder={t('endDatePlaceholder')}
             />
           </View>
