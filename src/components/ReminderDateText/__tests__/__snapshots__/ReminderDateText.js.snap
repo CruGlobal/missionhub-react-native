@@ -1,0 +1,309 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders daily 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 14,
+          "lineHeight": 18,
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  Every day @ 7:00 PM
+</Text>
+`;
+
+exports[`renders monthly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 14,
+          "lineHeight": 18,
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  Once a month on the 29th @ 7:00 PM
+</Text>
+`;
+
+exports[`renders once next month 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 14,
+          "lineHeight": 18,
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  Saturday, Apr 27 @ 5:00 PM
+</Text>
+`;
+
+exports[`renders once next week 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 14,
+          "lineHeight": 18,
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  Thursday, Apr 4 @ 11:00 PM
+</Text>
+`;
+
+exports[`renders once this week 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 14,
+          "lineHeight": 18,
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  Sunday @ 12:00 PM
+</Text>
+`;
+
+exports[`renders once today 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 14,
+          "lineHeight": 18,
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  Today @ 4:00 PM
+</Text>
+`;
+
+exports[`renders once tomorrow 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 14,
+          "lineHeight": 18,
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  Tomorrow @ 4:00 PM
+</Text>
+`;
+
+exports[`renders weekly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 14,
+          "lineHeight": 18,
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  Every Friday @ 7:00 PM
+</Text>
+`;
+
+exports[`renders with placeholder correctly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 14,
+          "lineHeight": 18,
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  text
+</Text>
+`;
+
+exports[`renders with reminder correctly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 14,
+          "lineHeight": 18,
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  Today @ 12:00 PM
+</Text>
+`;
+
+exports[`renders without reminder or placeholder correctly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 14,
+          "lineHeight": 18,
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  Set a Reminder
+</Text>
+`;

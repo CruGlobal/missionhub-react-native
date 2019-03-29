@@ -19,6 +19,11 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
     flexDirection="column"
   >
     <Connect(ReminderButton)
+      reminder={
+        Object {
+          "id": "11",
+        }
+      }
       stepId="1"
     >
       <Component
@@ -36,25 +41,18 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
             Object {
               "color": "#52C5DC",
               "fontSize": 18,
+              "paddingRight": 8,
             }
           }
           type="MissionHub"
         />
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
+        <ReminderDateText
+          reminder={
             Object {
-              "color": "#52C5DC",
-              "fontSize": 14,
-              "lineHeight": 18,
-              "paddingLeft": 8,
+              "id": "11",
             }
           }
-        >
-          Set a Reminder
-        </MyText>
+        />
       </Component>
     </Connect(ReminderButton)>
     <MyText
