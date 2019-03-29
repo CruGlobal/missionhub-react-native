@@ -21,20 +21,20 @@ function inNextWeek(momentDate) {
 function formatReminder({ type, next_occurrence_at }) {
   const timeFormat = 'LT';
   const momentDate = momentUtc(next_occurrence_at).local();
-  if (type === REMINDER_RECURRENCES.DAILY) {
-    return `${i18n.t('dates.everyDay')} @ ${momentDate.format(timeFormat)}`;
+  switch (type) {
+    case REMINDER_RECURRENCES.DAILY:
+      return `${i18n.t('dates.everyDay')} @ ${momentDate.format(timeFormat)}`;
+    case REMINDER_RECURRENCES.WEEKLY:
+      return `${i18n.t('dates.every')} ${momentDate.format(
+        `dddd @ ${timeFormat}`,
+      )}`;
+    case REMINDER_RECURRENCES.MONTHLY:
+      return `${i18n.t('dates.onceAMonth')} ${momentDate.format(
+        `Do @ ${timeFormat}`,
+      )}`;
+    default:
+      break;
   }
-  if (type === REMINDER_RECURRENCES.WEEKLY) {
-    return `${i18n.t('dates.every')} ${momentDate.format(
-      `dddd @ ${timeFormat}`,
-    )}`;
-  }
-  if (type === REMINDER_RECURRENCES.MONTHLY) {
-    return `${i18n.t('dates.onceAMonth')} ${momentDate.format(
-      `Do @ ${timeFormat}`,
-    )}`;
-  }
-
   if (isToday(momentDate)) {
     return `${i18n.t('dates.today')} @ ${momentDate.format(timeFormat)}`;
   }
@@ -46,7 +46,6 @@ function formatReminder({ type, next_occurrence_at }) {
   if (inNextWeek(momentDate)) {
     return momentDate.format(`dddd @ ${timeFormat}`);
   }
-
   return momentDate.format(`dddd, MMM D @ ${timeFormat}`);
 }
 
