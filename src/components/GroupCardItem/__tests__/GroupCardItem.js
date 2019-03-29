@@ -162,6 +162,18 @@ describe('GroupCardItem', () => {
     test();
   });
 
+  it('renders with notification', () => {
+    props = {
+      ...props,
+      group: {
+        ...group,
+        has_unread_comments_for_user: true,
+      },
+    };
+
+    test();
+  });
+
   it('renders for join screen', () => {
     props = {
       ...props,
