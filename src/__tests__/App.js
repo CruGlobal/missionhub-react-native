@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactNative from 'react-native';
-import Adapter from 'enzyme-adapter-react-16/build/index';
-import { shallow } from 'enzyme/build/index';
-import Enzyme from 'enzyme/build/index';
+import { Alert } from 'react-native';
+import { render } from 'react-native-testing-library';
 
 import App from '../App';
 import {
@@ -15,10 +13,6 @@ import * as auth from '../actions/auth/auth';
 import locale from '../i18n/locales/en-US';
 import { rollbar } from '../utils/rollbar.config';
 
-Enzyme.configure({ adapter: new Adapter() });
-
-jest.mock('../AppNavigator', () => ({ AppNavigator: 'mockAppNavigator' }));
-
 jest.mock('react-native-default-preference', () => ({
   get: jest.fn().mockReturnValue(Promise.reject()),
 }));
@@ -26,15 +20,6 @@ global.window = {};
 
 const logoutResponse = { type: 'logged out' };
 auth.logout = jest.fn().mockReturnValue(logoutResponse);
-
-jest.mock('react-navigation-redux-helpers', () => ({
-  createReactNavigationReduxMiddleware: jest.fn(),
-}));
-
-jest.mock('../store', () => ({
-  store: require('../../testUtils').createMockStore(),
-  persistor: {},
-}));
 
 const { youreOffline, connectToInternet } = locale.offline;
 
@@ -44,22 +29,20 @@ const lastTwoArgs = [
 ];
 
 beforeEach(() =>
-  (ReactNative.Alert.alert = jest
+  (Alert.alert = jest
     .fn()
     .mockImplementation((_, __, buttons) => buttons[0].onPress())));
 
-const test = async response => {
-  const shallowScreen = shallow(<App />);
+const testUnhandledRejection = response => {
+  render(<App />);
 
-  await shallowScreen.instance().handleError(response);
-
-  return shallowScreen;
+  window.onunhandledrejection({ reason: response });
 };
 
 it('shows offline alert if network request failed', () => {
-  test({ apiError: { message: NETWORK_REQUEST_FAILED } });
+  testUnhandledRejection({ apiError: { message: NETWORK_REQUEST_FAILED } });
 
-  expect(ReactNative.Alert.alert).toHaveBeenCalledWith(
+  expect(Alert.alert).toHaveBeenCalledWith(
     youreOffline,
     connectToInternet,
     ...lastTwoArgs,
@@ -67,37 +50,41 @@ it('shows offline alert if network request failed', () => {
 });
 
 it('should not show alert for expired access token', () => {
-  test({ apiError: { errors: [{ detail: EXPIRED_ACCESS_TOKEN }] } });
+  testUnhandledRejection({
+    apiError: { errors: [{ detail: EXPIRED_ACCESS_TOKEN }] },
+  });
 
-  expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
+  expect(Alert.alert).not.toHaveBeenCalled();
 });
 
 it('should not show alert for invalid access token', () => {
-  test({ apiError: { errors: [{ detail: INVALID_ACCESS_TOKEN }] } });
+  testUnhandledRejection({
+    apiError: { errors: [{ detail: INVALID_ACCESS_TOKEN }] },
+  });
 
-  expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
+  expect(Alert.alert).not.toHaveBeenCalled();
 });
 
 it('should not show alert for invalid grant', () => {
-  test({ apiError: { error: INVALID_GRANT } });
+  testUnhandledRejection({ apiError: { error: INVALID_GRANT } });
 
-  expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
+  expect(Alert.alert).not.toHaveBeenCalled();
 });
 
 it('should not show alert if not ApiError', () => {
   const message = 'some message\nwith break';
 
-  test({ key: 'test', method: '', message });
+  testUnhandledRejection({ key: 'test', method: '', message });
 
-  expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
+  expect(Alert.alert).not.toHaveBeenCalled();
 });
 
 it('should not show alert if no error message', () => {
   const unknownError = { key: 'test', method: '' };
 
-  test(unknownError);
+  testUnhandledRejection(unknownError);
 
-  expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
+  expect(Alert.alert).not.toHaveBeenCalled();
 });
 
 describe('__DEV__ === false', () => {
@@ -111,7 +98,7 @@ describe('__DEV__ === false', () => {
     __DEV__ = dev;
   });
 
-  it('Sends Rollbar report for API error', async () => {
+  it('Sends Rollbar report for API error', () => {
     const apiError = {
       apiError: { message: 'Error Text' },
       key: 'ADD_NEW_PERSON',
@@ -120,7 +107,7 @@ describe('__DEV__ === false', () => {
       query: { filters: { organization_ids: '1' } },
     };
 
-    await test(apiError);
+    testUnhandledRejection(apiError);
 
     expect(rollbar.error).toHaveBeenCalledWith(
       Error(
@@ -135,20 +122,20 @@ describe('__DEV__ === false', () => {
     );
   });
 
-  it('Sends Rollbar report for JS Error', async () => {
+  it('Sends Rollbar report for JS Error', () => {
     const errorName = 'Error Name';
     const errorDetails = 'Error Details';
     const error = Error(`${errorName}\n${errorDetails}`);
 
-    await test(error);
+    testUnhandledRejection(error);
 
     expect(rollbar.error).toHaveBeenCalledWith(error);
   });
 
-  it('Sends Rollbar report for unknown error', async () => {
+  it('Sends Rollbar report for unknown error', () => {
     const unknownError = { key: 'test', method: '' };
 
-    await test(unknownError);
+    testUnhandledRejection(unknownError);
 
     expect(rollbar.error).toHaveBeenCalledWith(
       Error(`Unknown Error:\n${JSON.stringify(unknownError, null, 2)}`),

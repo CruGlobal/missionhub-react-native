@@ -34,12 +34,13 @@ const tabs = [
 ];
 
 it('should render correctly', () => {
-  const component = testSnapshotShallow(
+  const component = renderShallow(
     <SwipeTabMenu
       tabs={tabs}
       navigation={{ state: { index: 0, params: {} } }}
     />,
   );
+  expect(component).toMatchSnapshot();
 
   // Render update from manual onLayout callback with new rendered element size
   component
@@ -51,13 +52,14 @@ it('should render correctly', () => {
 });
 
 it('should render light version correctly', () => {
-  const component = testSnapshotShallow(
+  const component = renderShallow(
     <SwipeTabMenu
       tabs={tabs}
       navigation={{ state: { index: 0, params: {} } }}
       isLight={true}
     />,
   );
+  expect(component).toMatchSnapshot();
 
   // Render update from manual onLayout callback with new rendered element size
   component

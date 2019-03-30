@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -11,16 +12,17 @@ import {
   wrapProps,
   buildTrackedScreen,
 } from '../helpers';
-import { renderShallow, testSnapshotShallow } from '../../../testUtils';
+import { renderWithRedux, snapshotWithRedux } from '../../../testUtils';
 
 const store = configureStore([thunk])();
 
 const nextScreenName = 'testNextScreenName';
 const routeParams = { testKey: 'testValue' };
 
-const TestComponent = connect()(({ next, dispatch }) =>
-  dispatch(next(routeParams)),
-);
+const TestComponent = connect()(({ next, dispatch }) => {
+  dispatch(next(routeParams));
+  return null;
+});
 
 beforeEach(() => {
   store.clearActions();
@@ -30,7 +32,7 @@ describe('wrapNextScreen', () => {
   it('should pass the next prop and fire a navigatePush action with the provided screen name', () => {
     const WrappedTestComponent = wrapNextScreen(TestComponent, nextScreenName);
 
-    renderShallow(<WrappedTestComponent />, store).dive();
+    const { store } = renderWithRedux(<WrappedTestComponent />);
 
     expect(store.getActions()).toEqual([
       StackActions.push({
@@ -48,7 +50,7 @@ describe('wrapNextScreenFn', () => {
       () => nextScreenName,
     );
 
-    renderShallow(<WrappedTestComponent />, store).dive();
+    const { store } = renderWithRedux(<WrappedTestComponent />);
 
     expect(store.getActions()).toEqual([
       StackActions.push({
@@ -66,7 +68,7 @@ describe('wrapNextAction', () => {
       props => dispatch => dispatch({ type: 'test', nextScreenName, props }),
     );
 
-    renderShallow(<WrappedTestComponent />, store).dive();
+    const { store } = renderWithRedux(<WrappedTestComponent />);
 
     expect(store.getActions()).toEqual([
       {
@@ -80,12 +82,16 @@ describe('wrapNextAction', () => {
 
 describe('wrapProps', () => {
   it('should add extra props to component', () => {
-    const WrappedTestComponent = wrapProps(TestComponent, {
+    const PropStringifyComponent = props => (
+      <Text>{JSON.stringify(props)}</Text>
+    );
+
+    const WrappedTestComponent = wrapProps(PropStringifyComponent, {
       extraProp1: true,
       extraProp2: false,
     });
 
-    testSnapshotShallow(<WrappedTestComponent />, store);
+    snapshotWithRedux(<WrappedTestComponent />);
   });
 });
 

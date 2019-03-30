@@ -99,7 +99,8 @@
     "prettier": "^1.14.3",
     "pretty-quick": "^1.8.0",
     "react-dom": "^16.3.2",
-    "react-test-renderer": "^16.3.2",
+    "react-native-testing-library": "^1.6.1",
+    "react-test-renderer": "^16.8.6",
     "redux-mock-store": "^1.5.1"
   },
   "jest": {

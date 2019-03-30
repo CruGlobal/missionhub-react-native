@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`wrapProps should add extra props to component 1`] = `
-<Component
-  dispatch={[Function]}
-  extraProp1={true}
-  extraProp2={false}
-/>
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+>
+  {"extraProp1":true,"extraProp2":false}
+</Text>
 `;
