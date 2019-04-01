@@ -66,8 +66,19 @@ it('selects reminder from Redux', () => {
   expect(reminderSelector).toHaveBeenCalledWith({ stepReminders }, { stepId });
 });
 
+describe('without reminder', () => {
+  beforeAll(() => {
+    reminderSelector.mockReturnValue(undefined);
+  });
+
+  it('renders correctly', () => {
+    expect(screen).toMatchSnapshot();
+  });
+});
+
 describe('with challenge suggestion', () => {
   beforeAll(() => {
+    reminderSelector.mockReturnValue(reminder);
     challenge_suggestion = { description_markdown: 'roge rules' };
   });
 
@@ -100,6 +111,7 @@ describe('with challenge suggestion', () => {
 
 describe('without challenge suggestion', () => {
   beforeAll(() => {
+    reminderSelector.mockReturnValue(reminder);
     challenge_suggestion = null;
   });
 
@@ -110,6 +122,10 @@ describe('without challenge suggestion', () => {
 
 describe('handleRemoveReminder', () => {
   let centerContent;
+
+  beforeAll(() => {
+    reminderSelector.mockReturnValue(reminder);
+  });
 
   beforeEach(() => {
     centerContent = renderShallow(screen.props().CenterContent, store);
