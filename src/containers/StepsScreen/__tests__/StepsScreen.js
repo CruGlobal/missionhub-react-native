@@ -30,6 +30,7 @@ jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/person');
+jest.mock('../../TrackTabChange', () => () => null);
 
 const dispatch = jest.fn(async () => {});
 
@@ -99,10 +100,6 @@ const baseProps = {
 common.toast = jest.fn();
 
 describe('StepsScreen', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
   let component;
   let props;
 
@@ -347,12 +344,6 @@ describe('StepsScreen', () => {
       instance.listRef(ref);
       expect(instance.list).toEqual(ref);
     });
-    it('should list key extractor', () => {
-      const instance = createComponent(baseProps).instance();
-      const item = { id: '1' };
-      const result = instance.listKeyExtractor(item);
-      expect(result).toEqual(item.id);
-    });
     it('should open main menu', () => {
       const instance = createComponent(baseProps).instance();
       common.openMainMenu = jest.fn();
@@ -366,7 +357,7 @@ describe('StepsScreen', () => {
       const step = baseProps.steps[0];
       const screen = createComponent(baseProps);
       const listItem = screen
-        .childAt(1)
+        .childAt(2)
         .childAt(0)
         .childAt(1)
         .props()

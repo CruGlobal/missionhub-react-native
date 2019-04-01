@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Keyboard, Image } from 'react-native';
+import { SafeAreaView, View, Keyboard, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 import moment from 'moment';
@@ -26,8 +26,6 @@ class AddChallengeScreen extends Component {
       date,
       disableBtn: true,
     };
-
-    this.today = new Date();
   }
 
   onChangeTitle = title => {
@@ -91,14 +89,15 @@ class AddChallengeScreen extends Component {
     const { date } = this.state;
     const { dateInput, disabledInput, label, dateText } = styles;
 
+    const today = new Date();
+
     return (
       <View>
         <Text style={label}>{t('dateLabel')}</Text>
         <DatePicker
           date={date}
           mode="date"
-          placeholder={t('datePlaceholder')}
-          minDate={this.today}
+          minDate={today}
           onDateChange={this.onChangeDate}
         >
           <View style={[dateInput, disabled && disabledInput]}>
@@ -117,7 +116,7 @@ class AddChallengeScreen extends Component {
     const { container, imageWrap, header, fieldWrap } = styles;
 
     return (
-      <View style={container}>
+      <SafeAreaView style={container}>
         <View
           flex={0.9}
           alignItems="center"
@@ -139,7 +138,7 @@ class AddChallengeScreen extends Component {
           text={isEdit ? t('save') : t('add')}
         />
         <BackButton customIcon="deleteIcon" absolute={true} />
-      </View>
+      </SafeAreaView>
     );
   }
 }

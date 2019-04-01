@@ -33,10 +33,6 @@ const tabs = [
   },
 ];
 
-beforeEach(() => {
-  jest.clearAllMocks();
-});
-
 it('should render correctly', () => {
   const component = testSnapshotShallow(
     <SwipeTabMenu

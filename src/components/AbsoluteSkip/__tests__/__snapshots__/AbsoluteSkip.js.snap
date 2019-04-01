@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render skip 1`] = `
-<Flex
+<SafeAreaView
   style={
     Object {
       "position": "absolute",
       "right": 10,
-      "top": 35,
+      "top": 0,
     }
   }
 >
@@ -25,5 +25,5 @@ exports[`render skip 1`] = `
     text="SKIP"
     type="transparent"
   />
-</Flex>
+</SafeAreaView>
 `;

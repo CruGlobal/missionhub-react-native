@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList, ScrollView } from 'react-native';
+import { SafeAreaView, FlatList, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -14,6 +14,7 @@ import {
   buildTrackingObj,
   getAnalyticsSubsection,
   orgIsCru,
+  keyExtractorId,
 } from '../../utils/common';
 import { promptToAssign } from '../../utils/promptToAssign';
 import { ADD_MY_STEP_FLOW, ADD_PERSON_STEP_FLOW } from '../../routes/constants';
@@ -163,8 +164,6 @@ class ContactSteps extends Component {
 
   ref = c => (this.list = c);
 
-  keyExtractor = i => i.id;
-
   renderList(data) {
     if (data.length === 0) {
       return null;
@@ -174,7 +173,7 @@ class ContactSteps extends Component {
         ref={this.ref}
         style={styles.topList}
         data={data}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         renderItem={this.renderRow}
         showsVerticalScrollIndicator={false}
       />
@@ -224,12 +223,12 @@ class ContactSteps extends Component {
     const { t, steps } = this.props;
     const { hideCompleted } = this.state;
     return (
-      <View flex={1}>
+      <SafeAreaView flex={1}>
         {steps.length > 0 || !hideCompleted
           ? this.renderSteps()
           : this.renderNull()}
         <BottomButton onPress={this.handleCreateStep} text={t('addStep')} />
-      </View>
+      </SafeAreaView>
     );
   }
 }

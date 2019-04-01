@@ -96,7 +96,6 @@ let component;
 let instance;
 
 beforeEach(() => {
-  jest.clearAllMocks();
   component = renderShallow(
     <ContactSteps {...props} navigation={navState} />,
     store,
@@ -324,21 +323,6 @@ describe('handleCreateStep', () => {
       );
       expect(promptToAssign).not.toHaveBeenCalled();
     });
-  });
-});
-
-describe('key extractor', () => {
-  beforeAll(() => {
-    props = {
-      isMe: false,
-      person: mockPerson,
-    };
-  });
-
-  it('should call key extractor', () => {
-    const item = { id: '1' };
-    const result = instance.keyExtractor(item);
-    expect(result).toEqual(item.id);
   });
 });
 

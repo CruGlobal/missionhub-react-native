@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { SafeAreaView } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { Flex, Button } from '../common';
+import { Button } from '../common';
 
 import styles from './styles';
 
@@ -12,7 +13,7 @@ class AbsoluteSkip extends Component {
     const { t, onSkip } = this.props;
 
     return (
-      <Flex style={styles.skipWrap}>
+      <SafeAreaView style={styles.skipWrap}>
         <Button
           type="transparent"
           onPress={onSkip}
@@ -20,7 +21,7 @@ class AbsoluteSkip extends Component {
           style={styles.skipBtn}
           buttonTextStyle={styles.skipBtnText}
         />
-      </Flex>
+      </SafeAreaView>
     );
   }
 }

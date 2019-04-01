@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import debounce from 'lodash/debounce';
 
-import { loadHome } from '../../actions/auth';
+import { loadHome } from '../../actions/auth/userData';
 import {
   showReminderScreen,
   showWelcomeNotification,
@@ -31,13 +31,19 @@ import {
 } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import FooterLoading from '../../components/FooterLoading';
-import Header from '../Header';
+import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
-import { openMainMenu, refresh, toast } from '../../utils/common';
+import {
+  openMainMenu,
+  refresh,
+  toast,
+  keyExtractorId,
+} from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, STEPS_TAB } from '../../constants';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
+import TrackTabChange from '../TrackTabChange';
 
 import styles from './styles';
 
@@ -217,8 +223,6 @@ export class StepsScreen extends Component {
 
   listRef = c => (this.list = c);
 
-  listKeyExtractor = i => i.id;
-
   renderItem = ({ item }) => {
     return (
       <StepItem
@@ -255,7 +259,7 @@ export class StepsScreen extends Component {
         style={[styles.list, { paddingBottom: hasMoreSteps ? 40 : undefined }]}
         data={steps}
         extraData={{ hideStars: this.canHideStars() }}
-        keyExtractor={this.listKeyExtractor}
+        keyExtractor={keyExtractorId}
         renderItem={this.renderItem}
         removeClippedSubviews={false}
         bounces={false}
@@ -308,6 +312,7 @@ export class StepsScreen extends Component {
 
     return (
       <View style={{ flex: 1 }}>
+        <TrackTabChange screen={STEPS_TAB} />
         <Header
           left={
             <IconButton

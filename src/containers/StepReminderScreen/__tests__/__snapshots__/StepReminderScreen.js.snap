@@ -10,7 +10,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <MyText
         accessible={true}
@@ -87,28 +87,32 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
+        <Component>
+          <ReminderDateText
+            placeholder="End Date (Required)"
+            reminder={
               Object {
-                "borderBottomColor": "#B4B6BA",
-                "borderBottomWidth": 1,
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingBottom": 6,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#007398",
-              },
-            ]
-          }
-        >
-          2018-09-01 00:00
-        </MyText>
+                "next_occurrence_at": "2018-09-01",
+                "type": "once",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#B4B6BA",
+                  "borderBottomWidth": 1,
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "paddingBottom": 6,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "color": "#007398",
+                },
+              ]
+            }
+          />
+        </Component>
       </Translate(MyDatePickerIOS)>
     </Component>
     <Translate(ReminderRepeatButtons)
@@ -123,7 +127,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
 </Component>
 `;
 
-exports[`render date in props renders correctly 1`] = `
+exports[`handleRecurrenceChange renders correctly 1`] = `
 <Component
   style={
     Object {
@@ -133,130 +137,7 @@ exports[`render date in props renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
-    center={
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 16,
-            "lineHeight": 24,
-          }
-        }
-      >
-        Set a Reminder
-      </MyText>
-    }
-    left={
-      <Connect(BackButton)
-        iconStyle={
-          Object {
-            "color": "#B4B6BA",
-          }
-        }
-      />
-    }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
-  />
-  <Component
-    style={
-      Object {
-        "flex": 1,
-        "justifyContent": "center",
-      }
-    }
-  >
-    <Component
-      style={
-        Object {
-          "paddingBottom": 36,
-          "paddingHorizontal": 48,
-        }
-      }
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "fontSize": 12,
-              "lineHeight": 16,
-              "textAlignVertical": "center",
-            },
-            Object {
-              "color": "#B4B6BA",
-            },
-          ]
-        }
-      >
-        End Date
-      </MyText>
-      <Translate(MyDatePickerIOS)
-        customStyles={Object {}}
-        date="2018-09-01"
-        disabled={false}
-        duration={300}
-        height={259}
-        minDate={2018-09-01T00:00:00.000Z}
-        mode="datetime"
-        onDateChange={[Function]}
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#B4B6BA",
-                "borderBottomWidth": 1,
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingBottom": 6,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#007398",
-              },
-            ]
-          }
-        >
-          2018-09-01 00:00
-        </MyText>
-      </Translate(MyDatePickerIOS)>
-    </Component>
-    <Translate(ReminderRepeatButtons)
-      onRecurrenceChange={[Function]}
-    />
-  </Component>
-  <BottomButton
-    disabled={true}
-    onPress={[Function]}
-    text="Done"
-  />
-</Component>
-`;
-
-exports[`render no date in props renders correctly 1`] = `
-<Component
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-      "flexDirection": "column",
-    }
-  }
->
-  <Connect(Header)
+  <Header
     center={
       <MyText
         accessible={true}
@@ -323,7 +204,7 @@ exports[`render no date in props renders correctly 1`] = `
       </MyText>
       <Translate(MyDatePickerIOS)
         customStyles={Object {}}
-        date={null}
+        date=""
         disabled={false}
         duration={300}
         height={259}
@@ -331,28 +212,274 @@ exports[`render no date in props renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#B4B6BA",
-                "borderBottomWidth": 1,
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingBottom": 6,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "color": "#B4B6BA",
-              },
-            ]
+        <Component>
+          <ReminderDateText
+            placeholder="End Date (Required)"
+            reminder=""
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#B4B6BA",
+                  "borderBottomWidth": 1,
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "paddingBottom": 6,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "color": "#B4B6BA",
+                },
+              ]
+            }
+          />
+        </Component>
+      </Translate(MyDatePickerIOS)>
+    </Component>
+    <Translate(ReminderRepeatButtons)
+      onRecurrenceChange={[Function]}
+    />
+  </Component>
+  <BottomButton
+    disabled={true}
+    onPress={[Function]}
+    text="Done"
+  />
+</Component>
+`;
+
+exports[`render no reminder in props renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <Header
+    center={
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 16,
+            "lineHeight": 24,
           }
-        >
-          End Date (Required)
-        </MyText>
+        }
+      >
+        Set a Reminder
+      </MyText>
+    }
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#B4B6BA",
+          }
+        }
+      />
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <Component
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "paddingBottom": 36,
+          "paddingHorizontal": 48,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontSize": 12,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+            },
+            null,
+          ]
+        }
+      >
+        End Date
+      </MyText>
+      <Translate(MyDatePickerIOS)
+        customStyles={Object {}}
+        date=""
+        disabled={false}
+        duration={300}
+        height={259}
+        minDate={2018-09-01T00:00:00.000Z}
+        mode="datetime"
+        onDateChange={[Function]}
+      >
+        <Component>
+          <ReminderDateText
+            placeholder="End Date (Required)"
+            reminder=""
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#B4B6BA",
+                  "borderBottomWidth": 1,
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "paddingBottom": 6,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "color": "#B4B6BA",
+                },
+              ]
+            }
+          />
+        </Component>
+      </Translate(MyDatePickerIOS)>
+    </Component>
+    <Translate(ReminderRepeatButtons)
+      onRecurrenceChange={[Function]}
+    />
+  </Component>
+  <BottomButton
+    disabled={true}
+    onPress={[Function]}
+    text="Done"
+  />
+</Component>
+`;
+
+exports[`render reminder in props renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <Header
+    center={
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 16,
+            "lineHeight": 24,
+          }
+        }
+      >
+        Set a Reminder
+      </MyText>
+    }
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#B4B6BA",
+          }
+        }
+      />
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <Component
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "paddingBottom": 36,
+          "paddingHorizontal": 48,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontSize": 12,
+              "lineHeight": 16,
+              "textAlignVertical": "center",
+            },
+            Object {
+              "color": "#B4B6BA",
+            },
+          ]
+        }
+      >
+        End Date
+      </MyText>
+      <Translate(MyDatePickerIOS)
+        customStyles={Object {}}
+        date="2018-09-01"
+        disabled={false}
+        duration={300}
+        height={259}
+        minDate={2018-09-01T00:00:00.000Z}
+        mode="datetime"
+        onDateChange={[Function]}
+      >
+        <Component>
+          <ReminderDateText
+            placeholder="End Date (Required)"
+            reminder={
+              Object {
+                "next_occurrence_at": "2018-09-01",
+                "type": "once",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#B4B6BA",
+                  "borderBottomWidth": 1,
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "paddingBottom": 6,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "color": "#007398",
+                },
+              ]
+            }
+          />
+        </Component>
       </Translate(MyDatePickerIOS)>
     </Component>
     <Translate(ReminderRepeatButtons)

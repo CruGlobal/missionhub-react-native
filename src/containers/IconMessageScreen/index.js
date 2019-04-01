@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image } from 'react-native';
+import { SafeAreaView, Image } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Flex, Text } from '../../components/common';
@@ -19,7 +19,10 @@ class IconMessageScreen extends Component {
           <Image source={iconPath} style={styles.image} />
           <Text style={styles.text}>{mainText}</Text>
         </Flex>
-        <BottomButton onPress={onComplete} text={buttonText} />
+
+        <SafeAreaView style={{ flex: 1, justifyContent: 'flex-end' }}>
+          <BottomButton onPress={onComplete} text={buttonText} />
+        </SafeAreaView>
         {onSkip ? <AbsoluteSkip onSkip={onSkip} /> : null}
       </Flex>
     );

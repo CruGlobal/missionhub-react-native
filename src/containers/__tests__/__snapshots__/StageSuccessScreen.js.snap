@@ -5,8 +5,10 @@ exports[`renders correctly 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "backgroundColor": "#007398",
         "flex": 1,
+        "justifyContent": "center",
         "paddingHorizontal": 60,
       },
       Object {
@@ -68,76 +70,78 @@ exports[`renders correctly 1`] = `
       Friend test
     </Text>
   </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits="button"
-    accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
+  <RCTSafeAreaView
     style={
       Object {
-        "opacity": 1,
+        "flex": 1,
+        "justifyContent": "flex-end",
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
+      accessibilityTraits="button"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#52C5DC",
-            "height": 60,
-            "justifyContent": "center",
-          },
-          null,
-          Object {},
-          null,
-        ]
+        Object {
+          "opacity": 1,
+        }
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <View
         style={
           Array [
             Object {
-              "color": "#505256",
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
             },
+            null,
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "width": 750,
             },
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#ffffff",
-                "fontSize": 18,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "textAlign": "center",
-              },
-              Object {},
-            ],
+            null,
           ]
         }
       >
-        CHOOSE MY STEPS
-      </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          CHOOSE MY STEPS
+        </Text>
+      </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -146,8 +150,10 @@ exports[`renders correctly with default state 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "backgroundColor": "#007398",
         "flex": 1,
+        "justifyContent": "center",
         "paddingHorizontal": 60,
       },
       Object {
@@ -209,75 +215,77 @@ exports[`renders correctly with default state 1`] = `
       We are glad you are here, Friend!
     </Text>
   </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits="button"
-    accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
+  <RCTSafeAreaView
     style={
       Object {
-        "opacity": 1,
+        "flex": 1,
+        "justifyContent": "flex-end",
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
+      accessibilityTraits="button"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#52C5DC",
-            "height": 60,
-            "justifyContent": "center",
-          },
-          null,
-          Object {},
-          null,
-        ]
+        Object {
+          "opacity": 1,
+        }
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <View
         style={
           Array [
             Object {
-              "color": "#505256",
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
             },
+            null,
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "width": 750,
             },
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#ffffff",
-                "fontSize": 18,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "textAlign": "center",
-              },
-              Object {},
-            ],
+            null,
           ]
         }
       >
-        CHOOSE MY STEPS
-      </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          CHOOSE MY STEPS
+        </Text>
+      </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
 </View>
 `;

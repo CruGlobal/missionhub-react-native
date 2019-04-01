@@ -24,22 +24,18 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
     style={
       Array [
-        Array [
-          Object {
-            "backgroundColor": "#007398",
-            "height": 65,
-            "paddingTop": 20,
-          },
-          undefined,
-          Object {
-            "elevation": 4,
-          },
-        ],
         Object {
+          "backgroundColor": "#007398",
           "flexDirection": "row",
+          "height": 65,
+          "paddingTop": 20,
+        },
+        undefined,
+        Object {
+          "elevation": 4,
         },
       ]
     }
@@ -48,7 +44,6 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
-            "marginTop": 0,
             "paddingLeft": 5,
           },
           Object {
@@ -62,29 +57,20 @@ exports[`renders correctly 1`] = `
       <View
         style={
           Array [
-            Array [
-              null,
-              null,
-            ],
             Object {
               "alignItems": "flex-start",
               "alignSelf": "flex-start",
               "justifyContent": "center",
             },
+            undefined,
+            null,
           ]
         }
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
           accessibilityTraits="button"
           accessible={true}
-          collapsable={undefined}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -96,8 +82,6 @@ exports[`renders correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={
@@ -153,9 +137,7 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Array [
-          Object {
-            "marginTop": 0,
-          },
+          Object {},
           Object {
             "alignItems": "center",
             "flex": 5,
@@ -220,7 +202,6 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
-            "marginTop": 0,
             "paddingRight": 5,
           },
           Object {
@@ -232,16 +213,9 @@ exports[`renders correctly 1`] = `
       }
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
         accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -253,8 +227,6 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <View
           style={
@@ -306,7 +278,7 @@ exports[`renders correctly 1`] = `
         </View>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
   <View
     style={
       Array [
@@ -393,7 +365,7 @@ exports[`renders with no results state 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <Flex
         align="center"
@@ -435,6 +407,7 @@ exports[`renders with no results state 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
   />
   <NullStateComponent
     descriptionText="Search results will appear here."
@@ -457,7 +430,7 @@ exports[`renders with results state 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <Flex
         align="center"
@@ -499,6 +472,7 @@ exports[`renders with results state 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
   />
   <NullStateComponent
     descriptionText="Search results will appear here."
@@ -521,7 +495,7 @@ exports[`renders with searching state 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <Flex
         align="center"
@@ -563,6 +537,7 @@ exports[`renders with searching state 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
   />
   <NullStateComponent
     descriptionText="Search results will appear here."

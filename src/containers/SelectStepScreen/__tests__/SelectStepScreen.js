@@ -41,8 +41,6 @@ buildCustomStep.mockReturnValue(customStep);
 addStep.mockReturnValue(addStepsResult);
 
 beforeEach(() => {
-  jest.clearAllMocks();
-
   store = mockStore({ auth });
 
   screen = renderShallow(
@@ -106,6 +104,7 @@ describe('BottomButton', () => {
   beforeEach(() => {
     screen
       .childAt(1)
+      .childAt(0)
       .props()
       .onPress();
   });

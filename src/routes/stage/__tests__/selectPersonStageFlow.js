@@ -68,7 +68,6 @@ const navigatePushResponse = { type: 'navigate push' };
 
 beforeEach(() => {
   store.clearActions();
-  jest.clearAllMocks();
   personSelector.mockReturnValue(person);
   updatePersonAttributes.mockReturnValue(updatePersonResponse);
   getPersonDetails.mockReturnValue(getPersonDetailsResponse);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Keyboard, Alert } from 'react-native';
+import { SafeAreaView, Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
@@ -9,6 +9,7 @@ import theme from '../../theme';
 import { STEP_NOTE, CREATE_STEP } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
+import AbsoluteSkip from '../../components/AbsoluteSkip';
 import BottomButton from '../../components/BottomButton';
 
 import styles from './styles';
@@ -103,12 +104,12 @@ class AddStepScreen extends Component {
   ref = c => (this.stepInput = c);
 
   render() {
-    const { t, type, hideSkip } = this.props;
+    const { type, hideSkip, t } = this.props;
     const { lightGrey } = theme;
     const { backButtonStyle, input } = styles;
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
           <Flex align="end" justify="center">
             <Button
@@ -147,7 +148,10 @@ class AddStepScreen extends Component {
         {type !== STEP_NOTE ? (
           <BackButton absolute={true} iconStyle={backButtonStyle} />
         ) : null}
-      </View>
+        {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
+          <AbsoluteSkip onSkip={this.skip} />
+        ) : null}
+      </SafeAreaView>
     );
   }
 }

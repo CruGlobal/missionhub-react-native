@@ -4,49 +4,58 @@ exports[`Contact should render correctly 1`] = `
 <Component
   style={
     Object {
-      "backgroundColor": "#E6E8EC",
+      "backgroundColor": "#007398",
       "flex": 1,
       "flexDirection": "column",
       "justifyContent": "space-between",
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     shadow={false}
     title="Test Org"
   />
-  <Translate(GroupsContactList)
-    activity={Array []}
-    myId="me"
-    onAssign={[MockFunction]}
-    organization={
+  <SafeAreaView
+    style={
       Object {
-        "id": "1",
-        "name": "Test Org",
+        "backgroundColor": "#B4B6BA",
+        "flex": 1,
       }
     }
-    person={
-      Object {
-        "full_name": "Test Person",
-        "id": "1",
+  >
+    <Translate(GroupsContactList)
+      activity={Array []}
+      myId="me"
+      onAssign={[MockFunction]}
+      organization={
+        Object {
+          "id": "1",
+          "name": "Test Org",
+        }
       }
-    }
-  />
-  <Connect(Translate(CommentBox))
-    onSubmit={[Function]}
-    organization={
-      Object {
-        "id": "1",
-        "name": "Test Org",
+      person={
+        Object {
+          "full_name": "Test Person",
+          "id": "1",
+        }
       }
-    }
-    person={
-      Object {
-        "full_name": "Test Person",
-        "id": "1",
+    />
+    <Connect(JourneyCommentBox)
+      onSubmit={[Function]}
+      organization={
+        Object {
+          "id": "1",
+          "name": "Test Org",
+        }
       }
-    }
-  />
+      person={
+        Object {
+          "full_name": "Test Person",
+          "id": "1",
+        }
+      }
+    />
+  </SafeAreaView>
 </Component>
 `;

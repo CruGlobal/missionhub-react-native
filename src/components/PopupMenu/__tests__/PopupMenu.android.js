@@ -3,32 +3,27 @@ import { UIManager } from 'react-native';
 import { shallow } from 'enzyme';
 
 import PopupMenu from '../index.android.js';
-import { testSnapshotShallow } from '../../../../testUtils';
+import { testSnapshot } from '../../../../testUtils';
+import * as common from '../../../utils/common';
 
 const onPress = jest.fn();
+common.showMenu = jest.fn();
 const props = {
   actions: [{ text: 'test', onPress }],
 };
 
 describe('PopupMenu Android', () => {
   it('renders with 1 button', () => {
-    testSnapshotShallow(<PopupMenu {...props} />);
+    testSnapshot(<PopupMenu {...props} />);
   });
   it('renders with icon props', () => {
-    testSnapshotShallow(<PopupMenu {...props} iconProps={{ size: 24 }} />);
-  });
-
-  it('calls on press item for the right button', () => {
-    UIManager.showPopupMenu = jest.fn();
-    const instance = shallow(<PopupMenu {...props} />).instance();
-    instance.handleItemPress(undefined, 0);
-    expect(onPress).toHaveBeenCalled();
+    testSnapshot(<PopupMenu {...props} iconProps={{ size: 24 }} />);
   });
 
   it('calls handle press', () => {
     UIManager.showPopupMenu = jest.fn();
     const instance = shallow(<PopupMenu {...props} />).instance();
     instance.handlePress();
-    expect(onPress).toHaveBeenCalled();
+    expect(common.showMenu).toHaveBeenCalledWith(props.actions, undefined);
   });
 });

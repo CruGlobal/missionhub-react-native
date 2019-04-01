@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -14,6 +14,7 @@ import { buildUpdatedPagination } from '../../utils/pagination';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
+import styles from './styles';
 
 @translate('groupsContacts')
 class Contacts extends Component {
@@ -128,22 +129,24 @@ class Contacts extends Component {
     const { t } = this.props;
     const { filters, defaultResults } = this.state;
     return (
-      <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="handled">
-        <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />
-        <SearchList
-          ref={this.listRef}
-          defaultData={defaultResults}
-          onFilterPress={this.handleFilterPress}
-          listProps={{
-            renderItem: this.renderItem,
-          }}
-          onSearch={this.handleSearch}
-          onRemoveFilter={this.handleRemoveFilter}
-          onLoadMore={this.handleLoadMore}
-          filters={filters}
-          placeholder={t('searchPlaceholder')}
-        />
-      </ScrollView>
+      <SafeAreaView style={styles.pageContainer}>
+        <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="handled">
+          <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />
+          <SearchList
+            ref={this.listRef}
+            defaultData={defaultResults}
+            onFilterPress={this.handleFilterPress}
+            listProps={{
+              renderItem: this.renderItem,
+            }}
+            onSearch={this.handleSearch}
+            onRemoveFilter={this.handleRemoveFilter}
+            onLoadMore={this.handleLoadMore}
+            filters={filters}
+            placeholder={t('searchPlaceholder')}
+          />
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 }

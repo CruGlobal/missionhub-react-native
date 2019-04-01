@@ -4,7 +4,6 @@ import Config from 'react-native-config';
 
 export const LOGOUT = 'app/LOGOUT';
 export const FIRST_TIME = 'app/FIRST_TIME';
-export const OPEN_URL = 'app/OPEN_URL';
 export const FIRST_NAME_CHANGED = 'app/FIRST_NAME_CHANGED';
 export const LAST_NAME_CHANGED = 'app/LAST_NAME_CHANGED';
 export const PERSON_FIRST_NAME_CHANGED = 'app/PERSON_FIRST_NAME_CHANGED';
@@ -45,6 +44,10 @@ export const GET_ORGANIZATION_PEOPLE = 'app/GET_ORGANIZATION_PEOPLE';
 export const GET_ORGANIZATION_SURVEYS = 'app/GET_ORGANIZATION_SURVEYS';
 export const RESET_CELEBRATION_PAGINATION = 'app/RESET_CELEBRATION_PAGINATION';
 export const RESET_CHALLENGE_PAGINATION = 'app/RESET_CHALLENGE_PAGINATION';
+export const SET_CELEBRATE_EDITING_COMMENT =
+  'app/SET_CELEBRATE_EDITING_COMMENT';
+export const RESET_CELEBRATE_EDITING_COMMENT =
+  'app/RESET_CELEBRATE_EDITING_COMMENT';
 
 export const GLOBAL_COMMUNITY_ID = '_global_community_id';
 
@@ -66,6 +69,7 @@ export const MAIN_TABS = 'nav/MAIN_TABS';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const PERSON_MENU_DRAWER = 'nav/drawer/person';
 export const UPDATE_TOKEN = 'app/UPDATE_TOKEN';
+export const CLEAR_UPGRADE_TOKEN = 'app/CLEAR_UPGRADE_TOKEN';
 
 // Errors
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
@@ -107,6 +111,7 @@ export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
 export const MAIN_TAB_CHANGED = 'analytics/MAIN_TAB_CHANGED';
 export const GROUP_TAB_CHANGED = 'analytics/GROUP_TAB_CHANGED';
+export const TRACK_TAB = 'analytics/TRACK_TAB';
 export const PERSON_VIEWED_STAGE_CHANGED =
   'analytics/PERSON_VIEWED_STAGE_CHANGED';
 export const SELF_VIEWED_STAGE_CHANGED = 'analytics/SELF_VIEWED_STAGE_CHANGED';
@@ -241,6 +246,22 @@ export const ACTIONS = {
   ITEM_LIKED: {
     name: 'Celebrate Item Liked',
     key: 'cru.celebrateitemliked',
+  },
+  CELEBRATE_COMMENT_ADDED: {
+    name: 'Celebrate Comment Added',
+    key: 'cru.sendcelebratecomment',
+  },
+  CELEBRATE_COMMENT_EDITED: {
+    name: 'Celebrate Comment Edited',
+    key: 'cru.editcelebratecomment',
+  },
+  CELEBRATE_COMMENT_DELETED: {
+    name: 'Celebrate Comment Deleted',
+    key: 'cru.deletecelebratecomment',
+  },
+  CELEBRATE_COMMENT_REPORTED: {
+    name: 'Celebrate Comment Reported',
+    key: 'cru.reportcelebratecomment',
   },
   ASSIGNED_TO_ME: {
     name: 'Assigned to Me',

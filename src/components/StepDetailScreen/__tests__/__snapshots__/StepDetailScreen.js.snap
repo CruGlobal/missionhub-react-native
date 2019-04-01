@@ -9,7 +9,7 @@ exports[`markdown is not null renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       Object {
         "prop": "center header",
@@ -42,6 +42,7 @@ exports[`markdown is not null renders correctly 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
+        "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontWeight": "300",
         "lineHeight": 38,
@@ -611,7 +612,7 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       Object {
         "prop": "center header",
@@ -644,6 +645,7 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
     ellipsizeMode="tail"
     style={
       Object {
+        "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontWeight": "300",
         "lineHeight": 38,
@@ -680,7 +682,7 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       Object {
         "prop": "center header",
@@ -713,6 +715,7 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
+        "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontWeight": "300",
         "lineHeight": 38,

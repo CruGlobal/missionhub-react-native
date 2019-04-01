@@ -19,7 +19,7 @@ class MyDatePickerIOS extends Component {
     allowPointerEvents: true,
   };
 
-  componentWillReceiveProps({ date }) {
+  UNSAFE_componentWillReceiveProps({ date }) {
     if (date !== this.props.date) {
       this.setState({ date: getDate(date) });
     }

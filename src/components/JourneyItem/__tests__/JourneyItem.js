@@ -19,9 +19,6 @@ const person = {
 const date = '2017-12-06T14:24:52Z';
 
 beforeEach(() => {
-  getAssignedToName.mockReset();
-  getAssignedByName.mockReset();
-
   getAssignedToName.mockReturnValue('Roger');
   getAssignedByName.mockReturnValue('Billy');
 });

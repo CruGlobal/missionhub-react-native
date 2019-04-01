@@ -25,7 +25,7 @@ class MyDatePickerAndroid extends Component {
     date: getDate(this.props.date),
   };
 
-  componentWillReceiveProps({ date }) {
+  UNSAFE_componentWillReceiveProps({ date }) {
     if (date !== this.props.date) {
       this.setState({ date: getDate(date) });
     }

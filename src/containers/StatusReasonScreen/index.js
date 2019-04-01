@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 import { navigateBack } from '../../actions/navigation';
 import { deleteContactAssignment } from '../../actions/person';
 import { Flex, Text, Button, Input } from '../../components/common';
-import Header from '../Header';
+import Header from '../../components/Header';
 import BackButton from '../BackButton';
 import theme from '../../theme';
 
