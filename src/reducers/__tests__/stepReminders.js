@@ -84,7 +84,7 @@ describe('REQUESTS.DELETE_CHALLENGE_REMINDER.SUCCESS', () => {
     expect(
       stepReminders(
         {
-          all: {
+          allByStep: {
             [challenge_id]: reminder,
           },
         },
@@ -93,6 +93,6 @@ describe('REQUESTS.DELETE_CHALLENGE_REMINDER.SUCCESS', () => {
           query: { challenge_id },
         },
       ),
-    ).toEqual({ all: {} });
+    ).toEqual({ allByStep: {} });
   });
 });
