@@ -54,6 +54,7 @@ class CelebrateFeed extends Component {
     return (
       <CelebrateItem
         event={item}
+        organization={organization}
         onPressItem={
           organization.id !== GLOBAL_COMMUNITY_ID && this.onPressItem
         }
