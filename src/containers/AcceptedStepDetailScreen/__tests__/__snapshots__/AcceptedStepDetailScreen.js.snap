@@ -59,7 +59,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
               type="MissionHub"
             />
           </Component>
-          <Unknown
+          <ReminderDateText
             reminder={
               Object {
                 "id": "1",
@@ -193,7 +193,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
               type="MissionHub"
             />
           </Component>
-          <Unknown
+          <ReminderDateText
             reminder={
               Object {
                 "id": "1",
@@ -264,6 +264,102 @@ exports[`without challenge suggestion renders correctly 1`] = `
     }
   }
   markdown={null}
+  text="ROBERT"
+/>
+`;
+
+exports[`without reminder renders correctly 1`] = `
+<StepDetailScreen
+  CenterContent={
+    <Connect(ReminderButton)
+      stepId="234242"
+    >
+      <Component
+        style={
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderColor": "#E6E8EC",
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingHorizontal": 16,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Component
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+            }
+          }
+        >
+          <Component
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "borderRadius": 16,
+                "height": 32,
+                "justifyContent": "center",
+                "margin": 8,
+                "width": 32,
+              }
+            }
+          >
+            <Icon
+              name="bellIcon"
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                }
+              }
+              type="MissionHub"
+            />
+          </Component>
+          <ReminderDateText
+            style={
+              Object {
+                "fontSize": 16,
+              }
+            }
+          />
+        </Component>
+      </Component>
+    </Connect(ReminderButton)>
+  }
+  CenterHeader={null}
+  RightHeader={
+    <Button
+      buttonTextStyle={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+        }
+      }
+      onPress={[Function]}
+      style={
+        Object {
+          "paddingRight": 10,
+        }
+      }
+      text="REMOVE STEP"
+      type="transparent"
+    />
+  }
+  bottomButtonProps={
+    Object {
+      "onPress": [Function],
+      "text": "I Did It!",
+    }
+  }
   text="ROBERT"
 />
 `;

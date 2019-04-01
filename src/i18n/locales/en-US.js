@@ -76,6 +76,10 @@ export default {
     dates: {
       today: 'Today',
       yesterday: 'Yesterday',
+      tomorrow: 'Tomorrow',
+      everyDay: 'Every day',
+      every: 'Every',
+      onceAMonth: 'Once a month on the',
     },
     steps: {},
     yes: 'Yes',
