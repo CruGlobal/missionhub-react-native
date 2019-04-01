@@ -4,14 +4,14 @@ import StatusCompleteScreen from '..';
 
 import { STATUS_REASON_SCREEN } from '../../StatusReasonScreen';
 import {
-  createMockStore,
+  createThunkStore,
   renderShallow,
   testSnapshotShallow,
   createMockNavState,
 } from '../../../../testUtils';
 import * as navigation from '../../../actions/navigation';
 
-const store = createMockStore({
+const store = createThunkStore({
   auth: {
     person: {
       id: '123',
@@ -47,7 +47,7 @@ describe('StatusCompleteScreen', () => {
 
   it('should unassign and navigate away', () => {
     const instance = renderShallow(component, store).instance();
-    navigation.navigatePush = jest.fn();
+    navigation.navigatePush = jest.fn(() => ({ type: 'navigated push' }));
     const onSubmit = instance.onSubmitReason;
     instance.cancel();
     expect(navigation.navigatePush).toHaveBeenCalledWith(STATUS_REASON_SCREEN, {
@@ -60,7 +60,7 @@ describe('StatusCompleteScreen', () => {
 
   it('should complete', () => {
     const instance = renderShallow(component, store).instance();
-    navigation.navigateBack = jest.fn();
+    navigation.navigateBack = jest.fn(() => ({ type: 'navigated back' }));
     instance.complete();
     expect(navigation.navigateBack).toHaveBeenCalledWith(2);
   });

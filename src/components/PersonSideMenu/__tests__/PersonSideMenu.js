@@ -7,7 +7,7 @@ import PersonSideMenu from '..';
 
 import {
   renderShallow,
-  createMockStore,
+  createThunkStore,
   createMockNavState,
   testSnapshotShallow,
 } from '../../../../testUtils';
@@ -44,7 +44,7 @@ const orgPermission = {
 const contactAssignment = { id: '3', type: 'reverse_contact_assignment' };
 const organization = { id: '4', type: 'organization' };
 
-const store = createMockStore({
+const store = createThunkStore({
   auth: {
     person: me,
   },
@@ -60,6 +60,11 @@ const store = createMockStore({
 });
 
 personSelector.mockReturnValue(person);
+navigateBack.mockReturnValue({ type: 'navigated back' });
+navigatePush.mockReturnValue({ type: 'navigated push' });
+assignContactAndPickStage.mockReturnValue({
+  type: 'assigned contact and picked stage',
+});
 
 let component;
 
@@ -161,7 +166,7 @@ describe('PersonSideMenu', () => {
 
     describe('componentWillUnmount', () => {
       beforeEach(() =>
-        deleteContactAssignment.mockImplementation(response =>
+        deleteContactAssignment.mockImplementation(response => () =>
           Promise.resolve(response),
         ));
 

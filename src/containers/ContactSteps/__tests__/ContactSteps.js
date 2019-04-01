@@ -7,14 +7,18 @@ import React from 'react';
 import ContactSteps from '..';
 
 import {
-  createMockStore,
+  createThunkStore,
   createMockNavState,
   testSnapshotShallow,
   renderShallow,
 } from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
+import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { buildTrackingObj } from '../../../utils/common';
-import { getContactSteps } from '../../../actions/steps';
+import {
+  getContactSteps,
+  completeStep,
+  deleteStepWithTracking,
+} from '../../../actions/steps';
 import { contactAssignmentSelector } from '../../../selectors/people';
 import { assignContactAndPickStage } from '../../../actions/misc';
 import { promptToAssign } from '../../../utils/promptToAssign';
@@ -23,6 +27,7 @@ import {
   ADD_MY_STEP_FLOW,
   ADD_PERSON_STEP_FLOW,
 } from '../../../routes/constants';
+import { reloadJourney } from '../../../actions/journey';
 
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/navigation');
@@ -85,13 +90,20 @@ const trackingObj = buildTrackingObj(
   'steps',
 );
 
-getContactSteps.mockReturnValue({ response: steps });
+getContactSteps.mockReturnValue(() => {
+  response: steps;
+});
+navigatePush.mockReturnValue({ type: 'navigated push' });
+navigateBack.mockReturnValue({ type: 'navigated back' });
+navigateToStageScreen.mockReturnValue({ type: 'navigated to stage screen' });
+completeStep.mockReturnValue({ type: 'completed step' });
+reloadJourney.mockReturnValue({ type: 'reloaded journey' });
+deleteStepWithTracking.mockReturnValue({ type: 'deleted step with tracking' });
 
-const store = createMockStore(mockState);
+const store = createThunkStore(mockState);
 const navState = createMockNavState();
 
 let props = { isMe: false, person: mockPerson };
-
 let component;
 let instance;
 
@@ -106,7 +118,7 @@ beforeEach(() => {
 it('renders correctly with no steps', () => {
   testSnapshotShallow(
     <ContactSteps {...props} navigation={navState} />,
-    createMockStore({
+    createThunkStore({
       ...mockState,
       steps: {
         ...mockState.steps,
@@ -123,7 +135,7 @@ it('renders correctly with steps', () => {
 it('renders correctly with completed steps', () => {
   const component = renderShallow(
     <ContactSteps {...props} navigation={navState} />,
-    createMockStore(mockStateCompleted),
+    createThunkStore(mockStateCompleted),
   );
 
   component

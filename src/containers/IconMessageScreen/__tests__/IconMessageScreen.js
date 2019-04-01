@@ -4,10 +4,10 @@ import { Provider } from 'react-redux';
 
 import IconMessageScreen from '..';
 
-import { createMockStore } from '../../../../testUtils';
+import { createThunkStore } from '../../../../testUtils';
 import { testSnapshot } from '../../../../testUtils';
 
-const store = createMockStore();
+const store = createThunkStore();
 
 jest.mock('react-native-device-info');
 

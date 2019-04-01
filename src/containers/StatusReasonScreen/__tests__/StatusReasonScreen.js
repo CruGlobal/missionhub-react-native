@@ -3,7 +3,7 @@ import React from 'react';
 import StatusReasonScreen from '..';
 
 import {
-  createMockStore,
+  createThunkStore,
   renderShallow,
   createMockNavState,
 } from '../../../../testUtils';
@@ -13,7 +13,7 @@ import { navigateBack } from '../../../actions/navigation';
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/navigation');
 
-const store = createMockStore({
+const store = createThunkStore({
   auth: {
     person: {
       id: '123',
@@ -33,6 +33,9 @@ const organization = { id: '1', name: 'Test Org' };
 const contactAssignment = { id: '4' };
 
 let onSubmit = undefined;
+
+deleteContactAssignment.mockReturnValue({ type: 'deleted contact assignment' });
+navigateBack.mockReturnValue({ type: 'navigated back' });
 
 describe('StatusReasonScreen', () => {
   const createComponent = () => {

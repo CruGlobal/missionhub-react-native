@@ -7,19 +7,25 @@ import WelcomeScreen from '..';
 
 import {
   testSnapshot,
-  createMockStore,
+  createThunkStore,
   createMockNavState,
 } from '../../../../testUtils';
 import * as common from '../../../utils/common';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
 
-const store = createMockStore();
+let store;
 
-const next = jest.fn();
+const next = jest.fn(() => ({ type: 'next' }));
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/analytics');
+
+trackActionWithoutData.mockReturnValue({ type: 'tracked action without data' });
+
+beforeEach(() => {
+  store = createThunkStore();
+});
 
 it('renders correctly', () => {
   testSnapshot(
