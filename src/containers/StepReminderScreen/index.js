@@ -2,28 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { translate } from 'react-i18next';
-import moment from 'moment';
 
 import BackButton from '../BackButton';
 import Header from '../../components/Header';
 import DatePicker from '../../components/DatePicker';
 import BottomButton from '../../components/BottomButton';
 import ReminderRepeatButtons from '../../components/ReminderRepeatButtons';
+import ReminderDateText from '../../components/ReminderDateText';
 import { Text } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import { createStepReminder } from '../../actions/stepReminders';
+import { reminderSelector } from '../../selectors/stepReminders';
+import { REMINDER_RECURRENCES } from '../../constants';
 
 import styles from './styles';
 
 @translate('stepReminder')
 class StepReminderScreen extends Component {
   state = {
-    date: this.props.date,
+    date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',
     disableBtn: true,
-    recurrence: null,
+    recurrence: (this.props.reminder && this.props.reminder.type) || null,
   };
-
-  today = new Date();
 
   handleChangeDate = date => {
     if (!date) {
@@ -41,7 +41,7 @@ class StepReminderScreen extends Component {
     dispatch(createStepReminder(stepId, date, recurrence));
   };
 
-  onRecurrenceChange = recurrence => {
+  handleRecurrenceChange = recurrence => {
     this.setState({ recurrence });
   };
 
@@ -60,7 +60,7 @@ class StepReminderScreen extends Component {
 
   renderDateInput() {
     const { t } = this.props;
-    const { date } = this.state;
+    const { date, recurrence } = this.state;
     const {
       dateInputContainer,
       inputHeaderText,
@@ -69,11 +69,18 @@ class StepReminderScreen extends Component {
       inputTextFull,
     } = styles;
 
+    const today = new Date();
+
     const inputHeaderStyle = [inputHeaderText, date ? inputTextInactive : null];
     const inputContentStyle = [
       inputContentText,
       date ? inputTextFull : inputTextInactive,
     ];
+
+    const sampleReminder = date && {
+      type: recurrence || REMINDER_RECURRENCES.ONCE,
+      next_occurrence_at: date,
+    };
 
     return (
       <View style={dateInputContainer}>
@@ -81,14 +88,16 @@ class StepReminderScreen extends Component {
         <DatePicker
           date={date}
           mode="datetime"
-          minDate={this.today}
+          minDate={today}
           onDateChange={this.handleChangeDate}
         >
-          <Text style={inputContentStyle}>
-            {!date
-              ? t('endDatePlaceholder')
-              : moment(date).format('YYYY-MM-DD HH:mm')}
-          </Text>
+          <View>
+            <ReminderDateText
+              style={inputContentStyle}
+              reminder={sampleReminder}
+              placeholder={t('endDatePlaceholder')}
+            />
+          </View>
         </DatePicker>
       </View>
     );
@@ -103,7 +112,9 @@ class StepReminderScreen extends Component {
         {this.renderHeader()}
         <View style={inputContainer}>
           {this.renderDateInput()}
-          <ReminderRepeatButtons onRecurrenceChange={this.onRecurrenceChange} />
+          <ReminderRepeatButtons
+            onRecurrenceChange={this.handleRecurrenceChange}
+          />
         </View>
         <BottomButton
           disabled={this.state.disableBtn}
@@ -116,7 +127,7 @@ class StepReminderScreen extends Component {
 }
 
 const mapStateToProps = (
-  _,
+  { stepReminders },
   {
     navigation: {
       state: {
@@ -126,6 +137,7 @@ const mapStateToProps = (
   },
 ) => ({
   stepId,
+  reminder: reminderSelector({ stepReminders }, { stepId }),
 });
 export default connect(mapStateToProps)(StepReminderScreen);
 export const STEP_REMINDER_SCREEN = 'nav/STEP_REMINDER';

@@ -17,6 +17,7 @@ export default StyleSheet.create({
   stepTitleText: {
     fontSize: 32,
     lineHeight: 38,
+    fontFamily: 'SourceSansPro-Light',
     fontWeight: '300',
     marginVertical: 16,
     marginHorizontal: 32,

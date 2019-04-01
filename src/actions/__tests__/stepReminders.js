@@ -2,8 +2,8 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { DAYS_OF_THE_WEEK, REMINDER_RECURRENCES } from '../../constants';
+import { removeStepReminder, createStepReminder } from '../stepReminders';
 import callApi, { REQUESTS } from '../api';
-import { createStepReminder } from '../stepReminders';
 
 jest.mock('../api');
 
@@ -22,6 +22,18 @@ callApi.mockReturnValue(callApiResponse);
 
 beforeEach(() => {
   store = mockStore();
+});
+
+describe('removeStepReminder', () => {
+  beforeEach(() => {
+    store.dispatch(removeStepReminder(challenge_id));
+  });
+
+  it('should remove reminder from step', () => {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CHALLENGE_REMINDER, {
+      challenge_id,
+    });
+  });
 });
 
 describe('createStepReminder', () => {

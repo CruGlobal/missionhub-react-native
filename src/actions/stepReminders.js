@@ -4,6 +4,11 @@ import callApi, { REQUESTS } from './api';
 
 const { ONCE, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
+export function removeStepReminder(challenge_id) {
+  return dispatch =>
+    dispatch(callApi(REQUESTS.DELETE_CHALLENGE_REMINDER, { challenge_id }));
+}
+
 export function createStepReminder(challenge_id, at, type) {
   return dispatch =>
     dispatch(

@@ -14,13 +14,8 @@ export default StyleSheet.create({
   },
   bellIcon: {
     fontSize: 18,
+    paddingRight: 8,
     color: theme.secondaryColor,
-  },
-  reminderText: {
-    color: theme.secondaryColor,
-    paddingLeft: 8,
-    fontSize: 14,
-    lineHeight: 18,
   },
   stepText: {
     flex: 1,
