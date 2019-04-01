@@ -16,6 +16,7 @@ import { CREATE_STEP, STEP_NOTE } from '../../../constants';
 import * as common from '../../../utils/common';
 import locale from '../../../i18n/locales/en-US';
 
+//fixed in steps-improvement
 const mockDate = '2018-09-12 12:00:00 PM GMT+0';
 MockDate.set(mockDate);
 

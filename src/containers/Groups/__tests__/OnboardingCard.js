@@ -3,7 +3,7 @@
 import React from 'react';
 
 import {
-  createMockStore,
+  createThunkStore,
   testSnapshotShallow,
   renderShallow,
 } from '../../../../testUtils';
@@ -21,9 +21,13 @@ const groupOnboarding = {
   [GROUP_ONBOARDING_TYPES.surveys]: true,
 };
 
+removeGroupOnboardingCard.mockReturnValue({
+  type: 'removed group onboarding card',
+});
+
 describe('OnboardingCard', () => {
   it('render celebrate card', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
@@ -33,7 +37,7 @@ describe('OnboardingCard', () => {
   });
 
   it('render celebrate card hidden', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       swipe: {
         groupOnboarding: {
           ...groupOnboarding,
@@ -48,7 +52,7 @@ describe('OnboardingCard', () => {
   });
 
   it('render challenges card', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
@@ -58,7 +62,7 @@ describe('OnboardingCard', () => {
   });
 
   it('render challenges card hidden', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       swipe: {
         groupOnboarding: {
           ...groupOnboarding,
@@ -73,7 +77,7 @@ describe('OnboardingCard', () => {
   });
 
   it('render members card', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
@@ -83,7 +87,7 @@ describe('OnboardingCard', () => {
   });
 
   it('render members card hidden', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       swipe: {
         groupOnboarding: {
           ...groupOnboarding,
@@ -98,7 +102,7 @@ describe('OnboardingCard', () => {
   });
 
   it('render impact card', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
@@ -108,7 +112,7 @@ describe('OnboardingCard', () => {
   });
 
   it('render impact card hidden', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       swipe: {
         groupOnboarding: {
           ...groupOnboarding,
@@ -123,7 +127,7 @@ describe('OnboardingCard', () => {
   });
 
   it('render contacts card', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
@@ -133,7 +137,7 @@ describe('OnboardingCard', () => {
   });
 
   it('render contacts card hidden', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       swipe: {
         groupOnboarding: {
           ...groupOnboarding,
@@ -148,7 +152,7 @@ describe('OnboardingCard', () => {
   });
 
   it('render surveys card', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
@@ -158,7 +162,7 @@ describe('OnboardingCard', () => {
   });
 
   it('render surveys card hidden', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       swipe: {
         groupOnboarding: {
           ...groupOnboarding,
@@ -174,7 +178,7 @@ describe('OnboardingCard', () => {
 });
 
 it('handles press event from the close button', () => {
-  const store = createMockStore({
+  const store = createThunkStore({
     swipe: { groupOnboarding },
   });
   const component = renderShallow(

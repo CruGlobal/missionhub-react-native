@@ -2,7 +2,7 @@ import React from 'react';
 import ReactNative from 'react-native';
 
 import {
-  createMockStore,
+  createThunkStore,
   testSnapshotShallow,
   renderShallow,
 } from '../../../../testUtils';
@@ -16,7 +16,7 @@ it('renders correctly for authenticated user', () => {
   const mockState = {
     auth: { isFirstTime: false },
   };
-  const store = createMockStore(mockState);
+  const store = createThunkStore(mockState);
   testSnapshotShallow(<SettingsMenu />, store);
 });
 
@@ -24,7 +24,7 @@ it('renders correctly for try it now user', () => {
   const mockState = {
     auth: { isFirstTime: true },
   };
-  const store = createMockStore(mockState);
+  const store = createThunkStore(mockState);
   testSnapshotShallow(<SettingsMenu />, store);
 });
 
@@ -33,7 +33,7 @@ describe('menu items and links', () => {
   const mockState = {
     auth: { isFirstTime: false },
   };
-  const store = createMockStore(mockState);
+  const store = createThunkStore(mockState);
 
   beforeEach(() => {
     ReactNative.Linking.openURL = jest.fn();

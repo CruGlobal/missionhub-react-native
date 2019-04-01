@@ -29,6 +29,7 @@ const otherPerson = {
   first_name: 'John',
   last_name: 'Smith',
 };
+const orgId = '111';
 
 const trackActionResult = { type: 'tracked plain action' };
 
@@ -47,7 +48,7 @@ beforeEach(() => {
 describe('CelebrateItem', () => {
   const testEvent = e => {
     testSnapshotShallow(
-      <CelebrateItem event={e} myId={myId} onToggleLike={jest.fn()} />,
+      <CelebrateItem event={e} myId={myId} onPressItem={jest.fn()} />,
       store,
     );
   };
@@ -222,13 +223,32 @@ describe('CelebrateItem', () => {
       };
       testEvent(event);
     });
+
+    it('renders joined community with passed in org name', () => {
+      const organization = { id: orgId, name: 'My Real Org' };
+      event = {
+        ...messageBaseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.joinedCommunity,
+        organization: {
+          name: 'Celebration Community',
+        },
+      };
+      testSnapshotShallow(
+        <CelebrateItem
+          event={event}
+          organization={organization}
+          myId={myId}
+          onPressItem={jest.fn()}
+        />,
+        store,
+      );
+    });
   });
 });
 
 describe('onPressChallengeLink', () => {
   it('navigates to challenge detail screen', () => {
     const challengeId = '123';
-    const orgId = '111';
 
     const navigateResponse = { type: 'navigate push' };
     navigatePush.mockReturnValue(navigateResponse);

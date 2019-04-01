@@ -105,6 +105,11 @@ exports[`item renders correctly 1`] = `
     }
   }
   onPressItem={[Function]}
+  organization={
+    Object {
+      "id": "456",
+    }
+  }
 />
 `;
 

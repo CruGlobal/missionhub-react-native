@@ -10,14 +10,14 @@ import AddChallengeScreen from '..';
 import {
   createMockNavState,
   testSnapshot,
-  createMockStore,
+  createThunkStore,
   renderShallow,
 } from '../../../../testUtils';
 
 const mockDate = '2018-09-01';
 MockDate.set(mockDate);
 
-const store = createMockStore();
+const store = createThunkStore();
 
 const editChallenge = {
   id: '1',

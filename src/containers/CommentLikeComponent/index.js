@@ -28,10 +28,13 @@ class CommentLikeComponent extends Component {
     const {
       event: { comments_count },
     } = this.props;
+    const displayCommentCount = comments_count > 0;
 
     return (
       <Fragment>
-        <Text style={styles.likeCount}>{comments_count || 0}</Text>
+        <Text style={styles.likeCount}>
+          {displayCommentCount ? comments_count : null}
+        </Text>
         <Image source={COMMENTS} style={{ marginHorizontal: 10 }} />
       </Fragment>
     );

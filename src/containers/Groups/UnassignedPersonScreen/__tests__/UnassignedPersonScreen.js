@@ -6,15 +6,13 @@ import UnassignedPersonScreen from '..';
 import { INTERACTION_TYPES } from '../../../../constants';
 import {
   renderShallow,
-  createMockStore,
+  createThunkStore,
   testSnapshotShallow,
   createMockNavState,
 } from '../../../../../testUtils';
 import { getGroupJourney } from '../../../../actions/journey';
 
-jest.mock('../../../../actions/journey', () => ({
-  getGroupJourney: jest.fn(() => [{ id: '1' }]),
-}));
+jest.mock('../../../../actions/journey');
 jest.mock('../../../../actions/person', () => ({
   createContactAssignment: jest.fn(() => Promise.resolve()),
 }));
@@ -24,7 +22,9 @@ const me = { id: 'me' };
 const organization = { id: '1', name: 'Test Org' };
 const person = { id: '1', full_name: 'Test Person' };
 
-const store = createMockStore({
+let store;
+
+const state = {
   auth: { person: me },
   organizations: { all: [organization] },
   people: {
@@ -36,11 +36,18 @@ const store = createMockStore({
       },
     },
   },
-});
+};
 
 const spiritualConversationAction = Object.values(INTERACTION_TYPES).find(
   i => i.isOnAction && i.translationKey === 'interactionSpiritualConversation',
 );
+const groupJourneyResult = { id: '1' };
+
+getGroupJourney.mockReturnValue(() => Promise.resolve(groupJourneyResult));
+
+beforeEach(() => {
+  store = createThunkStore(state);
+});
 
 describe('Contact', () => {
   const component = (
@@ -63,6 +70,6 @@ describe('Contact', () => {
 
     await instance.loadFeed(data);
     expect(getGroupJourney).toHaveBeenCalledWith(person.id, organization.id);
-    expect(instance.state.activity).toEqual([{ id: '1' }]);
+    expect(instance.state.activity).toEqual(groupJourneyResult);
   });
 });
