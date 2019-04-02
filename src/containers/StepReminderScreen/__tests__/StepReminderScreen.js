@@ -25,7 +25,7 @@ const stepId = '42234';
 const reminderId = '1';
 const reminder = {
   id: reminderId,
-  type: ONCE,
+  reminder_type: ONCE,
   next_occurrence_at: mockDate,
 };
 const stepReminders = {
