@@ -22,7 +22,8 @@ class StepReminderScreen extends Component {
   state = {
     date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',
     disableBtn: true,
-    recurrence: (this.props.reminder && this.props.reminder.type) || null,
+    recurrence:
+      (this.props.reminder && this.props.reminder.reminder_type) || null,
   };
 
   handleChangeDate = date => {
