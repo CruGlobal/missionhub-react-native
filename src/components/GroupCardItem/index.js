@@ -7,8 +7,7 @@ import { Text, Flex, Card, Button, Icon } from '../common';
 import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.png';
 import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
 import Dot from '../Dot';
-import { getFirstNameAndLastInitial } from '../../utils/common';
-import { GLOBAL_COMMUNITY_ID } from '../../constants';
+import { getFirstNameAndLastInitial, orgIsGlobal } from '../../utils/common';
 
 import styles from './styles';
 
@@ -65,7 +64,7 @@ export default class GroupCardItem extends Component {
     const { group } = this.props;
     if (group.community_photo_url) {
       return { uri: group.community_photo_url };
-    } else if (group.id === GLOBAL_COMMUNITY_ID) {
+    } else if (orgIsGlobal(group)) {
       return GLOBAL_COMMUNITY_IMAGE;
     } else if (group.user_created) {
       return undefined;
@@ -78,7 +77,8 @@ export default class GroupCardItem extends Component {
     const { t, group, onPress, onJoin } = this.props;
     const source = this.getSource();
 
-    const hasNotification = group.unread_comments_count !== 0;
+    const isGlobal = orgIsGlobal(group);
+    const hasNotification = !isGlobal && group.unread_comments_count !== 0;
 
     //not passing a value for onPress to Card makes the card unclickable.
     //In some cases we want to prevent clicking on GroupCardItem.
@@ -91,7 +91,7 @@ export default class GroupCardItem extends Component {
           value={1}
           style={[
             styles.content,
-            group.user_created && group.id !== GLOBAL_COMMUNITY_ID
+            group.user_created && !isGlobal
               ? styles.userCreatedContent
               : undefined,
           ]}

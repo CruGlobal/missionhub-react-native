@@ -100,7 +100,7 @@ it('should refresh correctly', async () => {
   );
 
   await component
-    .childAt(0)
+    .childAt(1)
     .props()
     .refreshCallback();
 

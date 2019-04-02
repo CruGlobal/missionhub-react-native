@@ -15,6 +15,7 @@ import OnboardingCard, {
 import { markCommentsRead } from '../../actions/unreadComments';
 import UnreadCommentsCard from '../../components/UnreadCommentsCard';
 import ReportCommentHeaderCard from '../../components/ReportCommentHeaderCard';
+import { GROUP_UNREAD_FEED_SCREEN } from '../Groups/GroupUnreadFeed';
 
 import styles from './styles';
 
@@ -41,8 +42,8 @@ class CelebrateFeedHeader extends Component {
   };
 
   commentCard = () => {
-    // const { dispatch, organization } = this.props;
-    // dispatch(navigatePush(GROUPS_UNREAD_COMMENTS_SCREEN, { organization }));
+    const { dispatch, organization } = this.props;
+    dispatch(navigatePush(GROUP_UNREAD_FEED_SCREEN, { organization }));
   };
 
   renderCommentCard() {

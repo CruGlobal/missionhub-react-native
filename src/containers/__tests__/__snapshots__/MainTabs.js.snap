@@ -174,11 +174,14 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "white",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                      },
+                      undefined,
+                    ],
                   ]
                 }
               >
@@ -964,11 +967,14 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "white",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                      },
+                      undefined,
+                    ],
                   ]
                 }
               >

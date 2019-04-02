@@ -755,7 +755,14 @@ export default {
   celebrateFeedHeader: {
     reports: '{{count}} new reported comment',
     reports_plural: '{{count}} new reported comments',
-    newComments: 'New Comments',
+    newComments: 'New Comment',
+    newComments_plural: 'New Comments',
+  },
+  groupUnread: {
+    title: '{{count}} New Comment',
+    title_plural: '{{count}} New Comments',
+    header: 'No Unread Comments',
+    reportNull: 'No Unread comments.',
   },
   groupsReport: {
     title: 'Reported Comment',

@@ -81,6 +81,20 @@ describe('Member Feed rendering', () => {
   });
 });
 
+describe('no header rendering', () => {
+  it('renders correctly for no header', () => {
+    component = renderShallow(
+      <CelebrateFeed
+        noHeader={true}
+        items={celebrationItems}
+        organization={organization}
+      />,
+      store,
+    );
+    expect(component).toMatchSnapshot();
+  });
+});
+
 it('renders section header', () => {
   const renderedItem = component
     .instance()
