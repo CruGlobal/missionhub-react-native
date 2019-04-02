@@ -131,47 +131,47 @@ class MyDatePickerIOS extends Component {
           animationType="none"
           visible={modalVisible}
           onRequestClose={this.closeModal}
+          style={styles.datePickerContainer}
         >
           <Touchable
             style={datePickerMask}
             activeOpacity={1}
             onPress={this.onPressCancel}
+          />
+          <Animated.View
+            style={[datePickerBox, { height: animatedHeight }]}
+            pointerEvents={allowPointerEvents ? 'auto' : 'none'}
           >
-            <Animated.View
-              style={[datePickerBox, { height: animatedHeight }]}
-              pointerEvents={allowPointerEvents ? 'auto' : 'none'}
-            >
-              <DatePickerIOS
-                date={date}
-                mode={mode}
-                minimumDate={minDate && getDate(minDate)}
-                maximumDate={maxDate && getDate(maxDate)}
-                onDateChange={this.onDateChange}
-                minuteInterval={minuteInterval}
-                timeZoneOffsetInMinutes={
-                  timeZoneOffsetInMinutes ? timeZoneOffsetInMinutes : null
-                }
-                style={[datePicker, customStyles.datePicker]}
-                locale={locale}
+            <DatePickerIOS
+              date={date}
+              mode={mode}
+              minimumDate={minDate && getDate(minDate)}
+              maximumDate={maxDate && getDate(maxDate)}
+              onDateChange={this.onDateChange}
+              minuteInterval={minuteInterval}
+              timeZoneOffsetInMinutes={
+                timeZoneOffsetInMinutes ? timeZoneOffsetInMinutes : null
+              }
+              style={[datePicker, customStyles.datePicker]}
+              locale={locale}
+            />
+            {iOSModalContent}
+            <View style={topWrap}>
+              <Button
+                type={'transparent'}
+                onPress={this.onPressCancel}
+                text={cancelBtnText || t('cancel')}
+                buttonTextStyle={[btnText, btnTextCancel]}
               />
-              {iOSModalContent}
-              <View style={topWrap}>
-                <Button
-                  type={'transparent'}
-                  onPress={this.onPressCancel}
-                  text={cancelBtnText || t('cancel')}
-                  buttonTextStyle={[btnText, btnTextCancel]}
-                />
-                <Text style={titleText}>{title || t('date')}</Text>
-                <Button
-                  type={'transparent'}
-                  onPress={this.onPressConfirm}
-                  text={doneBtnText || t('done')}
-                  buttonTextStyle={[btnText, customStyles.btnTextConfirm]}
-                />
-              </View>
-            </Animated.View>
-          </Touchable>
+              <Text style={titleText}>{title || t('date')}</Text>
+              <Button
+                type={'transparent'}
+                onPress={this.onPressConfirm}
+                text={doneBtnText || t('done')}
+                buttonTextStyle={[btnText, customStyles.btnTextConfirm]}
+              />
+            </View>
+          </Animated.View>
         </Modal>
       </View>
     );

@@ -14,7 +14,7 @@ const mockStore = configureStore([thunk]);
 const challenge_id = '442324';
 const callApiResponse = { type: 'called api' };
 
-let at;
+let reminder_at;
 let recurrence;
 let store;
 
@@ -37,18 +37,18 @@ describe('removeStepReminder', () => {
 });
 
 describe('createStepReminder', () => {
-  beforeAll(() => (at = new Date('2019-3-21 15:45:32')));
+  beforeAll(() => (reminder_at = new Date('2019-3-21 15:45:32')));
 
   beforeEach(() =>
-    store.dispatch(createStepReminder(challenge_id, at, recurrence)));
+    store.dispatch(createStepReminder(challenge_id, reminder_at, recurrence)));
 
-  const testApiCall = (type, at, on) =>
+  const testApiCall = (reminder_type, reminder_at, reminder_on) =>
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.CREATE_CHALLENGE_REMINDER,
       { challenge_id },
       {
         data: {
-          attributes: { type, at, on },
+          attributes: { reminder_type, reminder_at, reminder_on },
         },
       },
     );
@@ -60,7 +60,7 @@ describe('createStepReminder', () => {
     beforeAll(() => (recurrence = ONCE));
 
     it('calls api with correct payload', () =>
-      testApiCall(ONCE, at.toISOString(), undefined));
+      testApiCall(ONCE, reminder_at.toISOString(), undefined));
   });
 
   describe('with daily recurrence', () => {
@@ -69,7 +69,7 @@ describe('createStepReminder', () => {
     it('calls api with correct payload', () =>
       testApiCall(
         DAILY,
-        at.toLocaleTimeString(undefined, { hour12: false }),
+        reminder_at.toLocaleTimeString(undefined, { hour12: false }),
         undefined,
       ));
   });
@@ -80,7 +80,7 @@ describe('createStepReminder', () => {
     it('calls api with correct payload', () =>
       testApiCall(
         WEEKLY,
-        at.toLocaleTimeString(undefined, { hour12: false }),
+        reminder_at.toLocaleTimeString(undefined, { hour12: false }),
         DAYS_OF_THE_WEEK[4],
       ));
   });
@@ -92,19 +92,19 @@ describe('createStepReminder', () => {
       it('calls api with correct payload', () =>
         testApiCall(
           MONTHLY,
-          at.toLocaleTimeString(undefined, { hour12: false }),
-          at.getDate(),
+          reminder_at.toLocaleTimeString(undefined, { hour12: false }),
+          reminder_at.getDate(),
         ));
     });
 
     describe('with day that does not occur in every month', () => {
-      beforeAll(() => (at = new Date('2019-3-30 15:45:32')));
+      beforeAll(() => (reminder_at = new Date('2019-3-30 15:45:32')));
 
       it('calls api with correct payload', () =>
         testApiCall(
           MONTHLY,
-          at.toLocaleTimeString(undefined, { hour12: false }),
-          at.getDate() - 32,
+          reminder_at.toLocaleTimeString(undefined, { hour12: false }),
+          reminder_at.getDate() - 32,
         ));
     });
   });

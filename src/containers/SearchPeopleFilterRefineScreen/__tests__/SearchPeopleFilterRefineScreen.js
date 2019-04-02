@@ -2,13 +2,13 @@ import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { createMockStore } from '../../../../testUtils';
+import { createThunkStore } from '../../../../testUtils';
 
 import SearchPeopleFilterRefineScreen from '..';
 
 import { createMockNavState, testSnapshot } from '../../../../testUtils';
 
-const store = createMockStore();
+const store = createThunkStore();
 
 jest.mock('react-native-device-info');
 jest.mock('Switch');

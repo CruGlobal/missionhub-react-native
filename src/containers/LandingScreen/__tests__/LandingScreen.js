@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import LandingScreen from '..';
 
 import {
-  createMockStore,
+  createThunkStore,
   testSnapshot,
   renderShallow,
 } from '../../../../testUtils';
@@ -25,8 +25,10 @@ jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn().mockReturnValue({ type: 'navigate push' }),
 }));
 
+firstTime.mockReturnValue({ type: 'first time' });
+
 beforeEach(() => {
-  store = createMockStore();
+  store = createThunkStore();
 });
 
 it('renders correctly', () => {

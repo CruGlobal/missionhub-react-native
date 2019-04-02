@@ -5,7 +5,7 @@ import GroupReport from '../GroupReport';
 import {
   renderShallow,
   createMockNavState,
-  createMockStore,
+  createThunkStore,
 } from '../../../../testUtils';
 import { deleteCelebrateComment } from '../../../actions/celebrateComments';
 import {
@@ -37,7 +37,7 @@ const report1 = {
 
 const org = { id: 'orgId' };
 let store;
-const mockStore = {
+const mockState = {
   organizations: {
     all: [org],
   },
@@ -46,12 +46,13 @@ const mockStore = {
   },
 };
 
+getReportedComments.mockReturnValue(() => Promise.resolve());
 deleteCelebrateComment.mockReturnValue({ type: 'delete comment' });
 ignoreReportComment.mockReturnValue({ type: 'ignore comment' });
 navigateBack.mockReturnValue({ type: 'navigate back' });
 
 beforeEach(() => {
-  store = createMockStore(mockStore);
+  store = createThunkStore(mockState);
 });
 
 it('should render correctly', () => {
@@ -63,7 +64,7 @@ it('should render correctly', () => {
 });
 
 it('should render empty correctly', () => {
-  store = createMockStore({ ...mockStore, reportedComments: { all: {} } });
+  store = createThunkStore({ ...mockState, reportedComments: { all: {} } });
   const component = renderShallow(
     <GroupReport navigation={createMockNavState({ organization: org })} />,
     store,
@@ -72,7 +73,7 @@ it('should render empty correctly', () => {
 });
 
 it('should call navigate back', () => {
-  store = createMockStore({ ...mockStore, reportedComments: { all: {} } });
+  store = createThunkStore({ ...mockState, reportedComments: { all: {} } });
   const component = renderShallow(
     <GroupReport navigation={createMockNavState({ organization: org })} />,
     store,
@@ -112,7 +113,7 @@ it('should refresh items properly', () => {
 });
 
 describe('report item', () => {
-  store = createMockStore(mockStore);
+  store = createThunkStore(mockState);
   const component = renderShallow(
     <GroupReport navigation={createMockNavState({ organization: org })} />,
     store,

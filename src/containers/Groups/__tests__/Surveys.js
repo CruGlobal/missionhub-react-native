@@ -3,7 +3,7 @@ import React from 'react';
 import Surveys from '../Surveys';
 import {
   renderShallow,
-  createMockStore,
+  createThunkStore,
   testSnapshotShallow,
 } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
@@ -41,7 +41,7 @@ const surveys = [
     uncontacted_contacts_count: 5,
   },
 ];
-const store = createMockStore({
+const store = createThunkStore({
   organizations: {
     all: [
       {
@@ -58,6 +58,11 @@ const organization = {
   name: 'Test Org',
 };
 
+navigatePush.mockReturnValue({ type: 'navigated push' });
+getOrgSurveysNextPage.mockReturnValue({ type: 'got org surveys next page' });
+getOrgSurveys.mockReturnValue({ type: 'got org surveys' });
+refreshCommunity.mockReturnValue({ type: 'refreshed community' });
+
 describe('Surveys', () => {
   const component = <Surveys organization={organization} />;
 
@@ -66,7 +71,7 @@ describe('Surveys', () => {
   });
 
   it('should mount correctly', () => {
-    const store = createMockStore({
+    const store = createThunkStore({
       organizations: {
         all: [
           {

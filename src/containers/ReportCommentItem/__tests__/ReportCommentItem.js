@@ -5,7 +5,7 @@ import i18n from 'i18next';
 import {
   testSnapshotShallow,
   renderShallow,
-  createMockStore,
+  createThunkStore,
 } from '../../../../testUtils';
 import { deleteCelebrateComment } from '../../../actions/celebrateComments';
 import {
@@ -23,7 +23,7 @@ ignoreReportComment.mockReturnValue({ type: 'ignore comment' });
 getReportedComments.mockReturnValue({ type: 'get report comments' });
 
 beforeEach(() => {
-  store = createMockStore(mockStore);
+  store = createThunkStore(mockState);
 });
 
 const event = { id: 'eventId' };
@@ -49,7 +49,7 @@ const props = {
 };
 
 let store;
-const mockStore = {
+const mockState = {
   organizations: {
     all: [org],
   },

@@ -11,7 +11,7 @@ import AddContactFields from '..';
 import {
   testSnapshotShallow,
   renderShallow,
-  createMockStore,
+  createThunkStore,
 } from '../../../../testUtils';
 import { orgPermissionSelector } from '../../../selectors/people';
 
@@ -20,11 +20,12 @@ jest.mock('../../../selectors/people');
 const mockStore = configureStore([thunk]);
 const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
 
-const store = createMockStore({ auth: { person: {} } });
+const state = { auth: { person: {} } };
+
 function buildScreen(props, builtStore) {
   return renderShallow(
     <AddContactFields onUpdateData={jest.fn()} {...props} />,
-    builtStore || store,
+    builtStore || createThunkStore(state),
   );
 }
 

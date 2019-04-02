@@ -7,7 +7,7 @@ import { orgPermissionSelector } from '../../../selectors/people';
 import {
   renderShallow,
   testSnapshotShallow,
-  createMockStore,
+  createThunkStore,
 } from '../../../../testUtils';
 
 import GroupMemberItem from '..';
@@ -62,7 +62,7 @@ const props = {
   organization,
 };
 
-const store = createMockStore({
+const store = createThunkStore({
   auth: {
     person: me,
   },
