@@ -229,10 +229,32 @@ exports[`unread comments card renders comment card 1`] = `
 </React.Fragment>
 `;
 
-exports[`unread comments card renders no comment card 1`] = `
+exports[`unread comments card renders no comment card when global org 1`] = `
 <React.Fragment>
   <Connect(Translate(OnboardingCard))
     type="celebrate"
   />
+</React.Fragment>
+`;
+
+exports[`unread comments card renders no comment card when no new comments 1`] = `
+<React.Fragment>
+  <Connect(Translate(OnboardingCard))
+    type="celebrate"
+  />
+  <Flex
+    style={
+      Object {
+        "borderBottomColor": "#505256",
+        "borderBottomWidth": 1,
+        "padding": 20,
+      }
+    }
+  >
+    <ReportCommentHeaderCard
+      count={1}
+      onPress={[Function]}
+    />
+  </Flex>
 </React.Fragment>
 `;

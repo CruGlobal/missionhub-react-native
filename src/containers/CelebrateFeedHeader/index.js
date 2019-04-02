@@ -12,10 +12,7 @@ import { GROUPS_REPORT_SCREEN } from '../Groups/GroupReport';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../../containers/Groups/OnboardingCard';
-import {
-  getUnreadComments,
-  markCommentsRead,
-} from '../../actions/unreadComments';
+import { markCommentsRead } from '../../actions/unreadComments';
 import UnreadCommentsCard from '../../components/UnreadCommentsCard';
 import ReportCommentHeaderCard from '../../components/ReportCommentHeaderCard';
 
@@ -27,13 +24,9 @@ class CelebrateFeedHeader extends Component {
       dispatch,
       organization: { id: orgId },
       shouldQueryReport,
-      shouldQueryNewComments,
     } = this.props;
     if (shouldQueryReport) {
       dispatch(getReportedComments(orgId));
-    }
-    if (shouldQueryNewComments) {
-      dispatch(getUnreadComments(orgId));
     }
   }
 
@@ -122,16 +115,14 @@ export const mapStateToProps = (
   const isCruOrg = orgIsCru(selectorOrg);
 
   const shouldQueryReport = isCruOrg ? isUserAdmin : isUserOwner;
-  const shouldQueryNewComments = !orgIsGlobal(selectorOrg);
-  const newCommentsCount = 12; // TODO: Connect this to the right data
+  const newCommentsCount = selectorOrg.unread_comments_count;
 
   return {
     organization: selectorOrg,
     shouldQueryReport,
     isReportVisible: shouldQueryReport && reportedCount !== 0,
     reportedCount,
-    isCommentCardVisible: shouldQueryNewComments && newCommentsCount !== 0,
-    shouldQueryNewComments,
+    isCommentCardVisible: !orgIsGlobal(selectorOrg) && newCommentsCount !== 0,
     newCommentsCount,
   };
 };

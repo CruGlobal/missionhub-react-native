@@ -15,10 +15,10 @@ const buildScreen = (props = {}) => {
 };
 
 const storeActive = {
-  auth: { person: { hasActiveNotification: true } },
+  auth: { person: { unread_comments_count: 10 } },
 };
 const storeInactive = {
-  auth: { person: { hasActiveNotification: false } },
+  auth: { person: { unread_comments_count: 0 } },
 };
 
 beforeEach(() => {
