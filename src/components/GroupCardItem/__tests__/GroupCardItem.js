@@ -15,6 +15,7 @@ const group = {
   name: 'Group Name',
   contactReport: {},
   user_created: false,
+  unread_comments_count: 0,
 };
 
 let props = {
@@ -167,7 +168,7 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        has_unread_comments_for_user: true,
+        unread_comments_count: 11,
       },
     };
 

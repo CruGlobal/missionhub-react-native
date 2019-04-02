@@ -37,7 +37,6 @@ function TabIcon({ name, tintColor, showNotification }) {
 }
 
 const mapStateToProps = ({ auth }, { name }) => ({
-  // TODO: Get the right variable here to show the notification dot
-  showNotification: name === 'group' && auth.person.hasActiveNotification,
+  showNotification: name === 'group' && auth.person.unread_comments_count,
 });
 export default connect(mapStateToProps)(TabIcon);

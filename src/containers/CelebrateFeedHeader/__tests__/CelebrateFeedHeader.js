@@ -9,10 +9,7 @@ import { organizationSelector } from '../../../selectors/organizations';
 import { ORG_PERMISSIONS, GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import { GROUPS_REPORT_SCREEN } from '../../Groups/GroupReport';
-import {
-  markCommentsRead,
-  getUnreadComments,
-} from '../../../actions/unreadComments';
+import { markCommentsRead } from '../../../actions/unreadComments';
 
 import CelebrateFeedHeader from '..';
 
@@ -23,7 +20,6 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/unreadComments');
 
 getReportedComments.mockReturnValue(() => ({ type: 'getReportedComments' }));
-getUnreadComments.mockReturnValue(() => ({ type: 'getUnreadComments' }));
 markCommentsRead.mockReturnValue(() => ({ type: 'markCommentsRead' }));
 navigatePush.mockReturnValue(() => ({ type: 'navigatePush' }));
 
@@ -33,6 +29,7 @@ const organization = {
   id: '1',
   user_created: true,
   reportedComments: [comment1],
+  unread_comments_count: 12,
 };
 const me = { id: 'myId' };
 
@@ -82,16 +79,22 @@ describe('unread comments card', () => {
   it('renders comment card', () => {
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
-    expect(getUnreadComments).toHaveBeenCalledWith(organization.id);
   });
-  it('renders no comment card', () => {
+  it('renders no comment card when global org', () => {
     organizationSelector.mockReturnValue({
       ...organization,
       id: GLOBAL_COMMUNITY_ID,
     });
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
-    expect(getUnreadComments).not.toHaveBeenCalled();
+  });
+  it('renders no comment card when no new comments', () => {
+    organizationSelector.mockReturnValue({
+      ...organization,
+      unread_comments_count: 0,
+    });
+    const screen = buildScreen();
+    expect(screen).toMatchSnapshot();
   });
 });
 
@@ -124,7 +127,6 @@ describe('admin', () => {
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).not.toHaveBeenCalled();
-    expect(getUnreadComments).not.toHaveBeenCalled();
   });
 });
 
@@ -167,7 +169,6 @@ describe('global community org', () => {
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).not.toHaveBeenCalled();
-    expect(getUnreadComments).not.toHaveBeenCalled();
   });
 });
 

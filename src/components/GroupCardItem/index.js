@@ -78,8 +78,7 @@ export default class GroupCardItem extends Component {
     const { t, group, onPress, onJoin } = this.props;
     const source = this.getSource();
 
-    // TODO: Figure this out from the API
-    const hasNotification = group.has_unread_comments_for_user;
+    const hasNotification = group.unread_comments_count !== 0;
 
     //not passing a value for onPress to Card makes the card unclickable.
     //In some cases we want to prevent clicking on GroupCardItem.
