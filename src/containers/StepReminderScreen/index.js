@@ -21,7 +21,9 @@ import styles from './styles';
 class StepReminderScreen extends Component {
   state = {
     date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',
-    disableBtn: true,
+    disableBtn: !(
+      this.props.reminder && this.props.reminder.next_occurrence_at
+    ),
     recurrence:
       (this.props.reminder && this.props.reminder.reminder_type) || null,
   };
@@ -106,6 +108,7 @@ class StepReminderScreen extends Component {
 
   render() {
     const { t } = this.props;
+    const { recurrence } = this.state;
     const { container, inputContainer } = styles;
 
     return (
@@ -114,6 +117,7 @@ class StepReminderScreen extends Component {
         <View style={inputContainer}>
           {this.renderDateInput()}
           <ReminderRepeatButtons
+            recurrence={recurrence}
             onRecurrenceChange={this.handleRecurrenceChange}
           />
         </View>
