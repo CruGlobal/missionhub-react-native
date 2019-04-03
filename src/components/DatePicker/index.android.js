@@ -44,9 +44,10 @@ class MyDatePickerAndroid extends Component {
     isFunction(onDateChange) && onDateChange(date);
   }
 
-  async showDatePicker() {
+  async showPicker() {
     const { mode } = this.props;
 
+    const today = moment();
     let dateTimeSelections;
 
     switch (mode) {
@@ -60,15 +61,23 @@ class MyDatePickerAndroid extends Component {
         dateTimeSelections = {};
     }
 
-    const { action, year, month, day, hour, minute } = dateTimeSelections;
+    const {
+      action,
+      year = today.year(),
+      month = today.month(),
+      day = today.date(),
+      hour = today.hour(),
+      minute = today.minutes(),
+    } = dateTimeSelections;
 
-    if (action !== DatePickerAndroid.dismissedAction) {
-      this.setState({
-        date,
-      });
-      return this.datePicked();
+    if (action === DatePickerAndroid.dismissedAction) {
+      return this.onPressCancel();
     }
-    this.onPressCancel();
+
+    this.setState({
+      date: new Date(year, month, day, hour, minute),
+    });
+    return this.datePicked();
   }
 
   async launchDatePicker() {
@@ -134,9 +143,7 @@ class MyDatePickerAndroid extends Component {
       date: getDate(date),
     });
 
-    return isFunction(onPressAndroid)
-      ? onPressAndroid()
-      : this.showDatePicker();
+    return isFunction(onPressAndroid) ? onPressAndroid() : this.showPicker();
   };
 
   render() {
