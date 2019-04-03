@@ -32,8 +32,11 @@ class CelebrateFeedHeader extends Component {
   }
 
   closeCommentCard = () => {
-    const { dispatch } = this.props;
-    dispatch(markCommentsRead());
+    const {
+      dispatch,
+      organization: { id: orgId },
+    } = this.props;
+    dispatch(markCommentsRead(orgId));
   };
 
   report = () => {

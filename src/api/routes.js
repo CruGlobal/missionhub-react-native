@@ -230,6 +230,10 @@ export default {
     endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments/:commentId`,
     method: 'delete',
   },
+  MARK_ORG_COMMENTS_AS_READ: {
+    endpoint: `${API_URL}/unread_items`,
+    method: 'delete',
+  },
   GET_REPORTED_COMMENTS: {
     endpoint: `${ORG_URL}/:orgId/comment_reports`,
   },
