@@ -24,9 +24,31 @@ describe('none selected', () => {
     test();
   });
 
-  it('updates state', () => {
+  it('starts with once recurrence in state', () => {
     expect(instance.state).toEqual({
       recurrence: ONCE,
+    });
+  });
+});
+
+describe('starts with weekly selected', () => {
+  beforeEach(() => {
+    component = renderShallow(
+      <ReminderRepeatButtons
+        recurrence={WEEKLY}
+        onRecurrenceChange={jest.fn()}
+      />,
+    );
+    instance = component.instance();
+  });
+
+  it('renders with weekly highlighted', () => {
+    test();
+  });
+
+  it('starts with weekly recurrence in state', () => {
+    expect(instance.state).toEqual({
+      recurrence: WEEKLY,
     });
   });
 });
