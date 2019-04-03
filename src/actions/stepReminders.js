@@ -44,7 +44,7 @@ function createOn(reminder_at, reminder_type) {
     case MONTHLY:
       return getDayOfMonth(reminder_at.getDate());
     default:
-      return undefined;
+      return null;
   }
 }
 

@@ -60,7 +60,7 @@ describe('createStepReminder', () => {
     beforeAll(() => (recurrence = ONCE));
 
     it('calls api with correct payload', () =>
-      testApiCall(ONCE, reminder_at.toISOString(), undefined));
+      testApiCall(ONCE, reminder_at.toISOString(), null));
   });
 
   describe('with daily recurrence', () => {
@@ -70,7 +70,7 @@ describe('createStepReminder', () => {
       testApiCall(
         DAILY,
         reminder_at.toLocaleTimeString(undefined, { hour12: false }),
-        undefined,
+        null,
       ));
   });
 
