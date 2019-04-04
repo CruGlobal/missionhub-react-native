@@ -231,8 +231,10 @@ class CelebrateItem extends Component {
               </View>
               {rightCorner}
             </View>
-            <Text style={styles.description}>{this.renderMessage()}</Text>
-            {this.renderChallengeLink()}
+            <View style={styles.description}>
+              <Text>{this.renderMessage()}</Text>
+              {this.renderChallengeLink()}
+            </View>
           </Flex>
           <Separator />
           <CommentLikeComponent event={event} style={styles.content} />
