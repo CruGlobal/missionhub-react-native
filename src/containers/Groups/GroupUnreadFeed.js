@@ -13,6 +13,7 @@ import CelebrateFeed from '../CelebrateFeed';
 import theme from '../../theme';
 import { celebrationSelector } from '../../selectors/celebration';
 import { refreshCommunity } from '../../actions/organizations';
+import { markCommentsRead } from '../../actions/unreadComments';
 
 import styles from './styles';
 
@@ -34,6 +35,7 @@ class GroupUnreadFeed extends Component {
       celebrateItems: response || [],
     });
     this.setState({ items });
+    dispatch(markCommentsRead(organization.id));
     return items;
   };
 

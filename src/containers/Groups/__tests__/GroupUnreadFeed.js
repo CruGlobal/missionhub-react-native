@@ -1,23 +1,24 @@
 import React from 'react';
 import MockDate from 'mockdate';
+import configureStore from 'redux-mock-store';
 
 import GroupUnreadFeed from '../GroupUnreadFeed';
-import {
-  renderShallow,
-  createMockNavState,
-  createMockStore,
-} from '../../../../testUtils';
+import { renderShallow, createMockNavState } from '../../../../testUtils';
 import * as common from '../../../utils/common';
 import { navigateBack } from '../../../actions/navigation';
 import { ACCEPTED_STEP } from '../../../constants';
 import { celebrationSelector } from '../../../selectors/celebration';
 import { organizationSelector } from '../../../selectors/organizations';
 import { getGroupCelebrateFeedUnread } from '../../../actions/celebration';
+import { markCommentsRead } from '../../../actions/unreadComments';
+import { refreshCommunity } from '../../../actions/organizations';
 
 jest.mock('../../../actions/celebration');
+jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/organizations');
+jest.mock('../../../actions/organizations');
 
 MockDate.set('2017-06-18');
 const org = { id: 'orgId' };
@@ -45,8 +46,10 @@ const items = [
   },
 ];
 
+const mockStore = configureStore();
 let store;
-const mockStore = {
+
+const storeData = {
   organizations: {
     all: [org],
   },
@@ -56,6 +59,8 @@ getGroupCelebrateFeedUnread.mockReturnValue({
   type: 'getGroupCelebrateFeedUnread',
 });
 navigateBack.mockReturnValue({ type: 'navigateBack' });
+markCommentsRead.mockReturnValue({ type: 'markCommentsRead' });
+refreshCommunity.mockReturnValue({ type: 'refreshCommunity' });
 
 const buildScreen = () => {
   const component = renderShallow(
@@ -68,7 +73,7 @@ const buildScreen = () => {
 };
 
 beforeEach(() => {
-  store = createMockStore(mockStore);
+  store = mockStore(storeData);
   organizationSelector.mockReturnValue(org);
   celebrationSelector.mockReturnValue(items);
 });
@@ -95,8 +100,18 @@ it('should call navigate back', () => {
   expect(navigateBack).toHaveBeenCalled();
 });
 
+it('should mount', async () => {
+  const component = buildScreen();
+  await component.instance().loadItems();
+  expect(refreshCommunity).toHaveBeenCalledWith(org.id);
+  expect(getGroupCelebrateFeedUnread).toHaveBeenCalledWith(org.id);
+  expect(markCommentsRead).toHaveBeenCalledWith(org.id);
+});
+
 it('should refresh correctly', async () => {
   const component = buildScreen();
+  const instance = component.instance();
+  instance.loadItems = jest.fn(() => Promise.resolve());
 
   await component
     .childAt(2)
@@ -104,7 +119,7 @@ it('should refresh correctly', async () => {
     .props()
     .refreshCallback();
 
-  expect(getGroupCelebrateFeedUnread).toHaveBeenCalledWith(org.id);
+  expect(instance.loadItems).toHaveBeenCalled();
 });
 
 it('should refresh items properly', () => {
