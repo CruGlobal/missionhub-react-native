@@ -7,7 +7,7 @@ import i18n from 'i18next';
 import Members from '../Members';
 import {
   renderShallow,
-  createMockStore,
+  createThunkStore,
   testSnapshotShallow,
 } from '../../../../testUtils';
 import { navToPersonScreen } from '../../../actions/person';
@@ -38,7 +38,7 @@ const orgId = '1';
 const myId = '111';
 
 const organization = { id: orgId, name: 'Test Org' };
-const store = createMockStore({
+const store = createThunkStore({
   organizations: {
     all: [
       {
@@ -62,6 +62,17 @@ const store = createMockStore({
   swipe: { groupInviteInfo: true },
 });
 
+trackActionWithoutData.mockReturnValue({ type: 'tracked action without data' });
+removeGroupInviteInfo.mockReturnValue({ type: 'removed group invite info' });
+navToPersonScreen.mockReturnValue({ type: 'navigated to person screen' });
+getOrganizationMembersNextPage.mockReturnValue({
+  type: 'got org members next page',
+});
+getOrganizationMembers.mockReturnValue({
+  type: 'got org members',
+});
+refreshCommunity.mockReturnValue({ type: 'refreshed community' });
+
 describe('Members', () => {
   const component = <Members organization={organization} />;
 
@@ -70,7 +81,7 @@ describe('Members', () => {
   });
 
   it('should mount correctly', () => {
-    const store2 = createMockStore({
+    const store2 = createThunkStore({
       organizations: {
         all: [
           {
@@ -99,7 +110,7 @@ describe('Members', () => {
   });
 
   it('should not render load more correctly', () => {
-    const store2 = createMockStore({
+    const store2 = createThunkStore({
       organizations: {
         all: [
           {
@@ -164,7 +175,7 @@ describe('Members', () => {
   it('calls invite and shows alert', async () => {
     const url = '123';
     const code = 'ABCDEF';
-    const store2 = createMockStore({
+    const store2 = createThunkStore({
       organizations: {
         all: [
           {
@@ -215,7 +226,7 @@ describe('Members', () => {
   it('calls invite and does not show alert', async () => {
     const url = '123';
     const code = 'ABCDEF';
-    const store2 = createMockStore({
+    const store2 = createThunkStore({
       organizations: {
         all: [
           {

@@ -9,6 +9,13 @@ exports[`renders date only date picker 1`] = `
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
     transparent={true}
     visible={false}
   >
@@ -17,111 +24,107 @@ exports[`renders date only date picker 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "alignItems": "flex-end",
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
-          "flexDirection": "row",
         }
       }
+    />
+    <AnimatedComponent
+      pointerEvents="auto"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "height": 0,
+            "overflow": "hidden",
+          },
+          Object {
+            "height": 0,
+          },
+        ]
+      }
     >
-      <AnimatedComponent
-        pointerEvents="auto"
+      <DatePickerIOS
+        date={2018-09-12T12:00:00.000Z}
+        mode="date"
+        onDateChange={[Function]}
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
-              "flex": 1,
-              "height": 0,
-              "overflow": "hidden",
+              "borderTopColor": "#ccc",
+              "borderTopWidth": 1,
+              "marginTop": 60,
             },
-            Object {
-              "height": 0,
-            },
+            undefined,
           ]
         }
+        timeZoneOffsetInMinutes={null}
+      />
+      <Component
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "height": 60,
+            "paddingHorizontal": 20,
+            "position": "absolute",
+            "top": 0,
+            "width": "100%",
+          }
+        }
       >
-        <DatePickerIOS
-          date={2018-09-12T12:00:00.000Z}
-          mode="date"
-          onDateChange={[Function]}
-          style={
+        <Button
+          buttonTextStyle={
             Array [
               Object {
-                "borderTopColor": "#ccc",
-                "borderTopWidth": 1,
-                "marginTop": 60,
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
+              },
+              Object {
+                "textAlign": "left",
+              },
+            ]
+          }
+          onPress={[Function]}
+          text="Cancel"
+          type="transparent"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": undefined,
+              "flex": 1,
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          Date
+        </MyText>
+        <Button
+          buttonTextStyle={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
               },
               undefined,
             ]
           }
-          timeZoneOffsetInMinutes={null}
+          onPress={[Function]}
+          text="Done"
+          type="transparent"
         />
-        <Component
-          style={
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flexDirection": "row",
-              "height": 60,
-              "paddingHorizontal": 20,
-              "position": "absolute",
-              "top": 0,
-              "width": "100%",
-            }
-          }
-        >
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                Object {
-                  "textAlign": "left",
-                },
-              ]
-            }
-            onPress={[Function]}
-            text="Cancel"
-            type="transparent"
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": undefined,
-                "flex": 1,
-                "fontSize": 16,
-                "textAlign": "center",
-              }
-            }
-          >
-            Date
-          </MyText>
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                undefined,
-              ]
-            }
-            onPress={[Function]}
-            text="Done"
-            type="transparent"
-          />
-        </Component>
-      </AnimatedComponent>
-    </TouchableIOS>
+      </Component>
+    </AnimatedComponent>
   </Component>
 </Component>
 `;
@@ -135,6 +138,13 @@ exports[`renders date only date picker with max date 1`] = `
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
     transparent={true}
     visible={false}
   >
@@ -143,112 +153,108 @@ exports[`renders date only date picker with max date 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "alignItems": "flex-end",
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
-          "flexDirection": "row",
         }
       }
+    />
+    <AnimatedComponent
+      pointerEvents="auto"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "height": 0,
+            "overflow": "hidden",
+          },
+          Object {
+            "height": 0,
+          },
+        ]
+      }
     >
-      <AnimatedComponent
-        pointerEvents="auto"
+      <DatePickerIOS
+        date={2018-09-12T12:00:00.000Z}
+        maximumDate={2018-09-12T12:00:00.000Z}
+        mode="date"
+        onDateChange={[Function]}
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
-              "flex": 1,
-              "height": 0,
-              "overflow": "hidden",
+              "borderTopColor": "#ccc",
+              "borderTopWidth": 1,
+              "marginTop": 60,
             },
-            Object {
-              "height": 0,
-            },
+            undefined,
           ]
         }
+        timeZoneOffsetInMinutes={null}
+      />
+      <Component
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "height": 60,
+            "paddingHorizontal": 20,
+            "position": "absolute",
+            "top": 0,
+            "width": "100%",
+          }
+        }
       >
-        <DatePickerIOS
-          date={2018-09-12T12:00:00.000Z}
-          maximumDate={2018-09-12T12:00:00.000Z}
-          mode="date"
-          onDateChange={[Function]}
-          style={
+        <Button
+          buttonTextStyle={
             Array [
               Object {
-                "borderTopColor": "#ccc",
-                "borderTopWidth": 1,
-                "marginTop": 60,
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
+              },
+              Object {
+                "textAlign": "left",
+              },
+            ]
+          }
+          onPress={[Function]}
+          text="Cancel"
+          type="transparent"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": undefined,
+              "flex": 1,
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          Date
+        </MyText>
+        <Button
+          buttonTextStyle={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
               },
               undefined,
             ]
           }
-          timeZoneOffsetInMinutes={null}
+          onPress={[Function]}
+          text="Done"
+          type="transparent"
         />
-        <Component
-          style={
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flexDirection": "row",
-              "height": 60,
-              "paddingHorizontal": 20,
-              "position": "absolute",
-              "top": 0,
-              "width": "100%",
-            }
-          }
-        >
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                Object {
-                  "textAlign": "left",
-                },
-              ]
-            }
-            onPress={[Function]}
-            text="Cancel"
-            type="transparent"
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": undefined,
-                "flex": 1,
-                "fontSize": 16,
-                "textAlign": "center",
-              }
-            }
-          >
-            Date
-          </MyText>
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                undefined,
-              ]
-            }
-            onPress={[Function]}
-            text="Done"
-            type="transparent"
-          />
-        </Component>
-      </AnimatedComponent>
-    </TouchableIOS>
+      </Component>
+    </AnimatedComponent>
   </Component>
 </Component>
 `;
@@ -262,6 +268,13 @@ exports[`renders date only date picker with min date 1`] = `
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
     transparent={true}
     visible={false}
   >
@@ -270,112 +283,108 @@ exports[`renders date only date picker with min date 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "alignItems": "flex-end",
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
-          "flexDirection": "row",
         }
       }
+    />
+    <AnimatedComponent
+      pointerEvents="auto"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "height": 0,
+            "overflow": "hidden",
+          },
+          Object {
+            "height": 0,
+          },
+        ]
+      }
     >
-      <AnimatedComponent
-        pointerEvents="auto"
+      <DatePickerIOS
+        date={2018-09-12T12:00:00.000Z}
+        minimumDate={2018-09-12T12:00:00.000Z}
+        mode="date"
+        onDateChange={[Function]}
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
-              "flex": 1,
-              "height": 0,
-              "overflow": "hidden",
+              "borderTopColor": "#ccc",
+              "borderTopWidth": 1,
+              "marginTop": 60,
             },
-            Object {
-              "height": 0,
-            },
+            undefined,
           ]
         }
+        timeZoneOffsetInMinutes={null}
+      />
+      <Component
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "height": 60,
+            "paddingHorizontal": 20,
+            "position": "absolute",
+            "top": 0,
+            "width": "100%",
+          }
+        }
       >
-        <DatePickerIOS
-          date={2018-09-12T12:00:00.000Z}
-          minimumDate={2018-09-12T12:00:00.000Z}
-          mode="date"
-          onDateChange={[Function]}
-          style={
+        <Button
+          buttonTextStyle={
             Array [
               Object {
-                "borderTopColor": "#ccc",
-                "borderTopWidth": 1,
-                "marginTop": 60,
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
+              },
+              Object {
+                "textAlign": "left",
+              },
+            ]
+          }
+          onPress={[Function]}
+          text="Cancel"
+          type="transparent"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": undefined,
+              "flex": 1,
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          Date
+        </MyText>
+        <Button
+          buttonTextStyle={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
               },
               undefined,
             ]
           }
-          timeZoneOffsetInMinutes={null}
+          onPress={[Function]}
+          text="Done"
+          type="transparent"
         />
-        <Component
-          style={
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flexDirection": "row",
-              "height": 60,
-              "paddingHorizontal": 20,
-              "position": "absolute",
-              "top": 0,
-              "width": "100%",
-            }
-          }
-        >
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                Object {
-                  "textAlign": "left",
-                },
-              ]
-            }
-            onPress={[Function]}
-            text="Cancel"
-            type="transparent"
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": undefined,
-                "flex": 1,
-                "fontSize": 16,
-                "textAlign": "center",
-              }
-            }
-          >
-            Date
-          </MyText>
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                undefined,
-              ]
-            }
-            onPress={[Function]}
-            text="Done"
-            type="transparent"
-          />
-        </Component>
-      </AnimatedComponent>
-    </TouchableIOS>
+      </Component>
+    </AnimatedComponent>
   </Component>
 </Component>
 `;
@@ -389,6 +398,13 @@ exports[`renders date with custom title 1`] = `
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
     transparent={true}
     visible={false}
   >
@@ -397,111 +413,107 @@ exports[`renders date with custom title 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "alignItems": "flex-end",
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
-          "flexDirection": "row",
         }
       }
+    />
+    <AnimatedComponent
+      pointerEvents="auto"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "height": 0,
+            "overflow": "hidden",
+          },
+          Object {
+            "height": 0,
+          },
+        ]
+      }
     >
-      <AnimatedComponent
-        pointerEvents="auto"
+      <DatePickerIOS
+        date={2018-09-12T12:00:00.000Z}
+        mode="date"
+        onDateChange={[Function]}
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
-              "flex": 1,
-              "height": 0,
-              "overflow": "hidden",
+              "borderTopColor": "#ccc",
+              "borderTopWidth": 1,
+              "marginTop": 60,
             },
-            Object {
-              "height": 0,
-            },
+            undefined,
           ]
         }
+        timeZoneOffsetInMinutes={null}
+      />
+      <Component
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "height": 60,
+            "paddingHorizontal": 20,
+            "position": "absolute",
+            "top": 0,
+            "width": "100%",
+          }
+        }
       >
-        <DatePickerIOS
-          date={2018-09-12T12:00:00.000Z}
-          mode="date"
-          onDateChange={[Function]}
-          style={
+        <Button
+          buttonTextStyle={
             Array [
               Object {
-                "borderTopColor": "#ccc",
-                "borderTopWidth": 1,
-                "marginTop": 60,
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
+              },
+              Object {
+                "textAlign": "left",
+              },
+            ]
+          }
+          onPress={[Function]}
+          text="Cancel"
+          type="transparent"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": undefined,
+              "flex": 1,
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          Title
+        </MyText>
+        <Button
+          buttonTextStyle={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
               },
               undefined,
             ]
           }
-          timeZoneOffsetInMinutes={null}
+          onPress={[Function]}
+          text="Done"
+          type="transparent"
         />
-        <Component
-          style={
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flexDirection": "row",
-              "height": 60,
-              "paddingHorizontal": 20,
-              "position": "absolute",
-              "top": 0,
-              "width": "100%",
-            }
-          }
-        >
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                Object {
-                  "textAlign": "left",
-                },
-              ]
-            }
-            onPress={[Function]}
-            text="Cancel"
-            type="transparent"
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": undefined,
-                "flex": 1,
-                "fontSize": 16,
-                "textAlign": "center",
-              }
-            }
-          >
-            Title
-          </MyText>
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                undefined,
-              ]
-            }
-            onPress={[Function]}
-            text="Done"
-            type="transparent"
-          />
-        </Component>
-      </AnimatedComponent>
-    </TouchableIOS>
+      </Component>
+    </AnimatedComponent>
   </Component>
 </Component>
 `;
@@ -515,6 +527,13 @@ exports[`renders datetime only date picker 1`] = `
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
     transparent={true}
     visible={false}
   >
@@ -523,111 +542,107 @@ exports[`renders datetime only date picker 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "alignItems": "flex-end",
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
-          "flexDirection": "row",
         }
       }
+    />
+    <AnimatedComponent
+      pointerEvents="auto"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "height": 0,
+            "overflow": "hidden",
+          },
+          Object {
+            "height": 0,
+          },
+        ]
+      }
     >
-      <AnimatedComponent
-        pointerEvents="auto"
+      <DatePickerIOS
+        date={2018-09-12T12:00:00.000Z}
+        mode="datetime"
+        onDateChange={[Function]}
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
-              "flex": 1,
-              "height": 0,
-              "overflow": "hidden",
+              "borderTopColor": "#ccc",
+              "borderTopWidth": 1,
+              "marginTop": 60,
             },
-            Object {
-              "height": 0,
-            },
+            undefined,
           ]
         }
+        timeZoneOffsetInMinutes={null}
+      />
+      <Component
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "height": 60,
+            "paddingHorizontal": 20,
+            "position": "absolute",
+            "top": 0,
+            "width": "100%",
+          }
+        }
       >
-        <DatePickerIOS
-          date={2018-09-12T12:00:00.000Z}
-          mode="datetime"
-          onDateChange={[Function]}
-          style={
+        <Button
+          buttonTextStyle={
             Array [
               Object {
-                "borderTopColor": "#ccc",
-                "borderTopWidth": 1,
-                "marginTop": 60,
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
+              },
+              Object {
+                "textAlign": "left",
+              },
+            ]
+          }
+          onPress={[Function]}
+          text="Cancel"
+          type="transparent"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": undefined,
+              "flex": 1,
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          Date
+        </MyText>
+        <Button
+          buttonTextStyle={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
               },
               undefined,
             ]
           }
-          timeZoneOffsetInMinutes={null}
+          onPress={[Function]}
+          text="Done"
+          type="transparent"
         />
-        <Component
-          style={
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flexDirection": "row",
-              "height": 60,
-              "paddingHorizontal": 20,
-              "position": "absolute",
-              "top": 0,
-              "width": "100%",
-            }
-          }
-        >
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                Object {
-                  "textAlign": "left",
-                },
-              ]
-            }
-            onPress={[Function]}
-            text="Cancel"
-            type="transparent"
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": undefined,
-                "flex": 1,
-                "fontSize": 16,
-                "textAlign": "center",
-              }
-            }
-          >
-            Date
-          </MyText>
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                undefined,
-              ]
-            }
-            onPress={[Function]}
-            text="Done"
-            type="transparent"
-          />
-        </Component>
-      </AnimatedComponent>
-    </TouchableIOS>
+      </Component>
+    </AnimatedComponent>
   </Component>
 </Component>
 `;
@@ -641,6 +656,13 @@ exports[`renders default date picker 1`] = `
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
     transparent={true}
     visible={false}
   >
@@ -649,111 +671,107 @@ exports[`renders default date picker 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "alignItems": "flex-end",
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
-          "flexDirection": "row",
         }
       }
+    />
+    <AnimatedComponent
+      pointerEvents="auto"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "height": 0,
+            "overflow": "hidden",
+          },
+          Object {
+            "height": 0,
+          },
+        ]
+      }
     >
-      <AnimatedComponent
-        pointerEvents="auto"
+      <DatePickerIOS
+        date={2018-09-12T12:00:00.000Z}
+        mode="date"
+        onDateChange={[Function]}
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
-              "flex": 1,
-              "height": 0,
-              "overflow": "hidden",
+              "borderTopColor": "#ccc",
+              "borderTopWidth": 1,
+              "marginTop": 60,
             },
-            Object {
-              "height": 0,
-            },
+            undefined,
           ]
         }
+        timeZoneOffsetInMinutes={null}
+      />
+      <Component
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "height": 60,
+            "paddingHorizontal": 20,
+            "position": "absolute",
+            "top": 0,
+            "width": "100%",
+          }
+        }
       >
-        <DatePickerIOS
-          date={2018-09-12T12:00:00.000Z}
-          mode="date"
-          onDateChange={[Function]}
-          style={
+        <Button
+          buttonTextStyle={
             Array [
               Object {
-                "borderTopColor": "#ccc",
-                "borderTopWidth": 1,
-                "marginTop": 60,
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
+              },
+              Object {
+                "textAlign": "left",
+              },
+            ]
+          }
+          onPress={[Function]}
+          text="Cancel"
+          type="transparent"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": undefined,
+              "flex": 1,
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          Date
+        </MyText>
+        <Button
+          buttonTextStyle={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
               },
               undefined,
             ]
           }
-          timeZoneOffsetInMinutes={null}
+          onPress={[Function]}
+          text="Done"
+          type="transparent"
         />
-        <Component
-          style={
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flexDirection": "row",
-              "height": 60,
-              "paddingHorizontal": 20,
-              "position": "absolute",
-              "top": 0,
-              "width": "100%",
-            }
-          }
-        >
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                Object {
-                  "textAlign": "left",
-                },
-              ]
-            }
-            onPress={[Function]}
-            text="Cancel"
-            type="transparent"
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": undefined,
-                "flex": 1,
-                "fontSize": 16,
-                "textAlign": "center",
-              }
-            }
-          >
-            Date
-          </MyText>
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                undefined,
-              ]
-            }
-            onPress={[Function]}
-            text="Done"
-            type="transparent"
-          />
-        </Component>
-      </AnimatedComponent>
-    </TouchableIOS>
+      </Component>
+    </AnimatedComponent>
   </Component>
 </Component>
 `;
@@ -767,6 +785,13 @@ exports[`renders time only date picker 1`] = `
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
     transparent={true}
     visible={false}
   >
@@ -775,111 +800,107 @@ exports[`renders time only date picker 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "alignItems": "flex-end",
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
-          "flexDirection": "row",
         }
       }
+    />
+    <AnimatedComponent
+      pointerEvents="auto"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "height": 0,
+            "overflow": "hidden",
+          },
+          Object {
+            "height": 0,
+          },
+        ]
+      }
     >
-      <AnimatedComponent
-        pointerEvents="auto"
+      <DatePickerIOS
+        date={2018-09-12T12:00:00.000Z}
+        mode="time"
+        onDateChange={[Function]}
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
-              "flex": 1,
-              "height": 0,
-              "overflow": "hidden",
+              "borderTopColor": "#ccc",
+              "borderTopWidth": 1,
+              "marginTop": 60,
             },
-            Object {
-              "height": 0,
-            },
+            undefined,
           ]
         }
+        timeZoneOffsetInMinutes={null}
+      />
+      <Component
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "height": 60,
+            "paddingHorizontal": 20,
+            "position": "absolute",
+            "top": 0,
+            "width": "100%",
+          }
+        }
       >
-        <DatePickerIOS
-          date={2018-09-12T12:00:00.000Z}
-          mode="time"
-          onDateChange={[Function]}
-          style={
+        <Button
+          buttonTextStyle={
             Array [
               Object {
-                "borderTopColor": "#ccc",
-                "borderTopWidth": 1,
-                "marginTop": 60,
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
+              },
+              Object {
+                "textAlign": "left",
+              },
+            ]
+          }
+          onPress={[Function]}
+          text="Cancel"
+          type="transparent"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": undefined,
+              "flex": 1,
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          Date
+        </MyText>
+        <Button
+          buttonTextStyle={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
               },
               undefined,
             ]
           }
-          timeZoneOffsetInMinutes={null}
+          onPress={[Function]}
+          text="Done"
+          type="transparent"
         />
-        <Component
-          style={
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flexDirection": "row",
-              "height": 60,
-              "paddingHorizontal": 20,
-              "position": "absolute",
-              "top": 0,
-              "width": "100%",
-            }
-          }
-        >
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                Object {
-                  "textAlign": "left",
-                },
-              ]
-            }
-            onPress={[Function]}
-            text="Cancel"
-            type="transparent"
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": undefined,
-                "flex": 1,
-                "fontSize": 16,
-                "textAlign": "center",
-              }
-            }
-          >
-            Date
-          </MyText>
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                undefined,
-              ]
-            }
-            onPress={[Function]}
-            text="Done"
-            type="transparent"
-          />
-        </Component>
-      </AnimatedComponent>
-    </TouchableIOS>
+      </Component>
+    </AnimatedComponent>
   </Component>
 </Component>
 `;
@@ -893,6 +914,13 @@ exports[`renders with additional modal component 1`] = `
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
     transparent={true}
     visible={false}
   >
@@ -901,118 +929,114 @@ exports[`renders with additional modal component 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "alignItems": "flex-end",
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
-          "flexDirection": "row",
         }
       }
+    />
+    <AnimatedComponent
+      pointerEvents="auto"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "height": 0,
+            "overflow": "hidden",
+          },
+          Object {
+            "height": 0,
+          },
+        ]
+      }
     >
-      <AnimatedComponent
-        pointerEvents="auto"
+      <DatePickerIOS
+        date={2018-09-12T12:00:00.000Z}
+        mode="date"
+        onDateChange={[Function]}
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
-              "flex": 1,
-              "height": 0,
-              "overflow": "hidden",
+              "borderTopColor": "#ccc",
+              "borderTopWidth": 1,
+              "marginTop": 60,
             },
-            Object {
-              "height": 0,
-            },
+            undefined,
           ]
         }
+        timeZoneOffsetInMinutes={null}
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
       >
-        <DatePickerIOS
-          date={2018-09-12T12:00:00.000Z}
-          mode="date"
-          onDateChange={[Function]}
-          style={
+        Modal Component
+      </Text>
+      <Component
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "height": 60,
+            "paddingHorizontal": 20,
+            "position": "absolute",
+            "top": 0,
+            "width": "100%",
+          }
+        }
+      >
+        <Button
+          buttonTextStyle={
             Array [
               Object {
-                "borderTopColor": "#ccc",
-                "borderTopWidth": 1,
-                "marginTop": 60,
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
+              },
+              Object {
+                "textAlign": "left",
+              },
+            ]
+          }
+          onPress={[Function]}
+          text="Cancel"
+          type="transparent"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": undefined,
+              "flex": 1,
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          Date
+        </MyText>
+        <Button
+          buttonTextStyle={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
               },
               undefined,
             ]
           }
-          timeZoneOffsetInMinutes={null}
+          onPress={[Function]}
+          text="Done"
+          type="transparent"
         />
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-          Modal Component
-        </Text>
-        <Component
-          style={
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flexDirection": "row",
-              "height": 60,
-              "paddingHorizontal": 20,
-              "position": "absolute",
-              "top": 0,
-              "width": "100%",
-            }
-          }
-        >
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                Object {
-                  "textAlign": "left",
-                },
-              ]
-            }
-            onPress={[Function]}
-            text="Cancel"
-            type="transparent"
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": undefined,
-                "flex": 1,
-                "fontSize": 16,
-                "textAlign": "center",
-              }
-            }
-          >
-            Date
-          </MyText>
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                undefined,
-              ]
-            }
-            onPress={[Function]}
-            text="Done"
-            type="transparent"
-          />
-        </Component>
-      </AnimatedComponent>
-    </TouchableIOS>
+      </Component>
+    </AnimatedComponent>
   </Component>
 </Component>
 `;
@@ -1034,6 +1058,13 @@ exports[`renders with child component 1`] = `
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
     transparent={true}
     visible={false}
   >
@@ -1042,111 +1073,107 @@ exports[`renders with child component 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "alignItems": "flex-end",
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
-          "flexDirection": "row",
         }
       }
+    />
+    <AnimatedComponent
+      pointerEvents="auto"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "height": 0,
+            "overflow": "hidden",
+          },
+          Object {
+            "height": 0,
+          },
+        ]
+      }
     >
-      <AnimatedComponent
-        pointerEvents="auto"
+      <DatePickerIOS
+        date={2018-09-12T12:00:00.000Z}
+        mode="date"
+        onDateChange={[Function]}
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
-              "flex": 1,
-              "height": 0,
-              "overflow": "hidden",
+              "borderTopColor": "#ccc",
+              "borderTopWidth": 1,
+              "marginTop": 60,
             },
-            Object {
-              "height": 0,
-            },
+            undefined,
           ]
         }
+        timeZoneOffsetInMinutes={null}
+      />
+      <Component
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "height": 60,
+            "paddingHorizontal": 20,
+            "position": "absolute",
+            "top": 0,
+            "width": "100%",
+          }
+        }
       >
-        <DatePickerIOS
-          date={2018-09-12T12:00:00.000Z}
-          mode="date"
-          onDateChange={[Function]}
-          style={
+        <Button
+          buttonTextStyle={
             Array [
               Object {
-                "borderTopColor": "#ccc",
-                "borderTopWidth": 1,
-                "marginTop": 60,
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
+              },
+              Object {
+                "textAlign": "left",
+              },
+            ]
+          }
+          onPress={[Function]}
+          text="Cancel"
+          type="transparent"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": undefined,
+              "flex": 1,
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          Date
+        </MyText>
+        <Button
+          buttonTextStyle={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 16,
+                "fontWeight": "normal",
+                "letterSpacing": 1,
               },
               undefined,
             ]
           }
-          timeZoneOffsetInMinutes={null}
+          onPress={[Function]}
+          text="Done"
+          type="transparent"
         />
-        <Component
-          style={
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flexDirection": "row",
-              "height": 60,
-              "paddingHorizontal": 20,
-              "position": "absolute",
-              "top": 0,
-              "width": "100%",
-            }
-          }
-        >
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                Object {
-                  "textAlign": "left",
-                },
-              ]
-            }
-            onPress={[Function]}
-            text="Cancel"
-            type="transparent"
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": undefined,
-                "flex": 1,
-                "fontSize": 16,
-                "textAlign": "center",
-              }
-            }
-          >
-            Date
-          </MyText>
-          <Button
-            buttonTextStyle={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 1,
-                },
-                undefined,
-              ]
-            }
-            onPress={[Function]}
-            text="Done"
-            type="transparent"
-          />
-        </Component>
-      </AnimatedComponent>
-    </TouchableIOS>
+      </Component>
+    </AnimatedComponent>
   </Component>
 </Component>
 `;

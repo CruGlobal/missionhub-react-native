@@ -42,6 +42,7 @@ exports[`markdown is not null renders correctly 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
+        "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontWeight": "300",
         "lineHeight": 38,
@@ -517,7 +518,7 @@ exports[`markdown is not null renders correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Italic",
               "fontSize": 16,
-              "lineHeight": 22,
+              "lineHeight": 24,
             },
             "heading1": Object {
               "color": "#505256",
@@ -537,8 +538,9 @@ exports[`markdown is not null renders correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 20,
-              "lineHeight": 24,
-              "marginVertical": 10,
+              "fontWeight": "bold",
+              "lineHeight": 22,
+              "marginVertical": 16,
             },
             "hr": Object {
               "backgroundColor": "#E6E8EC",
@@ -566,7 +568,7 @@ exports[`markdown is not null renders correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
-              "lineHeight": 22,
+              "lineHeight": 36,
               "marginRight": 16,
             },
             "listUnorderedItemIcon": Object {
@@ -574,23 +576,23 @@ exports[`markdown is not null renders correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 30,
-              "lineHeight": 22,
+              "lineHeight": 36,
               "marginRight": 16,
             },
             "paragraph": Object {
-              "marginVertical": 8,
+              "marginVertical": 10,
             },
             "strong": Object {
               "color": "#505256",
               "fontFamily": "SourceSansPro-Bold",
               "fontSize": 16,
-              "lineHeight": 22,
+              "lineHeight": 24,
             },
             "text": Object {
               "color": "#505256",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
-              "lineHeight": 22,
+              "lineHeight": 24,
             },
           }
         }
@@ -644,6 +646,7 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
     ellipsizeMode="tail"
     style={
       Object {
+        "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontWeight": "300",
         "lineHeight": 38,
@@ -713,6 +716,7 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
+        "fontFamily": "SourceSansPro-Light",
         "fontSize": 32,
         "fontWeight": "300",
         "lineHeight": 38,

@@ -6,7 +6,7 @@ import { GroupScreen, CRU_TABS, USER_CREATED_TABS } from '../GroupScreen';
 import {
   testSnapshotShallow,
   createMockNavState,
-  createMockStore,
+  createThunkStore,
   renderShallow,
 } from '../../../../testUtils';
 import { MAIN_TABS, GLOBAL_COMMUNITY_ID } from '../../../constants';
@@ -23,6 +23,9 @@ jest.mock('../../../actions/navigation', () => ({
 
 const organization = { id: '5', name: 'Test  Org', user_created: false };
 const userOrg = { ...organization, user_created: true };
+
+navigatePush.mockReturnValue({ type: 'navigate pushed' });
+navigateReset.mockReturnValue({ type: 'navigated reset' });
 
 describe('GroupScreen', () => {
   const createHeader = org => (
@@ -66,7 +69,7 @@ describe('GroupScreen', () => {
         navigation={createMockNavState({
           organization,
         })}
-        store={createMockStore()}
+        store={createThunkStore()}
       />,
     ).instance();
 
@@ -84,7 +87,7 @@ describe('GroupScreen', () => {
         navigation={createMockNavState({
           organization: userOrg,
         })}
-        store={createMockStore()}
+        store={createThunkStore()}
       />,
     ).instance();
 
@@ -101,7 +104,7 @@ describe('GroupScreen', () => {
         navigation={createMockNavState({
           organization,
         })}
-        store={createMockStore()}
+        store={createThunkStore()}
       />,
     );
 
@@ -118,7 +121,7 @@ describe('GroupScreen', () => {
         navigation={createMockNavState({
           organization,
         })}
-        store={createMockStore()}
+        store={createThunkStore()}
       />,
     ).instance();
 
@@ -133,7 +136,7 @@ describe('GroupScreen', () => {
         navigation={createMockNavState({
           organization,
         })}
-        store={createMockStore()}
+        store={createThunkStore()}
       />,
     ).instance();
 

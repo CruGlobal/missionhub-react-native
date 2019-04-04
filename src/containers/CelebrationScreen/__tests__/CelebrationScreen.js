@@ -3,25 +3,32 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import {
-  createMockStore,
   createMockNavState,
   testSnapshot,
   renderShallow,
+  createThunkStore,
 } from '../../../../testUtils';
 
 import CelebrationScreen from '..';
 
-import * as navigation from '../../../actions/navigation';
+import { navigateReset } from '../../../actions/navigation';
 import { MAIN_TABS } from '../../../constants';
 import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen';
 
-const store = createMockStore();
+let store;
 
 jest.mock('react-native-device-info');
+jest.mock('../../../actions/navigation');
 
 const mockMath = Object.create(global.Math);
 mockMath.random = () => 0;
 global.Math = mockMath;
+
+navigateReset.mockReturnValue({ type: 'navigated reset' });
+
+beforeEach(() => {
+  store = createThunkStore();
+});
 
 it('renders correctly', () => {
   testSnapshot(
@@ -35,7 +42,7 @@ describe('celebration screen methods', () => {
   let component;
   let screen;
   const mockComplete = jest.fn();
-  const mockNext = jest.fn();
+  const mockNext = jest.fn(() => ({ type: 'next' }));
 
   describe('navigateToNext', () => {
     it('runs onComplete', () => {
@@ -75,10 +82,8 @@ describe('celebration screen methods', () => {
       );
       component = screen.instance();
 
-      navigation.navigateReset = jest.fn();
-
       component.navigateToNext();
-      expect(navigation.navigateReset).toHaveBeenCalledWith(MAIN_TABS);
+      expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS);
     });
 
     it('runs navigateReset with next screen', () => {
@@ -90,12 +95,8 @@ describe('celebration screen methods', () => {
       );
       component = screen.instance();
 
-      navigation.navigateReset = jest.fn();
-
       component.navigateToNext();
-      expect(navigation.navigateReset).toHaveBeenCalledWith(
-        CONTACT_PERSON_SCREEN,
-      );
+      expect(navigateReset).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN);
     });
   });
 });

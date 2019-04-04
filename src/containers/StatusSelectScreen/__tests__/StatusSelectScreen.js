@@ -5,7 +5,7 @@ import React from 'react';
 import StatusSelectScreen, { mapStateToProps } from '..';
 
 import {
-  createMockStore,
+  createThunkStore,
   renderShallow,
   testSnapshotShallow,
   createMockNavState,
@@ -20,11 +20,11 @@ import {
 } from '../../../selectors/people';
 
 jest.mock('../../../actions/person', () => ({
-  updateFollowupStatus: jest.fn(() => Promise.resolve()),
+  updateFollowupStatus: jest.fn(() => () => Promise.resolve()),
 }));
 jest.mock('../../../selectors/people');
 
-const store = createMockStore({});
+const store = createThunkStore({});
 
 const followupStatus = 'uncontacted';
 const orgPermission = {
@@ -93,8 +93,8 @@ describe('StatusSelectScreen', () => {
       })}
     />
   );
-  navigation.navigateBack = jest.fn();
-  navigation.navigatePush = jest.fn();
+  navigation.navigateBack = jest.fn(() => ({ type: 'navigated back' }));
+  navigation.navigatePush = jest.fn(() => ({ type: 'navigated push' }));
 
   const testSubmit = async type => {
     instance = renderShallow(component, store).instance();

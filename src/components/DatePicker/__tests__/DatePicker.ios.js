@@ -111,8 +111,7 @@ describe('DatePicker methods', () => {
       const newDate = new Date('2019-09-01');
       component
         .childAt(1)
-        .childAt(0)
-        .childAt(0)
+        .childAt(1)
         .childAt(0)
         .props()
         .onDateChange(newDate);
@@ -123,8 +122,7 @@ describe('DatePicker methods', () => {
     it('confirm pressed', () => {
       component
         .childAt(1)
-        .childAt(0)
-        .childAt(0)
+        .childAt(1)
         .childAt(1)
         .childAt(2)
         .props()
@@ -140,8 +138,7 @@ describe('DatePicker methods', () => {
     it('cancel pressed', () => {
       component
         .childAt(1)
-        .childAt(0)
-        .childAt(0)
+        .childAt(1)
         .childAt(1)
         .childAt(0)
         .props()

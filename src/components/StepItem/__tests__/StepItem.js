@@ -4,7 +4,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import {
-  createMockStore,
+  createThunkStore,
   renderShallow,
   testSnapshotShallow,
 } from '../../../../testUtils';
@@ -33,7 +33,7 @@ const mockState = {
   },
 };
 
-const store = createMockStore(mockState);
+const store = createThunkStore(mockState);
 
 jest.mock('react-native-device-info');
 

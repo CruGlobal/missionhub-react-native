@@ -62,9 +62,14 @@ class AcceptedStepDetailScreen extends Component {
             </View>
             <ReminderDateText style={reminderText} reminder={reminder} />
           </View>
-          <Button onPress={this.handleRemoveReminder} style={cancelIconButton}>
-            <Icon name="close" type="Material" style={cancelIcon} />
-          </Button>
+          {reminder ? (
+            <Button
+              onPress={this.handleRemoveReminder}
+              style={cancelIconButton}
+            >
+              <Icon name="close" type="Material" style={cancelIcon} />
+            </Button>
+          ) : null}
         </View>
       </ReminderButton>
     );
