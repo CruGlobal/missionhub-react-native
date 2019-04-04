@@ -77,6 +77,17 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: theme.white,
   },
+  unreadHeader: {
+    backgroundColor: theme.white,
+    shadowColor: theme.black,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+  },
+  unreadTitle: {
+    color: theme.darkText,
+    fontWeight: '400',
+  },
   reportHeader: {
     backgroundColor: theme.red,
   },

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import moment from 'moment';
 
-import CelebrateFeed from '../../components/CelebrateFeed';
+import CelebrateFeed from '../CelebrateFeed';
 import {
   getGroupCelebrateFeed,
   reloadGroupCelebrateFeed,

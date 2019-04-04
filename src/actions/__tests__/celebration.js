@@ -1,9 +1,14 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { getGroupCelebrateFeed, toggleLike } from '../celebration';
+import {
+  getGroupCelebrateFeed,
+  toggleLike,
+  getGroupCelebrateFeedUnread,
+} from '../celebration';
 import callApi, { REQUESTS } from '../api';
 import { DEFAULT_PAGE_LIMIT } from '../../constants';
+import { GET_CELEBRATE_INCLUDE } from '../../utils/actions';
 
 jest.mock('../api');
 
@@ -73,6 +78,27 @@ describe('getGroupCelebrateFeed', () => {
 
     expect(callApi).not.toHaveBeenCalled();
     expect(store.getActions()).toEqual([]);
+  });
+});
+
+describe('getGroupCelebrateFeedUnread', () => {
+  beforeEach(() => {
+    store = createStore({ organizations: { all: [{ id: orgId }] } });
+  });
+
+  it('calls feed of unread items', () => {
+    callApi.mockReturnValue(apiResult);
+    store.dispatch(getGroupCelebrateFeedUnread(orgId));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_GROUP_CELEBRATE_FEED_UNREAD,
+      {
+        orgId,
+        filters: { has_unread_comments: true },
+        include: GET_CELEBRATE_INCLUDE,
+      },
+    );
+    expect(store.getActions()).toEqual([apiResult]);
   });
 });
 
