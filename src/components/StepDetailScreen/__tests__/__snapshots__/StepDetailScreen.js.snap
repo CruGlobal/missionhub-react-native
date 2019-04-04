@@ -518,7 +518,7 @@ exports[`markdown is not null renders correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Italic",
               "fontSize": 16,
-              "lineHeight": 22,
+              "lineHeight": 24,
             },
             "heading1": Object {
               "color": "#505256",
@@ -580,20 +580,19 @@ exports[`markdown is not null renders correctly 1`] = `
               "marginRight": 16,
             },
             "paragraph": Object {
-              "lineHeight": 24,
               "marginVertical": 10,
             },
             "strong": Object {
               "color": "#505256",
               "fontFamily": "SourceSansPro-Bold",
               "fontSize": 16,
-              "lineHeight": 22,
+              "lineHeight": 24,
             },
             "text": Object {
               "color": "#505256",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
-              "lineHeight": 22,
+              "lineHeight": 24,
             },
           }
         }
