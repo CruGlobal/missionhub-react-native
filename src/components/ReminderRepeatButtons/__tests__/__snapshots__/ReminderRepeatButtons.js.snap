@@ -114,6 +114,230 @@ exports[`none selected renders with none highlighted 1`] = `
 </Component>
 `;
 
+exports[`starts with daily selected renders with daily highlighted 1`] = `
+<Component
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#ffffff",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#52C5DC",
+        },
+      ]
+    }
+    text="Daily"
+  />
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    text="Weekly"
+  />
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    text="Monthly"
+  />
+</Component>
+`;
+
+exports[`starts with monthly selected renders with monthly highlighted 1`] = `
+<Component
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    text="Daily"
+  />
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    text="Weekly"
+  />
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#ffffff",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#52C5DC",
+        },
+      ]
+    }
+    text="Monthly"
+  />
+</Component>
+`;
+
 exports[`starts with weekly selected renders with weekly highlighted 1`] = `
 <Component
   style={

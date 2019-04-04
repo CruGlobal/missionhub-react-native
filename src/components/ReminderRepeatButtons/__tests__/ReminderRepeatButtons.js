@@ -13,21 +13,31 @@ let component;
 
 const test = () => expect(component).toMatchSnapshot();
 
-beforeEach(() => {
-  onRecurrenceChange.mockClear();
-  component = renderShallow(
-    <ReminderRepeatButtons onRecurrenceChange={onRecurrenceChange} />,
-  );
-});
-
 describe('none selected', () => {
+  beforeEach(() => {
+    onRecurrenceChange.mockClear();
+    component = renderShallow(
+      <ReminderRepeatButtons onRecurrenceChange={onRecurrenceChange} />,
+    );
+  });
+
   it('renders with none highlighted', () => {
     test();
   });
 
-  it('calls onRecurrenceChange with ONCE', () => {
-    expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
-    expect(onRecurrenceChange).toHaveBeenCalledWith(ONCE);
+  describe('select daily button', () => {
+    beforeEach(() => {
+      component
+        .childAt(0)
+        .props()
+        .onPress();
+      component.update();
+    });
+
+    it('calls onRecurrenceChange with DAILY', () => {
+      expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
+      expect(onRecurrenceChange).toHaveBeenCalledWith(DAILY);
+    });
   });
 });
 
@@ -46,42 +56,7 @@ describe('starts with weekly selected', () => {
     test();
   });
 
-  it('calls onRecurrenceChange with ONCE', () => {
-    expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
-    expect(onRecurrenceChange).toHaveBeenCalledWith(WEEKLY);
-  });
-});
-
-describe('select daily button', () => {
-  beforeEach(() => {
-    component
-      .childAt(0)
-      .props()
-      .onPress();
-    component.update();
-  });
-
-  it('calls onRecurrenceChange with DAILY', () => {
-    expect(onRecurrenceChange).toHaveBeenCalledTimes(2);
-    expect(onRecurrenceChange).toHaveBeenCalledWith(DAILY);
-  });
-
-  describe('select button again', () => {
-    beforeEach(() => {
-      component
-        .childAt(0)
-        .props()
-        .onPress();
-      component.update();
-    });
-
-    it('calls onRecurrenceChange with ONCE', () => {
-      expect(onRecurrenceChange).toHaveBeenCalledTimes(3);
-      expect(onRecurrenceChange).toHaveBeenCalledWith(ONCE);
-    });
-  });
-
-  describe('select other button', () => {
+  describe('select weekly button', () => {
     beforeEach(() => {
       component
         .childAt(1)
@@ -90,39 +65,56 @@ describe('select daily button', () => {
       component.update();
     });
 
-    it('calls onRecurrenceChange with WEEKLY', () => {
-      expect(onRecurrenceChange).toHaveBeenCalledTimes(3);
-      expect(onRecurrenceChange).toHaveBeenCalledWith(WEEKLY);
+    it('calls onRecurrenceChange with ONCE', () => {
+      expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
+      expect(onRecurrenceChange).toHaveBeenCalledWith(ONCE);
+    });
+  });
+
+  describe('select other button', () => {
+    beforeEach(() => {
+      component
+        .childAt(2)
+        .props()
+        .onPress();
+      component.update();
+    });
+
+    it('calls onRecurrenceChange with MONTHLY', () => {
+      expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
+      expect(onRecurrenceChange).toHaveBeenCalledWith(MONTHLY);
     });
   });
 });
 
-describe('select weekly button', () => {
+describe('starts with daily selected', () => {
   beforeEach(() => {
-    component
-      .childAt(1)
-      .props()
-      .onPress();
-    component.update();
+    onRecurrenceChange.mockClear();
+    component = renderShallow(
+      <ReminderRepeatButtons
+        recurrence={DAILY}
+        onRecurrenceChange={onRecurrenceChange}
+      />,
+    );
   });
 
-  it('calls onRecurrenceChange with WEEKLY', () => {
-    expect(onRecurrenceChange).toHaveBeenCalledTimes(2);
-    expect(onRecurrenceChange).toHaveBeenCalledWith(WEEKLY);
+  it('renders with daily highlighted', () => {
+    test();
   });
 });
 
-describe('select monthly button', () => {
+describe('starts with monthly selected', () => {
   beforeEach(() => {
-    component
-      .childAt(2)
-      .props()
-      .onPress();
-    component.update();
+    onRecurrenceChange.mockClear();
+    component = renderShallow(
+      <ReminderRepeatButtons
+        recurrence={MONTHLY}
+        onRecurrenceChange={onRecurrenceChange}
+      />,
+    );
   });
 
-  it('calls onRecurrenceChange with MONTHLY', () => {
-    expect(onRecurrenceChange).toHaveBeenCalledTimes(2);
-    expect(onRecurrenceChange).toHaveBeenCalledWith(MONTHLY);
+  it('renders with monthly highlighted', () => {
+    test();
   });
 });
