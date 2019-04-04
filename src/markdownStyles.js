@@ -6,7 +6,7 @@ const textStyle = {
   color: theme.textColor,
   fontFamily: 'SourceSansPro-Regular',
   fontSize: 16,
-  lineHeight: 22,
+  lineHeight: 24,
 };
 const heading1Style = {
   ...textStyle,
@@ -37,7 +37,6 @@ const emphasisStyle = {
 };
 const paragraph = {
   marginVertical: 10,
-  // lineHeight: 24, // Cannot be applied on <View>
 };
 const listItemOrderedIconStyle = {
   ...textStyle,
