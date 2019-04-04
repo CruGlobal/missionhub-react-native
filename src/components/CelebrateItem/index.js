@@ -213,7 +213,7 @@ class CelebrateItem extends Component {
       subject_person_name,
     } = event;
     const organization = this.props.organization || event.organization;
-    const { top, topLeft } = styles;
+    const { top, topLeft, messageText } = styles;
 
     return (
       <Card onPress={onPressItem && this.onPressItem} style={cardStyle}>
@@ -232,7 +232,7 @@ class CelebrateItem extends Component {
               {rightCorner}
             </View>
             <View style={styles.description}>
-              <Text>{this.renderMessage()}</Text>
+              <Text style={messageText}>{this.renderMessage()}</Text>
               {this.renderChallengeLink()}
             </View>
           </Flex>

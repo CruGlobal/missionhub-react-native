@@ -46,42 +46,49 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
       >
-        John S. accepted a Challenge:
-      </MyText>
-      <Flex
-        direction="row"
-      >
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#007398",
-              "fontSize": 14,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-            }
-          }
-          onPress={[Function]}
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
           style={
             Object {
-              "marginTop": 4,
+              "fontSize": 14,
             }
           }
-          text="Invite a friend to church"
-          type="transparent"
-        />
-      </Flex>
+        >
+          John S. accepted a Challenge:
+        </MyText>
+        <Flex
+          direction="row"
+        >
+          <Button
+            buttonTextStyle={
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+              }
+            }
+            onPress={[Function]}
+            style={
+              Object {
+                "marginTop": 4,
+              }
+            }
+            text="Invite a friend to church"
+            type="transparent"
+          />
+        </Flex>
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -157,42 +164,49 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
       >
-        John S. completed a Challenge:
-      </MyText>
-      <Flex
-        direction="row"
-      >
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#007398",
-              "fontSize": 14,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-            }
-          }
-          onPress={[Function]}
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
           style={
             Object {
-              "marginTop": 4,
+              "fontSize": 14,
             }
           }
-          text="Invite a friend to church"
-          type="transparent"
-        />
-      </Flex>
+        >
+          John S. completed a Challenge:
+        </MyText>
+        <Flex
+          direction="row"
+        >
+          <Button
+            buttonTextStyle={
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+              }
+            }
+            onPress={[Function]}
+            style={
+              Object {
+                "marginTop": 4,
+              }
+            }
+            text="Invite a friend to church"
+            type="transparent"
+          />
+        </Flex>
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -273,20 +287,27 @@ exports[`CelebrateItem message renders created community event 1`] = `
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
       >
-        John S. created Celebration Community!
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        >
+          John S. created Celebration Community!
+        </MyText>
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -357,20 +378,27 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
       >
-        A MissionHub user completed a Step of Faith with a Forgiven person.
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        >
+          A MissionHub user completed a Step of Faith with a Forgiven person.
+        </MyText>
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -446,20 +474,27 @@ exports[`CelebrateItem message renders joined community event 1`] = `
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
       >
-        John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        >
+          John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
+        </MyText>
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -542,20 +577,27 @@ exports[`CelebrateItem message renders joined community with passed in org name 
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
       >
-        John S. joined My Real Org! Now you can see and celebrate the steps of faith they are taking.
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        >
+          John S. joined My Real Org! Now you can see and celebrate the steps of faith they are taking.
+        </MyText>
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -632,20 +674,27 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
       >
-        John S. had a Spiritual Conversation.
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        >
+          John S. had a Spiritual Conversation.
+        </MyText>
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -720,20 +769,27 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
       >
-        John S. saw someone make a Personal Decision.
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        >
+          John S. saw someone make a Personal Decision.
+        </MyText>
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -808,20 +864,27 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
       >
-        John S. saw something cool happen with someone.
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        >
+          John S. saw something cool happen with someone.
+        </MyText>
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -896,20 +959,27 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
       >
-        John S. completed a Step of Faith with a Forgiven person.
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        >
+          John S. completed a Step of Faith with a Forgiven person.
+        </MyText>
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -984,20 +1054,27 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
       >
-        John S. completed a Step of Faith with someone.
-      </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        >
+          John S. completed a Step of Faith with someone.
+        </MyText>
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1071,18 +1148,25 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
-      />
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        />
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1155,18 +1239,25 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
-      />
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        />
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1239,18 +1330,25 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
-      />
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        />
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1323,18 +1421,25 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
-      />
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        />
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1407,18 +1512,25 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
-      />
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        />
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1484,18 +1596,25 @@ exports[`CelebrateItem renders event with no subject person (global community ev
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
-      />
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        />
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1554,18 +1673,25 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
           />
         </Component>
       </Component>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Component
         style={
           Object {
-            "fontSize": 14,
             "minHeight": 70,
             "paddingTop": 12,
           }
         }
-      />
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        />
+      </Component>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
