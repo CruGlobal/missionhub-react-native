@@ -105,6 +105,7 @@ it('should mount', async () => {
   await component.instance().loadItems();
   expect(refreshCommunity).toHaveBeenCalledWith(org.id);
   expect(getGroupCelebrateFeedUnread).toHaveBeenCalledWith(org.id);
+  expect(markCommentsRead).toHaveBeenCalledWith(org.id);
 });
 
 it('should refresh correctly', async () => {
