@@ -6,18 +6,22 @@ import { renderShallow } from '../../../../testUtils';
 import { getReportedComments } from '../../../actions/reportComments';
 import { orgPermissionSelector } from '../../../selectors/people';
 import { organizationSelector } from '../../../selectors/organizations';
-import { ORG_PERMISSIONS } from '../../../constants';
+import { ORG_PERMISSIONS, GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import { GROUPS_REPORT_SCREEN } from '../../Groups/GroupReport';
+import { markCommentsRead } from '../../../actions/unreadComments';
+import { GROUP_UNREAD_FEED_SCREEN } from '../../Groups/GroupUnreadFeed';
 
-import ReportCommentNotifier from '..';
+import CelebrateFeedHeader from '..';
 
 jest.mock('../../../selectors/people');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../actions/reportComments');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/unreadComments');
 
 getReportedComments.mockReturnValue(() => ({ type: 'getReportedComments' }));
+markCommentsRead.mockReturnValue(() => ({ type: 'markCommentsRead' }));
 navigatePush.mockReturnValue(() => ({ type: 'navigatePush' }));
 
 const mockStore = configureStore([thunk]);
@@ -26,6 +30,7 @@ const organization = {
   id: '1',
   user_created: true,
   reportedComments: [comment1],
+  unread_comments_count: 12,
 };
 const me = { id: 'myId' };
 
@@ -52,7 +57,7 @@ beforeEach(() => {
 
 function buildScreen() {
   return renderShallow(
-    <ReportCommentNotifier organization={organization} />,
+    <CelebrateFeedHeader organization={organization} />,
     store,
   );
 }
@@ -68,6 +73,29 @@ describe('owner', () => {
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).toHaveBeenCalledWith(organization.id);
+  });
+});
+
+describe('unread comments card', () => {
+  it('renders comment card', () => {
+    const screen = buildScreen();
+    expect(screen).toMatchSnapshot();
+  });
+  it('renders no comment card when global org', () => {
+    organizationSelector.mockReturnValue({
+      ...organization,
+      id: GLOBAL_COMMUNITY_ID,
+    });
+    const screen = buildScreen();
+    expect(screen).toMatchSnapshot();
+  });
+  it('renders no comment card when no new comments', () => {
+    organizationSelector.mockReturnValue({
+      ...organization,
+      unread_comments_count: 0,
+    });
+    const screen = buildScreen();
+    expect(screen).toMatchSnapshot();
   });
 });
 
@@ -92,6 +120,15 @@ describe('admin', () => {
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).not.toHaveBeenCalled();
   });
+  it('renders admin of global org', () => {
+    organizationSelector.mockReturnValue({
+      ...organization,
+      id: GLOBAL_COMMUNITY_ID,
+    });
+    const screen = buildScreen();
+    expect(screen).toMatchSnapshot();
+    expect(getReportedComments).not.toHaveBeenCalled();
+  });
 });
 
 describe('cru community org', () => {
@@ -109,17 +146,26 @@ describe('cru community org', () => {
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).not.toHaveBeenCalled();
   });
-  it('renders contact', () => {
+  it('renders owner', () => {
     orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.CONTACT,
+      permission_id: ORG_PERMISSIONS.OWNER,
     });
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).not.toHaveBeenCalled();
   });
-  it('renders owner', () => {
+});
+
+describe('global community org', () => {
+  beforeEach(() => {
+    organizationSelector.mockReturnValue({
+      ...organization,
+      id: GLOBAL_COMMUNITY_ID,
+    });
+  });
+  it('renders user', () => {
     orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.OWNER,
+      permission_id: ORG_PERMISSIONS.USER,
     });
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
@@ -144,20 +190,37 @@ describe('not owner', () => {
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).not.toHaveBeenCalled();
   });
-  it('renders contact', () => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.CONTACT,
-    });
-    const screen = buildScreen();
-    expect(screen).toMatchSnapshot();
-    expect(getReportedComments).not.toHaveBeenCalled();
+});
+
+it('navigates to unread comments screen', () => {
+  const screen = buildScreen();
+  screen
+    .childAt(0)
+    .childAt(0)
+    .props()
+    .onPress();
+
+  expect(navigatePush).toHaveBeenCalledWith(GROUP_UNREAD_FEED_SCREEN, {
+    organization,
   });
+});
+
+it('closes comment card', () => {
+  const screen = buildScreen();
+  screen
+    .childAt(0)
+    .childAt(0)
+    .props()
+    .onClose();
+
+  expect(markCommentsRead).toHaveBeenCalled();
 });
 
 it('navigates to group report screen', () => {
   const screen = buildScreen();
   screen
     .childAt(0)
+    .childAt(2)
     .props()
     .onPress();
 

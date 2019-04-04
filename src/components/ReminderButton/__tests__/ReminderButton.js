@@ -25,6 +25,7 @@ const createStepReminderResult = { type: 'create step reminder' };
 const mockStore = configureStore([thunk]);
 let store;
 let component;
+let instance;
 
 navigatePush.mockReturnValue(navigatePushResult);
 createStepReminder.mockReturnValue(createStepReminderResult);
@@ -32,6 +33,7 @@ createStepReminder.mockReturnValue(createStepReminderResult);
 const createComponent = props => {
   store = mockStore();
   component = renderShallow(<ReminderButton {...props} />, store);
+  instance = component.instance();
 };
 
 describe('reminder passed in', () => {
@@ -65,6 +67,19 @@ describe('handlePressAndroid', () => {
   });
 });
 
+describe('onRecurrenceChange', () => {
+  const recurrence = 'weekLEE';
+
+  beforeEach(() => {
+    createComponent({ stepId, reminder });
+    component.props().iOSModalContent.props.onRecurrenceChange(recurrence);
+  });
+
+  it('creates step reminder', () => {
+    expect(instance.state).toEqual({ date: mockDate, recurrence });
+  });
+});
+
 describe('onDateChange', () => {
   const date = new Date();
   const recurrence = 'weekLEE';
@@ -76,6 +91,7 @@ describe('onDateChange', () => {
   });
 
   it('creates step reminder', () => {
+    expect(instance.state).toEqual({ date, recurrence });
     expect(createStepReminder).toHaveBeenCalledWith(stepId, date, recurrence);
     expect(store.getActions()).toEqual([createStepReminderResult]);
   });

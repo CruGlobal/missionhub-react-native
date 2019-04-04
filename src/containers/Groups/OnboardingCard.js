@@ -12,6 +12,7 @@ import CONTACTS from '../../../assets/images/MemberContacts.png';
 import SURVEY from '../../../assets/images/curiousIcon.png';
 import { Flex, Text, Card, IconButton } from '../../components/common';
 import { removeGroupOnboardingCard } from '../../actions/swipe';
+import theme from '../../theme';
 
 import styles from './styles';
 
@@ -72,7 +73,7 @@ class OnboardingCard extends Component {
             name="deleteIcon"
             type="MissionHub"
             onPress={this.handlePress}
-            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+            hitSlop={theme.hitSlop(10)}
           />
         </Flex>
       </Card>

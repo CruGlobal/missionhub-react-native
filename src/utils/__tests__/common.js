@@ -29,11 +29,13 @@ import {
   getCommunityUrl,
   keyExtractorId,
   isAdmin,
+  orgIsGlobal,
 } from '../common';
 import {
   MAIN_MENU_DRAWER,
   DEFAULT_PAGE_LIMIT,
   ACCEPTED_STEP,
+  GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 
 jest.mock('react-navigation', () => ({
@@ -123,6 +125,24 @@ describe('orgIsCru', () => {
   });
   it('returns true for cru community', () => {
     expect(orgIsCru({ id: '1', user_created: false })).toEqual(true);
+  });
+});
+
+describe('orgIsGlobal', () => {
+  it('returns false for empty org', () => {
+    expect(orgIsGlobal({})).toEqual(false);
+  });
+  it('returns false for personal ministry', () => {
+    expect(orgIsGlobal({ id: 'personal' })).toEqual(false);
+  });
+  it('returns false for user-created community', () => {
+    expect(orgIsGlobal({ id: '1', user_created: true })).toEqual(false);
+  });
+  it('returns false for cru community', () => {
+    expect(orgIsGlobal({ id: '1', user_created: false })).toEqual(false);
+  });
+  it('returns true for global community', () => {
+    expect(orgIsGlobal({ id: GLOBAL_COMMUNITY_ID })).toEqual(true);
   });
 });
 
