@@ -11,8 +11,7 @@ import { createStepReminder } from '../../actions/stepReminders';
 class ReminderButton extends Component {
   state = {
     date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',
-    recurrence:
-      (this.props.reminder && this.props.reminder.reminder_type) || null,
+    recurrence: this.props.reminder && this.props.reminder.reminder_type,
   };
 
   //for Android, navigate to step reminder screen
@@ -35,6 +34,7 @@ class ReminderButton extends Component {
   };
 
   render() {
+    const { recurrence } = this.state;
     const { children, reminder } = this.props;
     const { reminder_type, next_occurrence_at } = reminder || {};
 
@@ -48,7 +48,8 @@ class ReminderButton extends Component {
         onDateChange={this.handleChangeDate}
         iOSModalContent={
           <ReminderRepeatButtons
-            recurrence={reminder_type}
+            initialRecurrence={reminder_type}
+            recurrence={recurrence}
             onRecurrenceChange={this.onRecurrenceChange}
           />
         }
