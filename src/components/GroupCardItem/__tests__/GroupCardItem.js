@@ -15,6 +15,7 @@ const group = {
   name: 'Group Name',
   contactReport: {},
   user_created: false,
+  unread_comments_count: 0,
 };
 
 let props = {
@@ -156,6 +157,18 @@ describe('GroupCardItem', () => {
         ...group,
         community_photo_url:
           'https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg',
+      },
+    };
+
+    test();
+  });
+
+  it('renders with notification', () => {
+    props = {
+      ...props,
+      group: {
+        ...group,
+        unread_comments_count: 11,
       },
     };
 

@@ -144,11 +144,14 @@ exports[`renders correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "white",
-              "fontSize": 14,
-              "fontWeight": "500",
-            },
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 14,
+                "fontWeight": "500",
+              },
+              undefined,
+            ],
           ]
         }
       >
@@ -595,11 +598,14 @@ exports[`renders title correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "white",
-              "fontSize": 14,
-              "fontWeight": "500",
-            },
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 14,
+                "fontWeight": "500",
+              },
+              undefined,
+            ],
           ]
         }
       >

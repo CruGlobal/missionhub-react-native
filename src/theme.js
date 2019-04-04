@@ -65,6 +65,7 @@ export const COLORS = {
   BLUE_GREEN: '#50DCC8',
   IMPACT_BLUE: '#3EB1C8',
   RED: '#FF5532',
+  DARK_RED: '#260C06',
   IOS_BLUE: '#007AFF',
   GREEN: '#44E4AB',
   convert: colorConvert,
@@ -111,6 +112,7 @@ export default {
   inactiveColor: COLORS.INACTIVE_GREY,
   checkBackgroundColor: COLORS.BLUE_GREEN,
   red: COLORS.RED,
+  darkRed: COLORS.DARK_RED,
   green: COLORS.GREEN,
   fullWidth: deviceWidth,
   fullHeight: deviceHeight,
@@ -140,4 +142,5 @@ export default {
       barStyle: isAndroid ? 'light-content' : 'dark-content',
     },
   },
+  hitSlop: n => ({ top: n, right: n, left: n, bottom: n }),
 };

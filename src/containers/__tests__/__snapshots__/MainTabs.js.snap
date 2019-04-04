@@ -174,11 +174,14 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "white",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                      },
+                      undefined,
+                    ],
                   ]
                 }
               >
@@ -577,10 +580,14 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
+              Array [
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#A0A2A6",
+                },
+              ],
             ]
           }
         >
@@ -669,10 +676,14 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
+              Array [
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#A0A2A6",
+                },
+              ],
             ]
           }
         >
@@ -761,10 +772,14 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#007398",
-                "fontSize": 14,
-              },
+              Array [
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#007398",
+                },
+              ],
             ]
           }
         >
@@ -952,11 +967,14 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "white",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                      },
+                      undefined,
+                    ],
                   ]
                 }
               >
@@ -1172,10 +1190,14 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#007398",
-                "fontSize": 14,
-              },
+              Array [
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#007398",
+                },
+              ],
             ]
           }
         >
@@ -1264,10 +1286,14 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
+              Array [
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#A0A2A6",
+                },
+              ],
             ]
           }
         >
@@ -1356,10 +1382,14 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
+              Array [
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#A0A2A6",
+                },
+              ],
             ]
           }
         >
@@ -1372,33 +1402,7 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
 `;
 
 exports[`renders navItem correctly 1`] = `
-<Flex
-  align="center"
-  justify="center"
-  value={1}
->
-  <Icon
-    name="stepsIcon"
-    size={24}
-    style={
-      Object {
-        "color": undefined,
-      }
-    }
-    type="MissionHub"
-  />
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": undefined,
-        "fontSize": 14,
-      }
-    }
-  >
-    Steps
-  </MyText>
-</Flex>
+<Connect(TabIcon)
+  name="steps"
+/>
 `;
