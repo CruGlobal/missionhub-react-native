@@ -6,7 +6,7 @@ const textStyle = {
   color: theme.textColor,
   fontFamily: 'SourceSansPro-Regular',
   fontSize: 16,
-  lineHeight: 22,
+  lineHeight: 24,
 };
 const heading1Style = {
   ...textStyle,
@@ -23,7 +23,9 @@ const heading2Style = {
 const heading3Style = {
   ...heading1Style,
   fontSize: 20,
-  lineHeight: 24,
+  fontWeight: 'bold',
+  lineHeight: 22,
+  marginVertical: 16,
 };
 const strongStyle = {
   ...textStyle,
@@ -34,12 +36,13 @@ const emphasisStyle = {
   fontFamily: 'SourceSansPro-Italic',
 };
 const paragraph = {
-  marginVertical: 8,
+  marginVertical: 10,
 };
 const listItemOrderedIconStyle = {
   ...textStyle,
   marginRight: 16,
   alignSelf: 'center',
+  lineHeight: 36,
 };
 const listItemUnorderedIconStyle = {
   ...listItemOrderedIconStyle,

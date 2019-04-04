@@ -9,7 +9,7 @@ export function removeStepReminder(challenge_id) {
     dispatch(callApi(REQUESTS.DELETE_CHALLENGE_REMINDER, { challenge_id }));
 }
 
-export function createStepReminder(challenge_id, at, type) {
+export function createStepReminder(challenge_id, reminder_at, reminder_type) {
   return dispatch =>
     dispatch(
       callApi(
@@ -18,9 +18,9 @@ export function createStepReminder(challenge_id, at, type) {
         {
           data: {
             attributes: {
-              type,
-              at: createAt(at, type),
-              on: createOn(at, type),
+              reminder_type,
+              reminder_at: createAt(reminder_at, reminder_type),
+              reminder_on: createOn(reminder_at, reminder_type),
             },
           },
         },
@@ -28,23 +28,23 @@ export function createStepReminder(challenge_id, at, type) {
     );
 }
 
-function createAt(at, type) {
-  switch (type) {
+function createAt(reminder_at, reminder_type) {
+  switch (reminder_type) {
     case ONCE:
-      return at.toISOString();
+      return reminder_at.toISOString();
     default:
-      return at.toLocaleTimeString(undefined, { hour12: false });
+      return reminder_at.toLocaleTimeString(undefined, { hour12: false });
   }
 }
 
-function createOn(at, type) {
-  switch (type) {
+function createOn(reminder_at, reminder_type) {
+  switch (reminder_type) {
     case WEEKLY:
-      return DAYS_OF_THE_WEEK[at.getDay()];
+      return DAYS_OF_THE_WEEK[reminder_at.getDay()];
     case MONTHLY:
-      return getDayOfMonth(at.getDate());
+      return getDayOfMonth(reminder_at.getDate());
     default:
-      return undefined;
+      return null;
   }
 }
 

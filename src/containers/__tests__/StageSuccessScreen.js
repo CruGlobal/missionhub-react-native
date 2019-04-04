@@ -6,7 +6,7 @@ import StageSuccessScreen from '../StageSuccessScreen';
 import {
   testSnapshot,
   createMockNavState,
-  createMockStore,
+  createThunkStore,
 } from '../../../testUtils';
 
 const mockState = {
@@ -14,7 +14,7 @@ const mockState = {
   selectedStage: {},
 };
 
-const store = createMockStore(mockState);
+const store = createThunkStore(mockState);
 
 jest.mock('react-native-device-info');
 

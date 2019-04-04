@@ -196,6 +196,13 @@ exports[`renders correctly 1`] = `
           animationType="none"
           hardwareAccelerated={false}
           onRequestClose={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
           transparent={true}
           visible={false}
         >
@@ -211,222 +218,218 @@ exports[`renders correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "alignItems": "flex-end",
                 "backgroundColor": "rgba(0, 0, 0, 0.5)",
                 "flex": 1,
-                "flexDirection": "row",
                 "opacity": 1,
+              }
+            }
+          />
+          <View
+            pointerEvents="auto"
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "height": 0,
+                "overflow": "hidden",
               }
             }
           >
             <View
-              pointerEvents="auto"
+              style={
+                Array [
+                  Object {
+                    "borderTopColor": "#ccc",
+                    "borderTopWidth": 1,
+                    "marginTop": 60,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <RCTDatePicker
+                date={1535760000000}
+                minimumDate={1535760000000}
+                mode="date"
+                onChange={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "height": 216,
+                  }
+                }
+                timeZoneOffsetInMinutes={null}
+              />
+            </View>
+            <View
               style={
                 Object {
-                  "backgroundColor": "#ffffff",
-                  "flex": 1,
-                  "height": 0,
-                  "overflow": "hidden",
+                  "alignItems": "center",
+                  "alignSelf": "stretch",
+                  "flexDirection": "row",
+                  "height": 60,
+                  "paddingHorizontal": 20,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": "100%",
                 }
               }
             >
               <View
-                style={
-                  Array [
-                    Object {
-                      "borderTopColor": "#ccc",
-                      "borderTopWidth": 1,
-                      "marginTop": 60,
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <RCTDatePicker
-                  date={1535760000000}
-                  minimumDate={1535760000000}
-                  mode="date"
-                  onChange={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "height": 216,
-                    }
-                  }
-                  timeZoneOffsetInMinutes={null}
-                />
-              </View>
-              <View
+                accessibilityTraits="button"
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
-                    "alignItems": "center",
-                    "alignSelf": "stretch",
-                    "flexDirection": "row",
-                    "height": 60,
-                    "paddingHorizontal": 20,
-                    "position": "absolute",
-                    "top": 0,
-                    "width": "100%",
+                    "opacity": 1,
                   }
                 }
               >
                 <View
-                  accessibilityTraits="button"
-                  accessible={true}
-                  isTVSelectable={true}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "opacity": 1,
-                    }
-                  }
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <Text
-                      accessible={true}
-                      allowFontScaling={true}
-                      ellipsizeMode="tail"
-                      style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "backgroundColor": "rgba(0,0,0,0)",
-                              "color": "#ffffff",
-                              "fontSize": 18,
-                              "fontWeight": "500",
-                              "letterSpacing": 1.5,
-                              "textAlign": "center",
-                            },
-                            Array [
-                              Object {
-                                "color": "#007AFF",
-                                "fontSize": 16,
-                                "fontWeight": "normal",
-                                "letterSpacing": 1,
-                              },
-                              Object {
-                                "textAlign": "left",
-                              },
-                            ],
-                          ],
-                        ]
-                      }
-                    >
-                      Cancel
-                    </Text>
-                  </View>
-                </View>
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
                   style={
                     Array [
                       Object {
-                        "color": "#505256",
+                        "backgroundColor": "transparent",
                       },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": undefined,
-                        "flex": 1,
-                        "fontSize": 16,
-                        "textAlign": "center",
-                      },
+                      null,
+                      Object {},
+                      null,
                     ]
                   }
                 >
-                  Date
-                </Text>
-                <View
-                  accessibilityTraits="button"
-                  accessible={true}
-                  isTVSelectable={true}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "opacity": 1,
-                    }
-                  }
-                >
-                  <View
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
                     style={
                       Array [
                         Object {
-                          "backgroundColor": "transparent",
+                          "color": "#505256",
                         },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <Text
-                      accessible={true}
-                      allowFontScaling={true}
-                      ellipsizeMode="tail"
-                      style={
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
                         Array [
                           Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#ffffff",
+                            "fontSize": 18,
+                            "fontWeight": "500",
+                            "letterSpacing": 1.5,
+                            "textAlign": "center",
                           },
                           Array [
                             Object {
-                              "backgroundColor": "rgba(0,0,0,0)",
-                              "color": "#ffffff",
-                              "fontSize": 18,
-                              "fontWeight": "500",
-                              "letterSpacing": 1.5,
-                              "textAlign": "center",
+                              "color": "#007AFF",
+                              "fontSize": 16,
+                              "fontWeight": "normal",
+                              "letterSpacing": 1,
                             },
-                            Array [
-                              Object {
-                                "color": "#007AFF",
-                                "fontSize": 16,
-                                "fontWeight": "normal",
-                                "letterSpacing": 1,
-                              },
-                              undefined,
-                            ],
+                            Object {
+                              "textAlign": "left",
+                            },
                           ],
-                        ]
-                      }
-                    >
-                      Done
-                    </Text>
-                  </View>
+                        ],
+                      ]
+                    }
+                  >
+                    Cancel
+                  </Text>
+                </View>
+              </View>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": undefined,
+                      "flex": 1,
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Date
+              </Text>
+              <View
+                accessibilityTraits="button"
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                      null,
+                      Object {},
+                      null,
+                    ]
+                  }
+                >
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#ffffff",
+                            "fontSize": 18,
+                            "fontWeight": "500",
+                            "letterSpacing": 1.5,
+                            "textAlign": "center",
+                          },
+                          Array [
+                            Object {
+                              "color": "#007AFF",
+                              "fontSize": 16,
+                              "fontWeight": "normal",
+                              "letterSpacing": 1,
+                            },
+                            undefined,
+                          ],
+                        ],
+                      ]
+                    }
+                  >
+                    Done
+                  </Text>
                 </View>
               </View>
             </View>
@@ -692,7 +695,6 @@ exports[`renders edit challenge correctly 1`] = `
         minDate={2018-09-01T00:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
-        placeholder="End Date (Required)"
       >
         <Component
           style={

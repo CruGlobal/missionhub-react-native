@@ -5,11 +5,11 @@ import Enzyme from 'enzyme/build/index';
 
 import { BackButton } from '..';
 
-import { createMockStore } from '../../../../testUtils';
+import { createThunkStore } from '../../../../testUtils';
 import * as navigation from '../../../actions/navigation';
 import IconButton from '../../../components/IconButton';
 
-const store = createMockStore();
+const store = createThunkStore();
 let shallowScreen;
 
 jest.mock('react-native-device-info');
@@ -18,7 +18,7 @@ describe('back button', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     shallowScreen = shallow(<BackButton dispatch={jest.fn()} />, {
-      context: { store: store },
+      context: { store },
     });
 
     shallowScreen = shallowScreen.dive();
@@ -44,7 +44,7 @@ describe('back button absolute', () => {
     Enzyme.configure({ adapter: new Adapter() });
     shallowScreen = shallow(
       <BackButton absolute={true} dispatch={jest.fn()} />,
-      { context: { store: store } },
+      { context: { store } },
     );
 
     shallowScreen = shallowScreen.dive();
@@ -62,7 +62,7 @@ describe('back button customNavigate', () => {
     Enzyme.configure({ adapter: new Adapter() });
     shallowScreen = shallow(
       <BackButton customNavigate={mockCustomNav} dispatch={jest.fn()} />,
-      { context: { store: store } },
+      { context: { store } },
     );
 
     shallowScreen = shallowScreen.dive();

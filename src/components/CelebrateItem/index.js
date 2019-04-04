@@ -80,16 +80,16 @@ class CelebrateItem extends Component {
   }
 
   buildJoinedCommunityMessage(t, event, name) {
-    const {
-      organization: { name: communityName },
-    } = event;
+    const organization = this.props.organization || event.organization;
+    const { name: communityName } = organization;
+
     return t('joinedCommunity', { initiator: name, communityName });
   }
 
   buildCreateCommunityMessage(t, event, name) {
-    const {
-      organization: { name: communityName },
-    } = event;
+    const organization = this.props.organization || event.organization;
+    const { name: communityName } = organization;
+
     return t('communityCreated', { initiator: name, communityName });
   }
 
@@ -209,10 +209,10 @@ class CelebrateItem extends Component {
     } = this.props;
     const {
       changed_attribute_value,
-      organization,
       subject_person,
       subject_person_name,
     } = event;
+    const organization = this.props.organization || event.organization;
     const { top, topLeft } = styles;
 
     return (
@@ -244,6 +244,7 @@ class CelebrateItem extends Component {
 
 CelebrateItem.propTypes = {
   event: PropTypes.object.isRequired,
+  organization: PropTypes.object,
   namePressable: PropTypes.bool,
 };
 

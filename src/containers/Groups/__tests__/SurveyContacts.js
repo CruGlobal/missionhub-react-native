@@ -4,7 +4,7 @@ import React from 'react';
 
 import SurveyContacts from '../SurveyContacts';
 import {
-  createMockStore,
+  createThunkStore,
   renderShallow,
   testSnapshotShallow,
   createMockNavState,
@@ -24,7 +24,7 @@ jest.mock('../../../actions/person', () => ({
 jest.mock('../../../actions/organizations');
 jest.mock('../../../utils/common');
 
-const store = createMockStore({});
+const store = createThunkStore({});
 const organization = { id: '1', name: 'Test Org' };
 const survey = { id: '11' };
 const people = [{ id: '1' }, { id: '2' }];
@@ -78,7 +78,9 @@ describe('SurveyContacts', () => {
       response: [people[0], people[1]],
       meta: { total: 42 },
     };
-    organizations.getOrganizationContacts.mockReturnValue(searchReturnValue);
+    organizations.getOrganizationContacts.mockReturnValue(
+      () => searchReturnValue,
+    );
 
     const instance = renderShallow(component, store).instance();
 

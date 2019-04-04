@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import {
-  createMockStore,
+  createThunkStore,
   renderShallow,
   testSnapshot,
 } from '../../../../testUtils';
@@ -36,7 +36,7 @@ const mockState = {
   },
 };
 
-const store = createMockStore(mockState);
+const store = createThunkStore(mockState);
 
 const onSelect = jest.fn();
 
@@ -215,7 +215,6 @@ describe('handleChangeStage', () => {
       .props()
       .onPress();
 
-    expect(store.dispatch).toHaveBeenCalledWith(mockGetPeopleResult);
     expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
       onComplete: expect.anything(),
       currentStage: null,
@@ -226,7 +225,10 @@ describe('handleChangeStage', () => {
       subsection: 'person',
       orgId: mockOrganization.id,
     });
-    expect(store.dispatch).toHaveBeenCalledWith(mockNavigatePushResult);
+    expect(store.getActions()).toEqual([
+      mockGetPeopleResult,
+      mockNavigatePushResult,
+    ]);
   });
 });
 

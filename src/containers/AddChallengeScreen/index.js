@@ -97,7 +97,6 @@ class AddChallengeScreen extends Component {
         <DatePicker
           date={date}
           mode="date"
-          placeholder={t('datePlaceholder')}
           minDate={today}
           onDateChange={this.onChangeDate}
         >

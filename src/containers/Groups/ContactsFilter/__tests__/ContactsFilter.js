@@ -3,7 +3,7 @@ import React from 'react';
 import ContactsFilter from '..';
 
 import {
-  createMockStore,
+  createThunkStore,
   renderShallow,
   testSnapshotShallow,
   createMockNavState,
@@ -21,7 +21,7 @@ jest.mock('../../../../actions/labels', () => ({
   })),
 }));
 
-const store = createMockStore({});
+const store = createThunkStore({});
 const timeFilter30 = { id: 'time30', value: 30, text: 'Last 30 days' };
 const organization = { id: '1' };
 const filters = {

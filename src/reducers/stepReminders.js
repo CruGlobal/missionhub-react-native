@@ -25,7 +25,7 @@ function addCreatedReminderToState(
   return {
     ...state,
     allByStep: {
-      ...state.all,
+      ...state.allByStep,
       [challenge_id]: response,
     },
   };
@@ -35,7 +35,7 @@ function addChallengeRemindersToState(state, { results: { response } }) {
   return {
     ...state,
     allByStep: {
-      ...state.all,
+      ...state.allByStep,
       ...response.reduce(
         (acc, { id: challenge_id, reminder }) =>
           reminder
@@ -51,7 +51,7 @@ function addChallengeRemindersToState(state, { results: { response } }) {
 }
 
 function removeReminderFromState(state, { query: { challenge_id } }) {
-  const all = { ...state.all };
-  delete all[challenge_id];
-  return { ...state, all };
+  const allByStep = { ...state.allByStep };
+  delete allByStep[challenge_id];
+  return { ...state, allByStep };
 }

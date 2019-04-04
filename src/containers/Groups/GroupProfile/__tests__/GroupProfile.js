@@ -10,7 +10,7 @@ import {
   renderShallow,
   createMockNavState,
   testSnapshotShallow,
-  createMockStore,
+  createThunkStore,
 } from '../../../../../testUtils';
 import { navigateBack, navigateReset } from '../../../../actions/navigation';
 import {
@@ -106,7 +106,7 @@ const storeObj = {
     },
   },
 };
-const store = createMockStore(storeObj);
+const store = createThunkStore(storeObj);
 
 common.copyText = jest.fn();
 organizationSelector.mockReturnValue(organization);
@@ -143,7 +143,7 @@ describe('GroupProfile', () => {
   });
 
   it('renders without edit button', () => {
-    const store2 = createMockStore({
+    const store2 = createThunkStore({
       ...storeObj,
       auth: {
         person: {
