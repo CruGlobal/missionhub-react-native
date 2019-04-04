@@ -18,10 +18,10 @@ function inNextWeek(momentDate) {
   return momentDate.isBetween(moment(), moment().add(7, 'days'), 'day', '[]');
 }
 
-function formatReminder({ type, next_occurrence_at }) {
+function formatReminder({ reminder_type, next_occurrence_at }) {
   const timeFormat = 'LT';
   const momentDate = momentUtc(next_occurrence_at).local();
-  switch (type) {
+  switch (reminder_type) {
     case REMINDER_RECURRENCES.DAILY:
       return `${i18n.t('dates.everyDay')} @ ${momentDate.format(timeFormat)}`;
     case REMINDER_RECURRENCES.WEEKLY:
