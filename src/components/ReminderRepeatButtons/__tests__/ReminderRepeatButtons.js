@@ -7,16 +7,17 @@ import { REMINDER_RECURRENCES } from '../../../constants';
 
 const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
+const onRecurrenceChange = jest.fn();
+
 let component;
-let instance;
 
 const test = () => expect(component).toMatchSnapshot();
 
 beforeEach(() => {
+  onRecurrenceChange.mockClear();
   component = renderShallow(
-    <ReminderRepeatButtons onRecurrenceChange={jest.fn()} />,
+    <ReminderRepeatButtons onRecurrenceChange={onRecurrenceChange} />,
   );
-  instance = component.instance();
 });
 
 describe('none selected', () => {
@@ -24,32 +25,31 @@ describe('none selected', () => {
     test();
   });
 
-  it('starts with once recurrence in state', () => {
-    expect(instance.state).toEqual({
-      recurrence: ONCE,
-    });
+  it('calls onRecurrenceChange with ONCE', () => {
+    expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
+    expect(onRecurrenceChange).toHaveBeenCalledWith(ONCE);
   });
 });
 
 describe('starts with weekly selected', () => {
   beforeEach(() => {
+    onRecurrenceChange.mockClear();
     component = renderShallow(
       <ReminderRepeatButtons
+        initialRecurrence={WEEKLY}
         recurrence={WEEKLY}
-        onRecurrenceChange={jest.fn()}
+        onRecurrenceChange={onRecurrenceChange}
       />,
     );
-    instance = component.instance();
   });
 
   it('renders with weekly highlighted', () => {
     test();
   });
 
-  it('starts with weekly recurrence in state', () => {
-    expect(instance.state).toEqual({
-      recurrence: WEEKLY,
-    });
+  it('calls onRecurrenceChange with ONCE', () => {
+    expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
+    expect(onRecurrenceChange).toHaveBeenCalledWith(WEEKLY);
   });
 });
 
@@ -62,14 +62,9 @@ describe('select daily button', () => {
     component.update();
   });
 
-  it('renders with daily button highlighted only', () => {
-    test();
-  });
-
-  it('updates state', () => {
-    expect(instance.state).toEqual({
-      recurrence: DAILY,
-    });
+  it('calls onRecurrenceChange with DAILY', () => {
+    expect(onRecurrenceChange).toHaveBeenCalledTimes(2);
+    expect(onRecurrenceChange).toHaveBeenCalledWith(DAILY);
   });
 
   describe('select button again', () => {
@@ -81,14 +76,9 @@ describe('select daily button', () => {
       component.update();
     });
 
-    it('renders with none highlighted', () => {
-      test();
-    });
-
-    it('updates state', () => {
-      expect(instance.state).toEqual({
-        recurrence: ONCE,
-      });
+    it('calls onRecurrenceChange with ONCE', () => {
+      expect(onRecurrenceChange).toHaveBeenCalledTimes(3);
+      expect(onRecurrenceChange).toHaveBeenCalledWith(ONCE);
     });
   });
 
@@ -101,14 +91,9 @@ describe('select daily button', () => {
       component.update();
     });
 
-    it('renders with other highlighted only', () => {
-      test();
-    });
-
-    it('updates state', () => {
-      expect(instance.state).toEqual({
-        recurrence: WEEKLY,
-      });
+    it('calls onRecurrenceChange with WEEKLY', () => {
+      expect(onRecurrenceChange).toHaveBeenCalledTimes(3);
+      expect(onRecurrenceChange).toHaveBeenCalledWith(WEEKLY);
     });
   });
 });
@@ -122,14 +107,9 @@ describe('select weekly button', () => {
     component.update();
   });
 
-  it('renders with weekly button highlighted only', () => {
-    test();
-  });
-
-  it('updates state', () => {
-    expect(instance.state).toEqual({
-      recurrence: WEEKLY,
-    });
+  it('calls onRecurrenceChange with WEEKLY', () => {
+    expect(onRecurrenceChange).toHaveBeenCalledTimes(2);
+    expect(onRecurrenceChange).toHaveBeenCalledWith(WEEKLY);
   });
 });
 
@@ -142,13 +122,8 @@ describe('select monthly button', () => {
     component.update();
   });
 
-  it('renders with monthly button highlighted only', () => {
-    test();
-  });
-
-  it('updates state', () => {
-    expect(instance.state).toEqual({
-      recurrence: MONTHLY,
-    });
+  it('calls onRecurrenceChange with MONTHLY', () => {
+    expect(onRecurrenceChange).toHaveBeenCalledTimes(2);
+    expect(onRecurrenceChange).toHaveBeenCalledWith(MONTHLY);
   });
 });
