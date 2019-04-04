@@ -84,12 +84,12 @@ class CelebrateFeed extends Component {
   };
 
   render() {
-    const { items, refreshing } = this.props;
+    const { items, refreshing, noHeader } = this.props;
 
     return (
       <SectionList
         sections={items}
-        ListHeaderComponent={this.renderHeader}
+        ListHeaderComponent={noHeader ? undefined : this.renderHeader}
         renderSectionHeader={this.renderSectionHeader}
         renderItem={this.renderItem}
         keyExtractor={keyExtractorId}
@@ -111,6 +111,7 @@ CelebrateFeed.propTypes = {
   refreshing: PropTypes.bool,
   itemNamePressable: PropTypes.bool,
   isMember: PropTypes.bool,
+  noHeader: PropTypes.bool,
 };
 
 export default connect()(CelebrateFeed);

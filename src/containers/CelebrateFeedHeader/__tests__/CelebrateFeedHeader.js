@@ -10,6 +10,7 @@ import { ORG_PERMISSIONS, GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import { GROUPS_REPORT_SCREEN } from '../../Groups/GroupReport';
 import { markCommentsRead } from '../../../actions/unreadComments';
+import { GROUP_UNREAD_FEED_SCREEN } from '../../Groups/GroupUnreadFeed';
 
 import CelebrateFeedHeader from '..';
 
@@ -199,9 +200,9 @@ it('navigates to unread comments screen', () => {
     .props()
     .onPress();
 
-  // expect(navigatePush).toHaveBeenCalledWith(GROUPS_REPORT_SCREEN, {
-  //   organization,
-  // });
+  expect(navigatePush).toHaveBeenCalledWith(GROUP_UNREAD_FEED_SCREEN, {
+    organization,
+  });
 });
 
 it('closes comment card', () => {

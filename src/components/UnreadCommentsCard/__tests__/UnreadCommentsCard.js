@@ -8,6 +8,9 @@ const props = { count: 12, onPress: jest.fn(), onClose: jest.fn() };
 it('renders correctly', () => {
   testSnapshot(<UnreadCommentCard {...props} />);
 });
+it('renders correctly singular', () => {
+  testSnapshot(<UnreadCommentCard {...props} count={1} />);
+});
 
 describe('press events', () => {
   let component;

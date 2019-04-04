@@ -194,6 +194,9 @@ import { AddPersonStepFlowNavigator } from './routes/steps/addPersonStepFlow';
 import { SelectMyStageFlowNavigator } from './routes/stage/selectMyStageFlow';
 import { SelectPersonStageFlowNavigator } from './routes/stage/selectPersonStageFlow';
 import TabIcon from './containers/TabIcon';
+import GroupUnreadFeed, {
+  GROUP_UNREAD_FEED_SCREEN,
+} from './containers/Groups/GroupUnreadFeed';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -419,6 +422,16 @@ const screens = {
   [GROUPS_REPORT_SCREEN]: buildTrackedScreen(
     GroupReport,
     buildTrackingObj('communities : report', 'communities', 'report'),
+    { gesturesEnabled: true },
+  ),
+  [GROUP_UNREAD_FEED_SCREEN]: buildTrackedScreen(
+    GroupUnreadFeed,
+    buildTrackingObj(
+      'communities : comments : unread',
+      'communities',
+      'comments',
+      'unread',
+    ),
     { gesturesEnabled: true },
   ),
   [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(

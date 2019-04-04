@@ -15,7 +15,7 @@ export default function UnreadCommentsCard({ count, onPress, onClose }) {
         <View style={styles.content}>
           <Text style={styles.number}>{count}</Text>
           <Text style={styles.description}>
-            {i18n.t('celebrateFeedHeader:newComments')}
+            {i18n.t('celebrateFeedHeader:newComments', { count })}
           </Text>
           <Image source={COMMENTS} style={styles.background} />
         </View>
