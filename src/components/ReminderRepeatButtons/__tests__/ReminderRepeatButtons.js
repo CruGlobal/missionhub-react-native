@@ -36,7 +36,6 @@ describe('starts with weekly selected', () => {
     onRecurrenceChange.mockClear();
     component = renderShallow(
       <ReminderRepeatButtons
-        initialRecurrence={WEEKLY}
         recurrence={WEEKLY}
         onRecurrenceChange={onRecurrenceChange}
       />,

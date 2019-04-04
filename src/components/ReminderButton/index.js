@@ -36,7 +36,7 @@ class ReminderButton extends Component {
   render() {
     const { recurrence } = this.state;
     const { children, reminder } = this.props;
-    const { reminder_type, next_occurrence_at } = reminder || {};
+    const { next_occurrence_at } = reminder || {};
 
     const today = new Date();
 
@@ -48,7 +48,6 @@ class ReminderButton extends Component {
         onDateChange={this.handleChangeDate}
         iOSModalContent={
           <ReminderRepeatButtons
-            initialRecurrence={reminder_type}
             recurrence={recurrence}
             onRecurrenceChange={this.onRecurrenceChange}
           />
