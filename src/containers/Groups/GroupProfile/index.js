@@ -38,6 +38,7 @@ import { organizationSelector } from '../../../selectors/organizations';
 import { ORG_PERMISSIONS, MAIN_TABS, ACTIONS } from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
 import PopupMenu from '../../../components/PopupMenu';
+import Header from '../../../components/Header';
 
 import styles from './styles';
 
@@ -279,33 +280,29 @@ class GroupProfile extends Component {
             <Text style={styles.info}>{t('info')}</Text>
           </Flex>
         </ScrollView>
-        <Flex
-          direction="row"
-          align="center"
+        <Header
+          shadow={false}
           style={styles.topNav}
-          pointerEvents="box-none"
-        >
-          <Flex value={1} align="start" pointerEvents="box-none">
+          left={
             <IconButton
               name="deleteIcon"
               type="MissionHub"
+              style={styles.closeButton}
               onPress={this.navigateBack}
             />
-          </Flex>
-          {canEdit ? (
-            <Flex value={1} align="end" pointerEvents="box-none">
+          }
+          right={
+            !canEdit ? null : (
               <Button
                 style={styles.editBtn}
                 buttonTextStyle={styles.btnText}
                 onPress={this.handleEdit}
-                text={
-                  editing ? t('done').toUpperCase() : t('edit').toUpperCase()
-                }
+                text={(editing ? t('done') : t('edit')).toUpperCase()}
                 type="transparent"
               />
-            </Flex>
-          ) : null}
-        </Flex>
+            )
+          }
+        />
       </SafeAreaView>
     );
   }

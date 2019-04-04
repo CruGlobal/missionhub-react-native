@@ -397,40 +397,20 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
       </MyText>
     </Flex>
   </ScrollView>
-  <Flex
-    align="center"
-    direction="row"
-    pointerEvents="box-none"
-    style={
-      Object {
-        "backgroundColor": "rgba(0, 0, 0, 0.05)",
-        "left": 0,
-        "paddingBottom": 10,
-        "paddingLeft": 15,
-        "paddingRight": 20,
-        "paddingTop": 25,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <Flex
-      align="start"
-      pointerEvents="box-none"
-      value={1}
-    >
+  <Header
+    left={
       <IconButton
         name="deleteIcon"
         onPress={[Function]}
+        style={
+          Object {
+            "paddingLeft": 10,
+          }
+        }
         type="MissionHub"
       />
-    </Flex>
-    <Flex
-      align="end"
-      pointerEvents="box-none"
-      value={1}
-    >
+    }
+    right={
       <Button
         buttonTextStyle={
           Object {
@@ -440,11 +420,26 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           }
         }
         onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 15,
+          }
+        }
         text="DONE"
         type="transparent"
       />
-    </Flex>
-  </Flex>
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.05)",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  />
 </SafeAreaView>
 `;
 
@@ -784,40 +779,20 @@ exports[`GroupProfile renders correctly 1`] = `
       </MyText>
     </Flex>
   </ScrollView>
-  <Flex
-    align="center"
-    direction="row"
-    pointerEvents="box-none"
-    style={
-      Object {
-        "backgroundColor": "rgba(0, 0, 0, 0.05)",
-        "left": 0,
-        "paddingBottom": 10,
-        "paddingLeft": 15,
-        "paddingRight": 20,
-        "paddingTop": 25,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <Flex
-      align="start"
-      pointerEvents="box-none"
-      value={1}
-    >
+  <Header
+    left={
       <IconButton
         name="deleteIcon"
         onPress={[Function]}
+        style={
+          Object {
+            "paddingLeft": 10,
+          }
+        }
         type="MissionHub"
       />
-    </Flex>
-    <Flex
-      align="end"
-      pointerEvents="box-none"
-      value={1}
-    >
+    }
+    right={
       <Button
         buttonTextStyle={
           Object {
@@ -827,11 +802,26 @@ exports[`GroupProfile renders correctly 1`] = `
           }
         }
         onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 15,
+          }
+        }
         text="EDIT"
         type="transparent"
       />
-    </Flex>
-  </Flex>
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.05)",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  />
 </SafeAreaView>
 `;
 
@@ -1171,40 +1161,20 @@ exports[`GroupProfile renders with image 1`] = `
       </MyText>
     </Flex>
   </ScrollView>
-  <Flex
-    align="center"
-    direction="row"
-    pointerEvents="box-none"
-    style={
-      Object {
-        "backgroundColor": "rgba(0, 0, 0, 0.05)",
-        "left": 0,
-        "paddingBottom": 10,
-        "paddingLeft": 15,
-        "paddingRight": 20,
-        "paddingTop": 25,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <Flex
-      align="start"
-      pointerEvents="box-none"
-      value={1}
-    >
+  <Header
+    left={
       <IconButton
         name="deleteIcon"
         onPress={[Function]}
+        style={
+          Object {
+            "paddingLeft": 10,
+          }
+        }
         type="MissionHub"
       />
-    </Flex>
-    <Flex
-      align="end"
-      pointerEvents="box-none"
-      value={1}
-    >
+    }
+    right={
       <Button
         buttonTextStyle={
           Object {
@@ -1214,11 +1184,26 @@ exports[`GroupProfile renders with image 1`] = `
           }
         }
         onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 15,
+          }
+        }
         text="EDIT"
         type="transparent"
       />
-    </Flex>
-  </Flex>
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.05)",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  />
 </SafeAreaView>
 `;
 
@@ -1558,35 +1543,30 @@ exports[`GroupProfile renders without edit button 1`] = `
       </MyText>
     </Flex>
   </ScrollView>
-  <Flex
-    align="center"
-    direction="row"
-    pointerEvents="box-none"
+  <Header
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        style={
+          Object {
+            "paddingLeft": 10,
+          }
+        }
+        type="MissionHub"
+      />
+    }
+    right={null}
+    shadow={false}
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.05)",
         "left": 0,
-        "paddingBottom": 10,
-        "paddingLeft": 15,
-        "paddingRight": 20,
-        "paddingTop": 25,
         "position": "absolute",
         "right": 0,
         "top": 0,
       }
     }
-  >
-    <Flex
-      align="start"
-      pointerEvents="box-none"
-      value={1}
-    >
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        type="MissionHub"
-      />
-    </Flex>
-  </Flex>
+  />
 </SafeAreaView>
 `;

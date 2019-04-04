@@ -6,7 +6,7 @@ exports[`renderForeground renders correctly 1`] = `
   flex={1}
 >
   <Header
-    shadow={true}
+    shadow={false}
   />
   <Icon
     name="addStepIcon"

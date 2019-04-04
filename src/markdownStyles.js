@@ -37,7 +37,7 @@ const emphasisStyle = {
 };
 const paragraph = {
   marginVertical: 10,
-  lineHeight: 24,
+  // lineHeight: 24, // Cannot be applied on <View>
 };
 const listItemOrderedIconStyle = {
   ...textStyle,

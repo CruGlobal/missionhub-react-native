@@ -168,10 +168,8 @@ describe('GroupProfile', () => {
       // Press the "Edit" button
       component
         .childAt(2)
-        .childAt(1)
-        .childAt(0)
         .props()
-        .onPress();
+        .right.props.onPress();
       component.update();
     });
 
