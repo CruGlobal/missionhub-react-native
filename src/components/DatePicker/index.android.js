@@ -53,10 +53,13 @@ class MyDatePickerAndroid extends Component {
     switch (mode) {
       case 'date':
         dateTimeSelections = await this.launchDatePicker();
+        break;
       case 'time':
         dateTimeSelections = await this.launchTimePicker();
+        break;
       case 'datetime':
         dateTimeSelections = await this.launchDateThenTimePicker();
+        break;
       default:
         dateTimeSelections = {};
     }
@@ -80,10 +83,10 @@ class MyDatePickerAndroid extends Component {
     return this.datePicked();
   }
 
-  async launchDatePicker() {
+  launchDatePicker() {
     const { androidMode, minDate, maxDate } = this.props;
 
-    return await DatePickerAndroid.open({
+    return DatePickerAndroid.open({
       date: this.state.date,
       minDate: minDate && getDate(minDate),
       maxDate: maxDate && getDate(maxDate),
@@ -91,7 +94,7 @@ class MyDatePickerAndroid extends Component {
     });
   }
 
-  async launchTimePicker() {
+  launchTimePicker() {
     const {
       androidMode,
       mode,
@@ -101,7 +104,7 @@ class MyDatePickerAndroid extends Component {
 
     const timeMoment = moment(this.state.date);
 
-    return await TimePickerAndroid.open({
+    return TimePickerAndroid.open({
       hour: timeMoment.hour(),
       minute: timeMoment.minutes(),
       is24Hour,
@@ -117,17 +120,13 @@ class MyDatePickerAndroid extends Component {
       day,
     } = await this.launchDatePicker();
 
-    if (dateAction !== DatePickerAndroid.dismissedAction) {
-      const {
-        action: timeAction,
-        hour,
-        minute,
-      } = await this.launchTimePicker();
-
-      return { action: timeAction, year, month, day, hour, minute };
+    if (dateAction === DatePickerAndroid.dismissedAction) {
+      return { action: dateAction };
     }
 
-    return { action: dateAction };
+    const { action: timeAction, hour, minute } = await this.launchTimePicker();
+
+    return { action: timeAction, year, month, day, hour, minute };
   }
 
   onPressDate = () => {
