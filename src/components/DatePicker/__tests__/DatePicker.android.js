@@ -36,6 +36,7 @@ describe('DatePicker methods', () => {
   const date = new Date();
   const minDate = new Date();
   const maxDate = new Date();
+  const today = moment(date);
   const mockChange = jest.fn();
   const mockCloseModal = jest.fn();
   const androidMode = 'default';
@@ -81,7 +82,13 @@ describe('DatePicker methods', () => {
           mode: androidMode,
         });
         expect(instance.state.date).toEqual(
-          new Date(action.year, action.month, action.day),
+          new Date(
+            action.year,
+            action.month,
+            action.day,
+            today.hour(),
+            today.minutes(),
+          ),
         );
         expect(mockChange).toHaveBeenCalled();
       });
@@ -150,10 +157,13 @@ describe('DatePicker methods', () => {
           mode: androidMode,
         });
         expect(instance.state.date).toEqual(
-          moment()
-            .hour(action.hour)
-            .minute(action.minute)
-            .toDate(),
+          new Date(
+            today.year(),
+            today.month(),
+            today.date(),
+            action.hour,
+            action.minute,
+          ),
         );
         expect(mockChange).toHaveBeenCalled();
       });
