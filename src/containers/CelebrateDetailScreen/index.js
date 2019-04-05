@@ -7,6 +7,7 @@ import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 import CommentLikeComponent from '../CommentLikeComponent';
 import { celebrationItemSelector } from '../../selectors/celebration';
+import { organizationSelector } from '../../selectors/organizations';
 import CelebrateItem from '../../components/CelebrateItem';
 import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
@@ -40,12 +41,13 @@ class CelebrateDetailScreen extends Component {
   };
 
   renderForeground = () => {
-    const { event } = this.props;
+    const { event, organization } = this.props;
     const { cardStyle } = styles;
 
     return (
       <CelebrateItem
         event={event}
+        organization={organization}
         cardStyle={cardStyle}
         rightCorner={this.renderBackButton()}
         namePressable={true}
@@ -140,6 +142,10 @@ const mapStateToProps = (
       { organizations },
       { eventId: event.id, organizationId: event.organization.id },
     ) || event,
+  organization: organizationSelector(
+    { organizations },
+    { orgId: event.organization.id },
+  ),
 });
 export default connect(mapStateToProps)(CelebrateDetailScreen);
 export const CELEBRATE_DETAIL_SCREEN = 'nav/CELEBRATE_DETAIL_SCREEN';
