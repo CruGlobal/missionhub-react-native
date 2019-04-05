@@ -11,6 +11,9 @@ import { organizationSelector } from '../selectors/organizations';
 
 // Challenge and Celebrate action helpers
 
+export const GET_CELEBRATE_INCLUDE =
+  'subject_person.organizational_permissions,subject_person.contact_assignments';
+
 export const CHALLENGE = 'challenge';
 export const CELEBRATE = 'celebrate';
 
@@ -77,8 +80,7 @@ export function getFeed(type, orgId, personId = null) {
       ...buildQuery(type, orgId, page, personId),
       ...(type === CELEBRATE
         ? {
-            include:
-              'subject_person.organizational_permissions,subject_person.contact_assignments',
+            include: GET_CELEBRATE_INCLUDE,
           }
         : {}),
     };

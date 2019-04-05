@@ -193,6 +193,9 @@ export default {
   GET_GROUP_CELEBRATE_FEED: {
     endpoint: `${ORG_URL}/:orgId/celebration_items`,
   },
+  GET_GROUP_CELEBRATE_FEED_UNREAD: {
+    endpoint: `${ORG_URL}/:orgId/celebration_items`,
+  },
   GET_GLOBAL_CELEBRATE_FEED: {
     endpoint: `${API_URL}/global_celebration_items`,
   },
@@ -225,6 +228,10 @@ export default {
   },
   DELETE_CELEBRATE_COMMENT: {
     endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/comments/:commentId`,
+    method: 'delete',
+  },
+  MARK_ORG_COMMENTS_AS_READ: {
+    endpoint: `${API_URL}/unread_items`,
     method: 'delete',
   },
   GET_REPORTED_COMMENTS: {

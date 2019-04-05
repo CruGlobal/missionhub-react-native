@@ -100,6 +100,7 @@ export default {
     cancel: 'Cancel',
     continue: 'Continue',
     your: 'your',
+    view: 'View',
     contactAssignment:
       '{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}',
     contactUnassignment:
@@ -751,9 +752,19 @@ export default {
     deleteAreYouSure:
       'This post will be deleted and you won’t be able to find it anymore.',
   },
-  groupsReport: {
+  celebrateFeedHeader: {
     reports: '{{count}} new reported comment',
     reports_plural: '{{count}} new reported comments',
+    newComments: 'New Comment',
+    newComments_plural: 'New Comments',
+  },
+  groupUnread: {
+    title: '{{count}} New Comment',
+    title_plural: '{{count}} New Comments',
+    header: 'No Unread Comments',
+    reportNull: 'No Unread comments.',
+  },
+  groupsReport: {
     title: 'Reported Comment',
     header: 'No Reported Comments',
     reportNull: 'No comments have been reported.',

@@ -10,7 +10,7 @@ import * as common from '../../../utils/common';
 const mockDate = '2019-03-27 12:00:00 PM UTC';
 const reminder = {
   id: '1',
-  type: REMINDER_RECURRENCES.ONCE,
+  reminder_type: REMINDER_RECURRENCES.ONCE,
   next_occurrence_at: mockDate,
 };
 MockDate.set(mockDate);
@@ -38,49 +38,49 @@ const test = reminder => {
 };
 it('renders daily', () => {
   test({
-    type: REMINDER_RECURRENCES.DAILY,
+    reminder_type: REMINDER_RECURRENCES.DAILY,
     next_occurrence_at: '2019-03-27 19:00:00 UTC',
   });
 });
 it('renders weekly', () => {
   test({
-    type: REMINDER_RECURRENCES.WEEKLY,
+    reminder_type: REMINDER_RECURRENCES.WEEKLY,
     next_occurrence_at: '2019-03-29 19:00:00 UTC',
   });
 });
 it('renders monthly', () => {
   test({
-    type: REMINDER_RECURRENCES.MONTHLY,
+    reminder_type: REMINDER_RECURRENCES.MONTHLY,
     next_occurrence_at: '2019-03-29 19:00:00 UTC',
   });
 });
 it('renders once today', () => {
   test({
-    type: REMINDER_RECURRENCES.ONCE,
+    reminder_type: REMINDER_RECURRENCES.ONCE,
     next_occurrence_at: '2019-03-27 16:00:00 UTC',
   });
 });
 it('renders once tomorrow', () => {
   test({
-    type: REMINDER_RECURRENCES.ONCE,
+    reminder_type: REMINDER_RECURRENCES.ONCE,
     next_occurrence_at: '2019-03-28 16:00:00 UTC',
   });
 });
 it('renders once this week', () => {
   test({
-    type: REMINDER_RECURRENCES.ONCE,
+    reminder_type: REMINDER_RECURRENCES.ONCE,
     next_occurrence_at: '2019-03-31 12:00:00 UTC',
   });
 });
 it('renders once next week', () => {
   test({
-    type: REMINDER_RECURRENCES.ONCE,
+    reminder_type: REMINDER_RECURRENCES.ONCE,
     next_occurrence_at: '2019-04-04 23:00:00 UTC',
   });
 });
 it('renders once next month', () => {
   test({
-    type: REMINDER_RECURRENCES.ONCE,
+    reminder_type: REMINDER_RECURRENCES.ONCE,
     next_occurrence_at: '2019-04-27 17:00:00 UTC',
   });
 });
