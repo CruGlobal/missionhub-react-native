@@ -76,7 +76,7 @@ const BACKGROUND = COLORS.LIGHT_BLUE;
 const ACCENT = COLORS.ACCENT_BLUE;
 
 const iPhoneHeaderHeight = 65;
-const notchDifference = !isAndroid && hasNotch() ? 22 : 0;
+const notchDifference = hasNotch() ? 22 : 0;
 
 const statusBar = {
   backgroundColor: colorConvert({
