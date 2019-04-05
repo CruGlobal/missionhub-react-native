@@ -13,10 +13,6 @@ export default StyleSheet.create({
   },
   topNav: {
     position: 'absolute',
-    paddingTop: 25,
-    paddingBottom: 10,
-    paddingRight: 20,
-    paddingLeft: 15,
     top: 0,
     left: 0,
     right: 0,
@@ -101,5 +97,11 @@ export default StyleSheet.create({
   },
   createButton: {
     width: theme.fullWidth,
+  },
+  editBtn: {
+    paddingRight: 15,
+  },
+  closeButton: {
+    paddingLeft: 10,
   },
 });

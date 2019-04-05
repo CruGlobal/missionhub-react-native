@@ -178,7 +178,7 @@ describe('add step methods for stepNote with next', () => {
 
   it('runs skip', () => {
     screen
-      .childAt(3)
+      .childAt(4)
       .props()
       .onSkip();
 
@@ -193,7 +193,7 @@ describe('add step methods for stepNote with next', () => {
 
     screen.update();
 
-    screen.childAt(2).simulate('press');
+    screen.childAt(3).simulate('press');
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledTimes(1);
