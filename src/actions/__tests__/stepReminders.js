@@ -56,6 +56,13 @@ describe('createStepReminder', () => {
   it('dispatches result to store', () =>
     expect(store.getActions()).toEqual([callApiResponse]));
 
+  describe('with undefined recurrence', () => {
+    beforeAll(() => (recurrence = undefined));
+
+    it('calls api with correct payload', () =>
+      testApiCall(ONCE, reminder_at.toISOString(), null));
+  });
+
   describe('with once recurrence', () => {
     beforeAll(() => (recurrence = ONCE));
 
