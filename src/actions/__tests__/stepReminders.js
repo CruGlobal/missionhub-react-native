@@ -36,22 +36,22 @@ describe('removeStepReminder', () => {
   });
 });
 
+const testApiCall = (reminder_type, reminder_at, reminder_on) =>
+  expect(callApi).toHaveBeenCalledWith(
+    REQUESTS.CREATE_CHALLENGE_REMINDER,
+    { challenge_id },
+    {
+      data: {
+        attributes: { reminder_type, reminder_at, reminder_on },
+      },
+    },
+  );
+
 describe('createStepReminder', () => {
   beforeAll(() => (reminder_at = new Date('2019-3-21 15:45:32')));
 
   beforeEach(() =>
     store.dispatch(createStepReminder(challenge_id, reminder_at, recurrence)));
-
-  const testApiCall = (reminder_type, reminder_at, reminder_on) =>
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.CREATE_CHALLENGE_REMINDER,
-      { challenge_id },
-      {
-        data: {
-          attributes: { reminder_type, reminder_at, reminder_on },
-        },
-      },
-    );
 
   it('dispatches result to store', () =>
     expect(store.getActions()).toEqual([callApiResponse]));
