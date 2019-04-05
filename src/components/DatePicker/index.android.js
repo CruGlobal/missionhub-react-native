@@ -44,110 +44,89 @@ class MyDatePickerAndroid extends Component {
     isFunction(onDateChange) && onDateChange(date);
   }
 
-  showAndroidModal() {
+  async showPicker() {
     const { mode } = this.props;
 
-    if (mode === 'date') {
-      this.androidPickDate();
-    } else if (mode === 'time') {
-      this.androidPickTime();
-    } else if (mode === 'datetime') {
-      this.androidPickDateTime();
+    const today = moment();
+    let dateTimeSelections;
+
+    switch (mode) {
+      case 'date':
+        dateTimeSelections = await this.launchDatePicker();
+        break;
+      case 'time':
+        dateTimeSelections = await this.launchTimePicker();
+        break;
+      case 'datetime':
+        dateTimeSelections = await this.launchDateThenTimePicker();
+        break;
+      default:
+        dateTimeSelections = {};
     }
+
+    const {
+      action,
+      year = today.year(),
+      month = today.month(),
+      day = today.date(),
+      hour = today.hour(),
+      minute = today.minutes(),
+    } = dateTimeSelections;
+
+    if (action === DatePickerAndroid.dismissedAction) {
+      return this.onPressCancel();
+    }
+
+    this.setState({
+      date: new Date(year, month, day, hour, minute),
+    });
+    return this.datePicked();
   }
 
-  async androidPickDate() {
+  launchDatePicker() {
     const { androidMode, minDate, maxDate } = this.props;
 
-    const { action, year, month, day } = await DatePickerAndroid.open({
+    return DatePickerAndroid.open({
       date: this.state.date,
       minDate: minDate && getDate(minDate),
       maxDate: maxDate && getDate(maxDate),
       mode: androidMode,
     });
-
-    if (action !== DatePickerAndroid.dismissedAction) {
-      this.setState({
-        date: new Date(year, month, day),
-      });
-      this.datePicked();
-    } else {
-      this.onPressCancel();
-    }
   }
 
-  async androidPickTime() {
+  launchTimePicker() {
     const {
+      androidMode,
       mode,
       format = FORMATS[mode],
-      androidMode,
       is24Hour = modeIs24Hour(format),
     } = this.props;
 
     const timeMoment = moment(this.state.date);
 
-    const { action, hour, minute } = await TimePickerAndroid.open({
+    return TimePickerAndroid.open({
       hour: timeMoment.hour(),
       minute: timeMoment.minutes(),
       is24Hour,
       mode: androidMode,
     });
-
-    if (action !== DatePickerAndroid.dismissedAction) {
-      this.setState({
-        date: moment()
-          .hour(hour)
-          .minute(minute)
-          .toDate(),
-      });
-      this.datePicked();
-    } else {
-      this.onPressCancel();
-    }
   }
 
-  async androidPickDateTime() {
-    const {
-      mode,
-      format = FORMATS[mode],
-      androidMode,
-      minDate,
-      maxDate,
-      is24Hour = modeIs24Hour(format),
-    } = this.props;
-
+  async launchDateThenTimePicker() {
     const {
       action: dateAction,
       year,
       month,
       day,
-    } = await DatePickerAndroid.open({
-      date: this.state.date,
-      minDate: minDate && getDate(minDate),
-      maxDate: maxDate && getDate(maxDate),
-      mode: androidMode,
-    });
+    } = await this.launchDatePicker();
 
-    if (dateAction !== DatePickerAndroid.dismissedAction) {
-      const timeMoment = moment(this.state.date);
-
-      const { action: timeAction, hour, minute } = await TimePickerAndroid.open(
-        {
-          hour: timeMoment.hour(),
-          minute: timeMoment.minutes(),
-          is24Hour,
-          mode: androidMode,
-        },
-      );
-
-      if (timeAction !== DatePickerAndroid.dismissedAction) {
-        this.setState({
-          date: new Date(year, month, day, hour, minute),
-        });
-        return this.datePicked();
-      }
+    if (dateAction === DatePickerAndroid.dismissedAction) {
+      return { action: dateAction };
     }
-    this.onPressCancel();
+
+    const { action: timeAction, hour, minute } = await this.launchTimePicker();
+
+    return { action: timeAction, year, month, day, hour, minute };
   }
 
   onPressDate = () => {
@@ -163,9 +142,7 @@ class MyDatePickerAndroid extends Component {
       date: getDate(date),
     });
 
-    return isFunction(onPressAndroid)
-      ? onPressAndroid()
-      : this.showAndroidModal();
+    return isFunction(onPressAndroid) ? onPressAndroid() : this.showPicker();
   };
 
   render() {
