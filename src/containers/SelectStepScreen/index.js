@@ -13,7 +13,7 @@ import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { disableBack, hasNotch } from '../../utils/common';
+import { disableBack } from '../../utils/common';
 import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
 import StepsList from '../StepsList';
@@ -64,7 +64,7 @@ class SelectStepScreen extends Component {
     const { t, headerText } = this.props;
     return (
       <View flex={1} alignItems={'center'}>
-        <Header />
+        <Header shadow={false} />
         <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
         <Text type="header" style={styles.headerTitle}>
           {t('stepsOfFaith')}
@@ -101,7 +101,7 @@ class SelectStepScreen extends Component {
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
           contentBackgroundColor={theme.extraLightGrey}
-          parallaxHeaderHeight={parallaxHeaderHeight + (hasNotch() ? 20 : 0)}
+          parallaxHeaderHeight={parallaxHeaderHeight + theme.notchDifference}
           renderForeground={this.renderForeground}
           stickyHeaderHeight={headerHeight}
           renderStickyHeader={this.renderStickyHeader}

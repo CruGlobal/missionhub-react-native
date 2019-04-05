@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SafeAreaView, Keyboard, Alert } from 'react-native';
+import { StatusBar, SafeAreaView, Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
@@ -110,6 +110,7 @@ class AddStepScreen extends Component {
 
     return (
       <SafeAreaView style={styles.container}>
+        <StatusBar {...theme.statusBar.darkContent} />
         {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
           <Flex align="end" justify="center">
             <Button
