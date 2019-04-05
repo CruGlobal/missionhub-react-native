@@ -7,7 +7,6 @@ import {
   createStackNavigator,
   StackViewTransitionConfigs,
 } from 'react-navigation';
-import i18next from 'i18next';
 
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
 import StepsScreen from './containers/StepsScreen';
@@ -99,7 +98,6 @@ import {
 } from './containers/Groups/AssignedPersonScreen';
 import SettingsMenu from './components/SettingsMenu';
 import PersonSideMenu from './components/PersonSideMenu';
-import { Flex, Icon, Text } from './components/common';
 import theme from './theme';
 import MainTabs from './containers/MainTabs';
 import { MAIN_TABS, PEOPLE_TAB, STEPS_TAB, GROUPS_TAB } from './constants';
@@ -195,6 +193,10 @@ import { AddMyStepFlowNavigator } from './routes/steps/addMyStepFlow';
 import { AddPersonStepFlowNavigator } from './routes/steps/addPersonStepFlow';
 import { SelectMyStageFlowNavigator } from './routes/stage/selectMyStageFlow';
 import { SelectPersonStageFlowNavigator } from './routes/stage/selectPersonStageFlow';
+import TabIcon from './containers/TabIcon';
+import GroupUnreadFeed, {
+  GROUP_UNREAD_FEED_SCREEN,
+} from './containers/Groups/GroupUnreadFeed';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -210,17 +212,7 @@ import { SelectPersonStageFlowNavigator } from './routes/stage/selectPersonStage
 // });
 
 export const navItem = name => ({ tintColor }) => (
-  <Flex value={1} align="center" justify="center">
-    <Icon
-      type="MissionHub"
-      name={`${name}Icon`}
-      size={isAndroid ? 22 : 24}
-      style={{ color: tintColor }}
-    />
-    <Text style={{ color: tintColor, fontSize: 14 }}>
-      {i18next.t(`appRoutes:${name}`)}
-    </Text>
-  </Flex>
+  <TabIcon name={name} tintColor={tintColor} />
 );
 
 export const stepsTab = buildTrackingObj('steps', 'steps');
@@ -430,6 +422,16 @@ const screens = {
   [GROUPS_REPORT_SCREEN]: buildTrackedScreen(
     GroupReport,
     buildTrackingObj('communities : report', 'communities', 'report'),
+    { gesturesEnabled: true },
+  ),
+  [GROUP_UNREAD_FEED_SCREEN]: buildTrackedScreen(
+    GroupUnreadFeed,
+    buildTrackingObj(
+      'communities : comments : unread',
+      'communities',
+      'comments',
+      'unread',
+    ),
     { gesturesEnabled: true },
   ),
   [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(

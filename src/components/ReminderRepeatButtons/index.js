@@ -11,20 +11,10 @@ const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
 @translate('stepReminder')
 export default class ReminderRepeatButtons extends Component {
-  state = {
-    recurrence: ONCE,
-  };
-
-  componentDidMount() {
-    this.props.onRecurrenceChange(ONCE);
-  }
-
   setButtonState(clickedRecurrence) {
-    const { recurrence: currentRecurrence } = this.state;
+    const { recurrence: currentRecurrence } = this.props;
     const recurrence =
       currentRecurrence === clickedRecurrence ? ONCE : clickedRecurrence;
-
-    this.setState({ recurrence });
 
     this.props.onRecurrenceChange(recurrence);
   }
@@ -36,8 +26,7 @@ export default class ReminderRepeatButtons extends Component {
   handleSetMonthly = () => this.setButtonState(MONTHLY);
 
   renderReminderButton(recurrence, onPress) {
-    const { t } = this.props;
-    const { recurrence: currentRecurrence } = this.state;
+    const { t, recurrence: currentRecurrence } = this.props;
     const {
       button,
       buttonInactive,
