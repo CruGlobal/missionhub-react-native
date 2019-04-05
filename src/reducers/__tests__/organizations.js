@@ -1084,6 +1084,27 @@ describe('GET_USERS_REPORT.SUCCESS', () => {
   });
 });
 
+describe('REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS', () => {
+  it('should reset unread count', () => {
+    expect(
+      organizations(
+        { all: [{ id: org1Id, unread_comments_count: 5 }] },
+        {
+          type: REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS,
+          query: { organization_id: org1Id },
+        },
+      ),
+    ).toEqual({
+      all: [
+        {
+          id: org1Id,
+          unread_comments_count: 0,
+        },
+      ],
+    });
+  });
+});
+
 describe('global like/unlike', () => {
   const itemOne = { id: '2423421531', liked: false };
   const itemTwo = { id: '1789987897', liked: true };
