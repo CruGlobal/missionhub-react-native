@@ -9,7 +9,11 @@ export function removeStepReminder(challenge_id) {
     dispatch(callApi(REQUESTS.DELETE_CHALLENGE_REMINDER, { challenge_id }));
 }
 
-export function createStepReminder(challenge_id, reminder_at, reminder_type) {
+export function createStepReminder(
+  challenge_id,
+  reminder_at,
+  reminder_type = ONCE,
+) {
   return dispatch =>
     dispatch(
       callApi(
