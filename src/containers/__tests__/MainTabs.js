@@ -17,6 +17,7 @@ jest.mock('../../selectors/organizations');
 const state = {
   auth: {
     isFirstTime: false,
+    person: {},
   },
   steps: {
     mine: null,

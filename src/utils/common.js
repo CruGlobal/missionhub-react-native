@@ -24,6 +24,7 @@ import {
   INTERACTION_TYPES,
   DEFAULT_PAGE_LIMIT,
   ACCEPTED_STEP,
+  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 
 export const shuffleArray = arr => {
@@ -96,6 +97,7 @@ export const orgIsPersonalMinistry = org =>
 export const orgIsUserCreated = org => !!(org && org.user_created);
 export const orgIsCru = org =>
   org && !orgIsPersonalMinistry(org) && !orgIsUserCreated(org);
+export const orgIsGlobal = org => org && org.id === GLOBAL_COMMUNITY_ID;
 
 const MHUB_PERMISSIONS = [
   ORG_PERMISSIONS.OWNER,

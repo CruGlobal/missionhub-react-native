@@ -8,6 +8,12 @@ exports[`should render correctly 1`] = `
     }
   }
 >
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="light-content"
+    showHideTransition="fade"
+  />
   <Connect(CelebrateFeed)
     itemNamePressable={true}
     items={
@@ -82,6 +88,12 @@ exports[`should render empty correctly 1`] = `
     }
   }
 >
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="light-content"
+    showHideTransition="fade"
+  />
   <Connect(CelebrateFeed)
     itemNamePressable={true}
     items={Array []}

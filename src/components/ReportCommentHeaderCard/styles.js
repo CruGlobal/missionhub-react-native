@@ -3,12 +3,7 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  itemWrap: {
-    padding: 20,
-    borderBottomColor: theme.grey,
-    borderBottomWidth: theme.separatorHeight,
-  },
-  item: {
+  card: {
     marginHorizontal: 0,
     marginVertical: 0,
     paddingVertical: 10,
@@ -16,10 +11,10 @@ export default StyleSheet.create({
     borderRadius: 8,
     backgroundColor: theme.red,
   },
-  itemIcon: {
+  icon: {
     color: theme.white,
   },
-  itemText: {
+  text: {
     marginLeft: 15,
     color: theme.white,
   },

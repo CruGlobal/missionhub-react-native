@@ -50,4 +50,18 @@ export default StyleSheet.create({
     fontSize: 14,
     color: theme.white,
   },
+  notificationIcon: {
+    color: theme.white,
+  },
+  badge: {
+    position: 'absolute',
+    top: 0,
+    right: -5,
+    backgroundColor: theme.red,
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+    borderWidth: 2,
+    borderColor: theme.darkRed,
+  },
 });

@@ -1,19 +1,16 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { SectionList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { DateComponent, Flex } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
-import OnboardingCard, {
-  GROUP_ONBOARDING_TYPES,
-} from '../../containers/Groups/OnboardingCard';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { navigatePush } from '../../actions/navigation';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
-import ReportCommentNotifier from '../../containers/ReportCommentNotifier';
-import { DateConstants } from '../DateComponent';
+import { DateConstants } from '../../components/DateComponent';
 import { keyExtractorId } from '../../utils/common';
+import CelebrateFeedHeader from '../CelebrateFeedHeader';
 
 import styles from './styles';
 
@@ -80,22 +77,20 @@ class CelebrateFeed extends Component {
     this.props.refreshCallback();
   };
 
-  renderHeader = () => (
-    <Fragment>
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
-      {this.props.isMember ? null : (
-        <ReportCommentNotifier organization={this.props.organization} />
-      )}
-    </Fragment>
-  );
+  renderHeader = () => {
+    const { isMember, organization } = this.props;
+    return (
+      <CelebrateFeedHeader isMember={isMember} organization={organization} />
+    );
+  };
 
   render() {
-    const { items, refreshing } = this.props;
+    const { items, refreshing, noHeader } = this.props;
 
     return (
       <SectionList
         sections={items}
-        ListHeaderComponent={this.renderHeader}
+        ListHeaderComponent={noHeader ? undefined : this.renderHeader}
         renderSectionHeader={this.renderSectionHeader}
         renderItem={this.renderItem}
         keyExtractor={keyExtractorId}
@@ -117,6 +112,7 @@ CelebrateFeed.propTypes = {
   refreshing: PropTypes.bool,
   itemNamePressable: PropTypes.bool,
   isMember: PropTypes.bool,
+  noHeader: PropTypes.bool,
 };
 
 export default connect()(CelebrateFeed);

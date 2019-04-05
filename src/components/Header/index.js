@@ -20,7 +20,7 @@ export default class Header extends Component {
     );
   }
   renderCenter() {
-    const { title, title2, center } = this.props;
+    const { title, title2, center, titleStyle } = this.props;
     if (title && title2) {
       return (
         <Flex
@@ -41,7 +41,7 @@ export default class Header extends Component {
     if (title) {
       return (
         <Flex value={4} align="center" justify="center" style={styles.center}>
-          <Text style={styles.title} numberOfLines={1}>
+          <Text style={[styles.title, titleStyle]} numberOfLines={1}>
             {title}
           </Text>
         </Flex>

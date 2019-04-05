@@ -1,9 +1,8 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import MockDate from 'mockdate';
 
-import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScreen';
+import { CELEBRATE_DETAIL_SCREEN } from '../../CelebrateDetailScreen';
 
 import CelebrateFeed from '..';
 
@@ -82,10 +81,24 @@ describe('Member Feed rendering', () => {
   });
 });
 
+describe('no header rendering', () => {
+  it('renders correctly for no header', () => {
+    component = renderShallow(
+      <CelebrateFeed
+        noHeader={true}
+        items={celebrationItems}
+        organization={organization}
+      />,
+      store,
+    );
+    expect(component).toMatchSnapshot();
+  });
+});
+
 it('renders section header', () => {
   const renderedItem = component
     .instance()
-    .renderSectionHeader({ section: { date: MockDate.set('08/13/2018') } });
+    .renderSectionHeader({ section: { date: '2018-08-13T12:00:00.000Z' } });
   expect(renderedItem).toMatchSnapshot();
 });
 
