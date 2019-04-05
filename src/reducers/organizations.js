@@ -251,6 +251,20 @@ function organizationsReducer(state = initialState, action) {
       };
     case UPDATE_CHALLENGE:
       return updateChallenge(action, state);
+
+    case REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS:
+      return {
+        ...state,
+        all: state.all.map(
+          org =>
+            org.id === action.query.organization_id
+              ? {
+                  ...org,
+                  unread_comments_count: 0,
+                }
+              : org,
+        ),
+      };
     case LOGOUT:
       return initialState;
     default:
