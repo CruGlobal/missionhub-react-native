@@ -76,8 +76,8 @@ class StepItem extends Component {
     let ownerName = isMe
       ? t('me')
       : step.receiver
-        ? step.receiver.full_name
-        : '';
+      ? step.receiver.full_name
+      : '';
     ownerName = (ownerName || '').toUpperCase();
     return (
       <Touchable

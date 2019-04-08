@@ -185,8 +185,8 @@ class AddContactScreen extends Component {
             person
               ? t('editPerson').toUpperCase()
               : orgName
-                ? t('addToOrg', { orgName })
-                : t('addSomeone').toUpperCase()
+              ? t('addToOrg', { orgName })
+              : t('addSomeone').toUpperCase()
           }
         />
         <SafeAreaView style={{ flex: 1 }}>

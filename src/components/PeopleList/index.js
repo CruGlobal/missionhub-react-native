@@ -44,8 +44,8 @@ export default class PeopleList extends Component {
   }
 
   toggleSection = id => {
-    const items = this.state.items.map(
-      org => (org.id === id ? { ...org, expanded: !org.expanded } : org),
+    const items = this.state.items.map(org =>
+      org.id === id ? { ...org, expanded: !org.expanded } : org,
     );
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     this.setState({ items });

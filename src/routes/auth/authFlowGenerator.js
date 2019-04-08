@@ -16,22 +16,18 @@ export const authFlowGenerator = ({
   ...(includeSignUp
     ? {
         [SIGN_UP_SCREEN]: buildTrackedScreen(
-          wrapNextAction(
-            SignUpScreen,
-            ({ signIn } = {}) =>
-              signIn ? navigatePush(SIGN_IN_SCREEN) : completeAction,
+          wrapNextAction(SignUpScreen, ({ signIn } = {}) =>
+            signIn ? navigatePush(SIGN_IN_SCREEN) : completeAction,
           ),
           buildTrackingObj('auth', 'auth'),
         ),
       }
     : {}),
   [SIGN_IN_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      SignInScreen,
-      ({ requires2FA, email, password } = {}) =>
-        requires2FA
-          ? navigatePush(MFA_CODE_SCREEN, { email, password })
-          : completeAction,
+    wrapNextAction(SignInScreen, ({ requires2FA, email, password } = {}) =>
+      requires2FA
+        ? navigatePush(MFA_CODE_SCREEN, { email, password })
+        : completeAction,
     ),
     buildTrackingObj('auth : sign in', 'auth'),
     { gesturesEnabled: true },

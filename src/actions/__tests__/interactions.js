@@ -17,25 +17,27 @@ jest.mock('../api');
 jest.mock('../impact');
 jest.mock('../analytics');
 
-beforeEach(() =>
-  (store = configureStore([thunk])({
-    auth: {
-      person: {
-        id: '123',
-      },
-    },
-    organizations: {
-      all: [
-        {
-          id: orgId,
-          celebratePagination: {
-            page: 42,
-            hasNextPage: false,
-          },
+beforeEach(
+  () =>
+    (store = configureStore([thunk])({
+      auth: {
+        person: {
+          id: '123',
         },
-      ],
-    },
-  })));
+      },
+      organizations: {
+        all: [
+          {
+            id: orgId,
+            celebratePagination: {
+              page: 42,
+              hasNextPage: false,
+            },
+          },
+        ],
+      },
+    })),
+);
 
 const comment = 'new comment';
 const personId = 1;

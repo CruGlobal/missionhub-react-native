@@ -120,12 +120,12 @@ export class ImpactView extends Component {
     const initiator = paramGlobal
       ? '$t(users)'
       : isMe || isGlobalCommunity
-        ? '$t(you)'
-        : person.id
-          ? person.first_name
-          : steps_count === 0
-            ? '$t(we)'
-            : '$t(togetherWe)';
+      ? '$t(you)'
+      : person.id
+      ? person.first_name
+      : steps_count === 0
+      ? '$t(we)'
+      : '$t(togetherWe)';
     const context = c =>
       c === 0 ? (paramGlobal ? 'emptyGlobal' : 'empty') : '';
     const isSpecificContact =
@@ -146,8 +146,8 @@ export class ImpactView extends Component {
       endingScope: isSpecificContact
         ? t('inTheirLife')
         : initiator !== '$t(togetherWe)'
-          ? ''
-          : ` ${t('inYear', { year })}`,
+        ? ''
+        : ` ${t('inYear', { year })}`,
     };
     const stageSentenceOptions = {
       context: context(pathway_moved_count),

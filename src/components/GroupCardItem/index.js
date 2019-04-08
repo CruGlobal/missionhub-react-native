@@ -39,8 +39,8 @@ export default class GroupCardItem extends Component {
                 ),
               })
             : group.user_created
-              ? t('privateGroup')
-              : ''}
+            ? t('privateGroup')
+            : ''}
         </Text>
       );
     }
