@@ -17,6 +17,7 @@ import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, refresh, keyExtractorId } from '../../utils/common';
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
+import { getMe } from '../../actions/person';
 import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GROUPS_TAB } from '../../constants';
@@ -35,6 +36,7 @@ class GroupsListScreen extends Component {
   state = { refreshing: false };
 
   async componentDidMount() {
+    this.props.dispatch(getMe());
     // Always load groups when this tab mounts
     await this.loadGroups();
     const { orgs, dispatch, scrollToId } = this.props;
@@ -55,7 +57,10 @@ class GroupsListScreen extends Component {
 
   loadGroups = () => this.props.dispatch(getMyCommunities());
 
-  handleRefresh = () => refresh(this, this.loadGroups);
+  handleRefresh = () => {
+    this.props.dispatch(getMe());
+    refresh(this, this.loadGroups);
+  };
 
   handlePress = organization => {
     const { dispatch } = this.props;

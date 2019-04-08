@@ -16,6 +16,7 @@ import {
   setStepFocus,
   getMyStepsNextPage,
 } from '../../actions/steps';
+import { getMe } from '../../actions/person';
 import { navigatePush } from '../../actions/navigation';
 import {
   reminderStepsSelector,
@@ -135,6 +136,7 @@ export class StepsScreen extends Component {
   }
 
   handleRefresh() {
+    this.props.dispatch(getMe());
     refresh(this, this.getSteps);
   }
 

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { getMyPeople } from '../../actions/people';
+import { getMe } from '../../actions/person';
 import {
   peopleByOrgSelector,
   allAssignedPeopleSelector,
@@ -40,14 +41,13 @@ export class PeopleScreen extends Component {
   }
 
   componentDidMount() {
+    this.props.dispatch(getMe());
     this.getPeople();
 
     this.props.dispatch(getStagesIfNotExists());
   }
 
-  getPeople() {
-    return this.props.dispatch(getMyPeople());
-  }
+  getPeople = () => this.props.dispatch(getMyPeople());
 
   openMainMenu = () => this.props.dispatch(openMainMenu());
 
@@ -74,6 +74,7 @@ export class PeopleScreen extends Component {
   }
 
   handleRefresh() {
+    this.props.dispatch(getMe());
     refresh(this, this.getPeople);
   }
 
