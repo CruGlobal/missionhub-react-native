@@ -89,5 +89,13 @@
     }
   },
   "extends": "prettier",
-  "plugins": ["react", "import"]
+  "plugins": ["react", "import"],
+  "overrides": [
+    {
+      "files": ["**/__tests__/**/*.js"],
+      "rules": {
+        "max-lines-per-function": 0
+      }
+    }
+  ]
 }
