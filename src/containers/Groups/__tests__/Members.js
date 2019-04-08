@@ -1,5 +1,3 @@
-/* eslint max-lines-per-function: 0 */
-
 import React from 'react';
 import { Alert, Share } from 'react-native';
 import i18n from 'i18next';

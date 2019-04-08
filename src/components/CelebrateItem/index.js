@@ -62,8 +62,8 @@ class CelebrateItem extends Component {
           subject_person.last_name,
         )}.`
       : event.subject_person_name
-        ? event.subject_person_name
-        : t('aMissionHubUser');
+      ? event.subject_person_name
+      : t('aMissionHubUser');
 
     switch (event.celebrateable_type) {
       case completedStep:

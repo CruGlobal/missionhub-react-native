@@ -1,4 +1,4 @@
-/* eslint max-lines: 0, max-lines-per-function: 0 */
+/* eslint max-lines: 0 */
 
 import {
   peopleByOrgSelector,
@@ -151,7 +151,8 @@ describe('peopleByOrgSelector', () => {
     expect(removeHiddenOrgs).toHaveBeenCalledWith(
       expect.anything(),
       expect.objectContaining({ id: auth.person.id }),
-    ));
+    ),
+  );
 
   it('should exclude someone not assigned to me', () => {
     const org = peopleByOrgSelector({ people, auth }).filter(

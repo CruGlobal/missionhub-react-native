@@ -30,16 +30,18 @@ jest.mock('react-native-device-info');
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/analytics');
 
-beforeEach(() =>
-  (shallowScreen = shallow(
-    <ContactNotes
-      person={person}
-      myUserId={myUserId}
-      dispatch={mockStore().dispatch}
-    />,
-  )
-    .dive()
-    .dive()));
+beforeEach(
+  () =>
+    (shallowScreen = shallow(
+      <ContactNotes
+        person={person}
+        myUserId={myUserId}
+        dispatch={mockStore().dispatch}
+      />,
+    )
+      .dive()
+      .dive()),
+);
 
 describe('contact notes', () => {
   it('icon and prompt are shown if no notes', () => {

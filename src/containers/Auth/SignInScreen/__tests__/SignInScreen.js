@@ -1,4 +1,4 @@
-/* eslint max-lines: 0, max-lines-per-function: 0 */
+/* eslint max-lines: 0 */
 
 import 'react-native';
 import React from 'react';
@@ -247,7 +247,8 @@ describe('a login button is clicked', () => {
       beforeEach(() =>
         keyLogin.mockReturnValue(() =>
           Promise.reject({ apiError: { thekey_authn_error: MFA_REQUIRED } }),
-        ));
+        ),
+      );
 
       it('should send user to MFA screen', async () => {
         await clickLoginButton();

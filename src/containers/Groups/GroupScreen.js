@@ -213,8 +213,8 @@ export function getScreenForOrg(org) {
   return org.id === GLOBAL_COMMUNITY_ID
     ? GLOBAL_GROUP_SCREEN
     : org.user_created
-      ? USER_CREATED_GROUP_SCREEN
-      : GROUP_SCREEN;
+    ? USER_CREATED_GROUP_SCREEN
+    : GROUP_SCREEN;
 }
 
 export const GROUP_TABS = {

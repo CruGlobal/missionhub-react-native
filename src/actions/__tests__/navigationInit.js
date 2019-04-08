@@ -1,5 +1,3 @@
-/* eslint max-lines-per-function: 0 */
-
 import { MAIN_TABS } from '../../constants';
 import { ADD_SOMEONE_SCREEN } from '../../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';

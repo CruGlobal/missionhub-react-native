@@ -27,8 +27,8 @@ const getFeedType = (type, orgId) =>
   type === CHALLENGE
     ? REQUESTS.GET_GROUP_CHALLENGE_FEED
     : orgId === GLOBAL_COMMUNITY_ID
-      ? REQUESTS.GET_GLOBAL_CELEBRATE_FEED
-      : REQUESTS.GET_GROUP_CELEBRATE_FEED;
+    ? REQUESTS.GET_GLOBAL_CELEBRATE_FEED
+    : REQUESTS.GET_GROUP_CELEBRATE_FEED;
 
 const getPaginationType = type =>
   type === CHALLENGE ? 'challengePagination' : 'celebratePagination';
