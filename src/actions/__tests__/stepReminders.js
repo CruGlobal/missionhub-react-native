@@ -36,25 +36,32 @@ describe('removeStepReminder', () => {
   });
 });
 
+const testApiCall = (reminder_type, reminder_at, reminder_on) =>
+  expect(callApi).toHaveBeenCalledWith(
+    REQUESTS.CREATE_CHALLENGE_REMINDER,
+    { challenge_id },
+    {
+      data: {
+        attributes: { reminder_type, reminder_at, reminder_on },
+      },
+    },
+  );
+
 describe('createStepReminder', () => {
   beforeAll(() => (reminder_at = new Date('2019-3-21 15:45:32')));
 
   beforeEach(() =>
     store.dispatch(createStepReminder(challenge_id, reminder_at, recurrence)));
 
-  const testApiCall = (reminder_type, reminder_at, reminder_on) =>
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.CREATE_CHALLENGE_REMINDER,
-      { challenge_id },
-      {
-        data: {
-          attributes: { reminder_type, reminder_at, reminder_on },
-        },
-      },
-    );
-
   it('dispatches result to store', () =>
     expect(store.getActions()).toEqual([callApiResponse]));
+
+  describe('with undefined recurrence', () => {
+    beforeAll(() => (recurrence = undefined));
+
+    it('calls api with correct payload', () =>
+      testApiCall(ONCE, reminder_at.toISOString(), null));
+  });
 
   describe('with once recurrence', () => {
     beforeAll(() => (recurrence = ONCE));
