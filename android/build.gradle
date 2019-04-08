@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.0'
+        classpath 'com.android.tools.build:gradle:3.3.2'
 
         classpath 'org.ajoberstar:gradle-git:1.7.2'
 
@@ -30,11 +30,5 @@ allprojects {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
-    }
-
-    configurations.all {
-        resolutionStrategy.force(
-            'com.google.code.findbugs:jsr305:3.0.2', // Encountered build error without this. Workaround from: https://stackoverflow.com/a/37357786/665224
-        )
     }
 }

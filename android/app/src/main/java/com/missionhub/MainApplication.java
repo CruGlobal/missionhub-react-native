@@ -14,7 +14,7 @@ import com.entria.views.RNViewOverflowPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.microsoft.codepush.react.CodePush;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
-import com.reactlibrary.RNDefaultPreferencePackage;
+import com.kevinresol.react_native_default_preference.RNDefaultPreferencePackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.moduleomniture.reactnativeomnitureapi.OmniturePackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
