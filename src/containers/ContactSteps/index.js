@@ -129,8 +129,8 @@ class ContactSteps extends Component {
     (contactAssignment && contactAssignment.pathway_stage_id) || isMe
       ? this.handleNavToSteps()
       : contactAssignment
-        ? this.handleNavToStage()
-        : this.handleAssign();
+      ? this.handleNavToStage()
+      : this.handleAssign();
   };
 
   toggleCompletedSteps = () => {

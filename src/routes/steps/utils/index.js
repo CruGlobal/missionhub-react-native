@@ -55,8 +55,8 @@ function getStageId(isMe, assignment, authPerson) {
   return isMe
     ? authPerson.user.pathway_stage_id
     : assignment && assignment.pathway_stage_id >= 0
-      ? assignment.pathway_stage_id
-      : null;
+    ? assignment.pathway_stage_id
+    : null;
 }
 
 function hasHitThreeSteps(steps, personId) {
@@ -75,10 +75,10 @@ function getQuestionText(isMe, isNotSure, name) {
         })
       : i18next.t('selectStage:completed3StepsMe')
     : isNotSure
-      ? i18next.t('selectStage:completed1Step', {
-          name,
-        })
-      : i18next.t('selectStage:completed3Steps', {
-          name,
-        });
+    ? i18next.t('selectStage:completed1Step', {
+        name,
+      })
+    : i18next.t('selectStage:completed3Steps', {
+        name,
+      });
 }

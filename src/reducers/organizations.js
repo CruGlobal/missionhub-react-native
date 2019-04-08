@@ -48,11 +48,10 @@ function organizationsReducer(state = initialState, action) {
     case REQUESTS.GET_ORGANIZATION.SUCCESS:
       return {
         ...state,
-        all: state.all.map(
-          o =>
-            o.id === action.query.orgId
-              ? { ...o, ...action.results.response }
-              : o,
+        all: state.all.map(o =>
+          o.id === action.query.orgId
+            ? { ...o, ...action.results.response }
+            : o,
         ),
       };
     case GET_ORGANIZATIONS_CONTACTS_REPORT:
@@ -67,17 +66,16 @@ function organizationsReducer(state = initialState, action) {
     case REQUESTS.GET_USERS_REPORT.SUCCESS:
       return {
         ...state,
-        all: state.all.map(
-          o =>
-            o.id === GLOBAL_COMMUNITY_ID
-              ? {
-                  ...o,
-                  contactReport: {
-                    ...o.contactReport,
-                    memberCount: action.results.response.users_count,
-                  },
-                }
-              : o,
+        all: state.all.map(o =>
+          o.id === GLOBAL_COMMUNITY_ID
+            ? {
+                ...o,
+                contactReport: {
+                  ...o.contactReport,
+                  memberCount: action.results.response.users_count,
+                },
+              }
+            : o,
         ),
       };
     case GET_ORGANIZATION_SURVEYS:
@@ -95,8 +93,8 @@ function organizationsReducer(state = initialState, action) {
       return {
         ...state,
         all: surveyOrgId
-          ? state.all.map(
-              o => (o.id === surveyOrgId ? { ...o, surveys: allSurveys } : o),
+          ? state.all.map(o =>
+              o.id === surveyOrgId ? { ...o, surveys: allSurveys } : o,
             )
           : state.all,
         surveysPagination: getPagination(action, allSurveys.length),
@@ -144,15 +142,14 @@ function organizationsReducer(state = initialState, action) {
       return {
         ...state,
         all: cOrgId
-          ? state.all.map(
-              o =>
-                o.id === cOrgId
-                  ? {
-                      ...o,
-                      [cItems]: allItems,
-                      [cPagination]: getPagination(action, allItems.length),
-                    }
-                  : o,
+          ? state.all.map(o =>
+              o.id === cOrgId
+                ? {
+                    ...o,
+                    [cItems]: allItems,
+                    [cPagination]: getPagination(action, allItems.length),
+                  }
+                : o,
             )
           : state.all,
       };
@@ -165,14 +162,13 @@ function organizationsReducer(state = initialState, action) {
           : 'celebratePagination';
       return {
         ...state,
-        all: state.all.map(
-          o =>
-            o.id === action.orgId
-              ? {
-                  ...o,
-                  [resetCPagination]: { page: 0, hasNextPage: true },
-                }
-              : o,
+        all: state.all.map(o =>
+          o.id === action.orgId
+            ? {
+                ...o,
+                [resetCPagination]: { page: 0, hasNextPage: true },
+              }
+            : o,
         ),
       };
     case REQUESTS.CREATE_CELEBRATE_COMMENT.SUCCESS:
@@ -201,8 +197,8 @@ function organizationsReducer(state = initialState, action) {
       return {
         ...state,
         all: memberOrgId
-          ? state.all.map(
-              o => (o.id === memberOrgId ? { ...o, members: allMembers } : o),
+          ? state.all.map(o =>
+              o.id === memberOrgId ? { ...o, members: allMembers } : o,
             )
           : state.all,
         membersPagination: getPagination(action, allMembers.length),
@@ -217,18 +213,17 @@ function organizationsReducer(state = initialState, action) {
 
       return {
         ...state,
-        all: state.all.map(
-          o =>
-            o.id === updatedOrgResponse.id
-              ? {
-                  ...o,
-                  // Update certain fields from the response
-                  name: updatedOrgResponse.name,
-                  community_photo_url: updatedOrgResponse.community_photo_url,
-                  community_code: updatedOrgResponse.community_code,
-                  community_url: updatedOrgResponse.community_url,
-                }
-              : o,
+        all: state.all.map(o =>
+          o.id === updatedOrgResponse.id
+            ? {
+                ...o,
+                // Update certain fields from the response
+                name: updatedOrgResponse.name,
+                community_photo_url: updatedOrgResponse.community_photo_url,
+                community_code: updatedOrgResponse.community_code,
+                community_url: updatedOrgResponse.community_url,
+              }
+            : o,
         ),
       };
     case UPDATE_PERSON_ATTRIBUTES:
@@ -242,11 +237,10 @@ function organizationsReducer(state = initialState, action) {
 
       return {
         ...state,
-        all: state.all.map(
-          o =>
-            o.id === orgId
-              ? { ...o, members: o.members.filter(m => m.id !== personId) }
-              : o,
+        all: state.all.map(o =>
+          o.id === orgId
+            ? { ...o, members: o.members.filter(m => m.id !== personId) }
+            : o,
         ),
       };
     case UPDATE_CHALLENGE:
@@ -255,14 +249,13 @@ function organizationsReducer(state = initialState, action) {
     case REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS:
       return {
         ...state,
-        all: state.all.map(
-          org =>
-            org.id === action.query.organization_id
-              ? {
-                  ...org,
-                  unread_comments_count: 0,
-                }
-              : org,
+        all: state.all.map(org =>
+          org.id === action.query.organization_id
+            ? {
+                ...org,
+                unread_comments_count: 0,
+              }
+            : org,
         ),
       };
     case LOGOUT:
@@ -326,17 +319,15 @@ function updateCelebrationItem({ id, eventId }, state, fn) {
 function updateAllPersonInstances(updatedPerson, state) {
   return {
     ...state,
-    all: state.all.map(
-      org =>
-        org.members
-          ? {
-              ...org,
-              members: org.members.map(
-                m =>
-                  m.id === updatedPerson.id ? { ...m, ...updatedPerson } : m,
-              ),
-            }
-          : org,
+    all: state.all.map(org =>
+      org.members
+        ? {
+            ...org,
+            members: org.members.map(m =>
+              m.id === updatedPerson.id ? { ...m, ...updatedPerson } : m,
+            ),
+          }
+        : org,
     ),
   };
 }
@@ -349,16 +340,15 @@ function updateChallenge(action, state) {
   return {
     ...state,
     all: orgId
-      ? state.all.map(
-          o =>
-            o.id === orgId
-              ? {
-                  ...o,
-                  challengeItems: o.challengeItems.map(
-                    c => (c.id === challenge.id ? { ...c, ...challenge } : c),
-                  ),
-                }
-              : o,
+      ? state.all.map(o =>
+          o.id === orgId
+            ? {
+                ...o,
+                challengeItems: o.challengeItems.map(c =>
+                  c.id === challenge.id ? { ...c, ...challenge } : c,
+                ),
+              }
+            : o,
         )
       : state.all,
   };

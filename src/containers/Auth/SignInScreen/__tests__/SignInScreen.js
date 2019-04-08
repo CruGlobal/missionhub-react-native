@@ -247,7 +247,8 @@ describe('a login button is clicked', () => {
       beforeEach(() =>
         keyLogin.mockReturnValue(() =>
           Promise.reject({ apiError: { thekey_authn_error: MFA_REQUIRED } }),
-        ));
+        ),
+      );
 
       it('should send user to MFA screen', async () => {
         await clickLoginButton();

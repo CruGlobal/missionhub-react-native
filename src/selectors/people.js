@@ -66,9 +66,8 @@ const sortOrgs = (orgs, authUser) => {
         orgs,
         (a, b) => orgOrder.indexOf(a.id) > orgOrder.indexOf(b.id),
       )
-    : sortWithPersonalInFront(
-        orgs,
-        (a, b) => (a.name ? a.name.localeCompare(b.name) : 1),
+    : sortWithPersonalInFront(orgs, (a, b) =>
+        a.name ? a.name.localeCompare(b.name) : 1,
       );
 };
 

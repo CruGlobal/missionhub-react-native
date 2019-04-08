@@ -166,7 +166,8 @@ describe('PersonSideMenu', () => {
       beforeEach(() =>
         deleteContactAssignment.mockImplementation(response => () =>
           Promise.resolve(response),
-        ));
+        ),
+      );
 
       it('should delete person if deleteOnUnmount is set', async () => {
         createComponent();

@@ -36,8 +36,8 @@ export function toggleLike(orgId, eventId, liked) {
       ? REQUESTS.UNLIKE_CELEBRATE_ITEM
       : REQUESTS.LIKE_CELEBRATE_ITEM
     : liked
-      ? REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM
-      : REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM;
+    ? REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM
+    : REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM;
 
   return dispatch => {
     return dispatch(callApi(request, { orgId, eventId }));

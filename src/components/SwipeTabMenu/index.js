@@ -168,8 +168,8 @@ export class SwipeTabMenu extends Component {
                         ? styles.menuItemTextActiveLight
                         : styles.menuItemTextActive
                       : isLight
-                        ? styles.menuItemTextLight
-                        : styles.menuItemText
+                      ? styles.menuItemTextLight
+                      : styles.menuItemText
                   }
                 >
                   {tab.name}
