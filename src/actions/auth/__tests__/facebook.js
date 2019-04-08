@@ -1,4 +1,4 @@
-/* eslint max-lines: 0, max-lines-per-function: 0 */
+/* eslint max-lines: 0 */
 
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import configureStore from 'redux-mock-store';

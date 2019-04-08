@@ -1,5 +1,3 @@
-/* eslint max-lines-per-function: 0 */
-
 import { Animated } from 'react-native';
 import React from 'react';
 import { View } from 'react-native';
