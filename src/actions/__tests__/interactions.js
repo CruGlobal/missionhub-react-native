@@ -1,5 +1,3 @@
-/* eslint max-lines-per-function: 0 */
-
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 

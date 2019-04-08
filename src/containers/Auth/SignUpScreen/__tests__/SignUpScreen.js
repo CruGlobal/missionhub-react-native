@@ -1,5 +1,3 @@
-/* eslint max-lines-per-function: 0 */
-
 import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';

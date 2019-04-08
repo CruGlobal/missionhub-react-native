@@ -1,5 +1,3 @@
-/* eslint max-lines-per-function: 0 */
-
 import React from 'react';
 import { Keyboard } from 'react-native';
 

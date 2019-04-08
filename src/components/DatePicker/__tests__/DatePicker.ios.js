@@ -1,4 +1,3 @@
-/* eslint max-lines-per-function: 0 */
 import React from 'react';
 import { Animated, Text } from 'react-native';
 import MockDate from 'mockdate';
