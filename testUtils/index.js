@@ -22,11 +22,15 @@ export const createThunkStore = configureStore([thunk]);
 export const renderShallow = (component, store = createThunkStore()) => {
   let renderedComponent = shallow(
     <Provider store={store}>{component}</Provider>,
-  );
-  renderedComponent = renderedComponent.dive();
+  ).dive();
 
   // If component has translation wrappers, dive deeper
-  while (renderedComponent.is('Translate') || renderedComponent.is('I18n')) {
+  while (
+    (renderedComponent.type().displayName || '').startsWith('Translate(') ||
+    renderedComponent.is('Translate') ||
+    (renderedComponent.type().displayName || '').startsWith('I18n(') ||
+    renderedComponent.is('I18n')
+  ) {
     renderedComponent = renderedComponent.dive();
   }
 
