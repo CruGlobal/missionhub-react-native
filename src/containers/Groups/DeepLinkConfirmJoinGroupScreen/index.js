@@ -105,8 +105,8 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
           {errorMessage
             ? this.renderError()
             : community
-              ? this.renderGroupCard()
-              : this.renderStart()}
+            ? this.renderGroupCard()
+            : this.renderStart()}
         </Flex>
       </View>
     );

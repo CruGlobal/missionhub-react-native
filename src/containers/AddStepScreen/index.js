@@ -96,8 +96,8 @@ class AddStepScreen extends Component {
       type === 'journey' || type === STEP_NOTE || type === 'interaction'
         ? 'journeyHeader'
         : type === 'editJourney'
-          ? 'editJourneyHeader'
-          : 'header',
+        ? 'editJourneyHeader'
+        : 'header',
     );
   }
 

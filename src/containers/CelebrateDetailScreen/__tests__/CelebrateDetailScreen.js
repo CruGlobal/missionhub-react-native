@@ -7,10 +7,12 @@ import CelebrateDetailScreen from '..';
 
 import { renderShallow } from '../../../../testUtils';
 import { celebrationItemSelector } from '../../../selectors/celebration';
+import { organizationSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
 import { reloadCelebrateComments } from '../../../actions/celebrateComments';
 
 jest.mock('../../../selectors/celebration');
+jest.mock('../../../selectors/organizations');
 jest.mock('../../../actions/celebrateComments');
 
 reloadCelebrateComments.mockReturnValue({ type: 'reloadCelebrateComments' });
@@ -18,17 +20,18 @@ reloadCelebrateComments.mockReturnValue({ type: 'reloadCelebrateComments' });
 const mockStore = configureStore([thunk]);
 let store;
 
-const organizationId = '24234234';
+const organization = { id: '24234234' };
 const event = {
   id: '90001',
-  organization: { id: organizationId },
+  organization,
   subject_person_name: 'Roger',
 };
-const organizations = [event.organization];
+const organizations = [organization];
 
 let screen;
 
 celebrationItemSelector.mockReturnValue(event);
+organizationSelector.mockReturnValue(organization);
 
 beforeEach(() => {
   store = mockStore({ organizations });
@@ -64,7 +67,14 @@ describe('renderStickyHeader', () => {
 it('should call celebrationItemSelector', () => {
   expect(celebrationItemSelector).toHaveBeenCalledWith(
     { organizations },
-    { eventId: event.id, organizationId },
+    { eventId: event.id, organizationId: organization.id },
+  );
+});
+
+it('should call organizationSelector', () => {
+  expect(organizationSelector).toHaveBeenCalledWith(
+    { organizations },
+    { orgId: organization.id },
   );
 });
 

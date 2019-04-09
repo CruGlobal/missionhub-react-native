@@ -1,4 +1,4 @@
-/* eslint max-lines: 0, max-lines-per-function: 0 */
+/* eslint max-lines: 0 */
 
 import React from 'react';
 import { Alert } from 'react-native';
@@ -44,18 +44,20 @@ const test = () => {
 
 describe('MemberOptionsMenu', () => {
   describe('for me, as owner', () => {
-    beforeEach(() =>
-      (props = {
-        myId,
-        person: {
-          ...person,
-          id: myId,
-        },
-        iAmAdmin: false,
-        iAmOwner: true,
-        personIsAdmin: false,
-        organization,
-      }));
+    beforeEach(
+      () =>
+        (props = {
+          myId,
+          person: {
+            ...person,
+            id: myId,
+          },
+          iAmAdmin: false,
+          iAmOwner: true,
+          personIsAdmin: false,
+          organization,
+        }),
+    );
 
     it('renders correctly', () => test());
 
@@ -106,18 +108,20 @@ describe('MemberOptionsMenu', () => {
   });
 
   describe(' looking at member, when I am owner', () => {
-    beforeEach(() =>
-      (props = {
-        myId,
-        person: {
-          ...person,
-          id: otherId,
-        },
-        iAmAdmin: true,
-        iAmOwner: true,
-        personIsAdmin: false,
-        organization,
-      }));
+    beforeEach(
+      () =>
+        (props = {
+          myId,
+          person: {
+            ...person,
+            id: otherId,
+          },
+          iAmAdmin: true,
+          iAmOwner: true,
+          personIsAdmin: false,
+          organization,
+        }),
+    );
 
     it('renders correctly', () => test());
 

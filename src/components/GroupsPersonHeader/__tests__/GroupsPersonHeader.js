@@ -1,4 +1,4 @@
-/* eslint max-lines: 0, max-lines-per-function: 0 */
+/* eslint max-lines: 0 */
 
 import React from 'react';
 import uuidv4 from 'uuid/v4';

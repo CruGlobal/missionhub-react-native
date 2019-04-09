@@ -92,7 +92,8 @@ describe('with subject person', () => {
       renderShallow(<CommentLikeComponent event={event} />, store)
         .childAt(2)
         .props()
-        .onPress());
+        .onPress(),
+    );
 
     it('toggles like', () => {
       expect(toggleLike).toHaveBeenCalledWith(

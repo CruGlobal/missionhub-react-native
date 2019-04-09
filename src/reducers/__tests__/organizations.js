@@ -1,4 +1,4 @@
-/* eslint max-lines-per-function: 0, max-lines: 0 */
+/* eslint max-lines: 0 */
 
 import organizations from '../organizations';
 import { REQUESTS } from '../../actions/api';
@@ -1081,6 +1081,27 @@ describe('GET_USERS_REPORT.SUCCESS', () => {
         },
       ),
     ).toMatchSnapshot();
+  });
+});
+
+describe('REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS', () => {
+  it('should reset unread count', () => {
+    expect(
+      organizations(
+        { all: [{ id: org1Id, unread_comments_count: 5 }] },
+        {
+          type: REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS,
+          query: { organization_id: org1Id },
+        },
+      ),
+    ).toEqual({
+      all: [
+        {
+          id: org1Id,
+          unread_comments_count: 0,
+        },
+      ],
+    });
   });
 });
 

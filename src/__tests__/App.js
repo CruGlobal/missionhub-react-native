@@ -43,10 +43,12 @@ const lastTwoArgs = [
   { onDismiss: expect.anything() },
 ];
 
-beforeEach(() =>
-  (ReactNative.Alert.alert = jest
-    .fn()
-    .mockImplementation((_, __, buttons) => buttons[0].onPress())));
+beforeEach(
+  () =>
+    (ReactNative.Alert.alert = jest
+      .fn()
+      .mockImplementation((_, __, buttons) => buttons[0].onPress())),
+);
 
 const test = async response => {
   const shallowScreen = shallow(<App />);

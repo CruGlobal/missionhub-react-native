@@ -1,5 +1,3 @@
-/* eslint max-lines-per-function: 0 */
-
 import React from 'react';
 import { Alert } from 'react-native';
 
@@ -168,7 +166,8 @@ describe('PersonSideMenu', () => {
       beforeEach(() =>
         deleteContactAssignment.mockImplementation(response => () =>
           Promise.resolve(response),
-        ));
+        ),
+      );
 
       it('should delete person if deleteOnUnmount is set', async () => {
         createComponent();

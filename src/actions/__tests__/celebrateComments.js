@@ -48,8 +48,9 @@ beforeEach(() => {
 describe('getCelebrateCommentsNextPage', () => {
   let response;
 
-  beforeEach(() =>
-    (response = store.dispatch(getCelebrateCommentsNextPage(event))));
+  beforeEach(
+    () => (response = store.dispatch(getCelebrateCommentsNextPage(event))),
+  );
 
   it('should call selector', () => {
     expect(celebrateCommentsSelector).toHaveBeenCalledWith(
@@ -95,8 +96,10 @@ describe('createCelebrateComment', () => {
   const content = 'this is a comment';
   let response;
 
-  beforeEach(async () =>
-    (response = await store.dispatch(createCelebrateComment(event, content))));
+  beforeEach(
+    async () =>
+      (response = await store.dispatch(createCelebrateComment(event, content))),
+  );
 
   it('should callApi with no page', () => {
     expect(callApi).toHaveBeenCalledWith(
@@ -122,10 +125,12 @@ describe('deleteCelebrateComment', () => {
   const item = { id: 'comment1' };
   let response;
 
-  beforeEach(async () =>
-    (response = await store.dispatch(
-      deleteCelebrateComment(event.organization.id, event, item),
-    )));
+  beforeEach(
+    async () =>
+      (response = await store.dispatch(
+        deleteCelebrateComment(event.organization.id, event, item),
+      )),
+  );
 
   it('should callApi for delete', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CELEBRATE_COMMENT, {
@@ -151,8 +156,10 @@ describe('updateCelebrateComment', () => {
   const text = 'text';
   let response;
 
-  beforeEach(async () =>
-    (response = await store.dispatch(updateCelebrateComment(item, text))));
+  beforeEach(
+    async () =>
+      (response = await store.dispatch(updateCelebrateComment(item, text))),
+  );
 
   it('should callApi', () => {
     expect(callApi).toHaveBeenCalledWith(

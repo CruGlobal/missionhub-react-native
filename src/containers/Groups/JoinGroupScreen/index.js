@@ -140,8 +140,8 @@ class JoinGroupScreen extends Component {
             {errorMessage
               ? this.renderError()
               : community
-                ? this.renderGroupCard()
-                : this.renderStart()}
+              ? this.renderGroupCard()
+              : this.renderStart()}
           </Flex>
           <Flex style={styles.fieldWrap}>
             <Input

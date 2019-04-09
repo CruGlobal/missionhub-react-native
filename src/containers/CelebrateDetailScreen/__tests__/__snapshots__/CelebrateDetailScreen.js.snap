@@ -20,6 +20,11 @@ exports[`renderForeground renders correctly 1`] = `
     }
   }
   namePressable={true}
+  organization={
+    Object {
+      "id": "24234234",
+    }
+  }
   rightCorner={
     <Connect(BackButton)
       customIcon="deleteIcon"

@@ -51,7 +51,8 @@ describe('createStepReminder', () => {
   beforeAll(() => (reminder_at = new Date('2019-3-21 15:45:32')));
 
   beforeEach(() =>
-    store.dispatch(createStepReminder(challenge_id, reminder_at, recurrence)));
+    store.dispatch(createStepReminder(challenge_id, reminder_at, recurrence)),
+  );
 
   it('dispatches result to store', () =>
     expect(store.getActions()).toEqual([callApiResponse]));

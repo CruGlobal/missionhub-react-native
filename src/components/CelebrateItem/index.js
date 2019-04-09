@@ -62,8 +62,8 @@ class CelebrateItem extends Component {
           subject_person.last_name,
         )}.`
       : event.subject_person_name
-        ? event.subject_person_name
-        : t('aMissionHubUser');
+      ? event.subject_person_name
+      : t('aMissionHubUser');
 
     switch (event.celebrateable_type) {
       case completedStep:
@@ -213,7 +213,7 @@ class CelebrateItem extends Component {
       subject_person_name,
     } = event;
     const organization = this.props.organization || event.organization;
-    const { top, topLeft } = styles;
+    const { top, topLeft, messageText } = styles;
 
     return (
       <Card onPress={onPressItem && this.onPressItem} style={cardStyle}>
@@ -231,8 +231,10 @@ class CelebrateItem extends Component {
               </View>
               {rightCorner}
             </View>
-            <Text style={styles.description}>{this.renderMessage()}</Text>
-            {this.renderChallengeLink()}
+            <View style={styles.description}>
+              <Text style={messageText}>{this.renderMessage()}</Text>
+              {this.renderChallengeLink()}
+            </View>
           </Flex>
           <Separator />
           <CommentLikeComponent event={event} style={styles.content} />

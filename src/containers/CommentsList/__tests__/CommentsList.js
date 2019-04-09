@@ -107,7 +107,8 @@ describe('with comments', () => {
       celebrateCommentsSelector.mockReturnValue({
         ...celebrateComments,
         pagination: { hasNextPage: true },
-      }));
+      }),
+    );
 
     it('renders correctly', () => {
       expect(screen).toMatchSnapshot();
@@ -136,7 +137,8 @@ describe('with comments', () => {
 
   describe('without next page', () => {
     beforeAll(() =>
-      celebrateCommentsSelector.mockReturnValue(celebrateComments));
+      celebrateCommentsSelector.mockReturnValue(celebrateComments),
+    );
 
     it('renders correctly', () => {
       expect(screen).toMatchSnapshot();
