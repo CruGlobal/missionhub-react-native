@@ -40,13 +40,6 @@ export class PeopleScreen extends Component {
     this.handleRefresh = this.handleRefresh.bind(this);
   }
 
-  componentDidMount() {
-    this.props.dispatch(getMe());
-    this.getPeople();
-
-    this.props.dispatch(getStagesIfNotExists());
-  }
-
   getPeople = () => this.props.dispatch(getMyPeople());
 
   openMainMenu = () => this.props.dispatch(openMainMenu());

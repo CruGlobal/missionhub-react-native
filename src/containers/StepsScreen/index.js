@@ -78,11 +78,6 @@ export class StepsScreen extends Component {
     this.handleNextPage = debounce(this.handleNextPage.bind(this), 250);
   }
 
-  componentDidMount() {
-    // For some reason, when the user logs out, this gets mounted again
-    this.props.dispatch(loadHome());
-  }
-
   getSteps() {
     return this.props.dispatch(getMySteps());
   }

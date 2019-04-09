@@ -36,7 +36,6 @@ class GroupsListScreen extends Component {
   state = { refreshing: false };
 
   async componentDidMount() {
-    this.props.dispatch(getMe());
     // Always load groups when this tab mounts
     await this.loadGroups();
     const { orgs, dispatch, scrollToId } = this.props;
