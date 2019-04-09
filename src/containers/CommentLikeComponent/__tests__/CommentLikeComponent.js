@@ -30,18 +30,14 @@ beforeEach(() => {
 });
 
 it('renders nothing with no subject person', () => {
-  expect(
-    renderShallow(<CommentLikeComponent event={{}} />, store),
-  ).toMatchSnapshot();
+  testSnapshotShallow(<CommentLikeComponent event={{}} />, store);
 });
 
 it('renders with custom style', () => {
-  expect(
-    renderShallow(
-      <CommentLikeComponent event={{}} style={{ padding: 10 }} />,
-      store,
-    ),
-  ).toMatchSnapshot();
+  testSnapshotShallow(
+    <CommentLikeComponent event={{}} style={{ padding: 10 }} />,
+    store,
+  );
 });
 
 const event = {
@@ -90,7 +86,7 @@ describe('with subject person', () => {
   describe('onPress like button', () => {
     beforeEach(() =>
       renderShallow(<CommentLikeComponent event={event} />, store)
-        .childAt(2)
+        .childAt(3)
         .props()
         .onPress(),
     );

@@ -26,7 +26,10 @@ it('renders correctly', () => {
 });
 
 it('handles drilldown', () => {
-  const drilldownItem = component.childAt(1).childAt(0);
+  const drilldownItem = component
+    .dive()
+    .childAt(1)
+    .childAt(0);
   const { item, type, onSelect } = drilldownItem.props();
   expect(type).toEqual('drilldown');
 
@@ -35,7 +38,10 @@ it('handles drilldown', () => {
 });
 
 it('handles toggle', () => {
-  const drilldownItem = component.childAt(1).childAt(2);
+  const drilldownItem = component
+    .dive()
+    .childAt(1)
+    .childAt(2);
   const { item, type, onSelect } = drilldownItem.props();
   expect(type).toEqual('switch');
 
