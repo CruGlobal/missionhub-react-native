@@ -571,7 +571,7 @@ exports[`renders edit challenge correctly 1`] = `
     }
   }
 >
-  <Component
+  <View
     alignItems="center"
     flex={0.9}
     justifyContent="center"
@@ -590,9 +590,6 @@ exports[`renders edit challenge correctly 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -603,8 +600,8 @@ exports[`renders edit challenge correctly 1`] = `
     >
       Edit Challenge
     </MyText>
-  </Component>
-  <Component
+  </View>
+  <View
     flex={1}
     style={
       Object {
@@ -613,11 +610,8 @@ exports[`renders edit challenge correctly 1`] = `
       }
     }
   >
-    <Component>
+    <View>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -640,12 +634,9 @@ exports[`renders edit challenge correctly 1`] = `
         selectionColor="#ffffff"
         value="Test Title"
       />
-    </Component>
-    <Component>
+    </View>
+    <View>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -667,7 +658,7 @@ exports[`renders edit challenge correctly 1`] = `
         mode="date"
         onDateChange={[Function]}
       >
-        <Component
+        <View
           style={
             Array [
               Object {
@@ -679,9 +670,6 @@ exports[`renders edit challenge correctly 1`] = `
           }
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "backgroundColor": "transparent",
@@ -694,10 +682,10 @@ exports[`renders edit challenge correctly 1`] = `
           >
             September 30, 2018
           </MyText>
-        </Component>
+        </View>
       </Translate(MyDatePickerIOS)>
-    </Component>
-  </Component>
+    </View>
+  </View>
   <BottomButton
     disabled={true}
     onPress={[Function]}

@@ -16,7 +16,7 @@ exports[`renders correctly with completed steps 1`] = `
 <SafeAreaView
   flex={1}
 >
-  <ScrollView
+  <ScrollViewMock
     flex={1}
   >
     <FlatList
@@ -35,6 +35,7 @@ exports[`renders correctly with completed steps 1`] = `
       maxToRenderPerBatch={10}
       numColumns={1}
       onEndReachedThreshold={2}
+      removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}
       showsVerticalScrollIndicator={false}
@@ -87,6 +88,7 @@ exports[`renders correctly with completed steps 1`] = `
       maxToRenderPerBatch={10}
       numColumns={1}
       onEndReachedThreshold={2}
+      removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}
       showsVerticalScrollIndicator={false}
@@ -99,7 +101,7 @@ exports[`renders correctly with completed steps 1`] = `
       updateCellsBatchingPeriod={50}
       windowSize={21}
     />
-  </ScrollView>
+  </ScrollViewMock>
   <BottomButton
     onPress={[Function]}
     text="Add a step of faith"
@@ -132,7 +134,7 @@ exports[`renders correctly with steps 1`] = `
 <SafeAreaView
   flex={1}
 >
-  <ScrollView
+  <ScrollViewMock
     flex={1}
   >
     <FlatList
@@ -151,6 +153,7 @@ exports[`renders correctly with steps 1`] = `
       maxToRenderPerBatch={10}
       numColumns={1}
       onEndReachedThreshold={2}
+      removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}
       showsVerticalScrollIndicator={false}
@@ -163,7 +166,7 @@ exports[`renders correctly with steps 1`] = `
       updateCellsBatchingPeriod={50}
       windowSize={21}
     />
-  </ScrollView>
+  </ScrollViewMock>
   <BottomButton
     onPress={[Function]}
     text="Add a step of faith"

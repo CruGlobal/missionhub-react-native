@@ -145,9 +145,6 @@ exports[`renders section header 1`] = `
   }
 >
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#505256",

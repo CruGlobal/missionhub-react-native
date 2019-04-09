@@ -33,9 +33,6 @@ exports[`render active and joined and completed challenge item 1`] = `
         value={5}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#007398",
@@ -126,9 +123,6 @@ exports[`render active and joined challenge item 1`] = `
         value={5}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#007398",
@@ -223,9 +217,6 @@ exports[`render active and joined challenge item with edit 1`] = `
         value={5}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#007398",
@@ -320,9 +311,6 @@ exports[`render active challenge item 1`] = `
         value={5}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#007398",
@@ -417,9 +405,6 @@ exports[`render active challenge item with edit 1`] = `
         value={5}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#007398",
@@ -514,9 +499,6 @@ exports[`render past and joined and completed challenge item 1`] = `
         value={5}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#007398",
@@ -607,9 +589,6 @@ exports[`render past and joined challenge item 1`] = `
         value={5}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#007398",
@@ -685,9 +664,6 @@ exports[`render past challenge item 1`] = `
         value={5}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#007398",

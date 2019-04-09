@@ -37,9 +37,6 @@ exports[`renders hover for step 1`] = `
         text=""
       />
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,
@@ -109,9 +106,6 @@ exports[`renders me correctly 1`] = `
         text=""
       />
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,
@@ -208,9 +202,6 @@ exports[`renders not me correctly 1`] = `
         text=""
       />
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,
@@ -261,9 +252,6 @@ exports[`renders type action correctly 1`] = `
         text=""
       />
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,
@@ -337,9 +325,6 @@ exports[`renders type contact correctly 1`] = `
       value={1}
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,
@@ -390,9 +375,6 @@ exports[`renders type reminder correctly 1`] = `
         text=""
       />
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,
@@ -443,9 +425,6 @@ exports[`renders type swipeable correctly 1`] = `
         text=""
       />
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,

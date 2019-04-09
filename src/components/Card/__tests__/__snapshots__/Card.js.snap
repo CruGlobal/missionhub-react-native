@@ -1,65 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render card 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffffff",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 16,
-        "marginVertical": 8,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      },
-      undefined,
-    ]
-  }
-/>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
 exports[`render card with children 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffffff",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 16,
-        "marginVertical": 8,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      },
-      undefined,
-    ]
-  }
->
-  <Component>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      Testing
-    </MyText>
-  </Component>
-</View>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
 exports[`render touchable card 1`] = `
@@ -118,14 +68,10 @@ exports[`render touchable card with children 1`] = `
     ]
   }
 >
-  <Component>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
+  <View>
+    <MyText>
       Testing
     </MyText>
-  </Component>
+  </View>
 </TouchableOpacity>
 `;

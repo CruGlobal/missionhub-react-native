@@ -9,7 +9,7 @@ exports[`Contacts should render correctly 1`] = `
     }
   }
 >
-  <ScrollView
+  <ScrollViewMock
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -42,7 +42,7 @@ exports[`Contacts should render correctly 1`] = `
       onSearch={[Function]}
       placeholder="Search Contacts"
     />
-  </ScrollView>
+  </ScrollViewMock>
 </SafeAreaView>
 `;
 

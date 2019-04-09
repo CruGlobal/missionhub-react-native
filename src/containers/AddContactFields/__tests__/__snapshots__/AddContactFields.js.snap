@@ -16,9 +16,6 @@ exports[`renders casey view correctly 1`] = `
     direction="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -43,9 +40,6 @@ exports[`renders casey view correctly 1`] = `
     direction="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -85,9 +79,6 @@ exports[`renders jean invite with organization and user and admin radio buttons 
     direction="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -112,9 +103,6 @@ exports[`renders jean invite with organization and user and admin radio buttons 
     direction="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -135,63 +123,53 @@ exports[`renders jean invite with organization and user and admin radio buttons 
       returnKeyType="next"
     />
   </Flex>
-  <React.Fragment>
-    <Flex
-      direction="column"
-      key="email"
+  <Flex
+    direction="column"
+    key="email"
+  >
+    <MyText
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
+        }
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        blurOnSubmit={false}
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="#ffffff"
-        returnKeyType="next"
-      />
-    </Flex>
-    <React.Fragment>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
-        }
-      >
-        Permissions
-        :
-      </MyText>
-      <Flex
-        align="center"
-        direction="row"
-        style={
-          Object {
-            "paddingVertical": 15,
-          }
-        }
-      />
-    </React.Fragment>
-  </React.Fragment>
+      Email
+    </MyText>
+    <Input
+      autoCapitalize="none"
+      blurOnSubmit={false}
+      keyboardType="email-address"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Email"
+      placeholderTextColor="#ffffff"
+      returnKeyType="next"
+    />
+  </Flex>
+  <MyText
+    style={
+      Object {
+        "color": "#52C5DC",
+        "fontSize": 13,
+        "marginTop": 15,
+      }
+    }
+  >
+    Permissions
+    :
+  </MyText>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "paddingVertical": 15,
+      }
+    }
+  />
 </KeyboardAvoidingView>
 `;
 
@@ -211,9 +189,6 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
     direction="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -238,9 +213,6 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
     direction="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -261,156 +233,140 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
       returnKeyType="next"
     />
   </Flex>
-  <React.Fragment>
-    <Flex
-      direction="column"
-      key="email"
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        blurOnSubmit={false}
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="#ffffff"
-        returnKeyType="next"
-      />
-    </Flex>
-    <Flex
-      align="center"
-      direction="row"
-      key="gender"
+  <Flex
+    direction="column"
+    key="email"
+  >
+    <MyText
       style={
         Object {
-          "borderBottomColor": "#52C5DC",
-          "borderBottomWidth": 1,
-          "paddingVertical": 15,
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
         }
       }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 16,
-          }
+      Email
+    </MyText>
+    <Input
+      autoCapitalize="none"
+      blurOnSubmit={false}
+      keyboardType="email-address"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Email"
+      placeholderTextColor="#ffffff"
+      returnKeyType="next"
+    />
+  </Flex>
+  <Flex
+    align="center"
+    direction="row"
+    key="gender"
+    style={
+      Object {
+        "borderBottomColor": "#52C5DC",
+        "borderBottomWidth": 1,
+        "paddingVertical": 15,
+      }
+    }
+  >
+    <MyText
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
         }
-      >
-        Gender
-        :
-      </MyText>
-      <RadioButton
-        checked={false}
-        label="Male"
-        onSelect={[Function]}
-        size={25}
-        style={
-          Object {
-            "paddingHorizontal": 15,
-          }
-        }
-      />
-      <RadioButton
-        checked={false}
-        label="Female"
-        onSelect={[Function]}
-        size={25}
-        style={
-          Object {
-            "paddingHorizontal": 15,
-          }
-        }
-      />
-    </Flex>
-    <Flex
-      direction="column"
-      key="phone"
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
+      Gender
+      :
+    </MyText>
+    <RadioButton
+      checked={false}
+      label="Male"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingHorizontal": 15,
         }
-      >
-        Phone
-      </MyText>
-      <Input
-        blurOnSubmit={true}
-        keyboardType="phone-pad"
-        onChangeText={[Function]}
-        placeholder="Phone"
-        placeholderTextColor="#ffffff"
-        returnKeyType="done"
-      />
-    </Flex>
-    <React.Fragment>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
+      }
+    />
+    <RadioButton
+      checked={false}
+      label="Female"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingHorizontal": 15,
         }
-      >
-        Permissions
-        :
-      </MyText>
-      <Flex
-        align="center"
-        direction="row"
-        style={
-          Object {
-            "paddingVertical": 15,
-          }
+      }
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    key="phone"
+  >
+    <MyText
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
         }
-      >
-        <RadioButton
-          checked={true}
-          label="Contact"
-          onSelect={[Function]}
-          pressProps={
-            Array [
-              2,
-            ]
-          }
-          size={25}
-          style={
-            Object {
-              "paddingRight": 25,
-            }
-          }
-        />
-      </Flex>
-    </React.Fragment>
-  </React.Fragment>
+      }
+    >
+      Phone
+    </MyText>
+    <Input
+      blurOnSubmit={true}
+      keyboardType="phone-pad"
+      onChangeText={[Function]}
+      placeholder="Phone"
+      placeholderTextColor="#ffffff"
+      returnKeyType="done"
+    />
+  </Flex>
+  <MyText
+    style={
+      Object {
+        "color": "#52C5DC",
+        "fontSize": 13,
+        "marginTop": 15,
+      }
+    }
+  >
+    Permissions
+    :
+  </MyText>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "paddingVertical": 15,
+      }
+    }
+  >
+    <RadioButton
+      checked={true}
+      label="Contact"
+      onSelect={[Function]}
+      pressProps={
+        Array [
+          2,
+        ]
+      }
+      size={25}
+      style={
+        Object {
+          "paddingRight": 25,
+        }
+      }
+    />
+  </Flex>
 </KeyboardAvoidingView>
 `;
 
@@ -430,9 +386,6 @@ exports[`renders jean with organization and user radio buttons 1`] = `
     direction="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -457,9 +410,6 @@ exports[`renders jean with organization and user radio buttons 1`] = `
     direction="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -480,156 +430,140 @@ exports[`renders jean with organization and user radio buttons 1`] = `
       returnKeyType="next"
     />
   </Flex>
-  <React.Fragment>
-    <Flex
-      direction="column"
-      key="email"
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        blurOnSubmit={false}
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="#ffffff"
-        returnKeyType="next"
-      />
-    </Flex>
-    <Flex
-      align="center"
-      direction="row"
-      key="gender"
+  <Flex
+    direction="column"
+    key="email"
+  >
+    <MyText
       style={
         Object {
-          "borderBottomColor": "#52C5DC",
-          "borderBottomWidth": 1,
-          "paddingVertical": 15,
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
         }
       }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 16,
-          }
+      Email
+    </MyText>
+    <Input
+      autoCapitalize="none"
+      blurOnSubmit={false}
+      keyboardType="email-address"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Email"
+      placeholderTextColor="#ffffff"
+      returnKeyType="next"
+    />
+  </Flex>
+  <Flex
+    align="center"
+    direction="row"
+    key="gender"
+    style={
+      Object {
+        "borderBottomColor": "#52C5DC",
+        "borderBottomWidth": 1,
+        "paddingVertical": 15,
+      }
+    }
+  >
+    <MyText
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
         }
-      >
-        Gender
-        :
-      </MyText>
-      <RadioButton
-        checked={false}
-        label="Male"
-        onSelect={[Function]}
-        size={25}
-        style={
-          Object {
-            "paddingHorizontal": 15,
-          }
-        }
-      />
-      <RadioButton
-        checked={false}
-        label="Female"
-        onSelect={[Function]}
-        size={25}
-        style={
-          Object {
-            "paddingHorizontal": 15,
-          }
-        }
-      />
-    </Flex>
-    <Flex
-      direction="column"
-      key="phone"
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
+      Gender
+      :
+    </MyText>
+    <RadioButton
+      checked={false}
+      label="Male"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingHorizontal": 15,
         }
-      >
-        Phone
-      </MyText>
-      <Input
-        blurOnSubmit={true}
-        keyboardType="phone-pad"
-        onChangeText={[Function]}
-        placeholder="Phone"
-        placeholderTextColor="#ffffff"
-        returnKeyType="done"
-      />
-    </Flex>
-    <React.Fragment>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
+      }
+    />
+    <RadioButton
+      checked={false}
+      label="Female"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingHorizontal": 15,
         }
-      >
-        Permissions
-        :
-      </MyText>
-      <Flex
-        align="center"
-        direction="row"
-        style={
-          Object {
-            "paddingVertical": 15,
-          }
+      }
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    key="phone"
+  >
+    <MyText
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
         }
-      >
-        <RadioButton
-          checked={true}
-          label="Contact"
-          onSelect={[Function]}
-          pressProps={
-            Array [
-              2,
-            ]
-          }
-          size={25}
-          style={
-            Object {
-              "paddingRight": 25,
-            }
-          }
-        />
-      </Flex>
-    </React.Fragment>
-  </React.Fragment>
+      }
+    >
+      Phone
+    </MyText>
+    <Input
+      blurOnSubmit={true}
+      keyboardType="phone-pad"
+      onChangeText={[Function]}
+      placeholder="Phone"
+      placeholderTextColor="#ffffff"
+      returnKeyType="done"
+    />
+  </Flex>
+  <MyText
+    style={
+      Object {
+        "color": "#52C5DC",
+        "fontSize": 13,
+        "marginTop": 15,
+      }
+    }
+  >
+    Permissions
+    :
+  </MyText>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "paddingVertical": 15,
+      }
+    }
+  >
+    <RadioButton
+      checked={true}
+      label="Contact"
+      onSelect={[Function]}
+      pressProps={
+        Array [
+          2,
+        ]
+      }
+      size={25}
+      style={
+        Object {
+          "paddingRight": 25,
+        }
+      }
+    />
+  </Flex>
 </KeyboardAvoidingView>
 `;
 
@@ -649,9 +583,6 @@ exports[`renders jean with organization view correctly 1`] = `
     direction="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -676,9 +607,6 @@ exports[`renders jean with organization view correctly 1`] = `
     direction="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -699,156 +627,140 @@ exports[`renders jean with organization view correctly 1`] = `
       returnKeyType="next"
     />
   </Flex>
-  <React.Fragment>
-    <Flex
-      direction="column"
-      key="email"
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        blurOnSubmit={false}
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="#ffffff"
-        returnKeyType="next"
-      />
-    </Flex>
-    <Flex
-      align="center"
-      direction="row"
-      key="gender"
+  <Flex
+    direction="column"
+    key="email"
+  >
+    <MyText
       style={
         Object {
-          "borderBottomColor": "#52C5DC",
-          "borderBottomWidth": 1,
-          "paddingVertical": 15,
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
         }
       }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 16,
-          }
+      Email
+    </MyText>
+    <Input
+      autoCapitalize="none"
+      blurOnSubmit={false}
+      keyboardType="email-address"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Email"
+      placeholderTextColor="#ffffff"
+      returnKeyType="next"
+    />
+  </Flex>
+  <Flex
+    align="center"
+    direction="row"
+    key="gender"
+    style={
+      Object {
+        "borderBottomColor": "#52C5DC",
+        "borderBottomWidth": 1,
+        "paddingVertical": 15,
+      }
+    }
+  >
+    <MyText
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
         }
-      >
-        Gender
-        :
-      </MyText>
-      <RadioButton
-        checked={false}
-        label="Male"
-        onSelect={[Function]}
-        size={25}
-        style={
-          Object {
-            "paddingHorizontal": 15,
-          }
-        }
-      />
-      <RadioButton
-        checked={false}
-        label="Female"
-        onSelect={[Function]}
-        size={25}
-        style={
-          Object {
-            "paddingHorizontal": 15,
-          }
-        }
-      />
-    </Flex>
-    <Flex
-      direction="column"
-      key="phone"
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
+      Gender
+      :
+    </MyText>
+    <RadioButton
+      checked={false}
+      label="Male"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingHorizontal": 15,
         }
-      >
-        Phone
-      </MyText>
-      <Input
-        blurOnSubmit={true}
-        keyboardType="phone-pad"
-        onChangeText={[Function]}
-        placeholder="Phone"
-        placeholderTextColor="#ffffff"
-        returnKeyType="done"
-      />
-    </Flex>
-    <React.Fragment>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
+      }
+    />
+    <RadioButton
+      checked={false}
+      label="Female"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingHorizontal": 15,
         }
-      >
-        Permissions
-        :
-      </MyText>
-      <Flex
-        align="center"
-        direction="row"
-        style={
-          Object {
-            "paddingVertical": 15,
-          }
+      }
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    key="phone"
+  >
+    <MyText
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
         }
-      >
-        <RadioButton
-          checked={true}
-          label="Contact"
-          onSelect={[Function]}
-          pressProps={
-            Array [
-              2,
-            ]
-          }
-          size={25}
-          style={
-            Object {
-              "paddingRight": 25,
-            }
-          }
-        />
-      </Flex>
-    </React.Fragment>
-  </React.Fragment>
+      }
+    >
+      Phone
+    </MyText>
+    <Input
+      blurOnSubmit={true}
+      keyboardType="phone-pad"
+      onChangeText={[Function]}
+      placeholder="Phone"
+      placeholderTextColor="#ffffff"
+      returnKeyType="done"
+    />
+  </Flex>
+  <MyText
+    style={
+      Object {
+        "color": "#52C5DC",
+        "fontSize": 13,
+        "marginTop": 15,
+      }
+    }
+  >
+    Permissions
+    :
+  </MyText>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "paddingVertical": 15,
+      }
+    }
+  >
+    <RadioButton
+      checked={true}
+      label="Contact"
+      onSelect={[Function]}
+      pressProps={
+        Array [
+          2,
+        ]
+      }
+      size={25}
+      style={
+        Object {
+          "paddingRight": 25,
+        }
+      }
+    />
+  </Flex>
 </KeyboardAvoidingView>
 `;
 
@@ -868,9 +780,6 @@ exports[`renders jean without organization view correctly 1`] = `
     direction="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -895,9 +804,6 @@ exports[`renders jean without organization view correctly 1`] = `
     direction="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -918,112 +824,101 @@ exports[`renders jean without organization view correctly 1`] = `
       returnKeyType="next"
     />
   </Flex>
-  <React.Fragment>
-    <Flex
-      direction="column"
-      key="email"
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
-        }
-      >
-        Email
-      </MyText>
-      <Input
-        autoCapitalize="none"
-        blurOnSubmit={false}
-        keyboardType="email-address"
-        onChangeText={[Function]}
-        onSubmitEditing={[Function]}
-        placeholder="Email"
-        placeholderTextColor="#ffffff"
-        returnKeyType="next"
-      />
-    </Flex>
-    <Flex
-      align="center"
-      direction="row"
-      key="gender"
+  <Flex
+    direction="column"
+    key="email"
+  >
+    <MyText
       style={
         Object {
-          "borderBottomColor": "#52C5DC",
-          "borderBottomWidth": 1,
-          "paddingVertical": 15,
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
         }
       }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 16,
-          }
+      Email
+    </MyText>
+    <Input
+      autoCapitalize="none"
+      blurOnSubmit={false}
+      keyboardType="email-address"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Email"
+      placeholderTextColor="#ffffff"
+      returnKeyType="next"
+    />
+  </Flex>
+  <Flex
+    align="center"
+    direction="row"
+    key="gender"
+    style={
+      Object {
+        "borderBottomColor": "#52C5DC",
+        "borderBottomWidth": 1,
+        "paddingVertical": 15,
+      }
+    }
+  >
+    <MyText
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
         }
-      >
-        Gender
-        :
-      </MyText>
-      <RadioButton
-        checked={false}
-        label="Male"
-        onSelect={[Function]}
-        size={25}
-        style={
-          Object {
-            "paddingHorizontal": 15,
-          }
-        }
-      />
-      <RadioButton
-        checked={false}
-        label="Female"
-        onSelect={[Function]}
-        size={25}
-        style={
-          Object {
-            "paddingHorizontal": 15,
-          }
-        }
-      />
-    </Flex>
-    <Flex
-      direction="column"
-      key="phone"
+      }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 13,
-            "marginTop": 15,
-          }
+      Gender
+      :
+    </MyText>
+    <RadioButton
+      checked={false}
+      label="Male"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingHorizontal": 15,
         }
-      >
-        Phone
-      </MyText>
-      <Input
-        blurOnSubmit={true}
-        keyboardType="phone-pad"
-        onChangeText={[Function]}
-        placeholder="Phone"
-        placeholderTextColor="#ffffff"
-        returnKeyType="done"
-      />
-    </Flex>
-  </React.Fragment>
+      }
+    />
+    <RadioButton
+      checked={false}
+      label="Female"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingHorizontal": 15,
+        }
+      }
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    key="phone"
+  >
+    <MyText
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
+        }
+      }
+    >
+      Phone
+    </MyText>
+    <Input
+      blurOnSubmit={true}
+      keyboardType="phone-pad"
+      onChangeText={[Function]}
+      placeholder="Phone"
+      placeholderTextColor="#ffffff"
+      returnKeyType="done"
+    />
+  </Flex>
 </KeyboardAvoidingView>
 `;

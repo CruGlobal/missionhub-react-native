@@ -54,9 +54,6 @@ exports[`renders loading 1`] = `
     value={1}
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -72,9 +69,6 @@ exports[`renders loading 1`] = `
       two-step verification
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#ffffff",
@@ -88,11 +82,8 @@ exports[`renders loading 1`] = `
     >
       Enter verification code from your authenticator app.
     </MyText>
-    <Component>
+    <View>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -113,7 +104,7 @@ exports[`renders loading 1`] = `
         returnKeyType="done"
         value="Roge"
       />
-    </Component>
+    </View>
   </Flex>
   <LoadingWheel />
 </SafeAreaView>
@@ -173,9 +164,6 @@ exports[`renders not loading 1`] = `
     value={1}
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -191,9 +179,6 @@ exports[`renders not loading 1`] = `
       two-step verification
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#ffffff",
@@ -207,11 +192,8 @@ exports[`renders not loading 1`] = `
     >
       Enter verification code from your authenticator app.
     </MyText>
-    <Component>
+    <View>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -232,7 +214,7 @@ exports[`renders not loading 1`] = `
         returnKeyType="done"
         value="Roge"
       />
-    </Component>
+    </View>
   </Flex>
 </SafeAreaView>
 `;

@@ -200,9 +200,12 @@ exports[`renders single person correctly 1`] = `
 `;
 
 exports[`renders unassign correctly 1`] = `
-<TouchableIOS
-  highlight={true}
+<TouchableHighlight
+  accessibilityTraits="button"
+  activeOpacity={0.85}
+  delayPressOut={100}
   onPress={[Function]}
+  underlayColor="rgba(0, 115, 152, 0.3)"
 >
   <Flex
     justify="center"
@@ -236,5 +239,5 @@ exports[`renders unassign correctly 1`] = `
       }
     />
   </Flex>
-</TouchableIOS>
+</TouchableHighlight>
 `;
