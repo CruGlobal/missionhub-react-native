@@ -1,27 +1,18 @@
 import React from 'react';
-import Adapter from 'enzyme-adapter-react-16/build/index';
-import { shallow } from 'enzyme/build/index';
-import Enzyme from 'enzyme/build/index';
 
 import { BackButton } from '..';
 
-import { createThunkStore } from '../../../../testUtils';
+import { renderShallow } from '../../../../testUtils';
 import * as navigation from '../../../actions/navigation';
 import IconButton from '../../../components/IconButton';
 
-const store = createThunkStore();
 let shallowScreen;
 
 jest.mock('react-native-device-info');
 
 describe('back button', () => {
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    shallowScreen = shallow(<BackButton dispatch={jest.fn()} />, {
-      context: { store },
-    });
-
-    shallowScreen = shallowScreen.dive();
+    shallowScreen = renderShallow(<BackButton dispatch={jest.fn()} />);
   });
 
   it('renders normally', () => {
@@ -31,6 +22,7 @@ describe('back button', () => {
   it('calls navigate back once', () => {
     navigation.navigateBack = jest.fn();
     shallowScreen
+      .dive()
       .find(IconButton)
       .props()
       .onPress();
@@ -41,13 +33,9 @@ describe('back button', () => {
 
 describe('back button absolute', () => {
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    shallowScreen = shallow(
+    shallowScreen = renderShallow(
       <BackButton absolute={true} dispatch={jest.fn()} />,
-      { context: { store } },
     );
-
-    shallowScreen = shallowScreen.dive();
   });
 
   it('renders with absolute', () => {
@@ -59,18 +47,15 @@ describe('back button customNavigate', () => {
   const mockCustomNav = jest.fn();
 
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    shallowScreen = shallow(
+    shallowScreen = renderShallow(
       <BackButton customNavigate={mockCustomNav} dispatch={jest.fn()} />,
-      { context: { store } },
     );
-
-    shallowScreen = shallowScreen.dive();
   });
 
   it('custom navigation function is called', () => {
     navigation.navigateBack = jest.fn();
     shallowScreen
+      .dive()
       .find(IconButton)
       .props()
       .onPress();
