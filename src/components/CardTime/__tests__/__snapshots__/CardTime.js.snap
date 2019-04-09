@@ -2,9 +2,6 @@
 
 exports[`renders correctly 1`] = `
 <MyText
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Object {
       "color": "#B2B0B2",
@@ -18,9 +15,6 @@ exports[`renders correctly 1`] = `
 
 exports[`renders correctly with format 1`] = `
 <MyText
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Object {
       "color": "#B2B0B2",

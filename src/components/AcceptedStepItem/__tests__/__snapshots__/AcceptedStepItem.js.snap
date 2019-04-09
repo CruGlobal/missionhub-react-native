@@ -14,7 +14,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
     }
   }
 >
-  <Component
+  <View
     flex={1}
     flexDirection="column"
   >
@@ -26,7 +26,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
       }
       stepId="1"
     >
-      <Component
+      <View
         flexDirection="row"
         style={
           Object {
@@ -53,12 +53,9 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
             }
           }
         />
-      </Component>
+      </View>
     </Connect(ReminderButton)>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "flex": 1,
@@ -69,7 +66,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
         }
       }
     />
-  </Component>
+  </View>
   <Button
     onPress={[Function]}
     style={
@@ -110,14 +107,11 @@ exports[`AcceptedStepItem renders completed correctly 1`] = `
     }
   }
 >
-  <Component
+  <View
     flex={1}
     flexDirection="column"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -133,7 +127,7 @@ exports[`AcceptedStepItem renders completed correctly 1`] = `
         ]
       }
     />
-  </Component>
+  </View>
   <Image
     source={
       Object {

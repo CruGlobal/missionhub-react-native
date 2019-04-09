@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StatusCompleteScreen should render correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -24,9 +24,6 @@ exports[`StatusCompleteScreen should render correctly 1`] = `
     value={1}
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#ffffff",
@@ -79,5 +76,5 @@ Would you like to continue journeying with Person?
       type="transparent"
     />
   </Flex>
-</Component>
+</View>
 `;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renderForeground renders correctly 1`] = `
-<Component
+<View
   alignItems="center"
   flex={1}
 >
@@ -19,9 +19,6 @@ exports[`renderForeground renders correctly 1`] = `
     type="MissionHub"
   />
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#52C5DC",
@@ -35,9 +32,6 @@ exports[`renderForeground renders correctly 1`] = `
     Add Steps of Faith
   </MyText>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#ffffff",
@@ -49,16 +43,13 @@ exports[`renderForeground renders correctly 1`] = `
       }
     }
   />
-</Component>
+</View>
 `;
 
 exports[`renderStickyHeader renders correctly 1`] = `
 <Header
   center={
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#ffffff",
@@ -74,7 +65,7 @@ exports[`renderStickyHeader renders correctly 1`] = `
 `;
 
 exports[`with enableBackButton renders correctly 1`] = `
-<Component
+<View
   flex={1}
 >
   <ParallaxScrollView
@@ -116,11 +107,11 @@ exports[`with enableBackButton renders correctly 1`] = `
     absolute={true}
     customNavigate={[Function]}
   />
-</Component>
+</View>
 `;
 
 exports[`without enableBackButton renders correctly 1`] = `
-<Component
+<View
   flex={1}
 >
   <ParallaxScrollView
@@ -158,5 +149,5 @@ exports[`without enableBackButton renders correctly 1`] = `
       text="CREATE YOUR OWN STEP"
     />
   </SafeAreaView>
-</Component>
+</View>
 `;

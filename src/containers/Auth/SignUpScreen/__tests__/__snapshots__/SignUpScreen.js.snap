@@ -84,9 +84,6 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
               type="MissionHub"
             />
             <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "color": "#ffffff",
@@ -139,9 +136,6 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
               type="MissionHub"
             />
             <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "color": "#ffffff",
@@ -164,9 +158,6 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -291,9 +282,6 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
               type="MissionHub"
             />
             <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "color": "#ffffff",
@@ -346,9 +334,6 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
               type="MissionHub"
             />
             <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "color": "#ffffff",
@@ -371,9 +356,6 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",

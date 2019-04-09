@@ -258,9 +258,6 @@ exports[`renders with actions 2`] = `
         />
       </Flex>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={2}
         style={
           Object {
@@ -318,9 +315,6 @@ exports[`renders with actions 2`] = `
         />
       </Flex>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={2}
         style={
           Object {
@@ -378,9 +372,6 @@ exports[`renders with actions 2`] = `
         />
       </Flex>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={2}
         style={
           Object {
@@ -438,9 +429,6 @@ exports[`renders with actions 2`] = `
         />
       </Flex>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={2}
         style={
           Object {
@@ -498,9 +486,6 @@ exports[`renders with actions 2`] = `
         />
       </Flex>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={2}
         style={
           Object {
@@ -615,9 +600,6 @@ exports[`renders with actions and selected action 1`] = `
             }
           />
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#007398",
@@ -758,9 +740,6 @@ exports[`renders with actions and selected action 1`] = `
         />
       </Flex>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={2}
         style={
           Object {
@@ -818,9 +797,6 @@ exports[`renders with actions and selected action 1`] = `
         />
       </Flex>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={2}
         style={
           Object {
@@ -878,9 +854,6 @@ exports[`renders with actions and selected action 1`] = `
         />
       </Flex>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={2}
         style={
           Object {
@@ -938,9 +911,6 @@ exports[`renders with actions and selected action 1`] = `
         />
       </Flex>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={2}
         style={
           Object {
@@ -998,9 +968,6 @@ exports[`renders with actions and selected action 1`] = `
         />
       </Flex>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={2}
         style={
           Object {
@@ -1413,9 +1380,6 @@ exports[`renders without actions and selected action 1`] = `
             }
           />
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#007398",

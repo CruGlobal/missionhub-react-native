@@ -2,9 +2,6 @@
 
 exports[`render dot 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -23,9 +20,6 @@ exports[`render dot 1`] = `
 
 exports[`render dot with style 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`a login button is clicked facebook login button is pressed loading wheel appears 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -27,9 +27,6 @@ exports[`a login button is clicked facebook login button is pressed loading whee
       justify="center"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -50,11 +47,8 @@ exports[`a login button is clicked facebook login button is pressed loading whee
       }
       value={3}
     >
-      <Component>
+      <View>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -74,8 +68,8 @@ exports[`a login button is clicked facebook login button is pressed loading whee
           returnKeyType="next"
           value=""
         />
-      </Component>
-      <Component
+      </View>
+      <View
         style={
           Object {
             "paddingVertical": 15,
@@ -83,9 +77,6 @@ exports[`a login button is clicked facebook login button is pressed loading whee
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -125,7 +116,7 @@ exports[`a login button is clicked facebook login button is pressed loading whee
           text="Forgot Password?"
           type="transparent"
         />
-      </Component>
+      </View>
     </Flex>
     <Flex
       align="center"
@@ -170,9 +161,6 @@ exports[`a login button is clicked facebook login button is pressed loading whee
             type="MissionHub"
           />
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -190,11 +178,11 @@ exports[`a login button is clicked facebook login button is pressed loading whee
     </Flex>
   </SafeAreaView>
   <LoadingWheel />
-</Component>
+</View>
 `;
 
 exports[`a login button is clicked forgot password button is pressed loading wheel to be rendered 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -220,9 +208,6 @@ exports[`a login button is clicked forgot password button is pressed loading whe
       justify="center"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -243,11 +228,8 @@ exports[`a login button is clicked forgot password button is pressed loading whe
       }
       value={3}
     >
-      <Component>
+      <View>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -267,8 +249,8 @@ exports[`a login button is clicked forgot password button is pressed loading whe
           returnKeyType="next"
           value=""
         />
-      </Component>
-      <Component
+      </View>
+      <View
         style={
           Object {
             "paddingVertical": 15,
@@ -276,9 +258,6 @@ exports[`a login button is clicked forgot password button is pressed loading whe
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -318,7 +297,7 @@ exports[`a login button is clicked forgot password button is pressed loading whe
           text="Forgot Password?"
           type="transparent"
         />
-      </Component>
+      </View>
     </Flex>
     <Flex
       align="center"
@@ -363,9 +342,6 @@ exports[`a login button is clicked forgot password button is pressed loading whe
             type="MissionHub"
           />
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -383,11 +359,11 @@ exports[`a login button is clicked forgot password button is pressed loading whe
     </Flex>
   </SafeAreaView>
   <LoadingWheel />
-</Component>
+</View>
 `;
 
 exports[`a login button is clicked key login button is pressed loading wheel appears 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -413,9 +389,6 @@ exports[`a login button is clicked key login button is pressed loading wheel app
       justify="center"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -436,11 +409,8 @@ exports[`a login button is clicked key login button is pressed loading wheel app
       }
       value={3}
     >
-      <Component>
+      <View>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -460,8 +430,8 @@ exports[`a login button is clicked key login button is pressed loading wheel app
           returnKeyType="next"
           value="klas&jflk@lkjasdf.com"
         />
-      </Component>
-      <Component
+      </View>
+      <View
         style={
           Object {
             "paddingVertical": 15,
@@ -469,9 +439,6 @@ exports[`a login button is clicked key login button is pressed loading wheel app
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -511,7 +478,7 @@ exports[`a login button is clicked key login button is pressed loading wheel app
           text="Forgot Password?"
           type="transparent"
         />
-      </Component>
+      </View>
     </Flex>
     <Flex
       align="stretch"
@@ -526,11 +493,11 @@ exports[`a login button is clicked key login button is pressed loading wheel app
     </Flex>
   </SafeAreaView>
   <LoadingWheel />
-</Component>
+</View>
 `;
 
 exports[`a login button is clicked key login button is pressed mfa_required is returned from the Key should clear username and password 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -556,9 +523,6 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
       justify="center"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -579,11 +543,8 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
       }
       value={3}
     >
-      <Component>
+      <View>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -603,8 +564,8 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
           returnKeyType="next"
           value=""
         />
-      </Component>
-      <Component
+      </View>
+      <View
         style={
           Object {
             "paddingVertical": 15,
@@ -612,9 +573,6 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -654,7 +612,7 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
           text="Forgot Password?"
           type="transparent"
         />
-      </Component>
+      </View>
     </Flex>
     <Flex
       align="center"
@@ -699,9 +657,6 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
             type="MissionHub"
           />
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -718,11 +673,11 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
       </Button>
     </Flex>
   </SafeAreaView>
-</Component>
+</View>
 `;
 
 exports[`a login button is clicked key login button is pressed shows email verification required message and tracks user error when email has not been verified 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -732,7 +687,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
     }
   }
 >
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -743,9 +698,6 @@ exports[`a login button is clicked key login button is pressed shows email verif
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#ffffff",
@@ -756,7 +708,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
     >
       Verify your account via Email
     </MyText>
-  </Component>
+  </View>
   <Header
     left={<Connect(BackButton) />}
     shadow={false}
@@ -773,9 +725,6 @@ exports[`a login button is clicked key login button is pressed shows email verif
       justify="center"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -796,11 +745,8 @@ exports[`a login button is clicked key login button is pressed shows email verif
       }
       value={3}
     >
-      <Component>
+      <View>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -820,8 +766,8 @@ exports[`a login button is clicked key login button is pressed shows email verif
           returnKeyType="next"
           value="klas&jflk@lkjasdf.com"
         />
-      </Component>
-      <Component
+      </View>
+      <View
         style={
           Object {
             "paddingVertical": 15,
@@ -829,9 +775,6 @@ exports[`a login button is clicked key login button is pressed shows email verif
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -871,7 +814,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
           text="Forgot Password?"
           type="transparent"
         />
-      </Component>
+      </View>
     </Flex>
     <Flex
       align="stretch"
@@ -885,11 +828,11 @@ exports[`a login button is clicked key login button is pressed shows email verif
       />
     </Flex>
   </SafeAreaView>
-</Component>
+</View>
 `;
 
 exports[`a login button is clicked key login button is pressed shows invalid credentials message and tracks user error when email or password is missing 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -899,7 +842,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     }
   }
 >
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -910,9 +853,6 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#ffffff",
@@ -923,7 +863,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     >
       Your Email or Password is Incorrect
     </MyText>
-  </Component>
+  </View>
   <Header
     left={<Connect(BackButton) />}
     shadow={false}
@@ -940,9 +880,6 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       justify="center"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -963,11 +900,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       }
       value={3}
     >
-      <Component>
+      <View>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -987,8 +921,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
           returnKeyType="next"
           value="klas&jflk@lkjasdf.com"
         />
-      </Component>
-      <Component
+      </View>
+      <View
         style={
           Object {
             "paddingVertical": 15,
@@ -996,9 +930,6 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -1038,7 +969,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
           text="Forgot Password?"
           type="transparent"
         />
-      </Component>
+      </View>
     </Flex>
     <Flex
       align="stretch"
@@ -1052,11 +983,11 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       />
     </Flex>
   </SafeAreaView>
-</Component>
+</View>
 `;
 
 exports[`a login button is clicked key login button is pressed shows invalid credentials message and tracks user error when invalid credentials are entered 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -1066,7 +997,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     }
   }
 >
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -1077,9 +1008,6 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#ffffff",
@@ -1090,7 +1018,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     >
       Your Email or Password is Incorrect
     </MyText>
-  </Component>
+  </View>
   <Header
     left={<Connect(BackButton) />}
     shadow={false}
@@ -1107,9 +1035,6 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       justify="center"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -1130,11 +1055,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       }
       value={3}
     >
-      <Component>
+      <View>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -1154,8 +1076,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
           returnKeyType="next"
           value="klas&jflk@lkjasdf.com"
         />
-      </Component>
-      <Component
+      </View>
+      <View
         style={
           Object {
             "paddingVertical": 15,
@@ -1163,9 +1085,6 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -1205,7 +1124,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
           text="Forgot Password?"
           type="transparent"
         />
-      </Component>
+      </View>
     </Flex>
     <Flex
       align="stretch"
@@ -1219,11 +1138,11 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       />
     </Flex>
   </SafeAreaView>
-</Component>
+</View>
 `;
 
 exports[`keyboard listeners should hide sign in logo when the keyboard comes up 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -1257,11 +1176,8 @@ exports[`keyboard listeners should hide sign in logo when the keyboard comes up 
       }
       value={3}
     >
-      <Component>
+      <View>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -1281,8 +1197,8 @@ exports[`keyboard listeners should hide sign in logo when the keyboard comes up 
           returnKeyType="next"
           value=""
         />
-      </Component>
-      <Component
+      </View>
+      <View
         style={
           Object {
             "paddingVertical": 15,
@@ -1290,9 +1206,6 @@ exports[`keyboard listeners should hide sign in logo when the keyboard comes up 
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#52C5DC",
@@ -1332,7 +1245,7 @@ exports[`keyboard listeners should hide sign in logo when the keyboard comes up 
           text="Forgot Password?"
           type="transparent"
         />
-      </Component>
+      </View>
     </Flex>
     <Flex
       align="center"
@@ -1377,9 +1290,6 @@ exports[`keyboard listeners should hide sign in logo when the keyboard comes up 
             type="MissionHub"
           />
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1396,7 +1306,7 @@ exports[`keyboard listeners should hide sign in logo when the keyboard comes up 
       </Button>
     </Flex>
   </SafeAreaView>
-</Component>
+</View>
 `;
 
 exports[`renders correctly 1`] = `

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`handleChangeDate date passed in renders correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -13,9 +13,6 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
   <Header
     center={
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 16,
@@ -42,7 +39,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
       }
     }
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
@@ -50,7 +47,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
       }
     }
   >
-    <Component
+    <View
       style={
         Object {
           "paddingBottom": 36,
@@ -59,9 +56,6 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -87,7 +81,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <Component>
+        <View>
           <ReminderDateText
             placeholder="End Date (Required)"
             reminder={
@@ -112,24 +106,24 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
               ]
             }
           />
-        </Component>
+        </View>
       </Translate(MyDatePickerIOS)>
-    </Component>
+    </View>
     <Translate(ReminderRepeatButtons)
       onRecurrenceChange={[Function]}
       recurrence={null}
     />
-  </Component>
+  </View>
   <BottomButton
     disabled={false}
     onPress={[Function]}
     text="Done"
   />
-</Component>
+</View>
 `;
 
 exports[`handleRecurrenceChange renders correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -141,9 +135,6 @@ exports[`handleRecurrenceChange renders correctly 1`] = `
   <Header
     center={
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 16,
@@ -170,7 +161,7 @@ exports[`handleRecurrenceChange renders correctly 1`] = `
       }
     }
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
@@ -178,7 +169,7 @@ exports[`handleRecurrenceChange renders correctly 1`] = `
       }
     }
   >
-    <Component
+    <View
       style={
         Object {
           "paddingBottom": 36,
@@ -187,9 +178,6 @@ exports[`handleRecurrenceChange renders correctly 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -213,7 +201,7 @@ exports[`handleRecurrenceChange renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <Component>
+        <View>
           <ReminderDateText
             placeholder="End Date (Required)"
             reminder=""
@@ -233,24 +221,24 @@ exports[`handleRecurrenceChange renders correctly 1`] = `
               ]
             }
           />
-        </Component>
+        </View>
       </Translate(MyDatePickerIOS)>
-    </Component>
+    </View>
     <Translate(ReminderRepeatButtons)
       onRecurrenceChange={[Function]}
       recurrence="once"
     />
-  </Component>
+  </View>
   <BottomButton
     disabled={true}
     onPress={[Function]}
     text="Done"
   />
-</Component>
+</View>
 `;
 
 exports[`render no reminder in props renders correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -262,9 +250,6 @@ exports[`render no reminder in props renders correctly 1`] = `
   <Header
     center={
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 16,
@@ -291,7 +276,7 @@ exports[`render no reminder in props renders correctly 1`] = `
       }
     }
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
@@ -299,7 +284,7 @@ exports[`render no reminder in props renders correctly 1`] = `
       }
     }
   >
-    <Component
+    <View
       style={
         Object {
           "paddingBottom": 36,
@@ -308,9 +293,6 @@ exports[`render no reminder in props renders correctly 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -334,7 +316,7 @@ exports[`render no reminder in props renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <Component>
+        <View>
           <ReminderDateText
             placeholder="End Date (Required)"
             reminder=""
@@ -354,24 +336,24 @@ exports[`render no reminder in props renders correctly 1`] = `
               ]
             }
           />
-        </Component>
+        </View>
       </Translate(MyDatePickerIOS)>
-    </Component>
+    </View>
     <Translate(ReminderRepeatButtons)
       onRecurrenceChange={[Function]}
       recurrence={null}
     />
-  </Component>
+  </View>
   <BottomButton
     disabled={true}
     onPress={[Function]}
     text="Done"
   />
-</Component>
+</View>
 `;
 
 exports[`render reminder in props renders correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -383,9 +365,6 @@ exports[`render reminder in props renders correctly 1`] = `
   <Header
     center={
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 16,
@@ -412,7 +391,7 @@ exports[`render reminder in props renders correctly 1`] = `
       }
     }
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
@@ -420,7 +399,7 @@ exports[`render reminder in props renders correctly 1`] = `
       }
     }
   >
-    <Component
+    <View
       style={
         Object {
           "paddingBottom": 36,
@@ -429,9 +408,6 @@ exports[`render reminder in props renders correctly 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -457,7 +433,7 @@ exports[`render reminder in props renders correctly 1`] = `
         mode="datetime"
         onDateChange={[Function]}
       >
-        <Component>
+        <View>
           <ReminderDateText
             placeholder="End Date (Required)"
             reminder={
@@ -482,18 +458,18 @@ exports[`render reminder in props renders correctly 1`] = `
               ]
             }
           />
-        </Component>
+        </View>
       </Translate(MyDatePickerIOS)>
-    </Component>
+    </View>
     <Translate(ReminderRepeatButtons)
       onRecurrenceChange={[Function]}
       recurrence="once"
     />
-  </Component>
+  </View>
   <BottomButton
     disabled={false}
     onPress={[Function]}
     text="Done"
   />
-</Component>
+</View>
 `;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StatusSelectScreen should render correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -88,9 +88,6 @@ exports[`StatusSelectScreen should render correctly 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -135,9 +132,6 @@ exports[`StatusSelectScreen should render correctly 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -170,9 +164,6 @@ exports[`StatusSelectScreen should render correctly 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -205,9 +196,6 @@ exports[`StatusSelectScreen should render correctly 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -240,9 +228,6 @@ exports[`StatusSelectScreen should render correctly 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -257,5 +242,5 @@ exports[`StatusSelectScreen should render correctly 1`] = `
       </MyText>
     </TouchableIOS>
   </Flex>
-</Component>
+</View>
 `;

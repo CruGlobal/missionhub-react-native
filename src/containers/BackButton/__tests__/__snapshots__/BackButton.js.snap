@@ -28,23 +28,7 @@ exports[`back button absolute renders with absolute 1`] = `
 `;
 
 exports[`back button renders normally 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "flex-start",
-        "alignSelf": "flex-start",
-        "justifyContent": "center",
-      },
-      undefined,
-      null,
-    ]
-  }
->
-  <IconButton
-    name="backIcon"
-    onPress={[Function]}
-    type="MissionHub"
-  />
-</View>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;

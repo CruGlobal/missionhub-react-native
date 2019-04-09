@@ -24,9 +24,6 @@ exports[`render for active challenge 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#007398",
@@ -47,9 +44,6 @@ exports[`render for active challenge 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -132,9 +126,6 @@ exports[`render for active challenge with edit 1`] = `
         />
       </Flex>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#007398",
@@ -155,9 +146,6 @@ exports[`render for active challenge with edit 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -223,9 +211,6 @@ exports[`render for past challenge 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#007398",
@@ -246,9 +231,6 @@ exports[`render for past challenge 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",

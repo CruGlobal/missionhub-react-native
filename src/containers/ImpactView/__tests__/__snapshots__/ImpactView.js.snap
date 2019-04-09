@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ImpactView ME person community impact view renders empty state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -21,9 +21,6 @@ exports[`ImpactView ME person community impact view renders empty state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -254,9 +251,6 @@ See what God has done through you below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -273,9 +267,6 @@ See what God has done through you below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -316,9 +307,6 @@ See what God has done through you below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -335,9 +323,6 @@ See what God has done through you below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -378,9 +363,6 @@ See what God has done through you below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -397,9 +379,6 @@ See what God has done through you below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -440,9 +419,6 @@ See what God has done through you below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -459,9 +435,6 @@ See what God has done through you below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -502,9 +475,6 @@ See what God has done through you below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -521,9 +491,6 @@ See what God has done through you below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -564,9 +531,6 @@ See what God has done through you below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -583,9 +547,6 @@ See what God has done through you below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -626,9 +587,6 @@ See what God has done through you below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -645,9 +603,6 @@ See what God has done through you below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -661,11 +616,11 @@ See what God has done through you below.
       </Flex>
     </Flex>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView ME person community impact view renders plural state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -685,9 +640,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -918,9 +870,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -937,9 +886,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -980,9 +926,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -999,9 +942,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1042,9 +982,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1061,9 +998,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1104,9 +1038,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1123,9 +1054,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1166,9 +1094,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1185,9 +1110,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1228,9 +1150,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1247,9 +1166,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1290,9 +1206,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1309,9 +1222,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1325,11 +1235,11 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
       </Flex>
     </Flex>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView ME person community impact view renders singular state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -1349,9 +1259,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -1582,9 +1489,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1601,9 +1505,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1644,9 +1545,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1663,9 +1561,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1706,9 +1601,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1725,9 +1617,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1768,9 +1657,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1787,9 +1673,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1830,9 +1713,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1849,9 +1729,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1892,9 +1769,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1911,9 +1785,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1954,9 +1825,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1973,9 +1841,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -1989,11 +1854,11 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
       </Flex>
     </Flex>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView ME person impact view for user created org renders empty state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -2013,9 +1878,6 @@ exports[`ImpactView ME person impact view for user created org renders empty sta
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -2052,11 +1914,11 @@ exports[`ImpactView ME person impact view for user created org renders empty sta
       }
     }
   />
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView ME person impact view for user created org renders plural state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -2076,9 +1938,6 @@ exports[`ImpactView ME person impact view for user created org renders plural st
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -2117,11 +1976,11 @@ exports[`ImpactView ME person impact view for user created org renders plural st
       }
     }
   />
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView ME person impact view for user created org renders singular state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -2141,9 +2000,6 @@ exports[`ImpactView ME person impact view for user created org renders singular 
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -2182,11 +2038,11 @@ exports[`ImpactView ME person impact view for user created org renders singular 
       }
     }
   />
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView ME person personal impact view renders empty state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -2206,9 +2062,6 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -2249,9 +2102,6 @@ See what God has done through you below.
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -2268,11 +2118,11 @@ See what God has done through you below.
 You will see how others have moved on their spiritual journey here shortly.
     </MyText>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView ME person personal impact view renders plural state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -2292,9 +2142,6 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -2335,9 +2182,6 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -2354,11 +2198,11 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
 50 people reached a new stage on their spiritual journey.
     </MyText>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView ME person personal impact view renders singular state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -2378,9 +2222,6 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -2421,9 +2262,6 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -2440,11 +2278,11 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
 1 person reached a new stage on their spiritual journey.
     </MyText>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView contact impact renders empty state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -2464,9 +2302,6 @@ exports[`ImpactView contact impact renders empty state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -2697,9 +2532,6 @@ See what God has done through Test Fname below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -2716,9 +2548,6 @@ See what God has done through Test Fname below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -2759,9 +2588,6 @@ See what God has done through Test Fname below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -2778,9 +2604,6 @@ See what God has done through Test Fname below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -2821,9 +2644,6 @@ See what God has done through Test Fname below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -2840,9 +2660,6 @@ See what God has done through Test Fname below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -2883,9 +2700,6 @@ See what God has done through Test Fname below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -2902,9 +2716,6 @@ See what God has done through Test Fname below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -2945,9 +2756,6 @@ See what God has done through Test Fname below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -2964,9 +2772,6 @@ See what God has done through Test Fname below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3007,9 +2812,6 @@ See what God has done through Test Fname below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3026,9 +2828,6 @@ See what God has done through Test Fname below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3069,9 +2868,6 @@ See what God has done through Test Fname below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3088,9 +2884,6 @@ See what God has done through Test Fname below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3104,11 +2897,11 @@ See what God has done through Test Fname below.
       </Flex>
     </Flex>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView contact impact renders plural state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -3128,9 +2921,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -3361,9 +3151,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3380,9 +3167,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3423,9 +3207,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3442,9 +3223,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3485,9 +3263,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3504,9 +3279,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3547,9 +3319,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3566,9 +3335,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3609,9 +3375,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3628,9 +3391,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3671,9 +3431,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3690,9 +3447,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3733,9 +3487,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3752,9 +3503,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -3768,11 +3516,11 @@ exports[`ImpactView contact impact renders plural state 1`] = `
       </Flex>
     </Flex>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView contact impact renders singular state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -3792,9 +3540,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -4025,9 +3770,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4044,9 +3786,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4087,9 +3826,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4106,9 +3842,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4149,9 +3882,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4168,9 +3898,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4211,9 +3938,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4230,9 +3954,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4273,9 +3994,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4292,9 +4010,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4335,9 +4050,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4354,9 +4066,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4397,9 +4106,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4416,9 +4122,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4432,11 +4135,11 @@ exports[`ImpactView contact impact renders singular state 1`] = `
       </Flex>
     </Flex>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView group impact renders empty state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -4459,9 +4162,6 @@ exports[`ImpactView group impact renders empty state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -4692,9 +4392,6 @@ See what God has done through all of us below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4711,9 +4408,6 @@ See what God has done through all of us below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4754,9 +4448,6 @@ See what God has done through all of us below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4773,9 +4464,6 @@ See what God has done through all of us below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4816,9 +4504,6 @@ See what God has done through all of us below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4835,9 +4520,6 @@ See what God has done through all of us below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4878,9 +4560,6 @@ See what God has done through all of us below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4897,9 +4576,6 @@ See what God has done through all of us below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4940,9 +4616,6 @@ See what God has done through all of us below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -4959,9 +4632,6 @@ See what God has done through all of us below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5002,9 +4672,6 @@ See what God has done through all of us below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5021,9 +4688,6 @@ See what God has done through all of us below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5064,9 +4728,6 @@ See what God has done through all of us below.
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5083,9 +4744,6 @@ See what God has done through all of us below.
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5099,11 +4757,11 @@ See what God has done through all of us below.
       </Flex>
     </Flex>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView group impact renders plural state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -5126,9 +4784,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -5359,9 +5014,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5378,9 +5030,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5421,9 +5070,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5440,9 +5086,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5483,9 +5126,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5502,9 +5142,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5545,9 +5182,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5564,9 +5198,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5607,9 +5238,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5626,9 +5254,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5669,9 +5294,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5688,9 +5310,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5731,9 +5350,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5750,9 +5366,6 @@ exports[`ImpactView group impact renders plural state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -5766,11 +5379,11 @@ exports[`ImpactView group impact renders plural state 1`] = `
       </Flex>
     </Flex>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView group impact renders singular state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -5793,9 +5406,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -6026,9 +5636,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6045,9 +5652,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6088,9 +5692,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6107,9 +5708,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6150,9 +5748,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6169,9 +5764,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6212,9 +5804,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6231,9 +5820,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6274,9 +5860,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6293,9 +5876,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6336,9 +5916,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6355,9 +5932,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6398,9 +5972,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={4}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6417,9 +5988,6 @@ exports[`ImpactView group impact renders singular state 1`] = `
           value={1}
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#ffffff",
@@ -6433,7 +6001,7 @@ exports[`ImpactView group impact renders singular state 1`] = `
       </Flex>
     </Flex>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView mapStateToProps should provide the necessary props when not viewing ME person 1`] = `
@@ -6626,7 +6194,7 @@ Object {
 `;
 
 exports[`ImpactView user created member impact renders empty state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -6646,9 +6214,6 @@ exports[`ImpactView user created member impact renders empty state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -6685,11 +6250,11 @@ exports[`ImpactView user created member impact renders empty state 1`] = `
       }
     }
   />
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView user created member impact renders plural state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -6709,9 +6274,6 @@ exports[`ImpactView user created member impact renders plural state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -6750,11 +6312,11 @@ exports[`ImpactView user created member impact renders plural state 1`] = `
       }
     }
   />
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView user created member impact renders singular state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -6774,9 +6336,6 @@ exports[`ImpactView user created member impact renders singular state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -6815,11 +6374,11 @@ exports[`ImpactView user created member impact renders singular state 1`] = `
       }
     }
   />
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView user-created group impact renders empty state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -6842,9 +6401,6 @@ exports[`ImpactView user-created group impact renders empty state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -6883,9 +6439,6 @@ exports[`ImpactView user-created group impact renders empty state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -6902,11 +6455,11 @@ exports[`ImpactView user-created group impact renders empty state 1`] = `
 You will see how others have moved on their spiritual journey here shortly.
     </MyText>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView user-created group impact renders plural state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -6929,9 +6482,6 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -6972,9 +6522,6 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -6991,11 +6538,11 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
 50 people reached a new stage on their spiritual journey.
     </MyText>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView user-created group impact renders singular state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -7018,9 +6565,6 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -7061,9 +6605,6 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
     }
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -7080,5 +6621,5 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
 1 person reached a new stage on their spiritual journey.
     </MyText>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
