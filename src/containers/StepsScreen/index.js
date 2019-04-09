@@ -5,6 +5,8 @@ import { View, Image, ScrollView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import debounce from 'lodash/debounce';
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
 
 import { loadHome } from '../../actions/auth/userData';
 import {
@@ -47,9 +49,6 @@ import TrackTabChange from '../TrackTabChange';
 
 import styles from './styles';
 
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
-
 const MAX_REMINDERS = 3;
 
 function isCloseToBottom({ layoutMeasurement, contentOffset, contentSize }) {
@@ -66,7 +65,7 @@ export class StepsScreen extends Component {
     super(props);
     this.state = {
       refreshing: false,
-      addedReminder: props.reminders && props.reminders.length > 0,
+      //addedReminder: props.reminders && props.reminders.length > 0,
       overscrollUp: false,
       paging: false,
     };
@@ -93,12 +92,12 @@ export class StepsScreen extends Component {
     this.props.dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
   }
 
-  hasReminders() {
-    return this.props.reminders.length > 0;
+  hasReminders(reminders = []) {
+    return reminders.length > 0;
   }
 
   hasMaxReminders() {
-    return this.props.reminders.length >= MAX_REMINDERS;
+    return false;
   }
 
   hasFewSteps() {
@@ -123,7 +122,7 @@ export class StepsScreen extends Component {
 
     toast(t('reminderAddedToast'));
 
-    if (!this.hasReminders()) {
+    if (!this.hasReminders([])) {
       dispatch(showReminderScreen(t('notificationPrimer:focusDescription')));
     }
     dispatch(setStepFocus(step, true));
@@ -184,7 +183,7 @@ export class StepsScreen extends Component {
   renderFocusPrompt() {
     const { t } = this.props;
 
-    if (this.hasReminders() || this.hasFewSteps()) {
+    if (this.hasReminders([]) || this.hasFewSteps()) {
       return null;
     }
 
@@ -203,11 +202,10 @@ export class StepsScreen extends Component {
     );
   }
 
-  renderReminders() {
-    const { reminders } = this.props;
+  renderReminders(reminders) {
     const focusedSteps = reminders.filter(r => r && r.id);
 
-    if (this.hasReminders()) {
+    if (this.hasReminders(reminders)) {
       return (
         <Flex align="center" style={[styles.top]}>
           {focusedSteps.map(s => (
@@ -238,8 +236,8 @@ export class StepsScreen extends Component {
     );
   };
 
-  renderList() {
-    const { steps, t, hasMoreSteps } = this.props;
+  renderList(steps) {
+    const { t, hasMoreSteps } = this.props;
     if (steps.length === 0) {
       return (
         <Flex value={1} align="center" justify="center">
@@ -273,8 +271,8 @@ export class StepsScreen extends Component {
     );
   }
 
-  renderSteps() {
-    const { steps, reminders } = this.props;
+  renderSteps(steps) {
+    const { reminders = [] } = this.props;
 
     return (
       <View style={{ flex: 1 }}>
@@ -298,8 +296,8 @@ export class StepsScreen extends Component {
             },
           ]}
         >
-          {this.renderReminders()}
-          {this.renderList()}
+          {this.renderReminders([])}
+          {this.renderList(steps)}
         </ScrollView>
         {steps.length > 0 || reminders.length > 0 ? null : (
           <TakeAStepWithSomeoneButton />
@@ -329,27 +327,44 @@ export class StepsScreen extends Component {
         <Query
           query={gql`
             {
-              rates(currency: "USD") {
-                currency
-                rate
+              person(id: 1013) {
+                id
+                name
+                acceptedChallenges {
+                  id
+                  title
+                  accepted_at
+                  receiver {
+                    id
+                    name
+                  }
+                  owner {
+                    id
+                    name
+                  }
+                }
               }
             }
           `}
         >
           {({ loading, error, data }) => {
-            if (loading) return <Text>Loading...</Text>;
-            if (error) return <Text>Error :(</Text>;
+            if (loading) {
+              return <Text>Loading...</Text>;
+            }
+            if (error) {
+              console.log(error);
+              return (
+                <ScrollView>
+                  <Text>{JSON.stringify(error)}</Text>
+                </ScrollView>
+              );
+            }
 
-            return data.rates.map(({ currency, rate }) => (
-              <View key={currency}>
-                <Text>
-                  {currency}: {rate}
-                </Text>
-              </View>
-            ));
+            console.log(data);
+
+            return this.renderSteps(data.person.acceptedChallenges);
           }}
         </Query>
-        {steps ? this.renderSteps() : <LoadingGuy />}
       </View>
     );
   }
