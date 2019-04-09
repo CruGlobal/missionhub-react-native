@@ -3,7 +3,7 @@ matrix:
     - name: 'JS lint, test, i18n, and Codepush'
       language: node_js
       node_js:
-        - '9'
+        - '11'
       env:
         - ENVFILE=.env.production
       before_script:
