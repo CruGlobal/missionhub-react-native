@@ -337,10 +337,12 @@ export class StepsScreen extends Component {
                   receiver {
                     id
                     name
+                    full_name
                   }
                   owner {
                     id
                     name
+                    full_name
                   }
                 }
               }
