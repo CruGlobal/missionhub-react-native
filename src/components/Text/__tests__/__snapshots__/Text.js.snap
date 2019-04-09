@@ -2,9 +2,6 @@
 
 exports[`renders animation correctly 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Object {
       "color": "#505256",
@@ -23,9 +20,6 @@ exports[`renders animation correctly 1`] = `
 
 exports[`renders correctly 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -44,9 +38,6 @@ exports[`renders correctly 1`] = `
 
 exports[`renders header font family correctly 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -65,9 +56,6 @@ exports[`renders header font family correctly 1`] = `
 
 exports[`renders style correctly 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
