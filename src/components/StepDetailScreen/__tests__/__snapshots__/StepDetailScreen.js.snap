@@ -22,7 +22,7 @@ exports[`markdown is not null renders correctly 1`] = `
       }
     }
     left={
-      <Connect(BackButton)
+      <Memo(ConnectFunction)
         iconStyle={
           Object {
             "color": "#A0A2A6",
@@ -46,9 +46,6 @@ exports[`markdown is not null renders correctly 1`] = `
     flex={1}
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontFamily": "SourceSansPro-Light",
@@ -62,17 +59,13 @@ exports[`markdown is not null renders correctly 1`] = `
     >
       Roge is well behaved
     </MyText>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
+    <Text>
       Center content
     </Text>
-    <Component
+    <View
       flex={1}
     >
-      <ScrollView
+      <ScrollViewMock
         style={
           Object {
             "paddingBottom": 14,
@@ -608,8 +601,8 @@ exports[`markdown is not null renders correctly 1`] = `
         >
           ROBERT ROBERT ROBERT
         </Markdown>
-      </ScrollView>
-    </Component>
+      </ScrollViewMock>
+    </View>
   </SafeAreaView>
 </View>
 `;
@@ -636,7 +629,7 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
       }
     }
     left={
-      <Connect(BackButton)
+      <Memo(ConnectFunction)
         iconStyle={
           Object {
             "color": "#A0A2A6",
@@ -660,9 +653,6 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
     flex={1}
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontFamily": "SourceSansPro-Light",
@@ -676,14 +666,10 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
     >
       Roge is well behaved
     </MyText>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
+    <Text>
       Center content
     </Text>
-    <Component
+    <View
       flex={1}
     />
     <BottomButton
@@ -716,7 +702,7 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
       }
     }
     left={
-      <Connect(BackButton)
+      <Memo(ConnectFunction)
         iconStyle={
           Object {
             "color": "#A0A2A6",
@@ -740,9 +726,6 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
     flex={1}
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontFamily": "SourceSansPro-Light",
@@ -756,14 +739,10 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
     >
       Roge is well behaved
     </MyText>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
+    <Text>
       Center content
     </Text>
-    <Component
+    <View
       flex={1}
     />
   </SafeAreaView>

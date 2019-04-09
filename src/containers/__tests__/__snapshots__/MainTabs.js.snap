@@ -56,6 +56,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
           }
         >
           <RCTSafeAreaView
+            emulateUnlessSupported={true}
             style={
               Array [
                 Object {
@@ -84,7 +85,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
               }
             >
               <View
-                accessibilityTraits="button"
                 accessible={true}
                 isTVSelectable={true}
                 onResponderGrant={[Function]}
@@ -112,9 +112,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                   }
                 >
                   <Text
-                    accessible={true}
                     allowFontScaling={false}
-                    ellipsizeMode="tail"
                     style={
                       Array [
                         Object {
@@ -162,9 +160,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 numberOfLines={1}
                 style={
                   Array [
@@ -224,7 +219,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
               }
             >
               <View
-                accessibilityTraits="button"
                 accessible={true}
                 isTVSelectable={true}
                 onResponderGrant={[Function]}
@@ -264,9 +258,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                   }
                 >
                   <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
                     style={
                       Array [
                         Object {
@@ -309,7 +300,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
               }
             >
               <View
-                accessibilityTraits="button"
                 accessible={true}
                 isTVSelectable={true}
                 onResponderGrant={[Function]}
@@ -343,9 +333,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                   }
                 >
                   <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
                     style={
                       Array [
                         Object {
@@ -430,9 +417,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                   }
                 />
                 <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
                   style={
                     Array [
                       Object {
@@ -452,9 +436,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
                   communities [beta]
                 </Text>
                 <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
                   style={
                     Array [
                       Object {
@@ -537,9 +518,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -569,9 +548,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -633,9 +609,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -665,9 +639,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -729,9 +700,7 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -761,9 +730,6 @@ exports[`renders home screen with tab bar with groups tab selected correctly 1`]
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -847,6 +813,7 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
           }
         >
           <RCTSafeAreaView
+            emulateUnlessSupported={true}
             style={
               Array [
                 Object {
@@ -877,7 +844,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
               }
             >
               <View
-                accessibilityTraits="button"
                 accessible={true}
                 isTVSelectable={true}
                 onResponderGrant={[Function]}
@@ -905,9 +871,7 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
                   }
                 >
                   <Text
-                    accessible={true}
                     allowFontScaling={false}
-                    ellipsizeMode="tail"
                     style={
                       Array [
                         Object {
@@ -955,9 +919,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 numberOfLines={1}
                 style={
                   Array [
@@ -1055,9 +1016,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1147,9 +1105,7 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1179,9 +1135,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1243,9 +1196,7 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1275,9 +1226,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1339,9 +1287,7 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1371,9 +1317,6 @@ exports[`renders home screen with tab bar with steps tab selected correctly 1`] 
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {

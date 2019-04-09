@@ -37,6 +37,7 @@ exports[`renders back button correctly 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Array [
         Object {
@@ -54,7 +55,6 @@ exports[`renders back button correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -82,9 +82,7 @@ exports[`renders back button correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -120,9 +118,6 @@ exports[`renders back button correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -232,6 +227,7 @@ exports[`renders back button correctly 1`] = `
     pinchGestureEnabled={false}
     removeClippedSubviews={true}
     renderItem={[Function]}
+    scrollEnabled={true}
     scrollEventThrottle={1}
     scrollsToTop={false}
     shouldOptimizeUpdates={true}
@@ -310,9 +306,6 @@ exports[`renders back button correctly 1`] = `
                 }
               />
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -333,9 +326,6 @@ exports[`renders back button correctly 1`] = `
                 stage 1
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -357,7 +347,6 @@ exports[`renders back button correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}
@@ -443,9 +432,6 @@ exports[`renders back button correctly 1`] = `
                 }
               />
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -466,9 +452,6 @@ exports[`renders back button correctly 1`] = `
                 stage 2
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -490,7 +473,6 @@ exports[`renders back button correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}
@@ -576,9 +558,6 @@ exports[`renders back button correctly 1`] = `
                 }
               />
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -599,9 +578,6 @@ exports[`renders back button correctly 1`] = `
                 stage 3
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -623,7 +599,6 @@ exports[`renders back button correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}
@@ -699,9 +674,6 @@ exports[`renders correctly 1`] = `
     }
   />
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -811,6 +783,7 @@ exports[`renders correctly 1`] = `
     pinchGestureEnabled={false}
     removeClippedSubviews={true}
     renderItem={[Function]}
+    scrollEnabled={true}
     scrollEventThrottle={1}
     scrollsToTop={false}
     shouldOptimizeUpdates={true}
@@ -889,9 +862,6 @@ exports[`renders correctly 1`] = `
                 }
               />
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -912,9 +882,6 @@ exports[`renders correctly 1`] = `
                 stage 1
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -936,7 +903,6 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}
@@ -1022,9 +988,6 @@ exports[`renders correctly 1`] = `
                 }
               />
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1045,9 +1008,6 @@ exports[`renders correctly 1`] = `
                 stage 2
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1069,7 +1029,6 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}
@@ -1155,9 +1114,6 @@ exports[`renders correctly 1`] = `
                 }
               />
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1178,9 +1134,6 @@ exports[`renders correctly 1`] = `
                 stage 3
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1202,7 +1155,6 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}
@@ -1278,9 +1230,6 @@ exports[`renders correctly without stages 1`] = `
     }
   />
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -1343,9 +1292,6 @@ exports[`renders firstItem correctly 1`] = `
     }
   />
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -1455,6 +1401,7 @@ exports[`renders firstItem correctly 1`] = `
     pinchGestureEnabled={false}
     removeClippedSubviews={true}
     renderItem={[Function]}
+    scrollEnabled={true}
     scrollEventThrottle={1}
     scrollsToTop={false}
     shouldOptimizeUpdates={true}
@@ -1533,9 +1480,6 @@ exports[`renders firstItem correctly 1`] = `
                 }
               />
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1556,9 +1500,6 @@ exports[`renders firstItem correctly 1`] = `
                 stage 1
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1580,7 +1521,6 @@ exports[`renders firstItem correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}
@@ -1666,9 +1606,6 @@ exports[`renders firstItem correctly 1`] = `
                 }
               />
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1689,9 +1626,6 @@ exports[`renders firstItem correctly 1`] = `
                 stage 2
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1713,7 +1647,6 @@ exports[`renders firstItem correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}
@@ -1799,9 +1732,6 @@ exports[`renders firstItem correctly 1`] = `
                 }
               />
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1822,9 +1752,6 @@ exports[`renders firstItem correctly 1`] = `
                 stage 3
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1846,7 +1773,6 @@ exports[`renders firstItem correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}

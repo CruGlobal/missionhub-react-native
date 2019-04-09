@@ -1,16 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly with non-null onClick 1`] = `
-<Component
-  style={
-    Array [
-      Object {},
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-    ]
-  }
+<Flex
+  align="center"
+  justify="center"
 >
   <Flex
     align="center"
@@ -50,9 +43,6 @@ exports[`renders correctly with non-null onClick 1`] = `
     />
   </Flex>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#ffffff",
@@ -62,20 +52,13 @@ exports[`renders correctly with non-null onClick 1`] = `
   >
     Hello, MissionHub
   </MyText>
-</Component>
+</Flex>
 `;
 
 exports[`renders correctly with undefined onClick 1`] = `
-<Component
-  style={
-    Array [
-      Object {},
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-    ]
-  }
+<Flex
+  align="center"
+  justify="center"
 >
   <Flex
     align="center"
@@ -113,9 +96,6 @@ exports[`renders correctly with undefined onClick 1`] = `
     />
   </Flex>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#ffffff",
@@ -125,5 +105,5 @@ exports[`renders correctly with undefined onClick 1`] = `
   >
     Hello, MissionHub
   </MyText>
-</Component>
+</Flex>
 `;

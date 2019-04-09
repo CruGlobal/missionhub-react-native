@@ -2,7 +2,6 @@
 
 exports[`PopupMenu iOS renders with 1 button 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -20,9 +19,7 @@ exports[`PopupMenu iOS renders with 1 button 1`] = `
   }
 >
   <Text
-    accessible={true}
     allowFontScaling={false}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -60,7 +57,6 @@ exports[`PopupMenu iOS renders with 1 button 1`] = `
 
 exports[`PopupMenu iOS renders with icon props 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -78,9 +74,7 @@ exports[`PopupMenu iOS renders with icon props 1`] = `
   }
 >
   <Text
-    accessible={true}
     allowFontScaling={false}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {

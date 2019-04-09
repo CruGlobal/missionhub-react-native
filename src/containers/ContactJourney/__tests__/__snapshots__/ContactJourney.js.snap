@@ -329,6 +329,7 @@ exports[`journey methods should render item separator 1`] = `<Separator />`;
 
 exports[`renders with an organization correctly 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -410,9 +411,6 @@ exports[`renders with an organization correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -509,7 +507,6 @@ exports[`renders with an organization correctly 1`] = `
           }
         >
           <View
-            accessibilityTraits="button"
             accessible={true}
             isTVSelectable={true}
             onResponderGrant={[Function]}
@@ -537,9 +534,7 @@ exports[`renders with an organization correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
                 allowFontScaling={false}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -617,6 +612,7 @@ exports[`renders with an organization correctly 1`] = `
               onChangeText={[Function]}
               placeholder="Share something to be remembered..."
               placeholderTextColor="#B2B0B2"
+              rejectResponderTermination={true}
               returnKeyType="done"
               selectionColor="#005A7F"
               style={

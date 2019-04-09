@@ -2,7 +2,6 @@
 
 exports[`renders correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -45,9 +44,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -66,9 +62,6 @@ exports[`renders correctly 1`] = `
         12
       </Text>
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -114,9 +107,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -137,9 +127,7 @@ exports[`renders correctly 1`] = `
         VIEW
       </Text>
       <Text
-        accessible={true}
         allowFontScaling={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -177,7 +165,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <View
-        accessibilityTraits="button"
         accessible={true}
         hitSlop={
           Object {
@@ -213,9 +200,7 @@ exports[`renders correctly 1`] = `
           }
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -256,7 +241,6 @@ exports[`renders correctly 1`] = `
 
 exports[`renders correctly singular 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -299,9 +283,6 @@ exports[`renders correctly singular 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -320,9 +301,6 @@ exports[`renders correctly singular 1`] = `
         1
       </Text>
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -368,9 +346,6 @@ exports[`renders correctly singular 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -391,9 +366,7 @@ exports[`renders correctly singular 1`] = `
         VIEW
       </Text>
       <Text
-        accessible={true}
         allowFontScaling={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -431,7 +404,6 @@ exports[`renders correctly singular 1`] = `
       }
     >
       <View
-        accessibilityTraits="button"
         accessible={true}
         hitSlop={
           Object {
@@ -467,9 +439,7 @@ exports[`renders correctly singular 1`] = `
           }
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {

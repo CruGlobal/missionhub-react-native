@@ -2,7 +2,6 @@
 
 exports[`renders correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -42,7 +41,6 @@ exports[`renders correctly 1`] = `
 
 exports[`renders pill correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -84,7 +82,6 @@ exports[`renders pill correctly 1`] = `
 
 exports[`renders primary correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -119,7 +116,6 @@ exports[`renders primary correctly 1`] = `
 
 exports[`renders secondary correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -154,7 +150,6 @@ exports[`renders secondary correctly 1`] = `
 
 exports[`renders transparent correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}

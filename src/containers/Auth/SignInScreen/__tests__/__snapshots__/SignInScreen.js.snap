@@ -1411,6 +1411,7 @@ exports[`renders correctly 1`] = `
   }
 >
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Array [
         Object {
@@ -1452,7 +1453,6 @@ exports[`renders correctly 1`] = `
         }
       >
         <View
-          accessibilityTraits="button"
           accessible={true}
           isTVSelectable={true}
           onResponderGrant={[Function]}
@@ -1480,9 +1480,7 @@ exports[`renders correctly 1`] = `
             }
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -1534,6 +1532,7 @@ exports[`renders correctly 1`] = `
     />
   </RCTSafeAreaView>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
         "flex": 1,
@@ -1552,9 +1551,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1588,9 +1584,6 @@ exports[`renders correctly 1`] = `
     >
       <View>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1619,6 +1612,7 @@ exports[`renders correctly 1`] = `
           onSubmitEditing={[Function]}
           placeholder="Email"
           placeholderTextColor="white"
+          rejectResponderTermination={true}
           returnKeyType="next"
           selectionColor="#005A7F"
           style={
@@ -1648,9 +1642,6 @@ exports[`renders correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1677,6 +1668,7 @@ exports[`renders correctly 1`] = `
           onSubmitEditing={[Function]}
           placeholder="Password"
           placeholderTextColor="white"
+          rejectResponderTermination={true}
           returnKeyType="done"
           secureTextEntry={true}
           selectionColor="#005A7F"
@@ -1699,7 +1691,6 @@ exports[`renders correctly 1`] = `
           value=""
         />
         <View
-          accessibilityTraits="button"
           accessible={true}
           isTVSelectable={true}
           onResponderGrant={[Function]}
@@ -1729,9 +1720,6 @@ exports[`renders correctly 1`] = `
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -1780,7 +1768,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <View
-        accessibilityTraits="button"
         accessible={true}
         isTVSelectable={true}
         onResponderGrant={[Function]}
@@ -1835,9 +1822,7 @@ exports[`renders correctly 1`] = `
             }
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -1867,9 +1852,6 @@ exports[`renders correctly 1`] = `
               
             </Text>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -1910,6 +1892,7 @@ exports[`renders correctly for forced logout 1`] = `
   }
 >
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Array [
         Object {
@@ -1953,6 +1936,7 @@ exports[`renders correctly for forced logout 1`] = `
     />
   </RCTSafeAreaView>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
         "flex": 1,
@@ -1971,9 +1955,6 @@ exports[`renders correctly for forced logout 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2012,9 +1993,6 @@ Please sign in so we know it's you.
     >
       <View>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -2043,6 +2021,7 @@ Please sign in so we know it's you.
           onSubmitEditing={[Function]}
           placeholder="Email"
           placeholderTextColor="white"
+          rejectResponderTermination={true}
           returnKeyType="next"
           selectionColor="#005A7F"
           style={
@@ -2072,9 +2051,6 @@ Please sign in so we know it's you.
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -2101,6 +2077,7 @@ Please sign in so we know it's you.
           onSubmitEditing={[Function]}
           placeholder="Password"
           placeholderTextColor="white"
+          rejectResponderTermination={true}
           returnKeyType="done"
           secureTextEntry={true}
           selectionColor="#005A7F"
@@ -2123,7 +2100,6 @@ Please sign in so we know it's you.
           value=""
         />
         <View
-          accessibilityTraits="button"
           accessible={true}
           isTVSelectable={true}
           onResponderGrant={[Function]}
@@ -2153,9 +2129,6 @@ Please sign in so we know it's you.
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -2204,7 +2177,6 @@ Please sign in so we know it's you.
       }
     >
       <View
-        accessibilityTraits="button"
         accessible={true}
         isTVSelectable={true}
         onResponderGrant={[Function]}
@@ -2259,9 +2231,7 @@ Please sign in so we know it's you.
             }
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -2291,9 +2261,6 @@ Please sign in so we know it's you.
               
             </Text>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
