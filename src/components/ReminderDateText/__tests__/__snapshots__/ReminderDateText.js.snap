@@ -1,309 +1,188 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders daily 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
+<MyText
   style={
     Array [
       Object {
-        "color": "#505256",
+        "color": "#52C5DC",
+        "fontSize": 14,
+        "lineHeight": 18,
       },
-      Object {
-        "fontFamily": "SourceSansPro-Regular",
-      },
-      Array [
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 14,
-          "lineHeight": 18,
-        },
-        undefined,
-      ],
+      undefined,
     ]
   }
 >
   Every day @ 7:00 PM
-</Text>
+</MyText>
 `;
 
 exports[`renders monthly 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
+<MyText
   style={
     Array [
       Object {
-        "color": "#505256",
+        "color": "#52C5DC",
+        "fontSize": 14,
+        "lineHeight": 18,
       },
-      Object {
-        "fontFamily": "SourceSansPro-Regular",
-      },
-      Array [
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 14,
-          "lineHeight": 18,
-        },
-        undefined,
-      ],
+      undefined,
     ]
   }
 >
   Once a month on the 29th @ 7:00 PM
-</Text>
+</MyText>
 `;
 
 exports[`renders once next month 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
+<MyText
   style={
     Array [
       Object {
-        "color": "#505256",
+        "color": "#52C5DC",
+        "fontSize": 14,
+        "lineHeight": 18,
       },
-      Object {
-        "fontFamily": "SourceSansPro-Regular",
-      },
-      Array [
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 14,
-          "lineHeight": 18,
-        },
-        undefined,
-      ],
+      undefined,
     ]
   }
 >
   Saturday, Apr 27 @ 5:00 PM
-</Text>
+</MyText>
 `;
 
 exports[`renders once next week 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
+<MyText
   style={
     Array [
       Object {
-        "color": "#505256",
+        "color": "#52C5DC",
+        "fontSize": 14,
+        "lineHeight": 18,
       },
-      Object {
-        "fontFamily": "SourceSansPro-Regular",
-      },
-      Array [
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 14,
-          "lineHeight": 18,
-        },
-        undefined,
-      ],
+      undefined,
     ]
   }
 >
   Thursday, Apr 4 @ 11:00 PM
-</Text>
+</MyText>
 `;
 
 exports[`renders once this week 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
+<MyText
   style={
     Array [
       Object {
-        "color": "#505256",
+        "color": "#52C5DC",
+        "fontSize": 14,
+        "lineHeight": 18,
       },
-      Object {
-        "fontFamily": "SourceSansPro-Regular",
-      },
-      Array [
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 14,
-          "lineHeight": 18,
-        },
-        undefined,
-      ],
+      undefined,
     ]
   }
 >
   Sunday @ 12:00 PM
-</Text>
+</MyText>
 `;
 
 exports[`renders once today 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
+<MyText
   style={
     Array [
       Object {
-        "color": "#505256",
+        "color": "#52C5DC",
+        "fontSize": 14,
+        "lineHeight": 18,
       },
-      Object {
-        "fontFamily": "SourceSansPro-Regular",
-      },
-      Array [
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 14,
-          "lineHeight": 18,
-        },
-        undefined,
-      ],
+      undefined,
     ]
   }
 >
   Today @ 4:00 PM
-</Text>
+</MyText>
 `;
 
 exports[`renders once tomorrow 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
+<MyText
   style={
     Array [
       Object {
-        "color": "#505256",
+        "color": "#52C5DC",
+        "fontSize": 14,
+        "lineHeight": 18,
       },
-      Object {
-        "fontFamily": "SourceSansPro-Regular",
-      },
-      Array [
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 14,
-          "lineHeight": 18,
-        },
-        undefined,
-      ],
+      undefined,
     ]
   }
 >
   Tomorrow @ 4:00 PM
-</Text>
+</MyText>
 `;
 
 exports[`renders weekly 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
+<MyText
   style={
     Array [
       Object {
-        "color": "#505256",
+        "color": "#52C5DC",
+        "fontSize": 14,
+        "lineHeight": 18,
       },
-      Object {
-        "fontFamily": "SourceSansPro-Regular",
-      },
-      Array [
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 14,
-          "lineHeight": 18,
-        },
-        undefined,
-      ],
+      undefined,
     ]
   }
 >
   Every Friday @ 7:00 PM
-</Text>
+</MyText>
 `;
 
 exports[`renders with placeholder correctly 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
+<MyText
   style={
     Array [
       Object {
-        "color": "#505256",
+        "color": "#52C5DC",
+        "fontSize": 14,
+        "lineHeight": 18,
       },
-      Object {
-        "fontFamily": "SourceSansPro-Regular",
-      },
-      Array [
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 14,
-          "lineHeight": 18,
-        },
-        undefined,
-      ],
+      undefined,
     ]
   }
 >
   text
-</Text>
+</MyText>
 `;
 
 exports[`renders with reminder correctly 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
+<MyText
   style={
     Array [
       Object {
-        "color": "#505256",
+        "color": "#52C5DC",
+        "fontSize": 14,
+        "lineHeight": 18,
       },
-      Object {
-        "fontFamily": "SourceSansPro-Regular",
-      },
-      Array [
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 14,
-          "lineHeight": 18,
-        },
-        undefined,
-      ],
+      undefined,
     ]
   }
 >
   Today @ 12:00 PM
-</Text>
+</MyText>
 `;
 
 exports[`renders without reminder or placeholder correctly 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
+<MyText
   style={
     Array [
       Object {
-        "color": "#505256",
+        "color": "#52C5DC",
+        "fontSize": 14,
+        "lineHeight": 18,
       },
-      Object {
-        "fontFamily": "SourceSansPro-Regular",
-      },
-      Array [
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 14,
-          "lineHeight": 18,
-        },
-        undefined,
-      ],
+      undefined,
     ]
   }
 >
   Set a Reminder
-</Text>
+</MyText>
 `;

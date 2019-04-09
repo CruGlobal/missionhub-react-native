@@ -416,6 +416,7 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
 
 exports[`renders correctly for Create Community 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -470,9 +471,6 @@ exports[`renders correctly for Create Community 1`] = `
           }
         />
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -492,9 +490,6 @@ exports[`renders correctly for Create Community 1`] = `
           create a community
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -547,7 +542,6 @@ exports[`renders correctly for Create Community 1`] = `
         }
       >
         <View
-          accessibilityTraits="button"
           accessible={true}
           isTVSelectable={true}
           onResponderGrant={[Function]}
@@ -602,9 +596,7 @@ exports[`renders correctly for Create Community 1`] = `
               }
             >
               <Text
-                accessible={true}
                 allowFontScaling={false}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -634,9 +626,6 @@ exports[`renders correctly for Create Community 1`] = `
                 
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -661,7 +650,6 @@ exports[`renders correctly for Create Community 1`] = `
           </View>
         </View>
         <View
-          accessibilityTraits="button"
           accessible={true}
           isTVSelectable={true}
           onResponderGrant={[Function]}
@@ -716,9 +704,7 @@ exports[`renders correctly for Create Community 1`] = `
               }
             >
               <Text
-                accessible={true}
                 allowFontScaling={false}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -748,9 +734,6 @@ exports[`renders correctly for Create Community 1`] = `
                 
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -788,9 +771,6 @@ exports[`renders correctly for Create Community 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -823,7 +803,6 @@ exports[`renders correctly for Create Community 1`] = `
             }
           >
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}
@@ -851,9 +830,6 @@ exports[`renders correctly for Create Community 1`] = `
                 }
               >
                 <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
                   style={
                     Array [
                       Object {
@@ -889,9 +865,6 @@ exports[`renders correctly for Create Community 1`] = `
               </View>
             </View>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -912,7 +885,6 @@ exports[`renders correctly for Create Community 1`] = `
               and
             </Text>
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}
@@ -940,9 +912,6 @@ exports[`renders correctly for Create Community 1`] = `
                 }
               >
                 <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
                   style={
                     Array [
                       Object {
@@ -993,9 +962,6 @@ exports[`renders correctly for Create Community 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1019,7 +985,6 @@ exports[`renders correctly for Create Community 1`] = `
           ALREADY A MEMBER?
         </Text>
         <View
-          accessibilityTraits="button"
           accessible={true}
           isTVSelectable={true}
           onResponderGrant={[Function]}
@@ -1047,9 +1012,6 @@ exports[`renders correctly for Create Community 1`] = `
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -1087,6 +1049,7 @@ exports[`renders correctly for Create Community 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Array [
         Object {
@@ -1104,7 +1067,6 @@ exports[`renders correctly for Create Community 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -1132,9 +1094,7 @@ exports[`renders correctly for Create Community 1`] = `
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1174,6 +1134,7 @@ exports[`renders correctly for Create Community 1`] = `
 
 exports[`renders correctly with logo 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -1244,7 +1205,6 @@ exports[`renders correctly with logo 1`] = `
         }
       >
         <View
-          accessibilityTraits="button"
           accessible={true}
           isTVSelectable={true}
           onResponderGrant={[Function]}
@@ -1299,9 +1259,7 @@ exports[`renders correctly with logo 1`] = `
               }
             >
               <Text
-                accessible={true}
                 allowFontScaling={false}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1331,9 +1289,6 @@ exports[`renders correctly with logo 1`] = `
                 
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1358,7 +1313,6 @@ exports[`renders correctly with logo 1`] = `
           </View>
         </View>
         <View
-          accessibilityTraits="button"
           accessible={true}
           isTVSelectable={true}
           onResponderGrant={[Function]}
@@ -1413,9 +1367,7 @@ exports[`renders correctly with logo 1`] = `
               }
             >
               <Text
-                accessible={true}
                 allowFontScaling={false}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1445,9 +1397,6 @@ exports[`renders correctly with logo 1`] = `
                 
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -1485,9 +1434,6 @@ exports[`renders correctly with logo 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -1520,7 +1466,6 @@ exports[`renders correctly with logo 1`] = `
             }
           >
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}
@@ -1548,9 +1493,6 @@ exports[`renders correctly with logo 1`] = `
                 }
               >
                 <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
                   style={
                     Array [
                       Object {
@@ -1586,9 +1528,6 @@ exports[`renders correctly with logo 1`] = `
               </View>
             </View>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -1609,7 +1548,6 @@ exports[`renders correctly with logo 1`] = `
               and
             </Text>
             <View
-              accessibilityTraits="button"
               accessible={true}
               isTVSelectable={true}
               onResponderGrant={[Function]}
@@ -1637,9 +1575,6 @@ exports[`renders correctly with logo 1`] = `
                 }
               >
                 <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
                   style={
                     Array [
                       Object {
@@ -1690,9 +1625,6 @@ exports[`renders correctly with logo 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1716,7 +1648,6 @@ exports[`renders correctly with logo 1`] = `
           ALREADY A MEMBER?
         </Text>
         <View
-          accessibilityTraits="button"
           accessible={true}
           isTVSelectable={true}
           onResponderGrant={[Function]}
@@ -1744,9 +1675,6 @@ exports[`renders correctly with logo 1`] = `
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -1784,6 +1712,7 @@ exports[`renders correctly with logo 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Array [
         Object {
@@ -1801,7 +1730,6 @@ exports[`renders correctly with logo 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -1829,9 +1757,7 @@ exports[`renders correctly with logo 1`] = `
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {

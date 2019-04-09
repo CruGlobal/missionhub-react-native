@@ -2,7 +2,6 @@
 
 exports[`renders drilldown item correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -33,9 +32,6 @@ exports[`renders drilldown item correctly 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -65,9 +61,6 @@ exports[`renders drilldown item correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={1}
         style={
           Array [
@@ -90,9 +83,7 @@ exports[`renders drilldown item correctly 1`] = `
         Preview
       </Text>
       <Text
-        accessible={true}
         allowFontScaling={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -151,9 +142,6 @@ exports[`renders selected switch item correctly 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -176,7 +164,6 @@ exports[`renders selected switch item correctly 1`] = `
 
 exports[`renders single item correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -207,9 +194,6 @@ exports[`renders single item correctly 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -254,9 +238,6 @@ exports[`renders switch item correctly 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
