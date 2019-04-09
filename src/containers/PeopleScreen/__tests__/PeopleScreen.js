@@ -9,7 +9,7 @@ import {
   allAssignedPeopleSelector,
 } from '../../../selectors/people';
 import * as common from '../../../utils/common';
-import { navToPersonScreen } from '../../../actions/person';
+import { navToPersonScreen, getMe } from '../../../actions/person';
 
 jest.mock('../../../actions/person');
 jest.mock('../../../selectors/people');
@@ -198,6 +198,29 @@ describe('PeopleScreen', () => {
         .onSelect(person, org);
 
       expect(navToPersonScreen).toHaveBeenCalledWith(person, org);
+    });
+  });
+
+  describe('handleRefresh', () => {
+    let screen;
+    let instance;
+
+    beforeEach(() => {
+      getMe.mockReturnValue({ type: 'get me' });
+      common.refresh = jest.fn();
+
+      screen = renderShallow(<PeopleScreen {...props} />);
+      instance = screen.instance();
+
+      instance.handleRefresh();
+    });
+
+    it('should get me', () => {
+      expect(getMe).toHaveBeenCalled();
+    });
+
+    it('should refresh people list', () => {
+      expect(common.refresh).toHaveBeenCalledWith(instance, instance.getPeople);
     });
   });
 });

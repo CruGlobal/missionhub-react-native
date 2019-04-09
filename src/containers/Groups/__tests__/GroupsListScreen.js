@@ -10,6 +10,7 @@ import { communitiesSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
+import { getMe } from '../../../actions/person';
 import { resetScrollGroups } from '../../../actions/swipe';
 import { ACTIONS } from '../../../constants';
 import {
@@ -18,6 +19,7 @@ import {
 } from '../../../routes/constants';
 
 jest.mock('../../../selectors/organizations');
+jest.mock('../../../actions/person');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
@@ -201,8 +203,12 @@ describe('GroupsListScreen', () => {
 
   it('should refresh the list', () => {
     const instance = component.instance();
+    getMe.mockReturnValue({ type: 'get me ' });
     common.refresh = jest.fn();
+
     instance.handleRefresh();
+
+    expect(getMe).toHaveBeenCalled();
     expect(common.refresh).toHaveBeenCalledWith(instance, instance.loadGroups);
   });
 

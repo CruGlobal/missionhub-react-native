@@ -19,6 +19,7 @@ import {
   showReminderScreen,
   showWelcomeNotification,
 } from '../../../actions/notifications';
+import { getMe } from '../../../actions/person';
 import { setStepFocus } from '../../../actions/steps';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
@@ -28,6 +29,7 @@ jest.mock('../../../selectors/steps');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/person');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/person');
 jest.mock('../../TrackTabChange', () => () => null);
@@ -368,6 +370,29 @@ describe('StepsScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
         step,
       });
+    });
+  });
+
+  describe('handleRefresh', () => {
+    let screen;
+    let instance;
+
+    beforeEach(() => {
+      getMe.mockReturnValue({ type: 'get me' });
+      common.refresh = jest.fn();
+
+      screen = createComponent(baseProps);
+      instance = screen.instance();
+
+      instance.handleRefresh();
+    });
+
+    it('should get me', () => {
+      expect(getMe).toHaveBeenCalled();
+    });
+
+    it('should refresh steps list', () => {
+      expect(common.refresh).toHaveBeenCalledWith(instance, instance.getSteps);
     });
   });
 });
