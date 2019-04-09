@@ -56,9 +56,6 @@ exports[`GroupCardItem renders for global community 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -70,9 +67,6 @@ exports[`GroupCardItem renders for global community 1`] = `
           GROUP NAME
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -144,9 +138,6 @@ exports[`GroupCardItem renders for join screen 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -158,9 +149,6 @@ exports[`GroupCardItem renders for join screen 1`] = `
           GROUP NAME
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -246,9 +234,6 @@ exports[`GroupCardItem renders user created group 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -260,9 +245,6 @@ exports[`GroupCardItem renders user created group 1`] = `
           GROUP NAME
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -321,9 +303,6 @@ exports[`GroupCardItem renders user created group with member count 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -335,9 +314,6 @@ exports[`GroupCardItem renders user created group with member count 1`] = `
           GROUP NAME
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -396,9 +372,6 @@ exports[`GroupCardItem renders user created group with singular member count 1`]
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -410,9 +383,6 @@ exports[`GroupCardItem renders user created group with singular member count 1`]
           GROUP NAME
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -484,9 +454,6 @@ exports[`GroupCardItem renders with all report counts 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -498,9 +465,6 @@ exports[`GroupCardItem renders with all report counts 1`] = `
           GROUP NAME
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -574,9 +538,6 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -588,9 +549,6 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
           GROUP NAME
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -664,9 +622,6 @@ exports[`GroupCardItem renders with image url 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -678,9 +633,6 @@ exports[`GroupCardItem renders with image url 1`] = `
           GROUP NAME
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -754,9 +706,6 @@ exports[`GroupCardItem renders with no report counts 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -768,9 +717,6 @@ exports[`GroupCardItem renders with no report counts 1`] = `
           GROUP NAME
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -831,9 +777,6 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -845,9 +788,6 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
           GROUP NAME
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -919,9 +859,6 @@ exports[`GroupCardItem renders with notification 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -933,9 +870,6 @@ exports[`GroupCardItem renders with notification 1`] = `
           GROUP NAME
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -962,7 +896,7 @@ exports[`GroupCardItem renders with notification 1`] = `
           }
           type="MissionHub"
         />
-        <Component
+        <View
           style={
             Object {
               "backgroundColor": "#FF5532",
@@ -1039,9 +973,6 @@ exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -1053,9 +984,6 @@ exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
           GROUP NAME
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",

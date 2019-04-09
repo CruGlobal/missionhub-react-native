@@ -7,9 +7,6 @@ exports[`renders nothing with no subject person 1`] = `
   justify="end"
 >
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#505256",
@@ -51,9 +48,6 @@ exports[`renders with custom style 1`] = `
   }
 >
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#505256",
@@ -89,35 +83,27 @@ exports[`with subject person renders 0 comments_count 1`] = `
   direction="row"
   justify="end"
 >
-  <React.Fragment>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#505256",
-          "fontSize": 14,
-        }
-      }
-    />
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/comments.png",
-        }
-      }
-      style={
-        Object {
-          "marginHorizontal": 10,
-        }
-      }
-    />
-  </React.Fragment>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 14,
+      }
+    }
+  />
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+    style={
+      Object {
+        "marginHorizontal": 10,
+      }
+    }
+  />
+  <MyText
     style={
       Object {
         "color": "#505256",
@@ -153,37 +139,29 @@ exports[`with subject person renders 0 likes_count 1`] = `
   direction="row"
   justify="end"
 >
-  <React.Fragment>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#505256",
-          "fontSize": 14,
-        }
-      }
-    >
-      15
-    </MyText>
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/comments.png",
-        }
-      }
-      style={
-        Object {
-          "marginHorizontal": 10,
-        }
-      }
-    />
-  </React.Fragment>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 14,
+      }
+    }
+  >
+    15
+  </MyText>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+    style={
+      Object {
+        "marginHorizontal": 10,
+      }
+    }
+  />
+  <MyText
     style={
       Object {
         "color": "#505256",
@@ -285,37 +263,29 @@ exports[`with subject person renders for me 1`] = `
   direction="row"
   justify="end"
 >
-  <React.Fragment>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#505256",
-          "fontSize": 14,
-        }
-      }
-    >
-      15
-    </MyText>
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/comments.png",
-        }
-      }
-      style={
-        Object {
-          "marginHorizontal": 10,
-        }
-      }
-    />
-  </React.Fragment>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 14,
+      }
+    }
+  >
+    15
+  </MyText>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+    style={
+      Object {
+        "marginHorizontal": 10,
+      }
+    }
+  />
+  <MyText
     style={
       Object {
         "color": "#505256",
@@ -351,37 +321,29 @@ exports[`with subject person renders for someone else 1`] = `
   direction="row"
   justify="end"
 >
-  <React.Fragment>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#505256",
-          "fontSize": 14,
-        }
-      }
-    >
-      15
-    </MyText>
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/comments.png",
-        }
-      }
-      style={
-        Object {
-          "marginHorizontal": 10,
-        }
-      }
-    />
-  </React.Fragment>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 14,
+      }
+    }
+  >
+    15
+  </MyText>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+    style={
+      Object {
+        "marginHorizontal": 10,
+      }
+    }
+  />
+  <MyText
     style={
       Object {
         "color": "#505256",
@@ -419,37 +381,29 @@ exports[`with subject person renders when liked 1`] = `
   direction="row"
   justify="end"
 >
-  <React.Fragment>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#505256",
-          "fontSize": 14,
-        }
-      }
-    >
-      15
-    </MyText>
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/comments.png",
-        }
-      }
-      style={
-        Object {
-          "marginHorizontal": 10,
-        }
-      }
-    />
-  </React.Fragment>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 14,
+      }
+    }
+  >
+    15
+  </MyText>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+    style={
+      Object {
+        "marginHorizontal": 10,
+      }
+    }
+  />
+  <MyText
     style={
       Object {
         "color": "#505256",

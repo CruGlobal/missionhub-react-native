@@ -10,9 +10,6 @@ exports[`render active challenge item 1`] = `
     justify="start"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -23,9 +20,6 @@ exports[`render active challenge item 1`] = `
       Days Left
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -43,9 +37,6 @@ exports[`render active challenge item 1`] = `
     justify="start"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -56,9 +47,6 @@ exports[`render active challenge item 1`] = `
       Joined
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -76,9 +64,6 @@ exports[`render active challenge item 1`] = `
     justify="start"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -89,9 +74,6 @@ exports[`render active challenge item 1`] = `
       Completed
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -117,9 +99,6 @@ exports[`render past challenge item 1`] = `
     justify="start"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -130,9 +109,6 @@ exports[`render past challenge item 1`] = `
       Days
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -150,9 +126,6 @@ exports[`render past challenge item 1`] = `
     justify="start"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -163,9 +136,6 @@ exports[`render past challenge item 1`] = `
       Joined
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -183,9 +153,6 @@ exports[`render past challenge item 1`] = `
     justify="start"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -196,9 +163,6 @@ exports[`render past challenge item 1`] = `
       Completed
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -224,9 +188,6 @@ exports[`render small active challenge item 1`] = `
     justify="start"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -237,9 +198,6 @@ exports[`render small active challenge item 1`] = `
       Days Left
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#505256",
@@ -257,9 +215,6 @@ exports[`render small active challenge item 1`] = `
     justify="start"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -270,9 +225,6 @@ exports[`render small active challenge item 1`] = `
       Joined
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#505256",
@@ -290,9 +242,6 @@ exports[`render small active challenge item 1`] = `
     justify="start"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -303,9 +252,6 @@ exports[`render small active challenge item 1`] = `
       Completed
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#505256",
@@ -331,9 +277,6 @@ exports[`render small past challenge item 1`] = `
     justify="start"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -344,9 +287,6 @@ exports[`render small past challenge item 1`] = `
       Days
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#505256",
@@ -364,9 +304,6 @@ exports[`render small past challenge item 1`] = `
     justify="start"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -377,9 +314,6 @@ exports[`render small past challenge item 1`] = `
       Joined
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#505256",
@@ -397,9 +331,6 @@ exports[`render small past challenge item 1`] = `
     justify="start"
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -410,9 +341,6 @@ exports[`render small past challenge item 1`] = `
       Completed
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#505256",

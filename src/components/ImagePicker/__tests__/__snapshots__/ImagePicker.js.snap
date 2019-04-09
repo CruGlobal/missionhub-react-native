@@ -5,6 +5,6 @@ exports[`renders image picker 1`] = `
   activeOpacity={0.75}
   onPress={[Function]}
 >
-  <Component />
+  <View />
 </TouchableOpacity>
 `;

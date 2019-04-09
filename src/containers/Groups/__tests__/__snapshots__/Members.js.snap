@@ -103,6 +103,7 @@ exports[`Members should render correctly 1`] = `
         tintColor="#007398"
       />
     }
+    removeClippedSubviews={false}
     renderItem={[Function]}
     scrollEventThrottle={50}
     style={

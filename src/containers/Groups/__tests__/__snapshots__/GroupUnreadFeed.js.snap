@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render empty correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -88,11 +88,11 @@ exports[`should render empty correctly 1`] = `
       refreshing={false}
     />
   </SafeAreaView>
-</Component>
+</View>
 `;
 
 exports[`should render items correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -204,5 +204,5 @@ exports[`should render items correctly 1`] = `
       refreshing={false}
     />
   </SafeAreaView>
-</Component>
+</View>
 `;

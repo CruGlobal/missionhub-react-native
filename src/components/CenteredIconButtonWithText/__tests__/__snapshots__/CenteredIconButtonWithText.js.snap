@@ -1,9 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly with non-null onClick 1`] = `
-<Flex
-  align="center"
-  justify="center"
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }
 >
   <Flex
     align="center"
@@ -52,13 +59,20 @@ exports[`renders correctly with non-null onClick 1`] = `
   >
     Hello, MissionHub
   </MyText>
-</Flex>
+</View>
 `;
 
 exports[`renders correctly with undefined onClick 1`] = `
-<Flex
-  align="center"
-  justify="center"
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }
 >
   <Flex
     align="center"
@@ -105,5 +119,5 @@ exports[`renders correctly with undefined onClick 1`] = `
   >
     Hello, MissionHub
   </MyText>
-</Flex>
+</View>
 `;

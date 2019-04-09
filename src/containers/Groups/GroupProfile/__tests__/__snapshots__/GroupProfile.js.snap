@@ -47,7 +47,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
       </Flex>
     </Flex>
   </Translate(ImagePicker)>
-  <ScrollView
+  <ScrollViewMock
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -122,9 +122,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -135,9 +132,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           Owner
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -153,9 +147,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -191,9 +182,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
         direction="column"
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -204,9 +192,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           Members
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -240,9 +225,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -253,9 +235,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           Community Code
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -314,9 +293,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -327,9 +303,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           Community Link
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -383,9 +356,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -396,7 +366,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
         Anyone who has this code or link will be able to join your group.
       </MyText>
     </Flex>
-  </ScrollView>
+  </ScrollViewMock>
   <Header
     left={
       <IconButton
@@ -466,7 +436,7 @@ exports[`GroupProfile renders correctly 1`] = `
       }
     }
   />
-  <ScrollView
+  <ScrollViewMock
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -485,9 +455,6 @@ exports[`GroupProfile renders correctly 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",
@@ -514,9 +481,6 @@ exports[`GroupProfile renders correctly 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -527,9 +491,6 @@ exports[`GroupProfile renders correctly 1`] = `
           Owner
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -545,9 +506,6 @@ exports[`GroupProfile renders correctly 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -583,9 +541,6 @@ exports[`GroupProfile renders correctly 1`] = `
         direction="column"
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -596,9 +551,6 @@ exports[`GroupProfile renders correctly 1`] = `
           Members
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -632,9 +584,6 @@ exports[`GroupProfile renders correctly 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -645,9 +594,6 @@ exports[`GroupProfile renders correctly 1`] = `
           Community Code
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -701,9 +647,6 @@ exports[`GroupProfile renders correctly 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -714,9 +657,6 @@ exports[`GroupProfile renders correctly 1`] = `
           Community Link
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -765,9 +705,6 @@ exports[`GroupProfile renders correctly 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -778,7 +715,7 @@ exports[`GroupProfile renders correctly 1`] = `
         Anyone who has this code or link will be able to join your group.
       </MyText>
     </Flex>
-  </ScrollView>
+  </ScrollViewMock>
   <Header
     left={
       <IconButton
@@ -848,7 +785,7 @@ exports[`GroupProfile renders with image 1`] = `
       }
     }
   />
-  <ScrollView
+  <ScrollViewMock
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -867,9 +804,6 @@ exports[`GroupProfile renders with image 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",
@@ -896,9 +830,6 @@ exports[`GroupProfile renders with image 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -909,9 +840,6 @@ exports[`GroupProfile renders with image 1`] = `
           Owner
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -927,9 +855,6 @@ exports[`GroupProfile renders with image 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -965,9 +890,6 @@ exports[`GroupProfile renders with image 1`] = `
         direction="column"
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -978,9 +900,6 @@ exports[`GroupProfile renders with image 1`] = `
           Members
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -1014,9 +933,6 @@ exports[`GroupProfile renders with image 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -1027,9 +943,6 @@ exports[`GroupProfile renders with image 1`] = `
           Community Code
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -1083,9 +996,6 @@ exports[`GroupProfile renders with image 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -1096,9 +1006,6 @@ exports[`GroupProfile renders with image 1`] = `
           Community Link
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -1147,9 +1054,6 @@ exports[`GroupProfile renders with image 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -1160,7 +1064,7 @@ exports[`GroupProfile renders with image 1`] = `
         Anyone who has this code or link will be able to join your group.
       </MyText>
     </Flex>
-  </ScrollView>
+  </ScrollViewMock>
   <Header
     left={
       <IconButton
@@ -1230,7 +1134,7 @@ exports[`GroupProfile renders without edit button 1`] = `
       }
     }
   />
-  <ScrollView
+  <ScrollViewMock
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -1249,9 +1153,6 @@ exports[`GroupProfile renders without edit button 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",
@@ -1278,9 +1179,6 @@ exports[`GroupProfile renders without edit button 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -1291,9 +1189,6 @@ exports[`GroupProfile renders without edit button 1`] = `
           Owner
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -1309,9 +1204,6 @@ exports[`GroupProfile renders without edit button 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -1347,9 +1239,6 @@ exports[`GroupProfile renders without edit button 1`] = `
         direction="column"
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -1360,9 +1249,6 @@ exports[`GroupProfile renders without edit button 1`] = `
           Members
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -1396,9 +1282,6 @@ exports[`GroupProfile renders without edit button 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -1409,9 +1292,6 @@ exports[`GroupProfile renders without edit button 1`] = `
           Community Code
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -1465,9 +1345,6 @@ exports[`GroupProfile renders without edit button 1`] = `
         value={1}
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -1478,9 +1355,6 @@ exports[`GroupProfile renders without edit button 1`] = `
           Community Link
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -1529,9 +1403,6 @@ exports[`GroupProfile renders without edit button 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -1542,7 +1413,7 @@ exports[`GroupProfile renders without edit button 1`] = `
         Anyone who has this code or link will be able to join your group.
       </MyText>
     </Flex>
-  </ScrollView>
+  </ScrollViewMock>
   <Header
     left={
       <IconButton

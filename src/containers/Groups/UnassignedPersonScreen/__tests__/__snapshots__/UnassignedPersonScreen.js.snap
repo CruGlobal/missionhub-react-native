@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contact should render correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -57,5 +57,5 @@ exports[`Contact should render correctly 1`] = `
       }
     />
   </SafeAreaView>
-</Component>
+</View>
 `;

@@ -1,8 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render label 1`] = `
-<Flex
-  value={1}
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "flex": 1,
+      },
+    ]
+  }
 >
   <MyText
     style={
@@ -24,5 +31,5 @@ exports[`render label 1`] = `
   >
     Test User
   </MyText>
-</Flex>
+</View>
 `;

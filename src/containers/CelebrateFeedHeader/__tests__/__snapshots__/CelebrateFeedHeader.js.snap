@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`admin renders admin of cru org with 1 reported comment 1`] = `
-<React.Fragment>
+<Fragment>
   <Flex
     style={
       Object {
@@ -28,19 +28,19 @@ exports[`admin renders admin of cru org with 1 reported comment 1`] = `
       onPress={[Function]}
     />
   </Flex>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`admin renders admin of global org 1`] = `
-<React.Fragment>
+<Fragment>
   <Connect(Translate(OnboardingCard))
     type="celebrate"
   />
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`admin renders admin of not cru org 1`] = `
-<React.Fragment>
+<Fragment>
   <Flex
     style={
       Object {
@@ -56,11 +56,11 @@ exports[`admin renders admin of not cru org 1`] = `
       onPress={[Function]}
     />
   </Flex>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`cru community org renders owner 1`] = `
-<React.Fragment>
+<Fragment>
   <Flex
     style={
       Object {
@@ -76,11 +76,11 @@ exports[`cru community org renders owner 1`] = `
       onPress={[Function]}
     />
   </Flex>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`cru community org renders user 1`] = `
-<React.Fragment>
+<Fragment>
   <Flex
     style={
       Object {
@@ -96,19 +96,19 @@ exports[`cru community org renders user 1`] = `
       onPress={[Function]}
     />
   </Flex>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`global community org renders user 1`] = `
-<React.Fragment>
+<Fragment>
   <Connect(Translate(OnboardingCard))
     type="celebrate"
   />
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`not owner renders admin 1`] = `
-<React.Fragment>
+<Fragment>
   <Flex
     style={
       Object {
@@ -124,11 +124,11 @@ exports[`not owner renders admin 1`] = `
       onPress={[Function]}
     />
   </Flex>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`not owner renders user 1`] = `
-<React.Fragment>
+<Fragment>
   <Flex
     style={
       Object {
@@ -144,11 +144,11 @@ exports[`not owner renders user 1`] = `
       onPress={[Function]}
     />
   </Flex>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`owner renders owner with 0 reported comment 1`] = `
-<React.Fragment>
+<Fragment>
   <Flex
     style={
       Object {
@@ -164,11 +164,11 @@ exports[`owner renders owner with 0 reported comment 1`] = `
       onPress={[Function]}
     />
   </Flex>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`owner renders owner with 1 reported comment 1`] = `
-<React.Fragment>
+<Fragment>
   <Flex
     style={
       Object {
@@ -195,11 +195,11 @@ exports[`owner renders owner with 1 reported comment 1`] = `
       onPress={[Function]}
     />
   </Flex>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`unread comments card renders comment card 1`] = `
-<React.Fragment>
+<Fragment>
   <Flex
     style={
       Object {
@@ -226,19 +226,19 @@ exports[`unread comments card renders comment card 1`] = `
       onPress={[Function]}
     />
   </Flex>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`unread comments card renders no comment card when global org 1`] = `
-<React.Fragment>
+<Fragment>
   <Connect(Translate(OnboardingCard))
     type="celebrate"
   />
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`unread comments card renders no comment card when no new comments 1`] = `
-<React.Fragment>
+<Fragment>
   <Connect(Translate(OnboardingCard))
     type="celebrate"
   />
@@ -256,5 +256,5 @@ exports[`unread comments card renders no comment card when no new comments 1`] =
       onPress={[Function]}
     />
   </Flex>
-</React.Fragment>
+</Fragment>
 `;
