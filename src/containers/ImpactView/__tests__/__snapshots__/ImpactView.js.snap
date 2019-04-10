@@ -13,9 +13,9 @@ exports[`ImpactView ME person community impact view renders empty state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -25,14 +25,11 @@ exports[`ImpactView ME person community impact view renders empty state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       Here you will see all the steps you have taken.
@@ -677,9 +674,9 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -689,14 +686,11 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, you have taken 10 steps of faith with 5 people.
@@ -1341,9 +1335,9 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -1353,14 +1347,11 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, you have taken 1 step of faith with 1 person.
@@ -2005,9 +1996,9 @@ exports[`ImpactView ME person impact view for user created org renders empty sta
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -2017,14 +2008,11 @@ exports[`ImpactView ME person impact view for user created org renders empty sta
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       Here you will see all the steps you have taken.
@@ -2068,9 +2056,9 @@ exports[`ImpactView ME person impact view for user created org renders plural st
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -2080,14 +2068,11 @@ exports[`ImpactView ME person impact view for user created org renders plural st
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, you have taken 10 steps of faith with 5 people.
@@ -2133,9 +2118,9 @@ exports[`ImpactView ME person impact view for user created org renders singular 
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -2145,14 +2130,11 @@ exports[`ImpactView ME person impact view for user created org renders singular 
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, you have taken 1 step of faith with 1 person.
@@ -2198,9 +2180,9 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -2210,14 +2192,11 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       Here you will see all the steps you have taken.
@@ -2242,9 +2221,9 @@ See what God has done through you below.
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#3EB1C8",
         "paddingBottom": 40,
-        "paddingLeft": 50,
       }
     }
   >
@@ -2253,14 +2232,11 @@ See what God has done through you below.
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          undefined,
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       You will see the steps other users have taken here shortly.
@@ -2284,9 +2260,9 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -2296,14 +2272,11 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, you have taken 10 steps of faith with 5 people.
@@ -2328,9 +2301,9 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#3EB1C8",
         "paddingBottom": 40,
-        "paddingLeft": 50,
       }
     }
   >
@@ -2339,14 +2312,11 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          undefined,
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, 200 users have taken 10 steps of faith with 5 people.
@@ -2370,9 +2340,9 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -2382,14 +2352,11 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, you have taken 1 step of faith with 1 person.
@@ -2414,9 +2381,9 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#3EB1C8",
         "paddingBottom": 40,
-        "paddingLeft": 50,
       }
     }
   >
@@ -2425,14 +2392,11 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          undefined,
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, 200 users have taken 1 step of faith with 1 person.
@@ -2456,9 +2420,9 @@ exports[`ImpactView contact impact renders empty state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -2468,14 +2432,11 @@ exports[`ImpactView contact impact renders empty state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       Here you will see all the steps Test Fname has taken.
@@ -3120,9 +3081,9 @@ exports[`ImpactView contact impact renders plural state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -3132,14 +3093,11 @@ exports[`ImpactView contact impact renders plural state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, Test Fname has taken 11 steps of faith with 6 people in their life.
@@ -3784,9 +3742,9 @@ exports[`ImpactView contact impact renders singular state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -3796,14 +3754,11 @@ exports[`ImpactView contact impact renders singular state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, Test Fname has taken 1 step of faith with 1 person in their life.
@@ -4451,9 +4406,9 @@ exports[`ImpactView group impact renders empty state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -4463,14 +4418,11 @@ exports[`ImpactView group impact renders empty state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       Here you will see all the steps we have taken.
@@ -5118,9 +5070,9 @@ exports[`ImpactView group impact renders plural state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -5130,14 +5082,11 @@ exports[`ImpactView group impact renders plural state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       Together we have taken 11 steps of faith with 6 people in 2018.
@@ -5785,9 +5734,9 @@ exports[`ImpactView group impact renders singular state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -5797,14 +5746,11 @@ exports[`ImpactView group impact renders singular state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       Together we have taken 1 step of faith with 1 person in 2018.
@@ -6638,9 +6584,9 @@ exports[`ImpactView user created member impact renders empty state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -6650,14 +6596,11 @@ exports[`ImpactView user created member impact renders empty state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       Here you will see all the steps Test Fname has taken.
@@ -6701,9 +6644,9 @@ exports[`ImpactView user created member impact renders plural state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -6713,14 +6656,11 @@ exports[`ImpactView user created member impact renders plural state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, Test Fname has taken 11 steps of faith with 6 people in their life.
@@ -6766,9 +6706,9 @@ exports[`ImpactView user created member impact renders singular state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -6778,14 +6718,11 @@ exports[`ImpactView user created member impact renders singular state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, Test Fname has taken 1 step of faith with 1 person in their life.
@@ -6834,9 +6771,9 @@ exports[`ImpactView user-created group impact renders empty state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -6846,14 +6783,11 @@ exports[`ImpactView user-created group impact renders empty state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       Here you will see all the steps we have taken.
@@ -6876,9 +6810,9 @@ exports[`ImpactView user-created group impact renders empty state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#3EB1C8",
         "paddingBottom": 40,
-        "paddingLeft": 50,
       }
     }
   >
@@ -6887,14 +6821,11 @@ exports[`ImpactView user-created group impact renders empty state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          undefined,
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       You will see the steps other users have taken here shortly.
@@ -6921,9 +6852,9 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -6933,14 +6864,11 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       Together we have taken 11 steps of faith with 6 people in 2018.
@@ -6965,9 +6893,9 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#3EB1C8",
         "paddingBottom": 40,
-        "paddingLeft": 50,
       }
     }
   >
@@ -6976,14 +6904,11 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          undefined,
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, 200 users have taken 10 steps of faith with 5 people.
@@ -7010,9 +6935,9 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#52C5DC",
         "paddingBottom": 10,
-        "paddingLeft": 50,
         "paddingTop": 30,
       }
     }
@@ -7022,14 +6947,11 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       Together we have taken 1 step of faith with 1 person in 2018.
@@ -7054,9 +6976,9 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
   <Flex
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#3EB1C8",
         "paddingBottom": 40,
-        "paddingLeft": 50,
       }
     }
   >
@@ -7065,14 +6987,11 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          undefined,
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "width": 270,
+        }
       }
     >
       In 2018, 200 users have taken 1 step of faith with 1 person.
