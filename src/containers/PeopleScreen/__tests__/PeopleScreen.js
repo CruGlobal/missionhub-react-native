@@ -9,10 +9,13 @@ import {
   allAssignedPeopleSelector,
 } from '../../../selectors/people';
 import * as common from '../../../utils/common';
-import { navToPersonScreen, getMe } from '../../../actions/person';
+import { navToPersonScreen } from '../../../actions/person';
+import { updateCommentsNotification } from '../../../actions/organizations';
 
 jest.mock('../../../actions/person');
+jest.mock('../../../actions/organizations');
 jest.mock('../../../selectors/people');
+jest.mock('../../../selectors/organizations');
 jest.mock('../../TrackTabChange', () => () => null);
 
 jest.mock('../../../actions/people', () => ({
@@ -206,7 +209,9 @@ describe('PeopleScreen', () => {
     let instance;
 
     beforeEach(() => {
-      getMe.mockReturnValue({ type: 'get me' });
+      updateCommentsNotification.mockReturnValue({
+        type: 'update comment notification',
+      });
       common.refresh = jest.fn();
 
       screen = renderShallow(<PeopleScreen {...props} />);
@@ -216,7 +221,7 @@ describe('PeopleScreen', () => {
     });
 
     it('should get me', () => {
-      expect(getMe).toHaveBeenCalled();
+      expect(updateCommentsNotification).toHaveBeenCalled();
     });
 
     it('should refresh people list', () => {

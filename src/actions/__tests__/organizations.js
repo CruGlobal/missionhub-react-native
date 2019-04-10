@@ -38,6 +38,7 @@ import {
   generateNewLink,
   joinCommunity,
   lookupOrgCommunityUrl,
+  updateCommentsNotification,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
 import { removeHiddenOrgs } from '../../selectors/selectorUtils';
@@ -55,6 +56,22 @@ const myId = '1';
 const mockStore = configureStore([thunk]);
 let store;
 const auth = { person: { user: {}, id: myId }, token: 'something' };
+
+const getOrganizationsQuery = {
+  limit: 100,
+  include: '',
+  filters: {
+    descendants: false,
+  },
+  sort: 'name',
+};
+const communityOrgs = [
+  { id: GLOBAL_COMMUNITY_ID, community: true },
+  { id: '123', community: true },
+  { id: 'non community', community: false },
+  { id: '456', community: true },
+];
+const organization_ids = '123,456';
 
 beforeEach(() => {
   store = mockStore({ auth, organizations: { all: [] } });
@@ -146,12 +163,6 @@ describe('refreshCommunity', () => {
 });
 
 describe('getOrganizationsContactReports', () => {
-  const orgs = [
-    { id: GLOBAL_COMMUNITY_ID, community: true },
-    { id: '123', community: true },
-    { id: 'non community', community: false },
-    { id: '456', community: true },
-  ];
   const contactReportsResponse = {
     type: 'successful',
     response: [
@@ -187,18 +198,29 @@ describe('getOrganizationsContactReports', () => {
     ],
   };
 
-  it('should get contact reports and dispatch to API', async () => {
-    store = mockStore({ auth, organizations: { all: orgs } });
+  beforeEach(async () => {
+    store = mockStore({ auth, organizations: { all: communityOrgs } });
     callApi.mockReturnValue(contactReportsResponse);
-    removeHiddenOrgs.mockReturnValue(orgs);
+    removeHiddenOrgs.mockReturnValue(communityOrgs);
 
     await store.dispatch(getOrganizationsContactReports());
+  });
 
-    expect(removeHiddenOrgs).toHaveBeenCalledWith(orgs, auth.person);
+  it('calls removeHiddenOrgs', () => {
+    expect(removeHiddenOrgs).toHaveBeenCalledWith(communityOrgs, auth.person);
+  });
+
+  it('makes API request GET_ORGANIZATION_INTERACTIONS_REPORT', () => {
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
-      { period: 'P1W', organization_ids: `${orgs[1].id},${orgs[3].id}` },
+      {
+        period: 'P1W',
+        organization_ids: `${communityOrgs[1].id},${communityOrgs[3].id}`,
+      },
     );
+  });
+
+  it('dispatches correct actions', () => {
     expect(store.getActions()).toEqual([
       contactReportsResponse,
       contactReportsAction,
@@ -493,22 +515,47 @@ describe('addNewPerson', () => {
 });
 
 describe('getMyCommunities', () => {
-  it('should get my communities', async () => {
-    const response = {
-      type: 'successful',
-      response: [{}],
-    };
+  const response = {
+    type: 'successful',
+    response: [{}],
+  };
+
+  beforeEach(async () => {
+    store = mockStore({ auth, organizations: { all: communityOrgs } });
+
     callApi.mockReturnValue(response);
     await store.dispatch(getMyCommunities());
-    const actions = store.getActions();
+  });
 
-    // Api call, then LOAD_ORGANIZATIONS
-    expect(actions[0]).toEqual(response);
-    expect(actions[1].type).toEqual(LOAD_ORGANIZATIONS);
-    // Another api call, then GET_ORGANIZATIONS_CONTACTS_REPORT
-    expect(actions[2]).toEqual(response);
-    expect(actions[3]).toEqual(response);
-    expect(actions[4].type).toEqual(GET_ORGANIZATIONS_CONTACTS_REPORT);
+  it('makes API request GET_ORGANIZATIONS', () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_ORGANIZATIONS,
+      getOrganizationsQuery,
+    );
+  });
+
+  it('makes API request GET_USERS_REPORT', () => {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_USERS_REPORT);
+  });
+
+  it('makes API request GET_ORGANIZATION_INTERACTIONS_REPORT', () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
+      {
+        period: 'P1W',
+        organization_ids,
+      },
+    );
+  });
+
+  it('dispatches correct actions', () => {
+    expect(store.getActions()).toEqual([
+      response,
+      expect.objectContaining({ type: LOAD_ORGANIZATIONS }),
+      response,
+      response,
+      expect.objectContaining({ type: GET_ORGANIZATIONS_CONTACTS_REPORT }),
+    ]);
   });
 });
 
@@ -927,5 +974,57 @@ describe('removeOrganizationMember', () => {
       personId,
       orgId,
     });
+  });
+});
+
+describe('updateCommentNotification', () => {
+  const APIResponse = {
+    type: 'successful',
+    response: [{}],
+  };
+  const getMeResponse = { type: 'get me' };
+
+  beforeEach(async () => {
+    store = mockStore({ auth, organizations: { all: communityOrgs } });
+
+    callApi.mockReturnValue(APIResponse);
+    getMe.mockReturnValue(getMeResponse);
+    await store.dispatch(updateCommentsNotification());
+  });
+
+  it('calls getMe', () => {
+    expect(getMe).toHaveBeenCalled();
+  });
+
+  it('makes API request GET_ORGANIZATIONS', () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_ORGANIZATIONS,
+      getOrganizationsQuery,
+    );
+  });
+
+  it('makes API request GET_USERS_REPORT', () => {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_USERS_REPORT);
+  });
+
+  it('makes API request GET_ORGANIZATION_INTERACTIONS_REPORT', () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
+      {
+        period: 'P1W',
+        organization_ids,
+      },
+    );
+  });
+
+  it('dispatches correct actions', () => {
+    expect(store.getActions()).toEqual([
+      getMeResponse,
+      APIResponse,
+      expect.objectContaining({ type: LOAD_ORGANIZATIONS }),
+      APIResponse,
+      APIResponse,
+      expect.objectContaining({ type: GET_ORGANIZATIONS_CONTACTS_REPORT }),
+    ]);
   });
 });

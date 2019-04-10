@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { getMyPeople } from '../../actions/people';
-import { getMe } from '../../actions/person';
+import { updateCommentsNotification } from '../../actions/organizations';
 import {
   peopleByOrgSelector,
   allAssignedPeopleSelector,
@@ -66,7 +66,7 @@ export class PeopleScreen extends Component {
   }
 
   handleRefresh() {
-    this.props.dispatch(getMe());
+    this.props.dispatch(updateCommentsNotification());
     refresh(this, this.getPeople);
   }
 

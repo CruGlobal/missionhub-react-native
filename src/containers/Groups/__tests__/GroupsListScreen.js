@@ -10,7 +10,7 @@ import { communitiesSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
-import { getMe } from '../../../actions/person';
+import { updateCommentsNotification } from '../../../actions/organizations';
 import { resetScrollGroups } from '../../../actions/swipe';
 import { ACTIONS } from '../../../constants';
 import {
@@ -19,12 +19,9 @@ import {
 } from '../../../routes/constants';
 
 jest.mock('../../../selectors/organizations');
-jest.mock('../../../actions/person');
+jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
-}));
-jest.mock('../../../actions/organizations', () => ({
-  getMyCommunities: jest.fn(() => ({ type: 'test' })),
 }));
 jest.mock('../../../actions/swipe', () => ({
   resetScrollGroups: jest.fn(() => ({ type: 'reset' })),
@@ -55,6 +52,10 @@ beforeEach(() => {
   getMyCommunities.mockReturnValue({ type: 'test' });
   trackActionWithoutData.mockReturnValue({ type: 'test' });
   communitiesSelector.mockReturnValue(organizations.all);
+  updateCommentsNotification.mockReturnValue({
+    type: 'update comment notification',
+  });
+  common.refresh = jest.fn();
 });
 
 it('should render null state', () => {
@@ -203,12 +204,10 @@ describe('GroupsListScreen', () => {
 
   it('should refresh the list', () => {
     const instance = component.instance();
-    getMe.mockReturnValue({ type: 'get me ' });
-    common.refresh = jest.fn();
 
     instance.handleRefresh();
 
-    expect(getMe).toHaveBeenCalled();
+    expect(updateCommentsNotification).toHaveBeenCalled();
     expect(common.refresh).toHaveBeenCalledWith(instance, instance.loadGroups);
   });
 

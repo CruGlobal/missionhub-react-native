@@ -620,3 +620,10 @@ export function removeOrganizationMember(personId, orgId) {
     orgId,
   };
 }
+
+export function updateCommentsNotification() {
+  return dispatch => {
+    dispatch(getMe());
+    dispatch(getMyCommunities());
+  };
+}
