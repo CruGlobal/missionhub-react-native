@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { Image, View, SafeAreaView, StatusBar } from 'react-native';
+import {
+  Image,
+  View,
+  SafeAreaView,
+  StatusBar,
+  ScrollView,
+  Alert,
+} from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
@@ -17,7 +24,7 @@ import Header from '../../components/Header';
 import ItemHeaderText from '../../components/ItemHeaderText';
 import TRAILS1 from '../../../assets/images/Trailss.png';
 import TRAILS2 from '../../../assets/images/TrailGrey.png';
-import { refresh } from '../../utils/common';
+import { refresh, keyboardShow } from '../../utils/common';
 import { reloadCelebrateComments } from '../../actions/celebrateComments';
 import { RefreshControl } from '../../components/common';
 
@@ -25,6 +32,18 @@ import styles from './styles';
 
 class CelebrateDetailScreen extends Component {
   state = { refreshing: false };
+
+  componentDidMount() {
+    this.keyboardShowListener = keyboardShow(this.keyboardShow);
+  }
+
+  componentWillUnmount() {
+    this.keyboardShowListener.remove();
+  }
+
+  keyboardShow = () => {
+    this.list.getScrollResponder().scrollTo({ y: 400 });
+  };
 
   refreshComments = () => {
     const { dispatch, event } = this.props;
@@ -80,6 +99,8 @@ class CelebrateDetailScreen extends Component {
     );
   };
 
+  listRef = c => (this.list = c);
+
   render() {
     const { event } = this.props;
     const { container } = styles;
@@ -94,29 +115,33 @@ class CelebrateDetailScreen extends Component {
     return (
       <SafeAreaView style={container}>
         <StatusBar {...darkContent} />
-        <ParallaxScrollView
-          backgroundColor={white}
-          contentBackgroundColor={grey}
-          parallaxHeaderHeight={parallaxHeaderHeight}
-          renderForeground={this.renderForeground}
-          stickyHeaderHeight={headerHeight}
-          renderStickyHeader={this.renderStickyHeader}
-          refreshControl={
-            <RefreshControl
-              refreshing={this.state.refreshing}
-              onRefresh={this.handleRefresh}
-            />
-          }
-        >
-          <View style={styles.scrollContent}>
-            <Image source={TRAILS1} style={styles.trailsTop} />
-            <Image source={TRAILS2} style={styles.trailsBottom} />
-            <CommentsList
-              event={event}
-              organizationId={event.organization.id}
-            />
-          </View>
-        </ParallaxScrollView>
+        <View flex={1}>
+          <ParallaxScrollView
+            ref={this.listRef}
+            backgroundColor={white}
+            outputScaleValue={10}
+            contentBackgroundColor={grey}
+            parallaxHeaderHeight={parallaxHeaderHeight}
+            renderForeground={this.renderForeground}
+            stickyHeaderHeight={headerHeight}
+            renderStickyHeader={this.renderStickyHeader}
+            refreshControl={
+              <RefreshControl
+                refreshing={this.state.refreshing}
+                onRefresh={this.handleRefresh}
+              />
+            }
+          >
+            <View style={styles.scrollContent}>
+              <Image source={TRAILS1} style={styles.trailsTop} />
+              <Image source={TRAILS2} style={styles.trailsBottom} />
+              <CommentsList
+                event={event}
+                organizationId={event.organization.id}
+              />
+            </View>
+          </ParallaxScrollView>
+        </View>
         <CelebrateCommentBox event={event} />
       </SafeAreaView>
     );
