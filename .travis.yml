@@ -97,7 +97,6 @@ matrix:
         - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
         - yarn run onesky:download
       script:
-        - yarn android:bundleReleaseAssets
         - (cd android && fastlane android beta)
       cache:
         - yarn
