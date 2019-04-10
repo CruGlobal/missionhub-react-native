@@ -60,7 +60,6 @@ exports[`should render empty correctly 1`] = `
     <Connect(CelebrateFeed)
       itemNamePressable={true}
       items={Array []}
-      loadMoreItemsCallback={[Function]}
       noHeader={true}
       organization={
         Object {
@@ -159,7 +158,6 @@ exports[`should render items correctly 1`] = `
           },
         ]
       }
-      loadMoreItemsCallback={[Function]}
       noHeader={true}
       organization={
         Object {
