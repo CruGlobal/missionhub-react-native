@@ -76,10 +76,7 @@ it('renders navItem correctly', () => {
 });
 
 it('calls loadHome on mount', () => {
-  const component = renderShallow(
-    <MainTabs navigation={{ state: { params: {} } }} />,
-    store,
-  );
+  renderShallow(<MainTabs navigation={{ state: { params: {} } }} />, store);
 
   expect(loadHome).toHaveBeenCalled();
 });

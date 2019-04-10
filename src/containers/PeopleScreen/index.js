@@ -10,7 +10,6 @@ import {
   allAssignedPeopleSelector,
 } from '../../selectors/people';
 import { navigatePush, navigateBack } from '../../actions/navigation';
-import { getStagesIfNotExists } from '../../actions/stages';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';

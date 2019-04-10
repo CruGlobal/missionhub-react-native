@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import debounce from 'lodash/debounce';
 
-import { loadHome } from '../../actions/auth/userData';
 import {
   showReminderScreen,
   showWelcomeNotification,
