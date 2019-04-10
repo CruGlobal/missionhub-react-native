@@ -30,14 +30,14 @@ You'll also need to create a .env file in your project root directory. The easie
 
 #### For iOS:
 
-- Open the `ios/MissionHub.xcodeproj` file with Xcode
-- Run the MissionHub scheme on a simulator or connected device
+- Run `yarn ios`
+- Or open the `ios/MissionHub.xcworkspace` file with Xcode and run the MissionHub scheme on a simulator or connected device
 
 #### For Android:
 
 - Make sure you have the Android build-tools installed from the sdk for version `26.0.1` along with all the other steps from the react-native documentation.
 - Connect your android device or emulator and make sure it shows up in your terminal when you run `adb devices`
-- Run `yarn run android`
+- Run `yarn android`
 - *Note: You can also use Android Studio to run the application instead of the terminal*
 
 
