@@ -309,7 +309,7 @@ export class StepsScreen extends Component {
   openMainMenu = () => this.props.dispatch(openMainMenu());
 
   render() {
-    const { t, steps } = this.props;
+    const { t, steps, token } = this.props;
 
     return (
       <View style={{ flex: 1 }}>
@@ -325,6 +325,11 @@ export class StepsScreen extends Component {
           title={t('title').toUpperCase()}
         />
         <Query
+          context={{
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }}
           query={gql`
             {
               person(id: 1013) {
@@ -351,18 +356,12 @@ export class StepsScreen extends Component {
         >
           {({ loading, error, data }) => {
             if (loading) {
-              return <Text>Loading...</Text>;
+              return <LoadingGuy />;
             }
             if (error) {
               console.log(error);
-              return (
-                <ScrollView>
-                  <Text>{JSON.stringify(error)}</Text>
-                </ScrollView>
-              );
+              return <Text>{JSON.stringify(error)}</Text>;
             }
-
-            console.log(data);
 
             return this.renderSteps(data.person.acceptedChallenges);
           }}
@@ -372,11 +371,12 @@ export class StepsScreen extends Component {
   }
 }
 
-export const mapStateToProps = ({ steps, people, notifications }) => ({
+export const mapStateToProps = ({ steps, people, notifications, auth }) => ({
   steps: nonReminderStepsSelector({ steps, people }),
   reminders: reminderStepsSelector({ steps, people }),
   hasMoreSteps: steps.pagination.hasNextPage,
   pushtoken: notifications.token,
+  token: auth.token,
 });
 
 export default connect(mapStateToProps)(StepsScreen);
