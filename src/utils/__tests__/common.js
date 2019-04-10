@@ -582,10 +582,10 @@ describe('showMenu on Android', () => {
     // eslint-disable-next-line
     UIManager.showPopupMenu = jest.fn((a, b, c, d) => d(null, 0));
 
-    require('../common').showMenu(actions, 'testRef');
+    require('../common').showMenu(actions, null);
 
     expect(UIManager.showPopupMenu).toHaveBeenCalledWith(
-      undefined,
+      null,
       ['test', 'test2'],
       expect.any(Function),
       expect.any(Function),
