@@ -70,7 +70,6 @@ class GroupUnreadFeed extends Component {
           <CelebrateFeed
             organization={organization}
             items={items}
-            loadMoreItemsCallback={this.loadItems}
             refreshCallback={this.refreshItems}
             refreshing={refreshing}
             itemNamePressable={true}
