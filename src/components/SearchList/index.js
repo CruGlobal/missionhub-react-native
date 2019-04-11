@@ -10,7 +10,7 @@ import theme from '../../theme';
 
 import styles from './styles';
 
-@withTranslation('search', { withRef: true })
+@withTranslation('search')
 class SearchList extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +23,12 @@ class SearchList extends Component {
     };
 
     this.handleSearchDebounced = debounce(this.handleSearch, 300);
+  }
+
+  componentDidMount() {
+    const { setSearch } = this.props;
+    // Share search instance with parent
+    setSearch && setSearch(this.search);
   }
 
   // Kick off search from an outer component using refs
