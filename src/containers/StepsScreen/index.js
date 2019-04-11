@@ -5,7 +5,7 @@ import { View, Image, ScrollView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import debounce from 'lodash/debounce';
-import { Query } from 'react-apollo';
+import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import { loadHome } from '../../actions/auth/userData';
@@ -31,6 +31,7 @@ import {
   RefreshControl,
   LoadingGuy,
 } from '../../components/common';
+import BottomButton from '../../components/BottomButton';
 import StepItem from '../../components/StepItem';
 import FooterLoading from '../../components/FooterLoading';
 import Header from '../../components/Header';
@@ -68,6 +69,7 @@ export class StepsScreen extends Component {
       //addedReminder: props.reminders && props.reminders.length > 0,
       overscrollUp: false,
       paging: false,
+      loaded: false,
     };
 
     this.getSteps = this.getSteps.bind(this);
@@ -81,11 +83,16 @@ export class StepsScreen extends Component {
 
   componentDidMount() {
     // For some reason, when the user logs out, this gets mounted again
-    this.props.dispatch(loadHome());
+    //this.props.dispatch(loadHome());
+    console.log('mounted');
+
+    setTimeout(() => {
+      this.setState({ loaded: true });
+    }, 2000);
   }
 
   getSteps() {
-    return this.props.dispatch(getMySteps());
+    // return this.props.dispatch(getMySteps());
   }
 
   handleRowSelect(step) {
@@ -356,6 +363,7 @@ export class StepsScreen extends Component {
         >
           {({ loading, error, data }) => {
             if (loading) {
+              console.log('loading on steps screen');
               return <LoadingGuy />;
             }
             if (error) {
@@ -366,6 +374,49 @@ export class StepsScreen extends Component {
             return this.renderSteps(data.person.acceptedChallenges);
           }}
         </Query>
+        <Mutation
+          context={{
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }}
+          mutation={gql`
+            mutation CreateAcceptedChallenge(
+              $title: String!
+              $receiverId: ID!
+            ) {
+              createAcceptedChallenge(
+                input: { title: $title, receiverId: $receiverId }
+              ) {
+                comment
+              }
+            }
+          `}
+        >
+          {(createAcceptedChallenge, { loading, error, called, data }) => {
+            if (error) {
+              console.log(error);
+            }
+
+            if (called) {
+              console.log('called');
+            }
+
+            return (
+              <BottomButton
+                text="Le Dummy"
+                onPress={() =>
+                  createAcceptedChallenge({
+                    variables: {
+                      title: 'Take a step with Roge',
+                      receiverId: '2',
+                    },
+                  })
+                }
+              />
+            );
+          }}
+        </Mutation>
       </View>
     );
   }
