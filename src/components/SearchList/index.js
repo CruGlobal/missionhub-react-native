@@ -10,7 +10,7 @@ import theme from '../../theme';
 
 import styles from './styles';
 
-@withTranslation('search', { withRef: true, wait: true })
+@withTranslation('search', { withRef: true })
 class SearchList extends Component {
   constructor(props) {
     super(props);
