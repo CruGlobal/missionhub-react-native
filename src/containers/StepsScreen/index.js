@@ -15,7 +15,7 @@ import {
   setStepFocus,
   getMyStepsNextPage,
 } from '../../actions/steps';
-import { updateCommentsNotification } from '../../actions/organizations';
+import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigatePush } from '../../actions/navigation';
 import {
   reminderStepsSelector,
@@ -130,7 +130,7 @@ export class StepsScreen extends Component {
   }
 
   handleRefresh() {
-    this.props.dispatch(updateCommentsNotification());
+    this.props.dispatch(checkForUnreadComments());
     refresh(this, this.getSteps);
   }
 
