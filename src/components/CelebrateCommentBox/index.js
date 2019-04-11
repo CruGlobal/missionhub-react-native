@@ -18,15 +18,17 @@ class CelebrateCommentBox extends Component {
     this.cancel();
   }
 
-  submitComment = (action, text) => {
-    const { dispatch, event, editingComment } = this.props;
+  submitComment = async (action, text) => {
+    const { dispatch, event, editingComment, onAddComplete } = this.props;
 
     if (editingComment) {
       this.cancel();
       return dispatch(updateCelebrateComment(editingComment, text));
     }
 
-    return dispatch(createCelebrateComment(event, text));
+    const results = await dispatch(createCelebrateComment(event, text));
+    onAddComplete & onAddComplete();
+    return results;
   };
 
   cancel = () => {
@@ -50,6 +52,7 @@ class CelebrateCommentBox extends Component {
 CelebrateCommentBox.propTypes = {
   event: PropTypes.object.isRequired,
   editingComment: PropTypes.object,
+  onAddComplete: PropTypes.func,
 };
 
 const mapStateToProps = ({ organizations, celebrateComments }, { event }) => ({

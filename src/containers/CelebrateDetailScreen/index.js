@@ -1,12 +1,6 @@
+/* eslint max-params: 0 */
 import React, { Component } from 'react';
-import {
-  Image,
-  View,
-  SafeAreaView,
-  StatusBar,
-  ScrollView,
-  Alert,
-} from 'react-native';
+import { Image, View, SafeAreaView, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
@@ -27,6 +21,7 @@ import TRAILS2 from '../../../assets/images/TrailGrey.png';
 import { refresh, keyboardShow } from '../../utils/common';
 import { reloadCelebrateComments } from '../../actions/celebrateComments';
 import { RefreshControl } from '../../components/common';
+import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 
 import styles from './styles';
 
@@ -42,7 +37,65 @@ class CelebrateDetailScreen extends Component {
   }
 
   keyboardShow = () => {
-    this.list.getScrollResponder().scrollTo({ y: 400 });
+    const {
+      celebrateComments: { comments },
+      editingCommentId,
+    } = this.props;
+    const { parallaxHeaderHeight, headerHeight } = theme;
+
+    const scrollResponder = this.list.getScrollResponder();
+
+    // Need to at least scroll down to show the condensed sticky header
+    const minScroll = parallaxHeaderHeight - headerHeight;
+    // Get the comment refs from the <CommentsList> component wrappen in 'connect' and '@translate'
+    const commentRefs = this.commentsList
+      .getWrappedInstance()
+      .getWrappedInstance()
+      .getItemRefs();
+    const lastComment = comments[comments.length - 1] || {};
+
+    // Get the comment that we want to focus on
+    const focusCommentRef =
+      editingCommentId && commentRefs[editingCommentId]
+        ? commentRefs[editingCommentId]
+        : commentRefs[lastComment.id];
+
+    if (
+      focusCommentRef &&
+      focusCommentRef.getWrappedInstance &&
+      focusCommentRef.getWrappedInstance().view
+    ) {
+      // Need to wrap in set timeout to let the keyboard come up before running all calculations
+      setTimeout(() => {
+        // Get the <Comment> View ref to calculate its position on screen
+        focusCommentRef
+          .getWrappedInstance()
+          .view.measure((fx, fy, width, height, pageX, pageY) => {
+            // https://facebook.github.io/react-native/docs/direct-manipulation.html#measurecallback
+            // Get the scrollviews ref to measure the total height on the scroll view
+            scrollResponder._scrollViewRef.measure(
+              (sfx, sfy, swidth, sheight) => {
+                const scrollTo = Math.max(
+                  minScroll,
+                  pageY - height - headerHeight,
+                );
+                // If the calculated "scrollTo" is greater than the scroll view height, just scroll to end
+                if (scrollTo > sheight) {
+                  scrollResponder.scrollToEnd();
+                } else {
+                  scrollResponder.scrollTo({ y: scrollTo });
+                }
+              },
+            );
+          });
+      }, 1);
+    } else {
+      scrollResponder.scrollTo({ y: minScroll });
+    }
+  };
+
+  addComplete = () => {
+    // TODO: Find latest comment id, get the ref, then scroll to it
   };
 
   refreshComments = () => {
@@ -100,6 +153,7 @@ class CelebrateDetailScreen extends Component {
   };
 
   listRef = c => (this.list = c);
+  commentsListRef = c => (this.commentsList = c);
 
   render() {
     const { event } = this.props;
@@ -136,13 +190,14 @@ class CelebrateDetailScreen extends Component {
               <Image source={TRAILS1} style={styles.trailsTop} />
               <Image source={TRAILS2} style={styles.trailsBottom} />
               <CommentsList
+                ref={this.commentsListRef}
                 event={event}
                 organizationId={event.organization.id}
               />
             </View>
           </ParallaxScrollView>
         </View>
-        <CelebrateCommentBox event={event} />
+        <CelebrateCommentBox event={event} onAddComplete={this.addComplete} />
       </SafeAreaView>
     );
   }
@@ -153,7 +208,7 @@ CelebrateDetailScreen.propTypes = {
 };
 
 const mapStateToProps = (
-  { organizations },
+  { organizations, celebrateComments },
   {
     navigation: {
       state: {
@@ -171,6 +226,11 @@ const mapStateToProps = (
     { organizations },
     { orgId: event.organization.id },
   ),
+  celebrateComments: celebrateCommentsSelector(
+    { celebrateComments },
+    { eventId: event.id },
+  ),
+  editingCommentId: celebrateComments.editingCommentId,
 });
 export default connect(mapStateToProps)(CelebrateDetailScreen);
 export const CELEBRATE_DETAIL_SCREEN = 'nav/CELEBRATE_DETAIL_SCREEN';
