@@ -232,6 +232,22 @@ function organizationsReducer(state = initialState, action) {
       return updateAllPersonInstances(action.person, state);
     case REQUESTS.GET_ME.SUCCESS:
       return updateAllPersonInstances(action.results.response, state);
+    case REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION.SUCCESS:
+      const commentCounts = action.results.response.organizational_permissions.reduce(
+        (acc, { organization: { id, unread_comments_count } }) => ({
+          ...acc,
+          [id]: unread_comments_count,
+        }),
+        {},
+      );
+      console.log(commentCounts);
+      return {
+        ...state,
+        all: state.all.map(o => ({
+          ...o,
+          unread_comments_count: commentCounts[o.id] || o.unread_comments_count,
+        })),
+      };
     case REMOVE_ORGANIZATION_MEMBER:
       const { personId, orgId } = action;
 
