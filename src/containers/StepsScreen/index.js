@@ -315,7 +315,7 @@ export class StepsScreen extends Component {
   openMainMenu = () => this.props.dispatch(openMainMenu());
 
   render() {
-    const { t, steps, token } = this.props;
+    const { t, steps, token, myId } = this.props;
 
     return (
       <View style={{ flex: 1 }}>
@@ -403,12 +403,12 @@ export class StepsScreen extends Component {
 
             return (
               <BottomButton
-                text="Le Dummy"
+                text="Add a step"
                 onPress={() =>
                   createAcceptedChallenge({
                     variables: {
                       title: 'Take a step with Roge',
-                      receiverId: '2',
+                      receiverId: myId,
                     },
                   })
                 }
@@ -427,6 +427,7 @@ export const mapStateToProps = ({ steps, people, notifications, auth }) => ({
   hasMoreSteps: steps.pagination.hasNextPage,
   pushtoken: notifications.token,
   token: auth.token,
+  myId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(StepsScreen);
