@@ -51,7 +51,7 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
         }
       }
     />
-    <Translate(GroupsPersonHeader)
+    <withI18nextTranslation(GroupsPersonHeader)
       dispatch={
         [MockFunction] {
           "calls": Array [

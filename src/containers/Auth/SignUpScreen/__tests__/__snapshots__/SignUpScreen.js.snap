@@ -150,7 +150,7 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
             </MyText>
           </Flex>
         </Button>
-        <Translate(TosPrivacy) />
+        <withI18nextTranslation(TosPrivacy) />
       </Flex>
       <Flex
         align="end"
@@ -348,7 +348,7 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
             </MyText>
           </Flex>
         </Button>
-        <Translate(TosPrivacy) />
+        <withI18nextTranslation(TosPrivacy) />
       </Flex>
       <Flex
         align="end"

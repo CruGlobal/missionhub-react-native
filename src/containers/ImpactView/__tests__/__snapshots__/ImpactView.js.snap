@@ -4103,7 +4103,7 @@ exports[`ImpactView group impact renders empty state 1`] = `
     }
   }
 >
-  <Connect(Translate(OnboardingCard))
+  <Connect(withI18nextTranslation(OnboardingCard))
     type="impact"
   />
   <Flex
@@ -4722,7 +4722,7 @@ exports[`ImpactView group impact renders plural state 1`] = `
     }
   }
 >
-  <Connect(Translate(OnboardingCard))
+  <Connect(withI18nextTranslation(OnboardingCard))
     type="impact"
   />
   <Flex
@@ -5341,7 +5341,7 @@ exports[`ImpactView group impact renders singular state 1`] = `
     }
   }
 >
-  <Connect(Translate(OnboardingCard))
+  <Connect(withI18nextTranslation(OnboardingCard))
     type="impact"
   />
   <Flex
@@ -6324,7 +6324,7 @@ exports[`ImpactView user-created group impact renders empty state 1`] = `
     }
   }
 >
-  <Connect(Translate(OnboardingCard))
+  <Connect(withI18nextTranslation(OnboardingCard))
     type="impact"
   />
   <Flex
@@ -6399,7 +6399,7 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
     }
   }
 >
-  <Connect(Translate(OnboardingCard))
+  <Connect(withI18nextTranslation(OnboardingCard))
     type="impact"
   />
   <Flex
@@ -6476,7 +6476,7 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
     }
   }
 >
-  <Connect(Translate(OnboardingCard))
+  <Connect(withI18nextTranslation(OnboardingCard))
     type="impact"
   />
   <Flex

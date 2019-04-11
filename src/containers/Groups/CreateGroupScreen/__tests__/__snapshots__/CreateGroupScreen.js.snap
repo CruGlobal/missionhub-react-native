@@ -37,7 +37,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
         }
       }
     >
-      <Translate(ImagePicker)
+      <withI18nextTranslation(ImagePicker)
         onSelectImage={[Function]}
       >
         <Flex
@@ -61,7 +61,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
             }
           />
         </Flex>
-      </Translate(ImagePicker)>
+      </withI18nextTranslation(ImagePicker)>
       <KeyboardAvoidingView
         enabled={true}
         keyboardVerticalOffset={60}
@@ -159,7 +159,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
         }
       }
     >
-      <Translate(ImagePicker)
+      <withI18nextTranslation(ImagePicker)
         onSelectImage={[Function]}
       >
         <Flex
@@ -191,7 +191,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
             }
           />
         </Flex>
-      </Translate(ImagePicker)>
+      </withI18nextTranslation(ImagePicker)>
       <KeyboardAvoidingView
         enabled={true}
         keyboardVerticalOffset={60}

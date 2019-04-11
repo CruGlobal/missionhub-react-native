@@ -19,7 +19,7 @@ exports[`Impact Screen renders correctly 1`] = `
     shadow={true}
     title="IMPACT"
   />
-  <Connect(Translate(ImpactView))
+  <Connect(withI18nextTranslation(ImpactView))
     person={
       Object {
         "first_name": "Fname",

@@ -3,7 +3,7 @@
 exports[`with comments with next page renders correctly 1`] = `
 <FlatList
   ListFooterComponent={
-    <Translate(LoadMore)
+    <withI18nextTranslation(LoadMore)
       onPress={[Function]}
     />
   }

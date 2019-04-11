@@ -85,7 +85,7 @@ exports[`with enableBackButton renders correctly 1`] = `
     renderStickyHeader={[Function]}
     stickyHeaderHeight={65}
   >
-    <Connect(Translate(StepsList))
+    <Connect(withI18nextTranslation(StepsList))
       contactName="roger"
       contactStageId="3"
       next={[MockFunction]}
@@ -131,7 +131,7 @@ exports[`without enableBackButton renders correctly 1`] = `
     renderStickyHeader={[Function]}
     stickyHeaderHeight={65}
   >
-    <Connect(Translate(StepsList))
+    <Connect(withI18nextTranslation(StepsList))
       contactName="roger"
       contactStageId="3"
       next={[MockFunction]}

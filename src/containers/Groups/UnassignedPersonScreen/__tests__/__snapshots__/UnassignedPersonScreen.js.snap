@@ -24,7 +24,7 @@ exports[`Contact should render correctly 1`] = `
       }
     }
   >
-    <Translate(GroupsContactList)
+    <withI18nextTranslation(GroupsContactList)
       activity={Array []}
       myId="me"
       onAssign={[MockFunction]}

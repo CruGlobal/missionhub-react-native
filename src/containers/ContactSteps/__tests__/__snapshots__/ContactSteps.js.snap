@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renderItem renders row 1`] = `
-<Connect(Translate(AcceptedStepItem))
+<Connect(withI18nextTranslation(AcceptedStepItem))
   onComplete={[Function]}
   step={
     Object {

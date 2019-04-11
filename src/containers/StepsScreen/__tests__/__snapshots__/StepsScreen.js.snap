@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StepsScreen arrow functions should render item correctly 1`] = `
-<Connect(Translate(StepItem))
+<Connect(withI18nextTranslation(StepItem))
   hideAction={true}
   onAction={[Function]}
   onSelect={[Function]}
@@ -423,7 +423,7 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
           ]
         }
       >
-        <Connect(Translate(StepItem))
+        <Connect(withI18nextTranslation(StepItem))
           key="1"
           onAction={[Function]}
           onSelect={[Function]}
@@ -435,7 +435,7 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
           }
           type="reminder"
         />
-        <Connect(Translate(StepItem))
+        <Connect(withI18nextTranslation(StepItem))
           key="2"
           onAction={[Function]}
           onSelect={[Function]}
@@ -961,7 +961,7 @@ Choose a person in People view and add some new steps.
         </MyText>
       </Flex>
     </ScrollViewMock>
-    <Connect(Translate(TakeAStepWithSomeoneButton)) />
+    <Connect(withI18nextTranslation(TakeAStepWithSomeoneButton)) />
   </View>
 </View>
 `;

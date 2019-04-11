@@ -34,7 +34,7 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-      <Connect(Translate(AddContactFields))
+      <Connect(withI18nextTranslation(AddContactFields))
         onUpdateData={[Function]}
       />
     </ScrollViewMock>

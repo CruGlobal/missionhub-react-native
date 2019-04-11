@@ -103,7 +103,7 @@ exports[`render 0 contacts 1`] = `
           </MyText>
         </MyText>
       </Flex>
-      <Translate(ShareSurveyMenu)
+      <withI18nextTranslation(ShareSurveyMenu)
         survey={
           Object {
             "contacts_count": 0,
@@ -212,7 +212,7 @@ exports[`render 0 unassigned 1`] = `
           </MyText>
         </MyText>
       </Flex>
-      <Translate(ShareSurveyMenu)
+      <withI18nextTranslation(ShareSurveyMenu)
         survey={
           Object {
             "contacts_count": 50,
@@ -298,7 +298,7 @@ exports[`render 0 unassigned and 0 uncontacted 1`] = `
           </MyText>
         </MyText>
       </Flex>
-      <Translate(ShareSurveyMenu)
+      <withI18nextTranslation(ShareSurveyMenu)
         survey={
           Object {
             "contacts_count": 50,
@@ -407,7 +407,7 @@ exports[`render 0 uncontacted 1`] = `
           </MyText>
         </MyText>
       </Flex>
-      <Translate(ShareSurveyMenu)
+      <withI18nextTranslation(ShareSurveyMenu)
         survey={
           Object {
             "contacts_count": 50,
@@ -539,7 +539,7 @@ exports[`render survey 1`] = `
           </MyText>
         </MyText>
       </Flex>
-      <Translate(ShareSurveyMenu)
+      <withI18nextTranslation(ShareSurveyMenu)
         survey={
           Object {
             "contacts_count": 50,

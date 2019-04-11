@@ -10,7 +10,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
     }
   }
 >
-  <Translate(ImagePicker)
+  <withI18nextTranslation(ImagePicker)
     onSelectImage={[Function]}
   >
     <Flex
@@ -46,7 +46,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
         />
       </Flex>
     </Flex>
-  </Translate(ImagePicker)>
+  </withI18nextTranslation(ImagePicker)>
   <ScrollViewMock
     keyboardShouldPersistTaps="handled"
     style={
@@ -156,7 +156,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
         >
           Created
         </MyText>
-        <Translate(DateComponent)
+        <withI18nextTranslation(DateComponent)
           date="2018-11-06T12:00:00Z"
           format="LL"
           style={
@@ -515,7 +515,7 @@ exports[`GroupProfile renders correctly 1`] = `
         >
           Created
         </MyText>
-        <Translate(DateComponent)
+        <withI18nextTranslation(DateComponent)
           date="2018-11-06T12:00:00Z"
           format="LL"
           style={
@@ -864,7 +864,7 @@ exports[`GroupProfile renders with image 1`] = `
         >
           Created
         </MyText>
-        <Translate(DateComponent)
+        <withI18nextTranslation(DateComponent)
           date="2018-11-06T12:00:00Z"
           format="LL"
           style={
@@ -1213,7 +1213,7 @@ exports[`GroupProfile renders without edit button 1`] = `
         >
           Created
         </MyText>
-        <Translate(DateComponent)
+        <withI18nextTranslation(DateComponent)
           date="2018-11-06T12:00:00Z"
           format="LL"
           style={

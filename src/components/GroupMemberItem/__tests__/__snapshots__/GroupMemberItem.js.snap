@@ -185,7 +185,7 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
         </MyText>
       </Flex>
     </Flex>
-    <Connect(Translate(MemberOptionsMenu))
+    <Connect(withI18nextTranslation(MemberOptionsMenu))
       iAmAdmin={true}
       iAmOwner={false}
       myId="1"
@@ -274,7 +274,7 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
         </MyText>
       </Flex>
     </Flex>
-    <Connect(Translate(MemberOptionsMenu))
+    <Connect(withI18nextTranslation(MemberOptionsMenu))
       iAmAdmin={false}
       iAmOwner={false}
       myId="1"

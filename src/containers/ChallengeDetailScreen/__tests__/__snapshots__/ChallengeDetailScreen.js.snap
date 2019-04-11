@@ -25,7 +25,7 @@ exports[`should render completed challenge correctly 1`] = `
       }
     }
   />
-  <Translate(ChallengeDetailHeader)
+  <withI18nextTranslation(ChallengeDetailHeader)
     canEditChallenges={true}
     challenge={
       Object {
@@ -91,7 +91,7 @@ exports[`should render joined challenge correctly 1`] = `
       }
     }
   />
-  <Translate(ChallengeDetailHeader)
+  <withI18nextTranslation(ChallengeDetailHeader)
     canEditChallenges={true}
     challenge={
       Object {
@@ -172,7 +172,7 @@ exports[`should render unjoined challenge correctly 1`] = `
       }
     }
   />
-  <Translate(ChallengeDetailHeader)
+  <withI18nextTranslation(ChallengeDetailHeader)
     canEditChallenges={true}
     challenge={
       Object {
@@ -238,7 +238,7 @@ exports[`should render without edit correctly 1`] = `
       }
     }
   />
-  <Translate(ChallengeDetailHeader)
+  <withI18nextTranslation(ChallengeDetailHeader)
     canEditChallenges={false}
     challenge={
       Object {

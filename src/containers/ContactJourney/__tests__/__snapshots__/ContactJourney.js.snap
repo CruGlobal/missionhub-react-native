@@ -245,7 +245,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
 `;
 
 exports[`journey methods renders a stage change row 1`] = `
-<Translate(JourneyItem)
+<withI18nextTranslation(JourneyItem)
   item={
     Object {
       "_type": "pathway_progression_audit",
@@ -258,7 +258,7 @@ exports[`journey methods renders a stage change row 1`] = `
 `;
 
 exports[`journey methods renders a step row 1`] = `
-<Translate(RowSwipeable)
+<withI18nextTranslation(RowSwipeable)
   bump={false}
   editPressProps={
     Array [
@@ -271,7 +271,7 @@ exports[`journey methods renders a step row 1`] = `
   }
   onEdit={[Function]}
 >
-  <Translate(JourneyItem)
+  <withI18nextTranslation(JourneyItem)
     item={
       Object {
         "_type": "accepted_challenge",
@@ -282,11 +282,11 @@ exports[`journey methods renders a step row 1`] = `
     myId="123"
     personFirstName="ben"
   />
-</Translate(RowSwipeable)>
+</withI18nextTranslation(RowSwipeable)>
 `;
 
 exports[`journey methods renders a survey row 1`] = `
-<Translate(JourneyItem)
+<withI18nextTranslation(JourneyItem)
   item={
     Object {
       "_type": "answer_sheet",
@@ -300,7 +300,7 @@ exports[`journey methods renders a survey row 1`] = `
 `;
 
 exports[`journey methods renders an interaction row 1`] = `
-<Translate(RowSwipeable)
+<withI18nextTranslation(RowSwipeable)
   bump={false}
   editPressProps={
     Array [
@@ -313,7 +313,7 @@ exports[`journey methods renders an interaction row 1`] = `
   }
   onEdit={[Function]}
 >
-  <Translate(JourneyItem)
+  <withI18nextTranslation(JourneyItem)
     item={
       Object {
         "_type": "interaction",
@@ -324,7 +324,7 @@ exports[`journey methods renders an interaction row 1`] = `
     myId="123"
     personFirstName="ben"
   />
-</Translate(RowSwipeable)>
+</withI18nextTranslation(RowSwipeable)>
 `;
 
 exports[`journey methods should render item separator 1`] = `<Separator />`;
