@@ -388,6 +388,7 @@ export class StepsScreen extends Component {
                 input: { title: $title, receiverId: $receiverId }
               ) {
                 comment
+                errors
               }
             }
           `}
