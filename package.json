@@ -30,6 +30,7 @@
     "precommit": "pretty-quick --staged"
   },
   "dependencies": {
+    "@babel/runtime": "^7.4.3",
     "@ringierag/snowplow-reactjs-native-tracker": "^0.0.4",
     "base64-url": "^2.2.1",
     "buffer": "^5.2.1",
