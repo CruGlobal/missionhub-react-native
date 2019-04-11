@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import { reactI18nextModule } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 import DeviceInfo from 'react-native-device-info';
 import mapValues from 'lodash/mapValues';
 
@@ -16,7 +16,7 @@ const languageDetector = {
 
 i18n
   .use(languageDetector)
-  .use(reactI18nextModule)
+  .use(initReactI18next)
   .init({
     fallbackLng: 'en-US',
 

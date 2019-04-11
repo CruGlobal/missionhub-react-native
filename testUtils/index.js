@@ -26,7 +26,9 @@ export const renderShallow = (component, store = createThunkStore()) => {
 
   // If component has translation wrappers, dive deeper
   while (
-    (renderedComponent.type().displayName || '').startsWith('Translate(') ||
+    (renderedComponent.type().displayName || '').startsWith(
+      'withI18nextTranslation(',
+    ) ||
     renderedComponent.is('Translate') ||
     (renderedComponent.type().displayName || '').startsWith('I18n(') ||
     renderedComponent.is('I18n')
