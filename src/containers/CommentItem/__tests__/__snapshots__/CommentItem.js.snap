@@ -17,7 +17,7 @@ exports[`renders correctly 1`] = `
     align="end"
     direction="row"
   >
-    <Connect(Translate(CelebrateItemName))
+    <Connect(withI18nextTranslation(CelebrateItemName))
       customContent={
         <MyText
           style={
@@ -181,7 +181,7 @@ exports[`renders editing correctly 1`] = `
     align="end"
     direction="row"
   >
-    <Connect(Translate(CelebrateItemName))
+    <Connect(withI18nextTranslation(CelebrateItemName))
       customContent={
         <MyText
           style={
@@ -344,7 +344,7 @@ exports[`renders reported comment 1`] = `
     align="end"
     direction="row"
   >
-    <Connect(Translate(CelebrateItemName))
+    <Connect(withI18nextTranslation(CelebrateItemName))
       customContent={
         <MyText
           style={

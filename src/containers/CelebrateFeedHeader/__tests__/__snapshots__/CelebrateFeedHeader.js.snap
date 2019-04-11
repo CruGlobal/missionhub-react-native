@@ -33,7 +33,7 @@ exports[`admin renders admin of cru org with 1 reported comment 1`] = `
 
 exports[`admin renders admin of global org 1`] = `
 <Fragment>
-  <Connect(Translate(OnboardingCard))
+  <Connect(withI18nextTranslation(OnboardingCard))
     type="celebrate"
   />
 </Fragment>
@@ -101,7 +101,7 @@ exports[`cru community org renders user 1`] = `
 
 exports[`global community org renders user 1`] = `
 <Fragment>
-  <Connect(Translate(OnboardingCard))
+  <Connect(withI18nextTranslation(OnboardingCard))
     type="celebrate"
   />
 </Fragment>
@@ -231,7 +231,7 @@ exports[`unread comments card renders comment card 1`] = `
 
 exports[`unread comments card renders no comment card when global org 1`] = `
 <Fragment>
-  <Connect(Translate(OnboardingCard))
+  <Connect(withI18nextTranslation(OnboardingCard))
     type="celebrate"
   />
 </Fragment>
@@ -239,7 +239,7 @@ exports[`unread comments card renders no comment card when global org 1`] = `
 
 exports[`unread comments card renders no comment card when no new comments 1`] = `
 <Fragment>
-  <Connect(Translate(OnboardingCard))
+  <Connect(withI18nextTranslation(OnboardingCard))
     type="celebrate"
   />
   <Flex

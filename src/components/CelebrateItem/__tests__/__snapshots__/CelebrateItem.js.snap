@@ -31,7 +31,7 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -146,7 +146,7 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -261,7 +261,7 @@ exports[`CelebrateItem message renders created community event 1`] = `
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             organization={
               Object {
@@ -360,7 +360,7 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name={null}
             person={null}
           />
@@ -442,7 +442,7 @@ exports[`CelebrateItem message renders joined community event 1`] = `
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             organization={
               Object {
@@ -541,7 +541,7 @@ exports[`CelebrateItem message renders joined community with passed in org name 
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             organization={
               Object {
@@ -641,7 +641,7 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -733,7 +733,7 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -825,7 +825,7 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1009,7 +1009,7 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1101,7 +1101,7 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1192,7 +1192,7 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1280,7 +1280,7 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1368,7 +1368,7 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1456,7 +1456,7 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1544,7 +1544,7 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1632,7 +1632,7 @@ exports[`CelebrateItem renders event with no subject person (global community ev
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
           />
           <CardTime
@@ -1706,7 +1706,7 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name={null}
           />
           <CardTime

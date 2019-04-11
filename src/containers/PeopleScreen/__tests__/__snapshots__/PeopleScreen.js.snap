@@ -131,7 +131,7 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
     shadow={true}
     title="PEOPLE"
   />
-  <Translate(PeopleList)
+  <withI18nextTranslation(PeopleList)
     items={
       Array [
         Object {
@@ -187,7 +187,7 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
     shadow={false}
     title="PEOPLE"
   />
-  <Translate(PeopleList)
+  <withI18nextTranslation(PeopleList)
     items={
       Array [
         Object {
@@ -272,7 +272,7 @@ exports[`PeopleScreen renders empty correctly 1`] = `
     shadow={true}
     title="PEOPLE"
   />
-  <Translate(PeopleList)
+  <withI18nextTranslation(PeopleList)
     items={
       Array [
         Object {
@@ -286,6 +286,6 @@ exports[`PeopleScreen renders empty correctly 1`] = `
     refreshing={false}
     sections={false}
   />
-  <Connect(Translate(TakeAStepWithSomeoneButton)) />
+  <Connect(withI18nextTranslation(TakeAStepWithSomeoneButton)) />
 </View>
 `;

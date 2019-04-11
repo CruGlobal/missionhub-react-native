@@ -142,7 +142,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
 `;
 
 exports[`GroupsListScreen should render item 1`] = `
-<Translate(GroupCardItem)
+<withI18nextTranslation(GroupCardItem)
   group={
     Object {
       "id": "1",

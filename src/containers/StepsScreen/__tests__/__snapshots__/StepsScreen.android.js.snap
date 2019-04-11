@@ -78,7 +78,7 @@ exports[`renders android correctly 1`] = `
           ]
         }
       >
-        <Connect(Translate(StepItem))
+        <Connect(withI18nextTranslation(StepItem))
           key="1"
           onAction={[Function]}
           onSelect={[Function]}

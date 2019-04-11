@@ -1,53 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`contact notes and editing is set to true button message changes to DONE 1`] = `
-<_class
-  emulateUnlessSupported={true}
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
->
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
-      }
-    }
-    value={1}
-  >
-    <Input
-      autoCorrect={true}
-      autoGrow={false}
-      blurOnSubmit={false}
-      editable={true}
-      multiline={true}
-      onChangeText={[Function]}
-      style={
-        Object {
-          "borderBottomWidth": 0,
-          "color": "#505256",
-          "fontSize": 16,
-          "marginTop": 30,
-          "paddingBottom": 30,
-          "paddingHorizontal": 36,
-          "textAlign": "left",
-        }
-      }
-    />
-  </Flex>
-  <BottomButton
-    onPress={[Function]}
-    text="Done"
-  />
-</_class>
-`;
-
-exports[`contact notes icon and prompt are shown if no notes 1`] = `
-<_class
+<RCTSafeAreaView
   emulateUnlessSupported={true}
   style={
     Object {
@@ -69,11 +23,37 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
     onPress={[Function]}
     text="ADD PRIVATE NOTES"
   />
-</_class>
+</RCTSafeAreaView>
+`;
+
+exports[`contact notes icon and prompt are shown if no notes 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <NullStateComponent
+    descriptionText="Remember important details about Roger, like favorite food, hobbies they love or something interesting they said."
+    headerText="MY NOTES"
+    imageSource={
+      Object {
+        "testUri": "../../../assets/images/myNotes.png",
+      }
+    }
+  />
+  <BottomButton
+    onPress={[Function]}
+    text="ADD PRIVATE NOTES"
+  />
+</RCTSafeAreaView>
 `;
 
 exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
-<_class
+<RCTSafeAreaView
   emulateUnlessSupported={true}
   style={
     Object {
@@ -95,11 +75,11 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
     onPress={[Function]}
     text="ADD PRIVATE NOTES"
   />
-</_class>
+</RCTSafeAreaView>
 `;
 
 exports[`contact notes notes are shown 1`] = `
-<_class
+<RCTSafeAreaView
   emulateUnlessSupported={true}
   style={
     Object {
@@ -108,36 +88,18 @@ exports[`contact notes notes are shown 1`] = `
     }
   }
 >
-  <Flex
-    style={
+  <NullStateComponent
+    descriptionText="Remember important details about Roger, like favorite food, hobbies they love or something interesting they said."
+    headerText="MY NOTES"
+    imageSource={
       Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
+        "testUri": "../../../assets/images/myNotes.png",
       }
     }
-    value={1}
-  >
-    <ScrollViewMock>
-      <MyText
-        style={
-          Object {
-            "borderBottomWidth": 0,
-            "color": "#505256",
-            "fontSize": 16,
-            "marginTop": 30,
-            "paddingBottom": 30,
-            "paddingHorizontal": 36,
-            "textAlign": "left",
-          }
-        }
-      >
-        Hello, Roge! Here are some notes.
-      </MyText>
-    </ScrollViewMock>
-  </Flex>
+  />
   <BottomButton
     onPress={[Function]}
-    text="EDIT PRIVATE NOTES"
+    text="ADD PRIVATE NOTES"
   />
-</_class>
+</RCTSafeAreaView>
 `;

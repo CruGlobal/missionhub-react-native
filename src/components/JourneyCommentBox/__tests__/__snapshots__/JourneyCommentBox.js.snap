@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<Translate(CommentBox)
+<withI18nextTranslation(CommentBox)
   hideActions={true}
   onSubmit={[Function]}
   placeholderTextKey="actions:commentBoxPlaceholder"

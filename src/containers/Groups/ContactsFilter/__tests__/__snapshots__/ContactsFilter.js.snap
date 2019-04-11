@@ -21,7 +21,7 @@ exports[`ContactsFilter should render correctly 1`] = `
       }
     }
   >
-    <Translate(FilterItem)
+    <withI18nextTranslation(FilterItem)
       item={
         Object {
           "id": "labels",
@@ -34,7 +34,7 @@ exports[`ContactsFilter should render correctly 1`] = `
       onSelect={[Function]}
       type="drilldown"
     />
-    <Translate(FilterItem)
+    <withI18nextTranslation(FilterItem)
       item={
         Object {
           "id": "gender",
@@ -60,7 +60,7 @@ exports[`ContactsFilter should render correctly 1`] = `
       onSelect={[Function]}
       type="drilldown"
     />
-    <Translate(FilterItem)
+    <withI18nextTranslation(FilterItem)
       isSelected={false}
       item={
         Object {
@@ -73,7 +73,7 @@ exports[`ContactsFilter should render correctly 1`] = `
       onSelect={[Function]}
       type="switch"
     />
-    <Translate(FilterItem)
+    <withI18nextTranslation(FilterItem)
       isSelected={true}
       item={
         Object {
@@ -86,7 +86,7 @@ exports[`ContactsFilter should render correctly 1`] = `
       onSelect={[Function]}
       type="switch"
     />
-    <Translate(FilterItem)
+    <withI18nextTranslation(FilterItem)
       isSelected={false}
       item={
         Object {

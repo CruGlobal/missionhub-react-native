@@ -1303,7 +1303,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
 `;
 
 exports[`renderForeground renders correctly 1`] = `
-<Connect(Translate(CelebrateItem))
+<Connect(withI18nextTranslation(CelebrateItem))
   cardStyle={
     Object {
       "elevation": 0,
@@ -1485,7 +1485,7 @@ exports[`renders correctly 1`] = `
             }
           }
         />
-        <Connect(Translate(CommentsList))
+        <Connect(withI18nextTranslation(CommentsList))
           event={
             Object {
               "changed_attribute_value": "2019-04-11T13:51:49.888",

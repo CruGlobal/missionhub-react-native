@@ -43,7 +43,7 @@ exports[`render active and joined and completed challenge item 1`] = `
         >
           Read "There and Back Again"
         </MyText>
-        <Translate(ChallengeStats)
+        <withI18nextTranslation(ChallengeStats)
           challenge={
             Object {
               "accepted_count": 5,
@@ -133,7 +133,7 @@ exports[`render active and joined challenge item 1`] = `
         >
           Read "There and Back Again"
         </MyText>
-        <Translate(ChallengeStats)
+        <withI18nextTranslation(ChallengeStats)
           challenge={
             Object {
               "accepted_count": 5,
@@ -227,7 +227,7 @@ exports[`render active and joined challenge item with edit 1`] = `
         >
           Read "There and Back Again"
         </MyText>
-        <Translate(ChallengeStats)
+        <withI18nextTranslation(ChallengeStats)
           challenge={
             Object {
               "accepted_count": 5,
@@ -321,7 +321,7 @@ exports[`render active challenge item 1`] = `
         >
           Read "There and Back Again"
         </MyText>
-        <Translate(ChallengeStats)
+        <withI18nextTranslation(ChallengeStats)
           challenge={
             Object {
               "accepted_count": 5,
@@ -415,7 +415,7 @@ exports[`render active challenge item with edit 1`] = `
         >
           Read "There and Back Again"
         </MyText>
-        <Translate(ChallengeStats)
+        <withI18nextTranslation(ChallengeStats)
           challenge={
             Object {
               "accepted_count": 5,
@@ -509,7 +509,7 @@ exports[`render past and joined and completed challenge item 1`] = `
         >
           Read "There and Back Again"
         </MyText>
-        <Translate(ChallengeStats)
+        <withI18nextTranslation(ChallengeStats)
           challenge={
             Object {
               "accepted_count": 5,
@@ -599,7 +599,7 @@ exports[`render past and joined challenge item 1`] = `
         >
           Read "There and Back Again"
         </MyText>
-        <Translate(ChallengeStats)
+        <withI18nextTranslation(ChallengeStats)
           challenge={
             Object {
               "accepted_count": 5,
@@ -674,7 +674,7 @@ exports[`render past challenge item 1`] = `
         >
           Read "There and Back Again"
         </MyText>
-        <Translate(ChallengeStats)
+        <withI18nextTranslation(ChallengeStats)
           challenge={
             Object {
               "accepted_count": 5,

@@ -588,7 +588,7 @@ exports[`renders with actions and selected action 1`] = `
           }
           value={4}
         >
-          <Translate(DateComponent)
+          <withI18nextTranslation(DateComponent)
             date={2017-06-18T00:00:00.000Z}
             format="LL"
             style={
@@ -1598,7 +1598,7 @@ exports[`renders without actions and selected action 1`] = `
           }
           value={4}
         >
-          <Translate(DateComponent)
+          <withI18nextTranslation(DateComponent)
             date={2017-06-18T00:00:00.000Z}
             format="LL"
             style={
