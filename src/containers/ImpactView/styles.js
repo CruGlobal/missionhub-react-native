@@ -17,16 +17,16 @@ export default StyleSheet.create({
   text: {
     fontSize: 28,
     color: theme.white,
-    width: 200,
+    width: 270,
   },
   topSection: {
+    alignItems: 'center',
     paddingTop: 30,
-    paddingLeft: 50,
     paddingBottom: 10,
     backgroundColor: theme.secondaryColor,
   },
   bottomSection: {
-    paddingLeft: 50,
+    alignItems: 'center',
     paddingBottom: 40,
     backgroundColor: theme.impactBlue,
   },
@@ -37,7 +37,6 @@ export default StyleSheet.create({
     paddingBottom: 40,
     backgroundColor: theme.impactBlue,
   },
-  topText: {},
   icon: {
     fontSize: 28,
   },
