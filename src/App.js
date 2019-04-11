@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { AppState, StatusBar } from 'react-native';
+import { AppState, StatusBar, AsyncStorage } from 'react-native';
 import { Provider } from 'react-redux';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
@@ -35,8 +35,18 @@ import { navigateToPostAuthScreen } from './actions/auth/auth';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { persistCache } from 'apollo-cache-persist';
+
+const cache = new InMemoryCache();
+
+persistCache({
+  cache,
+  storage: AsyncStorage,
+});
 const client = new ApolloClient({
   uri: 'http://localhost:3001/apis/graphql',
+  cache,
 });
 
 @codePush({
