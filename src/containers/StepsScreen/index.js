@@ -100,7 +100,7 @@ export class StepsScreen extends Component {
   }
 
   hasReminders(reminders = []) {
-    return reminders.length > 0;
+    return [].length > 0;
   }
 
   hasMaxReminders() {
@@ -109,7 +109,7 @@ export class StepsScreen extends Component {
 
   hasFewSteps() {
     const { steps } = this.props;
-    return steps.length <= MAX_REMINDERS;
+    return [].length <= MAX_REMINDERS;
   }
 
   canHideStars() {
@@ -279,8 +279,7 @@ export class StepsScreen extends Component {
   }
 
   renderSteps(steps) {
-    const { reminders = [] } = this.props;
-
+    const reminders = [];
     return (
       <View style={{ flex: 1 }}>
         {this.renderFocusPrompt()}

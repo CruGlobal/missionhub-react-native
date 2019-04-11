@@ -10,6 +10,8 @@ import { Alert } from 'react-native';
 // eslint-disable-next-line import/default
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { persistCache } from 'apollo-cache-persist';
 
 import './i18n';
 import { rollbar } from './utils/rollbar.config';
@@ -32,11 +34,9 @@ import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
+import { BASE_URL } from './api/utils';
 
 import { PersistGate } from 'redux-persist/integration/react';
-
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { persistCache } from 'apollo-cache-persist';
 
 const cache = new InMemoryCache();
 
@@ -45,7 +45,7 @@ persistCache({
   storage: AsyncStorage,
 });
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/apis/graphql',
+  uri: BASE_URL + '/apis/graphql',
   cache,
 });
 
