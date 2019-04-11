@@ -46,6 +46,7 @@ exports[`renders date only date picker 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-US"
         mode="date"
         onDateChange={[Function]}
         style={
@@ -172,6 +173,7 @@ exports[`renders date only date picker with max date 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-US"
         maximumDate={2018-09-12T12:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
@@ -299,6 +301,7 @@ exports[`renders date only date picker with min date 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-US"
         minimumDate={2018-09-12T12:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
@@ -426,6 +429,7 @@ exports[`renders date with custom title 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-US"
         mode="date"
         onDateChange={[Function]}
         style={
@@ -552,6 +556,7 @@ exports[`renders datetime only date picker 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-US"
         mode="datetime"
         onDateChange={[Function]}
         style={
@@ -678,6 +683,7 @@ exports[`renders default date picker 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-US"
         mode="date"
         onDateChange={[Function]}
         style={
@@ -804,6 +810,7 @@ exports[`renders time only date picker 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-US"
         mode="time"
         onDateChange={[Function]}
         style={
@@ -930,6 +937,7 @@ exports[`renders with additional modal component 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-US"
         mode="date"
         onDateChange={[Function]}
         style={
@@ -1063,6 +1071,7 @@ exports[`renders with child component 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-US"
         mode="date"
         onDateChange={[Function]}
         style={
