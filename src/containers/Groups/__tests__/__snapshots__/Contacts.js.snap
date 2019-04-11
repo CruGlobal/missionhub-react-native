@@ -20,7 +20,7 @@ exports[`Contacts should render correctly 1`] = `
     <Connect(withI18nextTranslation(OnboardingCard))
       type="contacts"
     />
-    <ForwardRef(withI18nextTranslation(SearchList))
+    <withI18nextTranslation(SearchList)
       defaultData={Array []}
       filters={
         Object {
@@ -41,6 +41,7 @@ exports[`Contacts should render correctly 1`] = `
       onRemoveFilter={[Function]}
       onSearch={[Function]}
       placeholder="Search Contacts"
+      setSearch={[Function]}
     />
   </ScrollViewMock>
 </SafeAreaView>
