@@ -72,3 +72,6 @@ coverage/
 ios/Index
 
 .vscode/
+
+.graphqlconfig
+schema.graphql
