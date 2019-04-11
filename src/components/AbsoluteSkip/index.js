@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { SafeAreaView } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Button } from '../common';
 
 import styles from './styles';
 
-@translate()
+@withTranslation()
 class AbsoluteSkip extends Component {
   render() {
     const { t, onSkip, style, textStyle } = this.props;

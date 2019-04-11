@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { SafeAreaView, View, ScrollView, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { navigateBack, navigatePush } from '../../actions/navigation';
@@ -25,7 +25,7 @@ import {
 
 import styles from './styles';
 
-@translate('addContact')
+@withTranslation('addContact')
 class AddContactScreen extends Component {
   constructor(props) {
     super(props);

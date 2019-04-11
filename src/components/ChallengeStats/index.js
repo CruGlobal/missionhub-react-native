@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
@@ -7,7 +7,7 @@ import { Text, Flex } from '../../components/common';
 
 import styles from './styles';
 
-@translate('challengeStats')
+@withTranslation('challengeStats')
 class ChallengeStats extends Component {
   render() {
     const { t, challenge, style: containerStyle, small } = this.props;

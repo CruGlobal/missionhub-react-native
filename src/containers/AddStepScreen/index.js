@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StatusBar, SafeAreaView, Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Input } from '../../components/common';
 import theme from '../../theme';
@@ -16,7 +16,7 @@ import styles from './styles';
 
 const characterLimit = 255;
 
-@translate('addStep')
+@withTranslation('addStep')
 class AddStepScreen extends Component {
   constructor(props) {
     super(props);

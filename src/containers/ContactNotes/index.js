@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { SafeAreaView, ScrollView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Text, Flex, Input } from '../../components/common';
 import { savePersonNote, getPersonNote } from '../../actions/person';
@@ -14,7 +14,7 @@ import BottomButton from '../../components/BottomButton';
 
 import styles from './styles';
 
-@translate('notes')
+@withTranslation('notes')
 export class ContactNotes extends Component {
   constructor(props) {
     super(props);

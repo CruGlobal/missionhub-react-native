@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { getMyPeople } from '../../actions/people';
 import { checkForUnreadComments } from '../../actions/unreadComments';
@@ -23,7 +23,7 @@ import { PEOPLE_TAB } from '../../constants';
 
 import styles from './styles';
 
-@translate('peopleScreen')
+@withTranslation('peopleScreen')
 export class PeopleScreen extends Component {
   constructor(props) {
     super(props);

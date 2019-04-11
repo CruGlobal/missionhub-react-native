@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Alert, FlatList } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import {
@@ -21,7 +21,7 @@ import { ORG_PERMISSIONS } from '../../constants';
 
 import styles from './styles';
 
-@translate('commentsList', { withRef: true })
+@withTranslation('commentsList')
 class CommentsList extends Component {
   listRefs = {};
   componentDidMount() {

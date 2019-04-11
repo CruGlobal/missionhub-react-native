@@ -8,7 +8,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Text, Input, IconButton } from '../../../components/common';
 import Header from '../../../components/Header';
@@ -32,7 +32,7 @@ import BottomButton from '../../../components/BottomButton';
 
 import styles from './styles';
 
-@translate('groupsCreateGroup')
+@withTranslation('groupsCreateGroup')
 class CreateGroupScreen extends Component {
   state = {
     name: '',

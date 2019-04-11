@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Text, Button, Touchable, Icon } from '../../components/common';
 import Header from '../../components/Header';
@@ -17,7 +17,7 @@ import { STATUS_COMPLETE_SCREEN } from '../StatusCompleteScreen';
 
 import styles from './styles';
 
-@translate('statusSelect')
+@withTranslation('statusSelect')
 class StatusSelectScreen extends Component {
   constructor(props) {
     super(props);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon, Dot } from '../common';
 import ShareSurveyMenu from '../ShareSurveyMenu';
@@ -8,7 +8,7 @@ import ItemHeaderText from '../ItemHeaderText';
 
 import styles from './styles';
 
-@translate('groupItem')
+@withTranslation('groupItem')
 class GroupSurveyItem extends Component {
   handleSelect = () => {
     this.props.onSelect(this.props.survey);

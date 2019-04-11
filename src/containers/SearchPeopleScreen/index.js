@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import debounce from 'lodash/debounce';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import NullStateComponent from '../../components/NullStateComponent';
 import SEARCH_NULL from '../../../assets/images/searchNull.png';
@@ -19,7 +19,7 @@ import { findAllNonPlaceHolders } from '../../utils/common';
 
 import styles from './styles';
 
-@translate('search')
+@withTranslation('search')
 export class SearchPeopleScreen extends Component {
   constructor(props) {
     super(props);

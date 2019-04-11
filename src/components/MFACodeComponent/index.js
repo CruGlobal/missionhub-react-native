@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Text, Input, Button } from '../../components/common';
 import LoadingWheel from '../../components/LoadingWheel';
@@ -9,7 +9,7 @@ import BackButton from '../../containers/BackButton';
 
 import styles from './styles';
 
-@translate('mfaLogin')
+@withTranslation('mfaLogin')
 export default class MFACodeComponent extends Component {
   render() {
     const { t, onSubmit, onChangeText, isLoading, value } = this.props;

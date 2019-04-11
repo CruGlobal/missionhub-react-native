@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
@@ -11,7 +11,7 @@ import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 
 import styles from './styles';
 
-@translate('completedStepDetail')
+@withTranslation('completedStepDetail')
 class CompletedStepDetailScreen extends Component {
   render() {
     const { t, step } = this.props;

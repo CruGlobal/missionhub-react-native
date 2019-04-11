@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
@@ -14,7 +14,7 @@ import ItemHeaderText from '../../components/ItemHeaderText';
 
 import styles from './styles';
 
-@translate()
+@withTranslation()
 export class PeopleItem extends Component {
   constructor(props) {
     super(props);

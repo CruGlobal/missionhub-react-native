@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Share, Linking } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import PopupMenu from '../PopupMenu';
 import { getSurveyUrl } from '../../utils/common';
 
 import styles from './styles';
 
-@translate('shareSurveyMenu')
+@withTranslation('shareSurveyMenu')
 class ShareSurveyMenu extends Component {
   takeSurvey = () => {
     Linking.openURL(getSurveyUrl(this.props.survey.id));

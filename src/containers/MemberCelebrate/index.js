@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import moment from 'moment';
 
 import CelebrateFeed from '../CelebrateFeed';
@@ -12,7 +12,7 @@ import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
 import { momentUtc } from '../../utils/common';
 
-@translate('celebrateFeeds')
+@withTranslation('celebrateFeeds')
 class MemberCelebrate extends Component {
   componentDidMount() {
     if (this.shouldLoadFeed()) {

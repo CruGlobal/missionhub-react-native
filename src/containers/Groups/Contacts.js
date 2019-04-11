@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
@@ -16,7 +16,7 @@ import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 import styles from './styles';
 
-@translate('groupsContacts')
+@withTranslation('groupsContacts')
 class Contacts extends Component {
   constructor(props) {
     super(props);

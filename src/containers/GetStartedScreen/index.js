@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { navigatePush } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
@@ -11,7 +11,7 @@ import { disableBack } from '../../utils/common';
 
 import styles from './styles';
 
-@translate('getStarted')
+@withTranslation('getStarted')
 class GetStartedScreen extends Component {
   componentDidMount() {
     disableBack.add();

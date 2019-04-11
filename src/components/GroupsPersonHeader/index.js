@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import uuidv4 from 'uuid/v4';
 
 import { STATUS_SELECT_SCREEN } from '../../containers/StatusSelectScreen';
@@ -24,7 +24,7 @@ import {
 
 import styles from './styles';
 
-@translate()
+@withTranslation()
 export default class GroupsPersonHeader extends Component {
   computeButtons() {
     const { person, myId, isMember, contactAssignment, isCruOrg } = this.props;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { SafeAreaView, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { navigatePush } from '../../actions/navigation';
 import Header from '../../components/Header';
@@ -21,7 +21,7 @@ function setSelected(items = [], id) {
   }));
 }
 
-@translate('searchFilterRefine')
+@withTranslation('searchFilterRefine')
 export class SearchPeopleFilterRefineScreen extends Component {
   constructor(props) {
     super(props);

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Linking } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Button, Flex, Text } from '../common';
 import { LINKS } from '../../constants';
 
 import styles from './styles';
 
-@translate()
+@withTranslation()
 class TosPrivacy extends Component {
   openTermsLink = () => Linking.openURL(LINKS.terms);
   openPrivacyLink = () => Linking.openURL(LINKS.privacy);

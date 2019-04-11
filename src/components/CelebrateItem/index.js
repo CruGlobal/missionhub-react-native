@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -19,7 +19,7 @@ import CelebrateItemName from '../../containers/CelebrateItemName';
 
 import styles from './styles';
 
-@translate('celebrateFeeds')
+@withTranslation('celebrateFeeds')
 class CelebrateItem extends Component {
   onPressItem = () => {
     const { onPressItem, event } = this.props;

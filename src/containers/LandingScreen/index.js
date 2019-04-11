@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, Image } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Button, Flex, Text } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
@@ -15,7 +15,7 @@ import {
 
 import styles from './styles';
 
-@translate('landing')
+@withTranslation('landing')
 class LandingScreen extends Component {
   tryItNow = () => {
     this.props.dispatch(firstTime());

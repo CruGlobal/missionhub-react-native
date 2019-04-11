@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Button } from '../common';
 import { REMINDER_RECURRENCES } from '../../constants';
@@ -9,7 +9,7 @@ import styles from './styles';
 
 const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
-@translate('stepReminder')
+@withTranslation('stepReminder')
 export default class ReminderRepeatButtons extends Component {
   setButtonState(clickedRecurrence) {
     const { recurrence: currentRecurrence } = this.props;
