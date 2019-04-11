@@ -61,7 +61,6 @@ describe('welcome screen methods', () => {
     component = screen
       .dive()
       .dive()
-      .dive()
       .instance();
   });
 

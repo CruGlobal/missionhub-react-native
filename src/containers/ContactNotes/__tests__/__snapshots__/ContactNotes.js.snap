@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`contact notes and editing is set to true button message changes to DONE 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -10,25 +9,44 @@ exports[`contact notes and editing is set to true button message changes to DONE
     }
   }
 >
-  <NullStateComponent
-    descriptionText="Remember important details about Roger, like favorite food, hobbies they love or something interesting they said."
-    headerText="MY NOTES"
-    imageSource={
+  <Flex
+    style={
       Object {
-        "testUri": "../../../assets/images/myNotes.png",
+        "backgroundColor": "#ffffff",
+        "flex": 1,
       }
     }
-  />
+    value={1}
+  >
+    <Input
+      autoCorrect={true}
+      autoGrow={false}
+      blurOnSubmit={false}
+      editable={true}
+      multiline={true}
+      onChangeText={[Function]}
+      style={
+        Object {
+          "borderBottomWidth": 0,
+          "color": "#505256",
+          "fontSize": 16,
+          "marginTop": 30,
+          "paddingBottom": 30,
+          "paddingHorizontal": 36,
+          "textAlign": "left",
+        }
+      }
+    />
+  </Flex>
   <BottomButton
     onPress={[Function]}
-    text="ADD PRIVATE NOTES"
+    text="Done"
   />
-</RCTSafeAreaView>
+</SafeAreaView>
 `;
 
 exports[`contact notes icon and prompt are shown if no notes 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -49,12 +67,11 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
     onPress={[Function]}
     text="ADD PRIVATE NOTES"
   />
-</RCTSafeAreaView>
+</SafeAreaView>
 `;
 
 exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -75,12 +92,11 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
     onPress={[Function]}
     text="ADD PRIVATE NOTES"
   />
-</RCTSafeAreaView>
+</SafeAreaView>
 `;
 
 exports[`contact notes notes are shown 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -88,18 +104,36 @@ exports[`contact notes notes are shown 1`] = `
     }
   }
 >
-  <NullStateComponent
-    descriptionText="Remember important details about Roger, like favorite food, hobbies they love or something interesting they said."
-    headerText="MY NOTES"
-    imageSource={
+  <Flex
+    style={
       Object {
-        "testUri": "../../../assets/images/myNotes.png",
+        "backgroundColor": "#ffffff",
+        "flex": 1,
       }
     }
-  />
+    value={1}
+  >
+    <ScrollViewMock>
+      <MyText
+        style={
+          Object {
+            "borderBottomWidth": 0,
+            "color": "#505256",
+            "fontSize": 16,
+            "marginTop": 30,
+            "paddingBottom": 30,
+            "paddingHorizontal": 36,
+            "textAlign": "left",
+          }
+        }
+      >
+        Hello, Roge! Here are some notes.
+      </MyText>
+    </ScrollViewMock>
+  </Flex>
   <BottomButton
     onPress={[Function]}
-    text="ADD PRIVATE NOTES"
+    text="EDIT PRIVATE NOTES"
   />
-</RCTSafeAreaView>
+</SafeAreaView>
 `;
