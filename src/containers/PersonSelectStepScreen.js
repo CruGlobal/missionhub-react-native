@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { contactAssignmentSelector } from '../selectors/people';
 
 import SelectStepScreen from './SelectStepScreen';
 
-@translate('selectStep')
+@withTranslation('selectStep')
 class PersonSelectStepScreen extends Component {
   constructor(props) {
     super(props);

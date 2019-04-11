@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { ScrollView, Image } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import {
   getPeopleInteractionsReport,
@@ -51,7 +51,7 @@ const reportPeriods = [
   },
 ];
 
-@translate('impact')
+@withTranslation('impact')
 export class ImpactView extends Component {
   state = {
     period: 'P1W',

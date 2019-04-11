@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, Linking } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { LINKS } from '../../constants';
 import { isAndroid } from '../../utils/common';
@@ -10,7 +10,7 @@ import { logout } from '../../actions/auth/auth';
 import { SIGN_IN_FLOW, SIGN_UP_FLOW } from '../../routes/constants';
 import { navigatePush } from '../../actions/navigation';
 
-@translate('settingsMenu')
+@withTranslation('settingsMenu')
 export class SettingsMenu extends Component {
   openUrl = async url => {
     const { t } = this.props;

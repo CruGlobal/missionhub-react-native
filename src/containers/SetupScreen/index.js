@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, View, Keyboard } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Text, Flex, Input } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -15,7 +15,7 @@ import TosPrivacy from '../../components/TosPrivacy';
 
 import styles from './styles';
 
-@translate('setup')
+@withTranslation('setup')
 class SetupScreen extends Component {
   componentDidMount() {
     disableBack.add();

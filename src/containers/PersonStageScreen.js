@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { showReminderOnLoad } from '../actions/notifications';
@@ -19,7 +19,7 @@ import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
 import PathwayStageScreen from './PathwayStageScreen';
 
-@translate('selectStage')
+@withTranslation('selectStage')
 class PersonStageScreen extends Component {
   onScrollToStage = trackingObj => {
     this.props.dispatch({

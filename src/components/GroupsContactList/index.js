@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Image, FlatList } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import SEARCH_NULL from '../../../assets/images/searchNull.png';
@@ -10,7 +10,7 @@ import AssignToMeButton from '../AssignToMeButton/index';
 
 import styles from './styles';
 
-@translate('groupsContactList')
+@withTranslation('groupsContactList')
 class GroupsContactList extends Component {
   keyExtractor = i => `${i.id}-${i._type}`;
 

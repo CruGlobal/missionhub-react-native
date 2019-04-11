@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Text, Icon, DateComponent, Card } from '../../components/common';
 import {
@@ -12,7 +12,7 @@ import { INTERACTION_TYPES } from '../../constants';
 
 import styles from './styles';
 
-@translate('groupsContactItem')
+@withTranslation('groupsContactItem')
 class GroupsContactItem extends Component {
   generateInteractionTitle(interaction) {
     const { t } = this.props;

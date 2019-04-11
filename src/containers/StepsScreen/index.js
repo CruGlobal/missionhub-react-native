@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { View, Image, ScrollView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import debounce from 'lodash/debounce';
 
 import {
@@ -57,7 +57,7 @@ function isCloseToBottom({ layoutMeasurement, contentOffset, contentSize }) {
   );
 }
 
-@translate('stepsTab')
+@withTranslation('stepsTab')
 export class StepsScreen extends Component {
   constructor(props) {
     super(props);

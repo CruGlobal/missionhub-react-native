@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
@@ -23,7 +23,7 @@ import { getOrganizationContacts } from '../../actions/organizations';
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 import styles from './styles';
 
-@translate('groupsSurveyContacts')
+@withTranslation('groupsSurveyContacts')
 class SurveyContacts extends Component {
   constructor(props) {
     super(props);

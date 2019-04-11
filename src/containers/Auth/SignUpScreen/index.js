@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { SafeAreaView, Image } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import i18Next from 'i18next';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -42,7 +42,7 @@ const headerContentOptions = {
   },
 };
 
-@translate('loginOptions')
+@withTranslation('loginOptions')
 class SignUpScreen extends Component {
   state = {
     isLoading: false,

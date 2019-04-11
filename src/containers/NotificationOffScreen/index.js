@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Linking, Image, View } from 'react-native';
 import PushNotification from 'react-native-push-notification';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Text, Button } from '../../components/common';
@@ -18,7 +18,7 @@ const {
   JOIN_CHALLENGE,
 } = NOTIFICATION_PROMPT_TYPES;
 
-@translate('notificationOff')
+@withTranslation('notificationOff')
 class NotificationOffScreen extends Component {
   notNow = () => {
     this.close();

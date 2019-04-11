@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, Alert, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import {
@@ -42,7 +42,7 @@ import Header from '../../../components/Header';
 
 import styles from './styles';
 
-@translate('groupProfile')
+@withTranslation('groupProfile')
 class GroupProfile extends Component {
   state = { editing: false, name: '', imageData: null };
 

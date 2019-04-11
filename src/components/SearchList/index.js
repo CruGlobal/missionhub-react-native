@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, View, FlatList } from 'react-native';
 import debounce from 'lodash/debounce';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, IconButton, Input, Text } from '../../components/common';
@@ -10,7 +10,7 @@ import theme from '../../theme';
 
 import styles from './styles';
 
-@translate('search', { withRef: true, wait: true })
+@withTranslation('search', { withRef: true, wait: true })
 class SearchList extends Component {
   constructor(props) {
     super(props);

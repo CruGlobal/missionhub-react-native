@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, Keyboard, View } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import PropTypes from 'prop-types';
 
@@ -32,7 +32,7 @@ import Header from '../../../components/Header';
 
 import styles from './styles';
 
-@translate('keyLogin')
+@withTranslation('keyLogin')
 class SignInScreen extends Component {
   state = {
     email: '',

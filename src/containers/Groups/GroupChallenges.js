@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import ChallengeFeed from '../ChallengeFeed';
 import {
@@ -18,7 +18,7 @@ import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
 
-@translate('groupsChallenge')
+@withTranslation('groupsChallenge')
 export class GroupChallenges extends Component {
   state = { refreshing: false };
 

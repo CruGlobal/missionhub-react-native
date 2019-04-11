@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
 import { getSurveyQuestions } from '../../../actions/surveys';
@@ -18,7 +18,7 @@ import { trackSearchFilter } from '../../../actions/analytics';
 import FilterList from '../../../components/FilterList';
 import { SEARCH_QUESTIONS_FILTER_SCREEN } from '../SurveyQuestionsFilter';
 
-@translate('searchFilter')
+@withTranslation('searchFilter')
 export class SurveyContactsFilter extends Component {
   constructor(props) {
     super(props);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
 import { Flex, Card, Button } from '../../components/common';
@@ -15,7 +15,7 @@ import {
 
 import styles from './styles';
 
-@translate('reportComment')
+@withTranslation('reportComment')
 class ReportCommentItem extends Component {
   handleIgnore = async () => {
     const { item, dispatch, organization } = this.props;

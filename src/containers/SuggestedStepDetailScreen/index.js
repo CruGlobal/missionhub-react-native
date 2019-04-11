@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
@@ -9,7 +9,7 @@ import StepDetailScreen from '../../components/StepDetailScreen';
 
 import styles from './styles';
 
-@translate('suggestedStepDetail')
+@withTranslation('suggestedStepDetail')
 class SuggestedStepDetailScreen extends Component {
   addStep = async () => {
     const { dispatch, step, receiverId, orgId, next } = this.props;

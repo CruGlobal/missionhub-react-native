@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 
@@ -64,7 +64,7 @@ export const CHALLENGE_DETAIL_TABS = [
   },
 ];
 
-@translate('challengeFeeds')
+@withTranslation('challengeFeeds')
 export class ChallengeDetailScreen extends Component {
   componentDidMount() {
     const { dispatch, challenge } = this.props;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
 import { navigatePush } from '../actions/navigation';
@@ -10,7 +10,7 @@ import IconMessageScreen from './IconMessageScreen/index';
 import { SELECT_MY_STEP_ONBOARDING_SCREEN } from './SelectMyStepScreen';
 import { ADD_SOMEONE_SCREEN } from './AddSomeoneScreen';
 
-@translate('stageSuccess')
+@withTranslation('stageSuccess')
 class StageSuccessScreen extends Component {
   componentDidMount() {
     disableBack.add();

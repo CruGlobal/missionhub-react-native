@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { keyLogin } from '../../../actions/auth/key';
 import { MFA_REQUIRED } from '../../../constants';
 import MFACodeComponent from '../../../components/MFACodeComponent';
 
-@translate('mfaLogin')
+@withTranslation('mfaLogin')
 class MFACodeScreen extends Component {
   state = {
     mfaCode: '',
