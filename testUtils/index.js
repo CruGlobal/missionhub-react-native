@@ -28,10 +28,7 @@ export const renderShallow = (component, store = createThunkStore()) => {
   while (
     (renderedComponent.type().displayName || '').startsWith(
       'withI18nextTranslation(',
-    ) ||
-    renderedComponent.is('Translate') ||
-    (renderedComponent.type().displayName || '').startsWith('I18n(') ||
-    renderedComponent.is('I18n')
+    )
   ) {
     renderedComponent = renderedComponent.dive();
   }
