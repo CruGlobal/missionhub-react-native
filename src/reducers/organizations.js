@@ -240,7 +240,7 @@ function organizationsReducer(state = initialState, action) {
         }),
         {},
       );
-      console.log(commentCounts);
+
       return {
         ...state,
         all: state.all.map(o => ({

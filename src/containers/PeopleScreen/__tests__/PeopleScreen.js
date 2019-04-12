@@ -10,10 +10,10 @@ import {
 } from '../../../selectors/people';
 import * as common from '../../../utils/common';
 import { navToPersonScreen } from '../../../actions/person';
-import { updateCommentsNotification } from '../../../actions/organizations';
+import { checkForUnreadComments } from '../../../actions/unreadComments';
 
 jest.mock('../../../actions/person');
-jest.mock('../../../actions/organizations');
+jest.mock('../../../actions/unreadComments');
 jest.mock('../../../selectors/people');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../TrackTabChange', () => () => null);
@@ -209,8 +209,8 @@ describe('PeopleScreen', () => {
     let instance;
 
     beforeEach(() => {
-      updateCommentsNotification.mockReturnValue({
-        type: 'update comment notification',
+      checkForUnreadComments.mockReturnValue({
+        type: 'check for unread comments',
       });
       common.refresh = jest.fn();
 
@@ -221,7 +221,7 @@ describe('PeopleScreen', () => {
     });
 
     it('should get me', () => {
-      expect(updateCommentsNotification).toHaveBeenCalled();
+      expect(checkForUnreadComments).toHaveBeenCalled();
     });
 
     it('should refresh people list', () => {

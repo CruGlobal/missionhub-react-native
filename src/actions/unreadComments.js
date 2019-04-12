@@ -1,5 +1,4 @@
 import callApi, { REQUESTS } from './api';
-import { getMe } from './person';
 
 export function markCommentsRead(orgId) {
   return async dispatch => {

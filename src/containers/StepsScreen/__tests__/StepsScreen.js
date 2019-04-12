@@ -19,7 +19,7 @@ import {
   showReminderScreen,
   showWelcomeNotification,
 } from '../../../actions/notifications';
-import { updateCommentsNotification } from '../../../actions/organizations';
+import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { setStepFocus } from '../../../actions/steps';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
@@ -29,7 +29,7 @@ jest.mock('../../../selectors/steps');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/navigation');
-jest.mock('../../../actions/organizations');
+jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/person');
 jest.mock('../../TrackTabChange', () => () => null);
@@ -378,8 +378,8 @@ describe('StepsScreen', () => {
     let instance;
 
     beforeEach(() => {
-      updateCommentsNotification.mockReturnValue({
-        type: 'update comment notification',
+      checkForUnreadComments.mockReturnValue({
+        type: 'check for unread comments',
       });
       common.refresh = jest.fn();
 
@@ -390,7 +390,7 @@ describe('StepsScreen', () => {
     });
 
     it('should get me', () => {
-      expect(updateCommentsNotification).toHaveBeenCalled();
+      expect(checkForUnreadComments).toHaveBeenCalled();
     });
 
     it('should refresh steps list', () => {

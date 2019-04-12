@@ -10,7 +10,7 @@ import { communitiesSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
-import { updateCommentsNotification } from '../../../actions/organizations';
+import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { resetScrollGroups } from '../../../actions/swipe';
 import { ACTIONS } from '../../../constants';
 import {
@@ -20,6 +20,7 @@ import {
 
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../actions/organizations');
+jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
@@ -52,8 +53,8 @@ beforeEach(() => {
   getMyCommunities.mockReturnValue({ type: 'test' });
   trackActionWithoutData.mockReturnValue({ type: 'test' });
   communitiesSelector.mockReturnValue(organizations.all);
-  updateCommentsNotification.mockReturnValue({
-    type: 'update comment notification',
+  checkForUnreadComments.mockReturnValue({
+    type: 'check for unread comments',
   });
   common.refresh = jest.fn();
 });
@@ -207,7 +208,7 @@ describe('GroupsListScreen', () => {
 
     instance.handleRefresh();
 
-    expect(updateCommentsNotification).toHaveBeenCalled();
+    expect(checkForUnreadComments).toHaveBeenCalled();
     expect(common.refresh).toHaveBeenCalledWith(instance, instance.loadGroups);
   });
 
