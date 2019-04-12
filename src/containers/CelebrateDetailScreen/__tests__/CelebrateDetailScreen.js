@@ -155,6 +155,22 @@ describe('refresh', () => {
   });
 });
 
+it('onLayout', () => {
+  const height = 1000;
+  parallaxScrollView().onLayout({ nativeEvent: { layout: { height } } });
+  screen.update();
+  expect(screen.instance().state.scrollViewHeight).toEqual(height);
+});
+
+it('componentWillUnmount', () => {
+  const instance = screen.instance();
+  const remove = jest.fn();
+  instance.keyboardShowListener = { remove };
+  instance.componentWillUnmount();
+
+  expect(remove).toHaveBeenCalled();
+});
+
 describe('scroll events', () => {
   const scrollResponder = {
     scrollToEnd: jest.fn(),

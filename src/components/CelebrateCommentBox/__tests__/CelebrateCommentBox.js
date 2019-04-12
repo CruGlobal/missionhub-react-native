@@ -37,6 +37,7 @@ const editingComment = {
   id: 'edit',
   content: 'test',
 };
+const onAddComplete = jest.fn();
 
 beforeEach(() => {
   store = mockStore({
@@ -46,7 +47,10 @@ beforeEach(() => {
     },
   });
 
-  screen = renderShallow(<CelebrateCommentBox event={event} />, store);
+  screen = renderShallow(
+    <CelebrateCommentBox event={event} onAddComplete={onAddComplete} />,
+    store,
+  );
 });
 
 it('renders correctly', () => {
@@ -54,12 +58,13 @@ it('renders correctly', () => {
 });
 
 describe('onSubmit', () => {
-  it('creates comment', () => {
+  it('creates comment with add', async () => {
     const text = 'roger is a good pig';
 
-    screen.props().onSubmit(null, text);
+    await screen.props().onSubmit(null, text);
 
     expect(createCelebrateComment).toHaveBeenCalledWith(event, text);
+    expect(onAddComplete).toHaveBeenCalled();
     expect(store.getActions()).toEqual([createCelebrateCommentResult]);
   });
 });
