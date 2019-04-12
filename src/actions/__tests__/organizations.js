@@ -152,7 +152,6 @@ describe('getOrganizationsContactReports', () => {
     { id: 'non community', community: false },
     { id: '456', community: true },
   ];
-
   const contactReportsResponse = {
     type: 'successful',
     response: [
@@ -200,7 +199,6 @@ describe('getOrganizationsContactReports', () => {
       REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
       { period: 'P1W', organization_ids: `${orgs[1].id},${orgs[3].id}` },
     );
-
     expect(store.getActions()).toEqual([
       contactReportsResponse,
       contactReportsAction,
@@ -500,7 +498,6 @@ describe('getMyCommunities', () => {
       type: 'successful',
       response: [{}],
     };
-
     callApi.mockReturnValue(response);
     await store.dispatch(getMyCommunities());
     const actions = store.getActions();
