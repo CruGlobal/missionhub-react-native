@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { getMyPeople } from '../../actions/people';
+import { checkForUnreadComments } from '../../actions/unreadComments';
 import {
   peopleByOrgSelector,
   allAssignedPeopleSelector,
 } from '../../selectors/people';
 import { navigatePush, navigateBack } from '../../actions/navigation';
-import { getStagesIfNotExists } from '../../actions/stages';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
@@ -39,15 +39,7 @@ export class PeopleScreen extends Component {
     this.handleRefresh = this.handleRefresh.bind(this);
   }
 
-  componentDidMount() {
-    this.getPeople();
-
-    this.props.dispatch(getStagesIfNotExists());
-  }
-
-  getPeople() {
-    return this.props.dispatch(getMyPeople());
-  }
+  getPeople = () => this.props.dispatch(getMyPeople());
 
   openMainMenu = () => this.props.dispatch(openMainMenu());
 
@@ -74,6 +66,7 @@ export class PeopleScreen extends Component {
   }
 
   handleRefresh() {
+    this.props.dispatch(checkForUnreadComments());
     refresh(this, this.getPeople);
   }
 

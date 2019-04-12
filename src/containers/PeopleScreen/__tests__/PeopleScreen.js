@@ -9,9 +9,13 @@ import {
   allAssignedPeopleSelector,
 } from '../../../selectors/people';
 import * as common from '../../../utils/common';
+import { getMyPeople } from '../../../actions/people';
 import { navToPersonScreen } from '../../../actions/person';
+import { checkForUnreadComments } from '../../../actions/unreadComments';
 
+jest.mock('../../../actions/people');
 jest.mock('../../../actions/person');
+jest.mock('../../../actions/unreadComments');
 jest.mock('../../../selectors/people');
 jest.mock('../../TrackTabChange', () => () => null);
 
@@ -198,6 +202,36 @@ describe('PeopleScreen', () => {
         .onSelect(person, org);
 
       expect(navToPersonScreen).toHaveBeenCalledWith(person, org);
+    });
+  });
+
+  describe('handleRefresh', () => {
+    let screen;
+    let instance;
+
+    beforeEach(() => {
+      getMyPeople.mockReturnValue({ type: 'get people' });
+      checkForUnreadComments.mockReturnValue({
+        type: 'check for unread comments',
+      });
+      common.refresh = jest.fn((_, refreshMethod) => refreshMethod());
+
+      screen = renderShallow(<PeopleScreen {...props} />);
+      instance = screen.instance();
+
+      instance.handleRefresh();
+    });
+
+    it('should get me', () => {
+      expect(checkForUnreadComments).toHaveBeenCalled();
+    });
+
+    it('should refresh with getPeople method', () => {
+      expect(common.refresh).toHaveBeenCalledWith(instance, instance.getPeople);
+    });
+
+    it('should get people', () => {
+      expect(getMyPeople).toHaveBeenCalled();
     });
   });
 });

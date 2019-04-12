@@ -17,6 +17,7 @@ import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, refresh, keyExtractorId } from '../../utils/common';
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
+import { checkForUnreadComments } from '../../actions/unreadComments';
 import { getMyCommunities } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GROUPS_TAB } from '../../constants';
@@ -55,7 +56,10 @@ class GroupsListScreen extends Component {
 
   loadGroups = () => this.props.dispatch(getMyCommunities());
 
-  handleRefresh = () => refresh(this, this.loadGroups);
+  handleRefresh = () => {
+    this.props.dispatch(checkForUnreadComments());
+    refresh(this, this.loadGroups);
+  };
 
   handlePress = organization => {
     const { dispatch } = this.props;
