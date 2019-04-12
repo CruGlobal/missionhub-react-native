@@ -76,7 +76,6 @@ class CelebrateDetailScreen extends Component {
         // Get the <Comment> View ref to calculate its position on screen
         commentView.measure((fx, fy, width, height, pageX, pageY) => {
           // https://facebook.github.io/react-native/docs/direct-manipulation.html#measurecallback
-          // Get the scrollviews ref to measure the total height on the scroll view
 
           const scrollTo = Math.max(minScroll, pageY - height - headerHeight);
           // If the calculated "scrollTo" is greater than the scroll view height, just scroll to end
@@ -171,35 +170,32 @@ class CelebrateDetailScreen extends Component {
     return (
       <SafeAreaView style={container}>
         <StatusBar {...darkContent} />
-        <View flex={1}>
-          <ParallaxScrollView
-            ref={this.listRef}
-            backgroundColor={white}
-            outputScaleValue={10}
-            contentBackgroundColor={grey}
-            parallaxHeaderHeight={parallaxHeaderHeight}
-            renderForeground={this.renderForeground}
-            stickyHeaderHeight={headerHeight}
-            renderStickyHeader={this.renderStickyHeader}
-            refreshControl={
-              <RefreshControl
-                refreshing={this.state.refreshing}
-                onRefresh={this.handleRefresh}
-              />
-            }
-            onLayout={this.onLayout}
-          >
-            <View style={styles.scrollContent}>
-              <Image source={TRAILS1} style={styles.trailsTop} />
-              <Image source={TRAILS2} style={styles.trailsBottom} />
-              <CommentsList
-                ref={this.commentsListRef}
-                event={event}
-                organizationId={event.organization.id}
-              />
-            </View>
-          </ParallaxScrollView>
-        </View>
+        <ParallaxScrollView
+          ref={this.listRef}
+          backgroundColor={white}
+          contentBackgroundColor={grey}
+          parallaxHeaderHeight={parallaxHeaderHeight}
+          renderForeground={this.renderForeground}
+          stickyHeaderHeight={headerHeight}
+          renderStickyHeader={this.renderStickyHeader}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.handleRefresh}
+            />
+          }
+          onLayout={this.onLayout}
+        >
+          <View style={styles.scrollContent}>
+            <Image source={TRAILS1} style={styles.trailsTop} />
+            <Image source={TRAILS2} style={styles.trailsBottom} />
+            <CommentsList
+              ref={this.commentsListRef}
+              event={event}
+              organizationId={event.organization.id}
+            />
+          </View>
+        </ParallaxScrollView>
         <CelebrateCommentBox event={event} onAddComplete={this.addComplete} />
       </SafeAreaView>
     );
