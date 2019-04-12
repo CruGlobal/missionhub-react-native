@@ -1,4 +1,3 @@
-/* eslint max-params: 0 */
 import React, { Component } from 'react';
 import { Image, View, SafeAreaView, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
@@ -40,54 +39,52 @@ class CelebrateDetailScreen extends Component {
     this.scrollToFocusedRef();
   };
 
-  scrollToFocusedRef = () => {
-    const {
-      celebrateComments: { comments },
-      editingCommentId,
-    } = this.props;
+  scrollToComponent(view) {
     const { parallaxHeaderHeight, headerHeight } = theme;
+    const scrollResponder = this.list.getScrollResponder();
     // Need to at least scroll down to show the condensed sticky header
     const minScroll = parallaxHeaderHeight - headerHeight;
+    // Need to wrap in set timeout to let the keyboard come up before running all calculations
+    setTimeout(() => {
+      // eslint-disable-next-line max-params
+      view.measure((fx, fy, width, height, pageX, pageY) => {
+        // https://facebook.github.io/react-native/docs/direct-manipulation.html#measurecallback
 
-    const scrollResponder = this.list.getScrollResponder();
-    // Get the comment refs from the <CommentsList> component wrappen in 'connect' and '@translate'
-    const commentRefs = this.commentsList
+        const scrollTo = Math.max(minScroll, pageY - height - headerHeight);
+        // If the calculated "scrollTo" is greater than the scroll view height, just scroll to end
+        if (scrollTo > this.state.scrollViewHeight) {
+          scrollResponder.scrollToEnd();
+        } else {
+          scrollResponder.scrollTo({ y: scrollTo });
+        }
+      });
+    }, 1);
+  }
+
+  getCommentRefs() {
+    return this.commentsList
       .getWrappedInstance()
       .getWrappedInstance()
       .getItemRefs();
-    const lastComment = comments[comments.length - 1] || {};
+  }
 
-    // Get the comment that we want to focus on
-    const focusCommentRef =
-      editingCommentId && commentRefs[editingCommentId]
-        ? commentRefs[editingCommentId]
-        : commentRefs[lastComment.id];
+  scrollToFocusedRef = () => {
+    const {
+      celebrateComments: { comments },
+      editingCommentId: editId,
+    } = this.props;
+    const commentsLength = comments.length;
+    if (commentsLength > 0) {
+      // Get the comment refs from the <CommentsList> component wrappen in 'connect' and '@translate'
+      const refs = this.getCommentRefs();
+      const lastId = (comments[commentsLength - 1] || {}).id;
 
-    if (
-      focusCommentRef &&
-      focusCommentRef.getWrappedInstance &&
-      focusCommentRef.getWrappedInstance().view
-    ) {
-      const viewRef = focusCommentRef.getWrappedInstance().view;
-      // const commentView = isAndroid ? findNodeHandle(viewRef) : viewRef;
-      const commentView = viewRef;
-      // Need to wrap in set timeout to let the keyboard come up before running all calculations
-      setTimeout(() => {
-        // Get the <Comment> View ref to calculate its position on screen
-        commentView.measure((fx, fy, width, height, pageX, pageY) => {
-          // https://facebook.github.io/react-native/docs/direct-manipulation.html#measurecallback
+      // Get the comment that we want to focus on
+      const focusCommentRef = editId ? refs[editId] : refs[lastId];
 
-          const scrollTo = Math.max(minScroll, pageY - height - headerHeight);
-          // If the calculated "scrollTo" is greater than the scroll view height, just scroll to end
-          if (scrollTo > this.state.scrollViewHeight) {
-            scrollResponder.scrollToEnd();
-          } else {
-            scrollResponder.scrollTo({ y: scrollTo });
-          }
-        });
-      }, 1);
-    } else {
-      scrollResponder.scrollTo({ y: minScroll });
+      if (focusCommentRef) {
+        this.scrollToComponent(focusCommentRef.getWrappedInstance().view);
+      }
     }
   };
 

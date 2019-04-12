@@ -172,61 +172,56 @@ it('componentWillUnmount', () => {
 });
 
 describe('scroll events', () => {
+  let instance;
   const scrollResponder = {
     scrollToEnd: jest.fn(),
     scrollTo: jest.fn(),
   };
+  const height = 1000;
+  const scrollViewHeight = 750;
   function setInstance(pageY, noRef = false) {
-    const height = 1000;
-    const scrollViewHeight = 750;
+    const ref = {
+      getWrappedInstance: () => ({
+        view: { measure: cb => cb(0, 0, 0, height, 0, pageY) },
+      }),
+    };
     const refs = noRef
       ? {}
       : {
-          [celebrateComments.comments[1].id]: {
-            getWrappedInstance: () => ({
-              view: { measure: cb => cb(0, 0, 0, height, 0, pageY) },
-            }),
-          },
+          [celebrateComments.comments[0].id]: ref,
+          [celebrateComments.comments[1].id]: ref,
         };
     instance = screen.instance();
     screen.setState({ scrollViewHeight });
     screen.update();
-    instance.commentsList = {
-      getWrappedInstance: () => ({
-        getWrappedInstance: () => ({ getItemRefs: () => refs }),
-      }),
-    };
+    instance.getCommentRefs = jest.fn().mockReturnValue(refs);
     instance.list = { getScrollResponder: () => scrollResponder };
   }
-  function checkTimeout() {
+  function checkShow(method) {
     expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 1);
     jest.runAllTimers();
+    expect(method || scrollResponder.scrollTo).toHaveBeenCalled();
   }
-  let instance;
+  function checkKeyboardShow(pageY, noRef, method) {
+    setInstance(pageY, noRef);
+    instance.keyboardShow();
+    checkShow(method);
+  }
   it('keyboard shows without any comments to focus', () => {
     setInstance(500, true);
     instance.keyboardShow();
     expect(setTimeout).not.toHaveBeenCalled();
-    expect(scrollResponder.scrollTo).toHaveBeenCalled();
+    expect(scrollResponder.scrollTo).not.toHaveBeenCalled();
   });
   it('keyboard shows and scrolls to component', () => {
-    setInstance(500);
-    instance.keyboardShow();
-    checkTimeout();
-    expect(scrollResponder.scrollTo).toHaveBeenCalled();
+    checkKeyboardShow(500);
   });
   it('keyboard shows and scrolls to end', () => {
-    setInstance(2500);
-    instance.keyboardShow();
-    checkTimeout();
-    expect(scrollResponder.scrollToEnd).toHaveBeenCalled();
+    checkKeyboardShow(2500, undefined, scrollResponder.scrollToEnd);
   });
   it('keyboard shows and scrolls to editing comment', () => {
     screen.setProps({ editingCommentId: celebrateComments.comments[0].id });
-    setInstance(500);
-    instance.keyboardShow();
-    checkTimeout();
-    expect(scrollResponder.scrollTo).toHaveBeenCalled();
+    checkKeyboardShow(500);
   });
   it('add comment scroll to latest', () => {
     setInstance(500);
@@ -234,7 +229,6 @@ describe('scroll events', () => {
       .childAt(2)
       .props()
       .onAddComplete();
-    checkTimeout();
-    expect(scrollResponder.scrollTo).toHaveBeenCalled();
+    checkShow();
   });
 });
