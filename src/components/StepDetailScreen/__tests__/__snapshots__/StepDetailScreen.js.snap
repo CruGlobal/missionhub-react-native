@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`markdown is empty string and platform is Android renders correctly 1`] = `
+exports[`markdown is empty string renders correctly 1`] = `
 <View
   flex={1}
   style={
