@@ -3,10 +3,13 @@ import { Text } from 'react-native';
 
 import { renderShallow } from '../../../../testUtils/index';
 import StepDetailScreen from '../index';
+import * as common from '../../../utils/common';
 
 let bottomButtonProps;
 let markdown;
 let screen;
+
+common.isAndroid = false;
 
 beforeEach(() => {
   screen = renderShallow(
@@ -23,7 +26,19 @@ beforeEach(() => {
 
 describe('markdown is not null', () => {
   beforeAll(() => {
+    common.isAndroid = false;
     markdown = 'ROBERT ROBERT ROBERT';
+  });
+
+  it('renders correctly', () => {
+    expect(screen).toMatchSnapshot();
+  });
+});
+
+describe('markdown is empty string and platform is Android', () => {
+  beforeAll(() => {
+    common.isAndroid = true;
+    markdown = '';
   });
 
   it('renders correctly', () => {
@@ -33,6 +48,7 @@ describe('markdown is not null', () => {
 
 describe('markdown is null', () => {
   beforeAll(() => {
+    common.isAndroid = false;
     markdown = null;
   });
 
