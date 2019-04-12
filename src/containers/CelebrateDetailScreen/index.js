@@ -26,7 +26,7 @@ import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import styles from './styles';
 
 class CelebrateDetailScreen extends Component {
-  state = { refreshing: false };
+  state = { refreshing: false, scrollViewHeight: 0 };
 
   componentDidMount() {
     this.keyboardShowListener = keyboardShow(this.keyboardShow);
@@ -37,16 +37,19 @@ class CelebrateDetailScreen extends Component {
   }
 
   keyboardShow = () => {
+    this.scrollToFocusedRef();
+  };
+
+  scrollToFocusedRef = () => {
     const {
       celebrateComments: { comments },
       editingCommentId,
     } = this.props;
     const { parallaxHeaderHeight, headerHeight } = theme;
-
-    const scrollResponder = this.list.getScrollResponder();
-
     // Need to at least scroll down to show the condensed sticky header
     const minScroll = parallaxHeaderHeight - headerHeight;
+
+    const scrollResponder = this.list.getScrollResponder();
     // Get the comment refs from the <CommentsList> component wrappen in 'connect' and '@translate'
     const commentRefs = this.commentsList
       .getWrappedInstance()
@@ -65,29 +68,24 @@ class CelebrateDetailScreen extends Component {
       focusCommentRef.getWrappedInstance &&
       focusCommentRef.getWrappedInstance().view
     ) {
+      const viewRef = focusCommentRef.getWrappedInstance().view;
+      // const commentView = isAndroid ? findNodeHandle(viewRef) : viewRef;
+      const commentView = viewRef;
       // Need to wrap in set timeout to let the keyboard come up before running all calculations
       setTimeout(() => {
         // Get the <Comment> View ref to calculate its position on screen
-        focusCommentRef
-          .getWrappedInstance()
-          .view.measure((fx, fy, width, height, pageX, pageY) => {
-            // https://facebook.github.io/react-native/docs/direct-manipulation.html#measurecallback
-            // Get the scrollviews ref to measure the total height on the scroll view
-            scrollResponder._scrollViewRef.measure(
-              (sfx, sfy, swidth, sheight) => {
-                const scrollTo = Math.max(
-                  minScroll,
-                  pageY - height - headerHeight,
-                );
-                // If the calculated "scrollTo" is greater than the scroll view height, just scroll to end
-                if (scrollTo > sheight) {
-                  scrollResponder.scrollToEnd();
-                } else {
-                  scrollResponder.scrollTo({ y: scrollTo });
-                }
-              },
-            );
-          });
+        commentView.measure((fx, fy, width, height, pageX, pageY) => {
+          // https://facebook.github.io/react-native/docs/direct-manipulation.html#measurecallback
+          // Get the scrollviews ref to measure the total height on the scroll view
+
+          const scrollTo = Math.max(minScroll, pageY - height - headerHeight);
+          // If the calculated "scrollTo" is greater than the scroll view height, just scroll to end
+          if (scrollTo > this.state.scrollViewHeight) {
+            scrollResponder.scrollToEnd();
+          } else {
+            scrollResponder.scrollTo({ y: scrollTo });
+          }
+        });
       }, 1);
     } else {
       scrollResponder.scrollTo({ y: minScroll });
@@ -95,7 +93,11 @@ class CelebrateDetailScreen extends Component {
   };
 
   addComplete = () => {
-    // TODO: Find latest comment id, get the ref, then scroll to it
+    this.scrollToFocusedRef();
+  };
+
+  onLayout = e => {
+    this.setState({ scrollViewHeight: e.nativeEvent.layout.height });
   };
 
   refreshComments = () => {
@@ -185,6 +187,7 @@ class CelebrateDetailScreen extends Component {
                 onRefresh={this.handleRefresh}
               />
             }
+            onLayout={this.onLayout}
           >
             <View style={styles.scrollContent}>
               <Image source={TRAILS1} style={styles.trailsTop} />
