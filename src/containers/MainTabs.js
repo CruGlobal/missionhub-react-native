@@ -6,7 +6,6 @@ import { MainTabBarStartSteps, MainTabBarStartGroups } from '../AppRoutes';
 
 class MainTabs extends Component {
   componentDidMount() {
-    // For some reason, when the user logs out, this gets mounted again
     this.props.dispatch(loadHome());
   }
 
