@@ -39,13 +39,13 @@ const celebrateComments = {
       id: 'comment1',
       person: { first_name: 'Person', last_name: '1' },
       content: 'some comment',
-      created_at: '2019-04-12 00:00:00 UTC',
+      created_at: '2019-04-11T13:51:49.888',
     },
     {
       id: 'comment2',
       person: { first_name: 'Person', last_name: '2' },
       content: 'some comment',
-      created_at: '2019-04-12 00:00:00 UTC',
+      created_at: '2019-04-11T13:51:49.888',
     },
   ],
   pagination: {},
@@ -56,7 +56,7 @@ const event = {
   id: '90001',
   organization,
   subject_person_name: 'Roger',
-  changed_attribute_value: '2019-04-12 00:00:00 UTC',
+  changed_attribute_value: '2019-04-11T13:51:49.888',
 };
 const organizations = [organization];
 const myId = 'myId';
