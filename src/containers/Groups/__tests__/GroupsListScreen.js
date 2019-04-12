@@ -19,10 +19,12 @@ import {
 } from '../../../routes/constants';
 
 jest.mock('../../../selectors/organizations');
-jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
+}));
+jest.mock('../../../actions/organizations', () => ({
+  getMyCommunities: jest.fn(() => ({ type: 'test' })),
 }));
 jest.mock('../../../actions/swipe', () => ({
   resetScrollGroups: jest.fn(() => ({ type: 'reset' })),

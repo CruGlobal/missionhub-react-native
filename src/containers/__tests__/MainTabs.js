@@ -48,9 +48,9 @@ const state = {
 let store;
 
 beforeEach(() => {
+  store = configureStore([thunk])(state);
   communitiesSelector.mockReturnValue([]);
   loadHome.mockReturnValue({ type: 'load home' });
-  store = configureStore([thunk])(state);
 });
 
 it('renders home screen with tab bar with steps tab selected correctly', () => {

@@ -15,7 +15,6 @@ import { checkForUnreadComments } from '../../../actions/unreadComments';
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/unreadComments');
 jest.mock('../../../selectors/people');
-jest.mock('../../../selectors/organizations');
 jest.mock('../../TrackTabChange', () => () => null);
 
 jest.mock('../../../actions/people', () => ({
