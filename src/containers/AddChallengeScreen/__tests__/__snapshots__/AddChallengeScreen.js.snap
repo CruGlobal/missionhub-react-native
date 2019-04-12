@@ -236,7 +236,7 @@ exports[`renders correctly 1`] = `
             >
               <RCTDatePicker
                 date={1535760000000}
-                locale="en-US"
+                locale="en-TEST"
                 minimumDate={1535760000000}
                 mode="date"
                 onChange={[Function]}
