@@ -1,5 +1,3 @@
-import { DrawerActions } from 'react-navigation';
-
 import { checkForUnreadComments } from '../actions/unreadComments';
 import {
   NAVIGATE_FORWARD,
@@ -14,7 +12,6 @@ export default function misc({ dispatch }) {
     const returnValue = next(action);
 
     switch (action.type) {
-      case DrawerActions.OPEN_DRAWER:
       case NAVIGATE_FORWARD:
       case TRACK_TAB:
         checkUnreadCommentsNotification(action, dispatch);

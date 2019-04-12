@@ -58,7 +58,7 @@ beforeEach(() => {
   checkForUnreadComments.mockReturnValue({
     type: 'check for unread comments',
   });
-  common.refresh = jest.fn();
+  common.refresh = jest.fn((_, refreshMethod) => refreshMethod());
 });
 
 it('should render null state', () => {
@@ -212,6 +212,7 @@ describe('GroupsListScreen', () => {
 
     expect(checkForUnreadComments).toHaveBeenCalled();
     expect(common.refresh).toHaveBeenCalledWith(instance, instance.loadGroups);
+    expect(getMyCommunities).toHaveBeenCalled();
   });
 
   it('should render null', () => {

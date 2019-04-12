@@ -1,6 +1,11 @@
 import configureStore from 'redux-mock-store';
 
-import { NAVIGATE_FORWARD, STEPS_TAB } from '../../constants';
+import {
+  NAVIGATE_FORWARD,
+  STEPS_TAB,
+  PEOPLE_TAB,
+  GROUPS_TAB,
+} from '../../constants';
 import misc from '../misc';
 import { checkForUnreadComments } from '../../actions/unreadComments';
 
@@ -19,12 +24,29 @@ beforeEach(() => {
 describe('navigate forward', () => {
   beforeEach(() => (store = mockStore()));
 
-  it('tracks main tab', () => {
-    navigationAction = { type: NAVIGATE_FORWARD, routeName: STEPS_TAB };
+  describe('checks unread comments on main tab navigation', () => {
+    const test = routeName => {
+      navigationAction = { type: NAVIGATE_FORWARD, routeName };
 
-    store.dispatch(navigationAction);
+      store.dispatch(navigationAction);
 
-    expect(checkForUnreadComments).toHaveBeenCalled();
-    expect(store.getActions()).toEqual([navigationAction, checkCommentsResult]);
+      expect(checkForUnreadComments).toHaveBeenCalled();
+      expect(store.getActions()).toEqual([
+        navigationAction,
+        checkCommentsResult,
+      ]);
+    };
+
+    it('checks on steps tab', () => {
+      test(STEPS_TAB);
+    });
+
+    it('checks on people tab', () => {
+      test(PEOPLE_TAB);
+    });
+
+    it('checks on groups tab', () => {
+      test(GROUPS_TAB);
+    });
   });
 });
