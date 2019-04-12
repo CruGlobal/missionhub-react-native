@@ -14,6 +14,7 @@ import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-hel
 
 import reducers from './reducers';
 import tracking from './middleware/tracking';
+import misc from './middleware/misc';
 import { migrations } from './storeMigrations';
 
 const navMiddleware = createReactNavigationReduxMiddleware(
@@ -23,7 +24,7 @@ const navMiddleware = createReactNavigationReduxMiddleware(
 
 // Setup enhancers and middleware
 const enhancers = [];
-const middleware = [thunk, tracking, navMiddleware];
+const middleware = [thunk, tracking, misc, navMiddleware];
 
 const composeEnhancers =
   (typeof window !== 'undefined' &&
