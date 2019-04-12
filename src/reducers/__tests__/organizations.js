@@ -971,6 +971,44 @@ describe('REQUESTS.GET_ME', () => {
   });
 });
 
+describe('GET_UNREAD_COMMENTS_NOTIFICATION', () => {
+  it('should refresh unread counts for orgs', () => {
+    const org1NewCount = 3;
+    const org2NewCount = 5;
+    const initialState = {
+      all: [
+        { id: org1Id, unread_comments_count: 0 },
+        { id: org2Id, unread_comments_count: 0 },
+      ],
+    };
+    const action = {
+      type: REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION.SUCCESS,
+      results: {
+        response: {
+          organizational_permissions: [
+            {
+              id: '1',
+              organization: { id: org1Id, unread_comments_count: org1NewCount },
+            },
+            {
+              id: '1',
+              organization: { id: org2Id, unread_comments_count: org2NewCount },
+            },
+          ],
+        },
+      },
+    };
+    const resultState = {
+      all: [
+        { id: org1Id, unread_comments_count: org1NewCount },
+        { id: org2Id, unread_comments_count: org2NewCount },
+      ],
+    };
+
+    expect(organizations(initialState, action)).toEqual(resultState);
+  });
+});
+
 describe('REMOVE_ORGANIZATION_MEMBER', () => {
   it('should remove member', () => {
     const personId = '2542342';

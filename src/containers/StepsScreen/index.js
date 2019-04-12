@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import debounce from 'lodash/debounce';
 
-import { loadHome } from '../../actions/auth/userData';
 import {
   showReminderScreen,
   showWelcomeNotification,
@@ -16,6 +15,7 @@ import {
   setStepFocus,
   getMyStepsNextPage,
 } from '../../actions/steps';
+import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigatePush } from '../../actions/navigation';
 import {
   reminderStepsSelector,
@@ -77,11 +77,6 @@ export class StepsScreen extends Component {
     this.handleNextPage = debounce(this.handleNextPage.bind(this), 250);
   }
 
-  componentDidMount() {
-    // For some reason, when the user logs out, this gets mounted again
-    this.props.dispatch(loadHome());
-  }
-
   getSteps() {
     return this.props.dispatch(getMySteps());
   }
@@ -135,6 +130,7 @@ export class StepsScreen extends Component {
   }
 
   handleRefresh() {
+    this.props.dispatch(checkForUnreadComments());
     refresh(this, this.getSteps);
   }
 

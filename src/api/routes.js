@@ -76,6 +76,9 @@ export default {
   GET_ME: {
     endpoint: `${PEOPLE_URL}/me`,
   },
+  GET_UNREAD_COMMENTS_NOTIFICATION: {
+    endpoint: `${PEOPLE_URL}/me`,
+  },
   GET_PERSON: {
     endpoint: `${PEOPLE_URL}/:person_id`,
   },

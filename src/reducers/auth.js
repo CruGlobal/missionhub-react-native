@@ -94,6 +94,14 @@ function authReducer(state = initialAuthState, action) {
         },
         isJean: userIsJean(person.organizational_permissions),
       };
+    case REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION.SUCCESS:
+      return {
+        ...state,
+        person: {
+          ...state.person,
+          unread_comments_count: results.response.unread_comments_count,
+        },
+      };
     case REQUESTS.GET_STAGES.SUCCESS:
     case UPDATE_STAGES:
       // Add the matching 'stage' object to the user object
