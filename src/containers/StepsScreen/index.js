@@ -278,7 +278,7 @@ export class StepsScreen extends Component {
     );
   }
 
-  renderSteps(steps) {
+  renderSteps(steps, fetchMore, pageInfo) {
     const reminders = [];
     return (
       <View style={{ flex: 1 }}>
@@ -305,6 +305,31 @@ export class StepsScreen extends Component {
           {this.renderReminders([])}
           {this.renderList(steps)}
         </ScrollView>
+        <BottomButton
+          text="load more"
+          onPress={() => {
+            fetchMore({
+              variables: { after: pageInfo.endCursor },
+              updateQuery: (prev, { fetchMoreResult }) => {
+                console.log(prev);
+                console.log(fetchMoreResult);
+                return {
+                  ...prev,
+                  person: {
+                    ...prev.person,
+                    acceptedChallenges: {
+                      ...prev.person.acceptedChallenges,
+                      nodes: [
+                        ...prev.person.acceptedChallenges.nodes,
+                        ...fetchMoreResult.person.acceptedChallenges.nodes,
+                      ],
+                    },
+                  },
+                };
+              },
+            });
+          }}
+        />
         {steps.length > 0 || reminders.length > 0 ? null : (
           <TakeAStepWithSomeoneButton />
         )}
@@ -337,30 +362,41 @@ export class StepsScreen extends Component {
             },
           }}
           query={gql`
-            {
+            query($after: String) {
               person(id: 1013) {
                 id
                 name
-                acceptedChallenges {
-                  id
-                  title
-                  accepted_at
-                  receiver {
+                acceptedChallenges(after: $after) {
+                  nodes {
                     id
-                    name
-                    full_name
+                    title
+                    accepted_at
+                    receiver {
+                      id
+                      name
+                      full_name
+                    }
+                    owner {
+                      id
+                      name
+                      full_name
+                    }
                   }
-                  owner {
-                    id
-                    name
-                    full_name
+                  edges {
+                    cursor
+                  }
+                  pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
                   }
                 }
               }
             }
           `}
         >
-          {({ loading, error, data }) => {
+          {({ loading, error, data, fetchMore }) => {
             if (loading) {
               console.log('loading on steps screen');
               return <LoadingGuy />;
@@ -370,7 +406,11 @@ export class StepsScreen extends Component {
               return <Text>{JSON.stringify(error)}</Text>;
             }
 
-            return this.renderSteps(data.person.acceptedChallenges);
+            return this.renderSteps(
+              data.person.acceptedChallenges.nodes,
+              fetchMore,
+              data.person.acceptedChallenges.pageInfo,
+            );
           }}
         </Query>
         <Mutation
