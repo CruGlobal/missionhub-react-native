@@ -19,7 +19,8 @@ import {
   showReminderScreen,
   showWelcomeNotification,
 } from '../../../actions/notifications';
-import { setStepFocus } from '../../../actions/steps';
+import { checkForUnreadComments } from '../../../actions/unreadComments';
+import { setStepFocus, getMySteps } from '../../../actions/steps';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
@@ -28,6 +29,7 @@ jest.mock('../../../selectors/steps');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/person');
 jest.mock('../../TrackTabChange', () => () => null);
@@ -368,6 +370,36 @@ describe('StepsScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
         step,
       });
+    });
+  });
+
+  describe('handleRefresh', () => {
+    let screen;
+    let instance;
+
+    beforeEach(() => {
+      getMySteps.mockReturnValue({ type: 'get steps' });
+      checkForUnreadComments.mockReturnValue({
+        type: 'check for unread comments',
+      });
+      common.refresh = jest.fn((_, refreshMethod) => refreshMethod());
+
+      screen = createComponent(baseProps);
+      instance = screen.instance();
+
+      instance.handleRefresh();
+    });
+
+    it('should get me', () => {
+      expect(checkForUnreadComments).toHaveBeenCalled();
+    });
+
+    it('should refresh with getSteps method', () => {
+      expect(common.refresh).toHaveBeenCalledWith(instance, instance.getSteps);
+    });
+
+    it('should get steps', () => {
+      expect(getMySteps).toHaveBeenCalled();
     });
   });
 });

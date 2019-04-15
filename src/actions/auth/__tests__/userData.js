@@ -15,6 +15,7 @@ import {
 import { FIRST_TIME } from '../../../constants';
 import { showReminderOnLoad } from '../../notifications';
 import { resetPerson } from '../../onboardingProfile';
+import { getMyPeople } from '../../people';
 import { getMyCommunities } from '../../organizations';
 import { getMe } from '../../person';
 import { getStagesIfNotExists } from '../../stages';
@@ -25,6 +26,7 @@ const notificationsResult = { type: 'show notification reminder' };
 const resetOnboardingPersonResult = { type: 'onboarding data cleared' };
 const getMyCommunitiesResult = { type: 'got communities' };
 const getMeResult = { type: 'got me successfully' };
+const getPeopleResult = { type: 'get my people' };
 const getStepsResult = { type: 'got steps successfully' };
 const getStagesResult = { type: 'got stages' };
 const updateUserResult = { type: 'updated locale and TZ' };
@@ -34,6 +36,7 @@ jest.mock('../../notifications');
 jest.mock('../../onboardingProfile');
 jest.mock('../../organizations');
 jest.mock('../../person');
+jest.mock('../../people');
 jest.mock('../../stages');
 jest.mock('../../steps');
 callApi.default = jest.fn().mockReturnValue({ type: 'test-action' });
@@ -145,6 +148,7 @@ describe('loadHome', () => {
 
   it('loads me, organizations, stages, timezone, and notifications', async () => {
     getMe.mockReturnValue(getMeResult);
+    getMyPeople.mockReturnValue(getPeopleResult);
     getMySteps.mockReturnValue(getStepsResult);
     getMyCommunities.mockReturnValue(getMyCommunitiesResult);
     getStagesIfNotExists.mockReturnValue(getStagesResult);
@@ -162,6 +166,7 @@ describe('loadHome', () => {
 
     expect(store.getActions()).toEqual([
       getMeResult,
+      getPeopleResult,
       getMyCommunitiesResult,
       getStagesResult,
       updateUserResult,

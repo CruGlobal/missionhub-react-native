@@ -31,6 +31,16 @@ describe('markdown is not null', () => {
   });
 });
 
+describe('markdown is empty string', () => {
+  beforeAll(() => {
+    markdown = '';
+  });
+
+  it('renders correctly', () => {
+    expect(screen).toMatchSnapshot();
+  });
+});
+
 describe('markdown is null', () => {
   beforeAll(() => {
     markdown = null;

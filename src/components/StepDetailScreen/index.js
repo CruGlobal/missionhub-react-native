@@ -37,11 +37,11 @@ export default function StepDetailScreen({
         <Text style={stepTitleText}>{text}</Text>
         {CenterContent}
         <View flex={1}>
-          {markdown && (
+          {markdown ? (
             <ScrollView style={styles.body}>
               <Markdown style={markdownStyles}>{markdown}</Markdown>
             </ScrollView>
-          )}
+          ) : null}
         </View>
         {bottomButtonProps && <BottomButton {...bottomButtonProps} />}
       </SafeAreaView>

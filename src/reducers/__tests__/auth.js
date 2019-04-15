@@ -96,6 +96,17 @@ it('sets isJean after loading me', () => {
   expect(userIsJean).toHaveBeenCalledWith(organizational_permissions);
 });
 
+it('sets unread_comments_count', () => {
+  const newCommentsCount = 5;
+  const response = { unread_comments_count: newCommentsCount };
+
+  const state = callAuth(REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION.SUCCESS, {
+    response,
+  });
+
+  expect(state.person.unread_comments_count).toEqual(newCommentsCount);
+});
+
 it('sets user time zone', () => {
   const action = {
     response: {

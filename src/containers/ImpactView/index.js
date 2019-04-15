@@ -244,9 +244,7 @@ export class ImpactView extends Component {
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
         ) : null}
         <Flex style={styles.topSection}>
-          <Text style={[styles.text, styles.topText]}>
-            {this.buildImpactSentence(impact)}
-          </Text>
+          <Text style={styles.text}>{this.buildImpactSentence(impact)}</Text>
         </Flex>
         <Image
           style={styles.image}
@@ -258,7 +256,7 @@ export class ImpactView extends Component {
           }
         >
           {showGlobalImpact ? (
-            <Text style={[styles.text, styles.bottomText]}>
+            <Text style={styles.text}>
               {this.buildImpactSentence(globalImpact, true)}
             </Text>
           ) : showInteractionReport ? (
