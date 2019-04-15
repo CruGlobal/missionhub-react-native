@@ -688,6 +688,7 @@ exports[`renders with actions and selected action 1`] = `
           value=""
         />
         <IconButton
+          disabled={false}
           name="upArrow"
           onPress={[Function]}
           size={22}
@@ -1121,6 +1122,120 @@ exports[`renders with custom style 1`] = `
 </Flex>
 `;
 
+exports[`renders with disabled submit button 1`] = `
+<Flex
+  direction="column"
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderTopColor": "#B2B0B2",
+        "borderTopWidth": 1,
+        "paddingBottom": 5,
+        "paddingTop": 5,
+        "width": 750,
+      },
+      undefined,
+    ]
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 5,
+        "marginHorizontal": 10,
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="center"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#007398",
+            "borderRadius": 25,
+            "marginRight": 15,
+          },
+          null,
+        ]
+      }
+    >
+      <IconButton
+        name="plusIcon"
+        onPress={[Function]}
+        size={13}
+        type="MissionHub"
+      />
+    </Flex>
+    <Flex
+      align="center"
+      direction="column"
+      justify="center"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+        }
+      }
+      value={1}
+    >
+      <Flex
+        align="center"
+        direction="row"
+        justify="center"
+        self="stretch"
+        style={
+          Object {
+            "paddingLeft": 13,
+          }
+        }
+      >
+        <Input
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder="Share something to be remembered..."
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingLeft": 5,
+              "paddingVertical": 7,
+            }
+          }
+          value="test"
+        />
+        <IconButton
+          disabled={true}
+          name="upArrow"
+          onPress={[Function]}
+          size={22}
+          style={
+            Object {
+              "color": "#007398",
+            }
+          }
+          type="MissionHub"
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</Flex>
+`;
+
 exports[`renders with text 1`] = `
 <Flex
   direction="column"
@@ -1218,6 +1333,121 @@ exports[`renders with text 1`] = `
           value="test"
         />
         <IconButton
+          disabled={false}
+          name="upArrow"
+          onPress={[Function]}
+          size={22}
+          style={
+            Object {
+              "color": "#007398",
+            }
+          }
+          type="MissionHub"
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</Flex>
+`;
+
+exports[`renders with text entered 1`] = `
+<Flex
+  direction="column"
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderTopColor": "#B2B0B2",
+        "borderTopWidth": 1,
+        "paddingBottom": 5,
+        "paddingTop": 5,
+        "width": 750,
+      },
+      undefined,
+    ]
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 5,
+        "marginHorizontal": 10,
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="center"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#007398",
+            "borderRadius": 25,
+            "marginRight": 15,
+          },
+          null,
+        ]
+      }
+    >
+      <IconButton
+        name="plusIcon"
+        onPress={[Function]}
+        size={13}
+        type="MissionHub"
+      />
+    </Flex>
+    <Flex
+      align="center"
+      direction="column"
+      justify="center"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+        }
+      }
+      value={1}
+    >
+      <Flex
+        align="center"
+        direction="row"
+        justify="center"
+        self="stretch"
+        style={
+          Object {
+            "paddingLeft": 13,
+          }
+        }
+      >
+        <Input
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder="Share something to be remembered..."
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingLeft": 5,
+              "paddingVertical": 7,
+            }
+          }
+          value="test"
+        />
+        <IconButton
+          disabled={false}
           name="upArrow"
           onPress={[Function]}
           size={22}
@@ -1486,6 +1716,7 @@ exports[`renders without actions and selected action 1`] = `
           value=""
         />
         <IconButton
+          disabled={false}
           name="upArrow"
           onPress={[Function]}
           size={22}
