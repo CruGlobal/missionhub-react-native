@@ -8,6 +8,7 @@ import { getStepSuggestions } from '../../actions/steps';
 import { insertName } from '../../utils/steps';
 import StepSuggestionItem from '../../components/StepSuggestionItem';
 import LoadMore from '../../components/LoadMore';
+import { keyExtractorId } from '../../utils/common';
 
 import styles from './styles';
 
@@ -52,8 +53,6 @@ class StepsList extends Component {
 
   stepsListRef = c => (this.stepsList = c);
 
-  keyExtractor = item => item.id;
-
   render() {
     const { suggestions } = this.props;
     const { suggestionIndex } = this.state;
@@ -62,7 +61,7 @@ class StepsList extends Component {
     return (
       <FlatList
         ref={this.stepsListRef}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         data={this.getSuggestionSubset()}
         renderItem={this.renderItem}
         scrollEnabled={true}
