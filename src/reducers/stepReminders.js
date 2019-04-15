@@ -32,21 +32,19 @@ function addCreatedReminderToState(
 }
 
 function addChallengeRemindersToState(state, { results: { response } }) {
+  const newByStep = state.allByStep;
+
+  response.forEach(step => {
+    if (!step.reminder) {
+      delete newByStep[step.id];
+    } else {
+      newByStep[step.id] = step.reminder;
+    }
+  });
+
   return {
     ...state,
-    allByStep: {
-      ...state.allByStep,
-      ...response.reduce(
-        (acc, { id: challenge_id, reminder }) =>
-          reminder
-            ? {
-                ...acc,
-                [challenge_id]: reminder,
-              }
-            : acc,
-        {},
-      ),
-    },
+    allByStep: newByStep,
   };
 }
 
