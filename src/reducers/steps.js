@@ -69,7 +69,9 @@ export default function stepsReducer(state = initialState, action) {
           ...state.contactSteps,
           [`${personId}-${orgId}`]: {
             steps: allStepsFilter.filter(s => !s.completed_at),
-            completedSteps: allStepsFilter.filter(s => s.completed_at),
+            completedSteps: sortByCompleted(
+              allStepsFilter.filter(s => s.completed_at),
+            ),
           },
         },
       };
@@ -154,3 +156,19 @@ const toggleStepReminder = (steps, step) =>
     ...s,
     focus: s && s.id === step.id ? !s.focus : s.focus,
   }));
+
+function sortByCompleted(arr) {
+  // Sort by most recent date first
+  arr.sort((a, b) => {
+    const aDate = new Date(a.completed_at);
+    const bDate = new Date(b.completed_at);
+    if (aDate > bDate) {
+      return -1;
+    }
+    if (aDate < bDate) {
+      return 1;
+    }
+    return 0;
+  });
+  return arr;
+}
