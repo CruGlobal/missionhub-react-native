@@ -26,7 +26,7 @@ exports[`report item render row 1`] = `
 `;
 
 exports[`should render correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -101,17 +101,18 @@ exports[`should render correctly 1`] = `
           tintColor="#007398"
         />
       }
+      removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}
       updateCellsBatchingPeriod={50}
       windowSize={21}
     />
   </SafeAreaView>
-</Component>
+</View>
 `;
 
 exports[`should render empty correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -152,5 +153,5 @@ exports[`should render empty correctly 1`] = `
       }
     />
   </SafeAreaView>
-</Component>
+</View>
 `;

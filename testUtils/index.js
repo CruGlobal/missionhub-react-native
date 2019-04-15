@@ -1,4 +1,6 @@
+import React from 'react';
 import 'react-native';
+import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -18,10 +20,17 @@ export const testSnapshot = data => {
 export const createThunkStore = configureStore([thunk]);
 
 export const renderShallow = (component, store = createThunkStore()) => {
-  let renderedComponent = shallow(component, { context: { store: store } });
+  let renderedComponent = shallow(
+    <Provider store={store}>{component}</Provider>,
+  ).dive();
 
   // If component has translation wrappers, dive deeper
-  while (renderedComponent.is('Translate') || renderedComponent.is('I18n')) {
+  while (
+    (renderedComponent.type().displayName || '').startsWith('Translate(') ||
+    renderedComponent.is('Translate') ||
+    (renderedComponent.type().displayName || '').startsWith('I18n(') ||
+    renderedComponent.is('I18n')
+  ) {
     renderedComponent = renderedComponent.dive();
   }
 

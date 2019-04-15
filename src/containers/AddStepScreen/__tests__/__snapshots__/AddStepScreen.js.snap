@@ -2,6 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -35,6 +36,7 @@ exports[`renders correctly 1`] = `
       onChangeText={[Function]}
       placeholder="Create your own step"
       placeholderTextColor="#B4B6BA"
+      rejectResponderTermination={true}
       returnKeyType="done"
       selectionColor="#005A7F"
       style={
@@ -65,7 +67,6 @@ exports[`renders correctly 1`] = `
     />
   </View>
   <View
-    accessibilityTraits="button"
     accessible={true}
     isTVSelectable={true}
     onResponderGrant={[Function]}
@@ -98,9 +99,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -128,6 +126,7 @@ exports[`renders correctly 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Array [
         Object {
@@ -145,7 +144,6 @@ exports[`renders correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -173,9 +171,7 @@ exports[`renders correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -217,6 +213,7 @@ exports[`renders correctly 1`] = `
 
 exports[`renders edit journey correctly 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -249,6 +246,7 @@ exports[`renders edit journey correctly 1`] = `
       onChangeText={[Function]}
       placeholder="Edit your comment"
       placeholderTextColor="#B4B6BA"
+      rejectResponderTermination={true}
       returnKeyType="done"
       selectionColor="#005A7F"
       style={
@@ -279,7 +277,6 @@ exports[`renders edit journey correctly 1`] = `
     />
   </View>
   <View
-    accessibilityTraits="button"
     accessible={true}
     isTVSelectable={true}
     onResponderGrant={[Function]}
@@ -312,9 +309,6 @@ exports[`renders edit journey correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -342,6 +336,7 @@ exports[`renders edit journey correctly 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Array [
         Object {
@@ -359,7 +354,6 @@ exports[`renders edit journey correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -387,9 +381,7 @@ exports[`renders edit journey correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -431,6 +423,7 @@ exports[`renders edit journey correctly 1`] = `
 
 exports[`renders interaction with skip correctly 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -452,7 +445,6 @@ exports[`renders interaction with skip correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -482,9 +474,6 @@ exports[`renders interaction with skip correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -539,6 +528,7 @@ exports[`renders interaction with skip correctly 1`] = `
       onChangeText={[Function]}
       placeholder="What did you see God do?"
       placeholderTextColor="#B4B6BA"
+      rejectResponderTermination={true}
       returnKeyType="done"
       selectionColor="#005A7F"
       style={
@@ -569,7 +559,6 @@ exports[`renders interaction with skip correctly 1`] = `
     />
   </View>
   <View
-    accessibilityTraits="button"
     accessible={true}
     isTVSelectable={true}
     onResponderGrant={[Function]}
@@ -602,9 +591,6 @@ exports[`renders interaction with skip correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -632,6 +618,7 @@ exports[`renders interaction with skip correctly 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Array [
         Object {
@@ -649,7 +636,6 @@ exports[`renders interaction with skip correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -677,9 +663,7 @@ exports[`renders interaction with skip correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -717,6 +701,7 @@ exports[`renders interaction with skip correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
         "position": "absolute",
@@ -726,7 +711,6 @@ exports[`renders interaction with skip correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -756,9 +740,6 @@ exports[`renders interaction with skip correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -793,6 +774,7 @@ exports[`renders interaction with skip correctly 1`] = `
 
 exports[`renders interaction without skip correctly 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -825,6 +807,7 @@ exports[`renders interaction without skip correctly 1`] = `
       onChangeText={[Function]}
       placeholder="What did you see God do?"
       placeholderTextColor="#B4B6BA"
+      rejectResponderTermination={true}
       returnKeyType="done"
       selectionColor="#005A7F"
       style={
@@ -855,7 +838,6 @@ exports[`renders interaction without skip correctly 1`] = `
     />
   </View>
   <View
-    accessibilityTraits="button"
     accessible={true}
     isTVSelectable={true}
     onResponderGrant={[Function]}
@@ -888,9 +870,6 @@ exports[`renders interaction without skip correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -918,6 +897,7 @@ exports[`renders interaction without skip correctly 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Array [
         Object {
@@ -935,7 +915,6 @@ exports[`renders interaction without skip correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -963,9 +942,7 @@ exports[`renders interaction without skip correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1007,6 +984,7 @@ exports[`renders interaction without skip correctly 1`] = `
 
 exports[`renders journey correctly 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -1039,6 +1017,7 @@ exports[`renders journey correctly 1`] = `
       onChangeText={[Function]}
       placeholder="What did you see God do?"
       placeholderTextColor="#B4B6BA"
+      rejectResponderTermination={true}
       returnKeyType="done"
       selectionColor="#005A7F"
       style={
@@ -1069,7 +1048,6 @@ exports[`renders journey correctly 1`] = `
     />
   </View>
   <View
-    accessibilityTraits="button"
     accessible={true}
     isTVSelectable={true}
     onResponderGrant={[Function]}
@@ -1102,9 +1080,6 @@ exports[`renders journey correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1132,6 +1107,7 @@ exports[`renders journey correctly 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Array [
         Object {
@@ -1149,7 +1125,6 @@ exports[`renders journey correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -1177,9 +1152,7 @@ exports[`renders journey correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1221,6 +1194,7 @@ exports[`renders journey correctly 1`] = `
 
 exports[`renders step note correctly 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -1242,7 +1216,6 @@ exports[`renders step note correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -1272,9 +1245,6 @@ exports[`renders step note correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1329,6 +1299,7 @@ exports[`renders step note correctly 1`] = `
       onChangeText={[Function]}
       placeholder="What did you see God do?"
       placeholderTextColor="#B4B6BA"
+      rejectResponderTermination={true}
       returnKeyType="done"
       selectionColor="#005A7F"
       style={
@@ -1359,7 +1330,6 @@ exports[`renders step note correctly 1`] = `
     />
   </View>
   <View
-    accessibilityTraits="button"
     accessible={true}
     isTVSelectable={true}
     onResponderGrant={[Function]}
@@ -1392,9 +1362,6 @@ exports[`renders step note correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1422,6 +1389,7 @@ exports[`renders step note correctly 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
         "position": "absolute",
@@ -1431,7 +1399,6 @@ exports[`renders step note correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -1461,9 +1428,6 @@ exports[`renders step note correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1498,6 +1462,7 @@ exports[`renders step note correctly 1`] = `
 
 exports[`renders step note correctly for me 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -1519,7 +1484,6 @@ exports[`renders step note correctly for me 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -1549,9 +1513,6 @@ exports[`renders step note correctly for me 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1606,6 +1567,7 @@ exports[`renders step note correctly for me 1`] = `
       onChangeText={[Function]}
       placeholder="What did you see God do?"
       placeholderTextColor="#B4B6BA"
+      rejectResponderTermination={true}
       returnKeyType="done"
       selectionColor="#005A7F"
       style={
@@ -1636,7 +1598,6 @@ exports[`renders step note correctly for me 1`] = `
     />
   </View>
   <View
-    accessibilityTraits="button"
     accessible={true}
     isTVSelectable={true}
     onResponderGrant={[Function]}
@@ -1669,9 +1630,6 @@ exports[`renders step note correctly for me 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1699,6 +1657,7 @@ exports[`renders step note correctly for me 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
         "position": "absolute",
@@ -1708,7 +1667,6 @@ exports[`renders step note correctly for me 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -1738,9 +1696,6 @@ exports[`renders step note correctly for me 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {

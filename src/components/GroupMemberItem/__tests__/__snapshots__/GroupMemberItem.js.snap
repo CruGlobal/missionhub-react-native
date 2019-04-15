@@ -29,44 +29,34 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
         align="center"
         direction="row"
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            5 Assigned
-          </MyText>
-          <React.Fragment>
-            <Dot
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
-              }
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#FF5532",
-                  "fontSize": 14,
-                }
-              }
-            >
-              3 Uncontacted
-            </MyText>
-          </React.Fragment>
-        </React.Fragment>
+          }
+        >
+          5 Assigned
+        </MyText>
+        <Dot
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        />
+        <MyText
+          style={
+            Object {
+              "color": "#FF5532",
+              "fontSize": 14,
+            }
+          }
+        >
+          3 Uncontacted
+        </MyText>
       </Flex>
     </Flex>
   </Flex>
@@ -102,44 +92,34 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
         align="center"
         direction="row"
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            5 Assigned
-          </MyText>
-          <React.Fragment>
-            <Dot
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
-              }
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#FF5532",
-                  "fontSize": 14,
-                }
-              }
-            >
-              3 Uncontacted
-            </MyText>
-          </React.Fragment>
-        </React.Fragment>
+          }
+        >
+          5 Assigned
+        </MyText>
+        <Dot
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        />
+        <MyText
+          style={
+            Object {
+              "color": "#FF5532",
+              "fontSize": 14,
+            }
+          }
+        >
+          3 Uncontacted
+        </MyText>
       </Flex>
     </Flex>
   </Flex>
@@ -175,44 +155,34 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
         align="center"
         direction="row"
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            5 Assigned
-          </MyText>
-          <React.Fragment>
-            <Dot
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
-              }
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#FF5532",
-                  "fontSize": 14,
-                }
-              }
-            >
-              3 Uncontacted
-            </MyText>
-          </React.Fragment>
-        </React.Fragment>
+          }
+        >
+          5 Assigned
+        </MyText>
+        <Dot
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        />
+        <MyText
+          style={
+            Object {
+              "color": "#FF5532",
+              "fontSize": 14,
+            }
+          }
+        >
+          3 Uncontacted
+        </MyText>
       </Flex>
     </Flex>
     <Connect(Translate(MemberOptionsMenu))
@@ -274,44 +244,34 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
         align="center"
         direction="row"
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            5 Assigned
-          </MyText>
-          <React.Fragment>
-            <Dot
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
-              }
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#FF5532",
-                  "fontSize": 14,
-                }
-              }
-            >
-              3 Uncontacted
-            </MyText>
-          </React.Fragment>
-        </React.Fragment>
+          }
+        >
+          5 Assigned
+        </MyText>
+        <Dot
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        />
+        <MyText
+          style={
+            Object {
+              "color": "#FF5532",
+              "fontSize": 14,
+            }
+          }
+        >
+          3 Uncontacted
+        </MyText>
       </Flex>
     </Flex>
     <Connect(Translate(MemberOptionsMenu))
@@ -373,44 +333,34 @@ exports[`render contacts count cru org should render 0 assigned 1`] = `
         align="center"
         direction="row"
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            0 Assigned
-          </MyText>
-          <React.Fragment>
-            <Dot
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
-              }
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#FF5532",
-                  "fontSize": 14,
-                }
-              }
-            >
-              3 Uncontacted
-            </MyText>
-          </React.Fragment>
-        </React.Fragment>
+          }
+        >
+          0 Assigned
+        </MyText>
+        <Dot
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        />
+        <MyText
+          style={
+            Object {
+              "color": "#FF5532",
+              "fontSize": 14,
+            }
+          }
+        >
+          3 Uncontacted
+        </MyText>
       </Flex>
     </Flex>
   </Flex>
@@ -446,21 +396,16 @@ exports[`render contacts count cru org should render 0 uncontacted 1`] = `
         align="center"
         direction="row"
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            5 Assigned
-          </MyText>
-        </React.Fragment>
+          }
+        >
+          5 Assigned
+        </MyText>
       </Flex>
     </Flex>
   </Flex>
@@ -496,44 +441,34 @@ exports[`render contacts count cru org should render assigned and uncontacted 1`
         align="center"
         direction="row"
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            5 Assigned
-          </MyText>
-          <React.Fragment>
-            <Dot
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 14,
-                }
-              }
-            />
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#FF5532",
-                  "fontSize": 14,
-                }
-              }
-            >
-              3 Uncontacted
-            </MyText>
-          </React.Fragment>
-        </React.Fragment>
+          }
+        >
+          5 Assigned
+        </MyText>
+        <Dot
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        />
+        <MyText
+          style={
+            Object {
+              "color": "#FF5532",
+              "fontSize": 14,
+            }
+          }
+        >
+          3 Uncontacted
+        </MyText>
       </Flex>
     </Flex>
   </Flex>
@@ -569,21 +504,16 @@ exports[`render contacts count user created org should render no stage, admin pe
         align="center"
         direction="row"
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            Admin
-          </MyText>
-        </React.Fragment>
+          }
+        >
+          Admin
+        </MyText>
       </Flex>
     </Flex>
   </Flex>
@@ -618,9 +548,7 @@ exports[`render contacts count user created org should render no stage, member p
       <Flex
         align="center"
         direction="row"
-      >
-        <React.Fragment />
-      </Flex>
+      />
     </Flex>
   </Flex>
 </Card>
@@ -655,21 +583,16 @@ exports[`render contacts count user created org should render no stage, owner pe
         align="center"
         direction="row"
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            Owner
-          </MyText>
-        </React.Fragment>
+          }
+        >
+          Owner
+        </MyText>
       </Flex>
     </Flex>
   </Flex>
@@ -705,42 +628,34 @@ exports[`render contacts count user created org should render stage, admin permi
         align="center"
         direction="row"
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            Uninterested
-          </MyText>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+          }
+        >
+          Uninterested
+        </MyText>
+        <Dot
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+          }
+        />
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            Admin
-          </MyText>
-        </React.Fragment>
+          }
+        >
+          Admin
+        </MyText>
       </Flex>
     </Flex>
   </Flex>
@@ -776,21 +691,16 @@ exports[`render contacts count user created org should render stage, member perm
         align="center"
         direction="row"
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            Uninterested
-          </MyText>
-        </React.Fragment>
+          }
+        >
+          Uninterested
+        </MyText>
       </Flex>
     </Flex>
   </Flex>
@@ -826,42 +736,34 @@ exports[`render contacts count user created org should render stage, owner permi
         align="center"
         direction="row"
       >
-        <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            Uninterested
-          </MyText>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+          }
+        >
+          Uninterested
+        </MyText>
+        <Dot
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
+          }
+        />
+        <MyText
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
             }
-          >
-            Owner
-          </MyText>
-        </React.Fragment>
+          }
+        >
+          Owner
+        </MyText>
       </Flex>
     </Flex>
   </Flex>

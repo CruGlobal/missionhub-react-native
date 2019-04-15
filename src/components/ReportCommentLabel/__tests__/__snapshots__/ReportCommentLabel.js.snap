@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render label 1`] = `
-<Component
+<View
   style={
     Array [
       Object {},
@@ -12,9 +12,6 @@ exports[`render label 1`] = `
   }
 >
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#A0A2A6",
@@ -25,9 +22,6 @@ exports[`render label 1`] = `
     :
   </MyText>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     numberOfLines={1}
     style={
       Object {
@@ -37,5 +31,5 @@ exports[`render label 1`] = `
   >
     Test User
   </MyText>
-</Component>
+</View>
 `;

@@ -6,9 +6,6 @@ exports[`for person renders null if stage is not found 1`] = `""`;
 
 exports[`for person renders stage 1`] = `
 <MyText
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Object {
       "color": "#ffffff",
@@ -25,9 +22,6 @@ exports[`for self renders null if stage is not found 1`] = `""`;
 
 exports[`for self renders stage 1`] = `
 <MyText
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Object {
       "color": "#ffffff",

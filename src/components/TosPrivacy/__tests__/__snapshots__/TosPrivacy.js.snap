@@ -15,9 +15,6 @@ exports[`renders tos and privacy 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -50,7 +47,6 @@ exports[`renders tos and privacy 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -78,9 +74,6 @@ exports[`renders tos and privacy 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -116,9 +109,6 @@ exports[`renders tos and privacy 1`] = `
       </View>
     </View>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -139,7 +129,6 @@ exports[`renders tos and privacy 1`] = `
       and
     </Text>
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -167,9 +156,6 @@ exports[`renders tos and privacy 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -223,9 +209,6 @@ exports[`renders trial tos and privacy 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -258,7 +241,6 @@ exports[`renders trial tos and privacy 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -286,9 +268,6 @@ exports[`renders trial tos and privacy 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -324,9 +303,6 @@ exports[`renders trial tos and privacy 1`] = `
       </View>
     </View>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -347,7 +323,6 @@ exports[`renders trial tos and privacy 1`] = `
       and
     </Text>
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -375,9 +350,6 @@ exports[`renders trial tos and privacy 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {

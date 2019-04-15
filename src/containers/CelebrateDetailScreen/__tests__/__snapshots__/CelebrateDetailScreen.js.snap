@@ -51,7 +51,7 @@ exports[`renderStickyHeader renders correctly 1`] = `
     />
   }
   right={
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -79,7 +79,7 @@ exports[`renderStickyHeader renders correctly 1`] = `
           }
         }
       />
-    </Component>
+    </View>
   }
   shadow={false}
   style={
@@ -137,7 +137,7 @@ exports[`renders correctly 1`] = `
     renderStickyHeader={[Function]}
     stickyHeaderHeight={65}
   >
-    <Component
+    <View
       style={
         Object {
           "minHeight": 1067.2,
@@ -184,7 +184,7 @@ exports[`renders correctly 1`] = `
         }
         organizationId="24234234"
       />
-    </Component>
+    </View>
   </ParallaxScrollView>
   <Connect(CelebrateCommentBox)
     event={

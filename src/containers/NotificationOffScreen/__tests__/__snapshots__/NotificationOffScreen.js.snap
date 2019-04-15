@@ -37,9 +37,6 @@ exports[`renders 1`] = `
       value={0.6}
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -53,9 +50,6 @@ exports[`renders 1`] = `
         Notifications are off
       </MyText>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",

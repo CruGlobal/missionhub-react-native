@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render assigned contact 1`] = `
-<Component
+<View
   style={
     Array [
       Object {
@@ -25,9 +25,6 @@ exports[`render assigned contact 1`] = `
     }
   />
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#007398",
@@ -40,9 +37,6 @@ exports[`render assigned contact 1`] = `
     some header
   </MyText>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#505256",
@@ -55,11 +49,11 @@ exports[`render assigned contact 1`] = `
   >
     some description
   </MyText>
-</Component>
+</View>
 `;
 
 exports[`render with content 1`] = `
-<Component
+<View
   style={
     Array [
       Object {
@@ -83,9 +77,6 @@ exports[`render with content 1`] = `
     }
   />
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#007398",
@@ -98,9 +89,6 @@ exports[`render with content 1`] = `
     some header
   </MyText>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#505256",
@@ -113,12 +101,8 @@ exports[`render with content 1`] = `
   >
     some description
   </MyText>
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-  >
+  <MyText>
     Content
   </MyText>
-</Component>
+</View>
 `;
