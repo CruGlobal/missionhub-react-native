@@ -3,6 +3,7 @@ import * as RNOmniture from 'react-native-omniture';
 
 import { FIRST_TIME } from '../../constants';
 import { getMe } from '../person';
+import { getMyPeople } from '../people';
 import { showReminderOnLoad } from '../notifications';
 import { getStagesIfNotExists } from '../stages';
 import { getMySteps } from '../steps';
@@ -65,6 +66,7 @@ export function loadHome() {
     }
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
     dispatch(getMe());
+    dispatch(getMyPeople());
     dispatch(getMyCommunities());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());

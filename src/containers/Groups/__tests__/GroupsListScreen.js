@@ -10,6 +10,7 @@ import { communitiesSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
+import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { resetScrollGroups } from '../../../actions/swipe';
 import { ACTIONS } from '../../../constants';
 import {
@@ -18,6 +19,7 @@ import {
 } from '../../../routes/constants';
 
 jest.mock('../../../selectors/organizations');
+jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
@@ -53,6 +55,10 @@ beforeEach(() => {
   getMyCommunities.mockReturnValue({ type: 'test' });
   trackActionWithoutData.mockReturnValue({ type: 'test' });
   communitiesSelector.mockReturnValue(organizations.all);
+  checkForUnreadComments.mockReturnValue({
+    type: 'check for unread comments',
+  });
+  common.refresh = jest.fn((_, refreshMethod) => refreshMethod());
 });
 
 it('should render null state', () => {
@@ -201,9 +207,12 @@ describe('GroupsListScreen', () => {
 
   it('should refresh the list', () => {
     const instance = component.instance();
-    common.refresh = jest.fn();
+
     instance.handleRefresh();
+
+    expect(checkForUnreadComments).toHaveBeenCalled();
     expect(common.refresh).toHaveBeenCalledWith(instance, instance.loadGroups);
+    expect(getMyCommunities).toHaveBeenCalled();
   });
 
   it('should render null', () => {

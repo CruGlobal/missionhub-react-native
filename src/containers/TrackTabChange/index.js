@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { NavigationEvents } from 'react-navigation';
 
 import { TRACK_TAB } from '../../constants';
+import { checkForUnreadComments } from '../../actions/unreadComments';
 
 export class TrackTabChange extends Component {
   componentDidMount() {
@@ -14,6 +15,7 @@ export class TrackTabChange extends Component {
   tabFocused = payload => {
     const { dispatch } = this.props;
     dispatch({ type: TRACK_TAB, routeName: payload.action.routeName });
+    dispatch(checkForUnreadComments());
   };
 
   render() {
