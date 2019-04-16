@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 
 import { refresh } from '../../utils/common';
 import Header from '../../components/Header';
-import { IconButton } from '../../components/common';
+import { IconButton, Button } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import { organizationSelector } from '../../selectors/organizations';
 import { getGroupCelebrateFeedUnread } from '../../actions/celebration';
@@ -35,7 +35,6 @@ class GroupUnreadFeed extends Component {
       celebrateItems: response || [],
     });
     this.setState({ items });
-    dispatch(markCommentsRead(organization.id));
     return items;
   };
 
@@ -43,7 +42,13 @@ class GroupUnreadFeed extends Component {
     refresh(this, this.loadItems);
   };
 
-  navigateBack = () => this.props.dispatch(navigateBack());
+  markRead = async () => {
+    const { dispatch, organization } = this.props;
+    await dispatch(markCommentsRead(organization.id));
+    this.back();
+  };
+
+  back = () => this.props.dispatch(navigateBack());
 
   render() {
     const { t, organization, count } = this.props;
@@ -53,12 +58,21 @@ class GroupUnreadFeed extends Component {
       <View style={styles.pageContainer}>
         <StatusBar {...theme.statusBar.darkContent} />
         <Header
-          right={
+          left={
             <IconButton
-              name="deleteIcon"
+              name="backIcon"
               type="MissionHub"
-              style={{ color: 'black' }}
-              onPress={this.navigateBack}
+              style={styles.backIcon}
+              onPress={this.back}
+            />
+          }
+          right={
+            <Button
+              type="transparent"
+              text={t('clearAll').toUpperCase()}
+              style={styles.clearAllButton}
+              buttonTextStyle={styles.clearAllButtonText}
+              onPress={this.markRead}
             />
           }
           style={styles.unreadHeader}

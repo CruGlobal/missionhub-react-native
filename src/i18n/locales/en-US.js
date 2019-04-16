@@ -763,6 +763,7 @@ export default {
     title_plural: '{{count}} New Comments',
     header: 'No Unread Comments',
     reportNull: 'No Unread comments.',
+    clearAll: 'Clear All',
   },
   groupsReport: {
     title: 'Reported Comment',
