@@ -155,18 +155,25 @@ it('receives reminders', () => {
   expect(state.mine).toEqual(stepsResponse);
 });
 
-it('receives contact steps', () => {
+it('receives contact steps and sorts completed', () => {
   const state = steps(
     {
       contactSteps: {
-        '123-456': { steps: [{ id: '3' }], completedSteps: [] },
+        '123-456': { steps: [{ id: '6' }], completedSteps: [] },
         '987-personal': { steps: [], completedSteps: [] },
       },
     },
     {
       type: REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS,
       results: {
-        response: [{ id: '1', completed_at: 'time' }, { id: '2' }],
+        response: [
+          { id: '6' },
+          { id: '5', completed_at: '2018-12-09T15:12:24Z' },
+          { id: '2', completed_at: '2018-12-12T15:12:24Z' },
+          { id: '1', completed_at: '2018-12-13T15:12:24Z' },
+          { id: '4', completed_at: '2018-12-10T15:12:24Z' },
+          { id: '3', completed_at: '2018-12-11T15:12:24Z' },
+        ],
       },
       query: { filters: { receiver_ids: '123', organization_ids: '456' } },
     },
@@ -174,8 +181,14 @@ it('receives contact steps', () => {
 
   expect(state.contactSteps).toEqual({
     '123-456': {
-      steps: [{ id: '2' }],
-      completedSteps: [{ id: '1', completed_at: 'time' }],
+      steps: [{ id: '6' }],
+      completedSteps: [
+        { id: '1', completed_at: '2018-12-13T15:12:24Z' },
+        { id: '2', completed_at: '2018-12-12T15:12:24Z' },
+        { id: '3', completed_at: '2018-12-11T15:12:24Z' },
+        { id: '4', completed_at: '2018-12-10T15:12:24Z' },
+        { id: '5', completed_at: '2018-12-09T15:12:24Z' },
+      ],
     },
     '987-personal': { steps: [], completedSteps: [] },
   });
