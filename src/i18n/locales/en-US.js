@@ -505,6 +505,7 @@ export default {
       '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
     stepOfFaithUnknownStage:
       '{{initiator}} completed a Step of Faith with someone.',
+    stepOfFaithNotSureStage: '{{initiator}} completed a Step of Faith.',
     interaction: '{{initiator}} had a {{interactionName}}.',
     interactionDecision: '{{initiator}} saw someone make a Personal Decision.',
     addedContact: '{{initiator}} added a {{receiverStage}} person.',
