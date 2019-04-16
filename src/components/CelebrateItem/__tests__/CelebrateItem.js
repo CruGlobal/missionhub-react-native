@@ -141,6 +141,15 @@ describe('CelebrateItem', () => {
       testEvent(event);
     });
 
+    it('renders step of faith event with Not Sure stage', () => {
+      event = {
+        ...messageBaseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
+        adjective_attribute_value: '6',
+      };
+      testEvent(event);
+    });
+
     it('renders step of faith event without stage', () => {
       event = {
         ...messageBaseEvent,

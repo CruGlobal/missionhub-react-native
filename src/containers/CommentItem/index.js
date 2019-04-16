@@ -12,10 +12,11 @@ import styles from './styles';
 
 class CommentItem extends Component {
   ref = c => (this.view = c);
+  setMenuRef = c => (this.menuRef = c);
 
   handleLongPress = () => {
     const { item, onLongPress } = this.props;
-    onLongPress(item, this.view);
+    onLongPress(item, this.menuRef);
   };
 
   render() {
@@ -41,7 +42,13 @@ class CommentItem extends Component {
     const isMineNotReported = isMine && !isReported;
 
     return (
-      <View style={[contentStyle, isEditing ? editingStyle : null]}>
+      // Android needs the collapsable property to use '.measure' properly within the <CelebrateDetailScreen>
+      // https://github.com/facebook/react-native/issues/3282#issuecomment-201934117
+      <View
+        ref={this.ref}
+        collapsable={false}
+        style={[contentStyle, isEditing ? editingStyle : null]}
+      >
         <Flex direction="row" align="end">
           {isMineNotReported ? (
             <Flex value={1} />
@@ -60,7 +67,7 @@ class CommentItem extends Component {
           {isMineNotReported ? <Flex value={1} /> : null}
           <Touchable disabled={isReported} onLongPress={this.handleLongPress}>
             <View
-              ref={this.ref}
+              ref={this.setMenuRef}
               style={[itemStyle, isMineNotReported ? myStyle : null]}
             >
               <Text style={[text, isMineNotReported ? myText : null]}>
@@ -89,4 +96,9 @@ const mapStateToProps = (
   isEditing: editingCommentId === item.id,
 });
 
-export default connect(mapStateToProps)(CommentItem);
+export default connect(
+  mapStateToProps,
+  undefined,
+  undefined,
+  { withRef: true },
+)(CommentItem);
