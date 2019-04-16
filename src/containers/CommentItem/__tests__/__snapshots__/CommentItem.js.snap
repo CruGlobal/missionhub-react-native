@@ -2,6 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <Component
+  collapsable={false}
   style={
     Array [
       Object {
@@ -99,6 +100,7 @@ exports[`renders correctly 1`] = `
 
 exports[`renders correctly as mine 1`] = `
 <Component
+  collapsable={false}
   style={
     Array [
       Object {
@@ -171,6 +173,7 @@ exports[`renders correctly as mine 1`] = `
 
 exports[`renders editing correctly 1`] = `
 <Component
+  collapsable={false}
   style={
     Array [
       Object {
@@ -270,6 +273,7 @@ exports[`renders editing correctly 1`] = `
 
 exports[`renders my reported comment 1`] = `
 <Component
+  collapsable={false}
   style={
     Array [
       Object {
@@ -343,6 +347,7 @@ exports[`renders my reported comment 1`] = `
 
 exports[`renders reported comment 1`] = `
 <Component
+  collapsable={false}
   style={
     Array [
       Object {

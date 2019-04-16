@@ -33,6 +33,6 @@ export default StyleSheet.create({
     left: 0,
   },
   scrollContent: {
-    minHeight: theme.fullHeight * 0.8,
+    minHeight: theme.fullHeight * 0.7,
   },
 });
