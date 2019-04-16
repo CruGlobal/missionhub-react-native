@@ -630,7 +630,7 @@ export function removeOrganizationMember(personId, orgId) {
 }
 
 export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     const organization = await dispatch(refreshCommunity(orgId));
 
     if (organization) {

@@ -9,7 +9,6 @@ import {
   LOAD_HOME_NOTIFICATION_REMINDER,
   MAIN_TABS,
   REQUEST_NOTIFICATIONS,
-  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { DISABLE_WELCOME_NOTIFICATION, GCM_SENDER_ID } from '../constants';
 import { isAndroid } from '../utils/common';
@@ -17,17 +16,12 @@ import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScre
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen';
 import { hasReminderStepsSelector } from '../selectors/steps';
-import { organizationSelector } from '../selectors/organizations';
-import {
-  getScreenForOrg,
-  GROUP_CHALLENGES,
-} from '../containers/Groups/GroupScreen';
+import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 
 import { navigateToOrg } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi, { REQUESTS } from './api';
-import { reloadGroupChallengeFeed } from './challenges';
 
 export function showReminderScreen(descriptionText) {
   return (dispatch, getState) => {

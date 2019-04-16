@@ -27,7 +27,6 @@ import {
 } from '../../routes/constants';
 import TrackTabChange from '../TrackTabChange';
 
-import { getScreenForOrg } from './GroupScreen';
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
 
