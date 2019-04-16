@@ -42,7 +42,10 @@ function organizationsReducer(state = initialState, action) {
             community: true,
             user_created: true,
           },
-          ...action.orgs,
+          ...action.orgs.map(actionOrg => ({
+            ...(state.all.find(stateOrg => stateOrg.id === actionOrg.id) || {}),
+            ...actionOrg,
+          })),
         ],
       };
     case REQUESTS.GET_ORGANIZATION.SUCCESS:
