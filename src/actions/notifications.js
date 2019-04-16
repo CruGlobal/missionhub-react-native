@@ -18,16 +18,15 @@ import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen';
 import { hasReminderStepsSelector } from '../selectors/steps';
 import { organizationSelector } from '../selectors/organizations';
-import { navToPersonScreen } from '../actions/person';
 import {
   getScreenForOrg,
   GROUP_CHALLENGES,
 } from '../containers/Groups/GroupScreen';
 
-import { getPersonDetails } from './person';
+import { navigateToOrg } from './organizations';
+import { getPersonDetails, navToPersonScreen } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
-import callApi from './api';
-import { REQUESTS } from './api';
+import callApi, { REQUESTS } from './api';
 import { reloadGroupChallengeFeed } from './challenges';
 
 export function showReminderScreen(descriptionText) {
@@ -149,38 +148,6 @@ function handleNotification(notification) {
         return dispatch(navigateToOrg(organization));
       case 'community_challenges':
         return dispatch(navigateToOrg(organization, GROUP_CHALLENGES));
-    }
-  };
-}
-
-function navigateToOrg(organization, initialTab) {
-  return async (dispatch, getState) => {
-    const { organizations } = getState();
-
-    if (!organization) {
-      organization = GLOBAL_COMMUNITY_ID;
-    }
-
-    const storedOrg = organizationSelector(
-      {
-        organizations,
-      },
-      {
-        orgId: organization,
-      },
-    );
-
-    if (storedOrg) {
-      if (initialTab === GROUP_CHALLENGES) {
-        await dispatch(reloadGroupChallengeFeed(storedOrg.id));
-      }
-
-      return dispatch(
-        navigatePush(getScreenForOrg(storedOrg), {
-          organization: storedOrg,
-          initialTab,
-        }),
-      );
     }
   };
 }

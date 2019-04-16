@@ -18,7 +18,7 @@ import { openMainMenu, refresh, keyExtractorId } from '../../utils/common';
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import { checkForUnreadComments } from '../../actions/unreadComments';
-import { getMyCommunities } from '../../actions/organizations';
+import { getMyCommunities, navigateToOrg } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GROUPS_TAB } from '../../constants';
 import {
@@ -63,11 +63,8 @@ class GroupsListScreen extends Component {
 
   handlePress = organization => {
     const { dispatch } = this.props;
-    dispatch(
-      navigatePush(getScreenForOrg(organization), {
-        organization,
-      }),
-    );
+
+    dispatch(navigateToOrg(organization.id));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
 
