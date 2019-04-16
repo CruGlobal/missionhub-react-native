@@ -185,7 +185,7 @@ class ContactSteps extends Component {
       <FlatList
         style={styles.bottomList}
         data={data}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         renderItem={this.renderRow}
         showsVerticalScrollIndicator={false}
       />
