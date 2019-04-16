@@ -95,8 +95,11 @@ export function reloadFeed(type, orgId) {
     const org = getOrg(orgId, getState);
     const pagingType = getPaginationType(type);
 
-    if (org && org[pagingType]) {
-      dispatch(resetPaginationAction(type, orgId));
+    if (org) {
+      if (org[pagingType]) {
+        dispatch(resetPaginationAction(type, orgId));
+      }
+      //Sometimes reload gets called when no items had been loaded previously.  Call getFeed anyway for first set.
       return dispatch(getFeed(type, orgId));
     }
     return Promise.resolve();
