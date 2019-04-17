@@ -128,16 +128,17 @@ class CelebrateItem extends Component {
   renderStepOfFaithMessage(t, event, name) {
     const { adjective_attribute_value } = event;
 
-    if (adjective_attribute_value) {
-      return t('stepOfFaith', {
+    return t(
+      adjective_attribute_value
+        ? adjective_attribute_value === '6'
+          ? 'stepOfFaithNotSureStage'
+          : 'stepOfFaith'
+        : 'stepOfFaithUnknownStage',
+      {
         initiator: name,
         receiverStage: this.renderStage(t, adjective_attribute_value),
-      });
-    } else {
-      return t('stepOfFaithUnknownStage', {
-        initiator: name,
-      });
-    }
+      },
+    );
   }
 
   renderStage(t, stage) {
