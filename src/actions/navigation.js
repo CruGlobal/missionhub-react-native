@@ -53,6 +53,23 @@ export function navigateNestedReset(...screens) {
   };
 }
 
+export function navigateResetTab(routeName, tabName) {
+  return dispatch => {
+    dispatch(
+      StackActions.reset({
+        index: 0,
+        key: null, // Reset root stack navigator
+        actions: [
+          NavigationActions.navigate({
+            routeName,
+            action: NavigationActions.navigate({ routeName: tabName }),
+          }),
+        ],
+      }),
+    );
+  };
+}
+
 // The reset home and reset login are handled by the login/logout auth actions
 
 export function navigateReplace(screen, props = {}) {

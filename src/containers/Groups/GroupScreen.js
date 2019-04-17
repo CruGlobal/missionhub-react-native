@@ -6,7 +6,7 @@ import Header from '../../components/Header/index';
 import {
   navigatePush,
   navigateBack,
-  navigateReset,
+  navigateResetTab,
 } from '../../actions/navigation';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ImpactView from '../ImpactView';
@@ -14,7 +14,7 @@ import IconButton from '../../components/IconButton';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { buildTrackingObj, disableBack } from '../../utils/common';
 import { getOrganizationMembers } from '../../actions/organizations';
-import { GLOBAL_COMMUNITY_ID, MAIN_TABS } from '../../constants';
+import { GLOBAL_COMMUNITY_ID, MAIN_TABS, GROUPS_TAB } from '../../constants';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
@@ -68,7 +68,7 @@ export class GroupScreen extends Component {
   };
 
   back = () => {
-    this.props.dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
+    this.props.dispatch(navigateResetTab(MAIN_TABS, GROUPS_TAB));
   };
 
   renderAddContactIcon() {

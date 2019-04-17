@@ -1,12 +1,16 @@
 import { createStackNavigator } from 'react-navigation';
 
-import { navigateReset } from '../../actions/navigation';
+import { navigateResetTab } from '../../actions/navigation';
 import JoinGroupScreen, {
   JOIN_GROUP_SCREEN,
 } from '../../containers/Groups/JoinGroupScreen';
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
-import { MAIN_TABS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
+import {
+  MAIN_TABS,
+  GROUPS_TAB,
+  NOTIFICATION_PROMPT_TYPES,
+} from '../../constants';
 import { showNotificationPrompt } from '../../actions/notifications';
 import { joinCommunity } from '../../actions/organizations';
 import { setScrollGroups } from '../../actions/swipe';
@@ -19,7 +23,7 @@ export const JoinByCodeFlowScreens = {
         showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.JOIN_COMMUNITY, true),
       );
       dispatch(setScrollGroups(community.id));
-      dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
+      dispatch(navigateResetTab(MAIN_TABS, GROUPS_TAB));
     }),
     buildTrackingObj('communities : join', 'communities', 'join'),
     { gesturesEnabled: true },
