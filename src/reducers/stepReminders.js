@@ -32,16 +32,6 @@ function addCreatedReminderToState(
 }
 
 function addChallengeRemindersToState(state, { results: { response } }) {
-  const newByStep = state.allByStep;
-
-  response.forEach(step => {
-    if (!step.reminder) {
-      delete newByStep[step.id];
-    } else {
-      newByStep[step.id] = step.reminder;
-    }
-  });
-
   return {
     ...state,
     allByStep: response.reduce(
