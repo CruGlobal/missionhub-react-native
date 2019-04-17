@@ -94,4 +94,14 @@ export default StyleSheet.create({
   reportList: {
     paddingVertical: 15,
   },
+  backIcon: {
+    color: theme.black,
+  },
+  clearAllButton: {
+    paddingRight: 5,
+  },
+  clearAllButtonText: {
+    fontSize: 10,
+    color: theme.black,
+  },
 });

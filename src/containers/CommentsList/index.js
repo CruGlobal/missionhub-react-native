@@ -14,15 +14,16 @@ import {
 } from '../../actions/celebrateComments';
 import { reportComment } from '../../actions/reportComments';
 import LoadMore from '../../components/LoadMore';
-import { showMenu } from '../../utils/common';
+import { showMenu, keyExtractorId } from '../../utils/common';
 import CommentItem from '../CommentItem';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
 
 import styles from './styles';
 
-@translate('commentsList')
+@translate('commentsList', { withRef: true })
 class CommentsList extends Component {
+  listRefs = {};
   componentDidMount() {
     const { dispatch, event } = this.props;
 
@@ -79,8 +80,6 @@ class CommentsList extends Component {
     });
   };
 
-  keyExtractor = i => i.id;
-
   handleLongPress = (item, componentRef) => {
     const {
       t,
@@ -120,8 +119,12 @@ class CommentsList extends Component {
     showMenu(actions, componentRef);
   };
 
+  getItemRefs = () => this.listRefs;
+  listRefItem = item => c => (this.listRefs[item.id] = c);
+
   renderItem = ({ item }) => (
     <CommentItem
+      ref={this.listRefItem(item)}
       item={item}
       onLongPress={this.handleLongPress}
       organization={this.props.event.organization}
@@ -135,7 +138,7 @@ class CommentsList extends Component {
     return (
       <FlatList
         data={comments}
-        keyExtractor={this.keyExtractor}
+        keyExtractor={keyExtractorId}
         renderItem={this.renderItem}
         style={list}
         ListFooterComponent={
@@ -158,4 +161,9 @@ const mapStateToProps = ({ auth, celebrateComments }, { event }) => ({
     { eventId: event.id },
   ),
 });
-export default connect(mapStateToProps)(CommentsList);
+export default connect(
+  mapStateToProps,
+  undefined,
+  undefined,
+  { withRef: true },
+)(CommentsList);
