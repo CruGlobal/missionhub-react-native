@@ -36,13 +36,35 @@ const reports = [
   },
 ];
 
-it('should save loaded orgs', () => {
-  expect(
-    organizations(undefined, {
-      type: LOAD_ORGANIZATIONS,
-      orgs: [{ id: org1Id }, { id: org2Id }],
-    }),
-  ).toMatchSnapshot();
+describe('LOAD_ORGANIZATIONS', () => {
+  it('should save loaded orgs', () => {
+    expect(
+      organizations(undefined, {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [{ id: org1Id }, { id: org2Id }],
+      }),
+    ).toMatchSnapshot();
+  });
+
+  it('should update existing orgs', () => {
+    expect(
+      organizations(
+        {
+          all: [
+            { id: org1Id, challengePagination: { page: 0 } },
+            { id: org2Id, challengePagination: { page: 0 } },
+          ],
+        },
+        {
+          type: LOAD_ORGANIZATIONS,
+          orgs: [
+            { id: org1Id, celebratePagination: { page: 0 } },
+            { id: org2Id, celebratePagination: { page: 0 } },
+          ],
+        },
+      ),
+    ).toMatchSnapshot();
+  });
 });
 
 it('should load single org', () => {
