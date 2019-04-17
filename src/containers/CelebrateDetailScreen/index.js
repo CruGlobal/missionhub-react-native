@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Image, View, SafeAreaView, StatusBar } from 'react-native';
+import {
+  Image,
+  View,
+  SafeAreaView,
+  StatusBar,
+  findNodeHandle,
+} from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
@@ -39,25 +45,29 @@ class CelebrateDetailScreen extends Component {
     this.scrollToFocusedRef();
   };
 
+  scrollToEnd = () => {
+    this.list.getScrollResponder().scrollToEnd();
+  };
+
   scrollToComponent(view) {
     const { parallaxHeaderHeight, headerHeight } = theme;
     const scrollResponder = this.list.getScrollResponder();
-    // Need to at least scroll down to show the condensed sticky header
-    const minScroll = parallaxHeaderHeight - headerHeight;
     // Need to wrap in set timeout to let the keyboard come up before running all calculations
     setTimeout(() => {
-      // eslint-disable-next-line max-params
-      view.measure((fx, fy, width, height, pageX, pageY) => {
-        // https://facebook.github.io/react-native/docs/direct-manipulation.html#measurecallback
-
-        const scrollTo = Math.max(minScroll, pageY - height - headerHeight);
-        // If the calculated "scrollTo" is greater than the scroll view height, just scroll to end
-        if (scrollTo > this.state.scrollViewHeight) {
-          scrollResponder.scrollToEnd();
-        } else {
+      // https://facebook.github.io/react-native/docs/direct-manipulation.html#measurelayoutrelativetonativenode-onsuccess-onfail
+      view.measureLayout(
+        findNodeHandle(scrollResponder.getInnerViewNode()),
+        // eslint-disable-next-line max-params
+        (fx, fy, width, height) => {
+          // Need to at least scroll down to show the condensed sticky header
+          const minScroll = parallaxHeaderHeight - headerHeight;
+          const scrollTo = Math.max(minScroll, fy - height - headerHeight);
+          // If the calculated "scrollTo" is greater than the scroll view height, just scroll to end
           scrollResponder.scrollTo({ y: scrollTo });
-        }
-      });
+        },
+        // Error calculating the layout, just scroll to end
+        () => this.scrollToEnd(),
+      );
     }, 1);
   }
 
@@ -75,9 +85,16 @@ class CelebrateDetailScreen extends Component {
     } = this.props;
     const commentsLength = comments.length;
     if (commentsLength > 0) {
+      const lastId = (comments[commentsLength - 1] || {}).id;
+      // Don't bother calculating anything if there's a few comments and we're scrolling to the last one
+      if (commentsLength > 3 && (!editId || editId === lastId)) {
+        // Need to wrap in set timeout to let the keyboard dismiss or come up before scrolling
+        setTimeout(() => this.scrollToEnd(), 1);
+        return;
+      }
+
       // Get the comment refs from the <CommentsList> component wrappen in 'connect' and '@translate'
       const refs = this.getCommentRefs();
-      const lastId = (comments[commentsLength - 1] || {}).id;
 
       // Get the comment that we want to focus on
       const focusCommentRef = editId ? refs[editId] : refs[lastId];
@@ -92,8 +109,8 @@ class CelebrateDetailScreen extends Component {
     this.scrollToFocusedRef();
   };
 
-  onLayout = e => {
-    this.setState({ scrollViewHeight: e.nativeEvent.layout.height });
+  onContentSizeChange = (contentWidth, contentHeight) => {
+    this.setState({ scrollViewHeight: contentHeight });
   };
 
   refreshComments = () => {
@@ -181,7 +198,7 @@ class CelebrateDetailScreen extends Component {
               onRefresh={this.handleRefresh}
             />
           }
-          onLayout={this.onLayout}
+          onContentSizeChange={this.onContentSizeChange}
         >
           <View style={styles.scrollContent}>
             <Image source={TRAILS1} style={styles.trailsTop} />

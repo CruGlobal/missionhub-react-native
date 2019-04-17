@@ -49,7 +49,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
     </View>
     <RCTScrollView
       onChangeHeaderVisibility={[Function]}
-      onLayout={[Function]}
+      onContentSizeChange={[Function]}
       onScroll={[Function]}
       refreshControl={
         <MyRefreshControl
@@ -1453,7 +1453,7 @@ exports[`renders correctly 1`] = `
     contentContainerStyle={null}
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}
-    onLayout={[Function]}
+    onContentSizeChange={[Function]}
     outputScaleValue={5}
     parallaxHeaderHeight={215}
     refreshControl={
