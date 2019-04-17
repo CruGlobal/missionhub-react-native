@@ -22,15 +22,16 @@ import {
   NAVIGATE_FORWARD,
   LOAD_HOME_NOTIFICATION_REMINDER,
   REQUEST_NOTIFICATIONS,
-  GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 import * as common from '../../utils/common';
 import callApi, { REQUESTS } from '../api';
 import { getPersonDetails, navToPersonScreen } from '../person';
+import { navigateToOrg } from '../organizations';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
-import { organizationSelector } from '../../selectors/organizations';
+import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
 
 jest.mock('../person');
+jest.mock('../organizations');
 jest.mock('../api');
 jest.mock('react-native-push-notification');
 jest.mock('react-native-config', () => ({
@@ -258,7 +259,6 @@ describe('askNotificationPermissions', () => {
   describe('onNotification', () => {
     const person = { id: '1', type: 'person' };
     const organization = { id: 234234 };
-    const storedOrganization = { id: `${234234}` };
     const organizations = {
       someProp: 'hello, Roge',
     };
@@ -379,53 +379,7 @@ describe('askNotificationPermissions', () => {
           screen: 'celebrate',
           organization_id: organization.id,
         });
-
-        expect(organizationSelector).toHaveBeenCalledWith(
-          {
-            organizations,
-          },
-          {
-            orgId: storedOrganization.id,
-          },
-        );
-      });
-
-      it('should look for global community if org id is absent', () => {
-        testNotification({
-          screen: 'celebrate',
-          organization_id: null,
-        });
-
-        expect(organizationSelector).toHaveBeenCalledWith(
-          {
-            organizations,
-          },
-          {
-            orgId: GLOBAL_COMMUNITY_ID,
-          },
-        );
-      });
-
-      it('should deep link to group screen', () => {
-        organizationSelector.mockReturnValue(storedOrganization);
-
-        testNotification({
-          screen: 'celebrate',
-          organization_id: organization.id,
-        });
-
-        expect(store.getActions()).toMatchSnapshot();
-      });
-
-      it('should do nothing if org is not found', () => {
-        organizationSelector.mockReturnValue(null);
-
-        testNotification({
-          screen: 'celebrate',
-          organization_id: organization.id,
-        });
-
-        expect(store.getActions()).toMatchSnapshot();
+        expect(navigateToOrg).toHaveBeenCalledWith(`${organization.id}`);
       });
     });
 
@@ -435,53 +389,10 @@ describe('askNotificationPermissions', () => {
           screen: 'community_challenges',
           organization_id: organization.id,
         });
-
-        expect(organizationSelector).toHaveBeenCalledWith(
-          {
-            organizations,
-          },
-          {
-            orgId: storedOrganization.id,
-          },
+        expect(navigateToOrg).toHaveBeenCalledWith(
+          `${organization.id}`,
+          GROUP_CHALLENGES,
         );
-      });
-
-      it('should look for global community if org id is absent', () => {
-        testNotification({
-          screen: 'community_challenges',
-          organization_id: null,
-        });
-
-        expect(organizationSelector).toHaveBeenCalledWith(
-          {
-            organizations,
-          },
-          {
-            orgId: GLOBAL_COMMUNITY_ID,
-          },
-        );
-      });
-
-      it('should deep link to challenges tab', async () => {
-        organizationSelector.mockReturnValue(storedOrganization);
-
-        await testNotification({
-          screen: 'community_challenges',
-          organization_id: organization.id,
-        });
-
-        expect(store.getActions()).toMatchSnapshot();
-      });
-
-      it('should do nothing if org is not found', () => {
-        organizationSelector.mockReturnValue(null);
-
-        testNotification({
-          screen: 'community_challenges',
-          organization_id: organization.id,
-        });
-
-        expect(store.getActions()).toMatchSnapshot();
       });
     });
   });
