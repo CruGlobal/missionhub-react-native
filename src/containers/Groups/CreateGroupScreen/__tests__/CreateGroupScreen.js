@@ -11,8 +11,8 @@ import {
 } from '../../../../../testUtils';
 import {
   navigateBack,
-  navigateReset,
   navigatePush,
+  navigateResetTab,
 } from '../../../../actions/navigation';
 import {
   getMyCommunities,
@@ -21,7 +21,7 @@ import {
 import { trackActionWithoutData } from '../../../../actions/analytics';
 import * as organizations from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
-import { MAIN_TABS, ACTIONS } from '../../../../constants';
+import { MAIN_TABS, ACTIONS, GROUPS_TAB } from '../../../../constants';
 import { USER_CREATED_GROUP_SCREEN } from '../../GroupScreen';
 
 const mockNewId = '123';
@@ -34,7 +34,7 @@ jest.mock('../../../../actions/analytics');
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
   navigatePush: jest.fn(() => ({ type: 'push' })),
-  navigateReset: jest.fn(() => ({ type: 'reset' })),
+  navigateResetTab: jest.fn(() => ({ type: 'resetTab' })),
 }));
 jest.mock('../../../../actions/organizations', () => ({
   addNewOrganization: jest.fn(() => mockAddNewOrg),
@@ -143,9 +143,7 @@ describe('CreateGroupScreen', () => {
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, null);
     expect(getMyCommunities).toHaveBeenCalled();
-    expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
-      startTab: 'groups',
-    });
+    expect(navigateResetTab).toHaveBeenCalledWith(MAIN_TABS, GROUPS_TAB);
   });
 
   it('should call create community with org added to redux', async () => {

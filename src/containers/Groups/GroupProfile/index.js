@@ -25,7 +25,7 @@ import {
   getCommunityUrl,
   orgIsUserCreated,
 } from '../../../utils/common';
-import { navigateBack, navigateReset } from '../../../actions/navigation';
+import { navigateBack, navigateResetTab } from '../../../actions/navigation';
 import {
   updateOrganization,
   updateOrganizationImage,
@@ -35,7 +35,12 @@ import {
 } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
-import { ORG_PERMISSIONS, MAIN_TABS, ACTIONS } from '../../../constants';
+import {
+  ORG_PERMISSIONS,
+  MAIN_TABS,
+  ACTIONS,
+  GROUPS_TAB,
+} from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
 import PopupMenu from '../../../components/PopupMenu';
 import Header from '../../../components/Header';
@@ -107,7 +112,7 @@ class GroupProfile extends Component {
   deleteOrg = async () => {
     const { dispatch, organization } = this.props;
     await dispatch(deleteOrganization(organization.id));
-    dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
+    dispatch(navigateResetTab(MAIN_TABS, GROUPS_TAB));
   };
 
   checkDeleteOrg = () => {

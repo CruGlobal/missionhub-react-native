@@ -17,7 +17,7 @@ import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import {
   navigateBack,
   navigatePush,
-  navigateReset,
+  navigateResetTab,
 } from '../../../actions/navigation';
 import ImagePicker from '../../../components/ImagePicker';
 import {
@@ -27,7 +27,7 @@ import {
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
 import { USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
-import { MAIN_TABS, ACTIONS } from '../../../constants';
+import { MAIN_TABS, ACTIONS, GROUPS_TAB } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
 
 import styles from './styles';
@@ -64,7 +64,7 @@ class CreateGroupScreen extends Component {
     // If for some reason the organization was not created and put in redux properly,
     // reset the user back to the communities tab
     if (!organization) {
-      dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
+      dispatch(navigateResetTab(MAIN_TABS, GROUPS_TAB));
     } else {
       dispatch(navigatePush(USER_CREATED_GROUP_SCREEN, { organization }));
       dispatch(trackActionWithoutData(ACTIONS.SELECT_CREATED_COMMUNITY));
