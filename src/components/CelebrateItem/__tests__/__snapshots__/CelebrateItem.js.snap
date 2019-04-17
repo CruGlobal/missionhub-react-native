@@ -913,6 +913,101 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
 </Card>
 `;
 
+exports[`CelebrateItem message renders step of faith event with Not Sure stage 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    direction="column"
+    value={1}
+  >
+    <Flex
+      direction="column"
+      style={
+        Object {
+          "padding": 16,
+        }
+      }
+    >
+      <Component
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <Component
+          style={
+            Object {
+              "justifyContent": "flex-start",
+            }
+          }
+        >
+          <Connect(Translate(CelebrateItemName))
+            name="John Smith"
+            person={
+              Object {
+                "first_name": "John",
+                "id": "123",
+                "last_name": "Smith",
+              }
+            }
+          />
+          <CardTime
+            date="2004-04-04 00:00:00 UTC"
+          />
+        </Component>
+      </Component>
+      <Component
+        style={
+          Object {
+            "height": 70,
+            "paddingTop": 12,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        >
+          John S. completed a Step of Faith.
+        </MyText>
+      </Component>
+    </Flex>
+    <Separator />
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "adjective_attribute_value": "6",
+          "celebrateable_type": "accepted_challenge",
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+          "liked": false,
+          "likes_count": 0,
+          "subject_person": Object {
+            "first_name": "John",
+            "id": "123",
+            "last_name": "Smith",
+          },
+          "subject_person_name": "John Smith",
+        }
+      }
+      style={
+        Object {
+          "padding": 16,
+        }
+      }
+    />
+  </Flex>
+</Card>
+`;
+
 exports[`CelebrateItem message renders step of faith event with stage 1`] = `
 <Card
   onPress={[Function]}
