@@ -16,16 +16,34 @@ exports[`should render empty correctly 1`] = `
     showHideTransition="fade"
   />
   <Header
-    right={
+    left={
       <IconButton
-        name="deleteIcon"
+        name="backIcon"
         onPress={[Function]}
         style={
           Object {
-            "color": "black",
+            "color": "#000000",
           }
         }
         type="MissionHub"
+      />
+    }
+    right={
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 5,
+          }
+        }
+        text="CLEAR ALL"
+        type="transparent"
       />
     }
     shadow={true}
@@ -89,16 +107,34 @@ exports[`should render items correctly 1`] = `
     showHideTransition="fade"
   />
   <Header
-    right={
+    left={
       <IconButton
-        name="deleteIcon"
+        name="backIcon"
         onPress={[Function]}
         style={
           Object {
-            "color": "black",
+            "color": "#000000",
           }
         }
         type="MissionHub"
+      />
+    }
+    right={
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 5,
+          }
+        }
+        text="CLEAR ALL"
+        type="transparent"
       />
     }
     shadow={true}
