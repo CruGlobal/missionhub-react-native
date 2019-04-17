@@ -203,7 +203,7 @@ function buildChallengeData(attributes) {
 }
 
 function challengeCompleteAction(step, screen, extraBack = false) {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const {
       auth: {
         person: { id: myId },
@@ -212,13 +212,6 @@ function challengeCompleteAction(step, screen, extraBack = false) {
     const { id: stepId, receiver, organization } = step;
     const receiverId = (receiver && receiver.id) || null;
     const orgId = (organization && organization.id) || null;
-
-    const query = { challenge_id: stepId };
-    const data = buildChallengeData({ completed_at: formatApiDate() });
-
-    await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
-    dispatch({ type: COMPLETED_STEP_COUNT, userId: receiverId });
-    dispatch(refreshImpact(orgId));
 
     const subsection = getAnalyticsSubsection(receiverId, myId);
 
@@ -229,6 +222,14 @@ function challengeCompleteAction(step, screen, extraBack = false) {
           stepId,
           personId: receiverId,
           orgId,
+          onSetComplete: async () => {
+            const query = { challenge_id: stepId };
+            const data = buildChallengeData({ completed_at: formatApiDate() });
+
+            await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
+            dispatch({ type: COMPLETED_STEP_COUNT, userId: receiverId });
+            dispatch(refreshImpact(orgId));
+          },
           type: STEP_NOTE,
           trackingObj: buildTrackingObj(
             `people : ${subsection} : steps : complete comment`,

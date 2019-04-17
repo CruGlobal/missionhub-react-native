@@ -4,7 +4,7 @@ import { StatusBar, SafeAreaView, Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { Button, Flex, Input } from '../../components/common';
+import { Flex, Input } from '../../components/common';
 import theme from '../../theme';
 import { STEP_NOTE, CREATE_STEP } from '../../constants';
 import { disableBack } from '../../utils/common';
@@ -51,8 +51,18 @@ class AddStepScreen extends Component {
     }
   };
 
-  next = text => {
-    const { next, dispatch, stepId, personId, orgId } = this.props;
+  next = async text => {
+    const {
+      next,
+      dispatch,
+      stepId,
+      personId,
+      orgId,
+      onSetComplete,
+    } = this.props;
+    if (onSetComplete) {
+      await onSetComplete();
+    }
     dispatch(next({ text, stepId, personId, orgId }));
   };
 
@@ -104,25 +114,13 @@ class AddStepScreen extends Component {
   ref = c => (this.stepInput = c);
 
   render() {
-    const { type, hideSkip, t } = this.props;
+    const { type, hideSkip } = this.props;
     const { lightGrey } = theme;
     const { backButtonStyle, input } = styles;
 
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar {...theme.statusBar.darkContent} />
-        {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
-          <Flex align="end" justify="center">
-            <Button
-              type="transparent"
-              onPress={this.skip}
-              text={t('skip').toUpperCase()}
-              style={styles.skipBtn}
-              buttonTextStyle={styles.skipBtnText}
-            />
-          </Flex>
-        ) : null}
-
         <Flex
           value={1}
           align="stretch"
@@ -146,9 +144,7 @@ class AddStepScreen extends Component {
           />
         </Flex>
         <BottomButton onPress={this.saveStep} text={this.getButtonText()} />
-        {type !== STEP_NOTE ? (
-          <BackButton absolute={true} iconStyle={backButtonStyle} />
-        ) : null}
+        <BackButton absolute={true} iconStyle={backButtonStyle} />
         {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
           <AbsoluteSkip onSkip={this.skip} />
         ) : null}
