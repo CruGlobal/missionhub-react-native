@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -35,6 +36,7 @@
 		63CCD346A5A94B92885F6266 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11EED27DCE4942CAAD01A388 /* libReactNativeConfig.a */; };
 		7D05064221B06A2A00840FB1 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		7D3BD3260324477BA89E88A6 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 558D776D127C41A297B33FFD /* EvilIcons.ttf */; };
+		7D4C376422651B9800909DC6 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4C375C22651B3C00909DC6 /* libRNGestureHandler.a */; };
 		7D6468F9225826480064215E /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6468C2225826330064215E /* JavaScriptCore.framework */; };
 		7D73457321CA3651002487B8 /* libRollbarReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D73455621CA339C002487B8 /* libRollbarReactNative.a */; };
 		7D747F827F2D4DD1A42BE6C4 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00698ADCD1D14CA4AA7ED311 /* libCodePush.a */; };
@@ -246,6 +248,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTLinking;
+		};
+		7D4C375B22651B3C00909DC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D4C372522651B3C00909DC6 /* RNGestureHandler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNGestureHandler;
+		};
+		7D4C375D22651B3C00909DC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D4C372522651B3C00909DC6 /* RNGestureHandler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
+			remoteInfo = "RNGestureHandler-tvOS";
 		};
 		7D646861225819CD0064215E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -508,6 +524,7 @@
 		723E0A40BD8E4102A4DD54B5 /* libRNViewOverflow.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNViewOverflow.a; sourceTree = "<group>"; };
 		7738039AC342446C93268C78 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7D4C372522651B3C00909DC6 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		7D6468C2225826330064215E /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		7D73451D21CA339C002487B8 /* RollbarReactNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RollbarReactNative.xcodeproj; path = "../node_modules/rollbar-react-native/ios/RollbarReactNative.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -570,6 +587,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D4C376422651B9800909DC6 /* libRNGestureHandler.a in Frameworks */,
 				7D6468F9225826480064215E /* JavaScriptCore.framework in Frameworks */,
 				7D73457321CA3651002487B8 /* libRollbarReactNative.a in Frameworks */,
 				7D05064221B06A2A00840FB1 /* libRCTWebSocket.a in Frameworks */,
@@ -792,6 +810,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7D4C372622651B3C00909DC6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7D4C375C22651B3C00909DC6 /* libRNGestureHandler.a */,
+				7D4C375E22651B3C00909DC6 /* libRNGestureHandler-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7D69597F219FA02A0038B0D6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -837,6 +864,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7D4C372522651B3C00909DC6 /* RNGestureHandler.xcodeproj */,
 				7D73451D21CA339C002487B8 /* RollbarReactNative.xcodeproj */,
 				937F2B7A1FD9926B00915D3A /* RCTPushNotification.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
@@ -1190,6 +1218,10 @@
 					ProjectRef = 6EAB44B5449D411FBDD7A98D /* RNFirebase.xcodeproj */;
 				},
 				{
+					ProductGroup = 7D4C372622651B3C00909DC6 /* Products */;
+					ProjectRef = 7D4C372522651B3C00909DC6 /* RNGestureHandler.xcodeproj */;
+				},
+				{
 					ProductGroup = 93BF06422182431E0065D4EA /* Products */;
 					ProjectRef = A9D85ED230D04CC2BB7AA554 /* RNImagePicker.xcodeproj */;
 				},
@@ -1381,6 +1413,20 @@
 			fileType = archive.ar;
 			path = libRCTLinking.a;
 			remoteRef = 78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7D4C375C22651B3C00909DC6 /* libRNGestureHandler.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGestureHandler.a;
+			remoteRef = 7D4C375B22651B3C00909DC6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7D4C375E22651B3C00909DC6 /* libRNGestureHandler-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNGestureHandler-tvOS.a";
+			remoteRef = 7D4C375D22651B3C00909DC6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		7D646862225819CD0064215E /* libjsi.a */ = {
