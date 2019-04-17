@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import { reduxifyNavigator } from 'react-navigation-redux-helpers';
+import { createReduxContainer } from 'react-navigation-redux-helpers';
 import React from 'react';
 import { BackHandler } from 'react-native';
 
 import { MainRoutes } from './AppRoutes';
 import { navigateBack } from './actions/navigation';
 
-const app = reduxifyNavigator(MainRoutes, 'root');
+const app = createReduxContainer(MainRoutes, 'root');
 
 const mapStateToProps = ({ nav }) => ({
   state: nav,
