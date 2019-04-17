@@ -62,7 +62,6 @@ class CelebrateDetailScreen extends Component {
           // Need to at least scroll down to show the condensed sticky header
           const minScroll = parallaxHeaderHeight - headerHeight;
           const scrollTo = Math.max(minScroll, fy - height - headerHeight);
-          // If the calculated "scrollTo" is greater than the scroll view height, just scroll to end
           scrollResponder.scrollTo({ y: scrollTo });
         },
         // Error calculating the layout, just scroll to end

@@ -193,15 +193,16 @@ describe('scroll events', () => {
   };
   const height = 1000;
   const scrollViewHeight = 750;
-  const getRef = (y, error) => ({
+  const y = 500;
+  const getRef = error => ({
     getWrappedInstance: () => ({
       view: { measureLayout: (a, b, c) => (error ? c() : b(0, y, 0, height)) },
     }),
   });
-  function setInstance(y, paramRefs) {
+  function setInstance(paramRefs) {
     const refs = paramRefs || {
-      [celebrateComments.comments[0].id]: getRef(y),
-      [celebrateComments.comments[1].id]: getRef(y),
+      [celebrateComments.comments[0].id]: getRef(),
+      [celebrateComments.comments[1].id]: getRef(),
     };
     instance = screen.instance();
     screen.setState({ scrollViewHeight });
@@ -214,50 +215,45 @@ describe('scroll events', () => {
     jest.runAllTimers();
     expect(method || scrollResponder.scrollTo).toHaveBeenCalled();
   }
-  function checkKeyboardShow(y, paramRefs, method) {
-    setInstance(y, paramRefs);
+  function checkKeyboardShow(paramRefs, method) {
+    setInstance(paramRefs);
     instance.keyboardShow();
     checkShow(method);
   }
   it('keyboard shows without any comments to focus', () => {
-    setInstance(500, {});
+    setInstance({});
     instance.keyboardShow();
     expect(setTimeout).not.toHaveBeenCalled();
     expect(scrollResponder.scrollTo).not.toHaveBeenCalled();
   });
   it('keyboard shows and scrolls to component', () => {
-    checkKeyboardShow(500);
+    checkKeyboardShow();
   });
   it('keyboard shows error measuring ref', () => {
-    const y = 500;
     checkKeyboardShow(
-      y,
-      {
-        [celebrateComments.comments[0].id]: getRef(y, true),
-        [celebrateComments.comments[1].id]: getRef(y, true),
-      },
+      { [celebrateComments.comments[1].id]: getRef(true) },
       scrollResponder.scrollToEnd,
     );
   });
   it('keyboard shows and scrolls to editing comment', () => {
     screen.setProps({ editingCommentId: celebrateComments.comments[0].id });
-    checkKeyboardShow(500);
+    checkKeyboardShow();
   });
   it('keyboard shows scroll to end with many comments', () => {
     setManyComments();
-    checkKeyboardShow(500, undefined, scrollResponder.scrollToEnd);
+    checkKeyboardShow(undefined, scrollResponder.scrollToEnd);
   });
   it('keyboard shows editing comment scroll to end with many comments', () => {
     setManyComments();
     screen.setProps({ editingCommentId: celebrateComments.comments[1].id });
-    checkKeyboardShow(500, undefined, scrollResponder.scrollToEnd);
+    checkKeyboardShow(undefined, scrollResponder.scrollToEnd);
   });
   it('add comment scroll to latest', () => {
-    setInstance(500);
+    setInstance();
     screen
       .childAt(2)
       .props()
       .onAddComplete();
-    checkShow(scrollResponder.scrollTo);
+    checkShow();
   });
 });
