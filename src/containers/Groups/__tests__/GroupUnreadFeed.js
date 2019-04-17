@@ -96,7 +96,18 @@ it('should call navigate back', () => {
   component
     .childAt(1)
     .props()
+    .left.props.onPress();
+  expect(navigateBack).toHaveBeenCalled();
+});
+
+it('should call mark comments read and go back', async () => {
+  const component = buildScreen();
+
+  await component
+    .childAt(1)
+    .props()
     .right.props.onPress();
+  expect(markCommentsRead).toHaveBeenCalledWith(org.id);
   expect(navigateBack).toHaveBeenCalled();
 });
 
@@ -105,7 +116,6 @@ it('should mount', async () => {
   await component.instance().loadItems();
   expect(refreshCommunity).toHaveBeenCalledWith(org.id);
   expect(getGroupCelebrateFeedUnread).toHaveBeenCalledWith(org.id);
-  expect(markCommentsRead).toHaveBeenCalledWith(org.id);
 });
 
 it('should refresh correctly', async () => {
