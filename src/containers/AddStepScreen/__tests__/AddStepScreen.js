@@ -196,7 +196,7 @@ describe('add step methods for stepNote with next', () => {
 
     screen.update();
 
-    screen.childAt(2).simulate('press');
+    await screen.childAt(2).simulate('press');
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
     expect(onSetComplete).toHaveBeenCalled();

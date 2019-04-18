@@ -238,9 +238,12 @@ exports[`renders correctly 1`] = `
               "backgroundColor": "transparent",
             },
             null,
-            Object {
-              "padding": 15,
-            },
+            Array [
+              Object {
+                "padding": 15,
+              },
+              undefined,
+            ],
             null,
           ]
         }
@@ -266,9 +269,12 @@ exports[`renders correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {
-                  "color": "#ffffff",
-                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  undefined,
+                ],
               ],
             ]
           }
