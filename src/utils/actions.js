@@ -40,7 +40,7 @@ function buildQuery(type, orgId, page, personId) {
       limit: DEFAULT_PAGE_LIMIT,
       offset: DEFAULT_PAGE_LIMIT * page,
     },
-    ...(type === CELEBRATE ? { orgId } : {}),
+    ...(type === CELEBRATE ? { orgId, include: GET_CELEBRATE_INCLUDE } : {}),
     ...(type === CELEBRATE && personId
       ? { filters: { subject_person_ids: personId } }
       : {}),
@@ -76,14 +76,7 @@ export function getFeed(type, orgId, personId = null) {
       // Does not have more data
       return Promise.resolve();
     }
-    const query = {
-      ...buildQuery(type, orgId, page, personId),
-      ...(type === CELEBRATE
-        ? {
-            include: GET_CELEBRATE_INCLUDE,
-          }
-        : {}),
-    };
+    const query = buildQuery(type, orgId, page, personId);
 
     return dispatch(callApi(getFeedType(type, orgId), query));
   };
@@ -95,8 +88,11 @@ export function reloadFeed(type, orgId) {
     const org = getOrg(orgId, getState);
     const pagingType = getPaginationType(type);
 
-    if (org && org[pagingType]) {
-      dispatch(resetPaginationAction(type, orgId));
+    if (org) {
+      if (org[pagingType]) {
+        dispatch(resetPaginationAction(type, orgId));
+      }
+      //Sometimes reload gets called when no items had been loaded previously.  Call getFeed anyway for first set.
       return dispatch(getFeed(type, orgId));
     }
     return Promise.resolve();

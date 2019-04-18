@@ -21,6 +21,64 @@ Object {
 }
 `;
 
+exports[`LOAD_ORGANIZATIONS should save loaded orgs 1`] = `
+Object {
+  "all": Array [
+    Object {
+      "community": true,
+      "id": "_global_community_id",
+      "name": "MissionHub Community",
+      "user_created": true,
+    },
+    Object {
+      "id": "123",
+    },
+    Object {
+      "id": "234",
+    },
+  ],
+  "membersPagination": Object {
+    "hasNextPage": true,
+    "page": 1,
+  },
+  "surveysPagination": Object {
+    "hasNextPage": true,
+    "page": 1,
+  },
+}
+`;
+
+exports[`LOAD_ORGANIZATIONS should update existing orgs 1`] = `
+Object {
+  "all": Array [
+    Object {
+      "community": true,
+      "id": "_global_community_id",
+      "name": "MissionHub Community",
+      "user_created": true,
+    },
+    Object {
+      "celebratePagination": Object {
+        "page": 0,
+      },
+      "challengePagination": Object {
+        "page": 0,
+      },
+      "id": "123",
+    },
+    Object {
+      "celebratePagination": Object {
+        "page": 0,
+      },
+      "challengePagination": Object {
+        "page": 0,
+      },
+      "id": "234",
+    },
+  ],
+}
+`;
+
 exports[`REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS should recognize null organization_ids as global community 1`] = `
 Object {
   "all": Array [
@@ -67,32 +125,5 @@ Object {
       "name": "test org 2",
     },
   ],
-}
-`;
-
-exports[`should save loaded orgs 1`] = `
-Object {
-  "all": Array [
-    Object {
-      "community": true,
-      "id": "_global_community_id",
-      "name": "MissionHub Community",
-      "user_created": true,
-    },
-    Object {
-      "id": "123",
-    },
-    Object {
-      "id": "234",
-    },
-  ],
-  "membersPagination": Object {
-    "hasNextPage": true,
-    "page": 1,
-  },
-  "surveysPagination": Object {
-    "hasNextPage": true,
-    "page": 1,
-  },
 }
 `;
