@@ -65,7 +65,7 @@ export const SelectPersonStageFlowScreens = {
 export const SelectPersonStageFlowNavigator = createStackNavigator(
   SelectPersonStageFlowScreens,
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },

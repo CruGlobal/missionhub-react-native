@@ -41,7 +41,7 @@ export const DeepLinkJoinCommunityAuthenticatedScreens = {
 export const DeepLinkJoinCommunityAuthenticatedNavigator = createStackNavigator(
   DeepLinkJoinCommunityAuthenticatedScreens,
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },

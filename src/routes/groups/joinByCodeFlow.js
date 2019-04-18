@@ -32,7 +32,7 @@ export const JoinByCodeFlowScreens = {
 export const JoinByCodeFlowNavigator = createStackNavigator(
   JoinByCodeFlowScreens,
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },

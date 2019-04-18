@@ -13,7 +13,7 @@ export const CreateCommunityUnauthenticatedFlowScreens = authFlowGenerator({
 export const CreateCommunityUnauthenticatedFlowNavigator = createStackNavigator(
   CreateCommunityUnauthenticatedFlowScreens,
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },

@@ -18,7 +18,7 @@ export const AddMyStepFlowScreens = {
 export const AddMyStepFlowNavigator = createStackNavigator(
   AddMyStepFlowScreens,
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },

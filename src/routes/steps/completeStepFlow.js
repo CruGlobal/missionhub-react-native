@@ -89,7 +89,7 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
 export const CompleteStepFlowNavigator = createStackNavigator(
   CompleteStepFlowScreens(),
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },
@@ -98,7 +98,7 @@ export const CompleteStepFlowNavigator = createStackNavigator(
 export const CompleteStepFlowAndNavigateBackNavigator = createStackNavigator(
   CompleteStepFlowScreens(() => StackActions.pop({ immediate: true })),
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },
