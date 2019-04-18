@@ -116,17 +116,18 @@ class AddStepScreen extends Component {
   render() {
     const { type, hideSkip } = this.props;
     const { lightGrey } = theme;
-    const { backButtonStyle, input } = styles;
+    const {
+      backButtonStyle,
+      input,
+      container,
+      fieldWrap,
+      skipBtnText,
+    } = styles;
 
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={container}>
         <StatusBar {...theme.statusBar.darkContent} />
-        <Flex
-          value={1}
-          align="stretch"
-          justify="center"
-          style={styles.fieldWrap}
-        >
+        <Flex value={1} align="stretch" justify="center" style={fieldWrap}>
           <Input
             style={input}
             ref={this.ref}
@@ -146,7 +147,7 @@ class AddStepScreen extends Component {
         <BottomButton onPress={this.saveStep} text={this.getButtonText()} />
         <BackButton absolute={true} iconStyle={backButtonStyle} />
         {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
-          <AbsoluteSkip onSkip={this.skip} textStyle={styles.skipBtnText} />
+          <AbsoluteSkip onSkip={this.skip} textStyle={skipBtnText} />
         ) : null}
       </SafeAreaView>
     );
@@ -168,6 +169,7 @@ AddStepScreen.propTypes = {
   stepId: PropTypes.string,
   personId: PropTypes.string,
   orgId: PropTypes.string,
+  onSetComplete: PropTypes.func,
 };
 
 const mapStateToProps = ({ auth }, { navigation }) => ({

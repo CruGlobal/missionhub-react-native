@@ -189,7 +189,7 @@ describe('add step methods for stepNote with next', () => {
   });
 
   it('runs saveStep', async () => {
-    await screen
+    screen
       .find('Input')
       .props()
       .onChangeText('test');
