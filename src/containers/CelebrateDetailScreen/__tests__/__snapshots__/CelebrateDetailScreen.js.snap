@@ -11,83 +11,81 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
   }
 >
   <View
-    onLayout={[Function]}
     style={
-      Array [
-        undefined,
-        Object {
-          "backgroundColor": "transparent",
-          "flex": 1,
-        },
-      ]
+      Object {
+        "backgroundColor": "#505256",
+        "flex": 1,
+      }
     }
   >
     <View
+      onLayout={[Function]}
       style={
-        Object {
-          "backgroundColor": "#ffffff",
-          "height": 215,
-          "opacity": 1,
-          "overflow": "hidden",
-          "position": "absolute",
-          "top": 0,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-            Object {
-              "scale": 1,
-            },
-          ],
-          "width": 750,
-        }
+        Array [
+          undefined,
+          Object {
+            "backgroundColor": "transparent",
+            "flex": 1,
+          },
+        ]
       }
     >
-      <View>
-        <View />
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ffffff",
+            "height": 215,
+            "opacity": 1,
+            "overflow": "hidden",
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+              Object {
+                "scale": 1,
+              },
+            ],
+            "width": 750,
+          }
+        }
+      >
+        <View>
+          <View />
+        </View>
       </View>
-    </View>
-    <RCTScrollView
-      onChangeHeaderVisibility={[Function]}
-      onContentSizeChange={[Function]}
-      onScroll={[Function]}
-      refreshControl={
-        <MyRefreshControl
-          colors={
-            Array [
-              "#ffffff",
-              "#52C5DC",
-            ]
-          }
-          onRefresh={[Function]}
-          progressBackgroundColor="#007398"
-          refreshing={false}
-          tintColor="#007398"
-        />
-      }
-      scrollEventThrottle={1}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-        }
-      }
-    >
-      <RCTRefreshControl />
-      <View>
-        <View
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "overflow": "hidden",
+      <RCTScrollView
+        onChangeHeaderVisibility={[Function]}
+        onContentSizeChange={[Function]}
+        onScroll={[Function]}
+        refreshControl={
+          <MyRefreshControl
+            colors={
+              Array [
+                "#ffffff",
+                "#52C5DC",
+              ]
             }
+            onRefresh={[Function]}
+            progressBackgroundColor="#007398"
+            refreshing={false}
+            tintColor="#007398"
+          />
+        }
+        scrollEventThrottle={1}
+        style={
+          Object {
+            "backgroundColor": "transparent",
           }
-        >
+        }
+      >
+        <RCTRefreshControl />
+        <View>
           <View
             style={
               Object {
                 "backgroundColor": "transparent",
-                "height": 215,
-                "opacity": 1,
                 "overflow": "hidden",
               }
             }
@@ -95,45 +93,44 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
             <View
               style={
                 Object {
+                  "backgroundColor": "transparent",
                   "height": 215,
+                  "opacity": 1,
+                  "overflow": "hidden",
                 }
               }
             >
               <View
                 style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#ffffff",
-                      "borderRadius": 8,
-                      "elevation": 4,
-                      "flexDirection": "row",
-                      "marginHorizontal": 16,
-                      "marginVertical": 8,
-                      "shadowColor": "#000000",
-                      "shadowOffset": Object {
-                        "height": 2,
-                        "width": 0,
-                      },
-                      "shadowOpacity": 0.3,
-                      "shadowRadius": 2,
-                    },
-                    Object {
-                      "elevation": 0,
-                      "marginHorizontal": 3,
-                      "shadowOpacity": 0,
-                      "shadowRadius": 0,
-                    },
-                  ]
+                  Object {
+                    "height": 215,
+                  }
                 }
               >
                 <View
                   style={
                     Array [
-                      Object {},
                       Object {
-                        "flex": 1,
-                        "flexDirection": "column",
+                        "alignItems": "center",
+                        "backgroundColor": "#ffffff",
+                        "borderRadius": 8,
+                        "elevation": 4,
+                        "flexDirection": "row",
+                        "marginHorizontal": 16,
+                        "marginVertical": 8,
+                        "shadowColor": "#000000",
+                        "shadowOffset": Object {
+                          "height": 2,
+                          "width": 0,
+                        },
+                        "shadowOpacity": 0.3,
+                        "shadowRadius": 2,
+                      },
+                      Object {
+                        "elevation": 0,
+                        "marginHorizontal": 3,
+                        "shadowOpacity": 0,
+                        "shadowRadius": 0,
                       },
                     ]
                   }
@@ -141,10 +138,9 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                   <View
                     style={
                       Array [
+                        Object {},
                         Object {
-                          "padding": 16,
-                        },
-                        Object {
+                          "flex": 1,
                           "flexDirection": "column",
                         },
                       ]
@@ -152,17 +148,450 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                   >
                     <View
                       style={
-                        Object {
-                          "flexDirection": "row",
-                          "justifyContent": "space-between",
-                        }
+                        Array [
+                          Object {
+                            "padding": 16,
+                          },
+                          Object {
+                            "flexDirection": "column",
+                          },
+                        ]
                       }
                     >
                       <View
                         style={
                           Object {
-                            "justifyContent": "flex-start",
+                            "flexDirection": "row",
+                            "justifyContent": "space-between",
                           }
+                        }
+                      >
+                        <View
+                          style={
+                            Object {
+                              "justifyContent": "flex-start",
+                            }
+                          }
+                        >
+                          <View
+                            accessibilityTraits="button"
+                            accessible={true}
+                            isTVSelectable={true}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "opacity": 1,
+                              }
+                            }
+                          >
+                            <View
+                              style={
+                                Array [
+                                  Object {
+                                    "backgroundColor": "transparent",
+                                  },
+                                  null,
+                                  Object {},
+                                  null,
+                                ]
+                              }
+                            >
+                              <Text
+                                accessible={true}
+                                allowFontScaling={true}
+                                ellipsizeMode="tail"
+                                style={
+                                  Array [
+                                    Object {
+                                      "color": "#505256",
+                                    },
+                                    Object {
+                                      "fontFamily": "SourceSansPro-Regular",
+                                    },
+                                    Array [
+                                      Object {
+                                        "color": "#007398",
+                                        "fontSize": 16,
+                                        "fontWeight": "bold",
+                                      },
+                                      undefined,
+                                    ],
+                                  ]
+                                }
+                              >
+                                ROGER
+                              </Text>
+                            </View>
+                          </View>
+                          <Text
+                            accessible={true}
+                            allowFontScaling={true}
+                            ellipsizeMode="tail"
+                            style={
+                              Array [
+                                Object {
+                                  "color": "#505256",
+                                },
+                                Object {
+                                  "fontFamily": "SourceSansPro-Regular",
+                                },
+                                Object {
+                                  "color": "#B2B0B2",
+                                  "fontSize": 12,
+                                },
+                              ]
+                            }
+                          >
+                            1:51 PM
+                          </Text>
+                        </View>
+                        <View
+                          style={
+                            Array [
+                              Object {
+                                "alignItems": "flex-start",
+                                "alignSelf": "flex-start",
+                                "justifyContent": "center",
+                              },
+                              undefined,
+                              null,
+                            ]
+                          }
+                        >
+                          <View
+                            accessibilityTraits="button"
+                            accessible={true}
+                            isTVSelectable={true}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "opacity": 1,
+                              }
+                            }
+                          >
+                            <View
+                              style={
+                                Array [
+                                  Object {
+                                    "backgroundColor": "transparent",
+                                  },
+                                  null,
+                                  Object {},
+                                  null,
+                                ]
+                              }
+                            >
+                              <Text
+                                accessible={true}
+                                allowFontScaling={false}
+                                ellipsizeMode="tail"
+                                style={
+                                  Array [
+                                    Object {
+                                      "color": undefined,
+                                      "fontSize": 12,
+                                    },
+                                    Array [
+                                      Object {
+                                        "color": "#ffffff",
+                                      },
+                                      Object {
+                                        "fontSize": 18,
+                                      },
+                                      Array [
+                                        Object {
+                                          "margin": 10,
+                                        },
+                                        Object {
+                                          "color": "#000000",
+                                        },
+                                      ],
+                                    ],
+                                    Object {
+                                      "fontFamily": "icomoon",
+                                      "fontStyle": "normal",
+                                      "fontWeight": "normal",
+                                    },
+                                    Object {},
+                                  ]
+                                }
+                              >
+                                
+                              </Text>
+                            </View>
+                          </View>
+                        </View>
+                      </View>
+                      <View
+                        style={
+                          Object {
+                            "height": 70,
+                            "paddingTop": 12,
+                          }
+                        }
+                      >
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "color": "#505256",
+                              },
+                              Object {
+                                "fontFamily": "SourceSansPro-Regular",
+                              },
+                              Object {
+                                "fontSize": 14,
+                              },
+                            ]
+                          }
+                        />
+                      </View>
+                    </View>
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "backgroundColor": "#E6E8EC",
+                            "height": 1,
+                          },
+                          undefined,
+                        ]
+                      }
+                    />
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "padding": 16,
+                          },
+                          Object {
+                            "alignItems": "flex-end",
+                            "flexDirection": "row",
+                            "justifyContent": "flex-end",
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        accessible={true}
+                        allowFontScaling={true}
+                        ellipsizeMode="tail"
+                        style={
+                          Array [
+                            Object {
+                              "color": "#505256",
+                            },
+                            Object {
+                              "fontFamily": "SourceSansPro-Regular",
+                            },
+                            Object {
+                              "color": "#505256",
+                              "fontSize": 14,
+                            },
+                          ]
+                        }
+                      />
+                      <View
+                        accessibilityTraits="button"
+                        accessible={true}
+                        isTVSelectable={true}
+                        onResponderGrant={[Function]}
+                        onResponderMove={[Function]}
+                        onResponderRelease={[Function]}
+                        onResponderTerminate={[Function]}
+                        onResponderTerminationRequest={[Function]}
+                        onStartShouldSetResponder={[Function]}
+                        style={
+                          Object {
+                            "opacity": 1,
+                          }
+                        }
+                      >
+                        <View
+                          style={
+                            Array [
+                              Object {
+                                "alignItems": "center",
+                                "backgroundColor": "transparent",
+                                "borderRadius": 0,
+                                "borderWidth": 0,
+                                "height": 60,
+                                "justifyContent": "center",
+                                "margin": 0,
+                                "paddingHorizontal": 20,
+                                "paddingVertical": 10,
+                              },
+                              null,
+                              Object {
+                                "height": 24,
+                                "margin": 0,
+                                "width": 24,
+                              },
+                              null,
+                            ]
+                          }
+                        >
+                          <Image
+                            source={
+                              Object {
+                                "testUri": "../../../assets/images/heart-grey.png",
+                              }
+                            }
+                          />
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={
+              Array [
+                Array [
+                  Object {
+                    "backgroundColor": "#505256",
+                  },
+                ],
+                Object {
+                  "minHeight": 0,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "display": "none",
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "minHeight": 933.8,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/Trailss.png",
+                  }
+                }
+                style={
+                  Object {
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  }
+                }
+              />
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/TrailGrey.png",
+                  }
+                }
+                style={
+                  Object {
+                    "bottom": 0,
+                    "left": 0,
+                    "position": "absolute",
+                  }
+                }
+              />
+              <RCTScrollView
+                data={
+                  Array [
+                    Object {
+                      "content": "some comment",
+                      "created_at": "2019-04-11T13:51:49.888",
+                      "id": "comment1",
+                      "person": Object {
+                        "first_name": "Person",
+                        "last_name": "1",
+                      },
+                    },
+                    Object {
+                      "content": "some comment",
+                      "created_at": "2019-04-11T13:51:49.888",
+                      "id": "comment2",
+                      "person": Object {
+                        "first_name": "Person",
+                        "last_name": "2",
+                      },
+                    },
+                  ]
+                }
+                disableVirtualization={false}
+                getItem={[Function]}
+                getItemCount={[Function]}
+                horizontal={false}
+                initialNumToRender={10}
+                keyExtractor={[Function]}
+                maxToRenderPerBatch={10}
+                numColumns={1}
+                onContentSizeChange={[Function]}
+                onEndReachedThreshold={2}
+                onLayout={[Function]}
+                onMomentumScrollEnd={[Function]}
+                onScroll={[Function]}
+                onScrollBeginDrag={[Function]}
+                onScrollEndDrag={[Function]}
+                renderItem={[Function]}
+                scrollEventThrottle={50}
+                stickyHeaderIndices={Array []}
+                style={
+                  Object {
+                    "paddingVertical": 15,
+                  }
+                }
+                updateCellsBatchingPeriod={50}
+                viewabilityConfigCallbackPairs={Array []}
+                windowSize={21}
+              >
+                <View>
+                  <View
+                    onLayout={[Function]}
+                    style={null}
+                  >
+                    <View
+                      collapsable={false}
+                      style={
+                        Array [
+                          Object {
+                            "paddingHorizontal": 20,
+                            "paddingVertical": 8,
+                          },
+                          null,
+                        ]
+                      }
+                    >
+                      <View
+                        style={
+                          Array [
+                            Object {},
+                            Object {
+                              "alignItems": "flex-end",
+                              "flexDirection": "row",
+                            },
+                          ]
                         }
                       >
                         <View
@@ -205,18 +634,15 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                                   Object {
                                     "fontFamily": "SourceSansPro-Regular",
                                   },
-                                  Array [
-                                    Object {
-                                      "color": "#007398",
-                                      "fontSize": 16,
-                                      "fontWeight": "bold",
-                                    },
-                                    undefined,
-                                  ],
+                                  Object {
+                                    "color": "#ffffff",
+                                    "paddingLeft": 10,
+                                    "paddingRight": 5,
+                                  },
                                 ]
                               }
                             >
-                              ROGER
+                              Person 1
                             </Text>
                           </View>
                         </View>
@@ -239,19 +665,111 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                             ]
                           }
                         >
-                          1:51 PM
+                          Yesterday @ 1:51 PM
                         </Text>
                       </View>
                       <View
                         style={
                           Array [
+                            Object {},
                             Object {
-                              "alignItems": "flex-start",
-                              "alignSelf": "flex-start",
-                              "justifyContent": "center",
+                              "flexDirection": "row",
                             },
-                            undefined,
-                            null,
+                          ]
+                        }
+                      >
+                        <View
+                          accessibilityTraits="button"
+                          accessible={true}
+                          isTVSelectable={true}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
+                          style={
+                            Object {
+                              "opacity": 1,
+                            }
+                          }
+                        >
+                          <View
+                            style={
+                              Array [
+                                Object {
+                                  "backgroundColor": "#ffffff",
+                                  "borderRadius": 8,
+                                  "marginVertical": 5,
+                                  "paddingHorizontal": 13,
+                                  "paddingVertical": 8,
+                                },
+                                null,
+                              ]
+                            }
+                          >
+                            <Text
+                              accessible={true}
+                              allowFontScaling={true}
+                              ellipsizeMode="tail"
+                              style={
+                                Array [
+                                  Object {
+                                    "color": "#505256",
+                                  },
+                                  Object {
+                                    "fontFamily": "SourceSansPro-Regular",
+                                  },
+                                  Array [
+                                    Object {
+                                      "paddingVertical": 3,
+                                    },
+                                    null,
+                                  ],
+                                ]
+                              }
+                            >
+                              some comment
+                            </Text>
+                          </View>
+                        </View>
+                        <View
+                          style={
+                            Array [
+                              Object {},
+                              Object {
+                                "flex": 1,
+                              },
+                            ]
+                          }
+                        />
+                      </View>
+                    </View>
+                  </View>
+                  <View
+                    onLayout={[Function]}
+                    style={null}
+                  >
+                    <View
+                      collapsable={false}
+                      style={
+                        Array [
+                          Object {
+                            "paddingHorizontal": 20,
+                            "paddingVertical": 8,
+                          },
+                          null,
+                        ]
+                      }
+                    >
+                      <View
+                        style={
+                          Array [
+                            Object {},
+                            Object {
+                              "alignItems": "flex-end",
+                              "flexDirection": "row",
+                            },
                           ]
                         }
                       >
@@ -285,90 +803,269 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                           >
                             <Text
                               accessible={true}
-                              allowFontScaling={false}
+                              allowFontScaling={true}
                               ellipsizeMode="tail"
                               style={
                                 Array [
                                   Object {
-                                    "color": undefined,
-                                    "fontSize": 12,
+                                    "color": "#505256",
                                   },
-                                  Array [
-                                    Object {
-                                      "color": "#ffffff",
-                                    },
-                                    Object {
-                                      "fontSize": 18,
-                                    },
-                                    Array [
-                                      Object {
-                                        "margin": 10,
-                                      },
-                                      Object {
-                                        "color": "#000000",
-                                      },
-                                    ],
-                                  ],
                                   Object {
-                                    "fontFamily": "icomoon",
-                                    "fontStyle": "normal",
-                                    "fontWeight": "normal",
+                                    "fontFamily": "SourceSansPro-Regular",
                                   },
-                                  Object {},
+                                  Object {
+                                    "color": "#ffffff",
+                                    "paddingLeft": 10,
+                                    "paddingRight": 5,
+                                  },
                                 ]
                               }
                             >
-                              
+                              Person 2
                             </Text>
                           </View>
                         </View>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "color": "#505256",
+                              },
+                              Object {
+                                "fontFamily": "SourceSansPro-Regular",
+                              },
+                              Object {
+                                "color": "#B2B0B2",
+                                "fontSize": 12,
+                              },
+                            ]
+                          }
+                        >
+                          Yesterday @ 1:51 PM
+                        </Text>
                       </View>
-                    </View>
-                    <View
-                      style={
-                        Object {
-                          "height": 70,
-                          "paddingTop": 12,
-                        }
-                      }
-                    >
-                      <Text
-                        accessible={true}
-                        allowFontScaling={true}
-                        ellipsizeMode="tail"
+                      <View
                         style={
                           Array [
+                            Object {},
                             Object {
-                              "color": "#505256",
-                            },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Object {
-                              "fontSize": 14,
+                              "flexDirection": "row",
                             },
                           ]
                         }
-                      />
+                      >
+                        <View
+                          accessibilityTraits="button"
+                          accessible={true}
+                          isTVSelectable={true}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
+                          style={
+                            Object {
+                              "opacity": 1,
+                            }
+                          }
+                        >
+                          <View
+                            style={
+                              Array [
+                                Object {
+                                  "backgroundColor": "#ffffff",
+                                  "borderRadius": 8,
+                                  "marginVertical": 5,
+                                  "paddingHorizontal": 13,
+                                  "paddingVertical": 8,
+                                },
+                                null,
+                              ]
+                            }
+                          >
+                            <Text
+                              accessible={true}
+                              allowFontScaling={true}
+                              ellipsizeMode="tail"
+                              style={
+                                Array [
+                                  Object {
+                                    "color": "#505256",
+                                  },
+                                  Object {
+                                    "fontFamily": "SourceSansPro-Regular",
+                                  },
+                                  Array [
+                                    Object {
+                                      "paddingVertical": 3,
+                                    },
+                                    null,
+                                  ],
+                                ]
+                              }
+                            >
+                              some comment
+                            </Text>
+                          </View>
+                        </View>
+                        <View
+                          style={
+                            Array [
+                              Object {},
+                              Object {
+                                "flex": 1,
+                              },
+                            ]
+                          }
+                        />
+                      </View>
                     </View>
                   </View>
-                  <View
-                    style={
+                </View>
+              </RCTScrollView>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#505256",
+              }
+            }
+          />
+        </View>
+      </RCTScrollView>
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "height": 65,
+            "left": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "translateY": -65,
+              },
+            ],
+            "width": 750,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "height": 65,
+              "opacity": 0,
+              "transform": Array [
+                Object {
+                  "translateY": -65,
+                },
+              ],
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "transform": Array [
+                  Object {
+                    "translateY": 65,
+                  },
+                ],
+              }
+            }
+          >
+            <RCTSafeAreaView
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#007398",
+                    "flexDirection": "row",
+                    "height": 65,
+                    "paddingTop": 20,
+                  },
+                  Object {
+                    "backgroundColor": "#ffffff",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "paddingLeft": 5,
+                    },
+                    Object {
+                      "alignItems": "flex-start",
+                      "flex": 1,
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
                       Array [
                         Object {
-                          "backgroundColor": "#E6E8EC",
-                          "height": 1,
+                          "color": "#007398",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
                         },
-                        undefined,
-                      ]
+                        Object {
+                          "marginLeft": 25,
+                        },
+                      ],
+                    ]
+                  }
+                >
+                  ROGER
+                </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "paddingRight": 5,
+                    },
+                    Object {
+                      "alignItems": "flex-end",
+                      "flex": 1,
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "flex-end",
                     }
-                  />
+                  }
+                >
                   <View
                     style={
                       Array [
-                        Object {
-                          "padding": 16,
-                        },
+                        Object {},
                         Object {
                           "alignItems": "flex-end",
                           "flexDirection": "row",
@@ -446,779 +1143,91 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                       </View>
                     </View>
                   </View>
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={
-            Array [
-              Array [
-                Object {
-                  "backgroundColor": "#505256",
-                },
-              ],
-              Object {
-                "minHeight": 0,
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              Object {
-                "display": "none",
-              }
-            }
-          />
-          <View
-            style={
-              Object {
-                "minHeight": 933.8,
-              }
-            }
-          >
-            <Image
-              source={
-                Object {
-                  "testUri": "../../../assets/images/Trailss.png",
-                }
-              }
-              style={
-                Object {
-                  "position": "absolute",
-                  "right": 0,
-                  "top": 0,
-                }
-              }
-            />
-            <Image
-              source={
-                Object {
-                  "testUri": "../../../assets/images/TrailGrey.png",
-                }
-              }
-              style={
-                Object {
-                  "bottom": 0,
-                  "left": 0,
-                  "position": "absolute",
-                }
-              }
-            />
-            <RCTScrollView
-              data={
-                Array [
-                  Object {
-                    "content": "some comment",
-                    "created_at": "2019-04-11T13:51:49.888",
-                    "id": "comment1",
-                    "person": Object {
-                      "first_name": "Person",
-                      "last_name": "1",
-                    },
-                  },
-                  Object {
-                    "content": "some comment",
-                    "created_at": "2019-04-11T13:51:49.888",
-                    "id": "comment2",
-                    "person": Object {
-                      "first_name": "Person",
-                      "last_name": "2",
-                    },
-                  },
-                ]
-              }
-              disableVirtualization={false}
-              getItem={[Function]}
-              getItemCount={[Function]}
-              horizontal={false}
-              initialNumToRender={10}
-              keyExtractor={[Function]}
-              maxToRenderPerBatch={10}
-              numColumns={1}
-              onContentSizeChange={[Function]}
-              onEndReachedThreshold={2}
-              onLayout={[Function]}
-              onMomentumScrollEnd={[Function]}
-              onScroll={[Function]}
-              onScrollBeginDrag={[Function]}
-              onScrollEndDrag={[Function]}
-              renderItem={[Function]}
-              scrollEventThrottle={50}
-              stickyHeaderIndices={Array []}
-              style={
-                Object {
-                  "paddingVertical": 15,
-                }
-              }
-              updateCellsBatchingPeriod={50}
-              viewabilityConfigCallbackPairs={Array []}
-              windowSize={21}
-            >
-              <View>
-                <View
-                  onLayout={[Function]}
-                  style={null}
-                >
                   <View
-                    collapsable={false}
                     style={
                       Array [
                         Object {
-                          "paddingHorizontal": 20,
-                          "paddingVertical": 8,
+                          "alignItems": "flex-start",
+                          "alignSelf": "flex-start",
+                          "justifyContent": "center",
                         },
+                        undefined,
                         null,
                       ]
                     }
                   >
                     <View
+                      accessibilityTraits="button"
+                      accessible={true}
+                      isTVSelectable={true}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
                       style={
-                        Array [
-                          Object {},
-                          Object {
-                            "alignItems": "flex-end",
-                            "flexDirection": "row",
-                          },
-                        ]
+                        Object {
+                          "opacity": 1,
+                        }
                       }
                     >
                       <View
-                        accessibilityTraits="button"
-                        accessible={true}
-                        isTVSelectable={true}
-                        onResponderGrant={[Function]}
-                        onResponderMove={[Function]}
-                        onResponderRelease={[Function]}
-                        onResponderTerminate={[Function]}
-                        onResponderTerminationRequest={[Function]}
-                        onStartShouldSetResponder={[Function]}
-                        style={
-                          Object {
-                            "opacity": 1,
-                          }
-                        }
-                      >
-                        <View
-                          style={
-                            Array [
-                              Object {
-                                "backgroundColor": "transparent",
-                              },
-                              null,
-                              Object {},
-                              null,
-                            ]
-                          }
-                        >
-                          <Text
-                            accessible={true}
-                            allowFontScaling={true}
-                            ellipsizeMode="tail"
-                            style={
-                              Array [
-                                Object {
-                                  "color": "#505256",
-                                },
-                                Object {
-                                  "fontFamily": "SourceSansPro-Regular",
-                                },
-                                Object {
-                                  "color": "#ffffff",
-                                  "paddingLeft": 10,
-                                  "paddingRight": 5,
-                                },
-                              ]
-                            }
-                          >
-                            Person 1
-                          </Text>
-                        </View>
-                      </View>
-                      <Text
-                        accessible={true}
-                        allowFontScaling={true}
-                        ellipsizeMode="tail"
                         style={
                           Array [
                             Object {
-                              "color": "#505256",
+                              "backgroundColor": "transparent",
                             },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Object {
-                              "color": "#B2B0B2",
-                              "fontSize": 12,
-                            },
+                            null,
+                            Object {},
+                            null,
                           ]
                         }
                       >
-                        Yesterday @ 1:51 PM
-                      </Text>
-                    </View>
-                    <View
-                      style={
-                        Array [
-                          Object {},
-                          Object {
-                            "flexDirection": "row",
-                          },
-                        ]
-                      }
-                    >
-                      <View
-                        accessibilityTraits="button"
-                        accessible={true}
-                        isTVSelectable={true}
-                        onResponderGrant={[Function]}
-                        onResponderMove={[Function]}
-                        onResponderRelease={[Function]}
-                        onResponderTerminate={[Function]}
-                        onResponderTerminationRequest={[Function]}
-                        onStartShouldSetResponder={[Function]}
-                        style={
-                          Object {
-                            "opacity": 1,
-                          }
-                        }
-                      >
-                        <View
+                        <Text
+                          accessible={true}
+                          allowFontScaling={false}
+                          ellipsizeMode="tail"
                           style={
                             Array [
                               Object {
-                                "backgroundColor": "#ffffff",
-                                "borderRadius": 8,
-                                "marginVertical": 5,
-                                "paddingHorizontal": 13,
-                                "paddingVertical": 8,
+                                "color": undefined,
+                                "fontSize": 12,
                               },
-                              null,
-                            ]
-                          }
-                        >
-                          <Text
-                            accessible={true}
-                            allowFontScaling={true}
-                            ellipsizeMode="tail"
-                            style={
                               Array [
                                 Object {
-                                  "color": "#505256",
+                                  "color": "#ffffff",
                                 },
                                 Object {
-                                  "fontFamily": "SourceSansPro-Regular",
+                                  "fontSize": 18,
                                 },
                                 Array [
                                   Object {
-                                    "paddingVertical": 3,
+                                    "margin": 10,
                                   },
-                                  null,
-                                ],
-                              ]
-                            }
-                          >
-                            some comment
-                          </Text>
-                        </View>
-                      </View>
-                      <View
-                        style={
-                          Array [
-                            Object {},
-                            Object {
-                              "flex": 1,
-                            },
-                          ]
-                        }
-                      />
-                    </View>
-                  </View>
-                </View>
-                <View
-                  onLayout={[Function]}
-                  style={null}
-                >
-                  <View
-                    collapsable={false}
-                    style={
-                      Array [
-                        Object {
-                          "paddingHorizontal": 20,
-                          "paddingVertical": 8,
-                        },
-                        null,
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {},
-                          Object {
-                            "alignItems": "flex-end",
-                            "flexDirection": "row",
-                          },
-                        ]
-                      }
-                    >
-                      <View
-                        accessibilityTraits="button"
-                        accessible={true}
-                        isTVSelectable={true}
-                        onResponderGrant={[Function]}
-                        onResponderMove={[Function]}
-                        onResponderRelease={[Function]}
-                        onResponderTerminate={[Function]}
-                        onResponderTerminationRequest={[Function]}
-                        onStartShouldSetResponder={[Function]}
-                        style={
-                          Object {
-                            "opacity": 1,
-                          }
-                        }
-                      >
-                        <View
-                          style={
-                            Array [
-                              Object {
-                                "backgroundColor": "transparent",
-                              },
-                              null,
-                              Object {},
-                              null,
-                            ]
-                          }
-                        >
-                          <Text
-                            accessible={true}
-                            allowFontScaling={true}
-                            ellipsizeMode="tail"
-                            style={
-                              Array [
-                                Object {
-                                  "color": "#505256",
-                                },
-                                Object {
-                                  "fontFamily": "SourceSansPro-Regular",
-                                },
-                                Object {
-                                  "color": "#ffffff",
-                                  "paddingLeft": 10,
-                                  "paddingRight": 5,
-                                },
-                              ]
-                            }
-                          >
-                            Person 2
-                          </Text>
-                        </View>
-                      </View>
-                      <Text
-                        accessible={true}
-                        allowFontScaling={true}
-                        ellipsizeMode="tail"
-                        style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                            },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Object {
-                              "color": "#B2B0B2",
-                              "fontSize": 12,
-                            },
-                          ]
-                        }
-                      >
-                        Yesterday @ 1:51 PM
-                      </Text>
-                    </View>
-                    <View
-                      style={
-                        Array [
-                          Object {},
-                          Object {
-                            "flexDirection": "row",
-                          },
-                        ]
-                      }
-                    >
-                      <View
-                        accessibilityTraits="button"
-                        accessible={true}
-                        isTVSelectable={true}
-                        onResponderGrant={[Function]}
-                        onResponderMove={[Function]}
-                        onResponderRelease={[Function]}
-                        onResponderTerminate={[Function]}
-                        onResponderTerminationRequest={[Function]}
-                        onStartShouldSetResponder={[Function]}
-                        style={
-                          Object {
-                            "opacity": 1,
-                          }
-                        }
-                      >
-                        <View
-                          style={
-                            Array [
-                              Object {
-                                "backgroundColor": "#ffffff",
-                                "borderRadius": 8,
-                                "marginVertical": 5,
-                                "paddingHorizontal": 13,
-                                "paddingVertical": 8,
-                              },
-                              null,
-                            ]
-                          }
-                        >
-                          <Text
-                            accessible={true}
-                            allowFontScaling={true}
-                            ellipsizeMode="tail"
-                            style={
-                              Array [
-                                Object {
-                                  "color": "#505256",
-                                },
-                                Object {
-                                  "fontFamily": "SourceSansPro-Regular",
-                                },
-                                Array [
                                   Object {
-                                    "paddingVertical": 3,
+                                    "color": "#000000",
                                   },
-                                  null,
                                 ],
-                              ]
-                            }
-                          >
-                            some comment
-                          </Text>
-                        </View>
-                      </View>
-                      <View
-                        style={
-                          Array [
-                            Object {},
-                            Object {
-                              "flex": 1,
-                            },
-                          ]
-                        }
-                      />
-                    </View>
-                  </View>
-                </View>
-              </View>
-            </RCTScrollView>
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "backgroundColor": "#505256",
-            }
-          }
-        />
-      </View>
-    </RCTScrollView>
-    <View
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "height": 65,
-          "left": 0,
-          "overflow": "hidden",
-          "position": "absolute",
-          "top": 0,
-          "transform": Array [
-            Object {
-              "translateY": -65,
-            },
-          ],
-          "width": 750,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "backgroundColor": "#ffffff",
-            "height": 65,
-            "opacity": 0,
-            "transform": Array [
-              Object {
-                "translateY": -65,
-              },
-            ],
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "transform": Array [
-                Object {
-                  "translateY": 65,
-                },
-              ],
-            }
-          }
-        >
-          <RCTSafeAreaView
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#007398",
-                  "flexDirection": "row",
-                  "height": 65,
-                  "paddingTop": 20,
-                },
-                Object {
-                  "backgroundColor": "#ffffff",
-                },
-                null,
-              ]
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "paddingLeft": 5,
-                  },
-                  Object {
-                    "alignItems": "flex-start",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                      },
-                      Object {
-                        "marginLeft": 25,
-                      },
-                    ],
-                  ]
-                }
-              >
-                ROGER
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "paddingRight": 5,
-                  },
-                  Object {
-                    "alignItems": "flex-end",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "flex-end",
-                  }
-                }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {},
-                      Object {
-                        "alignItems": "flex-end",
-                        "flexDirection": "row",
-                        "justifyContent": "flex-end",
-                      },
-                    ]
-                  }
-                >
-                  <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Object {
-                          "color": "#505256",
-                          "fontSize": 14,
-                        },
-                      ]
-                    }
-                  />
-                  <View
-                    accessibilityTraits="button"
-                    accessible={true}
-                    isTVSelectable={true}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      Object {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "alignItems": "center",
-                            "backgroundColor": "transparent",
-                            "borderRadius": 0,
-                            "borderWidth": 0,
-                            "height": 60,
-                            "justifyContent": "center",
-                            "margin": 0,
-                            "paddingHorizontal": 20,
-                            "paddingVertical": 10,
-                          },
-                          null,
-                          Object {
-                            "height": 24,
-                            "margin": 0,
-                            "width": 24,
-                          },
-                          null,
-                        ]
-                      }
-                    >
-                      <Image
-                        source={
-                          Object {
-                            "testUri": "../../../assets/images/heart-grey.png",
-                          }
-                        }
-                      />
-                    </View>
-                  </View>
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "flex-start",
-                        "alignSelf": "flex-start",
-                        "justifyContent": "center",
-                      },
-                      undefined,
-                      null,
-                    ]
-                  }
-                >
-                  <View
-                    accessibilityTraits="button"
-                    accessible={true}
-                    isTVSelectable={true}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      Object {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                          },
-                          null,
-                          Object {},
-                          null,
-                        ]
-                      }
-                    >
-                      <Text
-                        accessible={true}
-                        allowFontScaling={false}
-                        ellipsizeMode="tail"
-                        style={
-                          Array [
-                            Object {
-                              "color": undefined,
-                              "fontSize": 12,
-                            },
-                            Array [
-                              Object {
-                                "color": "#ffffff",
-                              },
-                              Object {
-                                "fontSize": 18,
-                              },
-                              Array [
-                                Object {
-                                  "margin": 10,
-                                },
-                                Object {
-                                  "color": "#000000",
-                                },
                               ],
-                            ],
-                            Object {
-                              "fontFamily": "icomoon",
-                              "fontStyle": "normal",
-                              "fontWeight": "normal",
-                            },
-                            Object {},
-                          ]
-                        }
-                      >
-                        
-                      </Text>
+                              Object {
+                                "fontFamily": "icomoon",
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                              },
+                              Object {},
+                            ]
+                          }
+                        >
+                          
+                        </Text>
+                      </View>
                     </View>
                   </View>
                 </View>
               </View>
-            </View>
-          </RCTSafeAreaView>
+            </RCTSafeAreaView>
+          </View>
         </View>
       </View>
     </View>
@@ -1446,88 +1455,97 @@ exports[`renders correctly 1`] = `
     barStyle="dark-content"
     showHideTransition="fade"
   />
-  <ParallaxScrollView
-    backgroundColor="#ffffff"
-    backgroundScrollSpeed={5}
-    contentBackgroundColor="#505256"
-    contentContainerStyle={null}
-    fadeOutForeground={true}
-    onChangeHeaderVisibility={[Function]}
-    onContentSizeChange={[Function]}
-    outputScaleValue={5}
-    parallaxHeaderHeight={215}
-    refreshControl={
-      <MyRefreshControl
-        colors={
-          Array [
-            "#ffffff",
-            "#52C5DC",
-          ]
-        }
-        onRefresh={[Function]}
-        progressBackgroundColor="#007398"
-        refreshing={false}
-        tintColor="#007398"
-      />
-    }
-    renderBackground={[Function]}
-    renderContentBackground={[Function]}
-    renderForeground={[Function]}
-    renderParallaxHeader={[Function]}
-    renderScrollComponent={[Function]}
-    renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
-  >
-    <Component
-      style={
-        Object {
-          "minHeight": 933.8,
-        }
+  <Component
+    style={
+      Object {
+        "backgroundColor": "#505256",
+        "flex": 1,
       }
+    }
+  >
+    <ParallaxScrollView
+      backgroundColor="#ffffff"
+      backgroundScrollSpeed={5}
+      contentBackgroundColor="#505256"
+      contentContainerStyle={null}
+      fadeOutForeground={true}
+      onChangeHeaderVisibility={[Function]}
+      onContentSizeChange={[Function]}
+      outputScaleValue={5}
+      parallaxHeaderHeight={215}
+      refreshControl={
+        <MyRefreshControl
+          colors={
+            Array [
+              "#ffffff",
+              "#52C5DC",
+            ]
+          }
+          onRefresh={[Function]}
+          progressBackgroundColor="#007398"
+          refreshing={false}
+          tintColor="#007398"
+        />
+      }
+      renderBackground={[Function]}
+      renderContentBackground={[Function]}
+      renderForeground={[Function]}
+      renderParallaxHeader={[Function]}
+      renderScrollComponent={[Function]}
+      renderStickyHeader={[Function]}
+      stickyHeaderHeight={65}
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/Trailss.png",
-          }
-        }
+      <Component
         style={
           Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
+            "minHeight": 933.8,
           }
         }
-      />
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/TrailGrey.png",
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/Trailss.png",
+            }
           }
-        }
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "position": "absolute",
+          style={
+            Object {
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
           }
-        }
-      />
-      <Connect(Translate(CommentsList))
-        event={
-          Object {
-            "changed_attribute_value": "2019-04-11T13:51:49.888",
-            "id": "90001",
-            "organization": Object {
-              "id": "24234234",
-            },
-            "subject_person_name": "Roger",
+        />
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/TrailGrey.png",
+            }
           }
-        }
-        organizationId="24234234"
-      />
-    </Component>
-  </ParallaxScrollView>
+          style={
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+            }
+          }
+        />
+        <Connect(Translate(CommentsList))
+          event={
+            Object {
+              "changed_attribute_value": "2019-04-11T13:51:49.888",
+              "id": "90001",
+              "organization": Object {
+                "id": "24234234",
+              },
+              "subject_person_name": "Roger",
+            }
+          }
+          organizationId="24234234"
+        />
+      </Component>
+    </ParallaxScrollView>
+  </Component>
   <Connect(CelebrateCommentBox)
     event={
       Object {

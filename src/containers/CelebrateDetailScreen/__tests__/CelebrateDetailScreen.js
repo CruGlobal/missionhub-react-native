@@ -137,7 +137,10 @@ it('should call organizationSelector', () => {
 });
 
 function parallaxScrollView() {
-  return screen.childAt(1).props();
+  return screen
+    .childAt(1)
+    .childAt(0)
+    .props();
 }
 
 describe('refresh', () => {
@@ -221,17 +224,15 @@ describe('scroll events', () => {
     checkShow(method);
   }
   it('keyboard shows without any comments to focus', () => {
-    setInstance({});
-    instance.keyboardShow();
-    expect(setTimeout).not.toHaveBeenCalled();
-    expect(scrollResponder.scrollTo).not.toHaveBeenCalled();
+    checkKeyboardShow({});
   });
   it('keyboard shows and scrolls to component', () => {
     checkKeyboardShow();
   });
-  it('keyboard shows error measuring ref', () => {
+  it('keyboard shows for edit error measuring ref', () => {
+    screen.setProps({ editingCommentId: celebrateComments.comments[0].id });
     checkKeyboardShow(
-      { [celebrateComments.comments[1].id]: getRef(true) },
+      { [celebrateComments.comments[0].id]: getRef(true) },
       scrollResponder.scrollToEnd,
     );
   });

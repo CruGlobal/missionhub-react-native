@@ -30,6 +30,7 @@ import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 
 import styles from './styles';
 
+const FEW_COMMENTS = 3;
 class CelebrateDetailScreen extends Component {
   state = { refreshing: false, scrollViewHeight: 0 };
 
@@ -49,8 +50,17 @@ class CelebrateDetailScreen extends Component {
     this.list.getScrollResponder().scrollToEnd();
   };
 
-  scrollToComponent(view) {
+  scrollToY = y => {
     const { parallaxHeaderHeight, headerHeight } = theme;
+    let scrollTo = parallaxHeaderHeight - headerHeight;
+    if (y) {
+      scrollTo = Math.max(scrollTo, y);
+    }
+    this.list.getScrollResponder().scrollTo({ y: scrollTo });
+  };
+
+  scrollToComponent(view) {
+    const { headerHeight } = theme;
     const scrollResponder = this.list.getScrollResponder();
     // Need to wrap in set timeout to let the keyboard come up before running all calculations
     setTimeout(() => {
@@ -59,10 +69,7 @@ class CelebrateDetailScreen extends Component {
         findNodeHandle(scrollResponder.getInnerViewNode()),
         // eslint-disable-next-line max-params
         (fx, fy, width, height) => {
-          // Need to at least scroll down to show the condensed sticky header
-          const minScroll = parallaxHeaderHeight - headerHeight;
-          const scrollTo = Math.max(minScroll, fy - height - headerHeight);
-          scrollResponder.scrollTo({ y: scrollTo });
+          this.scrollToY(fy - height - headerHeight);
         },
         // Error calculating the layout, just scroll to end
         () => this.scrollToEnd(),
@@ -71,6 +78,7 @@ class CelebrateDetailScreen extends Component {
   }
 
   getCommentRefs() {
+    // Get the comment refs from the <CommentsList> component wrapped in 'connect' and '@translate'
     return this.commentsList
       .getWrappedInstance()
       .getWrappedInstance()
@@ -85,21 +93,21 @@ class CelebrateDetailScreen extends Component {
     const commentsLength = comments.length;
     if (commentsLength > 0) {
       const lastId = (comments[commentsLength - 1] || {}).id;
-      // Don't bother calculating anything if there's a few comments and we're scrolling to the last one
-      if (commentsLength > 3 && (!editId || editId === lastId)) {
+      if (commentsLength > FEW_COMMENTS && (!editId || editId === lastId)) {
         // Need to wrap in set timeout to let the keyboard dismiss or come up before scrolling
         setTimeout(() => this.scrollToEnd(), 1);
-        return;
-      }
+      } else if (commentsLength <= FEW_COMMENTS && !editId) {
+        // Scroll to min height when there are just a few comments
+        setTimeout(() => this.scrollToY(), 1);
+      } else {
+        // Only scroll to focused comment for edit
+        const refs = this.getCommentRefs();
+        // Get the comment that we want to focus on
+        const focusCommentRef = refs[editId];
 
-      // Get the comment refs from the <CommentsList> component wrappen in 'connect' and '@translate'
-      const refs = this.getCommentRefs();
-
-      // Get the comment that we want to focus on
-      const focusCommentRef = editId ? refs[editId] : refs[lastId];
-
-      if (focusCommentRef) {
-        this.scrollToComponent(focusCommentRef.getWrappedInstance().view);
+        if (focusCommentRef) {
+          this.scrollToComponent(focusCommentRef.getWrappedInstance().view);
+        }
       }
     }
   };
@@ -171,7 +179,7 @@ class CelebrateDetailScreen extends Component {
 
   render() {
     const { event } = this.props;
-    const { container } = styles;
+    const { container, content } = styles;
     const {
       white,
       grey,
@@ -183,32 +191,34 @@ class CelebrateDetailScreen extends Component {
     return (
       <SafeAreaView style={container}>
         <StatusBar {...darkContent} />
-        <ParallaxScrollView
-          ref={this.listRef}
-          backgroundColor={white}
-          contentBackgroundColor={grey}
-          parallaxHeaderHeight={parallaxHeaderHeight}
-          renderForeground={this.renderForeground}
-          stickyHeaderHeight={headerHeight}
-          renderStickyHeader={this.renderStickyHeader}
-          refreshControl={
-            <RefreshControl
-              refreshing={this.state.refreshing}
-              onRefresh={this.handleRefresh}
-            />
-          }
-          onContentSizeChange={this.onContentSizeChange}
-        >
-          <View style={styles.scrollContent}>
-            <Image source={TRAILS1} style={styles.trailsTop} />
-            <Image source={TRAILS2} style={styles.trailsBottom} />
-            <CommentsList
-              ref={this.commentsListRef}
-              event={event}
-              organizationId={event.organization.id}
-            />
-          </View>
-        </ParallaxScrollView>
+        <View style={content}>
+          <ParallaxScrollView
+            ref={this.listRef}
+            backgroundColor={white}
+            contentBackgroundColor={grey}
+            parallaxHeaderHeight={parallaxHeaderHeight}
+            renderForeground={this.renderForeground}
+            stickyHeaderHeight={headerHeight}
+            renderStickyHeader={this.renderStickyHeader}
+            refreshControl={
+              <RefreshControl
+                refreshing={this.state.refreshing}
+                onRefresh={this.handleRefresh}
+              />
+            }
+            onContentSizeChange={this.onContentSizeChange}
+          >
+            <View style={styles.scrollContent}>
+              <Image source={TRAILS1} style={styles.trailsTop} />
+              <Image source={TRAILS2} style={styles.trailsBottom} />
+              <CommentsList
+                ref={this.commentsListRef}
+                event={event}
+                organizationId={event.organization.id}
+              />
+            </View>
+          </ParallaxScrollView>
+        </View>
         <CelebrateCommentBox event={event} onAddComplete={this.addComplete} />
       </SafeAreaView>
     );
