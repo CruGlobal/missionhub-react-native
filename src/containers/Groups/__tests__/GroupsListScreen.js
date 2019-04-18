@@ -4,11 +4,13 @@ import configureStore from 'redux-mock-store';
 import GroupsListScreen from '../GroupsListScreen';
 import { renderShallow } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
-import { getMyCommunities } from '../../../actions/organizations';
+import {
+  getMyCommunities,
+  navigateToOrg,
+} from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { communitiesSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
-import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { resetScrollGroups } from '../../../actions/swipe';
@@ -23,9 +25,7 @@ jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
-jest.mock('../../../actions/organizations', () => ({
-  getMyCommunities: jest.fn(() => ({ type: 'test' })),
-}));
+jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/swipe', () => ({
   resetScrollGroups: jest.fn(() => ({ type: 'reset' })),
 }));
@@ -53,6 +53,7 @@ const store = mockStore({ organizations, auth, swipe });
 beforeEach(() => {
   navigatePush.mockReturnValue({ type: 'test' });
   getMyCommunities.mockReturnValue({ type: 'test' });
+  navigateToOrg.mockReturnValue({ type: 'test' });
   trackActionWithoutData.mockReturnValue({ type: 'test' });
   communitiesSelector.mockReturnValue(organizations.all);
   checkForUnreadComments.mockReturnValue({
@@ -89,32 +90,7 @@ describe('GroupsListScreen', () => {
         .renderItem({ item: organization });
       item.props.onPress(organization);
 
-      expect(navigatePush).toHaveBeenCalledWith(GROUP_SCREEN, { organization });
-      expect(communitiesSelector).toHaveBeenCalledWith({
-        organizations,
-        auth,
-      });
-      expect(trackActionWithoutData).toHaveBeenCalledWith(
-        ACTIONS.SELECT_COMMUNITY,
-      );
-    });
-
-    it('navigates to user created org screen', () => {
-      const organization = organizations.all[1];
-      const item = component
-        .childAt(3)
-        .childAt(0)
-        .props()
-        .renderItem({ item: organization });
-      item.props.onPress(organization);
-
-      expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
-        organization,
-      });
-      expect(communitiesSelector).toHaveBeenCalledWith({
-        organizations,
-        auth,
-      });
+      expect(navigateToOrg).toHaveBeenCalledWith(organization.id);
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.SELECT_COMMUNITY,
       );

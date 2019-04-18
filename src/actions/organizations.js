@@ -14,10 +14,16 @@ import {
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 import { removeHiddenOrgs } from '../selectors/selectorUtils';
+import {
+  getScreenForOrg,
+  GROUP_CHALLENGES,
+} from '../containers/Groups/GroupScreen';
 
 import { getMe, getPersonDetails } from './person';
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
+import { reloadGroupChallengeFeed } from './challenges';
+import { navigatePush } from './navigation';
 
 const getOrganizationsQuery = {
   limit: 100,
@@ -72,15 +78,17 @@ function getOrganization(orgId) {
 }
 
 export function refreshCommunity(orgId) {
-  return dispatch => {
+  return async dispatch => {
     if (orgId === GLOBAL_COMMUNITY_ID) {
-      return;
+      return { id: orgId };
     }
 
     //Refresh Community Data
-    dispatch(getOrganization(orgId));
+    const { response } = await dispatch(getOrganization(orgId));
     //Refresh user org permissions
     dispatch(getMe());
+
+    return response;
   };
 }
 
@@ -618,5 +626,22 @@ export function removeOrganizationMember(personId, orgId) {
     type: REMOVE_ORGANIZATION_MEMBER,
     personId,
     orgId,
+  };
+}
+
+export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
+  return async dispatch => {
+    const organization = await dispatch(refreshCommunity(orgId));
+
+    if (initialTab === GROUP_CHALLENGES) {
+      await dispatch(reloadGroupChallengeFeed(organization.id));
+    }
+
+    return dispatch(
+      navigatePush(getScreenForOrg(organization), {
+        organization,
+        initialTab,
+      }),
+    );
   };
 }

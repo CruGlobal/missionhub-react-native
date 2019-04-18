@@ -490,7 +490,7 @@ export default {
       "We'll send you notifications like this on Wednesdays and Sundays to help you keep these important steps in focus.",
   },
   groupsList: {
-    header: 'Communities [Beta]',
+    header: 'Communities',
     groupsNull: 'Your communities will show up here.',
     joinCommunity: 'Join a Community',
     createCommunity: 'Create a Community',

@@ -8,6 +8,10 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  content: {
+    backgroundColor: theme.grey,
+    flex: 1,
+  },
   cardStyle: {
     elevation: 0,
     shadowOpacity: 0,

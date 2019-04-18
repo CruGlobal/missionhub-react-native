@@ -36,6 +36,7 @@ const initialState = {
   text: '',
   showActions: false,
   action: null,
+  isSubmitting: false,
 };
 
 beforeEach(() => {
@@ -55,6 +56,21 @@ it('renders with custom style', () => {
   testSnapshotShallow(
     <CommentBox {...props} containerStyle={{ backgroundColor: 'green' }} />,
   );
+});
+
+it('renders with text entered', () => {
+  const component = renderShallow(<CommentBox {...props} />);
+  component.setState({ text: 'test' });
+  component.update();
+  expect(component).toMatchSnapshot();
+});
+
+it('renders with disabled submit button', () => {
+  const component = renderShallow(<CommentBox {...props} />);
+  component.setState({ text: 'test', isSubmitting: true });
+  component.update();
+
+  expect(component).toMatchSnapshot();
 });
 
 it('handles text changes', () => {
@@ -197,7 +213,28 @@ describe('click submit button', () => {
 
     await clickSubmit();
 
-    expect(onSubmit).toHaveBeenCalledWith(null, text);
     expect(Keyboard.dismiss).toHaveBeenCalled();
+    expect(onSubmit).toHaveBeenCalledWith(null, text);
+    expect(component.instance().state).toEqual(initialState);
+  });
+
+  it('calls onSubmit prop fails', async () => {
+    const onSubmit = jest.fn(() => Promise.reject());
+    component = renderShallow(
+      <CommentBox
+        {...props}
+        person={person}
+        organization={organization}
+        onSubmit={onSubmit}
+      />,
+      store,
+    );
+    setText(text);
+
+    await clickSubmit();
+
+    expect(Keyboard.dismiss).toHaveBeenCalled();
+    expect(onSubmit).toHaveBeenCalledWith(null, text);
+    expect(component.instance().state).toEqual({ ...initialState, text });
   });
 });

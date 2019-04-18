@@ -9,7 +9,6 @@ import {
   LOAD_HOME_NOTIFICATION_REMINDER,
   MAIN_TABS,
   REQUEST_NOTIFICATIONS,
-  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { DISABLE_WELCOME_NOTIFICATION, GCM_SENDER_ID } from '../constants';
 import { isAndroid } from '../utils/common';
@@ -17,18 +16,12 @@ import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScre
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen';
 import { hasReminderStepsSelector } from '../selectors/steps';
-import { organizationSelector } from '../selectors/organizations';
-import { navToPersonScreen } from '../actions/person';
-import {
-  getScreenForOrg,
-  GROUP_CHALLENGES,
-} from '../containers/Groups/GroupScreen';
+import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 
-import { getPersonDetails } from './person';
+import { navigateToOrg } from './organizations';
+import { getPersonDetails, navToPersonScreen } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
-import callApi from './api';
-import { REQUESTS } from './api';
-import { reloadGroupChallengeFeed } from './challenges';
+import callApi, { REQUESTS } from './api';
 
 export function showReminderScreen(descriptionText) {
   return (dispatch, getState) => {
@@ -149,38 +142,6 @@ function handleNotification(notification) {
         return dispatch(navigateToOrg(organization));
       case 'community_challenges':
         return dispatch(navigateToOrg(organization, GROUP_CHALLENGES));
-    }
-  };
-}
-
-function navigateToOrg(organization, initialTab) {
-  return async (dispatch, getState) => {
-    const { organizations } = getState();
-
-    if (!organization) {
-      organization = GLOBAL_COMMUNITY_ID;
-    }
-
-    const storedOrg = organizationSelector(
-      {
-        organizations,
-      },
-      {
-        orgId: organization,
-      },
-    );
-
-    if (storedOrg) {
-      if (initialTab === GROUP_CHALLENGES) {
-        await dispatch(reloadGroupChallengeFeed(storedOrg.id));
-      }
-
-      return dispatch(
-        navigatePush(getScreenForOrg(storedOrg), {
-          organization: storedOrg,
-          initialTab,
-        }),
-      );
     }
   };
 }

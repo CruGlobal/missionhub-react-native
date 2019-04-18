@@ -27,6 +27,7 @@ const initialState = {
   text: '',
   showActions: false,
   action: null,
+  isSubmitting: false,
 };
 
 @translate('actions')
@@ -62,10 +63,14 @@ export default class CommentBox extends Component {
     const { onSubmit } = this.props;
     const { action, text } = this.state;
 
-    await onSubmit(action, text);
     Keyboard.dismiss();
-
-    this.setState(initialState);
+    try {
+      this.setState({ isSubmitting: true });
+      await onSubmit(action, text);
+      this.setState(initialState);
+    } catch (error) {
+      this.setState({ isSubmitting: false });
+    }
   };
 
   handleTextChange = t => {
@@ -141,7 +146,7 @@ export default class CommentBox extends Component {
 
   renderInput() {
     const { t, placeholderTextKey } = this.props;
-    const { text, action } = this.state;
+    const { text, action, isSubmitting } = this.state;
     const {
       inputBoxWrap,
       activeAction,
@@ -217,6 +222,7 @@ export default class CommentBox extends Component {
           {text || action ? (
             <IconButton
               name="upArrow"
+              disabled={isSubmitting}
               type="MissionHub"
               onPress={this.submit}
               style={submitIcon}

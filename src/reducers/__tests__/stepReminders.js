@@ -77,6 +77,25 @@ describe('REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS', () => {
       }),
     ).toEqual({ allByStep: remindersObject });
   });
+
+  it('removes reminder for step if updated reminder is null', () => {
+    const response = [
+      ...stepsWithReminders,
+      { id: challenge_id, reminder: null },
+    ];
+
+    expect(
+      stepReminders(
+        {
+          allByStep: { ...remindersObject, [challenge_id]: { id: '1111' } },
+        },
+        {
+          type: REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS,
+          results: { response },
+        },
+      ),
+    ).toEqual({ allByStep: remindersObject });
+  });
 });
 
 describe('REQUESTS.DELETE_CHALLENGE_REMINDER.SUCCESS', () => {

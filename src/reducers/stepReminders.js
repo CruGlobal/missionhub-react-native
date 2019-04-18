@@ -34,19 +34,16 @@ function addCreatedReminderToState(
 function addChallengeRemindersToState(state, { results: { response } }) {
   return {
     ...state,
-    allByStep: {
-      ...state.allByStep,
-      ...response.reduce(
-        (acc, { id: challenge_id, reminder }) =>
-          reminder
-            ? {
-                ...acc,
-                [challenge_id]: reminder,
-              }
-            : acc,
-        {},
-      ),
-    },
+    allByStep: response.reduce(
+      (acc, { id: challenge_id, reminder }) =>
+        reminder
+          ? {
+              ...acc,
+              [challenge_id]: reminder,
+            }
+          : acc,
+      {},
+    ),
   };
 }
 
