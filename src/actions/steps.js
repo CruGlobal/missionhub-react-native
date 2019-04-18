@@ -177,18 +177,6 @@ export function completeStep(step, screen, extraBack) {
     const result = await dispatch(
       challengeCompleteAction(step, screen, extraBack),
     );
-
-    dispatch(getMySteps());
-    dispatch(
-      getContactSteps(
-        step.receiver && step.receiver.id,
-        step.organization && step.organization.id,
-      ),
-    );
-
-    if (step.organization) {
-      dispatch(reloadGroupCelebrateFeed(step.organization.id));
-    }
     return result;
   };
 }
@@ -199,6 +187,28 @@ function buildChallengeData(attributes) {
       type: ACCEPTED_STEP,
       attributes,
     },
+  };
+}
+
+function completeChallengeAPI(step) {
+  return async dispatch => {
+    const { id: stepId, receiver, organization } = step;
+    const receiverId = (receiver && receiver.id) || null;
+    const orgId = (organization && organization.id) || null;
+
+    const query = { challenge_id: stepId };
+    const data = buildChallengeData({ completed_at: formatApiDate() });
+
+    await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
+    dispatch({ type: COMPLETED_STEP_COUNT, userId: receiverId });
+    dispatch(refreshImpact(orgId));
+
+    dispatch(getMySteps());
+    dispatch(getContactSteps(receiverId, orgId));
+
+    if (orgId) {
+      dispatch(reloadGroupCelebrateFeed(orgId));
+    }
   };
 }
 
@@ -222,14 +232,7 @@ function challengeCompleteAction(step, screen, extraBack = false) {
           stepId,
           personId: receiverId,
           orgId,
-          onSetComplete: async () => {
-            const query = { challenge_id: stepId };
-            const data = buildChallengeData({ completed_at: formatApiDate() });
-
-            await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
-            dispatch({ type: COMPLETED_STEP_COUNT, userId: receiverId });
-            dispatch(refreshImpact(orgId));
-          },
+          onSetComplete: () => dispatch(completeChallengeAPI(step)),
           type: STEP_NOTE,
           trackingObj: buildTrackingObj(
             `people : ${subsection} : steps : complete comment`,

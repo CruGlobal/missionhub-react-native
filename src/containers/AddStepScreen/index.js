@@ -146,7 +146,7 @@ class AddStepScreen extends Component {
         <BottomButton onPress={this.saveStep} text={this.getButtonText()} />
         <BackButton absolute={true} iconStyle={backButtonStyle} />
         {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
-          <AbsoluteSkip onSkip={this.skip} />
+          <AbsoluteSkip onSkip={this.skip} textStyle={styles.skipBtnText} />
         ) : null}
       </SafeAreaView>
     );
