@@ -118,7 +118,7 @@
       "enzyme-to-json/serializer"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-navigation)"
+      "node_modules/(?!(jest-)?react-native|@?react-navigation|react-navigation-redux-helpers)"
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverageFrom": [
