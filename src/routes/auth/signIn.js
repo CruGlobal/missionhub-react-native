@@ -10,7 +10,7 @@ export const SignInFlowScreens = authFlowGenerator({
 });
 
 export const SignInFlowNavigator = createStackNavigator(SignInFlowScreens, {
-  navigationOptions: {
+  defaultNavigationOptions: {
     header: null,
   },
 });

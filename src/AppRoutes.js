@@ -267,7 +267,7 @@ export const MAIN_TABS_SCREEN = createDrawerNavigator(
   },
   {
     contentComponent: SettingsMenu,
-    navigationOptions: { drawerLockMode: 'locked-closed' },
+    defaultNavigationOptions: { drawerLockMode: 'locked-closed' },
     backBehavior: 'none', // We're handling it on our own
   },
 );
@@ -281,7 +281,7 @@ const buildPersonScreenRoute = screen =>
       {
         contentComponent: PersonSideMenu,
         drawerPosition: 'right',
-        navigationOptions: { drawerLockMode: 'locked-closed' },
+        defaultNavigationOptions: { drawerLockMode: 'locked-closed' },
         backBehavior: 'none', // We're handling it on our own
       },
     ),
@@ -525,11 +525,11 @@ export const MainStackRoutes = createStackNavigator(
     [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
     [PERSON_SELECT_STEP_SCREEN]: {
       screen: PersonSelectStepScreen,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [SELECT_MY_STEP_SCREEN]: {
       screen: SelectMyStepScreen,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
     [ADD_STEP_SCREEN]: { screen: AddStepScreen },
@@ -537,33 +537,33 @@ export const MainStackRoutes = createStackNavigator(
     [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
     [PERSON_STAGE_SCREEN]: {
       screen: PersonStageScreen,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [STAGE_SCREEN]: {
       screen: StageScreen,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [SEARCH_REFINE_SCREEN]: {
       screen: SearchPeopleFilterRefineScreen,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [STATUS_SELECT_SCREEN]: {
       screen: StatusSelect,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [STATUS_COMPLETE_SCREEN]: {
       screen: StatusComplete,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [STATUS_REASON_SCREEN]: {
       screen: StatusReason,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [GROUP_PROFILE]: { screen: GroupProfile },
   },
   {
     initialRouteName: MAIN_TABS,
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
       gesturesEnabled: false,
     },
