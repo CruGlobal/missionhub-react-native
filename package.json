@@ -110,6 +110,7 @@
       "<rootDir>/__mock__/react-native-device-info.js",
       "<rootDir>/__mock__/react-native-code-push.js",
       "<rootDir>/__mock__/react-native-firebase.js",
+      "<rootDir>/__mock__/react-native-gesture-handler.js",
       "<rootDir>/__mock__/rollbar-react-native.js",
       "<rootDir>/__mock__/react-native-omniture.js",
       "<rootDir>/__mock__/init-i18next.js"
