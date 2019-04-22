@@ -14,14 +14,21 @@ import { ACTIONS } from '../../constants';
 import styles from './styles';
 
 class CommentLikeComponent extends Component {
-  onPressLikeIcon = () => {
+  state = { isLikeDisabled: false };
+
+  onPressLikeIcon = async () => {
     const {
       event: { organization, id, liked },
       dispatch,
     } = this.props;
 
-    dispatch(toggleLike(organization && organization.id, id, liked));
-    !liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
+    try {
+      this.setState({ isLikeDisabled: true });
+      await dispatch(toggleLike(organization && organization.id, id, liked));
+      !liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
+    } finally {
+      this.setState({ isLikeDisabled: false });
+    }
   };
 
   renderCommentSection() {
@@ -43,6 +50,7 @@ class CommentLikeComponent extends Component {
   render() {
     const { myId, event, style } = this.props;
     const { subject_person, likes_count, liked } = event;
+    const { isLikeDisabled } = this.state;
 
     const displayLikeCount =
       likes_count > 0 && subject_person && subject_person.id === myId;
@@ -53,7 +61,11 @@ class CommentLikeComponent extends Component {
         <Text style={styles.likeCount}>
           {displayLikeCount ? likes_count : null}
         </Text>
-        <Button onPress={this.onPressLikeIcon} style={styles.icon}>
+        <Button
+          disabled={isLikeDisabled}
+          onPress={this.onPressLikeIcon}
+          style={styles.icon}
+        >
           <Image source={liked ? BLUE_HEART : GREY_HEART} />
         </Button>
       </Flex>
