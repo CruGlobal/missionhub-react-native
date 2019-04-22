@@ -39,7 +39,7 @@ class MyDatePickerIOS extends Component {
 
   closeModal = () => this.setModalVisible(false);
 
-  showIOSModal = () => this.setModalVisible(true);
+  showPicker = () => this.setModalVisible(true);
 
   onPressCancel = () => {
     const { onCloseModal } = this.props;
@@ -76,7 +76,7 @@ class MyDatePickerIOS extends Component {
     }, 200);
   };
 
-  onPressDate = () => {
+  onPressDate = async () => {
     const { disabled, onPressIOS, date } = this.props;
 
     if (disabled) {
@@ -89,7 +89,9 @@ class MyDatePickerIOS extends Component {
       date: getDate(date),
     });
 
-    return isFunction(onPressIOS) ? onPressIOS() : this.showIOSModal();
+    return isFunction(onPressIOS)
+      ? onPressIOS({ showPicker: this.showPicker })
+      : this.showPicker();
   };
 
   render() {

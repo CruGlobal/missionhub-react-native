@@ -129,7 +129,7 @@ class MyDatePickerAndroid extends Component {
     return { action: timeAction, year, month, day, hour, minute };
   }
 
-  onPressDate = () => {
+  onPressDate = async () => {
     const { disabled, onPressAndroid, date } = this.props;
 
     if (disabled) {
@@ -142,7 +142,9 @@ class MyDatePickerAndroid extends Component {
       date: getDate(date),
     });
 
-    return isFunction(onPressAndroid) ? onPressAndroid() : this.showPicker();
+    return isFunction(onPressAndroid)
+      ? onPressAndroid({ showPicker: this.showPicker })
+      : this.showPicker();
   };
 
   render() {
@@ -174,6 +176,7 @@ MyDatePickerAndroid.propTypes = {
   minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
   maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
   disabled: PropTypes.bool,
+  beforeShowModal: PropTypes.func,
   onDateChange: PropTypes.func,
   onCloseModal: PropTypes.func,
   is24Hour: PropTypes.bool,
