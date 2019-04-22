@@ -6,6 +6,7 @@ import ReminderRepeatButtons from '../ReminderRepeatButtons';
 import { navigatePush } from '../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
 import DatePicker from '../DatePicker';
+import { showReminderScreen } from '../../actions/notifications';
 import { createStepReminder } from '../../actions/stepReminders';
 
 class ReminderButton extends Component {
@@ -25,6 +26,7 @@ class ReminderButton extends Component {
     const { stepId, dispatch } = this.props;
 
     dispatch(createStepReminder(stepId, date, recurrence));
+    dispatch(showReminderScreen());
 
     this.setState({ date });
   };
