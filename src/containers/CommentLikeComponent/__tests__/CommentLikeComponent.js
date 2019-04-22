@@ -87,6 +87,16 @@ describe('with subject person', () => {
     );
   });
 
+  it('renders disabled heart button', () => {
+    const component = renderShallow(
+      <CommentLikeComponent event={event} />,
+      store,
+    );
+    component.setState({ isLikeDisabled: true });
+    component.update();
+    expect(component).toMatchSnapshot();
+  });
+
   describe('onPress like button', () => {
     beforeEach(() =>
       renderShallow(<CommentLikeComponent event={event} />, store)
