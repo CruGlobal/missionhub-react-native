@@ -67,11 +67,9 @@ export function showReminderOnLoad() {
   return (dispatch, getState) => {
     if (getState().notifications.showReminderOnLoad) {
       dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
-      if (hasReminderStepsSelector({ steps: getState().steps })) {
-        dispatch(
-          showReminderScreen(i18next.t('notificationPrimer:loginDescription')),
-        );
-      }
+      dispatch(
+        showReminderScreen(i18next.t('notificationPrimer:loginDescription')),
+      );
     }
   };
 }
