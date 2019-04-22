@@ -11,7 +11,7 @@ import {
   REQUEST_NOTIFICATIONS,
 } from '../constants';
 import { DISABLE_WELCOME_NOTIFICATION, GCM_SENDER_ID } from '../constants';
-import { isAndroid } from '../utils/common';
+import { isAndroid, isFunction } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen';
@@ -23,35 +23,42 @@ import { getPersonDetails, navToPersonScreen } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi, { REQUESTS } from './api';
 
-export function showReminderScreen(descriptionText) {
+export function showReminderScreen(descriptionText, callback) {
   return (dispatch, getState) => {
     const { pushDevice, requestedNativePermissions } = getState().notifications;
+    const onComplete = (isFunction(callback) && callback) || (() => {});
 
     // Android does not need to ask user for notification permissions
     if (isAndroid) {
       dispatch(requestNativePermissions());
-      return;
+      return onComplete(false);
     }
 
     if (pushDevice.token) {
-      return;
+      return onComplete(true);
     }
 
     PushNotification.checkPermissions(permission => {
-      const permissionsEnabled = permission && permission.alert;
-      if (permissionsEnabled) {
+      if (permission && permission.alert) {
         dispatch(requestNativePermissions());
-      } else if (requestedNativePermissions) {
-        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
-      } else {
-        // If none of the other cases hit, show allow/not allow page
-        dispatch(
-          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-            onComplete: () => dispatch(navigateBack()),
-            descriptionText,
-          }),
-        );
+        return onComplete(true);
       }
+
+      if (requestedNativePermissions) {
+        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
+        return onComplete(false);
+      }
+
+      // If none of the other cases hit, show allow/not allow page
+      dispatch(
+        navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+          onComplete: accepted => {
+            dispatch(navigateBack());
+            onComplete(accepted);
+          },
+          descriptionText,
+        }),
+      );
     });
   };
 }

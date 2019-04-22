@@ -29,8 +29,10 @@ class ReminderButton extends Component {
   handlePressIOS = async ({ showPicker }) => {
     const { dispatch, stepId } = this.props;
 
-    await dispatch(showReminderScreen());
-    dispatch(showPicker());
+    const hasAcceptedNotifications = accepted =>
+      accepted && dispatch(showPicker());
+
+    await dispatch(showReminderScreen(undefined, hasAcceptedNotifications));
   };
 
   handleChangeDate = date => {
