@@ -23,30 +23,28 @@ import { getPersonDetails, navToPersonScreen } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi, { REQUESTS } from './api';
 
-export function showReminderScreen(descriptionText) {
+export function showNotificationPrompt(descriptionText) {
   return async (dispatch, getState) => {
     const { pushDevice, requestedNativePermissions } = getState().notifications;
 
     // Android does not need to ask user for notification permissions
     if (isAndroid) {
-      await dispatch(requestNativePermissions());
-      return { acceptedNotification: true };
+      return await dispatch(requestNativePermissions());
     }
 
     if (pushDevice.token) {
-      return { acceptedNotification: true };
+      return { acceptedNotifications: true };
     }
 
     return new Promise(resolve =>
       PushNotification.checkPermissions(permission => {
         if (permission && permission.alert) {
-          dispatch(requestNativePermissions());
-          resolve({ acceptedNotification: true });
+          resolve(dispatch(requestNativePermissions()));
         }
 
         if (requestedNativePermissions) {
           dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
-          resolve({ acceptedNotification: false });
+          resolve({ acceptedNotifications: false });
         }
 
         // If none of the other cases hit, show allow/not allow page
@@ -69,16 +67,20 @@ export function showReminderOnLoad() {
     if (getState().notifications.showReminderOnLoad) {
       dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
       dispatch(
-        showReminderScreen(i18next.t('notificationPrimer:loginDescription')),
+        showNotificationPrompt(
+          i18next.t('notificationPrimer:loginDescription'),
+        ),
       );
     }
   };
 }
 
 export function requestNativePermissions() {
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: REQUEST_NOTIFICATIONS });
-    return PushNotification.requestPermissions();
+    const permission = await PushNotification.requestPermissions();
+
+    return { acceptedNotifications: !!(permission && permission.alert) };
   };
 }
 

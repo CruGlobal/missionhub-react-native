@@ -7,7 +7,7 @@ import { navigatePush } from '../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
 import DatePicker from '../DatePicker';
 import {
-  showReminderScreen,
+  showNotificationPrompt,
   requestNativePermissions,
 } from '../../actions/notifications';
 import { createStepReminder } from '../../actions/stepReminders';
@@ -29,7 +29,7 @@ class ReminderButton extends Component {
   handlePressIOS = async ({ showPicker }) => {
     const { dispatch, stepId } = this.props;
 
-    const { acceptedNotifications } = await dispatch(showReminderScreen());
+    const { acceptedNotifications } = await dispatch(showNotificationPrompt());
 
     acceptedNotifications && showPicker();
   };
