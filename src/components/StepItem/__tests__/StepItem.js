@@ -81,6 +81,52 @@ it('renders hover for step', () => {
   expect(component).toMatchSnapshot();
 });
 
+describe('step item animations', () => {
+  let component;
+  beforeEach(() => {
+    component = renderShallow(
+      <StepItem step={mockStep} type="swipeable" onAction={jest.fn()} />,
+      store,
+    );
+  });
+  it('renders animation fade in', () => {
+    component.setState({ animation: 'fadeInRight' });
+    component.update();
+    expect(component).toMatchSnapshot();
+  });
+  it('renders animation fade out', () => {
+    component.setState({ animation: 'fadeOutRight' });
+    component.update();
+    expect(component).toMatchSnapshot();
+  });
+  it('renders no animation', () => {
+    component.setState({ animation: '' });
+    component.update();
+    expect(component).toMatchSnapshot();
+  });
+  it('changes animation to fade out', () => {
+    component.setProps({ hideAction: true });
+    expect(component.instance().state.animation).toEqual('fadeOutRight');
+  });
+  it('changes animation to fade in', () => {
+    component.setProps({ hideAction: false });
+    expect(component.instance().state.animation).toEqual('fadeInRight');
+  });
+});
+
+it('renders no initial animation', () => {
+  const component = renderShallow(
+    <StepItem
+      step={mockStep}
+      type="swipeable"
+      hideAction={true}
+      onAction={jest.fn()}
+    />,
+    store,
+  );
+  expect(component).toMatchSnapshot();
+});
+
 describe('step item methods', () => {
   let component;
   const mockSelect = jest.fn();
