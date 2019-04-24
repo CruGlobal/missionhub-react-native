@@ -23,41 +23,42 @@ import { getPersonDetails, navToPersonScreen } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi, { REQUESTS } from './api';
 
-export function showReminderScreen(descriptionText, callback) {
-  return (dispatch, getState) => {
+export async function showReminderScreen(descriptionText, callback) {
+  return async (dispatch, getState) => {
     const { pushDevice, requestedNativePermissions } = getState().notifications;
     const onComplete = (isFunction(callback) && callback) || (() => {});
 
     // Android does not need to ask user for notification permissions
     if (isAndroid) {
-      dispatch(requestNativePermissions());
-      return onComplete(false);
+      await dispatch(requestNativePermissions());
+      return { acceptedNotification: true };
     }
 
     if (pushDevice.token) {
-      return onComplete(true);
+      return { acceptedNotification: true };
     }
 
-    PushNotification.checkPermissions(permission => {
+    PushNotification.checkPermissions(async permission => {
       if (permission && permission.alert) {
         dispatch(requestNativePermissions());
-        return onComplete(true);
+        return { acceptedNotification: true };
       }
 
       if (requestedNativePermissions) {
         dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
-        return onComplete(false);
+        return { acceptedNotification: false };
       }
 
       // If none of the other cases hit, show allow/not allow page
-      dispatch(
-        navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-          onComplete: accepted => {
-            dispatch(navigateBack());
-            onComplete(accepted);
-          },
-          descriptionText,
-        }),
+      return new Promise(resolve =>
+        dispatch(
+          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+            onComplete: acceptedNotification =>
+              resolve({ acceptedNotification }),
+            descriptionText,
+            navBackOnComplete: true,
+          }),
+        ),
       );
     });
   };
