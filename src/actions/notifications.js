@@ -29,7 +29,7 @@ export function showNotificationPrompt(descriptionText) {
 
     // Android does not need to ask user for notification permissions
     if (isAndroid) {
-      return await dispatch(requestNativePermissions());
+      return dispatch(requestNativePermissions());
     }
 
     if (pushDevice.token) {
@@ -42,21 +42,25 @@ export function showNotificationPrompt(descriptionText) {
           resolve(dispatch(requestNativePermissions()));
         }
 
-        if (requestedNativePermissions) {
-          dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
-          resolve({ acceptedNotifications: false });
-        }
+        const onComplete = acceptedNotifications => {
+          dispatch(navigateBack());
+          resolve({ acceptedNotifications });
+        };
 
-        // If none of the other cases hit, show allow/not allow page
-        dispatch(
-          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-            onComplete: acceptedNotifications => {
-              dispatch(navigateBack());
-              resolve({ acceptedNotifications });
-            },
-            descriptionText,
-          }),
-        );
+        if (requestedNativePermissions) {
+          dispatch(
+            navigatePush(NOTIFICATION_OFF_SCREEN, {
+              onComplete,
+            }),
+          );
+        } else {
+          dispatch(
+            navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+              onComplete,
+              descriptionText,
+            }),
+          );
+        }
       }),
     );
   };
@@ -79,7 +83,6 @@ export function requestNativePermissions() {
   return async dispatch => {
     dispatch({ type: REQUEST_NOTIFICATIONS });
     const permission = await PushNotification.requestPermissions();
-
     return { acceptedNotifications: !!(permission && permission.alert) };
   };
 }

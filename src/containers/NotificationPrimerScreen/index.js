@@ -22,11 +22,13 @@ class NotificationPrimerScreen extends Component {
 
   allow = async () => {
     const { dispatch, onComplete } = this.props;
+    let acceptedNotifications = false;
 
     try {
-      await dispatch(requestNativePermissions());
+      const response = await dispatch(requestNativePermissions());
+      acceptedNotifications = response.acceptedNotifications;
     } finally {
-      onComplete(true);
+      onComplete(acceptedNotifications);
     }
     dispatch(trackActionWithoutData(ACTIONS.ALLOW));
   };

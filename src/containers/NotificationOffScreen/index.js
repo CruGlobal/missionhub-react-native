@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Linking, Image } from 'react-native';
+import PushNotification from 'react-native-push-notification';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -13,37 +14,33 @@ import styles from './styles';
 
 @translate('notificationOff')
 class NotificationOffScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.goToSettings = this.goToSettings.bind(this);
-    this.notNow = this.notNow.bind(this);
-  }
-
-  notNow() {
+  notNow = () => {
     this.close();
     this.props.dispatch(trackActionWithoutData(ACTIONS.NO_REMINDERS));
-  }
+  };
 
   close() {
-    this.props.dispatch(navigateBack());
+    const { dispatch, onComplete } = this.props;
+
+    //check if permissions have been set since entering this screen
+    PushNotification.checkPermissions(permission => {
+      onComplete(!!(permission && permission.alert));
+    });
   }
 
-  goToSettings() {
+  goToSettings = async () => {
     if (!isAndroid) {
       const APP_SETTINGS_URL = 'app-settings:';
-      Linking.canOpenURL(APP_SETTINGS_URL).then(isSupported => {
-        if (isSupported) {
-          return Linking.openURL(APP_SETTINGS_URL).then(() => {
-            setTimeout(() => this.close(true), 500);
-          });
-        }
-        this.close(true);
-      });
-    } else {
-      this.close(true);
+      const isSupported = await Linking.canOpenURL(APP_SETTINGS_URL);
+
+      if (isSupported) {
+        await Linking.openURL(APP_SETTINGS_URL);
+        return setTimeout(() => this.close(), 500);
+      }
     }
-  }
+
+    this.close();
+  };
 
   render() {
     const { t } = this.props;
