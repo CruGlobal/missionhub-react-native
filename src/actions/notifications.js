@@ -23,7 +23,10 @@ import { getPersonDetails, navToPersonScreen } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi, { REQUESTS } from './api';
 
-export function showNotificationPrompt(descriptionText) {
+export function showNotificationPrompt(
+  descriptionText,
+  shouldNavigateBack = true,
+) {
   return async (dispatch, getState) => {
     const { pushDevice, requestedNativePermissions } = getState().notifications;
 
@@ -43,7 +46,7 @@ export function showNotificationPrompt(descriptionText) {
         }
 
         const onComplete = acceptedNotifications => {
-          dispatch(navigateBack());
+          shouldNavigateBack && dispatch(navigateBack());
           resolve({ acceptedNotifications });
         };
 

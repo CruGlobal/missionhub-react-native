@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
+import { showReminderOnLoad } from '../actions/notifications';
 import { navigateBack, navigatePush } from '../actions/navigation';
 import { buildTrackingObj, isAndroid } from '../utils/common';
 import { trackActionWithoutData } from '../actions/analytics';
@@ -40,21 +41,14 @@ class PersonStageScreen extends Component {
     this.props.dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
   };
 
-  handleNavigate = () => dispatch => {
+  handleNavigate = () => async dispatch => {
     if (this.props.addingContactFlow) {
-      this.celebrateAndFinish();
-      return;
+      return this.celebrateAndFinish();
     }
-    // Android doesn't need a primer for notifications the way iOS does
-    if (!isAndroid) {
-      dispatch(
-        navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-          onComplete: this.celebrateAndFinishOnboarding,
-        }),
-      );
-    } else {
-      this.celebrateAndFinishOnboarding();
-    }
+
+    await showNotificationPrompt(undefined, false);
+
+    this.celebrateAndFinishOnboarding();
   };
 
   complete(stage, isAlreadySelected) {
