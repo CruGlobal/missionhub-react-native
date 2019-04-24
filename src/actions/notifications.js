@@ -23,10 +23,9 @@ import { getPersonDetails, navToPersonScreen } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi, { REQUESTS } from './api';
 
-export async function showReminderScreen(descriptionText, callback) {
+export function showReminderScreen(descriptionText) {
   return async (dispatch, getState) => {
     const { pushDevice, requestedNativePermissions } = getState().notifications;
-    const onComplete = (isFunction(callback) && callback) || (() => {});
 
     // Android does not need to ask user for notification permissions
     if (isAndroid) {
@@ -38,29 +37,30 @@ export async function showReminderScreen(descriptionText, callback) {
       return { acceptedNotification: true };
     }
 
-    PushNotification.checkPermissions(async permission => {
-      if (permission && permission.alert) {
-        dispatch(requestNativePermissions());
-        return { acceptedNotification: true };
-      }
+    return new Promise(resolve =>
+      PushNotification.checkPermissions(permission => {
+        if (permission && permission.alert) {
+          dispatch(requestNativePermissions());
+          resolve({ acceptedNotification: true });
+        }
 
-      if (requestedNativePermissions) {
-        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
-        return { acceptedNotification: false };
-      }
+        if (requestedNativePermissions) {
+          dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
+          resolve({ acceptedNotification: false });
+        }
 
-      // If none of the other cases hit, show allow/not allow page
-      return new Promise(resolve =>
+        // If none of the other cases hit, show allow/not allow page
         dispatch(
           navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-            onComplete: acceptedNotification =>
-              resolve({ acceptedNotification }),
+            onComplete: acceptedNotifications => {
+              dispatch(navigateBack());
+              resolve({ acceptedNotifications });
+            },
             descriptionText,
-            navBackOnComplete: true,
           }),
-        ),
-      );
-    });
+        );
+      }),
+    );
   };
 }
 

@@ -129,7 +129,7 @@ class MyDatePickerAndroid extends Component {
     return { action: timeAction, year, month, day, hour, minute };
   }
 
-  onPressDate = async () => {
+  onPressDate = () => {
     const { disabled, onPressAndroid, date } = this.props;
 
     if (disabled) {
@@ -176,7 +176,6 @@ MyDatePickerAndroid.propTypes = {
   minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
   maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
   disabled: PropTypes.bool,
-  beforeShowModal: PropTypes.func,
   onDateChange: PropTypes.func,
   onCloseModal: PropTypes.func,
   is24Hour: PropTypes.bool,

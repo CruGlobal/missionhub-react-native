@@ -76,7 +76,7 @@ class MyDatePickerIOS extends Component {
     }, 200);
   };
 
-  onPressDate = async () => {
+  onPressDate = () => {
     const { disabled, onPressIOS, date } = this.props;
 
     if (disabled) {

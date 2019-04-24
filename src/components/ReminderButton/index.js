@@ -29,10 +29,9 @@ class ReminderButton extends Component {
   handlePressIOS = async ({ showPicker }) => {
     const { dispatch, stepId } = this.props;
 
-    const hasAcceptedNotifications = accepted =>
-      accepted && dispatch(showPicker());
+    const { acceptedNotifications } = await dispatch(showReminderScreen());
 
-    await dispatch(showReminderScreen(undefined, hasAcceptedNotifications));
+    acceptedNotifications && showPicker();
   };
 
   handleChangeDate = date => {
@@ -59,7 +58,6 @@ class ReminderButton extends Component {
       <DatePicker
         date={next_occurrence_at}
         minDate={today}
-        beforeShowModal={this.beforeShowModal}
         onPressAndroid={this.handlePressAndroid}
         onPressIOS={this.handlePressIOS}
         onDateChange={this.handleChangeDate}

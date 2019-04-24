@@ -5,7 +5,6 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Text, Button, Flex } from '../../components/common';
-import { navigateBack } from '../../actions/navigation';
 import { requestNativePermissions } from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
@@ -15,23 +14,21 @@ import styles from './styles';
 @translate('notificationPrimer')
 class NotificationPrimerScreen extends Component {
   notNow = () => {
-    const { dispatch, onComplete, navBackOnComplete } = this.props;
+    const { dispatch, onComplete } = this.props;
 
-    onComplete({ acceptedNotifications: false });
+    onComplete(false);
     dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
-    navBackOnComplete && dispatch(navigateBack());
   };
 
   allow = async () => {
-    const { dispatch, onComplete, navBackOnComplete } = this.props;
+    const { dispatch, onComplete } = this.props;
 
     try {
       await dispatch(requestNativePermissions());
     } finally {
-      onComplete({ acceptedNotifications: true });
+      onComplete(true);
     }
     dispatch(trackActionWithoutData(ACTIONS.ALLOW));
-    navBackOnComplete && dispatch(navigateBack());
   };
 
   render() {
@@ -76,7 +73,6 @@ class NotificationPrimerScreen extends Component {
 
 NotificationPrimerScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
-  navBackOnComplete: PropTypes.bool,
   descriptionText: PropTypes.string,
 };
 
