@@ -9,33 +9,44 @@ import ItemHeaderText from '../ItemHeaderText';
 
 import styles from './styles';
 
+function getAnimation(isHiding, isInitialMount) {
+  return isHiding ? (isInitialMount ? '' : 'fadeOutRight') : 'fadeInRight';
+}
 @translate()
 class StepItem extends Component {
-  state = { hovering: false };
+  state = {
+    hovering: false,
+    animation: getAnimation(this.props.hideAction, true),
+  };
 
-  setNativeProps(nProps) {
-    this._view.setNativeProps(nProps);
+  componentDidUpdate(prevProps) {
+    const { hideAction } = this.props;
+    if (prevProps.hideAction !== hideAction) {
+      this.setState({ animation: getAnimation(hideAction) });
+    }
   }
+
   onHover = () => this.setState({ hovering: true });
   onBlur = () => this.setState({ hovering: false });
   handleAction = () => {
-    this.props.onAction && this.props.onAction(this.props.step);
+    const { onAction, step } = this.props;
+    onAction && onAction(step);
   };
   handleSelect = () => {
-    if (!this.props.step.receiver) {
+    const { step, onSelect } = this.props;
+    if (!step.receiver) {
       return;
     } else {
-      this.props.onSelect && this.props.onSelect(this.props.step);
+      onSelect && onSelect(step);
     }
   };
 
-  iconRef = c => (this.action = c);
-
   renderIcon() {
-    const { type, onAction, hideAction } = this.props;
-    const { hovering } = this.state;
+    const { type, onAction } = this.props;
+    const { hovering, animation } = this.state;
 
-    if (!onAction) {
+    // Don't show on the initial render if `hideAction` is true or there is no `onAction`
+    if (!onAction || !animation) {
       return null;
     }
 
@@ -49,12 +60,7 @@ class StepItem extends Component {
         onPressIn={this.onHover}
         onPressOut={this.onBlur}
       >
-        <Flex
-          ref={this.iconRef}
-          align="center"
-          justify="center"
-          animation={hideAction ? 'fadeOutRight' : 'fadeInRight'}
-        >
+        <Flex align="center" justify="center" animation={animation}>
           <Icon
             name={iconName}
             type="MissionHub"
@@ -67,8 +73,6 @@ class StepItem extends Component {
       </Touchable>
     );
   }
-
-  ref = c => (this._view = c);
 
   render() {
     const { step, type, myId, t } = this.props;
@@ -90,7 +94,7 @@ class StepItem extends Component {
           lighten: 0.5,
         })}
       >
-        <Flex ref={this.ref} align="center" direction="row" style={styles.row}>
+        <Flex align="center" direction="row" style={styles.row}>
           <Flex value={1} justify="center" direction="column">
             {type === 'contact' ? null : <ItemHeaderText text={ownerName} />}
             <Text style={styles.description}>{step.title}</Text>
@@ -113,7 +117,7 @@ StepItem.propTypes = {
     notified_at: PropTypes.date,
     note: PropTypes.string,
     owner: PropTypes.object.isRequired,
-    receiver: PropTypes.object.isRequired,
+    receiver: PropTypes.object,
   }).isRequired,
   onSelect: PropTypes.func,
   onAction: PropTypes.func,
