@@ -172,27 +172,6 @@ export function updateChallengeNote(stepId, note) {
   };
 }
 
-export function completeStep(step, screen, extraBack) {
-  return async dispatch => {
-    const result = await dispatch(
-      challengeCompleteAction(step, screen, extraBack),
-    );
-
-    dispatch(getMySteps());
-    dispatch(
-      getContactSteps(
-        step.receiver && step.receiver.id,
-        step.organization && step.organization.id,
-      ),
-    );
-
-    if (step.organization) {
-      dispatch(reloadGroupCelebrateFeed(step.organization.id));
-    }
-    return result;
-  };
-}
-
 function buildChallengeData(attributes) {
   return {
     data: {
@@ -202,13 +181,8 @@ function buildChallengeData(attributes) {
   };
 }
 
-function challengeCompleteAction(step, screen, extraBack = false) {
-  return async (dispatch, getState) => {
-    const {
-      auth: {
-        person: { id: myId },
-      },
-    } = getState();
+function completeChallengeAPI(step) {
+  return async dispatch => {
     const { id: stepId, receiver, organization } = step;
     const receiverId = (receiver && receiver.id) || null;
     const orgId = (organization && organization.id) || null;
@@ -220,6 +194,26 @@ function challengeCompleteAction(step, screen, extraBack = false) {
     dispatch({ type: COMPLETED_STEP_COUNT, userId: receiverId });
     dispatch(refreshImpact(orgId));
 
+    dispatch(getMySteps());
+    dispatch(getContactSteps(receiverId, orgId));
+
+    if (orgId) {
+      dispatch(reloadGroupCelebrateFeed(orgId));
+    }
+  };
+}
+
+export function completeStep(step, screen, extraBack = false) {
+  return (dispatch, getState) => {
+    const {
+      auth: {
+        person: { id: myId },
+      },
+    } = getState();
+    const { id: stepId, receiver, organization } = step;
+    const receiverId = (receiver && receiver.id) || null;
+    const orgId = (organization && organization.id) || null;
+
     const subsection = getAnalyticsSubsection(receiverId, myId);
 
     dispatch(
@@ -229,6 +223,7 @@ function challengeCompleteAction(step, screen, extraBack = false) {
           stepId,
           personId: receiverId,
           orgId,
+          onSetComplete: () => dispatch(completeChallengeAPI(step)),
           type: STEP_NOTE,
           trackingObj: buildTrackingObj(
             `people : ${subsection} : steps : complete comment`,

@@ -17,6 +17,7 @@ import {
 import { reloadGroupCelebrateFeed } from '../celebration';
 import { refreshImpact } from '../impact';
 import { trackStepAdded, trackAction } from '../analytics';
+import * as navigation from '../navigation';
 import * as common from '../../utils/common';
 import { buildTrackingObj } from '../../utils/common';
 import {
@@ -220,6 +221,11 @@ describe('complete challenge', () => {
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
     refreshImpact.mockReturnValue(impactResponse);
     reloadGroupCelebrateFeed.mockReturnValue(celebrateResponse);
+    // Call `onSetComplete` within the navigate push
+    navigation.navigatePush = jest.fn((a, b) => {
+      b.onSetComplete();
+      return { type: NAVIGATE_FORWARD, routeName: a, params: b };
+    });
   });
 
   it('completes step', async () => {
@@ -249,8 +255,6 @@ describe('complete challenge', () => {
     expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(stepOrgId);
 
     expect(store.getActions()).toEqual([
-      { type: COMPLETED_STEP_COUNT, userId: receiverId },
-      impactResponse,
       {
         type: NAVIGATE_FORWARD,
         routeName: COMPLETE_STEP_FLOW,
@@ -258,6 +262,7 @@ describe('complete challenge', () => {
           type: STEP_NOTE,
           personId: receiverId,
           stepId,
+          onSetComplete: expect.any(Function),
           orgId: stepOrgId,
           trackingObj: buildTrackingObj(
             'people : person : steps : complete comment',
@@ -268,6 +273,8 @@ describe('complete challenge', () => {
         },
       },
       trackActionResult,
+      { type: COMPLETED_STEP_COUNT, userId: receiverId },
+      impactResponse,
       celebrateResponse,
     ]);
   });
@@ -300,8 +307,6 @@ describe('complete challenge', () => {
     );
     expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
     expect(store.getActions()).toEqual([
-      { type: COMPLETED_STEP_COUNT, userId: receiverId },
-      impactResponse,
       {
         type: NAVIGATE_FORWARD,
         routeName: COMPLETE_STEP_FLOW,
@@ -309,6 +314,7 @@ describe('complete challenge', () => {
           type: STEP_NOTE,
           personId: receiverId,
           stepId,
+          onSetComplete: expect.any(Function),
           orgId: null,
           trackingObj: buildTrackingObj(
             'people : person : steps : complete comment',
@@ -319,6 +325,8 @@ describe('complete challenge', () => {
         },
       },
       trackActionResult,
+      { type: COMPLETED_STEP_COUNT, userId: receiverId },
+      impactResponse,
     ]);
   });
 });

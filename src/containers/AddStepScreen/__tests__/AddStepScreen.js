@@ -159,6 +159,7 @@ describe('add step methods', () => {
 describe('add step methods for stepNote with next', () => {
   let screen;
   const next = jest.fn(() => ({ type: 'next' }));
+  const onSetComplete = jest.fn();
   common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
   beforeEach(() => {
@@ -168,6 +169,7 @@ describe('add step methods for stepNote with next', () => {
           next,
           type: STEP_NOTE,
           text: 'Comment',
+          onSetComplete,
         })}
       />,
       store,
@@ -176,16 +178,17 @@ describe('add step methods for stepNote with next', () => {
     expect(common.disableBack.add).toHaveBeenCalledTimes(1);
   });
 
-  it('runs skip', () => {
-    screen
+  it('runs skip', async () => {
+    await screen
       .childAt(4)
       .props()
       .onSkip();
 
+    expect(onSetComplete).toHaveBeenCalled();
     expect(next).toHaveBeenCalledTimes(1);
   });
 
-  it('runs saveStep', () => {
+  it('runs saveStep', async () => {
     screen
       .find('Input')
       .props()
@@ -193,9 +196,10 @@ describe('add step methods for stepNote with next', () => {
 
     screen.update();
 
-    screen.childAt(3).simulate('press');
+    await screen.childAt(2).simulate('press');
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
+    expect(onSetComplete).toHaveBeenCalled();
     expect(next).toHaveBeenCalledTimes(1);
   });
 });
