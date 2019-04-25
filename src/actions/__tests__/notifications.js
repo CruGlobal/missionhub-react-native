@@ -8,7 +8,7 @@ import i18next from 'i18next';
 import MockDate from 'mockdate';
 
 import {
-  showReminderScreen,
+  showNotificationPrompt,
   deletePushToken,
   showWelcomeNotification,
   configureNotificationHandler,
@@ -26,12 +26,14 @@ import {
 import * as common from '../../utils/common';
 import callApi, { REQUESTS } from '../api';
 import { getPersonDetails, navToPersonScreen } from '../person';
+import { navigatePush, navigateBack } from '../navigation';
 import { navigateToOrg } from '../organizations';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
 
 jest.mock('../person');
 jest.mock('../organizations');
+jest.mock('../navigation');
 jest.mock('../api');
 jest.mock('react-native-push-notification');
 jest.mock('react-native-config', () => ({
@@ -47,73 +49,153 @@ const store = mockStore({
   },
 });
 
+const navigatePushResult = { type: 'nagivate push' };
+const navigateBackResult = { type: 'navigate back' };
+
 beforeEach(() => {
   common.isAndroid = false;
   store.clearActions();
 });
 
-describe('showReminderScreen', () => {
+describe('showNotificationPrompt', () => {
   const descriptionText = 'test description';
+  let existingDevicePermissions = {};
+  let newPermissions = {};
+  let acceptedNotifications = true;
+  let store = {};
+  let result = {};
 
-  it('should request permissions from device for Android', () => {
-    const store = mockStore({
-      notifications: {
-        pushDevice: {},
-      },
-    });
-    common.isAndroid = true;
-    store.dispatch(showReminderScreen());
-    expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
-    expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
-  });
-  it('should do nothing if we already have a token', () => {
-    const store = mockStore({
-      notifications: {
-        pushDevice: {
-          token: '123',
-        },
-      },
-    });
-    store.dispatch(showReminderScreen(descriptionText));
-    expect(store.getActions()).toEqual([]);
-  });
-  it('should do nothing if reminders are disabled', () => {
-    const store = mockStore({
-      notifications: {
-        pushDevice: {},
-      },
-    });
-    store.dispatch(showReminderScreen(descriptionText));
-    expect(store.getActions()).toEqual([]);
-  });
-  it('should request permissions from device permissions are already granted by user', () => {
-    const store = mockStore({
-      notifications: {
-        pushDevice: {},
-      },
-    });
+  beforeEach(() => {
     PushNotification.checkPermissions.mockImplementation(cb =>
-      cb({ alert: true }),
+      cb(existingDevicePermissions),
     );
-    store.dispatch(showReminderScreen(descriptionText));
-
-    expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
+    PushNotification.requestPermissions.mockReturnValue(newPermissions);
+    navigatePush.mockImplementation((_, { onComplete }) => {
+      onComplete && onComplete(acceptedNotifications);
+      return navigatePushResult;
+    });
+    navigateBack.mockReturnValue(navigateBackResult);
   });
-  it('should show Notification Primer screen', () => {
-    const store = mockStore({
+
+  describe('User accepts notifications', () => {
+    beforeAll(() => {
+      permission = { alert: 1 };
+      acceptedNotifications = true;
+    });
+
+    describe('isAndroid', () => {
+      beforeEach(() => {
+        store = mockStore({
+          notifications: {
+            pushDevice: {},
+          },
+        });
+        common.isAndroid = true;
+      });
+
+      it('should request permissions from device', async () => {
+        result = await store.dispatch(showNotificationPrompt());
+
+        expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
+        expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
+        expect(result).toEqual({ acceptedNotifications });
+      });
+    });
+
+    describe('not isAndroid', () => {
+      beforeEach(() => {
+        common.isAndroid = false;
+      });
+
+      describe('token already in Redux', () => {
+        beforeAll(() => {
+          store = mockStore({
+            notifications: {
+              pushDevice: {
+                token: '123',
+              },
+            },
+          });
+        });
+
+        it('should return acceptedNotifications = true', async () => {
+          result = await store.dispatch(
+            showNotificationPrompt(descriptionText),
+          );
+
+          expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
+          expect(store.getActions()).toEqual([]);
+          expect(result).toEqual({ acceptedNotifications });
+        });
+      });
+
+      describe('no token in Redux', () => {
+        beforeAll(() => {
+          store = mockStore({
+            notifications: {
+              pushDevice: {},
+            },
+          });
+        });
+
+        describe('existing device permissions are enabled', () => {
+          beforeAll(() => {
+            existingDevicePermissions = { alert: 1 };
+          });
+
+          it('should check permissions from device then request permissions', async () => {
+            result = await store.dispatch(
+              showNotificationPrompt(descriptionText),
+            );
+
+            expect(PushNotification.checkPermissions).toHaveBeenCalled();
+            expect(store.getActions()).toEqual([
+              { type: REQUEST_NOTIFICATIONS },
+            ]);
+            expect(result).toEqual({ acceptedNotifications });
+          });
+        });
+      });
+    });
+  });
+
+  it('should show Notification Off screen', async () => {
+    store = mockStore({
       notifications: {
         pushDevice: {},
+        requestedNativePermissions: true,
       },
     });
     PushNotification.checkPermissions.mockImplementation(cb =>
       cb({ alert: false }),
     );
 
-    store.dispatch(showReminderScreen(descriptionText));
+    result = await store.dispatch(showNotificationPrompt(descriptionText));
 
-    store.getActions()[0].params.onComplete();
+    expect(PushNotification.checkPermissions).toHaveBeenCalled();
+    expect(store.getActions()).toEqual([
+      navigateBackResult,
+      navigatePushResult,
+    ]);
+    expect(result).toEqual({ acceptedNotifications: true });
+  });
 
+  it('should show Notification Primer screen', async () => {
+    store = mockStore({
+      notifications: {
+        pushDevice: {},
+        requestedNativePermissions: false,
+      },
+    });
+    PushNotification.checkPermissions.mockImplementation(cb =>
+      cb({ alert: false }),
+    );
+
+    result = await store.dispatch(showNotificationPrompt(descriptionText));
+
+    expect(PushNotification.checkPermissions).toHaveBeenCalled();
     expect(store.getActions()).toMatchSnapshot();
+    expect(result).toEqual({ acceptedNotifications: true });
   });
 });
 

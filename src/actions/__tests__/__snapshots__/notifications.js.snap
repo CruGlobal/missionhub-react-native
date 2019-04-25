@@ -219,6 +219,28 @@ Array [
 ]
 `;
 
+exports[`showNotificationPrompt should show Notification Off screen 1`] = `
+Array [
+  Object {
+    "type": "navigate back",
+  },
+  Object {
+    "type": "nagivate push",
+  },
+]
+`;
+
+exports[`showNotificationPrompt should show Notification Primer screen 1`] = `
+Array [
+  Object {
+    "type": "navigate back",
+  },
+  Object {
+    "type": "nagivate push",
+  },
+]
+`;
+
 exports[`showReminderScreen should show Notification Primer screen 1`] = `
 Array [
   Object {
