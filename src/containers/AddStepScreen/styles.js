@@ -12,9 +12,6 @@ export default StyleSheet.create({
   fieldWrap: {
     paddingTop: 10,
   },
-  skipBtn: {
-    padding: 30,
-  },
   skipBtnText: {
     fontSize: 14,
     color: theme.lightGrey,

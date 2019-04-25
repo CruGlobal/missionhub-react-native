@@ -12,15 +12,93 @@ exports[`render skip 1`] = `
 >
   <Button
     buttonTextStyle={
-      Object {
-        "color": "#ffffff",
-      }
+      Array [
+        Object {
+          "color": "#ffffff",
+        },
+        undefined,
+      ]
     }
     onPress={[MockFunction]}
     style={
-      Object {
-        "padding": 15,
-      }
+      Array [
+        Object {
+          "padding": 15,
+        },
+        undefined,
+      ]
+    }
+    text="SKIP"
+    type="transparent"
+  />
+</SafeAreaView>
+`;
+
+exports[`renders skip with style 1`] = `
+<SafeAreaView
+  style={
+    Object {
+      "position": "absolute",
+      "right": 10,
+      "top": 0,
+    }
+  }
+>
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "color": "#ffffff",
+        },
+        undefined,
+      ]
+    }
+    onPress={[MockFunction]}
+    style={
+      Array [
+        Object {
+          "padding": 15,
+        },
+        Object {
+          "padding": 5,
+        },
+      ]
+    }
+    text="SKIP"
+    type="transparent"
+  />
+</SafeAreaView>
+`;
+
+exports[`renders skip with text style 1`] = `
+<SafeAreaView
+  style={
+    Object {
+      "position": "absolute",
+      "right": 10,
+      "top": 0,
+    }
+  }
+>
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "color": "#ffffff",
+        },
+        Object {
+          "padding": 5,
+        },
+      ]
+    }
+    onPress={[MockFunction]}
+    style={
+      Array [
+        Object {
+          "padding": 15,
+        },
+        undefined,
+      ]
     }
     text="SKIP"
     type="transparent"

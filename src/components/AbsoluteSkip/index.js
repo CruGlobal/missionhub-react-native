@@ -10,7 +10,7 @@ import styles from './styles';
 @translate()
 class AbsoluteSkip extends Component {
   render() {
-    const { t, onSkip } = this.props;
+    const { t, onSkip, style, textStyle } = this.props;
 
     return (
       <SafeAreaView style={styles.skipWrap}>
@@ -18,8 +18,8 @@ class AbsoluteSkip extends Component {
           type="transparent"
           onPress={onSkip}
           text={t('skip').toUpperCase()}
-          style={styles.skipBtn}
-          buttonTextStyle={styles.skipBtnText}
+          style={[styles.skipBtn, style]}
+          buttonTextStyle={[styles.skipBtnText, textStyle]}
         />
       </SafeAreaView>
     );
@@ -28,6 +28,16 @@ class AbsoluteSkip extends Component {
 
 AbsoluteSkip.propTypes = {
   onSkip: PropTypes.func.isRequired,
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array,
+  ]),
+  textStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array,
+  ]),
 };
 
 export default AbsoluteSkip;
