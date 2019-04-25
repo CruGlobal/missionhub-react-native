@@ -172,15 +172,6 @@ export function updateChallengeNote(stepId, note) {
   };
 }
 
-export function completeStep(step, screen, extraBack) {
-  return async dispatch => {
-    const result = await dispatch(
-      challengeCompleteAction(step, screen, extraBack),
-    );
-    return result;
-  };
-}
-
 function buildChallengeData(attributes) {
   return {
     data: {
@@ -212,7 +203,7 @@ function completeChallengeAPI(step) {
   };
 }
 
-function challengeCompleteAction(step, screen, extraBack = false) {
+export function completeStep(step, screen, extraBack = false) {
   return (dispatch, getState) => {
     const {
       auth: {
