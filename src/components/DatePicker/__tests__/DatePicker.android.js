@@ -237,4 +237,36 @@ describe('DatePicker methods', () => {
       });
     });
   });
+
+  describe('custom action on press', () => {
+    const onPressAndroid = jest.fn();
+
+    beforeEach(async () => {
+      component = renderShallow(
+        <DatePicker
+          date={date}
+          minDate={minDate}
+          maxDate={maxDate}
+          onPressAndroid={onPressAndroid}
+          onDateChange={mockChange}
+          onCloseModal={mockCloseModal}
+          androidMode={androidMode}
+          mode="date"
+        />,
+      );
+
+      instance = component.instance();
+
+      await component
+        .childAt(0)
+        .props()
+        .onPress();
+    });
+
+    it('calls custom action and passes in showPicker', () => {
+      expect(onPressAndroid).toHaveBeenCalledWith({
+        showPicker: instance.showPicker,
+      });
+    });
+  });
 });

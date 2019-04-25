@@ -219,6 +219,17 @@ Array [
 ]
 `;
 
+exports[`showNotificationPrompt User accepts notifications not isAndroid no token in Redux existing device permissions not enabled user has not seen native notifications modal before should show Notification Primer screen 1`] = `
+Array [
+  Object {
+    "type": "navigate back",
+  },
+  Object {
+    "type": "nagivate push",
+  },
+]
+`;
+
 exports[`showNotificationPrompt should show Notification Off screen 1`] = `
 Array [
   Object {

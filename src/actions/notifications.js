@@ -39,7 +39,7 @@ export function showNotificationPrompt(descriptionText, doNotNavigateBack) {
     return new Promise(resolve =>
       PushNotification.checkPermissions(permission => {
         if (permission && permission.alert) {
-          resolve(dispatch(requestNativePermissions()));
+          return resolve(dispatch(requestNativePermissions()));
         }
 
         const onComplete = acceptedNotifications => {
