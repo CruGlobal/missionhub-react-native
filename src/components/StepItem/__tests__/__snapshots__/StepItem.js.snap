@@ -125,6 +125,59 @@ exports[`renders me correctly 1`] = `
 </TouchableIOS>
 `;
 
+exports[`renders no initial animation 1`] = `
+<TouchableIOS
+  activeOpacity={1}
+  highlight={true}
+  onPress={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+    }
+  }
+  underlayColor="rgb(208, 239, 245)"
+>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      justify="center"
+      value={1}
+    >
+      <ItemHeaderText
+        text=""
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+          }
+        }
+      >
+        Test Step
+      </MyText>
+    </Flex>
+  </Flex>
+</TouchableIOS>
+`;
+
 exports[`renders not me correctly 1`] = `
 <TouchableIOS
   activeOpacity={1}
@@ -354,6 +407,217 @@ exports[`renders type reminder correctly 1`] = `
 `;
 
 exports[`renders type swipeable correctly 1`] = `
+<TouchableIOS
+  activeOpacity={1}
+  highlight={true}
+  onPress={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+    }
+  }
+  underlayColor="rgb(208, 239, 245)"
+>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      justify="center"
+      value={1}
+    >
+      <ItemHeaderText
+        text=""
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+          }
+        }
+      >
+        Test Step
+      </MyText>
+    </Flex>
+  </Flex>
+</TouchableIOS>
+`;
+
+exports[`step item animations renders animation fade in 1`] = `
+<TouchableIOS
+  activeOpacity={1}
+  highlight={true}
+  onPress={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+    }
+  }
+  underlayColor="rgb(208, 239, 245)"
+>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      justify="center"
+      value={1}
+    >
+      <ItemHeaderText
+        text=""
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+          }
+        }
+      >
+        Test Step
+      </MyText>
+    </Flex>
+    <TouchableIOS
+      onPress={[Function]}
+      onPressIn={[Function]}
+      onPressOut={[Function]}
+    >
+      <Flex
+        align="center"
+        animation="fadeInRight"
+        justify="center"
+      >
+        <Icon
+          name="starIcon"
+          style={
+            Array [
+              Object {
+                "color": "#52C5DC",
+                "fontSize": 35,
+                "padding": 10,
+              },
+              undefined,
+            ]
+          }
+          type="MissionHub"
+        />
+      </Flex>
+    </TouchableIOS>
+  </Flex>
+</TouchableIOS>
+`;
+
+exports[`step item animations renders animation fade out 1`] = `
+<TouchableIOS
+  activeOpacity={1}
+  highlight={true}
+  onPress={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+    }
+  }
+  underlayColor="rgb(208, 239, 245)"
+>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      justify="center"
+      value={1}
+    >
+      <ItemHeaderText
+        text=""
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+          }
+        }
+      >
+        Test Step
+      </MyText>
+    </Flex>
+    <TouchableIOS
+      onPress={[Function]}
+      onPressIn={[Function]}
+      onPressOut={[Function]}
+    >
+      <Flex
+        align="center"
+        animation="fadeOutRight"
+        justify="center"
+      >
+        <Icon
+          name="starIcon"
+          style={
+            Array [
+              Object {
+                "color": "#52C5DC",
+                "fontSize": 35,
+                "padding": 10,
+              },
+              undefined,
+            ]
+          }
+          type="MissionHub"
+        />
+      </Flex>
+    </TouchableIOS>
+  </Flex>
+</TouchableIOS>
+`;
+
+exports[`step item animations renders no animation 1`] = `
 <TouchableIOS
   activeOpacity={1}
   highlight={true}
