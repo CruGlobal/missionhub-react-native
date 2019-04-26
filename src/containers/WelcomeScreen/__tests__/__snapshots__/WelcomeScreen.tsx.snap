@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`WelcomeScreen should render correctly 1`] = `
 <RCTSafeAreaView
   emulateUnlessSupported={true}
   style={
@@ -139,7 +139,7 @@ exports[`renders correctly 1`] = `
 </RCTSafeAreaView>
 `;
 
-exports[`renders correctly for allow sign in 1`] = `
+exports[`WelcomeScreen should render correctly with sign in button 1`] = `
 <RCTSafeAreaView
   emulateUnlessSupported={true}
   style={
@@ -241,6 +241,7 @@ exports[`renders correctly for allow sign in 1`] = `
             "opacity": 1,
           }
         }
+        testID="sign-in"
       >
         <View
           style={
@@ -316,6 +317,7 @@ exports[`renders correctly for allow sign in 1`] = `
             "opacity": 1,
           }
         }
+        testID="get-started-sign-in-variant"
       >
         <View
           style={

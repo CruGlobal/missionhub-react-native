@@ -83,6 +83,7 @@
     "react/prop-types": 0,
     "react/display-name": 0,
     "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/no-use-before-define": "off",

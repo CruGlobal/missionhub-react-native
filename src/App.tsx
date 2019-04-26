@@ -140,8 +140,8 @@ export default class App extends Component {
     } else {
       rollbar.error(Error(`Unknown Error:\n${JSON.stringify(e, null, 2)}`));
     }
-
-    global.LOG(e);
+    // @ts-ignore
+    LOG(e);
   }
 
   showOfflineAlert = () => {
