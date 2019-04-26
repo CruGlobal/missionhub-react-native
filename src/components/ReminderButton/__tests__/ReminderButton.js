@@ -4,12 +4,17 @@ import thunk from 'redux-thunk';
 import MockDate from 'mockdate';
 
 import { renderShallow } from '../../../../testUtils/index';
+import {
+  requestNativePermissions,
+  showNotificationPrompt,
+} from '../../../actions/notifications';
 import { navigatePush } from '../../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../../containers/StepReminderScreen';
 import { createStepReminder } from '../../../actions/stepReminders';
 
 import ReminderButton from '..';
 
+jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');
 
@@ -19,6 +24,7 @@ const reminder = { id: '11', next_occurrence_at: mockDate };
 
 MockDate.set(mockDate);
 
+const requestNotificationsResult = { type: 'requested notifications' };
 const navigatePushResult = { type: 'navigated push' };
 const createStepReminderResult = { type: 'create step reminder' };
 
@@ -27,14 +33,17 @@ let store;
 let component;
 let instance;
 
-navigatePush.mockReturnValue(navigatePushResult);
-createStepReminder.mockReturnValue(createStepReminderResult);
-
 const createComponent = props => {
   store = mockStore();
   component = renderShallow(<ReminderButton {...props} />, store);
   instance = component.instance();
 };
+
+beforeEach(() => {
+  requestNativePermissions.mockReturnValue(requestNotificationsResult);
+  navigatePush.mockReturnValue(navigatePushResult);
+  createStepReminder.mockReturnValue(createStepReminderResult);
+});
 
 describe('reminder passed in', () => {
   beforeEach(() => {
@@ -62,8 +71,51 @@ describe('handlePressAndroid', () => {
     component.props().onPressAndroid();
   });
 
-  it('navigates to step reminder screen', () => {
+  it('requests notifications and navigates to step reminder screen', () => {
+    expect(requestNativePermissions).toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(STEP_REMINDER_SCREEN, { stepId });
+  });
+});
+
+describe('handlePressIOS', () => {
+  const showPromptResult = {
+    type: 'showed notification prompt',
+  };
+  let showPicker;
+
+  beforeEach(() => {
+    createComponent({ stepId, reminder });
+    showPicker = jest.fn();
+  });
+
+  describe('user accepts notifications', () => {
+    beforeEach(async () => {
+      showNotificationPrompt.mockReturnValue({
+        ...showPromptResult,
+        acceptedNotifications: true,
+      });
+      await component.props().onPressIOS({ showPicker });
+    });
+
+    it('shows notification prompt and then shows date picker', () => {
+      expect(showNotificationPrompt).toHaveBeenCalled();
+      expect(showPicker).toHaveBeenCalled();
+    });
+  });
+
+  describe('user denies notifications', () => {
+    beforeEach(async () => {
+      showNotificationPrompt.mockReturnValue({
+        ...showPromptResult,
+        acceptedNotifications: false,
+      });
+      await component.props().onPressIOS({ showPicker });
+    });
+
+    it('shows notification prompt and does not show date picker', () => {
+      expect(showNotificationPrompt).toHaveBeenCalled();
+      expect(showPicker).not.toHaveBeenCalled();
+    });
   });
 });
 

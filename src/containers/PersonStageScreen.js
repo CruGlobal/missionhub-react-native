@@ -46,7 +46,7 @@ class PersonStageScreen extends Component {
       return this.celebrateAndFinish();
     }
 
-    await showNotificationPrompt(undefined, false);
+    await showReminderOnLoad();
 
     this.celebrateAndFinishOnboarding();
   };

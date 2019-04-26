@@ -18,7 +18,8 @@ export const JoinByCodeFlowScreens = {
       await dispatch(joinCommunity(community.id, community.community_code));
       await dispatch(
         showNotificationPrompt(
-          i18next.t('notificationPrimer:joinCommunityDescription', true),
+          i18next.t('notificationPrimer:joinCommunityDescription'),
+          true,
         ),
       );
       dispatch(setScrollGroups(community.id));
