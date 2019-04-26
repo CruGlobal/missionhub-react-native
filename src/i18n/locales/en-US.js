@@ -400,6 +400,12 @@ export default {
       "We're excited you've focused a step! We'd like to send you handcrafted reminders so it doesn't get forgotten.",
     loginDescription:
       "We noticed you have accepted some steps. We'd like to send you handcrafted reminders so they don't get forgotten.",
+    setReminderDescription:
+      'We want to help you take this Step of Faith! In order to set a reminder we need to be able to send you notifications.',
+    joinCommunityDescription:
+      'MissionHub would like to notify you about activity happening within your community.',
+    joinChallengeDescription:
+      'We are excited that you are participating in a challenge! MissionHub would like to send you updates about this challenge.',
     allow: 'Allow Notifications',
     notNow: 'Not Now',
   },

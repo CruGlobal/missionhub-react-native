@@ -16,6 +16,7 @@ exports[`reminder not passed in renders correctly 1`] = `
   mode="datetime"
   onDateChange={[Function]}
   onPressAndroid={[Function]}
+  onPressIOS={[Function]}
 />
 `;
 
@@ -35,5 +36,6 @@ exports[`reminder passed in renders correctly 1`] = `
   mode="datetime"
   onDateChange={[Function]}
   onPressAndroid={[Function]}
+  onPressIOS={[Function]}
 />
 `;

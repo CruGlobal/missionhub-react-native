@@ -13,26 +13,25 @@ import styles from './styles';
 
 @translate('notificationPrimer')
 class NotificationPrimerScreen extends Component {
-  constructor(props) {
-    super(props);
+  notNow = () => {
+    const { dispatch, onComplete } = this.props;
 
-    this.allow = this.allow.bind(this);
-    this.notNow = this.notNow.bind(this);
-  }
+    onComplete(false);
+    dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
+  };
 
-  notNow() {
-    this.props.onComplete();
-    this.props.dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
-  }
+  allow = async () => {
+    const { dispatch, onComplete } = this.props;
+    let acceptedNotifications = false;
 
-  async allow() {
     try {
-      await this.props.dispatch(requestNativePermissions());
+      const response = await dispatch(requestNativePermissions());
+      acceptedNotifications = response.acceptedNotifications;
     } finally {
-      this.props.onComplete();
+      onComplete(acceptedNotifications);
     }
-    this.props.dispatch(trackActionWithoutData(ACTIONS.ALLOW));
-  }
+    dispatch(trackActionWithoutData(ACTIONS.ALLOW));
+  };
 
   render() {
     const { t, descriptionText } = this.props;
