@@ -66,7 +66,6 @@ export function joinChallenge(item, orgId) {
     await dispatch(
       showNotificationPrompt(
         i18next.t('notificationPrimer:joinChallengeDescription'),
-        true,
       ),
     );
     dispatch(

@@ -32,7 +32,7 @@ export function showNotificationPrompt(descriptionText, doNotNavigateBack) {
     }
 
     if (pushDevice.token) {
-      return { acceptedNotifications: true };
+      return { acceptedNotifications: true, screenShown: false };
     }
 
     return new Promise(resolve =>
