@@ -636,7 +636,7 @@ exports[`renders correctly for join challenge 1`] = `
           ]
         }
       >
-        We are so excited that you are participating in a challenge! We'd like to send you reminders to help remind you about this challenge and new ones.
+        We are excited that you are participating in a challenge! MissionHub would like to send you updates about this challenge.
       </Text>
     </View>
     <View
@@ -909,7 +909,7 @@ exports[`renders correctly for join community 1`] = `
           ]
         }
       >
-        MissionHub woulf like to notify you about activity happening within your community.
+        MissionHub would like to notify you about activity happening within your community.
       </Text>
     </View>
     <View

@@ -403,9 +403,9 @@ export default {
     setReminderDescription:
       'We want to help you take this Step of Faith! In order to set a reminder we need to be able to send you notifications.',
     joinCommunityDescription:
-      'MissionHub woulf like to notify you about activity happening within your community.',
+      'MissionHub would like to notify you about activity happening within your community.',
     joinChallengeDescription:
-      "We are so excited that you are participating in a challenge! We'd like to send you reminders to help remind you about this challenge and new ones.",
+      'We are excited that you are participating in a challenge! MissionHub would like to send you updates about this challenge.',
     allow: 'Allow Notifications',
     notNow: 'Not Now',
   },
