@@ -16,7 +16,7 @@ import theme from '../../../theme';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
 import {
-  showReminderScreen,
+  showNotificationPrompt,
   showWelcomeNotification,
 } from '../../../actions/notifications';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
@@ -273,7 +273,7 @@ describe('StepsScreen', () => {
       );
       expect(common.toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
-      expect(showReminderScreen).toHaveBeenCalledWith(
+      expect(showNotificationPrompt).toHaveBeenCalledWith(
         i18next.t('notificationPrimer:focusDescription'),
       );
       expect(showWelcomeNotification).toHaveBeenCalled();
@@ -292,7 +292,7 @@ describe('StepsScreen', () => {
       );
       expect(common.toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
-      expect(showReminderScreen).not.toHaveBeenCalled();
+      expect(showNotificationPrompt).not.toHaveBeenCalled();
       expect(showWelcomeNotification).toHaveBeenCalled();
     });
 
@@ -309,7 +309,7 @@ describe('StepsScreen', () => {
       );
       expect(common.toast).not.toHaveBeenCalled();
       expect(setStepFocus).not.toHaveBeenCalled();
-      expect(showReminderScreen).not.toHaveBeenCalled();
+      expect(showNotificationPrompt).not.toHaveBeenCalled();
       expect(showWelcomeNotification).not.toHaveBeenCalled();
     });
   });

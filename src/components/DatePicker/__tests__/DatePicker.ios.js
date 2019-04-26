@@ -173,4 +173,32 @@ describe('DatePicker methods', () => {
       expect(instance.state.modalVisible).toEqual(false);
     });
   });
+
+  describe('custom action on press', () => {
+    const onPressIOS = jest.fn();
+
+    beforeEach(async () => {
+      component = renderShallow(
+        <DatePicker
+          date={date}
+          onPressIOS={onPressIOS}
+          onDateChange={mockChange}
+          onCloseModal={mockCloseModal}
+        />,
+      );
+
+      instance = component.instance();
+
+      await component
+        .childAt(0)
+        .props()
+        .onPress();
+    });
+
+    it('calls custom action and passes in showPicker', () => {
+      expect(onPressIOS).toHaveBeenCalledWith({
+        showPicker: instance.showPicker,
+      });
+    });
+  });
 });

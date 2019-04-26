@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 import debounce from 'lodash/debounce';
 
 import {
-  showReminderScreen,
+  showNotificationPrompt,
   showWelcomeNotification,
 } from '../../actions/notifications';
 import {
@@ -116,7 +116,9 @@ export class StepsScreen extends Component {
     toast(t('reminderAddedToast'));
 
     if (!this.hasReminders()) {
-      dispatch(showReminderScreen(t('notificationPrimer:focusDescription')));
+      dispatch(
+        showNotificationPrompt(t('notificationPrimer:focusDescription')),
+      );
     }
     dispatch(setStepFocus(step, true));
 

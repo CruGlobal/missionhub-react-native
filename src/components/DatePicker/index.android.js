@@ -142,7 +142,9 @@ class MyDatePickerAndroid extends Component {
       date: getDate(date),
     });
 
-    return isFunction(onPressAndroid) ? onPressAndroid() : this.showPicker();
+    return isFunction(onPressAndroid)
+      ? onPressAndroid({ showPicker: this.showPicker })
+      : this.showPicker();
   };
 
   render() {

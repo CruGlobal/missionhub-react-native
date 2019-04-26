@@ -11,12 +11,21 @@ import {
   createThunkStore,
   renderShallow,
 } from '../../../testUtils';
-import * as navigation from '../../actions/navigation';
+import { showReminderOnLoad } from '../../actions/notifications';
 import * as selectStage from '../../actions/selectStage';
 import * as analytics from '../../actions/analytics';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { completeOnboarding } from '../../actions/onboardingProfile';
+
+jest.mock('react-native-device-info');
+jest.mock('../../actions/notifications');
+jest.mock('../../actions/navigation');
+jest.mock('../../actions/onboardingProfile', () => ({
+  completeOnboarding: jest
+    .fn()
+    .mockReturnValue({ type: 'onboarding complete' }),
+}));
 
 const mockState = {
   personProfile: {
@@ -48,13 +57,6 @@ const mockNavState = {
 };
 const trackStateResult = { type: 'tracked state' };
 
-jest.mock('react-native-device-info');
-jest.mock('../../actions/onboardingProfile', () => ({
-  completeOnboarding: jest
-    .fn()
-    .mockReturnValue({ type: 'onboarding complete' }),
-}));
-
 function buildScreen(mockNavState, store) {
   const screen = renderShallow(
     <PersonStageScreen navigation={createMockNavState(mockNavState)} />,
@@ -64,11 +66,14 @@ function buildScreen(mockNavState, store) {
   return screen.instance();
 }
 
-navigation.navigatePush = jest.fn();
-navigation.navigateBack = jest.fn(() => ({ type: 'navigated back' }));
+const showReminderResult = { type: 'show notification prompt' };
+const navigatePushResult = { type: 'navigated forward' };
+const navigateBackResult = { type: 'navigated back' };
 
 beforeEach(() => {
-  navigation.navigatePush.mockReturnValue({ type: 'navigated forward' });
+  showReminderOnLoad.mockReturnValue(showReminderResult);
+  navigatePush.mockReturnValue(navigatePushResult);
+  navigateBack.mockReturnValue(navigateBackResult);
 
   analytics.trackState = jest.fn(() => trackStateResult);
 
@@ -105,20 +110,20 @@ describe('person stage screen methods with onComplete prop', () => {
 
   it('runs select stage', async () => {
     selectStage.updateUserStage = jest.fn(() => () => Promise.resolve());
-    navigation.navigatePush = jest.fn((screen, { next }) => () =>
+    navigatePush.mockImplementation((screen, { next }) => () =>
       next()(jest.fn()),
     );
 
     await component.handleSelectStage(mockStage, false);
 
-    expect(navigation.navigateBack).toHaveBeenCalledWith(3);
+    expect(navigateBack).toHaveBeenCalledWith(3);
     expect(selectStage.updateUserStage).toHaveBeenCalledTimes(1);
   });
 
   it('runs celebrate and finish', () => {
     component.celebrateAndFinish();
 
-    expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+    expect(navigatePush).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -160,12 +165,29 @@ describe('person stage screen methods with add contact flow', () => {
     );
   });
 
-  it('runs handle navigate', () => {
+  it('runs handle navigate for addingContactFlow', async () => {
     component.celebrateAndFinish = jest.fn();
 
-    component.handleNavigate()();
+    await component.handleNavigate();
 
     expect(component.celebrateAndFinish).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs handle navigate for onboarding', async () => {
+    component = buildScreen(
+      {
+        onCompleteCelebration: mockComplete,
+        ...mockNavState,
+      },
+      store,
+    );
+
+    component.celebrateAndFinishOnboarding = jest.fn();
+
+    await component.handleNavigate();
+
+    expect(showReminderOnLoad).toHaveBeenCalled();
+    expect(component.celebrateAndFinishOnboarding).toHaveBeenCalledTimes(1);
   });
 
   it('runs update stage', async () => {
@@ -191,7 +213,7 @@ describe('person stage screen methods with add contact flow', () => {
   it('runs celebrate and finish with on complete', () => {
     component.celebrateAndFinish();
 
-    expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+    expect(navigatePush).toHaveBeenCalledTimes(1);
   });
 });
 

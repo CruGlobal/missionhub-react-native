@@ -15,7 +15,6 @@ import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen';
-import { hasReminderStepsSelector } from '../selectors/steps';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 
 import { navigateToOrg } from './organizations';
@@ -23,36 +22,46 @@ import { getPersonDetails, navToPersonScreen } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi, { REQUESTS } from './api';
 
-export function showReminderScreen(descriptionText) {
+export function showNotificationPrompt(descriptionText, doNotNavigateBack) {
   return (dispatch, getState) => {
     const { pushDevice, requestedNativePermissions } = getState().notifications;
 
     // Android does not need to ask user for notification permissions
     if (isAndroid) {
-      dispatch(requestNativePermissions());
-      return;
+      return dispatch(requestNativePermissions());
     }
 
     if (pushDevice.token) {
-      return;
+      return { acceptedNotifications: true };
     }
 
-    PushNotification.checkPermissions(permission => {
-      const permissionsEnabled = permission && permission.alert;
-      if (permissionsEnabled) {
-        dispatch(requestNativePermissions());
-      } else if (requestedNativePermissions) {
-        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
-      } else {
-        // If none of the other cases hit, show allow/not allow page
-        dispatch(
-          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-            onComplete: () => dispatch(navigateBack()),
-            descriptionText,
-          }),
-        );
-      }
-    });
+    return new Promise(resolve =>
+      PushNotification.checkPermissions(permission => {
+        if (permission && permission.alert) {
+          return resolve(dispatch(requestNativePermissions()));
+        }
+
+        const onComplete = acceptedNotifications => {
+          !doNotNavigateBack && dispatch(navigateBack());
+          resolve({ acceptedNotifications });
+        };
+
+        if (requestedNativePermissions) {
+          dispatch(
+            navigatePush(NOTIFICATION_OFF_SCREEN, {
+              onComplete,
+            }),
+          );
+        } else {
+          dispatch(
+            navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+              onComplete,
+              descriptionText,
+            }),
+          );
+        }
+      }),
+    );
   };
 }
 
@@ -60,19 +69,20 @@ export function showReminderOnLoad() {
   return (dispatch, getState) => {
     if (getState().notifications.showReminderOnLoad) {
       dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
-      if (hasReminderStepsSelector({ steps: getState().steps })) {
-        dispatch(
-          showReminderScreen(i18next.t('notificationPrimer:loginDescription')),
-        );
-      }
+      dispatch(
+        showNotificationPrompt(
+          i18next.t('notificationPrimer:loginDescription'),
+        ),
+      );
     }
   };
 }
 
 export function requestNativePermissions() {
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: REQUEST_NOTIFICATIONS });
-    return PushNotification.requestPermissions();
+    const permission = await PushNotification.requestPermissions();
+    return { acceptedNotifications: !!(permission && permission.alert) };
   };
 }
 

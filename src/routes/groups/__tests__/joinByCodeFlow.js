@@ -1,14 +1,17 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import i18next from 'i18next';
 
 import { JOIN_GROUP_SCREEN } from '../../../containers/Groups/JoinGroupScreen';
 import { JoinByCodeFlowScreens } from '../joinByCodeFlow';
 import { renderShallow } from '../../../../testUtils';
+import { showNotificationPrompt } from '../../../actions/notifications';
 import { joinCommunity } from '../../../actions/organizations';
 import { GROUP_TAB_SCROLL_ON_MOUNT } from '../../../constants';
 
 jest.mock('../../../actions/api');
+jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/organizations');
 
 const store = configureStore([thunk])({ auth: { person: { id: '1' } } });
@@ -22,6 +25,7 @@ beforeEach(() => {
 describe('JoinGroupScreen next', () => {
   it('should fire required next actions', async () => {
     joinCommunity.mockReturnValue(() => Promise.resolve());
+    showNotificationPrompt.mockReturnValue(() => Promise.resolve());
 
     const WrappedJoinGroupScreen =
       JoinByCodeFlowScreens[JOIN_GROUP_SCREEN].screen;
@@ -35,6 +39,10 @@ describe('JoinGroupScreen next', () => {
     expect(joinCommunity).toHaveBeenCalledWith(
       community.id,
       community.community_code,
+    );
+    expect(showNotificationPrompt).toHaveBeenCalledWith(
+      i18next.t('notificationPrimer:joinCommunityDescription'),
+      true,
     );
     expect(store.getActions()).toEqual([
       { type: GROUP_TAB_SCROLL_ON_MOUNT, value: '1' },

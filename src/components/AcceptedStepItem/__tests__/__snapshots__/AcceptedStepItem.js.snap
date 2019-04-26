@@ -18,7 +18,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
     flex={1}
     flexDirection="column"
   >
-    <Connect(ReminderButton)
+    <Connect(Translate(ReminderButton))
       reminder={
         Object {
           "id": "11",
@@ -54,7 +54,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
           }
         />
       </Component>
-    </Connect(ReminderButton)>
+    </Connect(Translate(ReminderButton))>
     <MyText
       accessible={true}
       allowFontScaling={true}

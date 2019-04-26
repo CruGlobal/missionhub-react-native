@@ -2,6 +2,7 @@
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import i18next from 'i18next';
 
 import {
   getGroupChallengeFeed,
@@ -14,6 +15,7 @@ import {
 } from '../challenges';
 import { trackActionWithoutData } from '../analytics';
 import { reloadGroupCelebrateFeed } from '../celebration';
+import { showNotificationPrompt } from '../notifications';
 import callApi, { REQUESTS } from '../api';
 import {
   DEFAULT_PAGE_LIMIT,
@@ -26,6 +28,7 @@ import * as common from '../../utils/common';
 import { navigatePush } from '../navigation';
 
 jest.mock('../api');
+jest.mock('../notifications');
 jest.mock('../navigation');
 jest.mock('../celebration');
 jest.mock('../analytics');
@@ -40,6 +43,7 @@ const navigateResult = { type: 'has navigated' };
 const celebrateResult = { type: 'reloaded celebrate feed' };
 const resetResult = { type: RESET_CHALLENGE_PAGINATION, orgId };
 const trackActionResult = { type: 'track action' };
+const showNotificationResult = { type: 'show notification prompt' };
 
 const createStore = configureStore([thunk]);
 let store;
@@ -66,6 +70,7 @@ beforeEach(() => {
   navigatePush.mockReturnValue(navigateResult);
   reloadGroupCelebrateFeed.mockReturnValue(celebrateResult);
   trackActionWithoutData.mockReturnValue(trackActionResult);
+  showNotificationPrompt.mockReturnValue(showNotificationResult);
 });
 
 describe('getGroupChallengeFeed', () => {
@@ -175,6 +180,9 @@ describe('joinChallenge', () => {
         },
       },
     );
+    expect(showNotificationPrompt).toHaveBeenCalledWith(
+      i18next.t('notificationPrimer:joinChallengeDescription'),
+    );
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
       onComplete: expect.anything(),
       gifId: 0,
@@ -185,6 +193,7 @@ describe('joinChallenge', () => {
     expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(orgId);
     expect(store.getActions()).toEqual([
       apiResult,
+      showNotificationResult,
       navigateResult,
       trackActionResult,
       resetResult,
