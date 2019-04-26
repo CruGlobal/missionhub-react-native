@@ -182,7 +182,6 @@ describe('joinChallenge', () => {
     );
     expect(showNotificationPrompt).toHaveBeenCalledWith(
       i18next.t('notificationPrimer:joinChallengeDescription'),
-      true,
     );
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
       onComplete: expect.anything(),
