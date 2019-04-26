@@ -26,7 +26,7 @@ import {
 import * as common from '../../utils/common';
 import callApi, { REQUESTS } from '../api';
 import { getPersonDetails, navToPersonScreen } from '../person';
-import { navigatePush, navigateBack } from '../navigation';
+import { navigatePush, navigateBack, navigateReset } from '../navigation';
 import { navigateToOrg } from '../organizations';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
@@ -51,6 +51,7 @@ const store = mockStore({
 
 const navigatePushResult = { type: 'nagivate push' };
 const navigateBackResult = { type: 'navigate back' };
+const navigateResetResult = { type: 'navigate reset' };
 
 beforeEach(() => {
   common.isAndroid = false;
@@ -273,6 +274,7 @@ describe('configureNotificationHandler', () => {
 describe('askNotificationPermissions', () => {
   beforeEach(() => {
     PushNotification.requestPermissions.mockReturnValue({ alert: 1 });
+    navigateReset.mockReturnValue(navigateResetResult);
   });
 
   describe('onRegister', () => {
@@ -338,16 +340,20 @@ describe('askNotificationPermissions', () => {
     });
 
     const finish = jest.fn();
+    const getPersonResult = { type: LOAD_PERSON_DETAILS, person };
+    const navToPersonScreenResult = { type: 'navigated to person screen' };
 
     beforeEach(() => {
       common.isAndroid = true;
       store.clearActions();
-      navToPersonScreen.mockReturnValue({ type: 'navigated to person screen' });
+      getPersonDetails.mockReturnValue(getPersonResult);
+      navToPersonScreen.mockReturnValue(navToPersonScreenResult);
     });
 
     async function testNotification(notification, userInteraction = true) {
       const deepLinkComplete = new Promise(resolve =>
         PushNotification.configure.mockImplementation(async config => {
+          await store.dispatch(requestNativePermissions());
           await config.onNotification({
             ...notification,
             userInteraction,
@@ -357,7 +363,6 @@ describe('askNotificationPermissions', () => {
         }),
       );
       store.dispatch(configureNotificationHandler());
-      await store.dispatch(requestNativePermissions());
       await deepLinkComplete;
     }
 
@@ -370,7 +375,10 @@ describe('askNotificationPermissions', () => {
         expect(finish).toHaveBeenCalledWith(
           PushNotificationIOS.FetchResult.NoData,
         );
-        expect(store.getActions()).toMatchSnapshot();
+        expect(store.getActions()).toEqual([
+          { type: REQUEST_NOTIFICATIONS },
+          navigateResetResult,
+        ]);
       });
 
       it('on Android, should do nothing', async () => {
@@ -378,22 +386,27 @@ describe('askNotificationPermissions', () => {
 
         await testNotification({ screen: 'home' }, false);
 
-        expect(store.getActions()).toMatchSnapshot();
+        expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
       });
     });
 
     it('should deep link to home screen', async () => {
       await testNotification({ screen: 'home' });
-      expect(store.getActions()).toMatchSnapshot();
+      expect(store.getActions()).toEqual([
+        { type: REQUEST_NOTIFICATIONS },
+        navigateResetResult,
+      ]);
     });
 
     it('should deep link to main steps tab screen', async () => {
       await testNotification({ screen: 'steps' });
-      expect(store.getActions()).toMatchSnapshot();
+      expect(store.getActions()).toEqual([
+        { type: REQUEST_NOTIFICATIONS },
+        navigateResetResult,
+      ]);
     });
 
     it('should deep link to contact screen', async () => {
-      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person });
       await testNotification({
         screen: 'person_steps',
         person_id: '1',
@@ -401,7 +414,11 @@ describe('askNotificationPermissions', () => {
       });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
-      expect(store.getActions()).toMatchSnapshot();
+      expect(store.getActions()).toEqual([
+        { type: REQUEST_NOTIFICATIONS },
+        getPersonResult,
+        navToPersonScreenResult,
+      ]);
     });
 
     it('should deep link to contact screen on iOS', async () => {
@@ -420,17 +437,24 @@ describe('askNotificationPermissions', () => {
       });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
-      expect(store.getActions()).toMatchSnapshot();
+      expect(store.getActions()).toEqual([
+        { type: REQUEST_NOTIFICATIONS },
+        getPersonResult,
+        navToPersonScreenResult,
+      ]);
     });
 
-    it("should deep link to ME user's contact screen", () => {
-      testNotification({ screen: 'my_steps' });
+    it("should deep link to ME user's contact screen", async () => {
+      await testNotification({ screen: 'my_steps' });
       expect(navToPersonScreen).toHaveBeenCalledWith(person);
-      expect(store.getActions()).toMatchSnapshot();
+      expect(store.getActions()).toEqual([
+        { type: REQUEST_NOTIFICATIONS },
+        navToPersonScreenResult,
+      ]);
     });
 
-    it('should deep link to add contact screen', () => {
-      testNotification({
+    it('should deep link to add contact screen', async () => {
+      await testNotification({
         screen: 'add_a_person',
         person_id: '1',
         organization_id: '2',
@@ -440,8 +464,8 @@ describe('askNotificationPermissions', () => {
     });
 
     describe('celebrate', () => {
-      it('should look for stored org', () => {
-        testNotification({
+      it('should look for stored org', async () => {
+        await testNotification({
           screen: 'celebrate',
           organization_id: organization.id,
         });
@@ -450,8 +474,8 @@ describe('askNotificationPermissions', () => {
     });
 
     describe('community_challenges', () => {
-      it('should look for stored org', () => {
-        testNotification({
+      it('should look for stored org', async () => {
+        await testNotification({
           screen: 'community_challenges',
           organization_id: organization.id,
         });
