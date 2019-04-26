@@ -10,132 +10,52 @@ exports[`WelcomeScreen should render correctly 1`] = `
     }
   }
 >
-  <View
+  <Flex
+    align="center"
+    justify="center"
     style={
-      Array [
-        Object {
-          "paddingHorizontal": 60,
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "flex-start",
-            "flex": 3,
-            "justifyContent": "center",
-          },
-        ]
+      Object {
+        "paddingHorizontal": 60,
       }
+    }
+    value={1}
+  >
+    <Flex
+      align="start"
+      justify="center"
+      value={3}
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "AmaticSC-Bold",
-            },
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 48,
-            },
-          ]
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 48,
+          }
         }
+        type="header"
       >
         welcome!
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "lineHeight": 32,
-              "paddingVertical": 10,
-              "textAlign": "left",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "lineHeight": 32,
+            "paddingVertical": 10,
+            "textAlign": "left",
+          }
         }
       >
         Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.
       </Text>
-    </View>
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          LET'S GET STARTED
-        </Text>
-      </View>
-    </View>
-  </View>
+    </Flex>
+    <BottomButton
+      onPress={[Function]}
+      testID="get-started"
+      text="Let's Get Started"
+    />
+  </Flex>
 </RCTSafeAreaView>
 `;
 
@@ -149,239 +69,100 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
     }
   }
 >
-  <View
+  <Flex
+    align="center"
+    justify="center"
     style={
-      Array [
-        Object {
-          "paddingHorizontal": 60,
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "flex-start",
-            "flex": 3,
-            "justifyContent": "center",
-          },
-        ]
+      Object {
+        "paddingHorizontal": 60,
       }
+    }
+    value={1}
+  >
+    <Flex
+      align="start"
+      justify="center"
+      value={3}
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "AmaticSC-Bold",
-            },
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 48,
-            },
-          ]
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 48,
+          }
         }
+        type="header"
       >
         welcome!
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "lineHeight": 32,
-              "paddingVertical": 10,
-              "textAlign": "left",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "lineHeight": 32,
+            "paddingVertical": 10,
+            "textAlign": "left",
+          }
         }
       >
         Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.
       </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "flex-start",
-          },
-        ]
-      }
+    </Flex>
+    <Flex
+      align="center"
+      justify="start"
+      value={1}
     >
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+            "paddingTop": 2,
+          }
+        }
+        onPress={[Function]}
+        pill={true}
         style={
           Object {
-            "opacity": 1,
+            "backgroundColor": "#52C5DC",
+            "height": 48,
+            "margin": 8,
+            "width": 670,
           }
         }
         testID="sign-in"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "#52C5DC",
-                "height": 48,
-                "margin": 8,
-                "width": 670,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
+        text="SIGN IN"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+            "paddingTop": 2,
           }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "paddingTop": 2,
-                  },
-                ],
-              ]
-            }
-          >
-            SIGN IN
-          </Text>
-        </View>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+        }
+        onPress={[Function]}
+        pill={true}
         style={
           Object {
-            "opacity": 1,
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 670,
           }
         }
         testID="get-started-sign-in-variant"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-                "height": 48,
-                "margin": 8,
-                "width": 670,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "paddingTop": 2,
-                  },
-                ],
-              ]
-            }
-          >
-            GET STARTED
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
+        text="GET STARTED"
+      />
+    </Flex>
+  </Flex>
 </RCTSafeAreaView>
 `;

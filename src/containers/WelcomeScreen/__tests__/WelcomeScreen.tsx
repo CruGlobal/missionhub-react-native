@@ -13,6 +13,12 @@ const next = jest.fn(() => ({ type: 'next' }));
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/analytics');
+jest.mock('../../../components/BottomButton', () => 'BottomButton');
+jest.mock('../../../components/common', () => ({
+  Flex: 'Flex',
+  Text: 'Text',
+  Button: 'Button',
+}));
 
 // @ts-ignore
 common.disableBack = { add: jest.fn(), remove: jest.fn() };
