@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { Text, Button, Flex } from '../../components/common';
-import { navigateBack } from '../../actions/navigation';
 import { isAndroid } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
@@ -20,7 +19,7 @@ class NotificationOffScreen extends Component {
   };
 
   close() {
-    const { dispatch, onComplete } = this.props;
+    const { onComplete } = this.props;
 
     //check if permissions have been set since entering this screen
     PushNotification.checkPermissions(permission => {

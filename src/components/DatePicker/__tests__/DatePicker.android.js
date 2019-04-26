@@ -245,13 +245,9 @@ describe('DatePicker methods', () => {
       component = renderShallow(
         <DatePicker
           date={date}
-          minDate={minDate}
-          maxDate={maxDate}
           onPressAndroid={onPressAndroid}
           onDateChange={mockChange}
           onCloseModal={mockCloseModal}
-          androidMode={androidMode}
-          mode="date"
         />,
       );
 

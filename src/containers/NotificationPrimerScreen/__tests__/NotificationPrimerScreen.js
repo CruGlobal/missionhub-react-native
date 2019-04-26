@@ -132,7 +132,6 @@ it('renders correctly for join challenge', () => {
 
 describe('notification primer methods', () => {
   let screen;
-  let instance;
   let mockComplete;
 
   beforeEach(() => {
@@ -150,8 +149,6 @@ describe('notification primer methods', () => {
       />,
       store,
     );
-
-    instance = screen.instance();
   });
 
   describe('not now button', () => {

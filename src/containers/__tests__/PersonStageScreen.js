@@ -168,7 +168,7 @@ describe('person stage screen methods with add contact flow', () => {
   it('runs handle navigate for addingContactFlow', async () => {
     component.celebrateAndFinish = jest.fn();
 
-    await component.handleNavigate()();
+    await component.handleNavigate();
 
     expect(component.celebrateAndFinish).toHaveBeenCalledTimes(1);
   });
@@ -184,7 +184,7 @@ describe('person stage screen methods with add contact flow', () => {
 
     component.celebrateAndFinishOnboarding = jest.fn();
 
-    await component.handleNavigate()();
+    await component.handleNavigate();
 
     expect(showReminderOnLoad).toHaveBeenCalled();
     expect(component.celebrateAndFinishOnboarding).toHaveBeenCalledTimes(1);

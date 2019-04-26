@@ -11,11 +11,10 @@ import {
   REQUEST_NOTIFICATIONS,
 } from '../constants';
 import { DISABLE_WELCOME_NOTIFICATION, GCM_SENDER_ID } from '../constants';
-import { isAndroid, isFunction } from '../utils/common';
+import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen';
-import { hasReminderStepsSelector } from '../selectors/steps';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 
 import { navigateToOrg } from './organizations';
@@ -24,7 +23,7 @@ import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi, { REQUESTS } from './api';
 
 export function showNotificationPrompt(descriptionText, doNotNavigateBack) {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const { pushDevice, requestedNativePermissions } = getState().notifications;
 
     // Android does not need to ask user for notification permissions

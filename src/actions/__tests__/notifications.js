@@ -20,7 +20,6 @@ import {
   GCM_SENDER_ID,
   LOAD_PERSON_DETAILS,
   DISABLE_WELCOME_NOTIFICATION,
-  NAVIGATE_FORWARD,
   LOAD_HOME_NOTIFICATION_REMINDER,
   REQUEST_NOTIFICATIONS,
 } from '../../constants';
@@ -29,6 +28,7 @@ import callApi, { REQUESTS } from '../api';
 import { getPersonDetails, navToPersonScreen } from '../person';
 import { navigatePush, navigateBack, navigateReset } from '../navigation';
 import { navigateToOrg } from '../organizations';
+import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
 import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
@@ -100,6 +100,7 @@ describe('showNotificationPrompt', () => {
         result = await store.dispatch(showNotificationPrompt());
 
         expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
+        expect(PushNotification.requestPermissions).toHaveBeenCalled();
         expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
         expect(result).toEqual({ acceptedNotifications });
       });
@@ -122,9 +123,7 @@ describe('showNotificationPrompt', () => {
         });
 
         it('should return acceptedNotifications = true', async () => {
-          result = await store.dispatch(
-            showNotificationPrompt(descriptionText),
-          );
+          result = await store.dispatch(showNotificationPrompt());
 
           expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
           expect(store.getActions()).toEqual([]);
@@ -147,11 +146,10 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should check permissions from device then request permissions', async () => {
-            result = await store.dispatch(
-              showNotificationPrompt(descriptionText),
-            );
+            result = await store.dispatch(showNotificationPrompt());
 
             expect(PushNotification.checkPermissions).toHaveBeenCalled();
+            expect(PushNotification.requestPermissions).toHaveBeenCalled();
             expect(store.getActions()).toEqual([
               { type: REQUEST_NOTIFICATIONS },
             ]);
@@ -175,11 +173,14 @@ describe('showNotificationPrompt', () => {
             });
 
             it('should show Notification Off screen', async () => {
-              result = await store.dispatch(
-                showNotificationPrompt(descriptionText),
-              );
+              result = await store.dispatch(showNotificationPrompt());
 
               expect(PushNotification.checkPermissions).toHaveBeenCalled();
+              expect(navigatePush).toHaveBeenCalledWith(
+                NOTIFICATION_OFF_SCREEN,
+                { onComplete: expect.any(Function) },
+              );
+              expect(navigateBack).toHaveBeenCalledWith();
               expect(store.getActions()).toEqual([
                 navigateBackResult,
                 navigatePushResult,
@@ -189,7 +190,7 @@ describe('showNotificationPrompt', () => {
           });
 
           describe('user has not seen native notifications modal before', () => {
-            beforeAll(() => {
+            beforeEach(() => {
               store = mockStore({
                 notifications: {
                   pushDevice: {},
@@ -199,12 +200,42 @@ describe('showNotificationPrompt', () => {
             });
 
             it('should show Notification Primer screen', async () => {
+              result = await store.dispatch(showNotificationPrompt());
+
+              expect(PushNotification.checkPermissions).toHaveBeenCalled();
+              expect(navigatePush).toHaveBeenCalledWith(
+                NOTIFICATION_PRIMER_SCREEN,
+                {
+                  onComplete: expect.any(Function),
+                  descriptionText: undefined,
+                },
+              );
+              expect(navigateBack).toHaveBeenCalledWith();
+              expect(store.getActions()).toEqual([
+                navigateBackResult,
+                navigatePushResult,
+              ]);
+              expect(result).toEqual({ acceptedNotifications });
+            });
+
+            it('should show Notification Primer screen with description', async () => {
               result = await store.dispatch(
                 showNotificationPrompt(descriptionText),
               );
 
               expect(PushNotification.checkPermissions).toHaveBeenCalled();
-              expect(store.getActions()).toMatchSnapshot();
+              expect(navigatePush).toHaveBeenCalledWith(
+                NOTIFICATION_PRIMER_SCREEN,
+                {
+                  onComplete: expect.any(Function),
+                  descriptionText,
+                },
+              );
+              expect(navigateBack).toHaveBeenCalledWith();
+              expect(store.getActions()).toEqual([
+                navigateBackResult,
+                navigatePushResult,
+              ]);
               expect(result).toEqual({ acceptedNotifications });
             });
           });
@@ -255,9 +286,7 @@ describe('showNotificationPrompt', () => {
         });
 
         it('should return acceptedNotifications = true', async () => {
-          result = await store.dispatch(
-            showNotificationPrompt(descriptionText),
-          );
+          result = await store.dispatch(showNotificationPrompt());
 
           expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
           expect(store.getActions()).toEqual([]);
@@ -280,9 +309,7 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should check permissions from device then request permissions', async () => {
-            result = await store.dispatch(
-              showNotificationPrompt(descriptionText),
-            );
+            result = await store.dispatch(showNotificationPrompt());
 
             expect(PushNotification.checkPermissions).toHaveBeenCalled();
             expect(store.getActions()).toEqual([
@@ -308,11 +335,14 @@ describe('showNotificationPrompt', () => {
             });
 
             it('should show Notification Off screen', async () => {
-              result = await store.dispatch(
-                showNotificationPrompt(descriptionText),
-              );
+              result = await store.dispatch(showNotificationPrompt());
 
               expect(PushNotification.checkPermissions).toHaveBeenCalled();
+              expect(navigatePush).toHaveBeenCalledWith(
+                NOTIFICATION_OFF_SCREEN,
+                { onComplete: expect.any(Function) },
+              );
+              expect(navigateBack).toHaveBeenCalledWith();
               expect(store.getActions()).toEqual([
                 navigateBackResult,
                 navigatePushResult,
@@ -322,7 +352,7 @@ describe('showNotificationPrompt', () => {
           });
 
           describe('user has not seen native notifications modal before', () => {
-            beforeAll(() => {
+            beforeEach(() => {
               store = mockStore({
                 notifications: {
                   pushDevice: {},
@@ -332,12 +362,42 @@ describe('showNotificationPrompt', () => {
             });
 
             it('should show Notification Primer screen', async () => {
+              result = await store.dispatch(showNotificationPrompt());
+
+              expect(PushNotification.checkPermissions).toHaveBeenCalled();
+              expect(navigatePush).toHaveBeenCalledWith(
+                NOTIFICATION_PRIMER_SCREEN,
+                {
+                  onComplete: expect.any(Function),
+                  descriptionText: undefined,
+                },
+              );
+              expect(navigateBack).toHaveBeenCalledWith();
+              expect(store.getActions()).toEqual([
+                navigateBackResult,
+                navigatePushResult,
+              ]);
+              expect(result).toEqual({ acceptedNotifications });
+            });
+
+            it('should show Notification Primer screen with description', async () => {
               result = await store.dispatch(
                 showNotificationPrompt(descriptionText),
               );
 
               expect(PushNotification.checkPermissions).toHaveBeenCalled();
-              expect(store.getActions()).toMatchSnapshot();
+              expect(navigatePush).toHaveBeenCalledWith(
+                NOTIFICATION_PRIMER_SCREEN,
+                {
+                  onComplete: expect.any(Function),
+                  descriptionText,
+                },
+              );
+              expect(navigateBack).toHaveBeenCalledWith();
+              expect(store.getActions()).toEqual([
+                navigateBackResult,
+                navigatePushResult,
+              ]);
               expect(result).toEqual({ acceptedNotifications });
             });
           });
@@ -348,10 +408,6 @@ describe('showNotificationPrompt', () => {
 });
 
 describe('showReminderOnLoad', () => {
-  const steps = (hasReminders = false) => [
-    { id: '1', focus: hasReminders, receiver: { id: '2' } },
-  ];
-
   beforeEach(() => {
     store.dispatch(configureNotificationHandler());
     PushNotification.checkPermissions.mockImplementation(cb =>
@@ -509,6 +565,7 @@ describe('askNotificationPermissions', () => {
 
         await testNotification({ screen: 'home' }, false);
 
+        expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS);
         expect(finish).toHaveBeenCalledWith(
           PushNotificationIOS.FetchResult.NoData,
         );
@@ -529,6 +586,8 @@ describe('askNotificationPermissions', () => {
 
     it('should deep link to home screen', async () => {
       await testNotification({ screen: 'home' });
+
+      expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS);
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
         navigateResetResult,
@@ -537,6 +596,8 @@ describe('askNotificationPermissions', () => {
 
     it('should deep link to main steps tab screen', async () => {
       await testNotification({ screen: 'steps' });
+
+      expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS);
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
         navigateResetResult,
@@ -549,6 +610,7 @@ describe('askNotificationPermissions', () => {
         person_id: '1',
         organization_id: '2',
       });
+
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
       expect(store.getActions()).toEqual([
@@ -560,6 +622,7 @@ describe('askNotificationPermissions', () => {
 
     it('should deep link to contact screen on iOS', async () => {
       common.isAndroid = false;
+
       getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person });
       await testNotification({
         data: {
@@ -572,6 +635,7 @@ describe('askNotificationPermissions', () => {
           },
         },
       });
+
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
       expect(store.getActions()).toEqual([
@@ -583,6 +647,7 @@ describe('askNotificationPermissions', () => {
 
     it("should deep link to ME user's contact screen", async () => {
       await testNotification({ screen: 'my_steps' });
+
       expect(navToPersonScreen).toHaveBeenCalledWith(person);
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
@@ -620,6 +685,7 @@ describe('askNotificationPermissions', () => {
           screen: 'celebrate',
           organization_id: organization.id,
         });
+
         expect(navigateToOrg).toHaveBeenCalledWith(`${organization.id}`);
       });
     });
@@ -630,6 +696,7 @@ describe('askNotificationPermissions', () => {
           screen: 'community_challenges',
           organization_id: organization.id,
         });
+
         expect(navigateToOrg).toHaveBeenCalledWith(
           `${organization.id}`,
           GROUP_CHALLENGES,

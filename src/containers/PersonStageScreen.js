@@ -6,12 +6,11 @@ import { translate } from 'react-i18next';
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { showReminderOnLoad } from '../actions/notifications';
 import { navigateBack, navigatePush } from '../actions/navigation';
-import { buildTrackingObj, isAndroid } from '../utils/common';
+import { buildTrackingObj } from '../utils/common';
 import { trackActionWithoutData } from '../actions/analytics';
 import { ACTIONS, PERSON_VIEWED_STAGE_CHANGED } from '../constants';
 import { completeOnboarding } from '../actions/onboardingProfile';
 
-import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
 import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
 import PathwayStageScreen from './PathwayStageScreen';
@@ -41,12 +40,14 @@ class PersonStageScreen extends Component {
     this.props.dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
   };
 
-  handleNavigate = () => async dispatch => {
-    if (this.props.addingContactFlow) {
+  handleNavigate = async () => {
+    const { dispatch, addingContactFlow } = this.props;
+
+    if (addingContactFlow) {
       return this.celebrateAndFinish();
     }
 
-    await showReminderOnLoad();
+    await dispatch(showReminderOnLoad());
 
     this.celebrateAndFinishOnboarding();
   };

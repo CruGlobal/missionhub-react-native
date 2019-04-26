@@ -27,7 +27,7 @@ class ReminderButton extends Component {
 
   //for iOS, ask for notifications, navigate to step reminder screen
   handlePressIOS = async ({ showPicker }) => {
-    const { dispatch, stepId } = this.props;
+    const { dispatch } = this.props;
 
     const { acceptedNotifications } = await dispatch(showNotificationPrompt());
 
