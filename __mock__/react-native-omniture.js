@@ -3,4 +3,5 @@ jest.mock('react-native-omniture', () => ({
   trackState: jest.fn(),
   syncIdentifier: jest.fn(),
   loadMarketingCloudId: jest.fn(),
+  collectLifecycleData: jest.fn(),
 }));
