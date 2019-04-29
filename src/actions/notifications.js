@@ -24,22 +24,14 @@ import callApi, { REQUESTS } from './api';
 
 export function showNotificationPrompt(descriptionText, doNotNavigateBack) {
   return (dispatch, getState) => {
-    const { pushDevice, requestedNativePermissions } = getState().notifications;
-
-    // Android does not need to ask user for notification permissions
-    if (isAndroid) {
-      return dispatch(requestNativePermissions());
-    }
-
-    if (pushDevice.token) {
-      return { acceptedNotifications: true };
-    }
-
     return new Promise(resolve =>
       PushNotification.checkPermissions(permission => {
-        if (permission && permission.alert) {
+        // Android does not need to ask user for notification permissions
+        if (isAndroid || (permission && permission.alert)) {
           return resolve(dispatch(requestNativePermissions()));
         }
+
+        const { requestedNativePermissions } = getState().notifications;
 
         const onComplete = acceptedNotifications => {
           !doNotNavigateBack && dispatch(navigateBack());
