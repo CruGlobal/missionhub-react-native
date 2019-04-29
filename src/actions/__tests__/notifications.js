@@ -61,7 +61,7 @@ beforeEach(() => {
 });
 
 describe('showNotificationPrompt', () => {
-  const descriptionText = 'test description';
+  const notificationType = 'type';
   let existingDevicePermissions = {};
   let newPermissions = {};
   let acceptedNotifications = true;
@@ -143,17 +143,35 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should show Notification Off screen', async () => {
-            result = await store.dispatch(showNotificationPrompt());
+            result = await store.dispatch(
+              showNotificationPrompt(notificationType),
+            );
 
             expect(PushNotification.checkPermissions).toHaveBeenCalled();
             expect(navigatePush).toHaveBeenCalledWith(NOTIFICATION_OFF_SCREEN, {
               onComplete: expect.any(Function),
+              notificationType,
             });
             expect(navigateBack).toHaveBeenCalledWith();
             expect(store.getActions()).toEqual([
               navigateBackResult,
               navigatePushResult,
             ]);
+            expect(result).toEqual({ acceptedNotifications });
+          });
+
+          it('should show Notification Off screen without navigate back', async () => {
+            result = await store.dispatch(
+              showNotificationPrompt(notificationType, true),
+            );
+
+            expect(PushNotification.checkPermissions).toHaveBeenCalled();
+            expect(navigatePush).toHaveBeenCalledWith(NOTIFICATION_OFF_SCREEN, {
+              onComplete: expect.any(Function),
+              notificationType,
+            });
+            expect(navigateBack).not.toHaveBeenCalled();
+            expect(store.getActions()).toEqual([navigatePushResult]);
             expect(result).toEqual({ acceptedNotifications });
           });
         });
@@ -169,14 +187,16 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should show Notification Primer screen', async () => {
-            result = await store.dispatch(showNotificationPrompt());
+            result = await store.dispatch(
+              showNotificationPrompt(notificationType),
+            );
 
             expect(PushNotification.checkPermissions).toHaveBeenCalled();
             expect(navigatePush).toHaveBeenCalledWith(
               NOTIFICATION_PRIMER_SCREEN,
               {
                 onComplete: expect.any(Function),
-                descriptionText: undefined,
+                notificationType,
               },
             );
             expect(navigateBack).toHaveBeenCalledWith();
@@ -187,9 +207,9 @@ describe('showNotificationPrompt', () => {
             expect(result).toEqual({ acceptedNotifications });
           });
 
-          it('should show Notification Primer screen with description', async () => {
+          it('should show Notification Primer screen without navigate back', async () => {
             result = await store.dispatch(
-              showNotificationPrompt(descriptionText),
+              showNotificationPrompt(notificationType, true),
             );
 
             expect(PushNotification.checkPermissions).toHaveBeenCalled();
@@ -197,14 +217,11 @@ describe('showNotificationPrompt', () => {
               NOTIFICATION_PRIMER_SCREEN,
               {
                 onComplete: expect.any(Function),
-                descriptionText,
+                notificationType,
               },
             );
-            expect(navigateBack).toHaveBeenCalledWith();
-            expect(store.getActions()).toEqual([
-              navigateBackResult,
-              navigatePushResult,
-            ]);
+            expect(navigateBack).not.toHaveBeenCalled();
+            expect(store.getActions()).toEqual([navigatePushResult]);
             expect(result).toEqual({ acceptedNotifications });
           });
         });
@@ -293,14 +310,16 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should show Notification Primer screen', async () => {
-            result = await store.dispatch(showNotificationPrompt());
+            result = await store.dispatch(
+              showNotificationPrompt(notificationType),
+            );
 
             expect(PushNotification.checkPermissions).toHaveBeenCalled();
             expect(navigatePush).toHaveBeenCalledWith(
               NOTIFICATION_PRIMER_SCREEN,
               {
                 onComplete: expect.any(Function),
-                descriptionText: undefined,
+                notificationType,
               },
             );
             expect(navigateBack).toHaveBeenCalledWith();
@@ -313,7 +332,7 @@ describe('showNotificationPrompt', () => {
 
           it('should show Notification Primer screen with description', async () => {
             result = await store.dispatch(
-              showNotificationPrompt(descriptionText),
+              showNotificationPrompt(notificationType),
             );
 
             expect(PushNotification.checkPermissions).toHaveBeenCalled();
@@ -321,7 +340,7 @@ describe('showNotificationPrompt', () => {
               NOTIFICATION_PRIMER_SCREEN,
               {
                 onComplete: expect.any(Function),
-                descriptionText,
+                notificationType,
               },
             );
             expect(navigateBack).toHaveBeenCalledWith();
@@ -338,6 +357,8 @@ describe('showNotificationPrompt', () => {
 });
 
 describe('showReminderOnLoad', () => {
+  const notificationType = 'type';
+
   beforeEach(() => {
     store.dispatch(configureNotificationHandler());
     PushNotification.checkPermissions.mockImplementation(cb =>
@@ -355,13 +376,13 @@ describe('showReminderOnLoad', () => {
       },
     });
 
-    await store.dispatch(showReminderOnLoad());
+    await store.dispatch(showReminderOnLoad(notificationType));
 
     expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
     expect(store.getActions()).toEqual([]);
   });
 
-  it('should show reminder screen if app has reminders and showReminderOnLoad is true', async () => {
+  it('should show reminder screen if showReminderOnLoad is true', async () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
@@ -369,7 +390,7 @@ describe('showReminderOnLoad', () => {
       },
     });
 
-    await store.dispatch(showReminderOnLoad());
+    await store.dispatch(showReminderOnLoad(notificationType));
 
     expect(PushNotification.checkPermissions).toHaveBeenCalled();
     expect(store.getActions()).toEqual([

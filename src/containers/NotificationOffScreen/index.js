@@ -15,7 +15,7 @@ import styles from './styles';
 const {
   SET_REMINDER,
   JOIN_COMMUNITY,
-  JOIN_CHALLENGES,
+  JOIN_CHALLENGE,
 } = NOTIFICATION_PROMPT_TYPES;
 
 @translate('notificationOff')
@@ -53,7 +53,7 @@ class NotificationOffScreen extends Component {
 
     switch (notificationType) {
       case JOIN_COMMUNITY:
-      case JOIN_CHALLENGES:
+      case JOIN_CHALLENGE:
         return t(notificationType);
       default:
         return t('defaultDescription');

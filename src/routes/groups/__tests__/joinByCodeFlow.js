@@ -1,14 +1,16 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import i18next from 'i18next';
 
 import { JOIN_GROUP_SCREEN } from '../../../containers/Groups/JoinGroupScreen';
 import { JoinByCodeFlowScreens } from '../joinByCodeFlow';
 import { renderShallow } from '../../../../testUtils';
 import { showNotificationPrompt } from '../../../actions/notifications';
 import { joinCommunity } from '../../../actions/organizations';
-import { GROUP_TAB_SCROLL_ON_MOUNT } from '../../../constants';
+import {
+  GROUP_TAB_SCROLL_ON_MOUNT,
+  NOTIFICATION_PROMPT_TYPES,
+} from '../../../constants';
 
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/notifications');
@@ -41,7 +43,7 @@ describe('JoinGroupScreen next', () => {
       community.community_code,
     );
     expect(showNotificationPrompt).toHaveBeenCalledWith(
-      i18next.t('notificationPrimer:joinCommunityDescription'),
+      NOTIFICATION_PROMPT_TYPES.JOIN_COMMUNITY,
       true,
     );
     expect(store.getActions()).toEqual([

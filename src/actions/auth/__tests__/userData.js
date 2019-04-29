@@ -12,7 +12,7 @@ import {
   authSuccess,
   loadHome,
 } from '../userData';
-import { FIRST_TIME } from '../../../constants';
+import { FIRST_TIME, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { showReminderOnLoad } from '../../notifications';
 import { resetPerson } from '../../onboardingProfile';
 import { getMyPeople } from '../../people';
@@ -162,6 +162,9 @@ describe('loadHome', () => {
       REQUESTS.UPDATE_ME_USER,
       {},
       userSettings,
+    );
+    expect(showReminderOnLoad).toHaveBeenCalledWith(
+      NOTIFICATION_PROMPT_TYPES.LOGIN,
     );
 
     expect(store.getActions()).toEqual([

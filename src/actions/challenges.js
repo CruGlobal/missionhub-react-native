@@ -1,5 +1,3 @@
-import i18next from 'i18next';
-
 import { formatApiDate } from '../utils/common';
 import { getFeed, reloadFeed, CHALLENGE } from '../utils/actions';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';

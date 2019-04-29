@@ -1,52 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly for after login 1`] = `
-<View
+exports[`notificationTypes renders for FOCUS_STEP 1`] = `
+<Flex
   style={
-    Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-        "paddingHorizontal": 40,
-      },
-      Object {},
-    ]
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "justifyContent": "center",
+      "paddingHorizontal": 40,
+    }
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
+  <Flex
+    value={0.3}
   />
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
   >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
     >
       <Image
         source={
@@ -55,544 +31,110 @@ exports[`renders correctly for after login 1`] = `
           }
         }
       />
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 0.6,
-            "justifyContent": "center",
-          },
-        ]
-      }
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={0.6}
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 16,
-              "lineHeight": 24,
-              "paddingTop": 15,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        We noticed you have accepted some steps. We'd like to send you handcrafted reminders so they don't get forgotten.
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
           Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
+            "color": "#ffffff",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "paddingTop": 15,
+            "textAlign": "center",
           }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#007398",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "backgroundColor": "#52C5DC",
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            ALLOW NOTIFICATIONS
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            NOT NOW
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
-  />
-</View>
-`;
-
-exports[`renders correctly for focused step 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-        "paddingHorizontal": 40,
-      },
-      Object {},
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/notificationPrimer.png",
-          }
-        }
-      />
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 0.6,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 16,
-              "lineHeight": 24,
-              "paddingTop": 15,
-              "textAlign": "center",
-            },
-          ]
         }
       >
         We're excited you've focused a step! We'd like to send you handcrafted reminders so it doesn't get forgotten.
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
     >
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+      <Button
+        buttonTextStyle={
           Object {
-            "opacity": 1,
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#007398",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "backgroundColor": "#52C5DC",
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            ALLOW NOTIFICATIONS
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+        onPress={[Function]}
+        pill={true}
         style={
           Object {
-            "opacity": 1,
+            "backgroundColor": "#52C5DC",
+            "height": 48,
+            "margin": 8,
+            "width": 680,
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
+        text="ALLOW NOTIFICATIONS"
+        type="primary"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
           }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            NOT NOW
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="NOT NOW"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    value={0.3}
   />
-</View>
+</Flex>
 `;
 
-exports[`renders correctly for join challenge 1`] = `
-<View
+exports[`notificationTypes renders for JOIN_CHALLENGE 1`] = `
+<Flex
   style={
-    Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-        "paddingHorizontal": 40,
-      },
-      Object {},
-    ]
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "justifyContent": "center",
+      "paddingHorizontal": 40,
+    }
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
+  <Flex
+    value={0.3}
   />
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
   >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
     >
       <Image
         source={
@@ -601,271 +143,110 @@ exports[`renders correctly for join challenge 1`] = `
           }
         }
       />
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 0.6,
-            "justifyContent": "center",
-          },
-        ]
-      }
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={0.6}
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 16,
-              "lineHeight": 24,
-              "paddingTop": 15,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "paddingTop": 15,
+            "textAlign": "center",
+          }
         }
       >
         We are excited that you are participating in a challenge! MissionHub would like to send you updates about this challenge.
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
     >
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+      <Button
+        buttonTextStyle={
           Object {
-            "opacity": 1,
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#007398",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "backgroundColor": "#52C5DC",
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            ALLOW NOTIFICATIONS
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+        onPress={[Function]}
+        pill={true}
         style={
           Object {
-            "opacity": 1,
+            "backgroundColor": "#52C5DC",
+            "height": 48,
+            "margin": 8,
+            "width": 680,
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
+        text="ALLOW NOTIFICATIONS"
+        type="primary"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
           }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            NOT NOW
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="NOT NOW"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    value={0.3}
   />
-</View>
+</Flex>
 `;
 
-exports[`renders correctly for join community 1`] = `
-<View
+exports[`notificationTypes renders for JOIN_COMMUNITY 1`] = `
+<Flex
   style={
-    Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-        "paddingHorizontal": 40,
-      },
-      Object {},
-    ]
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "justifyContent": "center",
+      "paddingHorizontal": 40,
+    }
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
+  <Flex
+    value={0.3}
   />
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
   >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
     >
       <Image
         source={
@@ -874,271 +255,110 @@ exports[`renders correctly for join community 1`] = `
           }
         }
       />
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 0.6,
-            "justifyContent": "center",
-          },
-        ]
-      }
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={0.6}
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 16,
-              "lineHeight": 24,
-              "paddingTop": 15,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "paddingTop": 15,
+            "textAlign": "center",
+          }
         }
       >
         MissionHub would like to notify you about activity happening within your community.
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
     >
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+      <Button
+        buttonTextStyle={
           Object {
-            "opacity": 1,
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#007398",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "backgroundColor": "#52C5DC",
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            ALLOW NOTIFICATIONS
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+        onPress={[Function]}
+        pill={true}
         style={
           Object {
-            "opacity": 1,
+            "backgroundColor": "#52C5DC",
+            "height": 48,
+            "margin": 8,
+            "width": 680,
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
+        text="ALLOW NOTIFICATIONS"
+        type="primary"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
           }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            NOT NOW
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="NOT NOW"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    value={0.3}
   />
-</View>
+</Flex>
 `;
 
-exports[`renders correctly for onboarding 1`] = `
-<View
+exports[`notificationTypes renders for LOGIN 1`] = `
+<Flex
   style={
-    Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-        "paddingHorizontal": 40,
-      },
-      Object {},
-    ]
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "justifyContent": "center",
+      "paddingHorizontal": 40,
+    }
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
+  <Flex
+    value={0.3}
   />
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
   >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
     >
       <Image
         source={
@@ -1147,271 +367,222 @@ exports[`renders correctly for onboarding 1`] = `
           }
         }
       />
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 0.6,
-            "justifyContent": "center",
-          },
-        ]
-      }
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={0.6}
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 16,
-              "lineHeight": 24,
-              "paddingTop": 15,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "paddingTop": 15,
+            "textAlign": "center",
+          }
+        }
+      >
+        We noticed you have accepted some steps. We'd like to send you handcrafted reminders so they don't get forgotten.
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+          }
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="ALLOW NOTIFICATIONS"
+        type="primary"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+          }
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="NOT NOW"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    value={0.3}
+  />
+</Flex>
+`;
+
+exports[`notificationTypes renders for ONBOARDING 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "justifyContent": "center",
+      "paddingHorizontal": 40,
+    }
+  }
+>
+  <Flex
+    value={0.3}
+  />
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/notificationPrimer.png",
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={0.6}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "paddingTop": 15,
+            "textAlign": "center",
+          }
         }
       >
         MissionHub will send you reminders to help you take your steps.
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
     >
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+      <Button
+        buttonTextStyle={
           Object {
-            "opacity": 1,
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#007398",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "backgroundColor": "#52C5DC",
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            ALLOW NOTIFICATIONS
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+        onPress={[Function]}
+        pill={true}
         style={
           Object {
-            "opacity": 1,
+            "backgroundColor": "#52C5DC",
+            "height": 48,
+            "margin": 8,
+            "width": 680,
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
+        text="ALLOW NOTIFICATIONS"
+        type="primary"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
           }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            NOT NOW
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="NOT NOW"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    value={0.3}
   />
-</View>
+</Flex>
 `;
 
-exports[`renders correctly for set reminder 1`] = `
-<View
+exports[`notificationTypes renders for SET_REMINDER 1`] = `
+<Flex
   style={
-    Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-        "paddingHorizontal": 40,
-      },
-      Object {},
-    ]
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "justifyContent": "center",
+      "paddingHorizontal": 40,
+    }
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
+  <Flex
+    value={0.3}
   />
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
   >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
     >
       <Image
         source={
@@ -1420,493 +591,83 @@ exports[`renders correctly for set reminder 1`] = `
           }
         }
       />
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 0.6,
-            "justifyContent": "center",
-          },
-        ]
-      }
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={0.6}
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 16,
-              "lineHeight": 24,
-              "paddingTop": 15,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "paddingTop": 15,
+            "textAlign": "center",
+          }
         }
       >
         We want to help you take this Step of Faith! In order to set a reminder we need to be able to send you notifications.
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
     >
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+          }
+        }
+        onPress={[Function]}
+        pill={true}
         style={
           Object {
-            "opacity": 1,
+            "backgroundColor": "#52C5DC",
+            "height": 48,
+            "margin": 8,
+            "width": 680,
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#007398",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "backgroundColor": "#52C5DC",
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            ALLOW NOTIFICATIONS
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            NOT NOW
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
-  />
-</View>
-`;
-
-exports[`renders correctly without description passed in 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-        "paddingHorizontal": 40,
-      },
-      Object {},
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/notificationPrimer.png",
-          }
-        }
+        text="ALLOW NOTIFICATIONS"
+        type="primary"
       />
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
+      <Button
+        buttonTextStyle={
           Object {
-            "alignItems": "center",
-            "flex": 0.6,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 16,
-              "lineHeight": 24,
-              "paddingTop": 15,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        MissionHub will send you reminders to help you take your steps.
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#007398",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "backgroundColor": "#52C5DC",
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            ALLOW NOTIFICATIONS
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityTraits="button"
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+        onPress={[Function]}
+        pill={true}
         style={
           Object {
-            "opacity": 1,
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 680,
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
-                "borderWidth": 1,
-                "height": 48,
-                "margin": 8,
-                "width": 680,
-              },
-              Object {
-                "borderRadius": 50,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                  },
-                ],
-              ]
-            }
-          >
-            NOT NOW
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.3,
-        },
-      ]
-    }
+        text="NOT NOW"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    value={0.3}
   />
-</View>
+</Flex>
 `;

@@ -3,7 +3,7 @@
 exports[`with challenge suggestion renders correctly 1`] = `
 <StepDetailScreen
   CenterContent={
-    <Connect(Translate(ReminderButton))
+    <Connect(ReminderButton)
       reminder={
         Object {
           "id": "1",
@@ -100,7 +100,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
           />
         </Button>
       </Component>
-    </Connect(Translate(ReminderButton))>
+    </Connect(ReminderButton)>
   }
   CenterHeader={null}
   RightHeader={
@@ -137,7 +137,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
 exports[`without challenge suggestion renders correctly 1`] = `
 <StepDetailScreen
   CenterContent={
-    <Connect(Translate(ReminderButton))
+    <Connect(ReminderButton)
       reminder={
         Object {
           "id": "1",
@@ -234,7 +234,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
           />
         </Button>
       </Component>
-    </Connect(Translate(ReminderButton))>
+    </Connect(ReminderButton)>
   }
   CenterHeader={null}
   RightHeader={
@@ -271,7 +271,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
 exports[`without reminder renders correctly 1`] = `
 <StepDetailScreen
   CenterContent={
-    <Connect(Translate(ReminderButton))
+    <Connect(ReminderButton)
       stepId="234242"
     >
       <Component
@@ -331,7 +331,7 @@ exports[`without reminder renders correctly 1`] = `
           />
         </Component>
       </Component>
-    </Connect(Translate(ReminderButton))>
+    </Connect(ReminderButton)>
   }
   CenterHeader={null}
   RightHeader={

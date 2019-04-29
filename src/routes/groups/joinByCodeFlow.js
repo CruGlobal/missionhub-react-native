@@ -1,5 +1,4 @@
 import { createStackNavigator } from 'react-navigation';
-import i18next from 'i18next';
 
 import { navigateReset } from '../../actions/navigation';
 import JoinGroupScreen, {

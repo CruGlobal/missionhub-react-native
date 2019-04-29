@@ -2,7 +2,6 @@
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import i18next from 'i18next';
 
 import {
   getGroupChallengeFeed,
@@ -22,6 +21,7 @@ import {
   RESET_CHALLENGE_PAGINATION,
   UPDATE_CHALLENGE,
   ACTIONS,
+  NOTIFICATION_PROMPT_TYPES,
 } from '../../constants';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import * as common from '../../utils/common';
@@ -181,7 +181,7 @@ describe('joinChallenge', () => {
       },
     );
     expect(showNotificationPrompt).toHaveBeenCalledWith(
-      i18next.t('notificationPrimer:joinChallengeDescription'),
+      NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE,
     );
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
       onComplete: expect.anything(),
