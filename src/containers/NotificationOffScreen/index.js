@@ -3,13 +3,16 @@ import { Linking, Image } from 'react-native';
 import PushNotification from 'react-native-push-notification';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { Text, Button, Flex } from '../../components/common';
 import { isAndroid } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 
 import styles from './styles';
+
+const { JOIN_COMMUNITY, JOIN_CHALLENGES } = NOTIFICATION_PROMPT_TYPES;
 
 @translate('notificationOff')
 class NotificationOffScreen extends Component {
@@ -41,6 +44,18 @@ class NotificationOffScreen extends Component {
     this.close();
   };
 
+  descriptionText = () => {
+    const { t, notificationType } = this.props;
+
+    switch (notificationType) {
+      case JOIN_COMMUNITY:
+      case JOIN_CHALLENGES:
+        return t(notificationType);
+      default:
+        return t('defaultDescription');
+    }
+  };
+
   render() {
     const { t } = this.props;
     return (
@@ -54,7 +69,7 @@ class NotificationOffScreen extends Component {
           </Flex>
           <Flex value={0.6} align="center" justify="center">
             <Text style={styles.title}>{t('title')}</Text>
-            <Text style={styles.text}>{t('description')}</Text>
+            <Text style={styles.text}>{this.descriptionText()}</Text>
           </Flex>
           <Flex value={1} align="center" justify="center">
             <Button
@@ -79,6 +94,11 @@ class NotificationOffScreen extends Component {
     );
   }
 }
+
+NotificationOffScreen.propTypes = {
+  onComplete: PropTypes.func.isRequired,
+  notificationType: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = (state, { navigation }) => ({
   ...(navigation.state.params || {}),

@@ -7,21 +7,18 @@ import JoinGroupScreen, {
 } from '../../containers/Groups/JoinGroupScreen';
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
-import { MAIN_TABS } from '../../constants';
+import { MAIN_TABS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { showNotificationPrompt } from '../../actions/notifications';
 import { joinCommunity } from '../../actions/organizations';
 import { setScrollGroups } from '../../actions/swipe';
+
+const { JOIN_COMMUNITY } = NOTIFICATION_PROMPT_TYPES;
 
 export const JoinByCodeFlowScreens = {
   [JOIN_GROUP_SCREEN]: buildTrackedScreen(
     wrapNextAction(JoinGroupScreen, ({ community }) => async dispatch => {
       await dispatch(joinCommunity(community.id, community.community_code));
-      await dispatch(
-        showNotificationPrompt(
-          i18next.t('notificationPrimer:joinCommunityDescription'),
-          true,
-        ),
-      );
+      await dispatch(showNotificationPrompt(JOIN_COMMUNITY, true));
       dispatch(setScrollGroups(community.id));
       dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
     }),

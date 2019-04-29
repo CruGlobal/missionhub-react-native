@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
+import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import ReminderRepeatButtons from '../ReminderRepeatButtons';
 import { navigatePush } from '../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
@@ -12,6 +13,8 @@ import {
   requestNativePermissions,
 } from '../../actions/notifications';
 import { createStepReminder } from '../../actions/stepReminders';
+
+const { SET_REMINDER } = NOTIFICATION_PROMPT_TYPES;
 
 @translate()
 class ReminderButton extends Component {
@@ -32,7 +35,7 @@ class ReminderButton extends Component {
     const { t, dispatch } = this.props;
 
     const { acceptedNotifications } = await dispatch(
-      showNotificationPrompt(t('notificationPrimer:setReminderDescription')),
+      showNotificationPrompt(SET_REMINDER),
     );
 
     acceptedNotifications && showPicker();

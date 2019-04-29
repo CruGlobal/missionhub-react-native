@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
 
-import { FIRST_TIME } from '../../constants';
+import { FIRST_TIME, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { getMe } from '../person';
 import { getMyPeople } from '../people';
 import { showReminderOnLoad } from '../notifications';
@@ -12,6 +12,8 @@ import { getMyCommunities } from '../organizations';
 import { resetPerson } from '../onboardingProfile';
 import { logInAnalytics } from '../analytics';
 import { rollbar } from '../../utils/rollbar.config';
+
+const { LOGIN } = NOTIFICATION_PROMPT_TYPES;
 
 export function firstTime() {
   return dispatch => {
@@ -72,6 +74,6 @@ export function loadHome() {
     dispatch(updateLocaleAndTimezone());
     dispatch(resetPerson());
     await dispatch(getMySteps());
-    dispatch(showReminderOnLoad());
+    dispatch(showReminderOnLoad(LOGIN));
   };
 }

@@ -8,12 +8,18 @@ import { showReminderOnLoad } from '../actions/notifications';
 import { navigateBack, navigatePush } from '../actions/navigation';
 import { buildTrackingObj } from '../utils/common';
 import { trackActionWithoutData } from '../actions/analytics';
-import { ACTIONS, PERSON_VIEWED_STAGE_CHANGED } from '../constants';
+import {
+  ACTIONS,
+  PERSON_VIEWED_STAGE_CHANGED,
+  NOTIFICATION_PROMPT_TYPES,
+} from '../constants';
 import { completeOnboarding } from '../actions/onboardingProfile';
 
 import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
 import PathwayStageScreen from './PathwayStageScreen';
+
+const { ONBOARDING } = NOTIFICATION_PROMPT_TYPES;
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
@@ -47,7 +53,7 @@ class PersonStageScreen extends Component {
       return this.celebrateAndFinish();
     }
 
-    await dispatch(showReminderOnLoad());
+    await dispatch(showReminderOnLoad(ONBOARDING));
 
     this.celebrateAndFinishOnboarding();
   };

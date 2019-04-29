@@ -34,7 +34,7 @@ class NotificationPrimerScreen extends Component {
   };
 
   render() {
-    const { t, descriptionText } = this.props;
+    const { t, notificationType } = this.props;
     return (
       <Flex style={styles.container}>
         <Flex value={0.3} />
@@ -45,9 +45,7 @@ class NotificationPrimerScreen extends Component {
             />
           </Flex>
           <Flex value={0.6} align="center" justify="center">
-            <Text style={styles.text}>
-              {descriptionText || t('onboardingDescription')}
-            </Text>
+            <Text style={styles.text}>{t(notificationType)}</Text>
           </Flex>
           <Flex value={1} align="center" justify="center">
             <Button
@@ -75,7 +73,7 @@ class NotificationPrimerScreen extends Component {
 
 NotificationPrimerScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
-  descriptionText: PropTypes.string,
+  notificationType: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (reduxState, { navigation }) => ({
