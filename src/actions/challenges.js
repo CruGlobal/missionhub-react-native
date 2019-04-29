@@ -13,8 +13,6 @@ import { showNotificationPrompt } from './notifications';
 import { navigatePush, navigateBack } from './navigation';
 import { trackActionWithoutData } from './analytics';
 
-const { JOIN_CHALLENGE } = NOTIFICATION_PROMPT_TYPES;
-
 export function getGroupChallengeFeed(orgId) {
   return dispatch => {
     return dispatch(getFeed(CHALLENGE, orgId));
@@ -67,7 +65,9 @@ export function joinChallenge(item, orgId) {
   };
   return async dispatch => {
     await dispatch(callApi(REQUESTS.ACCEPT_GROUP_CHALLENGE, query, bodyData));
-    await dispatch(showNotificationPrompt(JOIN_CHALLENGE));
+    await dispatch(
+      showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE),
+    );
     dispatch(
       navigatePush(CELEBRATION_SCREEN, {
         onComplete: () => {

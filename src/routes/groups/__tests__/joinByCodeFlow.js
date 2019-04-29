@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import { JOIN_GROUP_SCREEN } from '../../../containers/Groups/JoinGroupScreen';
 import { JoinByCodeFlowScreens } from '../joinByCodeFlow';
 import { renderShallow } from '../../../../testUtils';
-import { showNotificationPrompt } from '../../../actions/notifications';
+import { showReminderOnLoad } from '../../../actions/notifications';
 import { joinCommunity } from '../../../actions/organizations';
 import {
   GROUP_TAB_SCROLL_ON_MOUNT,
@@ -27,7 +27,7 @@ beforeEach(() => {
 describe('JoinGroupScreen next', () => {
   it('should fire required next actions', async () => {
     joinCommunity.mockReturnValue(() => Promise.resolve());
-    showNotificationPrompt.mockReturnValue(() => Promise.resolve());
+    showReminderOnLoad.mockReturnValue(() => Promise.resolve());
 
     const WrappedJoinGroupScreen =
       JoinByCodeFlowScreens[JOIN_GROUP_SCREEN].screen;
@@ -42,7 +42,7 @@ describe('JoinGroupScreen next', () => {
       community.id,
       community.community_code,
     );
-    expect(showNotificationPrompt).toHaveBeenCalledWith(
+    expect(showReminderOnLoad).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.JOIN_COMMUNITY,
       true,
     );

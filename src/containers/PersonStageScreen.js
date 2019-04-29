@@ -19,8 +19,6 @@ import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
 import PathwayStageScreen from './PathwayStageScreen';
 
-const { ONBOARDING } = NOTIFICATION_PROMPT_TYPES;
-
 @translate('selectStage')
 class PersonStageScreen extends Component {
   onScrollToStage = trackingObj => {
@@ -53,7 +51,7 @@ class PersonStageScreen extends Component {
       return this.celebrateAndFinish();
     }
 
-    await dispatch(showReminderOnLoad(ONBOARDING));
+    await dispatch(showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING));
 
     this.celebrateAndFinishOnboarding();
   };

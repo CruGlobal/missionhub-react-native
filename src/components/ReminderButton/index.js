@@ -13,8 +13,6 @@ import {
 } from '../../actions/notifications';
 import { createStepReminder } from '../../actions/stepReminders';
 
-const { SET_REMINDER } = NOTIFICATION_PROMPT_TYPES;
-
 class ReminderButton extends Component {
   state = {
     date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',
@@ -33,7 +31,7 @@ class ReminderButton extends Component {
     const { dispatch } = this.props;
 
     const { acceptedNotifications } = await dispatch(
-      showNotificationPrompt(SET_REMINDER),
+      showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.SET_REMINDER),
     );
 
     acceptedNotifications && showPicker();

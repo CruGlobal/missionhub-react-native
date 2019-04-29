@@ -13,8 +13,6 @@ import { resetPerson } from '../onboardingProfile';
 import { logInAnalytics } from '../analytics';
 import { rollbar } from '../../utils/rollbar.config';
 
-const { LOGIN } = NOTIFICATION_PROMPT_TYPES;
-
 export function firstTime() {
   return dispatch => {
     dispatch({ type: FIRST_TIME });
@@ -74,6 +72,6 @@ export function loadHome() {
     dispatch(updateLocaleAndTimezone());
     dispatch(resetPerson());
     await dispatch(getMySteps());
-    dispatch(showReminderOnLoad(LOGIN));
+    dispatch(showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.LOGIN));
   };
 }

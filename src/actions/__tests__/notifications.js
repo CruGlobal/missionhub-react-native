@@ -297,6 +297,21 @@ describe('showNotificationPrompt', () => {
             ]);
             expect(result).toEqual({ acceptedNotifications });
           });
+
+          it('should show Notification Off screen without navigate back', async () => {
+            result = await store.dispatch(
+              showNotificationPrompt(notificationType, true),
+            );
+
+            expect(PushNotification.checkPermissions).toHaveBeenCalled();
+            expect(navigatePush).toHaveBeenCalledWith(NOTIFICATION_OFF_SCREEN, {
+              onComplete: expect.any(Function),
+              notificationType,
+            });
+            expect(navigateBack).not.toHaveBeenCalled();
+            expect(store.getActions()).toEqual([navigatePushResult]);
+            expect(result).toEqual({ acceptedNotifications });
+          });
         });
 
         describe('user has not seen native notifications modal before', () => {
@@ -330,9 +345,9 @@ describe('showNotificationPrompt', () => {
             expect(result).toEqual({ acceptedNotifications });
           });
 
-          it('should show Notification Primer screen with description', async () => {
+          it('should show Notification Primer screen without navigate back', async () => {
             result = await store.dispatch(
-              showNotificationPrompt(notificationType),
+              showNotificationPrompt(notificationType, true),
             );
 
             expect(PushNotification.checkPermissions).toHaveBeenCalled();
@@ -343,11 +358,8 @@ describe('showNotificationPrompt', () => {
                 notificationType,
               },
             );
-            expect(navigateBack).toHaveBeenCalledWith();
-            expect(store.getActions()).toEqual([
-              navigateBackResult,
-              navigatePushResult,
-            ]);
+            expect(navigateBack).not.toHaveBeenCalled();
+            expect(store.getActions()).toEqual([navigatePushResult]);
             expect(result).toEqual({ acceptedNotifications });
           });
         });
