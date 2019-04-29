@@ -12,7 +12,11 @@ import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 
 import styles from './styles';
 
-const { JOIN_COMMUNITY, JOIN_CHALLENGES } = NOTIFICATION_PROMPT_TYPES;
+const {
+  SET_REMINDER,
+  JOIN_COMMUNITY,
+  JOIN_CHALLENGES,
+} = NOTIFICATION_PROMPT_TYPES;
 
 @translate('notificationOff')
 class NotificationOffScreen extends Component {
@@ -56,6 +60,17 @@ class NotificationOffScreen extends Component {
     }
   };
 
+  notNowButtonText = () => {
+    const { t, notificationType } = this.props;
+
+    switch (notificationType) {
+      case SET_REMINDER:
+        return t('noReminders');
+      default:
+        return t('notNow');
+    }
+  };
+
   render() {
     const { t } = this.props;
     return (
@@ -83,7 +98,7 @@ class NotificationOffScreen extends Component {
             <Button
               pill={true}
               onPress={this.notNow}
-              text={t('noReminders').toUpperCase()}
+              text={this.notNowButtonText().toUpperCase()}
               style={styles.notNowButton}
               buttonTextStyle={styles.buttonText}
             />
