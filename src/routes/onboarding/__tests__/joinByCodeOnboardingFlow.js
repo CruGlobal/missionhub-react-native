@@ -2,6 +2,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
+import { NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { JOIN_GROUP_SCREEN } from '../../../containers/Groups/JoinGroupScreen';
 import { JoinByCodeOnboardingFlowScreens } from '../joinByCodeOnboardingFlow';
 import { renderShallow } from '../../../../testUtils';
@@ -10,9 +11,9 @@ import {
   completeOnboarding,
   stashCommunityToJoin,
   joinStashedCommunity,
-  showNotificationPrompt,
   landOnStashedCommunityScreen,
 } from '../../../actions/onboardingProfile';
+import { showReminderOnLoad } from '../../../actions/notifications';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import * as navigationActions from '../../../actions/navigation';
@@ -21,6 +22,7 @@ jest.mock('../../../actions/api');
 jest.mock('../../../actions/auth/userData');
 jest.mock('../../../actions/onboardingProfile');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/notifications');
 
 const community = { id: '1', community_code: '123456' };
 
@@ -78,7 +80,7 @@ describe('SetupScreen next', () => {
     firstTime.mockReturnValue(() => Promise.resolve());
     completeOnboarding.mockReturnValue(() => Promise.resolve());
     joinStashedCommunity.mockReturnValue(() => Promise.resolve());
-    showNotificationPrompt.mockReturnValue(() => Promise.resolve());
+    showReminderOnLoad.mockReturnValue(() => Promise.resolve());
     loadHome.mockReturnValue(() => Promise.resolve());
     landOnStashedCommunityScreen.mockReturnValue(() => Promise.resolve());
 
@@ -93,7 +95,10 @@ describe('SetupScreen next', () => {
     expect(firstTime).toHaveBeenCalled();
     expect(completeOnboarding).toHaveBeenCalled();
     expect(joinStashedCommunity).toHaveBeenCalled();
-    expect(showNotificationPrompt).toHaveBeenCalled();
+    expect(showReminderOnLoad).toHaveBeenCalledWith(
+      NOTIFICATION_PROMPT_TYPES.ONBOARDING,
+      true,
+    );
     expect(loadHome).toHaveBeenCalled();
     expect(landOnStashedCommunityScreen).toHaveBeenCalled();
   });

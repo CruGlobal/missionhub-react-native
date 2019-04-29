@@ -54,11 +54,11 @@ export function showNotificationPrompt(notificationType, doNotNavigateBack) {
   };
 }
 
-export function showReminderOnLoad(notificationType) {
+export function showReminderOnLoad(notificationType, doNotNavigateBack) {
   return (dispatch, getState) => {
     if (getState().notifications.showReminderOnLoad) {
       dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
-      dispatch(showNotificationPrompt(notificationType));
+      dispatch(showNotificationPrompt(notificationType, doNotNavigateBack));
     }
   };
 }
