@@ -2,7 +2,6 @@
 
 import { ScrollView } from 'react-native';
 import React from 'react';
-import i18next from 'i18next';
 
 import { renderShallow } from '../../../../testUtils';
 

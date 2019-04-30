@@ -12,7 +12,6 @@ import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import styles from './styles';
 
 const {
-  ONBOARDING,
   FOCUS_STEP,
   LOGIN,
   SET_REMINDER,
