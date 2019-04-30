@@ -46,8 +46,6 @@ class NotificationPrimerScreen extends Component {
     const { t, notificationType } = this.props;
 
     switch (notificationType) {
-      case ONBOARDING:
-        return t('onboarding');
       case FOCUS_STEP:
         return t('focusStep');
       case LOGIN:
@@ -59,7 +57,7 @@ class NotificationPrimerScreen extends Component {
       case JOIN_CHALLENGE:
         return t('joinChallenge');
       default:
-        return t('defaultDescription');
+        return t('onboarding');
     }
   };
 

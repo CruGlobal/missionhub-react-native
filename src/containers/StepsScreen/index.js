@@ -40,7 +40,7 @@ import {
   keyExtractorId,
 } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS, STEPS_TAB } from '../../constants';
+import { ACTIONS, STEPS_TAB, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 import TrackTabChange from '../TrackTabChange';
@@ -116,9 +116,7 @@ export class StepsScreen extends Component {
     toast(t('reminderAddedToast'));
 
     if (!this.hasReminders()) {
-      dispatch(
-        showNotificationPrompt(t('notificationPrimer:focusDescription')),
-      );
+      dispatch(showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.FOCUS_STEP));
     }
     dispatch(setStepFocus(step, true));
 
