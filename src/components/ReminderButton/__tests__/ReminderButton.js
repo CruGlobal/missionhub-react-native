@@ -2,8 +2,8 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockDate from 'mockdate';
-import i18next from 'i18next';
 
+import { NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { renderShallow } from '../../../../testUtils/index';
 import {
   requestNativePermissions,
@@ -100,7 +100,7 @@ describe('handlePressIOS', () => {
 
     it('shows notification prompt and then shows date picker', () => {
       expect(showNotificationPrompt).toHaveBeenCalledWith(
-        i18next.t('notificationPrimer:setReminderDescription'),
+        NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
       );
       expect(showPicker).toHaveBeenCalled();
     });
@@ -117,7 +117,7 @@ describe('handlePressIOS', () => {
 
     it('shows notification prompt and does not show date picker', () => {
       expect(showNotificationPrompt).toHaveBeenCalledWith(
-        i18next.t('notificationPrimer:setReminderDescription'),
+        NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
       );
       expect(showPicker).not.toHaveBeenCalled();
     });

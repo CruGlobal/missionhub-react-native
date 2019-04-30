@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
+import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import PersonStageScreen from '../PersonStageScreen';
 import {
   testSnapshot,
@@ -186,7 +187,10 @@ describe('person stage screen methods with add contact flow', () => {
 
     await component.handleNavigate();
 
-    expect(showReminderOnLoad).toHaveBeenCalled();
+    expect(showReminderOnLoad).toHaveBeenCalledWith(
+      NOTIFICATION_PROMPT_TYPES.ONBOARDING,
+      true,
+    );
     expect(component.celebrateAndFinishOnboarding).toHaveBeenCalledTimes(1);
   });
 

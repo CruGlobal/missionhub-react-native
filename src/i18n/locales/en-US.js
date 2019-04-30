@@ -394,27 +394,31 @@ export default {
     any: 'Any',
   },
   notificationPrimer: {
-    onboardingDescription:
+    onboarding:
       'MissionHub will send you reminders to help you take your steps.',
-    focusDescription:
+    focusStep:
       "We're excited you've focused a step! We'd like to send you handcrafted reminders so it doesn't get forgotten.",
-    loginDescription:
+    login:
       "We noticed you have accepted some steps. We'd like to send you handcrafted reminders so they don't get forgotten.",
-    setReminderDescription:
+    setReminder:
       'We want to help you take this Step of Faith! In order to set a reminder we need to be able to send you notifications.',
-    joinCommunityDescription:
+    joinCommunity:
       'MissionHub would like to notify you about activity happening within your community.',
-    joinChallengeDescription:
+    joinChallenge:
       'We are excited that you are participating in a challenge! MissionHub would like to send you updates about this challenge.',
     allow: 'Allow Notifications',
     notNow: 'Not Now',
   },
   notificationOff: {
     title: 'Notifications are off',
-    description:
+    defaultDescription:
       'To receive reminders to take steps of faith, please turn notifications on.',
-    allow: 'Allow Notifications',
+    joinCommunity:
+      "To receive updates about what's happening in your MissionHub community, please turn notifications on.",
+    joinChallenge:
+      'To receive updates about community challenges, please turn notifications on.',
     settings: 'Go To Settings',
+    notNow: 'Not Now',
     noReminders: "I Don't Want Reminders",
   },
   stepsTab: {

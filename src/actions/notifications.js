@@ -22,57 +22,44 @@ import { getPersonDetails, navToPersonScreen } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi, { REQUESTS } from './api';
 
-export function showNotificationPrompt(descriptionText, doNotNavigateBack) {
+export function showNotificationPrompt(notificationType, doNotNavigateBack) {
   return (dispatch, getState) => {
-    const { pushDevice, requestedNativePermissions } = getState().notifications;
-
-    // Android does not need to ask user for notification permissions
-    if (isAndroid) {
-      return dispatch(requestNativePermissions());
-    }
-
-    if (pushDevice.token) {
-      return { acceptedNotifications: true };
-    }
-
     return new Promise(resolve =>
       PushNotification.checkPermissions(permission => {
-        if (permission && permission.alert) {
+        // Android does not need to ask user for notification permissions
+        if (isAndroid || (permission && permission.alert)) {
           return resolve(dispatch(requestNativePermissions()));
         }
+
+        const { requestedNativePermissions } = getState().notifications;
 
         const onComplete = acceptedNotifications => {
           !doNotNavigateBack && dispatch(navigateBack());
           resolve({ acceptedNotifications });
         };
 
-        if (requestedNativePermissions) {
-          dispatch(
-            navigatePush(NOTIFICATION_OFF_SCREEN, {
+        dispatch(
+          navigatePush(
+            requestedNativePermissions
+              ? NOTIFICATION_OFF_SCREEN
+              : NOTIFICATION_PRIMER_SCREEN,
+            {
               onComplete,
-            }),
-          );
-        } else {
-          dispatch(
-            navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-              onComplete,
-              descriptionText,
-            }),
-          );
-        }
+              notificationType,
+            },
+          ),
+        );
       }),
     );
   };
 }
 
-export function showReminderOnLoad() {
-  return (dispatch, getState) => {
+export function showReminderOnLoad(notificationType, doNotNavigateBack) {
+  return async (dispatch, getState) => {
     if (getState().notifications.showReminderOnLoad) {
       dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
-      dispatch(
-        showNotificationPrompt(
-          i18next.t('notificationPrimer:loginDescription'),
-        ),
+      await dispatch(
+        showNotificationPrompt(notificationType, doNotNavigateBack),
       );
     }
   };

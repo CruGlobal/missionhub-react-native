@@ -467,3 +467,12 @@ export const REMINDER_RECURRENCES = {
   WEEKLY: 'weekly',
   MONTHLY: 'monthly',
 };
+
+export const NOTIFICATION_PROMPT_TYPES = {
+  ONBOARDING: 'onboarding',
+  FOCUS_STEP: 'focusStep',
+  LOGIN: 'login',
+  SET_REMINDER: 'setReminder',
+  JOIN_COMMUNITY: 'joinCommunity',
+  JOIN_CHALLENGE: 'joinChallenge',
+};

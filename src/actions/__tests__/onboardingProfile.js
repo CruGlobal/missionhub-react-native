@@ -1,6 +1,5 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import i18next from 'i18next';
 
 import {
   firstNameChanged,
@@ -15,9 +14,9 @@ import {
   skipOnboarding,
   skipOnboardingComplete,
   joinStashedCommunity,
-  showNotificationPrompt,
   landOnStashedCommunityScreen,
 } from '../onboardingProfile';
+import { showReminderOnLoad } from '../notifications';
 import { joinCommunity } from '../organizations';
 import { trackActionWithoutData } from '../analytics';
 import {
@@ -29,11 +28,11 @@ import {
   RESET_ONBOARDING_PERSON,
   STASH_COMMUNITY_TO_JOIN,
   ACTIONS,
+  NOTIFICATION_PROMPT_TYPES,
 } from '../../constants';
 import * as common from '../../utils/common';
 import callApi, { REQUESTS } from '../api';
-import { navigatePush, navigateReset } from '../navigation';
-import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
+import { navigateReset } from '../navigation';
 import {
   GROUP_SCREEN,
   USER_CREATED_GROUP_SCREEN,
@@ -45,6 +44,7 @@ jest.mock('../navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'push' })),
   navigateReset: jest.fn(() => ({ type: 'reset' })),
 }));
+jest.mock('../notifications');
 jest.mock('../analytics', () => ({
   trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
 }));
@@ -54,8 +54,12 @@ let store = configureStore([thunk])();
 
 const dispatch = jest.fn(response => Promise.resolve(response));
 
+const showReminderResponse = { type: 'show notification prompt' };
+
 beforeEach(() => {
+  store.clearActions();
   common.isAndroid = false;
+  showReminderOnLoad.mockReturnValue(showReminderResponse);
 });
 
 describe('completeOnboarding', () => {
@@ -163,31 +167,30 @@ describe('stashCommunityToJoin', () => {
   });
 });
 
-const skipCompleteActions = [
-  { type: 'track' },
-  { type: COMPLETE_ONBOARDING },
-  { type: 'push' },
-];
-
 describe('skip onboarding complete', () => {
   it('skipOnboardingComplete', () => {
     store.dispatch(skipOnboardingComplete());
-    expect(store.getActions()).toEqual(skipCompleteActions);
+    expect(store.getActions()).toEqual([
+      { type: 'track' },
+      { type: COMPLETE_ONBOARDING },
+      { type: 'push' },
+    ]);
   });
 });
 
 describe('skip onboarding', () => {
-  it('skipOnboarding', () => {
-    store.dispatch(skipOnboarding());
-    expect(navigatePush).toHaveBeenCalledWith(NOTIFICATION_PRIMER_SCREEN, {
-      onComplete: expect.any(Function),
-    });
-  });
-  it('skipOnboarding android', () => {
-    store = configureStore([thunk])();
-    common.isAndroid = true;
-    store.dispatch(skipOnboarding());
-    expect(store.getActions()).toEqual(skipCompleteActions);
+  it('skipOnboarding', async () => {
+    await store.dispatch(skipOnboarding());
+    expect(showReminderOnLoad).toHaveBeenCalledWith(
+      NOTIFICATION_PROMPT_TYPES.ONBOARDING,
+      true,
+    );
+    expect(store.getActions()).toEqual([
+      showReminderResponse,
+      { type: 'track' },
+      { type: COMPLETE_ONBOARDING },
+      { type: 'push' },
+    ]);
   });
 });
 
@@ -214,33 +217,6 @@ describe('join stashed community', () => {
       community.community_code,
       community.community_url,
     );
-  });
-});
-
-describe('show notification prompt', () => {
-  it('showNotificationPrompt shows notification prompt for iOS', async () => {
-    navigatePush.mockImplementation((_, { onComplete }) => onComplete());
-
-    store = configureStore([thunk])();
-    common.isAndroid = false;
-
-    await store.dispatch(showNotificationPrompt());
-
-    expect(navigatePush).toHaveBeenCalledWith(NOTIFICATION_PRIMER_SCREEN, {
-      onComplete: expect.any(Function),
-      descriptionText: i18next.t('notificationPrimer:onboardingDescription'),
-    });
-  });
-
-  it('showNotificationPrompt does not show notification prompt for Android', async () => {
-    navigatePush.mockImplementation((_, { onComplete }) => onComplete());
-
-    store = configureStore([thunk])();
-    common.isAndroid = true;
-
-    await store.dispatch(showNotificationPrompt());
-
-    expect(navigatePush).not.toHaveBeenCalled();
   });
 });
 

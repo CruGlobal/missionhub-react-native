@@ -1,20 +1,27 @@
 import 'react-native';
 import React from 'react';
-import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import i18next from 'i18next';
 
 import NotificationPrimerScreen from '..';
 
 import {
   createMockNavState,
-  testSnapshot,
+  testSnapshotShallow,
   renderShallow,
 } from '../../../../testUtils';
 import { requestNativePermissions } from '../../../actions/notifications';
 import { trackActionWithoutData } from '../../../actions/analytics';
-import { ACTIONS } from '../../../constants';
+import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
+
+const {
+  ONBOARDING,
+  LOGIN,
+  FOCUS_STEP,
+  SET_REMINDER,
+  JOIN_COMMUNITY,
+  JOIN_CHALLENGE,
+} = NOTIFICATION_PROMPT_TYPES;
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -32,102 +39,50 @@ beforeEach(() => {
   store = mockStore();
 });
 
-it('renders correctly for onboarding', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <NotificationPrimerScreen
-        navigation={createMockNavState({
-          onComplete: jest.fn(),
-          descriptionText: i18next.t(
-            'notificationPrimer:onboardingDescription',
-          ),
-        })}
-      />
-    </Provider>,
-  );
-});
+describe('notificationTypes', () => {
+  let notificationType = '';
 
-it('renders correctly without description passed in', () => {
-  testSnapshot(
-    <Provider store={store}>
+  const test = () => {
+    testSnapshotShallow(
       <NotificationPrimerScreen
         navigation={createMockNavState({
           onComplete: jest.fn(),
+          notificationType,
         })}
-      />
-    </Provider>,
-  );
-});
+      />,
+      store,
+    );
+  };
 
-it('renders correctly for focused step', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <NotificationPrimerScreen
-        navigation={createMockNavState({
-          onComplete: jest.fn(),
-          descriptionText: i18next.t('notificationPrimer:focusDescription'),
-        })}
-      />
-    </Provider>,
-  );
-});
+  it('renders for ONBOARDING', () => {
+    notificationType = ONBOARDING;
+    test();
+  });
 
-it('renders correctly for after login', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <NotificationPrimerScreen
-        navigation={createMockNavState({
-          onComplete: jest.fn(),
-          descriptionText: i18next.t('notificationPrimer:loginDescription'),
-        })}
-      />
-    </Provider>,
-  );
-});
+  it('renders for LOGIN', () => {
+    notificationType = LOGIN;
+    test();
+  });
 
-it('renders correctly for set reminder', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <NotificationPrimerScreen
-        navigation={createMockNavState({
-          onComplete: jest.fn(),
-          descriptionText: i18next.t(
-            'notificationPrimer:setReminderDescription',
-          ),
-        })}
-      />
-    </Provider>,
-  );
-});
+  it('renders for FOCUS_STEP', () => {
+    notificationType = FOCUS_STEP;
+    test();
+  });
 
-it('renders correctly for join community', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <NotificationPrimerScreen
-        navigation={createMockNavState({
-          onComplete: jest.fn(),
-          descriptionText: i18next.t(
-            'notificationPrimer:joinCommunityDescription',
-          ),
-        })}
-      />
-    </Provider>,
-  );
-});
+  it('renders for SET_REMINDER', () => {
+    notificationType = SET_REMINDER;
+    test();
+  });
 
-it('renders correctly for join challenge', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <NotificationPrimerScreen
-        navigation={createMockNavState({
-          onComplete: jest.fn(),
-          descriptionText: i18next.t(
-            'notificationPrimer:joinChallengeDescription',
-          ),
-        })}
-      />
-    </Provider>,
-  );
+  it('renders for JOIN_COMMUNITY', () => {
+    notificationType = JOIN_COMMUNITY;
+    test();
+  });
+
+  it('renders for JOIN_CHALLENGE', () => {
+    notificationType = JOIN_CHALLENGE;
+    test();
+  });
 });
 
 describe('notification primer methods', () => {
