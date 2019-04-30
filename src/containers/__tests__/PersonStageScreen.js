@@ -189,6 +189,7 @@ describe('person stage screen methods with add contact flow', () => {
 
     expect(showReminderOnLoad).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.ONBOARDING,
+      true,
     );
     expect(component.celebrateAndFinishOnboarding).toHaveBeenCalledTimes(1);
   });

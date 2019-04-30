@@ -377,7 +377,11 @@ describe('showReminderOnLoad', () => {
       cb({ alert: 0 }),
     );
     PushNotification.requestPermissions.mockReturnValue({ alert: 0 });
-    navigatePush.mockReturnValue(navigatePushResult);
+    navigatePush.mockImplementation((_, { onComplete }) => {
+      onComplete && onComplete(true);
+      return navigatePushResult;
+    });
+    navigateBack.mockReturnValue(navigateBackResult);
   });
 
   it('should not show reminder screen if showReminderOnLoad is false', async () => {
@@ -407,6 +411,7 @@ describe('showReminderOnLoad', () => {
     expect(PushNotification.checkPermissions).toHaveBeenCalled();
     expect(store.getActions()).toEqual([
       { type: LOAD_HOME_NOTIFICATION_REMINDER },
+      navigateBackResult,
       navigatePushResult,
     ]);
   });
