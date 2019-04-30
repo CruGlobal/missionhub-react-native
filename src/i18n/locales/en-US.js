@@ -1,14 +1,4 @@
 /* eslint max-lines: 0 */
-import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
-
-const {
-  ONBOARDING,
-  FOCUS_STEP,
-  LOGIN,
-  SET_REMINDER,
-  JOIN_COMMUNITY,
-  JOIN_CHALLENGE,
-} = NOTIFICATION_PROMPT_TYPES;
 
 export default {
   common: {
@@ -404,17 +394,17 @@ export default {
     any: 'Any',
   },
   notificationPrimer: {
-    [ONBOARDING]:
+    onboarding:
       'MissionHub will send you reminders to help you take your steps.',
-    [FOCUS_STEP]:
+    focusStep:
       "We're excited you've focused a step! We'd like to send you handcrafted reminders so it doesn't get forgotten.",
-    [LOGIN]:
+    login:
       "We noticed you have accepted some steps. We'd like to send you handcrafted reminders so they don't get forgotten.",
-    [SET_REMINDER]:
+    setReminder:
       'We want to help you take this Step of Faith! In order to set a reminder we need to be able to send you notifications.',
-    [JOIN_COMMUNITY]:
+    joinCommunity:
       'MissionHub would like to notify you about activity happening within your community.',
-    [JOIN_CHALLENGE]:
+    joinChallenge:
       'We are excited that you are participating in a challenge! MissionHub would like to send you updates about this challenge.',
     allow: 'Allow Notifications',
     notNow: 'Not Now',
@@ -423,9 +413,9 @@ export default {
     title: 'Notifications are off',
     defaultDescription:
       'To receive reminders to take steps of faith, please turn notifications on.',
-    [JOIN_COMMUNITY]:
+    joinCommunity:
       "To receive updates about what's happening in your MissionHub community, please turn notifications on.",
-    [JOIN_CHALLENGE]:
+    joinChallenge:
       'To receive updates about community challenges, please turn notifications on.',
     settings: 'Go To Settings',
     notNow: 'Not Now',

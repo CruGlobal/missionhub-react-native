@@ -53,8 +53,9 @@ class NotificationOffScreen extends Component {
 
     switch (notificationType) {
       case JOIN_COMMUNITY:
+        return t('joinCommunity');
       case JOIN_CHALLENGE:
-        return t(notificationType);
+        return t('joinChallenge');
       default:
         return t('defaultDescription');
     }
