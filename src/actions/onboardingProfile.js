@@ -1,5 +1,4 @@
 import uuidv4 from 'uuid/v4';
-import i18next from 'i18next';
 
 import {
   COMPLETE_ONBOARDING,
@@ -11,10 +10,10 @@ import {
   STASH_COMMUNITY_TO_JOIN,
   UPDATE_ONBOARDING_PERSON,
   ACTIONS,
+  NOTIFICATION_PROMPT_TYPES,
 } from '../constants';
 import { rollbar } from '../utils/rollbar.config';
-import { isAndroid, buildTrackingObj } from '../utils/common';
-import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
+import { buildTrackingObj } from '../utils/common';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import {
   GROUP_SCREEN,
@@ -24,6 +23,7 @@ import {
 import callApi, { REQUESTS } from './api';
 import { updatePerson } from './person';
 import { navigatePush, navigateReset } from './navigation';
+import { showReminderOnLoad } from './notifications';
 import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
 
@@ -132,15 +132,11 @@ export function skipOnboardingComplete() {
 }
 
 export function skipOnboarding() {
-  return dispatch => {
-    // Android doesn't need a primer for notifications the way iOS does
-    if (!isAndroid) {
-      return dispatch(
-        navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-          onComplete: () => dispatch(skipOnboardingComplete()),
-        }),
-      );
-    }
+  return async dispatch => {
+    await dispatch(
+      showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
+    );
+
     return dispatch(skipOnboardingComplete());
   };
 }
@@ -155,23 +151,6 @@ export function joinStashedCommunity() {
         community.community_url,
       ),
     );
-  };
-}
-
-export function showNotificationPrompt() {
-  return async dispatch => {
-    if (!isAndroid) {
-      await new Promise(resolve =>
-        dispatch(
-          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-            onComplete: resolve,
-            descriptionText: i18next.t(
-              'notificationPrimer:onboardingDescription',
-            ),
-          }),
-        ),
-      );
-    }
   };
 }
 

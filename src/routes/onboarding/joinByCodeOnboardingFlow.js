@@ -1,14 +1,15 @@
 import { createStackNavigator } from 'react-navigation';
 
+import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { navigatePush } from '../../actions/navigation';
 import { firstTime, loadHome } from '../../actions/auth/userData';
 import {
   completeOnboarding,
   stashCommunityToJoin,
   joinStashedCommunity,
-  showNotificationPrompt,
   landOnStashedCommunityScreen,
 } from '../../actions/onboardingProfile';
+import { showReminderOnLoad } from '../../actions/notifications';
 import JoinGroupScreen, {
   JOIN_GROUP_SCREEN,
 } from '../../containers/Groups/JoinGroupScreen';
@@ -37,7 +38,9 @@ export const JoinByCodeOnboardingFlowScreens = {
       dispatch(firstTime());
       dispatch(completeOnboarding());
       await dispatch(joinStashedCommunity());
-      await dispatch(showNotificationPrompt());
+      await dispatch(
+        showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
+      );
       await dispatch(loadHome());
       dispatch(landOnStashedCommunityScreen());
     }),

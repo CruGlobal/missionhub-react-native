@@ -1,5 +1,6 @@
 import { createStackNavigator } from 'react-navigation';
 
+import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
@@ -8,9 +9,9 @@ import {
   completeOnboarding,
   stashCommunityToJoin,
   joinStashedCommunity,
-  showNotificationPrompt,
   landOnStashedCommunityScreen,
 } from '../../actions/onboardingProfile';
+import { showReminderOnLoad } from '../../actions/notifications';
 import DeepLinkConfirmJoinGroupScreen, {
   DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN,
 } from '../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
@@ -46,7 +47,9 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     wrapNextAction(SetupScreen, () => async dispatch => {
       dispatch(firstTime());
       dispatch(completeOnboarding());
-      await dispatch(showNotificationPrompt());
+      await dispatch(
+        showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
+      );
       dispatch(finishAuth());
     }),
     buildTrackingObj('onboarding : name', 'onboarding'),

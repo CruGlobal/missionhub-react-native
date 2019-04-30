@@ -1,6 +1,661 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders 1`] = `
+exports[`notification types renders for FOCUS_STEP 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "paddingHorizontal": 40,
+    }
+  }
+>
+  <Flex
+    value={0.3}
+  />
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/notificationOff.png",
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={0.6}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 32,
+            "paddingBottom": 10,
+            "paddingTop": 50,
+            "textAlign": "center",
+          }
+        }
+      >
+        Notifications are off
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "paddingBottom": 50,
+            "textAlign": "center",
+          }
+        }
+      >
+        To receive reminders to take steps of faith, please turn notifications on.
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="GO TO SETTINGS"
+        type="primary"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+          }
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="NOT NOW"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    value={0.3}
+  />
+</Flex>
+`;
+
+exports[`notification types renders for JOIN_CHALLENGE 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "paddingHorizontal": 40,
+    }
+  }
+>
+  <Flex
+    value={0.3}
+  />
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/notificationOff.png",
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={0.6}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 32,
+            "paddingBottom": 10,
+            "paddingTop": 50,
+            "textAlign": "center",
+          }
+        }
+      >
+        Notifications are off
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "paddingBottom": 50,
+            "textAlign": "center",
+          }
+        }
+      >
+        To receive updates about community challenges, please turn notifications on.
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="GO TO SETTINGS"
+        type="primary"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+          }
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="NOT NOW"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    value={0.3}
+  />
+</Flex>
+`;
+
+exports[`notification types renders for JOIN_COMMUNITY 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "paddingHorizontal": 40,
+    }
+  }
+>
+  <Flex
+    value={0.3}
+  />
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/notificationOff.png",
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={0.6}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 32,
+            "paddingBottom": 10,
+            "paddingTop": 50,
+            "textAlign": "center",
+          }
+        }
+      >
+        Notifications are off
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "paddingBottom": 50,
+            "textAlign": "center",
+          }
+        }
+      >
+        To receive updates about what's happening in your MissionHub community, please turn notifications on.
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="GO TO SETTINGS"
+        type="primary"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+          }
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="NOT NOW"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    value={0.3}
+  />
+</Flex>
+`;
+
+exports[`notification types renders for LOGIN 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "paddingHorizontal": 40,
+    }
+  }
+>
+  <Flex
+    value={0.3}
+  />
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/notificationOff.png",
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={0.6}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 32,
+            "paddingBottom": 10,
+            "paddingTop": 50,
+            "textAlign": "center",
+          }
+        }
+      >
+        Notifications are off
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "paddingBottom": 50,
+            "textAlign": "center",
+          }
+        }
+      >
+        To receive reminders to take steps of faith, please turn notifications on.
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="GO TO SETTINGS"
+        type="primary"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+          }
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="NOT NOW"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    value={0.3}
+  />
+</Flex>
+`;
+
+exports[`notification types renders for ONBOARDING 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "paddingHorizontal": 40,
+    }
+  }
+>
+  <Flex
+    value={0.3}
+  />
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/notificationOff.png",
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={0.6}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 32,
+            "paddingBottom": 10,
+            "paddingTop": 50,
+            "textAlign": "center",
+          }
+        }
+      >
+        Notifications are off
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "paddingBottom": 50,
+            "textAlign": "center",
+          }
+        }
+      >
+        To receive reminders to take steps of faith, please turn notifications on.
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="GO TO SETTINGS"
+        type="primary"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+          }
+        }
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "height": 48,
+            "margin": 8,
+            "width": 680,
+          }
+        }
+        text="NOT NOW"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    value={0.3}
+  />
+</Flex>
+`;
+
+exports[`notification types renders for SET_REMINDER 1`] = `
 <Flex
   style={
     Object {

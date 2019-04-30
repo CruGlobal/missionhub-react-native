@@ -1,9 +1,11 @@
-import i18next from 'i18next';
-
 import { formatApiDate } from '../utils/common';
 import { getFeed, reloadFeed, CHALLENGE } from '../utils/actions';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
-import { UPDATE_CHALLENGE, ACTIONS } from '../constants';
+import {
+  UPDATE_CHALLENGE,
+  ACTIONS,
+  NOTIFICATION_PROMPT_TYPES,
+} from '../constants';
 
 import callApi, { REQUESTS } from './api';
 import { reloadGroupCelebrateFeed } from './celebration';
@@ -64,9 +66,7 @@ export function joinChallenge(item, orgId) {
   return async dispatch => {
     await dispatch(callApi(REQUESTS.ACCEPT_GROUP_CHALLENGE, query, bodyData));
     await dispatch(
-      showNotificationPrompt(
-        i18next.t('notificationPrimer:joinChallengeDescription'),
-      ),
+      showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE),
     );
     dispatch(
       navigatePush(CELEBRATION_SCREEN, {

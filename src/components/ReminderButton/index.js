@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
 
+import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import ReminderRepeatButtons from '../ReminderRepeatButtons';
 import { navigatePush } from '../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
@@ -13,7 +13,6 @@ import {
 } from '../../actions/notifications';
 import { createStepReminder } from '../../actions/stepReminders';
 
-@translate()
 class ReminderButton extends Component {
   state = {
     date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',
@@ -29,10 +28,10 @@ class ReminderButton extends Component {
 
   //for iOS, ask for notifications, navigate to step reminder screen
   handlePressIOS = async ({ showPicker }) => {
-    const { t, dispatch } = this.props;
+    const { dispatch } = this.props;
 
     const { acceptedNotifications } = await dispatch(
-      showNotificationPrompt(t('notificationPrimer:setReminderDescription')),
+      showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.SET_REMINDER),
     );
 
     acceptedNotifications && showPicker();

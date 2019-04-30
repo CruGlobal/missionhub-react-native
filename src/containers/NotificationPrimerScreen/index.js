@@ -7,9 +7,17 @@ import PropTypes from 'prop-types';
 import { Text, Button, Flex } from '../../components/common';
 import { requestNativePermissions } from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 
 import styles from './styles';
+
+const {
+  FOCUS_STEP,
+  LOGIN,
+  SET_REMINDER,
+  JOIN_COMMUNITY,
+  JOIN_CHALLENGE,
+} = NOTIFICATION_PROMPT_TYPES;
 
 @translate('notificationPrimer')
 class NotificationPrimerScreen extends Component {
@@ -33,8 +41,27 @@ class NotificationPrimerScreen extends Component {
     dispatch(trackActionWithoutData(ACTIONS.ALLOW));
   };
 
+  descriptionText = () => {
+    const { t, notificationType } = this.props;
+
+    switch (notificationType) {
+      case FOCUS_STEP:
+        return t('focusStep');
+      case LOGIN:
+        return t('login');
+      case SET_REMINDER:
+        return t('setReminder');
+      case JOIN_COMMUNITY:
+        return t('joinCommunity');
+      case JOIN_CHALLENGE:
+        return t('joinChallenge');
+      default:
+        return t('onboarding');
+    }
+  };
+
   render() {
-    const { t, descriptionText } = this.props;
+    const { t } = this.props;
     return (
       <Flex style={styles.container}>
         <Flex value={0.3} />
@@ -45,9 +72,7 @@ class NotificationPrimerScreen extends Component {
             />
           </Flex>
           <Flex value={0.6} align="center" justify="center">
-            <Text style={styles.text}>
-              {descriptionText || t('onboardingDescription')}
-            </Text>
+            <Text style={styles.text}>{this.descriptionText()}</Text>
           </Flex>
           <Flex value={1} align="center" justify="center">
             <Button
@@ -75,7 +100,7 @@ class NotificationPrimerScreen extends Component {
 
 NotificationPrimerScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
-  descriptionText: PropTypes.string,
+  notificationType: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (reduxState, { navigation }) => ({
