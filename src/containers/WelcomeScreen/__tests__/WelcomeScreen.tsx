@@ -45,7 +45,7 @@ describe('WelcomeScreen', () => {
 
   it('getStarted btn should call next', () => {
     const { getByTestId } = renderWithContext(<WelcomeScreen next={next} />);
-    fireEvent(getByTestId('get-started'), 'onPress');
+    fireEvent.press(getByTestId('get-started'));
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledTimes(1);
@@ -57,7 +57,7 @@ describe('WelcomeScreen', () => {
       <WelcomeScreen next={next} />,
       allowSignInVariantConfig,
     );
-    fireEvent(getByTestId('get-started-sign-in-variant'), 'onPress');
+    fireEvent.press(getByTestId('get-started-sign-in-variant'));
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledTimes(1);
@@ -69,7 +69,7 @@ describe('WelcomeScreen', () => {
       <WelcomeScreen next={next} />,
       allowSignInVariantConfig,
     );
-    fireEvent(getByTestId('sign-in'), 'onPress');
+    fireEvent.press(getByTestId('sign-in'));
 
     expect(next).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledWith({ signin: true });
