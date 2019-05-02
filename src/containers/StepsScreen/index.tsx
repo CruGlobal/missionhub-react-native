@@ -1,6 +1,6 @@
 /* eslint max-lines: 0 */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Image,
@@ -47,6 +47,7 @@ import {
   StepsList,
   StepsList_acceptedChallenges_nodes,
 } from './__generated__/StepsList';
+import { ErrorNotice } from '../../components/ErrorNotice';
 
 const MAX_REMINDERS = 3;
 
@@ -90,6 +91,7 @@ export const StepsScreen = ({
   const [state, setState] = useState({
     overscrollUp: false,
     paging: false,
+    pagingError: false,
   });
 
   useEffect(() => {
@@ -171,13 +173,24 @@ export const StepsScreen = ({
   }: NativeSyntheticEvent<NativeScrollEvent>) => {
     const position = nativeEvent.contentOffset.y;
     const overscrollUp = state.overscrollUp;
-    if (position < 0 && !overscrollUp) {
-      setState(state => ({ ...state, overscrollUp: true }));
-    } else if (position >= 0 && overscrollUp) {
-      setState(state => ({ ...state, overscrollUp: false }));
+    const shouldPaginate = isCloseToBottom(nativeEvent);
+
+    if (position < 0 !== overscrollUp) {
+      setState(state => ({
+        ...state,
+        overscrollUp: position < 0,
+      }));
     }
 
-    if (isCloseToBottom(nativeEvent)) {
+    // Reset pagingError once we are out of the isCloseToBottom zone
+    if (state.pagingError && !shouldPaginate) {
+      setState(state => ({
+        ...state,
+        pagingError: false,
+      }));
+    }
+
+    if (shouldPaginate) {
       handleNextPage();
     }
   };
@@ -191,7 +204,7 @@ export const StepsScreen = ({
   };
 
   const handleNextPage = async () => {
-    if (state.paging || !hasNextPage) {
+    if (state.paging || !hasNextPage || state.pagingError) {
       return;
     }
 
@@ -215,8 +228,9 @@ export const StepsScreen = ({
               }
             : prev,
       });
-    } finally {
       setState(state => ({ ...state, paging: false }));
+    } catch (e) {
+      setState(state => ({ ...state, paging: false, pagingError: true }));
     }
   };
 
@@ -289,7 +303,10 @@ export const StepsScreen = ({
 
     return (
       <FlatList
-        style={[styles.list, { paddingBottom: hasNextPage ? 40 : undefined }]}
+        style={[
+          styles.list,
+          { paddingBottom: hasNextPage && !state.pagingError ? 40 : undefined },
+        ]}
         data={steps}
         extraData={{ hideStars: canHideStars }}
         keyExtractor={keyExtractorId}
@@ -298,7 +315,13 @@ export const StepsScreen = ({
         bounces={false}
         showsVerticalScrollIndicator={false}
         initialNumToRender={10}
-        ListFooterComponent={state.paging ? <FooterLoading /> : null}
+        ListFooterComponent={
+          state.pagingError ? (
+            <ErrorNotice message={t('errorLoadingSteps')} />
+          ) : state.paging ? (
+            <FooterLoading />
+          ) : null
+        }
       />
     );
   };
@@ -324,6 +347,7 @@ export const StepsScreen = ({
           ]}
         >
           {renderReminders()}
+          {error && <ErrorNotice message={t('errorLoadingSteps')} />}
           {renderList()}
         </ScrollView>
         {steps.length > 0 || reminders.length > 0 ? null : (
@@ -346,15 +370,7 @@ export const StepsScreen = ({
         }
         title={t('title').toUpperCase()}
       />
-      {loading ? (
-        <LoadingGuy />
-      ) : error ? (
-        <Text>
-          There was an error loading your steps. Please try refreshing.
-        </Text>
-      ) : (
-        renderSteps()
-      )}
+      {loading ? <LoadingGuy /> : renderSteps()}
     </View>
   );
 };
