@@ -28,7 +28,7 @@ export default StyleSheet.create({
     fontSize: 16,
   },
   buttonWrap: {
-    paddingTop: 50,
+    paddingTop: 20,
   },
   button: {
     width: theme.fullWidth - 70,
