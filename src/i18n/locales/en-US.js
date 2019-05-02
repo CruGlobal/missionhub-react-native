@@ -414,7 +414,7 @@ export default {
     defaultDescription:
       'To receive reminders to take steps of faith, please turn notifications on.',
     joinCommunity:
-      "To receive updates about what's happening in your MissionHub community, please turn notifications on.",
+      'To receive updates from your MissionHub community, please turn notifications on.',
     joinChallenge:
       'To receive updates about community challenges, please turn notifications on.',
     settings: 'Go To Settings',
