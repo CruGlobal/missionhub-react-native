@@ -117,6 +117,7 @@ describe('savePerson', () => {
   it('should add a new person', async () => {
     const componentInstance = buildScreenInstance({
       navigation: createMockNavState(),
+      isEdit: false,
     });
     componentInstance.setState({
       person: {
@@ -137,6 +138,7 @@ describe('savePerson', () => {
     const componentInstance = buildScreenInstance({
       navigation: createMockNavState(),
       organization,
+      isEdit: false,
     });
     componentInstance.setState({
       person: {
@@ -159,6 +161,7 @@ describe('savePerson', () => {
       navigation: createMockNavState(),
       organization,
       isInvite: true,
+      isEdit: false,
     });
     componentInstance.setState({
       person: {
@@ -180,7 +183,8 @@ describe('savePerson', () => {
   it('should navigate to person stage screen', async () => {
     const componentInstance = buildScreenInstance({
       navigation: createMockNavState(),
-      organization: organization,
+      organization,
+      isEdit: false,
     });
     componentInstance.setState({
       person: {
@@ -211,6 +215,7 @@ describe('savePerson', () => {
       navigation: createMockNavState(),
       onComplete: onCompleteMock,
       person: { id: contactId },
+      isEdit: true,
     });
     const componentInstance = component.instance();
     component.setState({
@@ -267,7 +272,7 @@ describe('savePerson', () => {
 
     person.updatePerson.mockImplementation(() => mockUpdatePerson);
 
-    await componentInstance.savePerson();
+    await componentInstance.savePersonTemp();
 
     expect(updatePerson).toHaveBeenCalledWith({
       first_name: contactFName,
@@ -303,7 +308,11 @@ describe('savePerson', () => {
       },
     });
 
-    await componentInstance.savePerson();
+    await component
+      .childAt(1)
+      .childAt(1)
+      .props()
+      .onPress();
 
     expect(updatePerson).toHaveBeenCalledWith({
       id: contactId,
