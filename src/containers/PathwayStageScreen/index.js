@@ -159,6 +159,7 @@ class PathwayStageScreen extends Component {
             onScroll={this.handleScroll}
             scrollEventThrottle={5}
             onSnapToItem={this.handleSnapToItem}
+            removeClippedSubviews={false}
             containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
           />
         ) : null}

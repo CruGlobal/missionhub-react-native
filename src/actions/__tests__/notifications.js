@@ -100,7 +100,7 @@ describe('showNotificationPrompt', () => {
       it('should request permissions from device', async () => {
         result = await store.dispatch(showNotificationPrompt());
 
-        expect(PushNotification.checkPermissions).toHaveBeenCalled();
+        expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
         expect(PushNotification.requestPermissions).toHaveBeenCalled();
         expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
         expect(result).toEqual({ acceptedNotifications });
@@ -243,7 +243,7 @@ describe('showNotificationPrompt', () => {
       it('should request permissions from device', async () => {
         result = await store.dispatch(showNotificationPrompt());
 
-        expect(PushNotification.checkPermissions).toHaveBeenCalled();
+        expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
         expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
         expect(result).toEqual({ acceptedNotifications });
       });
