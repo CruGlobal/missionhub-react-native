@@ -11,23 +11,14 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import debounce from 'lodash/debounce';
 
 import { loadHome } from '../../actions/auth/userData';
 import {
   showReminderScreen,
   showWelcomeNotification,
 } from '../../actions/notifications';
-import {
-  getMySteps,
-  setStepFocus,
-  getMyStepsNextPage,
-} from '../../actions/steps';
+import { setStepFocus } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
-import {
-  reminderStepsSelector,
-  nonReminderStepsSelector,
-} from '../../selectors/steps';
 import {
   Flex,
   Text,
@@ -36,7 +27,7 @@ import {
   RefreshControl,
   LoadingGuy,
 } from '../../components/common';
-import StepItem from '../../components/StepItem';
+import StepItem, { STEP_ITEM_QUERY } from '../../components/StepItem';
 import FooterLoading from '../../components/FooterLoading';
 import Header from '../../components/Header';
 import footprintsImage from '../../../assets/images/footprints.png';
@@ -50,8 +41,32 @@ import TrackTabChange from '../TrackTabChange';
 import styles from './styles';
 import { ThunkDispatch } from 'redux-thunk';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
+import { useQuery } from 'react-apollo-hooks';
+import { gql } from 'apollo-boost';
+import {
+  StepsList,
+  StepsList_acceptedChallenges_nodes,
+} from './__generated__/StepsList';
 
 const MAX_REMINDERS = 3;
+
+const STEPS_QUERY = gql`
+  query StepsList($after: String) {
+    acceptedChallenges(after: $after, completed: false, first: 5) {
+      nodes {
+        id
+        ...StepItem
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
+    }
+  }
+  ${STEP_ITEM_QUERY}
+`;
 
 function isCloseToBottom({
   layoutMeasurement,
@@ -65,15 +80,11 @@ function isCloseToBottom({
   );
 }
 
+type Step = StepsList_acceptedChallenges_nodes;
+
 export const StepsScreen = ({
-  reminders,
-  steps,
-  hasMoreSteps,
   dispatch,
 }: {
-  reminders: [] | null;
-  steps: [] | null;
-  hasMoreSteps: boolean;
   dispatch: ThunkDispatch<any, any, any>; // TODO: replace any
 }) => {
   const [state, setState] = useState({
@@ -85,9 +96,38 @@ export const StepsScreen = ({
     dispatch(loadHome());
   }, []);
 
-  const getSteps = () => dispatch(getMySteps());
+  const {
+    data: {
+      acceptedChallenges: {
+        nodes = [],
+        pageInfo: { hasNextPage = false, endCursor = null } = {},
+      } = {},
+    } = {},
+    error,
+    loading,
+    fetchMore,
+    refetch,
+  } = useQuery<StepsList>(STEPS_QUERY);
 
-  const handleRowSelect = step => {
+  useEffect(() => {
+    refetch(); // Refetch on mount?
+  }, []);
+
+  const { steps, reminders } = (nodes || []).reduce(
+    ({ steps, reminders }, challenge) => ({
+      steps: [
+        ...steps,
+        ...(challenge ? (challenge.focus ? [] : [challenge]) : []),
+      ],
+      reminders: [
+        ...reminders,
+        ...(challenge && challenge.focus ? [challenge] : []),
+      ],
+    }),
+    { steps: [] as Step[], reminders: [] as Step[] },
+  );
+
+  const handleRowSelect = (step: Step) => {
     dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
   };
 
@@ -102,7 +142,7 @@ export const StepsScreen = ({
 
   const { t } = useTranslation('stepsTab');
 
-  const handleSetReminder = step => {
+  const handleSetReminder = (step: Step) => {
     dispatch(trackActionWithoutData(ACTIONS.STEP_PRIORITIZED));
 
     if (hasMaxReminders) {
@@ -119,12 +159,12 @@ export const StepsScreen = ({
     dispatch(showWelcomeNotification());
   };
 
-  const handleRemoveReminder = step => {
+  const handleRemoveReminder = (step: Step) => {
     dispatch(trackActionWithoutData(ACTIONS.STEP_DEPRIORITIZED));
     dispatch(setStepFocus(step, false));
   };
 
-  const { isRefreshing, refresh } = useRefreshing(getSteps);
+  const { isRefreshing, refresh } = useRefreshing(refetch);
 
   const handleScroll = ({
     nativeEvent,
@@ -150,21 +190,35 @@ export const StepsScreen = ({
     return styles.backgroundBottom;
   };
 
-  const handleNextPage = debounce(() => {
-    if (state.paging || !hasMoreSteps) {
+  const handleNextPage = async () => {
+    if (state.paging || !hasNextPage) {
       return;
     }
 
     setState(state => ({ ...state, paging: true }));
-    dispatch(getMyStepsNextPage())
-      .then(() => {
-        // Put a slight delay on stopping the paging so that the new items can populate in the list
-        setTimeout(() => setState(state => ({ ...state, paging: false })), 500);
-      })
-      .catch(() => {
-        setTimeout(() => setState(state => ({ ...state, paging: false })), 500);
+    try {
+      await fetchMore({
+        variables: { after: endCursor },
+        updateQuery: (prev, { fetchMoreResult }) =>
+          fetchMoreResult
+            ? {
+                ...prev,
+                ...fetchMoreResult,
+                acceptedChallenges: {
+                  ...prev.acceptedChallenges,
+                  ...fetchMoreResult.acceptedChallenges,
+                  nodes: [
+                    ...prev.acceptedChallenges.nodes,
+                    ...fetchMoreResult.acceptedChallenges.nodes,
+                  ],
+                },
+              }
+            : prev,
       });
-  }, 250);
+    } finally {
+      setState(state => ({ ...state, paging: false }));
+    }
+  };
 
   const renderFocusPrompt = () => {
     if (hasReminders || hasFewSteps) {
@@ -206,7 +260,7 @@ export const StepsScreen = ({
     }
   };
 
-  const renderItem = ({ item }) => {
+  const renderItem = ({ item }: { item: Step }) => {
     return (
       <StepItem
         step={item}
@@ -235,7 +289,7 @@ export const StepsScreen = ({
 
     return (
       <FlatList
-        style={[styles.list, { paddingBottom: hasMoreSteps ? 40 : undefined }]}
+        style={[styles.list, { paddingBottom: hasNextPage ? 40 : undefined }]}
         data={steps}
         extraData={{ hideStars: canHideStars }}
         keyExtractor={keyExtractorId}
@@ -292,15 +346,17 @@ export const StepsScreen = ({
         }
         title={t('title').toUpperCase()}
       />
-      {steps ? renderSteps() : <LoadingGuy />}
+      {loading ? (
+        <LoadingGuy />
+      ) : error ? (
+        <Text>
+          There was an error loading your steps. Please try refreshing.
+        </Text>
+      ) : (
+        renderSteps()
+      )}
     </View>
   );
 };
 
-export const mapStateToProps = ({ steps, people }) => ({
-  steps: nonReminderStepsSelector({ steps, people }),
-  reminders: reminderStepsSelector({ steps, people }),
-  hasMoreSteps: steps.pagination.hasNextPage,
-});
-
-export default connect(mapStateToProps)(StepsScreen);
+export default connect()(StepsScreen);
