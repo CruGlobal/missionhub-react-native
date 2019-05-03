@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { loadHome } from '../actions/auth/userData';
-import { MainTabBarStartSteps, MainTabBarStartGroups } from '../AppRoutes';
+import {
+  MainTabBarStartSteps,
+  MainTabBarStartPeople,
+  MainTabBarStartGroups,
+} from '../AppRoutes';
 
 class MainTabs extends Component {
   componentDidMount() {
@@ -10,11 +14,14 @@ class MainTabs extends Component {
   }
 
   render() {
-    return this.props.startTab === 'groups' ? (
-      <MainTabBarStartGroups />
-    ) : (
-      <MainTabBarStartSteps />
-    );
+    switch (this.props.startTab) {
+      case 'groups':
+        return <MainTabBarStartGroups />;
+      case 'people':
+        return <MainTabBarStartPeople />;
+      default:
+        return <MainTabBarStartSteps />;
+    }
   }
 }
 

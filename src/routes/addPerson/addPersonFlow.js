@@ -24,12 +24,17 @@ import { buildTrackingObj } from '../../utils/common';
 
 export const AddPersonFlowScreens = {
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(
-    wrapNextAction(AddContactScreen, ({ person }) => dispatch => {
+    wrapNextAction(AddContactScreen, ({ person }) => (dispatch, getState) => {
+      const {
+        auth: {
+          person: { id: myId },
+        },
+      } = getState();
       const { id: contactId, first_name: firstName } = person;
 
       const contactAssignment =
         (person.reverse_contact_assignments || []).find(
-          a => a.assigned_to.id === me.id,
+          a => a.assigned_to.id === myId,
         ) || {};
       const {
         id: contactAssignmentId,

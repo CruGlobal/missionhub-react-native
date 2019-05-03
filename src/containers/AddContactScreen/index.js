@@ -46,7 +46,7 @@ class AddContactScreen extends Component {
     const { dispatch, onComplete, next } = this.props;
 
     if (next) {
-      next({ person: addedResults.response });
+      dispatch(next({ person: addedResults.response }));
     } else if (onComplete) {
       onComplete(addedResults);
     } else {
@@ -64,7 +64,6 @@ class AddContactScreen extends Component {
         delete saveData.firstName;
       }
       // Remove the lastname if it's the same as before or it didn't exist before and a blank string is passed in
-      console.log(saveData.lastName);
       if (
         (saveData.lastName === '' && !person.last_name) ||
         saveData.lastName === person.last_name
@@ -227,7 +226,7 @@ class AddContactScreen extends Component {
               onUpdateData={this.handleUpdateData}
             />
           </ScrollView>
-          <BottomButton onPress={this.savePersonTemp} text={t('done')} />
+          <BottomButton onPress={this.savePerson} text={t('done')} />
         </SafeAreaView>
       </View>
     );

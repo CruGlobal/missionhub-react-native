@@ -272,6 +272,7 @@ const createTabs = initialRouteName => {
 
 export const MainTabBarStartSteps = createTabs(STEPS_TAB);
 // Create another set of tabs with a different default tab
+export const MainTabBarStartPeople = createTabs(PEOPLE_TAB);
 export const MainTabBarStartGroups = createTabs(GROUPS_TAB);
 
 export const MAIN_TABS_SCREEN = createDrawerNavigator(
