@@ -1,3 +1,4 @@
+export const ADD_PERSON_FLOW = 'nav/ADD_PERSON_FLOW';
 export const SIGN_IN_FLOW = 'nav/SIGN_IN_FLOW';
 export const SIGN_UP_FLOW = 'nav/SIGN_UP_FLOW';
 export const CREATE_COMMUNITY_UNAUTHENTICATED_FLOW =

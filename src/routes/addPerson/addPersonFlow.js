@@ -1,7 +1,7 @@
 import { createStackNavigator } from 'react-navigation';
 
-import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
-import { navigatePush } from '../../actions/navigation';
+import { NOTIFICATION_PROMPT_TYPES, MAIN_TABS } from '../../constants';
+import { navigatePush, navigateReset } from '../../actions/navigation';
 import { firstTime, loadHome } from '../../actions/auth/userData';
 import {
   completeOnboarding,
@@ -53,11 +53,37 @@ export const AddPersonFlowScreens = {
     buildTrackingObj(),
   ),
   [PERSON_STAGE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(PersonStageScreen, () => dispatch => {}),
+    wrapNextAction(
+      PersonStageScreen,
+      ({ stage, name, contactId, orgId }) => dispatch => {
+        dispatch(
+          navigatePush(PERSON_SELECT_STEP_SCREEN, {
+            contactStage: stage,
+            createStepTracking: buildTrackingObj(
+              'people : person : steps : create',
+              'people',
+              'person',
+              'steps',
+            ),
+            contactName: name,
+            contactId: contactId,
+            organization: { id: orgId },
+            trackingObj: buildTrackingObj(
+              'people : person : steps : add',
+              'people',
+              'person',
+              'steps',
+            ),
+          }),
+        );
+      },
+    ),
     buildTrackingObj(),
   ),
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(PersonSelectStepScreen, () => async dispatch => {}),
+    wrapNextAction(PersonSelectStepScreen, () => dispatch => {
+      dispatch(navigateReset(MAIN_TABS, { startTab: 'people' }));
+    }),
     buildTrackingObj(),
   ),
 };

@@ -145,6 +145,7 @@ import StatusReason, {
 import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
 import { buildTrackedScreen, wrapNextScreen } from './routes/helpers';
 import {
+  ADD_PERSON_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
@@ -159,6 +160,10 @@ import {
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
 } from './routes/constants';
+import {
+  AddPersonFlowNavigator,
+  AddPersonFlowScreens,
+} from './routes/addPerson/addPersonFlow';
 import {
   JoinByCodeFlowNavigator,
   JoinByCodeFlowScreens,
@@ -507,6 +512,7 @@ const screens = {
   [ADD_PERSON_STEP_FLOW]: AddPersonStepFlowNavigator,
   [SELECT_MY_STAGE_FLOW]: SelectMyStageFlowNavigator,
   [SELECT_PERSON_STAGE_FLOW]: SelectPersonStageFlowNavigator,
+  [ADD_PERSON_FLOW]: AddPersonFlowNavigator,
 };
 
 export const trackableScreens = {
@@ -522,6 +528,7 @@ export const trackableScreens = {
   ...CreateCommunityUnauthenticatedFlowScreens,
   ...SignInFlowScreens,
   ...SignUpFlowScreens,
+  ...AddPersonFlowScreens,
 };
 
 const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, GROUPS_REPORT_SCREEN];

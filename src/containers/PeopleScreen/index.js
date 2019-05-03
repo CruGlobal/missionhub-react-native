@@ -20,6 +20,7 @@ import { navToPersonScreen } from '../../actions/person';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 import TrackTabChange from '../TrackTabChange';
 import { PEOPLE_TAB } from '../../constants';
+import { ADD_PERSON_FLOW } from '../../routes/constants';
 
 import styles from './styles';
 
@@ -45,13 +46,8 @@ export class PeopleScreen extends Component {
 
   handleAddContact(org) {
     this.props.dispatch(
-      navigatePush(ADD_CONTACT_SCREEN, {
+      navigatePush(ADD_PERSON_FLOW, {
         organization: org && org.id ? org : undefined,
-        onComplete: () => {
-          // You go through 4 screens for adding a person, so pop back to the first one
-          this.props.dispatch(navigateBack(5));
-          this.getPeople();
-        },
       }),
     );
   }
