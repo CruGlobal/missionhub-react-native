@@ -79,6 +79,8 @@ export const AddPersonFlowScreens = {
               'person',
               'steps',
             ),
+            enableBackButton: false,
+            enableSkipButton: true,
           }),
         );
       },
