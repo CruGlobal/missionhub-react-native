@@ -16,7 +16,6 @@ import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
-import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 
 import { navigateToOrg } from './organizations';

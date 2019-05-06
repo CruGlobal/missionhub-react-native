@@ -14,13 +14,12 @@ import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
 import { openMainMenu, refresh } from '../../utils/common';
-import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
 import { navToPersonScreen } from '../../actions/person';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 import TrackTabChange from '../TrackTabChange';
 import { PEOPLE_TAB } from '../../constants';
-import { ADD_PERSON_FLOW } from '../../routes/constants';
+import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
 
 import styles from './styles';
 
@@ -46,7 +45,7 @@ export class PeopleScreen extends Component {
 
   handleAddContact(org) {
     this.props.dispatch(
-      navigatePush(ADD_PERSON_FLOW, {
+      navigatePush(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
         organization: org && org.id ? org : undefined,
       }),
     );
