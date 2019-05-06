@@ -100,6 +100,8 @@ class ContactSteps extends Component {
             subsection,
             'steps',
           ),
+          enableBackButton: true,
+          enableSkipButton: false,
         }),
       );
     }

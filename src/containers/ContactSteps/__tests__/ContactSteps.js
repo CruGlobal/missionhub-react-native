@@ -287,6 +287,8 @@ describe('handleCreateStep', () => {
           'steps',
         ),
         trackingObj,
+        enableBackButton: true,
+        enableSkipButton: false,
       });
     });
   });
