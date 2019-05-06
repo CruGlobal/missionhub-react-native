@@ -7,7 +7,7 @@ import { fireEvent, act } from 'react-native-testing-library';
 
 import { snapshotWithContext, renderWithContext } from '../../../../testUtils';
 
-import { StepsScreen, mapStateToProps } from '..';
+import { StepsScreen } from '..';
 
 import theme from '../../../theme';
 import { trackActionWithoutData } from '../../../actions/analytics';
@@ -100,14 +100,6 @@ const baseProps = {
 common.toast = jest.fn();
 
 describe('StepsScreen', () => {
-  describe('mapStateToProps', () => {
-    it('should provide the necessary props', () => {
-      reminderStepsSelector.mockReturnValue([{ id: 1, reminder: true }]);
-      nonReminderStepsSelector.mockReturnValue([{ id: 2 }, { id: 3 }]);
-      expect(mapStateToProps(store)).toMatchSnapshot();
-    });
-  });
-
   it('renders loading screen correctly', () => {
     snapshotWithContext(
       <StepsScreen {...baseProps} reminders={[]} steps={null} />,
