@@ -3,17 +3,12 @@ import { connect } from 'react-redux';
 import i18next from 'i18next';
 
 import Header from '../../components/Header/index';
-import {
-  navigatePush,
-  navigateBack,
-  navigateReset,
-} from '../../actions/navigation';
+import { navigatePush, navigateReset } from '../../actions/navigation';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ImpactView from '../ImpactView';
 import IconButton from '../../components/IconButton';
 import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../routes/constants';
 import { buildTrackingObj, disableBack } from '../../utils/common';
-import { getOrganizationMembers } from '../../actions/organizations';
 import { GLOBAL_COMMUNITY_ID, MAIN_TABS } from '../../constants';
 
 import GroupCelebrate from './GroupCelebrate';

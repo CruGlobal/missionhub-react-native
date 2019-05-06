@@ -148,6 +148,7 @@ import {
   ADD_PERSON_THEN_STEP_SCREEN_FLOW,
   ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
   ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW,
+  EDIT_PERSON_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
@@ -166,8 +167,8 @@ import {
   AddPersonThenStepScreenFlowNavigator,
   AddPersonThenPeopleScreenFlowNavigator,
   AddPersonThenCommunityMembersFlowNavigator,
-  AddPersonFlowScreens,
 } from './routes/addPerson/addPersonFlow';
+import { EditPersonFlowNavigator } from './routes/editPerson/editPersonFlow';
 import {
   JoinByCodeFlowNavigator,
   JoinByCodeFlowScreens,
@@ -520,6 +521,7 @@ const screens = {
   [ADD_PERSON_THEN_STEP_SCREEN_FLOW]: AddPersonThenStepScreenFlowNavigator,
   [ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW]: AddPersonThenPeopleScreenFlowNavigator,
   [ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW]: AddPersonThenCommunityMembersFlowNavigator,
+  [EDIT_PERSON_FLOW]: EditPersonFlowNavigator,
 };
 
 export const trackableScreens = {
@@ -535,7 +537,6 @@ export const trackableScreens = {
   ...CreateCommunityUnauthenticatedFlowScreens,
   ...SignInFlowScreens,
   ...SignUpFlowScreens,
-  ...AddPersonFlowScreens,
 };
 
 const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, GROUPS_REPORT_SCREEN];

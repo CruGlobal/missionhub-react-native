@@ -103,7 +103,7 @@ class AddContactScreen extends Component {
   }
 
   navToSelectSteps(addedResults) {
-    const { dispatch, organization } = this.props;
+    const { dispatch, organization, me } = this.props;
     const newPerson = addedResults.response;
 
     // If adding a new person, select a stage for them, then run all the onComplete functionality
@@ -132,19 +132,23 @@ class AddContactScreen extends Component {
 
   async savePerson() {
     const { t, isEdit } = this.props;
-    const saveData = { ...this.state.person };
+    const data = { ...this.state.person };
 
     // For new User/Admin people, the name, email, and permissions are required fields
     if (
-      (!saveData.email || !saveData.firstName) &&
-      hasOrgPermissions(saveData.orgPermission)
+      (!data.email || !data.firstName) &&
+      hasOrgPermissions(data.orgPermission)
     ) {
       Alert.alert(t('alertBlankEmail'), t('alertPermissionsMustHaveEmail'));
       return;
     }
 
+    const saveData = this.removeUneditedFields();
+
     try {
-      await (isEdit ? this.saveEditedPerson() : this.saveNewPerson());
+      await (isEdit
+        ? this.saveEditedPerson(saveData)
+        : this.saveNewPerson(saveData));
     } catch (error) {
       if (error && error.apiError) {
         if (
@@ -161,19 +165,16 @@ class AddContactScreen extends Component {
     }
   }
 
-  async saveEditedPerson() {
+  async saveEditedPerson(saveData) {
     const { dispatch } = this.props;
-
-    const saveData = this.removeUneditedFields();
 
     const results = await dispatch(updatePerson(saveData));
 
     this.complete(results);
   }
 
-  async saveNewPerson() {
+  async saveNewPerson(saveData) {
     const { dispatch, isInvite, next } = this.props;
-    const saveData = this.removeUneditedFields();
 
     const results = await dispatch(addNewPerson(saveData));
 
@@ -194,7 +195,7 @@ class AddContactScreen extends Component {
   navigateBack = () => this.props.dispatch(navigateBack());
 
   render() {
-    const { t, organization, person, isJean, isInvite, isEdit } = this.props;
+    const { t, organization, person, isJean, isInvite } = this.props;
     const orgName = organization ? organization.name : undefined;
 
     return (
@@ -236,8 +237,7 @@ class AddContactScreen extends Component {
 AddContactScreen.propTypes = {
   person: PropTypes.object,
   organization: PropTypes.object,
-  onComplete: PropTypes.func,
-  next: PropTypes.func,
+  next: PropTypes.func.isRequired(),
   isInvite: PropTypes.bool,
 };
 

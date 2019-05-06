@@ -1,15 +1,9 @@
+/*  eslint max-lines-per-function: 0 */
+
 import { createStackNavigator } from 'react-navigation';
 
-import { NOTIFICATION_PROMPT_TYPES, MAIN_TABS } from '../../constants';
+import { MAIN_TABS } from '../../constants';
 import { navigatePush, navigateReset } from '../../actions/navigation';
-import { firstTime, loadHome } from '../../actions/auth/userData';
-import {
-  completeOnboarding,
-  stashCommunityToJoin,
-  joinStashedCommunity,
-  landOnStashedCommunityScreen,
-} from '../../actions/onboardingProfile';
-import { showReminderOnLoad } from '../../actions/notifications';
 import { navigateToOrg } from '../../actions/organizations';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
@@ -21,7 +15,7 @@ import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
 import { GROUP_MEMBERS } from '../../containers/Groups/GroupScreen';
-import { buildTrackedScreen, wrapNextAction, wrapNextScreen } from '../helpers';
+import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 
 export const AddPersonFlowScreens = onFlowComplete => ({

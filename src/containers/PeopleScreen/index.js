@@ -9,7 +9,7 @@ import {
   peopleByOrgSelector,
   allAssignedPeopleSelector,
 } from '../../selectors/people';
-import { navigatePush, navigateBack } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
