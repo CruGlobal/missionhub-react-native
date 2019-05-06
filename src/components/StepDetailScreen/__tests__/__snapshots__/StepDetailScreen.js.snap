@@ -1,79 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`markdown is empty string renders correctly 1`] = `
-<View
-  flex={1}
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-    }
-  }
->
-  <StatusBar
-    animated={true}
-    backgroundColor="#006789"
-    barStyle="dark-content"
-    showHideTransition="fade"
-  />
-  <Header
-    center={
-      Object {
-        "prop": "center header",
-      }
-    }
-    left={
-      <Connect(BackButton)
-        iconStyle={
-          Object {
-            "color": "#A0A2A6",
-          }
-        }
-      />
-    }
-    right={
-      Object {
-        "prop": "right header",
-      }
-    }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
-  />
-  <SafeAreaView
-    flex={1}
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontFamily": "SourceSansPro-Light",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginHorizontal": 32,
-          "marginVertical": 16,
-        }
-      }
-    >
-      Roge is well behaved
-    </MyText>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      Center content
-    </Text>
-    <Component
-      flex={1}
-    />
-  </SafeAreaView>
-</View>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
 exports[`markdown is not null renders correctly 1`] = `

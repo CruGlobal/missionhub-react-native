@@ -902,7 +902,7 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -910,7 +910,7 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
@@ -930,9 +930,9 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
           Object {
             "height": 70,
@@ -941,9 +941,6 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
@@ -952,7 +949,7 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
         >
           John S. completed a Step of Faith.
         </MyText>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
