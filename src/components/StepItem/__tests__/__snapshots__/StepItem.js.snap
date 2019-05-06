@@ -156,9 +156,6 @@ exports[`renders no initial animation 1`] = `
         text=""
       />
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,
@@ -475,9 +472,6 @@ exports[`step item animations renders animation fade in 1`] = `
         text=""
       />
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,
@@ -554,9 +548,6 @@ exports[`step item animations renders animation fade out 1`] = `
         text=""
       />
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,
@@ -633,9 +624,6 @@ exports[`step item animations renders no animation 1`] = `
         text=""
       />
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,

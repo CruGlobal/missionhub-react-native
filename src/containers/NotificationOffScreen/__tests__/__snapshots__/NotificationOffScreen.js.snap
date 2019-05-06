@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`notification types renders for FOCUS_STEP 1`] = `
-<Component
+<View
   alignItems="center"
   justifyContent="center"
   style={
@@ -13,7 +13,7 @@ exports[`notification types renders for FOCUS_STEP 1`] = `
   }
   value={1}
 >
-  <Component
+  <View
     style={
       Object {
         "paddingVertical": 50,
@@ -27,11 +27,8 @@ exports[`notification types renders for FOCUS_STEP 1`] = `
         }
       }
     />
-  </Component>
+  </View>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#52C5DC",
@@ -44,9 +41,6 @@ exports[`notification types renders for FOCUS_STEP 1`] = `
     Notifications are off
   </MyText>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#ffffff",
@@ -57,7 +51,7 @@ exports[`notification types renders for FOCUS_STEP 1`] = `
   >
     To receive reminders to take steps of faith, please turn notifications on.
   </MyText>
-  <Component
+  <View
     style={
       Object {
         "paddingTop": 20,
@@ -117,12 +111,12 @@ exports[`notification types renders for FOCUS_STEP 1`] = `
       }
       text="NOT NOW"
     />
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
 exports[`notification types renders for JOIN_CHALLENGE 1`] = `
-<Component
+<View
   alignItems="center"
   justifyContent="center"
   style={
@@ -134,7 +128,7 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
   }
   value={1}
 >
-  <Component
+  <View
     style={
       Object {
         "paddingVertical": 50,
@@ -148,11 +142,8 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
         }
       }
     />
-  </Component>
+  </View>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#52C5DC",
@@ -165,9 +156,6 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
     Notifications are off
   </MyText>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#ffffff",
@@ -178,7 +166,7 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
   >
     To receive updates about community challenges, please turn notifications on.
   </MyText>
-  <Component
+  <View
     style={
       Object {
         "paddingTop": 20,
@@ -238,12 +226,12 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
       }
       text="NOT NOW"
     />
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
 exports[`notification types renders for JOIN_COMMUNITY 1`] = `
-<Component
+<View
   alignItems="center"
   justifyContent="center"
   style={
@@ -255,7 +243,7 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
   }
   value={1}
 >
-  <Component
+  <View
     style={
       Object {
         "paddingVertical": 50,
@@ -269,11 +257,8 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
         }
       }
     />
-  </Component>
+  </View>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#52C5DC",
@@ -286,9 +271,6 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
     Notifications are off
   </MyText>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#ffffff",
@@ -299,7 +281,7 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
   >
     To receive updates from your MissionHub community, please turn notifications on.
   </MyText>
-  <Component
+  <View
     style={
       Object {
         "paddingTop": 20,
@@ -359,12 +341,12 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
       }
       text="NOT NOW"
     />
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
 exports[`notification types renders for LOGIN 1`] = `
-<Component
+<View
   alignItems="center"
   justifyContent="center"
   style={
@@ -376,7 +358,7 @@ exports[`notification types renders for LOGIN 1`] = `
   }
   value={1}
 >
-  <Component
+  <View
     style={
       Object {
         "paddingVertical": 50,
@@ -390,11 +372,8 @@ exports[`notification types renders for LOGIN 1`] = `
         }
       }
     />
-  </Component>
+  </View>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#52C5DC",
@@ -407,9 +386,6 @@ exports[`notification types renders for LOGIN 1`] = `
     Notifications are off
   </MyText>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#ffffff",
@@ -420,7 +396,7 @@ exports[`notification types renders for LOGIN 1`] = `
   >
     To receive reminders to take steps of faith, please turn notifications on.
   </MyText>
-  <Component
+  <View
     style={
       Object {
         "paddingTop": 20,
@@ -480,12 +456,12 @@ exports[`notification types renders for LOGIN 1`] = `
       }
       text="NOT NOW"
     />
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
 exports[`notification types renders for ONBOARDING 1`] = `
-<Component
+<View
   alignItems="center"
   justifyContent="center"
   style={
@@ -497,7 +473,7 @@ exports[`notification types renders for ONBOARDING 1`] = `
   }
   value={1}
 >
-  <Component
+  <View
     style={
       Object {
         "paddingVertical": 50,
@@ -511,11 +487,8 @@ exports[`notification types renders for ONBOARDING 1`] = `
         }
       }
     />
-  </Component>
+  </View>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#52C5DC",
@@ -528,9 +501,6 @@ exports[`notification types renders for ONBOARDING 1`] = `
     Notifications are off
   </MyText>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#ffffff",
@@ -541,7 +511,7 @@ exports[`notification types renders for ONBOARDING 1`] = `
   >
     To receive reminders to take steps of faith, please turn notifications on.
   </MyText>
-  <Component
+  <View
     style={
       Object {
         "paddingTop": 20,
@@ -601,12 +571,12 @@ exports[`notification types renders for ONBOARDING 1`] = `
       }
       text="NOT NOW"
     />
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
 exports[`notification types renders for SET_REMINDER 1`] = `
-<Component
+<View
   alignItems="center"
   justifyContent="center"
   style={
@@ -618,7 +588,7 @@ exports[`notification types renders for SET_REMINDER 1`] = `
   }
   value={1}
 >
-  <Component
+  <View
     style={
       Object {
         "paddingVertical": 50,
@@ -632,11 +602,8 @@ exports[`notification types renders for SET_REMINDER 1`] = `
         }
       }
     />
-  </Component>
+  </View>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#52C5DC",
@@ -649,9 +616,6 @@ exports[`notification types renders for SET_REMINDER 1`] = `
     Notifications are off
   </MyText>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#ffffff",
@@ -662,7 +626,7 @@ exports[`notification types renders for SET_REMINDER 1`] = `
   >
     To receive reminders to take steps of faith, please turn notifications on.
   </MyText>
-  <Component
+  <View
     style={
       Object {
         "paddingTop": 20,
@@ -722,6 +686,6 @@ exports[`notification types renders for SET_REMINDER 1`] = `
       }
       text="I DON'T WANT REMINDERS"
     />
-  </Component>
-</Component>
+  </View>
+</View>
 `;
