@@ -56,6 +56,7 @@ const STEPS_QUERY = gql`
     acceptedChallenges(after: $after, completed: false, first: 5) {
       nodes {
         id
+        focus
         ...StepItem
       }
       pageInfo {

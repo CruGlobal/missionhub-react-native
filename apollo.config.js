@@ -1,5 +1,5 @@
 module.exports = {
   client: {
-    service: 'MissionHub',
+    service: 'MissionHub@staging',
   },
 };
