@@ -1497,6 +1497,7 @@ exports[`renders correctly 1`] = `
             }
           }
           organizationId="24234234"
+          setListRefs={[Function]}
         />
       </View>
     </ParallaxScrollView>

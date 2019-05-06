@@ -77,13 +77,10 @@ class CelebrateDetailScreen extends Component {
     }, 1);
   }
 
-  getCommentRefs() {
-    // Get the comment refs from the <CommentsList> component wrapped in 'connect' and '@translate'
-    return this.commentsList
-      .getWrappedInstance()
-      .getWrappedInstance()
-      .getItemRefs();
-  }
+  setCommentListRefs = listRefs => {
+    // Get the comment refs from the <CommentsList> component by passing a setListRefs function
+    this.commentListRefs = listRefs;
+  };
 
   scrollToFocusedRef = () => {
     const {
@@ -101,7 +98,7 @@ class CelebrateDetailScreen extends Component {
         setTimeout(() => this.scrollToY(), 1);
       } else {
         // Only scroll to focused comment for edit
-        const refs = this.getCommentRefs();
+        const refs = this.commentListRefs || {};
         // Get the comment that we want to focus on
         const focusCommentRef = refs[editId];
 
@@ -175,7 +172,6 @@ class CelebrateDetailScreen extends Component {
   };
 
   listRef = c => (this.list = c);
-  commentsListRef = c => (this.commentsList = c);
 
   render() {
     const { event } = this.props;
@@ -212,7 +208,7 @@ class CelebrateDetailScreen extends Component {
               <Image source={TRAILS1} style={styles.trailsTop} />
               <Image source={TRAILS2} style={styles.trailsBottom} />
               <CommentsList
-                ref={this.commentsListRef}
+                setListRefs={this.setCommentListRefs}
                 event={event}
                 organizationId={event.organization.id}
               />

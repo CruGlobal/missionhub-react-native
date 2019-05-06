@@ -25,10 +25,13 @@ import styles from './styles';
 class CommentsList extends Component {
   listRefs = {};
   componentDidMount() {
-    const { dispatch, event } = this.props;
+    const { dispatch, event, setListRefs } = this.props;
 
     dispatch(reloadCelebrateComments(event));
     dispatch(resetCelebrateEditingComment());
+
+    // Share listRefs variable with parent
+    setListRefs && setListRefs(this.listRefs);
   }
 
   handleLoadMore = () => {
@@ -119,7 +122,6 @@ class CommentsList extends Component {
     showMenu(actions, componentRef);
   };
 
-  getItemRefs = () => this.listRefs;
   listRefItem = item => c => (this.listRefs[item.id] = c);
 
   renderItem = ({ item }) => (
@@ -161,9 +163,4 @@ const mapStateToProps = ({ auth, celebrateComments }, { event }) => ({
     { eventId: event.id },
   ),
 });
-export default connect(
-  mapStateToProps,
-  undefined,
-  undefined,
-  { withRef: true },
-)(CommentsList);
+export default connect(mapStateToProps)(CommentsList);
