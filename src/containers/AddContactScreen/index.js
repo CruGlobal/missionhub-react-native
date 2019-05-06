@@ -43,12 +43,10 @@ class AddContactScreen extends Component {
   }
 
   complete(addedResults) {
-    const { dispatch, onComplete, next } = this.props;
+    const { dispatch, next } = this.props;
 
     if (next) {
       dispatch(next({ person: addedResults.response }));
-    } else if (onComplete) {
-      onComplete(addedResults);
     } else {
       dispatch(navigateBack());
     }
@@ -237,7 +235,7 @@ class AddContactScreen extends Component {
 AddContactScreen.propTypes = {
   person: PropTypes.object,
   organization: PropTypes.object,
-  next: PropTypes.func.isRequired(),
+  next: PropTypes.func,
   isInvite: PropTypes.bool,
 };
 

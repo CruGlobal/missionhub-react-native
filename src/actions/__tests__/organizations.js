@@ -42,7 +42,7 @@ import {
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
 import { reloadGroupChallengeFeed } from '../challenges';
-import { navigatePush } from '../navigation';
+import { navigatePush, navigateReset } from '../navigation';
 import { removeHiddenOrgs } from '../../selectors/selectorUtils';
 import {
   GROUP_CHALLENGES,
@@ -955,7 +955,7 @@ describe('navigateToOrg', () => {
 
   beforeEach(() => {
     reloadGroupChallengeFeed.mockReturnValue({ type: 'test' });
-    navigatePush.mockReturnValue({ type: 'test' });
+    navigateReset.mockReturnValue({ type: 'test' });
   });
 
   describe('default', () => {
@@ -977,7 +977,7 @@ describe('navigateToOrg', () => {
     });
 
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
-      expect(navigatePush).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
+      expect(navigateReset).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
         organization: globalOrg,
         initialTab: undefined,
       });
@@ -1005,7 +1005,7 @@ describe('navigateToOrg', () => {
     });
 
     it('navigates to GROUPS_SCREEN', () => {
-      expect(navigatePush).toBeCalledWith(GROUP_SCREEN, {
+      expect(navigateReset).toBeCalledWith(GROUP_SCREEN, {
         organization: cruOrg,
         initialTab: undefined,
       });
@@ -1033,7 +1033,7 @@ describe('navigateToOrg', () => {
     });
 
     it('navigates to USER_CREATED_GROUPS_SCREEN', () => {
-      expect(navigatePush).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
+      expect(navigateReset).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
         organization: userCreatedOrg,
         initialTab: undefined,
       });
@@ -1059,7 +1059,7 @@ describe('navigateToOrg', () => {
     });
 
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
-      expect(navigatePush).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
+      expect(navigateReset).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
         organization: globalOrg,
         initialTab: undefined,
       });
@@ -1087,7 +1087,7 @@ describe('navigateToOrg', () => {
     });
 
     it('navigates to USER_CREATED_GROUPS_SCREEN with initial tab', () => {
-      expect(navigatePush).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
+      expect(navigateReset).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
         organization: userCreatedOrg,
         initialTab: GROUP_CHALLENGES,
       });

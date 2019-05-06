@@ -31,7 +31,7 @@ import { navigateToOrg } from '../organizations';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
-import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
+import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
 
 jest.mock('../person');
 jest.mock('../organizations');
@@ -624,10 +624,7 @@ describe('askNotificationPermissions', () => {
     });
 
     it('should deep link to add contact screen', async () => {
-      navigatePush.mockImplementation((_, { onComplete }) => {
-        onComplete && onComplete();
-        return navigatePushResult;
-      });
+      navigatePush.mockReturnValue(navigatePushResult);
 
       await testNotification({
         screen: 'add_a_person',
@@ -635,14 +632,14 @@ describe('askNotificationPermissions', () => {
         organization_id: organization.id,
       });
 
-      expect(navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
-        organization: { id: `${organization.id}` },
-        onComplete: expect.any(Function),
-      });
-      expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS);
+      expect(navigatePush).toHaveBeenCalledWith(
+        ADD_PERSON_THEN_STEP_SCREEN_FLOW,
+        {
+          organization: { id: `${organization.id}` },
+        },
+      );
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
-        navigateResetResult,
         navigatePushResult,
       ]);
     });

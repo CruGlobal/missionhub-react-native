@@ -101,15 +101,27 @@ describe('handleUpdateData', () => {
 });
 
 describe('complete', () => {
-  it('should run the onComplete and navigateBack', () => {
-    const mockComplete = jest.fn();
+  it('should run navigateBack', () => {
+    const addedResults = { response: { id: '1112' } };
     const component = buildScreenInstance({
-      navigation: createMockNavState({ onComplete: mockComplete }),
+      navigation: createMockNavState(),
     });
 
-    component.complete();
+    component.complete(addedResults);
 
-    expect(mockComplete).toHaveBeenCalledTimes(1);
+    expect(navigateBack).toHaveBeenCalledTimes(1);
+  });
+
+  it('should run next', () => {
+    const mockNext = jest.fn().mockReturnValue({ type: 'test' });
+    const addedResults = { response: { id: '1112' } };
+    const component = buildScreenInstance({
+      navigation: createMockNavState({ next: mockNext }),
+    });
+
+    component.complete(addedResults);
+
+    expect(mockNext).toHaveBeenCalledWith({ person: addedResults.response });
   });
 });
 
@@ -207,32 +219,6 @@ describe('savePerson', () => {
       subsection: 'person',
       orgId: organization.id,
     });
-  });
-
-  it('should update person with a callback', async () => {
-    const onCompleteMock = jest.fn();
-    const component = buildScreen({
-      navigation: createMockNavState(),
-      onComplete: onCompleteMock,
-      person: { id: contactId },
-      isEdit: true,
-    });
-    const componentInstance = component.instance();
-    component.setState({
-      person: {
-        first_name: contactFName,
-      },
-    });
-
-    await componentInstance.savePerson();
-
-    expect(addNewPerson).toHaveBeenCalledWith({
-      assignToMe: true,
-      first_name: contactFName,
-    });
-    expect(store.getActions()).toEqual([mockAddNewPerson]);
-    expect(onCompleteMock).toHaveBeenCalledTimes(1);
-    expect(navigateBack).toHaveBeenCalledTimes(0);
   });
 
   it('should update person and navigate back', async () => {
