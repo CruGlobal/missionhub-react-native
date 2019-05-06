@@ -145,7 +145,9 @@ import StatusReason, {
 import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
 import { buildTrackedScreen, wrapNextScreen } from './routes/helpers';
 import {
-  ADD_PERSON_FLOW,
+  ADD_PERSON_THEN_STEP_SCREEN_FLOW,
+  ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
+  ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
@@ -161,7 +163,9 @@ import {
   SELECT_PERSON_STAGE_FLOW,
 } from './routes/constants';
 import {
-  AddPersonFlowNavigator,
+  AddPersonThenStepScreenFlowNavigator,
+  AddPersonThenPeopleScreenFlowNavigator,
+  AddPersonThenCommunityMembersFlowNavigator,
   AddPersonFlowScreens,
 } from './routes/addPerson/addPersonFlow';
 import {
@@ -513,7 +517,9 @@ const screens = {
   [ADD_PERSON_STEP_FLOW]: AddPersonStepFlowNavigator,
   [SELECT_MY_STAGE_FLOW]: SelectMyStageFlowNavigator,
   [SELECT_PERSON_STAGE_FLOW]: SelectPersonStageFlowNavigator,
-  [ADD_PERSON_FLOW]: AddPersonFlowNavigator,
+  [ADD_PERSON_THEN_STEP_SCREEN_FLOW]: AddPersonThenStepScreenFlowNavigator,
+  [ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW]: AddPersonThenPeopleScreenFlowNavigator,
+  [ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW]: AddPersonThenCommunityMembersFlowNavigator,
 };
 
 export const trackableScreens = {

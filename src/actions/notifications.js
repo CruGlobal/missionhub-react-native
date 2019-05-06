@@ -9,8 +9,10 @@ import {
   LOAD_HOME_NOTIFICATION_REMINDER,
   MAIN_TABS,
   REQUEST_NOTIFICATIONS,
+  DISABLE_WELCOME_NOTIFICATION,
+  GCM_SENDER_ID,
 } from '../constants';
-import { DISABLE_WELCOME_NOTIFICATION, GCM_SENDER_ID } from '../constants';
+import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
@@ -134,9 +136,8 @@ function handleNotification(notification) {
         return dispatch(navToPersonScreen(me));
       case 'add_a_person':
         return dispatch(
-          navigatePush(ADD_CONTACT_SCREEN, {
+          navigatePush(ADD_PERSON_THEN_STEP_SCREEN_FLOW, {
             organization: { id: organization },
-            onComplete: () => dispatch(navigateReset(MAIN_TABS)),
           }),
         );
       case 'celebrate':

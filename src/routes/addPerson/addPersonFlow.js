@@ -10,6 +10,7 @@ import {
   landOnStashedCommunityScreen,
 } from '../../actions/onboardingProfile';
 import { showReminderOnLoad } from '../../actions/notifications';
+import { navigateToOrg } from '../../actions/organizations';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
 } from '../../containers/AddContactScreen';
@@ -19,10 +20,11 @@ import PersonStageScreen, {
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
+import { GROUP_MEMBERS } from '../../containers/Groups/GroupScreen';
 import { buildTrackedScreen, wrapNextAction, wrapNextScreen } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 
-export const AddPersonFlowScreens = {
+export const AddPersonFlowScreens = onFlowComplete => ({
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(
     wrapNextAction(AddContactScreen, ({ person }) => (dispatch, getState) => {
       const {
@@ -88,14 +90,36 @@ export const AddPersonFlowScreens = {
     buildTrackingObj(),
   ),
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(PersonSelectStepScreen, () => dispatch => {
-      dispatch(navigateReset(MAIN_TABS, { startTab: 'people' }));
-    }),
+    wrapNextAction(
+      PersonSelectStepScreen,
+      ({ contactId, orgId }) => dispatch => {
+        dispatch(onFlowComplete({ contactId, orgId }));
+      },
+    ),
     buildTrackingObj(),
   ),
-};
-export const AddPersonFlowNavigator = createStackNavigator(
-  AddPersonFlowScreens,
+});
+
+export const AddPersonThenStepScreenFlowNavigator = createStackNavigator(
+  AddPersonFlowScreens(() => navigateReset(MAIN_TABS)),
+  {
+    navigationOptions: {
+      header: null,
+    },
+  },
+);
+
+export const AddPersonThenPeopleScreenFlowNavigator = createStackNavigator(
+  AddPersonFlowScreens(() => navigateReset(MAIN_TABS, { startTab: 'people' })),
+  {
+    navigationOptions: {
+      header: null,
+    },
+  },
+);
+
+export const AddPersonThenCommunityMembersFlowNavigator = createStackNavigator(
+  AddPersonFlowScreens(({ orgId }) => navigateToOrg(orgId, GROUP_MEMBERS)),
   {
     navigationOptions: {
       header: null,

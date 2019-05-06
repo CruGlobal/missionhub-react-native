@@ -11,7 +11,7 @@ import {
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ImpactView from '../ImpactView';
 import IconButton from '../../components/IconButton';
-import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
+import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../routes/constants';
 import { buildTrackingObj, disableBack } from '../../utils/common';
 import { getOrganizationMembers } from '../../actions/organizations';
 import { GLOBAL_COMMUNITY_ID, MAIN_TABS } from '../../constants';
@@ -46,16 +46,8 @@ export class GroupScreen extends Component {
     const { organization } = this.state;
 
     dispatch(
-      navigatePush(ADD_CONTACT_SCREEN, {
+      navigatePush(ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW, {
         organization: organization.id ? organization : undefined,
-        onComplete: () => {
-          // You go through 4 screens for adding a person, so pop back to the first one
-          dispatch(navigateBack(5));
-          // refresh the members list after creating a new person
-          if (organization.id) {
-            dispatch(getOrganizationMembers(organization.id));
-          }
-        },
       }),
     );
   };
@@ -116,7 +108,7 @@ export class GroupScreen extends Component {
 
 const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
 export const GROUP_CHALLENGES = 'nav/GROUP_CHALLENGES';
-const GROUP_MEMBERS = 'nav/GROUP_MEMBERS';
+export const GROUP_MEMBERS = 'nav/GROUP_MEMBERS';
 const GROUP_IMPACT = 'nav/GROUP_IMPACT';
 const GROUP_CONTACTS = 'nav/GROUP_CONTACTS';
 const GROUP_SURVEYS = 'nav/GROUP_SURVEYS';

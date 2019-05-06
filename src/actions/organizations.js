@@ -23,7 +23,7 @@ import { getMe, getPersonDetails } from './person';
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
 import { reloadGroupChallengeFeed } from './challenges';
-import { navigatePush } from './navigation';
+import { navigatePush, navigateReset } from './navigation';
 
 const getOrganizationsQuery = {
   limit: 100,
@@ -638,7 +638,7 @@ export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
     }
 
     return dispatch(
-      navigatePush(getScreenForOrg(organization), {
+      navigateReset(getScreenForOrg(organization), {
         organization,
         initialTab,
       }),
