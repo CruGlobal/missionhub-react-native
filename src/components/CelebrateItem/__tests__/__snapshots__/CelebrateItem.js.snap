@@ -917,7 +917,7 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
