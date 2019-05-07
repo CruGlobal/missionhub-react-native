@@ -52,6 +52,11 @@ class PersonSelectStepScreen extends Component {
   }
 }
 
+PersonSelectStepScreen.defaultProps = {
+  enableBackButton: true,
+  enableSkipButton: false,
+};
+
 PersonSelectStepScreen.propTypes = {
   contactName: PropTypes.string,
   contactId: PropTypes.string,

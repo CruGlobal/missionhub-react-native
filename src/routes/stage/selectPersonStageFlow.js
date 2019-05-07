@@ -55,8 +55,6 @@ export const SelectPersonStageFlowScreens = {
                 'person',
                 'steps',
               ),
-              enableBackButton: true,
-              enableSkipButton: false,
             }),
       );
     },

@@ -139,6 +139,11 @@ class SelectStepScreen extends Component {
   }
 }
 
+SelectStepScreen.defaultProps = {
+  enableBackButton: true,
+  enableSkipButton: false,
+};
+
 SelectStepScreen.propTypes = {
   createStepTracking: PropTypes.object.isRequired,
   contact: PropTypes.object,

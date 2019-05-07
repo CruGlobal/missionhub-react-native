@@ -108,8 +108,6 @@ class PersonStageScreen extends Component {
               'person',
               'steps',
             ),
-            enableBackButton: true,
-            enableSkipButton: false,
           }),
         );
       }
@@ -169,8 +167,6 @@ class PersonStageScreen extends Component {
             'steps',
           ),
           next: this.handleNavigate,
-          enableBackButton: true,
-          enableSkipButton: false,
         }),
       );
       if (!addingContactFlow) {
