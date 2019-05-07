@@ -1,10 +1,10 @@
 /*  eslint max-lines-per-function: 0 */
 
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, StackActions } from 'react-navigation';
 
 import { MAIN_TABS } from '../../constants';
 import { navigatePush, navigateReset } from '../../actions/navigation';
-import { navigateToOrg } from '../../actions/organizations';
+import { getOrganizationMembers } from '../../actions/organizations';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
 } from '../../containers/AddContactScreen';
@@ -114,9 +114,11 @@ export const AddPersonThenPeopleScreenFlowNavigator = createStackNavigator(
 );
 
 export const AddPersonThenCommunityMembersFlowNavigator = createStackNavigator(
-  AddPersonFlowScreens(({ orgId }) => dispatch =>
-    dispatch(navigateToOrg(orgId, GROUP_MEMBERS)),
-  ),
+  AddPersonFlowScreens(({ orgId }) => dispatch => {
+    dispatch(getOrganizationMembers(orgId));
+    dispatch(StackActions.popToTop());
+    dispatch(StackActions.pop({ immediate: true }));
+  }),
   {
     navigationOptions: {
       header: null,
