@@ -52,6 +52,7 @@ export class PeopleScreen extends Component {
   }
 
   handleSearch() {
+    console.log('here');
     this.props.dispatch(navigatePush(SEARCH_SCREEN));
   }
 

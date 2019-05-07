@@ -33,6 +33,7 @@ const addStepsResult = { type: 'added steps' };
 let screen;
 let contact;
 let enableBackButton;
+let enableSkipButton;
 
 navigatePush.mockImplementation((screen, props) => () => {
   store.dispatch(props.next({ text: customStep.body }));
@@ -50,6 +51,7 @@ beforeEach(() => {
       organization={organization}
       receiverId={receiverId}
       enableBackButton={enableBackButton}
+      enableSkipButton={enableSkipButton}
       createStepTracking={createStepTracking}
       contactName={contactName}
       next={next}
@@ -58,9 +60,10 @@ beforeEach(() => {
   );
 });
 
-describe('without enableBackButton', () => {
+describe('without enableBackButton nor enableSkipButton', () => {
   beforeAll(() => {
     enableBackButton = false;
+    enableSkipButton = false;
   });
 
   it('renders correctly', () => {
@@ -71,6 +74,18 @@ describe('without enableBackButton', () => {
 describe('with enableBackButton', () => {
   beforeAll(() => {
     enableBackButton = true;
+    enableSkipButton = false;
+  });
+
+  it('renders correctly', () => {
+    expect(screen).toMatchSnapshot();
+  });
+});
+
+describe('with enableSkipButton', () => {
+  beforeAll(() => {
+    enableBackButton = false;
+    enableSkipButton = true;
   });
 
   it('renders correctly', () => {
@@ -97,6 +112,28 @@ describe('renderStickyHeader', () => {
         .props()
         .renderStickyHeader(),
     ).toMatchSnapshot();
+  });
+});
+
+describe('skip button', () => {
+  beforeAll(() => {
+    enableBackButton = false;
+    enableSkipButton = true;
+  });
+
+  beforeEach(() => {
+    screen
+      .childAt(2)
+      .props()
+      .onSkip();
+  });
+
+  it('calls next', () => {
+    expect(next).toHaveBeenCalledTimes(1);
+  });
+
+  it('dispatches actions to store', () => {
+    expect(store.getActions()).toEqual([nextResult]);
   });
 });
 

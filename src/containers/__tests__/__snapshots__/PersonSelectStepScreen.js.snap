@@ -11,6 +11,7 @@ exports[`renders correctly 1`] = `
   contactStageId={2}
   createStepTracking={Object {}}
   enableBackButton={true}
+  enableSkipButton={false}
   headerText="What will you do to help Ron experience God?"
   next={[MockFunction]}
   organization={

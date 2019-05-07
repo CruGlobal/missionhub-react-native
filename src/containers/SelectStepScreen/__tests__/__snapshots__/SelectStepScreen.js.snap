@@ -119,7 +119,52 @@ exports[`with enableBackButton renders correctly 1`] = `
 </Component>
 `;
 
-exports[`without enableBackButton renders correctly 1`] = `
+exports[`with enableSkipButton renders correctly 1`] = `
+<Component
+  flex={1}
+>
+  <ParallaxScrollView
+    backgroundColor="#007398"
+    backgroundScrollSpeed={5}
+    contentBackgroundColor="#E6E8EC"
+    contentContainerStyle={null}
+    fadeOutForeground={true}
+    onChangeHeaderVisibility={[Function]}
+    outputScaleValue={5}
+    parallaxHeaderHeight={215}
+    renderBackground={[Function]}
+    renderContentBackground={[Function]}
+    renderForeground={[Function]}
+    renderParallaxHeader={[Function]}
+    renderScrollComponent={[Function]}
+    renderStickyHeader={[Function]}
+    stickyHeaderHeight={65}
+  >
+    <Connect(Translate(StepsList))
+      contactName="roger"
+      contactStageId="3"
+      next={[MockFunction]}
+      organization={
+        Object {
+          "id": "4234234",
+        }
+      }
+      receiverId="252342354234"
+    />
+  </ParallaxScrollView>
+  <SafeAreaView>
+    <BottomButton
+      onPress={[Function]}
+      text="CREATE YOUR OWN STEP"
+    />
+  </SafeAreaView>
+  <Translate(AbsoluteSkip)
+    onSkip={[Function]}
+  />
+</Component>
+`;
+
+exports[`without enableBackButton nor enableSkipButton renders correctly 1`] = `
 <Component
   flex={1}
 >

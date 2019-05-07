@@ -9,12 +9,11 @@ import {
 } from '../../../../testUtils';
 import { MAIN_TABS, GLOBAL_COMMUNITY_ID } from '../../../constants';
 import * as common from '../../../utils/common';
-import { ADD_CONTACT_SCREEN } from '../../AddContactScreen';
+import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../../routes/constants';
 import { navigatePush, navigateReset } from '../../../actions/navigation';
 import { GROUP_PROFILE } from '../GroupProfile';
 
 jest.mock('../../../actions/navigation', () => ({
-  navigateBack: jest.fn(() => ({ type: 'test' })),
   navigatePush: jest.fn(),
   navigateReset: jest.fn(),
 }));
@@ -73,10 +72,12 @@ describe('GroupScreen', () => {
 
     instance.handleAddContact();
 
-    expect(navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
-      onComplete: expect.anything(),
-      organization,
-    });
+    expect(navigatePush).toHaveBeenCalledWith(
+      ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW,
+      {
+        organization,
+      },
+    );
   });
 
   it('should handle profile button correctly', () => {

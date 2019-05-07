@@ -17,7 +17,7 @@ jest.mock('../../actions/auth/userData');
 const state = {
   auth: {
     isFirstTime: false,
-    person: {},
+    person: { user: { hidden_organizations: [] } },
   },
   steps: {
     mine: null,
@@ -57,6 +57,14 @@ it('renders home screen with tab bar with steps tab selected correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <MainTabs navigation={{ state: { params: {} } }} />
+    </Provider>,
+  );
+});
+
+it('renders home screen with tab bar with people tab selected correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <MainTabs navigation={{ state: { params: { startTab: 'people' } } }} />
     </Provider>,
   );
 });
