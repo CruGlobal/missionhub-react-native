@@ -6,8 +6,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
-import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewPerson } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
 import { IconButton } from '../../components/common';
@@ -40,16 +38,6 @@ class AddContactScreen extends Component {
 
   handleUpdateData(newData) {
     this.setState({ person: { ...this.state.person, ...newData } });
-  }
-
-  complete(addedResults) {
-    const { dispatch, next } = this.props;
-
-    if (next) {
-      dispatch(next({ person: addedResults.response }));
-    } else {
-      dispatch(navigateBack());
-    }
   }
 
   removeUneditedFields() {
@@ -100,100 +88,67 @@ class AddContactScreen extends Component {
     return saveData;
   }
 
-  navToSelectSteps(addedResults) {
-    const { dispatch, organization, me } = this.props;
-    const newPerson = addedResults.response;
-
-    // If adding a new person, select a stage for them, then run all the onComplete functionality
-    const contactAssignment = (
-      newPerson.reverse_contact_assignments || []
-    ).find(a => a.assigned_to.id === me.id);
-    const contactAssignmentId = contactAssignment && contactAssignment.id;
-
-    dispatch(
-      navigatePush(PERSON_STAGE_SCREEN, {
-        onCompleteCelebration: () => {
-          this.complete(addedResults);
-        },
-        addingContactFlow: true,
-        enableBackButton: false,
-        currentStage: null,
-        name: newPerson.first_name,
-        contactId: newPerson.id,
-        contactAssignmentId: contactAssignmentId,
-        section: 'people',
-        subsection: 'person',
-        orgId: organization && organization.id,
-      }),
-    );
-  }
-
-  async savePerson() {
-    const { t, isEdit } = this.props;
-    const data = { ...this.state.person };
+  checkEmailAndName() {
+    const { t } = this.props;
+    const saveData = { ...this.state.person };
 
     // For new User/Admin people, the name, email, and permissions are required fields
     if (
-      (!data.email || !data.firstName) &&
-      hasOrgPermissions(data.orgPermission)
+      (!saveData.email || !saveData.firstName) &&
+      hasOrgPermissions(saveData.orgPermission)
     ) {
       Alert.alert(t('alertBlankEmail'), t('alertPermissionsMustHaveEmail'));
+      return false;
+    }
+
+    return true;
+  }
+
+  handleError(error) {
+    const { t } = this.props;
+
+    if (error && error.apiError) {
+      if (
+        error.apiError.errors &&
+        error.apiError.errors[0] &&
+        error.apiError.errors[0].detail
+      ) {
+        const errorDetail = error.apiError.errors[0].detail;
+        if (errorDetail === CANNOT_EDIT_FIRST_NAME) {
+          Alert.alert(t('alertSorry'), t('alertCannotEditFirstName'));
+        }
+      }
+    }
+  }
+
+  async savePerson() {
+    const { dispatch, isEdit, next } = this.props;
+
+    if (!this.checkEmailAndName()) {
       return;
     }
 
     const saveData = this.removeUneditedFields();
 
     try {
-      await (isEdit
-        ? this.saveEditedPerson(saveData)
-        : this.saveNewPerson(saveData));
+      const results = await dispatch(
+        isEdit ? updatePerson(saveData) : addNewPerson(saveData),
+      );
+
+      this.setState({
+        person: { ...this.state.person, id: results.response.id },
+      });
+
+      !isEdit && dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
+
+      dispatch(next({ person: results.response }));
     } catch (error) {
-      if (error && error.apiError) {
-        if (
-          error.apiError.errors &&
-          error.apiError.errors[0] &&
-          error.apiError.errors[0].detail
-        ) {
-          const errorDetail = error.apiError.errors[0].detail;
-          if (errorDetail === CANNOT_EDIT_FIRST_NAME) {
-            Alert.alert(t('alertSorry'), t('alertCannotEditFirstName'));
-          }
-        }
-      }
+      this.handleError(error);
     }
   }
-
-  async saveEditedPerson(saveData) {
-    const { dispatch } = this.props;
-
-    const results = await dispatch(updatePerson(saveData));
-
-    this.complete(results);
-  }
-
-  async saveNewPerson(saveData) {
-    const { dispatch, isInvite, next } = this.props;
-
-    const results = await dispatch(addNewPerson(saveData));
-
-    this.setState({
-      person: { ...this.state.person, id: results.response.id },
-    });
-
-    if (isInvite || next) {
-      // We know this is an edit if person was passed as a prop. Otherwise, it is an add new contact flow.
-      this.complete(results);
-    } else {
-      this.navToSelectSteps(results);
-    }
-
-    dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
-  }
-
-  navigateBack = () => this.props.dispatch(navigateBack());
 
   render() {
-    const { t, organization, person, isJean, isInvite } = this.props;
+    const { t, organization, person, isJean } = this.props;
     const orgName = organization ? organization.name : undefined;
 
     return (
@@ -221,7 +176,7 @@ class AddContactScreen extends Component {
               person={person}
               organization={organization}
               isJean={isJean}
-              isGroupInvite={isInvite}
+              isGroupInvite={false}
               onUpdateData={this.handleUpdateData}
             />
           </ScrollView>
@@ -235,8 +190,7 @@ class AddContactScreen extends Component {
 AddContactScreen.propTypes = {
   person: PropTypes.object,
   organization: PropTypes.object,
-  next: PropTypes.func,
-  isInvite: PropTypes.bool,
+  next: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ auth }, { navigation }) => {
