@@ -285,7 +285,6 @@ describe('savePerson', () => {
       navigation: createMockNavState(),
       person: { id: contactId, last_name: null },
     });
-    const componentInstance = component.instance();
 
     component.setState({
       person: {

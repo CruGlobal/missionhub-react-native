@@ -189,7 +189,6 @@ describe('handleAddContact', () => {
     beforeEach(() => {
       screen = renderShallow(<PeopleScreen {...{ ...props, isJean: false }} />);
 
-      console.log(screen.childAt(1).props().right);
       const addPersonButton = renderShallow(screen.childAt(1).props().right);
 
       addPersonButton.props().onPress();

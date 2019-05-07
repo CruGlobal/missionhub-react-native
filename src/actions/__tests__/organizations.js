@@ -42,7 +42,7 @@ import {
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
 import { reloadGroupChallengeFeed } from '../challenges';
-import { navigatePush, navigateReset } from '../navigation';
+import { navigateReset } from '../navigation';
 import { removeHiddenOrgs } from '../../selectors/selectorUtils';
 import {
   GROUP_CHALLENGES,
