@@ -20,37 +20,41 @@ import { buildTrackingObj } from '../../utils/common';
 
 export const AddPersonFlowScreens = onFlowComplete => ({
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(
-    wrapNextAction(AddContactScreen, ({ person }) => (dispatch, getState) => {
-      const {
-        auth: {
-          person: { id: myId },
-        },
-      } = getState();
-      const { id: contactId, first_name: firstName } = person;
+    wrapNextAction(
+      AddContactScreen,
+      ({ person, orgId, savedPerson }) => (dispatch, getState) => {
+        if (!savedPerson) {
+          return dispatch(onFlowComplete({ orgId }));
+        }
 
-      const contactAssignment =
-        (person.reverse_contact_assignments || []).find(
-          a => a.assigned_to.id === myId,
-        ) || {};
-      const {
-        id: contactAssignmentId,
-        organization_id: orgId,
-      } = contactAssignment;
+        const {
+          auth: {
+            person: { id: myId },
+          },
+        } = getState();
+        const { id: contactId, first_name: firstName } = person;
 
-      dispatch(
-        navigatePush(PERSON_STAGE_SCREEN, {
-          addingContactFlow: true,
-          enableBackButton: false,
-          currentStage: null,
-          name: firstName,
-          contactId,
-          contactAssignmentId,
-          section: 'people',
-          subsection: 'person',
-          orgId,
-        }),
-      );
-    }),
+        const contactAssignment =
+          (person.reverse_contact_assignments || []).find(
+            a => a.assigned_to.id === myId,
+          ) || {};
+        const { id: contactAssignmentId } = contactAssignment;
+
+        dispatch(
+          navigatePush(PERSON_STAGE_SCREEN, {
+            addingContactFlow: true,
+            enableBackButton: false,
+            currentStage: null,
+            name: firstName,
+            contactId,
+            contactAssignmentId,
+            section: 'people',
+            subsection: 'person',
+            orgId,
+          }),
+        );
+      },
+    ),
     buildTrackingObj(),
   ),
   [PERSON_STAGE_SCREEN]: buildTrackedScreen(
@@ -84,12 +88,9 @@ export const AddPersonFlowScreens = onFlowComplete => ({
     buildTrackingObj(),
   ),
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      PersonSelectStepScreen,
-      ({ contactId, orgId }) => dispatch => {
-        dispatch(onFlowComplete({ contactId, orgId }));
-      },
-    ),
+    wrapNextAction(PersonSelectStepScreen, ({ orgId }) => dispatch => {
+      dispatch(onFlowComplete({ orgId }));
+    }),
     buildTrackingObj(),
   ),
 });

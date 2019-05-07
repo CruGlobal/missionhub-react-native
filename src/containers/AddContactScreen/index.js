@@ -41,9 +41,11 @@ class AddContactScreen extends Component {
   }
 
   complete = (savedPerson, person) => {
-    const { dispatch, next } = this.props;
+    const { dispatch, organization, next } = this.props;
 
-    dispatch(next({ person, savedPerson }));
+    dispatch(
+      next({ person, orgId: organization && organization.id, savedPerson }),
+    );
   };
 
   completeWithoutSave = () => {
