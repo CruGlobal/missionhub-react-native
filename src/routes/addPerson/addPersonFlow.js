@@ -113,7 +113,9 @@ export const AddPersonThenPeopleScreenFlowNavigator = createStackNavigator(
 );
 
 export const AddPersonThenCommunityMembersFlowNavigator = createStackNavigator(
-  AddPersonFlowScreens(({ orgId }) => navigateToOrg(orgId, GROUP_MEMBERS)),
+  AddPersonFlowScreens(({ orgId }) => dispatch =>
+    dispatch(navigateToOrg(orgId, GROUP_MEMBERS)),
+  ),
   {
     navigationOptions: {
       header: null,

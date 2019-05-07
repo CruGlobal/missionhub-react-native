@@ -40,6 +40,16 @@ class AddContactScreen extends Component {
     this.setState({ person: { ...this.state.person, ...newData } });
   }
 
+  complete = (savedPerson, person) => {
+    const { dispatch, next } = this.props;
+
+    dispatch(next({ person, savedPerson }));
+  };
+
+  completeWithoutSave = () => {
+    this.complete(false);
+  };
+
   removeUneditedFields() {
     const { person, personOrgPermission, organization, isInvite } = this.props;
     const saveData = { ...this.state.person };
@@ -141,7 +151,7 @@ class AddContactScreen extends Component {
 
       !isEdit && dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
 
-      dispatch(next({ person: results.response }));
+      this.complete(true, results.response);
     } catch (error) {
       this.handleError(error);
     }
@@ -158,7 +168,7 @@ class AddContactScreen extends Component {
             <IconButton
               name="deleteIcon"
               type="MissionHub"
-              onPress={this.navigateBack}
+              onPress={this.completeWithoutSave}
             />
           }
           shadow={false}
