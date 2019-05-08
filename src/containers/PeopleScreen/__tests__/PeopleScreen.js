@@ -183,15 +183,14 @@ it('should open main menu', () => {
 
 describe('handleAddContact', () => {
   const organization = orgs[0];
-  let screen;
 
   describe('not isJean', () => {
     beforeEach(() => {
-      screen = renderShallow(<PeopleScreen {...{ ...props, isJean: false }} />);
+      const instance = renderShallow(
+        <PeopleScreen {...props} isJean={false} />,
+      ).instance();
 
-      const addPersonButton = renderShallow(screen.childAt(1).props().right);
-
-      addPersonButton.props().onPress();
+      instance.handleAddContact();
     });
 
     it('should navigate to add person flow', () => {
@@ -204,7 +203,7 @@ describe('handleAddContact', () => {
 
   describe('isJean', () => {
     beforeEach(() => {
-      screen = renderShallow(<PeopleScreen {...props} isJean={true} />);
+      const screen = renderShallow(<PeopleScreen {...props} isJean={true} />);
 
       screen
         .childAt(2)

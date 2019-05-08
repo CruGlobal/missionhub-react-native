@@ -53,7 +53,7 @@ class AddContactScreen extends Component {
   };
 
   removeUneditedFields() {
-    const { person, personOrgPermission, organization, isInvite } = this.props;
+    const { person, personOrgPermission, organization } = this.props;
     const saveData = { ...this.state.person };
 
     if (person) {
@@ -95,7 +95,7 @@ class AddContactScreen extends Component {
     if (organization) {
       saveData.orgId = organization.id;
     }
-    saveData.assignToMe = !isInvite;
+    saveData.assignToMe = true;
 
     return saveData;
   }
@@ -134,7 +134,7 @@ class AddContactScreen extends Component {
   }
 
   async savePerson() {
-    const { dispatch, isEdit, next } = this.props;
+    const { dispatch, isEdit } = this.props;
 
     if (!this.checkEmailAndName()) {
       return;

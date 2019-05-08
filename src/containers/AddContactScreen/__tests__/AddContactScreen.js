@@ -101,27 +101,34 @@ describe('handleUpdateData', () => {
 });
 
 describe('complete', () => {
-  it('should run navigateBack', () => {
-    const addedResults = { response: { id: '1112' } };
-    const component = buildScreenInstance({
-      navigation: createMockNavState(),
+  const mockNext = jest.fn().mockReturnValue({ type: 'test' });
+  const savedPerson = { id: '1112' };
+  let component;
+
+  beforeEach(() => {
+    component = buildScreenInstance({
+      navigation: createMockNavState({ next: mockNext, organization }),
     });
-
-    component.complete(addedResults);
-
-    expect(navigateBack).toHaveBeenCalledTimes(1);
   });
 
-  it('should run next', () => {
-    const mockNext = jest.fn().mockReturnValue({ type: 'test' });
-    const addedResults = { response: { id: '1112' } };
-    const component = buildScreenInstance({
-      navigation: createMockNavState({ next: mockNext }),
+  it('should run next after save', () => {
+    component.complete(true, savedPerson);
+
+    expect(mockNext).toHaveBeenCalledWith({
+      savedPerson: true,
+      person: savedPerson,
+      orgId: organization.id,
     });
+  });
 
-    component.complete(addedResults);
+  it('should run next without save', () => {
+    component.complete(false, savedPerson);
 
-    expect(mockNext).toHaveBeenCalledWith({ person: addedResults.response });
+    expect(mockNext).toHaveBeenCalledWith({
+      savedPerson: false,
+      person: savedPerson,
+      orgId: organization.id,
+    });
   });
 });
 

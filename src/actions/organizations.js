@@ -17,14 +17,13 @@ import { removeHiddenOrgs } from '../selectors/selectorUtils';
 import {
   getScreenForOrg,
   GROUP_CHALLENGES,
-  GROUP_MEMBERS,
 } from '../containers/Groups/GroupScreen';
 
 import { getMe, getPersonDetails } from './person';
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
 import { reloadGroupChallengeFeed } from './challenges';
-import { navigateReset } from './navigation';
+import { navigatePush } from './navigation';
 
 const getOrganizationsQuery = {
   limit: 100,
@@ -636,12 +635,10 @@ export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
 
     if (initialTab === GROUP_CHALLENGES) {
       await dispatch(reloadGroupChallengeFeed(organization.id));
-    } else if (initialTab === GROUP_MEMBERS) {
-      await dispatch(getOrganizationMembers(organization.id));
     }
 
     return dispatch(
-      navigateReset(getScreenForOrg(organization), {
+      navigatePush(getScreenForOrg(organization), {
         organization,
         initialTab,
       }),

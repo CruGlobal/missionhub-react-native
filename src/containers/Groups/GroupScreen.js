@@ -103,7 +103,7 @@ export class GroupScreen extends Component {
 
 const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
 export const GROUP_CHALLENGES = 'nav/GROUP_CHALLENGES';
-export const GROUP_MEMBERS = 'nav/GROUP_MEMBERS';
+GROUP_MEMBERS = 'nav/GROUP_MEMBERS';
 const GROUP_IMPACT = 'nav/GROUP_IMPACT';
 const GROUP_CONTACTS = 'nav/GROUP_CONTACTS';
 const GROUP_SURVEYS = 'nav/GROUP_SURVEYS';
