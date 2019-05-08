@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { Alert } from 'react-native';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import {
   createThunkStore,
@@ -9,55 +11,45 @@ import {
   renderShallow,
   testSnapshotShallow,
 } from '../../../../testUtils';
+import { addNewPerson } from '../../../actions/organizations';
+import { updatePerson } from '../../../actions/person';
+import { trackActionWithoutData } from '../../../actions/analytics';
+import { navigateBack, navigatePush } from '../../../actions/navigation';
+import { PERSON_STAGE_SCREEN } from '../../PersonStageScreen';
+import {
+  ACTIONS,
+  ORG_PERMISSIONS,
+  CANNOT_EDIT_FIRST_NAME,
+} from '../../../constants';
 
 import AddContactScreen from '..';
 
-import { addNewPerson } from '../../../actions/organizations';
-import { updatePerson } from '../../../actions/person';
-import * as organizations from '../../../actions/organizations';
-import * as person from '../../../actions/person';
-import { navigateBack, navigatePush } from '../../../actions/navigation';
-import { PERSON_STAGE_SCREEN } from '../../PersonStageScreen';
-import { ORG_PERMISSIONS, CANNOT_EDIT_FIRST_NAME } from '../../../constants';
+jest.mock('react-native-device-info');
+jest.mock('../../../actions/organizations');
+jest.mock('../../../actions/person');
+jest.mock('../../../actions/analytics');
+jest.mock('../../../actions/navigation');
 
 const me = { id: 99 };
 const contactId = 23;
 const contactFName = 'Lebron';
 const organization = { id: 2 };
-
 const mockContactAssignment = { id: 123, assigned_to: me };
-
-const navigateBackResult = { type: 'navigated back' };
-
-const mockAddNewPerson = {
-  type: 'add new person',
-  response: {
-    id: contactId,
-    first_name: contactFName,
-    organization,
-    reverse_contact_assignments: [mockContactAssignment],
-  },
+const person = {
+  id: contactId,
+  first_name: contactFName,
+  organization,
+  reverse_contact_assignments: [mockContactAssignment],
 };
-jest.mock('../../../actions/organizations', () => ({
-  addNewPerson: jest.fn(() => mockAddNewPerson),
-}));
-const mockUpdatePerson = {
-  type: 'update person',
-  response: {
-    id: contactId,
-    first_name: contactFName,
-    organization,
-    reverse_contact_assignments: [mockContactAssignment],
-  },
-};
-jest.mock('../../../actions/person', () => ({
-  updatePerson: jest.fn(() => mockUpdatePerson),
-}));
 
-jest.mock('../../../actions/navigation');
+const addNewPersonResponse = { type: 'add new person', response: person };
+const updatePersonResponse = { type: 'update person', response: person };
+const trackActionResponse = { type: 'track action' };
+const nextResponse = { type: 'next' };
 
-jest.mock('react-native-device-info');
+const next = jest.fn();
 
+const mockStore = configureStore([thunk]);
 let store;
 const state = {
   auth: { person: me },
@@ -71,12 +63,11 @@ function buildScreenInstance(props) {
   return buildScreen(props).instance();
 }
 
-navigateBack.mockReturnValue(navigateBackResult);
-
 beforeEach(() => {
-  organizations.addNewPerson.mockImplementation(
-    jest.fn(() => mockAddNewPerson),
-  );
+  addNewPerson.mockReturnValue(addNewPersonResponse);
+  updatePerson.mockReturnValue(updatePersonResponse);
+  trackActionWithoutData.mockReturnValue(trackActionResponse);
+  next.mockReturnValue(nextResponse);
 
   store = createThunkStore(state);
 });
@@ -101,13 +92,12 @@ describe('handleUpdateData', () => {
 });
 
 describe('complete', () => {
-  const mockNext = jest.fn().mockReturnValue({ type: 'test' });
   const savedPerson = { id: '1112' };
   let component;
 
   beforeEach(() => {
     component = buildScreenInstance({
-      navigation: createMockNavState({ next: mockNext, organization }),
+      navigation: createMockNavState({ next, organization }),
     });
   });
 
@@ -133,124 +123,145 @@ describe('complete', () => {
 });
 
 describe('savePerson', () => {
-  it('should add a new person', async () => {
-    const componentInstance = buildScreenInstance({
-      navigation: createMockNavState(),
-      isEdit: false,
+  let navPerson = undefined;
+  let navOrg = undefined;
+  let screen;
+
+  const newName = 'new name';
+
+  beforeEach(async () => {
+    screen = buildScreen({
+      navigation: createMockNavState({
+        person: navPerson,
+        organization: navOrg,
+        next,
+      }),
     });
-    componentInstance.setState({
+
+    screen.instance().setState({
       person: {
-        first_name: contactFName,
+        ...screen.instance().state.person,
+        first_name: newName,
       },
     });
 
-    await componentInstance.savePerson();
-
-    expect(addNewPerson).toHaveBeenCalledWith({
-      assignToMe: true,
-      first_name: contactFName,
-    });
-    expect(store.getActions()).toEqual([mockAddNewPerson]);
+    await screen
+      .childAt(1)
+      .childAt(1)
+      .props()
+      .onPress();
   });
 
-  it('should add a new person with an org', async () => {
-    const componentInstance = buildScreenInstance({
-      navigation: createMockNavState(),
-      organization,
-      isEdit: false,
-    });
-    componentInstance.setState({
-      person: {
-        first_name: contactFName,
-      },
+  describe('add new person', () => {
+    beforeAll(() => {
+      navPerson = undefined;
     });
 
-    await componentInstance.savePerson();
+    describe('without org', () => {
+      beforeAll(() => {
+        navOrg = undefined;
+      });
 
-    expect(addNewPerson).toHaveBeenCalledWith({
-      first_name: contactFName,
-      orgId: organization.id,
-      assignToMe: true,
-    });
-    expect(store.getActions()).toEqual([mockAddNewPerson]);
-  });
-
-  it('should add a new person with an org without contact assignment', async () => {
-    const componentInstance = buildScreenInstance({
-      navigation: createMockNavState(),
-      organization,
-      isInvite: true,
-      isEdit: false,
-    });
-    componentInstance.setState({
-      person: {
-        first_name: contactFName,
-      },
-    });
-
-    await componentInstance.savePerson();
-
-    expect(addNewPerson).toHaveBeenCalledWith({
-      first_name: contactFName,
-      orgId: organization.id,
-      assignToMe: false,
-    });
-    expect(store.getActions()).toEqual([mockAddNewPerson, navigateBackResult]);
-    expect(navigatePush).not.toHaveBeenCalled();
-  });
-
-  it('should navigate to person stage screen', async () => {
-    const componentInstance = buildScreenInstance({
-      navigation: createMockNavState(),
-      organization,
-      isEdit: false,
-    });
-    componentInstance.setState({
-      person: {
-        first_name: contactFName,
-      },
+      it('should add a new person', () => {
+        expect(addNewPerson).toHaveBeenCalledWith({
+          assignToMe: true,
+          first_name: contactFName,
+        });
+        expect(trackActionWithoutData).toHaveBeenCalledWith(
+          ACTIONS.PERSON_ADDED,
+        );
+        expect(next).toHaveBeenCalledWith({
+          person: addNewPersonResponse.response,
+          orgId: undefined,
+          didSavePerson: true,
+        });
+        expect(store.getActions()).toEqual([
+          addNewPersonResponse,
+          trackActionResponse,
+          nextResponse,
+        ]);
+      });
     });
 
-    await componentInstance.savePerson();
+    describe('with org', () => {
+      beforeAll(() => {
+        navOrg = organization;
+      });
 
-    expect(store.getActions()).toEqual([mockAddNewPerson]);
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
-      onCompleteCelebration: expect.anything(),
-      addingContactFlow: true,
-      enableBackButton: false,
-      currentStage: null,
-      name: contactFName,
-      contactId: contactId,
-      contactAssignmentId: mockContactAssignment.id,
-      section: 'people',
-      subsection: 'person',
-      orgId: organization.id,
+      it('should add a new person', () => {
+        expect(addNewPerson).toHaveBeenCalledWith({
+          first_name: contactFName,
+          orgId: organization.id,
+          assignToMe: true,
+        });
+        expect(trackActionWithoutData).toHaveBeenCalledWith(
+          ACTIONS.PERSON_ADDED,
+        );
+        expect(next).toHaveBeenCalledWith({
+          person: addNewPersonResponse.response,
+          orgId: organization.id,
+          didSavePerson: true,
+        });
+        expect(store.getActions()).toEqual([
+          addNewPersonResponse,
+          trackActionResponse,
+          nextResponse,
+        ]);
+      });
     });
   });
 
-  it('should update person and navigate back', async () => {
-    const component = buildScreen({
-      navigation: createMockNavState(),
-      person: { id: contactId },
-    });
-    const componentInstance = component.instance();
-
-    component.setState({
-      person: {
-        ...componentInstance.state.person,
-        first_name: contactFName,
-      },
+  describe('update existing person', () => {
+    beforeAll(() => {
+      navPerson = person;
     });
 
-    await componentInstance.savePerson();
+    describe('without org', () => {
+      beforeAll(() => {
+        navOrg = undefined;
+      });
 
-    expect(updatePerson).toHaveBeenCalledWith({
-      first_name: contactFName,
-      id: contactId,
-      assignToMe: true,
+      it('should update person and navigate back', () => {
+        expect(updatePerson).toHaveBeenCalledWith({
+          first_name: contactFName,
+          assignToMe: true,
+        });
+        expect(trackActionWithoutData).not.toHaveBeenCalled();
+        expect(next).toHaveBeenCalledWith({
+          person: updatePersonResponse.response,
+          orgId: undefined,
+          didSavePerson: true,
+        });
+        expect(store.getActions()).toEqual([
+          updatePersonResponse,
+          nextResponse,
+        ]);
+      });
     });
-    expect(store.getActions()).toEqual([mockUpdatePerson, navigateBackResult]);
-    expect(navigateBack).toHaveBeenCalled();
+
+    describe('with org', () => {
+      beforeAll(() => {
+        navOrg = organization;
+      });
+
+      it('should update person and navigate back', () => {
+        expect(updatePerson).toHaveBeenCalledWith({
+          ...person,
+          first_name: contactFName,
+          assignToMe: true,
+        });
+        expect(trackActionWithoutData).not.toHaveBeenCalled();
+        expect(next).toHaveBeenCalledWith({
+          person: updatePersonResponse.response,
+          orgId: organization.id,
+          didSavePerson: true,
+        });
+        expect(store.getActions()).toEqual([
+          updatePersonResponse,
+          nextResponse,
+        ]);
+      });
+    });
   });
 
   it('should update person if person already created in add contact flow', async () => {

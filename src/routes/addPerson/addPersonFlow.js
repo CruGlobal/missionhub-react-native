@@ -21,8 +21,8 @@ export const AddPersonFlowScreens = onFlowComplete => ({
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       AddContactScreen,
-      ({ person, orgId, savedPerson }) => (dispatch, getState) => {
-        if (!savedPerson) {
+      ({ person, orgId, didSavePerson }) => (dispatch, getState) => {
+        if (!didSavePerson) {
           return dispatch(onFlowComplete({ orgId }));
         }
 

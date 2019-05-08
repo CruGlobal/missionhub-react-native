@@ -25,26 +25,19 @@ import styles from './styles';
 
 @translate('addContact')
 class AddContactScreen extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    person: this.props.person || {},
+  };
 
-    this.state = {
-      person: props.person || {},
-    };
-
-    this.savePerson = this.savePerson.bind(this);
-    this.handleUpdateData = this.handleUpdateData.bind(this);
-  }
-
-  handleUpdateData(newData) {
+  handleUpdateData = newData => {
     this.setState({ person: { ...this.state.person, ...newData } });
-  }
+  };
 
-  complete = (savedPerson, person) => {
+  complete = (didSavePerson, person) => {
     const { dispatch, organization, next } = this.props;
 
     dispatch(
-      next({ person, orgId: organization && organization.id, savedPerson }),
+      next({ person, orgId: organization && organization.id, didSavePerson }),
     );
   };
 
@@ -133,7 +126,7 @@ class AddContactScreen extends Component {
     }
   }
 
-  async savePerson() {
+  savePerson = async () => {
     const { dispatch, isEdit } = this.props;
 
     if (!this.checkEmailAndName()) {
@@ -157,7 +150,7 @@ class AddContactScreen extends Component {
     } catch (error) {
       this.handleError(error);
     }
-  }
+  };
 
   render() {
     const { t, organization, person, isJean } = this.props;
