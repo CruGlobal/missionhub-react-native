@@ -18,7 +18,10 @@ i18n
   .use(languageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en-US',
+    fallbackLng: {
+      'nb-US': ['no'],
+      default: ['en-US'],
+    },
 
     // Use downloaded translations if available but use en-US from source to make development easier
     resources: {
