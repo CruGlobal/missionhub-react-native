@@ -12,7 +12,10 @@ import {
   testSnapshotShallow,
   createThunkStore,
 } from '../../../../../testUtils';
-import { navigateBack, navigateResetTab } from '../../../../actions/navigation';
+import {
+  navigateBack,
+  navigateToMainTabs,
+} from '../../../../actions/navigation';
 import {
   updateOrganization,
   updateOrganizationImage,
@@ -22,18 +25,12 @@ import {
 } from '../../../../actions/organizations';
 import { trackActionWithoutData } from '../../../../actions/analytics';
 import { organizationSelector } from '../../../../selectors/organizations';
-import {
-  ORG_PERMISSIONS,
-  MAIN_TABS,
-  ACTIONS,
-  GROUPS_TAB,
-} from '../../../../constants';
+import { ORG_PERMISSIONS, ACTIONS, GROUPS_TAB } from '../../../../constants';
 import * as common from '../../../../utils/common';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
-  navigatePush: jest.fn(() => ({ type: 'push' })),
-  navigateResetTab: jest.fn(() => ({ type: 'resetTab' })),
+  navigateToMainTabs: jest.fn(() => ({ type: 'navigateToMainTabs' })),
 }));
 jest.mock('../../../../actions/organizations', () => ({
   updateOrganization: jest.fn(() => ({ type: 'update org' })),
@@ -274,7 +271,7 @@ describe('GroupProfile', () => {
       await Alert.alert.mock.calls[0][2][1].onPress();
 
       expect(deleteOrganization).toHaveBeenCalledWith(orgId);
-      expect(navigateResetTab).toHaveBeenCalledWith(MAIN_TABS, GROUPS_TAB);
+      expect(navigateToMainTabs).toHaveBeenCalledWith(GROUPS_TAB);
     });
   });
 

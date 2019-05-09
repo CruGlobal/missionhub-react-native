@@ -7,23 +7,19 @@ import {
   createThunkStore,
   renderShallow,
 } from '../../../../testUtils';
-import { MAIN_TABS, GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../../constants';
+import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../../constants';
 import * as common from '../../../utils/common';
 import { ADD_CONTACT_SCREEN } from '../../AddContactScreen';
-import { navigatePush, navigateResetTab } from '../../../actions/navigation';
+import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import { GROUP_PROFILE } from '../GroupProfile';
 
-jest.mock('../../../actions/navigation', () => ({
-  navigateBack: jest.fn(() => ({ type: 'back' })),
-  navigatePush: jest.fn(() => ({ type: 'push' })),
-  navigateResetTab: jest.fn(() => ({ type: 'resetTab' })),
-}));
+jest.mock('../../../actions/navigation');
 
 const organization = { id: '5', name: 'Test  Org', user_created: false };
 const userOrg = { ...organization, user_created: true };
 
 navigatePush.mockReturnValue({ type: 'navigate push' });
-navigateResetTab.mockReturnValue({ type: 'reset to tab' });
+navigateToMainTabs.mockReturnValue({ type: 'navigateToMainTabs' });
 
 describe('GroupScreen', () => {
   const createHeader = org => (
@@ -108,7 +104,7 @@ describe('GroupScreen', () => {
 
     component.props().left.props.onPress();
 
-    expect(navigateResetTab).toHaveBeenCalledWith(MAIN_TABS, GROUPS_TAB);
+    expect(navigateToMainTabs).toHaveBeenCalledWith(GROUPS_TAB);
   });
 
   it('calls disable back add', () => {
