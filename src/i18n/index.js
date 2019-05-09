@@ -16,9 +16,7 @@ const languageDetector = {
 
 function chooseLanguage() {
   const locale = DeviceInfo.getDeviceLocale();
-
   const baseLocale = locale.split('-')[0];
-  console.log(baseLocale);
 
   switch (baseLocale) {
     case 'no':
