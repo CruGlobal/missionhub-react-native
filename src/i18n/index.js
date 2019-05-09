@@ -14,14 +14,29 @@ const languageDetector = {
   cacheUserLanguage: () => {},
 };
 
+function chooseLanguage() {
+  const locale = DeviceInfo.getDeviceLocale();
+
+  const baseLocale = locale.split('-')[0];
+  console.log(baseLocale);
+
+  switch (baseLocale) {
+    case 'no':
+    case 'nb':
+    case 'nn':
+      return 'no';
+    default:
+      return 'en-US';
+  }
+}
+
 i18n
   .use(languageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: {
-      'nb-US': ['no'],
-      default: ['en-US'],
-    },
+    lng: chooseLanguage(),
+
+    fallbackLng: 'en-US',
 
     // Use downloaded translations if available but use en-US from source to make development easier
     resources: {
