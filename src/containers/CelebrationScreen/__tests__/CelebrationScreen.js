@@ -11,8 +11,7 @@ import {
 
 import CelebrationScreen from '..';
 
-import { navigateReset } from '../../../actions/navigation';
-import { MAIN_TABS } from '../../../constants';
+import { navigateReset, navigateToMainTabs } from '../../../actions/navigation';
 import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen';
 
 let store;
@@ -25,6 +24,7 @@ mockMath.random = () => 0;
 global.Math = mockMath;
 
 navigateReset.mockReturnValue({ type: 'navigated reset' });
+navigateToMainTabs.mockReturnValue({ type: 'navigateToMainTabs' });
 
 beforeEach(() => {
   store = createThunkStore();
@@ -75,7 +75,7 @@ describe('celebration screen methods', () => {
       expect(mockNext).toHaveBeenCalledTimes(1);
     });
 
-    it('runs navigateReset with MAIN_TABS', () => {
+    it('runs navigateToMainTabs', () => {
       screen = renderShallow(
         <CelebrationScreen navigation={createMockNavState()} />,
         store,
@@ -83,7 +83,7 @@ describe('celebration screen methods', () => {
       component = screen.instance();
 
       component.navigateToNext();
-      expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS);
+      expect(navigateToMainTabs).toHaveBeenCalled();
     });
 
     it('runs navigateReset with next screen', () => {

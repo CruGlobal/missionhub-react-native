@@ -1,11 +1,6 @@
 import PushNotification from 'react-native-push-notification';
 
-import {
-  ACTIONS,
-  CLEAR_UPGRADE_TOKEN,
-  LOGOUT,
-  MAIN_TABS,
-} from '../../constants';
+import { ACTIONS, CLEAR_UPGRADE_TOKEN, LOGOUT } from '../../constants';
 import { LANDING_SCREEN } from '../../containers/LandingScreen';
 import { rollbar } from '../../utils/rollbar.config';
 import { navigateReset } from '../navigation';
@@ -15,6 +10,7 @@ import { SIGN_IN_FLOW } from '../../routes/constants';
 import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';
 import { completeOnboarding } from '../onboardingProfile';
 import { ADD_SOMEONE_SCREEN } from '../../containers/AddSomeoneScreen';
+import { navigateToMainTabs } from '../navigation';
 
 export function logout(forcedLogout = false) {
   return async dispatch => {
@@ -58,20 +54,16 @@ export const retryIfInvalidatedClientToken = (
 export const navigateToPostAuthScreen = () => (dispatch, getState) => {
   const { person } = getState().auth;
 
-  let nextScreen;
-
   if (!person.user.pathway_stage_id) {
-    nextScreen = GET_STARTED_SCREEN;
+    dispatch(navigateReset(GET_STARTED_SCREEN));
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   } else if (hasPersonWithStageSelected(person)) {
-    nextScreen = MAIN_TABS;
+    dispatch(navigateToMainTabs());
     dispatch(completeOnboarding());
   } else {
-    nextScreen = ADD_SOMEONE_SCREEN;
+    dispatch(navigateReset(ADD_SOMEONE_SCREEN));
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   }
-
-  dispatch(navigateReset(nextScreen));
 };
 
 function hasPersonWithStageSelected(person) {

@@ -1,5 +1,9 @@
 import { NavigationActions, StackActions } from 'react-navigation';
 
+import { MAIN_TABS, STEPS_TAB } from '../constants';
+
+import { loadHome } from './auth/userData';
+
 export function navigatePush(screen, props = {}) {
   return dispatch => {
     dispatch(
@@ -60,3 +64,8 @@ export function navigateReplace(screen, props = {}) {
     );
   };
 }
+
+export const navigateToMainTabs = (tab = STEPS_TAB) => dispatch => {
+  dispatch(loadHome());
+  dispatch(navigateResetTab(MAIN_TABS, tab));
+};

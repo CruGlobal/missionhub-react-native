@@ -107,12 +107,12 @@ Array [
 exports[`navigateToPostAuthScreen should navigate to main tabs if user has pathway_stage_id and contact assignments 1`] = `
 Array [
   Object {
-    "type": "app/COMPLETE_ONBOARDING",
-  },
-  Object {
     "actions": Array [
       Object {
-        "params": Object {},
+        "action": Object {
+          "routeName": "StepsTab",
+          "type": "Navigation/NAVIGATE",
+        },
         "routeName": "nav/MAIN_TABS",
         "type": "Navigation/NAVIGATE",
       },
@@ -120,6 +120,9 @@ Array [
     "index": 0,
     "key": null,
     "type": "Navigation/RESET",
+  },
+  Object {
+    "type": "app/COMPLETE_ONBOARDING",
   },
 ]
 `;
