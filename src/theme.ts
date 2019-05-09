@@ -1,7 +1,7 @@
 import { Dimensions, StatusBarStyle } from 'react-native';
 import Color from 'color';
 
-import { exists, isAndroid, hasNotch } from './utils/common';
+import { isAndroid, hasNotch } from './utils/common';
 
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window');
 
@@ -26,7 +26,7 @@ function colorConvert({
   whiten?: number;
   blacken?: number;
   hex?: boolean;
-}) {
+}): string {
   let col = Color(color);
   // Lots of things you can do with color stuff
   if (alpha) {
