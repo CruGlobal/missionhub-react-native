@@ -6,14 +6,6 @@ import mapValues from 'lodash/mapValues';
 import translations from './locales/translations.json';
 import en_US from './locales/en-US.js';
 
-const languageDetector = {
-  type: 'languageDetector',
-  async: false,
-  detect: () => DeviceInfo.getDeviceLocale(),
-  init: () => {},
-  cacheUserLanguage: () => {},
-};
-
 function chooseLanguage() {
   const locale = DeviceInfo.getDeviceLocale();
   const baseLocale = locale.split('-')[0];
@@ -28,31 +20,28 @@ function chooseLanguage() {
   }
 }
 
-i18n
-  .use(languageDetector)
-  .use(initReactI18next)
-  .init({
-    lng: chooseLanguage(),
+i18n.use(initReactI18next).init({
+  lng: chooseLanguage(),
 
-    fallbackLng: 'en-US',
+  fallbackLng: 'en-US',
 
-    // Use downloaded translations if available but use en-US from source to make development easier
-    resources: {
-      ...mapValues(translations, 'translation'),
-      ...{ 'en-US': en_US },
-    },
+  // Use downloaded translations if available but use en-US from source to make development easier
+  resources: {
+    ...mapValues(translations, 'translation'),
+    ...{ 'en-US': en_US },
+  },
 
-    // have a common namespace used around the full app
-    ns: ['common'],
-    defaultNS: 'common',
-    fallbackNS: 'common',
+  // have a common namespace used around the full app
+  ns: ['common'],
+  defaultNS: 'common',
+  fallbackNS: 'common',
 
-    interpolation: {
-      escapeValue: false, // not needed for react as it does escape per default to prevent xss!
-    },
+  interpolation: {
+    escapeValue: false, // not needed for react as it does escape per default to prevent xss!
+  },
 
-    react: {
-      wait: true,
-      nsMode: 'fallback',
-    },
-  });
+  react: {
+    wait: true,
+    nsMode: 'fallback',
+  },
+});
