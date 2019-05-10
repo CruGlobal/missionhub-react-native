@@ -16,27 +16,22 @@ const languageDetector = {
 
 function chooseLanguage() {
   const locale = DeviceInfo.getDeviceLocale();
-  const baseLocale = locale.split('-')[0];
 
-  switch (locale) {
-    case 'en-CA':
-    case 'fr-CA':
-    case 'pt-BR':
-      return locale;
-    default:
-      switch (baseLocale) {
-        case 'es':
-          return 'es-419';
-        case 'hu':
-        case 'id':
-          return baseLocale;
-        case 'no':
-        case 'nb':
-        case 'nn':
-          return 'no';
-        default:
-          return 'en-US';
-      }
+  if (JSON.parse(translations)[locale]) {
+    return locale;
+  } else {
+    const [baseLocale] = locale.split('-');
+
+    switch (baseLocale) {
+      case 'es':
+        return 'es-419';
+      case 'no':
+      case 'nb':
+      case 'nn':
+        return 'no';
+      default:
+        return 'en-US';
+    }
   }
 }
 

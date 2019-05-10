@@ -7,9 +7,8 @@ import oneSky from '@brainly/onesky-utils';
 dotenv.config({ path: '.env.local' });
 
 export function filterReadyTranslations(translationsRaw, languagesRaw) {
-  let readyLanguages = JSON.parse(languagesRaw);
-  readyLanguages = readyLanguages.data
-    .filter(language => language.is_ready_to_publish)
+  const readyLanguages = JSON.parse(languagesRaw)
+    .data.filter(language => language.is_ready_to_publish)
     .map(language => language.code);
 
   const translations = JSON.parse(translationsRaw);
