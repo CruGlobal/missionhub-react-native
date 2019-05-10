@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
@@ -23,7 +23,7 @@ import { getOrganizationContacts } from '../../actions/organizations';
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 import styles from './styles';
 
-@translate('groupsSurveyContacts')
+@withTranslation('groupsSurveyContacts')
 class SurveyContacts extends Component {
   constructor(props) {
     super(props);
@@ -86,11 +86,8 @@ class SurveyContacts extends Component {
     return this.handleLoadMore(text);
   };
 
-  handleRefreshSearchList = () => {
-    if (this.searchList && this.searchList.getWrappedInstance) {
-      this.searchList.getWrappedInstance().search();
-    }
-  };
+  handleRefreshSearchList = () =>
+    this.searchListSearch && this.searchListSearch();
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
@@ -128,7 +125,7 @@ class SurveyContacts extends Component {
     return response;
   };
 
-  ref = c => (this.searchList = c);
+  setSearch = search => (this.searchListSearch = search);
 
   renderItem = ({ item }) => {
     const { organization } = this.props;
@@ -155,7 +152,7 @@ class SurveyContacts extends Component {
         />
         <SafeAreaView style={{ flex: 1 }}>
           <SearchList
-            ref={this.ref}
+            setSearch={this.setSearch}
             defaultData={defaultResults}
             onFilterPress={this.handleFilterPress}
             listProps={{

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders android correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -22,14 +22,14 @@ exports[`renders android correctly 1`] = `
     shadow={true}
     title="STEPS OF FAITH"
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <ScrollView
+    <ScrollViewMock
       contentContainerStyle={
         Array [
           Object {
@@ -78,7 +78,7 @@ exports[`renders android correctly 1`] = `
           ]
         }
       >
-        <Connect(Translate(StepItem))
+        <Connect(withI18nextTranslation(StepItem))
           key="1"
           onAction={[Function]}
           onSelect={[Function]}
@@ -135,13 +135,13 @@ exports[`renders android correctly 1`] = `
         updateCellsBatchingPeriod={50}
         windowSize={21}
       />
-    </ScrollView>
-  </Component>
-</Component>
+    </ScrollViewMock>
+  </View>
+</View>
 `;
 
 exports[`renders loading on Android correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -163,5 +163,5 @@ exports[`renders loading on Android correctly 1`] = `
     title="STEPS OF FAITH"
   />
   <LoadingGuy />
-</Component>
+</View>
 `;

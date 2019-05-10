@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Alert, TouchableOpacity } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 const RNImagePicker = require('react-native-image-picker');
 
@@ -23,7 +23,7 @@ function getType(response) {
   return 'image/jpeg';
 }
 
-@translate('imagePicker')
+@withTranslation('imagePicker')
 class ImagePicker extends Component {
   selectImage = () => {
     const { t, onSelectImage } = this.props;

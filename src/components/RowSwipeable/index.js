@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Animated, PanResponder, DeviceEventEmitter } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Touchable, Icon, Text } from '../common';
 
@@ -11,7 +11,7 @@ const OPTION_WIDTH = 75;
 // Distance the gesture must travel before initiating the swipe action
 const OPEN_MOVE_THRESHOLD = 15;
 
-@translate()
+@withTranslation()
 class RowSwipeable extends Component {
   constructor(props) {
     super(props);

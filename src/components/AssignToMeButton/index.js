@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
 import { Button } from '../common';
@@ -8,7 +8,7 @@ import { assignContactAndPickStage } from '../../actions/misc';
 
 import styles from './styles';
 
-@translate()
+@withTranslation()
 class AssignToMeButton extends Component {
   assignToMe = async () => {
     const { dispatch, person, organization, myId, onComplete } = this.props;

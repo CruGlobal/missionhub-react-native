@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SurveyContacts should render correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -12,7 +12,7 @@ exports[`SurveyContacts should render correctly 1`] = `
   <Header
     left={<Connect(BackButton) />}
     right={
-      <Translate(ShareSurveyMenu)
+      <withI18nextTranslation(ShareSurveyMenu)
         header={true}
         survey={
           Object {
@@ -31,7 +31,7 @@ exports[`SurveyContacts should render correctly 1`] = `
       }
     }
   >
-    <Translate(SearchList)
+    <withI18nextTranslation(SearchList)
       defaultData={Array []}
       filters={
         Object {
@@ -57,13 +57,14 @@ exports[`SurveyContacts should render correctly 1`] = `
       onRemoveFilter={[Function]}
       onSearch={[Function]}
       placeholder="Search Contacts"
+      setSearch={[Function]}
     />
   </SafeAreaView>
-</Component>
+</View>
 `;
 
 exports[`SurveyContacts should render item correctly 1`] = `
-<Translate(PersonListItem)
+<withI18nextTranslation(PersonListItem)
   onSelect={[Function]}
   organization={
     Object {

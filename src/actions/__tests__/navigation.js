@@ -1,82 +1,115 @@
-import { NavigationActions, StackActions } from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
 
-jest.mock('react-navigation', () => ({
-  NavigationActions: {
-    navigate: jest.fn(),
-    back: jest.fn(),
-  },
-  StackActions: {
-    pop: jest.fn(),
-    reset: jest.fn(),
-    replace: jest.fn(),
-    push: jest.fn(),
-  },
-}));
 import {
   navigatePush,
   navigateBack,
   navigateReset,
   navigateReplace,
   navigateNestedReset,
+  navigateResetTab,
+  navigateToMainTabs,
 } from '../navigation';
+import { MAIN_TABS, GROUPS_TAB } from '../../constants';
+import { loadHome } from '../auth/userData';
+import { createThunkStore } from '../../../testUtils';
+
+jest.mock('../auth/userData', () => ({
+  loadHome: jest.fn(() => ({ type: 'loadHome' })),
+}));
 
 const routeName = 'screenName';
 const params = { prop1: 'value1' };
 
 describe('navigatePush', () => {
   it('should push new screen onto the stack', () => {
-    navigatePush(routeName, params)(jest.fn());
-    expect(StackActions.push).toHaveBeenCalledWith({
-      routeName,
-      params,
-    });
+    const { dispatch, getActions } = createThunkStore();
+
+    dispatch(navigatePush(routeName, params));
+
+    expect(getActions()).toEqual([
+      {
+        type: 'Navigation/PUSH',
+        routeName,
+        params,
+      },
+    ]);
   });
   it('should push new screen onto the stack with no props', () => {
-    navigatePush(routeName)(jest.fn());
-    expect(StackActions.push).toHaveBeenCalledWith({
-      routeName,
-      params: {},
-    });
+    const { dispatch, getActions } = createThunkStore();
+
+    dispatch(navigatePush(routeName));
+
+    expect(getActions()).toEqual([
+      {
+        type: 'Navigation/PUSH',
+        routeName,
+        params: {},
+      },
+    ]);
   });
 });
 
 describe('navigateBack', () => {
   it('should navigate back once', () => {
-    navigateBack()(jest.fn());
-    expect(NavigationActions.back).toHaveBeenCalledWith();
+    const { dispatch, getActions } = createThunkStore();
+
+    dispatch(navigateBack());
+
+    expect(getActions()).toEqual([
+      { type: 'Navigation/BACK', immediate: undefined, key: undefined },
+    ]);
   });
   it('should navigate back multiple times', () => {
-    navigateBack(5)(jest.fn());
-    expect(StackActions.pop).toHaveBeenCalledWith({ n: 5, immediate: true });
+    const { dispatch, getActions } = createThunkStore();
+
+    dispatch(navigateBack(5));
+
+    expect(getActions()).toEqual([
+      { type: 'Navigation/POP', n: 5, immediate: true },
+    ]);
   });
 });
 
 describe('navigateReset', () => {
   it('should reset navigation stack', () => {
-    NavigationActions.navigate.mockReturnValue('newRouterState');
-    navigateReset(routeName, params)(jest.fn());
-    expect(NavigationActions.navigate).toHaveBeenCalledWith({
-      routeName,
-      params,
-    });
-    expect(StackActions.reset).toHaveBeenCalledWith({
-      index: 0,
-      key: null,
-      actions: ['newRouterState'],
-    });
+    const { dispatch, getActions } = createThunkStore();
+
+    dispatch(navigateReset(routeName, params));
+
+    expect(getActions()).toEqual([
+      {
+        type: 'Navigation/RESET',
+        index: 0,
+        key: null,
+        actions: [
+          {
+            type: 'Navigation/NAVIGATE',
+            routeName,
+            params,
+          },
+        ],
+      },
+    ]);
   });
   it('should reset navigation stack with no props', () => {
-    NavigationActions.navigate.mockReturnValue('newRouterState');
-    navigateReset(routeName)(jest.fn());
-    expect(NavigationActions.navigate).toHaveBeenCalledWith({
-      routeName,
-      params: {},
-    });
-    expect(StackActions.reset).toHaveBeenCalledWith({
-      index: 0,
-      key: null,
-      actions: ['newRouterState'],
-    });
+    const { dispatch, getActions } = createThunkStore();
+
+    dispatch(navigateReset(routeName));
+
+    expect(getActions()).toEqual([
+      {
+        type: 'Navigation/RESET',
+        index: 0,
+        key: null,
+        actions: [
+          {
+            type: 'Navigation/NAVIGATE',
+            routeName,
+            params: {},
+          },
+        ],
+      },
+    ]);
   });
 });
 
@@ -85,27 +118,88 @@ describe('navigateNestedReset', () => {
   const screen2 = 'the dummy';
 
   it('should reset to a nested navigate stack', () => {
-    NavigationActions.navigate.mockImplementation(({ routeName }) => ({
-      routeName,
-    }));
+    const { dispatch, getActions } = createThunkStore();
 
-    navigateNestedReset(screen1, screen2)(jest.fn());
+    dispatch(navigateNestedReset(screen1, screen2));
 
-    expect(StackActions.reset).toHaveBeenCalledWith({
-      index: 1,
-      key: null,
-      actions: [{ routeName: screen1 }, { routeName: screen2 }],
-    });
+    expect(getActions()).toEqual([
+      {
+        type: 'Navigation/RESET',
+        index: 1,
+        key: null,
+        actions: [
+          { type: 'Navigation/NAVIGATE', routeName: screen1 },
+          { type: 'Navigation/NAVIGATE', routeName: screen2 },
+        ],
+      },
+    ]);
+  });
+});
+
+describe('navigateResetTab', () => {
+  const screen1 = 'Tabs Screen';
+  const screen2 = 'Specific Tab';
+
+  it('should reset to a specific tab', () => {
+    const { dispatch, getActions } = createThunkStore();
+
+    dispatch(navigateResetTab(screen1, screen2));
+
+    expect(getActions()).toEqual([
+      {
+        type: 'Navigation/RESET',
+        index: 0,
+        key: null,
+        actions: [
+          {
+            type: 'Navigation/NAVIGATE',
+            routeName: screen1,
+            action: NavigationActions.navigate({ routeName: screen2 }),
+          },
+        ],
+      },
+    ]);
   });
 });
 
 describe('navigateReplace', () => {
   it('should replace last route in navigation stack', () => {
-    navigateReplace(routeName, params)(jest.fn());
-    expect(StackActions.replace).toHaveBeenCalledWith({
-      routeName,
-      params,
-      immediate: true,
-    });
+    const { dispatch, getActions } = createThunkStore();
+
+    dispatch(navigateReplace(routeName, params));
+
+    expect(getActions()).toEqual([
+      {
+        type: 'Navigation/REPLACE',
+        routeName,
+        params,
+        immediate: true,
+      },
+    ]);
+  });
+});
+
+describe('navigateToMainTabs', () => {
+  it('should dispatch loadHome and then navigate to main tabs', () => {
+    const { dispatch, getActions } = createThunkStore();
+
+    dispatch(navigateToMainTabs(GROUPS_TAB));
+
+    expect(loadHome).toHaveBeenCalled();
+    expect(getActions()).toEqual([
+      { type: 'loadHome' },
+      {
+        type: 'Navigation/RESET',
+        index: 0,
+        key: null,
+        actions: [
+          {
+            type: 'Navigation/NAVIGATE',
+            routeName: MAIN_TABS,
+            action: NavigationActions.navigate({ routeName: GROUPS_TAB }),
+          },
+        ],
+      },
+    ]);
   });
 });

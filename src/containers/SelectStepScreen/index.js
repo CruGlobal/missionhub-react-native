@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
@@ -22,7 +22,7 @@ import Header from '../../components/Header';
 
 import styles from './styles';
 
-@translate('selectStep')
+@withTranslation('selectStep')
 class SelectStepScreen extends Component {
   componentDidMount() {
     const { enableBackButton } = this.props;

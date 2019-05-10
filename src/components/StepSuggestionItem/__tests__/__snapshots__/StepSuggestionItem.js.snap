@@ -12,9 +12,6 @@ exports[`StepSuggestionScreen renders correctly 1`] = `
   }
 >
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "fontSize": 16,

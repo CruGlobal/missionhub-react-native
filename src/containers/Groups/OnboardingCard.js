@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import HEARTS from '../../../assets/images/celebrateHearts.png';
@@ -16,7 +16,7 @@ import theme from '../../theme';
 
 import styles from './styles';
 
-@translate('groupOnboardingCard')
+@withTranslation('groupOnboardingCard')
 class OnboardingCard extends Component {
   getImage() {
     switch (this.props.type) {

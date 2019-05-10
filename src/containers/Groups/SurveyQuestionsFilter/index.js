@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
 import FilterList from '../../../components/FilterList';
@@ -9,7 +9,7 @@ import { buildTrackingObj, isString } from '../../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 
-@translate('searchFilter')
+@withTranslation('searchFilter')
 export class SurveyQuestionsFilter extends Component {
   constructor(props) {
     super(props);

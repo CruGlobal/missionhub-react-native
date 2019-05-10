@@ -210,7 +210,7 @@ describe('scroll events', () => {
     instance = screen.instance();
     screen.setState({ scrollViewHeight });
     screen.update();
-    instance.getCommentRefs = jest.fn().mockReturnValue(refs);
+    instance.commentListRefs = refs;
     instance.list = { getScrollResponder: () => scrollResponder };
   }
   function checkShow(method) {

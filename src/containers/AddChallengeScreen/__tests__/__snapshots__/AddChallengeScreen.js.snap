@@ -2,6 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -30,9 +31,6 @@ exports[`renders correctly 1`] = `
       }
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -62,9 +60,6 @@ exports[`renders correctly 1`] = `
   >
     <View>
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -93,6 +88,7 @@ exports[`renders correctly 1`] = `
         onChangeText={[Function]}
         placeholder="Describe Your Challenge"
         placeholderTextColor="#ffffff"
+        rejectResponderTermination={true}
         returnKeyType="done"
         selectionColor="#ffffff"
         style={
@@ -116,9 +112,6 @@ exports[`renders correctly 1`] = `
     </View>
     <View>
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -140,7 +133,6 @@ exports[`renders correctly 1`] = `
       </Text>
       <View>
         <View
-          accessibilityTraits="button"
           accessible={true}
           isTVSelectable={true}
           onResponderGrant={[Function]}
@@ -167,9 +159,6 @@ exports[`renders correctly 1`] = `
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -207,7 +196,6 @@ exports[`renders correctly 1`] = `
           visible={false}
         >
           <View
-            accessibilityTraits="button"
             accessible={true}
             isTVSelectable={true}
             onResponderGrant={[Function]}
@@ -248,6 +236,7 @@ exports[`renders correctly 1`] = `
             >
               <RCTDatePicker
                 date={1535760000000}
+                locale="en-TEST"
                 minimumDate={1535760000000}
                 mode="date"
                 onChange={[Function]}
@@ -276,7 +265,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <View
-                accessibilityTraits="button"
                 accessible={true}
                 isTVSelectable={true}
                 onResponderGrant={[Function]}
@@ -304,9 +292,6 @@ exports[`renders correctly 1`] = `
                   }
                 >
                   <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
                     style={
                       Array [
                         Object {
@@ -344,9 +329,6 @@ exports[`renders correctly 1`] = `
                 </View>
               </View>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {
@@ -367,7 +349,6 @@ exports[`renders correctly 1`] = `
                 Date
               </Text>
               <View
-                accessibilityTraits="button"
                 accessible={true}
                 isTVSelectable={true}
                 onResponderGrant={[Function]}
@@ -395,9 +376,6 @@ exports[`renders correctly 1`] = `
                   }
                 >
                   <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
                     style={
                       Array [
                         Object {
@@ -439,7 +417,6 @@ exports[`renders correctly 1`] = `
     </View>
   </View>
   <View
-    accessibilityTraits="button"
     accessible={true}
     isTVSelectable={true}
     onResponderGrant={[Function]}
@@ -474,9 +451,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -504,6 +478,7 @@ exports[`renders correctly 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Array [
         Object {
@@ -521,7 +496,6 @@ exports[`renders correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -549,9 +523,7 @@ exports[`renders correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -600,7 +572,7 @@ exports[`renders edit challenge correctly 1`] = `
     }
   }
 >
-  <Component
+  <View
     alignItems="center"
     flex={0.9}
     justifyContent="center"
@@ -619,9 +591,6 @@ exports[`renders edit challenge correctly 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#52C5DC",
@@ -632,8 +601,8 @@ exports[`renders edit challenge correctly 1`] = `
     >
       Edit Challenge
     </MyText>
-  </Component>
-  <Component
+  </View>
+  <View
     flex={1}
     style={
       Object {
@@ -642,11 +611,8 @@ exports[`renders edit challenge correctly 1`] = `
       }
     }
   >
-    <Component>
+    <View>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -669,12 +635,9 @@ exports[`renders edit challenge correctly 1`] = `
         selectionColor="#ffffff"
         value="Test Title"
       />
-    </Component>
-    <Component>
+    </View>
+    <View>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#52C5DC",
@@ -686,7 +649,7 @@ exports[`renders edit challenge correctly 1`] = `
       >
         End Date
       </MyText>
-      <Translate(MyDatePickerIOS)
+      <withI18nextTranslation(MyDatePickerIOS)
         customStyles={Object {}}
         date="2018-09-30 23:59:59"
         disabled={false}
@@ -696,7 +659,7 @@ exports[`renders edit challenge correctly 1`] = `
         mode="date"
         onDateChange={[Function]}
       >
-        <Component
+        <View
           style={
             Array [
               Object {
@@ -708,9 +671,6 @@ exports[`renders edit challenge correctly 1`] = `
           }
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "backgroundColor": "transparent",
@@ -723,10 +683,10 @@ exports[`renders edit challenge correctly 1`] = `
           >
             September 30, 2018
           </MyText>
-        </Component>
-      </Translate(MyDatePickerIOS)>
-    </Component>
-  </Component>
+        </View>
+      </withI18nextTranslation(MyDatePickerIOS)>
+    </View>
+  </View>
   <BottomButton
     disabled={true}
     onPress={[Function]}

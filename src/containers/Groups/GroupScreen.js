@@ -3,13 +3,18 @@ import { connect } from 'react-redux';
 import i18next from 'i18next';
 
 import Header from '../../components/Header/index';
-import { navigatePush, navigateReset } from '../../actions/navigation';
+import {
+  navigatePush,
+  navigateBack,
+  navigateToMainTabs,
+} from '../../actions/navigation';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ImpactView from '../ImpactView';
 import IconButton from '../../components/IconButton';
 import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../routes/constants';
 import { buildTrackingObj, disableBack } from '../../utils/common';
-import { GLOBAL_COMMUNITY_ID, MAIN_TABS } from '../../constants';
+import { GLOBAL_COMMUNITY_ID, MAIN_TABS, GROUPS_TAB } from '../../constants';
+import { getOrganizationMembers } from '../../actions/organizations';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
@@ -55,7 +60,7 @@ export class GroupScreen extends Component {
   };
 
   back = () => {
-    this.props.dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
+    this.props.dispatch(navigateToMainTabs(GROUPS_TAB));
   };
 
   renderAddContactIcon() {

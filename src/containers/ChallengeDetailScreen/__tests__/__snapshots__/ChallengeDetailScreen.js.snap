@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render completed challenge correctly 1`] = `
-<Component>
+<View>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
   <Header
     left={
       <IconButton
@@ -25,7 +31,7 @@ exports[`should render completed challenge correctly 1`] = `
       }
     }
   />
-  <Translate(ChallengeDetailHeader)
+  <withI18nextTranslation(ChallengeDetailHeader)
     canEditChallenges={true}
     challenge={
       Object {
@@ -45,11 +51,17 @@ exports[`should render completed challenge correctly 1`] = `
     }
     onEdit={[Function]}
   />
-</Component>
+</View>
 `;
 
 exports[`should render joined challenge correctly 1`] = `
-<Component>
+<View>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
   <Header
     left={
       <IconButton
@@ -91,7 +103,7 @@ exports[`should render joined challenge correctly 1`] = `
       }
     }
   />
-  <Translate(ChallengeDetailHeader)
+  <withI18nextTranslation(ChallengeDetailHeader)
     canEditChallenges={true}
     challenge={
       Object {
@@ -111,7 +123,7 @@ exports[`should render joined challenge correctly 1`] = `
     }
     onEdit={[Function]}
   />
-</Component>
+</View>
 `;
 
 exports[`should render tabs correctly 1`] = `
@@ -130,7 +142,13 @@ Array [
 `;
 
 exports[`should render unjoined challenge correctly 1`] = `
-<Component>
+<View>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
   <Header
     left={
       <IconButton
@@ -172,7 +190,7 @@ exports[`should render unjoined challenge correctly 1`] = `
       }
     }
   />
-  <Translate(ChallengeDetailHeader)
+  <withI18nextTranslation(ChallengeDetailHeader)
     canEditChallenges={true}
     challenge={
       Object {
@@ -192,11 +210,17 @@ exports[`should render unjoined challenge correctly 1`] = `
     }
     onEdit={[Function]}
   />
-</Component>
+</View>
 `;
 
 exports[`should render without edit correctly 1`] = `
-<Component>
+<View>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
   <Header
     left={
       <IconButton
@@ -238,7 +262,7 @@ exports[`should render without edit correctly 1`] = `
       }
     }
   />
-  <Translate(ChallengeDetailHeader)
+  <withI18nextTranslation(ChallengeDetailHeader)
     canEditChallenges={false}
     challenge={
       Object {
@@ -258,5 +282,5 @@ exports[`should render without edit correctly 1`] = `
     }
     onEdit={[Function]}
   />
-</Component>
+</View>
 `;

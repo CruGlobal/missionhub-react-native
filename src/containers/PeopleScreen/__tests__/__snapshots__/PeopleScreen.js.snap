@@ -100,8 +100,13 @@ Object {
 }
 `;
 
+<<<<<<< HEAD
 exports[`renders correctly as Casey 1`] = `
 <Component
+=======
+exports[`PeopleScreen renders correctly as Casey 1`] = `
+<View
+>>>>>>> develop
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -131,7 +136,7 @@ exports[`renders correctly as Casey 1`] = `
     shadow={true}
     title="PEOPLE"
   />
-  <Translate(PeopleList)
+  <withI18nextTranslation(PeopleList)
     items={
       Array [
         Object {
@@ -154,11 +159,16 @@ exports[`renders correctly as Casey 1`] = `
     refreshing={false}
     sections={false}
   />
-</Component>
+</View>
 `;
 
+<<<<<<< HEAD
 exports[`renders correctly as Jean 1`] = `
 <Component
+=======
+exports[`PeopleScreen renders correctly as Jean 1`] = `
+<View
+>>>>>>> develop
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -187,7 +197,7 @@ exports[`renders correctly as Jean 1`] = `
     shadow={false}
     title="PEOPLE"
   />
-  <Translate(PeopleList)
+  <withI18nextTranslation(PeopleList)
     items={
       Array [
         Object {
@@ -238,11 +248,16 @@ exports[`renders correctly as Jean 1`] = `
     refreshing={false}
     sections={true}
   />
-</Component>
+</View>
 `;
 
+<<<<<<< HEAD
 exports[`renders empty correctly 1`] = `
 <Component
+=======
+exports[`PeopleScreen renders empty correctly 1`] = `
+<View
+>>>>>>> develop
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -272,7 +287,7 @@ exports[`renders empty correctly 1`] = `
     shadow={true}
     title="PEOPLE"
   />
-  <Translate(PeopleList)
+  <withI18nextTranslation(PeopleList)
     items={
       Array [
         Object {
@@ -286,6 +301,6 @@ exports[`renders empty correctly 1`] = `
     refreshing={false}
     sections={false}
   />
-  <Connect(Translate(TakeAStepWithSomeoneButton)) />
-</Component>
+  <Connect(withI18nextTranslation(TakeAStepWithSomeoneButton)) />
+</View>
 `;

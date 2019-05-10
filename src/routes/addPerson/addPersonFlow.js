@@ -2,8 +2,12 @@
 
 import { createStackNavigator, StackActions } from 'react-navigation';
 
-import { MAIN_TABS } from '../../constants';
-import { navigatePush, navigateReset } from '../../actions/navigation';
+import { MAIN_TABS, PEOPLE_TAB } from '../../constants';
+import {
+  navigatePush,
+  navigateReset,
+  navigateToMainTabs,
+} from '../../actions/navigation';
 import { getOrganizationMembers } from '../../actions/organizations';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
@@ -95,7 +99,7 @@ export const AddPersonFlowScreens = onFlowComplete => ({
 });
 
 export const AddPersonThenStepScreenFlowNavigator = createStackNavigator(
-  AddPersonFlowScreens(() => navigateReset(MAIN_TABS)),
+  AddPersonFlowScreens(() => navigateToMainTabs()),
   {
     navigationOptions: {
       header: null,
@@ -104,7 +108,7 @@ export const AddPersonThenStepScreenFlowNavigator = createStackNavigator(
 );
 
 export const AddPersonThenPeopleScreenFlowNavigator = createStackNavigator(
-  AddPersonFlowScreens(() => navigateReset(MAIN_TABS, { startTab: 'people' })),
+  AddPersonFlowScreens(() => navigateToMainTabs(PEOPLE_TAB)),
   {
     navigationOptions: {
       header: null,

@@ -43,7 +43,7 @@ exports[`interaction items should render discipleship conversation 1`] = `
     }
     value={5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -55,9 +55,6 @@ exports[`interaction items should render discipleship conversation 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -68,9 +65,6 @@ exports[`interaction items should render discipleship conversation 1`] = `
       Someone had a discipleship conversation with Contact
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -128,7 +122,7 @@ exports[`interaction items should render gospel presentation 1`] = `
     }
     value={5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -140,9 +134,6 @@ exports[`interaction items should render gospel presentation 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -153,9 +144,6 @@ exports[`interaction items should render gospel presentation 1`] = `
       Someone shared the gospel with Contact
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -213,7 +201,7 @@ exports[`interaction items should render holy spirit conversation 1`] = `
     }
     value={5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -225,9 +213,6 @@ exports[`interaction items should render holy spirit conversation 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -238,9 +223,6 @@ exports[`interaction items should render holy spirit conversation 1`] = `
       Someone had a Holy Spirit conversation with Contact
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -298,7 +280,7 @@ exports[`interaction items should render note 1`] = `
     }
     value={5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -310,9 +292,6 @@ exports[`interaction items should render note 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -323,9 +302,6 @@ exports[`interaction items should render note 1`] = `
       Someone added a note about Contact
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -383,7 +359,7 @@ exports[`interaction items should render personal decision 1`] = `
     }
     value={5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -395,9 +371,6 @@ exports[`interaction items should render personal decision 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -408,9 +381,6 @@ exports[`interaction items should render personal decision 1`] = `
       Contact made a personal decision with Someone
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -468,7 +438,7 @@ exports[`interaction items should render something cool happened 1`] = `
     }
     value={5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -480,9 +450,6 @@ exports[`interaction items should render something cool happened 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -493,9 +460,6 @@ exports[`interaction items should render something cool happened 1`] = `
       Someone saw something cool happen with Contact
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -553,7 +517,7 @@ exports[`interaction items should render spiritual conversation 1`] = `
     }
     value={5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -565,9 +529,6 @@ exports[`interaction items should render spiritual conversation 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -578,9 +539,6 @@ exports[`interaction items should render spiritual conversation 1`] = `
       Someone had a spiritual conversation with Contact
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -638,7 +596,7 @@ exports[`renders contact assignment item 1`] = `
     }
     value={5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -650,9 +608,6 @@ exports[`renders contact assignment item 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -663,9 +618,6 @@ exports[`renders contact assignment item 1`] = `
       Test User was assigned to Iron Man by Captain America
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -723,7 +675,7 @@ exports[`renders contact unassignment item 1`] = `
     }
     value={5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -735,9 +687,6 @@ exports[`renders contact unassignment item 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -748,9 +697,6 @@ exports[`renders contact unassignment item 1`] = `
       Test User was unassigned from Iron Man
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -808,7 +754,7 @@ exports[`renders contact unassignment item with note 1`] = `
     }
     value={5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -820,9 +766,6 @@ exports[`renders contact unassignment item with note 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -833,9 +776,6 @@ exports[`renders contact unassignment item with note 1`] = `
       Test User was unassigned from Iron Man
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -893,7 +833,7 @@ exports[`renders survey item 1`] = `
     }
     value={5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -905,9 +845,6 @@ exports[`renders survey item 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -922,9 +859,6 @@ exports[`renders survey item 1`] = `
       key="a1"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -936,9 +870,6 @@ exports[`renders survey item 1`] = `
         Label 1
       </MyText>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,

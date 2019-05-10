@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 
@@ -21,6 +21,7 @@ import { communityChallengeSelector } from '../../selectors/challenges';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { isAdminOrOwner } from '../../utils/common';
+import theme from '../../theme';
 
 import styles from './styles';
 
@@ -64,7 +65,7 @@ export const CHALLENGE_DETAIL_TABS = [
   },
 ];
 
-@translate('challengeFeeds')
+@withTranslation('challengeFeeds')
 export class ChallengeDetailScreen extends Component {
   componentDidMount() {
     const { dispatch, challenge } = this.props;
@@ -123,6 +124,7 @@ export class ChallengeDetailScreen extends Component {
 
     return (
       <View>
+        <StatusBar {...theme.statusBar.darkContent} />
         <Header
           left={
             <IconButton

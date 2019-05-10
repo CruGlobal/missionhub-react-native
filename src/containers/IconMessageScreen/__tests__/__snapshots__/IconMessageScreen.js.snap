@@ -41,9 +41,6 @@ exports[`renders button text correctly 1`] = `
       }
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -66,6 +63,7 @@ exports[`renders button text correctly 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
         "flex": 1,
@@ -74,7 +72,6 @@ exports[`renders button text correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -107,9 +104,6 @@ exports[`renders button text correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -186,9 +180,6 @@ exports[`renders icon correctly 1`] = `
       }
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -211,6 +202,7 @@ exports[`renders icon correctly 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
         "flex": 1,
@@ -219,7 +211,6 @@ exports[`renders icon correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -297,9 +288,6 @@ exports[`renders main text correctly 1`] = `
       }
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -322,6 +310,7 @@ exports[`renders main text correctly 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
         "flex": 1,
@@ -330,7 +319,6 @@ exports[`renders main text correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -408,9 +396,6 @@ exports[`renders skip button correctly 1`] = `
       }
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -433,6 +418,7 @@ exports[`renders skip button correctly 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
         "flex": 1,
@@ -441,7 +427,6 @@ exports[`renders skip button correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -476,6 +461,7 @@ exports[`renders skip button correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
         "position": "absolute",
@@ -485,7 +471,6 @@ exports[`renders skip button correctly 1`] = `
     }
   >
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -518,9 +503,6 @@ exports[`renders skip button correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {

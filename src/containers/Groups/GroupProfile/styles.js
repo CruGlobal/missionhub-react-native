@@ -9,7 +9,6 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.grey,
-    position: 'relative',
   },
   topNav: {
     position: 'absolute',

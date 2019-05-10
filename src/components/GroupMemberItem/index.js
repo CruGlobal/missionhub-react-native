@@ -3,7 +3,7 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { ORG_PERMISSIONS } from '../../constants';
 import { Flex, Text, Dot, Card } from '../common';
@@ -14,7 +14,7 @@ import ItemHeaderText from '../ItemHeaderText';
 
 import styles from './styles';
 
-@translate('groupItem')
+@withTranslation('groupItem')
 class GroupMemberItem extends Component {
   handleSelect = () => {
     const { onSelect, person } = this.props;

@@ -24,9 +24,6 @@ exports[`render for active challenge 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#007398",
@@ -47,9 +44,6 @@ exports[`render for active challenge 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -59,7 +53,7 @@ exports[`render for active challenge 1`] = `
       >
         End Date
       </MyText>
-      <Translate(DateComponent)
+      <withI18nextTranslation(DateComponent)
         date="2018-09-22"
         format="dddd, LL"
         style={
@@ -70,7 +64,7 @@ exports[`render for active challenge 1`] = `
         }
       />
     </Flex>
-    <Translate(ChallengeStats)
+    <withI18nextTranslation(ChallengeStats)
       challenge={
         Object {
           "end_date": "2018-09-22",
@@ -132,9 +126,6 @@ exports[`render for active challenge with edit 1`] = `
         />
       </Flex>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#007398",
@@ -155,9 +146,6 @@ exports[`render for active challenge with edit 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -167,7 +155,7 @@ exports[`render for active challenge with edit 1`] = `
       >
         End Date
       </MyText>
-      <Translate(DateComponent)
+      <withI18nextTranslation(DateComponent)
         date="2018-09-22"
         format="dddd, LL"
         style={
@@ -178,7 +166,7 @@ exports[`render for active challenge with edit 1`] = `
         }
       />
     </Flex>
-    <Translate(ChallengeStats)
+    <withI18nextTranslation(ChallengeStats)
       challenge={
         Object {
           "end_date": "2018-09-22",
@@ -223,9 +211,6 @@ exports[`render for past challenge 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#007398",
@@ -246,9 +231,6 @@ exports[`render for past challenge 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -258,7 +240,7 @@ exports[`render for past challenge 1`] = `
       >
         End Date
       </MyText>
-      <Translate(DateComponent)
+      <withI18nextTranslation(DateComponent)
         date="2018-09-22"
         format="dddd, LL"
         style={
@@ -269,7 +251,7 @@ exports[`render for past challenge 1`] = `
         }
       />
     </Flex>
-    <Translate(ChallengeStats)
+    <withI18nextTranslation(ChallengeStats)
       challenge={
         Object {
           "end_date": "2018-09-22",

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, Button, Text, DateComponent } from '../common';
@@ -7,7 +7,7 @@ import ChallengeStats from '../ChallengeStats';
 
 import styles from './styles';
 
-@translate('challengeFeeds')
+@withTranslation('challengeFeeds')
 class ChallengeDetailHeader extends Component {
   handleEdit = () => {
     const { challenge, onEdit } = this.props;

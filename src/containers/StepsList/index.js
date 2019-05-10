@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { getStepSuggestions } from '../../actions/steps';
@@ -12,7 +12,7 @@ import { keyExtractorId } from '../../utils/common';
 
 import styles from './styles';
 
-@translate('selectStep')
+@withTranslation('selectStep')
 class StepsList extends Component {
   state = {
     suggestionIndex: 4,

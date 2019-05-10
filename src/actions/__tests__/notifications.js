@@ -16,7 +16,6 @@ import {
   showReminderOnLoad,
 } from '../notifications';
 import {
-  MAIN_TABS,
   GCM_SENDER_ID,
   LOAD_PERSON_DETAILS,
   DISABLE_WELCOME_NOTIFICATION,
@@ -26,7 +25,12 @@ import {
 import * as common from '../../utils/common';
 import callApi, { REQUESTS } from '../api';
 import { getPersonDetails, navToPersonScreen } from '../person';
-import { navigatePush, navigateBack, navigateReset } from '../navigation';
+import {
+  navigatePush,
+  navigateBack,
+  navigateReset,
+  navigateToMainTabs,
+} from '../navigation';
 import { navigateToOrg } from '../organizations';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
@@ -54,6 +58,7 @@ const store = mockStore({
 const navigatePushResult = { type: 'nagivate push' };
 const navigateBackResult = { type: 'navigate back' };
 const navigateResetResult = { type: 'navigate reset' };
+const navigateToMainTabsResult = { type: 'navigateToMainTabs' };
 
 beforeEach(() => {
   common.isAndroid = false;
@@ -84,6 +89,7 @@ describe('showNotificationPrompt', () => {
       return navigatePushResult;
     });
     navigateBack.mockReturnValue(navigateBackResult);
+    navigateToMainTabs.mockReturnValue(navigateToMainTabsResult);
   });
 
   describe('User accepts notifications', () => {
@@ -533,13 +539,13 @@ describe('askNotificationPermissions', () => {
 
         await testNotification({ screen: 'home' }, false);
 
-        expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS);
+        expect(navigateToMainTabs).toHaveBeenCalled();
         expect(finish).toHaveBeenCalledWith(
           PushNotificationIOS.FetchResult.NoData,
         );
         expect(store.getActions()).toEqual([
           { type: REQUEST_NOTIFICATIONS },
-          navigateResetResult,
+          navigateToMainTabsResult,
         ]);
       });
 
@@ -555,20 +561,20 @@ describe('askNotificationPermissions', () => {
     it('should deep link to home screen', async () => {
       await testNotification({ screen: 'home' });
 
-      expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS);
+      expect(navigateToMainTabs).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
-        navigateResetResult,
+        navigateToMainTabsResult,
       ]);
     });
 
     it('should deep link to main steps tab screen', async () => {
       await testNotification({ screen: 'steps' });
 
-      expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS);
+      expect(navigateToMainTabs).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
-        navigateResetResult,
+        navigateToMainTabsResult,
       ]);
     });
 

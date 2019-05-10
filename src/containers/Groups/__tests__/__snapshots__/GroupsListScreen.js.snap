@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GroupsListScreen should render correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -82,7 +82,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
       />
     </Flex>
   </Flex>
-  <ScrollView
+  <ScrollViewMock
     refreshControl={
       <MyRefreshControl
         colors={
@@ -125,6 +125,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
       maxToRenderPerBatch={10}
       numColumns={1}
       onEndReachedThreshold={2}
+      removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}
       style={
@@ -136,12 +137,12 @@ exports[`GroupsListScreen should render correctly 1`] = `
       updateCellsBatchingPeriod={50}
       windowSize={21}
     />
-  </ScrollView>
-</Component>
+  </ScrollViewMock>
+</View>
 `;
 
 exports[`GroupsListScreen should render item 1`] = `
-<Translate(GroupCardItem)
+<withI18nextTranslation(GroupCardItem)
   group={
     Object {
       "id": "1",
@@ -165,7 +166,7 @@ exports[`GroupsListScreen should render null 1`] = `
 `;
 
 exports[`should render null state 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -246,7 +247,7 @@ exports[`should render null state 1`] = `
       />
     </Flex>
   </Flex>
-  <ScrollView
+  <ScrollViewMock
     refreshControl={
       <MyRefreshControl
         colors={
@@ -289,6 +290,7 @@ exports[`should render null state 1`] = `
       maxToRenderPerBatch={10}
       numColumns={1}
       onEndReachedThreshold={2}
+      removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}
       style={
@@ -300,6 +302,6 @@ exports[`should render null state 1`] = `
       updateCellsBatchingPeriod={50}
       windowSize={21}
     />
-  </ScrollView>
-</Component>
+  </ScrollViewMock>
+</View>
 `;

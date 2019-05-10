@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, View, Keyboard, Image } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Text, Flex } from '../components/common';
 import BottomButton from '../components/BottomButton';
@@ -22,7 +22,7 @@ import AbsoluteSkip from '../components/AbsoluteSkip';
 import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
 import styles from './SetupScreen/styles';
 
-@translate()
+@withTranslation()
 class SetupPersonScreen extends Component {
   state = { personId: null };
 

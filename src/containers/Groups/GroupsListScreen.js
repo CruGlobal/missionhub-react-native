@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { communitiesSelector } from '../../selectors/organizations';
 import Header from '../../components/Header';
@@ -30,7 +30,7 @@ import TrackTabChange from '../TrackTabChange';
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
 
-@translate('groupsList')
+@withTranslation('groupsList')
 class GroupsListScreen extends Component {
   state = { refreshing: false };
 

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -36,9 +36,6 @@ exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
       justify="center"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",
@@ -53,11 +50,11 @@ Double check your link.
       </MyText>
     </Flex>
   </Flex>
-</Component>
+</View>
 `;
 
 exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -92,9 +89,6 @@ exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
       justify="center"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",
@@ -109,11 +103,11 @@ Double check your link.
       </MyText>
     </Flex>
   </Flex>
-</Component>
+</View>
 `;
 
 exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -148,9 +142,6 @@ exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
       justify="center"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",
@@ -165,5 +156,5 @@ Double check your link.
       </MyText>
     </Flex>
   </Flex>
-</Component>
+</View>
 `;

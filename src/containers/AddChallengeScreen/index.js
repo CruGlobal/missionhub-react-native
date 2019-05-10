@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, View, Keyboard, Image } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import moment from 'moment';
 
 import CHALLENGE from '../../../assets/images/challenge_bullseye.png';
@@ -14,7 +14,7 @@ import BottomButton from '../../components/BottomButton';
 
 import styles from './styles';
 
-@translate('addChallenge')
+@withTranslation('addChallenge')
 class AddChallengeScreen extends Component {
   constructor(props) {
     super(props);

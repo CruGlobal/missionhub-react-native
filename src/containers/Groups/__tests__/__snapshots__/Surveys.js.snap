@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Surveys renderHeader match snapshot 1`] = `
-<Connect(Translate(OnboardingCard))
+<Connect(withI18nextTranslation(OnboardingCard))
   type="surveys"
 />
 `;
 
 exports[`Surveys renders item 1`] = `
-<Translate(GroupSurveyItem)
+<withI18nextTranslation(GroupSurveyItem)
   onSelect={[Function]}
   survey={
     Object {
@@ -33,7 +33,7 @@ exports[`Surveys should render correctly 1`] = `
 >
   <FlatList
     ListFooterComponent={
-      <Translate(LoadMore)
+      <withI18nextTranslation(LoadMore)
         onPress={[Function]}
       />
     }
@@ -87,6 +87,7 @@ exports[`Surveys should render correctly 1`] = `
         tintColor="#007398"
       />
     }
+    removeClippedSubviews={false}
     renderItem={[Function]}
     scrollEventThrottle={50}
     style={

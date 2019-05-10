@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
@@ -16,7 +16,7 @@ import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 import styles from './styles';
 
-@translate('groupsContacts')
+@withTranslation('groupsContacts')
 class Contacts extends Component {
   constructor(props) {
     super(props);
@@ -85,11 +85,8 @@ class Contacts extends Component {
     return this.handleLoadMore(text);
   };
 
-  handleRefreshSearchList = () => {
-    if (this.searchList && this.searchList.getWrappedInstance) {
-      this.searchList.getWrappedInstance().search();
-    }
-  };
+  handleRefreshSearchList = () =>
+    this.searchListSearch && this.searchListSearch();
 
   handleLoadMore = async text => {
     const { dispatch, organization } = this.props;
@@ -115,7 +112,7 @@ class Contacts extends Component {
     );
   };
 
-  listRef = c => (this.searchList = c);
+  setSearch = search => (this.searchListSearch = search);
 
   renderItem = ({ item }) => (
     <PersonListItem
@@ -133,7 +130,7 @@ class Contacts extends Component {
         <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="handled">
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />
           <SearchList
-            ref={this.listRef}
+            setSearch={this.setSearch}
             defaultData={defaultResults}
             onFilterPress={this.handleFilterPress}
             listProps={{

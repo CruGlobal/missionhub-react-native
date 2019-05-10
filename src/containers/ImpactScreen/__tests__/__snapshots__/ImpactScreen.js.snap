@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Impact Screen renders correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -19,7 +19,7 @@ exports[`Impact Screen renders correctly 1`] = `
     shadow={true}
     title="IMPACT"
   />
-  <Connect(Translate(ImpactView))
+  <Connect(withI18nextTranslation(ImpactView))
     person={
       Object {
         "first_name": "Fname",
@@ -27,5 +27,5 @@ exports[`Impact Screen renders correctly 1`] = `
       }
     }
   />
-</Component>
+</View>
 `;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CreateGroupScreen renders correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -29,7 +29,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
       }
     }
   >
-    <ScrollView
+    <ScrollViewMock
       keyboardShouldPersistTaps="handled"
       style={
         Object {
@@ -37,7 +37,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
         }
       }
     >
-      <Translate(ImagePicker)
+      <withI18nextTranslation(ImagePicker)
         onSelectImage={[Function]}
       >
         <Flex
@@ -61,7 +61,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
             }
           />
         </Flex>
-      </Translate(ImagePicker)>
+      </withI18nextTranslation(ImagePicker)>
       <KeyboardAvoidingView
         enabled={true}
         keyboardVerticalOffset={60}
@@ -81,9 +81,6 @@ exports[`CreateGroupScreen renders correctly 1`] = `
           }
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#66D9F0",
@@ -115,18 +112,18 @@ exports[`CreateGroupScreen renders correctly 1`] = `
           />
         </Flex>
       </KeyboardAvoidingView>
-    </ScrollView>
+    </ScrollViewMock>
     <BottomButton
       disabled={true}
       onPress={[Function]}
       text="Create Community"
     />
   </SafeAreaView>
-</Component>
+</View>
 `;
 
 exports[`CreateGroupScreen should update the image 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -154,7 +151,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
       }
     }
   >
-    <ScrollView
+    <ScrollViewMock
       keyboardShouldPersistTaps="handled"
       style={
         Object {
@@ -162,7 +159,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
         }
       }
     >
-      <Translate(ImagePicker)
+      <withI18nextTranslation(ImagePicker)
         onSelectImage={[Function]}
       >
         <Flex
@@ -194,7 +191,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
             }
           />
         </Flex>
-      </Translate(ImagePicker)>
+      </withI18nextTranslation(ImagePicker)>
       <KeyboardAvoidingView
         enabled={true}
         keyboardVerticalOffset={60}
@@ -214,9 +211,6 @@ exports[`CreateGroupScreen should update the image 1`] = `
           }
         >
           <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#66D9F0",
@@ -248,12 +242,12 @@ exports[`CreateGroupScreen should update the image 1`] = `
           />
         </Flex>
       </KeyboardAvoidingView>
-    </ScrollView>
+    </ScrollViewMock>
     <BottomButton
       disabled={true}
       onPress={[Function]}
       text="Create Community"
     />
   </SafeAreaView>
-</Component>
+</View>
 `;

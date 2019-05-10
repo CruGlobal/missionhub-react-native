@@ -2,7 +2,6 @@
 
 exports[`renders correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -64,9 +63,6 @@ exports[`renders correctly 1`] = `
       />
     </View>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -94,7 +90,6 @@ exports[`renders correctly 1`] = `
 
 exports[`renders not checked correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -138,9 +133,6 @@ exports[`renders not checked correctly 1`] = `
       }
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {

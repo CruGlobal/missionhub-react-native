@@ -50,7 +50,6 @@ describe('SignUpScreen next', () => {
         />,
         store,
       )
-        .dive()
         .instance()
         .props.next(),
     );
@@ -76,7 +75,6 @@ describe('SignUpScreen next', () => {
         />,
         store,
       )
-        .dive()
         .instance()
         .props.next({
           signIn: true,

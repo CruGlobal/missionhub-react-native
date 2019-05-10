@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Text, Button } from '../../components/common';
 import { navigatePush, navigateBack } from '../../actions/navigation';
@@ -12,7 +12,7 @@ import { STATUS_REASON_SCREEN } from '../StatusReasonScreen';
 
 import styles from './styles';
 
-@translate('statusComplete')
+@withTranslation('statusComplete')
 class StatusCompleteScreen extends Component {
   onSubmitReason = () => {
     this.props.dispatch(navigateBack(4));

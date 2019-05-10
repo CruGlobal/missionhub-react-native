@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, View, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { refresh, keyExtractorId } from '../../utils/common';
 import Header from '../../components/Header';
@@ -14,7 +14,7 @@ import ReportCommentItem from '../ReportCommentItem';
 
 import styles from './styles';
 
-@translate('groupsReport')
+@withTranslation('groupsReport')
 export class GroupReport extends Component {
   state = { refreshing: false };
 

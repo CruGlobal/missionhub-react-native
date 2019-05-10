@@ -100,11 +100,11 @@ describe('Contacts', () => {
       onAssign: screen.instance().handleRefreshSearchList,
     });
   });
-  it('should call list ref', () => {
+  it('should set searchListSearch when setSearch is called', () => {
     const instance = renderShallow(component, store).instance();
-    const ref = 'test';
-    instance.listRef(ref);
-    expect(instance.searchList).toEqual(ref);
+    const childSearch = () => {};
+    instance.setSearch(childSearch);
+    expect(instance.searchListSearch).toEqual(childSearch);
   });
   it('should render item', () => {
     const instance = renderShallow(component, store).instance();

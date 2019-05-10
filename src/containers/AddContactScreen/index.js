@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { SafeAreaView, View, ScrollView, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { addNewPerson } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
@@ -23,7 +23,7 @@ import {
 
 import styles from './styles';
 
-@translate('addContact')
+@withTranslation('addContact')
 class AddContactScreen extends Component {
   state = {
     person: this.props.person || {},

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders date only date picker 1`] = `
-<Component>
+<View>
   <TouchableIOS
     onPress={[Function]}
   />
@@ -46,6 +46,7 @@ exports[`renders date only date picker 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-TEST"
         mode="date"
         onDateChange={[Function]}
         style={
@@ -60,7 +61,7 @@ exports[`renders date only date picker 1`] = `
         }
         timeZoneOffsetInMinutes={null}
       />
-      <Component
+      <View
         style={
           Object {
             "alignItems": "center",
@@ -93,9 +94,6 @@ exports[`renders date only date picker 1`] = `
           type="transparent"
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": undefined,
@@ -123,14 +121,14 @@ exports[`renders date only date picker 1`] = `
           text="Done"
           type="transparent"
         />
-      </Component>
+      </View>
     </AnimatedComponent>
   </Component>
-</Component>
+</View>
 `;
 
 exports[`renders date only date picker with max date 1`] = `
-<Component>
+<View>
   <TouchableIOS
     onPress={[Function]}
   />
@@ -175,6 +173,7 @@ exports[`renders date only date picker with max date 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-TEST"
         maximumDate={2018-09-12T12:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
@@ -190,7 +189,7 @@ exports[`renders date only date picker with max date 1`] = `
         }
         timeZoneOffsetInMinutes={null}
       />
-      <Component
+      <View
         style={
           Object {
             "alignItems": "center",
@@ -223,9 +222,6 @@ exports[`renders date only date picker with max date 1`] = `
           type="transparent"
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": undefined,
@@ -253,14 +249,14 @@ exports[`renders date only date picker with max date 1`] = `
           text="Done"
           type="transparent"
         />
-      </Component>
+      </View>
     </AnimatedComponent>
   </Component>
-</Component>
+</View>
 `;
 
 exports[`renders date only date picker with min date 1`] = `
-<Component>
+<View>
   <TouchableIOS
     onPress={[Function]}
   />
@@ -305,6 +301,7 @@ exports[`renders date only date picker with min date 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-TEST"
         minimumDate={2018-09-12T12:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
@@ -320,7 +317,7 @@ exports[`renders date only date picker with min date 1`] = `
         }
         timeZoneOffsetInMinutes={null}
       />
-      <Component
+      <View
         style={
           Object {
             "alignItems": "center",
@@ -353,9 +350,6 @@ exports[`renders date only date picker with min date 1`] = `
           type="transparent"
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": undefined,
@@ -383,14 +377,14 @@ exports[`renders date only date picker with min date 1`] = `
           text="Done"
           type="transparent"
         />
-      </Component>
+      </View>
     </AnimatedComponent>
   </Component>
-</Component>
+</View>
 `;
 
 exports[`renders date with custom title 1`] = `
-<Component>
+<View>
   <TouchableIOS
     onPress={[Function]}
   />
@@ -435,6 +429,7 @@ exports[`renders date with custom title 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-TEST"
         mode="date"
         onDateChange={[Function]}
         style={
@@ -449,7 +444,7 @@ exports[`renders date with custom title 1`] = `
         }
         timeZoneOffsetInMinutes={null}
       />
-      <Component
+      <View
         style={
           Object {
             "alignItems": "center",
@@ -482,9 +477,6 @@ exports[`renders date with custom title 1`] = `
           type="transparent"
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": undefined,
@@ -512,14 +504,14 @@ exports[`renders date with custom title 1`] = `
           text="Done"
           type="transparent"
         />
-      </Component>
+      </View>
     </AnimatedComponent>
   </Component>
-</Component>
+</View>
 `;
 
 exports[`renders datetime only date picker 1`] = `
-<Component>
+<View>
   <TouchableIOS
     onPress={[Function]}
   />
@@ -564,6 +556,7 @@ exports[`renders datetime only date picker 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-TEST"
         mode="datetime"
         onDateChange={[Function]}
         style={
@@ -578,7 +571,7 @@ exports[`renders datetime only date picker 1`] = `
         }
         timeZoneOffsetInMinutes={null}
       />
-      <Component
+      <View
         style={
           Object {
             "alignItems": "center",
@@ -611,9 +604,6 @@ exports[`renders datetime only date picker 1`] = `
           type="transparent"
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": undefined,
@@ -641,14 +631,14 @@ exports[`renders datetime only date picker 1`] = `
           text="Done"
           type="transparent"
         />
-      </Component>
+      </View>
     </AnimatedComponent>
   </Component>
-</Component>
+</View>
 `;
 
 exports[`renders default date picker 1`] = `
-<Component>
+<View>
   <TouchableIOS
     onPress={[Function]}
   />
@@ -693,6 +683,7 @@ exports[`renders default date picker 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-TEST"
         mode="date"
         onDateChange={[Function]}
         style={
@@ -707,7 +698,7 @@ exports[`renders default date picker 1`] = `
         }
         timeZoneOffsetInMinutes={null}
       />
-      <Component
+      <View
         style={
           Object {
             "alignItems": "center",
@@ -740,9 +731,6 @@ exports[`renders default date picker 1`] = `
           type="transparent"
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": undefined,
@@ -770,14 +758,14 @@ exports[`renders default date picker 1`] = `
           text="Done"
           type="transparent"
         />
-      </Component>
+      </View>
     </AnimatedComponent>
   </Component>
-</Component>
+</View>
 `;
 
 exports[`renders time only date picker 1`] = `
-<Component>
+<View>
   <TouchableIOS
     onPress={[Function]}
   />
@@ -822,6 +810,7 @@ exports[`renders time only date picker 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-TEST"
         mode="time"
         onDateChange={[Function]}
         style={
@@ -836,7 +825,7 @@ exports[`renders time only date picker 1`] = `
         }
         timeZoneOffsetInMinutes={null}
       />
-      <Component
+      <View
         style={
           Object {
             "alignItems": "center",
@@ -869,9 +858,6 @@ exports[`renders time only date picker 1`] = `
           type="transparent"
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": undefined,
@@ -899,14 +885,14 @@ exports[`renders time only date picker 1`] = `
           text="Done"
           type="transparent"
         />
-      </Component>
+      </View>
     </AnimatedComponent>
   </Component>
-</Component>
+</View>
 `;
 
 exports[`renders with additional modal component 1`] = `
-<Component>
+<View>
   <TouchableIOS
     onPress={[Function]}
   />
@@ -951,6 +937,7 @@ exports[`renders with additional modal component 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-TEST"
         mode="date"
         onDateChange={[Function]}
         style={
@@ -965,14 +952,10 @@ exports[`renders with additional modal component 1`] = `
         }
         timeZoneOffsetInMinutes={null}
       />
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         Modal Component
       </Text>
-      <Component
+      <View
         style={
           Object {
             "alignItems": "center",
@@ -1005,9 +988,6 @@ exports[`renders with additional modal component 1`] = `
           type="transparent"
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": undefined,
@@ -1035,22 +1015,18 @@ exports[`renders with additional modal component 1`] = `
           text="Done"
           type="transparent"
         />
-      </Component>
+      </View>
     </AnimatedComponent>
   </Component>
-</Component>
+</View>
 `;
 
 exports[`renders with child component 1`] = `
-<Component>
+<View>
   <TouchableIOS
     onPress={[Function]}
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
+    <Text>
       Child Component
     </Text>
   </TouchableIOS>
@@ -1095,6 +1071,7 @@ exports[`renders with child component 1`] = `
     >
       <DatePickerIOS
         date={2018-09-12T12:00:00.000Z}
+        locale="en-TEST"
         mode="date"
         onDateChange={[Function]}
         style={
@@ -1109,7 +1086,7 @@ exports[`renders with child component 1`] = `
         }
         timeZoneOffsetInMinutes={null}
       />
-      <Component
+      <View
         style={
           Object {
             "alignItems": "center",
@@ -1142,9 +1119,6 @@ exports[`renders with child component 1`] = `
           type="transparent"
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": undefined,
@@ -1172,8 +1146,8 @@ exports[`renders with child component 1`] = `
           text="Done"
           type="transparent"
         />
-      </Component>
+      </View>
     </AnimatedComponent>
   </Component>
-</Component>
+</View>
 `;

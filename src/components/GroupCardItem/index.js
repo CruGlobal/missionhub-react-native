@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Text, Flex, Card, Button, Icon } from '../common';
@@ -11,7 +11,7 @@ import { getFirstNameAndLastInitial, orgIsGlobal } from '../../utils/common';
 
 import styles from './styles';
 
-@translate('groupItem')
+@withTranslation('groupItem')
 export default class GroupCardItem extends Component {
   handlePress = () => {
     const { onPress, group } = this.props;

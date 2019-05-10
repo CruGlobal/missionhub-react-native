@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, View, FlatList } from 'react-native';
 import debounce from 'lodash/debounce';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, IconButton, Input, Text } from '../../components/common';
@@ -10,7 +10,7 @@ import theme from '../../theme';
 
 import styles from './styles';
 
-@translate('search', { withRef: true, wait: true })
+@withTranslation('search')
 class SearchList extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +23,12 @@ class SearchList extends Component {
     };
 
     this.handleSearchDebounced = debounce(this.handleSearch, 300);
+  }
+
+  componentDidMount() {
+    const { setSearch } = this.props;
+    // Share search instance with parent
+    setSearch && setSearch(this.search);
   }
 
   // Kick off search from an outer component using refs

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { navigateBack } from '../../actions/navigation';
 import { deleteContactAssignment } from '../../actions/person';
@@ -13,7 +13,7 @@ import theme from '../../theme';
 
 import styles from './styles';
 
-@translate('statusReason')
+@withTranslation('statusReason')
 class StatusReasonScreen extends Component {
   state = { text: '' };
 

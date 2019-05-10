@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { SafeAreaView, FlatList, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { navigatePush } from '../../actions/navigation';
 import { getContactSteps } from '../../actions/steps';
@@ -30,7 +30,7 @@ import NullStateComponent from '../../components/NullStateComponent';
 
 import styles from './styles';
 
-@translate('contactSteps')
+@withTranslation('contactSteps')
 class ContactSteps extends Component {
   constructor(props) {
     super(props);

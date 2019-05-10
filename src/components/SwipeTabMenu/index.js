@@ -18,7 +18,7 @@ import styles from './styles';
 export class SwipeTabMenu extends Component {
   state = {
     // TODO: tab titles should be equidistant from each other, not equally sized
-    maxMenuItemWidth: undefined,
+    maxMenuItemWidth: 1,
     previousIndex: 0,
   };
   scrollView = undefined;
@@ -52,7 +52,7 @@ export class SwipeTabMenu extends Component {
     const { width } = event.nativeEvent.layout;
     const { maxMenuItemWidth } = this.state;
 
-    if (!maxMenuItemWidth || width > maxMenuItemWidth) {
+    if (width > maxMenuItemWidth) {
       this.setState({
         maxMenuItemWidth: width,
       });
@@ -158,7 +158,9 @@ export class SwipeTabMenu extends Component {
               <View
                 style={[
                   styles.menuItem,
-                  { width: this.state.maxMenuItemWidth },
+                  this.state.maxMenuItemWidth === 1
+                    ? null
+                    : { width: this.state.maxMenuItemWidth },
                 ]}
               >
                 <Text

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContactsFilter should render correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -14,14 +14,14 @@ exports[`ContactsFilter should render correctly 1`] = `
     shadow={true}
     title="Filter"
   />
-  <ScrollView
+  <ScrollViewMock
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <Translate(FilterItem)
+    <withI18nextTranslation(FilterItem)
       item={
         Object {
           "id": "labels",
@@ -34,7 +34,7 @@ exports[`ContactsFilter should render correctly 1`] = `
       onSelect={[Function]}
       type="drilldown"
     />
-    <Translate(FilterItem)
+    <withI18nextTranslation(FilterItem)
       item={
         Object {
           "id": "gender",
@@ -60,7 +60,7 @@ exports[`ContactsFilter should render correctly 1`] = `
       onSelect={[Function]}
       type="drilldown"
     />
-    <Translate(FilterItem)
+    <withI18nextTranslation(FilterItem)
       isSelected={false}
       item={
         Object {
@@ -73,7 +73,7 @@ exports[`ContactsFilter should render correctly 1`] = `
       onSelect={[Function]}
       type="switch"
     />
-    <Translate(FilterItem)
+    <withI18nextTranslation(FilterItem)
       isSelected={true}
       item={
         Object {
@@ -86,7 +86,7 @@ exports[`ContactsFilter should render correctly 1`] = `
       onSelect={[Function]}
       type="switch"
     />
-    <Translate(FilterItem)
+    <withI18nextTranslation(FilterItem)
       isSelected={false}
       item={
         Object {
@@ -99,6 +99,6 @@ exports[`ContactsFilter should render correctly 1`] = `
       onSelect={[Function]}
       type="switch"
     />
-  </ScrollView>
-</Component>
+  </ScrollViewMock>
+</View>
 `;

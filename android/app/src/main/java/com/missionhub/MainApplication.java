@@ -6,6 +6,7 @@ import android.support.multidex.MultiDex;
 import android.content.Context;
 
 import com.facebook.react.ReactApplication;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.imagepicker.ImagePickerPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.links.RNFirebaseLinksPackage;
@@ -14,7 +15,7 @@ import com.entria.views.RNViewOverflowPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.microsoft.codepush.react.CodePush;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
-import com.reactlibrary.RNDefaultPreferencePackage;
+import com.kevinresol.react_native_default_preference.RNDefaultPreferencePackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.moduleomniture.reactnativeomnitureapi.OmniturePackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
@@ -56,6 +57,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNGestureHandlerPackage(),
             new ImagePickerPackage(),
             new RNFirebasePackage(),
             new RNFirebaseLinksPackage(),

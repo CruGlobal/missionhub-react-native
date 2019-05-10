@@ -3,7 +3,7 @@
 exports[`with challenge suggestion renders correctly 1`] = `
 <StepDetailScreen
   CenterContent={
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -17,16 +17,13 @@ exports[`with challenge suggestion renders correctly 1`] = `
         }
       }
     >
-      <Component
+      <View
         alignItems="center"
         flex={1}
         flexDirection="row"
         justifyContent="space-between"
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#505256",
@@ -50,15 +47,11 @@ exports[`with challenge suggestion renders correctly 1`] = `
             }
           }
         />
-      </Component>
-    </Component>
+      </View>
+    </View>
   }
   CenterHeader={
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
+    <MyText>
       Completed Step
     </MyText>
   }
@@ -72,7 +65,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
 exports[`without challenge suggestion renders correctly 1`] = `
 <StepDetailScreen
   CenterContent={
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -86,16 +79,13 @@ exports[`without challenge suggestion renders correctly 1`] = `
         }
       }
     >
-      <Component
+      <View
         alignItems="center"
         flex={1}
         flexDirection="row"
         justifyContent="space-between"
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#505256",
@@ -119,15 +109,11 @@ exports[`without challenge suggestion renders correctly 1`] = `
             }
           }
         />
-      </Component>
-    </Component>
+      </View>
+    </View>
   }
   CenterHeader={
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
+    <MyText>
       Completed Step
     </MyText>
   }

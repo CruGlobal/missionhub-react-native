@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { RefreshControl } from '../../components/common';
@@ -17,7 +17,7 @@ import { GROUPS_SURVEY_CONTACTS } from './SurveyContacts';
 import styles from './styles';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 
-@translate('groupsSurveys')
+@withTranslation('groupsSurveys')
 class Surveys extends Component {
   state = {
     refreshing: false,

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`none selected renders with none highlighted 1`] = `
-<Component
+<View
   style={
     Object {
       "flexDirection": "row",
@@ -111,11 +111,11 @@ exports[`none selected renders with none highlighted 1`] = `
     }
     text="Monthly"
   />
-</Component>
+</View>
 `;
 
 exports[`starts with daily selected renders with daily highlighted 1`] = `
-<Component
+<View
   style={
     Object {
       "flexDirection": "row",
@@ -223,11 +223,11 @@ exports[`starts with daily selected renders with daily highlighted 1`] = `
     }
     text="Monthly"
   />
-</Component>
+</View>
 `;
 
 exports[`starts with monthly selected renders with monthly highlighted 1`] = `
-<Component
+<View
   style={
     Object {
       "flexDirection": "row",
@@ -335,11 +335,11 @@ exports[`starts with monthly selected renders with monthly highlighted 1`] = `
     }
     text="Monthly"
   />
-</Component>
+</View>
 `;
 
 exports[`starts with weekly selected renders with weekly highlighted 1`] = `
-<Component
+<View
   style={
     Object {
       "flexDirection": "row",
@@ -447,5 +447,5 @@ exports[`starts with weekly selected renders with weekly highlighted 1`] = `
     }
     text="Monthly"
   />
-</Component>
+</View>
 `;

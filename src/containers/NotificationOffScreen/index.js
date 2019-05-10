@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Linking, Image } from 'react-native';
+import { Linking, Image, View } from 'react-native';
 import PushNotification from 'react-native-push-notification';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Text, Button, Flex } from '../../components/common';
+import { Text, Button } from '../../components/common';
 import { isAndroid } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
@@ -18,7 +18,7 @@ const {
   JOIN_CHALLENGE,
 } = NOTIFICATION_PROMPT_TYPES;
 
-@translate('notificationOff')
+@withTranslation('notificationOff')
 class NotificationOffScreen extends Component {
   notNow = () => {
     this.close();
@@ -74,39 +74,50 @@ class NotificationOffScreen extends Component {
 
   render() {
     const { t } = this.props;
+    const {
+      container,
+      imageWrap,
+      title,
+      text,
+      buttonWrap,
+      button,
+      allowButton,
+      notNowButton,
+      buttonText,
+    } = styles;
+
     return (
-      <Flex style={styles.container}>
-        <Flex value={0.3} />
-        <Flex value={1} align="center" justify="center">
-          <Flex value={1} align="center" justify="center">
-            <Image
-              source={require('../../../assets/images/notificationOff.png')}
-            />
-          </Flex>
-          <Flex value={0.6} align="center" justify="center">
-            <Text style={styles.title}>{t('title')}</Text>
-            <Text style={styles.text}>{this.descriptionText()}</Text>
-          </Flex>
-          <Flex value={1} align="center" justify="center">
-            <Button
-              pill={true}
-              type="primary"
-              onPress={this.goToSettings}
-              text={t('settings').toUpperCase()}
-              style={styles.allowButton}
-              buttonTextStyle={[styles.buttonText, styles.allowButtonText]}
-            />
-            <Button
-              pill={true}
-              onPress={this.notNow}
-              text={this.notNowButtonText().toUpperCase()}
-              style={styles.notNowButton}
-              buttonTextStyle={styles.buttonText}
-            />
-          </Flex>
-        </Flex>
-        <Flex value={0.3} />
-      </Flex>
+      <View
+        value={1}
+        alignItems="center"
+        justifyContent="center"
+        style={container}
+      >
+        <View style={imageWrap}>
+          <Image
+            source={require('../../../assets/images/notificationOff.png')}
+          />
+        </View>
+        <Text style={title}>{t('title')}</Text>
+        <Text style={text}>{this.descriptionText()}</Text>
+        <View style={buttonWrap}>
+          <Button
+            pill={true}
+            type="primary"
+            onPress={this.goToSettings}
+            text={t('settings').toUpperCase()}
+            style={[button, allowButton]}
+            buttonTextStyle={buttonText}
+          />
+          <Button
+            pill={true}
+            onPress={this.notNow}
+            text={this.notNowButtonText().toUpperCase()}
+            style={[button, notNowButton]}
+            buttonTextStyle={buttonText}
+          />
+        </View>
+      </View>
     );
   }
 }

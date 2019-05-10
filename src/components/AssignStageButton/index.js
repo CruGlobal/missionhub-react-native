@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Button } from '../common';
 import {
@@ -13,7 +13,7 @@ import { getStageIndex } from '../../utils/common';
 
 import styles from './styles';
 
-@translate('contactHeader')
+@withTranslation('contactHeader')
 class AssignStageButton extends Component {
   assignStage = () => {
     const {

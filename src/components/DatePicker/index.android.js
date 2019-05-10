@@ -7,7 +7,7 @@ import {
   Keyboard,
 } from 'react-native';
 import moment from 'moment';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Touchable } from '../common';
 import { getDate, modeIs24Hour } from '../../utils/date';
@@ -19,7 +19,7 @@ const FORMATS = {
   time: 'HH:mm',
 };
 
-@translate('datePicker')
+@withTranslation('datePicker')
 class MyDatePickerAndroid extends Component {
   state = {
     date: getDate(this.props.date),

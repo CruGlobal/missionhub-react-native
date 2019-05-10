@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly with non-null onClick 1`] = `
-<Component
+<View
   style={
     Array [
       Object {},
@@ -50,9 +50,6 @@ exports[`renders correctly with non-null onClick 1`] = `
     />
   </Flex>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#ffffff",
@@ -62,11 +59,11 @@ exports[`renders correctly with non-null onClick 1`] = `
   >
     Hello, MissionHub
   </MyText>
-</Component>
+</View>
 `;
 
 exports[`renders correctly with undefined onClick 1`] = `
-<Component
+<View
   style={
     Array [
       Object {},
@@ -113,9 +110,6 @@ exports[`renders correctly with undefined onClick 1`] = `
     />
   </Flex>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#ffffff",
@@ -125,5 +119,5 @@ exports[`renders correctly with undefined onClick 1`] = `
   >
     Hello, MissionHub
   </MyText>
-</Component>
+</View>
 `;

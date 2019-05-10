@@ -108,8 +108,7 @@ describe('button methods', () => {
 
     it('calls onComplete and tracks an action', () => {
       screen
-        .childAt(1)
-        .childAt(2)
+        .childAt(3)
         .childAt(1)
         .props()
         .onPress();
@@ -134,8 +133,7 @@ describe('button methods', () => {
 
       it('opens settings menu, then calls onComplete when returning', async () => {
         await screen
-          .childAt(1)
-          .childAt(2)
+          .childAt(3)
           .childAt(0)
           .props()
           .onPress();
@@ -155,8 +153,7 @@ describe('button methods', () => {
 
       it('opens settings menu, then calls onComplete when returning', async () => {
         await screen
-          .childAt(1)
-          .childAt(2)
+          .childAt(3)
           .childAt(0)
           .props()
           .onPress();

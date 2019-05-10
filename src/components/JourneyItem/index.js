@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Text, Icon, DateComponent } from '../common';
 import { INTERACTION_TYPES, ACCEPTED_STEP } from '../../constants';
@@ -14,7 +14,7 @@ const interactionsArr = Object.keys(INTERACTION_TYPES).map(
   key => INTERACTION_TYPES[key],
 );
 
-@translate('journeyItem')
+@withTranslation('journeyItem')
 export default class JourneyItem extends Component {
   setNativeProps(nProps) {
     this._view.setNativeProps(nProps);

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Modal, DatePickerIOS, Animated, Keyboard } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Text, Touchable, Button } from '../common';
 import { getDate } from '../../utils/date';
@@ -10,7 +10,7 @@ import { locale, isFunction } from '../../utils/common';
 
 import styles from './styles';
 
-@translate('datePicker')
+@withTranslation('datePicker')
 class MyDatePickerIOS extends Component {
   state = {
     date: getDate(this.props.date),

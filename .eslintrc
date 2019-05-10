@@ -5,7 +5,8 @@
     "sourceType": "module",
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
-      "jsx": true
+      "jsx": true,
+      "legacyDecorators": true
     }
   },
   "env": {
@@ -79,7 +80,9 @@
       }
     ],
     "react/react-in-jsx-scope": 2,
-    "react/no-deprecated": 2
+    "react/no-deprecated": 2,
+    "react/prop-types": 0,
+    "react/display-name": 0
   },
   "settings": {
     "import/resolver": {
@@ -88,7 +91,7 @@
       }
     }
   },
-  "extends": "prettier",
+  "extends": ["prettier", "plugin:react/recommended"],
   "plugins": ["react", "import"],
   "overrides": [
     {

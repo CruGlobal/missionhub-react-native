@@ -2,9 +2,6 @@
 
 exports[`renders daily 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -30,9 +27,6 @@ exports[`renders daily 1`] = `
 
 exports[`renders monthly 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -58,9 +52,6 @@ exports[`renders monthly 1`] = `
 
 exports[`renders once next month 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -86,9 +77,6 @@ exports[`renders once next month 1`] = `
 
 exports[`renders once next week 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -114,9 +102,6 @@ exports[`renders once next week 1`] = `
 
 exports[`renders once this week 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -142,9 +127,6 @@ exports[`renders once this week 1`] = `
 
 exports[`renders once today 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -170,9 +152,6 @@ exports[`renders once today 1`] = `
 
 exports[`renders once tomorrow 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -198,9 +177,6 @@ exports[`renders once tomorrow 1`] = `
 
 exports[`renders weekly 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -226,9 +202,6 @@ exports[`renders weekly 1`] = `
 
 exports[`renders with placeholder correctly 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -254,9 +227,6 @@ exports[`renders with placeholder correctly 1`] = `
 
 exports[`renders with reminder correctly 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -282,9 +252,6 @@ exports[`renders with reminder correctly 1`] = `
 
 exports[`renders without reminder or placeholder correctly 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {

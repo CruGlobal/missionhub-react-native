@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StepsScreen arrow functions should render item correctly 1`] = `
-<Connect(Translate(StepItem))
+<Connect(withI18nextTranslation(StepItem))
   hideAction={true}
   onAction={[Function]}
   onSelect={[Function]}
@@ -42,7 +42,7 @@ Object {
 `;
 
 exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -63,14 +63,14 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
     shadow={true}
     title="STEPS OF FAITH"
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <ScrollView
+    <ScrollViewMock
       contentContainerStyle={
         Array [
           Object {
@@ -132,9 +132,6 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
           }
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#007398",
@@ -147,9 +144,6 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
           STEPS OF FAITH
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#505256",
@@ -163,13 +157,13 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
           Choose a person in People view and add some new steps.
         </MyText>
       </Flex>
-    </ScrollView>
-  </Component>
-</Component>
+    </ScrollViewMock>
+  </View>
+</View>
 `;
 
 exports[`StepsScreen renders loading screen correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -191,11 +185,11 @@ exports[`StepsScreen renders loading screen correctly 1`] = `
     title="STEPS OF FAITH"
   />
   <LoadingGuy />
-</Component>
+</View>
 `;
 
 exports[`StepsScreen renders screen with some focused and unfocused steps correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -216,14 +210,14 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
     shadow={true}
     title="STEPS OF FAITH"
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <ScrollView
+    <ScrollViewMock
       contentContainerStyle={
         Array [
           Object {
@@ -346,13 +340,13 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
         updateCellsBatchingPeriod={50}
         windowSize={21}
       />
-    </ScrollView>
-  </Component>
-</Component>
+    </ScrollViewMock>
+  </View>
+</View>
 `;
 
 exports[`StepsScreen renders with max reminders correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -373,14 +367,14 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
     shadow={true}
     title="STEPS OF FAITH"
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <ScrollView
+    <ScrollViewMock
       contentContainerStyle={
         Array [
           Object {
@@ -429,7 +423,7 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
           ]
         }
       >
-        <Connect(Translate(StepItem))
+        <Connect(withI18nextTranslation(StepItem))
           key="1"
           onAction={[Function]}
           onSelect={[Function]}
@@ -441,7 +435,7 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
           }
           type="reminder"
         />
-        <Connect(Translate(StepItem))
+        <Connect(withI18nextTranslation(StepItem))
           key="2"
           onAction={[Function]}
           onSelect={[Function]}
@@ -528,13 +522,13 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
         updateCellsBatchingPeriod={50}
         windowSize={21}
       />
-    </ScrollView>
-  </Component>
-</Component>
+    </ScrollViewMock>
+  </View>
+</View>
 `;
 
 exports[`StepsScreen renders with no focused steps and less than 4 unfocused steps correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -555,14 +549,14 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
     shadow={true}
     title="STEPS OF FAITH"
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <ScrollView
+    <ScrollViewMock
       contentContainerStyle={
         Array [
           Object {
@@ -665,13 +659,13 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
         updateCellsBatchingPeriod={50}
         windowSize={21}
       />
-    </ScrollView>
-  </Component>
-</Component>
+    </ScrollViewMock>
+  </View>
+</View>
 `;
 
 exports[`StepsScreen renders with no focused steps correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -692,7 +686,7 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
     shadow={true}
     title="STEPS OF FAITH"
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
@@ -721,9 +715,6 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
         type="MissionHub"
       />
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",
@@ -736,9 +727,6 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
         FOCUS YOUR WEEK
       </MyText>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 16,
@@ -749,7 +737,7 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
         Star up to three steps and get weekly handcrafted reminders.
       </MyText>
     </Flex>
-    <ScrollView
+    <ScrollViewMock
       contentContainerStyle={
         Array [
           Object {
@@ -861,13 +849,13 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
         updateCellsBatchingPeriod={50}
         windowSize={21}
       />
-    </ScrollView>
-  </Component>
-</Component>
+    </ScrollViewMock>
+  </View>
+</View>
 `;
 
 exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -888,14 +876,14 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
     shadow={true}
     title="STEPS OF FAITH"
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <ScrollView
+    <ScrollViewMock
       contentContainerStyle={
         Array [
           Object {
@@ -946,9 +934,6 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
           }
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#007398",
@@ -961,9 +946,6 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
           STEPS OF FAITH
         </MyText>
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#505256",
@@ -978,8 +960,8 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
 Choose a person in People view and add some new steps.
         </MyText>
       </Flex>
-    </ScrollView>
-    <Connect(Translate(TakeAStepWithSomeoneButton)) />
-  </Component>
-</Component>
+    </ScrollViewMock>
+    <Connect(withI18nextTranslation(TakeAStepWithSomeoneButton)) />
+  </View>
+</View>
 `;

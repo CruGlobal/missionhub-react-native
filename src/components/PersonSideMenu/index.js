@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -25,7 +25,7 @@ import {
   orgIsUserCreated,
 } from '../../utils/common';
 
-@translate('contactSideMenu')
+@withTranslation('contactSideMenu')
 class PersonSideMenu extends Component {
   onSubmitReason = () => this.props.dispatch(navigateBack(2));
 

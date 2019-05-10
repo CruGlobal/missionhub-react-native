@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../common';
 import theme from '../../theme';
@@ -12,7 +12,8 @@ import styles from './styles';
 function getAnimation(isHiding, isInitialMount) {
   return isHiding ? (isInitialMount ? '' : 'fadeOutRight') : 'fadeInRight';
 }
-@translate()
+
+@withTranslation()
 class StepItem extends Component {
   state = {
     hovering: false,

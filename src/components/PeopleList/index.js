@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, ScrollView, LayoutAnimation, UIManager } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 // For Android to work with the Layout Animation
 // See https://facebook.github.io/react-native/docs/layoutanimation.html
@@ -15,7 +15,7 @@ import IconButton from '../IconButton';
 
 import styles from './styles';
 
-@translate('peopleScreen')
+@withTranslation('peopleScreen')
 export default class PeopleList extends Component {
   constructor(props) {
     super(props);

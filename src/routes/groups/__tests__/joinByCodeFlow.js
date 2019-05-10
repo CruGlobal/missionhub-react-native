@@ -51,7 +51,10 @@ describe('JoinGroupScreen next', () => {
       {
         actions: [
           {
-            params: { startTab: 'groups' },
+            action: {
+              routeName: 'GroupsTab',
+              type: 'Navigation/NAVIGATE',
+            },
             routeName: 'nav/MAIN_TABS',
             type: 'Navigation/NAVIGATE',
           },

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { transferOrgOwnership } from '../../actions/organizations';
 import PopupMenu from '../PopupMenu';
@@ -24,7 +24,7 @@ import styles from './styles';
 export const API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE =
   'You must log in for admin or owner permissions';
 
-@translate('groupMemberOptions')
+@withTranslation('groupMemberOptions')
 class MemberOptionsMenu extends Component {
   async componentWillUnmount() {
     if (this.leaveCommunityOnUnmount) {

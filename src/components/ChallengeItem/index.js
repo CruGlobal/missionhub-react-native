@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Card, Text, Flex, Button, Icon } from '../../components/common';
@@ -7,7 +7,7 @@ import ChallengeStats from '../ChallengeStats';
 
 import styles from './styles';
 
-@translate('challengeFeeds')
+@withTranslation('challengeFeeds')
 class ChallengeItem extends Component {
   handleJoin = () => {
     const { item, onJoin } = this.props;

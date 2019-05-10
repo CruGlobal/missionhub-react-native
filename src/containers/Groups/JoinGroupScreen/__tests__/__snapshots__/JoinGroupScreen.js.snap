@@ -20,7 +20,7 @@ Object {
 `;
 
 exports[`JoinGroupScreen renders error correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -41,7 +41,7 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
     shadow={false}
     title="Join a Community"
   />
-  <ScrollView
+  <ScrollViewMock
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -72,9 +72,6 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
           }
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -123,12 +120,12 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
         }
       }
     />
-  </ScrollView>
-</Component>
+  </ScrollViewMock>
+</View>
 `;
 
 exports[`JoinGroupScreen renders group card correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -149,7 +146,7 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
     shadow={false}
     title="Join a Community"
   />
-  <ScrollView
+  <ScrollViewMock
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -167,7 +164,7 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
         }
       }
     >
-      <Translate(GroupCardItem)
+      <withI18nextTranslation(GroupCardItem)
         group={
           Object {
             "community_code": "123456",
@@ -219,12 +216,12 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
         }
       }
     />
-  </ScrollView>
-</Component>
+  </ScrollViewMock>
+</View>
 `;
 
 exports[`JoinGroupScreen renders start correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -245,7 +242,7 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
     shadow={false}
     title="Join a Community"
   />
-  <ScrollView
+  <ScrollViewMock
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -276,9 +273,6 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
           }
         />
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -327,6 +321,6 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
         }
       }
     />
-  </ScrollView>
-</Component>
+  </ScrollViewMock>
+</View>
 `;
