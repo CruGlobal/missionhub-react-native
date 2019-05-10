@@ -1,6 +1,6 @@
 /* eslint max-lines: 0 */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Image,
@@ -11,10 +11,13 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { ThunkDispatch } from 'redux-thunk';
+import { useQuery } from 'react-apollo-hooks';
+import { gql } from 'apollo-boost';
 
 import { loadHome } from '../../actions/auth/userData';
 import {
-  showReminderScreen,
+  showNotificationPrompt,
   showWelcomeNotification,
 } from '../../actions/notifications';
 import { setStepFocus } from '../../actions/steps';
@@ -33,21 +36,18 @@ import Header from '../../components/Header';
 import footprintsImage from '../../../assets/images/footprints.png';
 import { openMainMenu, toast, keyExtractorId } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS, STEPS_TAB } from '../../constants';
+import { ACTIONS, STEPS_TAB, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 import TrackTabChange from '../TrackTabChange';
+import { useRefreshing } from '../../utils/hooks/useRefreshing';
+import { ErrorNotice } from '../../components/ErrorNotice';
 
 import styles from './styles';
-import { ThunkDispatch } from 'redux-thunk';
-import { useRefreshing } from '../../utils/hooks/useRefreshing';
-import { useQuery } from 'react-apollo-hooks';
-import { gql } from 'apollo-boost';
 import {
   StepsList,
   StepsList_acceptedChallenges_nodes,
 } from './__generated__/StepsList';
-import { ErrorNotice } from '../../components/ErrorNotice';
 
 const MAX_REMINDERS = 3;
 
@@ -87,7 +87,8 @@ type Step = StepsList_acceptedChallenges_nodes;
 export const StepsScreen = ({
   dispatch,
 }: {
-  dispatch: ThunkDispatch<any, any, any>; // TODO: replace any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<any, null, any>;
 }) => {
   const [state, setState] = useState({
     overscrollUp: false,
@@ -155,7 +156,7 @@ export const StepsScreen = ({
     toast(t('reminderAddedToast'));
 
     if (!hasReminders) {
-      dispatch(showReminderScreen(t('notificationPrimer:focusDescription')));
+      dispatch(showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.FOCUS_STEP));
     }
     dispatch(setStepFocus(step, true));
 

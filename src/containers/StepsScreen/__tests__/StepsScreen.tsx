@@ -3,27 +3,23 @@
 import { ScrollView, ViewStyle, NativeScrollEvent } from 'react-native';
 import React from 'react';
 import i18next from 'i18next';
+import { fireEvent, act } from 'react-native-testing-library';
 
 import { snapshotWithContext, renderWithContext } from '../../../../testUtils';
 
 import { StepsScreen, mapStateToProps } from '..';
 
-import {
-  reminderStepsSelector,
-  nonReminderStepsSelector,
-} from '../../../selectors/steps';
 import theme from '../../../theme';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
 import {
-  showReminderScreen,
+  showNotificationPrompt,
   showWelcomeNotification,
 } from '../../../actions/notifications';
 import { setStepFocus, getMyStepsNextPage } from '../../../actions/steps';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
-import { fireEvent, act } from 'react-native-testing-library';
 
 jest.mock('../../../selectors/steps');
 jest.mock('../../../actions/analytics');
@@ -50,20 +46,6 @@ jest.mock(
 );
 
 const dispatch = jest.fn(async () => {});
-
-const store = {
-  steps: {
-    mine: true,
-    pagination: {
-      hasNextPage: true,
-    },
-  },
-  people: {},
-  notifications: {
-    token: '',
-    showReminder: true,
-  },
-};
 
 const reminders = [
   {
@@ -274,7 +256,7 @@ describe('StepsScreen', () => {
       );
       expect(common.toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
-      expect(showReminderScreen).toHaveBeenCalledWith(
+      expect(showNotificationPrompt).toHaveBeenCalledWith(
         i18next.t('notificationPrimer:focusDescription'),
       );
       expect(showWelcomeNotification).toHaveBeenCalled();
@@ -292,7 +274,7 @@ describe('StepsScreen', () => {
       );
       expect(common.toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
-      expect(showReminderScreen).not.toHaveBeenCalled();
+      expect(showNotificationPrompt).not.toHaveBeenCalled();
       expect(showWelcomeNotification).toHaveBeenCalled();
     });
 
@@ -308,7 +290,7 @@ describe('StepsScreen', () => {
       );
       expect(common.toast).not.toHaveBeenCalled();
       expect(setStepFocus).not.toHaveBeenCalled();
-      expect(showReminderScreen).not.toHaveBeenCalled();
+      expect(showNotificationPrompt).not.toHaveBeenCalled();
       expect(showWelcomeNotification).not.toHaveBeenCalled();
     });
   });

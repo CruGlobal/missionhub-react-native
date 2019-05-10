@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useRefreshing = (onRefreshAction: () => any) => {
   const [isRefreshing, setRefreshing] = useState(false);
 

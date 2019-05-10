@@ -6,10 +6,10 @@ import { gql } from 'apollo-boost';
 import { Flex, Text, Touchable, Icon } from '../common';
 import theme from '../../theme';
 import ItemHeaderText from '../ItemHeaderText';
-
-import styles from './styles';
 import { StepsList_acceptedChallenges_nodes } from '../../containers/StepsScreen/__generated__/StepsList';
 import { AuthState } from '../../reducers/auth';
+
+import styles from './styles';
 
 type Step = StepsList_acceptedChallenges_nodes;
 

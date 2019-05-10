@@ -10,26 +10,29 @@ import {
 import { userIsJean } from '../utils/common';
 import { REQUESTS as jsREQUESTS } from '../actions/api';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const REQUESTS: any = jsREQUESTS; // TODO: remove any once API files are typed
 
-export type AuthState = {
+export interface AuthState {
   isFirstTime: boolean;
   token: string;
   refreshToken: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   person: any; // TODO: use GraphQL type
   isJean: boolean;
   upgradeToken: boolean | null;
-};
+}
 
-const initialAuthState = {
+const initialAuthState: AuthState = {
   isFirstTime: false,
   token: '',
   refreshToken: '',
   person: { user: {} },
   isJean: false,
   upgradeToken: null,
-} as AuthState;
+};
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function authReducer(state = initialAuthState, action: any) {
   const results = action.results;
 
@@ -122,7 +125,8 @@ function authReducer(state = initialAuthState, action: any) {
         person: {
           ...state.person,
           stage: stages.find(
-            (s: any) => s && s.id === `${state.person.user.pathway_stage_id}`,
+            (s: { id: string }) =>
+              s && s.id === `${state.person.user.pathway_stage_id}`,
           ),
         },
       };
