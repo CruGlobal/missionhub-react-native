@@ -18,7 +18,6 @@ function chooseLanguage() {
   const locale = DeviceInfo.getDeviceLocale();
   const baseLocale = locale.split('-')[0];
 
-  console.log(locale);
   switch (locale) {
     case 'en-CA':
     case 'fr-CA':
