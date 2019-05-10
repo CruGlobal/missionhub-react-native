@@ -11,19 +11,37 @@ async function downloadTranslations() {
     apiKey: process.env.ONESKY_API_KEY,
     secret: process.env.ONESKY_SECRET_KEY,
     projectId: '292283',
+  };
+  const multilingualOptions = {
+    ...options,
     fileName: 'en-us.json',
     format: 'I18NEXT_MULTILINGUAL_JSON',
   };
 
   console.log('Downloading from OneSky...');
   try {
-    const content = await oneSky.getMultilingualFile(options);
+    const translationsRaw = await oneSky.getMultilingualFile(
+      multilingualOptions,
+    );
+    const languageOptions = await oneSky.getLanguageOptions(options);
     console.log('Successfully Downloaded.');
+
+    const readyLanguages = languageOptions.data
+      .filter(language => language.is_ready_to_publish)
+      .map(language => language.code);
+
+    const translations = readyLanguages.reduce(
+      (acc, language) => ({
+        ...acc,
+        [language]: translationsRaw[language],
+      }),
+      {},
+    );
 
     console.log('Writing translations.json...');
     fs.writeFileSync(
       path.resolve(__dirname, '../src/i18n/locales/translations.json'),
-      content,
+      translations,
     );
     console.log('Done.');
   } catch (error) {
