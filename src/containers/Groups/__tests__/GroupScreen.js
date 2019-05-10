@@ -10,11 +10,7 @@ import {
 import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../../constants';
 import * as common from '../../../utils/common';
 import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../../routes/constants';
-import {
-  navigatePush,
-  navigateReset,
-  navigateToMainTabs,
-} from '../../../actions/navigation';
+import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import { GROUP_PROFILE } from '../GroupProfile';
 
 jest.mock('../../../actions/navigation');

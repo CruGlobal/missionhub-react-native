@@ -34,12 +34,8 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-<<<<<<< HEAD
-      <Connect(Translate(AddContactFields))
-        isGroupInvite={false}
-=======
       <Connect(withI18nextTranslation(AddContactFields))
->>>>>>> develop
+        isGroupInvite={false}
         onUpdateData={[Function]}
       />
     </ScrollViewMock>

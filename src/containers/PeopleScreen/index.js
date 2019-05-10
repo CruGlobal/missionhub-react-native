@@ -44,7 +44,6 @@ export class PeopleScreen extends Component {
   openMainMenu = () => this.props.dispatch(openMainMenu());
 
   handleAddContact(org) {
-    console.log(org);
     this.props.dispatch(
       navigatePush(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
         organization: org && org.id ? org : undefined,

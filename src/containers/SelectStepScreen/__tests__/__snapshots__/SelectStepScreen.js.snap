@@ -110,9 +110,8 @@ exports[`with enableBackButton renders correctly 1`] = `
 </View>
 `;
 
-<<<<<<< HEAD
 exports[`with enableSkipButton renders correctly 1`] = `
-<Component
+<View
   flex={1}
 >
   <ParallaxScrollView
@@ -132,7 +131,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
     renderStickyHeader={[Function]}
     stickyHeaderHeight={65}
   >
-    <Connect(Translate(StepsList))
+    <Connect(withI18nextTranslation(StepsList))
       contactName="roger"
       contactStageId="3"
       next={[MockFunction]}
@@ -150,18 +149,14 @@ exports[`with enableSkipButton renders correctly 1`] = `
       text="CREATE YOUR OWN STEP"
     />
   </SafeAreaView>
-  <Translate(AbsoluteSkip)
+  <withI18nextTranslation(AbsoluteSkip)
     onSkip={[Function]}
   />
-</Component>
+</View>
 `;
 
 exports[`without enableBackButton nor enableSkipButton renders correctly 1`] = `
-<Component
-=======
-exports[`without enableBackButton renders correctly 1`] = `
 <View
->>>>>>> develop
   flex={1}
 >
   <ParallaxScrollView

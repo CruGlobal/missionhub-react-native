@@ -2,12 +2,8 @@
 
 import { createStackNavigator, StackActions } from 'react-navigation';
 
-import { MAIN_TABS, PEOPLE_TAB } from '../../constants';
-import {
-  navigatePush,
-  navigateReset,
-  navigateToMainTabs,
-} from '../../actions/navigation';
+import { PEOPLE_TAB } from '../../constants';
+import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { getOrganizationMembers } from '../../actions/organizations';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,

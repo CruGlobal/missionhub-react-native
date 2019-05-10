@@ -100,13 +100,8 @@ Object {
 }
 `;
 
-<<<<<<< HEAD
 exports[`renders correctly as Casey 1`] = `
-<Component
-=======
-exports[`PeopleScreen renders correctly as Casey 1`] = `
 <View
->>>>>>> develop
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -162,13 +157,8 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
 </View>
 `;
 
-<<<<<<< HEAD
 exports[`renders correctly as Jean 1`] = `
-<Component
-=======
-exports[`PeopleScreen renders correctly as Jean 1`] = `
 <View
->>>>>>> develop
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -251,13 +241,8 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
 </View>
 `;
 
-<<<<<<< HEAD
 exports[`renders empty correctly 1`] = `
-<Component
-=======
-exports[`PeopleScreen renders empty correctly 1`] = `
 <View
->>>>>>> develop
   style={
     Object {
       "backgroundColor": "#ffffff",
