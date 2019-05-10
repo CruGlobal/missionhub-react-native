@@ -17,7 +17,7 @@ const languageDetector = {
 function chooseLanguage() {
   const locale = DeviceInfo.getDeviceLocale();
 
-  if (JSON.parse(translations)[locale]) {
+  if (translations[locale]) {
     return locale;
   } else {
     const [baseLocale] = locale.split('-');
