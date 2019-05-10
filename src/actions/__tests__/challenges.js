@@ -352,7 +352,7 @@ describe('getChallenge', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CHALLENGE, {
       challenge_id,
       include:
-        'accepted_community_challenges.person.first_name,accepted_community_challenges.person.last_name',
+        'accepted_community_challenges.person.first_name,accepted_community_challenges.person.last_name,accepted_community_challenges.person.organizational_permissions',
     });
     expect(store.getActions()).toEqual([
       getChallengeResult,
