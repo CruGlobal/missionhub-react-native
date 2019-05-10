@@ -4,6 +4,8 @@ import path from 'path';
 import dotenv from 'dotenv';
 import oneSky from '@brainly/onesky-utils';
 
+import { filterReadyTranslations } from '../src/utils/onesky';
+
 dotenv.config({ path: '.env.local' });
 
 async function downloadTranslations() {
@@ -23,25 +25,13 @@ async function downloadTranslations() {
     const translationsRaw = await oneSky.getMultilingualFile(
       multilingualOptions,
     );
-    //const languageOptions = await oneSky.getLanguageOptions(options);
+    const languagesRaw = await oneSky.getLanguages(options);
     console.log('Successfully Downloaded.');
-
-    /*const readyLanguages = languageOptions.data
-      .filter(language => language.is_ready_to_publish)
-      .map(language => language.code);
-
-    const translations = readyLanguages.reduce(
-      (acc, language) => ({
-        ...acc,
-        [language]: translationsRaw[language],
-      }),
-      {},
-    );*/
 
     console.log('Writing translations.json...');
     fs.writeFileSync(
       path.resolve(__dirname, '../src/i18n/locales/translations.json'),
-      translationsRaw,
+      filterReadyTranslations(translationsRaw, languagesRaw),
     );
     console.log('Done.');
   } catch (error) {
