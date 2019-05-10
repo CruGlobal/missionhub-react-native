@@ -9,7 +9,7 @@ import en_US from './locales/en-US.js';
 const languageDetector = {
   type: 'languageDetector',
   async: false,
-  detect: chooseLanguage,
+  detect: () => chooseLanguage(),
   init: () => {},
   cacheUserLanguage: () => {},
 };
@@ -18,13 +18,26 @@ function chooseLanguage() {
   const locale = DeviceInfo.getDeviceLocale();
   const baseLocale = locale.split('-')[0];
 
-  switch (baseLocale) {
-    case 'no':
-    case 'nb':
-    case 'nn':
-      return 'no';
+  console.log(locale);
+  switch (locale) {
+    case 'en-CA':
+    case 'fr-CA':
+    case 'pt-BR':
+      return locale;
     default:
-      return 'en-US';
+      switch (baseLocale) {
+        case 'es':
+          return 'es-419';
+        case 'hu':
+        case 'id':
+          return baseLocale;
+        case 'no':
+        case 'nb':
+        case 'nn':
+          return 'no';
+        default:
+          return 'en-US';
+      }
   }
 }
 
