@@ -2,6 +2,12 @@
 
 exports[`should render completed challenge correctly 1`] = `
 <View>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
   <Header
     left={
       <IconButton
@@ -50,6 +56,12 @@ exports[`should render completed challenge correctly 1`] = `
 
 exports[`should render joined challenge correctly 1`] = `
 <View>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
   <Header
     left={
       <IconButton
@@ -131,6 +143,12 @@ Array [
 
 exports[`should render unjoined challenge correctly 1`] = `
 <View>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
   <Header
     left={
       <IconButton
@@ -197,6 +215,12 @@ exports[`should render unjoined challenge correctly 1`] = `
 
 exports[`should render without edit correctly 1`] = `
 <View>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
   <Header
     left={
       <IconButton

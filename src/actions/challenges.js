@@ -142,7 +142,7 @@ export function getChallenge(challenge_id) {
     const query = {
       challenge_id,
       include:
-        'accepted_community_challenges.person.first_name,accepted_community_challenges.person.last_name',
+        'accepted_community_challenges.person.first_name,accepted_community_challenges.person.last_name,accepted_community_challenges.person.organizational_permissions',
     };
 
     const { response } = await dispatch(
