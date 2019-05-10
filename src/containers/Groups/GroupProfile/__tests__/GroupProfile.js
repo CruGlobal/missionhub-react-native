@@ -167,7 +167,7 @@ describe('GroupProfile', () => {
       component = buildScreen();
       // Press the "Edit" button
       component
-        .childAt(2)
+        .childAt(1)
         .props()
         .right.props.onPress();
       component.update();
@@ -189,6 +189,7 @@ describe('GroupProfile', () => {
       const data = { uri: 'testuri' };
       component
         .childAt(0)
+        .childAt(0)
         .props()
         .onSelectImage(data);
 
@@ -198,6 +199,7 @@ describe('GroupProfile', () => {
     it('handle name change', () => {
       const text = 'new name';
       component
+        .childAt(0)
         .childAt(1)
         .childAt(0)
         .childAt(0)
@@ -209,6 +211,7 @@ describe('GroupProfile', () => {
 
     it('handle new code', () => {
       component
+        .childAt(0)
         .childAt(1)
         .childAt(4)
         .childAt(1)
@@ -224,6 +227,7 @@ describe('GroupProfile', () => {
 
     it('handle new link', () => {
       component
+        .childAt(0)
         .childAt(1)
         .childAt(6)
         .childAt(1)
@@ -239,6 +243,7 @@ describe('GroupProfile', () => {
 
     it('handles delete organization', async () => {
       component
+        .childAt(0)
         .childAt(1)
         .childAt(0)
         .childAt(1)
@@ -273,6 +278,7 @@ describe('GroupProfile', () => {
   it('handle copy code', () => {
     const component = buildScreen();
     component
+      .childAt(0)
       .childAt(1)
       .childAt(4)
       .childAt(1)
@@ -290,6 +296,7 @@ describe('GroupProfile', () => {
   it('handle copy link', () => {
     const component = buildScreen();
     component
+      .childAt(0)
       .childAt(1)
       .childAt(6)
       .childAt(1)

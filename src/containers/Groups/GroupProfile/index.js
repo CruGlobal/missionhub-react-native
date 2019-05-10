@@ -1,7 +1,7 @@
 /* eslint max-lines: 0, max-lines-per-function: 0 */
 
 import React, { Component } from 'react';
-import { SafeAreaView, Alert, Image, ScrollView } from 'react-native';
+import { View, SafeAreaView, Alert, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -172,114 +172,118 @@ class GroupProfile extends Component {
     const { t, organization, membersLength, owner, canEdit } = this.props;
     const { editing, name } = this.state;
     return (
-      <SafeAreaView style={styles.container}>
-        {this.renderImage()}
-        <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
-          {editing ? (
-            <Flex direction="row" align="center" style={styles.rowWrap}>
-              <Input
-                onChangeText={this.handleChangeName}
-                value={name}
-                autoFocus={true}
-                autoCorrect={true}
-                selectionColor={theme.white}
-                returnKeyType="done"
-                style={styles.input}
-                blurOnSubmit={true}
-                underlineColorAndroid={theme.transparent}
-              />
-              <PopupMenu
-                actions={[
-                  {
-                    text: t('delete'),
-                    onPress: this.checkDeleteOrg,
-                    destructive: true,
-                  },
-                ]}
-                size={20}
-                iconProps={{ style: styles.menu }}
-              />
-            </Flex>
-          ) : (
-            <Flex direction="row" align="center" style={styles.rowWrap}>
-              <Text style={styles.name}>{organization.name}</Text>
-            </Flex>
-          )}
-          <Flex direction="row" align="center" style={styles.rowWrap}>
-            <Flex value={1} direction="column">
-              <Text style={styles.label}>{t('profileLabels.owner')}</Text>
-              <Text style={styles.text}>{owner.full_name}</Text>
-            </Flex>
-            <Flex value={1} direction="column">
-              <Text style={styles.label}>{t('created')}</Text>
-              <DateComponent
-                style={styles.text}
-                date={organization.created_at}
-                format="LL"
-              />
-            </Flex>
-          </Flex>
-          <Flex direction="row" align="center" style={styles.rowWrap}>
-            <Flex direction="column">
-              <Text style={styles.label}>{t('members')}</Text>
-              <Text style={styles.text}>{membersLength}</Text>
-            </Flex>
-          </Flex>
-          <Separator style={styles.separator} />
-          <Flex direction="row" align="center" style={styles.rowWrap}>
-            <Flex value={1} direction="column">
-              <Text style={styles.label}>{t('code')}</Text>
-              <Text style={styles.codeText}>{organization.community_code}</Text>
-            </Flex>
+      <View style={styles.container}>
+        <SafeAreaView style={styles.flex}>
+          {this.renderImage()}
+          <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
             {editing ? (
-              <Button
-                style={[styles.btn, styles.newBtn]}
-                buttonTextStyle={styles.btnText}
-                onPress={this.handleNewCode}
-                text={t('newCode').toUpperCase()}
-                type="transparent"
-              />
+              <Flex direction="row" align="center" style={styles.rowWrap}>
+                <Input
+                  onChangeText={this.handleChangeName}
+                  value={name}
+                  autoFocus={true}
+                  autoCorrect={true}
+                  selectionColor={theme.white}
+                  returnKeyType="done"
+                  style={styles.input}
+                  blurOnSubmit={true}
+                  underlineColorAndroid={theme.transparent}
+                />
+                <PopupMenu
+                  actions={[
+                    {
+                      text: t('delete'),
+                      onPress: this.checkDeleteOrg,
+                      destructive: true,
+                    },
+                  ]}
+                  size={20}
+                  iconProps={{ style: styles.menu }}
+                />
+              </Flex>
             ) : (
-              <Button
-                style={styles.btn}
-                buttonTextStyle={styles.btnText}
-                onPress={this.copyCode}
-                text={t('copy').toUpperCase()}
-                type="transparent"
-              />
+              <Flex direction="row" align="center" style={styles.rowWrap}>
+                <Text style={styles.name}>{organization.name}</Text>
+              </Flex>
             )}
-          </Flex>
-          <Separator style={styles.separator} />
-          <Flex direction="row" align="center" style={styles.rowWrap}>
-            <Flex value={1} direction="column">
-              <Text style={styles.label}>{t('link')}</Text>
-              <Text style={styles.linkText}>
-                {getCommunityUrl(organization.community_url)}
-              </Text>
+            <Flex direction="row" align="center" style={styles.rowWrap}>
+              <Flex value={1} direction="column">
+                <Text style={styles.label}>{t('profileLabels.owner')}</Text>
+                <Text style={styles.text}>{owner.full_name}</Text>
+              </Flex>
+              <Flex value={1} direction="column">
+                <Text style={styles.label}>{t('created')}</Text>
+                <DateComponent
+                  style={styles.text}
+                  date={organization.created_at}
+                  format="LL"
+                />
+              </Flex>
             </Flex>
-            {editing ? (
-              <Button
-                style={[styles.btn, styles.newBtn]}
-                buttonTextStyle={styles.btnText}
-                onPress={this.handleNewLink}
-                text={t('newLink').toUpperCase()}
-                type="transparent"
-              />
-            ) : (
-              <Button
-                style={styles.btn}
-                buttonTextStyle={styles.btnText}
-                onPress={this.copyUrl}
-                text={t('copy').toUpperCase()}
-                type="transparent"
-              />
-            )}
-          </Flex>
-          <Separator style={styles.separator} />
-          <Flex direction="row" align="center" style={styles.rowWrap}>
-            <Text style={styles.info}>{t('info')}</Text>
-          </Flex>
-        </ScrollView>
+            <Flex direction="row" align="center" style={styles.rowWrap}>
+              <Flex direction="column">
+                <Text style={styles.label}>{t('members')}</Text>
+                <Text style={styles.text}>{membersLength}</Text>
+              </Flex>
+            </Flex>
+            <Separator style={styles.separator} />
+            <Flex direction="row" align="center" style={styles.rowWrap}>
+              <Flex value={1} direction="column">
+                <Text style={styles.label}>{t('code')}</Text>
+                <Text style={styles.codeText}>
+                  {organization.community_code}
+                </Text>
+              </Flex>
+              {editing ? (
+                <Button
+                  style={[styles.btn, styles.newBtn]}
+                  buttonTextStyle={styles.btnText}
+                  onPress={this.handleNewCode}
+                  text={t('newCode').toUpperCase()}
+                  type="transparent"
+                />
+              ) : (
+                <Button
+                  style={styles.btn}
+                  buttonTextStyle={styles.btnText}
+                  onPress={this.copyCode}
+                  text={t('copy').toUpperCase()}
+                  type="transparent"
+                />
+              )}
+            </Flex>
+            <Separator style={styles.separator} />
+            <Flex direction="row" align="center" style={styles.rowWrap}>
+              <Flex value={1} direction="column">
+                <Text style={styles.label}>{t('link')}</Text>
+                <Text style={styles.linkText}>
+                  {getCommunityUrl(organization.community_url)}
+                </Text>
+              </Flex>
+              {editing ? (
+                <Button
+                  style={[styles.btn, styles.newBtn]}
+                  buttonTextStyle={styles.btnText}
+                  onPress={this.handleNewLink}
+                  text={t('newLink').toUpperCase()}
+                  type="transparent"
+                />
+              ) : (
+                <Button
+                  style={styles.btn}
+                  buttonTextStyle={styles.btnText}
+                  onPress={this.copyUrl}
+                  text={t('copy').toUpperCase()}
+                  type="transparent"
+                />
+              )}
+            </Flex>
+            <Separator style={styles.separator} />
+            <Flex direction="row" align="center" style={styles.rowWrap}>
+              <Text style={styles.info}>{t('info')}</Text>
+            </Flex>
+          </ScrollView>
+        </SafeAreaView>
         <Header
           shadow={false}
           style={styles.topNav}
@@ -303,7 +307,7 @@ class GroupProfile extends Component {
             )
           }
         />
-      </SafeAreaView>
+      </View>
     );
   }
 }
