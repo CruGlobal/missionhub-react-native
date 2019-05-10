@@ -4,9 +4,26 @@ import path from 'path';
 import dotenv from 'dotenv';
 import oneSky from '@brainly/onesky-utils';
 
-import { filterReadyTranslations } from '../src/utils/onesky';
-
 dotenv.config({ path: '.env.local' });
+
+export function filterReadyTranslations(translationsRaw, languagesRaw) {
+  let readyLanguages = JSON.parse(languagesRaw);
+  readyLanguages = readyLanguages.data
+    .filter(language => language.is_ready_to_publish)
+    .map(language => language.code);
+
+  const translations = JSON.parse(translationsRaw);
+
+  const content = readyLanguages.reduce(
+    (acc, language) => ({
+      ...acc,
+      [language]: translations[language],
+    }),
+    {},
+  );
+
+  return JSON.stringify(content);
+}
 
 async function downloadTranslations() {
   const options = {
