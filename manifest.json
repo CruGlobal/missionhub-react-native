@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "operations": [
+    {
+      "signature": "d843dfe6fda5fcf5bbbc3ddb34e8606a4d99e6f3f5292dc427ed2069a088fec8",
+      "document": "fragment StepItem on AcceptedChallenge{__typename receiver{__typename fullName id}title}query StepsList($after:String){acceptedChallenges(after:$after,completed:false,first:0){__typename nodes{__typename focus id...StepItem}pageInfo{__typename endCursor hasNextPage hasPreviousPage startCursor}}}",
+      "metadata": {
+        "engineSignature": ""
+      }
+    }
+  ]
+}

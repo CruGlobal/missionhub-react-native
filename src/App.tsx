@@ -31,7 +31,7 @@ import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
-import { apolloClient } from './apolloClient.config';
+import { apolloClient } from './graphql/apolloClient';
 
 @codePush({
   deploymentKey: isAndroid

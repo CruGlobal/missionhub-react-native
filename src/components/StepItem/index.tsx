@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { gql } from 'apollo-boost';
+import gql from 'fraql';
 
 import { Flex, Text, Touchable, Icon } from '../common';
 import theme from '../../theme';
@@ -16,7 +16,7 @@ type Step = StepsList_acceptedChallenges_nodes;
 type StepItemDisplayType = 'swipeable' | 'contact' | 'reminder';
 
 export const STEP_ITEM_QUERY = gql`
-  fragment StepItem on AcceptedChallenge {
+  fragment _ on AcceptedChallenge {
     title
     receiver {
       id

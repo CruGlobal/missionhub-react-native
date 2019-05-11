@@ -32,7 +32,7 @@ exports[`StepsScreen Scrolling Events should load more when scrolling close to b
             "backgroundColor": "#ffffff",
           },
           Object {
-            "flex": 1,
+            "flex": undefined,
           },
         ]
       }
@@ -76,8 +76,9 @@ exports[`StepsScreen Scrolling Events should load more when scrolling close to b
             onSelect={[Function]}
             step={
               Object {
-                "id": 1,
-                "reminder": true,
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "5",
               }
             }
             type="reminder"
@@ -87,53 +88,106 @@ exports[`StepsScreen Scrolling Events should load more when scrolling close to b
             onSelect={[Function]}
             step={
               Object {
-                "id": 2,
-                "reminder": true,
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "6",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "7",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "12",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "13",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "14",
               }
             }
             type="reminder"
           />
         </Flex>
         <RCTScrollView
-          ListFooterComponent={<FooterLoading />}
+          ListFooterComponent={null}
           bounces={false}
           data={
             Array [
               Object {
-                "id": 0,
-                "organization": Object {
-                  "id": "000",
-                },
-                "receiver": Object {
-                  "id": "00",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
               },
               Object {
-                "id": 1,
-                "organization": Object {
-                  "id": "111",
-                },
-                "receiver": Object {
-                  "id": "11",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
               },
               Object {
-                "id": 2,
-                "organization": Object {
-                  "id": "222",
-                },
-                "receiver": Object {
-                  "id": "22",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
               },
               Object {
-                "id": 3,
-                "organization": Object {
-                  "id": "333",
-                },
-                "receiver": Object {
-                  "id": "33",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "8",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "9",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "10",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "11",
               },
             ]
           }
@@ -189,13 +243,9 @@ exports[`StepsScreen Scrolling Events should load more when scrolling close to b
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 0,
-                    "organization": Object {
-                      "id": "000",
-                    },
-                    "receiver": Object {
-                      "id": "00",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
                   }
                 }
                 type="swipeable"
@@ -211,13 +261,9 @@ exports[`StepsScreen Scrolling Events should load more when scrolling close to b
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 1,
-                    "organization": Object {
-                      "id": "111",
-                    },
-                    "receiver": Object {
-                      "id": "11",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
                   }
                 }
                 type="swipeable"
@@ -233,13 +279,9 @@ exports[`StepsScreen Scrolling Events should load more when scrolling close to b
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 2,
-                    "organization": Object {
-                      "id": "222",
-                    },
-                    "receiver": Object {
-                      "id": "22",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
                   }
                 }
                 type="swipeable"
@@ -255,13 +297,9 @@ exports[`StepsScreen Scrolling Events should load more when scrolling close to b
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 3,
-                    "organization": Object {
-                      "id": "333",
-                    },
-                    "receiver": Object {
-                      "id": "33",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
                   }
                 }
                 type="swipeable"
@@ -269,9 +307,475 @@ exports[`StepsScreen Scrolling Events should load more when scrolling close to b
             </View>
             <View
               onLayout={[Function]}
+              style={null}
             >
-              <FooterLoading />
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "8",
+                  }
+                }
+                type="swipeable"
+              />
             </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "9",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "10",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "11",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 0,
+                }
+              }
+            />
+          </View>
+        </RCTScrollView>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`StepsScreen Scrolling Events should not load more if already paging 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": undefined,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+      <View>
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "5",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "6",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "7",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "12",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "13",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "14",
+              }
+            }
+            type="reminder"
+          />
+        </Flex>
+        <RCTScrollView
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "8",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "9",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "10",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "11",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
+            Object {
+              "hideStars": true,
+            }
+          }
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": 40,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "8",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "9",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "10",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "11",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 0,
+                }
+              }
+            />
           </View>
         </RCTScrollView>
       </View>
@@ -356,8 +860,9 @@ exports[`StepsScreen Scrolling Events should not load more when not scrolling cl
             onSelect={[Function]}
             step={
               Object {
-                "id": 1,
-                "reminder": true,
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "5",
               }
             }
             type="reminder"
@@ -367,8 +872,21 @@ exports[`StepsScreen Scrolling Events should not load more when not scrolling cl
             onSelect={[Function]}
             step={
               Object {
-                "id": 2,
-                "reminder": true,
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "6",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "7",
               }
             }
             type="reminder"
@@ -380,40 +898,24 @@ exports[`StepsScreen Scrolling Events should not load more when not scrolling cl
           data={
             Array [
               Object {
-                "id": 0,
-                "organization": Object {
-                  "id": "000",
-                },
-                "receiver": Object {
-                  "id": "00",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
               },
               Object {
-                "id": 1,
-                "organization": Object {
-                  "id": "111",
-                },
-                "receiver": Object {
-                  "id": "11",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
               },
               Object {
-                "id": 2,
-                "organization": Object {
-                  "id": "222",
-                },
-                "receiver": Object {
-                  "id": "22",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
               },
               Object {
-                "id": 3,
-                "organization": Object {
-                  "id": "333",
-                },
-                "receiver": Object {
-                  "id": "33",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
               },
             ]
           }
@@ -469,13 +971,9 @@ exports[`StepsScreen Scrolling Events should not load more when not scrolling cl
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 0,
-                    "organization": Object {
-                      "id": "000",
-                    },
-                    "receiver": Object {
-                      "id": "00",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
                   }
                 }
                 type="swipeable"
@@ -491,13 +989,9 @@ exports[`StepsScreen Scrolling Events should not load more when not scrolling cl
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 1,
-                    "organization": Object {
-                      "id": "111",
-                    },
-                    "receiver": Object {
-                      "id": "11",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
                   }
                 }
                 type="swipeable"
@@ -513,13 +1007,9 @@ exports[`StepsScreen Scrolling Events should not load more when not scrolling cl
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 2,
-                    "organization": Object {
-                      "id": "222",
-                    },
-                    "receiver": Object {
-                      "id": "22",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
                   }
                 }
                 type="swipeable"
@@ -535,13 +1025,9 @@ exports[`StepsScreen Scrolling Events should not load more when not scrolling cl
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 3,
-                    "organization": Object {
-                      "id": "333",
-                    },
-                    "receiver": Object {
-                      "id": "33",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
                   }
                 }
                 type="swipeable"
@@ -555,24 +1041,266 @@ exports[`StepsScreen Scrolling Events should not load more when not scrolling cl
 </View>
 `;
 
-exports[`StepsScreen mapStateToProps should provide the necessary props 1`] = `
-Object {
-  "hasMoreSteps": true,
-  "reminders": Array [
+exports[`StepsScreen Scrolling Events should show loading indicator when scrolling close to bottom 1`] = `
+<View
+  style={
     Object {
-      "id": 1,
-      "reminder": true,
-    },
-  ],
-  "steps": Array [
-    Object {
-      "id": 2,
-    },
-    Object {
-      "id": 3,
-    },
-  ],
-}
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+      <View>
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "5",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "6",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "7",
+              }
+            }
+            type="reminder"
+          />
+        </Flex>
+        <RCTScrollView
+          ListFooterComponent={<FooterLoading />}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
+            Object {
+              "hideStars": true,
+            }
+          }
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": 40,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
+                  }
+                }
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+            >
+              <FooterLoading />
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
 `;
 
 exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
@@ -645,7 +1373,20 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
               },
             ]
           }
-        />
+        >
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "1",
+              }
+            }
+            type="reminder"
+          />
+        </Flex>
         <Flex
           align="center"
           justify="center"
@@ -782,47 +1523,44 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
               },
             ]
           }
-        />
+        >
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "5",
+              }
+            }
+            type="reminder"
+          />
+        </Flex>
         <RCTScrollView
           ListFooterComponent={null}
           bounces={false}
           data={
             Array [
               Object {
-                "id": 0,
-                "organization": Object {
-                  "id": "000",
-                },
-                "receiver": Object {
-                  "id": "00",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
               },
               Object {
-                "id": 1,
-                "organization": Object {
-                  "id": "111",
-                },
-                "receiver": Object {
-                  "id": "11",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
               },
               Object {
-                "id": 2,
-                "organization": Object {
-                  "id": "222",
-                },
-                "receiver": Object {
-                  "id": "22",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
               },
               Object {
-                "id": 3,
-                "organization": Object {
-                  "id": "333",
-                },
-                "receiver": Object {
-                  "id": "33",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
               },
             ]
           }
@@ -878,13 +1616,9 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 0,
-                    "organization": Object {
-                      "id": "000",
-                    },
-                    "receiver": Object {
-                      "id": "00",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
                   }
                 }
                 type="swipeable"
@@ -900,13 +1634,9 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 1,
-                    "organization": Object {
-                      "id": "111",
-                    },
-                    "receiver": Object {
-                      "id": "11",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
                   }
                 }
                 type="swipeable"
@@ -922,13 +1652,9 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 2,
-                    "organization": Object {
-                      "id": "222",
-                    },
-                    "receiver": Object {
-                      "id": "22",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
                   }
                 }
                 type="swipeable"
@@ -944,13 +1670,9 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 3,
-                    "organization": Object {
-                      "id": "333",
-                    },
-                    "receiver": Object {
-                      "id": "33",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
                   }
                 }
                 type="swipeable"
@@ -1040,8 +1762,9 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
             onSelect={[Function]}
             step={
               Object {
-                "id": 1,
-                "reminder": true,
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "5",
               }
             }
             type="reminder"
@@ -1051,8 +1774,21 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
             onSelect={[Function]}
             step={
               Object {
-                "id": 2,
-                "reminder": true,
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "6",
+              }
+            }
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "7",
               }
             }
             type="reminder"
@@ -1064,40 +1800,24 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
           data={
             Array [
               Object {
-                "id": 0,
-                "organization": Object {
-                  "id": "000",
-                },
-                "receiver": Object {
-                  "id": "00",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
               },
               Object {
-                "id": 1,
-                "organization": Object {
-                  "id": "111",
-                },
-                "receiver": Object {
-                  "id": "11",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
               },
               Object {
-                "id": 2,
-                "organization": Object {
-                  "id": "222",
-                },
-                "receiver": Object {
-                  "id": "22",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
               },
               Object {
-                "id": 3,
-                "organization": Object {
-                  "id": "333",
-                },
-                "receiver": Object {
-                  "id": "33",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
               },
             ]
           }
@@ -1153,13 +1873,9 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 0,
-                    "organization": Object {
-                      "id": "000",
-                    },
-                    "receiver": Object {
-                      "id": "00",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
                   }
                 }
                 type="swipeable"
@@ -1175,13 +1891,9 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 1,
-                    "organization": Object {
-                      "id": "111",
-                    },
-                    "receiver": Object {
-                      "id": "11",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
                   }
                 }
                 type="swipeable"
@@ -1197,13 +1909,9 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 2,
-                    "organization": Object {
-                      "id": "222",
-                    },
-                    "receiver": Object {
-                      "id": "22",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
                   }
                 }
                 type="swipeable"
@@ -1219,13 +1927,9 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 3,
-                    "organization": Object {
-                      "id": "333",
-                    },
-                    "receiver": Object {
-                      "id": "33",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
                   }
                 }
                 type="swipeable"
@@ -1305,31 +2009,19 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
           data={
             Array [
               Object {
-                "id": 0,
-                "organization": Object {
-                  "id": "000",
-                },
-                "receiver": Object {
-                  "id": "00",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
               },
               Object {
-                "id": 1,
-                "organization": Object {
-                  "id": "111",
-                },
-                "receiver": Object {
-                  "id": "11",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
               },
               Object {
-                "id": 2,
-                "organization": Object {
-                  "id": "222",
-                },
-                "receiver": Object {
-                  "id": "22",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
               },
             ]
           }
@@ -1366,7 +2058,7 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
                 "paddingBottom": undefined,
               },
               Object {
-                "paddingBottom": 40,
+                "paddingBottom": undefined,
               },
             ]
           }
@@ -1385,13 +2077,9 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 0,
-                    "organization": Object {
-                      "id": "000",
-                    },
-                    "receiver": Object {
-                      "id": "00",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
                   }
                 }
                 type="swipeable"
@@ -1407,13 +2095,9 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 1,
-                    "organization": Object {
-                      "id": "111",
-                    },
-                    "receiver": Object {
-                      "id": "11",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
                   }
                 }
                 type="swipeable"
@@ -1429,13 +2113,9 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 2,
-                    "organization": Object {
-                      "id": "222",
-                    },
-                    "receiver": Object {
-                      "id": "22",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
                   }
                 }
                 type="swipeable"
@@ -1559,40 +2239,24 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
           data={
             Array [
               Object {
-                "id": 0,
-                "organization": Object {
-                  "id": "000",
-                },
-                "receiver": Object {
-                  "id": "00",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
               },
               Object {
-                "id": 1,
-                "organization": Object {
-                  "id": "111",
-                },
-                "receiver": Object {
-                  "id": "11",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
               },
               Object {
-                "id": 2,
-                "organization": Object {
-                  "id": "222",
-                },
-                "receiver": Object {
-                  "id": "22",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
               },
               Object {
-                "id": 3,
-                "organization": Object {
-                  "id": "333",
-                },
-                "receiver": Object {
-                  "id": "33",
-                },
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
               },
             ]
           }
@@ -1629,7 +2293,7 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
                 "paddingBottom": undefined,
               },
               Object {
-                "paddingBottom": 40,
+                "paddingBottom": undefined,
               },
             ]
           }
@@ -1648,13 +2312,9 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 0,
-                    "organization": Object {
-                      "id": "000",
-                    },
-                    "receiver": Object {
-                      "id": "00",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
                   }
                 }
                 type="swipeable"
@@ -1670,13 +2330,9 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 1,
-                    "organization": Object {
-                      "id": "111",
-                    },
-                    "receiver": Object {
-                      "id": "11",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
                   }
                 }
                 type="swipeable"
@@ -1692,13 +2348,9 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 2,
-                    "organization": Object {
-                      "id": "222",
-                    },
-                    "receiver": Object {
-                      "id": "22",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
                   }
                 }
                 type="swipeable"
@@ -1714,13 +2366,9 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
                 onSelect={[Function]}
                 step={
                   Object {
-                    "id": 3,
-                    "organization": Object {
-                      "id": "333",
-                    },
-                    "receiver": Object {
-                      "id": "33",
-                    },
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
                   }
                 }
                 type="swipeable"

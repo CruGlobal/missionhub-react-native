@@ -51,13 +51,13 @@ import {
 
 const MAX_REMINDERS = 3;
 
-const STEPS_QUERY = gql`
+export const STEPS_QUERY = gql`
   query StepsList($after: String) {
     acceptedChallenges(after: $after, completed: false, first: 5) {
       nodes {
         id
         focus
-        ...StepItem
+        ${STEP_ITEM_QUERY || ''}
       }
       pageInfo {
         endCursor
@@ -67,7 +67,6 @@ const STEPS_QUERY = gql`
       }
     }
   }
-  ${STEP_ITEM_QUERY}
 `;
 
 function isCloseToBottom({
@@ -84,7 +83,7 @@ function isCloseToBottom({
 
 type Step = StepsList_acceptedChallenges_nodes;
 
-export const StepsScreen = ({
+const StepsScreen = ({
   dispatch,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -117,7 +116,10 @@ export const StepsScreen = ({
     refetch(); // Refetch on mount?
   }, []);
 
-  const { steps, reminders } = (nodes || []).reduce(
+  const { steps, reminders } = (nodes || []).reduce<{
+    steps: Step[];
+    reminders: Step[];
+  }>(
     ({ steps, reminders }, challenge) => ({
       steps: [
         ...steps,
@@ -128,7 +130,7 @@ export const StepsScreen = ({
         ...(challenge && challenge.focus ? [challenge] : []),
       ],
     }),
-    { steps: [] as Step[], reminders: [] as Step[] },
+    { steps: [], reminders: [] },
   );
 
   const handleRowSelect = (step: Step) => {

@@ -1,11 +1,13 @@
 import { AsyncStorage } from 'react-native';
-import ApolloClient from 'apollo-boost';
-import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory';
+import ApolloClient, {
+  InMemoryCache,
+  NormalizedCacheObject,
+} from 'apollo-boost';
 import { persistCache } from 'apollo-cache-persist';
 import { PersistentStorage, PersistedData } from 'apollo-cache-persist/types';
 
-import { BASE_URL } from './api/utils';
-import { store } from './store';
+import { BASE_URL } from '../api/utils';
+import { store } from '../store';
 
 const cache = new InMemoryCache();
 

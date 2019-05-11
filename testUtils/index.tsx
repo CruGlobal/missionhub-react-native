@@ -1,41 +1,28 @@
-import React, { ReactElement, Children } from 'react';
+import React, { ReactElement } from 'react';
 import 'react-native';
 import { Provider } from 'react-redux';
-import { render } from 'react-native-testing-library';
-import Enzyme, { shallow as enzymeShallow, ShallowWrapper } from 'enzyme';
+import { NavigationParams } from 'react-navigation';
+import { ApolloProvider } from 'react-apollo-hooks';
+import { render, flushMicrotasksQueue } from 'react-native-testing-library';
+import Enzyme, { shallow as enzymeShallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import {
-  createAppContainer,
-  createSwitchNavigator,
-  NavigationComponent,
-  NavigationParams,
-} from 'react-navigation';
+import { IMocks } from 'graphql-tools';
+
+import { createApolloMockClient } from '../src/graphql/apolloMockClient';
+
+import { TestNavigator } from './TestNavigator';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 export const createThunkStore = configureStore([thunk]);
 
-const TestNavigator = ({
-  children,
-  params,
-}: {
-  children: NavigationComponent;
-  params?: NavigationParams;
-}) => {
-  const Navigator = createAppContainer(
-    createSwitchNavigator({
-      TestScreen: { screen: () => Children.only(children), params },
-    }),
-  );
-  return <Navigator />;
-};
-
 interface RenderWithContextParams {
   initialState?: {} | undefined;
   store?: MockStore;
   navParams?: NavigationParams;
+  mockResolvers?: IMocks;
 }
 
 // Inspiration from https://github.com/kentcdodds/react-testing-library/blob/52575005579307bcfbe7fbe4ef4636147c03c6fb/examples/__tests__/react-redux.js#L69-L80
@@ -45,24 +32,26 @@ export function renderWithContext(
     initialState,
     store = createThunkStore(initialState),
     navParams,
+    mockResolvers = {},
   }: RenderWithContextParams = {},
 ) {
+  const renderResult = render(
+    <TestNavigator params={navParams}>
+      <Provider store={store}>
+        <ApolloProvider client={createApolloMockClient(mockResolvers)}>
+          {component}
+        </ApolloProvider>
+      </Provider>
+    </TestNavigator>,
+  );
   return {
-    ...render(
-      <TestNavigator params={navParams}>
-        <Provider store={store}>{component}</Provider>
-      </TestNavigator>,
-    ),
+    ...renderResult,
     store,
+    flushMicrotasksQueue, // Resolve promises blocking Apollo from providing data
+    snapshot: () => {
+      expect(renderResult.toJSON()).toMatchSnapshot();
+    },
   };
-}
-
-export function snapshotWithContext(
-  component: ReactElement,
-  renderWithContextParams?: RenderWithContextParams,
-) {
-  const { toJSON } = renderWithContext(component, renderWithContextParams);
-  expect(toJSON()).toMatchSnapshot();
 }
 
 // TODO: Remove all legacy rendering functions below

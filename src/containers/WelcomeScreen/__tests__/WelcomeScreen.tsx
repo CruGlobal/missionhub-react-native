@@ -4,7 +4,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import WelcomeScreen from '..';
 
-import { renderWithContext, snapshotWithContext } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
@@ -33,14 +33,14 @@ describe('WelcomeScreen', () => {
   };
 
   it('should render correctly', () => {
-    snapshotWithContext(<WelcomeScreen next={next} />);
+    renderWithContext(<WelcomeScreen next={next} />).snapshot();
   });
 
   it('should render correctly with sign in button', () => {
-    snapshotWithContext(
+    renderWithContext(
       <WelcomeScreen next={next} />,
       allowSignInVariantConfig,
-    );
+    ).snapshot();
   });
 
   it('getStarted btn should call next', () => {
