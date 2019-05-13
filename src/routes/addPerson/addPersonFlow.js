@@ -19,67 +19,61 @@ import { paramsForStageNavigation } from '../utils';
 import { buildTrackingObj } from '../../utils/common';
 
 export const AddPersonFlowScreens = onFlowComplete => ({
-  [ADD_CONTACT_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      AddContactScreen,
-      ({ person, orgId, didSavePerson }) => (dispatch, getState) => {
-        if (!didSavePerson) {
-          return dispatch(onFlowComplete({ orgId }));
-        }
+  [ADD_CONTACT_SCREEN]: wrapNextAction(
+    AddContactScreen,
+    ({ person, orgId, didSavePerson }) => (dispatch, getState) => {
+      if (!didSavePerson) {
+        return dispatch(onFlowComplete({ orgId }));
+      }
 
-        const { id: contactId } = person;
-        const { assignment, name } = paramsForStageNavigation(
+      const { id: contactId } = person;
+      const { assignment, name } = paramsForStageNavigation(
+        contactId,
+        orgId,
+        getState,
+      );
+
+      dispatch(
+        navigatePush(PERSON_STAGE_SCREEN, {
+          addingContactFlow: true,
+          enableBackButton: false,
+          currentStage: null,
+          name,
           contactId,
+          contactAssignmentId: assignment && assignment.id,
+          section: 'people',
+          subsection: 'person',
           orgId,
-          getState,
-        );
-
-        dispatch(
-          navigatePush(PERSON_STAGE_SCREEN, {
-            addingContactFlow: true,
-            enableBackButton: false,
-            currentStage: null,
-            name,
-            contactId,
-            contactAssignmentId: assignment && assignment.id,
-            section: 'people',
-            subsection: 'person',
-            orgId,
-          }),
-        );
-      },
-    ),
-    buildTrackingObj(),
+        }),
+      );
+    },
   ),
-  [PERSON_STAGE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      PersonStageScreen,
-      ({ stage, name, contactId, orgId }) => dispatch => {
-        dispatch(
-          navigatePush(PERSON_SELECT_STEP_SCREEN, {
-            contactStage: stage,
-            createStepTracking: buildTrackingObj(
-              'people : person : steps : create',
-              'people',
-              'person',
-              'steps',
-            ),
-            contactName: name,
-            contactId,
-            organization: { id: orgId },
-            enableBackButton: false,
-            enableSkipButton: true,
-          }),
-        );
-      },
-    ),
-    buildTrackingObj(),
+  [PERSON_STAGE_SCREEN]: wrapNextAction(
+    PersonStageScreen,
+    ({ stage, name, contactId, orgId }) => dispatch => {
+      dispatch(
+        navigatePush(PERSON_SELECT_STEP_SCREEN, {
+          contactStage: stage,
+          createStepTracking: buildTrackingObj(
+            'people : person : steps : create',
+            'people',
+            'person',
+            'steps',
+          ),
+          contactName: name,
+          contactId,
+          organization: { id: orgId },
+          enableBackButton: false,
+          enableSkipButton: true,
+        }),
+      );
+    },
   ),
-  [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(PersonSelectStepScreen, ({ orgId }) => dispatch => {
+  [PERSON_SELECT_STEP_SCREEN]: wrapNextAction(
+    PersonSelectStepScreen,
+    ({ orgId }) => dispatch => {
       dispatch(onFlowComplete({ orgId }));
-    }),
-    buildTrackingObj(),
+    },
   ),
 });
 

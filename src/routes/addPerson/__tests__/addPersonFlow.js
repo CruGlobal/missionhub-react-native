@@ -7,6 +7,7 @@ import { PEOPLE_TAB } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
 import { AddPersonFlowScreens } from '../addPersonFlow';
 import { paramsForStageNavigation } from '../../utils';
+import { buildTrackingObj } from '../../../utils/common';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../../containers/AddContactScreen';
 import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
@@ -19,11 +20,10 @@ const myId = '111';
 const contactId = '222';
 const myName = 'Me';
 const contactName = 'Other';
-const stepId = '11';
 const orgId = '123';
 const contactAssignmentId = '22';
-const questionText = 'Text';
 
+const stage = { id: '1234' };
 const contact = {
   id: contactId,
 };
@@ -33,7 +33,17 @@ const reverseContactAssignment = {
 
 let onFlowComplete = jest.fn();
 
-let store = configureStore([thunk])();
+let store = configureStore([thunk])({
+  auth: {
+    person: {
+      id: myId,
+    },
+  },
+  personProfile: {
+    id: contactId,
+    personFirstName: contactName,
+  },
+});
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
   const Component = AddPersonFlowScreens(onFlowComplete)[screen];
@@ -76,7 +86,6 @@ describe('AddStepScreen next', () => {
   let didSavePerson;
 
   beforeEach(async () => {
-    store = configureStore([thunk])();
     await buildAndCallNext(
       ADD_CONTACT_SCREEN,
       {},
@@ -122,5 +131,76 @@ describe('AddStepScreen next', () => {
       expect(onFlowComplete).toHaveBeenCalledWith({ orgId });
       expect(store.getActions()).toEqual([flowCompleteResponse]);
     });
+  });
+});
+
+describe('PersonStageScreen next', () => {
+  beforeEach(async () => {
+    await buildAndCallNext(
+      PERSON_STAGE_SCREEN,
+      {},
+      { stage, name: contactName, contactId, orgId },
+    );
+  });
+
+  it('should fire required next actions', () => {
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+      contactStage: stage,
+      createStepTracking: buildTrackingObj(
+        'people : person : steps : create',
+        'people',
+        'person',
+        'steps',
+      ),
+      contactName,
+      contactId,
+      organization: { id: orgId },
+      enableBackButton: false,
+      enableSkipButton: true,
+    });
+    expect(store.getActions()).toEqual([navigatePushResponse]);
+  });
+});
+
+describe('PersonStageScreen next', () => {
+  beforeEach(async () => {
+    await buildAndCallNext(
+      PERSON_STAGE_SCREEN,
+      {},
+      { stage, name: contactName, contactId, orgId },
+    );
+  });
+
+  it('should fire required next actions', () => {
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+      contactStage: stage,
+      createStepTracking: buildTrackingObj(
+        'people : person : steps : create',
+        'people',
+        'person',
+        'steps',
+      ),
+      contactName,
+      contactId,
+      organization: { id: orgId },
+      enableBackButton: false,
+      enableSkipButton: true,
+    });
+    expect(store.getActions()).toEqual([navigatePushResponse]);
+  });
+});
+
+describe('PersonSelectStepScreen next', () => {
+  beforeEach(async () => {
+    await buildAndCallNext(
+      PERSON_SELECT_STEP_SCREEN,
+      { createStepTracking: {} },
+      { orgId },
+    );
+  });
+
+  it('should fire required next actions', () => {
+    expect(onFlowComplete).toHaveBeenCalledWith({ orgId });
+    expect(store.getActions()).toEqual([flowCompleteResponse]);
   });
 });
