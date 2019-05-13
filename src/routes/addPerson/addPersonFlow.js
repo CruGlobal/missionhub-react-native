@@ -15,6 +15,7 @@ import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
+import { paramsForStageNavigation } from '../utils';
 import { buildTrackingObj } from '../../utils/common';
 
 export const AddPersonFlowScreens = onFlowComplete => ({
@@ -26,27 +27,21 @@ export const AddPersonFlowScreens = onFlowComplete => ({
           return dispatch(onFlowComplete({ orgId }));
         }
 
-        const {
-          auth: {
-            person: { id: myId },
-          },
-        } = getState();
-        const { id: contactId, first_name: firstName } = person;
-
-        const contactAssignment =
-          (person.reverse_contact_assignments || []).find(
-            a => a.assigned_to.id === myId,
-          ) || {};
-        const { id: contactAssignmentId } = contactAssignment;
+        const { id: contactId } = person;
+        const { assignment, name } = paramsForStageNavigation(
+          contactId,
+          orgId,
+          getState,
+        );
 
         dispatch(
           navigatePush(PERSON_STAGE_SCREEN, {
             addingContactFlow: true,
             enableBackButton: false,
             currentStage: null,
-            name: firstName,
+            name,
             contactId,
-            contactAssignmentId,
+            contactAssignmentId: assignment && assignment.id,
             section: 'people',
             subsection: 'person',
             orgId,
@@ -70,14 +65,8 @@ export const AddPersonFlowScreens = onFlowComplete => ({
               'steps',
             ),
             contactName: name,
-            contactId: contactId,
+            contactId,
             organization: { id: orgId },
-            trackingObj: buildTrackingObj(
-              'people : person : steps : add',
-              'people',
-              'person',
-              'steps',
-            ),
             enableBackButton: false,
             enableSkipButton: true,
           }),

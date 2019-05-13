@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 
-import { paramsforStageNavigation } from '../';
-import { personSelector } from '../../../../selectors/people';
+import { paramsForStageNavigation } from '../index';
+import { personSelector } from '../../../selectors/people';
 
 jest.mock('../../../../selectors/people');
 
