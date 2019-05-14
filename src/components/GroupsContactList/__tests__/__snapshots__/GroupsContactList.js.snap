@@ -45,7 +45,7 @@ exports[`renders activity list 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
       }
     }
@@ -157,7 +157,7 @@ exports[`renders empty list 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
       }
     }

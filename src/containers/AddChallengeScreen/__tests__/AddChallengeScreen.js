@@ -7,7 +7,7 @@ import AddChallengeScreen from '..';
 
 import {
   createMockNavState,
-  testSnapshot,
+  testSnapshotShallow,
   createThunkStore,
   renderShallow,
 } from '../../../../testUtils';
@@ -24,14 +24,13 @@ const editChallenge = {
 };
 
 it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <AddChallengeScreen
-        navigation={createMockNavState({
-          onComplete: jest.fn(),
-        })}
-      />
-    </Provider>,
+  testSnapshotShallow(
+    <AddChallengeScreen
+      navigation={createMockNavState({
+        onComplete: jest.fn(),
+      })}
+    />,
+    store,
   );
 });
 
@@ -113,7 +112,6 @@ describe('create methods', () => {
     component
       .childAt(1)
       .childAt(0)
-      .childAt(1)
       .props()
       .onChangeText(title);
     expect(instance.state.title).toEqual(title);
@@ -122,7 +120,6 @@ describe('create methods', () => {
   it('calls onChangeDate from input', () => {
     const date = new Date();
     component
-      .childAt(1)
       .childAt(1)
       .childAt(1)
       .props()

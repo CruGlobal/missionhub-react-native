@@ -37,7 +37,7 @@ exports[`renders contact_assignment correctly 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -106,7 +106,7 @@ exports[`renders contact_unassignment correctly 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -177,7 +177,7 @@ exports[`renders interaction correctly 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -255,7 +255,7 @@ exports[`renders survey correctly 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -399,7 +399,7 @@ exports[`stage is rendered correctly with old stage for a contact 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -477,7 +477,7 @@ exports[`stage is rendered correctly with old stage for self 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -555,7 +555,7 @@ exports[`stage is rendered correctly without old stage for a contact 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -633,7 +633,7 @@ exports[`stage is rendered correctly without old stage for self 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -711,7 +711,7 @@ exports[`step is rendered correctly with comment 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -791,7 +791,7 @@ exports[`step is rendered correctly with pathway stage 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -869,7 +869,7 @@ exports[`step is rendered correctly without comment 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
