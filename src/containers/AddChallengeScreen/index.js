@@ -63,7 +63,7 @@ class AddChallengeScreen extends Component {
   };
 
   renderTitleInput() {
-    const { t } = this.props;
+    const { t, isEdit } = this.props;
     const { title } = this.state;
     const { textInput } = styles;
 
@@ -73,9 +73,11 @@ class AddChallengeScreen extends Component {
         value={title}
         autoFocus={false}
         autoCorrect={true}
+        multiline={true}
         returnKeyType="done"
         blurOnSubmit={true}
-        placeholder={t('titlePlaceholder')}
+        selectionColor={theme.secondaryColor}
+        placeholder={t(isEdit ? 'titlePlaceholderEdit' : 'titlePlaceholderAdd')}
         placeholderTextColor={theme.lightGrey}
         style={textInput}
       />
@@ -85,44 +87,44 @@ class AddChallengeScreen extends Component {
   renderDateInput() {
     const { t, disabled } = this.props;
     const { date } = this.state;
-    const { dateInput, disabledInput, label, dateText } = styles;
+    const { dateWrap, dateLabel, dateInput } = styles;
 
     const today = new Date();
 
     return (
-      <View>
-        <Text style={label}>{t('dateLabel')}</Text>
-        <DatePicker
-          date={date}
-          mode="date"
-          minDate={today}
-          onDateChange={this.onChangeDate}
-        >
-          <View style={[dateInput, disabled && disabledInput]}>
-            <Text style={dateText}>
-              {!date ? t('datePlaceholder') : moment(date).format('LL')}
-            </Text>
-          </View>
-        </DatePicker>
-      </View>
+      <DatePicker
+        date={date}
+        mode="date"
+        minDate={today}
+        onDateChange={this.onChangeDate}
+      >
+        <View style={dateWrap}>
+          <Text style={dateLabel}>{t('dateLabel')}</Text>
+          <Text style={dateInput}>
+            {!date ? t('datePlaceholder') : moment(date).format('LL')}
+          </Text>
+        </View>
+      </DatePicker>
     );
   }
 
   render() {
     const { t, isEdit } = this.props;
     const { disableBtn, title, date } = this.state;
-    const { container, imageWrap, header, fieldWrap } = styles;
+    const { container, backButton } = styles;
 
     return (
       <SafeAreaView style={container}>
-        {this.renderTitleInput()}
-        {this.renderDateInput()}
+        <View flex={1}>
+          {this.renderTitleInput()}
+          {this.renderDateInput()}
+        </View>
         <BottomButton
           disabled={disableBtn}
           onPress={this.saveChallenge}
-          text={isEdit ? t('save') : t('add')}
+          text={t(isEdit ? 'save' : 'add')}
         />
-        <BackButton absolute={true} />
+        <BackButton iconStyle={backButton} absolute={true} />
       </SafeAreaView>
     );
   }

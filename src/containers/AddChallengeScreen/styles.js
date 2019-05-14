@@ -6,7 +6,6 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.white,
-    justifyContent: 'space-between',
     flexDirection: 'column',
   },
   backButton: {
@@ -15,41 +14,28 @@ export default StyleSheet.create({
   },
   textInput: {
     fontSize: 32,
+    fontWeight: '300',
     lineHeight: 38,
     color: theme.lightGrey,
+    borderBottomWidth: 0,
     marginTop: 80,
     marginBottom: 26,
+    paddingHorizontal: 32,
   },
-
-  imageWrap: {
-    marginTop: 30,
+  dateWrap: {
+    borderColor: theme.extraLightGrey,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    paddingVertical: 16,
+    paddingHorizontal: 32,
   },
-  header: {
-    fontSize: 36,
-    color: theme.secondaryColor,
-  },
-  fieldWrap: {
-    paddingTop: 10,
-    paddingHorizontal: 30,
-  },
-  label: {
-    fontSize: 14,
-    color: theme.secondaryColor,
-    marginTop: 15,
-    marginBottom: 5,
+  dateLabel: {
+    fontSize: 10,
+    color: theme.lightGrey,
   },
   dateInput: {
-    borderBottomWidth: 1,
-    borderBottomColor: theme.secondaryColor,
-  },
-  disabledInput: {
-    backgroundColor: '#eee',
-  },
-  dateText: {
-    backgroundColor: theme.transparent,
-    paddingVertical: 5,
-    color: theme.white,
     fontSize: 16,
-    letterSpacing: 0.25,
+    lineHeight: 22,
+    color: theme.lightGrey,
   },
 });
