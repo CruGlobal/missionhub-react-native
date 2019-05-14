@@ -5,10 +5,22 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.primaryColor,
+    backgroundColor: theme.white,
     justifyContent: 'space-between',
     flexDirection: 'column',
   },
+  backButton: {
+    fontSize: 16,
+    color: theme.lightGrey,
+  },
+  textInput: {
+    fontSize: 32,
+    lineHeight: 38,
+    color: theme.lightGrey,
+    marginTop: 80,
+    marginBottom: 26,
+  },
+
   imageWrap: {
     marginTop: 30,
   },

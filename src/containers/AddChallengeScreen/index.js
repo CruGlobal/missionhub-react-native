@@ -65,22 +65,20 @@ class AddChallengeScreen extends Component {
   renderTitleInput() {
     const { t } = this.props;
     const { title } = this.state;
+    const { textInput } = styles;
 
     return (
-      <View>
-        <Text style={styles.label}>{t('titleLabel')}</Text>
-        <Input
-          onChangeText={this.onChangeTitle}
-          value={title}
-          autoFocus={false}
-          autoCorrect={true}
-          selectionColor={theme.white}
-          returnKeyType="done"
-          blurOnSubmit={true}
-          placeholder={t('titlePlaceholder')}
-          placeholderTextColor={theme.white}
-        />
-      </View>
+      <Input
+        onChangeText={this.onChangeTitle}
+        value={title}
+        autoFocus={false}
+        autoCorrect={true}
+        returnKeyType="done"
+        blurOnSubmit={true}
+        placeholder={t('titlePlaceholder')}
+        placeholderTextColor={theme.lightGrey}
+        style={textInput}
+      />
     );
   }
 
@@ -112,32 +110,19 @@ class AddChallengeScreen extends Component {
 
   render() {
     const { t, isEdit } = this.props;
-    const { disableBtn } = this.state;
+    const { disableBtn, title, date } = this.state;
     const { container, imageWrap, header, fieldWrap } = styles;
 
     return (
       <SafeAreaView style={container}>
-        <View
-          flex={0.9}
-          alignItems="center"
-          justifyContent="center"
-          style={imageWrap}
-        >
-          <Image source={CHALLENGE} resizeMode="contain" />
-          <Text type="header" style={header}>
-            {isEdit ? t('editHeader') : t('addHeader')}
-          </Text>
-        </View>
-        <View flex={1} style={fieldWrap}>
-          {this.renderTitleInput()}
-          {this.renderDateInput()}
-        </View>
+        {this.renderTitleInput()}
+        {this.renderDateInput()}
         <BottomButton
           disabled={disableBtn}
           onPress={this.saveChallenge}
           text={isEdit ? t('save') : t('add')}
         />
-        <BackButton customIcon="deleteIcon" absolute={true} />
+        <BackButton absolute={true} />
       </SafeAreaView>
     );
   }
