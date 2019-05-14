@@ -4,6 +4,7 @@ import React from 'react';
 import { Alert } from 'react-native';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import i18next from 'i18next';
 
 import {
   createMockNavState,
@@ -39,7 +40,7 @@ const person = {
   reverse_contact_assignments: [mockContactAssignment],
 };
 
-const addNewPersonResponse = { type: 'add new person', response: person };
+let addNewPersonResponse = { type: 'add new person', response: person };
 const updatePersonResponse = { type: 'update person', response: person };
 const trackActionResponse = { type: 'track action' };
 const nextResponse = { type: 'next' };
@@ -69,6 +70,7 @@ beforeEach(() => {
   updatePerson.mockReturnValue(updatePersonResponse);
   trackActionWithoutData.mockReturnValue(trackActionResponse);
   next.mockReturnValue(nextResponse);
+  Alert.alert = jest.fn();
 
   store = configureStore([thunk])(state);
 });
@@ -286,12 +288,17 @@ describe('savePerson', () => {
   });
 
   describe('show alert', () => {
-    Alert.alert = jest.fn();
-
     beforeAll(() => {
       navPerson = undefined;
       navOrg = organization;
     });
+
+    const test = () => {
+      expect(Alert.alert).toHaveBeenCalledWith(
+        i18next.t('addContact:alertBlankEmail'),
+        i18next.t('addContact:alertPermissionsMustHaveEmail'),
+      );
+    };
 
     describe('admin permissions', () => {
       beforeAll(() => {
@@ -304,7 +311,7 @@ describe('savePerson', () => {
         });
 
         it('shows alert', () => {
-          expect(Alert.alert).toHaveBeenCalled();
+          test();
         });
       });
 
@@ -314,7 +321,7 @@ describe('savePerson', () => {
         });
 
         it('shows alert', () => {
-          expect(Alert.alert).toHaveBeenCalled();
+          test();
         });
       });
     });
@@ -330,7 +337,7 @@ describe('savePerson', () => {
         });
 
         it('shows alert', () => {
-          expect(Alert.alert).toHaveBeenCalled();
+          test();
         });
       });
 
@@ -340,15 +347,14 @@ describe('savePerson', () => {
         });
 
         it('shows alert', () => {
-          expect(Alert.alert).toHaveBeenCalled();
+          test();
         });
       });
     });
 
     describe('update user fails', () => {
-      it('shows alert', async () => {
-        store = configureStore([thunk])(state);
-        addNewPerson.mockImplementation(() =>
+      beforeAll(() => {
+        addNewPersonResponse = () =>
           Promise.reject({
             apiError: {
               errors: [
@@ -357,32 +363,17 @@ describe('savePerson', () => {
                 },
               ],
             },
-          }),
+          });
+        navPerson = undefined;
+        navOrg = undefined;
+        newData = { firstName: newName, email: 'test' };
+      });
+
+      it('shows alert', async () => {
+        expect(Alert.alert).toHaveBeenCalledWith(
+          i18next.t('addContact:alertSorry'),
+          i18next.t('addContact:alertCannotEditFirstName'),
         );
-        newData = { firstName: newName };
-
-        buildScreen({
-          navigation: createMockNavState({
-            person: navPerson,
-            organization: navOrg,
-            next,
-          }),
-        });
-
-        component.instance().setState({
-          person: {
-            ...component.instance().state.person,
-            ...newData,
-          },
-        });
-
-        await component
-          .childAt(1)
-          .childAt(1)
-          .props()
-          .onPress();
-
-        expect(Alert.alert).toHaveBeenCalled();
       });
     });
   });
