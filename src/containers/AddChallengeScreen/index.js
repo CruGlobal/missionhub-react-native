@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SafeAreaView, View, Keyboard, Image, StatusBar } from 'react-native';
+import { SafeAreaView, View, Keyboard, StatusBar } from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import moment from 'moment';
 
-import CHALLENGE from '../../../assets/images/challenge_bullseye.png';
 import { Text, Input } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
@@ -16,17 +15,13 @@ import styles from './styles';
 
 @withTranslation('addChallenge')
 class AddChallengeScreen extends Component {
-  constructor(props) {
-    super(props);
-    const { isEdit, challenge } = props;
-
-    const date = isEdit ? moment(challenge.end_date).endOf('day') : '';
-    this.state = {
-      title: isEdit ? challenge.title : '',
-      date,
-      disableBtn: true,
-    };
-  }
+  state = {
+    title: this.props.isEdit ? this.props.challenge.title : '',
+    date: this.props.isEdit
+      ? moment(this.props.challenge.end_date).endOf('day')
+      : '',
+    disableBtn: true,
+  };
 
   onChangeTitle = title => {
     this.setState({ title, disableBtn: !(title && this.state.date) });
@@ -85,7 +80,7 @@ class AddChallengeScreen extends Component {
   }
 
   renderDateInput() {
-    const { t, disabled } = this.props;
+    const { t } = this.props;
     const { date } = this.state;
     const { dateWrap, dateLabel, dateInput } = styles;
 
@@ -110,7 +105,7 @@ class AddChallengeScreen extends Component {
 
   render() {
     const { t, isEdit } = this.props;
-    const { disableBtn, title, date } = this.state;
+    const { disableBtn } = this.state;
     const { container, backButton } = styles;
 
     return (

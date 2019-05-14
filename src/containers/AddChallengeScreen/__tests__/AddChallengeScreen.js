@@ -1,5 +1,4 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import MockDate from 'mockdate';
 import moment from 'moment';
 
