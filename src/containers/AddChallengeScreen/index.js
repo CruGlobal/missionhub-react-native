@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SafeAreaView, View, Keyboard, Image } from 'react-native';
+import { SafeAreaView, View, Keyboard, Image, StatusBar } from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import moment from 'moment';
@@ -115,6 +115,7 @@ class AddChallengeScreen extends Component {
 
     return (
       <SafeAreaView style={container}>
+        <StatusBar {...theme.statusBar.darkContent} />
         <View flex={1}>
           {this.renderTitleInput()}
           {this.renderDateInput()}
