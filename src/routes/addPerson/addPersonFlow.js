@@ -14,7 +14,7 @@ import PersonStageScreen, {
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
-import { buildTrackedScreen, wrapNextAction } from '../helpers';
+import { wrapNextAction } from '../helpers';
 import { paramsForStageNavigation } from '../utils';
 import { buildTrackingObj } from '../../utils/common';
 

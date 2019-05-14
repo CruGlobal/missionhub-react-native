@@ -6,7 +6,6 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import {
-  createThunkStore,
   createMockNavState,
   renderShallow,
   testSnapshotShallow,
@@ -14,8 +13,6 @@ import {
 import { addNewPerson } from '../../../actions/organizations';
 import { updatePerson } from '../../../actions/person';
 import { trackActionWithoutData } from '../../../actions/analytics';
-import { navigateBack, navigatePush } from '../../../actions/navigation';
-import { PERSON_STAGE_SCREEN } from '../../PersonStageScreen';
 import {
   ACTIONS,
   ORG_PERMISSIONS,
@@ -49,18 +46,22 @@ const nextResponse = { type: 'next' };
 
 const next = jest.fn();
 
-const mockStore = configureStore([thunk]);
 let store;
 const state = {
   auth: { person: me },
 };
 
+let component;
+let instance;
+
 function buildScreen(props) {
-  return renderShallow(<AddContactScreen {...props} />, store);
+  component = renderShallow(<AddContactScreen {...props} />, store);
+  return component;
 }
 
 function buildScreenInstance(props) {
-  return buildScreen(props).instance();
+  instance = buildScreen(props).instance();
+  return instance;
 }
 
 beforeEach(() => {
@@ -69,55 +70,47 @@ beforeEach(() => {
   trackActionWithoutData.mockReturnValue(trackActionResponse);
   next.mockReturnValue(nextResponse);
 
-  store = createThunkStore(state);
+  store = configureStore([thunk])(state);
 });
 
 it('renders correctly', () => {
   testSnapshotShallow(
-    <AddContactScreen navigation={createMockNavState()} />,
+    <AddContactScreen navigation={createMockNavState({ next })} />,
     store,
   );
 });
 
 describe('handleUpdateData', () => {
   it('should update the state', () => {
-    const component = buildScreenInstance({ navigation: createMockNavState() });
+    buildScreen({ navigation: createMockNavState() });
 
-    component.handleUpdateData({ firstName: contactFName });
+    component
+      .childAt(1)
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .onUpdateData({ firstName: contactFName });
 
-    expect(component.state).toEqual({
+    expect(component.instance().state).toEqual({
       person: { firstName: contactFName },
     });
   });
 });
 
-describe('complete', () => {
-  const savedPerson = { id: '1112' };
-  let component;
-
+describe('completeWithoutSave', () => {
   beforeEach(() => {
-    component = buildScreenInstance({
-      navigation: createMockNavState({ next, organization }),
+    buildScreenInstance({
+      navigation: createMockNavState({ next, person, organization }),
     });
+
+    instance.completeWithoutSave();
   });
 
-  it('should run next after save', () => {
-    component.complete(true, savedPerson);
-
-    expect(mockNext).toHaveBeenCalledWith({
-      savedPerson: true,
-      person: savedPerson,
+  it('calls next', () => {
+    expect(next).toHaveBeenCalledWith({
+      person: undefined,
       orgId: organization.id,
-    });
-  });
-
-  it('should run next without save', () => {
-    component.complete(false, savedPerson);
-
-    expect(mockNext).toHaveBeenCalledWith({
-      savedPerson: false,
-      person: savedPerson,
-      orgId: organization.id,
+      didSavePerson: false,
     });
   });
 });
@@ -125,12 +118,12 @@ describe('complete', () => {
 describe('savePerson', () => {
   let navPerson = undefined;
   let navOrg = undefined;
-  let screen;
+  let newData = {};
 
   const newName = 'new name';
 
   beforeEach(async () => {
-    screen = buildScreen({
+    buildScreen({
       navigation: createMockNavState({
         person: navPerson,
         organization: navOrg,
@@ -138,14 +131,14 @@ describe('savePerson', () => {
       }),
     });
 
-    screen.instance().setState({
+    component.instance().setState({
       person: {
-        ...screen.instance().state.person,
-        first_name: newName,
+        ...component.instance().state.person,
+        ...newData,
       },
     });
 
-    await screen
+    await component
       .childAt(1)
       .childAt(1)
       .props()
@@ -155,6 +148,7 @@ describe('savePerson', () => {
   describe('add new person', () => {
     beforeAll(() => {
       navPerson = undefined;
+      newData = { firstName: newName };
     });
 
     describe('without org', () => {
@@ -165,7 +159,7 @@ describe('savePerson', () => {
       it('should add a new person', () => {
         expect(addNewPerson).toHaveBeenCalledWith({
           assignToMe: true,
-          first_name: contactFName,
+          firstName: newName,
         });
         expect(trackActionWithoutData).toHaveBeenCalledWith(
           ACTIONS.PERSON_ADDED,
@@ -190,7 +184,7 @@ describe('savePerson', () => {
 
       it('should add a new person', () => {
         expect(addNewPerson).toHaveBeenCalledWith({
-          first_name: contactFName,
+          firstName: newName,
           orgId: organization.id,
           assignToMe: true,
         });
@@ -214,6 +208,7 @@ describe('savePerson', () => {
   describe('update existing person', () => {
     beforeAll(() => {
       navPerson = person;
+      newData = { firstName: newName };
     });
 
     describe('without org', () => {
@@ -223,7 +218,8 @@ describe('savePerson', () => {
 
       it('should update person and navigate back', () => {
         expect(updatePerson).toHaveBeenCalledWith({
-          first_name: contactFName,
+          ...navPerson,
+          firstName: newName,
           assignToMe: true,
         });
         expect(trackActionWithoutData).not.toHaveBeenCalled();
@@ -246,8 +242,9 @@ describe('savePerson', () => {
 
       it('should update person and navigate back', () => {
         expect(updatePerson).toHaveBeenCalledWith({
-          ...person,
-          first_name: contactFName,
+          ...navPerson,
+          firstName: newName,
+          orgId: organization.id,
           assignToMe: true,
         });
         expect(trackActionWithoutData).not.toHaveBeenCalled();
@@ -262,167 +259,131 @@ describe('savePerson', () => {
         ]);
       });
     });
-  });
 
-  it('should update person if person already created in add contact flow', async () => {
-    const component = buildScreen({ navigation: createMockNavState() });
-    const componentInstance = component.instance();
-    component.setState({
-      person: {
-        first_name: contactFName,
-        id: contactId,
-      },
-    });
+    describe('set last name to null', () => {
+      beforeAll(() => {
+        navOrg = undefined;
+        newData = { lastName: '' };
+      });
 
-    person.updatePerson.mockImplementation(() => mockUpdatePerson);
-
-    await componentInstance.savePersonTemp();
-
-    expect(updatePerson).toHaveBeenCalledWith({
-      first_name: contactFName,
-      id: contactId,
-      assignToMe: true,
-    });
-    expect(store.getActions()).toEqual([mockUpdatePerson]);
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
-      onCompleteCelebration: expect.anything(),
-      addingContactFlow: true,
-      enableBackButton: false,
-      currentStage: null,
-      name: contactFName,
-      contactId: contactId,
-      contactAssignmentId: mockContactAssignment.id,
-      section: 'people',
-      subsection: 'person',
-      orgId: undefined,
+      it('should update person and navigate back', () => {
+        expect(updatePerson).toHaveBeenCalledWith({
+          ...navPerson,
+          assignToMe: true,
+        });
+        expect(trackActionWithoutData).not.toHaveBeenCalled();
+        expect(next).toHaveBeenCalledWith({
+          person: updatePersonResponse.response,
+          orgId: undefined,
+          didSavePerson: true,
+        });
+        expect(store.getActions()).toEqual([
+          updatePersonResponse,
+          nextResponse,
+        ]);
+      });
     });
   });
 
-  it('should set the last_name to null when updating to blank string', async () => {
-    const component = buildScreen({
-      navigation: createMockNavState(),
-      person: { id: contactId, last_name: null },
-    });
-
-    component.setState({
-      person: {
-        id: contactId,
-        lastName: '',
-      },
-    });
-
-    await component
-      .childAt(1)
-      .childAt(1)
-      .props()
-      .onPress();
-
-    expect(updatePerson).toHaveBeenCalledWith({
-      id: contactId,
-      assignToMe: true,
-    });
-  });
-
-  it('should alert with blank email and admin permission', async () => {
+  describe('show alert', () => {
     Alert.alert = jest.fn();
-    const component = buildScreen({
-      navigation: createMockNavState(),
-    });
-    const componentInstance = component.instance();
 
-    component.setState({
-      person: {
-        firstName: 'Test Name',
-        email: '',
-        orgPermission: { permission_id: ORG_PERMISSIONS.ADMIN },
-      },
+    beforeAll(() => {
+      navPerson = undefined;
+      navOrg = organization;
     });
 
-    await componentInstance.savePerson();
+    describe('admin permissions', () => {
+      beforeAll(() => {
+        newData = { orgPermission: { permission_id: ORG_PERMISSIONS.ADMIN } };
+      });
 
-    expect(Alert.alert).toHaveBeenCalled();
-  });
+      describe('blank email, new firstName', () => {
+        beforeAll(() => {
+          newData = { ...newData, firstName: newName, email: '' };
+        });
 
-  it('should alert with blank name and admin permission', async () => {
-    Alert.alert = jest.fn();
-    const component = buildScreen({
-      navigation: createMockNavState(),
-    });
-    const componentInstance = component.instance();
+        it('shows alert', () => {
+          expect(Alert.alert).toHaveBeenCalled();
+        });
+      });
 
-    component.setState({
-      person: {
-        firstName: '',
-        email: 'test',
-        orgPermission: { permission_id: ORG_PERMISSIONS.USER },
-      },
-    });
+      describe('new email, blank firstName', () => {
+        beforeAll(() => {
+          newData = { ...newData, firstName: '', email: 'test' };
+        });
 
-    await componentInstance.savePerson();
-
-    expect(Alert.alert).toHaveBeenCalled();
-  });
-
-  it('should alert with blank email and user permission', async () => {
-    Alert.alert = jest.fn();
-    const component = buildScreen({
-      navigation: createMockNavState(),
-    });
-    const componentInstance = component.instance();
-
-    component.setState({
-      person: {
-        email: '',
-        orgPermission: { permission_id: ORG_PERMISSIONS.USER },
-      },
+        it('shows alert', () => {
+          expect(Alert.alert).toHaveBeenCalled();
+        });
+      });
     });
 
-    await componentInstance.savePerson();
+    describe('user permissions', () => {
+      beforeAll(() => {
+        newData = { orgPermission: { permission_id: ORG_PERMISSIONS.USER } };
+      });
 
-    expect(Alert.alert).toHaveBeenCalled();
-  });
+      describe('blank email, new firstName', () => {
+        beforeAll(() => {
+          newData = { ...newData, firstName: newName, email: '' };
+        });
 
-  it('should throw an alert when the update user fails', async () => {
-    const component = buildScreen({
-      navigation: createMockNavState(),
-      person: { id: contactId },
+        it('shows alert', () => {
+          expect(Alert.alert).toHaveBeenCalled();
+        });
+      });
+
+      describe('new email, blank firstName', () => {
+        beforeAll(() => {
+          newData = { ...newData, firstName: '', email: 'test' };
+        });
+
+        it('shows alert', () => {
+          expect(Alert.alert).toHaveBeenCalled();
+        });
+      });
     });
-    const componentInstance = component.instance();
 
-    component.setState({
-      person: {
-        id: contactId,
-        email: 'test',
-        lastName: 'New Name',
-      },
-    });
-
-    person.updatePerson = jest.fn(() =>
-      Promise.reject({
-        apiError: {
-          errors: [
-            {
-              detail: CANNOT_EDIT_FIRST_NAME,
+    describe('update user fails', () => {
+      it('shows alert', async () => {
+        store = configureStore([thunk])(state);
+        addNewPerson.mockImplementation(() =>
+          Promise.reject({
+            apiError: {
+              errors: [
+                {
+                  detail: CANNOT_EDIT_FIRST_NAME,
+                },
+              ],
             },
-          ],
-        },
-      }),
-    );
+          }),
+        );
+        newData = { firstName: newName };
 
-    try {
-      await componentInstance.savePerson();
-    } catch (error) {
-      expect(Alert.alert).toHaveBeenCalled();
-    }
-  });
+        buildScreen({
+          navigation: createMockNavState({
+            person: navPerson,
+            organization: navOrg,
+            next,
+          }),
+        });
 
-  it('should navigate back', () => {
-    const component = buildScreen({
-      navigation: createMockNavState(),
-      person: { id: contactId },
+        component.instance().setState({
+          person: {
+            ...component.instance().state.person,
+            ...newData,
+          },
+        });
+
+        await component
+          .childAt(1)
+          .childAt(1)
+          .props()
+          .onPress();
+
+        expect(Alert.alert).toHaveBeenCalled();
+      });
     });
-    const componentInstance = component.instance();
-    componentInstance.navigateBack();
-    expect(navigateBack).toHaveBeenCalled();
   });
 });

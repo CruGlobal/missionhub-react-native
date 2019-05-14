@@ -3,12 +3,11 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as reactNavigation from 'react-navigation';
 
-import { PEOPLE_TAB } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
 import { AddPersonFlowScreens } from '../addPersonFlow';
 import { paramsForStageNavigation } from '../../utils';
 import { buildTrackingObj } from '../../../utils/common';
-import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
+import { navigatePush } from '../../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../../containers/AddContactScreen';
 import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
@@ -18,7 +17,6 @@ jest.mock('../../utils');
 
 const myId = '111';
 const contactId = '222';
-const myName = 'Me';
 const contactName = 'Other';
 const orgId = '123';
 const contactAssignmentId = '22';
@@ -31,9 +29,9 @@ const reverseContactAssignment = {
   id: contactAssignmentId,
 };
 
-let onFlowComplete = jest.fn();
+const onFlowComplete = jest.fn();
 
-let store = configureStore([thunk])({
+const store = configureStore([thunk])({
   auth: {
     person: {
       id: myId,
