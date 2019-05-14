@@ -369,7 +369,7 @@ describe('savePerson', () => {
         newData = { firstName: newName, email: 'test' };
       });
 
-      it('shows alert', async () => {
+      it('shows alert', () => {
         expect(Alert.alert).toHaveBeenCalledWith(
           i18next.t('addContact:alertSorry'),
           i18next.t('addContact:alertCannotEditFirstName'),
