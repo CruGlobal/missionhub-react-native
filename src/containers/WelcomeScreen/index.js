@@ -67,7 +67,7 @@ class WelcomeScreen extends Component {
                 onPress={this.navigateToNext}
                 style={styles.clearButton}
                 buttonTextStyle={styles.buttonText}
-                text={t('getStarted2').toUpperCase()}
+                text={t('getStartedButton').toUpperCase()}
               />
             </Flex>
           ) : (
