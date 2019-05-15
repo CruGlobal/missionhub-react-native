@@ -73,7 +73,7 @@ export class ChallengeDetailScreen extends Component {
   }
 
   getAcceptedChallenge({ accepted_community_challenges }) {
-    return accepted_community_challenges.find(
+    return (accepted_community_challenges || []).find(
       c => c.person && c.person.id === this.props.myId,
     );
   }

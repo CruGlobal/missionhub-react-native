@@ -188,6 +188,22 @@ it('should call completeChallenge from press', () => {
   );
 });
 
+it('should not call completeChallenge with no accepted challenge', () => {
+  const component = renderShallow(
+    <ChallengeDetailScreen
+      {...joinedProps}
+      challenge={{ ...challenge, accepted_community_challenges: undefined }}
+    />,
+    store,
+  );
+  component
+    .find('Header')
+    .props()
+    .right.props.onPress();
+
+  expect(completeChallenge).not.toHaveBeenCalled();
+});
+
 it('should navigate to edit screen from press', () => {
   const component = renderShallow(
     <ChallengeDetailScreen {...joinedProps} />,

@@ -164,6 +164,17 @@ describe('communityChallengesSelector', () => {
       { orgId },
     );
   });
+
+  it('no challenge items present', () => {
+    organizationSelector.mockReturnValue({ id: 'noChallenges' });
+
+    expect(
+      communityChallengeSelector(
+        { organizations },
+        { orgId, challengeId: challengeItems[2].id },
+      ),
+    ).toEqual({});
+  });
 });
 
 describe('acceptedChallengesSelector', () => {
