@@ -491,7 +491,7 @@ describe('askNotificationPermissions', () => {
 
   describe('onNotification', () => {
     const person = { id: '1', type: 'person' };
-    const organization = { id: 234234 };
+    const organization = { id: '234234' };
     const organizations = {
       someProp: 'hello, Roge',
     };
@@ -641,7 +641,7 @@ describe('askNotificationPermissions', () => {
       expect(navigatePush).toHaveBeenCalledWith(
         ADD_PERSON_THEN_STEP_SCREEN_FLOW,
         {
-          organization: { id: `${organization.id}` },
+          organization,
         },
       );
       expect(store.getActions()).toEqual([
@@ -657,7 +657,7 @@ describe('askNotificationPermissions', () => {
           organization_id: organization.id,
         });
 
-        expect(navigateToOrg).toHaveBeenCalledWith(`${organization.id}`);
+        expect(navigateToOrg).toHaveBeenCalledWith(organization.id);
       });
     });
 
@@ -669,7 +669,7 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(navigateToOrg).toHaveBeenCalledWith(
-          `${organization.id}`,
+          organization.id,
           GROUP_CHALLENGES,
         );
       });
