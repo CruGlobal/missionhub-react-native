@@ -134,7 +134,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            TRY IT NOW
+            GET STARTED
           </Text>
         </View>
       </View>
