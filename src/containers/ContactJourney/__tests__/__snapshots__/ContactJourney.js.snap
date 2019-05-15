@@ -140,7 +140,7 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
       style={
         Object {
           "backgroundColor": "transparent",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
         }
       }
@@ -215,7 +215,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
       style={
         Object {
           "backgroundColor": "transparent",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
         }
       }

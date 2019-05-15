@@ -8,7 +8,7 @@ exports[`renders hover for step 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
     }
   }
@@ -127,7 +127,7 @@ exports[`renders no initial animation 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
     }
   }
@@ -220,7 +220,7 @@ exports[`renders type action correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
     }
   }
@@ -296,7 +296,7 @@ exports[`renders type contact correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
     }
   }
@@ -343,7 +343,7 @@ exports[`renders type reminder correctly 1`] = `
   style={
     Object {
       "backgroundColor": "rgb(183, 231, 240)",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
     }
   }
@@ -393,7 +393,7 @@ exports[`renders type swipeable correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
     }
   }
@@ -443,7 +443,7 @@ exports[`step item animations renders animation fade in 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
     }
   }
@@ -519,7 +519,7 @@ exports[`step item animations renders animation fade out 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
     }
   }
@@ -595,7 +595,7 @@ exports[`step item animations renders no animation 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
     }
   }

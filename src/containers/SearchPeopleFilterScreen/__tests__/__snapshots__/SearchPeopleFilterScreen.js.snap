@@ -208,7 +208,7 @@ exports[`renders correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "#ffffff",
-                  "borderBottomColor": "#E6E8EC",
+                  "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
                   "padding": 13,
                 },
@@ -324,7 +324,7 @@ exports[`renders correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "#ffffff",
-                  "borderBottomColor": "#E6E8EC",
+                  "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
                   "padding": 13,
                 },
@@ -440,7 +440,7 @@ exports[`renders correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "#ffffff",
-                  "borderBottomColor": "#E6E8EC",
+                  "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
                   "padding": 13,
                 },
@@ -556,7 +556,7 @@ exports[`renders correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "#ffffff",
-                  "borderBottomColor": "#E6E8EC",
+                  "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
                   "padding": 13,
                 },
@@ -672,7 +672,7 @@ exports[`renders correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "#ffffff",
-                  "borderBottomColor": "#E6E8EC",
+                  "borderBottomColor": "#ECEEF2",
                   "borderBottomWidth": 1,
                   "padding": 13,
                 },
@@ -777,7 +777,7 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "backgroundColor": "#ffffff",
-                "borderBottomColor": "#E6E8EC",
+                "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
                 "padding": 13,
               },
@@ -817,7 +817,7 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "backgroundColor": "#ffffff",
-                "borderBottomColor": "#E6E8EC",
+                "borderBottomColor": "#ECEEF2",
                 "borderBottomWidth": 1,
                 "padding": 13,
               },

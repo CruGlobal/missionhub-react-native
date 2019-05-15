@@ -10,7 +10,7 @@ exports[`render 0 contacts 1`] = `
     direction="row"
     style={
       Object {
-        "borderBottomColor": "#E6E8EC",
+        "borderBottomColor": "#ECEEF2",
         "borderBottomWidth": 1,
         "paddingRight": 15,
         "paddingVertical": 30,
@@ -38,7 +38,7 @@ exports[`render 0 contacts 1`] = `
       direction="row"
       style={
         Object {
-          "borderLeftColor": "#E6E8EC",
+          "borderLeftColor": "#ECEEF2",
           "borderLeftWidth": 1,
           "paddingLeft": 15,
         }
@@ -130,7 +130,7 @@ exports[`render 0 unassigned 1`] = `
     direction="row"
     style={
       Object {
-        "borderBottomColor": "#E6E8EC",
+        "borderBottomColor": "#ECEEF2",
         "borderBottomWidth": 1,
         "paddingRight": 15,
         "paddingVertical": 30,
@@ -158,7 +158,7 @@ exports[`render 0 unassigned 1`] = `
       direction="row"
       style={
         Object {
-          "borderLeftColor": "#E6E8EC",
+          "borderLeftColor": "#ECEEF2",
           "borderLeftWidth": 1,
           "paddingLeft": 15,
         }
@@ -239,7 +239,7 @@ exports[`render 0 unassigned and 0 uncontacted 1`] = `
     direction="row"
     style={
       Object {
-        "borderBottomColor": "#E6E8EC",
+        "borderBottomColor": "#ECEEF2",
         "borderBottomWidth": 1,
         "paddingRight": 15,
         "paddingVertical": 30,
@@ -267,7 +267,7 @@ exports[`render 0 unassigned and 0 uncontacted 1`] = `
       direction="row"
       style={
         Object {
-          "borderLeftColor": "#E6E8EC",
+          "borderLeftColor": "#ECEEF2",
           "borderLeftWidth": 1,
           "paddingLeft": 15,
         }
@@ -325,7 +325,7 @@ exports[`render 0 uncontacted 1`] = `
     direction="row"
     style={
       Object {
-        "borderBottomColor": "#E6E8EC",
+        "borderBottomColor": "#ECEEF2",
         "borderBottomWidth": 1,
         "paddingRight": 15,
         "paddingVertical": 30,
@@ -353,7 +353,7 @@ exports[`render 0 uncontacted 1`] = `
       direction="row"
       style={
         Object {
-          "borderLeftColor": "#E6E8EC",
+          "borderLeftColor": "#ECEEF2",
           "borderLeftWidth": 1,
           "paddingLeft": 15,
         }
@@ -434,7 +434,7 @@ exports[`render survey 1`] = `
     direction="row"
     style={
       Object {
-        "borderBottomColor": "#E6E8EC",
+        "borderBottomColor": "#ECEEF2",
         "borderBottomWidth": 1,
         "paddingRight": 15,
         "paddingVertical": 30,
@@ -462,7 +462,7 @@ exports[`render survey 1`] = `
       direction="row"
       style={
         Object {
-          "borderLeftColor": "#E6E8EC",
+          "borderLeftColor": "#ECEEF2",
           "borderLeftWidth": 1,
           "paddingLeft": 15,
         }

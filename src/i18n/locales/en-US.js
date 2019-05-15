@@ -171,7 +171,7 @@ export default {
   },
   welcome: {
     getStarted: "Let's Get Started",
-    tryItNow: 'Try It Now',
+    getStartedButton: 'Get Started',
     welcome: 'welcome!',
     welcomeDescription:
       'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
@@ -548,12 +548,10 @@ export default {
     completed: 'Completed',
   },
   addChallenge: {
-    editHeader: 'Edit Challenge',
-    addHeader: 'New Challenge',
+    titlePlaceholderEdit: 'Edit Challenge',
+    titlePlaceholderAdd: 'New Challenge',
     add: 'Create Challenge',
     save: 'Save Changes',
-    titlePlaceholder: 'Describe Your Challenge',
-    titleLabel: 'Challenge',
     datePlaceholder: 'End Date (Required)',
     dateLabel: 'End Date',
   },
@@ -747,7 +745,7 @@ export default {
       'Take steps of faith with me in the MissionHub app. Use this community code to join: {{code}}',
   },
   landing: {
-    tryItNow: 'Try It Now',
+    getStarted: 'Get Started',
     haveCode: 'I have a Community Code',
     member: 'Already a Member?',
   },
