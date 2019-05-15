@@ -19,7 +19,7 @@ export const EditPersonFlowScreens = {
 export const EditPersonFlowNavigator = createStackNavigator(
   EditPersonFlowScreens,
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },
