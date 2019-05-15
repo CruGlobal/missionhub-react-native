@@ -108,7 +108,7 @@ exports[`Members should render correctly 1`] = `
     scrollEventThrottle={50}
     style={
       Object {
-        "backgroundColor": "#E6E8EC",
+        "backgroundColor": "#ECEEF2",
         "flex": 1,
       }
     }

@@ -140,7 +140,7 @@ exports[`renders section header 1`] = `
   style={
     Object {
       "alignContent": "center",
-      "backgroundColor": "#E6E8EC",
+      "backgroundColor": "#ECEEF2",
     }
   }
 >

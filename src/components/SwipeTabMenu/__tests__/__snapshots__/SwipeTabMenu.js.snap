@@ -347,7 +347,7 @@ exports[`should render light version correctly 1`] = `
 <ViewWithoutOverflow
   style={
     Object {
-      "backgroundColor": "#E6E8EC",
+      "backgroundColor": "#ECEEF2",
     }
   }
 >
@@ -483,7 +483,7 @@ exports[`should render light version correctly 1`] = `
             "width": 0,
           },
           Object {
-            "borderBottomColor": "#E6E8EC",
+            "borderBottomColor": "#ECEEF2",
           },
         ]
       }
@@ -496,7 +496,7 @@ exports[`should render light version correctly 2`] = `
 <ViewWithoutOverflow
   style={
     Object {
-      "backgroundColor": "#E6E8EC",
+      "backgroundColor": "#ECEEF2",
     }
   }
 >
@@ -636,7 +636,7 @@ exports[`should render light version correctly 2`] = `
             "width": 0,
           },
           Object {
-            "borderBottomColor": "#E6E8EC",
+            "borderBottomColor": "#ECEEF2",
           },
         ]
       }

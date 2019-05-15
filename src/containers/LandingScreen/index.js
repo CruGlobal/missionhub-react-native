@@ -56,7 +56,7 @@ class LandingScreen extends Component {
               name={'tryItNowButton'}
               pill={true}
               onPress={this.tryItNow}
-              text={t('tryItNow').toUpperCase()}
+              text={t('getStarted').toUpperCase()}
               style={styles.button}
               buttonTextStyle={styles.buttonText}
             />
