@@ -22,17 +22,19 @@ export const AddPersonFlowScreens = onFlowComplete => ({
   [ADD_CONTACT_SCREEN]: wrapNextAction(
     AddContactScreen,
     ({ person, orgId, didSavePerson }) => (dispatch, getState) => {
+      console.log('0');
       if (!didSavePerson) {
         return dispatch(onFlowComplete({ orgId }));
       }
 
       const { id: contactId } = person;
+      console.log('1');
       const { assignment, name } = paramsForStageNavigation(
         contactId,
         orgId,
         getState,
       );
-
+      console.log('2');
       dispatch(
         navigatePush(PERSON_STAGE_SCREEN, {
           addingContactFlow: true,
@@ -99,7 +101,6 @@ export const AddPersonThenCommunityMembersFlowNavigator = createStackNavigator(
   AddPersonFlowScreens(({ orgId }) => dispatch => {
     dispatch(getOrganizationMembers(orgId));
     dispatch(StackActions.popToTop());
-    dispatch(StackActions.pop({ immediate: true }));
   }),
   {
     navigationOptions: {
