@@ -117,7 +117,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
   <ParallaxScrollView
     backgroundColor="#007398"
     backgroundScrollSpeed={5}
-    contentBackgroundColor="#E6E8EC"
+    contentBackgroundColor="#ECEEF2"
     contentContainerStyle={null}
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}

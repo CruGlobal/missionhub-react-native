@@ -7,7 +7,7 @@ import { renderShallow } from '../../../../testUtils';
 import { AddPersonFlowScreens } from '../addPersonFlow';
 import { paramsForStageNavigation } from '../../utils';
 import { buildTrackingObj } from '../../../utils/common';
-import { navigatePush } from '../../../actions/navigation';
+import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../../containers/AddContactScreen';
 import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
@@ -63,6 +63,7 @@ const buildAndCallNext = async (screen, navParams, nextProps) => {
 };
 
 const navigatePushResponse = { type: 'navigate push' };
+const navigateBackResponse = { type: 'navigate back' };
 const popToTopResponse = { type: 'pop to top of stack' };
 const popResponse = { type: 'pop once' };
 const flowCompleteResponse = { type: 'on flow complete' };
@@ -70,6 +71,7 @@ const flowCompleteResponse = { type: 'on flow complete' };
 beforeEach(() => {
   store.clearActions();
   navigatePush.mockReturnValue(navigatePushResponse);
+  navigateBack.mockReturnValue(navigateBackResponse);
   paramsForStageNavigation.mockReturnValue({
     assignment: reverseContactAssignment,
     name: contactName,
@@ -126,8 +128,8 @@ describe('AddStepScreen next', () => {
     it('should fire required next actions', () => {
       expect(paramsForStageNavigation).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(onFlowComplete).toHaveBeenCalledWith({ orgId });
-      expect(store.getActions()).toEqual([flowCompleteResponse]);
+      expect(navigateBack).toHaveBeenCalledWith();
+      expect(store.getActions()).toEqual([navigateBackResponse]);
     });
   });
 });

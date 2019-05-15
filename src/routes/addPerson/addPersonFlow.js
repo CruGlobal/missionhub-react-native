@@ -3,7 +3,11 @@
 import { createStackNavigator, StackActions } from 'react-navigation';
 
 import { PEOPLE_TAB } from '../../constants';
-import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
+import {
+  navigatePush,
+  navigateBack,
+  navigateToMainTabs,
+} from '../../actions/navigation';
 import { getOrganizationMembers } from '../../actions/organizations';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
@@ -23,7 +27,7 @@ export const AddPersonFlowScreens = onFlowComplete => ({
     AddContactScreen,
     ({ person, orgId, didSavePerson }) => (dispatch, getState) => {
       if (!didSavePerson) {
-        return dispatch(StackActions.pop({ immediate: true }));
+        return dispatch(navigateBack());
       }
 
       const { id: contactId } = person;
