@@ -6,7 +6,7 @@ exports[`interaction items should render discipleship conversation 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "flexDirection": "row",
       "marginBottom": 15,
@@ -36,7 +36,7 @@ exports[`interaction items should render discipleship conversation 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingLeft": 15,
       }
@@ -85,7 +85,7 @@ exports[`interaction items should render gospel presentation 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "flexDirection": "row",
       "marginBottom": 15,
@@ -115,7 +115,7 @@ exports[`interaction items should render gospel presentation 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingLeft": 15,
       }
@@ -164,7 +164,7 @@ exports[`interaction items should render holy spirit conversation 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "flexDirection": "row",
       "marginBottom": 15,
@@ -194,7 +194,7 @@ exports[`interaction items should render holy spirit conversation 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingLeft": 15,
       }
@@ -243,7 +243,7 @@ exports[`interaction items should render note 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "flexDirection": "row",
       "marginBottom": 15,
@@ -273,7 +273,7 @@ exports[`interaction items should render note 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingLeft": 15,
       }
@@ -322,7 +322,7 @@ exports[`interaction items should render personal decision 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "flexDirection": "row",
       "marginBottom": 15,
@@ -352,7 +352,7 @@ exports[`interaction items should render personal decision 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingLeft": 15,
       }
@@ -401,7 +401,7 @@ exports[`interaction items should render something cool happened 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "flexDirection": "row",
       "marginBottom": 15,
@@ -431,7 +431,7 @@ exports[`interaction items should render something cool happened 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingLeft": 15,
       }
@@ -480,7 +480,7 @@ exports[`interaction items should render spiritual conversation 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "flexDirection": "row",
       "marginBottom": 15,
@@ -510,7 +510,7 @@ exports[`interaction items should render spiritual conversation 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingLeft": 15,
       }
@@ -559,7 +559,7 @@ exports[`renders contact assignment item 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "flexDirection": "row",
       "marginBottom": 15,
@@ -589,7 +589,7 @@ exports[`renders contact assignment item 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingLeft": 15,
       }
@@ -638,7 +638,7 @@ exports[`renders contact unassignment item 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "flexDirection": "row",
       "marginBottom": 15,
@@ -668,7 +668,7 @@ exports[`renders contact unassignment item 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingLeft": 15,
       }
@@ -717,7 +717,7 @@ exports[`renders contact unassignment item with note 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "flexDirection": "row",
       "marginBottom": 15,
@@ -747,7 +747,7 @@ exports[`renders contact unassignment item with note 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingLeft": 15,
       }
@@ -796,7 +796,7 @@ exports[`renders survey item 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "flexDirection": "row",
       "marginBottom": 15,
@@ -826,7 +826,7 @@ exports[`renders survey item 1`] = `
   <Flex
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingLeft": 15,
       }

@@ -17,7 +17,7 @@ exports[`renders last name correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
           "paddingHorizontal": 24,
           "paddingVertical": 8,
@@ -84,7 +84,7 @@ exports[`renders no org correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
           "paddingHorizontal": 24,
           "paddingVertical": 8,
@@ -150,7 +150,7 @@ exports[`renders single person correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
           "paddingHorizontal": 24,
           "paddingVertical": 8,
@@ -212,7 +212,7 @@ exports[`renders unassign correctly 1`] = `
     style={
       Object {
         "backgroundColor": "#ffffff",
-        "borderBottomColor": "#E6E8EC",
+        "borderBottomColor": "#ECEEF2",
         "borderBottomWidth": 1,
         "paddingHorizontal": 24,
         "paddingVertical": 8,

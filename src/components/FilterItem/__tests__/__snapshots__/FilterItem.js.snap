@@ -18,7 +18,7 @@ exports[`renders drilldown item correctly 1`] = `
         Array [
           Object {
             "backgroundColor": "#ffffff",
-            "borderBottomColor": "#E6E8EC",
+            "borderBottomColor": "#ECEEF2",
             "borderBottomWidth": 1,
             "padding": 13,
           },
@@ -126,7 +126,7 @@ exports[`renders selected switch item correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
           "padding": 13,
         },
@@ -180,7 +180,7 @@ exports[`renders single item correctly 1`] = `
         Array [
           Object {
             "backgroundColor": "#ffffff",
-            "borderBottomColor": "#E6E8EC",
+            "borderBottomColor": "#ECEEF2",
             "borderBottomWidth": 1,
             "padding": 13,
           },
@@ -222,7 +222,7 @@ exports[`renders switch item correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
           "padding": 13,
         },

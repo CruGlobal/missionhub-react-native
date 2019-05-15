@@ -8,7 +8,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
         Object {
           "alignItems": "center",
           "borderBottomWidth": 1,
-          "borderColor": "#E6E8EC",
+          "borderColor": "#ECEEF2",
           "borderTopWidth": 1,
           "flexDirection": "row",
           "justifyContent": "space-between",
@@ -70,7 +70,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
         Object {
           "alignItems": "center",
           "borderBottomWidth": 1,
-          "borderColor": "#E6E8EC",
+          "borderColor": "#ECEEF2",
           "borderTopWidth": 1,
           "flexDirection": "row",
           "justifyContent": "space-between",

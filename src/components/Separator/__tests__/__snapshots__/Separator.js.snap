@@ -5,7 +5,7 @@ exports[`renders correctly 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#E6E8EC",
+        "backgroundColor": "#ECEEF2",
         "height": 1,
       },
       undefined,
