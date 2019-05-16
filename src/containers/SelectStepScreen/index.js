@@ -12,6 +12,7 @@ import { buildCustomStep } from '../../utils/steps';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
+import AbsoluteSkip from '../../components/AbsoluteSkip';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
 import { CREATE_STEP } from '../../constants';
@@ -37,13 +38,18 @@ class SelectStepScreen extends Component {
     }
   }
 
-  createCustomStep = ({ text }) => dispatch => {
-    const { isMe, receiverId, organization, next } = this.props;
-
-    dispatch(addStep(buildCustomStep(text, isMe), receiverId, organization));
+  complete = () => {
+    const { dispatch, receiverId, organization, next } = this.props;
     dispatch(
       next({ contactId: receiverId, orgId: organization && organization.id }),
     );
+  };
+
+  createCustomStep = ({ text }) => dispatch => {
+    const { isMe, receiverId, organization } = this.props;
+
+    dispatch(addStep(buildCustomStep(text, isMe), receiverId, organization));
+    this.complete();
   };
 
   handleCreateStep = () => {
@@ -91,6 +97,7 @@ class SelectStepScreen extends Component {
       organization,
       contactStageId,
       enableBackButton,
+      enableSkipButton,
       contact,
       next,
     } = this.props;
@@ -126,16 +133,23 @@ class SelectStepScreen extends Component {
             absolute={true}
           />
         )}
+        {enableSkipButton && <AbsoluteSkip onSkip={this.complete} />}
       </View>
     );
   }
 }
+
+SelectStepScreen.defaultProps = {
+  enableBackButton: true,
+  enableSkipButton: false,
+};
 
 SelectStepScreen.propTypes = {
   createStepTracking: PropTypes.object.isRequired,
   contact: PropTypes.object,
   receiverId: PropTypes.string.isRequired,
   enableBackButton: PropTypes.bool,
+  enableSkipButton: PropTypes.bool,
   organization: PropTypes.object,
   contactStageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     .isRequired,

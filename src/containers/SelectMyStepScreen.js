@@ -48,6 +48,10 @@ class SelectMyStepScreen extends Component {
   }
 }
 
+SelectMyStepScreen.defaultProps = {
+  enableBackButton: true,
+};
+
 SelectMyStepScreen.propTypes = {
   next: PropTypes.func.isRequired,
   enableBackButton: PropTypes.bool,

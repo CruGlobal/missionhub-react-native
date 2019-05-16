@@ -115,68 +115,63 @@ class PersonStageScreen extends Component {
   }
 
   handleSelectStage = async (stage, isAlreadySelected) => {
-    const { dispatch, contactAssignmentId, next } = this.props;
+    const {
+      dispatch,
+      contactId,
+      personId,
+      myId,
+      orgId,
+      contactAssignmentId,
+      addingContactFlow,
+      name,
+      onComplete,
+      next,
+    } = this.props;
 
     if (next) {
       if (!isAlreadySelected) {
         await dispatch(updateUserStage(contactAssignmentId, stage.id));
       }
-
       return this.complete(stage, isAlreadySelected);
     }
 
-    if (this.props.onComplete) {
-      if (isAlreadySelected) {
-        this.complete(stage);
-      } else {
-        this.props.contactAssignmentId
-          ? await this.props.dispatch(
-              updateUserStage(this.props.contactAssignmentId, stage.id),
-            )
-          : await this.props.dispatch(
-              selectPersonStage(
-                this.props.contactId || this.props.personId,
-                this.props.myId,
-                stage.id,
-                this.props.orgId,
-              ),
-            );
-        this.complete(stage);
+    if (onComplete) {
+      if (!isAlreadySelected) {
+        await dispatch(
+          contactAssignmentId
+            ? updateUserStage(contactAssignmentId, stage.id)
+            : selectPersonStage(contactId || personId, myId, stage.id, orgId),
+        );
       }
+      this.complete(stage);
     } else {
-      const trackingScreen = this.props.addingContactFlow
-        ? 'people'
-        : 'onboarding';
+      const trackingScreen = addingContactFlow ? 'people' : 'onboarding';
 
-      this.props
-        .dispatch(updateUserStage(this.props.contactAssignmentId, stage.id))
-        .then(() => {
-          this.props.dispatch(
-            navigatePush(PERSON_SELECT_STEP_SCREEN, {
-              contactStage: stage,
-              createStepTracking: buildTrackingObj(
-                `${trackingScreen} : add person : steps : create`,
-                trackingScreen,
-                'add person',
-                'steps',
-              ),
-              contactName: this.props.name,
-              contactId: this.props.contactId,
-              organization: { id: this.props.orgId },
-              trackingObj: buildTrackingObj(
-                `${trackingScreen} : add person : steps : add`,
-                trackingScreen,
-                'add person',
-                'steps',
-              ),
-              next: this.handleNavigate,
-            }),
-          );
-
-          if (!this.props.addingContactFlow) {
-            this.props.dispatch(completeOnboarding());
-          }
-        });
+      await dispatch(updateUserStage(contactAssignmentId, stage.id));
+      dispatch(
+        navigatePush(PERSON_SELECT_STEP_SCREEN, {
+          contactStage: stage,
+          createStepTracking: buildTrackingObj(
+            `${trackingScreen} : add person : steps : create`,
+            trackingScreen,
+            'add person',
+            'steps',
+          ),
+          contactName: name,
+          contactId: contactId,
+          organization: { id: orgId },
+          trackingObj: buildTrackingObj(
+            `${trackingScreen} : add person : steps : add`,
+            trackingScreen,
+            'add person',
+            'steps',
+          ),
+          next: this.handleNavigate,
+        }),
+      );
+      if (!addingContactFlow) {
+        dispatch(completeOnboarding());
+      }
     }
   };
 

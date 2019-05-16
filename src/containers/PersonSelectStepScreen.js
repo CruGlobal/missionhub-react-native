@@ -26,6 +26,8 @@ class PersonSelectStepScreen extends Component {
       organization,
       createStepTracking,
       next,
+      enableBackButton,
+      enableSkipButton,
     } = this.props;
 
     const name = contactName ? contactName : personFirstName;
@@ -42,12 +44,18 @@ class PersonSelectStepScreen extends Component {
         contact={contact ? contact : null}
         organization={organization}
         createStepTracking={createStepTracking}
-        enableBackButton
+        enableBackButton={enableBackButton}
+        enableSkipButton={enableSkipButton}
         next={next}
       />
     );
   }
 }
+
+PersonSelectStepScreen.defaultProps = {
+  enableBackButton: true,
+  enableSkipButton: false,
+};
 
 PersonSelectStepScreen.propTypes = {
   contactName: PropTypes.string,
@@ -56,6 +64,8 @@ PersonSelectStepScreen.propTypes = {
   contact: PropTypes.object,
   organization: PropTypes.object,
   next: PropTypes.func.isRequired,
+  enableBackButton: PropTypes.bool,
+  enableSkipButton: PropTypes.bool,
 };
 
 const mapStateToProps = ({ personProfile, auth }, { navigation }) => {

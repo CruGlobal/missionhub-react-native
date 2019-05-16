@@ -7,7 +7,7 @@ import * as reactNavigation from 'react-navigation';
 import { RESET_STEP_COUNT, STEP_NOTE, ACTIONS } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
 import { CompleteStepFlowScreens } from '../completeStepFlow';
-import { paramsforStageNavigation } from '../utils';
+import { paramsForStageNavigation } from '../../utils';
 import { navigatePush } from '../../../actions/navigation';
 import { reloadJourney } from '../../../actions/journey';
 import { COMPLETE_STEP_SCREEN } from '../../../containers/AddStepScreen';
@@ -17,7 +17,7 @@ import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { updateChallengeNote } from '../../../actions/steps';
 import { trackAction } from '../../../actions/analytics';
 
-jest.mock('../utils');
+jest.mock('../../utils');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/journey');
@@ -88,7 +88,7 @@ describe('AddStepScreen next', () => {
 
   describe('isMe, stage is not "Not Sure", has not completed 3 steps', () => {
     beforeEach(() => {
-      paramsforStageNavigation.mockReturnValue({
+      paramsForStageNavigation.mockReturnValue({
         isMe: true,
         hasHitCount: false,
         isNotSure: false,
@@ -107,7 +107,7 @@ describe('AddStepScreen next', () => {
         { personId: myId, orgId },
       );
 
-      expect(paramsforStageNavigation).toHaveBeenCalledWith(
+      expect(paramsForStageNavigation).toHaveBeenCalledWith(
         myId,
         orgId,
         store.getState,
@@ -122,7 +122,7 @@ describe('AddStepScreen next', () => {
 
   describe('isMe, stage is "Not Sure"', () => {
     beforeEach(() => {
-      paramsforStageNavigation.mockReturnValue({
+      paramsForStageNavigation.mockReturnValue({
         isMe: true,
         hasHitCount: false,
         isNotSure: true,
@@ -141,7 +141,7 @@ describe('AddStepScreen next', () => {
         { personId: myId, orgId },
       );
 
-      expect(paramsforStageNavigation).toHaveBeenCalledWith(
+      expect(paramsForStageNavigation).toHaveBeenCalledWith(
         myId,
         orgId,
         store.getState,
@@ -167,7 +167,7 @@ describe('AddStepScreen next', () => {
 
   describe('isMe, has completed 3 steps', () => {
     beforeEach(() => {
-      paramsforStageNavigation.mockReturnValue({
+      paramsForStageNavigation.mockReturnValue({
         isMe: true,
         hasHitCount: true,
         isNotSure: false,
@@ -204,7 +204,7 @@ describe('AddStepScreen next', () => {
 
   describe('not isMe, stage is not "Not Sure", has not completed 3 steps', () => {
     beforeEach(() => {
-      paramsforStageNavigation.mockReturnValue({
+      paramsForStageNavigation.mockReturnValue({
         isMe: false,
         hasHitCount: false,
         isNotSure: false,
@@ -233,7 +233,7 @@ describe('AddStepScreen next', () => {
 
   describe('not isMe, stage is "Not Sure"', () => {
     beforeEach(() => {
-      paramsforStageNavigation.mockReturnValue({
+      paramsForStageNavigation.mockReturnValue({
         isMe: false,
         hasHitCount: false,
         isNotSure: true,
@@ -273,7 +273,7 @@ describe('AddStepScreen next', () => {
 
   describe('not isMe, has completed 3 steps', () => {
     beforeEach(() => {
-      paramsforStageNavigation.mockReturnValue({
+      paramsForStageNavigation.mockReturnValue({
         isMe: false,
         hasHitCount: true,
         isNotSure: false,
@@ -312,7 +312,7 @@ describe('AddStepScreen next', () => {
     const text = 'roge rules';
 
     beforeEach(() => {
-      paramsforStageNavigation.mockReturnValue({
+      paramsForStageNavigation.mockReturnValue({
         isMe: false,
         hasHitCount: true,
         isNotSure: false,
