@@ -504,6 +504,7 @@ export default {
     groupsNull: 'Your communities will show up here.',
     joinCommunity: 'Join a Community',
     createCommunity: 'Create a Community',
+    globalCommunity: 'MissionHub Community',
   },
   celebrateFeeds: {
     title: '',

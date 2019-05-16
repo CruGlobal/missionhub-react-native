@@ -1,4 +1,5 @@
 /* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
+import i18next from 'i18next';
 
 import {
   LOGOUT,
@@ -18,8 +19,15 @@ import {
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
 
+const globalCommunity = {
+  id: GLOBAL_COMMUNITY_ID,
+  name: i18next.t('groupsList:globalCommunity'),
+  community: true,
+  user_created: true,
+};
+
 const initialState = {
-  all: [],
+  all: [globalCommunity],
   surveysPagination: {
     hasNextPage: true,
     page: 1,
@@ -36,12 +44,7 @@ function organizationsReducer(state = initialState, action) {
       return {
         ...state,
         all: [
-          {
-            id: GLOBAL_COMMUNITY_ID,
-            name: 'MissionHub Community',
-            community: true,
-            user_created: true,
-          },
+          globalCommunity,
           ...action.orgs.map(actionOrg => ({
             ...(state.all.find(stateOrg => stateOrg.id === actionOrg.id) || {}),
             ...actionOrg,
