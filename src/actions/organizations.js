@@ -11,6 +11,7 @@ import {
   ORG_PERMISSIONS,
   ERROR_PERSON_PART_OF_ORG,
   GLOBAL_COMMUNITY_ID,
+  LOAD_PERSON_DETAILS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 import { removeHiddenOrgs } from '../selectors/selectorUtils';
@@ -305,7 +306,7 @@ export function getOrganizationMembersNextPage(orgId) {
 }
 
 export function addNewPerson(data) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const {
       person: { id: myId },
     } = getState().auth;
@@ -360,7 +361,17 @@ export function addNewPerson(data) {
       included,
     };
     const query = {};
-    return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, query, bodyData));
+    const results = await dispatch(
+      callApi(REQUESTS.ADD_NEW_PERSON, query, bodyData),
+    );
+
+    dispatch({
+      type: LOAD_PERSON_DETAILS,
+      orgId: data.orgId,
+      person: results.response,
+    });
+
+    return results;
   };
 }
 

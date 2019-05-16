@@ -35,7 +35,7 @@ import { navigateToOrg } from '../organizations';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
-import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
+import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
 
 jest.mock('../person');
 jest.mock('../organizations');
@@ -491,7 +491,7 @@ describe('askNotificationPermissions', () => {
 
   describe('onNotification', () => {
     const person = { id: '1', type: 'person' };
-    const organization = { id: 234234 };
+    const organization = { id: '234234' };
     const organizations = {
       someProp: 'hello, Roge',
     };
@@ -630,10 +630,7 @@ describe('askNotificationPermissions', () => {
     });
 
     it('should deep link to add contact screen', async () => {
-      navigatePush.mockImplementation((_, { onComplete }) => {
-        onComplete && onComplete();
-        return navigatePushResult;
-      });
+      navigatePush.mockReturnValue(navigatePushResult);
 
       await testNotification({
         screen: 'add_a_person',
@@ -641,14 +638,14 @@ describe('askNotificationPermissions', () => {
         organization_id: organization.id,
       });
 
-      expect(navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
-        organization: { id: `${organization.id}` },
-        onComplete: expect.any(Function),
-      });
-      expect(navigateToMainTabs).toHaveBeenCalled();
+      expect(navigatePush).toHaveBeenCalledWith(
+        ADD_PERSON_THEN_STEP_SCREEN_FLOW,
+        {
+          organization,
+        },
+      );
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
-        navigateToMainTabsResult,
         navigatePushResult,
       ]);
     });
@@ -660,7 +657,7 @@ describe('askNotificationPermissions', () => {
           organization_id: organization.id,
         });
 
-        expect(navigateToOrg).toHaveBeenCalledWith(`${organization.id}`);
+        expect(navigateToOrg).toHaveBeenCalledWith(organization.id);
       });
     });
 
@@ -672,7 +669,7 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(navigateToOrg).toHaveBeenCalledWith(
-          `${organization.id}`,
+          organization.id,
           GROUP_CHALLENGES,
         );
       });
