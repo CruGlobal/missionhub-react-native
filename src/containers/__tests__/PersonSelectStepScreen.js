@@ -29,6 +29,8 @@ const navProps = {
   createStepTracking: {},
   organization,
   next: jest.fn(),
+  enableBackButton: true,
+  enableSkipButton: false,
 };
 
 const store = createThunkStore(mockState);

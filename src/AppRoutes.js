@@ -144,6 +144,10 @@ import StatusReason, {
 import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
 import { buildTrackedScreen, wrapNextScreen } from './routes/helpers';
 import {
+  ADD_PERSON_THEN_STEP_SCREEN_FLOW,
+  ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
+  ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW,
+  EDIT_PERSON_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
@@ -158,6 +162,12 @@ import {
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
 } from './routes/constants';
+import {
+  AddPersonThenStepScreenFlowNavigator,
+  AddPersonThenPeopleScreenFlowNavigator,
+  AddPersonThenCommunityMembersFlowNavigator,
+} from './routes/addPerson/addPersonFlow';
+import { EditPersonFlowNavigator } from './routes/editPerson/editPersonFlow';
 import {
   JoinByCodeFlowNavigator,
   JoinByCodeFlowScreens,
@@ -247,7 +257,6 @@ export const MainTabBar = createBottomTabNavigator(tabs, {
     inactiveTintColor: theme.inactiveColor,
     indicatorStyle: { backgroundColor: 'transparent' },
     upperCaseLabel: false,
-
     // Android
     scrollEnabled: false,
   },
@@ -499,6 +508,10 @@ const screens = {
   [ADD_PERSON_STEP_FLOW]: AddPersonStepFlowNavigator,
   [SELECT_MY_STAGE_FLOW]: SelectMyStageFlowNavigator,
   [SELECT_PERSON_STAGE_FLOW]: SelectPersonStageFlowNavigator,
+  [ADD_PERSON_THEN_STEP_SCREEN_FLOW]: AddPersonThenStepScreenFlowNavigator,
+  [ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW]: AddPersonThenPeopleScreenFlowNavigator,
+  [ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW]: AddPersonThenCommunityMembersFlowNavigator,
+  [EDIT_PERSON_FLOW]: EditPersonFlowNavigator,
 };
 
 export const trackableScreens = {

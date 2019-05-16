@@ -9,7 +9,7 @@ import {
   createMockNavState,
   testSnapshotShallow,
 } from '../../../../testUtils';
-import { ADD_CONTACT_SCREEN } from '../../../containers/AddContactScreen';
+import { EDIT_PERSON_FLOW } from '../../../routes/constants';
 import { STATUS_REASON_SCREEN } from '../../../containers/StatusReasonScreen';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import {
@@ -200,10 +200,9 @@ function testEditClick(component, org = organization) {
   const props = component.props();
   props.menuItems.filter(item => item.label === 'Edit')[0].action();
   expect(navigatePush).toHaveBeenCalledTimes(1);
-  expect(navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
+  expect(navigatePush).toHaveBeenCalledWith(EDIT_PERSON_FLOW, {
     person,
     organization: org,
-    onComplete: expect.any(Function),
   });
 }
 
