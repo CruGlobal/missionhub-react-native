@@ -43,7 +43,7 @@ matrix:
       if: branch = master and type = push
       xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
-      osx_image: xcode10.1
+      osx_image: xcode10.2
       env:
         - ENVFILE=.env.production
       install:
@@ -71,7 +71,7 @@ matrix:
           - platform-tools
           - tools
 
-          - android-26
+          - android-28
 
           - extra-google-google_play_services
 
