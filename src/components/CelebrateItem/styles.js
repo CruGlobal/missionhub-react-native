@@ -10,6 +10,9 @@ export default StyleSheet.create({
     paddingTop: 12,
     maxHeight: 70,
   },
+  fixedHeightDescription: {
+    height: 70,
+  },
   messageText: {
     fontSize: 14,
     justifyContent: 'flex-start',
