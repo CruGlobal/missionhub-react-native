@@ -44,12 +44,25 @@ beforeEach(() => {
 });
 
 describe('CelebrateItem', () => {
-  const testEvent = e => {
+  const testEvent = (e, otherProps) => {
     testSnapshotShallow(
-      <CelebrateItem event={e} myId={myId} onPressItem={jest.fn()} />,
+      <CelebrateItem
+        event={e}
+        myId={myId}
+        onPressItem={jest.fn()}
+        {...otherProps}
+      />,
       store,
     );
   };
+
+  it('renders event with fixed height', () =>
+    testEvent(
+      {
+        ...baseEvent,
+      },
+      { fixedHeight: true },
+    ));
 
   it('renders event with no subject person (global community event)', () =>
     testEvent({

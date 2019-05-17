@@ -146,6 +146,7 @@ class CelebrateDetailScreen extends Component {
         cardStyle={cardStyle}
         rightCorner={this.renderBackButton()}
         namePressable={true}
+        fixedHeight={true}
       />
     );
   };
