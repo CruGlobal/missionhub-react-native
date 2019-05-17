@@ -325,10 +325,15 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                       </View>
                       <View
                         style={
-                          Object {
-                            "height": 70,
-                            "paddingTop": 12,
-                          }
+                          Array [
+                            Object {
+                              "maxHeight": 70,
+                              "paddingTop": 12,
+                            },
+                            Object {
+                              "height": 70,
+                            },
+                          ]
                         }
                       >
                         <Text
@@ -1323,6 +1328,7 @@ exports[`renderForeground renders correctly 1`] = `
       "subject_person_name": "Roger",
     }
   }
+  fixedHeight={true}
   namePressable={true}
   organization={
     Object {
