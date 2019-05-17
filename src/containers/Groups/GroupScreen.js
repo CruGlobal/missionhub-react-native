@@ -3,18 +3,13 @@ import { connect } from 'react-redux';
 import i18next from 'i18next';
 
 import Header from '../../components/Header/index';
-import {
-  navigatePush,
-  navigateBack,
-  navigateReset,
-} from '../../actions/navigation';
+import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ImpactView from '../ImpactView';
 import IconButton from '../../components/IconButton';
-import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
+import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../routes/constants';
 import { buildTrackingObj, disableBack } from '../../utils/common';
-import { getOrganizationMembers } from '../../actions/organizations';
-import { GLOBAL_COMMUNITY_ID, MAIN_TABS } from '../../constants';
+import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../constants';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
@@ -46,16 +41,8 @@ export class GroupScreen extends Component {
     const { organization } = this.state;
 
     dispatch(
-      navigatePush(ADD_CONTACT_SCREEN, {
+      navigatePush(ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW, {
         organization: organization.id ? organization : undefined,
-        onComplete: () => {
-          // You go through 4 screens for adding a person, so pop back to the first one
-          dispatch(navigateBack(5));
-          // refresh the members list after creating a new person
-          if (organization.id) {
-            dispatch(getOrganizationMembers(organization.id));
-          }
-        },
       }),
     );
   };
@@ -68,7 +55,7 @@ export class GroupScreen extends Component {
   };
 
   back = () => {
-    this.props.dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
+    this.props.dispatch(navigateToMainTabs(GROUPS_TAB));
   };
 
   renderAddContactIcon() {

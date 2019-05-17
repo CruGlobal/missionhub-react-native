@@ -1,12 +1,12 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Text, Touchable } from '../common';
 
 import styles from './styles';
 
-@translate('groupItem')
+@withTranslation('groupItem')
 class PersonListItem extends Component {
   handleSelect = () => {
     const { onSelect, person } = this.props;

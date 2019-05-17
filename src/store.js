@@ -17,8 +17,8 @@ import tracking from './middleware/tracking';
 import { migrations } from './storeMigrations';
 
 const navMiddleware = createReactNavigationReduxMiddleware(
-  'root',
   state => state.nav,
+  'root',
 );
 
 // Setup enhancers and middleware

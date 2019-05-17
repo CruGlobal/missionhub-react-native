@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders filters 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -12,7 +12,7 @@ exports[`renders filters 1`] = `
   <Flex
     style={
       Object {
-        "backgroundColor": "#E6E8EC",
+        "backgroundColor": "#ECEEF2",
         "paddingLeft": 15,
         "paddingVertical": 15,
       }
@@ -72,7 +72,7 @@ exports[`renders filters 1`] = `
         type="MissionHub"
       />
     </Flex>
-    <ScrollView
+    <ScrollViewMock
       horizontal={true}
       style={
         Object {
@@ -97,9 +97,6 @@ exports[`renders filters 1`] = `
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -142,9 +139,6 @@ exports[`renders filters 1`] = `
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -187,9 +181,6 @@ exports[`renders filters 1`] = `
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -232,9 +223,6 @@ exports[`renders filters 1`] = `
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -262,7 +250,7 @@ exports[`renders filters 1`] = `
           type="MissionHub"
         />
       </Flex>
-    </ScrollView>
+    </ScrollViewMock>
   </Flex>
   <Flex
     align="center"
@@ -274,9 +262,6 @@ exports[`renders filters 1`] = `
     value={1}
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 16,
@@ -286,11 +271,11 @@ exports[`renders filters 1`] = `
       No Results.
     </MyText>
   </Flex>
-</Component>
+</View>
 `;
 
 exports[`renders search list 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -301,7 +286,7 @@ exports[`renders search list 1`] = `
   <Flex
     style={
       Object {
-        "backgroundColor": "#E6E8EC",
+        "backgroundColor": "#ECEEF2",
         "paddingLeft": 15,
         "paddingVertical": 15,
       }
@@ -372,9 +357,6 @@ exports[`renders search list 1`] = `
     value={1}
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 16,
@@ -384,11 +366,11 @@ exports[`renders search list 1`] = `
       No Results.
     </MyText>
   </Flex>
-</Component>
+</View>
 `;
 
 exports[`renders text in search box 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -399,7 +381,7 @@ exports[`renders text in search box 1`] = `
   <Flex
     style={
       Object {
-        "backgroundColor": "#E6E8EC",
+        "backgroundColor": "#ECEEF2",
         "paddingLeft": 15,
         "paddingVertical": 15,
       }
@@ -481,9 +463,6 @@ exports[`renders text in search box 1`] = `
     value={1}
   >
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 16,
@@ -493,5 +472,5 @@ exports[`renders text in search box 1`] = `
       No Results.
     </MyText>
   </Flex>
-</Component>
+</View>
 `;

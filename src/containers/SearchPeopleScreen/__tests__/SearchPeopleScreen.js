@@ -48,7 +48,11 @@ it('renders correctly', () => {
 
 it('renders with searching state', () => {
   Enzyme.configure({ adapter: new Adapter() });
-  const screen = shallow(<SearchPeopleScreen />, { context: { store: store } });
+  const screen = shallow(
+    <Provider store={store}>
+      <SearchPeopleScreen />
+    </Provider>,
+  );
 
   screen.setState({ isSearching: true });
   expect(screen.dive().dive()).toMatchSnapshot();
@@ -56,7 +60,11 @@ it('renders with searching state', () => {
 
 it('renders with no results state', () => {
   Enzyme.configure({ adapter: new Adapter() });
-  const screen = shallow(<SearchPeopleScreen />, { context: { store: store } });
+  const screen = shallow(
+    <Provider store={store}>
+      <SearchPeopleScreen />
+    </Provider>,
+  );
 
   screen.setState({ text: 'test' });
   expect(screen.dive().dive()).toMatchSnapshot();
@@ -64,7 +72,11 @@ it('renders with no results state', () => {
 
 it('renders with results state', () => {
   Enzyme.configure({ adapter: new Adapter() });
-  const screen = shallow(<SearchPeopleScreen />, { context: { store: store } });
+  const screen = shallow(
+    <Provider store={store}>
+      <SearchPeopleScreen />
+    </Provider>,
+  );
 
   screen.setState({
     results: people,
@@ -77,9 +89,11 @@ describe('renders filtered with organization people', () => {
 
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
-    screen = shallow(<SearchPeopleScreen dispatch={mockDispatch} />, {
-      context: { store: store },
-    });
+    screen = shallow(
+      <Provider store={store}>
+        <SearchPeopleScreen dispatch={mockDispatch} />
+      </Provider>,
+    );
   });
 
   it('should combine organizations', () => {

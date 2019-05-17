@@ -4,10 +4,8 @@ import React, { Component } from 'react';
 import { SafeAreaView, View, ScrollView, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
-import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
-import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewPerson } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
 import { IconButton } from '../../components/common';
@@ -25,51 +23,31 @@ import {
 
 import styles from './styles';
 
-@translate('addContact')
+@withTranslation('addContact')
 class AddContactScreen extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    person: this.props.person || {},
+  };
 
-    this.state = {
-      person: props.person || {},
-    };
-
-    this.savePerson = this.savePerson.bind(this);
-    this.handleUpdateData = this.handleUpdateData.bind(this);
-  }
-
-  handleUpdateData(newData) {
+  handleUpdateData = newData => {
     this.setState({ person: { ...this.state.person, ...newData } });
-  }
+  };
 
-  complete(addedResults) {
-    if (this.props.onComplete) {
-      this.props.onComplete(addedResults);
-    } else {
-      this.props.dispatch(navigateBack());
-    }
-  }
+  complete = (didSavePerson, person) => {
+    const { dispatch, organization, next } = this.props;
 
-  async savePerson() {
-    const {
-      t,
-      me,
-      organization,
-      person,
-      dispatch,
-      personOrgPermission,
-      isInvite,
-    } = this.props;
+    dispatch(
+      next({ person, orgId: organization && organization.id, didSavePerson }),
+    );
+  };
+
+  completeWithoutSave = () => {
+    this.complete(false);
+  };
+
+  removeUneditedFields() {
+    const { person, personOrgPermission, organization } = this.props;
     const saveData = { ...this.state.person };
-
-    // For new User/Admin people, the name, email, and permissions are required fields
-    if (
-      (!saveData.email || !saveData.firstName) &&
-      hasOrgPermissions(saveData.orgPermission)
-    ) {
-      Alert.alert(t('alertBlankEmail'), t('alertPermissionsMustHaveEmail'));
-      return;
-    }
 
     if (person) {
       // Remove the first name if it's the same as before so we don't try to update it with the API
@@ -110,64 +88,72 @@ class AddContactScreen extends Component {
     if (organization) {
       saveData.orgId = organization.id;
     }
-    saveData.assignToMe = !isInvite;
+    saveData.assignToMe = true;
 
-    try {
-      const results = await dispatch(
-        saveData.id ? updatePerson(saveData) : addNewPerson(saveData),
-      );
-      const newPerson = results.response;
-      this.setState({ person: { ...this.state.person, id: newPerson.id } });
+    return saveData;
+  }
 
-      if (person || isInvite) {
-        // We know this is an edit if person was passed as a prop. Otherwise, it is an add new contact flow.
-        this.complete(results);
-      } else {
-        // If adding a new person, select a stage for them, then run all the onComplete functionality
-        const contactAssignment = (
-          newPerson.reverse_contact_assignments || []
-        ).find(a => a.assigned_to.id === me.id);
-        const contactAssignmentId = contactAssignment && contactAssignment.id;
+  checkEmailAndName() {
+    const { t } = this.props;
+    const saveData = { ...this.state.person };
 
-        dispatch(
-          navigatePush(PERSON_STAGE_SCREEN, {
-            onCompleteCelebration: () => {
-              this.complete(results);
-            },
-            addingContactFlow: true,
-            enableBackButton: false,
-            currentStage: null,
-            name: newPerson.first_name,
-            contactId: newPerson.id,
-            contactAssignmentId: contactAssignmentId,
-            section: 'people',
-            subsection: 'person',
-            orgId: organization && organization.id,
-          }),
-        );
+    // For new User/Admin people, the name, email, and permissions are required fields
+    if (
+      (!saveData.email || !saveData.firstName) &&
+      hasOrgPermissions(saveData.orgPermission)
+    ) {
+      Alert.alert(t('alertBlankEmail'), t('alertPermissionsMustHaveEmail'));
+      return false;
+    }
 
-        dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
-      }
-    } catch (error) {
-      if (error && error.apiError) {
-        if (
-          error.apiError.errors &&
-          error.apiError.errors[0] &&
-          error.apiError.errors[0].detail
-        ) {
-          const errorDetail = error.apiError.errors[0].detail;
-          if (errorDetail === CANNOT_EDIT_FIRST_NAME) {
-            Alert.alert(t('alertSorry'), t('alertCannotEditFirstName'));
-          }
+    return true;
+  }
+
+  handleError(error) {
+    const { t } = this.props;
+
+    if (error && error.apiError) {
+      if (
+        error.apiError.errors &&
+        error.apiError.errors[0] &&
+        error.apiError.errors[0].detail
+      ) {
+        const errorDetail = error.apiError.errors[0].detail;
+        if (errorDetail === CANNOT_EDIT_FIRST_NAME) {
+          Alert.alert(t('alertSorry'), t('alertCannotEditFirstName'));
         }
       }
     }
   }
 
-  navigateBack = () => this.props.dispatch(navigateBack());
+  savePerson = async () => {
+    const { dispatch, isEdit } = this.props;
+
+    if (!this.checkEmailAndName()) {
+      return;
+    }
+
+    const saveData = this.removeUneditedFields();
+
+    try {
+      const results = await dispatch(
+        isEdit ? updatePerson(saveData) : addNewPerson(saveData),
+      );
+
+      this.setState({
+        person: { ...this.state.person, id: results.response.id },
+      });
+
+      !isEdit && dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
+
+      this.complete(true, results.response);
+    } catch (error) {
+      this.handleError(error);
+    }
+  };
 
   render() {
-    const { t, organization, person, isJean, isInvite } = this.props;
+    const { t, organization, person, isJean } = this.props;
     const orgName = organization ? organization.name : undefined;
 
     return (
@@ -177,7 +163,7 @@ class AddContactScreen extends Component {
             <IconButton
               name="deleteIcon"
               type="MissionHub"
-              onPress={this.navigateBack}
+              onPress={this.completeWithoutSave}
             />
           }
           shadow={false}
@@ -195,11 +181,10 @@ class AddContactScreen extends Component {
               person={person}
               organization={organization}
               isJean={isJean}
-              isGroupInvite={isInvite}
+              isGroupInvite={false}
               onUpdateData={this.handleUpdateData}
             />
           </ScrollView>
-
           <BottomButton onPress={this.savePerson} text={t('done')} />
         </SafeAreaView>
       </View>
@@ -210,22 +195,22 @@ class AddContactScreen extends Component {
 AddContactScreen.propTypes = {
   person: PropTypes.object,
   organization: PropTypes.object,
-  onComplete: PropTypes.func,
-  isInvite: PropTypes.bool,
+  next: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ auth }, { navigation }) => {
   const navProps = navigation.state.params || {};
-  const { person = {}, organization = {} } = navProps;
+  const { person, organization = {} } = navProps;
   return {
     me: auth.person,
     isJean: auth.isJean,
     personOrgPermission:
       organization.id &&
       orgPermissionSelector(null, {
-        person,
+        person: person || {},
         organization: { id: organization.id },
       }),
+    isEdit: !!person,
     ...navProps,
   };
 };

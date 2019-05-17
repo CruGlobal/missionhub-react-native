@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { INTERACTION_TYPES } from '../../constants';
 import {
@@ -30,7 +30,7 @@ const initialState = {
   isSubmitting: false,
 };
 
-@translate('actions')
+@withTranslation('actions')
 export default class CommentBox extends Component {
   state = initialState;
 

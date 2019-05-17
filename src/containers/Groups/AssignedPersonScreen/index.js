@@ -1,7 +1,7 @@
 /* eslint max-lines: 0 */
 
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import i18next from 'i18next';
 import { connect } from 'react-redux';
 import { DrawerActions } from 'react-navigation';
@@ -32,6 +32,7 @@ import {
   buildTrackingObj,
   orgIsCru,
 } from '../../../utils/common';
+import theme from '../../../theme';
 
 import styles from './styles';
 
@@ -211,13 +212,12 @@ export class AssignedPersonScreen extends Component {
       isCruOrg,
     } = this.props;
 
-    const name = (person.first_name || '').toUpperCase();
     // If the keyboard is up, show the person's name and the organization
-    const title = keyboardVisible ? name : organization.name;
-    const title2 = keyboardVisible ? organization.name : undefined;
+    const name = (person.first_name || '').toUpperCase();
 
     return (
       <View>
+        <StatusBar {...theme.statusBar.lightContent} />
         <Header
           left={<BackButton />}
           right={
@@ -228,8 +228,8 @@ export class AssignedPersonScreen extends Component {
             />
           }
           shadow={false}
-          title={title}
-          title2={title2}
+          title={keyboardVisible ? name : organization.name}
+          title2={keyboardVisible ? organization.name : undefined}
         />
         <Flex
           style={[

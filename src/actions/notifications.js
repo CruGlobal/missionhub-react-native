@@ -7,19 +7,19 @@ import i18next from 'i18next';
 
 import {
   LOAD_HOME_NOTIFICATION_REMINDER,
-  MAIN_TABS,
   REQUEST_NOTIFICATIONS,
+  DISABLE_WELCOME_NOTIFICATION,
+  GCM_SENDER_ID,
 } from '../constants';
-import { DISABLE_WELCOME_NOTIFICATION, GCM_SENDER_ID } from '../constants';
+import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
-import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 
 import { navigateToOrg } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
-import { navigatePush, navigateBack, navigateReset } from './navigation';
+import { navigatePush, navigateBack, navigateToMainTabs } from './navigation';
 import callApi, { REQUESTS } from './api';
 
 export function showNotificationPrompt(notificationType, doNotNavigateBack) {
@@ -119,7 +119,7 @@ function handleNotification(notification) {
     switch (screen) {
       case 'home':
       case 'steps':
-        return dispatch(navigateReset(MAIN_TABS));
+        return dispatch(navigateToMainTabs());
       case 'person_steps':
         if (person) {
           const { person: loadedPerson } = await dispatch(
@@ -134,9 +134,8 @@ function handleNotification(notification) {
         return dispatch(navToPersonScreen(me));
       case 'add_a_person':
         return dispatch(
-          navigatePush(ADD_CONTACT_SCREEN, {
+          navigatePush(ADD_PERSON_THEN_STEP_SCREEN_FLOW, {
             organization: { id: organization },
-            onComplete: () => dispatch(navigateReset(MAIN_TABS)),
           }),
         );
       case 'celebrate':

@@ -16,8 +16,7 @@ import { updateChallengeNote } from '../../actions/steps';
 import { trackAction } from '../../actions/analytics';
 import { SelectMyStageFlowScreens } from '../stage/selectMyStageFlow';
 import { SelectPersonStageFlowScreens } from '../stage/selectPersonStageFlow';
-
-import { paramsforStageNavigation } from './utils';
+import { paramsForStageNavigation } from '../utils';
 
 export const CompleteStepFlowScreens = onFlowComplete => ({
   [COMPLETE_STEP_SCREEN]: wrapNextAction(
@@ -32,7 +31,7 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
         questionText,
         assignment,
         name,
-      } = paramsforStageNavigation(personId, orgId, getState);
+      } = paramsForStageNavigation(personId, orgId, getState);
 
       if (text) {
         dispatch(updateChallengeNote(stepId, text));
@@ -89,7 +88,7 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
 export const CompleteStepFlowNavigator = createStackNavigator(
   CompleteStepFlowScreens(),
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },
@@ -98,7 +97,7 @@ export const CompleteStepFlowNavigator = createStackNavigator(
 export const CompleteStepFlowAndNavigateBackNavigator = createStackNavigator(
   CompleteStepFlowScreens(() => StackActions.pop({ immediate: true })),
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },

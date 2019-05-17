@@ -2,7 +2,6 @@
 
 exports[`renders cru org contact correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -18,7 +17,7 @@ exports[`renders cru org contact correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
           "paddingHorizontal": 24,
           "paddingVertical": 15,
@@ -43,9 +42,6 @@ exports[`renders cru org contact correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -79,9 +75,6 @@ exports[`renders cru org contact correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -100,9 +93,6 @@ exports[`renders cru org contact correctly 1`] = `
           Stage 1
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -121,9 +111,6 @@ exports[`renders cru org contact correctly 1`] = `
             &gt;  
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -152,7 +139,6 @@ exports[`renders cru org contact correctly 1`] = `
 
 exports[`renders cru org contact without stage correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -168,7 +154,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
           "paddingHorizontal": 24,
           "paddingVertical": 15,
@@ -193,9 +179,6 @@ exports[`renders cru org contact without stage correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -229,9 +212,6 @@ exports[`renders cru org contact without stage correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -250,9 +230,6 @@ exports[`renders cru org contact without stage correctly 1`] = `
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -269,9 +246,6 @@ exports[`renders cru org contact without stage correctly 1`] = `
           }
         />
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -295,7 +269,6 @@ exports[`renders cru org contact without stage correctly 1`] = `
       </View>
     </View>
     <View
-      accessibilityTraits="button"
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -311,9 +284,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -350,7 +321,6 @@ exports[`renders cru org contact without stage correctly 1`] = `
 
 exports[`renders cru org member correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -366,7 +336,7 @@ exports[`renders cru org member correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
           "paddingHorizontal": 24,
           "paddingVertical": 15,
@@ -391,9 +361,6 @@ exports[`renders cru org member correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -427,9 +394,6 @@ exports[`renders cru org member correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -448,9 +412,6 @@ exports[`renders cru org member correctly 1`] = `
           Stage 1
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -467,9 +428,6 @@ exports[`renders cru org member correctly 1`] = `
           }
         />
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -498,7 +456,6 @@ exports[`renders cru org member correctly 1`] = `
 
 exports[`renders me correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -514,7 +471,7 @@ exports[`renders me correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
           "paddingHorizontal": 24,
           "paddingVertical": 15,
@@ -539,9 +496,6 @@ exports[`renders me correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -575,9 +529,6 @@ exports[`renders me correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -596,9 +547,6 @@ exports[`renders me correctly 1`] = `
           Stage 1
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -615,9 +563,6 @@ exports[`renders me correctly 1`] = `
           }
         />
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -646,7 +591,6 @@ exports[`renders me correctly 1`] = `
 
 exports[`renders personal ministry contact correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -662,7 +606,7 @@ exports[`renders personal ministry contact correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
           "paddingHorizontal": 24,
           "paddingVertical": 15,
@@ -687,9 +631,6 @@ exports[`renders personal ministry contact correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -723,9 +664,6 @@ exports[`renders personal ministry contact correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -744,9 +682,6 @@ exports[`renders personal ministry contact correctly 1`] = `
           Stage 1
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -763,9 +698,6 @@ exports[`renders personal ministry contact correctly 1`] = `
           }
         />
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -794,7 +726,6 @@ exports[`renders personal ministry contact correctly 1`] = `
 
 exports[`renders uncontacted cru org contact correctly 1`] = `
 <View
-  accessibilityTraits="button"
   accessible={true}
   isTVSelectable={true}
   onResponderGrant={[Function]}
@@ -810,7 +741,7 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
+          "borderBottomColor": "#ECEEF2",
           "borderBottomWidth": 1,
           "paddingHorizontal": 24,
           "paddingVertical": 15,
@@ -835,9 +766,6 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -871,9 +799,6 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -892,9 +817,6 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
           Stage 1
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -913,9 +835,6 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
             &gt;  
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {

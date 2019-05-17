@@ -38,9 +38,6 @@ exports[`OnboardingCard render celebrate card 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -54,9 +51,6 @@ exports[`OnboardingCard render celebrate card 1`] = `
       Celebrate One Another
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -142,9 +136,6 @@ exports[`OnboardingCard render challenges card 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -158,9 +149,6 @@ exports[`OnboardingCard render challenges card 1`] = `
       Our Challenges
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -246,9 +234,6 @@ exports[`OnboardingCard render contacts card 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -262,9 +247,6 @@ exports[`OnboardingCard render contacts card 1`] = `
       Journey Together
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -350,9 +332,6 @@ exports[`OnboardingCard render impact card 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -366,9 +345,6 @@ exports[`OnboardingCard render impact card 1`] = `
       See God at Work
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -454,9 +430,6 @@ exports[`OnboardingCard render members card 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -470,9 +443,6 @@ exports[`OnboardingCard render members card 1`] = `
       Journey Together
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",
@@ -558,9 +528,6 @@ exports[`OnboardingCard render surveys card 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -574,9 +541,6 @@ exports[`OnboardingCard render surveys card 1`] = `
       Grow Together
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#A0A2A6",

@@ -16,7 +16,7 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -24,14 +24,14 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -44,23 +44,24 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         >
@@ -88,7 +89,7 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
             type="transparent"
           />
         </Flex>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -134,7 +135,7 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -142,14 +143,14 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -162,23 +163,24 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         >
@@ -206,7 +208,7 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
             type="transparent"
           />
         </Flex>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -252,7 +254,7 @@ exports[`CelebrateItem message renders created community event 1`] = `
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -260,14 +262,14 @@ exports[`CelebrateItem message renders created community event 1`] = `
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             organization={
               Object {
@@ -285,29 +287,30 @@ exports[`CelebrateItem message renders created community event 1`] = `
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         >
           John S. created Celebration Community!
         </MyText>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -354,7 +357,7 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -362,43 +365,44 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name={null}
             person={null}
           />
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         >
           A MissionHub user completed a Step of Faith with a Forgiven person.
         </MyText>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -439,7 +443,7 @@ exports[`CelebrateItem message renders joined community event 1`] = `
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -447,14 +451,14 @@ exports[`CelebrateItem message renders joined community event 1`] = `
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             organization={
               Object {
@@ -472,29 +476,30 @@ exports[`CelebrateItem message renders joined community event 1`] = `
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         >
           John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
         </MyText>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -541,7 +546,7 @@ exports[`CelebrateItem message renders joined community with passed in org name 
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -549,14 +554,14 @@ exports[`CelebrateItem message renders joined community with passed in org name 
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             organization={
               Object {
@@ -575,29 +580,30 @@ exports[`CelebrateItem message renders joined community with passed in org name 
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         >
           John S. joined My Real Org! Now you can see and celebrate the steps of faith they are taking.
         </MyText>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -644,7 +650,7 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -652,14 +658,14 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -672,29 +678,30 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         >
           John S. had a Spiritual Conversation.
         </MyText>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -739,7 +746,7 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -747,14 +754,14 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -767,29 +774,30 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         >
           John S. saw someone make a Personal Decision.
         </MyText>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -834,7 +842,7 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -842,14 +850,14 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -862,29 +870,30 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         >
           John S. saw something cool happen with someone.
         </MyText>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -929,7 +938,7 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -937,14 +946,14 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -957,29 +966,30 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         >
           John S. completed a Step of Faith.
         </MyText>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1024,7 +1034,7 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -1032,14 +1042,14 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1052,29 +1062,30 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         >
           John S. completed a Step of Faith with a Forgiven person.
         </MyText>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1119,7 +1130,7 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -1127,14 +1138,14 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1147,29 +1158,30 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         >
           John S. completed a Step of Faith with someone.
         </MyText>
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1213,7 +1225,7 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -1221,14 +1233,14 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1241,27 +1253,28 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         />
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1304,7 +1317,7 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -1312,14 +1325,14 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1332,27 +1345,28 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         />
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1395,7 +1409,7 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -1403,14 +1417,14 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1423,27 +1437,28 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         />
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1486,7 +1501,7 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -1494,14 +1509,14 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1514,27 +1529,28 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         />
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1577,7 +1593,7 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -1585,14 +1601,14 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
             person={
               Object {
@@ -1605,27 +1621,28 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         />
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1639,6 +1656,86 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
             "id": "456",
             "last_name": "Smith",
           },
+          "subject_person_name": "John Smith",
+        }
+      }
+      style={
+        Object {
+          "padding": 16,
+        }
+      }
+    />
+  </Flex>
+</Card>
+`;
+
+exports[`CelebrateItem renders event with fixed height 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    direction="column"
+    value={1}
+  >
+    <Flex
+      direction="column"
+      style={
+        Object {
+          "padding": 16,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "justifyContent": "flex-start",
+            }
+          }
+        >
+          <Connect(withI18nextTranslation(CelebrateItemName))
+            name="John Smith"
+          />
+          <CardTime
+            date="2004-04-04 00:00:00 UTC"
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {
+              "height": 70,
+            },
+          ]
+        }
+      >
+        <MyText
+          style={
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+            }
+          }
+        />
+      </View>
+    </Flex>
+    <Separator />
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
           "subject_person_name": "John Smith",
         }
       }
@@ -1668,7 +1765,7 @@ exports[`CelebrateItem renders event with no subject person (global community ev
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -1676,40 +1773,41 @@ exports[`CelebrateItem renders event with no subject person (global community ev
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name="John Smith"
           />
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         />
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)
@@ -1745,7 +1843,7 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
         }
       }
     >
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -1753,40 +1851,41 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
           }
         }
       >
-        <Component
+        <View
           style={
             Object {
               "justifyContent": "flex-start",
             }
           }
         >
-          <Connect(Translate(CelebrateItemName))
+          <Connect(withI18nextTranslation(CelebrateItemName))
             name={null}
           />
           <CardTime
             date="2004-04-04 00:00:00 UTC"
           />
-        </Component>
-      </Component>
-      <Component
+        </View>
+      </View>
+      <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "fontSize": 14,
+              "justifyContent": "flex-start",
             }
           }
         />
-      </Component>
+      </View>
     </Flex>
     <Separator />
     <Connect(CommentLikeComponent)

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import BackButton from '../BackButton';
 import Header from '../../components/Header';
@@ -17,7 +17,7 @@ import { REMINDER_RECURRENCES } from '../../constants';
 
 import styles from './styles';
 
-@translate('stepReminder')
+@withTranslation('stepReminder')
 class StepReminderScreen extends Component {
   state = {
     date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',

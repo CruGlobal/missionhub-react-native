@@ -38,7 +38,7 @@ export const SelectMyStageFlowScreens = {
 export const SelectMyStageFlowNavigator = createStackNavigator(
   SelectMyStageFlowScreens,
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },

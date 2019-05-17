@@ -37,7 +37,7 @@ exports[`renders contact_assignment correctly 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -45,7 +45,7 @@ exports[`renders contact_assignment correctly 1`] = `
     }
     value={3.5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -56,9 +56,6 @@ exports[`renders contact_assignment correctly 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -109,7 +106,7 @@ exports[`renders contact_unassignment correctly 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -117,7 +114,7 @@ exports[`renders contact_unassignment correctly 1`] = `
     }
     value={3.5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -128,9 +125,6 @@ exports[`renders contact_unassignment correctly 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -183,7 +177,7 @@ exports[`renders interaction correctly 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -191,7 +185,7 @@ exports[`renders interaction correctly 1`] = `
     }
     value={3.5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -202,9 +196,6 @@ exports[`renders interaction correctly 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -215,9 +206,6 @@ exports[`renders interaction correctly 1`] = `
       Comment
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -267,7 +255,7 @@ exports[`renders survey correctly 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -275,7 +263,7 @@ exports[`renders survey correctly 1`] = `
     }
     value={3.5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -286,9 +274,6 @@ exports[`renders survey correctly 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -303,9 +288,6 @@ exports[`renders survey correctly 1`] = `
       key="1"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -317,9 +299,6 @@ exports[`renders survey correctly 1`] = `
         Question 1
       </MyText>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,
@@ -334,9 +313,6 @@ exports[`renders survey correctly 1`] = `
       key="2"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -348,9 +324,6 @@ exports[`renders survey correctly 1`] = `
         Question 2
       </MyText>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,
@@ -365,9 +338,6 @@ exports[`renders survey correctly 1`] = `
       key="3"
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#A0A2A6",
@@ -379,9 +349,6 @@ exports[`renders survey correctly 1`] = `
         Question 3
       </MyText>
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 14,
@@ -432,7 +399,7 @@ exports[`stage is rendered correctly with old stage for a contact 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -440,7 +407,7 @@ exports[`stage is rendered correctly with old stage for a contact 1`] = `
     }
     value={3.5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -451,9 +418,6 @@ exports[`stage is rendered correctly with old stage for a contact 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -464,9 +428,6 @@ exports[`stage is rendered correctly with old stage for a contact 1`] = `
       Uninterested to Curious
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -516,7 +477,7 @@ exports[`stage is rendered correctly with old stage for self 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -524,7 +485,7 @@ exports[`stage is rendered correctly with old stage for self 1`] = `
     }
     value={3.5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -535,9 +496,6 @@ exports[`stage is rendered correctly with old stage for self 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -548,9 +506,6 @@ exports[`stage is rendered correctly with old stage for self 1`] = `
       Uninterested to Curious
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -600,7 +555,7 @@ exports[`stage is rendered correctly without old stage for a contact 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -608,7 +563,7 @@ exports[`stage is rendered correctly without old stage for a contact 1`] = `
     }
     value={3.5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -619,9 +574,6 @@ exports[`stage is rendered correctly without old stage for a contact 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -632,9 +584,6 @@ exports[`stage is rendered correctly without old stage for a contact 1`] = `
       Curious
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -684,7 +633,7 @@ exports[`stage is rendered correctly without old stage for self 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -692,7 +641,7 @@ exports[`stage is rendered correctly without old stage for self 1`] = `
     }
     value={3.5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -703,9 +652,6 @@ exports[`stage is rendered correctly without old stage for self 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -716,9 +662,6 @@ exports[`stage is rendered correctly without old stage for self 1`] = `
       Curious
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -768,7 +711,7 @@ exports[`step is rendered correctly with comment 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -776,7 +719,7 @@ exports[`step is rendered correctly with comment 1`] = `
     }
     value={3.5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -787,9 +730,6 @@ exports[`step is rendered correctly with comment 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -800,9 +740,6 @@ exports[`step is rendered correctly with comment 1`] = `
       Completed Step of Faith
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -854,7 +791,7 @@ exports[`step is rendered correctly with pathway stage 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -862,7 +799,7 @@ exports[`step is rendered correctly with pathway stage 1`] = `
     }
     value={3.5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -873,9 +810,6 @@ exports[`step is rendered correctly with pathway stage 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -886,9 +820,6 @@ exports[`step is rendered correctly with pathway stage 1`] = `
       Completed Guiding Step of Faith
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,
@@ -938,7 +869,7 @@ exports[`step is rendered correctly without comment 1`] = `
     direction="column"
     style={
       Object {
-        "borderLeftColor": "#E6E8EC",
+        "borderLeftColor": "#ECEEF2",
         "borderLeftWidth": 1,
         "paddingBottom": 5,
         "paddingLeft": 20,
@@ -946,7 +877,7 @@ exports[`step is rendered correctly without comment 1`] = `
     }
     value={3.5}
   >
-    <Translate(DateComponent)
+    <withI18nextTranslation(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -957,9 +888,6 @@ exports[`step is rendered correctly without comment 1`] = `
       }
     />
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#007398",
@@ -970,9 +898,6 @@ exports[`step is rendered correctly without comment 1`] = `
       Completed Step of Faith
     </MyText>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 14,

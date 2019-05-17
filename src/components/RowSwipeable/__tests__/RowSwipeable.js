@@ -65,10 +65,7 @@ describe('swipe gestures', () => {
       </RowSwipeable>,
     );
 
-    swipeComponent = screen
-      .dive()
-      .dive()
-      .instance();
+    swipeComponent = screen.dive().instance();
   });
 
   it('opens swipe after gesture', () => {

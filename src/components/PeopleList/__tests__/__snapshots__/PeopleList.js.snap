@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`button presses renders item 1`] = `
-<Connect(Translate(PeopleItem))
+<Connect(withI18nextTranslation(PeopleItem))
   onSelect={[MockFunction]}
   organization={
     Object {
@@ -70,6 +70,7 @@ exports[`renders correctly as Casey 1`] = `
       tintColor="#007398"
     />
   }
+  removeClippedSubviews={false}
   renderItem={[Function]}
   scrollEnabled={true}
   scrollEventThrottle={50}
@@ -79,7 +80,7 @@ exports[`renders correctly as Casey 1`] = `
 `;
 
 exports[`renders correctly as Jean 1`] = `
-<ScrollView
+<ScrollViewMock
   refreshControl={
     <MyRefreshControl
       colors={
@@ -114,9 +115,6 @@ exports[`renders correctly as Jean 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={1}
         style={
           Object {
@@ -182,6 +180,7 @@ exports[`renders correctly as Jean 1`] = `
       maxToRenderPerBatch={10}
       numColumns={1}
       onEndReachedThreshold={2}
+      removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEnabled={false}
       scrollEventThrottle={50}
@@ -203,9 +202,6 @@ exports[`renders correctly as Jean 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={1}
         style={
           Object {
@@ -275,6 +271,7 @@ exports[`renders correctly as Jean 1`] = `
       maxToRenderPerBatch={10}
       numColumns={1}
       onEndReachedThreshold={2}
+      removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEnabled={false}
       scrollEventThrottle={50}
@@ -296,9 +293,6 @@ exports[`renders correctly as Jean 1`] = `
       }
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={1}
         style={
           Object {
@@ -345,6 +339,7 @@ exports[`renders correctly as Jean 1`] = `
       maxToRenderPerBatch={10}
       numColumns={1}
       onEndReachedThreshold={2}
+      removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEnabled={false}
       scrollEventThrottle={50}
@@ -352,5 +347,5 @@ exports[`renders correctly as Jean 1`] = `
       windowSize={21}
     />
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;

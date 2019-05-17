@@ -3,7 +3,7 @@ matrix:
     - name: 'JS lint, test, i18n, and Codepush'
       language: node_js
       node_js:
-        - '9'
+        - '11'
       env:
         - ENVFILE=.env.production
       before_script:
@@ -97,7 +97,6 @@ matrix:
         - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
         - yarn run onesky:download
       script:
-        - yarn android:bundleReleaseAssets
         - (cd android && fastlane android beta)
       cache:
         - yarn

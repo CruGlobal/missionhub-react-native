@@ -133,8 +133,8 @@ describe('SurveyContacts', () => {
 
   it('should call ref', () => {
     const instance = renderShallow(component, store).instance();
-    const ref = 'test';
-    instance.ref(ref);
-    expect(instance.searchList).toEqual(ref);
+    const childSearch = () => {};
+    instance.setSearch(childSearch);
+    expect(instance.searchListSearch).toEqual(childSearch);
   });
 });

@@ -99,7 +99,6 @@ import {
 import SettingsMenu from './components/SettingsMenu';
 import PersonSideMenu from './components/PersonSideMenu';
 import theme from './theme';
-import MainTabs from './containers/MainTabs';
 import { MAIN_TABS, PEOPLE_TAB, STEPS_TAB, GROUPS_TAB } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
@@ -145,6 +144,10 @@ import StatusReason, {
 import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
 import { buildTrackedScreen, wrapNextScreen } from './routes/helpers';
 import {
+  ADD_PERSON_THEN_STEP_SCREEN_FLOW,
+  ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
+  ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW,
+  EDIT_PERSON_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
@@ -159,6 +162,12 @@ import {
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
 } from './routes/constants';
+import {
+  AddPersonThenStepScreenFlowNavigator,
+  AddPersonThenPeopleScreenFlowNavigator,
+  AddPersonThenCommunityMembersFlowNavigator,
+} from './routes/addPerson/addPersonFlow';
+import { EditPersonFlowNavigator } from './routes/editPerson/editPersonFlow';
 import {
   JoinByCodeFlowNavigator,
   JoinByCodeFlowScreens,
@@ -236,46 +245,38 @@ const tabs = {
   ),
 };
 
-const createTabs = initialRouteName => {
-  return createBottomTabNavigator(tabs, {
-    tabBarOptions: {
-      showIcon: false,
-      showLabel: true,
-      style: {
-        backgroundColor: theme.white,
-        paddingTop: 4,
-      },
-      activeTintColor: theme.primaryColor,
-      inactiveTintColor: theme.inactiveColor,
-      indicatorStyle: { backgroundColor: 'transparent' },
-      upperCaseLabel: false,
-
-      // Android
-      scrollEnabled: false,
+export const MainTabBar = createBottomTabNavigator(tabs, {
+  tabBarOptions: {
+    showIcon: false,
+    showLabel: true,
+    style: {
+      backgroundColor: theme.white,
+      paddingTop: 4,
     },
-    swipeEnabled: false,
-    animationEnabled: false,
-    lazy: true,
-    paths: {
-      [STEPS_TAB]: '/steps',
-      [PEOPLE_TAB]: '/people',
-      [GROUPS_TAB]: '/groups',
-    },
-    initialRouteName,
-  });
-};
-
-export const MainTabBarStartSteps = createTabs(STEPS_TAB);
-// Create another set of tabs with a different default tab
-export const MainTabBarStartGroups = createTabs(GROUPS_TAB);
+    activeTintColor: theme.primaryColor,
+    inactiveTintColor: theme.inactiveColor,
+    indicatorStyle: { backgroundColor: 'transparent' },
+    upperCaseLabel: false,
+    // Android
+    scrollEnabled: false,
+  },
+  swipeEnabled: false,
+  animationEnabled: false,
+  lazy: true,
+  paths: {
+    [STEPS_TAB]: '/steps',
+    [PEOPLE_TAB]: '/people',
+    [GROUPS_TAB]: '/groups',
+  },
+});
 
 export const MAIN_TABS_SCREEN = createDrawerNavigator(
   {
-    Main: { screen: MainTabs },
+    Main: MainTabBar,
   },
   {
     contentComponent: SettingsMenu,
-    navigationOptions: { drawerLockMode: 'locked-closed' },
+    defaultNavigationOptions: { drawerLockMode: 'locked-closed' },
     backBehavior: 'none', // We're handling it on our own
   },
 );
@@ -289,7 +290,7 @@ const buildPersonScreenRoute = screen =>
       {
         contentComponent: PersonSideMenu,
         drawerPosition: 'right',
-        navigationOptions: { drawerLockMode: 'locked-closed' },
+        defaultNavigationOptions: { drawerLockMode: 'locked-closed' },
         backBehavior: 'none', // We're handling it on our own
       },
     ),
@@ -507,6 +508,10 @@ const screens = {
   [ADD_PERSON_STEP_FLOW]: AddPersonStepFlowNavigator,
   [SELECT_MY_STAGE_FLOW]: SelectMyStageFlowNavigator,
   [SELECT_PERSON_STAGE_FLOW]: SelectPersonStageFlowNavigator,
+  [ADD_PERSON_THEN_STEP_SCREEN_FLOW]: AddPersonThenStepScreenFlowNavigator,
+  [ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW]: AddPersonThenPeopleScreenFlowNavigator,
+  [ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW]: AddPersonThenCommunityMembersFlowNavigator,
+  [EDIT_PERSON_FLOW]: EditPersonFlowNavigator,
 };
 
 export const trackableScreens = {
@@ -533,11 +538,11 @@ export const MainStackRoutes = createStackNavigator(
     [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
     [PERSON_SELECT_STEP_SCREEN]: {
       screen: PersonSelectStepScreen,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [SELECT_MY_STEP_SCREEN]: {
       screen: SelectMyStepScreen,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
     [ADD_STEP_SCREEN]: { screen: AddStepScreen },
@@ -545,33 +550,33 @@ export const MainStackRoutes = createStackNavigator(
     [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
     [PERSON_STAGE_SCREEN]: {
       screen: PersonStageScreen,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [STAGE_SCREEN]: {
       screen: StageScreen,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [SEARCH_REFINE_SCREEN]: {
       screen: SearchPeopleFilterRefineScreen,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [STATUS_SELECT_SCREEN]: {
       screen: StatusSelect,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [STATUS_COMPLETE_SCREEN]: {
       screen: StatusComplete,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [STATUS_REASON_SCREEN]: {
       screen: StatusReason,
-      navigationOptions: { gesturesEnabled: true },
+      defaultNavigationOptions: { gesturesEnabled: true },
     },
     [GROUP_PROFILE]: { screen: GroupProfile },
   },
   {
     initialRouteName: MAIN_TABS,
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
       gesturesEnabled: false,
     },

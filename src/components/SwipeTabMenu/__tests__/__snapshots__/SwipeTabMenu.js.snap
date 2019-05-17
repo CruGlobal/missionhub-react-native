@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generateSwipeTabMenuNavigator should create a new navigator 1`] = `
-<Component
+<View
   style={
     Object {
       "zIndex": 100,
@@ -42,7 +42,7 @@ exports[`generateSwipeTabMenuNavigator should create a new navigator 1`] = `
       ]
     }
   />
-</Component>
+</View>
 `;
 
 exports[`should render correctly 1`] = `
@@ -53,7 +53,7 @@ exports[`should render correctly 1`] = `
     }
   }
 >
-  <ScrollView
+  <ScrollViewMock
     automaticallyAdjustContentInsets={false}
     contentContainerStyle={
       Array [
@@ -67,14 +67,14 @@ exports[`should render correctly 1`] = `
     contentInset={
       Object {
         "bottom": 0,
-        "left": NaN,
-        "right": NaN,
+        "left": 374.5,
+        "right": 374.5,
         "top": 0,
       }
     }
     contentOffset={
       Object {
-        "x": 0,
+        "x": -374.5,
         "y": 0,
       }
     }
@@ -83,6 +83,7 @@ exports[`should render correctly 1`] = `
     onMomentumScrollEnd={[Function]}
     showsHorizontalScrollIndicator={false}
     snapToAlignment="center"
+    snapToInterval={1}
   >
     <TouchableIOS
       key="nav/TAB_1"
@@ -95,7 +96,7 @@ exports[`should render correctly 1`] = `
       }
       withoutFeedback={true}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -103,16 +104,11 @@ exports[`should render correctly 1`] = `
               "justifyContent": "center",
               "paddingHorizontal": 12,
             },
-            Object {
-              "width": undefined,
-            },
+            null,
           ]
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -121,7 +117,7 @@ exports[`should render correctly 1`] = `
         >
           Tab 1
         </Text>
-      </Component>
+      </View>
     </TouchableIOS>
     <TouchableIOS
       key="nav/TAB_2"
@@ -134,7 +130,7 @@ exports[`should render correctly 1`] = `
       }
       withoutFeedback={true}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -142,16 +138,11 @@ exports[`should render correctly 1`] = `
               "justifyContent": "center",
               "paddingHorizontal": 12,
             },
-            Object {
-              "width": undefined,
-            },
+            null,
           ]
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#66D9F0",
@@ -160,9 +151,9 @@ exports[`should render correctly 1`] = `
         >
           Tab 2
         </Text>
-      </Component>
+      </View>
     </TouchableIOS>
-  </ScrollView>
+  </ScrollViewMock>
   <Flex
     align="center"
     style={
@@ -173,7 +164,7 @@ exports[`should render correctly 1`] = `
       }
     }
   >
-    <Component
+    <View
       style={
         Array [
           Object {
@@ -209,7 +200,7 @@ exports[`should render correctly 2`] = `
     }
   }
 >
-  <ScrollView
+  <ScrollViewMock
     automaticallyAdjustContentInsets={false}
     contentContainerStyle={
       Array [
@@ -252,7 +243,7 @@ exports[`should render correctly 2`] = `
       }
       withoutFeedback={true}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -267,9 +258,6 @@ exports[`should render correctly 2`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -278,7 +266,7 @@ exports[`should render correctly 2`] = `
         >
           Tab 1
         </Text>
-      </Component>
+      </View>
     </TouchableIOS>
     <TouchableIOS
       key="nav/TAB_2"
@@ -291,7 +279,7 @@ exports[`should render correctly 2`] = `
       }
       withoutFeedback={true}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -306,9 +294,6 @@ exports[`should render correctly 2`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#66D9F0",
@@ -317,9 +302,9 @@ exports[`should render correctly 2`] = `
         >
           Tab 2
         </Text>
-      </Component>
+      </View>
     </TouchableIOS>
-  </ScrollView>
+  </ScrollViewMock>
   <Flex
     align="center"
     style={
@@ -330,7 +315,7 @@ exports[`should render correctly 2`] = `
       }
     }
   >
-    <Component
+    <View
       style={
         Array [
           Object {
@@ -362,11 +347,11 @@ exports[`should render light version correctly 1`] = `
 <ViewWithoutOverflow
   style={
     Object {
-      "backgroundColor": "#E6E8EC",
+      "backgroundColor": "#ECEEF2",
     }
   }
 >
-  <ScrollView
+  <ScrollViewMock
     automaticallyAdjustContentInsets={false}
     contentContainerStyle={
       Array [
@@ -380,14 +365,14 @@ exports[`should render light version correctly 1`] = `
     contentInset={
       Object {
         "bottom": 0,
-        "left": NaN,
-        "right": NaN,
+        "left": 374.5,
+        "right": 374.5,
         "top": 0,
       }
     }
     contentOffset={
       Object {
-        "x": 0,
+        "x": -374.5,
         "y": 0,
       }
     }
@@ -396,6 +381,7 @@ exports[`should render light version correctly 1`] = `
     onMomentumScrollEnd={[Function]}
     showsHorizontalScrollIndicator={false}
     snapToAlignment="center"
+    snapToInterval={1}
   >
     <TouchableIOS
       key="nav/TAB_1"
@@ -408,7 +394,7 @@ exports[`should render light version correctly 1`] = `
       }
       withoutFeedback={true}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -416,16 +402,11 @@ exports[`should render light version correctly 1`] = `
               "justifyContent": "center",
               "paddingHorizontal": 12,
             },
-            Object {
-              "width": undefined,
-            },
+            null,
           ]
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#007398",
@@ -434,7 +415,7 @@ exports[`should render light version correctly 1`] = `
         >
           Tab 1
         </Text>
-      </Component>
+      </View>
     </TouchableIOS>
     <TouchableIOS
       key="nav/TAB_2"
@@ -447,7 +428,7 @@ exports[`should render light version correctly 1`] = `
       }
       withoutFeedback={true}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -455,16 +436,11 @@ exports[`should render light version correctly 1`] = `
               "justifyContent": "center",
               "paddingHorizontal": 12,
             },
-            Object {
-              "width": undefined,
-            },
+            null,
           ]
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -473,9 +449,9 @@ exports[`should render light version correctly 1`] = `
         >
           Tab 2
         </Text>
-      </Component>
+      </View>
     </TouchableIOS>
-  </ScrollView>
+  </ScrollViewMock>
   <Flex
     align="center"
     style={
@@ -486,7 +462,7 @@ exports[`should render light version correctly 1`] = `
       }
     }
   >
-    <Component
+    <View
       style={
         Array [
           Object {
@@ -507,7 +483,7 @@ exports[`should render light version correctly 1`] = `
             "width": 0,
           },
           Object {
-            "borderBottomColor": "#E6E8EC",
+            "borderBottomColor": "#ECEEF2",
           },
         ]
       }
@@ -520,11 +496,11 @@ exports[`should render light version correctly 2`] = `
 <ViewWithoutOverflow
   style={
     Object {
-      "backgroundColor": "#E6E8EC",
+      "backgroundColor": "#ECEEF2",
     }
   }
 >
-  <ScrollView
+  <ScrollViewMock
     automaticallyAdjustContentInsets={false}
     contentContainerStyle={
       Array [
@@ -567,7 +543,7 @@ exports[`should render light version correctly 2`] = `
       }
       withoutFeedback={true}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -582,9 +558,6 @@ exports[`should render light version correctly 2`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#007398",
@@ -593,7 +566,7 @@ exports[`should render light version correctly 2`] = `
         >
           Tab 1
         </Text>
-      </Component>
+      </View>
     </TouchableIOS>
     <TouchableIOS
       key="nav/TAB_2"
@@ -606,7 +579,7 @@ exports[`should render light version correctly 2`] = `
       }
       withoutFeedback={true}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -621,9 +594,6 @@ exports[`should render light version correctly 2`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#A0A2A6",
@@ -632,9 +602,9 @@ exports[`should render light version correctly 2`] = `
         >
           Tab 2
         </Text>
-      </Component>
+      </View>
     </TouchableIOS>
-  </ScrollView>
+  </ScrollViewMock>
   <Flex
     align="center"
     style={
@@ -645,7 +615,7 @@ exports[`should render light version correctly 2`] = `
       }
     }
   >
-    <Component
+    <View
       style={
         Array [
           Object {
@@ -666,7 +636,7 @@ exports[`should render light version correctly 2`] = `
             "width": 0,
           },
           Object {
-            "borderBottomColor": "#E6E8EC",
+            "borderBottomColor": "#ECEEF2",
           },
         ]
       }
@@ -683,7 +653,7 @@ exports[`should render second tab based off of previousIndex 1`] = `
     }
   }
 >
-  <ScrollView
+  <ScrollViewMock
     automaticallyAdjustContentInsets={false}
     contentContainerStyle={
       Array [
@@ -726,7 +696,7 @@ exports[`should render second tab based off of previousIndex 1`] = `
       }
       withoutFeedback={true}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -741,9 +711,6 @@ exports[`should render second tab based off of previousIndex 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -752,7 +719,7 @@ exports[`should render second tab based off of previousIndex 1`] = `
         >
           Tab 1
         </Text>
-      </Component>
+      </View>
     </TouchableIOS>
     <TouchableIOS
       key="nav/TAB_2"
@@ -765,7 +732,7 @@ exports[`should render second tab based off of previousIndex 1`] = `
       }
       withoutFeedback={true}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -780,9 +747,6 @@ exports[`should render second tab based off of previousIndex 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#66D9F0",
@@ -791,9 +755,9 @@ exports[`should render second tab based off of previousIndex 1`] = `
         >
           Tab 2
         </Text>
-      </Component>
+      </View>
     </TouchableIOS>
-  </ScrollView>
+  </ScrollViewMock>
   <Flex
     align="center"
     style={
@@ -804,7 +768,7 @@ exports[`should render second tab based off of previousIndex 1`] = `
       }
     }
   >
-    <Component
+    <View
       style={
         Array [
           Object {

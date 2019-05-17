@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StatusBar, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import moment from 'moment';
 
 import CelebrateFeed from '../CelebrateFeed';
@@ -16,7 +16,7 @@ import { momentUtc, refresh, orgIsGlobal } from '../../utils/common';
 import { getReportedComments } from '../../actions/reportComments';
 import theme from '../../theme';
 
-@translate('groupsCelebrate')
+@withTranslation('groupsCelebrate')
 export class GroupCelebrate extends Component {
   state = { refreshing: false };
 

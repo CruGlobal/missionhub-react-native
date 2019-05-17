@@ -63,7 +63,6 @@ describe('setup person screen methods', () => {
     component = screen
       .dive()
       .dive()
-      .dive()
       .instance();
 
     profile.createPerson = jest

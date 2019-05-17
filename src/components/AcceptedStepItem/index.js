@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
@@ -19,7 +19,7 @@ import Icon from '../Icon/index';
 
 import styles from './styles';
 
-@translate('stepReminder')
+@withTranslation('stepReminder')
 class AcceptedStepItem extends Component {
   handleNavigateAcceptedDetailScreen = () => {
     const { dispatch, step } = this.props;

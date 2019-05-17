@@ -50,7 +50,7 @@ export const JoinByCodeOnboardingFlowScreens = {
 export const JoinByCodeOnboardingFlowNavigator = createStackNavigator(
   JoinByCodeOnboardingFlowScreens,
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },

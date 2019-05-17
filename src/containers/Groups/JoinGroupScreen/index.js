@@ -7,7 +7,7 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, Text, Input, IconButton } from '../../../components/common';
@@ -20,7 +20,7 @@ import { lookupOrgCommunityCode } from '../../../actions/organizations';
 
 import styles from './styles';
 
-@translate('groupsJoinGroup')
+@withTranslation('groupsJoinGroup')
 class JoinGroupScreen extends Component {
   state = {
     code: '',

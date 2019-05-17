@@ -17,9 +17,6 @@ exports[`renders group 1`] = `
     type="MissionHub"
   />
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -76,9 +73,6 @@ exports[`renders group with notification dot 1`] = `
     />
   </Flex>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -112,9 +106,6 @@ exports[`renders people 1`] = `
     type="MissionHub"
   />
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -148,9 +139,6 @@ exports[`renders steps 1`] = `
     type="MissionHub"
   />
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -184,9 +172,6 @@ exports[`renders steps different tint color 1`] = `
     type="MissionHub"
   />
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {

@@ -38,9 +38,6 @@ exports[`notificationTypes renders for FOCUS_STEP 1`] = `
       value={0.6}
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",
@@ -150,9 +147,6 @@ exports[`notificationTypes renders for JOIN_CHALLENGE 1`] = `
       value={0.6}
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",
@@ -262,9 +256,6 @@ exports[`notificationTypes renders for JOIN_COMMUNITY 1`] = `
       value={0.6}
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",
@@ -374,9 +365,6 @@ exports[`notificationTypes renders for LOGIN 1`] = `
       value={0.6}
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",
@@ -486,9 +474,6 @@ exports[`notificationTypes renders for ONBOARDING 1`] = `
       value={0.6}
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",
@@ -598,9 +583,6 @@ exports[`notificationTypes renders for SET_REMINDER 1`] = `
       value={0.6}
     >
       <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#ffffff",

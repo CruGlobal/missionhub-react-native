@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Text, Button, Flex } from '../../components/common';
@@ -19,7 +19,7 @@ const {
   JOIN_CHALLENGE,
 } = NOTIFICATION_PROMPT_TYPES;
 
-@translate('notificationPrimer')
+@withTranslation('notificationPrimer')
 class NotificationPrimerScreen extends Component {
   notNow = () => {
     const { dispatch, onComplete } = this.props;

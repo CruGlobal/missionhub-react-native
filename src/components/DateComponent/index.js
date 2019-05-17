@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { isString, momentUtc } from '../../utils/common';
 import Text from '../Text';
@@ -67,7 +67,7 @@ function formatComment(date, t) {
   return momentDate.format(DateConstants.Formats.monthDayAtTime);
 }
 
-@translate()
+@withTranslation()
 export default class DateComponent extends Component {
   render() {
     const { t, date, format, style } = this.props;

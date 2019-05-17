@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`reminder not passed in renders correctly 1`] = `
-<Translate(MyDatePickerIOS)
+<withI18nextTranslation(MyDatePickerIOS)
   customStyles={Object {}}
   date=""
   disabled={false}
   duration={300}
   height={378}
   iOSModalContent={
-    <Translate(ReminderRepeatButtons)
+    <withI18nextTranslation(ReminderRepeatButtons)
       onRecurrenceChange={[Function]}
     />
   }
@@ -21,14 +21,14 @@ exports[`reminder not passed in renders correctly 1`] = `
 `;
 
 exports[`reminder passed in renders correctly 1`] = `
-<Translate(MyDatePickerIOS)
+<withI18nextTranslation(MyDatePickerIOS)
   customStyles={Object {}}
   date="2018-09-12 12:00:00 PM GMT+0"
   disabled={false}
   duration={300}
   height={378}
   iOSModalContent={
-    <Translate(ReminderRepeatButtons)
+    <withI18nextTranslation(ReminderRepeatButtons)
       onRecurrenceChange={[Function]}
     />
   }

@@ -20,6 +20,7 @@ exports[`renders a list 1`] = `
   maxToRenderPerBatch={10}
   numColumns={1}
   onEndReachedThreshold={2}
+  removeClippedSubviews={false}
   renderItem={[Function]}
   scrollEventThrottle={50}
   style={
@@ -33,7 +34,7 @@ exports[`renders a list 1`] = `
 `;
 
 exports[`renders an item 1`] = `
-<Translate(PersonListItem)
+<withI18nextTranslation(PersonListItem)
   organization={
     Object {
       "id": "100",

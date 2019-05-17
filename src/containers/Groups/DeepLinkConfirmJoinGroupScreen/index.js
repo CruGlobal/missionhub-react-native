@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, Text, IconButton } from '../../../components/common';
@@ -13,7 +13,7 @@ import { lookupOrgCommunityUrl } from '../../../actions/organizations';
 
 import styles from './styles';
 
-@translate('groupsJoinGroup')
+@withTranslation('groupsJoinGroup')
 class DeepLinkConfirmJoinGroupScreen extends Component {
   state = {
     errorMessage: '',

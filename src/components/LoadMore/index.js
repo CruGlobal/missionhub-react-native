@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Button } from '../common';
 
 import styles from './styles';
 
-@translate('loadMore')
+@withTranslation('loadMore')
 class LoadMore extends Component {
   render() {
     const { onPress, t, text } = this.props;

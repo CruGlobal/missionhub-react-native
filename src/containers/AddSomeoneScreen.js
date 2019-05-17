@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { navigatePush } from '../actions/navigation';
 import { disableBack } from '../utils/common';
@@ -10,7 +10,7 @@ import { skipOnboarding } from '../actions/onboardingProfile';
 import { SETUP_PERSON_SCREEN } from './SetupPersonScreen';
 import IconMessageScreen from './IconMessageScreen';
 
-@translate('addContact')
+@withTranslation('addContact')
 class AddSomeoneScreen extends Component {
   componentDidMount() {
     disableBack.add();

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Button, Icon } from '../../components/common';
@@ -15,7 +15,7 @@ import { reminderSelector } from '../../selectors/stepReminders';
 
 import styles from './styles';
 
-@translate('acceptedStepDetail')
+@withTranslation('acceptedStepDetail')
 class AcceptedStepDetailScreen extends Component {
   completeStep = () => {
     const { dispatch, step } = this.props;

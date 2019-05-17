@@ -2,6 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -61,7 +62,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <View
-        accessibilityTraits="button"
         accessible={true}
         isTVSelectable={true}
         onResponderGrant={[Function]}
@@ -106,9 +106,6 @@ exports[`renders correctly 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -137,12 +134,11 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            TRY IT NOW
+            GET STARTED
           </Text>
         </View>
       </View>
       <View
-        accessibilityTraits="button"
         accessible={true}
         isTVSelectable={true}
         onResponderGrant={[Function]}
@@ -187,9 +183,6 @@ exports[`renders correctly 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -235,9 +228,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -261,7 +251,6 @@ exports[`renders correctly 1`] = `
         ALREADY A MEMBER?
       </Text>
       <View
-        accessibilityTraits="button"
         accessible={true}
         isTVSelectable={true}
         onResponderGrant={[Function]}
@@ -289,9 +278,6 @@ exports[`renders correctly 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {

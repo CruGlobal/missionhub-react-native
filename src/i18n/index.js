@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import { reactI18nextModule } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 import DeviceInfo from 'react-native-device-info';
 import mapValues from 'lodash/mapValues';
 
@@ -9,14 +9,35 @@ import en_US from './locales/en-US.js';
 const languageDetector = {
   type: 'languageDetector',
   async: false,
-  detect: () => DeviceInfo.getDeviceLocale(),
+  detect: () => chooseLanguage(),
   init: () => {},
   cacheUserLanguage: () => {},
 };
 
+function chooseLanguage() {
+  const locale = DeviceInfo.getDeviceLocale();
+
+  if (translations[locale]) {
+    return locale;
+  } else {
+    const [baseLocale] = locale.split('-');
+
+    switch (baseLocale) {
+      case 'es':
+        return 'es-419';
+      case 'no':
+      case 'nb':
+      case 'nn':
+        return 'no';
+      default:
+        return 'en-US';
+    }
+  }
+}
+
 i18n
   .use(languageDetector)
-  .use(reactI18nextModule)
+  .use(initReactI18next)
   .init({
     fallbackLng: 'en-US',
 

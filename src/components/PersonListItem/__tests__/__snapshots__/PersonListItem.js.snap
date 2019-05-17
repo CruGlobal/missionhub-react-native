@@ -10,7 +10,7 @@ exports[`render assigned contact 1`] = `
     direction="row"
     style={
       Object {
-        "borderBottomColor": "#E6E8EC",
+        "borderBottomColor": "#ECEEF2",
         "borderBottomWidth": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
@@ -23,41 +23,33 @@ exports[`render assigned contact 1`] = `
       justify="start"
       value={1}
     >
-      <React.Fragment>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 13,
-              },
-              Object {},
-            ]
-          }
-        >
-          First
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 13,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
-           Last
-        </MyText>
-      </React.Fragment>
+      <MyText
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 13,
+            },
+            Object {},
+          ]
+        }
+      >
+        First
+      </MyText>
+      <MyText
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 13,
+            },
+            Object {},
+            Object {},
+          ]
+        }
+      >
+         Last
+      </MyText>
     </Flex>
   </Flex>
 </TouchableIOS>
@@ -73,7 +65,7 @@ exports[`render unassigned contact 1`] = `
     direction="row"
     style={
       Object {
-        "borderBottomColor": "#E6E8EC",
+        "borderBottomColor": "#ECEEF2",
         "borderBottomWidth": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
@@ -86,46 +78,35 @@ exports[`render unassigned contact 1`] = `
       justify="start"
       value={1}
     >
-      <React.Fragment>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 13,
-              },
-              Object {},
-            ]
-          }
-        >
-          First
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 13,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
-           Last
-        </MyText>
-      </React.Fragment>
+      <MyText
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 13,
+            },
+            Object {},
+          ]
+        }
+      >
+        First
+      </MyText>
+      <MyText
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 13,
+            },
+            Object {},
+            Object {},
+          ]
+        }
+      >
+         Last
+      </MyText>
     </Flex>
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#FF5532",
@@ -145,7 +126,7 @@ exports[`render without last name 1`] = `
   direction="row"
   style={
     Object {
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "paddingHorizontal": 20,
       "paddingVertical": 16,
@@ -158,24 +139,19 @@ exports[`render without last name 1`] = `
     justify="start"
     value={1}
   >
-    <React.Fragment>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": undefined,
-              "fontSize": 13,
-            },
-            Object {},
-          ]
-        }
-      >
-        First
-      </MyText>
-    </React.Fragment>
+    <MyText
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 13,
+          },
+          Object {},
+        ]
+      }
+    >
+      First
+    </MyText>
   </Flex>
 </Flex>
 `;
@@ -186,7 +162,7 @@ exports[`render without touchable 1`] = `
   direction="row"
   style={
     Object {
-      "borderBottomColor": "#E6E8EC",
+      "borderBottomColor": "#ECEEF2",
       "borderBottomWidth": 1,
       "paddingHorizontal": 20,
       "paddingVertical": 16,
@@ -199,46 +175,35 @@ exports[`render without touchable 1`] = `
     justify="start"
     value={1}
   >
-    <React.Fragment>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": undefined,
-              "fontSize": 13,
-            },
-            Object {},
-          ]
-        }
-      >
-        First
-      </MyText>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": undefined,
-              "fontSize": 13,
-            },
-            Object {},
-            Object {},
-          ]
-        }
-      >
-         Last
-      </MyText>
-    </React.Fragment>
+    <MyText
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 13,
+          },
+          Object {},
+        ]
+      }
+    >
+      First
+    </MyText>
+    <MyText
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 13,
+          },
+          Object {},
+          Object {},
+        ]
+      }
+    >
+       Last
+    </MyText>
   </Flex>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#FF5532",

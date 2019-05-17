@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, Text, Button } from '../../components/common';
@@ -12,7 +12,7 @@ import { ACTIONS } from '../../constants';
 
 import styles from './styles';
 
-@translate('welcome')
+@withTranslation('welcome')
 class WelcomeScreen extends Component {
   componentDidMount() {
     disableBack.add();
@@ -67,7 +67,7 @@ class WelcomeScreen extends Component {
                 onPress={this.navigateToNext}
                 style={styles.clearButton}
                 buttonTextStyle={styles.buttonText}
-                text={t('tryItNow').toUpperCase()}
+                text={t('getStartedButton').toUpperCase()}
               />
             </Flex>
           ) : (

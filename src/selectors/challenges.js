@@ -46,7 +46,9 @@ export const communityChallengeSelector = createSelector(
     organizationSelector({ organizations }, { orgId }),
   (_, { challengeId }) => challengeId,
   (org, challengeId) => {
-    const challenge = org.challengeItems.find(c => c.id === challengeId);
+    const challenge = (org.challengeItems || []).find(
+      c => c.id === challengeId,
+    );
     return (
       (challenge && { ...challenge, isPast: challengeIsPast(challenge) }) || {}
     );

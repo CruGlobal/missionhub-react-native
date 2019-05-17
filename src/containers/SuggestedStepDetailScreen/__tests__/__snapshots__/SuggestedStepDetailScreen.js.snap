@@ -3,11 +3,11 @@
 exports[`renders correctly 1`] = `
 <StepDetailScreen
   CenterContent={
-    <Component
+    <View
       style={
         Object {
           "borderBottomWidth": 1,
-          "borderColor": "#E6E8EC",
+          "borderColor": "#ECEEF2",
         }
       }
     />

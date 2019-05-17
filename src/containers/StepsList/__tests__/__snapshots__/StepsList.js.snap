@@ -17,6 +17,7 @@ exports[`for another person with steps loadMore should show more steps and hide 
   maxToRenderPerBatch={10}
   numColumns={1}
   onEndReachedThreshold={2}
+  removeClippedSubviews={false}
   renderItem={[Function]}
   scrollEnabled={true}
   scrollEventThrottle={50}
@@ -34,7 +35,7 @@ exports[`for another person with steps loadMore should show more steps and hide 
 exports[`for another person with steps renders correctly 1`] = `
 <FlatList
   ListFooterComponent={
-    <Translate(LoadMore)
+    <withI18nextTranslation(LoadMore)
       onPress={[Function]}
       text="SHOW MORE STEPS"
     />
@@ -53,6 +54,7 @@ exports[`for another person with steps renders correctly 1`] = `
   maxToRenderPerBatch={10}
   numColumns={1}
   onEndReachedThreshold={2}
+  removeClippedSubviews={false}
   renderItem={[Function]}
   scrollEnabled={true}
   scrollEventThrottle={50}
@@ -78,6 +80,7 @@ exports[`for another person without steps renders correctly 1`] = `
   maxToRenderPerBatch={10}
   numColumns={1}
   onEndReachedThreshold={2}
+  removeClippedSubviews={false}
   renderItem={[Function]}
   scrollEnabled={true}
   scrollEventThrottle={50}
@@ -124,6 +127,7 @@ exports[`for me with steps loadMore should show more steps and hide button 1`] =
   maxToRenderPerBatch={10}
   numColumns={1}
   onEndReachedThreshold={2}
+  removeClippedSubviews={false}
   renderItem={[Function]}
   scrollEnabled={true}
   scrollEventThrottle={50}
@@ -141,7 +145,7 @@ exports[`for me with steps loadMore should show more steps and hide button 1`] =
 exports[`for me with steps renders correctly 1`] = `
 <FlatList
   ListFooterComponent={
-    <Translate(LoadMore)
+    <withI18nextTranslation(LoadMore)
       onPress={[Function]}
       text="SHOW MORE STEPS"
     />
@@ -169,6 +173,7 @@ exports[`for me with steps renders correctly 1`] = `
   maxToRenderPerBatch={10}
   numColumns={1}
   onEndReachedThreshold={2}
+  removeClippedSubviews={false}
   renderItem={[Function]}
   scrollEnabled={true}
   scrollEventThrottle={50}
@@ -194,6 +199,7 @@ exports[`for me without steps renders correctly 1`] = `
   maxToRenderPerBatch={10}
   numColumns={1}
   onEndReachedThreshold={2}
+  removeClippedSubviews={false}
   renderItem={[Function]}
   scrollEnabled={true}
   scrollEventThrottle={50}

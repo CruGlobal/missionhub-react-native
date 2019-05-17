@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StatusBar, View, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { refresh } from '../../utils/common';
 import Header from '../../components/Header';
@@ -17,7 +17,7 @@ import { markCommentsRead } from '../../actions/unreadComments';
 
 import styles from './styles';
 
-@translate('groupUnread')
+@withTranslation('groupUnread')
 class GroupUnreadFeed extends Component {
   state = { refreshing: false, items: [] };
 

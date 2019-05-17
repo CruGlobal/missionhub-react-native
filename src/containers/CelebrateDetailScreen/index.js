@@ -30,9 +30,9 @@ import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 
 import styles from './styles';
 
-const FEW_COMMENTS = 3;
+const FEW_COMMENTS = 4;
 class CelebrateDetailScreen extends Component {
-  state = { refreshing: false, scrollViewHeight: 0 };
+  state = { refreshing: false, scrollViewHeight: 0, keyboardHeight: 0 };
 
   componentDidMount() {
     this.keyboardShowListener = keyboardShow(this.keyboardShow);
@@ -42,7 +42,8 @@ class CelebrateDetailScreen extends Component {
     this.keyboardShowListener.remove();
   }
 
-  keyboardShow = () => {
+  keyboardShow = e => {
+    this.setState({ keyboardHeight: e.endCoordinates.height });
     this.scrollToFocusedRef();
   };
 
@@ -69,7 +70,10 @@ class CelebrateDetailScreen extends Component {
         findNodeHandle(scrollResponder.getInnerViewNode()),
         // eslint-disable-next-line max-params
         (fx, fy, width, height) => {
-          this.scrollToY(fy - height - headerHeight);
+          // This is the height of the screen minus the keyboard height
+          const activeHeight = theme.fullHeight - this.state.keyboardHeight;
+          // Need to subtract the full active height from the "fy" distance and then add back the header height, component height, and extra padding to get the commment to stick directly above the keyboard
+          this.scrollToY(fy - activeHeight + height + headerHeight + 20);
         },
         // Error calculating the layout, just scroll to end
         () => this.scrollToEnd(),
@@ -77,13 +81,10 @@ class CelebrateDetailScreen extends Component {
     }, 1);
   }
 
-  getCommentRefs() {
-    // Get the comment refs from the <CommentsList> component wrapped in 'connect' and '@translate'
-    return this.commentsList
-      .getWrappedInstance()
-      .getWrappedInstance()
-      .getItemRefs();
-  }
+  setCommentListRefs = listRefs => {
+    // Get the comment refs from the <CommentsList> component by passing a setListRefs function
+    this.commentListRefs = listRefs;
+  };
 
   scrollToFocusedRef = () => {
     const {
@@ -101,7 +102,7 @@ class CelebrateDetailScreen extends Component {
         setTimeout(() => this.scrollToY(), 1);
       } else {
         // Only scroll to focused comment for edit
-        const refs = this.getCommentRefs();
+        const refs = this.commentListRefs || {};
         // Get the comment that we want to focus on
         const focusCommentRef = refs[editId];
 
@@ -145,6 +146,7 @@ class CelebrateDetailScreen extends Component {
         cardStyle={cardStyle}
         rightCorner={this.renderBackButton()}
         namePressable={true}
+        fixedHeight={true}
       />
     );
   };
@@ -175,7 +177,6 @@ class CelebrateDetailScreen extends Component {
   };
 
   listRef = c => (this.list = c);
-  commentsListRef = c => (this.commentsList = c);
 
   render() {
     const { event } = this.props;
@@ -212,7 +213,7 @@ class CelebrateDetailScreen extends Component {
               <Image source={TRAILS1} style={styles.trailsTop} />
               <Image source={TRAILS2} style={styles.trailsBottom} />
               <CommentsList
-                ref={this.commentsListRef}
+                setListRefs={this.setCommentListRefs}
                 event={event}
                 organizationId={event.organization.id}
               />

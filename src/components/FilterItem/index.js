@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Switch } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../common';
 import theme from '../../theme';
 
 import styles from './styles';
 
-@translate('searchFilterRefine')
+@withTranslation('searchFilterRefine')
 export default class FilterItem extends Component {
   handleSelect = () => {
     this.props.onSelect(this.props.item);

@@ -1,9 +1,9 @@
 import i18next from 'i18next';
 
-import { personSelector } from '../../../selectors/people';
-import { getStageIndex, getAnalyticsSubsection } from '../../../utils/common';
+import { personSelector } from '../../selectors/people';
+import { getStageIndex, getAnalyticsSubsection } from '../../utils/common';
 
-export function paramsforStageNavigation(personId, orgId, getState) {
+export function paramsForStageNavigation(personId, orgId, getState) {
   const {
     auth: { person: authPerson },
     stages: { stages, stagesObj },

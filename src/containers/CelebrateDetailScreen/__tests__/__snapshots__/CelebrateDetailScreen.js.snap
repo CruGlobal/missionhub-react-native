@@ -2,6 +2,7 @@
 
 exports[`CelebrateDetailScreen renders tree correctly 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -174,7 +175,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                           }
                         >
                           <View
-                            accessibilityTraits="button"
                             accessible={true}
                             isTVSelectable={true}
                             onResponderGrant={[Function]}
@@ -202,9 +202,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                               }
                             >
                               <Text
-                                accessible={true}
-                                allowFontScaling={true}
-                                ellipsizeMode="tail"
                                 style={
                                   Array [
                                     Object {
@@ -229,9 +226,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                             </View>
                           </View>
                           <Text
-                            accessible={true}
-                            allowFontScaling={true}
-                            ellipsizeMode="tail"
                             style={
                               Array [
                                 Object {
@@ -264,7 +258,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                           }
                         >
                           <View
-                            accessibilityTraits="button"
                             accessible={true}
                             isTVSelectable={true}
                             onResponderGrant={[Function]}
@@ -292,9 +285,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                               }
                             >
                               <Text
-                                accessible={true}
                                 allowFontScaling={false}
-                                ellipsizeMode="tail"
                                 style={
                                   Array [
                                     Object {
@@ -334,16 +325,18 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                       </View>
                       <View
                         style={
-                          Object {
-                            "height": 70,
-                            "paddingTop": 12,
-                          }
+                          Array [
+                            Object {
+                              "maxHeight": 70,
+                              "paddingTop": 12,
+                            },
+                            Object {
+                              "height": 70,
+                            },
+                          ]
                         }
                       >
                         <Text
-                          accessible={true}
-                          allowFontScaling={true}
-                          ellipsizeMode="tail"
                           style={
                             Array [
                               Object {
@@ -354,6 +347,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                               },
                               Object {
                                 "fontSize": 14,
+                                "justifyContent": "flex-start",
                               },
                             ]
                           }
@@ -364,7 +358,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                       style={
                         Array [
                           Object {
-                            "backgroundColor": "#E6E8EC",
+                            "backgroundColor": "#ECEEF2",
                             "height": 1,
                           },
                           undefined,
@@ -386,9 +380,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                       }
                     >
                       <Text
-                        accessible={true}
-                        allowFontScaling={true}
-                        ellipsizeMode="tail"
                         style={
                           Array [
                             Object {
@@ -405,7 +396,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                         }
                       />
                       <View
-                        accessibilityTraits="button"
                         accessible={true}
                         isTVSelectable={true}
                         onResponderGrant={[Function]}
@@ -554,6 +544,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                 onScroll={[Function]}
                 onScrollBeginDrag={[Function]}
                 onScrollEndDrag={[Function]}
+                removeClippedSubviews={false}
                 renderItem={[Function]}
                 scrollEventThrottle={50}
                 stickyHeaderIndices={Array []}
@@ -595,7 +586,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                         }
                       >
                         <View
-                          accessibilityTraits="button"
                           accessible={true}
                           isTVSelectable={true}
                           onResponderGrant={[Function]}
@@ -623,9 +613,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                             }
                           >
                             <Text
-                              accessible={true}
-                              allowFontScaling={true}
-                              ellipsizeMode="tail"
                               style={
                                 Array [
                                   Object {
@@ -647,9 +634,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                           </View>
                         </View>
                         <Text
-                          accessible={true}
-                          allowFontScaling={true}
-                          ellipsizeMode="tail"
                           style={
                             Array [
                               Object {
@@ -679,7 +663,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                         }
                       >
                         <View
-                          accessibilityTraits="button"
                           accessible={true}
                           isTVSelectable={true}
                           onResponderGrant={[Function]}
@@ -709,9 +692,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                             }
                           >
                             <Text
-                              accessible={true}
-                              allowFontScaling={true}
-                              ellipsizeMode="tail"
                               style={
                                 Array [
                                   Object {
@@ -774,7 +754,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                         }
                       >
                         <View
-                          accessibilityTraits="button"
                           accessible={true}
                           isTVSelectable={true}
                           onResponderGrant={[Function]}
@@ -802,9 +781,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                             }
                           >
                             <Text
-                              accessible={true}
-                              allowFontScaling={true}
-                              ellipsizeMode="tail"
                               style={
                                 Array [
                                   Object {
@@ -826,9 +802,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                           </View>
                         </View>
                         <Text
-                          accessible={true}
-                          allowFontScaling={true}
-                          ellipsizeMode="tail"
                           style={
                             Array [
                               Object {
@@ -858,7 +831,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                         }
                       >
                         <View
-                          accessibilityTraits="button"
                           accessible={true}
                           isTVSelectable={true}
                           onResponderGrant={[Function]}
@@ -888,9 +860,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                             }
                           >
                             <Text
-                              accessible={true}
-                              allowFontScaling={true}
-                              ellipsizeMode="tail"
                               style={
                                 Array [
                                   Object {
@@ -982,6 +951,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
             }
           >
             <RCTSafeAreaView
+              emulateUnlessSupported={true}
               style={
                 Array [
                   Object {
@@ -1012,9 +982,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                 }
               >
                 <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
                   style={
                     Array [
                       Object {
@@ -1075,9 +1042,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                     }
                   >
                     <Text
-                      accessible={true}
-                      allowFontScaling={true}
-                      ellipsizeMode="tail"
                       style={
                         Array [
                           Object {
@@ -1094,7 +1058,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                       }
                     />
                     <View
-                      accessibilityTraits="button"
                       accessible={true}
                       isTVSelectable={true}
                       onResponderGrant={[Function]}
@@ -1157,7 +1120,6 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                     }
                   >
                     <View
-                      accessibilityTraits="button"
                       accessible={true}
                       isTVSelectable={true}
                       onResponderGrant={[Function]}
@@ -1185,9 +1147,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                         }
                       >
                         <Text
-                          accessible={true}
                           allowFontScaling={false}
-                          ellipsizeMode="tail"
                           style={
                             Array [
                               Object {
@@ -1313,6 +1273,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
             onChangeText={[Function]}
             placeholder="Write a comment..."
             placeholderTextColor="#B2B0B2"
+            rejectResponderTermination={true}
             returnKeyType="done"
             selectionColor="#005A7F"
             style={
@@ -1348,7 +1309,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
 `;
 
 exports[`renderForeground renders correctly 1`] = `
-<Connect(Translate(CelebrateItem))
+<Connect(withI18nextTranslation(CelebrateItem))
   cardStyle={
     Object {
       "elevation": 0,
@@ -1367,6 +1328,7 @@ exports[`renderForeground renders correctly 1`] = `
       "subject_person_name": "Roger",
     }
   }
+  fixedHeight={true}
   namePressable={true}
   organization={
     Object {
@@ -1399,7 +1361,7 @@ exports[`renderStickyHeader renders correctly 1`] = `
     />
   }
   right={
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -1428,7 +1390,7 @@ exports[`renderStickyHeader renders correctly 1`] = `
           }
         }
       />
-    </Component>
+    </View>
   }
   shadow={false}
   style={
@@ -1455,7 +1417,7 @@ exports[`renders correctly 1`] = `
     barStyle="dark-content"
     showHideTransition="fade"
   />
-  <Component
+  <View
     style={
       Object {
         "backgroundColor": "#505256",
@@ -1495,7 +1457,7 @@ exports[`renders correctly 1`] = `
       renderStickyHeader={[Function]}
       stickyHeaderHeight={65}
     >
-      <Component
+      <View
         style={
           Object {
             "minHeight": 933.8,
@@ -1530,7 +1492,7 @@ exports[`renders correctly 1`] = `
             }
           }
         />
-        <Connect(Translate(CommentsList))
+        <Connect(withI18nextTranslation(CommentsList))
           event={
             Object {
               "changed_attribute_value": "2019-04-11T13:51:49.888",
@@ -1542,10 +1504,11 @@ exports[`renders correctly 1`] = `
             }
           }
           organizationId="24234234"
+          setListRefs={[Function]}
         />
-      </Component>
+      </View>
     </ParallaxScrollView>
-  </Component>
+  </View>
   <Connect(CelebrateCommentBox)
     event={
       Object {

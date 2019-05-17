@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<Component
+<View
   collapsable={false}
   style={
     Array [
@@ -17,12 +17,9 @@ exports[`renders correctly 1`] = `
     align="end"
     direction="row"
   >
-    <Connect(Translate(CelebrateItemName))
+    <Connect(withI18nextTranslation(CelebrateItemName))
       customContent={
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -60,7 +57,7 @@ exports[`renders correctly 1`] = `
     <TouchableIOS
       onLongPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -75,9 +72,6 @@ exports[`renders correctly 1`] = `
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -89,17 +83,17 @@ exports[`renders correctly 1`] = `
         >
           hello roge
         </MyText>
-      </Component>
+      </View>
     </TouchableIOS>
     <Flex
       value={1}
     />
   </Flex>
-</Component>
+</View>
 `;
 
 exports[`renders correctly as mine 1`] = `
-<Component
+<View
   collapsable={false}
   style={
     Array [
@@ -132,7 +126,7 @@ exports[`renders correctly as mine 1`] = `
     <TouchableIOS
       onLongPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -149,9 +143,6 @@ exports[`renders correctly as mine 1`] = `
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -165,14 +156,14 @@ exports[`renders correctly as mine 1`] = `
         >
           hello roge
         </MyText>
-      </Component>
+      </View>
     </TouchableIOS>
   </Flex>
-</Component>
+</View>
 `;
 
 exports[`renders editing correctly 1`] = `
-<Component
+<View
   collapsable={false}
   style={
     Array [
@@ -190,12 +181,9 @@ exports[`renders editing correctly 1`] = `
     align="end"
     direction="row"
   >
-    <Connect(Translate(CelebrateItemName))
+    <Connect(withI18nextTranslation(CelebrateItemName))
       customContent={
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -233,7 +221,7 @@ exports[`renders editing correctly 1`] = `
     <TouchableIOS
       onLongPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -248,9 +236,6 @@ exports[`renders editing correctly 1`] = `
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -262,17 +247,17 @@ exports[`renders editing correctly 1`] = `
         >
           hello roge
         </MyText>
-      </Component>
+      </View>
     </TouchableIOS>
     <Flex
       value={1}
     />
   </Flex>
-</Component>
+</View>
 `;
 
 exports[`renders my reported comment 1`] = `
-<Component
+<View
   collapsable={false}
   style={
     Array [
@@ -306,7 +291,7 @@ exports[`renders my reported comment 1`] = `
       disabled={false}
       onLongPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -323,9 +308,6 @@ exports[`renders my reported comment 1`] = `
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -339,14 +321,14 @@ exports[`renders my reported comment 1`] = `
         >
           hello roge
         </MyText>
-      </Component>
+      </View>
     </TouchableIOS>
   </Flex>
-</Component>
+</View>
 `;
 
 exports[`renders reported comment 1`] = `
-<Component
+<View
   collapsable={false}
   style={
     Array [
@@ -362,12 +344,9 @@ exports[`renders reported comment 1`] = `
     align="end"
     direction="row"
   >
-    <Connect(Translate(CelebrateItemName))
+    <Connect(withI18nextTranslation(CelebrateItemName))
       customContent={
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#ffffff",
@@ -406,7 +385,7 @@ exports[`renders reported comment 1`] = `
       disabled={false}
       onLongPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -421,9 +400,6 @@ exports[`renders reported comment 1`] = `
         }
       >
         <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -435,11 +411,11 @@ exports[`renders reported comment 1`] = `
         >
           hello roge
         </MyText>
-      </Component>
+      </View>
     </TouchableIOS>
     <Flex
       value={1}
     />
   </Flex>
-</Component>
+</View>
 `;

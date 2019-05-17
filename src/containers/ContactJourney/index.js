@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { SafeAreaView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import JourneyCommentBox from '../../components/JourneyCommentBox';
 import { navigatePush } from '../../actions/navigation';
@@ -20,7 +20,7 @@ import { ACCEPTED_STEP } from '../../constants';
 
 import styles from './styles';
 
-@translate('contactJourney')
+@withTranslation('contactJourney')
 class ContactJourney extends Component {
   constructor(props) {
     super(props);

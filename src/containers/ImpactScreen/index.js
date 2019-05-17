@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { IconButton } from '../../components/common';
 import Header from '../../components/Header';
 import ImpactView from '../ImpactView';
 import { openMainMenu } from '../../utils/common';
 
-@translate('impact')
+@withTranslation('impact')
 class ImpactScreen extends Component {
   openMainMenu = () => this.props.dispatch(openMainMenu());
 

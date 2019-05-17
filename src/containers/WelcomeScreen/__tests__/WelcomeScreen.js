@@ -38,7 +38,7 @@ it('renders correctly', () => {
 it('renders correctly for allow sign in', () => {
   testSnapshot(
     <Provider store={store}>
-      <WelcomeScreen allowSignIn={true} navigation={createMockNavState()} />
+      <WelcomeScreen navigation={createMockNavState({ allowSignIn: true })} />
     </Provider>,
   );
 });
@@ -59,7 +59,6 @@ describe('welcome screen methods', () => {
     );
 
     component = screen
-      .dive()
       .dive()
       .dive()
       .instance();

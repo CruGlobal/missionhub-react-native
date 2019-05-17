@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { buildTrackingObj } from '../utils/common';
 
 import SelectStepScreen from './SelectStepScreen';
 
-@translate('selectStep')
+@withTranslation('selectStep')
 class SelectMyStepScreen extends Component {
   constructor(props) {
     super(props);
@@ -47,6 +47,10 @@ class SelectMyStepScreen extends Component {
     );
   }
 }
+
+SelectMyStepScreen.defaultProps = {
+  enableBackButton: true,
+};
 
 SelectMyStepScreen.propTypes = {
   next: PropTypes.func.isRequired,

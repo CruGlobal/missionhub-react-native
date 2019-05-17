@@ -109,7 +109,7 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
 `;
 
 exports[`renders item 1`] = `
-<Translate(ChallengeItem)
+<withI18nextTranslation(ChallengeItem)
   item={
     Object {
       "accepted_community_challenges": Array [],
@@ -129,7 +129,7 @@ exports[`renders item 1`] = `
 `;
 
 exports[`renders onboarding card as header 1`] = `
-<Connect(Translate(OnboardingCard))
+<Connect(withI18nextTranslation(OnboardingCard))
   type="challenges"
 />
 `;
@@ -140,14 +140,11 @@ exports[`renders section header 1`] = `
   style={
     Object {
       "alignContent": "center",
-      "backgroundColor": "#E6E8EC",
+      "backgroundColor": "#ECEEF2",
     }
   }
 >
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#505256",

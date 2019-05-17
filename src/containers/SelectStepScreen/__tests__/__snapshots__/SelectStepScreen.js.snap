@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renderForeground renders correctly 1`] = `
-<Component
+<View
   alignItems="center"
   flex={1}
 >
@@ -19,9 +19,6 @@ exports[`renderForeground renders correctly 1`] = `
     type="MissionHub"
   />
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#52C5DC",
@@ -35,9 +32,6 @@ exports[`renderForeground renders correctly 1`] = `
     Add Steps of Faith
   </MyText>
   <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#ffffff",
@@ -49,16 +43,13 @@ exports[`renderForeground renders correctly 1`] = `
       }
     }
   />
-</Component>
+</View>
 `;
 
 exports[`renderStickyHeader renders correctly 1`] = `
 <Header
   center={
     <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#ffffff",
@@ -74,13 +65,13 @@ exports[`renderStickyHeader renders correctly 1`] = `
 `;
 
 exports[`with enableBackButton renders correctly 1`] = `
-<Component
+<View
   flex={1}
 >
   <ParallaxScrollView
     backgroundColor="#007398"
     backgroundScrollSpeed={5}
-    contentBackgroundColor="#E6E8EC"
+    contentBackgroundColor="#ECEEF2"
     contentContainerStyle={null}
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}
@@ -94,7 +85,7 @@ exports[`with enableBackButton renders correctly 1`] = `
     renderStickyHeader={[Function]}
     stickyHeaderHeight={65}
   >
-    <Connect(Translate(StepsList))
+    <Connect(withI18nextTranslation(StepsList))
       contactName="roger"
       contactStageId="3"
       next={[MockFunction]}
@@ -116,17 +107,17 @@ exports[`with enableBackButton renders correctly 1`] = `
     absolute={true}
     customNavigate={[Function]}
   />
-</Component>
+</View>
 `;
 
-exports[`without enableBackButton renders correctly 1`] = `
-<Component
+exports[`with enableSkipButton renders correctly 1`] = `
+<View
   flex={1}
 >
   <ParallaxScrollView
     backgroundColor="#007398"
     backgroundScrollSpeed={5}
-    contentBackgroundColor="#E6E8EC"
+    contentBackgroundColor="#ECEEF2"
     contentContainerStyle={null}
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}
@@ -140,7 +131,7 @@ exports[`without enableBackButton renders correctly 1`] = `
     renderStickyHeader={[Function]}
     stickyHeaderHeight={65}
   >
-    <Connect(Translate(StepsList))
+    <Connect(withI18nextTranslation(StepsList))
       contactName="roger"
       contactStageId="3"
       next={[MockFunction]}
@@ -158,5 +149,50 @@ exports[`without enableBackButton renders correctly 1`] = `
       text="CREATE YOUR OWN STEP"
     />
   </SafeAreaView>
-</Component>
+  <withI18nextTranslation(AbsoluteSkip)
+    onSkip={[Function]}
+  />
+</View>
+`;
+
+exports[`without enableBackButton nor enableSkipButton renders correctly 1`] = `
+<View
+  flex={1}
+>
+  <ParallaxScrollView
+    backgroundColor="#007398"
+    backgroundScrollSpeed={5}
+    contentBackgroundColor="#ECEEF2"
+    contentContainerStyle={null}
+    fadeOutForeground={true}
+    onChangeHeaderVisibility={[Function]}
+    outputScaleValue={5}
+    parallaxHeaderHeight={215}
+    renderBackground={[Function]}
+    renderContentBackground={[Function]}
+    renderForeground={[Function]}
+    renderParallaxHeader={[Function]}
+    renderScrollComponent={[Function]}
+    renderStickyHeader={[Function]}
+    stickyHeaderHeight={65}
+  >
+    <Connect(withI18nextTranslation(StepsList))
+      contactName="roger"
+      contactStageId="3"
+      next={[MockFunction]}
+      organization={
+        Object {
+          "id": "4234234",
+        }
+      }
+      receiverId="252342354234"
+    />
+  </ParallaxScrollView>
+  <SafeAreaView>
+    <BottomButton
+      onPress={[Function]}
+      text="CREATE YOUR OWN STEP"
+    />
+  </SafeAreaView>
+</View>
 `;

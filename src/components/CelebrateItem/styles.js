@@ -8,10 +8,14 @@ export default StyleSheet.create({
   },
   description: {
     paddingTop: 12,
-    height: 70, // Any lower and the text may get cut off.  Any higher and the heart and comment icon start to get cut off
+    maxHeight: 70,
+  },
+  fixedHeightDescription: {
+    height: 70,
   },
   messageText: {
     fontSize: 14,
+    justifyContent: 'flex-start',
   },
   challengeLinkButton: {
     marginTop: 4,

@@ -12,7 +12,10 @@ import {
   testSnapshotShallow,
   createThunkStore,
 } from '../../../../../testUtils';
-import { navigateBack, navigateReset } from '../../../../actions/navigation';
+import {
+  navigateBack,
+  navigateToMainTabs,
+} from '../../../../actions/navigation';
 import {
   updateOrganization,
   updateOrganizationImage,
@@ -22,13 +25,12 @@ import {
 } from '../../../../actions/organizations';
 import { trackActionWithoutData } from '../../../../actions/analytics';
 import { organizationSelector } from '../../../../selectors/organizations';
-import { ORG_PERMISSIONS, MAIN_TABS, ACTIONS } from '../../../../constants';
+import { ORG_PERMISSIONS, ACTIONS, GROUPS_TAB } from '../../../../constants';
 import * as common from '../../../../utils/common';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
-  navigatePush: jest.fn(() => ({ type: 'push' })),
-  navigateReset: jest.fn(() => ({ type: 'reset' })),
+  navigateToMainTabs: jest.fn(() => ({ type: 'navigateToMainTabs' })),
 }));
 jest.mock('../../../../actions/organizations', () => ({
   updateOrganization: jest.fn(() => ({ type: 'update org' })),
@@ -167,7 +169,7 @@ describe('GroupProfile', () => {
       component = buildScreen();
       // Press the "Edit" button
       component
-        .childAt(2)
+        .childAt(1)
         .props()
         .right.props.onPress();
       component.update();
@@ -189,6 +191,7 @@ describe('GroupProfile', () => {
       const data = { uri: 'testuri' };
       component
         .childAt(0)
+        .childAt(0)
         .props()
         .onSelectImage(data);
 
@@ -198,6 +201,7 @@ describe('GroupProfile', () => {
     it('handle name change', () => {
       const text = 'new name';
       component
+        .childAt(0)
         .childAt(1)
         .childAt(0)
         .childAt(0)
@@ -209,6 +213,7 @@ describe('GroupProfile', () => {
 
     it('handle new code', () => {
       component
+        .childAt(0)
         .childAt(1)
         .childAt(4)
         .childAt(1)
@@ -224,6 +229,7 @@ describe('GroupProfile', () => {
 
     it('handle new link', () => {
       component
+        .childAt(0)
         .childAt(1)
         .childAt(6)
         .childAt(1)
@@ -239,6 +245,7 @@ describe('GroupProfile', () => {
 
     it('handles delete organization', async () => {
       component
+        .childAt(0)
         .childAt(1)
         .childAt(0)
         .childAt(1)
@@ -264,15 +271,14 @@ describe('GroupProfile', () => {
       await Alert.alert.mock.calls[0][2][1].onPress();
 
       expect(deleteOrganization).toHaveBeenCalledWith(orgId);
-      expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
-        startTab: 'groups',
-      });
+      expect(navigateToMainTabs).toHaveBeenCalledWith(GROUPS_TAB);
     });
   });
 
   it('handle copy code', () => {
     const component = buildScreen();
     component
+      .childAt(0)
       .childAt(1)
       .childAt(4)
       .childAt(1)
@@ -290,6 +296,7 @@ describe('GroupProfile', () => {
   it('handle copy link', () => {
     const component = buildScreen();
     component
+      .childAt(0)
       .childAt(1)
       .childAt(6)
       .childAt(1)

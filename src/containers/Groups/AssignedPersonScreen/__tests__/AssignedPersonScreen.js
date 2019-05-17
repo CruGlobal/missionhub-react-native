@@ -136,6 +136,7 @@ describe('Contact', () => {
       <AssignedPersonScreen {...props} dispatch={dispatch} />,
     );
     component
+      .dive()
       .find('Header')
       .props()
       .right.props.onPress();
@@ -183,8 +184,7 @@ describe('Contact', () => {
     common.keyboardShow = jest.fn(() => ({ remove: mockShowListener }));
     common.keyboardHide = jest.fn(() => ({ remove: mockHideListener }));
     const component = shallow(<AssignedPersonScreen {...props} />);
-    const instance = component.instance();
-    instance.componentWillUnmount();
+    component.unmount();
     expect(mockShowListener).toHaveBeenCalled();
     expect(mockHideListener).toHaveBeenCalled();
   });

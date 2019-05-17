@@ -2,14 +2,14 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { deleteContactAssignment } from '../../actions/person';
 import SideMenu from '../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../actions/navigation';
-import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
+import { EDIT_PERSON_FLOW } from '../../routes/constants';
 import { STATUS_REASON_SCREEN } from '../../containers/StatusReasonScreen';
 import { assignContactAndPickStage } from '../../actions/misc';
 import {
@@ -25,7 +25,7 @@ import {
   orgIsUserCreated,
 } from '../../utils/common';
 
-@translate('contactSideMenu')
+@withTranslation('contactSideMenu')
 class PersonSideMenu extends Component {
   onSubmitReason = () => this.props.dispatch(navigateBack(2));
 
@@ -100,10 +100,9 @@ class PersonSideMenu extends Component {
             label: t('edit'),
             action: () =>
               dispatch(
-                navigatePush(ADD_CONTACT_SCREEN, {
+                navigatePush(EDIT_PERSON_FLOW, {
                   person,
                   organization,
-                  onComplete: () => dispatch(navigateBack()),
                 }),
               ),
           }

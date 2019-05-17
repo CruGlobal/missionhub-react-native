@@ -38,14 +38,12 @@ beforeEach(
         myUserId={myUserId}
         dispatch={mockStore().dispatch}
       />,
-    )
-      .dive()
-      .dive()),
+    ).dive()),
 );
 
 describe('contact notes', () => {
   it('icon and prompt are shown if no notes', () => {
-    expect(shallowScreen.dive()).toMatchSnapshot();
+    expect(shallowScreen).toMatchSnapshot();
   });
   it('icon and prompt are shown if no notes as me', () => {
     shallowScreen = shallow(
@@ -55,16 +53,14 @@ describe('contact notes', () => {
         myUserId={myUserId}
         dispatch={mockStore().dispatch}
       />,
-    )
-      .dive()
-      .dive();
-    expect(shallowScreen.dive()).toMatchSnapshot();
+    ).dive();
+    expect(shallowScreen).toMatchSnapshot();
   });
 
   it('notes are shown', () => {
     shallowScreen.setState({ text: 'Hello, Roge! Here are some notes.' });
 
-    expect(shallowScreen.dive()).toMatchSnapshot();
+    expect(shallowScreen).toMatchSnapshot();
   });
 
   describe('and editing is set to true', () => {
@@ -73,7 +69,7 @@ describe('contact notes', () => {
     });
 
     it('button message changes to DONE', () => {
-      expect(shallowScreen.dive()).toMatchSnapshot();
+      expect(shallowScreen).toMatchSnapshot();
     });
 
     it('editing is set to false when button is pressed', () => {
@@ -106,6 +102,7 @@ describe('UNSAFE_componentWillReceiveProps', () => {
     jest.spyOn(shallowScreen.instance(), 'saveNote');
 
     shallowScreen
+
       .instance()
       .UNSAFE_componentWillReceiveProps({ isActiveTab: false });
 

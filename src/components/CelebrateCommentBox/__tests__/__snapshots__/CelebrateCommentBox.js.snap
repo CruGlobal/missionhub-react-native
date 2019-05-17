@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<Translate(CommentBox)
+<withI18nextTranslation(CommentBox)
   containerStyle={
     Object {
       "backgroundColor": "#C5C7CB",
@@ -15,7 +15,7 @@ exports[`renders correctly 1`] = `
 `;
 
 exports[`renders editing correctly 1`] = `
-<Translate(CommentBox)
+<withI18nextTranslation(CommentBox)
   containerStyle={
     Object {
       "backgroundColor": "#C5C7CB",

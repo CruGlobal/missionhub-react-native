@@ -5,10 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <UserNotifications/UserNotifications.h>
+#import <React/RCTBridgeDelegate.h>
 #import <UIKit/UIKit.h>
+#import <UserNotifications/UserNotifications.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate, UNUserNotificationCenterDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 

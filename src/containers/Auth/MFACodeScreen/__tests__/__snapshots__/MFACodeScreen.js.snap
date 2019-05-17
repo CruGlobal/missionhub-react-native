@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`changes text 1`] = `
-<Translate(MFACodeComponent)
+<withI18nextTranslation(MFACodeComponent)
   isLoading={false}
   onChangeText={[Function]}
   onSubmit={[Function]}
@@ -10,7 +10,7 @@ exports[`changes text 1`] = `
 `;
 
 exports[`onSubmit changes loading property 1`] = `
-<Translate(MFACodeComponent)
+<withI18nextTranslation(MFACodeComponent)
   isLoading={true}
   onChangeText={[Function]}
   onSubmit={[Function]}
@@ -19,7 +19,7 @@ exports[`onSubmit changes loading property 1`] = `
 `;
 
 exports[`renders correctly 1`] = `
-<Translate(MFACodeComponent)
+<withI18nextTranslation(MFACodeComponent)
   isLoading={false}
   onChangeText={[Function]}
   onSubmit={[Function]}

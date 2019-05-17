@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PeopleScreen mapStateToProps should provide necessary props for Casey with no steps 1`] = `
+exports[`mapStateToProps should provide necessary props for Casey with no steps 1`] = `
 Object {
   "hasNoContacts": true,
   "isJean": false,
@@ -12,7 +12,7 @@ Object {
 }
 `;
 
-exports[`PeopleScreen mapStateToProps should provide the necessary props for Casey 1`] = `
+exports[`mapStateToProps should provide the necessary props for Casey 1`] = `
 Object {
   "hasNoContacts": false,
   "isJean": false,
@@ -33,7 +33,7 @@ Object {
 }
 `;
 
-exports[`PeopleScreen mapStateToProps should provide the necessary props for Jean 1`] = `
+exports[`mapStateToProps should provide the necessary props for Jean 1`] = `
 Object {
   "hasNoContacts": false,
   "isJean": true,
@@ -82,7 +82,7 @@ Object {
 }
 `;
 
-exports[`PeopleScreen mapStateToProps should provide the necessary props for Jean with no contacts 1`] = `
+exports[`mapStateToProps should provide the necessary props for Jean with no contacts 1`] = `
 Object {
   "hasNoContacts": true,
   "isJean": true,
@@ -100,8 +100,8 @@ Object {
 }
 `;
 
-exports[`PeopleScreen renders correctly as Casey 1`] = `
-<Component
+exports[`renders correctly as Casey 1`] = `
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -131,7 +131,7 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
     shadow={true}
     title="PEOPLE"
   />
-  <Translate(PeopleList)
+  <withI18nextTranslation(PeopleList)
     items={
       Array [
         Object {
@@ -154,11 +154,11 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
     refreshing={false}
     sections={false}
   />
-</Component>
+</View>
 `;
 
-exports[`PeopleScreen renders correctly as Jean 1`] = `
-<Component
+exports[`renders correctly as Jean 1`] = `
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -187,7 +187,7 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
     shadow={false}
     title="PEOPLE"
   />
-  <Translate(PeopleList)
+  <withI18nextTranslation(PeopleList)
     items={
       Array [
         Object {
@@ -238,11 +238,11 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
     refreshing={false}
     sections={true}
   />
-</Component>
+</View>
 `;
 
-exports[`PeopleScreen renders empty correctly 1`] = `
-<Component
+exports[`renders empty correctly 1`] = `
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -272,7 +272,7 @@ exports[`PeopleScreen renders empty correctly 1`] = `
     shadow={true}
     title="PEOPLE"
   />
-  <Translate(PeopleList)
+  <withI18nextTranslation(PeopleList)
     items={
       Array [
         Object {
@@ -286,6 +286,6 @@ exports[`PeopleScreen renders empty correctly 1`] = `
     refreshing={false}
     sections={false}
   />
-  <Connect(Translate(TakeAStepWithSomeoneButton)) />
-</Component>
+  <Connect(withI18nextTranslation(TakeAStepWithSomeoneButton)) />
+</View>
 `;

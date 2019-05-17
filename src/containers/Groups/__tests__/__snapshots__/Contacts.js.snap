@@ -9,7 +9,7 @@ exports[`Contacts should render correctly 1`] = `
     }
   }
 >
-  <ScrollView
+  <ScrollViewMock
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -17,10 +17,10 @@ exports[`Contacts should render correctly 1`] = `
       }
     }
   >
-    <Connect(Translate(OnboardingCard))
+    <Connect(withI18nextTranslation(OnboardingCard))
       type="contacts"
     />
-    <Translate(SearchList)
+    <withI18nextTranslation(SearchList)
       defaultData={Array []}
       filters={
         Object {
@@ -41,13 +41,14 @@ exports[`Contacts should render correctly 1`] = `
       onRemoveFilter={[Function]}
       onSearch={[Function]}
       placeholder="Search Contacts"
+      setSearch={[Function]}
     />
-  </ScrollView>
+  </ScrollViewMock>
 </SafeAreaView>
 `;
 
 exports[`Contacts should render item 1`] = `
-<Translate(PersonListItem)
+<withI18nextTranslation(PersonListItem)
   onSelect={[Function]}
   organization={
     Object {
