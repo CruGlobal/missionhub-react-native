@@ -30,9 +30,9 @@ import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 
 import styles from './styles';
 
-const FEW_COMMENTS = 3;
+const FEW_COMMENTS = 4;
 class CelebrateDetailScreen extends Component {
-  state = { refreshing: false, scrollViewHeight: 0 };
+  state = { refreshing: false, scrollViewHeight: 0, keyboardHeight: 0 };
 
   componentDidMount() {
     this.keyboardShowListener = keyboardShow(this.keyboardShow);
@@ -42,7 +42,8 @@ class CelebrateDetailScreen extends Component {
     this.keyboardShowListener.remove();
   }
 
-  keyboardShow = () => {
+  keyboardShow = e => {
+    this.setState({ keyboardHeight: e.endCoordinates.height });
     this.scrollToFocusedRef();
   };
 
@@ -69,7 +70,10 @@ class CelebrateDetailScreen extends Component {
         findNodeHandle(scrollResponder.getInnerViewNode()),
         // eslint-disable-next-line max-params
         (fx, fy, width, height) => {
-          this.scrollToY(fy - height - headerHeight);
+          // This is the height of the screen minus the keyboard height
+          const activeHeight = theme.fullHeight - this.state.keyboardHeight;
+          // Need to subtract the full active height from the "fy" distance and then add back the header height, component height, and extra padding to get the commment to stick directly above the keyboard
+          this.scrollToY(fy - activeHeight + height + headerHeight + 20);
         },
         // Error calculating the layout, just scroll to end
         () => this.scrollToEnd(),
