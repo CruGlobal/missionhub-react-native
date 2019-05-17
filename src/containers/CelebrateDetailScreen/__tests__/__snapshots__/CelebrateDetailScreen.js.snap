@@ -342,6 +342,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                               },
                               Object {
                                 "fontSize": 14,
+                                "justifyContent": "flex-start",
                               },
                             ]
                           }

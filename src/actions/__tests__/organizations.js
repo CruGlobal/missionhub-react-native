@@ -65,10 +65,15 @@ const myId = '1';
 
 const mockStore = configureStore([thunk]);
 let store;
+const globalCommunity = {
+  id: GLOBAL_COMMUNITY_ID,
+  name: 'MissionHub Community',
+};
+const organizations = { all: [globalCommunity] };
 const auth = { person: { user: {}, id: myId }, token: 'something' };
 
 beforeEach(() => {
-  store = mockStore({ auth, organizations: { all: [] } });
+  store = mockStore({ auth, organizations });
 });
 
 describe('getMyOrganizations', () => {
@@ -157,7 +162,7 @@ describe('refreshCommunity', () => {
 
     expect(callApi).not.toHaveBeenCalled();
     expect(getMe).not.toHaveBeenCalled();
-    expect(response).toEqual({ id: GLOBAL_COMMUNITY_ID });
+    expect(response).toEqual(globalCommunity);
     expect(store.getActions()).toEqual([]);
   });
 });
@@ -951,7 +956,6 @@ describe('navigateToOrg', () => {
   const orgId = '123456';
   const cruOrg = { id: orgId, user_created: false };
   const userCreatedOrg = { id: orgId, user_created: true };
-  const globalOrg = { id: GLOBAL_COMMUNITY_ID };
 
   beforeEach(() => {
     reloadGroupChallengeFeed.mockReturnValue({ type: 'test' });
@@ -978,7 +982,7 @@ describe('navigateToOrg', () => {
 
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
       expect(navigatePush).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
-        organization: globalOrg,
+        organization: globalCommunity,
         initialTab: undefined,
       });
     });
@@ -1060,7 +1064,7 @@ describe('navigateToOrg', () => {
 
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
       expect(navigatePush).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
-        organization: globalOrg,
+        organization: globalCommunity,
         initialTab: undefined,
       });
     });

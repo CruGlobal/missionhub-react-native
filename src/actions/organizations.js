@@ -79,9 +79,11 @@ function getOrganization(orgId) {
 }
 
 export function refreshCommunity(orgId) {
-  return async dispatch => {
+  return async (dispatch, getState) => {
     if (orgId === GLOBAL_COMMUNITY_ID) {
-      return { id: orgId };
+      return getState().organizations.all.find(
+        o => o.id === GLOBAL_COMMUNITY_ID,
+      );
     }
 
     //Refresh Community Data

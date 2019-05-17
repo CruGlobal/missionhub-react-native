@@ -12,6 +12,7 @@ export default StyleSheet.create({
   },
   messageText: {
     fontSize: 14,
+    justifyContent: 'flex-start',
   },
   challengeLinkButton: {
     marginTop: 4,
