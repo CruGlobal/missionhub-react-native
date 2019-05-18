@@ -7056,7 +7056,7 @@ react-native-markdown-renderer@^3.2.8:
 
 "react-native-omniture@https://github.com/CruGlobal/react-native-omniture":
   version "0.0.1"
-  resolved "https://github.com/CruGlobal/react-native-omniture#d52d0637e0bb758bff92c3896dd7b07e37be6239"
+  resolved "https://github.com/CruGlobal/react-native-omniture#ce3716933f544ad9b71eaef5fecaa21cf142e861"
 
 "react-native-parallax-scroll-view@https://github.com/nicotroia/react-native-parallax-scroll-view.git#fix/sticky-header-position-when-hidden":
   version "0.21.3"
@@ -7066,7 +7066,7 @@ react-native-markdown-renderer@^3.2.8:
 
 "react-native-push-notification@https://github.com/CruGlobal/react-native-push-notification":
   version "3.0.2"
-  resolved "https://github.com/CruGlobal/react-native-push-notification#e13de6f47f79c9c6b426e72f96b23244bbf94dbe"
+  resolved "https://github.com/CruGlobal/react-native-push-notification#b84ef405bd450ad8d2eaee28bfa975f075458f23"
 
 react-native-safe-area-view@^0.13.0:
   version "0.13.1"
