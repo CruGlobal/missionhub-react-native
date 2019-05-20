@@ -74,6 +74,7 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
                 "fontSize": 14,
                 "fontWeight": "400",
                 "letterSpacing": 0,
+                "textAlign": "left",
               }
             }
             onPress={[Function]}
@@ -190,6 +191,7 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
                 "fontSize": 14,
                 "fontWeight": "400",
                 "letterSpacing": 0,
+                "textAlign": "left",
               }
             }
             onPress={[Function]}
