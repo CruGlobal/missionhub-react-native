@@ -2,13 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Alert, TouchableOpacity } from 'react-native';
 import { withTranslation } from 'react-i18next';
-import {
-  openPicker,
-  openCamera,
-  openCropper,
-} from 'react-native-image-crop-picker';
 
-const RNImagePicker = require('react-native-image-picker');
+const RNImagePicker = require('react-native-image-crop-picker');
 
 // See all options: https://github.com/react-community/react-native-image-picker/blob/master/docs/Reference.md#options
 const DEFAULT_OPTIONS = {
@@ -48,7 +43,7 @@ class ImagePicker extends Component {
       },
     };
 
-    openPicker({
+    RNImagePicker.openPicker({
       width: 300,
       height: 400,
       cropping: true,
