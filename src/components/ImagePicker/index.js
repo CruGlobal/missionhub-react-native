@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Alert, TouchableOpacity } from 'react-native';
 import { withTranslation } from 'react-i18next';
+import {
+  openPicker,
+  openCamera,
+  openCropper,
+} from 'react-native-image-crop-picker';
 
 const RNImagePicker = require('react-native-image-picker');
 
@@ -43,6 +48,13 @@ class ImagePicker extends Component {
       },
     };
 
+    openPicker({
+      width: 300,
+      height: 400,
+      cropping: true,
+    });
+
+    /*
     RNImagePicker.showImagePicker(pickerOptions, response => {
       if (response.didCancel) {
         // LOG('User cancelled image picker');
@@ -72,7 +84,7 @@ class ImagePicker extends Component {
         };
         onSelectImage(payload);
       }
-    });
+    });*/
   };
 
   render() {

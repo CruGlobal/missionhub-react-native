@@ -116,6 +116,8 @@ android {
 
         // Enable multidex for apps with over 64K lines
         multiDexEnabled true
+
+        vectorDrawables.useSupportLibrary = true
     }
     splits {
         abi {
