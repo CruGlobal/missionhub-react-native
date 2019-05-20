@@ -32,6 +32,7 @@ MockDate.set('2019-04-12 12:00:00', 300);
 
 const mockStore = configureStore([thunk]);
 let store;
+const keyboardHeight = 200;
 
 const celebrateComments = {
   comments: [
@@ -220,7 +221,8 @@ describe('scroll events', () => {
   }
   function checkKeyboardShow(paramRefs, method) {
     setInstance(paramRefs);
-    instance.keyboardShow();
+    instance.keyboardShow({ endCoordinates: { height: keyboardHeight } });
+    expect(instance.state.keyboardHeight).toEqual(keyboardHeight);
     checkShow(method);
   }
   it('keyboard shows without any comments to focus', () => {

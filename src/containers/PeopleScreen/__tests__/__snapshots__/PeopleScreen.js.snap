@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PeopleScreen mapStateToProps should provide necessary props for Casey with no steps 1`] = `
+exports[`mapStateToProps should provide necessary props for Casey with no steps 1`] = `
 Object {
   "hasNoContacts": true,
   "isJean": false,
@@ -12,7 +12,7 @@ Object {
 }
 `;
 
-exports[`PeopleScreen mapStateToProps should provide the necessary props for Casey 1`] = `
+exports[`mapStateToProps should provide the necessary props for Casey 1`] = `
 Object {
   "hasNoContacts": false,
   "isJean": false,
@@ -33,7 +33,7 @@ Object {
 }
 `;
 
-exports[`PeopleScreen mapStateToProps should provide the necessary props for Jean 1`] = `
+exports[`mapStateToProps should provide the necessary props for Jean 1`] = `
 Object {
   "hasNoContacts": false,
   "isJean": true,
@@ -82,7 +82,7 @@ Object {
 }
 `;
 
-exports[`PeopleScreen mapStateToProps should provide the necessary props for Jean with no contacts 1`] = `
+exports[`mapStateToProps should provide the necessary props for Jean with no contacts 1`] = `
 Object {
   "hasNoContacts": true,
   "isJean": true,
@@ -100,7 +100,7 @@ Object {
 }
 `;
 
-exports[`PeopleScreen renders correctly as Casey 1`] = `
+exports[`renders correctly as Casey 1`] = `
 <View
   style={
     Object {
@@ -157,7 +157,7 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
 </View>
 `;
 
-exports[`PeopleScreen renders correctly as Jean 1`] = `
+exports[`renders correctly as Jean 1`] = `
 <View
   style={
     Object {
@@ -241,7 +241,7 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
 </View>
 `;
 
-exports[`PeopleScreen renders empty correctly 1`] = `
+exports[`renders empty correctly 1`] = `
 <View
   style={
     Object {

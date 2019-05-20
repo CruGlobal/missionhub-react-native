@@ -48,10 +48,13 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -165,10 +168,13 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -287,10 +293,13 @@ exports[`CelebrateItem message renders created community event 1`] = `
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -376,10 +385,13 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -470,10 +482,13 @@ exports[`CelebrateItem message renders joined community event 1`] = `
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -571,10 +586,13 @@ exports[`CelebrateItem message renders joined community with passed in org name 
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -666,10 +684,13 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -759,10 +780,13 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -852,10 +876,13 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -945,10 +972,13 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -1038,10 +1068,13 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -1131,10 +1164,13 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -1223,10 +1259,13 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -1312,10 +1351,13 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -1401,10 +1443,13 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -1490,10 +1535,13 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -1579,10 +1627,13 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -1607,6 +1658,86 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
             "id": "456",
             "last_name": "Smith",
           },
+          "subject_person_name": "John Smith",
+        }
+      }
+      style={
+        Object {
+          "padding": 16,
+        }
+      }
+    />
+  </Flex>
+</Card>
+`;
+
+exports[`CelebrateItem renders event with fixed height 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    direction="column"
+    value={1}
+  >
+    <Flex
+      direction="column"
+      style={
+        Object {
+          "padding": 16,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "justifyContent": "flex-start",
+            }
+          }
+        >
+          <Connect(withI18nextTranslation(CelebrateItemName))
+            name="John Smith"
+          />
+          <CardTime
+            date="2004-04-04 00:00:00 UTC"
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {
+              "height": 70,
+            },
+          ]
+        }
+      >
+        <MyText
+          style={
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+            }
+          }
+        />
+      </View>
+    </Flex>
+    <Separator />
+    <Connect(CommentLikeComponent)
+      event={
+        Object {
+          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
           "subject_person_name": "John Smith",
         }
       }
@@ -1661,10 +1792,13 @@ exports[`CelebrateItem renders event with no subject person (global community ev
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText
@@ -1736,10 +1870,13 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
       </View>
       <View
         style={
-          Object {
-            "height": 70,
-            "paddingTop": 12,
-          }
+          Array [
+            Object {
+              "maxHeight": 70,
+              "paddingTop": 12,
+            },
+            Object {},
+          ]
         }
       >
         <MyText

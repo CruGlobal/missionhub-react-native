@@ -43,7 +43,7 @@ matrix:
       if: branch = master and type = push
       xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
-      osx_image: xcode10.1
+      osx_image: xcode10.2
       env:
         - ENVFILE=.env.production
       install:
@@ -59,8 +59,9 @@ matrix:
       cache:
         - yarn
         - cocoapods
+        - bundler
         - directories:
-            - /home/travis/.rvm/
+            - $HOME/Library/Developer/Xcode/DerivedData
 
     - name: 'Android Beta Build'
       language: android
@@ -71,7 +72,7 @@ matrix:
           - platform-tools
           - tools
 
-          - android-26
+          - android-28
 
           - extra-google-google_play_services
 
@@ -82,6 +83,7 @@ matrix:
       env:
         - ENVFILE=.env.production
       before_install:
+        - gem install bundler
         - git fetch --unshallow
         - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
         - wget -qO- https://deb.nodesource.com/setup_8.x | sudo bash -
@@ -98,16 +100,22 @@ matrix:
         - yarn run onesky:download
       script:
         - (cd android && fastlane android beta)
+      before_cache:
+        - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+        - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
       cache:
         - yarn
+        - bundler
         - directories:
-            - /home/travis/.rvm/
+            - $HOME/.gradle/caches/
+            - $HOME/.gradle/wrapper/
+            - $HOME/.android/build-cache
 
     - name: 'Fastlane release'
       language: objective-c
       xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
-      osx_image: xcode10.1
+      osx_image: xcode10.2
       if: tag =~ ^v(\d+\.){1,}\d+
       before_install:
         - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
@@ -118,8 +126,7 @@ matrix:
         - (cd ios && fastlane ios release submit:true auto_release:false)
         - (cd android && fastlane android release)
       cache:
-        - directories:
-            - /home/travis/.rvm/
+        - bundler
 
 env:
   global:

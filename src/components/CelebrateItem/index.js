@@ -207,6 +207,7 @@ class CelebrateItem extends Component {
       cardStyle,
       rightCorner,
       namePressable,
+      fixedHeight,
     } = this.props;
     const {
       changed_attribute_value,
@@ -214,12 +215,19 @@ class CelebrateItem extends Component {
       subject_person_name,
     } = event;
     const organization = this.props.organization || event.organization;
-    const { top, topLeft, messageText } = styles;
+    const {
+      content,
+      top,
+      topLeft,
+      description,
+      fixedHeightDescription,
+      messageText,
+    } = styles;
 
     return (
       <Card onPress={onPressItem && this.onPressItem} style={cardStyle}>
         <Flex value={1} direction="column">
-          <Flex direction="column" style={styles.content}>
+          <Flex direction="column" style={content}>
             <View style={top}>
               <View style={topLeft}>
                 <CelebrateItemName
@@ -232,13 +240,15 @@ class CelebrateItem extends Component {
               </View>
               {rightCorner}
             </View>
-            <View style={styles.description}>
+            <View
+              style={[description, fixedHeight ? fixedHeightDescription : {}]}
+            >
               <Text style={messageText}>{this.renderMessage()}</Text>
               {this.renderChallengeLink()}
             </View>
           </Flex>
           <Separator />
-          <CommentLikeComponent event={event} style={styles.content} />
+          <CommentLikeComponent event={event} style={content} />
         </Flex>
       </Card>
     );
@@ -249,6 +259,7 @@ CelebrateItem.propTypes = {
   event: PropTypes.object.isRequired,
   organization: PropTypes.object,
   namePressable: PropTypes.bool,
+  fixedHeight: PropTypes.bool,
 };
 
 export default connect()(CelebrateItem);

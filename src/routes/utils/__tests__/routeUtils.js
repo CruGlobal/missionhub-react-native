@@ -1,9 +1,9 @@
 import i18next from 'i18next';
 
-import { paramsforStageNavigation } from '../';
-import { personSelector } from '../../../../selectors/people';
+import { paramsForStageNavigation } from '../';
+import { personSelector } from '../../../selectors/people';
 
-jest.mock('../../../../selectors/people');
+jest.mock('../../../selectors/people');
 
 const myId = '111';
 const otherId = '222';
@@ -67,7 +67,7 @@ beforeEach(() => {
 
 describe('is Me, not "Not Sure" stage, step count not complete', () => {
   it('returns correct params', () => {
-    const result = paramsforStageNavigation(myId, orgId, getState);
+    const result = paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({
       isMe: true,
@@ -95,7 +95,7 @@ describe('is Me, "Not Sure" stage, step count not complete', () => {
   });
 
   it('returns correct params', () => {
-    const result = paramsforStageNavigation(myId, orgId, getState);
+    const result = paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({
       isMe: true,
@@ -127,7 +127,7 @@ describe('is Me, not "Not Sure" stage, step count complete', () => {
   });
 
   it('returns correct params', () => {
-    const result = paramsforStageNavigation(myId, orgId, getState);
+    const result = paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({
       isMe: true,
@@ -144,7 +144,7 @@ describe('is Me, not "Not Sure" stage, step count complete', () => {
 
 describe('is not Me, not "Not Sure" stage, step count not complete', () => {
   it('returns correct params', () => {
-    const result = paramsforStageNavigation(otherId, orgId, getState);
+    const result = paramsForStageNavigation(otherId, orgId, getState);
 
     expect(result).toEqual({
       isMe: false,
@@ -174,7 +174,7 @@ describe('is not Me, "Not Sure" stage, step count not complete', () => {
   });
 
   it('returns correct params', () => {
-    const result = paramsforStageNavigation(otherId, orgId, getState);
+    const result = paramsForStageNavigation(otherId, orgId, getState);
 
     expect(result).toEqual({
       isMe: false,
@@ -206,7 +206,7 @@ describe('is not Me, not "Not Sure" stage, step count complete', () => {
   });
 
   it('returns correct params', () => {
-    const result = paramsforStageNavigation(otherId, orgId, getState);
+    const result = paramsForStageNavigation(otherId, orgId, getState);
 
     expect(result).toEqual({
       isMe: false,

@@ -9,17 +9,17 @@ import {
   peopleByOrgSelector,
   allAssignedPeopleSelector,
 } from '../../selectors/people';
-import { navigatePush, navigateBack } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
 import { openMainMenu, refresh } from '../../utils/common';
-import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
 import { navToPersonScreen } from '../../actions/person';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 import TrackTabChange from '../TrackTabChange';
 import { PEOPLE_TAB } from '../../constants';
+import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
 
 import styles from './styles';
 
@@ -45,13 +45,8 @@ export class PeopleScreen extends Component {
 
   handleAddContact(org) {
     this.props.dispatch(
-      navigatePush(ADD_CONTACT_SCREEN, {
+      navigatePush(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
         organization: org && org.id ? org : undefined,
-        onComplete: () => {
-          // You go through 4 screens for adding a person, so pop back to the first one
-          this.props.dispatch(navigateBack(5));
-          this.getPeople();
-        },
       }),
     );
   }

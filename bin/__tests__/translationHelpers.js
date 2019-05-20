@@ -1,4 +1,4 @@
-import { filterReadyTranslations } from '../oneskyDownload';
+import { filterReadyTranslations } from '../translationHelpers';
 
 const inputTranslations =
   '{"en":{"phrase1":"1"},"es":{"phrase1":"1"},"no":{"phrase1":"1"}}';
