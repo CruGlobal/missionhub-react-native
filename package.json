@@ -56,6 +56,7 @@
     "react-native-fbsdk": "^0.8.0",
     "react-native-firebase": "^5.2.5",
     "react-native-gesture-handler": "^1.1.0",
+    "react-native-image-crop-picker": "^0.24.1",
     "react-native-image-picker": "^0.28.1",
     "react-native-markdown-renderer": "^3.2.8",
     "react-native-omniture": "https://github.com/CruGlobal/react-native-omniture",
