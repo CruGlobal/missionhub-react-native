@@ -13,6 +13,7 @@ import { ACTIONS } from '../../constants';
 
 import styles from './styles';
 
+// eslint-disable-next-line max-lines-per-function
 const WelcomeScreen = ({
   dispatch,
   next,

@@ -2,17 +2,17 @@ import React, { ReactElement } from 'react';
 import 'react-native';
 import { Provider } from 'react-redux';
 import { NavigationParams } from 'react-navigation';
+import { NavigationProvider } from '@react-navigation/core';
 import { ApolloProvider } from 'react-apollo-hooks';
-import { render, flushMicrotasksQueue } from 'react-native-testing-library';
+import { render } from 'react-native-testing-library';
 import Enzyme, { shallow as enzymeShallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { IMocks } from 'graphql-tools';
 
-import { createApolloMockClient } from '../src/graphql/apolloMockClient';
-
-import { TestNavigator } from './TestNavigator';
+import { createApolloMockClient } from './apolloMockClient';
+import { createNavigationProp } from './navigationHelpers';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -22,7 +22,7 @@ interface RenderWithContextParams {
   initialState?: {} | undefined;
   store?: MockStore;
   navParams?: NavigationParams;
-  mockResolvers?: IMocks;
+  mocks?: IMocks;
 }
 
 // Inspiration from https://github.com/kentcdodds/react-testing-library/blob/52575005579307bcfbe7fbe4ef4636147c03c6fb/examples/__tests__/react-redux.js#L69-L80
@@ -32,22 +32,28 @@ export function renderWithContext(
     initialState,
     store = createThunkStore(initialState),
     navParams,
-    mockResolvers = {},
+    mocks: mocks = {},
   }: RenderWithContextParams = {},
 ) {
-  const renderResult = render(
-    <TestNavigator params={navParams}>
+  const mockApolloClient = createApolloMockClient(mocks);
+
+  const navigation = createNavigationProp(navParams);
+
+  // Warning: don't call any functions in here that return new instances on every call. All the props need to stay the same otherwise rerender won't work.
+  const wrapComponent = (component: ReactElement) => (
+    <NavigationProvider value={navigation}>
       <Provider store={store}>
-        <ApolloProvider client={createApolloMockClient(mockResolvers)}>
-          {component}
-        </ApolloProvider>
+        <ApolloProvider client={mockApolloClient}>{component}</ApolloProvider>
       </Provider>
-    </TestNavigator>,
+    </NavigationProvider>
   );
+
+  const renderResult = render(wrapComponent(component));
   return {
     ...renderResult,
     store,
-    flushMicrotasksQueue, // Resolve promises blocking Apollo from providing data
+    rerender: (component: ReactElement) =>
+      renderResult.update(wrapComponent(component)),
     snapshot: () => {
       expect(renderResult.toJSON()).toMatchSnapshot();
     },

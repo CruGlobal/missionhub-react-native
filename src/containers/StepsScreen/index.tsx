@@ -15,7 +15,6 @@ import { ThunkDispatch } from 'redux-thunk';
 import { useQuery } from 'react-apollo-hooks';
 import { gql } from 'apollo-boost';
 
-import { loadHome } from '../../actions/auth/userData';
 import {
   showNotificationPrompt,
   showWelcomeNotification,
@@ -57,7 +56,7 @@ export const STEPS_QUERY = gql`
       nodes {
         id
         focus
-        ${STEP_ITEM_QUERY || ''}
+        ...StepItem
       }
       pageInfo {
         endCursor
@@ -67,6 +66,7 @@ export const STEPS_QUERY = gql`
       }
     }
   }
+  ${STEP_ITEM_QUERY || 'fragment StepItem on AcceptedChallenge { __typename }'}
 `;
 
 function isCloseToBottom({
@@ -95,10 +95,6 @@ const StepsScreen = ({
     pagingError: false,
   });
 
-  useEffect(() => {
-    dispatch(loadHome());
-  }, []);
-
   const {
     data: {
       acceptedChallenges: {
@@ -113,7 +109,7 @@ const StepsScreen = ({
   } = useQuery<StepsList>(STEPS_QUERY);
 
   useEffect(() => {
-    refetch(); // Refetch on mount?
+    refetch();
   }, []);
 
   const { steps, reminders } = (nodes || []).reduce<{
@@ -225,8 +221,8 @@ const StepsScreen = ({
                   ...prev.acceptedChallenges,
                   ...fetchMoreResult.acceptedChallenges,
                   nodes: [
-                    ...prev.acceptedChallenges.nodes,
-                    ...fetchMoreResult.acceptedChallenges.nodes,
+                    ...(prev.acceptedChallenges.nodes || []),
+                    ...(fetchMoreResult.acceptedChallenges.nodes || []),
                   ],
                 },
               }
@@ -264,13 +260,14 @@ const StepsScreen = ({
     if (hasReminders) {
       return (
         <Flex align="center" style={[styles.top]}>
-          {focusedSteps.map(s => (
+          {focusedSteps.map(step => (
             <StepItem
-              step={s}
-              key={s.id}
+              testID="reminder-item"
+              step={step}
+              key={step.id}
               type="reminder"
-              onSelect={handleRowSelect}
-              onAction={handleRemoveReminder}
+              onSelect={() => handleRowSelect(step)}
+              onAction={() => handleRemoveReminder(step)}
             />
           ))}
         </Flex>
@@ -281,11 +278,12 @@ const StepsScreen = ({
   const renderItem = ({ item }: { item: Step }) => {
     return (
       <StepItem
+        testID="step-item"
         step={item}
         type="swipeable"
         hideAction={canHideStars}
-        onSelect={handleRowSelect}
-        onAction={handleSetReminder}
+        onSelect={() => handleRowSelect(item)}
+        onAction={() => handleSetReminder(item)}
       />
     );
   };

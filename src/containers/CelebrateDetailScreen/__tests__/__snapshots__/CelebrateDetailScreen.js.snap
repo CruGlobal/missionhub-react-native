@@ -204,7 +204,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                                         "fontSize": 16,
                                         "fontWeight": "bold",
                                       },
-                                      undefined,
+                                      null,
                                     ],
                                   ]
                                 }

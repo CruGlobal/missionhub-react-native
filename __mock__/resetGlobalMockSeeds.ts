@@ -1,4 +1,4 @@
-import { resetGlobalMockSeeds } from '../src/graphql/globalMocks';
+import { resetGlobalMockSeeds } from '../testUtils/globalMocks';
 
 beforeEach(() => {
   resetGlobalMockSeeds();

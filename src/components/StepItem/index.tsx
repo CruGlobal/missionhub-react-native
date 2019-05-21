@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import gql from 'fraql';
+import { gql } from 'apollo-boost';
 
 import { Flex, Text, Touchable, Icon } from '../common';
 import theme from '../../theme';
 import ItemHeaderText from '../ItemHeaderText';
-import { StepsList_acceptedChallenges_nodes } from '../../containers/StepsScreen/__generated__/StepsList';
 import { AuthState } from '../../reducers/auth';
+import { useIsMount } from '../../utils/hooks/useIsMount';
 
 import styles from './styles';
-
-type Step = StepsList_acceptedChallenges_nodes;
-
-type StepItemDisplayType = 'swipeable' | 'contact' | 'reminder';
+import { StepItem as Step } from './__generated__/StepItem';
 
 export const STEP_ITEM_QUERY = gql`
-  fragment _ on AcceptedChallenge {
+  fragment StepItem on AcceptedChallenge {
     title
     receiver {
       id
@@ -25,39 +22,50 @@ export const STEP_ITEM_QUERY = gql`
   }
 `;
 
-const StepItem = ({
+type StepItemDisplayType = 'swipeable' | 'contact' | 'reminder';
+
+type StepItemProps = StepItemStateProps & StepItemOwnProps;
+interface StepItemStateProps {
+  myId: string;
+}
+
+interface StepItemOwnProps {
+  step: Step;
+  type: StepItemDisplayType;
+  onSelect?: () => void;
+  onAction?: () => void;
+  hideAction?: boolean;
+  testID?: string;
+}
+
+const StepItem: React.FC<StepItemProps> = ({
   step,
   type,
   onSelect = () => {},
-  onAction = () => {},
+  onAction,
   hideAction = false,
   myId,
-}: {
-  step: Step;
-  type: StepItemDisplayType;
-  onSelect: (step: Step) => void;
-  onAction: (step: Step) => void;
-  hideAction: boolean;
-  myId: string;
 }) => {
   const { t } = useTranslation();
-  const [{ hovering }, setState] = useState({ hovering: false });
+  const [hovering, setHovering] = useState(false);
+  const isMount = useIsMount();
 
-  const onHover = () => setState({ hovering: true });
-  const onBlur = () => setState({ hovering: false });
+  const onHover = () => setHovering(true);
+  const onBlur = () => setHovering(false);
   const handleAction = () => {
-    onAction(step);
+    onAction && onAction();
   };
   const handleSelect = () => {
     if (!step.receiver) {
       return;
     } else {
-      onSelect(step);
+      onSelect();
     }
   };
 
   const renderIcon = () => {
-    if (!onAction) {
+    // Don't show on the initial render if `hideAction` is true or there is no `onAction`
+    if ((isMount && hideAction) || !onAction) {
       return null;
     }
 
@@ -66,7 +74,12 @@ const StepItem = ({
       iconName = 'starIconFilled';
     }
     return (
-      <Touchable onPress={handleAction} onPressIn={onHover} onPressOut={onBlur}>
+      <Touchable
+        testID="star-icon-button"
+        onPress={handleAction}
+        onPressIn={onHover}
+        onPressOut={onBlur}
+      >
         <Flex
           align="center"
           justify="center"
@@ -90,6 +103,7 @@ const StepItem = ({
   ownerName = (ownerName || '').toUpperCase();
   return (
     <Touchable
+      testID="step-item-row"
       highlight={type !== 'reminder'}
       style={type && styles[type] ? styles[type] : undefined}
       onPress={handleSelect}
@@ -114,4 +128,7 @@ const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
   myId: auth.person.id,
 });
 
-export default connect(mapStateToProps)(StepItem);
+const connectedComponent: React.ComponentClass<StepItemOwnProps> = connect(
+  mapStateToProps,
+)(StepItem);
+export default connectedComponent;

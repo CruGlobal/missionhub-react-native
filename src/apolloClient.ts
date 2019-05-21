@@ -6,8 +6,8 @@ import ApolloClient, {
 import { persistCache } from 'apollo-cache-persist';
 import { PersistentStorage, PersistedData } from 'apollo-cache-persist/types';
 
-import { BASE_URL } from '../api/utils';
-import { store } from '../store';
+import { BASE_URL } from './api/utils';
+import { store } from './store';
 
 const cache = new InMemoryCache();
 

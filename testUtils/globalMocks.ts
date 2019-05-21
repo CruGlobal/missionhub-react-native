@@ -15,8 +15,14 @@ export const globalMocks = {
   Boolean: () => faker.random.boolean(),
   ID: () => nextId(),
 
+  PageInfo: () => ({
+    endCursor: null,
+    hasNextPage: false,
+    hasPreviousPage: false,
+    startCursor: null,
+  }),
   AcceptedChallenge: () => ({
-    title: faker.hacker.phrase(),
+    title: faker.lorem.sentence(),
   }),
   Person: () => ({
     fullName: faker.name.findName(),

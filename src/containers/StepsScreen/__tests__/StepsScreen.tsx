@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { ScrollView, ViewStyle, NativeScrollEvent } from 'react-native';
-import i18next from 'i18next';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';
 
 import { renderWithContext } from '../../../../testUtils';
@@ -12,7 +11,7 @@ import StepsScreen from '..';
 
 import theme from '../../../theme';
 import { trackActionWithoutData } from '../../../actions/analytics';
-import { ACTIONS } from '../../../constants';
+import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import {
   showNotificationPrompt,
   showWelcomeNotification,
@@ -46,24 +45,13 @@ jest.mock(
   () => 'TakeAStepWithSomeoneButton',
 );
 
-const dispatch = jest.fn(async () => {});
-
-const baseProps = {
-  areNotificationsOff: true,
-  hasMoreSteps: true,
-  showNotificationReminder: true,
-  showStepBump: true,
-  showStepReminderBump: true,
-  dispatch,
-};
-
 // @ts-ignore
 common.toast = jest.fn();
 
 describe('StepsScreen', () => {
   it('renders loading screen correctly', () => {
     renderWithContext(<StepsScreen />, {
-      mockResolvers: {
+      mocks: {
         Query: () => ({
           acceptedChallenges: () => ({
             nodes: () => [],
@@ -74,122 +62,104 @@ describe('StepsScreen', () => {
   });
 
   it('renders empty screen with one reminder correctly', async () => {
-    const { flushMicrotasksQueue, snapshot } = renderWithContext(
-      <StepsScreen />,
-      {
-        mockResolvers: {
-          Query: () => ({
-            acceptedChallenges: () => ({
-              nodes: () => new MockList(1, () => ({ focus: true })),
-            }),
+    const { snapshot } = renderWithContext(<StepsScreen />, {
+      mocks: {
+        Query: () => ({
+          acceptedChallenges: () => ({
+            nodes: () => new MockList(1, () => ({ focus: true })),
           }),
-        },
+        }),
       },
-    );
+    });
 
     await flushMicrotasksQueue();
     snapshot();
   });
 
   it('renders with no steps (focused or unfocused) correctly', async () => {
-    const { snapshot, flushMicrotasksQueue } = renderWithContext(
-      <StepsScreen />,
-      {
-        mockResolvers: {
-          Query: () => ({
-            acceptedChallenges: () => ({
-              nodes: () => [],
-            }),
+    const { snapshot } = renderWithContext(<StepsScreen />, {
+      mocks: {
+        Query: () => ({
+          acceptedChallenges: () => ({
+            nodes: () => [],
           }),
-        },
+        }),
       },
-    );
+    });
 
     await flushMicrotasksQueue();
     snapshot();
   });
 
   it('renders with no focused steps correctly', async () => {
-    const { snapshot, flushMicrotasksQueue } = renderWithContext(
-      <StepsScreen />,
-      {
-        mockResolvers: {
-          Query: () => ({
-            acceptedChallenges: () => ({
-              nodes: () => new MockList(4, () => ({ focus: false })),
-            }),
+    const { snapshot } = renderWithContext(<StepsScreen />, {
+      mocks: {
+        Query: () => ({
+          acceptedChallenges: () => ({
+            nodes: () => new MockList(4, () => ({ focus: false })),
           }),
-        },
+        }),
       },
-    );
+    });
 
     await flushMicrotasksQueue();
     snapshot();
   });
 
   it('renders with no focused steps and less than 4 unfocused steps correctly', async () => {
-    const { snapshot, flushMicrotasksQueue } = renderWithContext(
-      <StepsScreen />,
-      {
-        mockResolvers: {
-          Query: () => ({
-            acceptedChallenges: () => ({
-              nodes: () => new MockList(3, () => ({ focus: false })),
-            }),
+    const { snapshot } = renderWithContext(<StepsScreen />, {
+      mocks: {
+        Query: () => ({
+          acceptedChallenges: () => ({
+            nodes: () => new MockList(3, () => ({ focus: false })),
           }),
-        },
+        }),
       },
-    );
+    });
 
     await flushMicrotasksQueue();
     snapshot();
   });
 
   it('renders screen with some focused and unfocused steps correctly', async () => {
-    const { snapshot, flushMicrotasksQueue } = renderWithContext(
-      <StepsScreen />,
-      {
-        mockResolvers: {
-          Query: () => ({
-            acceptedChallenges: () => ({
-              nodes: () => [
-                { focus: false },
-                { focus: false },
-                { focus: false },
-                { focus: false },
-                { focus: true },
-              ],
-            }),
+    const { snapshot } = renderWithContext(<StepsScreen />, {
+      mocks: {
+        Query: () => ({
+          acceptedChallenges: () => ({
+            nodes: () => [
+              { focus: false },
+              { focus: false },
+              { focus: false },
+              { focus: false },
+              { focus: true },
+            ],
           }),
-        },
+        }),
       },
-    );
+    });
 
     await flushMicrotasksQueue();
     snapshot();
   });
 
   it('renders with max reminders correctly', async () => {
-    const { snapshot, flushMicrotasksQueue } = renderWithContext(
-      <StepsScreen />,
-      {
-        mockResolvers: {
-          Query: () => ({
-            acceptedChallenges: () => ({
-              nodes: () => [
-                { focus: false },
-                { focus: false },
-                { focus: false },
-                { focus: false },
-                { focus: true },
-                { focus: true },
-                { focus: true },
-              ],
-            }),
+    const { snapshot } = renderWithContext(<StepsScreen />, {
+      mocks: {
+        Query: () => ({
+          acceptedChallenges: () => ({
+            nodes: () => [
+              { focus: false },
+              { focus: false },
+              { focus: false },
+              { focus: false },
+              { focus: true },
+              { focus: true },
+              { focus: true },
+            ],
           }),
-        },
+        }),
       },
-    );
+    });
 
     await flushMicrotasksQueue();
     snapshot();
@@ -197,33 +167,30 @@ describe('StepsScreen', () => {
 
   describe('Scrolling Events', () => {
     const testScroll = async () => {
-      const { snapshot, flushMicrotasksQueue, getByType } = renderWithContext(
-        <StepsScreen />,
-        {
-          mockResolvers: {
-            Query: () => ({
-              acceptedChallenges: () => ({
-                nodes: () => [
-                  { focus: false },
-                  { focus: false },
-                  { focus: false },
-                  { focus: false },
-                  { focus: true },
-                  { focus: true },
-                  { focus: true },
-                ],
-                pageInfo: () => ({ hasNextPage: true }),
-              }),
+      const { snapshot, getByType } = renderWithContext(<StepsScreen />, {
+        mocks: {
+          Query: () => ({
+            acceptedChallenges: () => ({
+              nodes: () => [
+                { focus: false },
+                { focus: false },
+                { focus: false },
+                { focus: false },
+                { focus: true },
+                { focus: true },
+                { focus: true },
+              ],
+              pageInfo: () => ({ hasNextPage: true }),
             }),
-          },
+          }),
         },
-      );
+      });
 
       await flushMicrotasksQueue();
 
       const scrollView = getByType(ScrollView);
 
-      const createScrollData = (yOffset: number) => ({
+      const createScrollData = (yOffset: number): NativeScrollEvent => ({
         contentOffset: { x: 0, y: yOffset },
         layoutMeasurement: { width: 400, height: 200 },
         contentSize: { width: 400, height: 400 },
@@ -231,14 +198,14 @@ describe('StepsScreen', () => {
         zoomScale: 1,
       });
 
-      const fireScroll = (scrollEvent: NativeScrollEvent) =>
-        fireEvent.scroll(scrollView, { nativeEvent: scrollEvent });
+      const fireScroll = (offset: number) =>
+        fireEvent.scroll(scrollView, {
+          nativeEvent: createScrollData(offset),
+        });
 
       return {
-        scrollUp: (offset: number = 1) =>
-          fireScroll(createScrollData(-1 * offset)),
-        scrollDown: (offset: number = 1) =>
-          fireScroll(createScrollData(offset)),
+        scrollUp: (offset: number = 1) => fireScroll(-1 * offset),
+        scrollDown: (offset: number = 1) => fireScroll(offset),
         getBackgroundColor: () =>
           scrollView.props.style.find((element: ViewStyle) => {
             return element.backgroundColor;
@@ -312,47 +279,96 @@ describe('StepsScreen', () => {
     });
   });
 
-  xdescribe('handleSetReminder', () => {
-    it('should focus a step', () => {
-      const { getByProps } = renderWithContext(
-        <StepsScreen {...baseProps} reminders={[]} />,
-      );
+  describe('handleSetReminder', () => {
+    (trackActionWithoutData as jest.Mock).mockReturnValue({
+      type: 'trackActionWithoutData',
+    });
+    (showNotificationPrompt as jest.Mock).mockReturnValue({
+      type: 'showNotificationPrompt',
+    });
+    (setStepFocus as jest.Mock).mockReturnValue({
+      type: 'setStepFocus',
+    });
+    (showWelcomeNotification as jest.Mock).mockReturnValue({
+      type: 'showWelcomeNotification',
+    });
 
-      getByProps({ step: steps[0] }).props.onAction('testStep');
+    it('should focus a step', async () => {
+      const { getByTestId } = renderWithContext(<StepsScreen />, {
+        mocks: {
+          Query: () => ({
+            acceptedChallenges: () => ({
+              nodes: () => [{ focus: false }],
+            }),
+          }),
+        },
+      });
+
+      await flushMicrotasksQueue();
+
+      fireEvent(getByTestId('step-item'), 'onAction', 'testStep');
 
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.STEP_PRIORITIZED,
       );
       expect(common.toast).toHaveBeenCalledWith('✔ Reminder Added');
-      expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
+      expect(setStepFocus).toHaveBeenCalledWith(
+        { __typename: 'AcceptedChallenge', focus: false, id: '1' },
+        true,
+      );
       expect(showNotificationPrompt).toHaveBeenCalledWith(
-        i18next.t('notificationPrimer:focusDescription'),
+        NOTIFICATION_PROMPT_TYPES.FOCUS_STEP,
       );
       expect(showWelcomeNotification).toHaveBeenCalled();
     });
 
-    it('should focus a step and not show notification reminder screen if reminders already exist', () => {
-      const { getByProps } = renderWithContext(
-        <StepsScreen {...baseProps} reminders={['someStep']} />,
-      );
+    it('should focus a step and not show notification reminder screen if reminders already exist', async () => {
+      const { getByTestId } = renderWithContext(<StepsScreen />, {
+        mocks: {
+          Query: () => ({
+            acceptedChallenges: () => ({
+              nodes: () => [{ focus: false }, { focus: true }],
+            }),
+          }),
+        },
+      });
 
-      getByProps({ step: steps[0] }).props.onAction('testStep');
+      await flushMicrotasksQueue();
+
+      fireEvent(getByTestId('step-item'), 'onAction', 'testStep');
 
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.STEP_PRIORITIZED,
       );
       expect(common.toast).toHaveBeenCalledWith('✔ Reminder Added');
-      expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
+      expect(setStepFocus).toHaveBeenCalledWith(
+        { __typename: 'AcceptedChallenge', focus: false, id: '1' },
+        true,
+      );
       expect(showNotificationPrompt).not.toHaveBeenCalled();
       expect(showWelcomeNotification).toHaveBeenCalled();
     });
 
-    it('should not focus a step when reminders slots are filled', () => {
-      const { getByProps } = renderWithContext(
-        <StepsScreen {...baseProps} reminders={['step1', 'step2', 'step3']} />,
-      );
+    it('should not focus a step when reminders slots are filled', async () => {
+      const { getByTestId } = renderWithContext(<StepsScreen />, {
+        mocks: {
+          Query: () => ({
+            acceptedChallenges: () => ({
+              nodes: () => [
+                { focus: false },
 
-      getByProps({ step: steps[0] }).props.onAction('testStep');
+                { focus: true },
+                { focus: true },
+                { focus: true },
+              ],
+            }),
+          }),
+        },
+      });
+
+      await flushMicrotasksQueue();
+
+      fireEvent(getByTestId('step-item'), 'onAction', 'testStep');
 
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.STEP_PRIORITIZED,
@@ -364,42 +380,62 @@ describe('StepsScreen', () => {
     });
   });
 
-  xdescribe('handleRemoveReminder', () => {
-    it('should remove reminder', () => {
-      const step = { id: '1', title: 'some step' };
-      const { getByProps } = renderWithContext(
-        <StepsScreen {...baseProps} reminders={[step]} />,
-      );
+  describe('handleRemoveReminder', () => {
+    it('should remove reminder', async () => {
+      const { getByTestId } = renderWithContext(<StepsScreen />, {
+        mocks: {
+          Query: () => ({
+            acceptedChallenges: () => ({
+              nodes: () => [{ focus: true }],
+            }),
+          }),
+        },
+      });
 
-      getByProps({ step }).props.onAction(step);
+      await flushMicrotasksQueue();
+
+      fireEvent(getByTestId('reminder-item'), 'onAction', 'testStep');
 
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.STEP_DEPRIORITIZED,
       );
-      expect(setStepFocus).toHaveBeenCalledWith(step, false);
+      expect(setStepFocus).toHaveBeenCalledWith(
+        { __typename: 'AcceptedChallenge', focus: true, id: '1' },
+        false,
+      );
     });
   });
 
-  xdescribe('Header', () => {
+  describe('Header', () => {
     it('should open main menu', () => {
       // @ts-ignore
-      common.openMainMenu = jest.fn();
+      common.openMainMenu = jest.fn(() => ({ type: 'openMainMenu' }));
 
-      const { getByProps } = renderWithContext(<StepsScreen {...baseProps} />);
+      const { getByProps } = renderWithContext(<StepsScreen />);
 
       getByProps({ title: 'STEPS OF FAITH' }).props.left.props.onPress();
       expect(common.openMainMenu).toHaveBeenCalled();
     });
   });
 
-  xdescribe('handleRowSelect', () => {
-    it('should navigate to person screen', () => {
-      const step = baseProps.steps[0];
-      const { getByProps } = renderWithContext(
-        <StepsScreen {...baseProps} steps={[step]} />,
-      );
+  describe('handleRowSelect', () => {
+    it('should navigate to person screen', async () => {
+      (navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
 
-      getByProps({ step }).props.onSelect(step);
+      const { getByTestId } = renderWithContext(<StepsScreen />, {
+        mocks: {
+          Query: () => ({
+            acceptedChallenges: () => ({
+              nodes: () => [{ focus: false }],
+            }),
+          }),
+        },
+      });
+
+      await flushMicrotasksQueue();
+
+      const { onSelect, step } = getByTestId('step-item').props;
+      onSelect(step);
 
       expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
         step,
