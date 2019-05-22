@@ -537,19 +537,20 @@ describe('getCommunityUrl', () => {
 });
 
 describe('showMenu on iOS', () => {
+  const actions = [
+    {
+      text: 'test',
+      onPress: jest.fn(),
+    },
+    {
+      text: 'test2',
+      onPress: jest.fn(),
+      destructive: true,
+    },
+  ];
+  Platform.OS = 'ios';
+
   it('should call action sheet', () => {
-    const actions = [
-      {
-        text: 'test',
-        onPress: jest.fn(),
-      },
-      {
-        text: 'test2',
-        onPress: jest.fn(),
-        destructive: true,
-      },
-    ];
-    Platform.OS = 'ios';
     ActionSheetIOS.showActionSheetWithOptions = jest.fn((a, b) => b(0));
 
     require('../common').showMenu(actions);
@@ -558,6 +559,23 @@ describe('showMenu on iOS', () => {
         cancelButtonIndex: 2,
         destructiveButtonIndex: 1,
         options: ['test', 'test2', 'Cancel'],
+      },
+      expect.any(Function),
+    );
+    expect(actions[0].onPress).toHaveBeenCalled();
+  });
+
+  it('should call action sheet with title', () => {
+    const title = 'title';
+    ActionSheetIOS.showActionSheetWithOptions = jest.fn((a, b) => b(0));
+
+    require('../common').showMenu(actions, null, title);
+    expect(ActionSheetIOS.showActionSheetWithOptions).toHaveBeenCalledWith(
+      {
+        cancelButtonIndex: 2,
+        destructiveButtonIndex: 1,
+        options: ['test', 'test2', 'Cancel'],
+        title,
       },
       expect.any(Function),
     );

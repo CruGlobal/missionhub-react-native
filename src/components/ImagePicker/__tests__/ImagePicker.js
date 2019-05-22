@@ -1,14 +1,20 @@
 import React from 'react';
 import { View, Alert } from 'react-native';
 import MockDate from 'mockdate';
+import ImageCropPicker from 'react-native-image-crop-picker';
 
 import ImagePicker from '..';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 
-MockDate.set('2018-11-08');
+jest.mock('react-native-image-crop-picker', () => ({
+  openCamera: jest.fn(),
+  openPicker: jest.fn(),
+}));
 
-const RNImagePicker = require('react-native-image-picker');
+MockDate.set('2018-11-08');
+ImageCropPicker.openCamera = jest.fn();
+ImageCropPicker.openPicker = jest.fn();
 
 const props = {
   onSelectImage: jest.fn(),
@@ -19,79 +25,110 @@ it('renders image picker', () => {
   testSnapshotShallow(<ImagePicker {...props} />);
 });
 
-it('selects image', () => {
-  const mockResponse = {
-    fileSize: 1,
-    fileName: 'test.jpg',
-    fileType: 'image/jpeg',
-    width: 500,
-    height: 500,
-    isVertical: false,
-    uri: 'testuri.jpg',
+describe('press image picker', () => {
+  let mockResponse = {};
+  let mockFinalData = {};
+
+  const buildAndPressPicker = () => {
+    ImageCropPicker.openCamera.mockReturnValue(mockResponse);
+    const component = renderShallow(<ImagePicker {...props} />);
+    component.props().onPress();
   };
-  RNImagePicker.showImagePicker = jest.fn((a, b) => b(mockResponse));
-  const component = renderShallow(<ImagePicker {...props} />);
-  component.props().onPress();
 
-  expect(props.onSelectImage).toHaveBeenCalledWith(mockResponse);
-});
+  describe('openCamera', () => {
+    const openCameraTests = () => {
+      expect(ImageCropPicker.openCamera).toHaveBeenCalled();
+      expect(props.onSelectImage).toHaveBeenCalledWith(mockFinalData);
+    };
 
-it('selects image without type and parses out png', () => {
-  const mockResponse = {
-    fileSize: 1,
-    fileName: 'test.png',
-    width: 500,
-    height: 500,
-    isVertical: false,
-    uri: 'testuri.png',
-  };
-  RNImagePicker.showImagePicker = jest.fn((a, b) => b(mockResponse));
-  const component = renderShallow(<ImagePicker {...props} />);
-  component.props().onPress();
+    it('selects .jpg image', () => {
+      mockResponse = {
+        size: 1,
+        filename: 'test.jpg',
+        mime: 'image/jpeg',
+        width: 700,
+        height: 500,
+        path: 'testuri.jpg',
+      };
+      mockFinalData = {
+        fileSize: 1,
+        fileName: 'test.jpg',
+        fileType: 'image/jpeg',
+        width: 700,
+        height: 500,
+        isVertical: false,
+        uri: 'testuri.jpg',
+      };
 
-  expect(props.onSelectImage).toHaveBeenCalledWith({
-    ...mockResponse,
-    fileType: 'image/png',
-  });
-});
+      buildAndPressPicker();
+      openCameraTests();
+    });
 
-it('selects image without type and parses out jpg', () => {
-  const mockResponse = {
-    fileSize: 1,
-    fileName: 'test.jpg',
-    width: 500,
-    height: 500,
-    isVertical: false,
-    uri: 'testuri.jpg',
-  };
-  RNImagePicker.showImagePicker = jest.fn((a, b) => b(mockResponse));
-  const component = renderShallow(<ImagePicker {...props} />);
-  component.props().onPress();
+    it('selects image without type and parses out png', () => {
+      mockResponse = {
+        size: 1,
+        filename: 'test.png',
+        width: 700,
+        height: 500,
+        path: 'testuri.png',
+      };
+      mockFinalData = {
+        fileSize: 1,
+        fileName: 'test.png',
+        fileType: 'image/png',
+        width: 700,
+        height: 500,
+        isVertical: false,
+        uri: 'testuri.png',
+      };
 
-  expect(props.onSelectImage).toHaveBeenCalledWith({
-    ...mockResponse,
-    fileType: 'image/jpeg',
-  });
-});
+      buildAndPressPicker();
+      openCameraTests();
+    });
 
-it('selects image without type and parses out heic and puts in jpg', () => {
-  const mockResponse = {
-    fileSize: 1,
-    fileName: 'test.heic', // weird file format on iOS
-    width: 500,
-    height: 500,
-    isVertical: false,
-    uri: 'testuri.jpg',
-  };
-  RNImagePicker.showImagePicker = jest.fn((a, b) => b(mockResponse));
-  const component = renderShallow(<ImagePicker {...props} />);
-  component.props().onPress();
+    it('selects image without type and parses out jpg', () => {
+      mockResponse = {
+        size: 1,
+        filename: 'test.jpg',
+        width: 700,
+        height: 500,
+        path: 'testuri.jpg',
+      };
+      mockFinalData = {
+        fileSize: 1,
+        fileName: 'test.jpg',
+        fileType: 'image/jpeg',
+        width: 700,
+        height: 500,
+        isVertical: false,
+        uri: 'testuri.jpg',
+      };
 
-  const fileName = `${new Date().valueOf()}.jpg`;
-  expect(props.onSelectImage).toHaveBeenCalledWith({
-    ...mockResponse,
-    fileType: 'image/jpeg',
-    fileName,
+      buildAndPressPicker();
+      openCameraTests();
+    });
+
+    it('selects image without type and parses out heic and puts in jpg', () => {
+      mockResponse = {
+        size: 1,
+        filename: 'test.heic',
+        width: 700,
+        height: 500,
+        path: 'testuri.jpg',
+      };
+      mockFinalData = {
+        fileSize: 1,
+        fileName: 'test.jpg',
+        fileType: 'image/jpeg',
+        width: 700,
+        height: 500,
+        isVertical: false,
+        uri: 'testuri.jpg',
+      };
+
+      buildAndPressPicker();
+      openCameraTests();
+    });
   });
 });
 
