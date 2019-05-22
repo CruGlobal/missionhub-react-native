@@ -14,7 +14,7 @@ const DEFAULT_OPTIONS = {
 };
 
 function getType(response) {
-  if (response.uri.toLowerCase().includes('.png')) {
+  if (response.path.toLowerCase().includes('.png')) {
     return 'image/png';
   }
   return 'image/jpeg';
@@ -27,48 +27,40 @@ class ImagePicker extends Component {
 
     try {
       const response = await ImageCropPicker.openPicker(DEFAULT_OPTIONS);
-      console.log(response);
+
+      let fileName = response.filename || '';
+      const { path: uri, size: fileSize, mime, width, height } = response;
+
+      // Handle strange iOS files "HEIC" format. If the file name is not a jpeg, but the uri is a jpg
+      // create a new file name with the right extension
+      if (uri.includes('.jpg') && !fileName.includes('.jpg')) {
+        fileName = `${new Date().valueOf()}.jpg`;
+      }
+
+      const payload = {
+        fileSize,
+        fileName,
+        fileType: mime || getType(response),
+        width,
+        height,
+        isVertical: height > width,
+        uri,
+      };
+      onSelectImage(payload);
     } catch (error) {
-      if (error && error.code === 'E_PERMISSION_MISSING') {
+      console.log({ ...error });
+      const errorCode = error && error.code;
+      if (
+        errorCode === 'E_PERMISSION_MISSING' ||
+        errorCode === 'E_PICKER_CANCELLED'
+      ) {
         LOG('User cancelled image picker');
         return;
       }
 
       LOG('RNImagePicker Error: ', error);
       Alert.alert(t('errorHeader'), t('errorBody'));
-      return;
     }
-
-    /*
-    RNImagePicker.showImagePicker(pickerOptions, response => {
-      if (response.didCancel) {
-
-      } else if (response.error) {
-
-      } else {
-        // You can display the image using either data:
-        // const source = { uri: 'data:image/jpeg;base64,' + response.data, isStatic: true };
-
-        const uri = response.uri;
-        let fileName = response.fileName || '';
-        // Handle strange iOS files "HEIC" format. If the file name is not a jpeg, but the uri is a jpg
-        // create a new file name with the right extension
-        if (uri.includes('.jpg') && !fileName.includes('.jpg')) {
-          fileName = `${new Date().valueOf()}.jpg`;
-        }
-        const payload = {
-          // imageBinary: `data:image/jpeg;base64,${response.data}`,
-          fileSize: response.fileSize,
-          fileName,
-          fileType: response.type || getType(response),
-          width: response.width,
-          height: response.height,
-          isVertical: response.isVertical,
-          uri,
-        };
-        onSelectImage(payload);
-      }
-    });*/
   };
 
   render() {
