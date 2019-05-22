@@ -319,7 +319,7 @@ export function copyText(string) {
 }
 
 // Actions should be array of [{ text: '', onPress: fn, destructive: Bool (iOS) }]
-export function showMenu(actions, ref) {
+export function showMenu(actions, ref, title) {
   const actionsText = actions.map(a => a.text);
   const select = i => {
     if (actions[i] && isFunction(actions[i].onPress)) {
@@ -350,6 +350,7 @@ export function showMenu(actions, ref) {
       options,
       cancelButtonIndex: options.length - 1,
       destructiveButtonIndex,
+      ...(title ? { title } : {}),
     };
 
     ActionSheetIOS.showActionSheetWithOptions(params, btnIndex =>

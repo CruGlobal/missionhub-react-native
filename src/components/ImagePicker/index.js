@@ -4,6 +4,8 @@ import { Alert, TouchableOpacity } from 'react-native';
 import { withTranslation } from 'react-i18next';
 import ImageCropPicker from 'react-native-image-crop-picker';
 
+import { showMenu } from '../../utils/common';
+
 // See all options: https://github.com/ivpusic/react-native-image-crop-picker
 const DEFAULT_OPTIONS = {
   mediaType: 'photo',
@@ -22,11 +24,33 @@ function getType(response) {
 
 @withTranslation('imagePicker')
 class ImagePicker extends Component {
-  selectImage = async () => {
+  showImageOptionsMenu = () => {
+    const { t } = this.props;
+    showMenu(
+      [
+        { text: t('takePhoto'), onPress: this.takePhoto },
+        { text: t('chooseFromLibrary'), onPress: this.chooseFromLibrary },
+      ],
+      this.picker,
+      t('selectImage'),
+    );
+  };
+
+  takePhoto = () => {
+    this.selectImage(true);
+  };
+
+  chooseFromLibrary = () => {
+    this.selectImage(false);
+  };
+
+  async selectImage(takePhoto) {
     const { t, onSelectImage } = this.props;
 
     try {
-      const response = await ImageCropPicker.openPicker(DEFAULT_OPTIONS);
+      const response = await (takePhoto
+        ? ImageCropPicker.openCamera(DEFAULT_OPTIONS)
+        : ImageCropPicker.openPicker(DEFAULT_OPTIONS));
 
       let fileName = response.filename || '';
       const { path: uri, size: fileSize, mime, width, height } = response;
@@ -61,11 +85,17 @@ class ImagePicker extends Component {
       LOG('RNImagePicker Error: ', error);
       Alert.alert(t('errorHeader'), t('errorBody'));
     }
-  };
+  }
+
+  ref = c => (this.picker = c);
 
   render() {
     return (
-      <TouchableOpacity onPress={this.selectImage} activeOpacity={0.75}>
+      <TouchableOpacity
+        onPress={this.showImageOptionsMenu}
+        activeOpacity={0.75}
+        ref={this.ref}
+      >
         {this.props.children}
       </TouchableOpacity>
     );
