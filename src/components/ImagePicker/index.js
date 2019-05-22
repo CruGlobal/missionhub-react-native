@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Alert, TouchableOpacity } from 'react-native';
 import { withTranslation } from 'react-i18next';
+import ImageCropPicker from 'react-native-image-crop-picker';
 
-const RNImagePicker = require('react-native-image-crop-picker');
-
-// See all options: https://github.com/react-community/react-native-image-picker/blob/master/docs/Reference.md#options
+// See all options: https://github.com/ivpusic/react-native-image-crop-picker
 const DEFAULT_OPTIONS = {
-  cameraType: 'back',
   mediaType: 'photo',
-  maxWidth: 500, // photos only
-  maxHeight: 500, // photos only
-  quality: 0.75, // 0 to 1, photos only
-  allowsEditing: true, // (iOS) Built in functionality to resize/reposition the image after selection
-  noData: true, // photos only - disables the base64 `data` field from being generated (greatly improves performance on large photos)
+  width: 500,
+  height: 300,
+  compressImageQuality: 0.75, // 0 to 1
+  cropping: true,
 };
 
 function getType(response) {
@@ -25,37 +22,29 @@ function getType(response) {
 
 @withTranslation('imagePicker')
 class ImagePicker extends Component {
-  selectImage = () => {
+  selectImage = async () => {
     const { t, onSelectImage } = this.props;
 
-    const pickerOptions = {
-      ...DEFAULT_OPTIONS,
-      // Set all the text values with translation strings
-      title: t('selectImage'),
-      cancelButtonTitle: t('cancel'),
-      takePhotoButtonTitle: t('takePhoto'),
-      chooseFromLibraryButtonTitle: t('chooseFromLibrary'),
-      permissionDenied: {
-        title: t('deniedTitle'),
-        text: t('deniedText'),
-        reTryTitle: t('reTryTitle'),
-        okTitle: t('okTitle'),
-      },
-    };
+    try {
+      const response = await ImageCropPicker.openPicker(DEFAULT_OPTIONS);
+      console.log(response);
+    } catch (error) {
+      if (error && error.code === 'E_PERMISSION_MISSING') {
+        LOG('User cancelled image picker');
+        return;
+      }
 
-    RNImagePicker.openPicker({
-      width: 300,
-      height: 400,
-      cropping: true,
-    });
+      LOG('RNImagePicker Error: ', error);
+      Alert.alert(t('errorHeader'), t('errorBody'));
+      return;
+    }
 
     /*
     RNImagePicker.showImagePicker(pickerOptions, response => {
       if (response.didCancel) {
-        // LOG('User cancelled image picker');
+
       } else if (response.error) {
-        // LOG('RNImagePicker Error: ', response.error);
-        Alert.alert(t('errorHeader'), t('errorBody'));
+
       } else {
         // You can display the image using either data:
         // const source = { uri: 'data:image/jpeg;base64,' + response.data, isStatic: true };
