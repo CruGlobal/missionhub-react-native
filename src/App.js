@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { AppState, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import i18n from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
 import DefaultPreference from 'react-native-default-preference';
@@ -29,8 +30,6 @@ import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
-
-import { PersistGate } from 'redux-persist/integration/react';
 
 @codePush({
   deploymentKey: isAndroid
