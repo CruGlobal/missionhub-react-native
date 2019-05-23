@@ -26,6 +26,7 @@
     "android:build": "react-native run-android --variant=release",
     "gql:codegen": "apollo client:codegen --target typescript",
     "gql:codegen:w": "apollo client:codegen --target typescript --watch",
+    "gql:schema": "apollo client:download-schema",
     "codepush-ios-staging": "appcenter codepush release-react -a Cru/MissionHub-iOS --plist-file ios/MissionHub/Info.plist",
     "codepush-android-staging": "appcenter codepush release-react -a Cru/MissionHub-Android",
     "onesky:upload": "babel-node ./bin/oneskyUpload.js",

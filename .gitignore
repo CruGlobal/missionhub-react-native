@@ -38,6 +38,7 @@ npm-debug.log
 yarn-error.log
 package-lock.json
 __generated__
+schema.json
 
 # Bundle artifact
 *.jsbundle
