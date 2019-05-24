@@ -4,6 +4,9 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   list: {
+    backgroundColor: theme.extraLightGrey,
+  },
+  listContent: {
     paddingBottom: 10,
   },
   header: {
