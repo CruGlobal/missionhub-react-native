@@ -6,10 +6,8 @@ export default StyleSheet.create({
   icon: {
     height: 24,
     width: 24,
-    borderWidth: 1,
   },
   likeCount: {
-    borderWidth: 1,
     width: 30,
     paddingRight: 6,
     fontSize: 12,
