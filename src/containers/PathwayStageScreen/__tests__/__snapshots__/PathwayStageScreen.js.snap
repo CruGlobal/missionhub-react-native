@@ -148,7 +148,7 @@ exports[`renders back button correctly 1`] = `
     apparitionDelay={0}
     automaticallyAdjustContentInsets={false}
     autoplay={false}
-    autoplayDelay={5000}
+    autoplayDelay={1000}
     autoplayInterval={3000}
     callbackOffsetMargin={5}
     containerCustomStyle={
@@ -161,11 +161,11 @@ exports[`renders back button correctly 1`] = `
     contentContainerCustomStyle={Object {}}
     contentContainerStyle={
       Array [
-        Object {},
         Object {
           "paddingLeft": 72.5,
           "paddingRight": 72.5,
         },
+        Object {},
       ]
     }
     data={
@@ -222,6 +222,7 @@ exports[`renders back button correctly 1`] = `
     onScrollEndDrag={[Function]}
     onSnapToItem={[Function]}
     onStartShouldSetResponderCapture={[Function]}
+    onTouchEnd={[Function]}
     onTouchStart={[Function]}
     overScrollMode="never"
     pinchGestureEnabled={false}
@@ -704,7 +705,7 @@ exports[`renders correctly 1`] = `
     apparitionDelay={0}
     automaticallyAdjustContentInsets={false}
     autoplay={false}
-    autoplayDelay={5000}
+    autoplayDelay={1000}
     autoplayInterval={3000}
     callbackOffsetMargin={5}
     containerCustomStyle={
@@ -717,11 +718,11 @@ exports[`renders correctly 1`] = `
     contentContainerCustomStyle={Object {}}
     contentContainerStyle={
       Array [
-        Object {},
         Object {
           "paddingLeft": 72.5,
           "paddingRight": 72.5,
         },
+        Object {},
       ]
     }
     data={
@@ -778,6 +779,7 @@ exports[`renders correctly 1`] = `
     onScrollEndDrag={[Function]}
     onSnapToItem={[Function]}
     onStartShouldSetResponderCapture={[Function]}
+    onTouchEnd={[Function]}
     onTouchStart={[Function]}
     overScrollMode="never"
     pinchGestureEnabled={false}
@@ -1322,7 +1324,7 @@ exports[`renders firstItem correctly 1`] = `
     apparitionDelay={0}
     automaticallyAdjustContentInsets={false}
     autoplay={false}
-    autoplayDelay={5000}
+    autoplayDelay={1000}
     autoplayInterval={3000}
     callbackOffsetMargin={5}
     containerCustomStyle={
@@ -1335,11 +1337,11 @@ exports[`renders firstItem correctly 1`] = `
     contentContainerCustomStyle={Object {}}
     contentContainerStyle={
       Array [
-        Object {},
         Object {
           "paddingLeft": 72.5,
           "paddingRight": 72.5,
         },
+        Object {},
       ]
     }
     data={
@@ -1396,6 +1398,7 @@ exports[`renders firstItem correctly 1`] = `
     onScrollEndDrag={[Function]}
     onSnapToItem={[Function]}
     onStartShouldSetResponderCapture={[Function]}
+    onTouchEnd={[Function]}
     onTouchStart={[Function]}
     overScrollMode="never"
     pinchGestureEnabled={false}
