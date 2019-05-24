@@ -128,7 +128,5 @@ const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
   myId: auth.person.id,
 });
 
-const connectedComponent: React.ComponentClass<StepItemOwnProps> = connect(
-  mapStateToProps,
-)(StepItem);
+const connectedComponent = connect(mapStateToProps)(StepItem);
 export default connectedComponent;

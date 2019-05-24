@@ -1,6 +1,6 @@
 /* eslint max-lines: 0 */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Image,
@@ -12,14 +12,13 @@ import {
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
-import { useQuery } from 'react-apollo-hooks';
+import { useQuery, useMutation } from 'react-apollo-hooks';
 import { gql } from 'apollo-boost';
 
 import {
   showNotificationPrompt,
   showWelcomeNotification,
 } from '../../actions/notifications';
-import { setStepFocus } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
 import {
   Flex,
@@ -47,12 +46,21 @@ import {
   StepsList,
   StepsList_acceptedChallenges_nodes,
 } from './__generated__/StepsList';
+import {
+  SetStepFocus,
+  SetStepFocusVariables,
+} from './__generated__/SetStepFocus';
 
 const MAX_REMINDERS = 3;
 
 export const STEPS_QUERY = gql`
   query StepsList($after: String) {
-    acceptedChallenges(after: $after, completed: false, first: 5) {
+    acceptedChallenges(
+      after: $after
+      completed: false
+      sortBy: [focusedAt_DESC, acceptedAt_DESC]
+      first: 10
+    ) {
       nodes {
         id
         focus
@@ -67,6 +75,18 @@ export const STEPS_QUERY = gql`
     }
   }
   ${STEP_ITEM_QUERY || 'fragment StepItem on AcceptedChallenge { __typename }'}
+`;
+
+export const SET_STEP_FOCUS = gql`
+  mutation SetStepFocus($id: ID!, $focus: Boolean!) {
+    updateAcceptedChallenge(input: { id: $id, focus: $focus }) {
+      acceptedChallenge {
+        id
+        title
+        focus
+      }
+    }
+  }
 `;
 
 function isCloseToBottom({
@@ -108,10 +128,6 @@ const StepsScreen = ({
     refetch,
   } = useQuery<StepsList>(STEPS_QUERY);
 
-  useEffect(() => {
-    refetch();
-  }, []);
-
   const { steps, reminders } = (nodes || []).reduce<{
     steps: Step[];
     reminders: Step[];
@@ -129,6 +145,10 @@ const StepsScreen = ({
     { steps: [], reminders: [] },
   );
 
+  const setStepFocus = useMutation<SetStepFocus, SetStepFocusVariables>(
+    SET_STEP_FOCUS,
+  );
+
   const handleRowSelect = (step: Step) => {
     dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
   };
@@ -144,7 +164,7 @@ const StepsScreen = ({
 
   const { t } = useTranslation('stepsTab');
 
-  const handleSetReminder = (step: Step) => {
+  const handleSetReminder = (id: string) => {
     dispatch(trackActionWithoutData(ACTIONS.STEP_PRIORITIZED));
 
     if (hasMaxReminders) {
@@ -156,14 +176,14 @@ const StepsScreen = ({
     if (!hasReminders) {
       dispatch(showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.FOCUS_STEP));
     }
-    dispatch(setStepFocus(step, true));
+    setStepFocus({ variables: { id, focus: true } });
 
     dispatch(showWelcomeNotification());
   };
 
-  const handleRemoveReminder = (step: Step) => {
+  const handleRemoveReminder = (id: string) => {
     dispatch(trackActionWithoutData(ACTIONS.STEP_DEPRIORITIZED));
-    dispatch(setStepFocus(step, false));
+    setStepFocus({ variables: { id, focus: false } });
   };
 
   const { isRefreshing, refresh } = useRefreshing(refetch);
@@ -267,7 +287,7 @@ const StepsScreen = ({
               key={step.id}
               type="reminder"
               onSelect={() => handleRowSelect(step)}
-              onAction={() => handleRemoveReminder(step)}
+              onAction={() => handleRemoveReminder(step.id)}
             />
           ))}
         </Flex>
@@ -283,7 +303,7 @@ const StepsScreen = ({
         type="swipeable"
         hideAction={canHideStars}
         onSelect={() => handleRowSelect(item)}
-        onAction={() => handleSetReminder(item)}
+        onAction={() => handleSetReminder(item.id)}
       />
     );
   };
