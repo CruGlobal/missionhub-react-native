@@ -191,11 +191,13 @@ class CelebrateItem extends Component {
       <Flex direction="row">
         <Button
           type="transparent"
-          text={object_description}
           onPress={this.onPressChallengeLink}
           style={styles.challengeLinkButton}
-          buttonTextStyle={styles.challengeLinkText}
-        />
+        >
+          <Text numberOfLines={2} style={styles.challengeLinkText}>
+            {object_description}
+          </Text>
+        </Button>
       </Flex>
     ) : null;
   }

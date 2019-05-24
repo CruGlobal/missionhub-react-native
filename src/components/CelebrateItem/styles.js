@@ -4,14 +4,16 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   content: {
+    borderWidth: 1,
     padding: 16,
   },
   description: {
+    borderWidth: 1,
     paddingTop: 12,
-    maxHeight: 70,
+    maxHeight: 90,
   },
   fixedHeightDescription: {
-    height: 70,
+    height: 90,
   },
   messageText: {
     fontSize: 14,
