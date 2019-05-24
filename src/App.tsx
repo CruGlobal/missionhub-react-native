@@ -95,15 +95,17 @@ export default class App extends Component {
   }
 
   // eslint-disable-next-line complexity
-  handleError(e: {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-    apiError: any;
-    key?: string;
-    method?: string;
-    endpoint?: string;
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-    query?: any;
-  }) {
+  handleError(
+    e: {
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+      apiError?: any;
+      key?: string;
+      method?: string;
+      endpoint?: string;
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+      query?: any;
+    } = {},
+  ) {
     const { apiError } = e;
 
     if (apiError) {
