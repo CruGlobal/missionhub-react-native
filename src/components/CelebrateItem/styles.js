@@ -5,11 +5,11 @@ import theme from '../../theme';
 export default StyleSheet.create({
   content: {
     borderWidth: 1,
-    padding: 16,
+    padding: 14,
   },
   description: {
     borderWidth: 1,
-    paddingTop: 12,
+    marginTop: 14,
     maxHeight: 90,
   },
   fixedHeightDescription: {
@@ -17,6 +17,7 @@ export default StyleSheet.create({
   },
   messageText: {
     fontSize: 14,
+    lineHeight: 18,
     justifyContent: 'flex-start',
   },
   challengeLinkButton: {
@@ -24,6 +25,7 @@ export default StyleSheet.create({
   },
   challengeLinkText: {
     fontSize: 14,
+    lineHeight: 18,
     fontWeight: '400',
     letterSpacing: 0,
     color: theme.primaryColor,

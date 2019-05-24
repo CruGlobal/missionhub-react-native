@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Text, Flex, Button } from '../../components/common';
+import { Text, Button } from '../../components/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import GREY_HEART from '../../../assets/images/heart-grey.png';
 import BLUE_HEART from '../../../assets/images/heart-blue.png';
@@ -31,7 +31,7 @@ class CommentLikeComponent extends Component {
     }
   };
 
-  renderCommentSection() {
+  renderCommentIcon() {
     const {
       event: { comments_count },
     } = this.props;
@@ -42,13 +42,13 @@ class CommentLikeComponent extends Component {
         <Text style={styles.likeCount}>
           {displayCommentCount ? comments_count : null}
         </Text>
-        <Image source={COMMENTS} style={{ marginHorizontal: 10 }} />
+        <Image source={COMMENTS} />
       </Fragment>
     );
   }
 
-  render() {
-    const { myId, event, style } = this.props;
+  renderLikeIcon() {
+    const { myId, event } = this.props;
     const { subject_person, likes_count, liked } = event;
     const { isLikeDisabled } = this.state;
 
@@ -56,19 +56,31 @@ class CommentLikeComponent extends Component {
       likes_count > 0 && subject_person && subject_person.id === myId;
 
     return (
-      <Flex direction={'row'} align="end" justify="end" style={style}>
-        {subject_person && this.renderCommentSection()}
+      <Fragment>
         <Text style={styles.likeCount}>
           {displayLikeCount ? likes_count : null}
         </Text>
         <Button
+          type="transparent"
           disabled={isLikeDisabled}
           onPress={this.onPressLikeIcon}
           style={styles.icon}
         >
           <Image source={liked ? BLUE_HEART : GREY_HEART} />
         </Button>
-      </Flex>
+      </Fragment>
+    );
+  }
+
+  render() {
+    const { event } = this.props;
+    const { subject_person } = event;
+
+    return (
+      <View flexDirection={'row'} alignItems="center" justifyContent="flex-end">
+        {subject_person && this.renderCommentIcon()}
+        {this.renderLikeIcon()}
+      </View>
     );
   }
 }
@@ -76,11 +88,6 @@ class CommentLikeComponent extends Component {
 CommentLikeComponent.propTypes = {
   event: PropTypes.object.isRequired,
   myId: PropTypes.string.isRequired,
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array,
-  ]),
 };
 
 const mapStateToProps = ({ auth }) => ({
