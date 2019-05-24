@@ -103,6 +103,11 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
     ]
   }
   stickySectionHeadersEnabled={true}
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+    }
+  }
   updateCellsBatchingPeriod={50}
   windowSize={21}
 />
