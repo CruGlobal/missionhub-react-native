@@ -1,16 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders nothing with no subject person 1`] = `
-<Flex
-  align="end"
-  direction="row"
-  justify="end"
+<View
+  alignItems="center"
+  flexDirection="row"
+  justifyContent="flex-end"
 >
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   />
@@ -20,10 +24,10 @@ exports[`renders nothing with no subject person 1`] = `
     style={
       Object {
         "height": 24,
-        "margin": 0,
         "width": 24,
       }
     }
+    type="transparent"
   >
     <Image
       source={
@@ -33,25 +37,24 @@ exports[`renders nothing with no subject person 1`] = `
       }
     />
   </Button>
-</Flex>
+</View>
 `;
 
 exports[`renders with custom style 1`] = `
-<Flex
-  align="end"
-  direction="row"
-  justify="end"
-  style={
-    Object {
-      "padding": 10,
-    }
-  }
+<View
+  alignItems="center"
+  flexDirection="row"
+  justifyContent="flex-end"
 >
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   />
@@ -61,10 +64,10 @@ exports[`renders with custom style 1`] = `
     style={
       Object {
         "height": 24,
-        "margin": 0,
         "width": 24,
       }
     }
+    type="transparent"
   >
     <Image
       source={
@@ -74,20 +77,24 @@ exports[`renders with custom style 1`] = `
       }
     />
   </Button>
-</Flex>
+</View>
 `;
 
 exports[`with subject person renders 0 comments_count 1`] = `
-<Flex
-  align="end"
-  direction="row"
-  justify="end"
+<View
+  alignItems="center"
+  flexDirection="row"
+  justifyContent="flex-end"
 >
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   />
@@ -97,17 +104,16 @@ exports[`with subject person renders 0 comments_count 1`] = `
         "testUri": "../../../assets/images/comments.png",
       }
     }
-    style={
-      Object {
-        "marginHorizontal": 10,
-      }
-    }
   />
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   />
@@ -117,10 +123,10 @@ exports[`with subject person renders 0 comments_count 1`] = `
     style={
       Object {
         "height": 24,
-        "margin": 0,
         "width": 24,
       }
     }
+    type="transparent"
   >
     <Image
       source={
@@ -130,20 +136,24 @@ exports[`with subject person renders 0 comments_count 1`] = `
       }
     />
   </Button>
-</Flex>
+</View>
 `;
 
 exports[`with subject person renders 0 likes_count 1`] = `
-<Flex
-  align="end"
-  direction="row"
-  justify="end"
+<View
+  alignItems="center"
+  flexDirection="row"
+  justifyContent="flex-end"
 >
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   >
@@ -155,17 +165,16 @@ exports[`with subject person renders 0 likes_count 1`] = `
         "testUri": "../../../assets/images/comments.png",
       }
     }
-    style={
-      Object {
-        "marginHorizontal": 10,
-      }
-    }
   />
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   />
@@ -175,10 +184,10 @@ exports[`with subject person renders 0 likes_count 1`] = `
     style={
       Object {
         "height": 24,
-        "margin": 0,
         "width": 24,
       }
     }
+    type="transparent"
   >
     <Image
       source={
@@ -188,20 +197,24 @@ exports[`with subject person renders 0 likes_count 1`] = `
       }
     />
   </Button>
-</Flex>
+</View>
 `;
 
 exports[`with subject person renders disabled heart button 1`] = `
-<Flex
-  align="end"
-  direction="row"
-  justify="end"
+<View
+  alignItems="center"
+  flexDirection="row"
+  justifyContent="flex-end"
 >
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   >
@@ -213,17 +226,16 @@ exports[`with subject person renders disabled heart button 1`] = `
         "testUri": "../../../assets/images/comments.png",
       }
     }
-    style={
-      Object {
-        "marginHorizontal": 10,
-      }
-    }
   />
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   />
@@ -233,10 +245,10 @@ exports[`with subject person renders disabled heart button 1`] = `
     style={
       Object {
         "height": 24,
-        "margin": 0,
         "width": 24,
       }
     }
+    type="transparent"
   >
     <Image
       source={
@@ -246,20 +258,24 @@ exports[`with subject person renders disabled heart button 1`] = `
       }
     />
   </Button>
-</Flex>
+</View>
 `;
 
 exports[`with subject person renders for me 1`] = `
-<Flex
-  align="end"
-  direction="row"
-  justify="end"
+<View
+  alignItems="center"
+  flexDirection="row"
+  justifyContent="flex-end"
 >
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   >
@@ -271,17 +287,16 @@ exports[`with subject person renders for me 1`] = `
         "testUri": "../../../assets/images/comments.png",
       }
     }
-    style={
-      Object {
-        "marginHorizontal": 10,
-      }
-    }
   />
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   />
@@ -291,10 +306,10 @@ exports[`with subject person renders for me 1`] = `
     style={
       Object {
         "height": 24,
-        "margin": 0,
         "width": 24,
       }
     }
+    type="transparent"
   >
     <Image
       source={
@@ -304,20 +319,24 @@ exports[`with subject person renders for me 1`] = `
       }
     />
   </Button>
-</Flex>
+</View>
 `;
 
 exports[`with subject person renders for someone else 1`] = `
-<Flex
-  align="end"
-  direction="row"
-  justify="end"
+<View
+  alignItems="center"
+  flexDirection="row"
+  justifyContent="flex-end"
 >
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   >
@@ -329,17 +348,16 @@ exports[`with subject person renders for someone else 1`] = `
         "testUri": "../../../assets/images/comments.png",
       }
     }
-    style={
-      Object {
-        "marginHorizontal": 10,
-      }
-    }
   />
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   >
@@ -351,10 +369,10 @@ exports[`with subject person renders for someone else 1`] = `
     style={
       Object {
         "height": 24,
-        "margin": 0,
         "width": 24,
       }
     }
+    type="transparent"
   >
     <Image
       source={
@@ -364,20 +382,24 @@ exports[`with subject person renders for someone else 1`] = `
       }
     />
   </Button>
-</Flex>
+</View>
 `;
 
 exports[`with subject person renders when liked 1`] = `
-<Flex
-  align="end"
-  direction="row"
-  justify="end"
+<View
+  alignItems="center"
+  flexDirection="row"
+  justifyContent="flex-end"
 >
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   >
@@ -389,17 +411,16 @@ exports[`with subject person renders when liked 1`] = `
         "testUri": "../../../assets/images/comments.png",
       }
     }
-    style={
-      Object {
-        "marginHorizontal": 10,
-      }
-    }
   />
   <MyText
     style={
       Object {
-        "color": "#505256",
-        "fontSize": 14,
+        "color": "#B4B6BA",
+        "fontSize": 12,
+        "lineHeight": 16,
+        "paddingRight": 6,
+        "textAlign": "right",
+        "width": 30,
       }
     }
   />
@@ -409,10 +430,10 @@ exports[`with subject person renders when liked 1`] = `
     style={
       Object {
         "height": 24,
-        "margin": 0,
         "width": 24,
       }
     }
+    type="transparent"
   >
     <Image
       source={
@@ -422,5 +443,5 @@ exports[`with subject person renders when liked 1`] = `
       }
     />
   </Button>
-</Flex>
+</View>
 `;

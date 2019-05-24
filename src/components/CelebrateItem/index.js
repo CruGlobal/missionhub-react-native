@@ -229,7 +229,7 @@ class CelebrateItem extends Component {
     return (
       <Card onPress={onPressItem && this.onPressItem} style={cardStyle}>
         <View flex={1} flexDirection="column">
-          <View flexDirection="column" style={content}>
+          <View style={content}>
             <View style={top}>
               <View style={topLeft}>
                 <CelebrateItemName
