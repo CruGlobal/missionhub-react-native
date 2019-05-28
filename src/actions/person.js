@@ -132,7 +132,7 @@ export function getPersonNote(personId) {
     const note =
       response &&
       response.person_notes &&
-      response.person_notes.find(n => n.user_id === myId);
+      response.person_notes.find(n => `${n.user_id}` === myId);
 
     if (!note) {
       return Promise.reject('Person Not Found in getPersonNote');

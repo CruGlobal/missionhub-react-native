@@ -134,7 +134,9 @@ function savePersonNote(state, action) {
 
   return {
     ...state,
-    ...updateAllPersonInstances(state.allByOrg, newPerson),
+    allByOrg: {
+      ...updateAllPersonInstances(state.allByOrg, newPerson),
+    },
   };
 }
 

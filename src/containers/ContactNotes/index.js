@@ -11,69 +11,62 @@ import { buildTrackingObj } from '../../utils/common';
 import { trackState } from '../../actions/analytics';
 import NullStateComponent from '../../components/NullStateComponent';
 import BottomButton from '../../components/BottomButton';
+import { personSelector } from '../../selectors/people';
 
 import styles from './styles';
 
 @withTranslation('notes')
 export class ContactNotes extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      text: undefined,
-      editing: false,
-      noteId: null,
-    };
-
-    this.saveNote = this.saveNote.bind(this);
-    this.onButtonPress = this.onButtonPress.bind(this);
-    this.onTextChanged = this.onTextChanged.bind(this);
-  }
+  state = {
+    text: (this.props.person.person_note || {}).content,
+    noteId: (this.props.person.person_note || {}).id,
+    editing: false,
+  };
 
   componentDidMount() {
     this.getNote();
   }
 
   UNSAFE_componentWillReceiveProps(props) {
-    if (!props.isActiveTab) {
+    const {
+      isActiveTab,
+      person: { person_note },
+    } = props;
+
+    if (!isActiveTab) {
       this.saveNote();
+    }
+
+    if (person_note && !this.state.text) {
+      const { id: noteId, content: text } = person_note;
+      this.setState({ text, noteId });
     }
   }
 
-  async getNote() {
-    const { person, myUserId } = this.props;
+  getNote() {
+    const { dispatch, person } = this.props;
 
-    const results = await this.props.dispatch(
-      getPersonNote(person.id, myUserId),
-    );
-
-    const text = results ? results.content : undefined;
-    const noteId = results ? results.id : null;
-    this.setState({ noteId, text });
+    dispatch(getPersonNote(person.id));
   }
 
-  onTextChanged(text) {
+  onTextChanged = text => {
     this.setState({ text });
-  }
+  };
 
-  saveNote() {
+  saveNote = () => {
+    const { editing, text, noteId } = this.state;
+    const { dispatch, person } = this.props;
+
     Keyboard.dismiss();
 
-    if (this.state.editing) {
-      this.props.dispatch(
-        savePersonNote(
-          this.props.person.id,
-          this.state.text,
-          this.state.noteId,
-          this.props.myUserId,
-        ),
-      );
+    if (editing) {
+      dispatch(savePersonNote(person.id, text, noteId));
     }
 
     this.setState({ editing: false });
-  }
+  };
 
-  onButtonPress() {
+  onButtonPress = () => {
     if (this.state.editing) {
       this.saveNote();
     } else {
@@ -92,14 +85,15 @@ export class ContactNotes extends Component {
         ),
       );
     }
-  }
+  };
 
   getButtonText() {
-    const t = this.props.t;
+    const { editing, text } = this.state;
+    const { t } = this.props;
 
-    if (this.state.editing) {
+    if (editing) {
       return t('done');
-    } else if (this.state.text) {
+    } else if (text) {
       return t('edit');
     } else {
       return t('add');
@@ -109,14 +103,16 @@ export class ContactNotes extends Component {
   inputRef = c => (this.notesInput = c);
 
   renderNotes() {
-    if (this.state.editing) {
+    const { editing, text } = this.state;
+
+    if (editing) {
       return (
         <Flex value={1} style={styles.container}>
           <Input
             ref={this.inputRef}
             onChangeText={this.onTextChanged}
-            editable={this.state.editing}
-            value={this.state.text}
+            editable={editing}
+            value={text}
             style={styles.notesText}
             multiline={true}
             blurOnSubmit={false}
@@ -129,15 +125,14 @@ export class ContactNotes extends Component {
     return (
       <Flex value={1} style={styles.container}>
         <ScrollView>
-          <Text style={styles.notesText}>{this.state.text}</Text>
+          <Text style={styles.notesText}>{text}</Text>
         </ScrollView>
       </Flex>
     );
   }
 
   renderEmpty() {
-    const { t, person, myPersonId } = this.props;
-    const isMe = person.id === myPersonId;
+    const { t, person, isMe } = this.props;
     const text = t(isMe ? 'promptMe' : 'prompt', {
       personFirstName: person.first_name,
     });
@@ -166,13 +161,21 @@ export class ContactNotes extends Component {
 }
 
 ContactNotes.propTypes = {
+  isActiveTab: PropTypes.bool,
   person: PropTypes.object.isRequired,
   organization: PropTypes.object,
 };
 
-const mapStateToProps = ({ auth }) => ({
-  myPersonId: auth.person.id,
-  myUserId: auth.person.user.id,
-});
+const mapStateToProps = (
+  { auth, people },
+  { person: { id: personId }, organization: { id: orgId } },
+) => {
+  const person = personSelector({ people }, { personId, orgId });
+
+  return {
+    isMe: personId === auth.person.id,
+    person,
+  };
+};
 
 export default connect(mapStateToProps)(ContactNotes);
