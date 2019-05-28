@@ -16,6 +16,7 @@ import {
   ACTIONS,
   LOAD_PERSON_DETAILS,
   ORG_PERMISSIONS,
+  SAVE_PERSON_NOTE,
 } from '../constants';
 import { hasOrgPermissions, exists } from '../utils/common';
 import {
@@ -71,13 +72,15 @@ export function getPersonDetails(id, orgId) {
   };
 }
 
-export function savePersonNote(personId, notes, noteId, myId) {
-  return dispatch => {
+export function savePersonNote(personId, notes, noteId) {
+  return async (dispatch, getState) => {
     if (!personId) {
       return Promise.reject(
         'Invalid Data from savePersonNote: no personId passed in',
       );
     }
+
+    const myId = getState().auth.person.user.id;
 
     const bodyData = {
       data: {
@@ -102,26 +105,43 @@ export function savePersonNote(personId, notes, noteId, myId) {
       },
     };
 
-    if (!noteId) {
-      return dispatch(callApi(REQUESTS.ADD_PERSON_NOTE, {}, bodyData));
-    }
-    return dispatch(callApi(REQUESTS.UPDATE_PERSON_NOTE, { noteId }, bodyData));
+    const { response: note } = await dispatch(
+      noteId
+        ? callApi(REQUESTS.UPDATE_PERSON_NOTE, { noteId }, bodyData)
+        : callApi(REQUESTS.ADD_PERSON_NOTE, {}, bodyData),
+    );
+
+    dispatch({
+      type: SAVE_PERSON_NOTE,
+      note,
+      personId,
+    });
   };
 }
 
-export function getPersonNote(personId, myId) {
-  return dispatch => {
+export function getPersonNote(personId) {
+  return async (dispatch, getState) => {
+    const myId = getState().auth.person.user.id;
+
     const query = { person_id: personId, include: 'person_notes' };
 
-    return dispatch(callApi(REQUESTS.GET_PERSON_NOTE, query)).then(results => {
-      const person = results.find('person', personId);
-      if (person && person.person_notes) {
-        const notes = person.person_notes;
-        return notes.find(element => {
-          return element.user_id == myId;
-        });
-      }
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_PERSON_NOTE, query),
+    );
+
+    const note =
+      response &&
+      response.person_notes &&
+      response.person_notes.find(n => n.user_id === myId);
+
+    if (!note) {
       return Promise.reject('Person Not Found in getPersonNote');
+    }
+
+    dispatch({
+      type: SAVE_PERSON_NOTE,
+      note,
+      personId,
     });
   };
 }

@@ -8,6 +8,7 @@ import {
   LOAD_PERSON_DETAILS,
   UPDATE_PERSON_ATTRIBUTES,
   GET_ORGANIZATION_PEOPLE,
+  SAVE_PERSON_NOTE,
 } from '../constants';
 
 const initialState = {
@@ -65,6 +66,8 @@ export default function peopleReducer(state = initialState, action) {
         ...state,
         allByOrg: action.orgs,
       };
+    case SAVE_PERSON_NOTE:
+      return savePersonNote(state, action);
     default:
       return state;
   }
@@ -121,6 +124,17 @@ function loadContactsFromSteps(state, action) {
   return {
     ...state,
     allByOrg,
+  };
+}
+
+function savePersonNote(state, action) {
+  const { note, personId } = action;
+
+  const newPerson = { id: personId, person_note: note };
+
+  return {
+    ...state,
+    ...updateAllPersonInstances(state.allByOrg, newPerson),
   };
 }
 
