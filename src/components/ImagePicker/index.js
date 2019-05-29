@@ -7,13 +7,11 @@ import ImageCropPicker from 'react-native-image-crop-picker';
 import { showMenu } from '../../utils/common';
 import theme from '../../theme.ts';
 
-const { fullWidth, communityImageAspectRatio } = theme;
-
 // See all options: https://github.com/ivpusic/react-native-image-crop-picker
 const DEFAULT_OPTIONS = {
   mediaType: 'photo',
-  width: fullWidth,
-  height: fullWidth * communityImageAspectRatio,
+  width: theme.fullWidth,
+  height: theme.fullWidth * theme.communityImageAspectRatio,
   compressImageQuality: 0.75, // 0 to 1
   cropping: true,
 };

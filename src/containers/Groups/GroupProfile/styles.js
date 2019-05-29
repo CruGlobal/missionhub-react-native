@@ -21,13 +21,13 @@ export default StyleSheet.create({
     position: 'relative',
     borderRadius: 4,
     width: theme.fullWidth,
-    minHeight: theme.fullHeight * 0.3,
+    height: theme.fullWidth * theme.communityImageAspectRatio,
     backgroundColor: theme.accentColor,
   },
   image: {
     borderRadius: 4,
     width: '100%',
-    height: theme.fullHeight * 0.3,
+    height: '100%',
   },
   absoluteCenter: {
     position: 'absolute',
