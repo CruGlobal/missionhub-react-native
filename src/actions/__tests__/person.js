@@ -9,6 +9,7 @@ import {
   LOAD_PERSON_DETAILS,
   DELETE_PERSON,
   ORG_PERMISSIONS,
+  SAVE_PERSON_NOTE,
 } from '../../constants';
 import {
   getMe,
@@ -53,6 +54,7 @@ jest.mock('../../selectors/organizations');
 jest.mock('../analytics');
 
 const myId = '1';
+const myUserId = '11';
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -66,7 +68,7 @@ const expectedIncludeWithContactAssignmentPerson =
   'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 beforeEach(() => {
-  auth = { person: { id: myId, user: { groups_feature: true } } };
+  auth = { person: { id: myId, user: { id: myUserId, groups_feature: true } } };
   organizations = { all: {} };
   people = { allByOrg: {} };
   store = mockStore({
@@ -540,15 +542,17 @@ describe('getPersonJourneyDetails', () => {
 
 describe('saveNote', () => {
   const personId = 23;
-  const note = 'test';
+  const content = 'test';
   let noteId;
-  let action;
+  let note;
+  let callApiResponse;
+  let saveNoteAction;
 
   const expectedData = {
     data: {
       type: 'person_note',
       attributes: {
-        content: note,
+        content,
       },
       relationships: {
         person: {
@@ -560,7 +564,7 @@ describe('saveNote', () => {
         user: {
           data: {
             type: 'user',
-            id: myId,
+            id: myUserId,
           },
         },
       },
@@ -570,45 +574,69 @@ describe('saveNote', () => {
   describe('AddPersonNote', () => {
     beforeEach(() => {
       noteId = null;
-      action = { type: 'added note' };
+      note = {
+        id: noteId,
+        content,
+      };
+      callApiResponse = {
+        type: 'add note',
+        response: note,
+      };
+      saveNoteAction = {
+        type: SAVE_PERSON_NOTE,
+        note,
+        personId,
+      };
 
-      callApi.mockReturnValue(action);
+      callApi.mockReturnValue(callApiResponse);
     });
 
-    it('should add note', () => {
-      store.dispatch(savePersonNote(personId, note, noteId, myId));
+    it('should add note', async () => {
+      await store.dispatch(savePersonNote(personId, content, noteId));
 
       expect(callApi).toHaveBeenCalledWith(
         REQUESTS.ADD_PERSON_NOTE,
         {},
         expectedData,
       );
-      expect(store.getActions()[0]).toBe(action);
+      expect(store.getActions()).toEqual([callApiResponse, saveNoteAction]);
     });
   });
 
   describe('UpdatePersonNote', () => {
     beforeEach(() => {
       noteId = 2;
-      action = { type: 'updated note' };
+      note = {
+        id: noteId,
+        content,
+      };
+      callApiResponse = {
+        type: 'add note',
+        response: note,
+      };
+      saveNoteAction = {
+        type: SAVE_PERSON_NOTE,
+        note,
+        personId,
+      };
 
-      callApi.mockReturnValue(action);
+      callApi.mockReturnValue(callApiResponse);
     });
 
-    it('should update note', () => {
-      store.dispatch(savePersonNote(personId, note, noteId, myId));
+    it('should update note', async () => {
+      await store.dispatch(savePersonNote(personId, content, noteId));
 
       expect(callApi).toHaveBeenCalledWith(
         REQUESTS.UPDATE_PERSON_NOTE,
         { noteId },
         expectedData,
       );
-      expect(store.getActions()[0]).toBe(action);
+      expect(store.getActions()).toEqual([callApiResponse, saveNoteAction]);
     });
 
     it('should reject note', async () => {
       try {
-        await store.dispatch(savePersonNote(undefined, note, noteId, myId));
+        await store.dispatch(savePersonNote(undefined, content, noteId));
       } catch (e) {
         expect(e).toBe(
           'Invalid Data from savePersonNote: no personId passed in',
@@ -621,19 +649,36 @@ describe('saveNote', () => {
 describe('GetPersonNote', () => {
   const personId = 23;
 
+  const othersNote = { id: '2', user_id: '000' };
+  const myNote = { id: '1', user_id: myUserId };
+
   const expectedQuery = { person_id: personId, include: 'person_notes' };
 
+  let callApiResponse;
+  let saveNoteAction;
+
   beforeEach(() => {
-    callApi.mockReturnValue(() => Promise.resolve());
+    callApiResponse = {
+      type: 'get note',
+      response: { person_notes: [othersNote, myNote] },
+    };
+    saveNoteAction = {
+      type: SAVE_PERSON_NOTE,
+      note: myNote,
+      personId,
+    };
+
+    callApi.mockReturnValue(callApiResponse);
   });
 
-  it('should get note', () => {
-    store.dispatch(getPersonNote(personId, myId));
+  it('should get note', async () => {
+    await store.dispatch(getPersonNote(personId));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_PERSON_NOTE,
       expectedQuery,
     );
+    expect(store.getActions()).toEqual([callApiResponse, saveNoteAction]);
   });
 });
 

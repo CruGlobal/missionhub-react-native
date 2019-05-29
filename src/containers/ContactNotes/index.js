@@ -28,10 +28,7 @@ export class ContactNotes extends Component {
   }
 
   UNSAFE_componentWillReceiveProps(props) {
-    const {
-      isActiveTab,
-      person: { person_note },
-    } = props;
+    const { isActiveTab, person: { person_note } = {} } = props;
 
     if (!isActiveTab) {
       this.saveNote();

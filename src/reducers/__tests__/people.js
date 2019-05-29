@@ -5,6 +5,7 @@ import {
   PEOPLE_WITH_ORG_SECTIONS,
   UPDATE_PERSON_ATTRIBUTES,
   GET_ORGANIZATION_PEOPLE,
+  SAVE_PERSON_NOTE,
 } from '../../constants';
 import { REQUESTS } from '../../actions/api';
 
@@ -247,4 +248,62 @@ it('should save new people and update existing people from steps', () => {
       },
     },
   });
+});
+
+it('should save new note for person', () => {
+  const note = 'test note';
+
+  const priorState = {
+    allByOrg: {
+      [org1Id]: { id: org1Id, people: { [person1Id]: { id: person1Id } } },
+    },
+  };
+  const endState = {
+    allByOrg: {
+      [org1Id]: {
+        id: org1Id,
+        people: { [person1Id]: { id: person1Id, person_note: note } },
+      },
+    },
+  };
+  const action = {
+    type: SAVE_PERSON_NOTE,
+    note,
+    personId: person1Id,
+  };
+
+  const result = people(priorState, action);
+
+  expect(result).toEqual(endState);
+});
+
+it('should replace existing note for person', () => {
+  const priorNote = 'test';
+  const newNote = 'test note';
+
+  const priorState = {
+    allByOrg: {
+      [org1Id]: {
+        id: org1Id,
+        people: { [person1Id]: { id: person1Id, person_note: priorNote } },
+      },
+    },
+  };
+  const endState = {
+    allByOrg: {
+      [org1Id]: {
+        id: org1Id,
+        people: { [person1Id]: { id: person1Id, person_note: newNote } },
+      },
+    },
+  };
+  const action = {
+    type: SAVE_PERSON_NOTE,
+    note: newNote,
+    personId: person1Id,
+  };
+
+  const result = people(priorState, action);
+
+  expect(result).toEqual(endState);
 });

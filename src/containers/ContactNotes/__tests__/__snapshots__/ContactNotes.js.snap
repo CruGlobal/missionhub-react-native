@@ -1,51 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`contact notes and editing is set to true button message changes to DONE 1`] = `
-<SafeAreaView
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
->
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
-      }
-    }
-    value={1}
-  >
-    <Input
-      autoCorrect={true}
-      autoGrow={false}
-      blurOnSubmit={false}
-      editable={true}
-      multiline={true}
-      onChangeText={[Function]}
-      style={
-        Object {
-          "borderBottomWidth": 0,
-          "color": "#505256",
-          "fontSize": 16,
-          "marginTop": 30,
-          "paddingBottom": 30,
-          "paddingHorizontal": 36,
-          "textAlign": "left",
-        }
-      }
-    />
-  </Flex>
-  <BottomButton
-    onPress={[Function]}
-    text="Done"
-  />
-</SafeAreaView>
-`;
-
-exports[`contact notes icon and prompt are shown if no notes 1`] = `
+exports[`contact notes render icon and prompt are shown if no notes 1`] = `
 <SafeAreaView
   style={
     Object {
@@ -70,7 +25,7 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
 </SafeAreaView>
 `;
 
-exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
+exports[`contact notes render icon and prompt are shown if no notes as me 1`] = `
 <SafeAreaView
   style={
     Object {
@@ -95,7 +50,7 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
 </SafeAreaView>
 `;
 
-exports[`contact notes notes are shown 1`] = `
+exports[`contact notes render notes are shown 1`] = `
 <SafeAreaView
   style={
     Object {
@@ -134,6 +89,52 @@ exports[`contact notes notes are shown 1`] = `
   <BottomButton
     onPress={[Function]}
     text="EDIT PRIVATE NOTES"
+  />
+</SafeAreaView>
+`;
+
+exports[`contact notes render with notes in edit mode 1`] = `
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+    value={1}
+  >
+    <Input
+      autoCorrect={true}
+      autoGrow={false}
+      blurOnSubmit={false}
+      editable={true}
+      multiline={true}
+      onChangeText={[Function]}
+      style={
+        Object {
+          "borderBottomWidth": 0,
+          "color": "#505256",
+          "fontSize": 16,
+          "marginTop": 30,
+          "paddingBottom": 30,
+          "paddingHorizontal": 36,
+          "textAlign": "left",
+        }
+      }
+      value="Hello, Roge! Here are some notes."
+    />
+  </Flex>
+  <BottomButton
+    onPress={[Function]}
+    text="Done"
   />
 </SafeAreaView>
 `;
