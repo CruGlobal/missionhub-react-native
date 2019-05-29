@@ -74,6 +74,11 @@ exports[`Member Feed rendering renders correctly for member feed 1`] = `
     ]
   }
   stickySectionHeadersEnabled={true}
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+    }
+  }
   updateCellsBatchingPeriod={50}
   windowSize={21}
 />
@@ -186,6 +191,11 @@ exports[`no header rendering renders correctly for no header 1`] = `
     ]
   }
   stickySectionHeadersEnabled={true}
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+    }
+  }
   updateCellsBatchingPeriod={50}
   windowSize={21}
 />

@@ -1,7 +1,7 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, StatusBarStyle } from 'react-native';
 import Color from 'color';
 
-import { exists, isAndroid, hasNotch } from './utils/common';
+import { isAndroid, hasNotch } from './utils/common';
 
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window');
 
@@ -16,31 +16,38 @@ function colorConvert({
   whiten,
   blacken,
   hex,
-}) {
-  if (!color) {
-    LOG('Pass in a color!');
-  }
+}: {
+  color: string;
+  alpha?: number;
+  lighten?: number;
+  darken?: number;
+  negate?: number;
+  rotate?: number;
+  whiten?: number;
+  blacken?: number;
+  hex?: boolean;
+}): string {
   let col = Color(color);
   // Lots of things you can do with color stuff
-  if (exists(alpha)) {
+  if (alpha) {
     col = Color(col).alpha(alpha);
   }
-  if (exists(lighten)) {
+  if (lighten) {
     col = Color(col).lighten(lighten);
   }
-  if (exists(darken)) {
+  if (darken) {
     col = Color(col).darken(darken);
   }
-  if (exists(negate)) {
+  if (negate) {
     col = Color(col).negate();
   }
-  if (exists(rotate)) {
+  if (rotate) {
     col = Color(col).rotate(rotate);
   }
-  if (exists(whiten)) {
+  if (whiten) {
     col = Color(col).whiten(whiten);
   }
-  if (exists(blacken)) {
+  if (blacken) {
     col = Color(col).blacken(blacken);
   }
   if (hex === true) {
@@ -98,7 +105,6 @@ export default {
   black: COLORS.BLACK,
   backgroundColor: BACKGROUND,
   textColor: COLORS.GREY,
-  darkText: COLORS.CHARCOAL,
   iconColor: COLORS.WHITE,
   transparent: COLORS.TRANSPARENT,
   buttonHeight: 60,
@@ -137,12 +143,14 @@ export default {
   statusBar: {
     lightContent: {
       ...statusBar,
-      barStyle: 'light-content',
+      barStyle: 'light-content' as StatusBarStyle,
     },
     darkContent: {
       ...statusBar,
-      barStyle: isAndroid ? 'light-content' : 'dark-content',
+      barStyle: (isAndroid
+        ? 'light-content'
+        : 'dark-content') as StatusBarStyle,
     },
   },
-  hitSlop: n => ({ top: n, right: n, left: n, bottom: n }),
+  hitSlop: (n: number) => ({ top: n, right: n, left: n, bottom: n }),
 };

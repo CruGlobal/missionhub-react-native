@@ -25,6 +25,7 @@ export default StyleSheet.create({
     fontWeight: '400',
     letterSpacing: 0,
     color: theme.primaryColor,
+    textAlign: 'left',
   },
   top: {
     flexDirection: 'row',

@@ -69,31 +69,31 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - QBImagePickerController (3.4.0)
-  - React/Core (0.59.4):
-    - yoga (= 0.59.4.React)
-  - React/fishhook (0.59.4)
-  - React/RCTActionSheet (0.59.4):
+  - React/Core (0.59.8):
+    - yoga (= 0.59.8.React)
+  - React/fishhook (0.59.8)
+  - React/RCTActionSheet (0.59.8):
     - React/Core
-  - React/RCTAnimation (0.59.4):
+  - React/RCTAnimation (0.59.8):
     - React/Core
-  - React/RCTBlob (0.59.4):
+  - React/RCTBlob (0.59.8):
     - React/Core
-  - React/RCTGeolocation (0.59.4):
+  - React/RCTGeolocation (0.59.8):
     - React/Core
-  - React/RCTImage (0.59.4):
+  - React/RCTImage (0.59.8):
     - React/Core
     - React/RCTNetwork
-  - React/RCTLinkingIOS (0.59.4):
+  - React/RCTLinkingIOS (0.59.8):
     - React/Core
-  - React/RCTNetwork (0.59.4):
+  - React/RCTNetwork (0.59.8):
     - React/Core
-  - React/RCTSettings (0.59.4):
+  - React/RCTSettings (0.59.8):
     - React/Core
-  - React/RCTText (0.59.4):
+  - React/RCTText (0.59.8):
     - React/Core
-  - React/RCTVibration (0.59.4):
+  - React/RCTVibration (0.59.8):
     - React/Core
-  - React/RCTWebSocket (0.59.4):
+  - React/RCTWebSocket (0.59.8):
     - React/Core
     - React/fishhook
     - React/RCTBlob
@@ -102,7 +102,7 @@ PODS:
     - React/Core
     - RSKImageCropper
   - RSKImageCropper (2.2.1)
-  - yoga (0.59.4.React)
+  - yoga (0.59.8.React)
 
 DEPENDENCIES:
   - FBSDKCoreKit
@@ -165,10 +165,10 @@ SPEC CHECKSUMS:
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
-  React: 5cb71fb1a15b5ce04794ab49e24b48ebe4c94e65
+  React: 76e6aa2b87d05eb6cccb6926d72685c9a07df152
   RNImageCropPicker: 6134b66a3d5bc13e2895a97c630a4254006902b4
   RSKImageCropper: 98296ad26b41753f796b6898d015509598f13d97
-  yoga: 596e61c9b57751d08a22b07aba310dbd3e65ab75
+  yoga: 92b2102c3d373d1a790db4ab761d2b0ffc634f64
 
 PODFILE CHECKSUM: 47f715a5205e0354b46ec53e379a9b36bfcb28ac
 

@@ -1,5 +1,5 @@
 import * as RNOmniture from 'react-native-omniture';
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Tracker, Emitter } from '@ringierag/snowplow-reactjs-native-tracker';
 import Config from 'react-native-config';
 
@@ -129,7 +129,7 @@ function sendState(context) {
   //sendStateToSnowplow(context);
 }
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function sendStateToSnowplow(context) {
   const idData = {
     gr_master_person_id: context[ANALYTICS.GR_MASTER_PERSON_ID],

@@ -11,6 +11,7 @@ matrix:
       script:
         - yarn run test:coverage --maxWorkers=4
         - yarn run lint
+        - yarn run lint:ts
         - yarn run prettier:check
       notifications:
         email: false

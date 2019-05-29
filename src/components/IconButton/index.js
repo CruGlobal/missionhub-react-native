@@ -16,7 +16,7 @@ export default class IconButton extends Component {
   };
   render() {
     // Remove `pressProps` and `onPress` so that they aren't included in the `...rest` array
-    const { name, type, style = {}, onPress, pressProps, ...rest } = this.props; // eslint-disable-line no-unused-vars
+    const { name, type, style = {}, onPress, pressProps, ...rest } = this.props; // eslint-disable-line @typescript-eslint/no-unused-vars
 
     return (
       <Button type="transparent" {...rest} onPress={this.handlePress}>
