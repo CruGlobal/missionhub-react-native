@@ -4,15 +4,14 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -50,8 +49,8 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -62,61 +61,72 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         >
           John S. accepted a Challenge:
         </MyText>
-        <Flex
-          direction="row"
+        <View
+          flexDirection="row"
         >
           <Button
-            buttonTextStyle={
-              Object {
-                "color": "#007398",
-                "fontSize": 14,
-                "fontWeight": "400",
-                "letterSpacing": 0,
-                "textAlign": "left",
-              }
-            }
             onPress={[Function]}
             style={
               Object {
                 "marginTop": 4,
               }
             }
-            text="Invite a friend to church"
             type="transparent"
-          />
-        </Flex>
+          >
+            <MyText
+              numberOfLines={2}
+              style={
+                Object {
+                  "color": "#007398",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                  "letterSpacing": 0,
+                  "lineHeight": 18,
+                  "textAlign": "left",
+                }
+              }
+            >
+              Invite a friend to church
+            </MyText>
+          </Button>
+        </View>
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "celebrateable_type": "accepted_community_challenge",
-          "changed_attribute_name": "accepted_at",
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "object_description": "Invite a friend to church",
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "celebrateable_type": "accepted_community_challenge",
+            "changed_attribute_name": "accepted_at",
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "object_description": "Invite a friend to church",
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -124,15 +134,14 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -170,8 +179,8 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -182,61 +191,72 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         >
           John S. completed a Challenge:
         </MyText>
-        <Flex
-          direction="row"
+        <View
+          flexDirection="row"
         >
           <Button
-            buttonTextStyle={
-              Object {
-                "color": "#007398",
-                "fontSize": 14,
-                "fontWeight": "400",
-                "letterSpacing": 0,
-                "textAlign": "left",
-              }
-            }
             onPress={[Function]}
             style={
               Object {
                 "marginTop": 4,
               }
             }
-            text="Invite a friend to church"
             type="transparent"
-          />
-        </Flex>
+          >
+            <MyText
+              numberOfLines={2}
+              style={
+                Object {
+                  "color": "#007398",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                  "letterSpacing": 0,
+                  "lineHeight": 18,
+                  "textAlign": "left",
+                }
+              }
+            >
+              Invite a friend to church
+            </MyText>
+          </Button>
+        </View>
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "celebrateable_type": "accepted_community_challenge",
-          "changed_attribute_name": "completed_at",
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "object_description": "Invite a friend to church",
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "celebrateable_type": "accepted_community_challenge",
+            "changed_attribute_name": "completed_at",
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "object_description": "Invite a friend to church",
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -244,15 +264,14 @@ exports[`CelebrateItem message renders created community event 1`] = `
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -295,8 +314,8 @@ exports[`CelebrateItem message renders created community event 1`] = `
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -307,39 +326,44 @@ exports[`CelebrateItem message renders created community event 1`] = `
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         >
           John S. created Celebration Community!
         </MyText>
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "celebrateable_type": "organization",
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "organization": Object {
-            "name": "Celebration Community",
-          },
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "celebrateable_type": "organization",
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "organization": Object {
+              "name": "Celebration Community",
+            },
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -347,15 +371,14 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -387,8 +410,8 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -399,33 +422,38 @@ exports[`CelebrateItem message renders event with no subject person name 1`] = `
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         >
           A MissionHub user completed a Step of Faith with a Forgiven person.
         </MyText>
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "adjective_attribute_value": "3",
-          "celebrateable_type": "accepted_challenge",
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "subject_person": null,
-          "subject_person_name": null,
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "adjective_attribute_value": "3",
+            "celebrateable_type": "accepted_challenge",
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "subject_person": null,
+            "subject_person_name": null,
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -433,15 +461,14 @@ exports[`CelebrateItem message renders joined community event 1`] = `
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -484,8 +511,8 @@ exports[`CelebrateItem message renders joined community event 1`] = `
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -496,39 +523,44 @@ exports[`CelebrateItem message renders joined community event 1`] = `
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         >
           John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
         </MyText>
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "celebrateable_type": "organizational_permission",
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "organization": Object {
-            "name": "Celebration Community",
-          },
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "celebrateable_type": "organizational_permission",
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "organization": Object {
+              "name": "Celebration Community",
+            },
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -536,15 +568,14 @@ exports[`CelebrateItem message renders joined community with passed in org name 
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -588,8 +619,8 @@ exports[`CelebrateItem message renders joined community with passed in org name 
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -600,39 +631,44 @@ exports[`CelebrateItem message renders joined community with passed in org name 
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         >
           John S. joined My Real Org! Now you can see and celebrate the steps of faith they are taking.
         </MyText>
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "celebrateable_type": "organizational_permission",
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "organization": Object {
-            "name": "Celebration Community",
-          },
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "celebrateable_type": "organizational_permission",
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "organization": Object {
+              "name": "Celebration Community",
+            },
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -640,15 +676,14 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -686,8 +721,8 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -698,37 +733,42 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         >
           John S. had a Spiritual Conversation.
         </MyText>
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "adjective_attribute_value": 2,
-          "celebrateable_type": "interaction",
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "adjective_attribute_value": 2,
+            "celebrateable_type": "interaction",
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -736,15 +776,14 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -782,8 +821,8 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -794,37 +833,42 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         >
           John S. saw someone make a Personal Decision.
         </MyText>
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "adjective_attribute_value": 4,
-          "celebrateable_type": "interaction",
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "adjective_attribute_value": 4,
+            "celebrateable_type": "interaction",
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -832,15 +876,14 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -878,8 +921,8 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -890,37 +933,42 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         >
           John S. saw something cool happen with someone.
         </MyText>
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "adjective_attribute_value": 11,
-          "celebrateable_type": "interaction",
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "adjective_attribute_value": 11,
+            "celebrateable_type": "interaction",
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -928,15 +976,14 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -974,8 +1021,8 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -986,37 +1033,42 @@ exports[`CelebrateItem message renders step of faith event with Not Sure stage 1
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         >
           John S. completed a Step of Faith.
         </MyText>
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "adjective_attribute_value": "6",
-          "celebrateable_type": "accepted_challenge",
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "adjective_attribute_value": "6",
+            "celebrateable_type": "accepted_challenge",
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -1024,15 +1076,14 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -1070,8 +1121,8 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -1082,37 +1133,42 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         >
           John S. completed a Step of Faith with a Forgiven person.
         </MyText>
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "adjective_attribute_value": "3",
-          "celebrateable_type": "accepted_challenge",
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "adjective_attribute_value": "3",
+            "celebrateable_type": "accepted_challenge",
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -1120,15 +1176,14 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -1166,8 +1221,8 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -1178,36 +1233,41 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         >
           John S. completed a Step of Faith with someone.
         </MyText>
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "celebrateable_type": "accepted_challenge",
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "celebrateable_type": "accepted_challenge",
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -1215,15 +1275,14 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -1261,8 +1320,8 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -1273,33 +1332,38 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         />
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -1307,15 +1371,14 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -1353,8 +1416,8 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -1365,33 +1428,38 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         />
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 1,
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 1,
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -1399,15 +1467,14 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -1445,8 +1512,8 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -1457,33 +1524,38 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         />
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": true,
-          "likes_count": 1,
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "123",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": true,
+            "likes_count": 1,
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "123",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -1491,15 +1563,14 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -1537,8 +1608,8 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -1549,33 +1620,38 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         />
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": false,
-          "likes_count": 0,
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "456",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": false,
+            "likes_count": 0,
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "456",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -1583,15 +1659,14 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -1629,8 +1704,8 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -1641,33 +1716,38 @@ exports[`CelebrateItem renders event for subject=other, liked=true, like count>0
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         />
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "liked": true,
-          "likes_count": 1,
-          "subject_person": Object {
-            "first_name": "John",
-            "id": "456",
-            "last_name": "Smith",
-          },
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "liked": true,
+            "likes_count": 1,
+            "subject_person": Object {
+              "first_name": "John",
+              "id": "456",
+              "last_name": "Smith",
+            },
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -1675,15 +1755,14 @@ exports[`CelebrateItem renders event with fixed height 1`] = `
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -1714,8 +1793,8 @@ exports[`CelebrateItem renders event with fixed height 1`] = `
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {
               "height": 70,
@@ -1728,26 +1807,31 @@ exports[`CelebrateItem renders event with fixed height 1`] = `
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         />
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -1755,15 +1839,14 @@ exports[`CelebrateItem renders event with no subject person (global community ev
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -1794,8 +1877,8 @@ exports[`CelebrateItem renders event with no subject person (global community ev
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -1806,26 +1889,31 @@ exports[`CelebrateItem renders event with no subject person (global community ev
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         />
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "subject_person_name": "John Smith",
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
 
@@ -1833,15 +1921,14 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
 <Card
   onPress={[Function]}
 >
-  <Flex
-    direction="column"
-    value={1}
+  <View
+    flex={1}
+    flexDirection="column"
   >
-    <Flex
-      direction="column"
+    <View
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
     >
@@ -1872,8 +1959,8 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
         style={
           Array [
             Object {
+              "marginTop": 14,
               "maxHeight": 70,
-              "paddingTop": 12,
             },
             Object {},
           ]
@@ -1884,25 +1971,30 @@ exports[`CelebrateItem renders event with no subject person name 1`] = `
             Object {
               "fontSize": 14,
               "justifyContent": "flex-start",
+              "lineHeight": 18,
             }
           }
         />
       </View>
-    </Flex>
+    </View>
     <Separator />
-    <Connect(CommentLikeComponent)
-      event={
-        Object {
-          "changed_attribute_value": "2004-04-04 00:00:00 UTC",
-          "subject_person_name": null,
-        }
-      }
+    <View
+      justifyContent="flex-end"
       style={
         Object {
-          "padding": 16,
+          "padding": 14,
         }
       }
-    />
-  </Flex>
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "subject_person_name": null,
+          }
+        }
+      />
+    </View>
+  </View>
 </Card>
 `;
