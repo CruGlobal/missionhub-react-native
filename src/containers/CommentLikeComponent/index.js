@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Image, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -38,12 +38,12 @@ class CommentLikeComponent extends Component {
     const displayCommentCount = comments_count > 0;
 
     return (
-      <Fragment>
+      <>
         <Text style={styles.likeCount}>
           {displayCommentCount ? comments_count : null}
         </Text>
         <Image source={COMMENTS} />
-      </Fragment>
+      </>
     );
   }
 
@@ -56,7 +56,7 @@ class CommentLikeComponent extends Component {
       likes_count > 0 && subject_person && subject_person.id === myId;
 
     return (
-      <Fragment>
+      <>
         <Text style={styles.likeCount}>
           {displayLikeCount ? likes_count : null}
         </Text>
@@ -68,7 +68,7 @@ class CommentLikeComponent extends Component {
         >
           <Image source={liked ? BLUE_HEART : GREY_HEART} />
         </Button>
-      </Fragment>
+      </>
     );
   }
 
