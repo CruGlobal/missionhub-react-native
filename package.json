@@ -15,10 +15,11 @@
     "test:s": "npm run test:snapshot",
     "ios": "react-native run-ios",
     "ios:pod": "cd ios && pod install",
-    "lint": "eslint ./*.js ./src",
-    "lint:fix": "eslint ./*.js ./src --fix",
-    "prettier:check": "prettier '{{src,bin,testUtils,__{tests,mocks}__}/**/*.{js,json},./*.{js,json,yml}}' --list-different",
-    "prettier:write": "prettier '{{src,bin,testUtils,__{tests,mocks}__}/**/*.{js,json},./*.{js,json,yml}}' --write",
+    "lint": "eslint './*.{js,ts,tsx}' './src/**/*.{js,ts,tsx}'",
+    "lint:fix": "eslint './*.{js,ts,tsx}' './src/**/*.{js,ts,tsx}' --fix",
+    "lint:ts": "tsc",
+    "prettier:check": "prettier '{{src,bin,testUtils,__{tests,mocks}__}/**/*.{js,json,ts,tsx},./*.{js,json,ts,tsx,yml}}' --list-different",
+    "prettier:write": "prettier '{{src,bin,testUtils,__{tests,mocks}__}/**/*.{js,json,ts,tsx},./*.{js,json,ts,tsx,yml}}' --write",
     "android": "react-native run-android",
     "android:install:dev": "adb install android/app/build/outputs/apk/app-debug.apk",
     "android:install:release": "adb install android/app/build/outputs/apk/app-release.apk",
@@ -52,7 +53,7 @@
     "react-native-code-push": "^5.6.0",
     "react-native-config": "^0.11.7",
     "react-native-default-preference": "https://github.com/kevinresol/react-native-default-preference#46697032198861affe73f4bf9d438c328cc312b2",
-    "react-native-device-info": "^2.0.1",
+    "react-native-device-info": "^2.0.2",
     "react-native-fbsdk": "^0.8.0",
     "react-native-firebase": "^5.3.1",
     "react-native-gesture-handler": "^1.2.1",
@@ -82,6 +83,13 @@
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@brainly/onesky-utils": "^1.3.1",
+    "@types/color": "^3.0.0",
+    "@types/jest": "^24.0.13",
+    "@types/react": "^16.8.18",
+    "@types/react-native": "^0.57.60",
+    "@types/react-redux": "^7.0.9",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
     "appcenter-cli": "^1.1.18",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
@@ -102,7 +110,8 @@
     "pretty-quick": "^1.11.0",
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
-    "redux-mock-store": "^1.5.3"
+    "redux-mock-store": "^1.5.3",
+    "typescript": "^3.4.5"
   },
   "jest": {
     "preset": "react-native",
@@ -123,7 +132,7 @@
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverageFrom": [
-      "src/**/*.js"
+      "src/**/*.{js,ts,tsx}"
     ],
     "clearMocks": true
   },
