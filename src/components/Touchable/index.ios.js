@@ -22,7 +22,7 @@ class TouchableIOS extends Component {
     const {
       highlight,
       withoutFeedback,
-      pressProps, // eslint-disable-line no-unused-vars
+      pressProps, // eslint-disable-line @typescript-eslint/no-unused-vars
       ...rest
     } = this.props;
 

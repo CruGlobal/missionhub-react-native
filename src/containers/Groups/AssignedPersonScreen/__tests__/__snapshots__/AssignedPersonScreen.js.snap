@@ -4,7 +4,7 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
 <View>
   <StatusBar
     animated={true}
-    backgroundColor="#007398"
+    backgroundColor="#006789"
     barStyle="light-content"
     showHideTransition="fade"
   />

@@ -27,7 +27,7 @@ class TouchableAndroid extends Component {
       isAndroidOpacity,
       children,
       style,
-      pressProps, // eslint-disable-line no-unused-vars
+      pressProps, // eslint-disable-line @typescript-eslint/no-unused-vars
       withoutFeedback,
       ...rest
     } = this.props;
