@@ -4,12 +4,15 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   icon: {
-    margin: 0,
     height: 24,
     width: 24,
   },
   likeCount: {
-    fontSize: 14,
-    color: theme.textColor,
+    width: 30,
+    paddingRight: 6,
+    fontSize: 12,
+    lineHeight: 16,
+    textAlign: 'right',
+    color: theme.lightGrey,
   },
 });

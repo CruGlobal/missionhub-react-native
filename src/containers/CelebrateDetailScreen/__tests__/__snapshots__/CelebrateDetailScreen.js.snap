@@ -137,26 +137,14 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                   }
                 >
                   <View
-                    style={
-                      Array [
-                        Object {},
-                        Object {
-                          "flex": 1,
-                          "flexDirection": "column",
-                        },
-                      ]
-                    }
+                    flex={1}
+                    flexDirection="column"
                   >
                     <View
                       style={
-                        Array [
-                          Object {
-                            "padding": 16,
-                          },
-                          Object {
-                            "flexDirection": "column",
-                          },
-                        ]
+                        Object {
+                          "padding": 14,
+                        }
                       }
                     >
                       <View
@@ -327,8 +315,8 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                         style={
                           Array [
                             Object {
+                              "marginTop": 14,
                               "maxHeight": 70,
-                              "paddingTop": 12,
                             },
                             Object {
                               "height": 70,
@@ -348,6 +336,7 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                               Object {
                                 "fontSize": 14,
                                 "justifyContent": "flex-start",
+                                "lineHeight": 18,
                               },
                             ]
                           }
@@ -366,81 +355,76 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                       }
                     />
                     <View
+                      justifyContent="flex-end"
                       style={
-                        Array [
-                          Object {
-                            "padding": 16,
-                          },
-                          Object {
-                            "alignItems": "flex-end",
-                            "flexDirection": "row",
-                            "justifyContent": "flex-end",
-                          },
-                        ]
+                        Object {
+                          "padding": 14,
+                        }
                       }
                     >
-                      <Text
-                        style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                            },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Object {
-                              "color": "#505256",
-                              "fontSize": 14,
-                            },
-                          ]
-                        }
-                      />
                       <View
-                        accessible={true}
-                        isTVSelectable={true}
-                        onResponderGrant={[Function]}
-                        onResponderMove={[Function]}
-                        onResponderRelease={[Function]}
-                        onResponderTerminate={[Function]}
-                        onResponderTerminationRequest={[Function]}
-                        onStartShouldSetResponder={[Function]}
-                        style={
-                          Object {
-                            "opacity": 1,
-                          }
-                        }
+                        alignItems="center"
+                        flexDirection="row"
+                        justifyContent="flex-end"
                       >
-                        <View
+                        <Text
                           style={
                             Array [
                               Object {
-                                "alignItems": "center",
-                                "backgroundColor": "transparent",
-                                "borderRadius": 0,
-                                "borderWidth": 0,
-                                "height": 60,
-                                "justifyContent": "center",
-                                "margin": 0,
-                                "paddingHorizontal": 20,
-                                "paddingVertical": 10,
+                                "color": "#505256",
                               },
-                              null,
                               Object {
-                                "height": 24,
-                                "margin": 0,
-                                "width": 24,
+                                "fontFamily": "SourceSansPro-Regular",
                               },
-                              null,
+                              Object {
+                                "color": "#B4B6BA",
+                                "fontSize": 12,
+                                "lineHeight": 16,
+                                "paddingRight": 6,
+                                "textAlign": "right",
+                                "width": 30,
+                              },
                             ]
                           }
-                        >
-                          <Image
-                            source={
-                              Object {
-                                "testUri": "../../../assets/images/heart-grey.png",
-                              }
+                        />
+                        <View
+                          accessible={true}
+                          isTVSelectable={true}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
+                          style={
+                            Object {
+                              "opacity": 1,
                             }
-                          />
+                          }
+                        >
+                          <View
+                            style={
+                              Array [
+                                Object {
+                                  "backgroundColor": "transparent",
+                                },
+                                null,
+                                Object {
+                                  "height": 24,
+                                  "width": 24,
+                                },
+                                null,
+                              ]
+                            }
+                          >
+                            <Image
+                              source={
+                                Object {
+                                  "testUri": "../../../assets/images/heart-grey.png",
+                                }
+                              }
+                            />
+                          </View>
                         </View>
                       </View>
                     </View>
@@ -1030,16 +1014,9 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                   }
                 >
                   <View
-                    style={
-                      Array [
-                        Object {},
-                        Object {
-                          "alignItems": "flex-end",
-                          "flexDirection": "row",
-                          "justifyContent": "flex-end",
-                        },
-                      ]
-                    }
+                    alignItems="center"
+                    flexDirection="row"
+                    justifyContent="flex-end"
                   >
                     <Text
                       style={
@@ -1051,8 +1028,12 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                             "fontFamily": "SourceSansPro-Regular",
                           },
                           Object {
-                            "color": "#505256",
-                            "fontSize": 14,
+                            "color": "#B4B6BA",
+                            "fontSize": 12,
+                            "lineHeight": 16,
+                            "paddingRight": 6,
+                            "textAlign": "right",
+                            "width": 30,
                           },
                         ]
                       }
@@ -1076,20 +1057,11 @@ exports[`CelebrateDetailScreen renders tree correctly 1`] = `
                         style={
                           Array [
                             Object {
-                              "alignItems": "center",
                               "backgroundColor": "transparent",
-                              "borderRadius": 0,
-                              "borderWidth": 0,
-                              "height": 60,
-                              "justifyContent": "center",
-                              "margin": 0,
-                              "paddingHorizontal": 20,
-                              "paddingVertical": 10,
                             },
                             null,
                             Object {
                               "height": 24,
-                              "margin": 0,
                               "width": 24,
                             },
                             null,

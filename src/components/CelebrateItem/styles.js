@@ -4,10 +4,10 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   content: {
-    padding: 16,
+    padding: 14,
   },
   description: {
-    paddingTop: 12,
+    marginTop: 14,
     maxHeight: 70,
   },
   fixedHeightDescription: {
@@ -15,6 +15,7 @@ export default StyleSheet.create({
   },
   messageText: {
     fontSize: 14,
+    lineHeight: 18,
     justifyContent: 'flex-start',
   },
   challengeLinkButton: {
@@ -22,6 +23,7 @@ export default StyleSheet.create({
   },
   challengeLinkText: {
     fontSize: 14,
+    lineHeight: 18,
     fontWeight: '400',
     letterSpacing: 0,
     color: theme.primaryColor,
