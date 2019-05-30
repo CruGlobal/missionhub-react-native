@@ -14,7 +14,7 @@ exports[`GroupCardItem renders for global community 1`] = `
       Array [
         Object {
           "borderRadius": 4,
-          "height": 200,
+          "height": 403.875,
         },
         undefined,
       ]
@@ -96,7 +96,7 @@ exports[`GroupCardItem renders for join screen 1`] = `
       Array [
         Object {
           "borderRadius": 4,
-          "height": 200,
+          "height": 403.875,
         },
         undefined,
       ]
@@ -205,7 +205,7 @@ exports[`GroupCardItem renders user created group 1`] = `
       Array [
         Object {
           "borderRadius": 4,
-          "height": 200,
+          "height": 403.875,
         },
         Object {
           "backgroundColor": "#005A7F",
@@ -274,7 +274,7 @@ exports[`GroupCardItem renders user created group with member count 1`] = `
       Array [
         Object {
           "borderRadius": 4,
-          "height": 200,
+          "height": 403.875,
         },
         Object {
           "backgroundColor": "#005A7F",
@@ -343,7 +343,7 @@ exports[`GroupCardItem renders user created group with singular member count 1`]
       Array [
         Object {
           "borderRadius": 4,
-          "height": 200,
+          "height": 403.875,
         },
         Object {
           "backgroundColor": "#005A7F",
@@ -412,7 +412,7 @@ exports[`GroupCardItem renders with all report counts 1`] = `
       Array [
         Object {
           "borderRadius": 4,
-          "height": 200,
+          "height": 403.875,
         },
         undefined,
       ]
@@ -496,7 +496,7 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
       Array [
         Object {
           "borderRadius": 4,
-          "height": 200,
+          "height": 403.875,
         },
         undefined,
       ]
@@ -580,7 +580,7 @@ exports[`GroupCardItem renders with image url 1`] = `
       Array [
         Object {
           "borderRadius": 4,
-          "height": 200,
+          "height": 403.875,
         },
         undefined,
       ]
@@ -664,7 +664,7 @@ exports[`GroupCardItem renders with no report counts 1`] = `
       Array [
         Object {
           "borderRadius": 4,
-          "height": 200,
+          "height": 403.875,
         },
         undefined,
       ]
@@ -748,7 +748,7 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
       Array [
         Object {
           "borderRadius": 4,
-          "height": 200,
+          "height": 403.875,
         },
         Object {
           "backgroundColor": "#005A7F",
@@ -817,7 +817,7 @@ exports[`GroupCardItem renders with notification 1`] = `
       Array [
         Object {
           "borderRadius": 4,
-          "height": 200,
+          "height": 403.875,
         },
         undefined,
       ]
@@ -931,7 +931,7 @@ exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
       Array [
         Object {
           "borderRadius": 4,
-          "height": 200,
+          "height": 403.875,
         },
         undefined,
       ]
