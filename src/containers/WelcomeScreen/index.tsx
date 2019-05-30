@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { ThunkDispatch } from 'redux-thunk';
+import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -18,8 +18,9 @@ const WelcomeScreen = ({
   next,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, any>;
-  next: (params: { signin: boolean }) => {};
+  dispatch: ThunkDispatch<any, null, never>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  next: (params: { signin: boolean }) => ThunkAction<void, any, null, never>;
 }) => {
   useEffect(() => {
     disableBack.add();
