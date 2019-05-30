@@ -111,10 +111,6 @@ export default {
     endpoint: `${CHALLENGES_URL}/:challenge_id`,
     method: 'put',
   },
-  CHALLENGE_SET_FOCUS: {
-    endpoint: `${CHALLENGES_URL}/:challenge_id`,
-    method: 'put',
-  },
   DELETE_CHALLENGE_REMINDER: {
     endpoint: `${CHALLENGES_URL}/:challenge_id/reminder`,
     method: 'delete',

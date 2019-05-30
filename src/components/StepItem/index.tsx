@@ -128,5 +128,4 @@ const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
   myId: auth.person.id,
 });
 
-const connectedComponent = connect(mapStateToProps)(StepItem);
-export default connectedComponent;
+export default connect(mapStateToProps)(StepItem);

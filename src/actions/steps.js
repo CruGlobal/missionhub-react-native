@@ -3,11 +3,9 @@
 import i18next from 'i18next';
 
 import {
-  TOGGLE_STEP_FOCUS,
   COMPLETED_STEP_COUNT,
   STEP_NOTE,
   ACTIONS,
-  DEFAULT_PAGE_LIMIT,
   ACCEPTED_STEP,
 } from '../constants';
 import {
@@ -20,6 +18,8 @@ import {
   COMPLETE_STEP_FLOW,
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
 } from '../routes/constants';
+import { apolloClient } from '../apolloClient';
+import { STEPS_QUERY } from '../containers/StepsScreen';
 
 import { refreshImpact } from './impact';
 import { navigatePush } from './navigation';
@@ -39,40 +39,6 @@ export function getStepSuggestions(isMe, contactStageId) {
     };
 
     return dispatch(callApi(REQUESTS.GET_CHALLENGE_SUGGESTIONS, query));
-  };
-}
-
-export function getMySteps(query = {}) {
-  return dispatch => {
-    const queryObj = {
-      order: '-focused_at,-accepted_at',
-      ...query,
-      filters: {
-        ...(query.filters || {}),
-        completed: false,
-      },
-      include:
-        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
-    };
-    return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
-  };
-}
-
-export function getMyStepsNextPage() {
-  return (dispatch, getState) => {
-    const { page, hasNextPage } = getState().steps.pagination;
-    if (!hasNextPage) {
-      // Does not have more data
-      return Promise.resolve();
-    }
-    const query = {
-      page: {
-        limit: DEFAULT_PAGE_LIMIT,
-        offset: DEFAULT_PAGE_LIMIT * page,
-      },
-      include: '',
-    };
-    return dispatch(getMySteps(query));
   };
 }
 
@@ -133,36 +99,6 @@ export function addStep(stepSuggestion, receiverId, organization) {
   };
 }
 
-export function setStepFocus(step, isFocus) {
-  return async dispatch => {
-    const query = { challenge_id: step.id };
-    const data = {
-      data: {
-        type: ACCEPTED_STEP,
-        attributes: {
-          organization_id: step.organization ? step.organization.id : null,
-          focus: isFocus,
-        },
-        relationships: {
-          receiver: {
-            data: {
-              type: 'person',
-              id: step.receiver.id,
-            },
-          },
-        },
-      },
-    };
-
-    const { response } = await dispatch(
-      callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data),
-    );
-    if (step.focus !== response.focus) {
-      dispatch({ type: TOGGLE_STEP_FOCUS, step });
-    }
-  };
-}
-
 export function updateChallengeNote(stepId, note) {
   return dispatch => {
     const query = { challenge_id: stepId };
@@ -194,7 +130,7 @@ function completeChallengeAPI(step) {
     dispatch({ type: COMPLETED_STEP_COUNT, userId: receiverId });
     dispatch(refreshImpact(orgId));
 
-    dispatch(getMySteps());
+    apolloClient.query({ query: STEPS_QUERY, fetchPolicy: 'network-only' });
     dispatch(getContactSteps(receiverId, orgId));
 
     if (orgId) {

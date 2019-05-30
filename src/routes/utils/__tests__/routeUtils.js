@@ -1,18 +1,17 @@
 import i18next from 'i18next';
 
 import { paramsForStageNavigation } from '../';
-import { personSelector } from '../../../selectors/people';
+import { createApolloMockClient } from '../../../../testUtils/apolloMockClient';
+import apolloClientModule from '../../../apolloClient';
 
-jest.mock('../../../selectors/people');
+jest.mock('../../../apolloClient');
 
 const myId = '111';
 const otherId = '222';
 const myName = 'Me';
-const otherName = 'Other';
 const orgId = '11';
 const stageId = 0;
 const notSureStageId = 1;
-const assignmentId = '33';
 
 const myPerson = {
   id: myId,
@@ -24,30 +23,8 @@ const myPersonNotSure = {
   user: { pathway_stage_id: notSureStageId },
 };
 
-const reverseAssignment = {
-  id: assignmentId,
-  organization: { id: orgId },
-  pathway_stage_id: stageId,
-  assigned_to: { id: myId },
-};
-const reverseAssignmentNotSure = {
-  ...reverseAssignment,
-  pathway_stage_id: notSureStageId,
-};
-
-const otherPerson = {
-  id: otherId,
-  first_name: otherName,
-  reverse_contact_assignments: [reverseAssignment],
-};
-const otherPersonNotSure = {
-  ...otherPerson,
-  reverse_contact_assignments: [reverseAssignmentNotSure],
-};
-
 const baseState = {
   auth: { person: myPerson },
-  people: { allByOrg: [{ id: orgId, people: { [otherId]: otherPerson } }] },
   stages: {
     stages: [{ id: stageId }, { id: notSureStageId }],
     stagesObj: {
@@ -61,13 +38,12 @@ const baseState = {
 const getState = jest.fn();
 
 beforeEach(() => {
-  personSelector.mockReturnValue(otherPerson);
   getState.mockReturnValue(baseState);
 });
 
 describe('is Me, not "Not Sure" stage, step count not complete', () => {
-  it('returns correct params', () => {
-    const result = paramsForStageNavigation(myId, orgId, getState);
+  it('returns correct params', async () => {
+    const result = await paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({
       isMe: true,
@@ -76,7 +52,7 @@ describe('is Me, not "Not Sure" stage, step count not complete', () => {
       subsection: 'self',
       firstItemIndex: stageId,
       questionText: i18next.t('selectStage:completed3StepsMe'),
-      assignment: null,
+      contactAssignmentId: null,
       name: myName,
     });
   });
@@ -92,10 +68,24 @@ describe('is Me, "Not Sure" stage, step count not complete', () => {
       },
     };
     getState.mockReturnValue(newState);
+
+    apolloClientModule.apolloClient = createApolloMockClient({
+      Query: () => ({
+        person: () => ({
+          reverseContactAssignments: () => [
+            {
+              assignedTo: () => ({ id: myId }),
+              organization: () => ({ id: orgId }),
+              pathwayStage: () => ({ id: notSureStageId }),
+            },
+          ],
+        }),
+      }),
+    });
   });
 
-  it('returns correct params', () => {
-    const result = paramsForStageNavigation(myId, orgId, getState);
+  it('returns correct params', async () => {
+    const result = await paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({
       isMe: true,
@@ -106,7 +96,7 @@ describe('is Me, "Not Sure" stage, step count not complete', () => {
       questionText: i18next.t('selectStage:meQuestion', {
         name: myName,
       }),
-      assignment: null,
+      contactAssignmentId: null,
       name: myName,
     });
   });
@@ -126,8 +116,8 @@ describe('is Me, not "Not Sure" stage, step count complete', () => {
     getState.mockReturnValue(newState);
   });
 
-  it('returns correct params', () => {
-    const result = paramsForStageNavigation(myId, orgId, getState);
+  it('returns correct params', async () => {
+    const result = await paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({
       isMe: true,
@@ -136,28 +126,42 @@ describe('is Me, not "Not Sure" stage, step count complete', () => {
       subsection: 'self',
       firstItemIndex: stageId,
       questionText: i18next.t('selectStage:completed3StepsMe'),
-      assignment: null,
+      contactAssignmentId: null,
       name: myName,
     });
   });
 });
 
 describe('is not Me, not "Not Sure" stage, step count not complete', () => {
-  it('returns correct params', () => {
-    const result = paramsForStageNavigation(otherId, orgId, getState);
-
-    expect(result).toEqual({
-      isMe: false,
-      hasHitCount: false,
-      isNotSure: false,
-      subsection: 'person',
-      firstItemIndex: stageId,
-      questionText: i18next.t('selectStage:completed3Steps', {
-        name: otherName,
+  it('returns correct params', async () => {
+    apolloClientModule.apolloClient = createApolloMockClient({
+      Query: () => ({
+        person: () => ({
+          reverseContactAssignments: () => [
+            {
+              assignedTo: () => ({ id: myId }),
+              organization: () => ({ id: orgId }),
+              pathwayStage: () => ({ id: stageId }),
+            },
+          ],
+        }),
       }),
-      assignment: reverseAssignment,
-      name: otherName,
     });
+
+    const result = await paramsForStageNavigation(otherId, orgId, getState);
+
+    expect(result).toMatchInlineSnapshot(`
+      Object {
+        "contactAssignmentId": "1",
+        "firstItemIndex": 0,
+        "hasHitCount": false,
+        "isMe": false,
+        "isNotSure": false,
+        "name": "Hayden",
+        "questionText": "You completed 3 steps with Hayden. Any changes spiritually?",
+        "subsection": "person",
+      }
+    `);
   });
 });
 
@@ -165,29 +169,39 @@ describe('is not Me, "Not Sure" stage, step count not complete', () => {
   beforeEach(() => {
     const newState = {
       ...baseState,
-      people: {
-        allByOrg: [{ id: orgId, people: { [otherId]: otherPersonNotSure } }],
-      },
     };
-    personSelector.mockReturnValue(otherPersonNotSure);
     getState.mockReturnValue(newState);
+
+    apolloClientModule.apolloClient = createApolloMockClient({
+      Query: () => ({
+        person: () => ({
+          reverseContactAssignments: () => [
+            {
+              assignedTo: () => ({ id: myId }),
+              organization: () => ({ id: orgId }),
+              pathwayStage: () => ({ id: notSureStageId }),
+            },
+          ],
+        }),
+      }),
+    });
   });
 
-  it('returns correct params', () => {
-    const result = paramsForStageNavigation(otherId, orgId, getState);
+  it('returns correct params', async () => {
+    const result = await paramsForStageNavigation(otherId, orgId, getState);
 
-    expect(result).toEqual({
-      isMe: false,
-      hasHitCount: false,
-      isNotSure: true,
-      subsection: 'person',
-      firstItemIndex: notSureStageId,
-      questionText: i18next.t('selectStage:completed1Step', {
-        name: otherName,
-      }),
-      assignment: reverseAssignmentNotSure,
-      name: otherName,
-    });
+    expect(result).toMatchInlineSnapshot(`
+      Object {
+        "contactAssignmentId": "1",
+        "firstItemIndex": 1,
+        "hasHitCount": false,
+        "isMe": false,
+        "isNotSure": true,
+        "name": "Hayden",
+        "questionText": "You completed a step with Hayden. Any changes spiritually?",
+        "subsection": "person",
+      }
+    `);
   });
 });
 
@@ -203,22 +217,36 @@ describe('is not Me, not "Not Sure" stage, step count complete', () => {
       },
     };
     getState.mockReturnValue(newState);
+
+    apolloClientModule.apolloClient = createApolloMockClient({
+      Query: () => ({
+        person: () => ({
+          reverseContactAssignments: () => [
+            {
+              assignedTo: () => ({ id: myId }),
+              organization: () => ({ id: orgId }),
+              pathwayStage: () => ({ id: stageId }),
+            },
+          ],
+        }),
+      }),
+    });
   });
 
-  it('returns correct params', () => {
-    const result = paramsForStageNavigation(otherId, orgId, getState);
+  it('returns correct params', async () => {
+    const result = await paramsForStageNavigation(otherId, orgId, getState);
 
-    expect(result).toEqual({
-      isMe: false,
-      hasHitCount: true,
-      isNotSure: false,
-      subsection: 'person',
-      firstItemIndex: stageId,
-      questionText: i18next.t('selectStage:completed3Steps', {
-        name: otherName,
-      }),
-      assignment: reverseAssignment,
-      name: otherName,
-    });
+    expect(result).toMatchInlineSnapshot(`
+      Object {
+        "contactAssignmentId": "1",
+        "firstItemIndex": 0,
+        "hasHitCount": true,
+        "isMe": false,
+        "isNotSure": false,
+        "name": "Hayden",
+        "questionText": "You completed 3 steps with Hayden. Any changes spiritually?",
+        "subsection": "person",
+      }
+    `);
   });
 });

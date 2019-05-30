@@ -13,7 +13,7 @@ declare module 'fraql/mock' {
     introspectionResult: any,
   ): GraphQLSchema;
   export interface Mocker {
-    // TODO: just changed from declare class
+    // TODO: was a `declare class` instead of interface. Needed to add `<TData>` to `mockFragment`
     // constructor(
     //   schema: import('graphql').GraphQLSchema,
     //   {

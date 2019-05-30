@@ -24,7 +24,13 @@ export const globalMocks = {
   AcceptedChallenge: () => ({
     title: faker.lorem.sentence(),
   }),
-  Person: () => ({
-    fullName: faker.name.findName(),
-  }),
+  Person: () => {
+    const firstName = faker.name.firstName();
+    const lastName = faker.name.lastName();
+    return {
+      fullName: `${firstName} ${lastName}`,
+      firstName,
+      lastName,
+    };
+  },
 };

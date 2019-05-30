@@ -16,7 +16,6 @@ import {
   showNotificationPrompt,
   showWelcomeNotification,
 } from '../../../actions/notifications';
-import { setStepFocus } from '../../../actions/steps';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
@@ -286,9 +285,6 @@ describe('StepsScreen', () => {
     (showNotificationPrompt as jest.Mock).mockReturnValue({
       type: 'showNotificationPrompt',
     });
-    (setStepFocus as jest.Mock).mockReturnValue({
-      type: 'setStepFocus',
-    });
     (showWelcomeNotification as jest.Mock).mockReturnValue({
       type: 'showWelcomeNotification',
     });
@@ -298,7 +294,14 @@ describe('StepsScreen', () => {
         mocks: {
           Query: () => ({
             acceptedChallenges: () => ({
-              nodes: () => [{ focus: false }],
+              nodes: () => [{ id: 10, focus: false }],
+            }),
+          }),
+          Mutation: () => ({
+            updateAcceptedChallenge: () => ({
+              acceptedChallenge: () => {
+                return { id: 10, focus: true };
+              },
             }),
           }),
         },
@@ -306,16 +309,22 @@ describe('StepsScreen', () => {
 
       await flushMicrotasksQueue();
 
-      fireEvent(getByTestId('step-item'), 'onAction', 'testStep');
+      fireEvent(getByTestId('step-item-10'), 'onAction');
+
+      await flushMicrotasksQueue();
 
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.STEP_PRIORITIZED,
       );
       expect(common.toast).toHaveBeenCalledWith('✔ Reminder Added');
-      expect(setStepFocus).toHaveBeenCalledWith(
-        { __typename: 'AcceptedChallenge', focus: false, id: '1' },
-        true,
-      );
+      expect(getByTestId('reminder-item-10').props.step).toMatchInlineSnapshot(`
+                Object {
+                  "__typename": "AcceptedChallenge",
+                  "focus": true,
+                  "id": "10",
+                }
+            `);
+      expect(() => getByTestId('step-item-10')).toThrow();
       expect(showNotificationPrompt).toHaveBeenCalledWith(
         NOTIFICATION_PROMPT_TYPES.FOCUS_STEP,
       );
@@ -327,7 +336,14 @@ describe('StepsScreen', () => {
         mocks: {
           Query: () => ({
             acceptedChallenges: () => ({
-              nodes: () => [{ focus: false }, { focus: true }],
+              nodes: () => [{ id: 10, focus: false }, { focus: true }],
+            }),
+          }),
+          Mutation: () => ({
+            updateAcceptedChallenge: () => ({
+              acceptedChallenge: () => {
+                return { id: 10, focus: true };
+              },
             }),
           }),
         },
@@ -335,16 +351,22 @@ describe('StepsScreen', () => {
 
       await flushMicrotasksQueue();
 
-      fireEvent(getByTestId('step-item'), 'onAction', 'testStep');
+      fireEvent(getByTestId('step-item-10'), 'onAction');
+
+      await flushMicrotasksQueue();
 
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.STEP_PRIORITIZED,
       );
       expect(common.toast).toHaveBeenCalledWith('✔ Reminder Added');
-      expect(setStepFocus).toHaveBeenCalledWith(
-        { __typename: 'AcceptedChallenge', focus: false, id: '1' },
-        true,
-      );
+      expect(getByTestId('reminder-item-10').props.step).toMatchInlineSnapshot(`
+                        Object {
+                          "__typename": "AcceptedChallenge",
+                          "focus": true,
+                          "id": "10",
+                        }
+                  `);
+      expect(() => getByTestId('step-item-10')).toThrow();
       expect(showNotificationPrompt).not.toHaveBeenCalled();
       expect(showWelcomeNotification).toHaveBeenCalled();
     });
@@ -355,7 +377,7 @@ describe('StepsScreen', () => {
           Query: () => ({
             acceptedChallenges: () => ({
               nodes: () => [
-                { focus: false },
+                { id: 10, focus: false },
 
                 { focus: true },
                 { focus: true },
@@ -363,18 +385,33 @@ describe('StepsScreen', () => {
               ],
             }),
           }),
+          Mutation: () => ({
+            updateAcceptedChallenge: () => ({
+              acceptedChallenge: () => {
+                return { id: 10, focus: true };
+              },
+            }),
+          }),
         },
       });
 
       await flushMicrotasksQueue();
 
-      fireEvent(getByTestId('step-item'), 'onAction', 'testStep');
+      fireEvent(getByTestId('step-item-10'), 'onAction', 'testStep');
+
+      await flushMicrotasksQueue();
 
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.STEP_PRIORITIZED,
       );
       expect(common.toast).not.toHaveBeenCalled();
-      expect(setStepFocus).not.toHaveBeenCalled();
+      expect(getByTestId('step-item-10').props.step).toMatchInlineSnapshot(`
+        Object {
+          "__typename": "AcceptedChallenge",
+          "focus": false,
+          "id": "10",
+        }
+      `);
       expect(showNotificationPrompt).not.toHaveBeenCalled();
       expect(showWelcomeNotification).not.toHaveBeenCalled();
     });
@@ -386,7 +423,14 @@ describe('StepsScreen', () => {
         mocks: {
           Query: () => ({
             acceptedChallenges: () => ({
-              nodes: () => [{ focus: true }],
+              nodes: () => [{ id: 10, focus: true }],
+            }),
+          }),
+          Mutation: () => ({
+            updateAcceptedChallenge: () => ({
+              acceptedChallenge: () => {
+                return { id: 10, focus: false };
+              },
             }),
           }),
         },
@@ -394,15 +438,20 @@ describe('StepsScreen', () => {
 
       await flushMicrotasksQueue();
 
-      fireEvent(getByTestId('reminder-item'), 'onAction', 'testStep');
+      fireEvent(getByTestId('reminder-item-10'), 'onAction');
+
+      await flushMicrotasksQueue();
 
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.STEP_DEPRIORITIZED,
       );
-      expect(setStepFocus).toHaveBeenCalledWith(
-        { __typename: 'AcceptedChallenge', focus: true, id: '1' },
-        false,
-      );
+      expect(getByTestId('step-item-10').props.step).toMatchInlineSnapshot(`
+        Object {
+          "__typename": "AcceptedChallenge",
+          "focus": false,
+          "id": "10",
+        }
+      `);
     });
   });
 
@@ -434,7 +483,7 @@ describe('StepsScreen', () => {
 
       await flushMicrotasksQueue();
 
-      const { onSelect, step } = getByTestId('step-item').props;
+      const { onSelect, step } = getByTestId('step-item-1').props;
       onSelect(step);
 
       expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {

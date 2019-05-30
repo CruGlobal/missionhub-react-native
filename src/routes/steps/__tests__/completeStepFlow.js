@@ -32,10 +32,6 @@ const orgId = '123';
 const contactAssignmentId = '22';
 const questionText = 'Text';
 
-const reverseContactAssignment = {
-  id: contactAssignmentId,
-};
-
 let onFlowComplete = undefined;
 
 let store = configureStore([thunk])();
@@ -88,16 +84,18 @@ describe('AddStepScreen next', () => {
 
   describe('isMe, stage is not "Not Sure", has not completed 3 steps', () => {
     beforeEach(() => {
-      paramsForStageNavigation.mockReturnValue({
-        isMe: true,
-        hasHitCount: false,
-        isNotSure: false,
-        subsection: 'self',
-        firstItemIndex: 0,
-        questionText,
-        assignment: null,
-        name: myName,
-      });
+      paramsForStageNavigation.mockReturnValue(
+        Promise.resolve({
+          isMe: true,
+          hasHitCount: false,
+          isNotSure: false,
+          subsection: 'self',
+          firstItemIndex: 0,
+          questionText,
+          contactAssignmentId: null,
+          name: myName,
+        }),
+      );
     });
 
     it('should fire required next actions', async () => {
@@ -122,16 +120,18 @@ describe('AddStepScreen next', () => {
 
   describe('isMe, stage is "Not Sure"', () => {
     beforeEach(() => {
-      paramsForStageNavigation.mockReturnValue({
-        isMe: true,
-        hasHitCount: false,
-        isNotSure: true,
-        subsection: 'self',
-        firstItemIndex: 1,
-        questionText,
-        assignment: null,
-        name: myName,
-      });
+      paramsForStageNavigation.mockReturnValue(
+        Promise.resolve({
+          isMe: true,
+          hasHitCount: false,
+          isNotSure: true,
+          subsection: 'self',
+          firstItemIndex: 1,
+          questionText,
+          contactAssignmentId: null,
+          name: myName,
+        }),
+      );
     });
 
     it('should fire required next actions', async () => {
@@ -167,16 +167,18 @@ describe('AddStepScreen next', () => {
 
   describe('isMe, has completed 3 steps', () => {
     beforeEach(() => {
-      paramsForStageNavigation.mockReturnValue({
-        isMe: true,
-        hasHitCount: true,
-        isNotSure: false,
-        subsection: 'self',
-        firstItemIndex: 0,
-        questionText,
-        assignment: null,
-        name: myName,
-      });
+      paramsForStageNavigation.mockReturnValue(
+        Promise.resolve({
+          isMe: true,
+          hasHitCount: true,
+          isNotSure: false,
+          subsection: 'self',
+          firstItemIndex: 0,
+          questionText,
+          contactAssignmentId: null,
+          name: myName,
+        }),
+      );
     });
 
     it('should fire required next actions', async () => {
@@ -204,16 +206,18 @@ describe('AddStepScreen next', () => {
 
   describe('not isMe, stage is not "Not Sure", has not completed 3 steps', () => {
     beforeEach(() => {
-      paramsForStageNavigation.mockReturnValue({
-        isMe: false,
-        hasHitCount: false,
-        isNotSure: false,
-        subsection: 'person',
-        firstItemIndex: 0,
-        questionText,
-        assignment: reverseContactAssignment,
-        name: otherName,
-      });
+      paramsForStageNavigation.mockReturnValue(
+        Promise.resolve({
+          isMe: false,
+          hasHitCount: false,
+          isNotSure: false,
+          subsection: 'person',
+          firstItemIndex: 0,
+          questionText,
+          contactAssignmentId,
+          name: otherName,
+        }),
+      );
     });
 
     it('should fire required next actions', async () => {
@@ -233,16 +237,18 @@ describe('AddStepScreen next', () => {
 
   describe('not isMe, stage is "Not Sure"', () => {
     beforeEach(() => {
-      paramsForStageNavigation.mockReturnValue({
-        isMe: false,
-        hasHitCount: false,
-        isNotSure: true,
-        subsection: 'person',
-        firstItemIndex: 1,
-        questionText,
-        assignment: reverseContactAssignment,
-        name: otherName,
-      });
+      paramsForStageNavigation.mockReturnValue(
+        Promise.resolve({
+          isMe: false,
+          hasHitCount: false,
+          isNotSure: true,
+          subsection: 'person',
+          firstItemIndex: 1,
+          questionText,
+          contactAssignmentId,
+          name: otherName,
+        }),
+      );
     });
 
     it('should fire required next actions', async () => {
@@ -273,16 +279,18 @@ describe('AddStepScreen next', () => {
 
   describe('not isMe, has completed 3 steps', () => {
     beforeEach(() => {
-      paramsForStageNavigation.mockReturnValue({
-        isMe: false,
-        hasHitCount: true,
-        isNotSure: false,
-        subsection: 'person',
-        firstItemIndex: 0,
-        questionText,
-        assignment: reverseContactAssignment,
-        name: otherName,
-      });
+      paramsForStageNavigation.mockReturnValue(
+        Promise.resolve({
+          isMe: false,
+          hasHitCount: true,
+          isNotSure: false,
+          subsection: 'person',
+          firstItemIndex: 0,
+          questionText,
+          contactAssignmentId,
+          name: otherName,
+        }),
+      );
     });
 
     it('should fire required next actions', async () => {
@@ -312,16 +320,18 @@ describe('AddStepScreen next', () => {
     const text = 'roge rules';
 
     beforeEach(() => {
-      paramsForStageNavigation.mockReturnValue({
-        isMe: false,
-        hasHitCount: true,
-        isNotSure: false,
-        subsection: 'person',
-        firstItemIndex: 0,
-        questionText,
-        assignment: reverseContactAssignment,
-        name: otherName,
-      });
+      paramsForStageNavigation.mockReturnValue(
+        Promise.resolve({
+          isMe: false,
+          hasHitCount: true,
+          isNotSure: false,
+          subsection: 'person',
+          firstItemIndex: 0,
+          questionText,
+          contactAssignmentId,
+          name: otherName,
+        }),
+      );
     });
 
     it('should fire required next actions', async () => {

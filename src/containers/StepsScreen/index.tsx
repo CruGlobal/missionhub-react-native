@@ -59,7 +59,7 @@ export const STEPS_QUERY = gql`
       after: $after
       completed: false
       sortBy: [focusedAt_DESC, acceptedAt_DESC]
-      first: 10
+      first: 25
     ) {
       nodes {
         id
@@ -82,7 +82,6 @@ export const SET_STEP_FOCUS = gql`
     updateAcceptedChallenge(input: { id: $id, focus: $focus }) {
       acceptedChallenge {
         id
-        title
         focus
       }
     }
@@ -282,7 +281,7 @@ const StepsScreen = ({
         <Flex align="center" style={[styles.top]}>
           {focusedSteps.map(step => (
             <StepItem
-              testID="reminder-item"
+              testID={`reminder-item-${step.id}`}
               step={step}
               key={step.id}
               type="reminder"
@@ -295,15 +294,15 @@ const StepsScreen = ({
     }
   };
 
-  const renderItem = ({ item }: { item: Step }) => {
+  const renderItem = ({ item: step }: { item: Step }) => {
     return (
       <StepItem
-        testID="step-item"
-        step={item}
+        testID={`step-item-${step.id}`}
+        step={step}
         type="swipeable"
         hideAction={canHideStars}
-        onSelect={() => handleRowSelect(item)}
-        onAction={() => handleSetReminder(item.id)}
+        onSelect={() => handleRowSelect(step)}
+        onAction={() => handleSetReminder(step.id)}
       />
     );
   };

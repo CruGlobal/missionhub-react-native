@@ -35,7 +35,7 @@ exports[`renders hover for step 1`] = `
       value={1}
     >
       <ItemHeaderText
-        text="DARWIN BOSCO"
+        text="ZOLA CORKERY"
       />
       <Text
         style={
@@ -164,7 +164,7 @@ exports[`renders not me correctly 1`] = `
       value={1}
     >
       <ItemHeaderText
-        text="DARWIN BOSCO"
+        text="ZOLA CORKERY"
       />
       <Text
         style={
@@ -215,7 +215,7 @@ exports[`renders type action correctly 1`] = `
       value={1}
     >
       <ItemHeaderText
-        text="DARWIN BOSCO"
+        text="ZOLA CORKERY"
       />
       <Text
         style={
@@ -341,7 +341,7 @@ exports[`renders type reminder correctly 1`] = `
       value={1}
     >
       <ItemHeaderText
-        text="DARWIN BOSCO"
+        text="ZOLA CORKERY"
       />
       <Text
         style={
@@ -392,7 +392,7 @@ exports[`renders type swipeable correctly 1`] = `
       value={1}
     >
       <ItemHeaderText
-        text="DARWIN BOSCO"
+        text="ZOLA CORKERY"
       />
       <Text
         style={
@@ -443,7 +443,7 @@ exports[`step item animations changes animation from fade in to fade out 1`] = `
       value={1}
     >
       <ItemHeaderText
-        text="DARWIN BOSCO"
+        text="ZOLA CORKERY"
       />
       <Text
         style={
@@ -521,7 +521,7 @@ exports[`step item animations changes animation from fade out to fade in 1`] = `
       value={1}
     >
       <ItemHeaderText
-        text="DARWIN BOSCO"
+        text="ZOLA CORKERY"
       />
       <Text
         style={
@@ -599,7 +599,7 @@ exports[`step item animations renders animation fade in on mount 1`] = `
       value={1}
     >
       <ItemHeaderText
-        text="DARWIN BOSCO"
+        text="ZOLA CORKERY"
       />
       <Text
         style={
@@ -677,7 +677,7 @@ exports[`step item animations renders no initial animation on mount 1`] = `
       value={1}
     >
       <ItemHeaderText
-        text="DARWIN BOSCO"
+        text="ZOLA CORKERY"
       />
       <Text
         style={
