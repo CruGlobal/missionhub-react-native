@@ -73,7 +73,6 @@ class ImagePicker extends Component {
       };
       onSelectImage(payload);
     } catch (error) {
-      console.log(error);
       const errorCode = error && error.code;
       if (
         errorCode === 'E_PERMISSION_MISSING' ||
