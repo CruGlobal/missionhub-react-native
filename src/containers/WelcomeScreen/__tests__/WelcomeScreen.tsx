@@ -9,7 +9,7 @@ import * as common from '../../../utils/common';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
 
-const next = jest.fn(() => ({ type: 'next' }));
+const next = jest.fn(() => () => {});
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/analytics');
