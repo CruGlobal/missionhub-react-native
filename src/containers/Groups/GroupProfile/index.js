@@ -35,7 +35,7 @@ import {
 } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
-import { ORG_PERMISSIONS, ACTIONS, GROUPS_TAB } from '../../../constants';
+import { ACTIONS, GROUPS_TAB } from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
 import PopupMenu from '../../../components/PopupMenu';
 import Header from '../../../components/Header';
@@ -326,8 +326,7 @@ const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   const owner = members.find(({ organizational_permissions = [] }) =>
     organizational_permissions.find(
       orgPermission =>
-        orgPermission.organization_id === orgId &&
-        orgPermission.permission_id === ORG_PERMISSIONS.OWNER,
+        orgPermission.organization_id === orgId && isOwner(orgPermission),
     ),
   );
   const myOrgPerm = orgPermissionSelector(null, {

@@ -356,7 +356,7 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
       onSelect={[Function]}
       pressProps={
         Array [
-          2,
+          "2",
         ]
       }
       size={25}
@@ -553,7 +553,7 @@ exports[`renders jean with organization and user radio buttons 1`] = `
       onSelect={[Function]}
       pressProps={
         Array [
-          2,
+          "2",
         ]
       }
       size={25}
@@ -750,7 +750,7 @@ exports[`renders jean with organization view correctly 1`] = `
       onSelect={[Function]}
       pressProps={
         Array [
-          2,
+          "2",
         ]
       }
       size={25}

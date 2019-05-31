@@ -105,16 +105,17 @@ const MHUB_PERMISSIONS = [
   ORG_PERMISSIONS.USER,
 ];
 export const hasOrgPermissions = orgPermission =>
-  !!orgPermission && MHUB_PERMISSIONS.includes(orgPermission.permission_id);
+  !!orgPermission &&
+  MHUB_PERMISSIONS.includes(`${orgPermission.permission_id}`);
 export const isAdminOrOwner = orgPermission =>
   !!orgPermission &&
   [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
-    orgPermission.permission_id,
+    `${orgPermission.permission_id}`,
   );
 export const isOwner = orgPermission =>
-  !!orgPermission && orgPermission.permission_id === ORG_PERMISSIONS.OWNER;
+  !!orgPermission && `${orgPermission.permission_id}` === ORG_PERMISSIONS.OWNER;
 export const isAdmin = orgPermission =>
-  !!orgPermission && orgPermission.permission_id === ORG_PERMISSIONS.ADMIN;
+  !!orgPermission && `${orgPermission.permission_id}` === ORG_PERMISSIONS.ADMIN;
 
 export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
 
