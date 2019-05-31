@@ -3,58 +3,7 @@
 exports[`initialRoute logged in user has completed onboarding but does not have contact with pathway stage should go to MainTabs 1`] = `
 Array [
   Object {
-    "data": Object {},
-    "query": Object {
-      "include": "email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user",
-    },
-    "type": "GET_ME_FETCH",
-  },
-  Object {
-    "data": Object {},
-    "query": Object {
-      "filters": Object {
-        "assigned_tos": "me",
-      },
-      "include": "reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions",
-      "page": Object {
-        "limit": 1000,
-      },
-    },
-    "type": "GET_PEOPLE_LIST_FETCH",
-  },
-  Object {
-    "data": Object {},
-    "query": Object {
-      "filters": Object {
-        "descendants": false,
-      },
-      "include": "",
-      "limit": 100,
-      "sort": "name",
-    },
-    "type": "GET_ORGANIZATIONS_FETCH",
-  },
-  Object {
-    "data": Object {},
-    "query": Object {
-      "include": "",
-    },
-    "type": "GET_STAGES_FETCH",
-  },
-  Object {
-    "data": Object {
-      "data": Object {
-        "attributes": Object {
-          "mobile_language": "en-US",
-          "timezone": "-7",
-        },
-      },
-    },
-    "query": Object {},
-    "type": "UPDATE_ME_USER_FETCH",
-  },
-  Object {
-    "type": "app/RESET_ONBOARDING_PERSON",
+    "type": "loadHome",
   },
   Object {
     "actions": Array [
@@ -128,58 +77,7 @@ Array [
 exports[`initialRoute logged in user has not completed onboarding but has a contact with pathway stage should go to MainTabs 1`] = `
 Array [
   Object {
-    "data": Object {},
-    "query": Object {
-      "include": "email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user",
-    },
-    "type": "GET_ME_FETCH",
-  },
-  Object {
-    "data": Object {},
-    "query": Object {
-      "filters": Object {
-        "assigned_tos": "me",
-      },
-      "include": "reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions",
-      "page": Object {
-        "limit": 1000,
-      },
-    },
-    "type": "GET_PEOPLE_LIST_FETCH",
-  },
-  Object {
-    "data": Object {},
-    "query": Object {
-      "filters": Object {
-        "descendants": false,
-      },
-      "include": "",
-      "limit": 100,
-      "sort": "name",
-    },
-    "type": "GET_ORGANIZATIONS_FETCH",
-  },
-  Object {
-    "data": Object {},
-    "query": Object {
-      "include": "",
-    },
-    "type": "GET_STAGES_FETCH",
-  },
-  Object {
-    "data": Object {
-      "data": Object {
-        "attributes": Object {
-          "mobile_language": "en-US",
-          "timezone": "-7",
-        },
-      },
-    },
-    "query": Object {},
-    "type": "UPDATE_ME_USER_FETCH",
-  },
-  Object {
-    "type": "app/RESET_ONBOARDING_PERSON",
+    "type": "loadHome",
   },
   Object {
     "actions": Array [

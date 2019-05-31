@@ -1,6 +1,10 @@
 import { resetToInitialRoute } from '../navigationInit';
 import { createThunkStore } from '../../../testUtils';
 
+jest.mock('../auth/userData', () => ({
+  loadHome: jest.fn().mockReturnValue({ type: 'loadHome' }),
+}));
+
 const token =
   'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
 const myId = '1';
