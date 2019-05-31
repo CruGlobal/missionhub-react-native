@@ -102,10 +102,10 @@ export const LINKS = {
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
 
 export const ORG_PERMISSIONS = {
-  ADMIN: 1,
-  USER: 4,
-  CONTACT: 2,
-  OWNER: 3,
+  ADMIN: '1',
+  USER: '4',
+  CONTACT: '2',
+  OWNER: '3',
 };
 export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
