@@ -11,6 +11,18 @@ export function markCommentsRead(orgId) {
   };
 }
 
+export function markCommentRead(orgId, eventId) {
+  return async dispatch => {
+    await dispatch(
+      callApi(REQUESTS.MARK_ORG_COMMENTS_AS_READ, {
+        organization_id: orgId,
+        event_id: eventId,
+      }),
+    );
+    dispatch(checkForUnreadComments());
+  };
+}
+
 export function checkForUnreadComments() {
   return dispatch => {
     const query = {

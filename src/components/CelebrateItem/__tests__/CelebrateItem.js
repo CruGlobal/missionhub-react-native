@@ -57,17 +57,10 @@ describe('CelebrateItem', () => {
   };
 
   it('renders event with fixed height', () =>
-    testEvent(
-      {
-        ...baseEvent,
-      },
-      { fixedHeight: true },
-    ));
+    testEvent(baseEvent, { fixedHeight: true }));
 
   it('renders event with no subject person (global community event)', () =>
-    testEvent({
-      ...baseEvent,
-    }));
+    testEvent(baseEvent));
 
   it('renders event with no subject person name', () => {
     testEvent({
@@ -316,5 +309,30 @@ describe('press card', () => {
       .onPress();
 
     expect(onPressItem).toHaveBeenCalledWith(event);
+  });
+});
+
+describe('clear notification', () => {
+  const onClearNotification = jest.fn();
+  const clearEvent = { ...baseEvent, organization: { id: orgId } };
+  const clearProps = {
+    event: clearEvent,
+    myId,
+    onPressItem: jest.fn(),
+    onClearNotification,
+  };
+
+  it('renders with clear button', () => {
+    testSnapshotShallow(<CelebrateItem {...clearProps} />, store);
+  });
+
+  it('calls onClearNotification', () => {
+    renderShallow(<CelebrateItem {...clearProps} />, store)
+      .childAt(1)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(onClearNotification).toHaveBeenCalledWith(clearEvent);
   });
 });

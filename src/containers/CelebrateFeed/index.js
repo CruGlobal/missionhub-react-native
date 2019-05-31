@@ -46,10 +46,11 @@ class CelebrateFeed extends Component {
   };
 
   renderItem = ({ item }) => {
-    const { organization, itemNamePressable } = this.props;
+    const { organization, itemNamePressable, onClearNotification } = this.props;
 
     return (
       <CelebrateItem
+        onClearNotification={onClearNotification}
         event={item}
         organization={organization}
         onPressItem={
@@ -114,6 +115,7 @@ CelebrateFeed.propTypes = {
   itemNamePressable: PropTypes.bool,
   isMember: PropTypes.bool,
   noHeader: PropTypes.bool,
+  onClearNotification: PropTypes.func,
 };
 
 export default connect()(CelebrateFeed);

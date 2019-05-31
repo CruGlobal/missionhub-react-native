@@ -95,6 +95,21 @@ describe('no header rendering', () => {
   });
 });
 
+describe('renders with clear notification set', () => {
+  it('renders correctly with clear notification set', () => {
+    component = renderShallow(
+      <CelebrateFeed
+        onClearNotification={jest.fn()}
+        noHeader={true}
+        items={celebrationItems}
+        organization={organization}
+      />,
+      store,
+    );
+    expect(component).toMatchSnapshot();
+  });
+});
+
 it('renders section header', () => {
   const renderedItem = component
     .instance()
