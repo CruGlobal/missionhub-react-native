@@ -140,7 +140,7 @@ it('updates a users stage', () => {
     {
       person: {
         user: {
-          pathway_stage_id: 2,
+          pathway_stage_id: '2',
         },
       },
     },

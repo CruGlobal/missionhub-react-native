@@ -7,10 +7,8 @@ import {
   UPDATE_STAGES,
   UPDATE_TOKEN,
 } from '../constants';
-import { userIsJean } from '../utils/common';
+import { userIsJean, getLocalizedStages } from '../utils/common';
 import { REQUESTS } from '../actions/api';
-
-import { getLocalizedStages } from './stages';
 
 const initialAuthState = {
   isFirstTime: false,

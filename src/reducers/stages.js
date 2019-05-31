@@ -1,23 +1,11 @@
-import i18n from 'i18next';
-
 import { REQUESTS } from '../actions/api';
 import { LOGOUT } from '../constants';
-import { isObject } from '../utils/common';
+import { getLocalizedStages } from '../utils/common';
 
 const initialStagesState = {
   stages: [],
   stagesObj: null,
 };
-
-export function getLocalizedStages(stages) {
-  return (stages || []).map(s => {
-    const localizedStage =
-      (s.localized_pathway_stages || []).find(
-        ls => ls && isObject(ls) && ls.locale === i18n.language,
-      ) || {};
-    return { ...s, ...localizedStage };
-  });
-}
 
 function stagesReducer(state = initialStagesState, action) {
   switch (action.type) {
