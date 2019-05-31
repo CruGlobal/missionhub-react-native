@@ -6,7 +6,6 @@ import { getMe } from '../person';
 import { getMyPeople } from '../people';
 import { showReminderOnLoad } from '../notifications';
 import { getStagesIfNotExists } from '../stages';
-import { getMySteps } from '../steps';
 import callApi, { REQUESTS } from '../api';
 import { getMyCommunities } from '../organizations';
 import { resetPerson } from '../onboardingProfile';
@@ -59,10 +58,10 @@ export function authSuccess() {
 }
 
 export function loadHome() {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     // Don't try to run all these things if there is no token
     if (!getState().auth.token) {
-      return Promise.resolve();
+      return;
     }
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
     dispatch(getMe());
@@ -71,7 +70,6 @@ export function loadHome() {
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
     dispatch(resetPerson());
-    await dispatch(getMySteps());
     dispatch(showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.LOGIN));
   };
 }

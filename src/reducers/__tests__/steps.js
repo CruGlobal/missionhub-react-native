@@ -2,7 +2,6 @@ import { REQUESTS } from '../../actions/api';
 import steps from '../steps';
 import {
   COMPLETED_STEP_COUNT,
-  TOGGLE_STEP_FOCUS,
   RESET_STEP_COUNT,
   STEP_SUGGESTION,
 } from '../../constants';
@@ -114,45 +113,6 @@ it('increments existing user step count', () => {
     },
   );
   expect(state.userStepCount[1]).toBe(2);
-});
-
-it('adds new items to existing mine array', () => {
-  const state = steps(
-    {
-      mine: Array(25).fill({ id: '1' }),
-      reminders: [],
-    },
-    {
-      type: REQUESTS.GET_MY_CHALLENGES.SUCCESS,
-      results: {
-        response: [{ id: '26' }],
-      },
-      query: { page: { offset: 25 } },
-    },
-  );
-
-  expect(state.mine.length).toEqual(26);
-  expect(state.pagination).toEqual({ page: 2, hasNextPage: false });
-});
-
-it('receives reminders', () => {
-  const stepsResponse = [{ id: '1', focus: true }, { id: '2', focus: false }];
-
-  const state = steps(
-    {
-      mine: [],
-      reminders: [],
-    },
-    {
-      type: REQUESTS.GET_MY_CHALLENGES.SUCCESS,
-      results: {
-        response: stepsResponse,
-      },
-      query: { page: { offset: 0 } },
-    },
-  );
-
-  expect(state.mine).toEqual(stepsResponse);
 });
 
 it('receives contact steps and sorts completed', () => {
@@ -278,49 +238,5 @@ it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
       '123-456': { steps: [{ id: '6' }], completedSteps: [] },
       '987-personal': { steps: [{ id: '6' }], completedSteps: [] },
     },
-  });
-});
-
-describe('it should toggle step focus', () => {
-  const existingSteps = [
-    { id: '1', focus: false },
-    { id: '2', focus: true },
-    { id: '3', focus: false },
-  ];
-
-  it('should toggle from false to true', () => {
-    const state = steps(
-      {
-        mine: existingSteps,
-      },
-      {
-        type: TOGGLE_STEP_FOCUS,
-        step: existingSteps[2],
-      },
-    );
-
-    expect(state.mine).toEqual([
-      { id: '1', focus: false },
-      { id: '2', focus: true },
-      { id: '3', focus: true },
-    ]);
-  });
-
-  it('should toggle from true to false', () => {
-    const state = steps(
-      {
-        mine: existingSteps,
-      },
-      {
-        type: TOGGLE_STEP_FOCUS,
-        step: existingSteps[1],
-      },
-    );
-
-    expect(state.mine).toEqual([
-      { id: '1', focus: false },
-      { id: '2', focus: false },
-      { id: '3', focus: false },
-    ]);
   });
 });

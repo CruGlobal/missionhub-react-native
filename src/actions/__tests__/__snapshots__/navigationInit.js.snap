@@ -35,6 +35,28 @@ Array [
     "type": "GET_ORGANIZATIONS_FETCH",
   },
   Object {
+    "data": Object {},
+    "query": Object {
+      "include": "",
+    },
+    "type": "GET_STAGES_FETCH",
+  },
+  Object {
+    "data": Object {
+      "data": Object {
+        "attributes": Object {
+          "mobile_language": "en-US",
+          "timezone": "-7",
+        },
+      },
+    },
+    "query": Object {},
+    "type": "UPDATE_ME_USER_FETCH",
+  },
+  Object {
+    "type": "app/RESET_ONBOARDING_PERSON",
+  },
+  Object {
     "actions": Array [
       Object {
         "action": Object {
@@ -136,6 +158,28 @@ Array [
       "sort": "name",
     },
     "type": "GET_ORGANIZATIONS_FETCH",
+  },
+  Object {
+    "data": Object {},
+    "query": Object {
+      "include": "",
+    },
+    "type": "GET_STAGES_FETCH",
+  },
+  Object {
+    "data": Object {
+      "data": Object {
+        "attributes": Object {
+          "mobile_language": "en-US",
+          "timezone": "-7",
+        },
+      },
+    },
+    "query": Object {},
+    "type": "UPDATE_ME_USER_FETCH",
+  },
+  Object {
+    "type": "app/RESET_ONBOARDING_PERSON",
   },
   Object {
     "actions": Array [

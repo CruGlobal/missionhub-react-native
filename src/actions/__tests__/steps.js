@@ -8,9 +8,7 @@ import callApi, { REQUESTS } from '../api';
 import {
   completeStep,
   getStepSuggestions,
-  getMyStepsNextPage,
   getContactSteps,
-  setStepFocus,
   addStep,
   deleteStepWithTracking,
 } from '../steps';
@@ -25,11 +23,12 @@ import {
   COMPLETED_STEP_COUNT,
   NAVIGATE_FORWARD,
   STEP_NOTE,
-  TOGGLE_STEP_FOCUS,
   CUSTOM_STEP_TYPE,
   ACCEPTED_STEP,
 } from '../../constants';
 import { COMPLETE_STEP_FLOW } from '../../routes/constants';
+import { apolloClient } from '../../apolloClient';
+import { STEPS_QUERY } from '../../containers/StepsScreen';
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -44,6 +43,9 @@ jest.mock('../api');
 jest.mock('../impact');
 jest.mock('../celebration');
 jest.mock('../analytics');
+jest.mock('../../apolloClient', () => ({
+  apolloClient: { query: jest.fn() },
+}));
 
 beforeEach(() => {
   store = mockStore();
@@ -65,43 +67,6 @@ describe('get step suggestions', () => {
       stepSuggestionsQuery,
     );
     expect(store.getActions()).toEqual([apiResult]);
-  });
-});
-
-describe('get steps page', () => {
-  const stepsPageQuery = {
-    order: '-focused_at,-accepted_at',
-    page: { limit: 25, offset: 25 },
-    filters: { completed: false },
-    include:
-      'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
-  };
-  const apiResult = { type: 'done' };
-
-  it('should filter with page', () => {
-    store = mockStore({
-      steps: { pagination: { page: 1, hasNextPage: true } },
-    });
-    callApi.mockReturnValue(apiResult);
-
-    store.dispatch(getMyStepsNextPage());
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_MY_CHALLENGES,
-      stepsPageQuery,
-    );
-    expect(store.getActions()[0]).toEqual(apiResult);
-  });
-
-  it('should not filter, no more pages', async () => {
-    store = mockStore({
-      steps: { pagination: { page: 1, hasNextPage: false } },
-    });
-    callApi.mockReturnValue(apiResult);
-
-    const result = await store.dispatch(getMyStepsNextPage());
-
-    expect(result).toEqual(undefined);
   });
 });
 
@@ -176,12 +141,6 @@ describe('complete challenge', () => {
   };
 
   const challengeCompleteQuery = { challenge_id: stepId };
-  const stepsQuery = {
-    order: '-focused_at,-accepted_at',
-    filters: { completed: false },
-    include:
-      'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
-  };
   const data = {
     data: {
       type: ACCEPTED_STEP,
@@ -235,10 +194,10 @@ describe('complete challenge', () => {
       challengeCompleteQuery,
       data,
     );
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_MY_CHALLENGES,
-      stepsQuery,
-    );
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: STEPS_QUERY,
+      fetchPolicy: 'network-only',
+    });
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_CHALLENGES_BY_FILTER,
       expect.objectContaining({
@@ -282,10 +241,10 @@ describe('complete challenge', () => {
   it('completes step for personal ministry', async () => {
     const noOrgStep = { ...step, organization: undefined };
     await store.dispatch(completeStep(noOrgStep, screen));
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_MY_CHALLENGES,
-      stepsQuery,
-    );
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: STEPS_QUERY,
+      fetchPolicy: 'network-only',
+    });
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_CHALLENGES_BY_FILTER,
       expect.objectContaining({
@@ -331,98 +290,6 @@ describe('complete challenge', () => {
   });
 });
 
-describe('Set Focus', () => {
-  const stepId = 102;
-  const unfocusedStep = {
-    id: stepId,
-    receiver: { id: receiverId },
-    focus: false,
-  };
-  const focusedStep = {
-    ...unfocusedStep,
-    focus: true,
-  };
-
-  const query = { challenge_id: stepId };
-
-  const focusData = {
-    data: {
-      type: ACCEPTED_STEP,
-      attributes: {
-        organization_id: null,
-        focus: true,
-      },
-      relationships: {
-        receiver: {
-          data: {
-            type: 'person',
-            id: receiverId,
-          },
-        },
-      },
-    },
-  };
-
-  const unfocusData = {
-    data: {
-      type: ACCEPTED_STEP,
-      attributes: {
-        organization_id: null,
-        focus: false,
-      },
-      relationships: {
-        receiver: {
-          data: {
-            type: 'person',
-            id: receiverId,
-          },
-        },
-      },
-    },
-  };
-
-  beforeEach(() => {
-    store = mockStore({
-      auth: {
-        person: {
-          id: personId,
-        },
-      },
-      steps: { userStepCount: { [receiverId]: 2 } },
-    });
-  });
-
-  it('Focus set to true', async () => {
-    callApi.mockReturnValue(() => ({ response: { focus: true } }));
-
-    await store.dispatch(setStepFocus(unfocusedStep, true));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.CHALLENGE_SET_FOCUS,
-      query,
-      focusData,
-    );
-    expect(store.getActions()).toEqual([
-      { type: TOGGLE_STEP_FOCUS, step: unfocusedStep },
-    ]);
-  });
-
-  it('Focus set to false', async () => {
-    callApi.mockReturnValue(() => ({ response: { focus: false } }));
-
-    await store.dispatch(setStepFocus(focusedStep, false));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.CHALLENGE_SET_FOCUS,
-      query,
-      unfocusData,
-    );
-    expect(store.getActions()).toEqual([
-      { type: TOGGLE_STEP_FOCUS, step: focusedStep },
-    ]);
-  });
-});
-
 describe('deleteStepWithTracking', () => {
   const step = { id: '123124' };
   const screen = 'steps';
@@ -439,6 +306,10 @@ describe('deleteStepWithTracking', () => {
       { challenge_id: step.id },
       {},
     );
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: STEPS_QUERY,
+      fetchPolicy: 'network-only',
+    });
     expect(store.getActions()).toEqual([trackActionResult]);
     expect(trackAction).toHaveBeenCalledWith(
       `${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`,

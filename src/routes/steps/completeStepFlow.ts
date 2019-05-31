@@ -1,4 +1,10 @@
-import { createStackNavigator, StackActions } from 'react-navigation';
+import {
+  createStackNavigator,
+  StackActions,
+  NavigationPopAction,
+  NavigationPopToTopAction,
+} from 'react-navigation';
+import { ThunkAction } from 'redux-thunk';
 
 import { wrapNextAction } from '../helpers';
 import { navigatePush } from '../../actions/navigation';
@@ -18,10 +24,29 @@ import { SelectMyStageFlowScreens } from '../stage/selectMyStageFlow';
 import { SelectPersonStageFlowScreens } from '../stage/selectPersonStageFlow';
 import { paramsForStageNavigation } from '../utils';
 
-export const CompleteStepFlowScreens = onFlowComplete => ({
+interface AddStepScreenNextArgs {
+  text: string;
+  stepId: string;
+  personId: string;
+  orgId: string;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const CompleteStepFlowScreens = (onFlowComplete?: () => any) => ({
   [COMPLETE_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
-    ({ text, stepId, personId, orgId }) => (dispatch, getState) => {
+    ({
+      text,
+      stepId,
+      personId,
+      orgId,
+    }: AddStepScreenNextArgs): ThunkAction<
+      void,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      any,
+      never,
+      { type: typeof RESET_STEP_COUNT; userId: string }
+    > => async (dispatch, getState) => {
       const {
         isMe,
         hasHitCount,
@@ -29,9 +54,9 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
         subsection,
         firstItemIndex,
         questionText,
-        assignment,
+        contactAssignmentId,
         name,
-      } = paramsForStageNavigation(personId, orgId, getState);
+      } = await paramsForStageNavigation(personId, orgId, getState);
 
       if (text) {
         dispatch(updateChallengeNote(stepId, text));
@@ -65,7 +90,7 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
           questionText,
           orgId,
           contactId: personId,
-          contactAssignmentId: assignment && assignment.id,
+          contactAssignmentId,
           name,
         }),
       );
@@ -75,9 +100,21 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
   ...SelectPersonStageFlowScreens,
   [CELEBRATION_SCREEN]: wrapNextAction(
     CelebrationScreen,
-    ({ contactId, orgId }) => dispatch => {
+    ({
+      contactId,
+      orgId,
+    }: {
+      contactId: string;
+      orgId: string;
+    }): ThunkAction<
+      void,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      any,
+      never,
+      NavigationPopAction | NavigationPopToTopAction
+    > => dispatch => {
       dispatch(reloadJourney(contactId, orgId));
-      dispatch(StackActions.popToTop());
+      dispatch(StackActions.popToTop({})); // TODO: remove `{}` when https://github.com/react-navigation/react-navigation/pull/5950 is released
 
       dispatch(StackActions.pop({ immediate: true }));
       onFlowComplete && dispatch(onFlowComplete());

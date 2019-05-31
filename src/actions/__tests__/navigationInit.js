@@ -27,8 +27,9 @@ describe('initialRoute', () => {
       test({
         auth: {
           token,
-          person: { id: myId },
+          person: { id: myId, user: {} },
         },
+        stages: {},
         personProfile: { hasCompletedOnboarding: false },
         people: {
           allByOrg: {
@@ -61,7 +62,9 @@ describe('initialRoute', () => {
       test({
         auth: {
           token,
+          person: { user: {} },
         },
+        stages: {},
         personProfile: { hasCompletedOnboarding: true },
       });
     });
