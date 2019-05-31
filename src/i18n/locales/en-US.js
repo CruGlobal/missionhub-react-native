@@ -433,6 +433,7 @@ export default {
     holdDescription:
       'Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.',
     reminderAddedToast: '✔ Reminder Added',
+    errorLoadingSteps: 'There was an error loading your steps.',
   },
   contactSideMenu: {
     edit: 'Edit',

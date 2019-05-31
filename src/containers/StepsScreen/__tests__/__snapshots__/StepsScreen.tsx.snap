@@ -1,0 +1,2551 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StepsScreen Scrolling Events should load more when scrolling close to bottom 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": undefined,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+      <View>
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "5",
+              }
+            }
+            testID="reminder-item-5"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "6",
+              }
+            }
+            testID="reminder-item-6"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "7",
+              }
+            }
+            testID="reminder-item-7"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "12",
+              }
+            }
+            testID="reminder-item-12"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "13",
+              }
+            }
+            testID="reminder-item-13"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "14",
+              }
+            }
+            testID="reminder-item-14"
+            type="reminder"
+          />
+        </Flex>
+        <RCTScrollView
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "8",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "9",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "10",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "11",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
+            Object {
+              "hideStars": true,
+            }
+          }
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": 40,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
+                  }
+                }
+                testID="step-item-1"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
+                  }
+                }
+                testID="step-item-2"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
+                  }
+                }
+                testID="step-item-3"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
+                  }
+                }
+                testID="step-item-4"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "8",
+                  }
+                }
+                testID="step-item-8"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "9",
+                  }
+                }
+                testID="step-item-9"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "10",
+                  }
+                }
+                testID="step-item-10"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "11",
+                  }
+                }
+                testID="step-item-11"
+                type="swipeable"
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 0,
+                }
+              }
+            />
+          </View>
+        </RCTScrollView>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`StepsScreen Scrolling Events should not load more if already paging 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": undefined,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+      <View>
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "5",
+              }
+            }
+            testID="reminder-item-5"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "6",
+              }
+            }
+            testID="reminder-item-6"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "7",
+              }
+            }
+            testID="reminder-item-7"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "12",
+              }
+            }
+            testID="reminder-item-12"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "13",
+              }
+            }
+            testID="reminder-item-13"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "14",
+              }
+            }
+            testID="reminder-item-14"
+            type="reminder"
+          />
+        </Flex>
+        <RCTScrollView
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "8",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "9",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "10",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "11",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
+            Object {
+              "hideStars": true,
+            }
+          }
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": 40,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
+                  }
+                }
+                testID="step-item-1"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
+                  }
+                }
+                testID="step-item-2"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
+                  }
+                }
+                testID="step-item-3"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
+                  }
+                }
+                testID="step-item-4"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "8",
+                  }
+                }
+                testID="step-item-8"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "9",
+                  }
+                }
+                testID="step-item-9"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "10",
+                  }
+                }
+                testID="step-item-10"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "11",
+                  }
+                }
+                testID="step-item-11"
+                type="swipeable"
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 0,
+                }
+              }
+            />
+          </View>
+        </RCTScrollView>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`StepsScreen Scrolling Events should not load more when not scrolling close to bottom 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+      <View>
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "5",
+              }
+            }
+            testID="reminder-item-5"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "6",
+              }
+            }
+            testID="reminder-item-6"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "7",
+              }
+            }
+            testID="reminder-item-7"
+            type="reminder"
+          />
+        </Flex>
+        <RCTScrollView
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
+            Object {
+              "hideStars": true,
+            }
+          }
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": 40,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
+                  }
+                }
+                testID="step-item-1"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
+                  }
+                }
+                testID="step-item-2"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
+                  }
+                }
+                testID="step-item-3"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
+                  }
+                }
+                testID="step-item-4"
+                type="swipeable"
+              />
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`StepsScreen Scrolling Events should show loading indicator when scrolling close to bottom 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+      <View>
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "5",
+              }
+            }
+            testID="reminder-item-5"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "6",
+              }
+            }
+            testID="reminder-item-6"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "7",
+              }
+            }
+            testID="reminder-item-7"
+            type="reminder"
+          />
+        </Flex>
+        <RCTScrollView
+          ListFooterComponent={<FooterLoading />}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
+            Object {
+              "hideStars": true,
+            }
+          }
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": 40,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
+                  }
+                }
+                testID="step-item-1"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
+                  }
+                }
+                testID="step-item-2"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
+                  }
+                }
+                testID="step-item-3"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
+                  }
+                }
+                testID="step-item-4"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+            >
+              <FooterLoading />
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+      <View>
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "1",
+              }
+            }
+            testID="reminder-item-1"
+            type="reminder"
+          />
+        </Flex>
+        <Flex
+          align="center"
+          justify="center"
+          value={1}
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/footprints.png",
+              }
+            }
+          />
+          <Text
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 42,
+                "paddingTop": 10,
+              }
+            }
+            type="header"
+          >
+            STEPS OF FAITH
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "paddingHorizontal": 70,
+                "paddingVertical": 10,
+                "textAlign": "center",
+              }
+            }
+          >
+            Choose a person in People view and add some new steps.
+          </Text>
+        </Flex>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`StepsScreen renders loading screen correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <LoadingGuy />
+</View>
+`;
+
+exports[`StepsScreen renders screen with some focused and unfocused steps correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+      <View>
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "5",
+              }
+            }
+            testID="reminder-item-5"
+            type="reminder"
+          />
+        </Flex>
+        <RCTScrollView
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
+            Object {
+              "hideStars": false,
+            }
+          }
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": undefined,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={false}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
+                  }
+                }
+                testID="step-item-1"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={false}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
+                  }
+                }
+                testID="step-item-2"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={false}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
+                  }
+                }
+                testID="step-item-3"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={false}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
+                  }
+                }
+                testID="step-item-4"
+                type="swipeable"
+              />
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`StepsScreen renders with max reminders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+      <View>
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "5",
+              }
+            }
+            testID="reminder-item-5"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "6",
+              }
+            }
+            testID="reminder-item-6"
+            type="reminder"
+          />
+          <StepItem
+            onAction={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": true,
+                "id": "7",
+              }
+            }
+            testID="reminder-item-7"
+            type="reminder"
+          />
+        </Flex>
+        <RCTScrollView
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
+            Object {
+              "hideStars": true,
+            }
+          }
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": undefined,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
+                  }
+                }
+                testID="step-item-1"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
+                  }
+                }
+                testID="step-item-2"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
+                  }
+                }
+                testID="step-item-3"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
+                  }
+                }
+                testID="step-item-4"
+                type="swipeable"
+              />
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`StepsScreen renders with no focused steps and less than 4 unfocused steps correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+      <View>
+        <RCTScrollView
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
+            Object {
+              "hideStars": true,
+            }
+          }
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": undefined,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
+                  }
+                }
+                testID="step-item-1"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
+                  }
+                }
+                testID="step-item-2"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={true}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
+                  }
+                }
+                testID="step-item-3"
+                type="swipeable"
+              />
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`StepsScreen renders with no focused steps correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="center"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#66D9F0",
+            "width": 750,
+          },
+          Object {
+            "paddingHorizontal": 27,
+            "paddingVertical": 32,
+          },
+        ]
+      }
+    >
+      <Icon
+        name="starGroupIcon"
+        size={45}
+        type="MissionHub"
+      />
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 36,
+            "textAlign": "center",
+          }
+        }
+        type="header"
+      >
+        FOCUS YOUR WEEK
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "textAlign": "center",
+          }
+        }
+      >
+        Star up to three steps and get weekly handcrafted reminders.
+      </Text>
+    </Flex>
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+      <View>
+        <RCTScrollView
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "1",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "2",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "3",
+              },
+              Object {
+                "__typename": "AcceptedChallenge",
+                "focus": false,
+                "id": "4",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
+            Object {
+              "hideStars": false,
+            }
+          }
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": undefined,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={false}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "1",
+                  }
+                }
+                testID="step-item-1"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={false}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "2",
+                  }
+                }
+                testID="step-item-2"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={false}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "3",
+                  }
+                }
+                testID="step-item-3"
+                type="swipeable"
+              />
+            </View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <StepItem
+                hideAction={false}
+                onAction={[Function]}
+                onSelect={[Function]}
+                step={
+                  Object {
+                    "__typename": "AcceptedChallenge",
+                    "focus": false,
+                    "id": "4",
+                  }
+                }
+                testID="step-item-4"
+                type="swipeable"
+              />
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+      onScroll={[Function]}
+      refreshControl={
+        <RefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+        ]
+      }
+    >
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+      <View>
+        <Flex
+          align="center"
+          justify="center"
+          value={1}
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/footprints.png",
+              }
+            }
+          />
+          <Text
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 42,
+                "paddingTop": 10,
+              }
+            }
+            type="header"
+          >
+            STEPS OF FAITH
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "paddingHorizontal": 70,
+                "paddingVertical": 10,
+                "textAlign": "center",
+              }
+            }
+          >
+            You don't have any steps of faith.
+Choose a person in People view and add some new steps.
+          </Text>
+        </Flex>
+      </View>
+    </RCTScrollView>
+    <TakeAStepWithSomeoneButton />
+  </View>
+</View>
+`;
