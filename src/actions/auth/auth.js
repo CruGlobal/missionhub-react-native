@@ -13,6 +13,7 @@ import {
 } from '../../routes/constants';
 import { completeOnboarding } from '../onboardingProfile';
 import { navigateToMainTabs } from '../navigation';
+import { apolloClient } from '../../apolloClient';
 
 export function logout(forcedLogout = false) {
   return async dispatch => {
@@ -20,6 +21,7 @@ export function logout(forcedLogout = false) {
       await dispatch(deletePushToken());
     } finally {
       dispatch({ type: LOGOUT });
+      apolloClient.clearStore();
       dispatch(
         forcedLogout
           ? navigateReset(SIGN_IN_FLOW, { forcedLogout })
