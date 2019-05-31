@@ -4,7 +4,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import WelcomeScreen from '..';
 
-import { renderWithContext, snapshotWithContext } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
@@ -33,19 +33,19 @@ describe('WelcomeScreen', () => {
   };
 
   it('should render correctly', () => {
-    snapshotWithContext(<WelcomeScreen next={next} />);
+    renderWithContext(<WelcomeScreen next={next} />).snapshot();
   });
 
   it('should render correctly with sign in button', () => {
-    snapshotWithContext(
+    renderWithContext(
       <WelcomeScreen next={next} />,
       allowSignInVariantConfig,
-    );
+    ).snapshot();
   });
 
   it('getStarted btn should call next', () => {
     const { getByTestId } = renderWithContext(<WelcomeScreen next={next} />);
-    fireEvent(getByTestId('get-started'), 'onPress');
+    fireEvent.press(getByTestId('get-started'));
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledTimes(1);
@@ -57,7 +57,7 @@ describe('WelcomeScreen', () => {
       <WelcomeScreen next={next} />,
       allowSignInVariantConfig,
     );
-    fireEvent(getByTestId('get-started-sign-in-variant'), 'onPress');
+    fireEvent.press(getByTestId('get-started-sign-in-variant'));
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledTimes(1);
@@ -69,7 +69,7 @@ describe('WelcomeScreen', () => {
       <WelcomeScreen next={next} />,
       allowSignInVariantConfig,
     );
-    fireEvent(getByTestId('sign-in'), 'onPress');
+    fireEvent.press(getByTestId('sign-in'));
 
     expect(next).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledWith({ signin: true });
