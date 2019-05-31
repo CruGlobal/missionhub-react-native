@@ -14,10 +14,9 @@ import {
 } from '../../actions/celebrateComments';
 import { reportComment } from '../../actions/reportComments';
 import LoadMore from '../../components/LoadMore';
-import { showMenu, keyExtractorId } from '../../utils/common';
+import { showMenu, keyExtractorId, isOwner } from '../../utils/common';
 import CommentItem from '../CommentItem';
 import { orgPermissionSelector } from '../../selectors/people';
-import { ORG_PERMISSIONS } from '../../constants';
 
 import styles from './styles';
 
@@ -109,7 +108,7 @@ class CommentsList extends Component {
           person: me,
           organization,
         }) || {};
-      if (orgPermission.permission_id === ORG_PERMISSIONS.OWNER) {
+      if (isOwner(orgPermission)) {
         actions.push(deleteAction);
       } else {
         actions.push({
