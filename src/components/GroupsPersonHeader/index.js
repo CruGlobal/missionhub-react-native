@@ -242,7 +242,7 @@ GroupsPersonHeader.propTypes = {
   organization: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
   myId: PropTypes.string.isRequired,
-  myStageId: PropTypes.number,
+  myStageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   stages: PropTypes.array.isRequired,
   isVisible: PropTypes.bool,
   isCruOrg: PropTypes.bool,

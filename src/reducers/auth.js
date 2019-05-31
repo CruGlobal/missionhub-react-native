@@ -10,6 +10,8 @@ import {
 import { userIsJean } from '../utils/common';
 import { REQUESTS } from '../actions/api';
 
+import { getLocalizedStages } from './stages';
+
 const initialAuthState = {
   isFirstTime: false,
   token: '',
@@ -105,7 +107,10 @@ function authReducer(state = initialAuthState, action) {
     case REQUESTS.GET_STAGES.SUCCESS:
     case UPDATE_STAGES:
       // Add the matching 'stage' object to the user object
-      const stages = (results ? results.response : action.stages) || [];
+      const stages = getLocalizedStages(
+        results ? results.response : action.stages,
+      );
+
       return {
         ...state,
         person: {
