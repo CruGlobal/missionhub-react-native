@@ -11,6 +11,7 @@ import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';
 import { completeOnboarding } from '../onboardingProfile';
 import { ADD_SOMEONE_SCREEN } from '../../containers/AddSomeoneScreen';
 import { navigateToMainTabs } from '../navigation';
+import { apolloClient } from '../../apolloClient';
 
 export function logout(forcedLogout = false) {
   return async dispatch => {
@@ -18,6 +19,7 @@ export function logout(forcedLogout = false) {
       await dispatch(deletePushToken());
     } finally {
       dispatch({ type: LOGOUT });
+      apolloClient.clearStore();
       dispatch(
         forcedLogout
           ? navigateReset(SIGN_IN_FLOW, { forcedLogout })
