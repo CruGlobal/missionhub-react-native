@@ -6,6 +6,18 @@ export default StyleSheet.create({
   content: {
     padding: 14,
   },
+  description: {
+    marginTop: 14,
+    maxHeight: 70,
+  },
+  fixedHeightDescription: {
+    height: 70,
+  },
+  messageText: {
+    fontSize: 14,
+    lineHeight: 18,
+    justifyContent: 'flex-start',
+  },
   challengeLinkButton: {
     marginTop: 4,
   },

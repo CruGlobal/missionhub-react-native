@@ -22,15 +22,11 @@ import styles from './styles';
 
 @withTranslation('commentsList')
 class CommentsList extends Component {
-  listRefs = {};
   componentDidMount() {
-    const { dispatch, event, setListRefs } = this.props;
+    const { dispatch, event } = this.props;
 
     dispatch(reloadCelebrateComments(event));
     dispatch(resetCelebrateEditingComment());
-
-    // Share listRefs variable with parent
-    setListRefs && setListRefs(this.listRefs);
   }
 
   handleLoadMore = () => {
@@ -121,11 +117,8 @@ class CommentsList extends Component {
     showMenu(actions, componentRef);
   };
 
-  listRefItem = item => c => (this.listRefs[item.id] = c);
-
   renderItem = ({ item }) => (
     <CommentItem
-      ref={this.listRefItem(item)}
       item={item}
       onLongPress={this.handleLongPress}
       organization={this.props.event.organization}
@@ -133,8 +126,11 @@ class CommentsList extends Component {
   );
 
   render() {
-    const { celebrateComments: { comments, pagination } = {} } = this.props;
-    const { list } = styles;
+    const {
+      listProps,
+      celebrateComments: { comments, pagination } = {},
+    } = this.props;
+    const { list, listContent } = styles;
 
     return (
       <FlatList
@@ -142,10 +138,13 @@ class CommentsList extends Component {
         keyExtractor={keyExtractorId}
         renderItem={this.renderItem}
         style={list}
+        contentContainerStyle={listContent}
         ListFooterComponent={
           pagination &&
           pagination.hasNextPage && <LoadMore onPress={this.handleLoadMore} />
         }
+        bounces={false}
+        {...listProps}
       />
     );
   }

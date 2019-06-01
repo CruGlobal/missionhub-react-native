@@ -1,226 +1,122 @@
 import React, { Component } from 'react';
-import {
-  Image,
-  View,
-  SafeAreaView,
-  StatusBar,
-  findNodeHandle,
-} from 'react-native';
+import { Image, View, SafeAreaView, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// eslint-disable-next-line import/default
-import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 import CommentLikeComponent from '../CommentLikeComponent';
 import { celebrationItemSelector } from '../../selectors/celebration';
 import { organizationSelector } from '../../selectors/organizations';
-import CelebrateItem from '../../components/CelebrateItem';
 import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
 import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 import theme from '../../theme';
-import Header from '../../components/Header';
-import ItemHeaderText from '../../components/ItemHeaderText';
 import TRAILS1 from '../../../assets/images/Trailss.png';
 import TRAILS2 from '../../../assets/images/TrailGrey.png';
 import { refresh, keyboardShow } from '../../utils/common';
 import { reloadCelebrateComments } from '../../actions/celebrateComments';
-import { RefreshControl } from '../../components/common';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
+import CardTime from '../../components/CardTime';
+import CelebrateItemName from '../CelebrateItemName';
+import CelebrateItemContent from '../../components/CelebrateItemContent';
+import { RefreshControl } from '../../components/common';
 
 import styles from './styles';
 
-const FEW_COMMENTS = 4;
 class CelebrateDetailScreen extends Component {
-  state = { refreshing: false, scrollViewHeight: 0, keyboardHeight: 0 };
+  state = { refreshing: false };
 
   componentDidMount() {
-    this.keyboardShowListener = keyboardShow(this.keyboardShow);
+    this.keyboardShowListener = keyboardShow(this.keyboardShow, 'did');
   }
 
   componentWillUnmount() {
     this.keyboardShowListener.remove();
   }
 
-  keyboardShow = e => {
-    this.setState({ keyboardHeight: e.endCoordinates.height });
-    this.scrollToFocusedRef();
-  };
+  keyboardShow = () => this.scrollToFocusedRef();
 
-  scrollToEnd = () => {
-    this.list.getScrollResponder().scrollToEnd();
-  };
-
-  scrollToY = y => {
-    const { parallaxHeaderHeight, headerHeight } = theme;
-    let scrollTo = parallaxHeaderHeight - headerHeight;
-    if (y) {
-      scrollTo = Math.max(scrollTo, y);
-    }
-    this.list.getScrollResponder().scrollTo({ y: scrollTo });
-  };
-
-  scrollToComponent(view) {
-    const { headerHeight } = theme;
-    const scrollResponder = this.list.getScrollResponder();
-    // Need to wrap in set timeout to let the keyboard come up before running all calculations
-    setTimeout(() => {
-      // https://facebook.github.io/react-native/docs/direct-manipulation.html#measurelayoutrelativetonativenode-onsuccess-onfail
-      view.measureLayout(
-        findNodeHandle(scrollResponder.getInnerViewNode()),
-        // eslint-disable-next-line max-params
-        (fx, fy, width, height) => {
-          // This is the height of the screen minus the keyboard height
-          const activeHeight = theme.fullHeight - this.state.keyboardHeight;
-          // Need to subtract the full active height from the "fy" distance and then add back the header height, component height, and extra padding to get the commment to stick directly above the keyboard
-          this.scrollToY(fy - activeHeight + height + headerHeight + 20);
-        },
-        // Error calculating the layout, just scroll to end
-        () => this.scrollToEnd(),
-      );
-    }, 1);
-  }
-
-  setCommentListRefs = listRefs => {
-    // Get the comment refs from the <CommentsList> component by passing a setListRefs function
-    this.commentListRefs = listRefs;
-  };
+  scrollToEnd = () => this.listRef && this.listRef.scrollToEnd();
 
   scrollToFocusedRef = () => {
     const {
       celebrateComments: { comments },
-      editingCommentId: editId,
+      editingCommentId,
     } = this.props;
-    const commentsLength = comments.length;
-    if (commentsLength > 0) {
-      const lastId = (comments[commentsLength - 1] || {}).id;
-      if (commentsLength > FEW_COMMENTS && (!editId || editId === lastId)) {
-        // Need to wrap in set timeout to let the keyboard dismiss or come up before scrolling
-        setTimeout(() => this.scrollToEnd(), 1);
-      } else if (commentsLength <= FEW_COMMENTS && !editId) {
-        // Scroll to min height when there are just a few comments
-        setTimeout(() => this.scrollToY(), 1);
+    if (editingCommentId) {
+      const index = comments.findIndex(c => c.id === editingCommentId);
+      if (index >= 0) {
+        this.listRef && this.listRef.scrollToIndex({ index, viewPosition: 1 });
       } else {
-        // Only scroll to focused comment for edit
-        const refs = this.commentListRefs || {};
-        // Get the comment that we want to focus on
-        const focusCommentRef = refs[editId];
-
-        if (focusCommentRef) {
-          this.scrollToComponent(focusCommentRef.getWrappedInstance().view);
-        }
+        this.scrollToEnd();
       }
+    } else {
+      this.scrollToEnd();
     }
-  };
-
-  addComplete = () => {
-    this.scrollToFocusedRef();
-  };
-
-  onContentSizeChange = (contentWidth, contentHeight) => {
-    this.setState({ scrollViewHeight: contentHeight });
   };
 
   refreshComments = () => {
     const { dispatch, event } = this.props;
-
     return dispatch(reloadCelebrateComments(event));
   };
 
   handleRefresh = () => refresh(this, this.refreshComments);
 
-  renderBackButton = () => {
-    const { backButtonStyle } = styles;
-
-    return <BackButton iconStyle={backButtonStyle} customIcon="deleteIcon" />;
-  };
-
-  renderForeground = () => {
-    const { event, organization } = this.props;
-    const { cardStyle } = styles;
-
-    return (
-      <CelebrateItem
-        event={event}
-        organization={organization}
-        cardStyle={cardStyle}
-        rightCorner={this.renderBackButton()}
-        namePressable={true}
-        fixedHeight={true}
-      />
-    );
-  };
-
-  renderStickyHeader = () => {
-    const { event } = this.props;
-    const { subject_person_name } = event;
-    const { headerStyle, leftHeaderItemStyle, rightHeaderItemStyle } = styles;
-
-    return (
-      <Header
-        shadow={false}
-        left={
-          <ItemHeaderText
-            text={subject_person_name}
-            style={leftHeaderItemStyle}
-          />
-        }
-        right={
-          <View style={rightHeaderItemStyle}>
-            <CommentLikeComponent event={event} />
-            {this.renderBackButton()}
-          </View>
-        }
-        style={headerStyle}
-      />
-    );
-  };
-
-  listRef = c => (this.list = c);
-
   render() {
-    const { event } = this.props;
-    const { container, content } = styles;
-    const {
-      white,
-      grey,
-      parallaxHeaderHeight,
-      headerHeight,
-      statusBar: { darkContent },
-    } = theme;
+    const { event, organization } = this.props;
+    const { refreshing } = this.state;
 
     return (
-      <SafeAreaView style={container}>
-        <StatusBar {...darkContent} />
-        <View style={content}>
-          <ParallaxScrollView
-            ref={this.listRef}
-            backgroundColor={white}
-            contentBackgroundColor={grey}
-            parallaxHeaderHeight={parallaxHeaderHeight}
-            renderForeground={this.renderForeground}
-            stickyHeaderHeight={headerHeight}
-            renderStickyHeader={this.renderStickyHeader}
-            refreshControl={
-              <RefreshControl
-                refreshing={this.state.refreshing}
-                onRefresh={this.handleRefresh}
-              />
-            }
-            onContentSizeChange={this.onContentSizeChange}
-          >
-            <View style={styles.scrollContent}>
-              <Image source={TRAILS1} style={styles.trailsTop} />
-              <Image source={TRAILS2} style={styles.trailsBottom} />
-              <CommentsList
-                setListRefs={this.setCommentListRefs}
-                event={event}
-                organizationId={event.organization.id}
+      <SafeAreaView style={styles.safeAreaContainer}>
+        <View style={styles.container}>
+          <StatusBar {...theme.statusBar.darkContent} />
+          <View style={styles.header}>
+            <View flexDirection="row">
+              <View flex={1}>
+                <CelebrateItemName
+                  name={event.subject_person_name}
+                  person={event.subject_person}
+                  organization={organization}
+                  pressable={true}
+                />
+                <CardTime date={event.changed_attribute_value} />
+              </View>
+              <CommentLikeComponent event={event} />
+              <BackButton
+                style={styles.backButtonStyle}
+                iconStyle={styles.backButtonIconStyle}
+                customIcon="deleteIcon"
               />
             </View>
-          </ParallaxScrollView>
+          </View>
+          <View flex={1}>
+            <Image source={TRAILS1} style={styles.trailsTop} />
+            <Image source={TRAILS2} style={styles.trailsBottom} />
+            <CommentsList
+              event={event}
+              listProps={{
+                ref: c => (this.listRef = c),
+                refreshControl: (
+                  <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={this.handleRefresh}
+                  />
+                ),
+                ListHeaderComponent: () => (
+                  <CelebrateItemContent
+                    event={event}
+                    organization={organization}
+                    fixedHeight={false}
+                    style={styles.itemContent}
+                  />
+                ),
+              }}
+            />
+            <CelebrateCommentBox
+              event={event}
+              onAddComplete={this.scrollToEnd}
+            />
+          </View>
         </View>
-        <CelebrateCommentBox event={event} onAddComplete={this.addComplete} />
       </SafeAreaView>
     );
   }
