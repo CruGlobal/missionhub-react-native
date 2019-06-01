@@ -11,16 +11,16 @@ Array [
         "id": "728-4195255-P1Y",
         "interactions": Array [
           Object {
-            "interaction_count": 1,
-            "interaction_type_id": 2,
+            "interaction_count": "1",
+            "interaction_type_id": "2",
           },
           Object {
             "interaction_count": 2,
-            "interaction_type_id": 4,
+            "interaction_type_id": "4",
           },
           Object {
             "interaction_count": 1,
-            "interaction_type_id": 5,
+            "interaction_type_id": "5",
           },
         ],
         "length": 0,
@@ -38,29 +38,29 @@ Array [
     "report": Array [
       Object {
         "iconName": "peopleIcon",
-        "id": 100,
+        "id": "100",
         "num": 1,
         "requestFieldName": "contact_count",
         "translationKey": "interactionAssignedContacts",
       },
       Object {
         "iconName": "uncontactedIcon",
-        "id": 101,
+        "id": "101",
         "num": 0,
         "requestFieldName": "uncontacted_count",
         "translationKey": "interactionUncontacted",
       },
       Object {
         "iconName": "spiritualConversationIcon",
-        "id": 2,
+        "id": "2",
         "isOnAction": true,
-        "num": 1,
+        "num": "1",
         "tracking": "cru.initiatinggospelconversations",
         "translationKey": "interactionSpiritualConversation",
       },
       Object {
         "iconName": "gospelIcon",
-        "id": 3,
+        "id": "3",
         "isOnAction": true,
         "num": 0,
         "tracking": "cru.presentingthegospel",
@@ -68,7 +68,7 @@ Array [
       },
       Object {
         "iconName": "decisionIcon",
-        "id": 4,
+        "id": "4",
         "isOnAction": true,
         "num": 2,
         "tracking": "cru.newprofessingbelievers",
@@ -76,7 +76,7 @@ Array [
       },
       Object {
         "iconName": "spiritIcon",
-        "id": 5,
+        "id": "5",
         "isOnAction": true,
         "num": 1,
         "tracking": "cru.presentingtheholyspirit",
@@ -84,7 +84,7 @@ Array [
       },
       Object {
         "iconName": "discipleshipConversationIcon",
-        "id": 9,
+        "id": "9",
         "isOnAction": true,
         "num": 0,
         "tracking": "cru.discipleshipconversation",
@@ -107,16 +107,16 @@ Array [
         "id": "728-4195255-P1Y",
         "interactions": Array [
           Object {
-            "interaction_count": 1,
-            "interaction_type_id": 2,
+            "interaction_count": "1",
+            "interaction_type_id": "2",
           },
           Object {
             "interaction_count": 2,
-            "interaction_type_id": 4,
+            "interaction_type_id": "4",
           },
           Object {
             "interaction_count": 1,
-            "interaction_type_id": 5,
+            "interaction_type_id": "5",
           },
         ],
         "length": 0,
@@ -134,29 +134,29 @@ Array [
     "report": Array [
       Object {
         "iconName": "peopleIcon",
-        "id": 100,
+        "id": "100",
         "num": 1,
         "requestFieldName": "contact_count",
         "translationKey": "interactionAssignedContacts",
       },
       Object {
         "iconName": "uncontactedIcon",
-        "id": 101,
+        "id": "101",
         "num": 0,
         "requestFieldName": "uncontacted_count",
         "translationKey": "interactionUncontacted",
       },
       Object {
         "iconName": "spiritualConversationIcon",
-        "id": 2,
+        "id": "2",
         "isOnAction": true,
-        "num": 1,
+        "num": "1",
         "tracking": "cru.initiatinggospelconversations",
         "translationKey": "interactionSpiritualConversation",
       },
       Object {
         "iconName": "gospelIcon",
-        "id": 3,
+        "id": "3",
         "isOnAction": true,
         "num": 0,
         "tracking": "cru.presentingthegospel",
@@ -164,7 +164,7 @@ Array [
       },
       Object {
         "iconName": "decisionIcon",
-        "id": 4,
+        "id": "4",
         "isOnAction": true,
         "num": 2,
         "tracking": "cru.newprofessingbelievers",
@@ -172,7 +172,7 @@ Array [
       },
       Object {
         "iconName": "spiritIcon",
-        "id": 5,
+        "id": "5",
         "isOnAction": true,
         "num": 1,
         "tracking": "cru.presentingtheholyspirit",
@@ -180,7 +180,7 @@ Array [
       },
       Object {
         "iconName": "discipleshipConversationIcon",
-        "id": 9,
+        "id": "9",
         "isOnAction": true,
         "num": 0,
         "tracking": "cru.discipleshipconversation",

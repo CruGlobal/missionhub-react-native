@@ -753,7 +753,7 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
       <Connect(CommentLikeComponent)
         event={
           Object {
-            "adjective_attribute_value": 2,
+            "adjective_attribute_value": "2",
             "celebrateable_type": "interaction",
             "changed_attribute_value": "2004-04-04 00:00:00 UTC",
             "liked": false,
@@ -853,7 +853,7 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
       <Connect(CommentLikeComponent)
         event={
           Object {
-            "adjective_attribute_value": 4,
+            "adjective_attribute_value": "4",
             "celebrateable_type": "interaction",
             "changed_attribute_value": "2004-04-04 00:00:00 UTC",
             "liked": false,
@@ -953,7 +953,7 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
       <Connect(CommentLikeComponent)
         event={
           Object {
-            "adjective_attribute_value": 11,
+            "adjective_attribute_value": "11",
             "celebrateable_type": "interaction",
             "changed_attribute_value": "2004-04-04 00:00:00 UTC",
             "liked": false,
