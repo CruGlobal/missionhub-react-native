@@ -32,7 +32,6 @@ MockDate.set('2019-04-12 12:00:00', 300);
 
 const mockStore = configureStore([thunk]);
 let store;
-const keyboardHeight = 200;
 
 const celebrateComments = {
   comments: [
@@ -63,6 +62,8 @@ const organizations = [organization];
 const myId = 'myId';
 
 let screen;
+let instance;
+const listRef = { scrollToEnd: jest.fn(), scrollToIndex: jest.fn() };
 
 celebrationItemSelector.mockReturnValue(event);
 organizationSelector.mockReturnValue(organization);
@@ -75,15 +76,11 @@ celebrateCommentsSelector.mockReturnValue(celebrateComments),
     });
 
     screen = renderShallow(
-      <CelebrateDetailScreen
-        navigation={{
-          state: {
-            params: { event },
-          },
-        }}
-      />,
+      <CelebrateDetailScreen navigation={createMockNavState({ event })} />,
       store,
     );
+    instance = screen.instance();
+    instance.listRef = listRef;
   });
 
 // Want to validate that the full tree does not change since it relies on refs in child components
@@ -93,11 +90,7 @@ describe('CelebrateDetailScreen', () => {
   beforeEach(() => {
     tree = renderer.create(
       <Provider store={store}>
-        <CelebrateDetailScreen
-          navigation={createMockNavState({
-            event,
-          })}
-        />
+        <CelebrateDetailScreen navigation={createMockNavState({ event })} />
       </Provider>,
     );
   });
@@ -147,15 +140,13 @@ describe('refresh', () => {
 
 describe('celebrate add complete', () => {
   it('scrolls to end on add complete', () => {
-    const scrollToEnd = jest.fn();
-    screen.instance().listRef = { scrollToEnd };
     screen
       .childAt(0)
       .childAt(2)
       .childAt(3)
       .props()
       .onAddComplete();
-    expect(scrollToEnd).toHaveBeenCalled();
+    expect(listRef.scrollToEnd).toHaveBeenCalled();
   });
 });
 
@@ -168,89 +159,22 @@ it('componentWillUnmount', () => {
   expect(remove).toHaveBeenCalled();
 });
 
-// TODO: Write all these tests
-xdescribe('scroll events', () => {
-  const setManyComments = () =>
-    screen.setProps({
-      celebrateComments: {
-        comments: [
-          // Mock out lots of comments
-          celebrateComments.comments[0],
-          celebrateComments.comments[0],
-          celebrateComments.comments[0],
-          celebrateComments.comments[0],
-          celebrateComments.comments[1],
-        ],
-      },
+describe('keyboard show', () => {
+  it('without editing comment', () => {
+    screen.instance().keyboardShow();
+    expect(listRef.scrollToEnd).toHaveBeenCalled();
+  });
+  it('with editing comment', () => {
+    screen.setProps({ editingCommentId: celebrateComments.comments[0].id });
+    screen.instance().keyboardShow();
+    expect(listRef.scrollToIndex).toHaveBeenCalledWith({
+      index: 0,
+      viewPosition: 1,
     });
-  let instance;
-  const scrollResponder = {
-    scrollToEnd: jest.fn(),
-    scrollTo: jest.fn(),
-    getInnerViewNode: jest.fn(),
-  };
-  const height = 1000;
-  const scrollViewHeight = 750;
-  const y = 500;
-  const getRef = error => ({
-    getWrappedInstance: () => ({
-      view: { measureLayout: (a, b, c) => (error ? c() : b(0, y, 0, height)) },
-    }),
   });
-  function setInstance(paramRefs) {
-    const refs = paramRefs || {
-      [celebrateComments.comments[0].id]: getRef(),
-      [celebrateComments.comments[1].id]: getRef(),
-    };
-    instance = screen.instance();
-    screen.setState({ scrollViewHeight });
-    screen.update();
-    instance.commentListRefs = refs;
-    instance.list = { getScrollResponder: () => scrollResponder };
-  }
-  function checkShow(method) {
-    expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 1);
-    jest.runAllTimers();
-    expect(method || scrollResponder.scrollTo).toHaveBeenCalled();
-  }
-  function checkKeyboardShow(paramRefs, method) {
-    setInstance(paramRefs);
-    instance.keyboardShow({ endCoordinates: { height: keyboardHeight } });
-    expect(instance.state.keyboardHeight).toEqual(keyboardHeight);
-    checkShow(method);
-  }
-  it('keyboard shows without any comments to focus', () => {
-    checkKeyboardShow({});
-  });
-  it('keyboard shows and scrolls to component', () => {
-    checkKeyboardShow();
-  });
-  it('keyboard shows for edit error measuring ref', () => {
-    screen.setProps({ editingCommentId: celebrateComments.comments[0].id });
-    checkKeyboardShow(
-      { [celebrateComments.comments[0].id]: getRef(true) },
-      scrollResponder.scrollToEnd,
-    );
-  });
-  it('keyboard shows and scrolls to editing comment', () => {
-    screen.setProps({ editingCommentId: celebrateComments.comments[0].id });
-    checkKeyboardShow();
-  });
-  it('keyboard shows scroll to end with many comments', () => {
-    setManyComments();
-    checkKeyboardShow(undefined, scrollResponder.scrollToEnd);
-  });
-  it('keyboard shows editing comment scroll to end with many comments', () => {
-    setManyComments();
-    screen.setProps({ editingCommentId: celebrateComments.comments[1].id });
-    checkKeyboardShow(undefined, scrollResponder.scrollToEnd);
-  });
-  it('add comment scroll to latest', () => {
-    setInstance();
-    screen
-      .childAt(2)
-      .props()
-      .onAddComplete();
-    checkShow();
+  it('with editing comment that doesnt exist', () => {
+    screen.setProps({ editingCommentId: 'doesnt exist' });
+    screen.instance().keyboardShow();
+    expect(listRef.scrollToEnd).toHaveBeenCalled();
   });
 });
