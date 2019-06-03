@@ -46,12 +46,10 @@ class CelebrateDetailScreen extends Component {
       const index = comments.findIndex(c => c.id === editingCommentId);
       if (index >= 0) {
         this.listRef && this.listRef.scrollToIndex({ index, viewPosition: 1 });
-      } else {
-        this.scrollToEnd();
+        return;
       }
-    } else {
-      this.scrollToEnd();
     }
+    this.scrollToEnd();
   };
 
   refreshComments = () => {
