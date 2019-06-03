@@ -105,7 +105,7 @@ class CelebrateItemContent extends Component {
     } = INTERACTION_TYPES;
     const { completedInteraction } = CELEBRATEABLE_TYPES;
 
-    switch (parseInt(type)) {
+    switch (`${type}`) {
       case MHInteractionTypePersonalDecision.id:
         return t('interactionDecision', { initiator: name });
       case MHInteractionTypeSomethingCoolHappened.id:
@@ -160,7 +160,7 @@ class CelebrateItemContent extends Component {
       MHInteractionTypeDiscipleshipConversation,
     } = INTERACTION_TYPES;
 
-    switch (parseInt(adjective_attribute_value)) {
+    switch (`${adjective_attribute_value}`) {
       case MHInteractionTypeSpiritualConversation.id:
         return t('actions:interactionSpiritualConversation');
       case MHInteractionTypeGospelPresentation.id:

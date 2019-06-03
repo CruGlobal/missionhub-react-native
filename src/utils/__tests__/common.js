@@ -244,7 +244,7 @@ describe('getIconName', () => {
     expect(result).toBe('surveyIcon');
   });
   it('should return interaction icon', () => {
-    const item = { type: 'interaction', interaction_type_id: 2 };
+    const item = { type: 'interaction', interaction_type_id: '2' };
     const result = getIconName(item.type, item.interaction_type_id);
     expect(result).toBe('spiritualConversationIcon');
   });

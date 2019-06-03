@@ -49,7 +49,7 @@ export function getPeopleInteractionsReport(personId, organizationId, period) {
         }
 
         const interaction =
-          interactions.find(i => i.interaction_type_id === type.id) || {};
+          interactions.find(i => `${i.interaction_type_id}` === type.id) || {};
         return {
           ...type,
           num: interaction.interaction_count || 0,

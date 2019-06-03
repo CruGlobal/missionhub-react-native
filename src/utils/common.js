@@ -202,7 +202,9 @@ export const getIconName = (type, interaction_type_id) => {
   } else if (type === 'contact_unassignment') {
     return 'statusIcon';
   } else if (type === 'interaction') {
-    const interaction = interactionsArr.find(i => i.id === interaction_type_id);
+    const interaction = interactionsArr.find(
+      i => i.id === `${interaction_type_id}`,
+    );
     if (interaction) {
       return interaction.iconName;
     }

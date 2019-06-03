@@ -92,15 +92,15 @@ describe('getPeopleInteractionsReport', () => {
           id: '728-4195255-P1Y',
           interactions: [
             {
-              interaction_type_id: 2,
-              interaction_count: 1,
+              interaction_type_id: '2',
+              interaction_count: '1',
             },
             {
-              interaction_type_id: 4,
+              interaction_type_id: '4',
               interaction_count: 2,
             },
             {
-              interaction_type_id: 5,
+              interaction_type_id: '5',
               interaction_count: 1,
             },
           ],
