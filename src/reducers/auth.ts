@@ -7,7 +7,7 @@ import {
   UPDATE_STAGES,
   UPDATE_TOKEN,
 } from '../constants';
-import { userIsJean } from '../utils/common';
+import { userIsJean, getLocalizedStages } from '../utils/common';
 import { REQUESTS as jsREQUESTS } from '../actions/api';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -119,7 +119,10 @@ function authReducer(state = initialAuthState, action: any) {
     case REQUESTS.GET_STAGES.SUCCESS:
     case UPDATE_STAGES:
       // Add the matching 'stage' object to the user object
-      const stages = (results ? results.response : action.stages) || [];
+      const stages = getLocalizedStages(
+        results ? results.response : action.stages,
+      );
+
       return {
         ...state,
         person: {

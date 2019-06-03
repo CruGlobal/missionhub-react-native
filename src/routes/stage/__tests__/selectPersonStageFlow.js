@@ -29,7 +29,7 @@ const orgId = '123';
 const contactAssignmentId = '22';
 const questionText = 'Text';
 
-const stage = { id: 1 };
+const stage = { id: '1' };
 const person = {
   id: otherId,
   reverse_contact_assignments: [{ id: contactAssignmentId }],
@@ -37,7 +37,7 @@ const person = {
 const people = { allByOrg: {} };
 
 const store = configureStore([thunk])({
-  auth: { person: { id: myId, user: { pathway_stage_id: 0 } } },
+  auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
   personProfile: { id: '1', personFirstName: otherName },
   people,
 });
