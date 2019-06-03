@@ -5,20 +5,20 @@ target 'MissionHub' do
   # use_frameworks!
 
   rn_path = '../node_modules/react-native'
-    pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
-    pod 'React', path: rn_path, subspecs: [
-      'Core',
-      'RCTActionSheet',
-      'RCTAnimation',
-      'RCTGeolocation',
-      'RCTImage',
-      'RCTLinkingIOS',
-      'RCTNetwork',
-      'RCTSettings',
-      'RCTText',
-      'RCTVibration',
-      'RCTWebSocket'
-    ]
+  pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
+  pod 'React', path: rn_path, subspecs: [
+    'Core',
+    'RCTActionSheet',
+    'RCTAnimation',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTNetwork',
+    'RCTSettings',
+    'RCTText',
+    'RCTVibration',
+    'RCTWebSocket'
+  ]
 
   # Pods for MissionHub
   pod 'FBSDKCoreKit'

@@ -5,7 +5,10 @@ import ImageCropPicker from 'react-native-image-crop-picker';
 import i18next from 'i18next';
 
 import { showMenu } from '../../../utils/common';
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import {
+  testSnapshotShallow,
+  renderShallow,
+} from '../../../../testUtils/index.tsx';
 
 import ImagePicker from '..';
 
@@ -16,8 +19,6 @@ jest.mock('react-native-image-crop-picker', () => ({
 jest.mock('../../../utils/common');
 
 MockDate.set('2018-11-08');
-ImageCropPicker.openCamera = jest.fn();
-ImageCropPicker.openPicker = jest.fn();
 
 const props = {
   onSelectImage: jest.fn(),

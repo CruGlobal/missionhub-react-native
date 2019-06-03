@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -58,9 +57,6 @@
 		C94332D1FCF94D2F8593997B /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7072D8285274B48B52A3361 /* SourceSansPro-Italic.ttf */; };
 		D151858121E94E760052EF4C /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D151858021E94E760052EF4C /* icomoon.ttf */; };
 		D151858221E94E760052EF4C /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D151858021E94E760052EF4C /* icomoon.ttf */; };
-		D1768B11229303A8004ED735 /* libRNImageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1768B10229303A8004ED735 /* libRNImageCropPicker.a */; };
-		D1768B4B229303B2004ED735 /* libRSKImageCropper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1768B4A229303B2004ED735 /* libRSKImageCropper.a */; };
-		D1768B4D229303BA004ED735 /* libQBImagePickerController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1768B4C229303BA004ED735 /* libQBImagePickerController.a */; };
 		D1835D2C205BFA5800DDB80A /* ADBMobileConfig_debug.json in Resources */ = {isa = PBXBuildFile; fileRef = D1835D2B205BFA5800DDB80A /* ADBMobileConfig_debug.json */; };
 		D3D4E35331C34B429DE06476 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C23C5D26FAD84794B4657E73 /* AmaticSC-Bold.ttf */; };
 		E601B83451D245D796326489 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E70A604B1FC941E193868924 /* MaterialIcons.ttf */; };
