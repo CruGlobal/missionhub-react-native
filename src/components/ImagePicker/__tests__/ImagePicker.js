@@ -5,10 +5,7 @@ import ImageCropPicker from 'react-native-image-crop-picker';
 import i18next from 'i18next';
 
 import { showMenu } from '../../../utils/common';
-import {
-  testSnapshotShallow,
-  renderShallow,
-} from '../../../../testUtils/index.tsx';
+import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 
 import ImagePicker from '..';
 
