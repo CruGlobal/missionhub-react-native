@@ -20,6 +20,7 @@ import { reportComment } from '../../../actions/reportComments';
 import * as common from '../../../utils/common';
 import { ORG_PERMISSIONS } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
+import Text from '../../../components/Text';
 
 jest.mock('../../../actions/celebrateComments');
 jest.mock('../../../actions/reportComments');
@@ -78,10 +79,20 @@ beforeEach(() => {
     celebrateComments: celebrateCommentsState,
   });
 
-  screen = renderShallow(
-    <CommentsList event={event} organizationId={organizationId} />,
-    store,
-  );
+  screen = renderShallow(<CommentsList event={event} />, store);
+});
+
+describe('mounts with custom props', () => {
+  it('passes in custom flatlist props', () => {
+    screen = renderShallow(
+      <CommentsList
+        event={event}
+        listProps={{ ListHeaderComponent: () => <Text>Test</Text> }}
+      />,
+      store,
+    );
+    expect(screen).toMatchSnapshot();
+  });
 });
 
 describe('componentDidMount', () => {
@@ -157,10 +168,7 @@ function buildScreenWithComment(comment) {
     },
   });
 
-  screen = renderShallow(
-    <CommentsList event={event} organizationId={organizationId} />,
-    store,
-  );
+  screen = renderShallow(<CommentsList event={event} />, store);
 }
 
 describe('comments sets up actions as author', () => {

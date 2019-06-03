@@ -286,15 +286,15 @@ export function getStageIndex(stages, stageId) {
 
 // iOS and Android handle the keyboard show event differently
 // https://facebook.github.io/react-native/docs/keyboard#addlistener
-export function keyboardShow(handler) {
-  if (isAndroid) {
+export function keyboardShow(handler, type) {
+  if (isAndroid || type === 'did') {
     return Keyboard.addListener('keyboardDidShow', handler);
   }
   return Keyboard.addListener('keyboardWillShow', handler);
 }
 
-export function keyboardHide(handler) {
-  if (isAndroid) {
+export function keyboardHide(handler, type) {
+  if (isAndroid || type === 'did') {
     return Keyboard.addListener('keyboardDidHide', handler);
   }
   return Keyboard.addListener('keyboardWillHide', handler);
@@ -362,3 +362,13 @@ export function showMenu(actions, ref) {
 }
 
 export const keyExtractorId = item => item.id;
+
+export function getLocalizedStages(stages) {
+  return (stages || []).map(s => {
+    const localizedStage =
+      (s.localized_pathway_stages || []).find(
+        ls => ls && isObject(ls) && ls.locale === i18n.language,
+      ) || {};
+    return { ...s, ...localizedStage };
+  });
+}

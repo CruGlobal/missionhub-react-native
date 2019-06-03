@@ -1,5 +1,6 @@
 import { REQUESTS } from '../actions/api';
 import { LOGOUT } from '../constants';
+import { getLocalizedStages } from '../utils/common';
 
 const initialStagesState = {
   stages: [],
@@ -9,7 +10,9 @@ const initialStagesState = {
 function stagesReducer(state = initialStagesState, action) {
   switch (action.type) {
     case REQUESTS.GET_STAGES.SUCCESS:
-      const stages = (action.results || []).findAll('pathway_stage') || [];
+      const stages = getLocalizedStages(
+        (action.results || []).findAll('pathway_stage'),
+      );
       const stagesObj = stages.reduce((p, n) => {
         p[`${n.id}`] = n;
         return p;

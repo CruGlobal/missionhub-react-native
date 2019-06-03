@@ -18,6 +18,8 @@ export function getStagesIfNotExists() {
 
 export function getStages() {
   return dispatch => {
-    return dispatch(callApi(REQUESTS.GET_STAGES, { include: '' }));
+    return dispatch(
+      callApi(REQUESTS.GET_STAGES, { include: 'localized_pathway_stages' }),
+    );
   };
 }
