@@ -155,7 +155,7 @@ it('renders interaction correctly', () => {
       item={{
         id: '4',
         _type: 'interaction',
-        interaction_type_id: 1,
+        interaction_type_id: '1',
         comment: 'Test Interaction',
         initiators: [{ id: myId }],
         organization: null,

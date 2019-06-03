@@ -74,7 +74,7 @@ const filterCelebrationFeedItems = items => {
     switch (item.celebrateable_type) {
       case completedInteraction:
         return validInteractionTypes.includes(
-          parseInt(item.adjective_attribute_value),
+          `${item.adjective_attribute_value}`,
         );
       case completedStep:
       case acceptedCommunityChallenge:

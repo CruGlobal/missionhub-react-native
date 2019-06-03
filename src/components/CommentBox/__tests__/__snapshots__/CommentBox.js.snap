@@ -220,7 +220,7 @@ exports[`renders with actions 2`] = `
         Array [
           Object {
             "iconName": "spiritualConversationIcon",
-            "id": 2,
+            "id": "2",
             "isOnAction": true,
             "tracking": "cru.initiatinggospelconversations",
             "translationKey": "interactionSpiritualConversation",
@@ -277,7 +277,7 @@ exports[`renders with actions 2`] = `
         Array [
           Object {
             "iconName": "gospelIcon",
-            "id": 3,
+            "id": "3",
             "isOnAction": true,
             "tracking": "cru.presentingthegospel",
             "translationKey": "interactionGospel",
@@ -334,7 +334,7 @@ exports[`renders with actions 2`] = `
         Array [
           Object {
             "iconName": "decisionIcon",
-            "id": 4,
+            "id": "4",
             "isOnAction": true,
             "tracking": "cru.newprofessingbelievers",
             "translationKey": "interactionDecision",
@@ -391,7 +391,7 @@ exports[`renders with actions 2`] = `
         Array [
           Object {
             "iconName": "spiritIcon",
-            "id": 5,
+            "id": "5",
             "isOnAction": true,
             "tracking": "cru.presentingtheholyspirit",
             "translationKey": "interactionSpirit",
@@ -448,7 +448,7 @@ exports[`renders with actions 2`] = `
         Array [
           Object {
             "iconName": "discipleshipConversationIcon",
-            "id": 9,
+            "id": "9",
             "isOnAction": true,
             "tracking": "cru.discipleshipconversation",
             "translationKey": "interactionDiscipleshipConversation",
@@ -701,7 +701,7 @@ exports[`renders with actions and selected action 1`] = `
         Array [
           Object {
             "iconName": "spiritualConversationIcon",
-            "id": 2,
+            "id": "2",
             "isOnAction": true,
             "tracking": "cru.initiatinggospelconversations",
             "translationKey": "interactionSpiritualConversation",
@@ -760,7 +760,7 @@ exports[`renders with actions and selected action 1`] = `
         Array [
           Object {
             "iconName": "gospelIcon",
-            "id": 3,
+            "id": "3",
             "isOnAction": true,
             "tracking": "cru.presentingthegospel",
             "translationKey": "interactionGospel",
@@ -817,7 +817,7 @@ exports[`renders with actions and selected action 1`] = `
         Array [
           Object {
             "iconName": "decisionIcon",
-            "id": 4,
+            "id": "4",
             "isOnAction": true,
             "tracking": "cru.newprofessingbelievers",
             "translationKey": "interactionDecision",
@@ -874,7 +874,7 @@ exports[`renders with actions and selected action 1`] = `
         Array [
           Object {
             "iconName": "spiritIcon",
-            "id": 5,
+            "id": "5",
             "isOnAction": true,
             "tracking": "cru.presentingtheholyspirit",
             "translationKey": "interactionSpirit",
@@ -931,7 +931,7 @@ exports[`renders with actions and selected action 1`] = `
         Array [
           Object {
             "iconName": "discipleshipConversationIcon",
-            "id": 9,
+            "id": "9",
             "isOnAction": true,
             "tracking": "cru.discipleshipconversation",
             "translationKey": "interactionDiscipleshipConversation",

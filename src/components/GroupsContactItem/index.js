@@ -20,7 +20,7 @@ class GroupsContactItem extends Component {
       initiator: (interaction.initiators[0] || {}).full_name,
       receiver: interaction.receiver.first_name,
     };
-    switch (interaction.interaction_type_id) {
+    switch (`${interaction.interaction_type_id}`) {
       case INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id:
         return t('spiritualConversation', data);
       case INTERACTION_TYPES.MHInteractionTypeGospelPresentation.id:

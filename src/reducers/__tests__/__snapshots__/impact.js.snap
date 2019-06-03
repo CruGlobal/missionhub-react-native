@@ -7,7 +7,7 @@ Object {
       "P1W": Array [
         Object {
           "iconName": "spiritualConversationIcon",
-          "id": 2,
+          "id": "2",
           "num": 1,
           "translationKey": "interactionSpiritualConversation",
         },
@@ -51,7 +51,7 @@ Object {
       "P1W": Array [
         Object {
           "iconName": "peopleIcon",
-          "id": 100,
+          "id": "100",
           "num": 1,
           "requestFieldName": "contact_count",
           "translationKey": "interactionAssignedContacts",

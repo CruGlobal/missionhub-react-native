@@ -20,7 +20,7 @@ const activity = [
     text: 'Someone had a spiritual conversation',
     comment: 'Some comment',
     type: 'interaction',
-    interaction_type_id: 2,
+    interaction_type_id: '2',
   },
   {
     id: '2',
@@ -28,7 +28,7 @@ const activity = [
     text: 'Someone else had a spiritual conversation',
     comment: '',
     type: 'interaction',
-    interaction_type_id: 2,
+    interaction_type_id: '2',
   },
   {
     id: '3',
@@ -36,7 +36,7 @@ const activity = [
     text: 'Someone else had a gospel conversation',
     comment: '',
     type: 'interaction',
-    interaction_type_id: 3,
+    interaction_type_id: '3',
   },
   {
     id: '4',

@@ -10,8 +10,8 @@ const otherId = '222';
 const myName = 'Me';
 const otherName = 'Other';
 const orgId = '11';
-const stageId = 0;
-const notSureStageId = 1;
+const stageId = '0';
+const notSureStageId = '1';
 const assignmentId = '33';
 
 const myPerson = {
@@ -74,7 +74,7 @@ describe('is Me, not "Not Sure" stage, step count not complete', () => {
       hasHitCount: false,
       isNotSure: false,
       subsection: 'self',
-      firstItemIndex: stageId,
+      firstItemIndex: 0,
       questionText: i18next.t('selectStage:completed3StepsMe'),
       assignment: null,
       name: myName,
@@ -102,7 +102,7 @@ describe('is Me, "Not Sure" stage, step count not complete', () => {
       hasHitCount: false,
       isNotSure: true,
       subsection: 'self',
-      firstItemIndex: notSureStageId,
+      firstItemIndex: 1,
       questionText: i18next.t('selectStage:meQuestion', {
         name: myName,
       }),
@@ -134,7 +134,7 @@ describe('is Me, not "Not Sure" stage, step count complete', () => {
       hasHitCount: true,
       isNotSure: false,
       subsection: 'self',
-      firstItemIndex: stageId,
+      firstItemIndex: 0,
       questionText: i18next.t('selectStage:completed3StepsMe'),
       assignment: null,
       name: myName,
@@ -151,7 +151,7 @@ describe('is not Me, not "Not Sure" stage, step count not complete', () => {
       hasHitCount: false,
       isNotSure: false,
       subsection: 'person',
-      firstItemIndex: stageId,
+      firstItemIndex: 0,
       questionText: i18next.t('selectStage:completed3Steps', {
         name: otherName,
       }),
@@ -181,7 +181,7 @@ describe('is not Me, "Not Sure" stage, step count not complete', () => {
       hasHitCount: false,
       isNotSure: true,
       subsection: 'person',
-      firstItemIndex: notSureStageId,
+      firstItemIndex: 1,
       questionText: i18next.t('selectStage:completed1Step', {
         name: otherName,
       }),
@@ -213,7 +213,7 @@ describe('is not Me, not "Not Sure" stage, step count complete', () => {
       hasHitCount: true,
       isNotSure: false,
       subsection: 'person',
-      firstItemIndex: stageId,
+      firstItemIndex: 0,
       questionText: i18next.t('selectStage:completed3Steps', {
         name: otherName,
       }),

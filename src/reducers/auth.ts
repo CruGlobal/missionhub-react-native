@@ -7,10 +7,23 @@ import {
   UPDATE_STAGES,
   UPDATE_TOKEN,
 } from '../constants';
-import { userIsJean } from '../utils/common';
-import { REQUESTS } from '../actions/api';
+import { userIsJean, getLocalizedStages } from '../utils/common';
+import { REQUESTS as jsREQUESTS } from '../actions/api';
 
-const initialAuthState = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const REQUESTS: any = jsREQUESTS; // TODO: remove any once API files are typed
+
+export interface AuthState {
+  isFirstTime: boolean;
+  token: string;
+  refreshToken: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  person: any; // TODO: use GraphQL type
+  isJean: boolean;
+  upgradeToken: boolean | null;
+}
+
+const initialAuthState: AuthState = {
   isFirstTime: false,
   token: '',
   refreshToken: '',
@@ -19,7 +32,8 @@ const initialAuthState = {
   upgradeToken: null,
 };
 
-function authReducer(state = initialAuthState, action) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function authReducer(state = initialAuthState, action: any) {
   const results = action.results;
 
   switch (action.type) {
@@ -105,13 +119,17 @@ function authReducer(state = initialAuthState, action) {
     case REQUESTS.GET_STAGES.SUCCESS:
     case UPDATE_STAGES:
       // Add the matching 'stage' object to the user object
-      const stages = (results ? results.response : action.stages) || [];
+      const stages = getLocalizedStages(
+        results ? results.response : action.stages,
+      );
+
       return {
         ...state,
         person: {
           ...state.person,
           stage: stages.find(
-            s => s && s.id === `${state.person.user.pathway_stage_id}`,
+            (s: { id: string }) =>
+              s && s.id === `${state.person.user.pathway_stage_id}`,
           ),
         },
       };

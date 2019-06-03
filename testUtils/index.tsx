@@ -1,36 +1,19 @@
-import React, { ReactElement, Children } from 'react';
+import React, { ReactElement } from 'react';
 import 'react-native';
 import { Provider } from 'react-redux';
+import { NavigationParams } from 'react-navigation';
+import { NavigationProvider } from '@react-navigation/core';
 import { render } from 'react-native-testing-library';
-import Enzyme, { shallow as enzymeShallow, ShallowWrapper } from 'enzyme';
+import Enzyme, { shallow as enzymeShallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import {
-  createAppContainer,
-  createSwitchNavigator,
-  NavigationComponent,
-  NavigationParams,
-} from 'react-navigation';
+
+import { createNavigationProp } from './navigationHelpers';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 export const createThunkStore = configureStore([thunk]);
-
-const TestNavigator = ({
-  children,
-  params,
-}: {
-  children: NavigationComponent;
-  params?: NavigationParams;
-}) => {
-  const Navigator = createAppContainer(
-    createSwitchNavigator({
-      TestScreen: { screen: () => Children.only(children), params },
-    }),
-  );
-  return <Navigator />;
-};
 
 interface RenderWithContextParams {
   initialState?: {} | undefined;
@@ -47,22 +30,24 @@ export function renderWithContext(
     navParams,
   }: RenderWithContextParams = {},
 ) {
-  return {
-    ...render(
-      <TestNavigator params={navParams}>
-        <Provider store={store}>{component}</Provider>
-      </TestNavigator>,
-    ),
-    store,
-  };
-}
+  const navigation = createNavigationProp(navParams);
 
-export function snapshotWithContext(
-  component: ReactElement,
-  renderWithContextParams?: RenderWithContextParams,
-) {
-  const { toJSON } = renderWithContext(component, renderWithContextParams);
-  expect(toJSON()).toMatchSnapshot();
+  // Warning: don't call any functions in here that return new instances on every call. All the props need to stay the same otherwise rerender won't work.
+  const wrapper = ({ children }: { children: ReactElement }) => (
+    <NavigationProvider value={navigation}>
+      <Provider store={store}>{children}</Provider>
+    </NavigationProvider>
+  );
+
+  const renderResult = render(component, { wrapper });
+  return {
+    ...renderResult,
+    store,
+    rerender: (component: ReactElement) => renderResult.update(component),
+    snapshot: () => {
+      expect(renderResult.toJSON()).toMatchSnapshot();
+    },
+  };
 }
 
 // TODO: Remove all legacy rendering functions below

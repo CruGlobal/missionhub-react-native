@@ -85,7 +85,7 @@ exports[`Member Feed rendering renders correctly for member feed 1`] = `
 `;
 
 exports[`item renders correctly 1`] = `
-<Connect(withI18nextTranslation(CelebrateItem))
+<Connect(CelebrateItem)
   event={
     Object {
       "data": Array [

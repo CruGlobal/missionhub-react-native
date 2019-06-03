@@ -1,3 +1,5 @@
+import i18n from 'i18next';
+
 import auth from '../auth';
 import { REQUESTS } from '../../actions/api';
 import {
@@ -6,9 +8,7 @@ import {
   UPDATE_STAGES,
   UPDATE_TOKEN,
 } from '../../constants';
-import { userIsJean } from '../../utils/common';
-
-jest.mock('../../utils/common');
+import * as common from '../../utils/common';
 
 const token = 'asdfasndfiosdc';
 const personId = '123456';
@@ -77,7 +77,7 @@ it('sets new token after refreshing anonymous login', () => {
 
 it('sets isJean after loading me', () => {
   const isJeanResponse = 'isJean';
-  userIsJean.mockReturnValue(isJeanResponse);
+  common.userIsJean = jest.fn().mockReturnValue(isJeanResponse);
 
   const organizational_permissions = [
     { id: 1, type: 'organizational_permission' },
@@ -93,7 +93,7 @@ it('sets isJean after loading me', () => {
   const state = callAuth(REQUESTS.GET_ME.SUCCESS, { response });
 
   expect(state.isJean).toBe(isJeanResponse);
-  expect(userIsJean).toHaveBeenCalledWith(organizational_permissions);
+  expect(common.userIsJean).toHaveBeenCalledWith(organizational_permissions);
 });
 
 it('sets unread_comments_count', () => {
@@ -140,7 +140,7 @@ it('updates a users stage', () => {
     {
       person: {
         user: {
-          pathway_stage_id: 2,
+          pathway_stage_id: '2',
         },
       },
     },
@@ -151,6 +151,36 @@ it('updates a users stage', () => {
   );
 
   expect(state.person.stage.id).toBe('2');
+});
+
+describe('updates a users stage with localized stages', () => {
+  const locale = 'no';
+  const name = 'Norwegian Name';
+
+  it('should filter by language', () => {
+    i18n.language = locale;
+    const state = auth(
+      {
+        person: {
+          user: {
+            pathway_stage_id: '3',
+          },
+        },
+      },
+      {
+        type: UPDATE_STAGES,
+        stages: [
+          {
+            id: '2',
+            name: 'English Name',
+            localized_pathway_stages: [{ id: '3', locale, name }],
+          },
+        ],
+      },
+    );
+
+    expect(state.person.stage.name).toBe(name);
+  });
 });
 
 it('updates a user token', () => {

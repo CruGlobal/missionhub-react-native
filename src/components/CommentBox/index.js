@@ -112,7 +112,7 @@ export default class CommentBox extends Component {
         <Flex
           style={[
             actionIconButton,
-            action && item.id === action.id ? actionIconActive : null,
+            action && item.id === `${action.id}` ? actionIconActive : null,
           ]}
         >
           <Icon
