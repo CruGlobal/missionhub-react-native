@@ -15,8 +15,8 @@
     "test:s": "npm run test:snapshot",
     "ios": "react-native run-ios",
     "ios:pod": "cd ios && pod install",
-    "lint": "eslint './*.{js,ts,tsx}' './src/**/*.{js,ts,tsx}'",
-    "lint:fix": "eslint './*.{js,ts,tsx}' './src/**/*.{js,ts,tsx}' --fix",
+    "lint": "eslint './*.{js,ts,tsx}' './{src,testUtils}/**/*.{js,ts,tsx}'",
+    "lint:fix": "eslint './*.{js,ts,tsx}' './{src,testUtils}/**/*.{js,ts,tsx}' --fix",
     "lint:ts": "tsc",
     "prettier:check": "prettier '{{src,bin,testUtils,__{tests,mocks}__}/**/*.{js,json,ts,tsx},./*.{js,json,ts,tsx,yml}}' --list-different",
     "prettier:write": "prettier '{{src,bin,testUtils,__{tests,mocks}__}/**/*.{js,json,ts,tsx},./*.{js,json,ts,tsx,yml}}' --write",
@@ -32,6 +32,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.5",
+    "@react-navigation/core": "^3.4.1",
+    "@react-navigation/native": "^3.5.0",
     "@ringierag/snowplow-reactjs-native-tracker": "^0.0.4",
     "base64-url": "^2.2.1",
     "buffer": "^5.2.1",
@@ -88,6 +90,7 @@
     "@types/enzyme": "^3.9.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.13",
+    "@types/lodash": "^4.14.123",
     "@types/react": "^16.8.18",
     "@types/react-native": "^0.57.60",
     "@types/react-redux": "^7.0.9",
@@ -114,7 +117,8 @@
     "prettier": "^1.17.1",
     "pretty-quick": "^1.11.0",
     "react-dom": "^16.8.6",
-    "react-native-testing-library": "^1.7.0",
+    "react-hooks-testing-library": "^0.5.0",
+    "react-native-testing-library": "^1.8.0",
     "react-test-renderer": "^16.8.6",
     "redux-mock-store": "^1.5.3",
     "typescript": "^3.4.5"
@@ -129,6 +133,9 @@
       "<rootDir>/__mock__/rollbar-react-native.js",
       "<rootDir>/__mock__/react-native-omniture.js",
       "<rootDir>/__mock__/init-i18next.js"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/__mock__/hideWarnings.ts"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

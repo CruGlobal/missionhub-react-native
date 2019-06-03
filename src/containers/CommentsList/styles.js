@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   list: {
-    paddingVertical: 15,
+    flex: 1,
   },
+  listContent: { paddingBottom: 15 },
 });

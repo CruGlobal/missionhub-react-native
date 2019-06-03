@@ -108,7 +108,7 @@ describe('mapStateToProps', () => {
     expect(mapStateToProps(store, { organization: org })).toEqual({
       challengeItems: challengeSelectorReturnValue,
       myOrgPermissions: {
-        permission_id: 1,
+        permission_id: '1',
       },
       pagination: challengePagination,
     });

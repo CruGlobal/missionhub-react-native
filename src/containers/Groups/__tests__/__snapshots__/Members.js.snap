@@ -5,7 +5,7 @@ exports[`Members calls render item 1`] = `
   myOrgPermission={
     Object {
       "organization_id": "1",
-      "permission_id": 4,
+      "permission_id": "4",
     }
   }
   onSelect={[Function]}

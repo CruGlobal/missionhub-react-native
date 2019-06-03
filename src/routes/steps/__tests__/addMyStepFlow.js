@@ -16,7 +16,7 @@ const orgId = '123';
 const stage = { id: 1 };
 
 const store = configureStore([thunk])({
-  auth: { person: { id: myId, user: { pathway_stage_id: 0 } } },
+  auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
 });
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {

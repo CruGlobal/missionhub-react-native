@@ -1,11 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`mounts with custom props passes in custom flatlist props 1`] = `
+<FlatList
+  ListHeaderComponent={[Function]}
+  bounces={false}
+  contentContainerStyle={
+    Object {
+      "paddingBottom": 15,
+    }
+  }
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
 exports[`with comments with next page renders correctly 1`] = `
 <FlatList
   ListFooterComponent={
     <withI18nextTranslation(LoadMore)
       onPress={[Function]}
     />
+  }
+  bounces={false}
+  contentContainerStyle={
+    Object {
+      "paddingBottom": 15,
+    }
   }
   data={
     Array [
@@ -29,7 +64,7 @@ exports[`with comments with next page renders correctly 1`] = `
   scrollEventThrottle={50}
   style={
     Object {
-      "paddingVertical": 15,
+      "flex": 1,
     }
   }
   updateCellsBatchingPeriod={50}
@@ -58,6 +93,12 @@ exports[`with comments with next page renders item correctly 1`] = `
 
 exports[`with comments without next page renders correctly 1`] = `
 <FlatList
+  bounces={false}
+  contentContainerStyle={
+    Object {
+      "paddingBottom": 15,
+    }
+  }
   data={
     Array [
       Object {
@@ -80,7 +121,7 @@ exports[`with comments without next page renders correctly 1`] = `
   scrollEventThrottle={50}
   style={
     Object {
-      "paddingVertical": 15,
+      "flex": 1,
     }
   }
   updateCellsBatchingPeriod={50}
@@ -90,6 +131,12 @@ exports[`with comments without next page renders correctly 1`] = `
 
 exports[`with no comments renders correctly 1`] = `
 <FlatList
+  bounces={false}
+  contentContainerStyle={
+    Object {
+      "paddingBottom": 15,
+    }
+  }
   disableVirtualization={false}
   horizontal={false}
   initialNumToRender={10}
@@ -102,7 +149,7 @@ exports[`with no comments renders correctly 1`] = `
   scrollEventThrottle={50}
   style={
     Object {
-      "paddingVertical": 15,
+      "flex": 1,
     }
   }
   updateCellsBatchingPeriod={50}

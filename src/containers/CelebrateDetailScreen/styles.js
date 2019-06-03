@@ -3,29 +3,26 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  container: {
+  safeAreaContainer: {
+    flex: 1,
     backgroundColor: theme.white,
-    flex: 1,
-    justifyContent: 'center',
   },
-  content: {
+  container: {
+    flex: 1,
     backgroundColor: theme.grey,
-    flex: 1,
   },
-  cardStyle: {
-    elevation: 0,
-    shadowOpacity: 0,
-    shadowRadius: 0,
-    marginHorizontal: 3,
+  header: {
+    backgroundColor: 'white',
+    padding: 14,
+    paddingBottom: 5,
   },
-  backButtonStyle: { color: theme.black },
-  headerStyle: { backgroundColor: theme.white },
-  leftHeaderItemStyle: { marginLeft: 25 },
-  rightHeaderItemStyle: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+  itemContent: {
+    backgroundColor: 'white',
+    padding: 14,
+    marginTop: 0,
   },
+  backButtonStyle: { marginLeft: 10 },
+  backButtonIconStyle: { color: theme.black },
   trailsTop: {
     position: 'absolute',
     top: 0,
@@ -35,8 +32,5 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     left: 0,
-  },
-  scrollContent: {
-    minHeight: theme.fullHeight * 0.7,
   },
 });
