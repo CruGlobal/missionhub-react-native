@@ -10,7 +10,6 @@ import PersonListItem from '../../components/PersonListItem';
 import {
   searchRemoveFilter,
   unassignedFilter,
-  includeUsersFilter,
   thirtyDaysFilter,
 } from '../../utils/filters';
 import { buildTrackingObj } from '../../utils/common';
@@ -39,7 +38,6 @@ class SurveyContacts extends Component {
       filters: {
         unassigned: unassignedFilter(t, true),
         time: thirtyDaysFilter(t),
-        includeUsers: includeUsersFilter(t, false),
       },
       defaultResults: [],
     };

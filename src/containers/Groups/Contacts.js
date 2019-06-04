@@ -12,7 +12,6 @@ import PersonListItem from '../../components/PersonListItem';
 import {
   searchRemoveFilter,
   unassignedFilter,
-  includeUsersFilter,
   thirtyDaysFilter,
 } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
@@ -36,7 +35,6 @@ class Contacts extends Component {
         // Default filters
         unassigned: unassignedFilter(t, true),
         time: thirtyDaysFilter(t),
-        includeUsers: includeUsersFilter(t, false),
       },
       defaultResults: [],
     };
