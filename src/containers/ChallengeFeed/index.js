@@ -111,7 +111,8 @@ class ChallengeFeed extends Component {
         onRefresh={this.handleRefreshing}
         refreshing={refreshing || false}
         extraData={this.state}
-        contentContainerStyle={styles.list}
+        style={styles.list}
+        contentContainerStyle={styles.listContent}
       />
     );
   }

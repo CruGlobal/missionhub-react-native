@@ -105,16 +105,17 @@ const MHUB_PERMISSIONS = [
   ORG_PERMISSIONS.USER,
 ];
 export const hasOrgPermissions = orgPermission =>
-  !!orgPermission && MHUB_PERMISSIONS.includes(orgPermission.permission_id);
+  !!orgPermission &&
+  MHUB_PERMISSIONS.includes(`${orgPermission.permission_id}`);
 export const isAdminOrOwner = orgPermission =>
   !!orgPermission &&
   [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
-    orgPermission.permission_id,
+    `${orgPermission.permission_id}`,
   );
 export const isOwner = orgPermission =>
-  !!orgPermission && orgPermission.permission_id === ORG_PERMISSIONS.OWNER;
+  !!orgPermission && `${orgPermission.permission_id}` === ORG_PERMISSIONS.OWNER;
 export const isAdmin = orgPermission =>
-  !!orgPermission && orgPermission.permission_id === ORG_PERMISSIONS.ADMIN;
+  !!orgPermission && `${orgPermission.permission_id}` === ORG_PERMISSIONS.ADMIN;
 
 export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
 
@@ -201,7 +202,9 @@ export const getIconName = (type, interaction_type_id) => {
   } else if (type === 'contact_unassignment') {
     return 'statusIcon';
   } else if (type === 'interaction') {
-    const interaction = interactionsArr.find(i => i.id === interaction_type_id);
+    const interaction = interactionsArr.find(
+      i => i.id === `${interaction_type_id}`,
+    );
     if (interaction) {
       return interaction.iconName;
     }
@@ -283,15 +286,15 @@ export function getStageIndex(stages, stageId) {
 
 // iOS and Android handle the keyboard show event differently
 // https://facebook.github.io/react-native/docs/keyboard#addlistener
-export function keyboardShow(handler) {
-  if (isAndroid) {
+export function keyboardShow(handler, type) {
+  if (isAndroid || type === 'did') {
     return Keyboard.addListener('keyboardDidShow', handler);
   }
   return Keyboard.addListener('keyboardWillShow', handler);
 }
 
-export function keyboardHide(handler) {
-  if (isAndroid) {
+export function keyboardHide(handler, type) {
+  if (isAndroid || type === 'did') {
     return Keyboard.addListener('keyboardDidHide', handler);
   }
   return Keyboard.addListener('keyboardWillHide', handler);
@@ -359,3 +362,13 @@ export function showMenu(actions, ref) {
 }
 
 export const keyExtractorId = item => item.id;
+
+export function getLocalizedStages(stages) {
+  return (stages || []).map(s => {
+    const localizedStage =
+      (s.localized_pathway_stages || []).find(
+        ls => ls && isObject(ls) && ls.locale === i18n.language,
+      ) || {};
+    return { ...s, ...localizedStage };
+  });
+}

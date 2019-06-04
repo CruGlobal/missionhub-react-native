@@ -41,8 +41,8 @@ const organization = { id: '50' };
 const dispatch = store.dispatch;
 const myId = '1001';
 const stages = [];
-const myStageId = 4;
-const personStageId = 3;
+const myStageId = '4';
+const personStageId = '3';
 const contactAssignment = {
   id: '500',
   pathway_stage_id: personStageId,
@@ -282,7 +282,7 @@ describe('isContact', () => {
           isMember={false}
           contactAssignment={{
             id: '500',
-            pathway_stage_id: 3,
+            pathway_stage_id: '3',
           }}
         />,
       );

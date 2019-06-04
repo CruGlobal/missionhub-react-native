@@ -103,6 +103,7 @@ export const AddPersonThenCommunityMembersFlowNavigator = createStackNavigator(
   AddPersonFlowScreens(({ orgId }) => dispatch => {
     dispatch(getOrganizationMembers(orgId));
     dispatch(StackActions.popToTop());
+    dispatch(StackActions.pop());
   }),
   {
     defaultNavigationOptions: {

@@ -1,0 +1,585 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CelebrateItemContent message renders accepted challenge event 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  >
+    John S. accepted a Challenge:
+  </MyText>
+  <View
+    flexDirection="row"
+  >
+    <Button
+      onPress={[Function]}
+      style={
+        Object {
+          "marginTop": 4,
+        }
+      }
+      type="transparent"
+    >
+      <MyText
+        numberOfLines={2}
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 14,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 18,
+            "textAlign": "left",
+          }
+        }
+      >
+        Invite a friend to church
+      </MyText>
+    </Button>
+  </View>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders completed challenge event 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  >
+    John S. completed a Challenge:
+  </MyText>
+  <View
+    flexDirection="row"
+  >
+    <Button
+      onPress={[Function]}
+      style={
+        Object {
+          "marginTop": 4,
+        }
+      }
+      type="transparent"
+    >
+      <MyText
+        numberOfLines={2}
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 14,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 18,
+            "textAlign": "left",
+          }
+        }
+      >
+        Invite a friend to church
+      </MyText>
+    </Button>
+  </View>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders created community event 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  >
+    John S. created Celebration Community!
+  </MyText>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders event with no subject person name 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  >
+    A MissionHub user completed a Step of Faith with a Forgiven person.
+  </MyText>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders joined community event 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  >
+    John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
+  </MyText>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders joined community with passed in org name 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  >
+    John S. joined My Real Org! Now you can see and celebrate the steps of faith they are taking.
+  </MyText>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders other interaction event 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  >
+    John S. had a Spiritual Conversation.
+  </MyText>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders personal decision interaction event 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  >
+    John S. saw someone make a Personal Decision.
+  </MyText>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders something cool happened event 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  >
+    John S. saw something cool happen with someone.
+  </MyText>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders step of faith event with Not Sure stage 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  >
+    John S. completed a Step of Faith.
+  </MyText>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders step of faith event with stage 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  >
+    John S. completed a Step of Faith with a Forgiven person.
+  </MyText>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders step of faith event without stage 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  >
+    John S. completed a Step of Faith with someone.
+  </MyText>
+</View>
+`;
+
+exports[`CelebrateItemContent renders event for subject=me, liked=false, like count=0 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`CelebrateItemContent renders event for subject=me, liked=false, like count>0 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`CelebrateItemContent renders event for subject=me, liked=true, like count>0 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`CelebrateItemContent renders event for subject=other, liked=false, like count=0 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`CelebrateItemContent renders event for subject=other, liked=true, like count>0 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`CelebrateItemContent renders event with fixed height 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {
+        "height": 70,
+      },
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`CelebrateItemContent renders event with no subject person (global community event) 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`CelebrateItemContent renders event with no subject person name 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <MyText
+    style={
+      Object {
+        "fontSize": 14,
+        "justifyContent": "flex-start",
+        "lineHeight": 18,
+      }
+    }
+  />
+</View>
+`;

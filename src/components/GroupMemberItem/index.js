@@ -28,7 +28,7 @@ class GroupMemberItem extends Component {
       return '';
     }
 
-    switch (personOrgPermission.permission_id) {
+    switch (`${personOrgPermission.permission_id}`) {
       case ORG_PERMISSIONS.ADMIN:
         return t('profileLabels.admin');
       case ORG_PERMISSIONS.OWNER:

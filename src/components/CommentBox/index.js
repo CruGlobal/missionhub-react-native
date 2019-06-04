@@ -64,12 +64,14 @@ export default class CommentBox extends Component {
     const { action, text } = this.state;
 
     Keyboard.dismiss();
+    const origState = this.state;
     try {
-      this.setState({ isSubmitting: true });
+      // Optimistically reset the whole box before the APi before waiting for the API call
+      this.setState({ ...initialState, isSubmitting: true });
       await onSubmit(action, text);
-      this.setState(initialState);
-    } catch (error) {
       this.setState({ isSubmitting: false });
+    } catch (error) {
+      this.setState({ ...origState, isSubmitting: false });
     }
   };
 
@@ -110,7 +112,7 @@ export default class CommentBox extends Component {
         <Flex
           style={[
             actionIconButton,
-            action && item.id === action.id ? actionIconActive : null,
+            action && item.id === `${action.id}` ? actionIconActive : null,
           ]}
         >
           <Icon

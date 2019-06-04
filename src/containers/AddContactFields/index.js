@@ -132,7 +132,7 @@ class AddContactFields extends Component {
       orgPermission,
     } = this.state;
 
-    const selectedOrgPermId = orgPermission.permission_id;
+    const selectedOrgPermId = `${orgPermission.permission_id}`;
     // Email is required if the new person is going to be a user or admin for an organization
     const isEmailRequired = hasOrgPermissions(orgPermission);
 

@@ -13,7 +13,7 @@ const item = {
   text: 'Someone had a spiritual conversation',
   comment: 'Some comment',
   _type: 'interaction',
-  interaction_type_id: 2,
+  interaction_type_id: '2',
   initiators: [{ full_name: 'Someone' }],
   receiver: { first_name: 'Contact' },
   assigned_to: { id: '10', first_name: 'Iron Man' },

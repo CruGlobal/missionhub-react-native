@@ -62,7 +62,7 @@ export default class Button extends Component {
       disabled,
       style = {},
       buttonTextStyle = {},
-      pressProps, // eslint-disable-line no-unused-vars
+      pressProps, // eslint-disable-line @typescript-eslint/no-unused-vars
       ...rest
     } = this.props;
     let content = children;

@@ -76,7 +76,7 @@ export default class JourneyItem extends Component {
       title = item.survey.title;
     } else if (_type === 'interaction') {
       const interaction = interactionsArr.find(
-        i => i.id === item.interaction_type_id,
+        i => i.id === `${item.interaction_type_id}`,
       );
       if (interaction) {
         title = t(interaction.translationKey);
@@ -157,7 +157,7 @@ export default class JourneyItem extends Component {
       iconType = 'surveyIcon';
     } else if (_type === 'interaction') {
       const interaction = interactionsArr.find(
-        i => i.id === item.interaction_type_id,
+        i => i.id === `${item.interaction_type_id}`,
       );
       if (interaction) {
         iconType = interaction.iconName;
