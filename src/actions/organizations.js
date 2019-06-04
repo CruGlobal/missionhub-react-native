@@ -139,7 +139,6 @@ export function getUsersReport() {
 }
 
 export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
-  console.log(filters.includeUsers);
   const query = {
     filters: {
       organization_ids: orgId,
