@@ -2,9 +2,26 @@ import { ThunkDispatch } from 'redux-thunk';
 import { SafeAreaView, Image, View } from 'react-native';
 
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
+import { navigatePush } from '../../actions/navigation';
+import { firstTime } from '../../actions/auth/userData';
 import { Button, Text } from '../../components/common';
+import { WELCOME_SCREEN } from '../WelcomeScreen';
+import {
+  JOIN_BY_CODE_ONBOARDING_FLOW,
+  SIGN_IN_FLOW,
+} from '../../routes/constants';
 
 import styles from './styles';
+
+const {
+  container,
+  imageWrap,
+  buttonWrapper,
+  button,
+  buttonText,
+  memberText,
+  signInBtnText,
+} = styles;
 
 const LandingScreen = ({
   dispatch,
@@ -12,9 +29,24 @@ const LandingScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, any>;
 }) => {
+  const { t } = useTranslation('landing');
+
+  tryItNow = () => {
+    dispatch(firstTime());
+    dispatch(navigatePush(WELCOME_SCREEN));
+  };
+
+  communityCode = () => {
+    dispatch(navigatePush(JOIN_BY_CODE_ONBOARDING_FLOW));
+  };
+
+  signIn = () => {
+    dispatch(navigatePush(SIGN_IN_FLOW));
+  };
+
   return (
-    <SafeAreaView style={styles.container}>
-      <View alignItems="center" justifyContent="end" style={styles.imageWrap}>
+    <SafeAreaView style={container}>
+      <View alignItems="center" justifyContent="end" style={imageWrap}>
         <Image source={LOGO} />
       </View>
       <View
@@ -22,7 +54,7 @@ const LandingScreen = ({
         alignItems="center"
         justifyContent="center"
         alignSelf="stretch"
-        style={styles.buttonWrapper}
+        style={buttonWrapper}
       >
         <View
           flew={2}
@@ -44,8 +76,8 @@ const LandingScreen = ({
             pill={true}
             onPress={this.communityCode}
             text={t('haveCode').toUpperCase()}
-            style={styles.button}
-            buttonTextStyle={styles.buttonText}
+            style={button}
+            buttonTextStyle={buttonText}
           />
         </View>
         <View alignItems="end" flexDirection="row">
@@ -55,7 +87,7 @@ const LandingScreen = ({
             text={t('signIn').toUpperCase()}
             type="transparent"
             onPress={this.signIn}
-            buttonTextStyle={[styles.buttonText, styles.signInBtnText]}
+            buttonTextStyle={[buttonText, signInBtnText]}
           />
         </View>
       </View>
@@ -64,3 +96,4 @@ const LandingScreen = ({
 };
 
 export default connect()(LandingScreen);
+export const LANDING_SCREEN = 'nav/LANDING';
