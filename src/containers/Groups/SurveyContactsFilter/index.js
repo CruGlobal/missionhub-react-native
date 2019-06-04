@@ -65,6 +65,7 @@ export class SurveyContactsFilter extends Component {
       filterOptions.uncontacted,
       filterOptions.unassigned,
       filterOptions.archived,
+      filterOptions.includeUsers,
     ];
     return { options, toggleOptions };
   }

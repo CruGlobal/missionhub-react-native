@@ -63,6 +63,7 @@ export class ContactsFilter extends Component {
       filterOptions.uncontacted,
       filterOptions.unassigned,
       filterOptions.archived,
+      filterOptions.includeUsers,
     ];
     return { options, toggleOptions };
   }

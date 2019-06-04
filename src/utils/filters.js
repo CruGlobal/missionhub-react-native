@@ -7,6 +7,11 @@ export const unassignedFilter = (t, selected) => ({
   text: t('searchFilter:unassigned'),
   selected,
 });
+export const includeUsersFilter = (t, selected) => ({
+  id: 'includeUsers',
+  text: t('searchFilter:includeUsers'),
+  selected,
+});
 export const thirtyDaysFilter = t => ({
   id: 'time30',
   value: 30,
