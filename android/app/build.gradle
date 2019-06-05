@@ -116,6 +116,8 @@ android {
 
         // Enable multidex for apps with over 64K lines
         multiDexEnabled true
+
+        vectorDrawables.useSupportLibrary = true
     }
     splits {
         abi {
@@ -147,6 +149,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-image-crop-picker')
     implementation project(':react-native-gesture-handler')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"

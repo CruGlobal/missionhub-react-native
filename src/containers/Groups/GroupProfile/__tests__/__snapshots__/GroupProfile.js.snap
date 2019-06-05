@@ -26,7 +26,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           Object {
             "backgroundColor": "#005A7F",
             "borderRadius": 4,
-            "minHeight": 400.2,
+            "height": 421.875,
             "position": "relative",
             "width": 750,
           }
@@ -443,7 +443,7 @@ exports[`GroupProfile renders correctly 1`] = `
         Object {
           "backgroundColor": "#005A7F",
           "borderRadius": 4,
-          "minHeight": 400.2,
+          "height": 421.875,
           "position": "relative",
           "width": 750,
         }
@@ -799,7 +799,7 @@ exports[`GroupProfile renders with image 1`] = `
         Object {
           "backgroundColor": "#005A7F",
           "borderRadius": 4,
-          "minHeight": 400.2,
+          "height": 421.875,
           "position": "relative",
           "width": 750,
         }
@@ -1155,7 +1155,7 @@ exports[`GroupProfile renders without edit button 1`] = `
         Object {
           "backgroundColor": "#005A7F",
           "borderRadius": 4,
-          "minHeight": 400.2,
+          "height": 421.875,
           "position": "relative",
           "width": 750,
         }

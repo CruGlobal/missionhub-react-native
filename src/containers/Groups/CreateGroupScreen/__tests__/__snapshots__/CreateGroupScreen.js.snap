@@ -47,9 +47,9 @@ exports[`CreateGroupScreen renders correctly 1`] = `
             Object {
               "backgroundColor": "#005A7F",
               "borderRadius": 4,
+              "height": 399.375,
               "marginHorizontal": 20,
               "marginTop": 5,
-              "minHeight": 400.2,
             }
           }
         >
@@ -169,9 +169,9 @@ exports[`CreateGroupScreen should update the image 1`] = `
             Object {
               "backgroundColor": "#005A7F",
               "borderRadius": 4,
+              "height": 399.375,
               "marginHorizontal": 20,
               "marginTop": 5,
-              "minHeight": 400.2,
             }
           }
         >
@@ -185,7 +185,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
             style={
               Object {
                 "borderRadius": 4,
-                "height": 400.2,
+                "height": "100%",
                 "width": "100%",
               }
             }
