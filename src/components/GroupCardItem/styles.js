@@ -9,7 +9,7 @@ export default StyleSheet.create({
     borderRadius,
   },
   content: {
-    height: 200,
+    height: (theme.fullWidth - 32) * theme.communityImageAspectRatio,
     borderRadius,
   },
   userCreatedContent: {

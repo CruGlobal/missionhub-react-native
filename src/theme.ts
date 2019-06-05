@@ -140,6 +140,7 @@ export default {
   headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + notchDifference,
   parallaxHeaderHeight: 215,
   swipeTabHeight: 48,
+  communityImageAspectRatio: 9 / 16,
   statusBar: {
     lightContent: {
       ...statusBar,
