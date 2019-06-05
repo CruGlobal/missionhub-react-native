@@ -19,10 +19,12 @@ jest.mock('../../ItemHeaderText', () => 'ItemHeaderText');
 
 const mockStep = mockFragment<StepItemQueryResponse>(STEP_ITEM_QUERY);
 
+const authPersonId = '10';
+
 const initialState = {
   auth: {
     person: {
-      id: '10',
+      id: authPersonId,
     },
   },
 };
@@ -34,7 +36,7 @@ it('renders me correctly', () => {
         mocks: {
           AcceptedChallenge: () => ({
             receiver: () => ({
-              id: '10',
+              id: authPersonId,
             }),
           }),
         },
@@ -107,7 +109,7 @@ describe('step item animations', () => {
     snapshot();
   });
   it('renders no initial animation on mount', () => {
-    renderWithContext(
+    const { snapshot, getByTestId } = renderWithContext(
       <StepItem
         step={mockStep}
         type="swipeable"
@@ -117,7 +119,11 @@ describe('step item animations', () => {
       {
         initialState,
       },
-    ).snapshot();
+    );
+    expect(() => getAnimation(getByTestId)).toThrowError(
+      'No instances found with props: {"testID":"star-icon-button"}',
+    );
+    snapshot();
   });
   it('changes animation from fade in to fade out', () => {
     const { rerender, snapshot, getByTestId } = renderWithContext(
