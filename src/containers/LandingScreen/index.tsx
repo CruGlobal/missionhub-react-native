@@ -34,16 +34,16 @@ const LandingScreen = ({
 }) => {
   const { t } = useTranslation('landing');
 
-  tryItNow = () => {
+  const tryItNow = () => {
     dispatch(firstTime());
     dispatch(navigatePush(WELCOME_SCREEN));
   };
 
-  communityCode = () => {
+  const communityCode = () => {
     dispatch(navigatePush(JOIN_BY_CODE_ONBOARDING_FLOW));
   };
 
-  signIn = () => {
+  const signIn = () => {
     dispatch(navigatePush(SIGN_IN_FLOW));
   };
 
@@ -60,7 +60,6 @@ const LandingScreen = ({
         style={buttonWrapper}
       >
         <View
-          flew={2}
           flexDirection="column"
           justifyContent="center"
           alignSelf="stretch"
@@ -68,7 +67,7 @@ const LandingScreen = ({
           style={pillButtonWrapper}
         >
           <Button
-            name={'tryItNowButton'}
+            testID={'tryItNowButton'}
             pill={true}
             onPress={tryItNow}
             text={t('getStarted').toUpperCase()}
@@ -76,7 +75,7 @@ const LandingScreen = ({
             buttonTextStyle={buttonText}
           />
           <Button
-            name={'communityCodeButton'}
+            testID={'communityCodeButton'}
             pill={true}
             onPress={communityCode}
             text={t('haveCode').toUpperCase()}
@@ -87,7 +86,7 @@ const LandingScreen = ({
         <View alignItems="flex-end" flexDirection="row">
           <Text style={memberText}>{t('member').toUpperCase()}</Text>
           <Button
-            name={'signInButton'}
+            testID={'signInButton'}
             text={t('signIn').toUpperCase()}
             type="transparent"
             onPress={signIn}
