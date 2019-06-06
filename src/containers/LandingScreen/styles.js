@@ -8,12 +8,11 @@ export default StyleSheet.create({
     backgroundColor: theme.primaryColor,
     justifyContent: 'center',
   },
-  imageWrap: {
-    // half the screen size, minus half the image size puts the image in the middle of the screen
-    marginTop: theme.fullHeight / 2 - 45,
-  },
   buttonWrapper: {
     paddingHorizontal: 30,
+  },
+  pillButtonWrapper: {
+    marginBottom: 60,
   },
   button: {
     backgroundColor: theme.transparent,

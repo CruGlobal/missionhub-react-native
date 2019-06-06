@@ -1,5 +1,8 @@
+import React from 'react';
 import { ThunkDispatch } from 'redux-thunk';
 import { SafeAreaView, Image, View } from 'react-native';
+import { connect } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { navigatePush } from '../../actions/navigation';
@@ -15,8 +18,8 @@ import styles from './styles';
 
 const {
   container,
-  imageWrap,
   buttonWrapper,
+  pillButtonWrapper,
   button,
   buttonText,
   memberText,
@@ -46,13 +49,13 @@ const LandingScreen = ({
 
   return (
     <SafeAreaView style={container}>
-      <View alignItems="center" justifyContent="end" style={imageWrap}>
+      <View alignSelf="center" justifyContent="center" position="absolute">
         <Image source={LOGO} />
       </View>
       <View
         flex={1}
         alignItems="center"
-        justifyContent="center"
+        justifyContent="flex-end"
         alignSelf="stretch"
         style={buttonWrapper}
       >
@@ -62,31 +65,32 @@ const LandingScreen = ({
           justifyContent="center"
           alignSelf="stretch"
           alignItems="center"
+          style={pillButtonWrapper}
         >
           <Button
             name={'tryItNowButton'}
             pill={true}
-            onPress={this.tryItNow}
+            onPress={tryItNow}
             text={t('getStarted').toUpperCase()}
-            style={styles.button}
-            buttonTextStyle={styles.buttonText}
+            style={button}
+            buttonTextStyle={buttonText}
           />
           <Button
             name={'communityCodeButton'}
             pill={true}
-            onPress={this.communityCode}
+            onPress={communityCode}
             text={t('haveCode').toUpperCase()}
             style={button}
             buttonTextStyle={buttonText}
           />
         </View>
-        <View alignItems="end" flexDirection="row">
-          <Text style={styles.memberText}>{t('member').toUpperCase()}</Text>
+        <View alignItems="flex-end" flexDirection="row">
+          <Text style={memberText}>{t('member').toUpperCase()}</Text>
           <Button
             name={'signInButton'}
             text={t('signIn').toUpperCase()}
             type="transparent"
-            onPress={this.signIn}
+            onPress={signIn}
             buttonTextStyle={[buttonText, signInBtnText]}
           />
         </View>
