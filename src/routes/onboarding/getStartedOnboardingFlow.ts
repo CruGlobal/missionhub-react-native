@@ -76,12 +76,12 @@ export const GetStartedOnboardingFlowScreens = {
     ),
   ),
   [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SelectMyStepScreen, () => async dispatch => {}),
+    wrapNextScreen(SelectMyStepScreen, ADD_SOMEONE_SCREEN),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(AddSomeoneScreen, () => async dispatch => {}),
-    buildTrackingObj('onboarding : name', 'onboarding'),
+    wrapNextScreen(AddSomeoneScreen, SETUP_PERSON_SCREEN),
+    buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
   ),
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(
     wrapNextAction(SetupPersonScreen, () => async dispatch => {}),

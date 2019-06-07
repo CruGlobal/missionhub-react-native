@@ -341,10 +341,6 @@ const screens = {
       'steps',
     ),
   ),
-  [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
-    AddSomeoneScreen,
-    buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
-  ),
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(
     AddContactScreen,
     buildTrackingObj('people : add person', 'people', 'add person'),
