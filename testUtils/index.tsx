@@ -16,7 +16,7 @@ Enzyme.configure({ adapter: new Adapter() });
 export const createThunkStore = configureStore([thunk]);
 
 interface RenderWithContextParams {
-  initialState?: {} | undefined;
+  initialState?: {};
   store?: MockStore;
   navParams?: NavigationParams;
 }
