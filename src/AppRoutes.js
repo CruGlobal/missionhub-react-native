@@ -542,7 +542,6 @@ export const MainStackRoutes = createStackNavigator(
   {
     ...screens,
     [LANDING_SCREEN]: { screen: LandingScreen },
-    [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
     [PERSON_SELECT_STEP_SCREEN]: {
       screen: PersonSelectStepScreen,
       defaultNavigationOptions: { gesturesEnabled: true },
@@ -557,10 +556,6 @@ export const MainStackRoutes = createStackNavigator(
     [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
     [PERSON_STAGE_SCREEN]: {
       screen: PersonStageScreen,
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [STAGE_SCREEN]: {
-      screen: StageScreen,
       defaultNavigationOptions: { gesturesEnabled: true },
     },
     [SEARCH_REFINE_SCREEN]: {

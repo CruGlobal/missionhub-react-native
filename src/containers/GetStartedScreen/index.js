@@ -4,10 +4,8 @@ import { SafeAreaView } from 'react-native';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { navigatePush } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import { STAGE_ONBOARDING_SCREEN } from '../StageScreen';
 import { disableBack } from '../../utils/common';
 
 import styles from './styles';

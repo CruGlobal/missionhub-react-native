@@ -102,7 +102,6 @@ export function navigateToStageScreen(
   contactAssignment,
   organization = {},
   firstItemIndex, //todo find a way to not pass this
-  noNav = false,
 ) {
   return dispatch => {
     if (personIsCurrentUser) {
@@ -113,7 +112,6 @@ export function navigateToStageScreen(
           section: 'people',
           subsection: 'self',
           enableBackButton: true,
-          noNav,
         }),
       );
     } else {
@@ -126,7 +124,6 @@ export function navigateToStageScreen(
           orgId: organization.id,
           section: 'people',
           subsection: 'person',
-          noNav,
         }),
       );
     }

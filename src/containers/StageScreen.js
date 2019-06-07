@@ -3,13 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
-import { navigateBack, navigatePush } from '../actions/navigation';
 import { selectMyStage } from '../actions/selectStage';
 import { SELF_VIEWED_STAGE_CHANGED } from '../constants';
 
 import PathwayStageScreen from './PathwayStageScreen';
-import { STAGE_SUCCESS_SCREEN } from './StageSuccessScreen';
-import { SELECT_MY_STEP_SCREEN } from './SelectMyStepScreen';
 
 @withTranslation('selectStage')
 class StageScreen extends Component {
@@ -20,38 +17,14 @@ class StageScreen extends Component {
     });
   };
 
-  complete(stage, isAlreadySelected) {
-    const { onComplete, next, contactId, orgId, noNav, dispatch } = this.props;
-
-    if (next) {
-      return dispatch(next({ stage, contactId, orgId, isAlreadySelected }));
-    }
-
-    if (onComplete) {
-      onComplete(stage);
-      if (!noNav) {
-        dispatch(
-          navigatePush(SELECT_MY_STEP_SCREEN, {
-            next: () => dispatch => {
-              onComplete(stage);
-              dispatch(navigateBack(3));
-            },
-            enableBackButton: true,
-            contactStage: stage,
-          }),
-        );
-      }
-    } else {
-      dispatch(navigatePush(STAGE_SUCCESS_SCREEN, { selectedStage: stage }));
-    }
-  }
-
   handleSelectStage = async (stage, isAlreadySelected) => {
+    const { dispatch, next, contactId, orgId } = this.props;
+
     if (!isAlreadySelected) {
-      await this.props.dispatch(selectMyStage(stage.id));
+      await dispatch(selectMyStage(stage.id));
     }
 
-    this.complete(stage, isAlreadySelected);
+    dispatch(next({ stage, contactId, orgId, isAlreadySelected }));
   };
 
   render() {
@@ -83,8 +56,7 @@ class StageScreen extends Component {
 }
 
 StageScreen.propTypes = {
-  next: PropTypes.func,
-  onComplete: PropTypes.func,
+  next: PropTypes.func.isRequired,
   contactId: PropTypes.string,
   orgId: PropTypes.string,
   questionText: PropTypes.string,
@@ -92,7 +64,6 @@ StageScreen.propTypes = {
   section: PropTypes.string,
   subsection: PropTypes.string,
   enableBackButton: PropTypes.bool,
-  noNav: PropTypes.bool,
 };
 
 const mapStateToProps = ({ profile }, { navigation }) => ({
@@ -102,4 +73,3 @@ const mapStateToProps = ({ profile }, { navigation }) => ({
 
 export default connect(mapStateToProps)(StageScreen);
 export const STAGE_SCREEN = 'nav/STAGE';
-export const STAGE_ONBOARDING_SCREEN = 'nav/STAGE_ONBOARDING';

@@ -23,11 +23,13 @@ class StageSuccessScreen extends Component {
   handleNavigate = () => dispatch => dispatch(navigatePush(ADD_SOMEONE_SCREEN));
 
   handleNavigateToStep = () => {
+    const { dispatch, stage } = this.props;
+
     disableBack.remove();
-    this.props.dispatch(
+    dispatch(
       navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, {
         onboarding: true,
-        contactStage: this.props.selectedStage,
+        contactStage: stage,
         enableBackButton: false,
         next: this.handleNavigate,
       }),
@@ -35,16 +37,15 @@ class StageSuccessScreen extends Component {
   };
 
   getMessage() {
-    const { t } = this.props;
+    const { t, stage, firstName } = this.props;
 
     let followUpText =
-      this.props.selectedStage &&
-      this.props.selectedStage.self_followup_description
-        ? this.props.selectedStage.self_followup_description
+      stage && stage.self_followup_description
+        ? stage.self_followup_description
         : t('backupMessage');
     followUpText = followUpText.replace(
       '<<user>>',
-      this.props.firstName ? this.props.firstName : t('friend'),
+      firstName ? firstName : t('friend'),
     );
     return followUpText;
   }
@@ -64,7 +65,7 @@ class StageSuccessScreen extends Component {
 }
 
 StageSuccessScreen.propTypes = {
-  selectedStage: PropTypes.object,
+  stage: PropTypes.object,
 };
 
 const mapStateToProps = ({ profile }, { navigation }) => ({

@@ -7,9 +7,7 @@ import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import GetStartedScreen, {
   GET_STARTED_SCREEN,
 } from '../../containers/GetStartedScreen';
-import StageScreen, {
-  STAGE_ONBOARDING_SCREEN,
-} from '../../containers/StageScreen';
+import StageScreen, { STAGE_SCREEN } from '../../containers/StageScreen';
 import StageSuccessScreen, {
   STAGE_SUCCESS_SCREEN,
 } from '../../containers/StageSuccessScreen';
@@ -45,11 +43,11 @@ export const GetStartedOnboardingFlowScreens = {
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [GET_STARTED_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(GetStartedScreen, STAGE_ONBOARDING_SCREEN),
+    wrapNextScreen(GetStartedScreen, STAGE_SCREEN),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
-  [STAGE_ONBOARDING_SCREEN]: buildTrackedScreen(
-    wrapNextAction(StageScreen, () => async dispatch => {}),
+  [STAGE_SCREEN]: buildTrackedScreen(
+    wrapNextScreen(StageScreen, STAGE_SUCCESS_SCREEN),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
@@ -82,6 +80,7 @@ export const GetStartedOnboardingFlowNavigator = createStackNavigator(
   {
     defaultNavigationOptions: {
       header: null,
+      gesturesEnabled: true,
     },
   },
 );

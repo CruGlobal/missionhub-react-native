@@ -61,7 +61,6 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
           subsection,
           firstItem: firstItemIndex,
           enableBackButton: false,
-          noNav: true,
           questionText,
           orgId,
           contactId: personId,
