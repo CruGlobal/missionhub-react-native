@@ -3,12 +3,9 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
-import { navigatePush } from '../actions/navigation';
 import { disableBack } from '../utils/common';
 
 import IconMessageScreen from './IconMessageScreen/index';
-import { SELECT_MY_STEP_ONBOARDING_SCREEN } from './SelectMyStepScreen';
-import { ADD_SOMEONE_SCREEN } from './AddSomeoneScreen';
 
 @withTranslation('stageSuccess')
 class StageSuccessScreen extends Component {
@@ -20,20 +17,11 @@ class StageSuccessScreen extends Component {
     disableBack.remove();
   }
 
-  handleNavigate = () => dispatch => dispatch(navigatePush(ADD_SOMEONE_SCREEN));
-
-  handleNavigateToStep = () => {
-    const { dispatch, stage } = this.props;
+  handleNavigateNext = () => {
+    const { dispatch, next, stage } = this.props;
 
     disableBack.remove();
-    dispatch(
-      navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, {
-        onboarding: true,
-        contactStage: stage,
-        enableBackButton: false,
-        next: this.handleNavigate,
-      }),
-    );
+    dispatch(next({ stage }));
   };
 
   getMessage() {
@@ -57,7 +45,7 @@ class StageSuccessScreen extends Component {
       <IconMessageScreen
         mainText={message}
         buttonText={t('chooseSteps')}
-        onComplete={this.handleNavigateToStep}
+        onComplete={this.handleNavigateNext}
         iconPath={require('../../assets/images/pathFinder.png')}
       />
     );
@@ -65,6 +53,7 @@ class StageSuccessScreen extends Component {
 }
 
 StageSuccessScreen.propTypes = {
+  next: PropTypes.func.isRequired,
   stage: PropTypes.object,
 };
 

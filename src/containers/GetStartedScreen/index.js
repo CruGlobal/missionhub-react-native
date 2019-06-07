@@ -24,13 +24,7 @@ class GetStartedScreen extends Component {
     const { dispatch, next } = this.props;
 
     disableBack.remove();
-    dispatch(
-      next({
-        section: 'onboarding',
-        subsection: 'self',
-        enableBackButton: false,
-      }),
-    );
+    dispatch(next({}));
   };
 
   render() {

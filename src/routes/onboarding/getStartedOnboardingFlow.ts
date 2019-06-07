@@ -1,6 +1,7 @@
 import { createStackNavigator } from 'react-navigation';
 
 import { buildTrackedScreen, wrapNextAction, wrapNextScreen } from '../helpers';
+import { navigatePush } from '../../actions/navigation';
 import { buildTrackingObj } from '../../utils/common';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
@@ -43,16 +44,36 @@ export const GetStartedOnboardingFlowScreens = {
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [GET_STARTED_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(GetStartedScreen, STAGE_SCREEN),
-    buildTrackingObj('onboarding : name', 'onboarding'),
+    wrapNextAction(GetStartedScreen, () => dispatch => {
+      dispatch(
+        navigatePush(STAGE_SCREEN, {
+          section: 'onboarding',
+          subsection: 'self',
+          enableBackButton: false,
+        }),
+      );
+    }),
+    buildTrackingObj('onboarding : get started', 'onboarding'),
   ),
   [STAGE_SCREEN]: buildTrackedScreen(
     wrapNextScreen(StageScreen, STAGE_SUCCESS_SCREEN),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
-    wrapNextAction(StageSuccessScreen, () => async dispatch => {}),
-    buildTrackingObj('onboarding : name', 'onboarding'),
+    wrapNextAction(StageSuccessScreen, ({ stage }) => dispatch => {
+      dispatch(
+        navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, {
+          onboarding: true,
+          stage,
+          enableBackButton: false,
+        }),
+      );
+    }),
+    buildTrackingObj(
+      'onboarding : self : choose my steps',
+      'onboarding',
+      'self',
+    ),
   ),
   [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(
     wrapNextAction(SelectMyStepScreen, () => async dispatch => {}),

@@ -328,26 +328,6 @@ const screens = {
     StepReminderScreen,
     buildTrackingObj('step : detail : reminder', 'step', 'detail'),
   ),
-  [WELCOME_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
-    buildTrackingObj('onboarding : welcome', 'onboarding'),
-  ),
-  [SETUP_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(SetupScreen, GET_STARTED_SCREEN),
-    buildTrackingObj('onboarding : name', 'onboarding'),
-  ),
-  [GET_STARTED_SCREEN]: buildTrackedScreen(
-    GetStartedScreen,
-    buildTrackingObj('onboarding : get started', 'onboarding'),
-  ),
-  [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
-    StageSuccessScreen,
-    buildTrackingObj(
-      'onboarding : self : choose my steps',
-      'onboarding',
-      'self',
-    ),
-  ),
   [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
     SelectMyStepScreen,
     buildTrackingObj('people : self : steps : add', 'people', 'self', 'steps'),
