@@ -99,6 +99,11 @@ exports[`SurveyContactsFilter should render correctly 1`] = `
         "selected": false,
         "text": "Include Archived Contacts",
       },
+      Object {
+        "id": "includeUsers",
+        "selected": false,
+        "text": "Include Users and Admins",
+      },
     ]
   }
 />

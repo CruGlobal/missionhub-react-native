@@ -246,11 +246,24 @@ describe('getOrganizationContacts', () => {
     [surveyQuestions1.id]: surveyQuestions1,
     [surveyQuestions2.id]: surveyQuestions2,
     time: { id: 'time7', value: 7 },
+    includeUsers: true,
   };
   const pagination = { page: 0, hasNextPage: true };
+  const defaultQuery = {
+    filters: {
+      name: name,
+      organization_ids: orgId,
+      permissions: 'no_permission',
+    },
+    page: {
+      limit: DEFAULT_PAGE_LIMIT,
+      offset: 0,
+    },
+    include:
+      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
+  };
   const query = {
     filters: {
-      permissions: 'no_permission',
       organization_ids: orgId,
       name: name,
       genders: filters.gender.id,
@@ -284,6 +297,18 @@ describe('getOrganizationContacts', () => {
     orgId,
     response,
   };
+
+  it('searches for org contacts by default filters', async () => {
+    callApi.mockReturnValue(apiResponse);
+
+    await store.dispatch(getOrganizationContacts(orgId, name, pagination));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_PEOPLE_LIST,
+      defaultQuery,
+    );
+    expect(store.getActions()).toEqual([apiResponse, getPeopleAction]);
+  });
 
   it('searches for org contacts by filters', async () => {
     callApi.mockReturnValue(apiResponse);

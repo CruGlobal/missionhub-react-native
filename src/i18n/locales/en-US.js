@@ -388,6 +388,7 @@ export default {
     unassigned: 'Unassigned',
     archived: 'Include Archived Contacts',
     multiple: 'Multiple',
+    includeUsers: 'Include Users and Admins',
   },
   searchFilterRefine: {
     title: 'Refine',

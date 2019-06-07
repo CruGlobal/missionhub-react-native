@@ -9,7 +9,7 @@ import { getOrganizationContacts } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import SearchList from '../../components/SearchList';
 import PersonListItem from '../../components/PersonListItem';
-import { searchRemoveFilter } from '../../utils/filters';
+import { searchRemoveFilter, unassignedFilter } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
@@ -29,13 +29,9 @@ class Contacts extends Component {
       },
       filters: {
         // Default filters
-        unassigned: {
-          id: 'unassigned',
-          selected: true,
-          text: t('searchFilter:unassigned'),
-        },
+        unassigned: unassignedFilter(t, true),
         // TODO: temporarily remove this until the API supports it
-        // time: { id: 'time30', text: t('searchFilter:time30') },
+        // time: thirtyDaysFilter(t),
       },
       defaultResults: [],
     };

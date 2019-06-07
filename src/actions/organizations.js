@@ -141,7 +141,6 @@ export function getUsersReport() {
 export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   const query = {
     filters: {
-      permissions: 'no_permission',
       organization_ids: orgId,
     },
     include:
@@ -193,6 +192,9 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   }
   if (filters.groups) {
     query.filters.group_ids = filters.groups.id;
+  }
+  if (!filters.includeUsers) {
+    query.filters.permissions = 'no_permission';
   }
 
   const offset = DEFAULT_PAGE_LIMIT * pagination.page;
