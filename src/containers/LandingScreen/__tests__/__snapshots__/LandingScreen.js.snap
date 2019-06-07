@@ -12,9 +12,13 @@ exports[`renders correctly 1`] = `
   }
 >
   <View
-    alignSelf="center"
-    justifyContent="center"
-    position="absolute"
+    style={
+      Object {
+        "alignSelf": "center",
+        "justifyContent": "center",
+        "position": "absolute",
+      }
+    }
   >
     <Image
       source={
@@ -25,23 +29,23 @@ exports[`renders correctly 1`] = `
     />
   </View>
   <View
-    alignItems="center"
-    alignSelf="stretch"
-    flex={1}
-    justifyContent="flex-end"
     style={
       Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "flex": 1,
+        "justifyContent": "flex-end",
         "paddingHorizontal": 30,
       }
     }
   >
     <View
-      alignItems="center"
-      alignSelf="stretch"
-      flexDirection="column"
-      justifyContent="center"
       style={
         Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "flexDirection": "column",
+          "justifyContent": "center",
           "marginBottom": 60,
         }
       }
@@ -204,8 +208,12 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
     <View
-      alignItems="flex-end"
-      flexDirection="row"
+      style={
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        }
+      }
     >
       <Text
         style={

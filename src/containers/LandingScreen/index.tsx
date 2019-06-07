@@ -18,10 +18,12 @@ import styles from './styles';
 
 const {
   container,
-  buttonWrapper,
-  pillButtonWrapper,
+  imageWrap,
+  buttonWrap,
+  pillButtonWrap,
   button,
   buttonText,
+  signInWrap,
   memberText,
   signInBtnText,
 } = styles;
@@ -49,23 +51,11 @@ const LandingScreen = ({
 
   return (
     <SafeAreaView style={container}>
-      <View alignSelf="center" justifyContent="center" position="absolute">
+      <View style={imageWrap}>
         <Image source={LOGO} />
       </View>
-      <View
-        flex={1}
-        alignItems="center"
-        justifyContent="flex-end"
-        alignSelf="stretch"
-        style={buttonWrapper}
-      >
-        <View
-          flexDirection="column"
-          justifyContent="center"
-          alignSelf="stretch"
-          alignItems="center"
-          style={pillButtonWrapper}
-        >
+      <View style={buttonWrap}>
+        <View style={pillButtonWrap}>
           <Button
             testID={'tryItNowButton'}
             pill={true}
@@ -83,7 +73,7 @@ const LandingScreen = ({
             buttonTextStyle={buttonText}
           />
         </View>
-        <View alignItems="flex-end" flexDirection="row">
+        <View style={signInWrap}>
           <Text style={memberText}>{t('member').toUpperCase()}</Text>
           <Button
             testID={'signInButton'}

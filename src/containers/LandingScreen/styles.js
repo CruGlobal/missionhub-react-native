@@ -8,11 +8,24 @@ export default StyleSheet.create({
     backgroundColor: theme.primaryColor,
     justifyContent: 'center',
   },
-  buttonWrapper: {
-    paddingHorizontal: 30,
+  imageWrap: {
+    alignSelf: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
   },
-  pillButtonWrapper: {
+  buttonWrap: {
+    paddingHorizontal: 30,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    alignSelf: 'stretch',
+  },
+  pillButtonWrap: {
     marginBottom: 60,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignSelf: 'stretch',
+    alignItems: 'center',
   },
   button: {
     backgroundColor: theme.transparent,
@@ -28,6 +41,10 @@ export default StyleSheet.create({
     fontSize: 14,
     paddingTop: 2,
     letterSpacing: 1.5,
+  },
+  signInWrap: {
+    alignItems: 'flex-end',
+    flexDirection: 'row',
   },
   memberText: {
     fontSize: 14,
