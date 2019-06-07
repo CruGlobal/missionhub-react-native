@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
 import { withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
@@ -22,9 +23,11 @@ class GetStartedScreen extends Component {
   }
 
   navigateNext = () => {
+    const { dispatch, next } = this.props;
+
     disableBack.remove();
-    this.props.dispatch(
-      navigatePush(STAGE_ONBOARDING_SCREEN, {
+    dispatch(
+      next({
         section: 'onboarding',
         subsection: 'self',
         enableBackButton: false,
@@ -52,6 +55,11 @@ class GetStartedScreen extends Component {
     );
   }
 }
+
+GetStartedScreen.propTypes = {
+  next: PropTypes.func.isRequired,
+  firstName: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = ({ profile }, { navigation }) => {
   const navParams = navigation.state.params || {};

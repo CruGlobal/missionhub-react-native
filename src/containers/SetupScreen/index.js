@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, View, Keyboard } from 'react-native';
 import { withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { Text, Flex, Input } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -32,7 +33,7 @@ class SetupScreen extends Component {
       Keyboard.dismiss();
       await dispatch(createMyPerson(firstName, lastName));
       disableBack.remove();
-      dispatch(next());
+      dispatch(next({ firstName }));
     }
   };
 
@@ -93,6 +94,12 @@ class SetupScreen extends Component {
     );
   }
 }
+
+SetupScreen.propTypes = {
+  next: PropTypes.func.isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = ({ profile }) => ({
   firstName: profile.firstName,

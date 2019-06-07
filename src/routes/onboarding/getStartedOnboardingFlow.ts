@@ -41,11 +41,11 @@ export const GetStartedOnboardingFlowScreens = {
     buildTrackingObj('onboarding : welcome', 'onboarding'),
   ),
   [SETUP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SetupScreen, () => async dispatch => {}),
+    wrapNextScreen(SetupScreen, GET_STARTED_SCREEN),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [GET_STARTED_SCREEN]: buildTrackedScreen(
-    wrapNextAction(GetStartedScreen, () => async dispatch => {}),
+    wrapNextScreen(GetStartedScreen, STAGE_ONBOARDING_SCREEN),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [STAGE_ONBOARDING_SCREEN]: buildTrackedScreen(
