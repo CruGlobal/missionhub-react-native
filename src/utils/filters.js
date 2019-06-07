@@ -85,6 +85,11 @@ export const getFilterOptions = (t, filters, questions = [], labels = []) => {
       text: t('searchFilter:archived'),
       selected: !!filters.archived,
     },
+    includeUsers: {
+      id: 'includeUsers',
+      text: t('searchFilter:includeUsers'),
+      selected: !!filters.includeUsers,
+    },
   };
 };
 
