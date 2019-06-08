@@ -8,7 +8,6 @@ import android.content.Context;
 import com.facebook.react.ReactApplication;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-import com.imagepicker.ImagePickerPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.links.RNFirebaseLinksPackage;
 import com.rollbar.RollbarReactNative;
@@ -60,7 +59,6 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new PickerPackage(),
             new RNGestureHandlerPackage(),
-            new ImagePickerPackage(),
             new RNFirebasePackage(),
             new RNFirebaseLinksPackage(),
             RollbarReactNative.getPackage(),
