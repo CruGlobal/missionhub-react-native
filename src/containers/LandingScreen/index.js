@@ -8,7 +8,7 @@ import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { firstTime } from '../../actions/auth/userData';
 import {
-  GET_STARTED_ONBOARDING_FLOW,
+  FULL_ONBOARDING_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
   SIGN_IN_FLOW,
 } from '../../routes/constants';
@@ -19,7 +19,7 @@ import styles from './styles';
 class LandingScreen extends Component {
   tryItNow = () => {
     this.props.dispatch(firstTime());
-    this.props.dispatch(navigatePush(GET_STARTED_ONBOARDING_FLOW));
+    this.props.dispatch(navigatePush(FULL_ONBOARDING_FLOW));
   };
 
   communityCode = () => {

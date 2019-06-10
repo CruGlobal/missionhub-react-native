@@ -150,6 +150,8 @@ import {
   DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
+  ADD_SOMEONE_ONBOARDING_FLOW,
+  FULL_ONBOARDING_FLOW,
   GET_STARTED_ONBOARDING_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
   COMPLETE_STEP_FLOW,
@@ -176,6 +178,14 @@ import {
   GetStartedOnboardingFlowScreens,
   GetStartedOnboardingFlowNavigator,
 } from './routes/onboarding/getStartedOnboardingFlow';
+import {
+  FullOnboardingFlowScreens,
+  FullOnboardingFlowNavigator,
+} from './routes/onboarding/fullOnboardingFlow';
+import {
+  AddSomeoneOnboardingFlowScreens,
+  AddSomeoneOnboardingFlowNavigator,
+} from './routes/onboarding/addSomeoneOnboardingFlow';
 import {
   JoinByCodeOnboardingFlowNavigator,
   JoinByCodeOnboardingFlowScreens,
@@ -449,6 +459,8 @@ const screens = {
   [SIGN_UP_FLOW]: SignUpFlowNavigator,
   [CREATE_COMMUNITY_UNAUTHENTICATED_FLOW]: CreateCommunityUnauthenticatedFlowNavigator,
   [JOIN_BY_CODE_FLOW]: JoinByCodeFlowNavigator,
+  [ADD_SOMEONE_ONBOARDING_FLOW]: AddSomeoneOnboardingFlowNavigator,
+  [FULL_ONBOARDING_FLOW]: FullOnboardingFlowNavigator,
   [GET_STARTED_ONBOARDING_FLOW]: GetStartedOnboardingFlowNavigator,
   [JOIN_BY_CODE_ONBOARDING_FLOW]: JoinByCodeOnboardingFlowNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,
@@ -470,6 +482,8 @@ export const trackableScreens = {
   ...tabs,
   ...GROUP_TABS,
   ...ALL_PERSON_TAB_ROUTES,
+  ...AddSomeoneOnboardingFlowScreens,
+  ...FullOnboardingFlowScreens,
   ...GetStartedOnboardingFlowScreens,
   ...JoinByCodeFlowScreens,
   ...JoinByCodeOnboardingFlowScreens,
