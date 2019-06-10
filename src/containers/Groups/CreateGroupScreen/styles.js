@@ -16,13 +16,13 @@ export default StyleSheet.create({
     marginTop: 5,
     borderRadius: 4,
     marginHorizontal: 20,
-    minHeight: theme.fullHeight * 0.3,
+    height: (theme.fullWidth - 40) * theme.communityImageAspectRatio,
     backgroundColor: theme.accentColor,
   },
   image: {
     borderRadius: 4,
     width: '100%',
-    height: theme.fullHeight * 0.3,
+    height: '100%',
   },
   fieldWrap: {
     marginTop: 5,

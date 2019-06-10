@@ -59,7 +59,7 @@
     "react-native-fbsdk": "^0.8.0",
     "react-native-firebase": "^5.3.1",
     "react-native-gesture-handler": "^1.2.1",
-    "react-native-image-picker": "^0.28.1",
+    "react-native-image-crop-picker": "^0.24.1",
     "react-native-markdown-renderer": "^3.2.8",
     "react-native-omniture": "https://github.com/CruGlobal/react-native-omniture",
     "react-native-parallax-scroll-view": "https://github.com/nicotroia/react-native-parallax-scroll-view.git#fix/sticky-header-position-when-hidden",

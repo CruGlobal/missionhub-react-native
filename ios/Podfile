@@ -1,8 +1,24 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'MissionHub' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   # use_frameworks!
+
+  rn_path = '../node_modules/react-native'
+  pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
+  pod 'React', path: rn_path, subspecs: [
+    'Core',
+    'RCTActionSheet',
+    'RCTAnimation',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTNetwork',
+    'RCTSettings',
+    'RCTText',
+    'RCTVibration',
+    'RCTWebSocket'
+  ]
 
   # Pods for MissionHub
   pod 'FBSDKCoreKit'
@@ -12,8 +28,18 @@ target 'MissionHub' do
   pod 'Firebase/Core'
   pod 'Firebase/DynamicLinks'
 
+  pod 'RNImageCropPicker', :path => '../node_modules/react-native-image-crop-picker'
+
   target 'MissionHubTests' do
     inherit! :search_paths
     # Pods for testing
   end
+
+  post_install do |installer|
+      installer.pods_project.targets.each do |target|
+        if target.name == "React"
+          target.remove_from_project
+        end
+      end
+    end
 end

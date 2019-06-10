@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Alert, TouchableOpacity } from 'react-native';
 import { withTranslation } from 'react-i18next';
+import ImageCropPicker from 'react-native-image-crop-picker';
 
-const RNImagePicker = require('react-native-image-picker');
+import { showMenu } from '../../utils/common';
+import theme from '../../theme.ts';
 
-// See all options: https://github.com/react-community/react-native-image-picker/blob/master/docs/Reference.md#options
+// See all options: https://github.com/ivpusic/react-native-image-crop-picker
 const DEFAULT_OPTIONS = {
-  cameraType: 'back',
   mediaType: 'photo',
-  maxWidth: 500, // photos only
-  maxHeight: 500, // photos only
-  quality: 0.75, // 0 to 1, photos only
-  allowsEditing: true, // (iOS) Built in functionality to resize/reposition the image after selection
-  noData: true, // photos only - disables the base64 `data` field from being generated (greatly improves performance on large photos)
+  width: theme.fullWidth,
+  height: theme.fullWidth * theme.communityImageAspectRatio,
+  compressImageQuality: 0.75, // 0 to 1
+  cropping: true,
 };
 
 function getType(response) {
-  if (response.uri.toLowerCase().includes('.png')) {
+  if (response.path.toLowerCase().includes('.png')) {
     return 'image/png';
   }
   return 'image/jpeg';
@@ -25,59 +25,77 @@ function getType(response) {
 
 @withTranslation('imagePicker')
 class ImagePicker extends Component {
-  selectImage = () => {
+  showImageOptionsMenu = () => {
+    const { t } = this.props;
+    showMenu(
+      [
+        { text: t('takePhoto'), onPress: this.takePhoto },
+        { text: t('chooseFromLibrary'), onPress: this.chooseFromLibrary },
+      ],
+      this.picker,
+      t('selectImage'),
+    );
+  };
+
+  takePhoto = () => {
+    this.selectImage(true);
+  };
+
+  chooseFromLibrary = () => {
+    this.selectImage(false);
+  };
+
+  async selectImage(takePhoto) {
     const { t, onSelectImage } = this.props;
 
-    const pickerOptions = {
-      ...DEFAULT_OPTIONS,
-      // Set all the text values with translation strings
-      title: t('selectImage'),
-      cancelButtonTitle: t('cancel'),
-      takePhotoButtonTitle: t('takePhoto'),
-      chooseFromLibraryButtonTitle: t('chooseFromLibrary'),
-      permissionDenied: {
-        title: t('deniedTitle'),
-        text: t('deniedText'),
-        reTryTitle: t('reTryTitle'),
-        okTitle: t('okTitle'),
-      },
-    };
+    try {
+      const response = await (takePhoto
+        ? ImageCropPicker.openCamera(DEFAULT_OPTIONS)
+        : ImageCropPicker.openPicker(DEFAULT_OPTIONS));
 
-    RNImagePicker.showImagePicker(pickerOptions, response => {
-      if (response.didCancel) {
-        // LOG('User cancelled image picker');
-      } else if (response.error) {
-        // LOG('RNImagePicker Error: ', response.error);
-        Alert.alert(t('errorHeader'), t('errorBody'));
-      } else {
-        // You can display the image using either data:
-        // const source = { uri: 'data:image/jpeg;base64,' + response.data, isStatic: true };
+      let fileName = response.filename || '';
+      const { path: uri, size: fileSize, mime, width, height } = response;
 
-        const uri = response.uri;
-        let fileName = response.fileName || '';
-        // Handle strange iOS files "HEIC" format. If the file name is not a jpeg, but the uri is a jpg
-        // create a new file name with the right extension
-        if (uri.includes('.jpg') && !fileName.includes('.jpg')) {
-          fileName = `${new Date().valueOf()}.jpg`;
-        }
-        const payload = {
-          // imageBinary: `data:image/jpeg;base64,${response.data}`,
-          fileSize: response.fileSize,
-          fileName,
-          fileType: response.type || getType(response),
-          width: response.width,
-          height: response.height,
-          isVertical: response.isVertical,
-          uri,
-        };
-        onSelectImage(payload);
+      // Handle strange iOS files "HEIC" format. If the file name is not a jpeg, but the uri is a jpg
+      // create a new file name with the right extension
+      if (uri.includes('.jpg') && !fileName.includes('.jpg')) {
+        fileName = `${new Date().valueOf()}.jpg`;
       }
-    });
-  };
+
+      const payload = {
+        fileSize,
+        fileName,
+        fileType: mime || getType(response),
+        width,
+        height,
+        isVertical: height > width,
+        uri,
+      };
+      onSelectImage(payload);
+    } catch (error) {
+      const errorCode = error && error.code;
+      if (
+        errorCode === 'E_PERMISSION_MISSING' ||
+        errorCode === 'E_PICKER_CANCELLED'
+      ) {
+        LOG('User cancelled image picker');
+        return;
+      }
+
+      LOG('RNImagePicker Error: ', error);
+      Alert.alert(t('errorHeader'), t('errorBody'));
+    }
+  }
+
+  ref = c => (this.picker = c);
 
   render() {
     return (
-      <TouchableOpacity onPress={this.selectImage} activeOpacity={0.75}>
+      <TouchableOpacity
+        onPress={this.showImageOptionsMenu}
+        activeOpacity={0.75}
+        ref={this.ref}
+      >
         {this.props.children}
       </TouchableOpacity>
     );

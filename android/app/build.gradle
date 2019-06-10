@@ -116,6 +116,8 @@ android {
 
         // Enable multidex for apps with over 64K lines
         multiDexEnabled true
+
+        vectorDrawables.useSupportLibrary = true
     }
     splits {
         abi {
@@ -147,13 +149,13 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-image-crop-picker')
     implementation project(':react-native-gesture-handler')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation 'com.facebook.react:react-native:+'  // From node_modules
     implementation project(':react-native-firebase')
     implementation project(':rollbar-react-native')
-    implementation project(':react-native-image-picker')
     implementation project(':react-native-view-overflow')
     implementation project(':react-native-code-push')
     implementation project(':react-native-config')
@@ -163,7 +165,7 @@ dependencies {
     implementation project(':react-native-omniture')
     implementation project(':react-native-push-notification')
     implementation project(':react-native-vector-icons')
-    implementation 'com.facebook.fresco:fresco:1.+'
+    implementation 'com.facebook.fresco:fresco:1.13.0' // v1.14.0 and v1.14.1 crash on app launch with androidx error. I couldn't get a support library working. https://github.com/facebook/fresco/issues/2226
     implementation 'com.facebook.fresco:animated-base-support:1.3.0'
     implementation 'com.facebook.fresco:animated-gif:1.13.0'
 
