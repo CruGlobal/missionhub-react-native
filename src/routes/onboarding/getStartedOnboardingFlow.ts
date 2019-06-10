@@ -35,50 +35,6 @@ import CelebrationScreen, {
 } from '../../containers/CelebrationScreen';
 
 export const GetStartedOnboardingFlowScreens = {
-  [WELCOME_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
-    buildTrackingObj('onboarding : welcome', 'onboarding'),
-  ),
-  [SETUP_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(SetupScreen, GET_STARTED_SCREEN),
-    buildTrackingObj('onboarding : name', 'onboarding'),
-  ),
-  [GET_STARTED_SCREEN]: buildTrackedScreen(
-    wrapNextAction(GetStartedScreen, () => dispatch => {
-      dispatch(
-        navigatePush(STAGE_SCREEN, {
-          section: 'onboarding',
-          subsection: 'self',
-          enableBackButton: false,
-        }),
-      );
-    }),
-    buildTrackingObj('onboarding : get started', 'onboarding'),
-  ),
-  [STAGE_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(StageScreen, STAGE_SUCCESS_SCREEN),
-    buildTrackingObj('onboarding : name', 'onboarding'),
-  ),
-  [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
-    wrapNextAction(StageSuccessScreen, ({ stage }) => dispatch => {
-      dispatch(
-        navigatePush(SELECT_MY_STEP_SCREEN, {
-          onboarding: true,
-          stage,
-          enableBackButton: false,
-        }),
-      );
-    }),
-    buildTrackingObj(
-      'onboarding : self : choose my steps',
-      'onboarding',
-      'self',
-    ),
-  ),
-  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(SelectMyStepScreen, ADD_SOMEONE_SCREEN),
-    buildTrackingObj('people : self : steps : add', 'people', 'self', 'steps'),
-  ),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
     wrapNextScreen(AddSomeoneScreen, SETUP_PERSON_SCREEN),
     buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
