@@ -43,7 +43,6 @@ export function renderWithContext(
   return {
     ...renderResult,
     store,
-    rerender: (component: ReactElement) => renderResult.update(component),
     snapshot: () => {
       expect(renderResult.toJSON()).toMatchSnapshot();
     },
