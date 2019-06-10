@@ -1,7 +1,7 @@
 import { createStackNavigator } from 'react-navigation';
 
 import { buildTrackedScreen, wrapNextAction, wrapNextScreen } from '../helpers';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { buildTrackingObj } from '../../utils/common';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
@@ -13,7 +13,7 @@ import StageSuccessScreen, {
   STAGE_SUCCESS_SCREEN,
 } from '../../containers/StageSuccessScreen';
 import SelectMyStepScreen, {
-  SELECT_MY_STEP_ONBOARDING_SCREEN,
+  SELECT_MY_STEP_SCREEN,
 } from '../../containers/SelectMyStepScreen';
 import AddSomeoneScreen, {
   ADD_SOMEONE_SCREEN,
@@ -62,7 +62,7 @@ export const GetStartedOnboardingFlowScreens = {
   [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
     wrapNextAction(StageSuccessScreen, ({ stage }) => dispatch => {
       dispatch(
-        navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, {
+        navigatePush(SELECT_MY_STEP_SCREEN, {
           onboarding: true,
           stage,
           enableBackButton: false,
@@ -75,25 +75,71 @@ export const GetStartedOnboardingFlowScreens = {
       'self',
     ),
   ),
-  [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(
+  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
     wrapNextScreen(SelectMyStepScreen, ADD_SOMEONE_SCREEN),
-    buildTrackingObj('onboarding : name', 'onboarding'),
+    buildTrackingObj('people : self : steps : add', 'people', 'self', 'steps'),
   ),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
     wrapNextScreen(AddSomeoneScreen, SETUP_PERSON_SCREEN),
     buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
   ),
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SetupPersonScreen, () => async dispatch => {}),
-    buildTrackingObj('onboarding : name', 'onboarding'),
+    wrapNextAction(SetupPersonScreen, ({}) => dispatch => {
+      dispatch(
+        navigatePush(PERSON_STAGE_SCREEN, {
+          section: 'onboarding',
+          subsection: 'add person',
+        }),
+      );
+    }),
+    buildTrackingObj(
+      'onboarding : add person : name',
+      'onboarding',
+      'add person',
+    ),
   ),
   [PERSON_STAGE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(PersonStageScreen, () => async dispatch => {}),
+    wrapNextAction(
+      PersonStageScreen,
+      ({ stage, contactId, name, orgId }) => dispatch => {
+        dispatch(
+          navigatePush(PERSON_SELECT_STEP_SCREEN, {
+            contactStage: stage,
+            createStepTracking: buildTrackingObj(
+              'onboarding : add person : steps : create',
+              'onboarding',
+              'add person',
+              'steps',
+            ),
+            contactName: name,
+            contactId,
+            organization: { id: orgId },
+            trackingObj: buildTrackingObj(
+              'onboarding : add person : steps : add',
+              'onboarding',
+              'add person',
+              'steps',
+            ),
+            next: this.handleNavigate,
+          }),
+        );
+      },
+    ),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(PersonSelectStepScreen, () => async dispatch => {}),
+    wrapNextScreen(PersonSelectStepScreen, CELEBRATION_SCREEN),
     buildTrackingObj('onboarding : name', 'onboarding'),
+  ),
+  [CELEBRATION_SCREEN]: buildTrackedScreen(
+    wrapNextAction(CelebrationScreen, () => dispatch => {
+      dispatch(navigateToMainTabs());
+    }),
+    buildTrackingObj(
+      'communities : celebration : comment',
+      'communities',
+      'celebration',
+    ),
   ),
 };
 export const GetStartedOnboardingFlowNavigator = createStackNavigator(

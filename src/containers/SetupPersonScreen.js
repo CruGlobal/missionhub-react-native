@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, View, Keyboard, Image } from 'react-native';
 import { withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { Text, Flex } from '../components/common';
 import BottomButton from '../components/BottomButton';
 import Input from '../components/Input/index';
-import { navigatePush } from '../actions/navigation';
 import {
   personFirstNameChanged,
   personLastNameChanged,
@@ -19,7 +19,6 @@ import { trackActionWithoutData } from '../actions/analytics';
 import { ACTIONS } from '../constants';
 import AbsoluteSkip from '../components/AbsoluteSkip';
 
-import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
 import styles from './SetupScreen/styles';
 
 @withTranslation()
@@ -35,12 +34,9 @@ class SetupPersonScreen extends Component {
   }
 
   navigate = () => {
-    this.props.dispatch(
-      navigatePush(PERSON_STAGE_SCREEN, {
-        section: 'onboarding',
-        subsection: 'add person',
-      }),
-    );
+    const { dispatch, next } = this.props;
+
+    dispatch(next({}));
   };
 
   saveAndGoToGetStarted = async () => {
@@ -125,6 +121,10 @@ class SetupPersonScreen extends Component {
     );
   }
 }
+
+SetupPersonScreen.propTypes = {
+  next: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ auth, personProfile }) => ({
   myId: auth.person.id,

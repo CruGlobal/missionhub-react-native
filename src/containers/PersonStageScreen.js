@@ -216,6 +216,7 @@ PersonStageScreen.propTypes = {
   enableBackButton: PropTypes.bool,
   noNav: PropTypes.bool,
   addingContactFlow: PropTypes.bool,
+  next: PropTypes.func.isRequired,
 };
 PersonStageScreen.defaultProps = {
   enableBackButton: true,

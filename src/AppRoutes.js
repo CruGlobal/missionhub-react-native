@@ -12,7 +12,6 @@ import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
 import SelectMyStepScreen, {
-  SELECT_MY_STEP_ONBOARDING_SCREEN,
   SELECT_MY_STEP_SCREEN,
 } from './containers/SelectMyStepScreen';
 import PersonSelectStepScreen, {
@@ -328,30 +327,9 @@ const screens = {
     StepReminderScreen,
     buildTrackingObj('step : detail : reminder', 'step', 'detail'),
   ),
-  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
-    SelectMyStepScreen,
-    buildTrackingObj('people : self : steps : add', 'people', 'self', 'steps'),
-  ),
-  [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(
-    SelectMyStepScreen,
-    buildTrackingObj(
-      'onboarding : self : steps : add',
-      'onboarding',
-      'self',
-      'steps',
-    ),
-  ),
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(
     AddContactScreen,
     buildTrackingObj('people : add person', 'people', 'add person'),
-  ),
-  [SETUP_PERSON_SCREEN]: buildTrackedScreen(
-    SetupPersonScreen,
-    buildTrackingObj(
-      'onboarding : add person : name',
-      'onboarding',
-      'add person',
-    ),
   ),
   [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(
     NotificationPrimerScreen,
@@ -476,15 +454,6 @@ const screens = {
   [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityUnauthenticatedNavigator,
   [COMPLETE_STEP_FLOW]: CompleteStepFlowNavigator,
-  [CELEBRATE_DETAIL_SCREEN]: buildTrackedScreen(
-    CelebrateDetailScreen,
-    buildTrackingObj(
-      'communities : celebration : comment',
-      'communities',
-      'celebration',
-    ),
-    { gesturesEnabled: true },
-  ),
   [COMPLETE_STEP_FLOW_NAVIGATE_BACK]: CompleteStepFlowAndNavigateBackNavigator,
   [ADD_MY_STEP_FLOW]: AddMyStepFlowNavigator,
   [ADD_PERSON_STEP_FLOW]: AddPersonStepFlowNavigator,
@@ -518,22 +487,9 @@ export const MainStackRoutes = createStackNavigator(
   {
     ...screens,
     [LANDING_SCREEN]: { screen: LandingScreen },
-    [PERSON_SELECT_STEP_SCREEN]: {
-      screen: PersonSelectStepScreen,
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [SELECT_MY_STEP_SCREEN]: {
-      screen: SelectMyStepScreen,
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
     [ADD_STEP_SCREEN]: { screen: AddStepScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },
     [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
-    [PERSON_STAGE_SCREEN]: {
-      screen: PersonStageScreen,
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
     [SEARCH_REFINE_SCREEN]: {
       screen: SearchPeopleFilterRefineScreen,
       defaultNavigationOptions: { gesturesEnabled: true },
