@@ -21,13 +21,13 @@ jest.mock('../../../actions/navigation', () => ({
 firstTime.mockReturnValue({ type: 'first time' });
 
 it('renders correctly', () => {
-  renderWithContext(<LandingScreen />, {}).snapshot();
+  renderWithContext(<LandingScreen />).snapshot();
 });
 
 describe('a button is clicked', () => {
   it('get started to be called', () => {
     const { getByTestId } = renderWithContext(<LandingScreen />, {});
-    fireEvent(getByTestId('tryItNowButton'), 'onPress');
+    fireEvent.press(getByTestId('tryItNowButton'));
 
     expect(firstTime).toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(WELCOME_SCREEN);
