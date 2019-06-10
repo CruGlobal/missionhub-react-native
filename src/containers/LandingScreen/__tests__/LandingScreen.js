@@ -26,7 +26,7 @@ it('renders correctly', () => {
 
 describe('a button is clicked', () => {
   it('get started to be called', () => {
-    const { getByTestId } = renderWithContext(<LandingScreen />, {});
+    const { getByTestId } = renderWithContext(<LandingScreen />);
     fireEvent.press(getByTestId('tryItNowButton'));
 
     expect(firstTime).toHaveBeenCalled();
@@ -34,15 +34,15 @@ describe('a button is clicked', () => {
   });
 
   it('community code to be called', () => {
-    const { getByTestId } = renderWithContext(<LandingScreen />, {});
-    fireEvent(getByTestId('communityCodeButton'), 'onPress');
+    const { getByTestId } = renderWithContext(<LandingScreen />);
+    fireEvent.press(getByTestId('communityCodeButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(JOIN_BY_CODE_ONBOARDING_FLOW);
   });
 
   it('sign in button to be called', () => {
-    const { getByTestId } = renderWithContext(<LandingScreen />, {});
-    fireEvent(getByTestId('signInButton'), 'onPress');
+    const { getByTestId } = renderWithContext(<LandingScreen />);
+    fireEvent.press(getByTestId('signInButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(SIGN_IN_FLOW);
   });
