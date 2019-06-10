@@ -84,6 +84,7 @@ matrix:
       env:
         - ENVFILE=.env.production
       before_install:
+        - rvm install 2.6.3
         - gem install bundler
         - git fetch --unshallow
         - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
