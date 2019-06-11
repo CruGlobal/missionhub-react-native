@@ -368,7 +368,7 @@ exports[`renders with no results state 1`] = `
           }
         }
       >
-        <Input
+        <ForwardRef
           autoFocus={true}
           blurOnSubmit={true}
           onChangeText={[Function]}
@@ -433,7 +433,7 @@ exports[`renders with results state 1`] = `
           }
         }
       >
-        <Input
+        <ForwardRef
           autoFocus={true}
           blurOnSubmit={true}
           onChangeText={[Function]}
@@ -498,7 +498,7 @@ exports[`renders with searching state 1`] = `
           }
         }
       >
-        <Input
+        <ForwardRef
           autoFocus={true}
           blurOnSubmit={true}
           onChangeText={[Function]}

@@ -93,7 +93,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
           >
             Community Name
           </MyText>
-          <Input
+          <ForwardRef
             autoCorrect={true}
             autoFocus={true}
             blurOnSubmit={true}
@@ -223,7 +223,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
           >
             Community Name
           </MyText>
-          <Input
+          <ForwardRef
             autoCorrect={true}
             autoFocus={true}
             blurOnSubmit={true}
