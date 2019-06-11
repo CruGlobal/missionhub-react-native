@@ -66,6 +66,7 @@ matrix:
 
     - name: 'Android Beta Build'
       language: android
+      dist: trusty
       android:
         components:
           - tools
