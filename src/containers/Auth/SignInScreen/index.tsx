@@ -1,11 +1,12 @@
 /* eslint max-lines-per-function: 0 */
 
-import React, { Component } from 'react';
+import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux';
-import { SafeAreaView, Keyboard, View } from 'react-native';
-import { withTranslation } from 'react-i18next';
+import { SafeAreaView, Keyboard, View, TextInput } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
-import PropTypes from 'prop-types';
+import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import {
   Button,
@@ -13,8 +14,10 @@ import {
   Flex,
   Icon,
   LoadingWheel,
+  Input,
 } from '../../../components/common';
-import Input from '../../../components/Input';
+import BackButton from '../../BackButton';
+import Header from '../../../components/Header';
 import {
   keyLoginWithAuthorizationCode,
   keyLogin,
@@ -22,86 +25,63 @@ import {
 } from '../../../actions/auth/key';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS, MFA_REQUIRED } from '../../../constants';
-import { isAndroid } from '../../../utils/common';
 import {
   facebookPromptLogin,
   facebookLoginWithAccessToken,
 } from '../../../actions/auth/facebook';
-import BackButton from '../../BackButton';
-import Header from '../../../components/Header';
+import { useKeyboardListeners } from '../../../utils/hooks/useKeyboardListeners';
 
 import styles from './styles';
 
-@withTranslation('keyLogin')
-class SignInScreen extends Component {
-  state = {
-    email: '',
-    password: '',
-    errorMessage: '',
-    isLoading: false,
-    showLogo: true,
-  };
+const SignInScreen = ({
+  dispatch,
+  next,
+}: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<any, null, never>;
+  next: (params?: {
+    requires2FA: boolean;
+    email: string;
+    password: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }) => ThunkAction<void, any, null, never>;
+}) => {
+  const { t } = useTranslation('keyLogin');
+  const forcedLogout = useNavigationParam('forcedLogout');
 
-  componentDidMount() {
-    this.keyboardShowListener = Keyboard.addListener(
-      isAndroid ? 'keyboardDidShow' : 'keyboardWillShow',
-      this._hideLogo,
-    );
-    this.keyboardHideListener = Keyboard.addListener(
-      isAndroid ? 'keyboardDidHide' : 'keyboardWillHide',
-      this._showLogo,
-    );
-  }
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [showLogo, setShowLogo] = useState(true);
 
-  componentWillUnmount() {
-    this.keyboardShowListener.remove();
-    this.keyboardHideListener.remove();
-  }
+  useKeyboardListeners(() => setShowLogo(false), () => setShowLogo(true));
 
-  _hideLogo = () => {
-    this.setState({ showLogo: false });
-  };
-
-  _showLogo = () => {
-    this.setState({ showLogo: true });
-  };
-
-  emailChanged = email => {
-    this.setState({ email });
-  };
-
-  passwordChanged = password => {
-    this.setState({ password });
-  };
-
-  handleForgotPassword = async () => {
-    const { dispatch, next } = this.props;
+  const handleForgotPassword = async () => {
     const { code, codeVerifier, redirectUri } = await dispatch(
       openKeyURL('service/selfservice?target=displayForgotPassword'),
     );
-    this.setState({ isLoading: true });
+    setIsLoading(true);
     try {
       await dispatch(
         keyLoginWithAuthorizationCode(code, codeVerifier, redirectUri),
       );
       dispatch(next());
     } catch (e) {
-      this.setState({ isLoading: false });
+      setIsLoading(false);
     }
   };
 
-  login = async () => {
-    const { dispatch, next } = this.props;
-    const { email, password } = this.state;
-
-    this.setState({ errorMessage: '', isLoading: true });
+  const login = async () => {
+    setErrorMessage('');
+    setIsLoading(true);
 
     try {
       await dispatch(keyLogin(email, password));
       Keyboard.dismiss();
       dispatch(next());
     } catch (error) {
-      this.setState({ isLoading: false });
+      setIsLoading(false);
 
       const apiError = error.apiError;
       let errorMessage;
@@ -122,13 +102,14 @@ class SignInScreen extends Component {
             password,
           }),
         );
-        this.setState({ email: '', password: '' });
+        setEmail('');
+        setPassword('');
         return;
       }
 
       if (errorMessage) {
         action = ACTIONS.USER_ERROR;
-        this.setState({ errorMessage });
+        setErrorMessage(errorMessage);
       } else {
         action = ACTIONS.SYSTEM_ERROR;
       }
@@ -137,145 +118,129 @@ class SignInScreen extends Component {
     }
   };
 
-  facebookLogin = async () => {
-    const { dispatch, next } = this.props;
-
+  const facebookLogin = async () => {
     try {
       await dispatch(facebookPromptLogin());
-      this.setState({ isLoading: true });
+      setIsLoading(true);
       await dispatch(facebookLoginWithAccessToken());
       dispatch(next());
     } catch (error) {
-      this.setState({ isLoading: false });
+      setIsLoading(false);
     }
   };
 
-  renderErrorMessage() {
-    const { errorMessage } = this.state;
-
+  const renderErrorMessage = () => {
     return errorMessage ? (
       <View style={styles.errorBar}>
         <Text style={styles.errorMessage}>{errorMessage}</Text>
       </View>
     ) : null;
-  }
+  };
 
-  passwordRef = c => (this.password = c);
+  const passwordRef = useRef<TextInput>(null);
 
-  focusPassword = () => this.password.focus();
+  const focusPassword = () =>
+    passwordRef.current && passwordRef.current.focus();
 
-  render() {
-    const { t, forcedLogout } = this.props;
-    const { showLogo, email, password, isLoading } = this.state;
-
-    return (
-      <View style={styles.container}>
-        {this.renderErrorMessage()}
-        <Header left={forcedLogout ? null : <BackButton />} shadow={false} />
-        <SafeAreaView style={{ flex: 1 }}>
+  return (
+    <View style={styles.container}>
+      {renderErrorMessage()}
+      <Header left={forcedLogout ? null : <BackButton />} shadow={false} />
+      <SafeAreaView style={{ flex: 1 }}>
+        {showLogo ? (
           <Flex align="center" justify="center">
-            {showLogo ? (
-              forcedLogout ? (
-                <Text style={styles.forcedLogoutHeader}>
-                  {t('forcedLogout:message')}
-                </Text>
-              ) : (
-                <Text type="header" style={styles.header}>
-                  {t('signIn')}
-                </Text>
-              )
-            ) : null}
+            {forcedLogout ? (
+              <Text style={styles.forcedLogoutHeader}>
+                {t('forcedLogout:message')}
+              </Text>
+            ) : (
+              <Text type="header" style={styles.header}>
+                {t('signIn')}
+              </Text>
+            )}
           </Flex>
+        ) : null}
 
-          <Flex
-            value={3}
-            style={{ paddingVertical: 10, paddingHorizontal: 30 }}
-          >
-            <View>
-              <Text style={styles.label}>{t('emailLabel')}</Text>
-              <Input
-                autoCapitalize="none"
-                onChangeText={this.emailChanged}
-                value={email}
-                keyboardType="email-address"
-                onSubmitEditing={this.focusPassword}
-                placeholder={t('emailLabel')}
-                returnKeyType="next"
-                placeholderTextColor="white"
-              />
-            </View>
+        <Flex value={3} style={{ paddingVertical: 10, paddingHorizontal: 30 }}>
+          <View>
+            <Text style={styles.label}>{t('emailLabel')}</Text>
+            <Input
+              testID="emailInput"
+              autoCapitalize="none"
+              onChangeText={setEmail}
+              value={email}
+              keyboardType="email-address"
+              onSubmitEditing={focusPassword}
+              placeholder={t('emailLabel')}
+              returnKeyType="next"
+              placeholderTextColor="white"
+            />
+          </View>
 
-            <View style={{ paddingVertical: 15 }}>
-              <Text style={styles.label}>{t('passwordLabel')}</Text>
-              <Input
-                secureTextEntry={true}
-                ref={this.passwordRef}
-                onChangeText={this.passwordChanged}
-                value={password}
-                placeholder={t('passwordLabel')}
-                placeholderTextColor="white"
-                returnKeyType="done"
-                onSubmitEditing={this.login}
-              />
-              <Button
-                name={'forgotPasswordButton'}
-                text={t('forgotPassword')}
-                type="transparent"
-                style={styles.forgotPasswordButton}
-                buttonTextStyle={styles.forgotPasswordText}
-                onPress={this.handleForgotPassword}
-              />
-            </View>
+          <View style={{ paddingVertical: 15 }}>
+            <Text style={styles.label}>{t('passwordLabel')}</Text>
+            <Input
+              testID="passwordInput"
+              ref={passwordRef}
+              secureTextEntry={true}
+              onChangeText={setPassword}
+              value={password}
+              placeholder={t('passwordLabel')}
+              placeholderTextColor="white"
+              returnKeyType="done"
+              onSubmitEditing={login}
+            />
+            <Button
+              testID="forgotPasswordButton"
+              name={'forgotPasswordButton'}
+              text={t('forgotPassword')}
+              type="transparent"
+              style={styles.forgotPasswordButton}
+              buttonTextStyle={styles.forgotPasswordText}
+              onPress={handleForgotPassword}
+            />
+          </View>
+        </Flex>
+
+        {email || password ? (
+          <Flex align="stretch" justify="end">
+            <Button
+              testID="loginButton"
+              name={'loginButton'}
+              type="secondary"
+              onPress={login}
+              text={t('login').toUpperCase()}
+            />
           </Flex>
-
-          {email || password ? (
-            <Flex align="stretch" justify="end">
-              <Button
-                name={'loginButton'}
-                type="secondary"
-                onPress={this.login}
-                text={t('login').toUpperCase()}
-              />
-            </Flex>
-          ) : (
-            <Flex value={1} justify="center" align="center">
-              <Button
-                name={'facebookButton'}
-                pill={true}
-                onPress={this.facebookLogin}
-                style={styles.facebookButton}
-                buttonTextStyle={styles.buttonText}
-              >
-                <Flex direction="row">
-                  <Icon
-                    name="facebookIcon"
-                    size={21}
-                    type="MissionHub"
-                    style={styles.icon}
-                  />
-                  <Text style={styles.buttonText}>
-                    {t('facebookLogin').toUpperCase()}
-                  </Text>
-                </Flex>
-              </Button>
-            </Flex>
-          )}
-        </SafeAreaView>
-        {isLoading ? <LoadingWheel /> : null}
-      </View>
-    );
-  }
-}
-
-SignInScreen.propTypes = {
-  next: PropTypes.func.isRequired,
+        ) : (
+          <Flex value={1} justify="center" align="center">
+            <Button
+              testID="facebookButton"
+              name={'facebookButton'}
+              pill={true}
+              onPress={facebookLogin}
+              style={styles.facebookButton}
+              buttonTextStyle={styles.buttonText}
+            >
+              <Flex direction="row">
+                <Icon
+                  name="facebookIcon"
+                  size={21}
+                  type="MissionHub"
+                  style={styles.icon}
+                />
+                <Text style={styles.buttonText}>
+                  {t('facebookLogin').toUpperCase()}
+                </Text>
+              </Flex>
+            </Button>
+          </Flex>
+        )}
+      </SafeAreaView>
+      {isLoading ? <LoadingWheel /> : null}
+    </View>
+  );
 };
 
-const mapStateToProps = (_, { navigation }) => {
-  const { forcedLogout } = navigation.state.params || {};
-
-  return { forcedLogout };
-};
-
-export default connect(mapStateToProps)(SignInScreen);
+export default connect()(SignInScreen);
 export const SIGN_IN_SCREEN = 'nav/SIGN_IN_SCREEN';
