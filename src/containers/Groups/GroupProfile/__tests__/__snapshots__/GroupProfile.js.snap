@@ -71,7 +71,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           }
         }
       >
-        <Input
+        <ForwardRef
           autoCorrect={true}
           autoFocus={true}
           blurOnSubmit={true}

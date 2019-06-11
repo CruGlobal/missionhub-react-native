@@ -190,7 +190,8 @@ describe('add step methods for stepNote with next', () => {
 
   it('runs saveStep', async () => {
     screen
-      .find('Input')
+      .find('ForwardRef')
+      .dive() // Input
       .props()
       .onChangeText('test');
 
