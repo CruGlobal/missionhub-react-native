@@ -192,7 +192,6 @@ const SignInScreen = ({
             />
             <Button
               testID="forgotPasswordButton"
-              name={'forgotPasswordButton'}
               text={t('forgotPassword')}
               type="transparent"
               style={styles.forgotPasswordButton}
@@ -206,7 +205,6 @@ const SignInScreen = ({
           <Flex align="stretch" justify="end">
             <Button
               testID="loginButton"
-              name={'loginButton'}
               type="secondary"
               onPress={login}
               text={t('login').toUpperCase()}
@@ -216,7 +214,6 @@ const SignInScreen = ({
           <Flex value={1} justify="center" align="center">
             <Button
               testID="facebookButton"
-              name={'facebookButton'}
               pill={true}
               onPress={facebookLogin}
               style={styles.facebookButton}

@@ -12,30 +12,23 @@ Keyboard.addListener = ((eventName: string, listener: () => void) => {
 
 const fireEvent = (eventName: string) => events[eventName]();
 
-describe('useKeyboardListeners', () => {
-  it('should call onShow callback when keyboard opens', () => {
-    const onShow = jest.fn();
-    const onHide = jest.fn();
+const onShow = jest.fn();
+const onHide = jest.fn();
 
+describe('useKeyboardListeners', () => {
+  beforeEach(() => {
     renderHook(() => useKeyboardListeners(onShow, onHide));
 
     expect(onShow).not.toHaveBeenCalled();
     expect(onHide).not.toHaveBeenCalled();
-
+  });
+  it('should call onShow callback when keyboard opens', () => {
     fireEvent('keyboardWillShow');
 
     expect(onShow).toHaveBeenCalled();
     expect(onHide).not.toHaveBeenCalled();
   });
   it('should call onHide callback when keyboard closes', () => {
-    const onShow = jest.fn();
-    const onHide = jest.fn();
-
-    renderHook(() => useKeyboardListeners(onShow, onHide));
-
-    expect(onShow).not.toHaveBeenCalled();
-    expect(onHide).not.toHaveBeenCalled();
-
     fireEvent('keyboardWillHide');
 
     expect(onShow).not.toHaveBeenCalled();

@@ -5,7 +5,7 @@ exports[`facebook login button is pressed facebook button calls facebook login l
 - First value
 + Second value
 
-@@ -177,6 +177,7 @@
+@@ -175,6 +175,7 @@
             </Text>
           </Flex>
         </Button>
@@ -20,7 +20,7 @@ exports[`forgot password button is pressed should call forgot password logic 1`]
 - First value
 + Second value
 
-@@ -177,6 +177,7 @@
+@@ -175,6 +175,7 @@
             </Text>
           </Flex>
         </Button>
@@ -61,7 +61,7 @@ exports[`key login button is pressed key login is called 1`] = `
             buttonTextStyle={
               Object {
                 \\"color\\": \\"#52C5DC\\",
-@@ -118,65 +118,19 @@
+@@ -117,64 +117,18 @@
             type=\\"transparent\\"
           />
         </View>
@@ -83,7 +83,6 @@ exports[`key login button is pressed key login is called 1`] = `
 -             \\"paddingTop\\": 2,
 -           }
 -         }
--         name=\\"facebookButton\\"
 -         onPress={[Function facebookLogin]}
 -         pill={true}
 -         style={
@@ -110,7 +109,6 @@ exports[`key login button is pressed key login is called 1`] = `
 -               }
 -             }
 -             type=\\"MissionHub\\"
-+         name=\\"loginButton\\"
 +         onPress={[Function login]}
 +         testID=\\"loginButton\\"
 +         text=\\"LOGIN\\"
@@ -147,7 +145,7 @@ exports[`key login button is pressed should fire login actions when inputs are s
 - First value
 + Second value
 
-@@ -130,6 +130,7 @@
+@@ -128,6 +128,7 @@
           text=\\"LOGIN\\"
           type=\\"secondary\\"
         />
@@ -221,7 +219,7 @@ exports[`key login button is pressed shows email verification required message a
             buttonTextStyle={
               Object {
                 \\"color\\": \\"#52C5DC\\",
-@@ -118,65 +140,18 @@
+@@ -117,64 +139,17 @@
             type=\\"transparent\\"
           />
         </View>
@@ -243,7 +241,6 @@ exports[`key login button is pressed shows email verification required message a
 -             \\"paddingTop\\": 2,
 -           }
 -         }
--         name=\\"facebookButton\\"
 -         onPress={[Function facebookLogin]}
 -         pill={true}
 -         style={
@@ -270,7 +267,6 @@ exports[`key login button is pressed shows email verification required message a
 -               }
 -             }
 -             type=\\"MissionHub\\"
-+         name=\\"loginButton\\"
 +         onPress={[Function login]}
 +         testID=\\"loginButton\\"
 +         text=\\"LOGIN\\"
@@ -360,7 +356,7 @@ exports[`key login button is pressed shows invalid credentials message and track
             buttonTextStyle={
               Object {
                 \\"color\\": \\"#52C5DC\\",
-@@ -118,65 +140,18 @@
+@@ -117,64 +139,17 @@
             type=\\"transparent\\"
           />
         </View>
@@ -382,7 +378,6 @@ exports[`key login button is pressed shows invalid credentials message and track
 -             \\"paddingTop\\": 2,
 -           }
 -         }
--         name=\\"facebookButton\\"
 -         onPress={[Function facebookLogin]}
 -         pill={true}
 -         style={
@@ -409,7 +404,6 @@ exports[`key login button is pressed shows invalid credentials message and track
 -               }
 -             }
 -             type=\\"MissionHub\\"
-+         name=\\"loginButton\\"
 +         onPress={[Function login]}
 +         testID=\\"loginButton\\"
 +         text=\\"LOGIN\\"
@@ -499,7 +493,7 @@ exports[`key login button is pressed shows invalid credentials message and track
             buttonTextStyle={
               Object {
                 \\"color\\": \\"#52C5DC\\",
-@@ -118,65 +140,18 @@
+@@ -117,64 +139,17 @@
             type=\\"transparent\\"
           />
         </View>
@@ -521,7 +515,6 @@ exports[`key login button is pressed shows invalid credentials message and track
 -             \\"paddingTop\\": 2,
 -           }
 -         }
--         name=\\"facebookButton\\"
 -         onPress={[Function facebookLogin]}
 -         pill={true}
 -         style={
@@ -548,7 +541,6 @@ exports[`key login button is pressed shows invalid credentials message and track
 -               }
 -             }
 -             type=\\"MissionHub\\"
-+         name=\\"loginButton\\"
 +         onPress={[Function login]}
 +         testID=\\"loginButton\\"
 +         text=\\"LOGIN\\"
@@ -605,7 +597,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
             buttonTextStyle={
               Object {
                 \\"color\\": \\"#52C5DC\\",
-@@ -118,65 +118,18 @@
+@@ -117,64 +117,17 @@
             type=\\"transparent\\"
           />
         </View>
@@ -627,7 +619,6 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 -             \\"paddingTop\\": 2,
 -           }
 -         }
--         name=\\"facebookButton\\"
 -         onPress={[Function facebookLogin]}
 -         pill={true}
 -         style={
@@ -654,7 +645,6 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 -               }
 -             }
 -             type=\\"MissionHub\\"
-+         name=\\"loginButton\\"
 +         onPress={[Function login]}
 +         testID=\\"loginButton\\"
 +         text=\\"LOGIN\\"
@@ -857,7 +847,6 @@ exports[`renders correctly 1`] = `
               "textAlign": "left",
             }
           }
-          name="forgotPasswordButton"
           onPress={[Function]}
           style={
             Object {
@@ -885,7 +874,6 @@ exports[`renders correctly 1`] = `
             "paddingTop": 2,
           }
         }
-        name="facebookButton"
         onPress={[Function]}
         pill={true}
         style={
@@ -1046,7 +1034,6 @@ Please sign in so we know it's you.
               "textAlign": "left",
             }
           }
-          name="forgotPasswordButton"
           onPress={[Function]}
           style={
             Object {
@@ -1074,7 +1061,6 @@ Please sign in so we know it's you.
             "paddingTop": 2,
           }
         }
-        name="facebookButton"
         onPress={[Function]}
         pill={true}
         style={
