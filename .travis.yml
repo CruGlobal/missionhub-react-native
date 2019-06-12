@@ -96,7 +96,8 @@ matrix:
         - echo yes | sdkmanager "build-tools;23.0.1" # Android platform required by some dependency
 
       install:
-        - yarn install
+        - brew install yarn
+        - yarn install --network-concurrency 1
         - (cd android && bundler install)
       before_script:
         - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
