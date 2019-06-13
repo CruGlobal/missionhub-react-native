@@ -48,6 +48,7 @@ matrix:
       env:
         - ENVFILE=.env.production
       before_install:
+        - brew update
         - brew install yarn
       install:
         - yarn install
@@ -86,6 +87,7 @@ matrix:
       env:
         - ENVFILE=.env.production
       before_install:
+        - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p # Fix node file watchers issue https://github.com/gatsbyjs/gatsby/issues/11406#issuecomment-458769756
         - rvm install 2.6.3
         - gem install bundler
         - git fetch --unshallow
