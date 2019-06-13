@@ -48,6 +48,7 @@ matrix:
       env:
         - ENVFILE=.env.production
       before_install:
+        - brew update
         - brew install yarn
       install:
         - yarn install
