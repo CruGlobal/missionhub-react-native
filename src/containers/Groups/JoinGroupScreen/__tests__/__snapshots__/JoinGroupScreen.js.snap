@@ -94,7 +94,7 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
         }
       }
     >
-      <Input
+      <ForwardRef
         autoFocus={false}
         blurOnSubmit={false}
         maxLength={6}
@@ -190,7 +190,7 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
         }
       }
     >
-      <Input
+      <ForwardRef
         autoFocus={false}
         blurOnSubmit={false}
         maxLength={6}
@@ -295,7 +295,7 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
         }
       }
     >
-      <Input
+      <ForwardRef
         autoFocus={false}
         blurOnSubmit={false}
         maxLength={6}

@@ -64,14 +64,19 @@ class GroupProfile extends Component {
   };
 
   copyCode = () => {
-    const { t, organization } = this.props;
+    const { dispatch, t, organization } = this.props;
     copyText(t('codeCopyText', { code: organization.community_code }));
-    this.props.dispatch(trackActionWithoutData(ACTIONS.COPY_CODE));
+    dispatch(trackActionWithoutData(ACTIONS.COPY_CODE));
   };
 
   copyUrl = () => {
-    copyText(getCommunityUrl(this.props.organization.community_url));
-    this.props.dispatch(trackActionWithoutData(ACTIONS.COPY_INVITE_URL));
+    const { dispatch, t, organization } = this.props;
+
+    const url = getCommunityUrl(organization.community_url);
+    const code = organization.community_code;
+
+    copyText(t('groupsMembers:sendInviteMessage', { url, code }));
+    dispatch(trackActionWithoutData(ACTIONS.COPY_INVITE_URL));
   };
 
   navigateBack = () => this.props.dispatch(navigateBack());

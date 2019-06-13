@@ -18,7 +18,7 @@ exports[`contact notes and editing is set to true button message changes to DONE
     }
     value={1}
   >
-    <Input
+    <ForwardRef
       autoCorrect={true}
       autoGrow={false}
       blurOnSubmit={false}

@@ -19,7 +19,7 @@ exports[`renders correctly 1`] = `
   <View
     flex={1}
   >
-    <Input
+    <ForwardRef
       autoCorrect={true}
       autoFocus={false}
       blurOnSubmit={true}
@@ -124,7 +124,7 @@ exports[`renders edit challenge correctly 1`] = `
   <View
     flex={1}
   >
-    <Input
+    <ForwardRef
       autoCorrect={true}
       autoFocus={false}
       blurOnSubmit={true}
