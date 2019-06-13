@@ -1,13 +1,15 @@
 import React, { ReactElement } from 'react';
 import 'react-native';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import configureStore, { MockStore } from 'redux-mock-store';
 import { NavigationParams } from 'react-navigation';
 import { NavigationProvider } from '@react-navigation/core';
+import { ReactTestRendererJSON } from 'react-test-renderer';
 import { render } from 'react-native-testing-library';
+import snapshotDiff from 'snapshot-diff';
 import Enzyme, { shallow as enzymeShallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import configureStore, { MockStore } from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
 import { createNavigationProp } from './navigationHelpers';
 
@@ -40,11 +42,21 @@ export function renderWithContext(
   );
 
   const renderResult = render(component, { wrapper });
+  let storedSnapshot: ReactTestRendererJSON | null;
   return {
     ...renderResult,
     store,
-    snapshot: () => {
-      expect(renderResult.toJSON()).toMatchSnapshot();
+    snapshot: () => expect(renderResult.toJSON()).toMatchSnapshot(),
+    recordSnapshot: () => (storedSnapshot = renderResult.toJSON()),
+    diffSnapshot: () => {
+      if (!storedSnapshot) {
+        throw new Error(
+          'You must call recordSnapshot to store an initial snapshot before calling diffSnapshot',
+        );
+      }
+      expect(
+        snapshotDiff(storedSnapshot, renderResult.toJSON()),
+      ).toMatchSnapshot();
     },
   };
 }
