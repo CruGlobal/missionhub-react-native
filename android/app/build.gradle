@@ -156,7 +156,6 @@ dependencies {
     implementation 'com.facebook.react:react-native:+'  // From node_modules
     implementation project(':react-native-firebase')
     implementation project(':rollbar-react-native')
-    implementation project(':react-native-image-picker')
     implementation project(':react-native-view-overflow')
     implementation project(':react-native-code-push')
     implementation project(':react-native-config')
