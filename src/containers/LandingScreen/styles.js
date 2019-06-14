@@ -9,11 +9,23 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   imageWrap: {
-    // half the screen size, minus half the image size puts the image in the middle of the screen
-    marginTop: theme.fullHeight / 2 - 45,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
   },
-  buttonWrapper: {
+  buttonWrap: {
     paddingHorizontal: 30,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    alignSelf: 'stretch',
+  },
+  pillButtonWrap: {
+    marginBottom: 60,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignSelf: 'stretch',
+    alignItems: 'center',
   },
   button: {
     backgroundColor: theme.transparent,
@@ -29,6 +41,10 @@ export default StyleSheet.create({
     fontSize: 14,
     paddingTop: 2,
     letterSpacing: 1.5,
+  },
+  signInWrap: {
+    alignItems: 'flex-end',
+    flexDirection: 'row',
   },
   memberText: {
     fontSize: 14,
