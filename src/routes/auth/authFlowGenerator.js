@@ -12,12 +12,16 @@ import MFACodeScreen from '../../containers/Auth/MFACodeScreen';
 export const authFlowGenerator = ({
   completeAction,
   includeSignUp = true,
+  signUpType = null,
 }) => ({
   ...(includeSignUp
     ? {
         [SIGN_UP_SCREEN]: buildTrackedScreen(
-          wrapNextAction(SignUpScreen, ({ signIn } = {}) =>
-            signIn ? navigatePush(SIGN_IN_SCREEN) : completeAction,
+          wrapNextAction(
+            SignUpScreen,
+            ({ signIn } = {}) =>
+              signIn ? navigatePush(SIGN_IN_SCREEN) : completeAction,
+            { signUpType },
           ),
           buildTrackingObj('auth', 'auth'),
         ),
