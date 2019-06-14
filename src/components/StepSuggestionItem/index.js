@@ -10,8 +10,8 @@ import styles from './styles';
 
 class StepSuggestionItem extends Component {
   handlePress = () => {
-    const { dispatch, step, onPress } = this.props;
-    dispatch(onPress(step));
+    const { step, onPress } = this.props;
+    onPress(step);
   };
 
   render() {

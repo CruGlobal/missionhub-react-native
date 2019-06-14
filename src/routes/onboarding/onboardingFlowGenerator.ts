@@ -1,6 +1,7 @@
 import { navigatePush } from '../../actions/navigation';
-import { buildTrackedScreen, wrapNextAction, wrapNextScreen } from '../helpers';
+import { createCustomStep } from '../../actions/steps';
 import { buildTrackingObj } from '../../utils/common';
+import { buildTrackedScreen, wrapNextAction, wrapNextScreen } from '../helpers';
 import { CREATE_STEP } from '../../constants';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
@@ -94,6 +95,7 @@ export const onboardingFlowGenerator = ({
           wrapNextAction(
             SelectMyStepScreen,
             ({ receiverId, step }) => dispatch => {
+              console.log('herehere');
               dispatch(
                 step
                   ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
@@ -102,6 +104,7 @@ export const onboardingFlowGenerator = ({
                     })
                   : navigatePush(ADD_STEP_SCREEN, {
                       type: CREATE_STEP,
+                      personId: receiverId,
                       trackingObj: buildTrackingObj(
                         'onboarding : self : steps : create',
                         'onboarding',
@@ -177,7 +180,10 @@ export const onboardingFlowGenerator = ({
     wrapNextScreen(SuggestedStepDetailScreen, ADD_SOMEONE_SCREEN),
   ),
   [ADD_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(AddStepScreen, ADD_SOMEONE_SCREEN),
+    wrapNextAction(AddStepScreen, ({ text, personId }) => dispatch => {
+      dispatch(createCustomStep(text, personId));
+      dispatch(navigatePush(ADD_SOMEONE_SCREEN));
+    }),
   ),
   [CELEBRATION_SCREEN]: buildTrackedScreen(
     wrapNextAction(CelebrationScreen, () => dispatch => {

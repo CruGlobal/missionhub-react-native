@@ -12,11 +12,16 @@ export const wrapNextScreenFn = (WrappedComponent, fn, extraProps = {}) =>
     extraProps,
   );
 
-export const wrapNextAction = (WrappedComponent, nextAction, extraProps = {}) =>
-  wrapProps(WrappedComponent, {
+export const wrapNextAction = (
+  WrappedComponent,
+  nextAction,
+  extraProps = {},
+) => {
+  return wrapProps(WrappedComponent, {
     ...extraProps,
     next: nextAction,
   });
+};
 
 export const wrapProps = (WrappedComponent, extraProps = {}) => props => (
   <WrappedComponent {...props} {...extraProps} />

@@ -17,6 +17,7 @@ class SuggestedStepDetailScreen extends Component {
     await dispatch(addStep(step, receiverId, orgId ? { id: orgId } : null));
 
     dispatch(next({ contactId: receiverId, orgId }));
+    console.log('here');
   };
 
   render() {
@@ -25,7 +26,7 @@ class SuggestedStepDetailScreen extends Component {
       step: { body, description_markdown },
     } = this.props;
     const { centerContent } = styles;
-
+    console.log(this.props.next);
     return (
       <StepDetailScreen
         CenterHeader={null}
@@ -54,7 +55,7 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { step, receiverId, orgId, next },
+        params: { step, receiverId, orgId },
       },
     },
   },
@@ -62,7 +63,6 @@ const mapStateToProps = (
   step,
   receiverId,
   orgId,
-  next,
 });
 export default connect(mapStateToProps)(SuggestedStepDetailScreen);
 export const SUGGESTED_STEP_DETAIL_SCREEN = 'nav/SUGGESTED_STEP_DETAIL_SCREEN';
