@@ -13,15 +13,11 @@ exports[`renders correctly 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
-          "marginTop": 622,
-        },
-        Object {
-          "alignItems": "center",
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "alignSelf": "center",
+        "justifyContent": "center",
+        "position": "absolute",
+      }
     }
   >
     <Image
@@ -34,31 +30,24 @@ exports[`renders correctly 1`] = `
   </View>
   <View
     style={
-      Array [
-        Object {
-          "paddingHorizontal": 30,
-        },
-        Object {
-          "alignItems": "center",
-          "alignSelf": "stretch",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "flex": 1,
+        "justifyContent": "flex-end",
+        "paddingHorizontal": 30,
+      }
     }
   >
     <View
       style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "alignSelf": "stretch",
-            "flex": 2,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "marginBottom": 60,
+        }
       }
     >
       <View
@@ -75,6 +64,7 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
+        testID="tryItNowButton"
       >
         <View
           style={
@@ -152,6 +142,7 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
+        testID="communityCodeButton"
       >
         <View
           style={
@@ -218,13 +209,10 @@ exports[`renders correctly 1`] = `
     </View>
     <View
       style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "flex-end",
-            "flexDirection": "row",
-          },
-        ]
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        }
       }
     >
       <Text
@@ -264,6 +252,7 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
+        testID="signInButton"
       >
         <View
           style={

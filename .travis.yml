@@ -59,12 +59,15 @@ matrix:
         - yarn run onesky:download
       script:
         - (cd ios && fastlane ios beta)
+      before_cache:
+        - brew cleanup
       cache:
         - yarn
         - cocoapods
         - bundler
         - directories:
             - $HOME/Library/Developer/Xcode/DerivedData
+            - $HOME/Library/Caches/Homebrew
 
     - name: 'Android Beta Build'
       language: android
