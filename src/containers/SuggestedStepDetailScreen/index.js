@@ -14,10 +14,8 @@ class SuggestedStepDetailScreen extends Component {
   addStep = async () => {
     const { dispatch, step, receiverId, orgId, next } = this.props;
 
-    await dispatch(addStep(step, receiverId, orgId ? { id: orgId } : null));
-
+    await dispatch(addStep(step, receiverId, orgId));
     dispatch(next({ contactId: receiverId, orgId }));
-    console.log('here');
   };
 
   render() {
@@ -26,7 +24,7 @@ class SuggestedStepDetailScreen extends Component {
       step: { body, description_markdown },
     } = this.props;
     const { centerContent } = styles;
-    console.log(this.props.next);
+
     return (
       <StepDetailScreen
         CenterHeader={null}

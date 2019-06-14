@@ -91,7 +91,7 @@ export function getContactSteps(personId, orgId) {
   };
 }
 
-export function addStep(stepSuggestion, receiverId, organization) {
+export function addStep(stepSuggestion, receiverId, orgId) {
   return async dispatch => {
     const payload = {
       data: {
@@ -115,12 +115,12 @@ export function addStep(stepSuggestion, receiverId, organization) {
                   : (stepSuggestion || {}).id,
             },
           },
-          ...(organization && organization.id !== 'personal'
+          ...(orgId && orgId !== 'personal'
             ? {
                 organization: {
                   data: {
                     type: 'organization',
-                    id: organization.id,
+                    id: orgId,
                   },
                 },
               }
@@ -134,7 +134,7 @@ export function addStep(stepSuggestion, receiverId, organization) {
   };
 }
 
-export function createCustomStep(stepText, receiverId, organization) {
+export function createCustomStep(stepText, receiverId, orgId) {
   return (dispatch, getState) => {
     const {
       auth: {
@@ -143,9 +143,7 @@ export function createCustomStep(stepText, receiverId, organization) {
     } = getState();
     const isMe = receiverId === myId;
 
-    dispatch(
-      addStep(buildCustomStep(stepText, isMe), receiverId, organization),
-    );
+    dispatch(addStep(buildCustomStep(stepText, isMe), receiverId, orgId));
   };
 }
 

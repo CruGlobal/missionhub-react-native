@@ -81,9 +81,8 @@ class ContactSteps extends Component {
     if (isMe) {
       dispatch(
         navigatePush(ADD_MY_STEP_FLOW, {
-          ...trackingParams,
           enableBackButton: true,
-          organization,
+          orgId: organization.id,
         }),
       );
     } else {

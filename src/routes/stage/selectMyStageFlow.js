@@ -25,9 +25,8 @@ export const SelectMyStageFlowScreens = {
           ? navigatePush(CELEBRATION_SCREEN, { contactId, orgId })
           : navigatePush(SELECT_MY_STEP_SCREEN, {
               enableBackButton: true,
-              contactId,
-              contactStage: stage,
-              organization: { id: orgId },
+              stage,
+              orgId,
             }),
       );
     },

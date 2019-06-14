@@ -79,7 +79,6 @@ export const onboardingFlowGenerator = ({
           wrapNextAction(StageSuccessScreen, ({ stage }) => dispatch => {
             dispatch(
               navigatePush(SELECT_MY_STEP_SCREEN, {
-                onboarding: true,
                 stage,
                 enableBackButton: false,
               }),
@@ -94,8 +93,7 @@ export const onboardingFlowGenerator = ({
         [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
           wrapNextAction(
             SelectMyStepScreen,
-            ({ receiverId, step }) => dispatch => {
-              console.log('herehere');
+            ({ receiverId, step }) => dispatch =>
               dispatch(
                 step
                   ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
@@ -112,8 +110,7 @@ export const onboardingFlowGenerator = ({
                         'steps',
                       ),
                     }),
-              );
-            },
+              ),
           ),
           buildTrackingObj(
             'people : self : steps : add',

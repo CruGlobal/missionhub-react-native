@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { buildTrackingObj } from '../utils/common';
-
 import SelectStepScreen from './SelectStepScreen';
 
 @withTranslation('selectStep')
@@ -12,25 +10,23 @@ class SelectMyStepScreen extends Component {
   render() {
     const {
       t,
-      onboarding,
       enableBackButton,
       me,
-      personId,
+      myPersonId,
       stage,
-      organization,
+      orgId,
       myStageId,
       next,
     } = this.props;
 
-    const section = onboarding ? 'onboarding' : 'people';
     const stageId = stage ? stage.id : myStageId;
 
     return (
       <SelectStepScreen
         contactStageId={stageId}
-        receiverId={personId}
+        receiverId={myPersonId}
         contact={me}
-        organization={organization}
+        organization={{ id: orgId }}
         headerText={t('meHeader')}
         enableBackButton={enableBackButton}
         next={next}
@@ -47,15 +43,27 @@ SelectMyStepScreen.propTypes = {
   next: PropTypes.func.isRequired,
   enableBackButton: PropTypes.bool,
   stage: PropTypes.object,
-  organization: PropTypes.object,
-  onboarding: PropTypes.bool,
+  orgId: PropTypes.string,
 };
 
-const mapStateToProps = ({ auth }, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = (
+  { auth },
+  {
+    navigation: {
+      state: {
+        params: { enableBackButton, stage, orgId },
+      },
+    },
+    next,
+  },
+) => ({
+  next,
+  enableBackButton,
+  stage,
+  orgId,
   me: auth.person,
   myStageId: auth.person.user.pathway_stage_id,
-  personId: auth.person.id,
+  myPersonId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(SelectMyStepScreen);
