@@ -3,6 +3,7 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import i18next from 'i18next';
+import Config from 'react-native-config';
 
 import GroupProfile from '..';
 
@@ -50,6 +51,7 @@ const orgId = '123';
 const organization = {
   id: orgId,
   community_code: '333333',
+  community_url: 'abc123',
   name: 'Test Organization',
   created_at: '2018-11-06T12:00:00Z',
   contactReport: { memberCount: 3 },
@@ -306,7 +308,12 @@ describe('GroupProfile', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.COPY_INVITE_URL,
     );
-    expect(common.copyText).toHaveBeenCalled();
+    expect(common.copyText).toHaveBeenCalledWith(
+      i18next.t('groupsMembers:sendInviteMessage', {
+        url: `${Config.COMMUNITY_URL}${organization.community_url}`,
+        code: organization.community_code,
+      }),
+    );
   });
 
   it('handle navigate back', () => {

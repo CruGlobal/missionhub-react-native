@@ -10,7 +10,6 @@ target 'MissionHub' do
     'Core',
     'RCTActionSheet',
     'RCTAnimation',
-    'RCTGeolocation',
     'RCTImage',
     'RCTLinkingIOS',
     'RCTNetwork',
@@ -37,7 +36,9 @@ target 'MissionHub' do
 
   post_install do |installer|
       installer.pods_project.targets.each do |target|
-        if target.name == "React"
+        targets_to_ignore = %w(React yoga)
+
+        if targets_to_ignore.include? target.name
           target.remove_from_project
         end
       end

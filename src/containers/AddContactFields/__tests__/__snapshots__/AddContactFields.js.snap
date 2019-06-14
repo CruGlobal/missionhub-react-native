@@ -26,7 +26,7 @@ exports[`renders casey view correctly 1`] = `
     >
       First Name (Required)
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={false}
       editable={true}
       onChangeText={[Function]}
@@ -50,7 +50,7 @@ exports[`renders casey view correctly 1`] = `
     >
       Last Name
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={false}
       editable={true}
       onChangeText={[Function]}
@@ -89,7 +89,7 @@ exports[`renders jean invite with organization and user and admin radio buttons 
     >
       First Name (Required)
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={false}
       editable={true}
       onChangeText={[Function]}
@@ -113,7 +113,7 @@ exports[`renders jean invite with organization and user and admin radio buttons 
     >
       Last Name
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={false}
       editable={true}
       onChangeText={[Function]}
@@ -138,7 +138,7 @@ exports[`renders jean invite with organization and user and admin radio buttons 
     >
       Email
     </MyText>
-    <Input
+    <ForwardRef
       autoCapitalize="none"
       blurOnSubmit={false}
       keyboardType="email-address"
@@ -199,7 +199,7 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
     >
       First Name (Required)
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={false}
       editable={true}
       onChangeText={[Function]}
@@ -223,7 +223,7 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
     >
       Last Name
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={false}
       editable={true}
       onChangeText={[Function]}
@@ -248,7 +248,7 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
     >
       Email
     </MyText>
-    <Input
+    <ForwardRef
       autoCapitalize="none"
       blurOnSubmit={false}
       keyboardType="email-address"
@@ -320,7 +320,7 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
     >
       Phone
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={true}
       keyboardType="phone-pad"
       onChangeText={[Function]}
@@ -396,7 +396,7 @@ exports[`renders jean with organization and user radio buttons 1`] = `
     >
       First Name (Required)
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={false}
       editable={true}
       onChangeText={[Function]}
@@ -420,7 +420,7 @@ exports[`renders jean with organization and user radio buttons 1`] = `
     >
       Last Name
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={false}
       editable={true}
       onChangeText={[Function]}
@@ -445,7 +445,7 @@ exports[`renders jean with organization and user radio buttons 1`] = `
     >
       Email
     </MyText>
-    <Input
+    <ForwardRef
       autoCapitalize="none"
       blurOnSubmit={false}
       keyboardType="email-address"
@@ -517,7 +517,7 @@ exports[`renders jean with organization and user radio buttons 1`] = `
     >
       Phone
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={true}
       keyboardType="phone-pad"
       onChangeText={[Function]}
@@ -593,7 +593,7 @@ exports[`renders jean with organization view correctly 1`] = `
     >
       First Name (Required)
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={false}
       editable={true}
       onChangeText={[Function]}
@@ -617,7 +617,7 @@ exports[`renders jean with organization view correctly 1`] = `
     >
       Last Name
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={false}
       editable={true}
       onChangeText={[Function]}
@@ -642,7 +642,7 @@ exports[`renders jean with organization view correctly 1`] = `
     >
       Email
     </MyText>
-    <Input
+    <ForwardRef
       autoCapitalize="none"
       blurOnSubmit={false}
       keyboardType="email-address"
@@ -714,7 +714,7 @@ exports[`renders jean with organization view correctly 1`] = `
     >
       Phone
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={true}
       keyboardType="phone-pad"
       onChangeText={[Function]}
@@ -790,7 +790,7 @@ exports[`renders jean without organization view correctly 1`] = `
     >
       First Name (Required)
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={false}
       editable={true}
       onChangeText={[Function]}
@@ -814,7 +814,7 @@ exports[`renders jean without organization view correctly 1`] = `
     >
       Last Name
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={false}
       editable={true}
       onChangeText={[Function]}
@@ -839,7 +839,7 @@ exports[`renders jean without organization view correctly 1`] = `
     >
       Email
     </MyText>
-    <Input
+    <ForwardRef
       autoCapitalize="none"
       blurOnSubmit={false}
       keyboardType="email-address"
@@ -911,7 +911,7 @@ exports[`renders jean without organization view correctly 1`] = `
     >
       Phone
     </MyText>
-    <Input
+    <ForwardRef
       blurOnSubmit={true}
       keyboardType="phone-pad"
       onChangeText={[Function]}
