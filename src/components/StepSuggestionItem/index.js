@@ -10,15 +10,8 @@ import styles from './styles';
 
 class StepSuggestionItem extends Component {
   handlePress = () => {
-    const { dispatch, step, receiverId, orgId, next } = this.props;
-    dispatch(
-      navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
-        step,
-        receiverId,
-        orgId,
-        next,
-      }),
-    );
+    const { dispatch, step, onPress } = this.props;
+    dispatch(onPress(step));
   };
 
   render() {
@@ -40,7 +33,7 @@ StepSuggestionItem.propTypes = {
   }).isRequired,
   receiverId: PropTypes.string.isRequired,
   orgId: PropTypes.string,
-  next: PropTypes.func.isRequired,
+  onPress: PropTypes.func.isRequired,
 };
 
 export default connect()(StepSuggestionItem);

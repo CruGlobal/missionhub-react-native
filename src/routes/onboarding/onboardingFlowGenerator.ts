@@ -1,6 +1,7 @@
 import { navigatePush } from '../../actions/navigation';
 import { buildTrackedScreen, wrapNextAction, wrapNextScreen } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
+import { CREATE_STEP } from '../../constants';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import GetStartedScreen, {
@@ -25,6 +26,10 @@ import PersonStageScreen, {
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
+import SuggestedStepDetailScreen, {
+  SUGGESTED_STEP_DETAIL_SCREEN,
+} from '../../containers/SuggestedStepDetailScreen';
+import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import NotificationPrimerScreen, {
   NOTIFICATION_PRIMER_SCREEN,
 } from '../../containers/NotificationPrimerScreen';
@@ -86,7 +91,27 @@ export const onboardingFlowGenerator = ({
           ),
         ),
         [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
-          wrapNextScreen(SelectMyStepScreen, ADD_SOMEONE_SCREEN),
+          wrapNextAction(
+            SelectMyStepScreen,
+            ({ receiverId, step }) => dispatch => {
+              dispatch(
+                step
+                  ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
+                      step,
+                      receiverId,
+                    })
+                  : navigatePush(ADD_STEP_SCREEN, {
+                      type: CREATE_STEP,
+                      trackingObj: buildTrackingObj(
+                        'onboarding : self : steps : create',
+                        'onboarding',
+                        'self',
+                        'steps',
+                      ),
+                    }),
+              );
+            },
+          ),
           buildTrackingObj(
             'people : self : steps : add',
             'people',
@@ -145,8 +170,14 @@ export const onboardingFlowGenerator = ({
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(PersonSelectStepScreen, CELEBRATION_SCREEN),
+    wrapNextAction(PersonSelectStepScreen, () => dispatch => {}),
     buildTrackingObj('onboarding : name', 'onboarding'),
+  ),
+  [SUGGESTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
+    wrapNextScreen(SuggestedStepDetailScreen, ADD_SOMEONE_SCREEN),
+  ),
+  [ADD_STEP_SCREEN]: buildTrackedScreen(
+    wrapNextScreen(AddStepScreen, ADD_SOMEONE_SCREEN),
   ),
   [CELEBRATION_SCREEN]: buildTrackedScreen(
     wrapNextAction(CelebrationScreen, () => dispatch => {

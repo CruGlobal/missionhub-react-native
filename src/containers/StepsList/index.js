@@ -39,14 +39,14 @@ class StepsList extends Component {
   }
 
   renderItem = ({ item }) => {
-    const { organization, receiverId, next } = this.props;
+    const { organization, receiverId, onPressStep } = this.props;
 
     return (
       <StepSuggestionItem
         step={item}
         receiverId={receiverId}
         orgId={organization && organization.id}
-        next={next}
+        onPress={onPressStep}
       />
     );
   };
@@ -86,7 +86,7 @@ StepsList.propTypes = {
   contactStageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     .isRequired,
   isMe: PropTypes.bool.isRequired,
-  next: PropTypes.func.isRequired,
+  onPressStep: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ auth, steps }, { contactStageId, receiverId }) => {

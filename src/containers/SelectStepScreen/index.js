@@ -7,8 +7,6 @@ import PropTypes from 'prop-types';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
-import { addStep } from '../../actions/steps';
-import { buildCustomStep } from '../../utils/steps';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
@@ -38,18 +36,19 @@ class SelectStepScreen extends Component {
     }
   }
 
-  complete = () => {
+  navigateNext = step => {
     const { dispatch, receiverId, organization, next } = this.props;
     dispatch(
-      next({ contactId: receiverId, orgId: organization && organization.id }),
+      next({ receiverId, orgId: organization && organization.id, step }),
     );
   };
 
-  createCustomStep = ({ text }) => dispatch => {
-    const { isMe, receiverId, organization } = this.props;
+  navToSuggestedStep = step => {
+    this.navigateNext(step);
+  };
 
-    dispatch(addStep(buildCustomStep(text, isMe), receiverId, organization));
-    this.complete();
+  navToCreateStep = () => {
+    this.navigateNext();
   };
 
   handleCreateStep = () => {
@@ -99,7 +98,6 @@ class SelectStepScreen extends Component {
       enableBackButton,
       enableSkipButton,
       contact,
-      next,
     } = this.props;
     const { headerHeight, parallaxHeaderHeight } = theme;
 
@@ -118,12 +116,12 @@ class SelectStepScreen extends Component {
             receiverId={receiverId}
             organization={organization}
             contactStageId={contactStageId}
-            next={next}
+            onPressStep={this.navToSuggestedStep}
           />
         </ParallaxScrollView>
         <SafeAreaView>
           <BottomButton
-            onPress={this.handleCreateStep}
+            onPress={this.navToCreateStep}
             text={this.props.t('createStep')}
           />
         </SafeAreaView>

@@ -32,12 +32,6 @@ class SelectMyStepScreen extends Component {
         contact={me}
         organization={organization}
         headerText={t('meHeader')}
-        createStepTracking={buildTrackingObj(
-          `${section} : self : steps : create`,
-          section,
-          'self',
-          'steps',
-        )}
         enableBackButton={enableBackButton}
         next={next}
       />
@@ -53,7 +47,6 @@ SelectMyStepScreen.propTypes = {
   next: PropTypes.func.isRequired,
   enableBackButton: PropTypes.bool,
   stage: PropTypes.object,
-  contactId: PropTypes.string,
   organization: PropTypes.object,
   onboarding: PropTypes.bool,
 };
