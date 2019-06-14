@@ -1,10 +1,9 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import { Alert } from 'react-native';
 import i18n from 'i18next';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
-import { renderShallow } from '../../../../../testUtils';
+import { renderWithContext } from '../../../../../testUtils';
 
 import MFACodeScreen from '..';
 
@@ -12,68 +11,80 @@ import { keyLogin } from '../../../../actions/auth/key';
 import { MFA_REQUIRED } from '../../../../constants';
 
 jest.mock('../../../../actions/auth/key');
-
-const mockStore = configureStore([thunk]);
-const store = mockStore({});
+jest.mock('../../../../components/MFACodeComponent', () => ({
+  MFACodeComponent: 'MFACodeComponent',
+}));
 
 const email = 'roger@test.com';
 const password = 'my password';
 const mfaCode = '123456';
 
-const navigation = {
-  state: {
-    params: {
-      email,
-      password,
-    },
+const next = jest.fn(() => () => {});
+
+const renderConfig = {
+  navParams: {
+    email,
+    password,
   },
 };
 
-const nextAction = { type: 'test-next' };
-const next = jest.fn(() => nextAction);
-
-let screen;
-
-beforeEach(() => {
-  screen = renderShallow(
-    <MFACodeScreen navigation={navigation} next={next} />,
-    store,
-  );
-});
-
 it('renders correctly', () => {
-  expect(screen).toMatchSnapshot();
+  renderWithContext(<MFACodeScreen next={next} />, renderConfig).snapshot();
 });
 
 it('changes text', () => {
-  screen.props().onChangeText('new text');
+  const { recordSnapshot, getByTestId, diffSnapshot } = renderWithContext(
+    <MFACodeScreen next={next} />,
+    renderConfig,
+  );
+  recordSnapshot();
 
-  screen.update();
-  expect(screen).toMatchSnapshot();
+  fireEvent.changeText(getByTestId('MFACodeComponent'), mfaCode);
+
+  diffSnapshot();
 });
 
 describe('onSubmit', () => {
-  const clickLoginButton = () => screen.props().onSubmit();
-  beforeEach(() => screen.setState({ mfaCode }));
+  const clickLoginButton = async () => {
+    const {
+      recordSnapshot,
+      getByTestId,
+      store,
+      diffSnapshot,
+    } = renderWithContext(<MFACodeScreen next={next} />, renderConfig);
+
+    fireEvent.changeText(getByTestId('MFACodeComponent'), mfaCode);
+    recordSnapshot();
+
+    const error = fireEvent(getByTestId('MFACodeComponent'), 'submit', mfaCode);
+    await flushMicrotasksQueue();
+
+    diffSnapshot();
+
+    return {
+      store,
+      error,
+    };
+  };
 
   it('logs in with email, password, mfa code, and upgrade account', async () => {
     const mockKeyLoginResult = { type: 'logged in with the Key' };
-    keyLogin.mockReturnValue(mockKeyLoginResult);
+    (keyLogin as jest.Mock).mockReturnValue(mockKeyLoginResult);
 
-    await clickLoginButton();
+    const { store } = await clickLoginButton();
 
     expect(keyLogin).toHaveBeenCalledWith(email, password, mfaCode);
     expect(next).toHaveBeenCalled();
-    expect(store.getActions()).toEqual([mockKeyLoginResult, nextAction]);
+    expect(store.getActions()).toEqual([mockKeyLoginResult]);
   });
 
   it('shows error modal if mfa code is incorrect', async () => {
     Alert.alert = jest.fn();
-    keyLogin.mockReturnValue(() =>
+    (keyLogin as jest.Mock).mockReturnValue(() =>
       Promise.reject({ apiError: { thekey_authn_error: MFA_REQUIRED } }),
     );
 
-    await expect(clickLoginButton()).resolves.toBeUndefined();
+    await clickLoginButton();
 
     expect(keyLogin).toHaveBeenCalledWith(email, password, mfaCode);
     expect(next).not.toHaveBeenCalled();
@@ -81,20 +92,15 @@ describe('onSubmit', () => {
   });
 
   it('it throws unexpected errors', async () => {
-    const error = { apiError: { message: 'some error' } };
-    keyLogin.mockReturnValue(() => Promise.reject(error));
+    const expectedError = { apiError: { message: 'some error' } };
+    (keyLogin as jest.Mock).mockReturnValue(() =>
+      Promise.reject(expectedError),
+    );
 
-    await expect(clickLoginButton()).rejects.toEqual(error);
+    const { error } = await clickLoginButton();
+    expect(error).rejects.toEqual(expectedError);
 
     expect(keyLogin).toHaveBeenCalledWith(email, password, mfaCode);
     expect(next).not.toHaveBeenCalled();
-  });
-
-  it('changes loading property', () => {
-    //this test is synchronous on purpose 😁
-    clickLoginButton();
-
-    screen.update();
-    expect(screen).toMatchSnapshot();
   });
 });

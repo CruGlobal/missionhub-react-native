@@ -1,117 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders loading 1`] = `
-<SafeAreaView
-  style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
-    }
-  }
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="between"
-  >
-    <Connect(BackButton)
-      style={
-        Object {
-          "marginLeft": 5,
-          "marginTop": 25,
-        }
-      }
-    />
-    <Button
-      buttonTextStyle={
-        Object {
-          "fontSize": 14,
-          "letterSpacing": 2,
-        }
-      }
-      onPress={[MockFunction]}
-      style={
-        Object {
-          "marginRight": 10,
-          "marginTop": 25,
-        }
-      }
-      text="DONE"
-      type="transparent"
-    />
-  </Flex>
-  <Flex
-    justify="center"
-    style={
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "paddingHorizontal": 40,
-      }
-    }
-    value={1}
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 36,
-          "letterSpacing": 2,
-          "lineHeight": 32,
-          "paddingVertical": 10,
-          "textAlign": "center",
-        }
-      }
-      type="header"
-    >
-      two-step verification
-    </MyText>
-    <MyText
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-          "letterSpacing": 0.25,
-          "lineHeight": 24,
-          "paddingVertical": 10,
-          "textAlign": "center",
-        }
-      }
-    >
-      Enter verification code from your authenticator app.
-    </MyText>
-    <View>
-      <MyText
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 12,
-          }
-        }
-      >
-        Verification Code
-      </MyText>
-      <ForwardRef
-        autoFocus={true}
-        blurOnSubmit={true}
-        keyboardType="numeric"
-        onChangeText={[MockFunction]}
-        onSubmitEditing={[MockFunction]}
-        placeholder="Verification Code"
-        placeholderTextColor="white"
-        returnKeyType="done"
-        value="Roge"
-      />
-    </View>
-  </Flex>
-  <LoadingWheel />
-</SafeAreaView>
+exports[`should change loading state 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -104,6 +104,7 @@
+          testID=\\"mfaCodeInput\\"
+          value=\\"Roge\\"
+        />
+      </View>
+    </Flex>
++   <LoadingWheel />
+  </RCTSafeAreaView>"
 `;
 
-exports[`renders not loading 1`] = `
-<SafeAreaView
+exports[`should change loading state 2`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -104,7 +104,6 @@
+          testID=\\"mfaCodeInput\\"
+          value=\\"Roge\\"
+        />
+      </View>
+    </Flex>
+-   <LoadingWheel />
+  </RCTSafeAreaView>"
+`;
+
+exports[`should render correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -126,7 +47,7 @@ exports[`renders not loading 1`] = `
     direction="row"
     justify="between"
   >
-    <Connect(BackButton)
+    <BackButton
       style={
         Object {
           "marginLeft": 5,
@@ -148,6 +69,7 @@ exports[`renders not loading 1`] = `
           "marginTop": 25,
         }
       }
+      testID="doneButton"
       text="DONE"
       type="transparent"
     />
@@ -163,7 +85,7 @@ exports[`renders not loading 1`] = `
     }
     value={1}
   >
-    <MyText
+    <Text
       style={
         Object {
           "color": "#52C5DC",
@@ -177,8 +99,8 @@ exports[`renders not loading 1`] = `
       type="header"
     >
       two-step verification
-    </MyText>
-    <MyText
+    </Text>
+    <Text
       style={
         Object {
           "color": "#ffffff",
@@ -191,9 +113,9 @@ exports[`renders not loading 1`] = `
       }
     >
       Enter verification code from your authenticator app.
-    </MyText>
+    </Text>
     <View>
-      <MyText
+      <Text
         style={
           Object {
             "color": "#52C5DC",
@@ -202,8 +124,8 @@ exports[`renders not loading 1`] = `
         }
       >
         Verification Code
-      </MyText>
-      <ForwardRef
+      </Text>
+      <Input
         autoFocus={true}
         blurOnSubmit={true}
         keyboardType="numeric"
@@ -212,9 +134,10 @@ exports[`renders not loading 1`] = `
         placeholder="Verification Code"
         placeholderTextColor="white"
         returnKeyType="done"
+        testID="mfaCodeInput"
         value="Roge"
       />
     </View>
   </Flex>
-</SafeAreaView>
+</RCTSafeAreaView>
 `;

@@ -1,22 +1,31 @@
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 
-import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 
-import MFACodeComponent from '..';
+import { MFACodeComponent } from '..';
 
-it('renders loading', () => {
-  testSnapshotShallow(
+jest.mock('../../../components/common', () => ({
+  Flex: 'Flex',
+  Text: 'Text',
+  Input: 'Input',
+  Button: 'Button',
+}));
+jest.mock('../../../components/LoadingWheel', () => 'LoadingWheel');
+jest.mock('../../../containers/BackButton', () => 'BackButton');
+
+it('should render correctly', () => {
+  renderWithContext(
     <MFACodeComponent
       onChangeText={jest.fn()}
       value="Roge"
       onSubmit={jest.fn()}
-      isLoading={true}
+      isLoading={false}
     />,
-  );
+  ).snapshot();
 });
-
-it('renders not loading', () => {
-  testSnapshotShallow(
+it('should change loading state', () => {
+  const { recordSnapshot, rerender, diffSnapshot } = renderWithContext(
     <MFACodeComponent
       onChangeText={jest.fn()}
       value="Roge"
@@ -24,43 +33,58 @@ it('renders not loading', () => {
       isLoading={false}
     />,
   );
+
+  recordSnapshot();
+  rerender(
+    <MFACodeComponent
+      onChangeText={jest.fn()}
+      value="Roge"
+      onSubmit={jest.fn()}
+      isLoading={true}
+    />,
+  );
+  diffSnapshot();
+
+  recordSnapshot();
+  rerender(
+    <MFACodeComponent
+      onChangeText={jest.fn()}
+      value="Roge"
+      onSubmit={jest.fn()}
+      isLoading={false}
+    />,
+  );
+  diffSnapshot();
 });
 
 it('calls onChangeText prop', () => {
   const onChangeText = jest.fn();
 
-  renderShallow(
+  const { getByTestId } = renderWithContext(
     <MFACodeComponent
       onChangeText={onChangeText}
       value="Roge"
       onSubmit={jest.fn()}
       isLoading={true}
     />,
-  )
-    .childAt(1)
-    .childAt(2)
-    .childAt(1)
-    .props()
-    .onChangeText();
+  );
+  fireEvent.changeText(getByTestId('mfaCodeInput'), '123456');
 
-  expect(onChangeText).toHaveBeenCalled();
+  expect(onChangeText).toHaveBeenCalledWith('123456');
 });
 
 it('submits when DONE button is pressed', () => {
   const onSubmit = jest.fn();
 
-  renderShallow(
+  const { getByTestId } = renderWithContext(
     <MFACodeComponent
       onChangeText={jest.fn()}
       value="Roge"
       onSubmit={onSubmit}
       isLoading={true}
     />,
-  )
-    .childAt(0)
-    .childAt(1)
-    .props()
-    .onPress();
+  );
+  fireEvent.press(getByTestId('doneButton'));
 
   expect(onSubmit).toHaveBeenCalled();
 });
@@ -68,19 +92,15 @@ it('submits when DONE button is pressed', () => {
 it('submits when done on keyboard is pressed', () => {
   const onSubmit = jest.fn();
 
-  renderShallow(
+  const { getByTestId } = renderWithContext(
     <MFACodeComponent
       onChangeText={jest.fn()}
       value="Roge"
       onSubmit={onSubmit}
       isLoading={true}
     />,
-  )
-    .childAt(1)
-    .childAt(2)
-    .childAt(1)
-    .props()
-    .onSubmitEditing();
+  );
+  fireEvent(getByTestId('mfaCodeInput'), 'submitEditing');
 
   expect(onSubmit).toHaveBeenCalled();
 });

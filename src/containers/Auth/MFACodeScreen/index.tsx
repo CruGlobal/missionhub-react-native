@@ -1,36 +1,39 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Keyboard, Alert } from 'react-native';
-import PropTypes from 'prop-types';
+import { useNavigationParam } from 'react-navigation-hooks';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
+import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { useTranslation } from 'react-i18next';
 
 import { keyLogin } from '../../../actions/auth/key';
 import { MFA_REQUIRED } from '../../../constants';
-import MFACodeComponent from '../../../components/MFACodeComponent';
+import { MFACodeComponent } from '../../../components/MFACodeComponent';
 
-@withTranslation('mfaLogin')
-class MFACodeScreen extends Component {
-  state = {
-    mfaCode: '',
-    isLoading: false,
-  };
+const MFACodeScreen = ({
+  dispatch,
+  next,
+}: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<any, null, never>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  next: () => ThunkAction<void, any, null, never>;
+}) => {
+  const { t } = useTranslation('mfaLogin');
+  const email: string = useNavigationParam('email');
+  const password: string = useNavigationParam('password');
 
-  mfaCodeChanged = mfaCode => {
-    this.setState({ mfaCode });
-  };
+  const [mfaCode, setMfaCode] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  completeMfa = async () => {
-    const { email, password, next, dispatch, t } = this.props;
-    const { mfaCode } = this.state;
-
-    this.setState({ isLoading: true });
+  const completeMfa = async () => {
+    setIsLoading(true);
 
     try {
       await dispatch(keyLogin(email, password, mfaCode));
       Keyboard.dismiss();
       dispatch(next());
     } catch (error) {
-      this.setState({ isLoading: false });
+      setIsLoading(false);
 
       if (error && error.apiError['thekey_authn_error'] === MFA_REQUIRED) {
         Alert.alert(t('mfaIncorrect'));
@@ -41,31 +44,16 @@ class MFACodeScreen extends Component {
     }
   };
 
-  render() {
-    const { mfaCode, isLoading } = this.state;
-
-    return (
-      <MFACodeComponent
-        onChangeText={this.mfaCodeChanged}
-        value={mfaCode}
-        onSubmit={this.completeMfa}
-        isLoading={isLoading}
-      />
-    );
-  }
-}
-
-MFACodeScreen.propTypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  next: PropTypes.func.isRequired,
+  return (
+    <MFACodeComponent
+      testID="MFACodeComponent"
+      onChangeText={setMfaCode}
+      value={mfaCode}
+      onSubmit={completeMfa}
+      isLoading={isLoading}
+    />
+  );
 };
 
-const mapStateToProps = (_, { navigation }) => {
-  const { email, password } = navigation.state.params || {};
-
-  return { email, password };
-};
-
-export default connect(mapStateToProps)(MFACodeScreen);
+export default connect()(MFACodeScreen);
 export const MFA_CODE_SCREEN = 'nav/MFA_SCREEN';
