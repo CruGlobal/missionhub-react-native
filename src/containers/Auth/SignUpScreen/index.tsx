@@ -1,11 +1,11 @@
 /* eslint max-lines-per-function: 0 */
 
-import React, { Component } from 'react';
-import { SafeAreaView, Image } from 'react-native';
-import { withTranslation } from 'react-i18next';
+import React, { useState } from 'react';
+import { SafeAreaView, Image, ImageSourcePropType } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import i18Next from 'i18next';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 
 import {
   keyLoginWithAuthorizationCode,
@@ -18,13 +18,13 @@ import {
   Icon,
   LoadingWheel,
 } from '../../../components/common';
+import BackButton from '../../BackButton';
 import LOGO from '../../../../assets/images/missionHubLogoWords.png';
 import PEOPLE from '../../../../assets/images/MemberContacts_light.png';
 import {
   facebookPromptLogin,
   facebookLoginWithAccessToken,
 } from '../../../actions/auth/facebook';
-import BackButton from '../../BackButton';
 import TosPrivacy from '../../../components/TosPrivacy';
 
 import styles from './styles';
@@ -34,7 +34,15 @@ export const SIGNUP_TYPES = {
   SETTINGS_MENU: 'login/SIDE_MENU',
 };
 
-const headerContentOptions = {
+interface HeaderContentOption {
+  image: ImageSourcePropType;
+  title: string;
+  description: string;
+}
+
+const headerContentOptions: {
+  [key: string]: HeaderContentOption;
+} = {
   [SIGNUP_TYPES.CREATE_COMMUNITY]: {
     image: PEOPLE,
     title: i18Next.t('loginOptions:createCommunityTitle'),
@@ -42,49 +50,54 @@ const headerContentOptions = {
   },
 };
 
-@withTranslation('loginOptions')
-class SignUpScreen extends Component {
-  state = {
-    isLoading: false,
-  };
+const SignUpScreen = ({
+  dispatch,
+  signUpType,
+  next,
+}: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<any, null, never>;
+  signUpType?: string;
+  next: (params?: {
+    signIn: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }) => ThunkAction<void, any, null, never>;
+}) => {
+  const [isLoading, setIsLoading] = useState(false);
 
-  login = () => {
-    const { dispatch, next } = this.props;
+  const { t } = useTranslation('loginOptions');
 
+  const login = () => {
     dispatch(next({ signIn: true }));
   };
 
-  emailSignUp = async () => {
-    const { dispatch, next } = this.props;
-
+  const emailSignUp = async () => {
     const { code, codeVerifier, redirectUri } = await dispatch(
       openKeyURL('login?action=signup'),
     );
-    this.setState({ isLoading: true });
+    setIsLoading(true);
     try {
       await dispatch(
         keyLoginWithAuthorizationCode(code, codeVerifier, redirectUri),
       );
       dispatch(next());
     } catch (e) {
-      this.setState({ isLoading: false });
+      setIsLoading(false);
     }
   };
 
-  facebookLogin = async () => {
-    const { dispatch, next } = this.props;
-
+  const facebookLogin = async () => {
     try {
       await dispatch(facebookPromptLogin());
-      this.setState({ isLoading: true });
+      setIsLoading(true);
       await dispatch(facebookLoginWithAccessToken());
       dispatch(next());
     } catch (error) {
-      this.setState({ isLoading: false });
+      setIsLoading(false);
     }
   };
 
-  renderHeader = ({ image, title, description }) => (
+  const renderHeader = ({ image, title, description }: HeaderContentOption) => (
     <Flex
       value={1}
       align="center"
@@ -99,92 +112,80 @@ class SignUpScreen extends Component {
     </Flex>
   );
 
-  renderLogoHeader = () => <Image source={LOGO} />;
+  const renderLogoHeader = () => <Image source={LOGO} />;
 
-  render() {
-    const { t, signUpType } = this.props;
-    const { isLoading } = this.state;
+  const headerContent = signUpType ? headerContentOptions[signUpType] : null;
 
-    const headerContent = headerContentOptions[signUpType];
-
-    return (
-      <SafeAreaView style={styles.container}>
+  return (
+    <SafeAreaView style={styles.container}>
+      <BackButton />
+      <Flex value={1} align="center" justify="center">
         <Flex value={1} align="center" justify="center">
-          <Flex value={1} align="center" justify="center">
-            {headerContent
-              ? this.renderHeader(headerContent)
-              : this.renderLogoHeader()}
+          {headerContent ? renderHeader(headerContent) : renderLogoHeader()}
+        </Flex>
+        <Flex
+          value={1.2}
+          align="center"
+          justify="start"
+          self="stretch"
+          style={styles.buttonWrapper}
+        >
+          <Flex value={4} direction="column" self="stretch" align="center">
+            <Button
+              testID="emailButton"
+              pill={true}
+              onPress={emailSignUp}
+              style={styles.clearButton}
+              buttonTextStyle={styles.buttonText}
+            >
+              <Flex direction="row">
+                <Icon
+                  name="emailIcon2"
+                  size={21}
+                  type="MissionHub"
+                  style={styles.icon}
+                />
+                <Text style={styles.buttonText}>
+                  {t('emailSignUp').toUpperCase()}
+                </Text>
+              </Flex>
+            </Button>
+            <Button
+              testID="facebookButton"
+              pill={true}
+              onPress={facebookLogin}
+              style={styles.clearButton}
+              buttonTextStyle={styles.buttonText}
+            >
+              <Flex direction="row">
+                <Icon
+                  name="facebookIcon"
+                  size={21}
+                  type="MissionHub"
+                  style={styles.icon}
+                />
+                <Text style={styles.buttonText}>
+                  {t('facebookSignup').toUpperCase()}
+                </Text>
+              </Flex>
+            </Button>
+            <TosPrivacy />
           </Flex>
-          <Flex
-            value={1.2}
-            align="center"
-            justify="start"
-            self="stretch"
-            style={styles.buttonWrapper}
-          >
-            <Flex value={4} direction="column" self="stretch" align="center">
-              <Button
-                name={'emailButton'}
-                pill={true}
-                onPress={this.emailSignUp}
-                style={styles.clearButton}
-                buttonTextStyle={styles.buttonText}
-              >
-                <Flex direction="row">
-                  <Icon
-                    name="emailIcon2"
-                    size={21}
-                    type="MissionHub"
-                    style={styles.icon}
-                  />
-                  <Text style={styles.buttonText}>
-                    {t('emailSignUp').toUpperCase()}
-                  </Text>
-                </Flex>
-              </Button>
-              <Button
-                name={'facebookButton'}
-                pill={true}
-                onPress={this.facebookLogin}
-                style={styles.clearButton}
-                buttonTextStyle={styles.buttonText}
-              >
-                <Flex direction="row">
-                  <Icon
-                    name="facebookIcon"
-                    size={21}
-                    type="MissionHub"
-                    style={styles.icon}
-                  />
-                  <Text style={styles.buttonText}>
-                    {t('facebookSignup').toUpperCase()}
-                  </Text>
-                </Flex>
-              </Button>
-              <TosPrivacy />
-            </Flex>
-            <Flex value={1} align="end" direction="row">
-              <Text style={styles.signInText}>{t('member').toUpperCase()}</Text>
-              <Button
-                name={'loginButton'}
-                text={t('signIn').toUpperCase()}
-                type="transparent"
-                onPress={this.login}
-                buttonTextStyle={styles.signInBtnText}
-              />
-            </Flex>
+          <Flex value={1} align="end" direction="row">
+            <Text style={styles.signInText}>{t('member').toUpperCase()}</Text>
+            <Button
+              testID="loginButton"
+              text={t('signIn').toUpperCase()}
+              type="transparent"
+              onPress={login}
+              buttonTextStyle={styles.signInBtnText}
+            />
           </Flex>
         </Flex>
-        {isLoading ? <LoadingWheel /> : null}
-        <BackButton absolute={true} />
-      </SafeAreaView>
-    );
-  }
-}
-
-SignUpScreen.propTypes = {
-  signUpType: PropTypes.string,
-  next: PropTypes.func.isRequired,
+      </Flex>
+      {isLoading ? <LoadingWheel /> : null}
+    </SafeAreaView>
+  );
 };
 
 export default connect()(SignUpScreen);

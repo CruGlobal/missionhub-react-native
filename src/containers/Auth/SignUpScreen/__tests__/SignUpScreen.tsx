@@ -1,12 +1,11 @@
 import 'react-native';
 import React from 'react';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
-import SignUnScreen, { SIGNUP_TYPES } from '..';
+import SignUpScreen, { SIGNUP_TYPES } from '..';
 
-import { testSnapshot, renderShallow } from '../../../../../testUtils';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+
+import { renderWithContext } from '../../../../../testUtils';
 import {
   keyLoginWithAuthorizationCode,
   openKeyURL,
@@ -17,10 +16,7 @@ import {
 } from '../../../../actions/auth/facebook';
 import { navigatePush } from '../../../../actions/navigation';
 
-let store;
-
-const nextAction = { type: 'test-next' };
-const next = jest.fn(() => nextAction);
+const next = jest.fn(() => () => {});
 
 jest.mock('../../../../actions/auth/auth');
 jest.mock('../../../../actions/auth/facebook');
@@ -41,28 +37,31 @@ jest.mock('react-native-fbsdk', () => ({
   GraphRequestManager: () => ({ addRequest: () => ({ start: jest.fn() }) }),
 }));
 
-beforeEach(() => {
-  store = configureStore([thunk])();
-});
+jest.mock('../../../../components/common', () => ({
+  Text: 'Text',
+  Button: 'Button',
+  Flex: 'Flex',
+  Icon: 'Icon',
+  LoadingWheel: 'LoadingWheel',
+}));
+jest.mock('../../../BackButton', () => 'BackButton');
 
 it('renders correctly with logo', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <SignUnScreen next={next} />
-    </Provider>,
-  );
+  renderWithContext(<SignUpScreen next={next} />).snapshot();
 });
 
 it('renders correctly for Create Community', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <SignUnScreen signUpType={SIGNUP_TYPES.CREATE_COMMUNITY} next={next} />
-    </Provider>,
+  const { recordSnapshot, rerender, diffSnapshot } = renderWithContext(
+    <SignUpScreen next={next} />,
   );
+  recordSnapshot();
+  rerender(
+    <SignUpScreen signUpType={SIGNUP_TYPES.CREATE_COMMUNITY} next={next} />,
+  );
+  diffSnapshot();
 });
 
 describe('a login button is clicked', () => {
-  let screen;
   const navigateResponse = { type: 'navigate push' };
   const code = 'test code';
   const codeVerifier = 'test codeVerifier';
@@ -81,35 +80,36 @@ describe('a login button is clicked', () => {
     type: 'facebookLoginWithAccessTokenResponse',
   };
 
-  beforeEach(() => {
-    navigatePush.mockReturnValue(navigateResponse);
-    screen = renderShallow(<SignUnScreen next={next} />, store);
-  });
+  (navigatePush as jest.Mock).mockReturnValue(navigateResponse);
 
   it('login to be called', () => {
-    screen.find({ name: 'loginButton' }).simulate('press');
+    const { getByTestId } = renderWithContext(<SignUpScreen next={next} />);
+    fireEvent.press(getByTestId('loginButton'));
 
     expect(next).toHaveBeenCalledWith({ signIn: true });
-    expect(store.getActions()).toEqual([nextAction]);
   });
 
   describe('email signup button is pressed', () => {
     beforeEach(() => {
-      openKeyURL.mockReturnValue(openKeyResponse);
-      keyLoginWithAuthorizationCode.mockReturnValue(
+      (openKeyURL as jest.Mock).mockReturnValue(openKeyResponse);
+      (keyLoginWithAuthorizationCode as jest.Mock).mockReturnValue(
         keyLoginWithAuthorizationCodeResponse,
       );
     });
 
-    it('key sign in button calls handler', () => {
-      screen.find({ name: 'emailButton' }).simulate('press');
+    it('key sign in button fires sign in actions', async () => {
+      const {
+        recordSnapshot,
+        getByTestId,
+        store,
+        diffSnapshot,
+      } = renderWithContext(<SignUpScreen next={next} />);
+      recordSnapshot();
+
+      fireEvent.press(getByTestId('emailButton'));
+
       expect(openKeyURL).toHaveBeenCalledWith('login?action=signup');
-      expect(store.getActions()).toEqual([openKeyResponse]);
-      // Can't do further testing here since enzyme doesn't return a promise from simulate(...)
-    });
-    it('open key login to be called', async () => {
-      await screen.instance().emailSignUp();
-      expect(openKeyURL).toHaveBeenCalledWith('login?action=signup');
+      await flushMicrotasksQueue();
       expect(keyLoginWithAuthorizationCode).toHaveBeenCalledWith(
         code,
         codeVerifier,
@@ -118,38 +118,32 @@ describe('a login button is clicked', () => {
       expect(store.getActions()).toEqual([
         openKeyResponse,
         keyLoginWithAuthorizationCodeResponse,
-        nextAction,
       ]);
-    });
-    it('loading wheel to be rendered', async () => {
-      await screen.instance().emailSignUp();
-      screen.update();
-      expect(screen).toMatchSnapshot();
+      diffSnapshot();
     });
   });
 
   describe('facebook signup button is pressed', () => {
     beforeEach(() => {
-      facebookPromptLogin.mockReturnValue(facebookPromptLoginResponse);
-      facebookLoginWithAccessToken.mockReturnValue(
+      (facebookPromptLogin as jest.Mock).mockReturnValue(
+        facebookPromptLoginResponse,
+      );
+      (facebookLoginWithAccessToken as jest.Mock).mockReturnValue(
         facebookLoginWithAccessTokenResponse,
       );
     });
 
-    it('facebook button calls handler', () => {
-      screen.find({ name: 'facebookButton' }).simulate('press');
+    it('facebook button fires fb sign in actions', async () => {
+      const { recordSnapshot, getByTestId, diffSnapshot } = renderWithContext(
+        <SignUpScreen next={next} />,
+      );
+      fireEvent.press(getByTestId('facebookButton'));
+
+      recordSnapshot();
       expect(facebookPromptLogin).toHaveBeenCalled();
-      // Can't do further testing here since enzyme doesn't return a promise from simulate(...)
-    });
-    it('facebook login to be called', async () => {
-      await screen.instance().facebookLogin();
-      expect(facebookPromptLogin).toHaveBeenCalled();
+      await flushMicrotasksQueue();
       expect(facebookLoginWithAccessToken).toHaveBeenCalled();
-    });
-    it('loading wheel to be rendered', async () => {
-      await screen.instance().facebookLogin();
-      screen.update();
-      expect(screen).toMatchSnapshot();
+      diffSnapshot();
     });
   });
 });
