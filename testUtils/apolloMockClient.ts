@@ -1,5 +1,5 @@
 import { ApolloClient } from 'apollo-client';
-import { InMemoryCache } from 'apollo-boost';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 import { SchemaLink } from 'apollo-link-schema';
 import { addMockFunctionsToSchema, IMocks } from 'graphql-tools';
 import { DocumentNode } from 'graphql';

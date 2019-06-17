@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { useQuery, useMutation } from 'react-apollo-hooks';
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 import {
   showNotificationPrompt,

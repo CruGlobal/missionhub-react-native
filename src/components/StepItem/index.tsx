@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 import { Flex, Text, Touchable, Icon } from '../common';
 import theme from '../../theme';
