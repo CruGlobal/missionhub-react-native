@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
 import { withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
@@ -22,8 +23,15 @@ class GetStartedScreen extends Component {
   }
 
   navigateNext = () => {
+    const { dispatch, next } = this.props;
+
     disableBack.remove();
-    this.props.dispatch(
+
+    if (next) {
+      return dispatch(next({}));
+    }
+
+    dispatch(
       navigatePush(STAGE_ONBOARDING_SCREEN, {
         section: 'onboarding',
         subsection: 'self',
@@ -53,13 +61,25 @@ class GetStartedScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ profile }, { navigation }) => {
-  const navParams = navigation.state.params || {};
-  return {
-    id: navParams.id || '',
-    firstName: profile.firstName,
-  };
+GetStartedScreen.propTypes = {
+  next: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = (
+  { profile },
+  {
+    navigation: {
+      state: {
+        params: { id = '' },
+      },
+    },
+    next,
+  },
+) => ({
+  id,
+  next,
+  firstName: profile.firstName,
+});
 
 export default connect(mapStateToProps)(GetStartedScreen);
 export const GET_STARTED_SCREEN = 'nav/GET_STARTED';

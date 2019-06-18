@@ -95,8 +95,35 @@ StageScreen.propTypes = {
   noNav: PropTypes.bool,
 };
 
-const mapStateToProps = ({ profile }, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = (
+  { profile },
+  {
+    navigation: {
+      state: {
+        params: {
+          onComplete,
+          contactId,
+          orgId,
+          questionText,
+          firstItem,
+          section,
+          subsection,
+          noNav,
+        },
+      },
+    },
+    next,
+  },
+) => ({
+  next,
+  onComplete,
+  contactId,
+  orgId,
+  questionText,
+  firstItem,
+  section,
+  subsection,
+  noNav,
   firstName: profile.firstName,
 });
 

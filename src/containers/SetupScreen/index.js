@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, View, Keyboard } from 'react-native';
 import { withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { Text, Flex, Input } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -94,7 +95,12 @@ class SetupScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ profile }) => ({
+SetupScreen.propTypes = {
+  next: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = ({ profile }, { next }) => ({
+  next,
   firstName: profile.firstName,
   lastName: profile.lastName,
 });
