@@ -10,6 +10,7 @@ import { render } from 'react-native-testing-library';
 import snapshotDiff from 'snapshot-diff';
 import Enzyme, { shallow as enzymeShallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 
 import { createNavigationProp } from './navigationHelpers';
 
@@ -102,4 +103,8 @@ export const testSnapshotShallow = (
   const renderedComponent = renderShallow(component, store);
   expect(renderedComponent).toMatchSnapshot();
   return renderedComponent;
+};
+
+export const renderTestingInstance = (component: ReactElement) => {
+  return renderer.create(component).root;
 };

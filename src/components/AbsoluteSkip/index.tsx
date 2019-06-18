@@ -12,7 +12,7 @@ interface AbsoluteSkipProps {
   textStyle?: TextStyle;
 }
 
-export default ({ onSkip, style, textStyle }: AbsoluteSkipProps) => {
+const AbsoluteSkip = ({ onSkip, style, textStyle }: AbsoluteSkipProps) => {
   const { t } = useTranslation();
   return (
     <SafeAreaView style={styles.skipWrap}>
@@ -26,3 +26,5 @@ export default ({ onSkip, style, textStyle }: AbsoluteSkipProps) => {
     </SafeAreaView>
   );
 };
+
+export default AbsoluteSkip;

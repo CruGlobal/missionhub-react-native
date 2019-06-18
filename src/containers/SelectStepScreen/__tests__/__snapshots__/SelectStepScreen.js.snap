@@ -149,7 +149,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
       text="CREATE YOUR OWN STEP"
     />
   </SafeAreaView>
-  <withI18nextTranslation(AbsoluteSkip)
+  <AbsoluteSkip
     onSkip={[Function]}
   />
 </View>
