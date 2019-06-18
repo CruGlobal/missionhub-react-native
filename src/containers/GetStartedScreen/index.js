@@ -53,10 +53,9 @@ GetStartedScreen.propTypes = {
   firstName: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ profile }, { navigation }) => {
-  const navParams = navigation.state.params || {};
+const mapStateToProps = ({ profile }, { next }) => {
   return {
-    id: navParams.id || '',
+    next,
     firstName: profile.firstName,
   };
 };

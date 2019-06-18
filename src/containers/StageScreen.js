@@ -66,8 +66,33 @@ StageScreen.propTypes = {
   enableBackButton: PropTypes.bool,
 };
 
-const mapStateToProps = ({ profile }, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = (
+  { profile },
+  {
+    navigation: {
+      state: {
+        params: {
+          contactId,
+          orgId,
+          questionText,
+          firstItem,
+          section,
+          subsection,
+          enableBackButton,
+        },
+      },
+      next,
+    },
+  },
+) => ({
+  contactId,
+  orgId,
+  questionText,
+  firstItem,
+  section,
+  subsection,
+  enableBackButton,
+  next,
   firstName: profile.firstName,
 });
 

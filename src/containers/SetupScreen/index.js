@@ -101,7 +101,8 @@ SetupScreen.propTypes = {
   lastName: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ profile }) => ({
+const mapStateToProps = ({ profile }, { next }) => ({
+  next,
   firstName: profile.firstName,
   lastName: profile.lastName,
 });

@@ -57,8 +57,17 @@ StageSuccessScreen.propTypes = {
   stage: PropTypes.object,
 };
 
-const mapStateToProps = ({ profile }, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = (
+  { profile },
+  {
+    navigation: {
+      state: { params: stage },
+    },
+    next,
+  },
+) => ({
+  stage,
+  next,
   firstName: profile.firstName,
 });
 
