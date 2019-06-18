@@ -56,7 +56,7 @@ describe('onSubmit', () => {
     fireEvent.changeText(getByTestId('MFACodeComponent'), mfaCode);
     recordSnapshot();
 
-    const error = fireEvent(getByTestId('MFACodeComponent'), 'submit', mfaCode);
+    const error = fireEvent(getByTestId('MFACodeComponent'), 'submit');
     await flushMicrotasksQueue();
 
     diffSnapshot();
