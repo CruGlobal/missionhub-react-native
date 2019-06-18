@@ -26,13 +26,13 @@ exports[`WelcomeScreen should render correctly 1`] = `
       value={3}
     >
       <Text
+        header={true}
         style={
           Object {
             "color": "#52C5DC",
             "fontSize": 48,
           }
         }
-        type="header"
       >
         welcome!
       </Text>
@@ -85,13 +85,13 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
       value={3}
     >
       <Text
+        header={true}
         style={
           Object {
             "color": "#52C5DC",
             "fontSize": 48,
           }
         }
-        type="header"
       >
         welcome!
       </Text>

@@ -47,7 +47,7 @@ const WelcomeScreen = ({
     <SafeAreaView style={styles.container}>
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex value={3} align="start" justify="center">
-          <Text type="header" style={styles.headerText}>
+          <Text header={true} style={styles.headerText}>
             {t('welcome')}
           </Text>
           <Text style={styles.descriptionText}>{t('welcomeDescription')}</Text>

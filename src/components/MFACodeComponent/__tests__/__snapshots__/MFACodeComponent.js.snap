@@ -54,6 +54,7 @@ exports[`renders loading 1`] = `
     value={1}
   >
     <MyText
+      header={true}
       style={
         Object {
           "color": "#52C5DC",
@@ -64,7 +65,6 @@ exports[`renders loading 1`] = `
           "textAlign": "center",
         }
       }
-      type="header"
     >
       two-step verification
     </MyText>
@@ -164,6 +164,7 @@ exports[`renders not loading 1`] = `
     value={1}
   >
     <MyText
+      header={true}
       style={
         Object {
           "color": "#52C5DC",
@@ -174,7 +175,6 @@ exports[`renders not loading 1`] = `
           "textAlign": "center",
         }
       }
-      type="header"
     >
       two-step verification
     </MyText>

@@ -16,7 +16,7 @@ export default class NullStateComponent extends Component {
           style={{ flexShrink: 1 }}
           resizeMode="contain"
         />
-        <Text type="header" style={styles.header}>
+        <Text header={true} style={styles.header}>
           {headerText}
         </Text>
         <Text style={styles.description}>{descriptionText}</Text>

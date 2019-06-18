@@ -182,6 +182,7 @@ exports[`renders empty list 1`] = `
         }
       />
       <MyText
+        header={true}
         style={
           Object {
             "color": "#007398",
@@ -189,7 +190,6 @@ exports[`renders empty list 1`] = `
             "letterSpacing": 2,
           }
         }
-        type="header"
       >
         Activity Feed
       </MyText>

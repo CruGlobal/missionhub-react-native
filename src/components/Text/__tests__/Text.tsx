@@ -13,10 +13,6 @@ it('renders style correctly', () => {
   testSnapshot(<Text style={{ color: 'red' }}>Hello</Text>);
 });
 
-it('renders animation correctly', () => {
-  testSnapshot(<Text animation="bounce">Hello</Text>);
-});
-
 it('renders header font family correctly', () => {
-  testSnapshot(<Text type="header">Hello</Text>);
+  testSnapshot(<Text header={true}>Hello</Text>);
 });
