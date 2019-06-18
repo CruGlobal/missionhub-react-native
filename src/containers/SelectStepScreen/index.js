@@ -72,7 +72,7 @@ class SelectStepScreen extends Component {
       <View flex={1} alignItems={'center'}>
         <Header shadow={false} />
         <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
-        <Text type="header" style={styles.headerTitle}>
+        <Text header={true} style={styles.headerTitle}>
           {t('stepsOfFaith')}
         </Text>
         <Text style={styles.headerText}>{headerText}</Text>

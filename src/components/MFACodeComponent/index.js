@@ -39,7 +39,7 @@ export default class MFACodeComponent extends Component {
         </Flex>
 
         <Flex justify="center" value={1} style={content}>
-          <Text type="header" style={mfaHeader}>
+          <Text header={true} style={mfaHeader}>
             {t('mfaHeader').toLowerCase()}
           </Text>
 

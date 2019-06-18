@@ -27,7 +27,7 @@ class GroupsContactList extends Component {
       return (
         <Flex align="center" justify="center" value={1} style={styles.nullWrap}>
           <Image source={SEARCH_NULL} style={styles.nullImage} />
-          <Text type="header" style={styles.nullHeader}>
+          <Text header={true} style={styles.nullHeader}>
             {t('nullHeader')}
           </Text>
           <Text style={styles.nullText}>{t('nullDescription')}</Text>

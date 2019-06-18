@@ -105,7 +105,7 @@ const SignUpScreen = ({
       style={styles.headerContainer}
     >
       <Image source={image} />
-      <Text type="header" style={styles.headerText}>
+      <Text header={true} style={styles.headerText}>
         {title.toUpperCase()}
       </Text>
       <Text style={styles.descriptionText}>{description}</Text>

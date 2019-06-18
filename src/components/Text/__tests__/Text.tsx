@@ -14,5 +14,5 @@ it('renders style correctly', () => {
 });
 
 it('renders header font family correctly', () => {
-  testSnapshot(<Text type="header">Hello</Text>);
+  testSnapshot(<Text header={true}>Hello</Text>);
 });
