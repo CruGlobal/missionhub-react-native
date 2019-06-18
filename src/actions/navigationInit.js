@@ -1,6 +1,8 @@
 import { isAuthenticated } from '../utils/common';
-import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
-import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
+import {
+  ADD_SOMEONE_ONBOARDING_FLOW,
+  GET_STARTED_ONBOARDING_FLOW,
+} from '../routes/constants';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
 
 import { navigateReset, navigateToMainTabs } from './navigation';
@@ -18,8 +20,8 @@ export const resetToInitialRoute = () => (dispatch, getState) => {
     return dispatch(
       navigateReset(
         auth.person.user.pathway_stage_id
-          ? ADD_SOMEONE_SCREEN
-          : GET_STARTED_SCREEN,
+          ? ADD_SOMEONE_ONBOARDING_FLOW
+          : GET_STARTED_ONBOARDING_FLOW,
       ),
     );
   }
