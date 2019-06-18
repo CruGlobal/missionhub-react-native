@@ -107,7 +107,8 @@ describe('JoinGroupScreen', () => {
       component.instance().codeInput = { focus: jest.fn() };
 
       await component
-        .find('Input')
+        .find('ForwardRef')
+        .dive() // Input
         .props()
         .onChangeText('123');
 
@@ -120,7 +121,8 @@ describe('JoinGroupScreen', () => {
       component.instance().codeInput = { focus: jest.fn() };
 
       await component
-        .find('Input')
+        .find('ForwardRef')
+        .dive() // Input
         .props()
         .onChangeText('123456');
 

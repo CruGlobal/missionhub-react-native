@@ -1,0 +1,360 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`a login button is clicked email signup button is pressed key sign in button fires sign in actions 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -259,6 +259,7 @@
+            type=\\"transparent\\"
+          />
+        </Flex>
+      </Flex>
+    </Flex>
++   <LoadingWheel />
+  </RCTSafeAreaView>"
+`;
+
+exports[`a login button is clicked facebook signup button is pressed facebook button fires fb sign in actions 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -259,6 +259,7 @@
+            type=\\"transparent\\"
+          />
+        </Flex>
+      </Flex>
+    </Flex>
++   <LoadingWheel />
+  </RCTSafeAreaView>"
+`;
+
+exports[`renders correctly for Create Community 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -17,17 +17,53 @@
+      <Flex
+        align=\\"center\\"
+        justify=\\"center\\"
+        value={1}
+      >
++       <Flex
++         align=\\"center\\"
++         justify=\\"center\\"
++         style={
++           Object {
++             \\"paddingHorizontal\\": 48,
++           }
++         }
++         value={1}
++       >
+          <Image
+            source={
+              Object {
+-             \\"testUri\\": \\"../../../assets/images/missionHubLogoWords.png\\",
++               \\"testUri\\": \\"../../../assets/images/MemberContacts_light.png\\",
+              }
+            }
+          />
++         <Text
++           style={
++             Object {
++               \\"color\\": \\"#52C5DC\\",
++               \\"fontSize\\": 36,
++               \\"letterSpacing\\": 2,
++             }
++           }
++           type=\\"header\\"
++         >
++           CREATE A COMMUNITY
++         </Text>
++         <Text
++           style={
++             Object {
++               \\"color\\": \\"#ffffff\\",
++               \\"fontSize\\": 16,
++               \\"lineHeight\\": 24,
++               \\"paddingVertical\\": 10,
++               \\"textAlign\\": \\"center\\",
++             }
++           }
++         >
++           Sign Up to create a MissionHub community.
++         </Text>
++       </Flex>
+      </Flex>
+      <Flex
+        align=\\"center\\"
+        justify=\\"start\\"
+        self=\\"stretch\\""
+`;
+
+exports[`renders correctly with logo 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <BackButton />
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/missionHubLogoWords.png",
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="center"
+      justify="start"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#007398",
+          "paddingHorizontal": 30,
+        }
+      }
+      value={1.2}
+    >
+      <Flex
+        align="center"
+        direction="column"
+        self="stretch"
+        value={4}
+      >
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+          onPress={[Function]}
+          pill={true}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
+              "height": 48,
+              "margin": 8,
+              "width": 670,
+            }
+          }
+          testID="emailButton"
+        >
+          <Flex
+            direction="row"
+          >
+            <Icon
+              name="emailIcon2"
+              size={21}
+              style={
+                Object {
+                  "marginRight": 10,
+                }
+              }
+              type="MissionHub"
+            />
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "paddingTop": 2,
+                }
+              }
+            >
+              SIGN UP WITH EMAIL
+            </Text>
+          </Flex>
+        </Button>
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+          onPress={[Function]}
+          pill={true}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
+              "height": 48,
+              "margin": 8,
+              "width": 670,
+            }
+          }
+          testID="facebookButton"
+        >
+          <Flex
+            direction="row"
+          >
+            <Icon
+              name="facebookIcon"
+              size={21}
+              style={
+                Object {
+                  "marginRight": 10,
+                }
+              }
+              type="MissionHub"
+            />
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "paddingTop": 2,
+                }
+              }
+            >
+              SIGN UP WITH FACEBOOK
+            </Text>
+          </Flex>
+        </Button>
+        <Flex
+          direction="column"
+          style={
+            Object {
+              "marginBottom": 38,
+              "marginTop": 10,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+                "paddingHorizontal": 3,
+                "textAlign": "center",
+              }
+            }
+          >
+            By creating your MissionHub account you agree to our
+          </Text>
+          <Flex
+            align="center"
+            direction="row"
+            justify="center"
+          >
+            <Button
+              buttonTextStyle={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                  "textDecorationLine": "underline",
+                }
+              }
+              onPress={[Function]}
+              text="Terms of Service"
+              type="transparent"
+            />
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                }
+              }
+            >
+              and
+            </Text>
+            <Button
+              buttonTextStyle={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                  "textDecorationLine": "underline",
+                }
+              }
+              onPress={[Function]}
+              text="Privacy Policy"
+              type="transparent"
+            />
+          </Flex>
+        </Flex>
+      </Flex>
+      <Flex
+        align="end"
+        direction="row"
+        value={1}
+      >
+        <Text
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "marginBottom": 20,
+              "marginRight": 10,
+              "paddingTop": 2,
+            }
+          }
+        >
+          ALREADY A MEMBER?
+        </Text>
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "marginBottom": 20,
+              "paddingTop": 2,
+            }
+          }
+          onPress={[Function]}
+          testID="loginButton"
+          text="SIGN IN"
+          type="transparent"
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</RCTSafeAreaView>
+`;
