@@ -83,7 +83,7 @@ export const onboardingFlowGenerator = ({
             ({ selectedStage }) => dispatch => {
               dispatch(
                 navigatePush(SELECT_MY_STEP_SCREEN, {
-                  selectedStage,
+                  contactStage: selectedStage,
                   enableBackButton: false,
                 }),
               );

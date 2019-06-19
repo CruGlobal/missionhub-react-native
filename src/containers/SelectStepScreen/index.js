@@ -42,31 +42,16 @@ class SelectStepScreen extends Component {
       next({ receiverId, step, skip, orgId: organization && organization.id }),
     );
   }
-
-  complete = () => {
-    const { dispatch, receiverId, organization, next } = this.props;
-    dispatch(
-      next({ contactId: receiverId, orgId: organization && organization.id }),
-    );
+  navToSuggestedStep = step => {
+    this.navigateNext(step);
   };
 
-  createCustomStep = ({ text }) => dispatch => {
-    const { isMe, receiverId, organization } = this.props;
-
-    dispatch(addStep(buildCustomStep(text, isMe), receiverId, organization));
-    this.complete();
+  navToCreateStep = () => {
+    this.navigateNext();
   };
 
-  handleCreateStep = () => {
-    const { dispatch, createStepTracking } = this.props;
-
-    dispatch(
-      navigatePush(ADD_STEP_SCREEN, {
-        type: CREATE_STEP,
-        trackingObj: createStepTracking,
-        next: this.createCustomStep,
-      }),
-    );
+  handleSkip = () => {
+    this.navigateNext(undefined, true);
   };
 
   navigateBackTwoScreens = () => this.props.dispatch(navigateBack(2));
@@ -97,6 +82,7 @@ class SelectStepScreen extends Component {
 
   render() {
     const {
+      t,
       contactName,
       receiverId,
       organization,
@@ -104,7 +90,6 @@ class SelectStepScreen extends Component {
       enableBackButton,
       enableSkipButton,
       contact,
-      next,
     } = this.props;
     const { headerHeight, parallaxHeaderHeight } = theme;
 
@@ -123,14 +108,11 @@ class SelectStepScreen extends Component {
             receiverId={receiverId}
             organization={organization}
             contactStageId={contactStageId}
-            onPressStep={next}
+            onPressStep={this.navToSuggestedStep}
           />
         </ParallaxScrollView>
         <SafeAreaView>
-          <BottomButton
-            onPress={this.handleCreateStep}
-            text={this.props.t('createStep')}
-          />
+          <BottomButton onPress={this.navToCreateStep} text={t('createStep')} />
         </SafeAreaView>
         {enableBackButton && (
           <BackButton
@@ -138,7 +120,7 @@ class SelectStepScreen extends Component {
             absolute={true}
           />
         )}
-        {enableSkipButton && <AbsoluteSkip onSkip={this.complete} />}
+        {enableSkipButton && <AbsoluteSkip onSkip={this.handleSkip} />}
       </View>
     );
   }
@@ -150,7 +132,8 @@ SelectStepScreen.defaultProps = {
 };
 
 SelectStepScreen.propTypes = {
-  createStepTracking: PropTypes.object.isRequired,
+  headerText: PropTypes.string.isRequired,
+  contactName: PropTypes.string,
   contact: PropTypes.object,
   receiverId: PropTypes.string.isRequired,
   enableBackButton: PropTypes.bool,
@@ -160,10 +143,32 @@ SelectStepScreen.propTypes = {
   next: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ auth }, { receiverId }) => {
+const mapStateToProps = (
+  { auth },
+  {
+    headerText,
+    contactName,
+    contact,
+    receiverId,
+    enableBackButton,
+    enableSkipButton,
+    orgId,
+    contactStageId,
+    next,
+  },
+) => {
   const myId = auth.person.id;
 
   return {
+    headerText,
+    contactName,
+    contact,
+    receiverId,
+    enableBackButton,
+    enableSkipButton,
+    orgId,
+    contactStageId,
+    next,
     myId,
     isMe: receiverId === myId,
   };

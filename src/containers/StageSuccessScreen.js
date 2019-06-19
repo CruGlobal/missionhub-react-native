@@ -33,7 +33,6 @@ class StageSuccessScreen extends Component {
 
     dispatch(
       navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, {
-        onboarding: true,
         contactStage: selectedStage,
         enableBackButton: false,
         next: this.handleNavigate,

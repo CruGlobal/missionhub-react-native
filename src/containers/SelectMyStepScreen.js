@@ -49,11 +49,10 @@ SelectMyStepScreen.defaultProps = {
 };
 
 SelectMyStepScreen.propTypes = {
-  next: PropTypes.func.isRequired,
   enableBackButton: PropTypes.bool,
   contactStage: PropTypes.object,
-  contactId: PropTypes.string,
   organization: PropTypes.object,
+  next: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (
