@@ -25,9 +25,7 @@ import styles from './styles';
 @withTranslation('selectStep')
 class SelectStepScreen extends Component {
   componentDidMount() {
-    const { enableBackButton } = this.props;
-
-    if (!enableBackButton) {
+    if (!this.props.enableBackButton) {
       disableBack.add();
     }
   }
@@ -36,6 +34,13 @@ class SelectStepScreen extends Component {
     if (!this.props.enableBackButton) {
       disableBack.remove();
     }
+  }
+
+  navigateNext(step, skip) {
+    const { dispatch, next, receiverId, organization } = this.props;
+    dispatch(
+      next({ receiverId, step, skip, orgId: organization && organization.id }),
+    );
   }
 
   complete = () => {
@@ -118,7 +123,7 @@ class SelectStepScreen extends Component {
             receiverId={receiverId}
             organization={organization}
             contactStageId={contactStageId}
-            next={next}
+            onPressStep={next}
           />
         </ParallaxScrollView>
         <SafeAreaView>
@@ -151,8 +156,7 @@ SelectStepScreen.propTypes = {
   enableBackButton: PropTypes.bool,
   enableSkipButton: PropTypes.bool,
   organization: PropTypes.object,
-  contactStageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-    .isRequired,
+  contactStageId: PropTypes.string.isRequired,
   next: PropTypes.func.isRequired,
 };
 

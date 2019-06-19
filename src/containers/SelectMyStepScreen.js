@@ -9,10 +9,6 @@ import SelectStepScreen from './SelectStepScreen';
 
 @withTranslation('selectStep')
 class SelectMyStepScreen extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const {
       t,
@@ -60,8 +56,21 @@ SelectMyStepScreen.propTypes = {
   organization: PropTypes.object,
 };
 
-const mapStateToProps = ({ auth }, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = (
+  { auth },
+  {
+    navigation: {
+      state: {
+        params: { contactStage, organization, enableBackButton },
+      },
+    },
+    next,
+  },
+) => ({
+  contactStage,
+  organization,
+  enableBackButton,
+  next,
   me: auth.person,
   myStageId: auth.person.user.pathway_stage_id,
   personId: auth.person.id,
