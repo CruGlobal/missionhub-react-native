@@ -116,7 +116,11 @@ const DateComponent = ({
   } else {
     text = getMomentDate(date).format(dateFormat);
   }
-  return <Text style={style}>{text}</Text>;
+  return (
+    <Text testID="Text" style={style}>
+      {text}
+    </Text>
+  );
 };
 
 export default DateComponent;

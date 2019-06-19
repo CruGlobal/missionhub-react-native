@@ -13,6 +13,7 @@ exports[`renders correctly 1`] = `
       Object {},
     ]
   }
+  testID="Text"
 >
   Mon, Nov 20, 2017 12:00 AM
 </Text>

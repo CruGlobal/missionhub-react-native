@@ -2,9 +2,8 @@ import React from 'react';
 
 import {
   testSnapshotShallow,
-  renderTestingInstance,
+  renderWithContext,
 } from '../../../../testUtils/index';
-import Button from '../../Button';
 
 import BottomButton from '..';
 
@@ -16,9 +15,10 @@ it('renders correctly', () => {
 });
 
 it('presses button', () => {
-  const root = renderTestingInstance(
-    <BottomButton text={text} onPress={onPress} />,
-  );
-  root.findByType(Button).props.onPress();
+  renderWithContext(<BottomButton text={text} onPress={onPress} />, {
+    hasStore: false,
+  })
+    .getByTestId('Button')
+    .props.onPress();
   expect(onPress).toHaveBeenCalled();
 });

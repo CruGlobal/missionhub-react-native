@@ -6,11 +6,10 @@ import configureStore, { MockStore } from 'redux-mock-store';
 import { NavigationParams } from 'react-navigation';
 import { NavigationProvider } from '@react-navigation/core';
 import { ReactTestRendererJSON } from 'react-test-renderer';
-import { render } from 'react-native-testing-library';
+import { render, RenderAPI } from 'react-native-testing-library';
 import snapshotDiff from 'snapshot-diff';
 import Enzyme, { shallow as enzymeShallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import renderer from 'react-test-renderer';
 
 import { createNavigationProp } from './navigationHelpers';
 
@@ -22,6 +21,7 @@ interface RenderWithContextParams {
   initialState?: {};
   store?: MockStore;
   navParams?: NavigationParams;
+  hasStore?: boolean;
 }
 
 // Inspiration from https://github.com/kentcdodds/react-testing-library/blob/52575005579307bcfbe7fbe4ef4636147c03c6fb/examples/__tests__/react-redux.js#L69-L80
@@ -31,18 +31,25 @@ export function renderWithContext(
     initialState,
     store = createThunkStore(initialState),
     navParams,
+    hasStore = true,
   }: RenderWithContextParams = {},
 ) {
   const navigation = createNavigationProp(navParams);
 
-  // Warning: don't call any functions in here that return new instances on every call. All the props need to stay the same otherwise rerender won't work.
-  const wrapper = ({ children }: { children: ReactElement }) => (
-    <NavigationProvider value={navigation}>
-      <Provider store={store}>{children}</Provider>
-    </NavigationProvider>
-  );
+  let renderResult: RenderAPI;
+  if (hasStore === false) {
+    renderResult = render(component);
+  } else {
+    // Warning: don't call any functions in here that return new instances on every call. All the props need to stay the same otherwise rerender won't work.
+    const wrapper = ({ children }: { children: ReactElement }) => (
+      <NavigationProvider value={navigation}>
+        <Provider store={store}>{children}</Provider>
+      </NavigationProvider>
+    );
 
-  const renderResult = render(component, { wrapper });
+    renderResult = render(component, { wrapper });
+  }
+
   let storedSnapshot: ReactTestRendererJSON | null;
   return {
     ...renderResult,
@@ -103,8 +110,4 @@ export const testSnapshotShallow = (
   const renderedComponent = renderShallow(component, store);
   expect(renderedComponent).toMatchSnapshot();
   return renderedComponent;
-};
-
-export const renderTestingInstance = (component: ReactElement) => {
-  return renderer.create(component).root;
 };

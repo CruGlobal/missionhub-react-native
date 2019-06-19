@@ -12,10 +12,11 @@ interface BottomButtonProps {
 
 const BottomButton = ({ text, disabled, onPress }: BottomButtonProps) => {
   const handlePress = () => {
-    onPress && onPress();
+    onPress();
   };
   return (
     <Button
+      testID="Button"
       flex={0}
       alignItems="stretch"
       justifyContent="flex-end"

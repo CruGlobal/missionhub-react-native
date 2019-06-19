@@ -2,14 +2,9 @@ import React from 'react';
 import MockDate from 'mockdate';
 import moment from 'moment';
 
-import Text from '../../Text';
-
 import DateComponent from '..';
 
-import {
-  testSnapshotShallow,
-  renderTestingInstance,
-} from '../../../../testUtils';
+import { testSnapshotShallow, renderWithContext } from '../../../../testUtils';
 
 MockDate.set(moment('2018-06-11 12:00:00').toDate(), 0);
 
@@ -18,11 +13,12 @@ it('renders correctly', () => {
 });
 
 const testFormat = (date: string, formattedText: string, format: string) => {
-  const component = renderTestingInstance(
+  const component = renderWithContext(
     <DateComponent date={date} format={format} />,
+    { hasStore: false },
   );
 
-  const text = component.findByType(Text).props.children;
+  const text = component.getByTestId('Text').props.children;
 
   expect(text).toEqual(formattedText);
 };
