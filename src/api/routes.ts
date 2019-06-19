@@ -19,14 +19,29 @@ const KEY_TOKEN = {
   endpoint: `${THE_KEY_OAUTH_URL}/token`,
   method: 'post',
   extra: {
-    stringify: false,
     headers: { 'Content-Type': URL_ENCODED },
   },
+  stringify: false,
   anonymous: true,
   useJsonDataApiStore: false,
 };
 
-export default {
+export interface ApiRouteConfigEntry {
+  endpoint: string;
+  method?: string;
+  extra?: RequestInit;
+  stringify?: boolean;
+  useJsonDataApiStore?: boolean;
+  anonymous?: boolean;
+  anonymousOptional?: boolean;
+  include?: string;
+}
+
+export interface ApiRouteConfig {
+  [key: string]: ApiRouteConfigEntry;
+}
+
+const apiRoutes: ApiRouteConfig = {
   // Example
   // 'PLANETS': {
   //   method: 'get', (defaults to get)
@@ -34,17 +49,11 @@ export default {
   //   Put the access token on if it exists, otherwise ignore it
   //   anonymousOptional: false, (defaults to false)
   //   endpoint: 'planets/1',
-  //   (returns true if it's good or a string with the error message)
-  //   beforeCall(query, data) {
-  //     return true;
-  //   }
   //   (gives header or other information)
   //   extra: {
-  //     stringify: false,
   //     headers: { 'Content-Type': 'multipart/form-data' }
   //   },
-  //   (map the results using all this info)
-  //   mapResults: (results, query, data, getState) => results,
+  //   stringify: false,
   //   (some default data that will merge with the data passed in)
   //   data: {}
   //   (some default query that will merge with the query passed in)
@@ -57,9 +66,7 @@ export default {
   KEY_GET_TICKET: {
     endpoint: `${THE_KEY_OAUTH_URL}/ticket?service=${AUTH_URL}/thekey`,
     method: 'get',
-    extra: {
-      stringify: false,
-    },
+    stringify: false,
     useJsonDataApiStore: false,
   },
   TICKET_LOGIN: {
@@ -181,9 +188,9 @@ export default {
     endpoint: `${ORG_URL}/:orgId`,
     method: 'put',
     extra: {
-      stringify: false,
       headers: { 'Content-Type': URL_FORM_DATA },
     },
+    stringify: false,
   },
   DELETE_ORGANIZATION: {
     endpoint: `${ORG_URL}/:orgId`,
@@ -292,7 +299,7 @@ export default {
   },
   GET_MY_LABELS: {
     endpoint: ORG_URL,
-    query: { include: 'labels' },
+    include: 'labels',
   },
   GET_ORGANIZATION_LABELS: {
     endpoint: `${ORG_URL}/:orgId`,
@@ -355,3 +362,5 @@ export default {
     endpoint: `${API_URL}/answer_sheets`,
   },
 };
+
+export default apiRoutes;
