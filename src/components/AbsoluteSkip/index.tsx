@@ -10,6 +10,7 @@ interface AbsoluteSkipProps {
   onSkip: Function;
   style?: ViewStyle;
   textStyle?: TextStyle;
+  testID?: string;
 }
 
 const AbsoluteSkip = ({ onSkip, style, textStyle }: AbsoluteSkipProps) => {

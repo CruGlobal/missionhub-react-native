@@ -7,6 +7,7 @@ interface BottomButtonProps {
   text: string;
   onPress: Function;
   disabled?: boolean;
+  testID?: string;
 }
 
 const BottomButton = ({ text, disabled, onPress }: BottomButtonProps) => {

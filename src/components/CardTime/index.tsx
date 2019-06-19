@@ -7,6 +7,7 @@ import styles from './styles';
 interface CardTimeProps {
   date: string;
   format?: string;
+  testID?: string;
 }
 
 const CardTime = ({ date, format = 'LT' }: CardTimeProps) => (

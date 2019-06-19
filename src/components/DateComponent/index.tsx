@@ -74,6 +74,7 @@ interface DateComponentProps {
   date: string | Date;
   format?: string;
   style?: StyleProp<TextStyle>;
+  testID?: string;
 }
 
 const relativeFormat = (date: string | Date) => {
