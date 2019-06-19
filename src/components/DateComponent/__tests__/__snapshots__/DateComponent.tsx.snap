@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+>
+  Mon, Nov 20, 2017 12:00 AM
+</Text>
+`;
