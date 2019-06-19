@@ -121,7 +121,7 @@ class CreateGroupScreen extends Component {
               style={styles.flex}
             >
               <Flex style={styles.fieldWrap}>
-                <Text style={styles.label} type="header">
+                <Text style={styles.label} header={true}>
                   {t('name')}
                 </Text>
                 <Input

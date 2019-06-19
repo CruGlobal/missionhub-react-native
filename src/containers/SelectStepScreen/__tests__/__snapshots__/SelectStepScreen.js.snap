@@ -19,6 +19,7 @@ exports[`renderForeground renders correctly 1`] = `
     type="MissionHub"
   />
   <MyText
+    header={true}
     style={
       Object {
         "color": "#52C5DC",
@@ -27,7 +28,6 @@ exports[`renderForeground renders correctly 1`] = `
         "lineHeight": 48,
       }
     }
-    type="header"
   >
     Add Steps of Faith
   </MyText>

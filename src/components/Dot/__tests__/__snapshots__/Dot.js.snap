@@ -10,7 +10,7 @@ exports[`render dot 1`] = `
       Object {
         "fontFamily": "SourceSansPro-Regular",
       },
-      undefined,
+      Object {},
     ]
   }
 >

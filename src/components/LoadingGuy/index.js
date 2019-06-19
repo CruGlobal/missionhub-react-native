@@ -20,7 +20,7 @@ export default class LoadingGuy extends Component {
           />
         </Flex>
         <Flex value={2}>
-          <Text type="header" style={styles.loadText}>
+          <Text header={true} style={styles.loadText}>
             {i18next.t('common:loading').toUpperCase()}
           </Text>
         </Flex>

@@ -685,13 +685,13 @@ exports[`keyboard listeners should hide sign in logo when the keyboard is shown 
 -       justify=\\"center\\"
 -     >
 -       <Text
+-         header={true}
 -         style={
 -           Object {
 -             \\"color\\": \\"#52C5DC\\",
 -             \\"fontSize\\": 48,
 -           }
 -         }
--         type=\\"header\\"
 -       >
 -         Sign In
 -       </Text>
@@ -719,13 +719,13 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 +       justify=\\"center\\"
 +     >
 +       <Text
++         header={true}
 +         style={
 +           Object {
 +             \\"color\\": \\"#52C5DC\\",
 +             \\"fontSize\\": 48,
 +           }
 +         }
-+         type=\\"header\\"
 +       >
 +         Sign In
 +       </Text>
@@ -766,13 +766,13 @@ exports[`renders correctly 1`] = `
       justify="center"
     >
       <Text
+        header={true}
         style={
           Object {
             "color": "#52C5DC",
             "fontSize": 48,
           }
         }
-        type="header"
       >
         Sign In
       </Text>

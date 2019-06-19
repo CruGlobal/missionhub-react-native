@@ -154,7 +154,7 @@ const SignInScreen = ({
                 {t('forcedLogout:message')}
               </Text>
             ) : (
-              <Text type="header" style={styles.header}>
+              <Text header={true} style={styles.header}>
                 {t('signIn')}
               </Text>
             )}

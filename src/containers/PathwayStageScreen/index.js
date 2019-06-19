@@ -114,7 +114,7 @@ class PathwayStageScreen extends Component {
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>
           <Image source={stageIcons[index]} />
-          <Text type="header" style={styles.cardHeader}>
+          <Text header={true} style={styles.cardHeader}>
             {item.name.toLowerCase()}
           </Text>
           <Text style={styles.cardText}>{item.description}</Text>

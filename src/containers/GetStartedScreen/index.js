@@ -40,7 +40,7 @@ class GetStartedScreen extends Component {
       <SafeAreaView style={styles.container}>
         <Flex align="center" justify="center" value={1} style={styles.content}>
           <Flex align="start" justify="center" value={4}>
-            <Text type="header" style={styles.headerTitle}>
+            <Text header={true} style={styles.headerTitle}>
               {t('hi', { name })}
             </Text>
             <Text style={styles.text}>{t('tagline')}</Text>

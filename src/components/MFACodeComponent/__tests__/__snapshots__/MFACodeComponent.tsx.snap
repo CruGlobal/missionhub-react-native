@@ -86,6 +86,7 @@ exports[`should render correctly 1`] = `
     value={1}
   >
     <Text
+      header={true}
       style={
         Object {
           "color": "#52C5DC",
@@ -96,7 +97,6 @@ exports[`should render correctly 1`] = `
           "textAlign": "center",
         }
       }
-      type="header"
     >
       two-step verification
     </Text>
