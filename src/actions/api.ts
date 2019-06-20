@@ -1,10 +1,10 @@
-/* eslint complexity: 0, max-lines-per-function: 0 */
+/* eslint-disable @typescript-eslint/no-explicit-any, complexity */
 
-import lodashForEach from 'lodash/forEach';
+import { ThunkAction } from 'redux-thunk';
 
 import API_CALLS from '../api';
 // import { logoutAction, toastAction } from './auth';
-import apiRoutes from '../api/routes';
+import apiRoutes, { ApiRouteConfigEntry } from '../api/routes';
 import { isObject } from '../utils/common';
 import {
   EXPIRED_ACCESS_TOKEN,
@@ -21,37 +21,67 @@ import { refreshMissionHubFacebookAccess } from './auth/facebook';
 // WARNING: You shouldn't have to touch this file to change routes/mapping
 // Put new routes in '../api/routes';
 
+type ApiRouteConfigWitNamesEntry = ApiRouteConfigEntry & {
+  name: string;
+  FETCH: string;
+  SUCCESS: string;
+};
+
+interface ApiRouteConfigWitNames {
+  [key: string]: ApiRouteConfigWitNamesEntry;
+}
+
 // Setup the requests to be used for this file
-const REQUESTS = {};
-lodashForEach(apiRoutes, (data, key) => {
-  REQUESTS[key] = {
-    ...data,
-    name: key,
-    FETCH: `${key}_FETCH`,
-    SUCCESS: `${key}_SUCCESS`,
-  };
-});
+const REQUESTS: ApiRouteConfigWitNames = Object.entries(apiRoutes).reduce(
+  (acc, [key, data]) => ({
+    ...acc,
+    [key]: {
+      ...data,
+      name: key,
+      FETCH: `${key}_FETCH`,
+      SUCCESS: `${key}_SUCCESS`,
+    },
+  }),
+  {},
+);
 export { REQUESTS };
 
 const METHODS_WITH_DATA = ['put', 'post', 'delete'];
 
-export default function callApi(requestObject, query = {}, data = {}) {
+export default function callApi(
+  action: ApiRouteConfigWitNamesEntry,
+  query: { [key: string]: string } = {},
+  data: { [key: string]: any } = {},
+): ThunkAction<
+  void,
+  any,
+  null,
+  | {
+      query: any;
+      data: any;
+      type: string;
+    }
+  | {
+      type: string;
+      token: string;
+    }
+> {
   return async (dispatch, getState) => {
     // Generic error handler
-    const throwErr = msg => {
+    const throwErr = (msg: string) => {
       if (__DEV__) {
+        // @ts-ignore
         LOG(msg);
         throw new Error(msg);
       }
       throw msg;
     };
-    if (!requestObject) {
-      return throwErr(
-        `callApi(): There is no type: ${JSON.stringify(requestObject)}`,
-      );
+    if (!action) {
+      return throwErr(`callApi(): There is no type: ${JSON.stringify(action)}`);
     }
-    const newQuery = { ...query };
-    const action = requestObject;
+    const newQuery = {
+      ...query,
+    };
 
     const authState = getState().auth;
     if (!action.anonymous) {
@@ -76,7 +106,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
     }
 
     // If there is a method that uses data, call it here
-    if (METHODS_WITH_DATA.includes(action.method)) {
+    if (action.method && METHODS_WITH_DATA.includes(action.method)) {
       if (
         !action.anonymous &&
         !newQuery.access_token &&
@@ -91,7 +121,8 @@ export default function callApi(requestObject, query = {}, data = {}) {
       }
     }
 
-    const handleError = err => {
+    const handleError = (err: any) => {
+      // @ts-ignore
       APILOG('REQUEST ERROR', action.name, err);
       const { apiError } = err;
 
@@ -126,7 +157,9 @@ export default function callApi(requestObject, query = {}, data = {}) {
 
     try {
       const response = await API_CALLS[action.name](newQuery, data);
-      let actionResults = response ? response.results || {} : {};
+      const actionResults: { [key: string]: any } = response // TODO: replace any. I gave up typing this for now. It could be absolutely anything and every field is optional.
+        ? response.results || {}
+        : {};
       actionResults.response = response && response.response;
       const meta = response && response.meta;
       // If the results have an error object, call this to reject it
@@ -136,16 +169,6 @@ export default function callApi(requestObject, query = {}, data = {}) {
       ) {
         handleError(actionResults);
         return;
-      }
-
-      // If there is a mapping function, call it
-      if (action.mapResults) {
-        actionResults = action.mapResults(
-          actionResults,
-          newQuery,
-          data,
-          getState,
-        );
       }
 
       dispatch({

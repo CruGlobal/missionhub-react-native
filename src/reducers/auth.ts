@@ -8,10 +8,7 @@ import {
   UPDATE_TOKEN,
 } from '../constants';
 import { userIsJean, getLocalizedStages } from '../utils/common';
-import { REQUESTS as jsREQUESTS } from '../actions/api';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const REQUESTS: any = jsREQUESTS; // TODO: remove any once API files are typed
+import { REQUESTS } from '../actions/api';
 
 export interface AuthState {
   isFirstTime: boolean;
