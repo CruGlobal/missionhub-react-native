@@ -31,7 +31,7 @@ export function renderWithContext(
     initialState,
     store = createThunkStore(initialState),
     navParams,
-    noWrappers,
+    noWrappers = false,
   }: RenderWithContextParams = {},
 ) {
   const navigation = createNavigationProp(navParams);
