@@ -21,7 +21,7 @@ interface RenderWithContextParams {
   initialState?: {};
   store?: MockStore;
   navParams?: NavigationParams;
-  hasStore?: boolean;
+  noWrappers?: boolean;
 }
 
 // Inspiration from https://github.com/kentcdodds/react-testing-library/blob/52575005579307bcfbe7fbe4ef4636147c03c6fb/examples/__tests__/react-redux.js#L69-L80
@@ -31,13 +31,13 @@ export function renderWithContext(
     initialState,
     store = createThunkStore(initialState),
     navParams,
-    hasStore = true,
+    noWrappers,
   }: RenderWithContextParams = {},
 ) {
   const navigation = createNavigationProp(navParams);
 
   let renderResult: RenderAPI;
-  if (hasStore === false) {
+  if (noWrappers) {
     renderResult = render(component);
   } else {
     // Warning: don't call any functions in here that return new instances on every call. All the props need to stay the same otherwise rerender won't work.

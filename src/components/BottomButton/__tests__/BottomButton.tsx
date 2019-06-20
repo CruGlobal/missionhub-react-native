@@ -1,24 +1,24 @@
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 
-import {
-  testSnapshotShallow,
-  renderWithContext,
-} from '../../../../testUtils/index';
+import { renderWithContext } from '../../../../testUtils/index';
 
 import BottomButton from '..';
 
 const onPress = jest.fn();
 const text = 'Button Text';
 
+const { getByTestId, snapshot } = renderWithContext(
+  <BottomButton text={text} onPress={onPress} />,
+  {
+    noWrappers: true,
+  },
+);
 it('renders correctly', () => {
-  testSnapshotShallow(<BottomButton text={text} onPress={onPress} />);
+  snapshot();
 });
 
 it('presses button', () => {
-  renderWithContext(<BottomButton text={text} onPress={onPress} />, {
-    hasStore: false,
-  })
-    .getByTestId('Button')
-    .props.onPress();
+  fireEvent.press(getByTestId('Button'));
   expect(onPress).toHaveBeenCalled();
 });

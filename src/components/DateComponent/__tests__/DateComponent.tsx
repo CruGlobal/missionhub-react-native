@@ -13,12 +13,12 @@ it('renders correctly', () => {
 });
 
 const testFormat = (date: string, formattedText: string, format: string) => {
-  const component = renderWithContext(
+  const { getByTestId } = renderWithContext(
     <DateComponent date={date} format={format} />,
-    { hasStore: false },
+    { noWrappers: false },
   );
 
-  const text = component.getByTestId('Text').props.children;
+  const text = getByTestId('Text').props.children;
 
   expect(text).toEqual(formattedText);
 };
