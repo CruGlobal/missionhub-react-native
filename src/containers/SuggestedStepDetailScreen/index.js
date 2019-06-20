@@ -54,9 +54,10 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { step, receiverId, orgId, next },
+        params: { step, receiverId, orgId },
       },
     },
+    next,
   },
 ) => ({
   step,

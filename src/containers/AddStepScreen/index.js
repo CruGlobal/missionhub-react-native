@@ -18,16 +18,9 @@ const characterLimit = 255;
 
 @withTranslation('addStep')
 class AddStepScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      step: props.isEdit ? props.text : '',
-    };
-
-    this.saveStep = this.saveStep.bind(this);
-    this.skip = this.skip.bind(this);
-  }
+  state = {
+    step: this.props.isEdit ? this.props.text : '',
+  };
 
   componentDidMount() {
     if (this.props.type === STEP_NOTE) {
@@ -66,7 +59,7 @@ class AddStepScreen extends Component {
     dispatch(next({ text, stepId, personId, orgId }));
   };
 
-  saveStep() {
+  saveStep = () => {
     const { type } = this.props;
     Keyboard.dismiss();
 
@@ -79,13 +72,13 @@ class AddStepScreen extends Component {
     }
 
     this.next(text);
-  }
+  };
 
-  skip() {
+  skip = () => {
     Keyboard.dismiss();
 
     this.next();
-  }
+  };
 
   getButtonText() {
     const { t, type, personId, myId } = this.props;
@@ -172,8 +165,35 @@ AddStepScreen.propTypes = {
   onSetComplete: PropTypes.func,
 };
 
-const mapStateToProps = ({ auth }, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = (
+  { auth },
+  {
+    navigation: {
+      state: {
+        params: {
+          type,
+          isEdit,
+          hideSkip,
+          text,
+          stepId,
+          personId,
+          orgId,
+          onSetComplete,
+        },
+      },
+    },
+    next,
+  },
+) => ({
+  type,
+  isEdit,
+  hideSkip,
+  text,
+  stepId,
+  personId,
+  orgId,
+  onSetComplete,
+  next,
   myId: auth.person.id,
 });
 

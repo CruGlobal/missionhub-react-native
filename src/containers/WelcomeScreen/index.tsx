@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import PropTypes from 'prop-types';
 
 import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -82,6 +83,10 @@ const WelcomeScreen = ({
       </Flex>
     </SafeAreaView>
   );
+};
+
+AddSomeoneScreen.propTypes = {
+  next: PropTypes.func.isRequired,
 };
 
 export default connect()(WelcomeScreen);

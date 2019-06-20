@@ -65,18 +65,7 @@ GetStartedScreen.propTypes = {
   next: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (
-  { profile },
-  {
-    navigation: {
-      state: {
-        params: { id = '' },
-      },
-    },
-    next,
-  },
-) => ({
-  id,
+const mapStateToProps = ({ profile }, { next }) => ({
   next,
   firstName: profile.firstName,
 });

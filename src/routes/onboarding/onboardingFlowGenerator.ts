@@ -1,5 +1,6 @@
 import { navigatePush } from '../../actions/navigation';
 import { createCustomStep } from '../../actions/steps';
+import { skipOnboarding } from '../../actions/onboardingProfile';
 import { buildTrackingObj } from '../../utils/common';
 import { buildTrackedScreen, wrapNextAction, wrapNextScreen } from '../helpers';
 import { CREATE_STEP } from '../../constants';
@@ -108,12 +109,6 @@ export const onboardingFlowGenerator = ({
                   : navigatePush(ADD_STEP_SCREEN, {
                       type: CREATE_STEP,
                       personId: receiverId,
-                      trackingObj: buildTrackingObj(
-                        'onboarding : self : steps : create',
-                        'onboarding',
-                        'self',
-                        'steps',
-                      ),
                     }),
               ),
           ),
@@ -127,16 +122,20 @@ export const onboardingFlowGenerator = ({
       }
     : {}),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(AddSomeoneScreen, SETUP_PERSON_SCREEN),
+    wrapNextAction(AddSomeoneScreen, ({ skip }) => dispatch => {
+      dispatch(skip ? skipOnboarding() : navigatePush(SETUP_PERSON_SCREEN));
+    }),
     buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
   ),
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SetupPersonScreen, ({}) => dispatch => {
+    wrapNextAction(SetupPersonScreen, ({ skip }) => dispatch => {
       dispatch(
-        navigatePush(PERSON_STAGE_SCREEN, {
-          section: 'onboarding',
-          subsection: 'add person',
-        }),
+        skip
+          ? skipOnboarding()
+          : navigatePush(PERSON_STAGE_SCREEN, {
+              section: 'onboarding',
+              subsection: 'add person',
+            }),
       );
     }),
     buildTrackingObj(
@@ -152,21 +151,9 @@ export const onboardingFlowGenerator = ({
         dispatch(
           navigatePush(PERSON_SELECT_STEP_SCREEN, {
             contactStage: stage,
-            createStepTracking: buildTrackingObj(
-              'onboarding : add person : steps : create',
-              'onboarding',
-              'add person',
-              'steps',
-            ),
             contactName: name,
             contactId,
             organization: { id: orgId },
-            trackingObj: buildTrackingObj(
-              'onboarding : add person : steps : add',
-              'onboarding',
-              'add person',
-              'steps',
-            ),
             next: this.handleNavigate,
           }),
         );
@@ -176,7 +163,12 @@ export const onboardingFlowGenerator = ({
   ),
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
     wrapNextAction(PersonSelectStepScreen, () => dispatch => {}),
-    buildTrackingObj('onboarding : name', 'onboarding'),
+    buildTrackingObj(
+      'onboarding : add person : steps : add',
+      'onboarding',
+      'add person',
+      'steps',
+    ),
   ),
   [SUGGESTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
     wrapNextScreen(SuggestedStepDetailScreen, ADD_SOMEONE_SCREEN),

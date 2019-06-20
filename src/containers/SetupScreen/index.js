@@ -33,7 +33,7 @@ class SetupScreen extends Component {
       Keyboard.dismiss();
       await dispatch(createMyPerson(firstName, lastName));
       disableBack.remove();
-      dispatch(next());
+      dispatch(next({}));
     }
   };
 
@@ -48,7 +48,7 @@ class SetupScreen extends Component {
   onSubmitEditing = () => this.lastName.focus();
 
   render() {
-    const { t } = this.props;
+    const { t, firstName, lastName } = this.props;
 
     return (
       <SafeAreaView style={styles.container}>
@@ -66,7 +66,7 @@ class SetupScreen extends Component {
             <Input
               ref={this.firstNameRef}
               onChangeText={this.updateFirstName}
-              value={this.props.firstName}
+              value={firstName}
               autoFocus={true}
               returnKeyType="next"
               blurOnSubmit={false}
@@ -80,7 +80,7 @@ class SetupScreen extends Component {
             <Input
               ref={this.lastNameRef}
               onChangeText={this.updateLastName}
-              value={this.props.lastName}
+              value={lastName}
               returnKeyType="next"
               placeholder={t('profileLabels.lastName')}
               placeholderTextColor="white"

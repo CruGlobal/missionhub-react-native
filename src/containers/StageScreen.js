@@ -21,10 +21,10 @@ class StageScreen extends Component {
   };
 
   complete(stage, isAlreadySelected) {
-    const { onComplete, next, contactId, orgId, noNav, dispatch } = this.props;
+    const { onComplete, next, myId, orgId, noNav, dispatch } = this.props;
 
     if (next) {
-      return dispatch(next({ stage, contactId, orgId, isAlreadySelected }));
+      return dispatch(next({ stage, myId, orgId, isAlreadySelected }));
     }
 
     if (onComplete) {
@@ -85,7 +85,6 @@ class StageScreen extends Component {
 StageScreen.propTypes = {
   next: PropTypes.func,
   onComplete: PropTypes.func,
-  contactId: PropTypes.string,
   orgId: PropTypes.string,
   questionText: PropTypes.string,
   firstItem: PropTypes.number,
@@ -96,7 +95,7 @@ StageScreen.propTypes = {
 };
 
 const mapStateToProps = (
-  { profile },
+  { auth, profile },
   {
     navigation: {
       state: {
@@ -125,6 +124,7 @@ const mapStateToProps = (
   subsection,
   noNav,
   firstName: profile.firstName,
+  myId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(StageScreen);
