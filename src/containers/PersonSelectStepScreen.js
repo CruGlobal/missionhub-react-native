@@ -9,10 +9,6 @@ import SelectStepScreen from './SelectStepScreen';
 
 @withTranslation('selectStep')
 class PersonSelectStepScreen extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const {
       t,
@@ -58,6 +54,7 @@ PersonSelectStepScreen.defaultProps = {
 PersonSelectStepScreen.propTypes = {
   contactName: PropTypes.string,
   contactId: PropTypes.string,
+  contactStage: PropTypes.object,
   contact: PropTypes.object,
   organization: PropTypes.object,
   enableBackButton: PropTypes.bool,
@@ -73,6 +70,7 @@ const mapStateToProps = (
         params: {
           contactName,
           contactId,
+          contactStage,
           contact,
           organization,
           enableBackButton,
@@ -85,6 +83,7 @@ const mapStateToProps = (
 ) => ({
   contactName,
   contactId,
+  contactStage,
   contact,
   organization,
   enableBackButton,

@@ -85,7 +85,7 @@ const WelcomeScreen = ({
   );
 };
 
-AddSomeoneScreen.propTypes = {
+WelcomeScreen.propTypes = {
   next: PropTypes.func.isRequired,
 };
 

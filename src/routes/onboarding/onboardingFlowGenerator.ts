@@ -1,9 +1,16 @@
 import { navigatePush } from '../../actions/navigation';
 import { createCustomStep } from '../../actions/steps';
 import { skipOnboarding } from '../../actions/onboardingProfile';
+import { showReminderOnLoad } from '../../actions/notifications';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 import { buildTrackedScreen, wrapNextAction, wrapNextScreen } from '../helpers';
-import { CREATE_STEP } from '../../constants';
+import {
+  ACTIONS,
+  CREATE_STEP,
+  PERSON_VIEWED_STAGE_CHANGED,
+  NOTIFICATION_PROMPT_TYPES,
+} from '../../constants';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import GetStartedScreen, {
@@ -38,6 +45,15 @@ import NotificationPrimerScreen, {
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
+
+const showNotificationAndCompleteOnboarding = async dispatch => {
+  await dispatch(
+    showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
+  );
+  dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
+
+  dispatch(navigatePush(CELEBRATION_SCREEN));
+};
 
 export const onboardingFlowGenerator = ({
   startScreen = WELCOME_SCREEN,
@@ -109,6 +125,12 @@ export const onboardingFlowGenerator = ({
                   : navigatePush(ADD_STEP_SCREEN, {
                       type: CREATE_STEP,
                       personId: receiverId,
+                      trackingObj: buildTrackingObj(
+                        'onboarding : self : steps : create',
+                        'onboarding',
+                        'self',
+                        'steps',
+                      ),
                     }),
               ),
           ),
@@ -154,7 +176,6 @@ export const onboardingFlowGenerator = ({
             contactName: name,
             contactId,
             organization: { id: orgId },
-            next: this.handleNavigate,
           }),
         );
       },
@@ -162,7 +183,25 @@ export const onboardingFlowGenerator = ({
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(PersonSelectStepScreen, () => dispatch => {}),
+    wrapNextAction(PersonSelectStepScreen, ({ receiverId, step }) => dispatch =>
+      dispatch(
+        step
+          ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
+              step,
+              receiverId,
+            })
+          : navigatePush(ADD_STEP_SCREEN, {
+              type: CREATE_STEP,
+              personId: receiverId,
+              trackingObj: buildTrackingObj(
+                'onboarding : person : steps : create',
+                'onboarding',
+                'person',
+                'steps',
+              ),
+            }),
+      ),
+    ),
     buildTrackingObj(
       'onboarding : add person : steps : add',
       'onboarding',
@@ -171,22 +210,37 @@ export const onboardingFlowGenerator = ({
     ),
   ),
   [SUGGESTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(SuggestedStepDetailScreen, ADD_SOMEONE_SCREEN),
+    wrapNextAction(
+      SuggestedStepDetailScreen,
+      ({ contactId }) => (dispatch, getState) => {
+        const isMe = contactId === getState().auth.person.id;
+
+        if (isMe) {
+          return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
+        }
+        showNotificationAndCompleteOnboarding(dispatch);
+      },
+    ),
   ),
   [ADD_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(AddStepScreen, ({ text, personId }) => dispatch => {
-      dispatch(createCustomStep(text, personId));
-      dispatch(navigatePush(ADD_SOMEONE_SCREEN));
-    }),
+    wrapNextAction(
+      AddStepScreen,
+      ({ text, personId }) => (dispatch, getState) => {
+        const isMe = personId === getState().auth.person.id;
+
+        dispatch(createCustomStep(text, personId));
+
+        if (isMe) {
+          return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
+        }
+        showNotificationAndCompleteOnboarding(dispatch);
+      },
+    ),
   ),
   [CELEBRATION_SCREEN]: buildTrackedScreen(
     wrapNextAction(CelebrationScreen, () => dispatch => {
       dispatch(navigateToMainTabs());
     }),
-    buildTrackingObj(
-      'communities : celebration : comment',
-      'communities',
-      'celebration',
-    ),
+    buildTrackingObj('onboarding : complete', 'onboarding'),
   ),
 });
