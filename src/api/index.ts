@@ -40,8 +40,11 @@ const API_CALLS: {
       };
 
       const extra: RequestInit = {
-        headers: authHeader,
         ...routeData.extra,
+        headers: {
+          ...authHeader,
+          ...(routeData.extra ? routeData.extra.headers : {}),
+        },
       };
 
       // Merge default includes from the routes with the query passed in
