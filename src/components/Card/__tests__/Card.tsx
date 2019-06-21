@@ -1,6 +1,5 @@
 import React from 'react';
 import { View } from 'react-native';
-import { shallow } from 'enzyme';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 
@@ -46,11 +45,4 @@ it('calls props.onPress when pressed', () => {
   component.simulate('press');
 
   expect(onPress).toHaveBeenCalled();
-});
-
-it('should call ref', () => {
-  const instance = shallow(<Card onPress={jest.fn()} />).instance();
-  const ref = 'test';
-  instance.ref(ref);
-  expect(instance._view).toEqual(ref);
 });

@@ -90,6 +90,7 @@ exports[`renders correctly 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -229,6 +230,7 @@ exports[`renders correctly with default state 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
