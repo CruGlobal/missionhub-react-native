@@ -115,7 +115,7 @@ export function addStep(stepSuggestion, receiverId, orgId) {
                   : (stepSuggestion || {}).id,
             },
           },
-          ...(orgId !== 'personal'
+          ...(orgId && orgId !== 'personal'
             ? {
                 organization: {
                   data: {
