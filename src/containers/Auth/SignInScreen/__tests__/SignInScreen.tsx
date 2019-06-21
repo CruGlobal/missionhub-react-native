@@ -1,6 +1,7 @@
 /* eslint max-lines: 0 */
 
 import 'react-native';
+import React from 'react';
 import {
   act,
   fireEvent,
@@ -75,21 +76,20 @@ const loginResult = { type: 'login result' };
 });
 
 it('renders correctly', () => {
-  renderWithContext(SignInScreen, { componentProps: { next } }).snapshot();
+  renderWithContext(<SignInScreen next={next} />).snapshot();
 });
 
 it('renders correctly for forced logout', () => {
-  renderWithContext(SignInScreen, {
-    componentProps: { next },
+  renderWithContext(<SignInScreen next={next} />, {
     navParams: { forcedLogout: true },
   }).snapshot();
 });
 
 describe('keyboard listeners', () => {
   it('should hide sign in logo when the keyboard is shown', () => {
-    const { recordSnapshot, diffSnapshot } = renderWithContext(SignInScreen, {
-      componentProps: { next },
-    });
+    const { recordSnapshot, diffSnapshot } = renderWithContext(
+      <SignInScreen next={next} />,
+    );
 
     recordSnapshot();
 
@@ -98,9 +98,9 @@ describe('keyboard listeners', () => {
     diffSnapshot();
   });
   it('should show sign in logo when the keyboard is hidden', () => {
-    const { recordSnapshot, diffSnapshot } = renderWithContext(SignInScreen, {
-      componentProps: { next },
-    });
+    const { recordSnapshot, diffSnapshot } = renderWithContext(
+      <SignInScreen next={next} />,
+    );
 
     act(() => keyboardListeners.onShow());
 
@@ -115,8 +115,7 @@ describe('keyboard listeners', () => {
 describe('facebook login button is pressed', () => {
   it('facebook button calls facebook login logic', async () => {
     const { recordSnapshot, getByTestId, diffSnapshot } = renderWithContext(
-      SignInScreen,
-      { componentProps: { next } },
+      <SignInScreen next={next} />,
     );
     recordSnapshot();
 
@@ -133,8 +132,7 @@ describe('facebook login button is pressed', () => {
 describe('key login button is pressed', () => {
   const performKeyLogin = async () => {
     const { recordSnapshot, getByTestId, diffSnapshot } = renderWithContext(
-      SignInScreen,
-      { componentProps: { next } },
+      <SignInScreen next={next} />,
     );
 
     recordSnapshot();
@@ -157,8 +155,7 @@ describe('key login button is pressed', () => {
 
   it('should fire login actions when inputs are submitted', async () => {
     const { recordSnapshot, getByTestId, diffSnapshot } = renderWithContext(
-      SignInScreen,
-      { componentProps: { next } },
+      <SignInScreen next={next} />,
     );
 
     fireEvent.changeText(getByTestId('emailInput'), credentials.email);
@@ -244,8 +241,7 @@ describe('key login button is pressed', () => {
 describe('forgot password button is pressed', () => {
   it('should call forgot password logic', async () => {
     const { recordSnapshot, getByTestId, diffSnapshot } = renderWithContext(
-      SignInScreen,
-      { componentProps: { next } },
+      <SignInScreen next={next} />,
     );
 
     recordSnapshot();
