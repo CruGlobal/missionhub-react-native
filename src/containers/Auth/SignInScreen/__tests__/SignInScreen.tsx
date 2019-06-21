@@ -1,7 +1,6 @@
 /* eslint max-lines: 0 */
 
 import 'react-native';
-import React from 'react';
 import {
   act,
   fireEvent,
