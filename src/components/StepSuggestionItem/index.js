@@ -17,7 +17,11 @@ export default class StepSuggestionItem extends Component {
     } = this.props;
 
     return (
-      <Card onPress={this.handlePress} style={styles.card}>
+      <Card
+        testID="stepSuggestionCard"
+        onPress={this.handlePress}
+        style={styles.card}
+      >
         <Text style={styles.stepText}>{body}</Text>
       </Card>
     );

@@ -122,6 +122,7 @@ class AddStepScreen extends Component {
         <StatusBar {...theme.statusBar.darkContent} />
         <Flex value={1} align="stretch" justify="center" style={fieldWrap}>
           <Input
+            testID="textInput"
             style={input}
             ref={this.ref}
             onChangeText={this.onChangeText}
@@ -137,7 +138,11 @@ class AddStepScreen extends Component {
             maxLength={type === CREATE_STEP ? characterLimit : undefined}
           />
         </Flex>
-        <BottomButton onPress={this.saveStep} text={this.getButtonText()} />
+        <BottomButton
+          testID="bottomButton"
+          onPress={this.saveStep}
+          text={this.getButtonText()}
+        />
         <BackButton absolute={true} iconStyle={backButtonStyle} />
         {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
           <AbsoluteSkip onSkip={this.skip} textStyle={skipBtnText} />

@@ -15,6 +15,7 @@ class AbsoluteSkip extends Component {
     return (
       <SafeAreaView style={styles.skipWrap}>
         <Button
+          testID="skipButton"
           type="transparent"
           onPress={onSkip}
           text={t('skip').toUpperCase()}

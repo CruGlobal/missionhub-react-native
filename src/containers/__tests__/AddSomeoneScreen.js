@@ -1,40 +1,47 @@
 import 'react-native';
 import React from 'react';
-import configureStore from 'redux-mock-store';
+import { fireEvent } from 'react-native-testing-library';
 
 import AddSomeoneScreen from '../AddSomeoneScreen';
-import { renderShallow } from '../../../testUtils';
+import { renderWithContext } from '../../../testUtils';
 import { navigatePush } from '../../actions/navigation';
 import { SETUP_PERSON_SCREEN } from '../SetupPersonScreen';
 import { skipOnboarding } from '../../actions/onboardingProfile';
 
-jest.mock('react-native-device-info');
 jest.mock('../../actions/navigation');
-jest.mock('../../actions/onboardingProfile', () => ({
-  skipOnboarding: jest.fn(() => ({ type: 'skip' })),
-}));
+jest.mock('../../actions/onboardingProfile');
 
-const mockStore = configureStore();
-let screen;
-let store;
-
+const next = jest.fn();
 const navigateResult = { type: 'navigated' };
+const nextResult = { type: 'next' };
+const skipOnboardingResult = { type: 'skip onboarding' };
 
 beforeEach(() => {
-  store = mockStore();
-
-  screen = renderShallow(<AddSomeoneScreen />, store);
-
   navigatePush.mockReturnValue(navigateResult);
+  next.mockReturnValue(nextResult);
+  skipOnboarding.mockReturnValue(skipOnboardingResult);
 });
 
 it('renders correctly', () => {
-  expect(screen).toMatchSnapshot();
+  renderWithContext(AddSomeoneScreen).snapshot();
 });
 
-describe('onComplete prop', () => {
-  it('navigates to the next screen', () => {
-    screen.props().onComplete();
+describe('onComplete', () => {
+  it('calls next', () => {
+    const { getByTestId, store } = renderWithContext(AddSomeoneScreen, {
+      componentProps: { next },
+    });
+
+    fireEvent.press(getByTestId('bottomButton'));
+
+    expect(store.getActions()).toEqual([nextResult]);
+    expect(next).toHaveBeenCalledWith({ skip: false });
+  });
+
+  it('navigates to SETUP_PERSON_SCREEN', () => {
+    const { getByTestId, store } = renderWithContext(AddSomeoneScreen);
+
+    fireEvent.press(getByTestId('bottomButton'));
 
     expect(store.getActions()).toEqual([navigateResult]);
     expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
@@ -42,9 +49,23 @@ describe('onComplete prop', () => {
 });
 
 describe('onSkip prop', () => {
-  it('runs skip', () => {
-    screen.props().onSkip();
+  it('calls next', () => {
+    const { getByTestId, store } = renderWithContext(AddSomeoneScreen, {
+      componentProps: { next },
+    });
 
-    expect(skipOnboarding).toHaveBeenCalled();
+    fireEvent.press(getByTestId('skipButton'));
+
+    expect(store.getActions()).toEqual([nextResult]);
+    expect(next).toHaveBeenCalledWith({ skip: true });
+  });
+
+  it('calls skipOnboarding', () => {
+    const { getByTestId, store } = renderWithContext(AddSomeoneScreen);
+
+    fireEvent.press(getByTestId('skipButton'));
+
+    expect(store.getActions()).toEqual([skipOnboardingResult]);
+    expect(skipOnboarding).toHaveBeenCalledWith();
   });
 });

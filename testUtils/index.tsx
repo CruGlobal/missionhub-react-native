@@ -18,6 +18,7 @@ Enzyme.configure({ adapter: new Adapter() });
 export const createThunkStore = configureStore([thunk]);
 
 interface RenderWithContextParams {
+  componentProps?: {};
   initialState?: {};
   store?: MockStore;
   navParams?: NavigationParams;
@@ -25,8 +26,9 @@ interface RenderWithContextParams {
 
 // Inspiration from https://github.com/kentcdodds/react-testing-library/blob/52575005579307bcfbe7fbe4ef4636147c03c6fb/examples/__tests__/react-redux.js#L69-L80
 export function renderWithContext(
-  component: ReactElement,
+  Component: ReactElement,
   {
+    componentProps,
     initialState,
     store = createThunkStore(initialState),
     navParams,
@@ -41,7 +43,12 @@ export function renderWithContext(
     </NavigationProvider>
   );
 
-  const renderResult = render(component, { wrapper });
+  const renderResult = render(
+    <Component {...componentProps} navigation={navigation} />,
+    {
+      wrapper,
+    },
+  );
   let storedSnapshot: ReactTestRendererJSON | null;
   return {
     ...renderResult,
