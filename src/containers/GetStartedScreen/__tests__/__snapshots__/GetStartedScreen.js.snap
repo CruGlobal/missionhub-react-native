@@ -92,6 +92,7 @@ Let's figure out where you are on your journey.
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={

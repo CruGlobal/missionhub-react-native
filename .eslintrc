@@ -88,6 +88,9 @@
       "node": {
         "extensions": [".js", ".ts", ".tsx", ".ios.js", ".android.js"]
       }
+    },
+    "react": {
+      "version": "detect"
     }
   },
   "extends": [

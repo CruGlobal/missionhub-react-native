@@ -4,25 +4,28 @@ import moment from 'moment';
 
 import DateComponent from '..';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { testSnapshotShallow, renderWithContext } from '../../../../testUtils';
 
 MockDate.set(moment('2018-06-11 12:00:00').toDate(), 0);
 
 it('renders correctly', () => {
   testSnapshotShallow(<DateComponent date="2017-11-20" />);
 });
-const testFormat = (date, formattedText, format) => {
-  const component = renderShallow(
+
+const testFormat = (date: string, formattedText: string, format: string) => {
+  const { getByTestId } = renderWithContext(
     <DateComponent date={date} format={format} />,
+    { noWrappers: false },
   );
 
-  const text = component.find('MyText').props().children;
+  const text = getByTestId('Text').props.children;
 
   expect(text).toEqual(formattedText);
 };
 
 describe('relative formatting', () => {
-  const testDateFormat = (date, format) => testFormat(date, format, 'relative');
+  const testDateFormat = (date: string, format: string) =>
+    testFormat(date, format, 'relative');
 
   it('renders today', () => {
     testDateFormat('2018-06-11 12:00:00', 'Today');
@@ -49,7 +52,8 @@ describe('relative formatting', () => {
 });
 
 describe('comment formatting', () => {
-  const testDateFormat = (date, format) => testFormat(date, format, 'comment');
+  const testDateFormat = (date: string, format: string) =>
+    testFormat(date, format, 'comment');
 
   it('renders today', () => {
     testDateFormat('2018-06-11 12:00:00', '12:00 PM');

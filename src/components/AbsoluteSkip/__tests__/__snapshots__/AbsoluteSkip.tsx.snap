@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render skip 1`] = `
-<SafeAreaView
+<_class
+  emulateUnlessSupported={true}
   style={
     Object {
       "position": "absolute",
@@ -31,11 +32,12 @@ exports[`render skip 1`] = `
     text="SKIP"
     type="transparent"
   />
-</SafeAreaView>
+</_class>
 `;
 
 exports[`renders skip with style 1`] = `
-<SafeAreaView
+<_class
+  emulateUnlessSupported={true}
   style={
     Object {
       "position": "absolute",
@@ -67,11 +69,12 @@ exports[`renders skip with style 1`] = `
     text="SKIP"
     type="transparent"
   />
-</SafeAreaView>
+</_class>
 `;
 
 exports[`renders skip with text style 1`] = `
-<SafeAreaView
+<_class
+  emulateUnlessSupported={true}
   style={
     Object {
       "position": "absolute",
@@ -103,5 +106,5 @@ exports[`renders skip with text style 1`] = `
     text="SKIP"
     type="transparent"
   />
-</SafeAreaView>
+</_class>
 `;

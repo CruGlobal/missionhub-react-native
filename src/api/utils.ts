@@ -1,6 +1,5 @@
-/* eslint max-params: 0 */
+/* eslint-disable max-params */
 
-import merge from 'lodash/merge';
 import qs from 'qs';
 import Config from 'react-native-config';
 
@@ -35,9 +34,16 @@ const ERROR_CODES = [
 ];
 const JSON_CONTENT_TYPE = ['application/json', 'application/vnd.api+json'];
 
-async function handleResponse(response) {
+export type ApiErrorResponse =
+  | {
+      errors?: { detail?: string }[];
+      error?: string;
+    }
+  | string;
+
+async function handleResponse(response: Response) {
   if (!response) {
-    return null;
+    return { jsonResponse: null, sessionHeader: '' };
   }
 
   if (response && ERROR_CODES.includes(response.status)) {
@@ -47,9 +53,9 @@ async function handleResponse(response) {
       contentType.indexOf(JSON_CONTENT_TYPE[0]) !== -1 ||
       contentType.indexOf(JSON_CONTENT_TYPE[1]) !== -1
     ) {
-      return response.json().then(r => Promise.reject(r));
+      return response.json().then((r: ApiErrorResponse) => Promise.reject(r));
     }
-    return response.text().then(r => Promise.reject(r));
+    return response.text().then((r: ApiErrorResponse) => Promise.reject(r));
   }
 
   // We need to use response.text() and JSON.parse(t) for responses because we are getting data back with
@@ -61,7 +67,7 @@ async function handleResponse(response) {
   };
 }
 
-function createUrl(url = '', params) {
+function createUrl(url = '', params: {}) {
   let newUrl = `${url}`;
   if (newUrl[0] === '/') {
     newUrl = newUrl.substr(1);
@@ -76,27 +82,34 @@ function createUrl(url = '', params) {
   return fullUrl;
 }
 
-function defaultObject(method, obj = {}, data) {
-  const newObj = merge({}, { headers: DEFAULT_HEADERS }, obj, {
-    method: method.toUpperCase(),
-  });
-  if (obj && obj.headers && obj.headers['Content-Type'] === false) {
-    delete newObj.headers['Content-Type'];
-  }
-  if (obj && obj.headers && obj.headers['Accept'] === false) {
-    delete newObj.headers['Accept'];
-  }
-  if (data) {
-    newObj.body = obj.stringify === false ? data : JSON.stringify(data);
-  }
-  delete newObj.stringify;
+const defaultObject = (
+  method: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  extra: RequestInit,
+  data: {} | BodyInit | undefined,
+  stringify = true,
+): RequestInit => ({
+  ...extra,
+  headers: { ...DEFAULT_HEADERS, ...(extra.headers ? extra.headers : {}) },
+  method: method.toUpperCase(),
+  ...(data
+    ? {
+        body: stringify === false ? (data as BodyInit) : JSON.stringify(data),
+      }
+    : {}),
+});
 
-  return newObj;
-}
-
-export default async function request(type, url, query, data, extra) {
+export default async function request(
+  type: string,
+  url: string,
+  query: {},
+  data: {} | undefined,
+  extra: RequestInit,
+  stringify: boolean = true,
+) {
   const newUrl = createUrl(url, query);
-  const newObject = defaultObject(type, extra, data);
+  const newObject = defaultObject(type, extra, data, stringify);
+  // @ts-ignore
   APILOG('REQUEST', newObject.method, newUrl, newObject);
 
   const response = await fetch(newUrl, newObject);
