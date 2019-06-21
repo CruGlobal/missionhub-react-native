@@ -31,11 +31,19 @@ beforeEach(() => {
   next.mockReturnValue(nextResult);
 });
 
+const createStepParams = { type: CREATE_STEP };
+const journeyParams = { type: 'journey' };
+const editJourneyParams = { type: 'editJourney', isEdit: true, text };
+const stepNoteParams = { type: STEP_NOTE, text };
+const myStepNoteParams = { type: STEP_NOTE, text, personId: auth.person.id };
+const interactionParams = { type: 'interaction', hideSkip: 'true' };
+const interactionWithSkipParams = { type: 'interaction', hideSkip: false };
+
 it('renders correctly', () => {
   renderWithContext(AddStepScreen, {
     componentProps: { next },
     initialState: { auth },
-    navParams: { type: CREATE_STEP },
+    navParams: createStepParams,
   }).snapshot();
 });
 
@@ -43,7 +51,7 @@ it('renders journey correctly', () => {
   renderWithContext(AddStepScreen, {
     componentProps: { next },
     initialState: { auth },
-    navParams: { type: 'journey' },
+    navParams: journeyParams,
   }).snapshot();
 });
 
@@ -51,7 +59,7 @@ it('renders edit journey correctly', () => {
   renderWithContext(AddStepScreen, {
     componentProps: { next },
     initialState: { auth },
-    navParams: { type: 'editJourney', isEdit: true, text },
+    navParams: editJourneyParams,
   }).snapshot();
 });
 
@@ -59,7 +67,7 @@ it('renders step note correctly', () => {
   renderWithContext(AddStepScreen, {
     componentProps: { next },
     initialState: { auth },
-    navParams: { type: STEP_NOTE, text },
+    navParams: stepNoteParams,
   }).snapshot();
 });
 
@@ -67,7 +75,7 @@ it('renders step note correctly for me', () => {
   renderWithContext(AddStepScreen, {
     componentProps: { next },
     initialState: { auth },
-    navParams: { type: STEP_NOTE, text, personId: auth.person.id },
+    navParams: myStepNoteParams,
   }).snapshot();
 });
 
@@ -75,7 +83,7 @@ it('renders interaction without skip correctly', () => {
   renderWithContext(AddStepScreen, {
     componentProps: { next },
     initialState: { auth },
-    navParams: { type: 'interaction', hideSkip: 'true' },
+    navParams: interactionParams,
   }).snapshot();
 });
 
@@ -83,7 +91,7 @@ it('renders interaction with skip correctly', () => {
   renderWithContext(AddStepScreen, {
     componentProps: { next },
     initialState: { auth },
-    navParams: { type: 'interaction', hideSkip: false },
+    navParams: interactionWithSkipParams,
   }).snapshot();
 });
 
@@ -92,7 +100,7 @@ describe('edit journey methods', () => {
     const { getByTestId, store } = renderWithContext(AddStepScreen, {
       componentProps: { next },
       initialState: { auth },
-      navParams: { type: 'editJourney', isEdit: true, text },
+      navParams: editJourneyParams,
     });
 
     fireEvent.press(getByTestId('bottomButton'));
