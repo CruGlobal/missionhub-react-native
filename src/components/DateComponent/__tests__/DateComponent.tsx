@@ -13,10 +13,10 @@ it('renders correctly', () => {
 });
 
 const testFormat = (date: string, formattedText: string, format: string) => {
-  const { getByTestId } = renderWithContext(
-    <DateComponent date={date} format={format} />,
-    { noWrappers: false },
-  );
+  const { getByTestId } = renderWithContext(DateComponent, {
+    componentProps: { date, format },
+    noWrappers: false,
+  });
 
   const text = getByTestId('Text').props.children;
 

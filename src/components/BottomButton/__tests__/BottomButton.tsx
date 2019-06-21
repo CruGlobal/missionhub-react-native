@@ -8,12 +8,10 @@ import BottomButton from '..';
 const onPress = jest.fn();
 const text = 'Button Text';
 
-const { getByTestId, snapshot } = renderWithContext(
-  <BottomButton text={text} onPress={onPress} />,
-  {
-    noWrappers: true,
-  },
-);
+const { getByTestId, snapshot } = renderWithContext(BottomButton, {
+  componentProps: { text, onPress },
+  noWrappers: true,
+});
 it('renders correctly', () => {
   snapshot();
 });

@@ -40,7 +40,9 @@ export function renderWithContext(
 
   let renderResult: RenderAPI;
   if (noWrappers) {
-    renderResult = render(component);
+    renderResult = render(
+      <Component {...componentProps} navigation={navigation} />,
+    );
   } else {
     // Warning: don't call any functions in here that return new instances on every call. All the props need to stay the same otherwise rerender won't work.
     const wrapper = ({ children }: { children: ReactElement }) => (

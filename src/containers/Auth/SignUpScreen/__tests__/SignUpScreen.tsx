@@ -47,12 +47,13 @@ jest.mock('../../../../components/common', () => ({
 jest.mock('../../../BackButton', () => 'BackButton');
 
 it('renders correctly with logo', () => {
-  renderWithContext(<SignUpScreen next={next} />).snapshot();
+  renderWithContext(SignUpScreen, { componentProps: { next } }).snapshot();
 });
 
 it('renders correctly for Create Community', () => {
   const { recordSnapshot, rerender, diffSnapshot } = renderWithContext(
-    <SignUpScreen next={next} />,
+    SignUpScreen,
+    { componentProps: { next } },
   );
   recordSnapshot();
   rerender(
@@ -83,7 +84,9 @@ describe('a login button is clicked', () => {
   (navigatePush as jest.Mock).mockReturnValue(navigateResponse);
 
   it('login to be called', () => {
-    const { getByTestId } = renderWithContext(<SignUpScreen next={next} />);
+    const { getByTestId } = renderWithContext(SignUpScreen, {
+      componentProps: { next },
+    });
     fireEvent.press(getByTestId('loginButton'));
 
     expect(next).toHaveBeenCalledWith({ signIn: true });
@@ -103,7 +106,7 @@ describe('a login button is clicked', () => {
         getByTestId,
         store,
         diffSnapshot,
-      } = renderWithContext(<SignUpScreen next={next} />);
+      } = renderWithContext(SignUpScreen, { componentProps: { next } });
       recordSnapshot();
 
       fireEvent.press(getByTestId('emailButton'));
@@ -135,7 +138,8 @@ describe('a login button is clicked', () => {
 
     it('facebook button fires fb sign in actions', async () => {
       const { recordSnapshot, getByTestId, diffSnapshot } = renderWithContext(
-        <SignUpScreen next={next} />,
+        SignUpScreen,
+        { componentProps: { next } },
       );
       fireEvent.press(getByTestId('facebookButton'));
 

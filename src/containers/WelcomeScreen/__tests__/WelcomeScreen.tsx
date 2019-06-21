@@ -28,23 +28,22 @@ common.disableBack = { add: jest.fn(), remove: jest.fn() };
 });
 
 describe('WelcomeScreen', () => {
+  const baseConfig = { componentProps: { next } };
   const allowSignInVariantConfig = {
+    ...baseConfig,
     navParams: { allowSignIn: true },
   };
 
   it('should render correctly', () => {
-    renderWithContext(<WelcomeScreen next={next} />).snapshot();
+    renderWithContext(WelcomeScreen, baseConfig).snapshot();
   });
 
   it('should render correctly with sign in button', () => {
-    renderWithContext(
-      <WelcomeScreen next={next} />,
-      allowSignInVariantConfig,
-    ).snapshot();
+    renderWithContext(WelcomeScreen, allowSignInVariantConfig).snapshot();
   });
 
   it('getStarted btn should call next', () => {
-    const { getByTestId } = renderWithContext(<WelcomeScreen next={next} />);
+    const { getByTestId } = renderWithContext(WelcomeScreen, baseConfig);
     fireEvent.press(getByTestId('get-started'));
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
@@ -54,7 +53,7 @@ describe('WelcomeScreen', () => {
 
   it('tryItNow btn should call next', () => {
     const { getByTestId } = renderWithContext(
-      <WelcomeScreen next={next} />,
+      WelcomeScreen,
       allowSignInVariantConfig,
     );
     fireEvent.press(getByTestId('get-started-sign-in-variant'));
@@ -66,7 +65,7 @@ describe('WelcomeScreen', () => {
 
   it('signIn btn should call next with signIn = true', () => {
     const { getByTestId } = renderWithContext(
-      <WelcomeScreen next={next} />,
+      WelcomeScreen,
       allowSignInVariantConfig,
     );
     fireEvent.press(getByTestId('sign-in'));
@@ -76,7 +75,7 @@ describe('WelcomeScreen', () => {
   });
 
   it('should fire analytics event on mount', () => {
-    renderWithContext(<WelcomeScreen next={next} />);
+    renderWithContext(WelcomeScreen, baseConfig);
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.ONBOARDING_STARTED,
@@ -84,7 +83,7 @@ describe('WelcomeScreen', () => {
   });
 
   it('should clean up back handler on unmount', () => {
-    renderWithContext(<WelcomeScreen next={next} />).unmount();
+    renderWithContext(WelcomeScreen, baseConfig).unmount();
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
   });
