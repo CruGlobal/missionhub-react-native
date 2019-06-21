@@ -6,7 +6,7 @@ import configureStore, { MockStore } from 'redux-mock-store';
 import { NavigationParams } from 'react-navigation';
 import { NavigationProvider } from '@react-navigation/core';
 import { ReactTestRendererJSON } from 'react-test-renderer';
-import { render } from 'react-native-testing-library';
+import { render, RenderAPI } from 'react-native-testing-library';
 import snapshotDiff from 'snapshot-diff';
 import Enzyme, { shallow as enzymeShallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -21,6 +21,7 @@ interface RenderWithContextParams {
   initialState?: {};
   store?: MockStore;
   navParams?: NavigationParams;
+  noWrappers?: boolean;
 }
 
 // Inspiration from https://github.com/kentcdodds/react-testing-library/blob/52575005579307bcfbe7fbe4ef4636147c03c6fb/examples/__tests__/react-redux.js#L69-L80
@@ -30,20 +31,27 @@ export function renderWithContext(
     initialState,
     store = createThunkStore(initialState),
     navParams,
+    noWrappers = false,
   }: RenderWithContextParams = {},
 ) {
   const navigation = createNavigationProp(navParams);
 
-  // Warning: don't call any functions in here that return new instances on every call. All the props need to stay the same otherwise rerender won't work.
-  const wrapper = ({ children }: { children: ReactElement }) => (
-    <NavigationProvider value={navigation}>
-      <Provider store={store}>{children}</Provider>
-    </NavigationProvider>
-  );
+  let renderResult: RenderAPI;
+  if (noWrappers) {
+    renderResult = render(React.cloneElement(component, { navigation }));
+  } else {
+    // Warning: don't call any functions in here that return new instances on every call. All the props need to stay the same otherwise rerender won't work.
+    const wrapper = ({ children }: { children: ReactElement }) => (
+      <NavigationProvider value={navigation}>
+        <Provider store={store}>{children}</Provider>
+      </NavigationProvider>
+    );
 
-  const renderResult = render(React.cloneElement(component, { navigation }), {
-    wrapper,
-  });
+    renderResult = render(React.cloneElement(component, { navigation }), {
+      wrapper,
+    });
+  }
+
   let storedSnapshot: ReactTestRendererJSON | null;
   return {
     ...renderResult,

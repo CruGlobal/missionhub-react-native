@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import moment from 'moment';
-import { withTranslation } from 'react-i18next';
+import React from 'react';
+import { StyleProp, TextStyle } from 'react-native';
+import moment, * as MomentTypes from 'moment';
+import { useTranslation } from 'react-i18next';
 
 import { isString, momentUtc } from '../../utils/common';
 import Text from '../Text';
@@ -22,19 +22,24 @@ export const DateConstants = {
   },
 };
 
-function getMomentDate(date) {
+function getMomentDate(date: string | Date) {
+  // This ts-ignore can be removed once the utils/common file is converted to typescript
+  // @ts-ignore:
   if (isString(date) && date.indexOf('UTC') >= 0) {
     return momentUtc(date).local();
   }
   return moment(date);
 }
-function isYesterday(momentDate) {
+
+function isYesterday(momentDate: MomentTypes.Moment) {
   return momentDate.isSame(moment().subtract(1, 'days'), 'day');
 }
-function isToday(momentDate) {
+
+function isToday(momentDate: MomentTypes.Moment) {
   return momentDate.isSame(moment(), 'day');
 }
-function inLastWeek(momentDate) {
+
+function inLastWeek(momentDate: MomentTypes.Moment) {
   return momentDate.isBetween(
     moment().subtract(7, 'days'),
     moment(),
@@ -43,10 +48,9 @@ function inLastWeek(momentDate) {
   );
 }
 
-function formatComment(date, t) {
+function formatComment(date: string | Date, t: Function) {
   const momentDate = getMomentDate(date);
   const now = moment();
-
   if (isToday(momentDate)) {
     return momentDate.format(DateConstants.Formats.timeOnly);
   }
@@ -63,49 +67,19 @@ function formatComment(date, t) {
   if (momentDate.year() !== now.year()) {
     return momentDate.format(DateConstants.Formats.monthDayYearAtTime);
   }
-
   return momentDate.format(DateConstants.Formats.monthDayAtTime);
 }
 
-@withTranslation()
-export default class DateComponent extends Component {
-  render() {
-    const { t, date, format, style } = this.props;
-    const { relative, yesterday, comment, today } = DateConstants;
-
-    let dateFormat = format;
-    if (format === relative) {
-      dateFormat = relativeFormat(date);
-    }
-
-    let text;
-    if (dateFormat === today) {
-      text = t('dates.today');
-    } else if (dateFormat === yesterday) {
-      text = t('dates.yesterday');
-    } else if (dateFormat === comment) {
-      text = formatComment(date, t);
-    } else {
-      text = getMomentDate(date).format(dateFormat);
-    }
-    return <Text style={style}>{text}</Text>;
-  }
+interface DateComponentProps {
+  date: string | Date;
+  format?: string;
+  style?: StyleProp<TextStyle>;
+  testID?: string;
 }
 
-DateComponent.propTypes = {
-  date: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)])
-    .isRequired,
-  format: PropTypes.string,
-};
-
-DateComponent.defaultProps = {
-  format: 'ddd, lll',
-};
-
-const relativeFormat = date => {
+const relativeFormat = (date: string | Date) => {
   const today = moment();
   const other = getMomentDate(date);
-
   if (other.isSame(today, 'year')) {
     if (inLastWeek(other)) {
       if (isYesterday(other)) {
@@ -120,3 +94,33 @@ const relativeFormat = date => {
   }
   return DateConstants.Formats.fullDate;
 };
+
+const DateComponent = ({
+  date,
+  format = 'ddd, lll',
+  style,
+}: DateComponentProps) => {
+  const { t } = useTranslation();
+  const { relative, yesterday, comment, today } = DateConstants;
+  let dateFormat = format;
+  if (format === relative) {
+    dateFormat = relativeFormat(date);
+  }
+  let text;
+  if (dateFormat === today) {
+    text = t('dates.today');
+  } else if (dateFormat === yesterday) {
+    text = t('dates.yesterday');
+  } else if (dateFormat === comment) {
+    text = formatComment(date, t);
+  } else {
+    text = getMomentDate(date).format(dateFormat);
+  }
+  return (
+    <Text testID="Text" style={style}>
+      {text}
+    </Text>
+  );
+};
+
+export default DateComponent;

@@ -13,14 +13,16 @@ const requestObj = {
 
 const mockSessionHeader =
   'afkljasdflasdfjkllkasdflkladsfnkjnldskjnlsdjoapjopfpjosadpjoadsjfojoadfsojpdsafjodasklnasdf';
-let mockResponseBody;
+let mockResponseBody: string | null;
 const mockResponse = {
   text: jest.fn(() => Promise.resolve(mockResponseBody)),
   headers: { get: jest.fn(() => mockSessionHeader) },
 };
 
-global.APILOG = jest.fn();
-global.fetch = jest.fn(() => Promise.resolve(mockResponse));
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(global as any).APILOG = jest.fn();
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(global as any).fetch = jest.fn(() => Promise.resolve(mockResponse));
 
 it('should return session header and empty response object if there was no body', async () => {
   mockResponseBody = null;
@@ -30,7 +32,7 @@ it('should return session header and empty response object if there was no body'
     requestObj.url,
     requestObj.query,
     requestObj.data,
-    undefined,
+    {},
   );
 
   expect(response).toEqual({
@@ -51,7 +53,7 @@ it('should return session header and response object if there was a body', async
     requestObj.url,
     requestObj.query,
     requestObj.data,
-    undefined,
+    {},
   );
 
   expect(response).toEqual({
@@ -66,17 +68,18 @@ it('should return null if no response', async () => {
   const responseField = 'newPerson';
   const responseValue = 'roger';
   mockResponseBody = `{ "${responseField}": "${responseValue}" }`;
-  global.fetch = jest.fn(() => Promise.resolve());
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (global as any).fetch = jest.fn(() => Promise.resolve());
 
   const response = await request(
     requestObj.type,
     requestObj.url,
     requestObj.query,
     requestObj.data,
-    undefined,
+    {},
   );
 
-  expect(response).toEqual(null);
+  expect(response).toEqual({ jsonResponse: null, sessionHeader: '' });
 });
 
 it('should reject with response if application json', async () => {
@@ -89,7 +92,8 @@ it('should reject with response if application json', async () => {
     headers: { get: jest.fn(() => mock2SessionHeader) },
     status: 500,
   };
-  global.fetch = jest.fn(() => Promise.resolve(mock2Response));
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (global as any).fetch = jest.fn(() => Promise.resolve(mock2Response));
 
   try {
     await request(
@@ -97,7 +101,7 @@ it('should reject with response if application json', async () => {
       requestObj.url,
       requestObj.query,
       requestObj.data,
-      undefined,
+      {},
     );
   } catch (e) {
     expect(e).toEqual(mock2ResponseBody);
@@ -114,7 +118,8 @@ it('should reject with response if application vnd.api+json', async () => {
     headers: { get: jest.fn(() => mock2SessionHeader) },
     status: 500,
   };
-  global.fetch = jest.fn(() => Promise.resolve(mock2Response));
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (global as any).fetch = jest.fn(() => Promise.resolve(mock2Response));
 
   try {
     await request(
@@ -122,7 +127,7 @@ it('should reject with response if application vnd.api+json', async () => {
       requestObj.url,
       requestObj.query,
       requestObj.data,
-      undefined,
+      {},
     );
   } catch (e) {
     expect(e).toEqual(mock2ResponseBody);
@@ -139,7 +144,8 @@ it('should reject with response if html', async () => {
     headers: { get: jest.fn(() => mock2SessionHeader) },
     status: 500,
   };
-  global.fetch = jest.fn(() => Promise.resolve(mock2Response));
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (global as any).fetch = jest.fn(() => Promise.resolve(mock2Response));
 
   try {
     await request(
@@ -147,7 +153,7 @@ it('should reject with response if html', async () => {
       requestObj.url,
       requestObj.query,
       requestObj.data,
-      undefined,
+      {},
     );
   } catch (e) {
     expect(e).toEqual(mock2ResponseBody);

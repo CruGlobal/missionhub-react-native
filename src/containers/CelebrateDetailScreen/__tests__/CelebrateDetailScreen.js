@@ -2,8 +2,6 @@ import 'react-native';
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import renderer from 'react-test-renderer';
-import { Provider } from 'react-redux';
 import MockDate from 'mockdate';
 
 import CelebrateDetailScreen from '..';
@@ -82,23 +80,6 @@ celebrateCommentsSelector.mockReturnValue(celebrateComments),
     instance = screen.instance();
     instance.listRef = listRef;
   });
-
-// Want to validate that the full tree does not change since it relies on refs in child components
-describe('CelebrateDetailScreen', () => {
-  let tree;
-
-  beforeEach(() => {
-    tree = renderer.create(
-      <Provider store={store}>
-        <CelebrateDetailScreen navigation={createMockNavState({ event })} />
-      </Provider>,
-    );
-  });
-
-  it('renders tree correctly', () => {
-    expect(tree).toMatchSnapshot();
-  });
-});
 
 it('renders correctly', () => {
   expect(screen).toMatchSnapshot();
