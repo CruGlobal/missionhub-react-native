@@ -19,7 +19,6 @@ exports[`renders android correctly 1`] = `
         type="MissionHub"
       />
     }
-    shadow={true}
     title="STEPS OF FAITH"
   />
   <View
@@ -159,7 +158,6 @@ exports[`renders loading on Android correctly 1`] = `
         type="MissionHub"
       />
     }
-    shadow={true}
     title="STEPS OF FAITH"
   />
   <LoadingGuy />

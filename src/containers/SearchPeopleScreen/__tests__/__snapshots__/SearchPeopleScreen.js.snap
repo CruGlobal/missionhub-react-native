@@ -397,7 +397,6 @@ exports[`renders with no results state 1`] = `
         type="MissionHub"
       />
     }
-    shadow={true}
   />
   <NullStateComponent
     descriptionText="Search results will appear here."
@@ -462,7 +461,6 @@ exports[`renders with results state 1`] = `
         type="MissionHub"
       />
     }
-    shadow={true}
   />
   <NullStateComponent
     descriptionText="Search results will appear here."
@@ -527,7 +525,6 @@ exports[`renders with searching state 1`] = `
         type="MissionHub"
       />
     }
-    shadow={true}
   />
   <NullStateComponent
     descriptionText="Search results will appear here."

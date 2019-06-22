@@ -42,7 +42,6 @@ exports[`should render correctly 1`] = `
         type="MissionHub"
       />
     }
-    shadow={true}
     style={
       Object {
         "backgroundColor": "#FF5532",
@@ -128,7 +127,6 @@ exports[`should render empty correctly 1`] = `
         type="MissionHub"
       />
     }
-    shadow={true}
     style={
       Object {
         "backgroundColor": "#FF5532",

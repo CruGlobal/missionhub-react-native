@@ -60,7 +60,6 @@ exports[`renderStickyHeader renders correctly 1`] = `
       ADD STEPS OF FAITH
     </MyText>
   }
-  shadow={true}
 />
 `;
 

@@ -1,26 +1,45 @@
-import React, { Component } from 'react';
-import { SafeAreaView } from 'react-native';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { SafeAreaView, ViewStyle, TextStyle, StyleProp } from 'react-native';
 
 import { Flex, Text, Button } from '../common';
 
 import styles from './styles';
 
-export const HeaderIcon = ({ ...rest }) => (
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const HeaderIcon = ({ ...rest }: any) => (
   <Button type="transparent" style={styles.headerIcon} {...rest} />
 );
 
-export default class Header extends Component {
-  renderLeft() {
-    const { left } = this.props;
+interface HeaderProps {
+  right?: JSX.Element | null;
+  left?: JSX.Element | null;
+  center?: JSX.Element | null;
+  title?: string;
+  title2?: string;
+  shadow?: boolean;
+  style?: StyleProp<ViewStyle>;
+  titleStyle?: StyleProp<TextStyle>;
+}
+
+const Header = ({
+  right,
+  left,
+  center,
+  title,
+  title2,
+  titleStyle,
+  style,
+  shadow = true,
+}: HeaderProps) => {
+  const renderLeft = () => {
     return (
       <Flex value={1} align="start" justify="center" style={styles.left}>
         {left || null}
       </Flex>
     );
-  }
-  renderCenter() {
-    const { title, title2, center, titleStyle } = this.props;
+  };
+
+  const renderCenter = () => {
     if (title && title2) {
       return (
         <Flex
@@ -55,38 +74,23 @@ export default class Header extends Component {
       );
     }
     return null;
-  }
-  renderRight() {
-    const { right } = this.props;
+  };
+
+  const renderRight = () => {
     return (
       <Flex value={1} align="end" justify="center" style={styles.right}>
         {right || null}
       </Flex>
     );
-  }
-  render() {
-    const { shadow, style } = this.props;
-    return (
-      <SafeAreaView
-        style={[styles.header, style, shadow ? styles.shadow : null]}
-      >
-        {this.renderLeft()}
-        {this.renderCenter()}
-        {this.renderRight()}
-      </SafeAreaView>
-    );
-  }
-}
+  };
 
-Header.propTypes = {
-  right: PropTypes.element,
-  left: PropTypes.element,
-  center: PropTypes.element,
-  title: PropTypes.string,
-  title2: PropTypes.string,
-  shadow: PropTypes.bool,
+  return (
+    <SafeAreaView style={[styles.header, style, shadow ? styles.shadow : null]}>
+      {renderLeft()}
+      {renderCenter()}
+      {renderRight()}
+    </SafeAreaView>
+  );
 };
 
-Header.defaultProps = {
-  shadow: true,
-};
+export default Header;
