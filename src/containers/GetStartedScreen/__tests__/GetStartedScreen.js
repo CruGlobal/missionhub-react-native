@@ -1,68 +1,65 @@
 import 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { Provider } from 'react-redux';
+import { fireEvent } from 'react-native-testing-library';
 
 import GetStartedScreen from '..';
 
-import {
-  createMockNavState,
-  testSnapshot,
-  createThunkStore,
-} from '../../../../testUtils';
-import * as navigation from '../../../actions/navigation';
-import * as common from '../../../utils/common';
+import { renderWithContext } from '../../../../testUtils';
+import { navigatePush } from '../../../actions/navigation';
+import { disableBack } from '../../../utils/common';
+import { STAGE_ONBOARDING_SCREEN } from '../../../containers/StageScreen';
 
-const mockState = {
+jest.mock('../../../actions/navigation');
+jest.mock('../../../utils/common');
+
+const initialState = {
   profile: {
     firstName: 'Roger',
   },
 };
-
-let store;
-
-jest.mock('react-native-device-info');
+const next = jest.fn();
+const nextResult = { type: 'next' };
+const navigatePushResult = { type: 'navigate push' };
 
 beforeEach(() => {
-  store = createThunkStore(mockState);
+  disableBack.remove = jest.fn();
+  next.mockReturnValue(nextResult);
+  navigatePush.mockReturnValue(navigatePushResult);
 });
 
 it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <GetStartedScreen navigation={createMockNavState()} />
-    </Provider>,
-  );
+  renderWithContext(<GetStartedScreen next={next} />, {
+    initialState,
+  }).snapshot();
 });
 
-describe('get started methods', () => {
-  let component;
-  beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    const screen = shallow(
-      <GetStartedScreen
-        navigation={createMockNavState()}
-        dispatch={jest.fn()}
-      />,
-      { context: { store } },
-    );
+it('navigates with next', () => {
+  const { getByTestId, store } = renderWithContext(
+    <GetStartedScreen next={next} />,
+    {
+      initialState,
+    },
+  );
 
-    component = screen
-      .dive()
-      .dive()
-      .instance();
+  fireEvent.press(getByTestId('BottomButton'));
+
+  expect(disableBack.remove).toHaveBeenCalledWith();
+  expect(next).toHaveBeenCalledWith({});
+  expect(store.getActions()).toEqual([nextResult]);
+});
+
+it('navigates without next', () => {
+  const { getByTestId, store } = renderWithContext(<GetStartedScreen />, {
+    initialState,
   });
 
-  it('saves a step', () => {
-    navigation.navigatePush = jest.fn(() => ({ type: 'navigated' }));
-    component.navigateNext();
-    expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
-  });
+  fireEvent.press(getByTestId('BottomButton'));
 
-  it('unmounts', () => {
-    common.disableBack = { remove: jest.fn() };
-    component.componentWillUnmount();
-    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
+  expect(disableBack.remove).toHaveBeenCalledWith();
+  expect(navigatePush).toHaveBeenCalledWith(STAGE_ONBOARDING_SCREEN, {
+    section: 'onboarding',
+    subsection: 'self',
+    enableBackButton: false,
   });
+  expect(store.getActions()).toEqual([navigatePushResult]);
 });

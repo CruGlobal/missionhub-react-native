@@ -138,11 +138,7 @@ class AddStepScreen extends Component {
             maxLength={type === CREATE_STEP ? characterLimit : undefined}
           />
         </Flex>
-        <BottomButton
-          testID="bottomButton"
-          onPress={this.saveStep}
-          text={this.getButtonText()}
-        />
+        <BottomButton onPress={this.saveStep} text={this.getButtonText()} />
         <BackButton absolute={true} iconStyle={backButtonStyle} />
         {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
           <AbsoluteSkip onSkip={this.skip} textStyle={skipBtnText} />

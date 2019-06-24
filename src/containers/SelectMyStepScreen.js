@@ -17,11 +17,12 @@ class SelectMyStepScreen extends Component {
       personId,
       contactStage,
       organization,
+      onboarding,
       myStageId,
       next,
     } = this.props;
 
-    const section = this.props.onboarding ? 'onboarding' : 'people';
+    const section = onboarding ? 'onboarding' : 'people';
     const stageId = contactStage ? contactStage.id : myStageId;
 
     return (
@@ -60,7 +61,7 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { contactStage, organization, enableBackButton },
+        params: { contactStage, organization, enableBackButton, onboarding },
       },
     },
     next,
@@ -69,6 +70,7 @@ const mapStateToProps = (
   contactStage,
   organization,
   enableBackButton,
+  onboarding,
   next,
   me: auth.person,
   myStageId: auth.person.user.pathway_stage_id,

@@ -1,24 +1,1083 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`allows for undefined organization 1`] = `
+<View
+  flex={1}
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Array [
+        undefined,
+        Object {
+          "backgroundColor": "transparent",
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#007398",
+          "height": 215,
+          "opacity": 1,
+          "overflow": "hidden",
+          "position": "absolute",
+          "top": 0,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+            Object {
+              "scale": 1,
+            },
+          ],
+          "width": 750,
+        }
+      }
+    >
+      <View>
+        <View />
+      </View>
+    </View>
+    <RCTScrollView
+      onChangeHeaderVisibility={[Function]}
+      onScroll={[Function]}
+      scrollEventThrottle={1}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "height": 215,
+                "opacity": 1,
+                "overflow": "hidden",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 215,
+                }
+              }
+            >
+              <View
+                alignItems="center"
+                flex={1}
+              >
+                <RCTSafeAreaView
+                  emulateUnlessSupported={true}
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "#007398",
+                        "flexDirection": "row",
+                        "height": 65,
+                        "paddingTop": 20,
+                      },
+                      undefined,
+                      null,
+                    ]
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "paddingLeft": 5,
+                        },
+                        Object {
+                          "alignItems": "flex-start",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  />
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "paddingRight": 5,
+                        },
+                        Object {
+                          "alignItems": "flex-end",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  />
+                </RCTSafeAreaView>
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                        },
+                        Object {
+                          "fontSize": 18,
+                        },
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 40,
+                        },
+                      ],
+                      Object {
+                        "fontFamily": "icomoon",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "AmaticSC-Bold",
+                      },
+                      Object {
+                        "color": "#52C5DC",
+                        "fontSize": 36,
+                        "letterSpacing": 2,
+                        "lineHeight": 48,
+                      },
+                    ]
+                  }
+                >
+                  add steps of faith
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "paddingBottom": 36,
+                        "paddingHorizontal": 50,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  What will you do to help Ron experience God?
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Array [
+                Object {
+                  "backgroundColor": "#ECEEF2",
+                },
+              ],
+              Object {
+                "minHeight": 0,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          />
+          <RCTScrollView
+            ListFooterComponent={false}
+            data={Array []}
+            disableVirtualization={false}
+            getItem={[Function]}
+            getItemCount={[Function]}
+            horizontal={false}
+            initialNumToRender={10}
+            keyExtractor={[Function]}
+            maxToRenderPerBatch={10}
+            numColumns={1}
+            onContentSizeChange={[Function]}
+            onEndReachedThreshold={2}
+            onLayout={[Function]}
+            onMomentumScrollEnd={[Function]}
+            onScroll={[Function]}
+            onScrollBeginDrag={[Function]}
+            onScrollEndDrag={[Function]}
+            removeClippedSubviews={false}
+            renderItem={[Function]}
+            scrollEnabled={true}
+            scrollEventThrottle={50}
+            stickyHeaderIndices={Array []}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "paddingVertical": 16,
+              }
+            }
+            updateCellsBatchingPeriod={50}
+            viewabilityConfigCallbackPairs={Array []}
+            windowSize={21}
+          >
+            <View />
+          </RCTScrollView>
+        </View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ECEEF2",
+            }
+          }
+        />
+      </View>
+    </RCTScrollView>
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "height": 65,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "top": 0,
+          "transform": Array [
+            Object {
+              "translateY": -65,
+            },
+          ],
+          "width": 750,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#007398",
+            "height": 65,
+            "opacity": 0,
+            "transform": Array [
+              Object {
+                "translateY": -65,
+              },
+            ],
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "transform": Array [
+                Object {
+                  "translateY": 65,
+                },
+              ],
+            }
+          }
+        >
+          <RCTSafeAreaView
+            emulateUnlessSupported={true}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#007398",
+                  "flexDirection": "row",
+                  "height": 65,
+                  "paddingTop": 20,
+                },
+                undefined,
+                Object {
+                  "elevation": 4,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingLeft": 5,
+                  },
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 5,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                    },
+                  ]
+                }
+              >
+                ADD STEPS OF FAITH
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingRight": 5,
+                  },
+                  Object {
+                    "alignItems": "flex-end",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+          </RCTSafeAreaView>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="BottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "width": 750,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          CREATE YOUR OWN STEP
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {},
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
 exports[`renders correctly 1`] = `
-<Connect(withI18nextTranslation(SelectStepScreen))
-  contact={
-    Object {
-      "id": "123",
+<View
+  flex={1}
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Array [
+        undefined,
+        Object {
+          "backgroundColor": "transparent",
+          "flex": 1,
+        },
+      ]
     }
-  }
-  contactName="Ron"
-  contactStageId={2}
-  createStepTracking={Object {}}
-  enableBackButton={true}
-  enableSkipButton={false}
-  headerText="What will you do to help Ron experience God?"
-  next={[MockFunction]}
-  organization={
-    Object {
-      "id": "889",
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#007398",
+          "height": 215,
+          "opacity": 1,
+          "overflow": "hidden",
+          "position": "absolute",
+          "top": 0,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+            Object {
+              "scale": 1,
+            },
+          ],
+          "width": 750,
+        }
+      }
+    >
+      <View>
+        <View />
+      </View>
+    </View>
+    <RCTScrollView
+      onChangeHeaderVisibility={[Function]}
+      onScroll={[Function]}
+      scrollEventThrottle={1}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "height": 215,
+                "opacity": 1,
+                "overflow": "hidden",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 215,
+                }
+              }
+            >
+              <View
+                alignItems="center"
+                flex={1}
+              >
+                <RCTSafeAreaView
+                  emulateUnlessSupported={true}
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "#007398",
+                        "flexDirection": "row",
+                        "height": 65,
+                        "paddingTop": 20,
+                      },
+                      undefined,
+                      null,
+                    ]
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "paddingLeft": 5,
+                        },
+                        Object {
+                          "alignItems": "flex-start",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  />
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "paddingRight": 5,
+                        },
+                        Object {
+                          "alignItems": "flex-end",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  />
+                </RCTSafeAreaView>
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                        },
+                        Object {
+                          "fontSize": 18,
+                        },
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 40,
+                        },
+                      ],
+                      Object {
+                        "fontFamily": "icomoon",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "AmaticSC-Bold",
+                      },
+                      Object {
+                        "color": "#52C5DC",
+                        "fontSize": 36,
+                        "letterSpacing": 2,
+                        "lineHeight": 48,
+                      },
+                    ]
+                  }
+                >
+                  add steps of faith
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "paddingBottom": 36,
+                        "paddingHorizontal": 50,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  What will you do to help Ron experience God?
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Array [
+                Object {
+                  "backgroundColor": "#ECEEF2",
+                },
+              ],
+              Object {
+                "minHeight": 0,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          />
+          <RCTScrollView
+            ListFooterComponent={false}
+            data={Array []}
+            disableVirtualization={false}
+            getItem={[Function]}
+            getItemCount={[Function]}
+            horizontal={false}
+            initialNumToRender={10}
+            keyExtractor={[Function]}
+            maxToRenderPerBatch={10}
+            numColumns={1}
+            onContentSizeChange={[Function]}
+            onEndReachedThreshold={2}
+            onLayout={[Function]}
+            onMomentumScrollEnd={[Function]}
+            onScroll={[Function]}
+            onScrollBeginDrag={[Function]}
+            onScrollEndDrag={[Function]}
+            removeClippedSubviews={false}
+            renderItem={[Function]}
+            scrollEnabled={true}
+            scrollEventThrottle={50}
+            stickyHeaderIndices={Array []}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "paddingVertical": 16,
+              }
+            }
+            updateCellsBatchingPeriod={50}
+            viewabilityConfigCallbackPairs={Array []}
+            windowSize={21}
+          >
+            <View />
+          </RCTScrollView>
+        </View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ECEEF2",
+            }
+          }
+        />
+      </View>
+    </RCTScrollView>
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "height": 65,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "top": 0,
+          "transform": Array [
+            Object {
+              "translateY": -65,
+            },
+          ],
+          "width": 750,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#007398",
+            "height": 65,
+            "opacity": 0,
+            "transform": Array [
+              Object {
+                "translateY": -65,
+              },
+            ],
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "transform": Array [
+                Object {
+                  "translateY": 65,
+                },
+              ],
+            }
+          }
+        >
+          <RCTSafeAreaView
+            emulateUnlessSupported={true}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#007398",
+                  "flexDirection": "row",
+                  "height": 65,
+                  "paddingTop": 20,
+                },
+                undefined,
+                Object {
+                  "elevation": 4,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingLeft": 5,
+                  },
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 5,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                    },
+                  ]
+                }
+              >
+                ADD STEPS OF FAITH
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingRight": 5,
+                  },
+                  Object {
+                    "alignItems": "flex-end",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+          </RCTSafeAreaView>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="BottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "width": 750,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          CREATE YOUR OWN STEP
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
+      ]
     }
-  }
-  receiverId="123"
-/>
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {},
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
 `;

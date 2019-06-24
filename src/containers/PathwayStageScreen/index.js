@@ -120,6 +120,7 @@ class PathwayStageScreen extends Component {
           <Text style={styles.cardText}>{item.description}</Text>
         </View>
         <Button
+          testID={`StageButton${index}`}
           type="primary"
           pressProps={[item, isActive]}
           onPress={this.setStage}

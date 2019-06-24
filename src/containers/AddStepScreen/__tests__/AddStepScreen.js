@@ -1,8 +1,5 @@
 import { Alert } from 'react-native';
 import React from 'react';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
@@ -10,7 +7,6 @@ import AddStepScreen from '..';
 
 import { renderWithContext } from '../../../../testUtils';
 import { CREATE_STEP, STEP_NOTE } from '../../../constants';
-import * as common from '../../../utils/common';
 import locale from '../../../i18n/locales/en-US';
 
 //fixed in steps-improvement
@@ -26,17 +22,35 @@ const nextResult = { type: 'next' };
 const auth = { person: { id: '123123' } };
 
 const text = 'Comment';
+const stepId = '1112';
+const personId = '2221';
+const orgId = '333';
 
 beforeEach(() => {
   next.mockReturnValue(nextResult);
 });
 
-const createStepParams = { type: CREATE_STEP };
-const journeyParams = { type: 'journey' };
-const editJourneyParams = { type: 'editJourney', isEdit: true, text };
-const stepNoteParams = { type: STEP_NOTE };
-const myStepNoteParams = { type: STEP_NOTE, personId: auth.person.id };
-const stepNoteEditParams = { type: STEP_NOTE, isEdit: true, text };
+const baseParams = { stepId, personId, orgId };
+const createStepParams = { ...baseParams, type: CREATE_STEP };
+const journeyParams = { ...baseParams, type: 'journey' };
+const editJourneyParams = {
+  ...baseParams,
+  type: 'editJourney',
+  isEdit: true,
+  text,
+};
+const stepNoteParams = { ...baseParams, type: STEP_NOTE };
+const myStepNoteParams = {
+  ...baseParams,
+  type: STEP_NOTE,
+  personId: auth.person.id,
+};
+const stepNoteEditParams = {
+  ...baseParams,
+  type: STEP_NOTE,
+  isEdit: true,
+  text,
+};
 const myStepNoteEditParams = {
   type: STEP_NOTE,
   isEdit: true,
@@ -135,14 +149,14 @@ it('saves step', () => {
 
   fireEvent.changeText(getByTestId('textInput'), text);
 
-  fireEvent.press(getByTestId('bottomButton'));
+  fireEvent.press(getByTestId('BottomButton'));
 
   expect(store.getActions()).toEqual([nextResult]);
   expect(next).toHaveBeenCalledWith({
     text,
-    stepId: undefined,
-    personId: undefined,
-    orgId: undefined,
+    stepId,
+    personId,
+    orgId,
   });
 });
 
@@ -159,15 +173,15 @@ it('saves step with onSetComplete', async () => {
 
   fireEvent.changeText(getByTestId('textInput'), text);
 
-  await fireEvent.press(getByTestId('bottomButton'));
+  await fireEvent.press(getByTestId('BottomButton'));
 
   expect(store.getActions()).toEqual([nextResult]);
   expect(onSetComplete).toHaveBeenCalledWith();
   expect(next).toHaveBeenCalledWith({
     text,
-    stepId: undefined,
-    personId: undefined,
-    orgId: undefined,
+    stepId,
+    personId,
+    orgId,
   });
 });
 
@@ -187,9 +201,9 @@ it('skips save step', () => {
   expect(store.getActions()).toEqual([nextResult]);
   expect(next).toHaveBeenCalledWith({
     text: undefined,
-    stepId: undefined,
-    personId: undefined,
-    orgId: undefined,
+    stepId,
+    personId,
+    orgId,
   });
 });
 
@@ -209,7 +223,7 @@ describe('Caps create step at 255 characters', () => {
 
     fireEvent.changeText(getByTestId('textInput'), twoFiftyFour);
 
-    fireEvent.press(getByTestId('bottomButton'));
+    fireEvent.press(getByTestId('BottomButton'));
 
     expect(Alert.alert).not.toHaveBeenCalled();
   });
@@ -222,7 +236,7 @@ describe('Caps create step at 255 characters', () => {
 
     fireEvent.changeText(getByTestId('textInput'), twoFiftyFive);
 
-    fireEvent.press(getByTestId('bottomButton'));
+    fireEvent.press(getByTestId('BottomButton'));
 
     expect(Alert.alert).toHaveBeenCalledWith('', makeShorter);
   });

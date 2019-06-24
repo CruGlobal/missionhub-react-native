@@ -72,7 +72,7 @@ const mapStateToProps = (
           contactId,
           contactStage,
           contact,
-          organization,
+          organization = {},
           enableBackButton,
           enableSkipButton,
         },

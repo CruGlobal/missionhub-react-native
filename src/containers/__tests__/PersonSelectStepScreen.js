@@ -2,57 +2,51 @@ import 'react-native';
 import React from 'react';
 
 import PersonSelectStepScreen from '../PersonSelectStepScreen';
-import {
-  createMockNavState,
-  createThunkStore,
-  testSnapshotShallow,
-  renderShallow,
-} from '../../../testUtils';
+import { contactAssignmentSelector } from '../../selectors/people';
+import { renderWithContext } from '../../../testUtils';
+
+jest.mock('../../selectors/people');
 
 const myId = '14312';
 const contactId = '123';
+const stageId = '2';
 const organization = { id: '889' };
-const mockState = {
+const contactAssignment = { id: '444', pathway_stage_id: stageId };
+
+const initialState = {
   personProfile: {},
   auth: {
     person: {
       id: myId,
     },
   },
+  steps: {
+    suggestedForOthers: {},
+  },
 };
 
-const navProps = {
+const navParams = {
   contactName: 'Ron',
   contactId: contactId,
-  contactStage: { id: 2 },
+  contactStage: { id: stageId },
   contact: { id: contactId },
-  createStepTracking: {},
   organization,
-  next: jest.fn(),
   enableBackButton: true,
   enableSkipButton: false,
 };
 
-const store = createThunkStore(mockState);
-
-jest.mock('react-native-device-info');
-jest.mock('../../selectors/people');
-
 it('renders correctly', () => {
-  testSnapshotShallow(
-    <PersonSelectStepScreen navigation={createMockNavState(navProps)} />,
-    store,
-  );
+  contactAssignmentSelector.mockReturnValue(contactAssignment);
+  renderWithContext(<PersonSelectStepScreen next={jest.fn()} />, {
+    initialState,
+    navParams,
+  }).snapshot();
 });
 
 it('allows for undefined organization', () => {
-  renderShallow(
-    <PersonSelectStepScreen
-      navigation={createMockNavState({
-        ...navProps,
-        organization: undefined,
-      })}
-    />,
-    store,
-  );
+  contactAssignmentSelector.mockReturnValue(contactAssignment);
+  renderWithContext(<PersonSelectStepScreen next={jest.fn()} />, {
+    initialState,
+    navParams: { ...navParams, organization: undefined },
+  }).snapshot();
 });
