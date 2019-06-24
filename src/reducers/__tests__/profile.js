@@ -1,5 +1,5 @@
 import profile from '../profile';
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 import { STASH_COMMUNITY_TO_JOIN } from '../../constants';
 
 const testNameSaved = type => {

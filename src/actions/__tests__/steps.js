@@ -4,7 +4,8 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import i18next from 'i18next';
 
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 import {
   completeStep,
   getStepSuggestions,

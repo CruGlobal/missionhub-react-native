@@ -26,7 +26,8 @@ import {
   getPersonNote,
   navToPersonScreen,
 } from '../person';
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 import * as analytics from '../analytics';
 import { navigatePush } from '../navigation';
 import {

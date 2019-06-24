@@ -1,5 +1,5 @@
 import impact from '../impact';
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 import { UPDATE_PEOPLE_INTERACTION_REPORT } from '../../constants';
 
 it('should update person impact reports', () => {

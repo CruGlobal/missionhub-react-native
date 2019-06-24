@@ -1,4 +1,5 @@
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 
 import { authSuccess } from './userData';
 import { firstTime } from './userData';

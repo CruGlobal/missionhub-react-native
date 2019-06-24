@@ -1,8 +1,9 @@
 /* eslint max-params: 0, max-lines-per-function: 0 */
 
 import { ACTIONS } from '../constants';
+import { REQUESTS } from '../api/routes';
 
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 import { trackAction, trackActionWithoutData } from './analytics';
 import { refreshImpact } from './impact';
 import { reloadGroupCelebrateFeed } from './celebration';

@@ -31,7 +31,8 @@ import {
   NOTIFICATION_PROMPT_TYPES,
 } from '../../constants';
 import * as common from '../../utils/common';
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 import { navigateReset } from '../navigation';
 import {
   GROUP_SCREEN,

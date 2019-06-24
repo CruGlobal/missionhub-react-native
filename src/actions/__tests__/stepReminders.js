@@ -3,7 +3,8 @@ import thunk from 'redux-thunk';
 
 import { DAYS_OF_THE_WEEK, REMINDER_RECURRENCES } from '../../constants';
 import { removeStepReminder, createStepReminder } from '../stepReminders';
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 
 jest.mock('../api');
 

@@ -16,7 +16,8 @@ import {
   ERROR_PERSON_PART_OF_ORG,
   GLOBAL_COMMUNITY_ID,
 } from '../../constants';
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 import { trackActionWithoutData } from '../analytics';
 import {
   getMyOrganizations,

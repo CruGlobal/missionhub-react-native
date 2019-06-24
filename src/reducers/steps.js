@@ -1,6 +1,6 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
 
-import { REQUESTS } from '../actions/api';
+import { REQUESTS } from '../api/routes';
 import {
   LOGOUT,
   TOGGLE_STEP_FOCUS,

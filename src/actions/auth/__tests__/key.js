@@ -7,7 +7,7 @@ import Config from 'react-native-config';
 import randomString from 'random-string';
 
 import * as callApi from '../../api';
-import { REQUESTS } from '../../api';
+import { REQUESTS } from '../../../api/routes';
 import * as constants from '../../../constants';
 import {
   keyLogin,

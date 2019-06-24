@@ -16,7 +16,7 @@ import {
   UPDATE_CHALLENGE,
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
-import { REQUESTS } from '../actions/api';
+import { REQUESTS } from '../api/routes';
 import { getPagination } from '../utils/common';
 
 const globalCommunity = {

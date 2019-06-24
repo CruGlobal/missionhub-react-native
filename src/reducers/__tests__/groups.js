@@ -1,4 +1,4 @@
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 import groups from '../groups';
 
 it('loads my groups', () => {

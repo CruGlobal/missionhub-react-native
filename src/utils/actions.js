@@ -6,7 +6,8 @@ import {
   RESET_CELEBRATION_PAGINATION,
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
-import callApi, { REQUESTS } from '../actions/api';
+import callApi from '../actions/api';
+import { REQUESTS } from '../api/routes';
 import { organizationSelector } from '../selectors/organizations';
 
 // Challenge and Celebrate action helpers
