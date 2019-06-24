@@ -2,7 +2,8 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { addNewInteraction, editComment } from '../interactions';
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 import { trackActionWithoutData, trackAction } from '../analytics';
 import { refreshImpact } from '../impact';
 import { ACTIONS, INTERACTION_TYPES } from '../../constants';

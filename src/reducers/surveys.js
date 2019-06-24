@@ -1,4 +1,4 @@
-import { REQUESTS } from '../actions/api';
+import { REQUESTS } from '../api/routes';
 import { LOGOUT } from '../constants';
 
 const initialState = {

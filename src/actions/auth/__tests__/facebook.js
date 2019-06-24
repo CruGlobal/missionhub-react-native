@@ -4,7 +4,8 @@ import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import callApi, { REQUESTS } from '../../api';
+import callApi from '../../api';
+import { REQUESTS } from '../../../api/routes';
 import {
   ANALYTICS,
   ANALYTICS_CONTEXT_CHANGED,

@@ -3,7 +3,7 @@
 import { JsonApiDataStore } from 'jsonapi-datastore';
 
 import request from './utils';
-import apiRoutes from './routes';
+import { REQUESTS, ApiRouteConfig } from './routes';
 
 const VALID_METHODS = ['get', 'put', 'post', 'delete'];
 
@@ -18,7 +18,7 @@ const API_CALLS: {
     response?: {};
     sessionHeader: string;
   }>;
-} = Object.entries(apiRoutes).reduce(
+} = Object.entries(REQUESTS as ApiRouteConfig).reduce(
   (acc, [key, routeData]) => ({
     ...acc,
     [key]: async (

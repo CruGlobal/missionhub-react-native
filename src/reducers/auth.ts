@@ -8,7 +8,7 @@ import {
   UPDATE_TOKEN,
 } from '../constants';
 import { userIsJean, getLocalizedStages } from '../utils/common';
-import { REQUESTS } from '../actions/api';
+import { REQUESTS } from '../api/routes';
 
 export interface AuthState {
   isFirstTime: boolean;

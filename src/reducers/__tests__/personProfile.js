@@ -1,5 +1,5 @@
 import personProfile from '../personProfile';
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 import {
   PERSON_FIRST_NAME_CHANGED,
   PERSON_LAST_NAME_CHANGED,

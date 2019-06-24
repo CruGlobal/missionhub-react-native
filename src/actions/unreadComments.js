@@ -1,4 +1,6 @@
-import callApi, { REQUESTS } from './api';
+import { REQUESTS } from '../api/routes';
+
+import callApi from './api';
 
 export function markCommentsRead(orgId) {
   return async dispatch => {

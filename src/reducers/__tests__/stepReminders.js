@@ -1,4 +1,4 @@
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 import stepReminders from '../stepReminders';
 
 const challenge_id = '10043234';

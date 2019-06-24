@@ -1,6 +1,7 @@
 /* eslint max-params: 0 */
 
-import { REQUESTS } from './api';
+import { REQUESTS } from '../api/routes';
+
 import callApi from './api';
 import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';

@@ -20,10 +20,11 @@ import {
   COMPLETE_STEP_FLOW,
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
 } from '../routes/constants';
+import { REQUESTS } from '../api/routes';
 
 import { refreshImpact } from './impact';
 import { navigatePush } from './navigation';
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 import { trackAction, trackStepAdded } from './analytics';
 import { reloadGroupCelebrateFeed } from './celebration';
 

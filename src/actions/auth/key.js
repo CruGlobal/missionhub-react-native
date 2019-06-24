@@ -7,7 +7,8 @@ import randomString from 'random-string';
 import Config from 'react-native-config';
 
 import { THE_KEY_CLIENT_ID } from '../../constants';
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 
 import { retryIfInvalidatedClientToken } from './auth';
 import { authSuccess } from './userData';

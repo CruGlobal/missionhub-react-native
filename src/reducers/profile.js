@@ -4,7 +4,7 @@ import {
   LAST_NAME_CHANGED,
   STASH_COMMUNITY_TO_JOIN,
 } from '../constants';
-import { REQUESTS } from '../actions/api';
+import { REQUESTS } from '../api/routes';
 
 const initialProfileState = {
   firstName: '',

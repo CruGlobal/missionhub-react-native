@@ -3,7 +3,7 @@ import {
   SET_CELEBRATE_EDITING_COMMENT,
   RESET_CELEBRATE_EDITING_COMMENT,
 } from '../constants';
-import { REQUESTS } from '../actions/api';
+import { REQUESTS } from '../api/routes';
 import { getPagination } from '../utils/common';
 
 const initialState = {

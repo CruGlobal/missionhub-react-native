@@ -16,11 +16,12 @@ import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
+import { REQUESTS } from '../api/routes';
 
 import { navigateToOrg } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
 import { navigatePush, navigateBack, navigateToMainTabs } from './navigation';
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 
 export function showNotificationPrompt(notificationType, doNotNavigateBack) {
   return (dispatch, getState) => {

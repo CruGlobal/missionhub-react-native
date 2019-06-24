@@ -1,7 +1,8 @@
 import { ACTIONS } from '../constants';
 import { formatApiDate } from '../utils/common';
+import { REQUESTS } from '../api/routes';
 
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 
 export function reportComment(orgId, item) {

@@ -5,7 +5,7 @@ import MockDate from 'mockdate';
 import * as RNOmniture from 'react-native-omniture';
 
 import * as callApi from '../../api';
-import { REQUESTS } from '../../api';
+import { REQUESTS } from '../../../api/routes';
 import {
   updateLocaleAndTimezone,
   firstTime,

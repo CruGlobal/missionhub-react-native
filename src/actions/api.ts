@@ -4,7 +4,7 @@ import { ThunkAction } from 'redux-thunk';
 
 import API_CALLS from '../api';
 // import { logoutAction, toastAction } from './auth';
-import apiRoutes, { ApiRouteConfigEntry } from '../api/routes';
+import { REQUESTS, ApiRouteConfigEntry } from '../api/routes';
 import { isObject } from '../utils/common';
 import {
   EXPIRED_ACCESS_TOKEN,
@@ -21,35 +21,10 @@ import { refreshMissionHubFacebookAccess } from './auth/facebook';
 // WARNING: You shouldn't have to touch this file to change routes/mapping
 // Put new routes in '../api/routes';
 
-type ApiRouteConfigWitNamesEntry = ApiRouteConfigEntry & {
-  name: string;
-  FETCH: string;
-  SUCCESS: string;
-};
-
-interface ApiRouteConfigWitNames {
-  [key: string]: ApiRouteConfigWitNamesEntry;
-}
-
-// Setup the requests to be used for this file
-const REQUESTS: ApiRouteConfigWitNames = Object.entries(apiRoutes).reduce(
-  (acc, [key, data]) => ({
-    ...acc,
-    [key]: {
-      ...data,
-      name: key,
-      FETCH: `${key}_FETCH`,
-      SUCCESS: `${key}_SUCCESS`,
-    },
-  }),
-  {},
-);
-export { REQUESTS };
-
 const METHODS_WITH_DATA = ['put', 'post', 'delete'];
 
 export default function callApi(
-  action: ApiRouteConfigWitNamesEntry,
+  action: ApiRouteConfigEntry,
   query: { [key: string]: string } = {},
   data: { [key: string]: any } = {},
 ): ThunkAction<

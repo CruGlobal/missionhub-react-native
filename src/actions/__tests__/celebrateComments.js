@@ -15,7 +15,8 @@ import {
   resetCelebrateEditingComment,
   setCelebrateEditingComment,
 } from '../celebrateComments';
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import { trackActionWithoutData } from '../analytics';
 import { ACTIONS } from '../../constants';
