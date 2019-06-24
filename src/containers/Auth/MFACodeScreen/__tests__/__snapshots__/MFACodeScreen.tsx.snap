@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`changes text 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+  <MFACodeComponent
+    isLoading={false}
+    onChangeText={[Function bound dispatchAction]}
+    onSubmit={[Function completeMfa]}
+    testID=\\"MFACodeComponent\\"
+-   value=\\"\\"
++   value=\\"123456\\"
+  />"
+`;
+
+exports[`onSubmit it throws unexpected errors 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
+exports[`onSubmit logs in with email, password, mfa code, and upgrade account 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+  <MFACodeComponent
+-   isLoading={false}
++   isLoading={true}
+    onChangeText={[Function bound dispatchAction]}
+    onSubmit={[Function completeMfa]}
+    testID=\\"MFACodeComponent\\"
+    value=\\"123456\\"
+  />"
+`;
+
+exports[`onSubmit shows error modal if mfa code is incorrect 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
+exports[`renders correctly 1`] = `
+<MFACodeComponent
+  isLoading={false}
+  onChangeText={[Function]}
+  onSubmit={[Function]}
+  testID="MFACodeComponent"
+  value=""
+/>
+`;
