@@ -38,6 +38,7 @@ exports[`OnboardingCard render celebrate card 1`] = `
       }
     />
     <MyText
+      header={true}
       style={
         Object {
           "color": "#007398",
@@ -46,7 +47,6 @@ exports[`OnboardingCard render celebrate card 1`] = `
           "textAlign": "center",
         }
       }
-      type="header"
     >
       Celebrate One Another
     </MyText>
@@ -136,6 +136,7 @@ exports[`OnboardingCard render challenges card 1`] = `
       }
     />
     <MyText
+      header={true}
       style={
         Object {
           "color": "#007398",
@@ -144,7 +145,6 @@ exports[`OnboardingCard render challenges card 1`] = `
           "textAlign": "center",
         }
       }
-      type="header"
     >
       Our Challenges
     </MyText>
@@ -234,6 +234,7 @@ exports[`OnboardingCard render contacts card 1`] = `
       }
     />
     <MyText
+      header={true}
       style={
         Object {
           "color": "#007398",
@@ -242,7 +243,6 @@ exports[`OnboardingCard render contacts card 1`] = `
           "textAlign": "center",
         }
       }
-      type="header"
     >
       Journey Together
     </MyText>
@@ -332,6 +332,7 @@ exports[`OnboardingCard render impact card 1`] = `
       }
     />
     <MyText
+      header={true}
       style={
         Object {
           "color": "#007398",
@@ -340,7 +341,6 @@ exports[`OnboardingCard render impact card 1`] = `
           "textAlign": "center",
         }
       }
-      type="header"
     >
       See God at Work
     </MyText>
@@ -430,6 +430,7 @@ exports[`OnboardingCard render members card 1`] = `
       }
     />
     <MyText
+      header={true}
       style={
         Object {
           "color": "#007398",
@@ -438,7 +439,6 @@ exports[`OnboardingCard render members card 1`] = `
           "textAlign": "center",
         }
       }
-      type="header"
     >
       Journey Together
     </MyText>
@@ -528,6 +528,7 @@ exports[`OnboardingCard render surveys card 1`] = `
       }
     />
     <MyText
+      header={true}
       style={
         Object {
           "color": "#007398",
@@ -536,7 +537,6 @@ exports[`OnboardingCard render surveys card 1`] = `
           "textAlign": "center",
         }
       }
-      type="header"
     >
       Grow Together
     </MyText>

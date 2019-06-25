@@ -52,7 +52,7 @@ class SetupScreen extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <Flex value={2} justify="end" align="center">
-          <Text type="header" style={styles.header}>
+          <Text header={true} style={styles.header}>
             {t('namePrompt')}
           </Text>
         </Flex>

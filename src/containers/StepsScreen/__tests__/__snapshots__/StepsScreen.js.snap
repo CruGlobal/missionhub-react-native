@@ -132,6 +132,7 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
           }
         />
         <MyText
+          header={true}
           style={
             Object {
               "color": "#007398",
@@ -139,7 +140,6 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
               "paddingTop": 10,
             }
           }
-          type="header"
         >
           STEPS OF FAITH
         </MyText>
@@ -715,6 +715,7 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
         type="MissionHub"
       />
       <MyText
+        header={true}
         style={
           Object {
             "color": "#ffffff",
@@ -722,7 +723,6 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
             "textAlign": "center",
           }
         }
-        type="header"
       >
         FOCUS YOUR WEEK
       </MyText>
@@ -934,6 +934,7 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
           }
         />
         <MyText
+          header={true}
           style={
             Object {
               "color": "#007398",
@@ -941,7 +942,6 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
               "paddingTop": 10,
             }
           }
-          type="header"
         >
           STEPS OF FAITH
         </MyText>

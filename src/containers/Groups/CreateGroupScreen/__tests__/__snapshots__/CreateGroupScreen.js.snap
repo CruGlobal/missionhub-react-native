@@ -81,6 +81,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
           }
         >
           <MyText
+            header={true}
             style={
               Object {
                 "color": "#66D9F0",
@@ -89,7 +90,6 @@ exports[`CreateGroupScreen renders correctly 1`] = `
                 "textAlign": "center",
               }
             }
-            type="header"
           >
             Community Name
           </MyText>
@@ -211,6 +211,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
           }
         >
           <MyText
+            header={true}
             style={
               Object {
                 "color": "#66D9F0",
@@ -219,7 +220,6 @@ exports[`CreateGroupScreen should update the image 1`] = `
                 "textAlign": "center",
               }
             }
-            type="header"
           >
             Community Name
           </MyText>

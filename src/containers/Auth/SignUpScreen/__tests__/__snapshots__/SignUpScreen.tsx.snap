@@ -60,6 +60,7 @@ exports[`renders correctly for Create Community 1`] = `
             }
           />
 +         <Text
++           header={true}
 +           style={
 +             Object {
 +               \\"color\\": \\"#52C5DC\\",
@@ -67,7 +68,6 @@ exports[`renders correctly for Create Community 1`] = `
 +               \\"letterSpacing\\": 2,
 +             }
 +           }
-+           type=\\"header\\"
 +         >
 +           CREATE A COMMUNITY
 +         </Text>

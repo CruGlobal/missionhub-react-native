@@ -53,7 +53,7 @@ exports[`render for active challenge 1`] = `
       >
         End Date
       </MyText>
-      <withI18nextTranslation(DateComponent)
+      <DateComponent
         date="2018-09-22"
         format="dddd, LL"
         style={
@@ -155,7 +155,7 @@ exports[`render for active challenge with edit 1`] = `
       >
         End Date
       </MyText>
-      <withI18nextTranslation(DateComponent)
+      <DateComponent
         date="2018-09-22"
         format="dddd, LL"
         style={
@@ -240,7 +240,7 @@ exports[`render for past challenge 1`] = `
       >
         End Date
       </MyText>
-      <withI18nextTranslation(DateComponent)
+      <DateComponent
         date="2018-09-22"
         format="dddd, LL"
         style={

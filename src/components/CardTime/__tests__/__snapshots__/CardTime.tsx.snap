@@ -8,6 +8,7 @@ exports[`renders correctly 1`] = `
       "fontSize": 12,
     }
   }
+  testID="Text"
 >
   1:51 PM
 </MyText>
@@ -21,6 +22,7 @@ exports[`renders correctly with format 1`] = `
       "fontSize": 12,
     }
   }
+  testID="Text"
 >
   Monday @ 1:51 PM
 </MyText>

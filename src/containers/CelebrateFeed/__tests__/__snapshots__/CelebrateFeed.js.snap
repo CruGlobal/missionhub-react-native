@@ -222,7 +222,7 @@ exports[`renders section header 1`] = `
     }
   }
 >
-  <withI18nextTranslation(DateComponent)
+  <DateComponent
     date="2018-08-13T12:00:00.000Z"
     format="relative"
     style={

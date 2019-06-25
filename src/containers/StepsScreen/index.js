@@ -188,7 +188,7 @@ export class StepsScreen extends Component {
         style={[styles.top, styles.topEmpty]}
       >
         <Icon name="starGroupIcon" type="MissionHub" size={45} />
-        <Text type="header" style={styles.title}>
+        <Text header={true} style={styles.title}>
           {t('reminderTitle').toUpperCase()}
         </Text>
         <Text style={styles.description}>{t('reminderDescription')}</Text>
@@ -237,7 +237,7 @@ export class StepsScreen extends Component {
       return (
         <Flex value={1} align="center" justify="center">
           <Image source={NULL} />
-          <Text type="header" style={styles.nullHeader}>
+          <Text header={true} style={styles.nullHeader}>
             {t('nullHeader')}
           </Text>
           <Text style={styles.nullText}>

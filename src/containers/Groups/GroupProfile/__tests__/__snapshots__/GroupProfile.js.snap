@@ -162,7 +162,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           >
             Created
           </MyText>
-          <withI18nextTranslation(DateComponent)
+          <DateComponent
             date="2018-11-06T12:00:00Z"
             format="LL"
             style={
@@ -530,7 +530,7 @@ exports[`GroupProfile renders correctly 1`] = `
           >
             Created
           </MyText>
-          <withI18nextTranslation(DateComponent)
+          <DateComponent
             date="2018-11-06T12:00:00Z"
             format="LL"
             style={
@@ -888,7 +888,7 @@ exports[`GroupProfile renders with image 1`] = `
           >
             Created
           </MyText>
-          <withI18nextTranslation(DateComponent)
+          <DateComponent
             date="2018-11-06T12:00:00Z"
             format="LL"
             style={
@@ -1246,7 +1246,7 @@ exports[`GroupProfile renders without edit button 1`] = `
           >
             Created
           </MyText>
-          <withI18nextTranslation(DateComponent)
+          <DateComponent
             date="2018-11-06T12:00:00Z"
             format="LL"
             style={
