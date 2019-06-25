@@ -21,7 +21,6 @@ import { trackStepAdded, trackAction } from '../analytics';
 import * as navigation from '../navigation';
 import * as common from '../../utils/common';
 import { buildTrackingObj } from '../../utils/common';
-import { buildCustomStep } from '../../utils/steps';
 import {
   ACTIONS,
   COMPLETED_STEP_COUNT,
