@@ -23,14 +23,14 @@ beforeEach(() => {
 });
 
 it('renders correctly', () => {
-  renderWithContext(AddSomeoneScreen).snapshot();
+  renderWithContext(<AddSomeoneScreen />).snapshot();
 });
 
 describe('onComplete', () => {
   it('calls next', () => {
-    const { getByTestId, store } = renderWithContext(AddSomeoneScreen, {
-      componentProps: { next },
-    });
+    const { getByTestId, store } = renderWithContext(
+      <AddSomeoneScreen next={next} />,
+    );
 
     fireEvent.press(getByTestId('bottomButton'));
 
@@ -39,7 +39,7 @@ describe('onComplete', () => {
   });
 
   it('navigates to SETUP_PERSON_SCREEN', () => {
-    const { getByTestId, store } = renderWithContext(AddSomeoneScreen);
+    const { getByTestId, store } = renderWithContext(<AddSomeoneScreen />);
 
     fireEvent.press(getByTestId('bottomButton'));
 
@@ -50,9 +50,9 @@ describe('onComplete', () => {
 
 describe('onSkip prop', () => {
   it('calls next', () => {
-    const { getByTestId, store } = renderWithContext(AddSomeoneScreen, {
-      componentProps: { next },
-    });
+    const { getByTestId, store } = renderWithContext(
+      <AddSomeoneScreen next={next} />,
+    );
 
     fireEvent.press(getByTestId('skipButton'));
 
@@ -61,7 +61,7 @@ describe('onSkip prop', () => {
   });
 
   it('calls skipOnboarding', () => {
-    const { getByTestId, store } = renderWithContext(AddSomeoneScreen);
+    const { getByTestId, store } = renderWithContext(<AddSomeoneScreen />);
 
     fireEvent.press(getByTestId('skipButton'));
 

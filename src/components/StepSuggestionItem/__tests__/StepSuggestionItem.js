@@ -13,15 +13,15 @@ const onPress = jest.fn();
 
 describe('StepSuggestionItem', () => {
   it('renders correctly', () => {
-    renderWithContext(StepSuggestionItem, {
-      componentProps: { step, onPress },
-    }).snapshot();
+    renderWithContext(
+      <StepSuggestionItem step={step} onPress={onPress} />,
+    ).snapshot();
   });
 
   it('calls onPress', () => {
-    const { getByTestId } = renderWithContext(StepSuggestionItem, {
-      componentProps: { step, onPress },
-    });
+    const { getByTestId } = renderWithContext(
+      <StepSuggestionItem step={step} onPress={onPress} />,
+    );
 
     fireEvent.press(getByTestId('stepSuggestionCard'));
 
