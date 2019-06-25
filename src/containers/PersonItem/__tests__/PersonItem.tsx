@@ -8,7 +8,7 @@ import {
   testSnapshot,
 } from '../../../../testUtils';
 
-import PeopleItem from '..';
+import PersonItem from '..';
 
 import { navigatePush } from '../../../actions/navigation';
 import { PERSON_STAGE_SCREEN } from '../../PersonStageScreen';
@@ -93,7 +93,7 @@ it('renders me correctly', () => {
 
   testSnapshot(
     <Provider store={store}>
-      <PeopleItem
+      <PersonItem
         onSelect={onSelect}
         person={mePerson}
         organization={mockPersonalMinistry}
@@ -110,7 +110,7 @@ it('renders personal ministry contact correctly', () => {
 
   testSnapshot(
     <Provider store={store}>
-      <PeopleItem
+      <PersonItem
         onSelect={onSelect}
         person={mockPerson}
         organization={mockPersonalMinistry}
@@ -127,7 +127,7 @@ it('renders cru org contact correctly', () => {
 
   testSnapshot(
     <Provider store={store}>
-      <PeopleItem
+      <PersonItem
         onSelect={onSelect}
         person={mockPerson}
         organization={mockOrganization}
@@ -144,7 +144,7 @@ it('renders cru org contact without stage correctly', () => {
 
   testSnapshot(
     <Provider store={store}>
-      <PeopleItem
+      <PersonItem
         onSelect={onSelect}
         person={{
           ...mockPerson,
@@ -164,7 +164,7 @@ it('renders uncontacted cru org contact correctly', () => {
 
   testSnapshot(
     <Provider store={store}>
-      <PeopleItem
+      <PersonItem
         onSelect={onSelect}
         person={{
           ...mockPerson,
@@ -184,7 +184,7 @@ it('renders cru org member correctly', () => {
 
   testSnapshot(
     <Provider store={store}>
-      <PeopleItem
+      <PersonItem
         onSelect={jest.fn()}
         person={mockPerson}
         organization={mockOrganization}
@@ -198,7 +198,7 @@ it('renders cru org member correctly', () => {
 describe('handleChangeStage', () => {
   it('navigates to person stage screen', () => {
     shallowScreen = renderShallow(
-      <PeopleItem
+      <PersonItem
         onSelect={onSelect}
         person={{
           ...mockPerson,
@@ -235,7 +235,7 @@ describe('handleChangeStage', () => {
 describe('item selected', () => {
   it('calls onSelect', () => {
     shallowScreen = renderShallow(
-      <PeopleItem
+      <PersonItem
         onSelect={onSelect}
         person={mockPerson}
         organization={mockOrganization}
