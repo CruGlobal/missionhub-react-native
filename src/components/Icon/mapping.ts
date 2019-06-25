@@ -1,6 +1,6 @@
 // Pick different icons based on the platform
 
-interface Obj {
+interface IconMapping {
   [key: string]: {
     android: {
       type: 'Material' | 'FontAwesome' | 'Ionicons' | 'MissionHub';
@@ -13,7 +13,7 @@ interface Obj {
   };
 }
 
-const mapping: Obj = {
+const mapping: IconMapping = {
   'arrow-back': {
     android: { type: 'Material', name: 'arrow-back' },
     ios: { type: 'Material', name: 'arrow-back' },
