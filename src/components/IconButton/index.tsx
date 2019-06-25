@@ -28,7 +28,12 @@ const IconButton = ({
     }
   };
   return (
-    <Button type="transparent" {...rest} onPress={handlePress} testID="Button">
+    <Button
+      type="transparent"
+      {...rest}
+      onPress={handlePress}
+      testID="IconButton"
+    >
       <Icon
         name={name}
         type={type}

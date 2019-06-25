@@ -49,7 +49,7 @@ it('presses icon button', () => {
       {
         noWrappers: true,
       },
-    ).getByTestId('Button'),
+    ).getByTestId('IconButton'),
   );
   expect(onPress).toHaveBeenCalledWith('test');
 });

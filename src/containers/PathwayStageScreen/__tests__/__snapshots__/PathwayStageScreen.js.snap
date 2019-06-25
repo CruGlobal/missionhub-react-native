@@ -68,6 +68,7 @@ exports[`renders back button correctly 1`] = `
           "opacity": 1,
         }
       }
+      testID="IconButton"
     >
       <View
         style={

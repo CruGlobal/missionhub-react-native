@@ -158,6 +158,7 @@ exports[`renders correctly 1`] = `
           "opacity": 1,
         }
       }
+      testID="IconButton"
     >
       <View
         style={
@@ -369,6 +370,7 @@ exports[`renders edit journey correctly 1`] = `
           "opacity": 1,
         }
       }
+      testID="IconButton"
     >
       <View
         style={
@@ -580,6 +582,7 @@ exports[`renders interaction with skip correctly 1`] = `
           "opacity": 1,
         }
       }
+      testID="IconButton"
     >
       <View
         style={
@@ -870,6 +873,7 @@ exports[`renders interaction without skip correctly 1`] = `
           "opacity": 1,
         }
       }
+      testID="IconButton"
     >
       <View
         style={
@@ -1081,6 +1085,7 @@ exports[`renders journey correctly 1`] = `
           "opacity": 1,
         }
       }
+      testID="IconButton"
     >
       <View
         style={
@@ -1292,6 +1297,7 @@ exports[`renders step note correctly 1`] = `
           "opacity": 1,
         }
       }
+      testID="IconButton"
     >
       <View
         style={
@@ -1582,6 +1588,7 @@ exports[`renders step note correctly for me 1`] = `
           "opacity": 1,
         }
       }
+      testID="IconButton"
     >
       <View
         style={

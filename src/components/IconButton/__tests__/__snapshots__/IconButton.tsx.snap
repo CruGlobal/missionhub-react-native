@@ -15,7 +15,7 @@ exports[`renders correctly 1`] = `
       "opacity": 1,
     }
   }
-  testID="Button"
+  testID="IconButton"
 >
   <View
     style={
@@ -81,7 +81,7 @@ exports[`renders correctly without onpress 1`] = `
       "opacity": 1,
     }
   }
-  testID="Button"
+  testID="IconButton"
 >
   <View
     style={
