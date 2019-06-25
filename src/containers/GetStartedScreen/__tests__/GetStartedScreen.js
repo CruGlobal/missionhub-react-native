@@ -9,6 +9,7 @@ import { navigatePush } from '../../../actions/navigation';
 import { disableBack } from '../../../utils/common';
 import { STAGE_ONBOARDING_SCREEN } from '../../../containers/StageScreen';
 
+jest.mock('react-native-device-info');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../utils/common');
 

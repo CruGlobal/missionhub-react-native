@@ -6,16 +6,12 @@ import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
-import { navigateBack, navigatePush } from '../../actions/navigation';
-import { addStep } from '../../actions/steps';
-import { buildCustomStep } from '../../utils/steps';
+import { navigateBack } from '../../actions/navigation';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import AbsoluteSkip from '../../components/AbsoluteSkip';
-import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
-import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';

@@ -62,7 +62,7 @@ class GetStartedScreen extends Component {
 }
 
 GetStartedScreen.propTypes = {
-  next: PropTypes.func.isRequired,
+  next: PropTypes.func,
 };
 
 const mapStateToProps = ({ profile }, { next }) => ({

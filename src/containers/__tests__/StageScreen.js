@@ -4,9 +4,11 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { fireEvent } from 'react-native-testing-library';
 
 import StageScreen from '../StageScreen';
 import {
+  renderWithContext,
   createMockNavState,
   renderShallow,
   testSnapshot,
@@ -16,15 +18,24 @@ import * as navigation from '../../actions/navigation';
 
 jest.mock('react-native-device-info');
 
+const myId = '111';
+const mockStage = {
+  id: '0',
+  name: 'uninterested',
+};
+
 const mockState = {
+  auth: {
+    person: {
+      id: myId,
+    },
+  },
   profile: {
     firstName: 'Roger',
   },
-  stages: {},
+  stages: { stages: [mockStage] },
 };
-const mockStage = {
-  id: 1,
-};
+
 const mockCurrentStage = { id: 2 };
 
 const mockComplete = jest.fn();
@@ -58,40 +69,26 @@ beforeEach(() => {
   store = mockStore(mockState);
 });
 
-it('StageScreen renders correctly with back button', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <StageScreen
-        navigation={createMockNavState({
-          enableBackButton: true,
-          section: 'section',
-          subsection: 'subsection',
-        })}
-      />
-    </Provider>,
-  );
+it('renders correctly with back button', () => {
+  renderWithContext(<StageScreen />, {
+    initialState: mockState,
+    navParams: {
+      enableBackButton: true,
+      section: 'section',
+      subsection: 'subsection',
+    },
+  }).snapshot();
 });
 
-describe('StageScreen', () => {
-  let tree;
-
-  beforeEach(() => {
-    tree = renderer.create(
-      <Provider store={store}>
-        <StageScreen
-          navigation={createMockNavState({
-            enableBackButton: false,
-            section: 'section',
-            subsection: 'subsection',
-          })}
-        />
-      </Provider>,
-    );
-  });
-
-  it('renders correctly without back button', () => {
-    expect(tree.toJSON()).toMatchSnapshot();
-  });
+it('renders correctly without back button', () => {
+  renderWithContext(<StageScreen />, {
+    initialState: mockState,
+    navParams: {
+      enableBackButton: false,
+      section: 'section',
+      subsection: 'subsection',
+    },
+  }).snapshot();
 });
 
 describe('handleSelectStage', () => {
@@ -108,7 +105,6 @@ describe('handleSelectStage', () => {
     return selectMyStepNavAction;
   });
   navigation.navigateBack = jest.fn(() => navigateBackAction);
-  const mockNext = jest.fn(() => nextResponse);
 
   describe('when not already selected', () => {
     describe('and onComplete prop exists', () => {
@@ -130,19 +126,20 @@ describe('handleSelectStage', () => {
     });
 
     describe('and next prop exists', () => {
-      beforeEach(() => {
-        component = buildShallowScreen({
-          onComplete: undefined,
-          next: mockNext,
-        });
-      });
-
       it('should select stage, then call next', async () => {
-        await component.handleSelectStage(mockStage, false);
+        const next = jest.fn();
+        next.mockReturnValue(nextResponse);
 
-        expect(mockNext).toHaveBeenCalledWith({
+        const { getByTestId } = renderWithContext(<StageScreen next={next} />, {
+          initialState: mockState,
+          navParams: { orgId },
+        });
+
+        await fireEvent(getByTestId('StageButton0'), 'press', mockStage, false);
+
+        expect(next).toHaveBeenCalledWith({
           stage: mockStage,
-          contactId,
+          myId,
           orgId,
           isAlreadySelected: false,
         });
