@@ -18,6 +18,7 @@ const AbsoluteSkip = ({ onSkip, style, textStyle }: AbsoluteSkipProps) => {
   return (
     <SafeAreaView style={styles.skipWrap}>
       <Button
+        testID="SkipButton"
         type="transparent"
         onPress={onSkip}
         text={t('skip').toUpperCase()}

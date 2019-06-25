@@ -1,15 +1,13 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { fireEvent } from 'react-native-testing-library';
 
-import { createMockNavState, renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 
 import SuggestedStepDetailScreen from '..';
 
 import { addStep } from '../../../actions/steps';
 
 jest.mock('../../../actions/steps');
-jest.mock('../../../actions/navigation');
 
 const step = {
   body: 'do this step',
@@ -17,40 +15,33 @@ const step = {
 };
 const receiverId = '423325';
 const orgId = '880124';
-let screen;
 
-const mockStore = configureStore([thunk]);
-let store;
+const nextResponse = { type: 'next' };
+const addStepResponse = { type: 'add step' };
 
-const next = { type: 'next' };
+const next = jest.fn();
 
-addStep.mockReturnValue(() => Promise.resolve());
-
-beforeEach(() => {
-  store = mockStore();
-
-  screen = renderShallow(
-    <SuggestedStepDetailScreen
-      navigation={createMockNavState({
-        step,
-        receiverId,
-        orgId,
-        next: () => next,
-      })}
-    />,
-    store,
-  );
-});
+next.mockReturnValue(nextResponse);
+addStep.mockReturnValue(addStepResponse);
 
 it('renders correctly', () => {
-  expect(screen).toMatchSnapshot();
+  renderWithContext(<SuggestedStepDetailScreen next={next} />, {
+    navParams: { step, receiverId, orgId },
+  }).snapshot();
 });
 
 describe('bottomButtonProps', () => {
   it('adds step', async () => {
-    await screen.props().bottomButtonProps.onPress();
+    const { getByTestId, store } = renderWithContext(
+      <SuggestedStepDetailScreen next={next} />,
+      {
+        navParams: { step, receiverId, orgId },
+      },
+    );
 
-    expect(addStep).toHaveBeenCalledWith(step, receiverId, { id: orgId });
-    expect(store.getActions()).toEqual([next]);
+    await fireEvent.press(getByTestId('BottomButton'));
+
+    expect(addStep).toHaveBeenCalledWith(step, receiverId, orgId);
+    expect(store.getActions()).toEqual([addStepResponse, nextResponse]);
   });
 });

@@ -20,7 +20,7 @@ class StageScreen extends Component {
     });
   };
 
-  complete(stage, isAlreadySelected) {
+  complete(stage, isAlreadySelected = false) {
     const { onComplete, next, contactId, orgId, noNav, dispatch } = this.props;
 
     if (next) {

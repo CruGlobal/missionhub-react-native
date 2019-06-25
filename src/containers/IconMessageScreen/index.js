@@ -21,11 +21,7 @@ class IconMessageScreen extends Component {
         </Flex>
 
         <SafeAreaView style={{ flex: 1, justifyContent: 'flex-end' }}>
-          <BottomButton
-            testID="bottomButton"
-            onPress={onComplete}
-            text={buttonText}
-          />
+          <BottomButton onPress={onComplete} text={buttonText} />
         </SafeAreaView>
         {onSkip ? <AbsoluteSkip onSkip={onSkip} /> : null}
       </Flex>

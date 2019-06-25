@@ -85,7 +85,7 @@ exports[`renders button text correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID="Button"
+      testID="BottomButton"
     >
       <View
         style={
@@ -225,7 +225,7 @@ exports[`renders icon correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID="Button"
+      testID="BottomButton"
     >
       <View
         style={
@@ -334,7 +334,7 @@ exports[`renders main text correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID="Button"
+      testID="BottomButton"
     >
       <View
         style={
@@ -443,7 +443,7 @@ exports[`renders skip button correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID="Button"
+      testID="BottomButton"
     >
       <View
         style={

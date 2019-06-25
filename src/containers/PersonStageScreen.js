@@ -58,7 +58,7 @@ class PersonStageScreen extends Component {
     this.celebrateAndFinishOnboarding();
   };
 
-  complete(stage, isAlreadySelected) {
+  complete(stage, isAlreadySelected = false) {
     const {
       onComplete,
       next,

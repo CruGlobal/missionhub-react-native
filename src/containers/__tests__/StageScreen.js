@@ -1,24 +1,24 @@
 import 'react-native';
 import React from 'react';
-import { Provider } from 'react-redux';
-import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { fireEvent } from 'react-native-testing-library';
 
 import StageScreen from '../StageScreen';
 import {
   renderWithContext,
   createMockNavState,
   renderShallow,
-  testSnapshot,
 } from '../../../testUtils';
-import * as selectStage from '../../actions/selectStage';
-import * as navigation from '../../actions/navigation';
+import { selectMyStage } from '../../actions/selectStage';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 
 jest.mock('react-native-device-info');
+jest.mock('../PathwayStageScreen', () => 'PathwayStageScreen');
+jest.mock('../../actions/selectStage');
+jest.mock('../../actions/navigation');
 
-const myId = '111';
+const orgId = '111';
+const contactId = '123';
 const mockStage = {
   id: '0',
   name: 'uninterested',
@@ -27,7 +27,7 @@ const mockStage = {
 const mockState = {
   auth: {
     person: {
-      id: myId,
+      id: contactId,
     },
   },
   profile: {
@@ -39,8 +39,6 @@ const mockState = {
 const mockCurrentStage = { id: 2 };
 
 const mockComplete = jest.fn();
-const contactId = '123';
-const orgId = '111';
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -99,12 +97,12 @@ describe('handleSelectStage', () => {
   const navigateBackAction = { type: 'navigated back 2x' };
   const nextResponse = { type: 'next' };
 
-  selectStage.selectMyStage = jest.fn(() => selectStageAction);
-  navigation.navigatePush = jest.fn((screen, { next }) => {
+  selectMyStage.mockReturnValue(selectStageAction);
+  navigatePush.mockImplementation((screen, { next }) => {
     store.dispatch(next());
     return selectMyStepNavAction;
   });
-  navigation.navigateBack = jest.fn(() => navigateBackAction);
+  navigateBack.mockReturnValue(navigateBackAction);
 
   describe('when not already selected', () => {
     describe('and onComplete prop exists', () => {
@@ -126,24 +124,52 @@ describe('handleSelectStage', () => {
     });
 
     describe('and next prop exists', () => {
-      it('should select stage, then call next', async () => {
-        const next = jest.fn();
+      const next = jest.fn();
+
+      beforeEach(() => {
         next.mockReturnValue(nextResponse);
 
-        const { getByTestId } = renderWithContext(<StageScreen next={next} />, {
-          initialState: mockState,
-          navParams: { orgId },
-        });
+        component = renderShallow(
+          <StageScreen
+            navigation={createMockNavState({
+              name: 'Test',
+              contactId,
+              orgId,
+              currentStage: mockCurrentStage.id,
+              section: 'section',
+              subsection: 'subsection',
+              dispatch: null,
+            })}
+            next={next}
+          />,
+          store,
+        ).instance();
+      });
 
-        await fireEvent(getByTestId('StageButton0'), 'press', mockStage, false);
+      it('should select stage, then call next, if stage not already selected', async () => {
+        await component.handleSelectStage(mockStage, false);
 
+        expect(selectMyStage).toHaveBeenCalledWith(mockStage.id);
         expect(next).toHaveBeenCalledWith({
           stage: mockStage,
-          myId,
+          contactId,
           orgId,
           isAlreadySelected: false,
         });
         expect(store.getActions()).toEqual([selectStageAction, nextResponse]);
+      });
+
+      it('should only call next if stage already selected', async () => {
+        await component.handleSelectStage(mockStage, true);
+
+        expect(selectMyStage).not.toHaveBeenCalled();
+        expect(next).toHaveBeenCalledWith({
+          stage: mockStage,
+          contactId,
+          orgId,
+          isAlreadySelected: true,
+        });
+        expect(store.getActions()).toEqual([nextResponse]);
       });
     });
   });

@@ -33,7 +33,7 @@ it('renders correctly', () => {
 });
 
 describe('setup screen methods', () => {
-  const instance = renderShallow(<SetupScreen />, store).instance();
+  const instance = renderShallow(<SetupScreen next={next} />, store).instance();
   profile.firstNameChanged = jest.fn(() => ({
     type: 'testFirstNameChanged',
   }));

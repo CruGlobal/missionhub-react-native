@@ -3,12 +3,10 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { fireEvent } from 'react-native-testing-library';
 
 import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import PersonStageScreen from '../PersonStageScreen';
 import {
-  renderWithContext,
   testSnapshot,
   createMockNavState,
   createThunkStore,
@@ -22,6 +20,7 @@ import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { completeOnboarding } from '../../actions/onboardingProfile';
 
 jest.mock('react-native-device-info');
+jest.mock('../PathwayStageScreen', () => 'PathwayStageScreen');
 jest.mock('../../actions/notifications');
 jest.mock('../../actions/navigation');
 jest.mock('../../actions/onboardingProfile', () => ({
@@ -248,6 +247,8 @@ describe('person stage screen methods', () => {
 });
 
 describe('person stage screen methods with next', () => {
+  let component;
+
   const next = jest.fn();
   const nextResponse = { type: 'next' };
   const updatedStageResult = { type: 'updated user stage' };
@@ -255,18 +256,22 @@ describe('person stage screen methods with next', () => {
   beforeEach(() => {
     next.mockReturnValue(nextResponse);
     updateUserStage.mockReturnValue(updatedStageResult);
+
+    component = renderShallow(
+      <PersonStageScreen
+        navigation={createMockNavState({
+          ...mockNavState,
+          onComplete: jest.fn(),
+          enableBackButton: true,
+        })}
+        next={next}
+      />,
+      store,
+    ).instance();
   });
 
   it('runs select stage with stage not previously selected', async () => {
-    const { getByTestId } = renderWithContext(
-      <PersonStageScreen next={next} />,
-      {
-        initialState: mockState,
-        navParams: mockNavState,
-      },
-    );
-
-    await fireEvent.press(getByTestId('StageButton0'), mockStage, false);
+    await component.handleSelectStage(mockStage, false);
 
     expect(updateUserStage).toHaveBeenCalledWith(
       mockNavState.contactAssignmentId,
@@ -283,15 +288,7 @@ describe('person stage screen methods with next', () => {
   });
 
   it('runs select stage with stage previously selected', async () => {
-    const { getByTestId } = renderWithContext(
-      <PersonStageScreen next={next} />,
-      {
-        initialState: mockState,
-        navParams: { ...mockNavState, firstItem: 0 },
-      },
-    );
-
-    await fireEvent.press(getByTestId('StageButton0'), mockStage, true);
+    await component.handleSelectStage(mockStage, true);
 
     expect(updateUserStage).not.toHaveBeenCalled();
     expect(next).toHaveBeenCalledWith({
