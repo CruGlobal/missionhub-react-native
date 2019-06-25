@@ -196,7 +196,7 @@ it('skips save step', () => {
 
   fireEvent.changeText(getByTestId('textInput'), text);
 
-  fireEvent.press(getByTestId('skipButton'));
+  fireEvent.press(getByTestId('SkipButton'));
 
   expect(store.getActions()).toEqual([nextResult]);
   expect(next).toHaveBeenCalledWith({

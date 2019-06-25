@@ -488,6 +488,7 @@ exports[`renders skip button correctly 1`] = `
           "opacity": 1,
         }
       }
+      testID="SkipButton"
     >
       <View
         style={
