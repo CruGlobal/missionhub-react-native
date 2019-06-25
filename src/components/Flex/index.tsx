@@ -14,7 +14,6 @@ interface FlexProps {
   align?: 'start' | 'center' | 'end' | 'stretch';
   justify?: 'start' | 'center' | 'end' | 'around' | 'between';
   self?: 'start' | 'center' | 'end' | 'stretch';
-  animated?: boolean;
   children?: ReactNode;
   animation?: string;
 }
@@ -32,7 +31,6 @@ const Flex = forwardRef(
       children,
       style = {},
       animation,
-      animated,
       ...rest
     }: FlexProps,
     ref: Ref<View>,
@@ -86,7 +84,7 @@ const Flex = forwardRef(
       }
     }
     // If animation is passed in, use the animatable library, otherwise don't
-    if (animation || animated) {
+    if (animation) {
       return (
         <Animatable.View
           ref={ref}

@@ -12,7 +12,7 @@ import styles from './styles';
 
 const MissionHub = createIconSetFromIcoMoon(icoMoonConfig);
 
-interface IconProps {
+export interface IconProps {
   name: string;
   style?: StyleProp<ViewStyle>;
   type?: 'Material' | 'FontAwesome' | 'Ionicons' | 'MissionHub';

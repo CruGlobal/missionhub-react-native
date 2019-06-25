@@ -2,14 +2,15 @@ import React from 'react';
 import { ViewStyle, StyleProp } from 'react-native';
 
 import { Button, Icon } from '../common';
+import { IconProps } from '../Icon';
 
 import styles from './styles';
 
-interface IconButtonProps {
+interface IconButtonProps extends IconProps {
   name: string;
   type?: 'Material' | 'FontAwesome' | 'Ionicons' | 'MissionHub';
   style?: StyleProp<ViewStyle>;
-  pressProps?: [];
+  pressProps?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   onPress?: Function;
 }
 const IconButton = ({
@@ -27,7 +28,7 @@ const IconButton = ({
     }
   };
   return (
-    <Button type="transparent" {...rest} onPress={handlePress}>
+    <Button type="transparent" {...rest} onPress={handlePress} testID="Button">
       <Icon
         name={name}
         type={type}
