@@ -55,7 +55,7 @@ exports[`StatusReasonScreen should render correctly 1`] = `
     >
       Anything important the admins at Test Org should know?
     </MyText>
-    <ForwardRef
+    <Input
       autoCorrect={true}
       blurOnSubmit={true}
       onChangeText={[Function]}

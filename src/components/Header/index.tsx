@@ -31,14 +31,6 @@ const Header = ({
   style,
   shadow = true,
 }: HeaderProps) => {
-  const renderLeft = () => {
-    return (
-      <Flex value={1} align="start" justify="center" style={styles.left}>
-        {left || null}
-      </Flex>
-    );
-  };
-
   const renderCenter = () => {
     if (title && title2) {
       return (
@@ -76,19 +68,15 @@ const Header = ({
     return null;
   };
 
-  const renderRight = () => {
-    return (
+  return (
+    <SafeAreaView style={[styles.header, style, shadow ? styles.shadow : null]}>
+      <Flex value={1} align="start" justify="center" style={styles.left}>
+        {left || null}
+      </Flex>
+      {renderCenter()}
       <Flex value={1} align="end" justify="center" style={styles.right}>
         {right || null}
       </Flex>
-    );
-  };
-
-  return (
-    <SafeAreaView style={[styles.header, style, shadow ? styles.shadow : null]}>
-      {renderLeft()}
-      {renderCenter()}
-      {renderRight()}
     </SafeAreaView>
   );
 };

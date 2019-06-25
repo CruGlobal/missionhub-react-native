@@ -93,7 +93,7 @@ exports[`renders loading 1`] = `
       >
         Verification Code
       </MyText>
-      <ForwardRef
+      <Input
         autoFocus={true}
         blurOnSubmit={true}
         keyboardType="numeric"
@@ -203,7 +203,7 @@ exports[`renders not loading 1`] = `
       >
         Verification Code
       </MyText>
-      <ForwardRef
+      <Input
         autoFocus={true}
         blurOnSubmit={true}
         keyboardType="numeric"

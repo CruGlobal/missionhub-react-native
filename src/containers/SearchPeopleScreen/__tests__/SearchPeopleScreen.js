@@ -1,8 +1,6 @@
 import 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
 import { Provider } from 'react-redux';
-import Adapter from 'enzyme-adapter-react-16';
 
 import SearchPeopleScreenConnected, { SearchPeopleScreen } from '..';
 
@@ -47,52 +45,30 @@ it('renders correctly', () => {
 });
 
 it('renders with searching state', () => {
-  Enzyme.configure({ adapter: new Adapter() });
-  const screen = shallow(
-    <Provider store={store}>
-      <SearchPeopleScreen />
-    </Provider>,
-  );
-
+  const screen = renderShallow(<SearchPeopleScreen />, store);
   screen.setState({ isSearching: true });
-  expect(screen.dive().dive()).toMatchSnapshot();
+  expect(screen).toMatchSnapshot();
 });
 
 it('renders with no results state', () => {
-  Enzyme.configure({ adapter: new Adapter() });
-  const screen = shallow(
-    <Provider store={store}>
-      <SearchPeopleScreen />
-    </Provider>,
-  );
-
+  const screen = renderShallow(<SearchPeopleScreen />, store);
   screen.setState({ text: 'test' });
-  expect(screen.dive().dive()).toMatchSnapshot();
+  expect(screen).toMatchSnapshot();
 });
 
 it('renders with results state', () => {
-  Enzyme.configure({ adapter: new Adapter() });
-  const screen = shallow(
-    <Provider store={store}>
-      <SearchPeopleScreen />
-    </Provider>,
-  );
-
-  screen.setState({
-    results: people,
-  });
-  expect(screen.dive().dive()).toMatchSnapshot();
+  const screen = renderShallow(<SearchPeopleScreen />, store);
+  screen.setState({ results: people });
+  expect(screen).toMatchSnapshot();
 });
 
 describe('renders filtered with organization people', () => {
   let screen;
 
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    screen = shallow(
-      <Provider store={store}>
-        <SearchPeopleScreen dispatch={mockDispatch} />
-      </Provider>,
+    screen = renderShallow(
+      <SearchPeopleScreen dispatch={mockDispatch} />,
+      store,
     );
   });
 
@@ -103,10 +79,7 @@ describe('renders filtered with organization people', () => {
       id: 1,
       organizational_permissions: [mockOrg1, mockOrg2],
     };
-    const instance = screen
-      .dive()
-      .dive()
-      .instance();
+    const instance = screen.instance();
 
     const results = instance.getPeopleByOrg({
       findAll: () => [mockPerson],
@@ -130,10 +103,10 @@ describe('calls methods', () => {
   let instance;
 
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    instance = renderShallow(<SearchPeopleScreen dispatch={mockDispatch} />, {
-      context: { store: store },
-    }).instance();
+    instance = renderShallow(
+      <SearchPeopleScreen dispatch={mockDispatch} />,
+      store,
+    ).instance();
   });
 
   it('calls list key extractor', () => {
@@ -156,7 +129,6 @@ describe('calls methods', () => {
   it('should handleSelectPerson correctly', () => {
     const person = people[0];
     const org = person.organization;
-    Enzyme.configure({ adapter: new Adapter() });
     const screen = renderShallow(
       <SearchPeopleScreen dispatch={mockDispatch} />,
       store,

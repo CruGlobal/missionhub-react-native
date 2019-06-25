@@ -212,11 +212,11 @@ exports[`renderHeader match snapshot 1`] = `
 `;
 
 exports[`renders section header 1`] = `
-<Flex
-  align="center"
+<View
   style={
     Object {
       "alignContent": "center",
+      "alignItems": "center",
       "backgroundColor": "#ECEEF2",
       "paddingVertical": 10,
     }
@@ -233,5 +233,5 @@ exports[`renders section header 1`] = `
       }
     }
   />
-</Flex>
+</View>
 `;

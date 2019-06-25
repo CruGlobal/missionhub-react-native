@@ -7,7 +7,7 @@ import styles from './styles';
 
 // See https://facebook.github.io/react-native/docs/textinput.html for properties
 
-export default forwardRef(
+const Input = forwardRef(
   ({ style = {}, ...rest }: TextInputProps, ref: Ref<TextInput>) => (
     <TextInput
       ref={ref}
@@ -22,3 +22,6 @@ export default forwardRef(
     />
   ),
 );
+Input.displayName = 'Input';
+
+export default Input;
