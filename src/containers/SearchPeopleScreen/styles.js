@@ -10,6 +10,7 @@ export default StyleSheet.create({
   searchWrap: {
     borderBottomWidth: 1,
     borderBottomColor: theme.secondaryColor,
+    alignSelf: 'stretch',
   },
   input: {
     borderBottomWidth: 0,
@@ -27,6 +28,7 @@ export default StyleSheet.create({
     borderTopColor: theme.separatorColor,
   },
   emptyWrap: {
+    alignItems: 'center',
     paddingTop: 15,
   },
   nullText: {

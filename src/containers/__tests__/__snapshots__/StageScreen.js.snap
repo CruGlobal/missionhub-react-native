@@ -68,6 +68,7 @@ exports[`StageScreen renders correctly with back button 1`] = `
           "opacity": 1,
         }
       }
+      testID="IconButton"
     >
       <View
         style={

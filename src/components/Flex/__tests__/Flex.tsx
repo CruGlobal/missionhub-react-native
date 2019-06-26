@@ -32,3 +32,7 @@ it('renders direction correctly', () => {
 it('renders animation correctly', () => {
   testSnapshot(<Flex animation="bounce" />);
 });
+
+it('renders grow correctly', () => {
+  testSnapshot(<Flex grow={2} />);
+});

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ViewStyle, TextStyle } from 'react-native';
+import { SafeAreaView, ViewStyle, TextStyle, StyleProp } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '../common';
@@ -8,8 +8,8 @@ import styles from './styles';
 
 interface AbsoluteSkipProps {
   onSkip: Function;
-  style?: ViewStyle;
-  textStyle?: TextStyle;
+  style?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
   testID?: string;
 }
 

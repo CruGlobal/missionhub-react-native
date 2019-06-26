@@ -140,11 +140,11 @@ exports[`renders onboarding card as header 1`] = `
 `;
 
 exports[`renders section header 1`] = `
-<Flex
-  align="center"
+<View
   style={
     Object {
       "alignContent": "center",
+      "alignItems": "center",
       "backgroundColor": "#ECEEF2",
     }
   }
@@ -160,5 +160,5 @@ exports[`renders section header 1`] = `
   >
     Test Title
   </MyText>
-</Flex>
+</View>
 `;

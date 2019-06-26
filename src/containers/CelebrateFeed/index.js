@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { SectionList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { View } from 'react-native';
 
-import { DateComponent, Flex } from '../../components/common';
+import { DateComponent } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { navigatePush } from '../../actions/navigation';
@@ -25,13 +26,13 @@ class CelebrateFeed extends Component {
     const { title, header } = styles;
 
     return (
-      <Flex style={header} align="center">
+      <View style={header}>
         <DateComponent
           date={date}
           format={DateConstants.relative}
           style={title}
         />
-      </Flex>
+      </View>
     );
   };
 

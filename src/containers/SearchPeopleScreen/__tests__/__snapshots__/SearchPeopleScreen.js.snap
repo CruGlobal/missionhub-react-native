@@ -82,6 +82,7 @@ exports[`renders correctly 1`] = `
               "opacity": 1,
             }
           }
+          testID="IconButton"
         >
           <View
             style={
@@ -145,18 +146,14 @@ exports[`renders correctly 1`] = `
       }
     >
       <View
+        alignItems="center"
+        flexDirection="row"
         style={
-          Array [
-            Object {
-              "borderBottomColor": "#52C5DC",
-              "borderBottomWidth": 1,
-            },
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flexDirection": "row",
-            },
-          ]
+          Object {
+            "alignSelf": "stretch",
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          }
         }
       >
         <TextInput
@@ -225,6 +222,7 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
+        testID="IconButton"
       >
         <View
           style={
@@ -357,12 +355,12 @@ exports[`renders with no results state 1`] = `
 >
   <Header
     center={
-      <Flex
-        align="center"
-        direction="row"
-        self="stretch"
+      <View
+        alignItems="center"
+        flexDirection="row"
         style={
           Object {
+            "alignSelf": "stretch",
             "borderBottomColor": "#52C5DC",
             "borderBottomWidth": 1,
           }
@@ -385,9 +383,20 @@ exports[`renders with no results state 1`] = `
               "paddingVertical": 5,
             }
           }
-          value=""
+          value="test"
         />
-      </Flex>
+        <IconButton
+          name="cancelIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "fontSize": 16,
+              "paddingHorizontal": 5,
+            }
+          }
+          type="MissionHub"
+        />
+      </View>
     }
     left={<Connect(BackButton) />}
     right={
@@ -397,17 +406,26 @@ exports[`renders with no results state 1`] = `
         type="MissionHub"
       />
     }
-    shadow={true}
   />
-  <NullStateComponent
-    descriptionText="Search results will appear here."
-    headerText="Search"
-    imageSource={
+  <View
+    flex={1}
+    style={
       Object {
-        "testUri": "../../../assets/images/searchNull.png",
+        "alignItems": "center",
+        "paddingTop": 15,
       }
     }
-  />
+  >
+    <MyText
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      No Results.
+    </MyText>
+  </View>
 </View>
 `;
 
@@ -422,12 +440,12 @@ exports[`renders with results state 1`] = `
 >
   <Header
     center={
-      <Flex
-        align="center"
-        direction="row"
-        self="stretch"
+      <View
+        alignItems="center"
+        flexDirection="row"
         style={
           Object {
+            "alignSelf": "stretch",
             "borderBottomColor": "#52C5DC",
             "borderBottomWidth": 1,
           }
@@ -452,7 +470,7 @@ exports[`renders with results state 1`] = `
           }
           value=""
         />
-      </Flex>
+      </View>
     }
     left={<Connect(BackButton) />}
     right={
@@ -462,16 +480,52 @@ exports[`renders with results state 1`] = `
         type="MissionHub"
       />
     }
-    shadow={true}
   />
-  <NullStateComponent
-    descriptionText="Search results will appear here."
-    headerText="Search"
-    imageSource={
+  <FlatList
+    data={
+      Array [
+        Object {
+          "full_name": "Ron Swanson",
+          "id": "1",
+          "organization": Object {
+            "name": "Cru at Harvard",
+          },
+        },
+        Object {
+          "full_name": "Leslie Knope",
+          "id": "2",
+          "organization": Object {
+            "name": "Cru at Harvard",
+          },
+        },
+        Object {
+          "full_name": "Ben Wyatt",
+          "id": "3",
+          "organization": Object {
+            "name": "Cru at Harvard",
+          },
+        },
+      ]
+    }
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    keyboardShouldPersistTaps="handled"
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    style={
       Object {
-        "testUri": "../../../assets/images/searchNull.png",
+        "borderTopColor": "#ECEEF2",
+        "borderTopWidth": 1,
       }
     }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
   />
 </View>
 `;
@@ -487,12 +541,12 @@ exports[`renders with searching state 1`] = `
 >
   <Header
     center={
-      <Flex
-        align="center"
-        direction="row"
-        self="stretch"
+      <View
+        alignItems="center"
+        flexDirection="row"
         style={
           Object {
+            "alignSelf": "stretch",
             "borderBottomColor": "#52C5DC",
             "borderBottomWidth": 1,
           }
@@ -517,7 +571,7 @@ exports[`renders with searching state 1`] = `
           }
           value=""
         />
-      </Flex>
+      </View>
     }
     left={<Connect(BackButton) />}
     right={
@@ -527,16 +581,25 @@ exports[`renders with searching state 1`] = `
         type="MissionHub"
       />
     }
-    shadow={true}
   />
-  <NullStateComponent
-    descriptionText="Search results will appear here."
-    headerText="Search"
-    imageSource={
+  <View
+    flex={1}
+    style={
       Object {
-        "testUri": "../../../assets/images/searchNull.png",
+        "alignItems": "center",
+        "paddingTop": 15,
       }
     }
-  />
+  >
+    <MyText
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      Loading
+    </MyText>
+  </View>
 </View>
 `;

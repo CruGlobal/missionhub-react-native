@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Text
+  allowFontScaling={false}
+  style={
+    Array [
+      Object {
+        "color": undefined,
+        "fontSize": 12,
+      },
+      Array [
+        Object {
+          "color": "#ffffff",
+        },
+        Object {
+          "fontSize": 24,
+        },
+        Object {},
+      ],
+      Object {
+        "fontFamily": "icomoon",
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+      },
+      Object {},
+    ]
+  }
+>
+  
+</Text>
+`;
+
+exports[`renders correctly with arrow-back 1`] = `
+<Text
+  allowFontScaling={false}
+  style={
+    Array [
+      Object {
+        "color": undefined,
+        "fontSize": 12,
+      },
+      Array [
+        Object {
+          "color": "#ffffff",
+        },
+        Object {
+          "fontSize": 12,
+        },
+        Object {
+          "padding": 10,
+        },
+      ],
+      Object {
+        "fontFamily": "Material Icons",
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+      },
+      Object {},
+    ]
+  }
+>
+  
+</Text>
+`;
