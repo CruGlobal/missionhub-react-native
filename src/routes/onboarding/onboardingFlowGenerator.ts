@@ -196,7 +196,6 @@ export const onboardingFlowGenerator = ({
         stage,
         contactId,
         name,
-        orgId,
       }: {
         stage: object;
         contactId: string;
@@ -208,7 +207,6 @@ export const onboardingFlowGenerator = ({
             contactStage: stage,
             contactName: name,
             contactId,
-            organization: { id: orgId },
           }),
         );
       },
