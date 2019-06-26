@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockDate from 'mockdate';
+import { fireEvent } from 'react-native-testing-library';
 
 import AddStepScreen from '..';
 
@@ -11,6 +12,7 @@ import {
   createMockNavState,
   testSnapshot,
   renderShallow,
+  renderWithContext,
 } from '../../../../testUtils';
 import { CREATE_STEP, STEP_NOTE } from '../../../constants';
 import * as common from '../../../utils/common';
@@ -159,7 +161,7 @@ describe('add step methods', () => {
 describe('add step methods for stepNote with next', () => {
   let screen;
   const next = jest.fn(() => ({ type: 'next' }));
-  const onSetComplete = jest.fn();
+  const onSetComplete = jest.fn(() => Promise.resolve());
   common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
   beforeEach(() => {
@@ -188,19 +190,19 @@ describe('add step methods for stepNote with next', () => {
     expect(next).toHaveBeenCalledTimes(1);
   });
 
-  it('runs saveStep', async () => {
-    screen
-      .find('Input')
-      .dive()
-      .props()
-      .onChangeText('test');
-
-    screen.update();
-
-    await screen.childAt(2).simulate('press');
+  it('runs saveStep', () => {
+    const { getByTestId } = renderWithContext(<AddStepScreen />, {
+      navParams: {
+        next,
+        type: STEP_NOTE,
+        text: 'Comment',
+      },
+      store,
+    });
+    fireEvent.changeText(getByTestId('stepInput'), 'test');
+    fireEvent.press(getByTestId('saveStepButton'));
 
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
-    expect(onSetComplete).toHaveBeenCalled();
     expect(next).toHaveBeenCalledTimes(1);
   });
 });

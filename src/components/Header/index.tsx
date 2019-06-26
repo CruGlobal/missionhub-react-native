@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { SafeAreaView, ViewStyle, TextStyle, StyleProp } from 'react-native';
 
 import { Flex, Text, Button } from '../common';
@@ -11,9 +11,9 @@ export const HeaderIcon = (props: any) => (
 );
 
 interface HeaderProps {
-  right?: JSX.Element | null;
-  left?: JSX.Element | null;
-  center?: JSX.Element | null;
+  right?: ReactNode | null;
+  left?: ReactNode | null;
+  center?: ReactNode | null;
   title?: string;
   title2?: string;
   shadow?: boolean;

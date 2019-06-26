@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import 'react-native';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -41,7 +41,7 @@ export function renderWithContext(
     renderResult = render(React.cloneElement(component, { navigation }));
   } else {
     // Warning: don't call any functions in here that return new instances on every call. All the props need to stay the same otherwise rerender won't work.
-    const wrapper = ({ children }: { children: ReactElement }) => (
+    const wrapper = ({ children }: { children: ReactNode }) => (
       <NavigationProvider value={navigation}>
         <Provider store={store}>{children}</Provider>
       </NavigationProvider>
