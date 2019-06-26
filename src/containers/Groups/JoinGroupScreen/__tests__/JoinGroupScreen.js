@@ -105,10 +105,8 @@ describe('JoinGroupScreen', () => {
     //otherwise, error added to state
     it('should set input without calling serach has < 6 digits', () => {
       const { getByTestId, snapshot } = renderWithContext(
-        <JoinGroupScreen navigation={createMockNavState()} next={mockNext} />,
-        {
-          store,
-        },
+        <JoinGroupScreen next={mockNext} />,
+        { store },
       );
       fireEvent.changeText(getByTestId('joinInput'), '123');
       snapshot();
@@ -116,10 +114,8 @@ describe('JoinGroupScreen', () => {
 
     it('should set community after entering 6th digit', () => {
       const { getByTestId, snapshot } = renderWithContext(
-        <JoinGroupScreen navigation={createMockNavState()} next={mockNext} />,
-        {
-          store,
-        },
+        <JoinGroupScreen next={mockNext} />,
+        { store },
       );
       fireEvent.changeText(getByTestId('joinInput'), '123456');
       snapshot();
