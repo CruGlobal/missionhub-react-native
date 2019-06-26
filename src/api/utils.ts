@@ -90,7 +90,7 @@ const defaultObject = (
   stringify = true,
 ): RequestInit => ({
   ...extra,
-  headers: extra.headers ? extra.headers : DEFAULT_HEADERS,
+  headers: { ...DEFAULT_HEADERS, ...(extra.headers ? extra.headers : {}) },
   method: method.toUpperCase(),
   ...(data
     ? {
