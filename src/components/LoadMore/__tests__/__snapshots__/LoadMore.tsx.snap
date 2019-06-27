@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render load more button 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="Button"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        null,
+        Object {
+          "alignSelf": "center",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 25,
+          "borderWidth": 1,
+          "marginVertical": 20,
+          "paddingVertical": 7,
+          "width": 250,
+        },
+        null,
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 18,
+            },
+          ],
+        ]
+      }
+    >
+      LOAD MORE
+    </Text>
+  </View>
+</View>
+`;

@@ -33,7 +33,7 @@ exports[`Surveys should render correctly 1`] = `
 >
   <FlatList
     ListFooterComponent={
-      <withI18nextTranslation(LoadMore)
+      <LoadMore
         onPress={[Function]}
       />
     }

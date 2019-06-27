@@ -133,7 +133,7 @@ it('updates text', () => {
   );
   recordSnapshot();
 
-  fireEvent.changeText(getByTestId('textInput'), text);
+  fireEvent.changeText(getByTestId('stepInput'), text);
 
   diffSnapshot();
 });
@@ -147,7 +147,7 @@ it('saves step', () => {
     },
   );
 
-  fireEvent.changeText(getByTestId('textInput'), text);
+  fireEvent.changeText(getByTestId('stepInput'), text);
 
   fireEvent.press(getByTestId('BottomButton'));
 
@@ -171,7 +171,7 @@ it('saves step with onSetComplete', async () => {
     },
   );
 
-  fireEvent.changeText(getByTestId('textInput'), text);
+  fireEvent.changeText(getByTestId('stepInput'), text);
 
   await fireEvent.press(getByTestId('BottomButton'));
 
@@ -194,7 +194,7 @@ it('skips save step', () => {
     },
   );
 
-  fireEvent.changeText(getByTestId('textInput'), text);
+  fireEvent.changeText(getByTestId('stepInput'), text);
 
   fireEvent.press(getByTestId('SkipButton'));
 
@@ -221,7 +221,7 @@ describe('Caps create step at 255 characters', () => {
       navParams: createStepParams,
     });
 
-    fireEvent.changeText(getByTestId('textInput'), twoFiftyFour);
+    fireEvent.changeText(getByTestId('stepInput'), twoFiftyFour);
 
     fireEvent.press(getByTestId('BottomButton'));
 
@@ -234,7 +234,7 @@ describe('Caps create step at 255 characters', () => {
       navParams: createStepParams,
     });
 
-    fireEvent.changeText(getByTestId('textInput'), twoFiftyFive);
+    fireEvent.changeText(getByTestId('stepInput'), twoFiftyFive);
 
     fireEvent.press(getByTestId('BottomButton'));
 

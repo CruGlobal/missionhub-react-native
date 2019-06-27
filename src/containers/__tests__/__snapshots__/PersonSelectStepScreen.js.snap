@@ -489,6 +489,7 @@ exports[`allows for undefined organization 1`] = `
           "opacity": 1,
         }
       }
+      testID="IconButton"
     >
       <View
         style={
@@ -1030,6 +1031,7 @@ exports[`renders correctly 1`] = `
           "opacity": 1,
         }
       }
+      testID="IconButton"
     >
       <View
         style={

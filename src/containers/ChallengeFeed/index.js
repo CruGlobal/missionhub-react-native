@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { SectionList } from 'react-native';
+import { SectionList, View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Flex, Text } from '../../components/common';
+import { Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
@@ -31,9 +31,9 @@ class ChallengeFeed extends Component {
   }
 
   renderSectionHeader = ({ section: { title } }) => (
-    <Flex style={styles.header} align="center">
+    <View style={styles.header}>
       <Text style={styles.title}>{title}</Text>
-    </Flex>
+    </View>
   );
 
   renderItem = ({ item }) => (

@@ -136,9 +136,14 @@ class AddStepScreen extends Component {
             placeholder={this.renderTitle()}
             placeholderTextColor={lightGrey}
             maxLength={type === CREATE_STEP ? characterLimit : undefined}
+            testID="stepInput"
           />
         </Flex>
-        <BottomButton onPress={this.saveStep} text={this.getButtonText()} />
+        <BottomButton
+          onPress={this.saveStep}
+          text={this.getButtonText()}
+          testID="saveStepButton"
+        />
         <BackButton absolute={true} iconStyle={backButtonStyle} />
         {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
           <AbsoluteSkip onSkip={this.skip} textStyle={skipBtnText} />

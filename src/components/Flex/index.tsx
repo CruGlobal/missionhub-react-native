@@ -1,21 +1,26 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
-
-import React, { Component } from 'react';
-import { View } from 'react-native';
-import PropTypes from 'prop-types';
+import React, { forwardRef } from 'react';
+import { View, StyleProp, ViewStyle } from 'react-native';
 import * as Animatable from 'react-native-animatable';
+import { ReactNode } from 'react';
+import { Ref } from 'react';
 
-export default class Flex extends Component {
-  setNativeProps(nProps) {
-    this._view.setNativeProps(nProps);
-  }
+interface FlexProps {
+  style?: StyleProp<ViewStyle>;
+  value?: number;
+  grow?: number;
+  direction?: 'row' | 'column';
+  wrap?: 'wrap' | 'wrap-reverse' | 'nowrap';
+  align?: 'start' | 'center' | 'end' | 'stretch';
+  justify?: 'start' | 'center' | 'end' | 'around' | 'between';
+  self?: 'start' | 'center' | 'end' | 'stretch';
+  children?: ReactNode;
+  animation?: string;
+}
 
-  animatableRef = c => (this._view = c);
-
-  ref = c => (this._view = c);
-
-  render() {
-    const {
+const Flex = forwardRef(
+  (
+    {
       value,
       direction,
       align,
@@ -26,10 +31,11 @@ export default class Flex extends Component {
       children,
       style = {},
       animation,
-      animated,
       ...rest
-    } = this.props;
-    const styleObj = {};
+    }: FlexProps,
+    ref: Ref<View>,
+  ) => {
+    const styleObj: StyleProp<ViewStyle> = {};
     if (value) {
       styleObj.flex = value;
     }
@@ -42,7 +48,6 @@ export default class Flex extends Component {
     if (grow) {
       styleObj.flexGrow = grow;
     }
-
     if (align) {
       if (align === 'center') {
         styleObj.alignItems = 'center';
@@ -79,10 +84,10 @@ export default class Flex extends Component {
       }
     }
     // If animation is passed in, use the animatable library, otherwise don't
-    if (animation || animated) {
+    if (animation) {
       return (
         <Animatable.View
-          ref={this.animatableRef}
+          ref={ref}
           duration={400}
           animation={animation}
           {...rest}
@@ -93,26 +98,13 @@ export default class Flex extends Component {
       );
     }
     return (
-      <View ref={this.ref} {...rest} style={[style, styleObj]}>
+      <View ref={ref} {...rest} style={[style, styleObj]}>
         {children}
       </View>
     );
-  }
-}
+  },
+);
 
-Flex.propTypes = {
-  children: PropTypes.node,
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array,
-  ]),
-  value: PropTypes.number,
-  grow: PropTypes.number,
-  direction: PropTypes.oneOf(['row', 'column']),
-  wrap: PropTypes.oneOf(['wrap', 'wrap-reverse', 'nowrap']),
-  align: PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
-  justify: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between']),
-  self: PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
-  animated: PropTypes.bool,
-};
+Flex.displayName = 'Flex';
+
+export default Flex;

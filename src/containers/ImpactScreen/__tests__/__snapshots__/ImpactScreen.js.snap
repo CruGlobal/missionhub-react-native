@@ -16,7 +16,6 @@ exports[`Impact Screen renders correctly 1`] = `
         type="MissionHub"
       />
     }
-    shadow={true}
     title="IMPACT"
   />
   <Connect(withI18nextTranslation(ImpactView))

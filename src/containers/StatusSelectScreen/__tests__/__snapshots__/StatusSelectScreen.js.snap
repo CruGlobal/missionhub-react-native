@@ -62,7 +62,6 @@ exports[`StatusSelectScreen should render correctly 1`] = `
         type="transparent"
       />
     }
-    shadow={true}
     title="Status"
   />
   <Flex

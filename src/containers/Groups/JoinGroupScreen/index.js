@@ -153,6 +153,7 @@ class JoinGroupScreen extends Component {
               value={code}
               autoFocus={false}
               blurOnSubmit={false}
+              testID="joinInput"
             />
           </Flex>
           <KeyboardAvoidingView

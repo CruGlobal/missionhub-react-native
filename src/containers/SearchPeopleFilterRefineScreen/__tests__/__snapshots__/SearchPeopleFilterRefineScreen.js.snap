@@ -67,6 +67,7 @@ exports[`renders correctly 1`] = `
               "opacity": 1,
             }
           }
+          testID="IconButton"
         >
           <View
             style={
@@ -504,6 +505,7 @@ exports[`renders title correctly 1`] = `
               "opacity": 1,
             }
           }
+          testID="IconButton"
         >
           <View
             style={
