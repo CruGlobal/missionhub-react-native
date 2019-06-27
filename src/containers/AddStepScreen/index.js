@@ -122,7 +122,7 @@ class AddStepScreen extends Component {
         <StatusBar {...theme.statusBar.darkContent} />
         <Flex value={1} align="stretch" justify="center" style={fieldWrap}>
           <Input
-            testID="textInput"
+            testID="stepInput"
             style={input}
             ref={this.ref}
             onChangeText={this.onChangeText}
@@ -136,7 +136,6 @@ class AddStepScreen extends Component {
             placeholder={this.renderTitle()}
             placeholderTextColor={lightGrey}
             maxLength={type === CREATE_STEP ? characterLimit : undefined}
-            testID="stepInput"
           />
         </Flex>
         <BottomButton

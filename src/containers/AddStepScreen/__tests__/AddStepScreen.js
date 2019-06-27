@@ -149,7 +149,7 @@ it('saves step', () => {
 
   fireEvent.changeText(getByTestId('stepInput'), text);
 
-  fireEvent.press(getByTestId('BottomButton'));
+  fireEvent.press(getByTestId('bottomButton'));
 
   expect(store.getActions()).toEqual([nextResult]);
   expect(next).toHaveBeenCalledWith({
@@ -173,7 +173,7 @@ it('saves step with onSetComplete', async () => {
 
   fireEvent.changeText(getByTestId('stepInput'), text);
 
-  await fireEvent.press(getByTestId('BottomButton'));
+  await fireEvent.press(getByTestId('bottomButton'));
 
   expect(store.getActions()).toEqual([nextResult]);
   expect(onSetComplete).toHaveBeenCalledWith();
@@ -196,7 +196,7 @@ it('skips save step', () => {
 
   fireEvent.changeText(getByTestId('stepInput'), text);
 
-  fireEvent.press(getByTestId('SkipButton'));
+  fireEvent.press(getByTestId('skipButton'));
 
   expect(store.getActions()).toEqual([nextResult]);
   expect(next).toHaveBeenCalledWith({
@@ -223,7 +223,7 @@ describe('Caps create step at 255 characters', () => {
 
     fireEvent.changeText(getByTestId('stepInput'), twoFiftyFour);
 
-    fireEvent.press(getByTestId('BottomButton'));
+    fireEvent.press(getByTestId('bottomButton'));
 
     expect(Alert.alert).not.toHaveBeenCalled();
   });
@@ -236,7 +236,7 @@ describe('Caps create step at 255 characters', () => {
 
     fireEvent.changeText(getByTestId('stepInput'), twoFiftyFive);
 
-    fireEvent.press(getByTestId('BottomButton'));
+    fireEvent.press(getByTestId('bottomButton'));
 
     expect(Alert.alert).toHaveBeenCalledWith('', makeShorter);
   });

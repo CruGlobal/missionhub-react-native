@@ -157,7 +157,7 @@ exports[`renders correctly 1`] = `
         "opacity": 1,
       }
     }
-    testID="BottomButton"
+    testID="bottomButton"
   >
     <View
       style={
@@ -227,7 +227,7 @@ exports[`renders correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID="SkipButton"
+      testID="skipButton"
     >
       <View
         style={

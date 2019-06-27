@@ -19,6 +19,6 @@ it('renders correctly', () => {
 });
 
 it('presses button', () => {
-  fireEvent.press(getByTestId('BottomButton'));
+  fireEvent.press(getByTestId('bottomButton'));
   expect(onPress).toHaveBeenCalled();
 });

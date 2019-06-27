@@ -384,7 +384,7 @@ exports[`with enableBackButton renders correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID="BottomButton"
+      testID="bottomButton"
     >
       <View
         style={
@@ -900,7 +900,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID="BottomButton"
+      testID="bottomButton"
     >
       <View
         style={
@@ -971,7 +971,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID="SkipButton"
+      testID="skipButton"
     >
       <View
         style={
@@ -1410,7 +1410,7 @@ exports[`without enableBackButton nor enableSkipButton renders correctly 1`] = `
           "opacity": 1,
         }
       }
-      testID="BottomButton"
+      testID="bottomButton"
     >
       <View
         style={

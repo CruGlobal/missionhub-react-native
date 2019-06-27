@@ -42,7 +42,7 @@ it('navigates with next', () => {
     },
   );
 
-  fireEvent.press(getByTestId('BottomButton'));
+  fireEvent.press(getByTestId('bottomButton'));
 
   expect(disableBack.remove).toHaveBeenCalledWith();
   expect(next).toHaveBeenCalledWith({});
@@ -54,7 +54,7 @@ it('navigates without next', () => {
     initialState,
   });
 
-  fireEvent.press(getByTestId('BottomButton'));
+  fireEvent.press(getByTestId('bottomButton'));
 
   expect(disableBack.remove).toHaveBeenCalledWith();
   expect(navigatePush).toHaveBeenCalledWith(STAGE_ONBOARDING_SCREEN, {

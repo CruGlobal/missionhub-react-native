@@ -32,7 +32,7 @@ describe('onComplete', () => {
       <AddSomeoneScreen next={next} />,
     );
 
-    fireEvent.press(getByTestId('BottomButton'));
+    fireEvent.press(getByTestId('bottomButton'));
 
     expect(store.getActions()).toEqual([nextResult]);
     expect(next).toHaveBeenCalledWith({ skip: false });
@@ -41,7 +41,7 @@ describe('onComplete', () => {
   it('navigates to SETUP_PERSON_SCREEN', () => {
     const { getByTestId, store } = renderWithContext(<AddSomeoneScreen />);
 
-    fireEvent.press(getByTestId('BottomButton'));
+    fireEvent.press(getByTestId('bottomButton'));
 
     expect(store.getActions()).toEqual([navigateResult]);
     expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
@@ -54,7 +54,7 @@ describe('onSkip prop', () => {
       <AddSomeoneScreen next={next} />,
     );
 
-    fireEvent.press(getByTestId('SkipButton'));
+    fireEvent.press(getByTestId('skipButton'));
 
     expect(store.getActions()).toEqual([nextResult]);
     expect(next).toHaveBeenCalledWith({ skip: true });
@@ -63,7 +63,7 @@ describe('onSkip prop', () => {
   it('calls skipOnboarding', () => {
     const { getByTestId, store } = renderWithContext(<AddSomeoneScreen />);
 
-    fireEvent.press(getByTestId('SkipButton'));
+    fireEvent.press(getByTestId('skipButton'));
 
     expect(store.getActions()).toEqual([skipOnboardingResult]);
     expect(skipOnboarding).toHaveBeenCalledWith();
