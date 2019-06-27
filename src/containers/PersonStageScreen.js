@@ -268,9 +268,9 @@ const mapStateToProps = (
   next,
   personFirstName: personProfile.personFirstName,
   personId: personProfile.id,
-  contactAssignmentId: onComplete
+  contactAssignmentId: onComplete // onComplete currently seems to be used as a flag to indicate if we are in onboarding or not
     ? contactAssignmentId
-    : contactAssignmentId || personProfile.contactAssignmentId, // onComplete currently seems to be used as a flag to indicate if we are in onboarding or not
+    : contactAssignmentId || personProfile.contactAssignmentId,
   myId: auth.person.id,
 });
 
