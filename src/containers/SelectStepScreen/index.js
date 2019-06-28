@@ -33,7 +33,7 @@ class SelectStepScreen extends Component {
   }
 
   navigateNext(step, skip = false) {
-    const { dispatch, next, receiverId, organization } = this.props;
+    const { dispatch, receiverId, organization, next } = this.props;
     dispatch(
       next({ receiverId, step, skip, orgId: organization && organization.id }),
     );

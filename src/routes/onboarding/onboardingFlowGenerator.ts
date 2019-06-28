@@ -89,7 +89,6 @@ export const onboardingFlowGenerator = ({
           wrapNextAction(StageScreen, ({ stage }: { stage: object }) =>
             navigatePush(STAGE_SUCCESS_SCREEN, { selectedStage: stage }),
           ),
-          buildTrackingObj('onboarding : name', 'onboarding'),
         ),
         [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
           wrapNextAction(
@@ -127,8 +126,8 @@ export const onboardingFlowGenerator = ({
                   }),
           ),
           buildTrackingObj(
-            'people : self : steps : add',
-            'people',
+            'onboarding : self : steps : add',
+            'onbaording',
             'self',
             'steps',
           ),
@@ -167,7 +166,6 @@ export const onboardingFlowGenerator = ({
         stage: object;
         contactId: string;
         name: string;
-        orgId: string;
       }) =>
         navigatePush(PERSON_SELECT_STEP_SCREEN, {
           contactStage: stage,
@@ -175,7 +173,6 @@ export const onboardingFlowGenerator = ({
           contactId,
         }),
     ),
-    buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
     wrapNextAction(
