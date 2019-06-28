@@ -18,15 +18,17 @@ import { GifCompleteFlowScreens } from '../flowCompleted/gifCompleteFlow';
 export const AddMyStepFlowScreens = {
   [SELECT_MY_STEP_SCREEN]: wrapNextAction(
     SelectMyStepScreen,
-    ({ receiverId, step }) =>
+    ({ receiverId, step, orgId }) =>
       step
         ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
             step,
             receiverId,
+            orgId,
           })
         : navigatePush(ADD_STEP_SCREEN, {
             type: CREATE_STEP,
             personId: receiverId,
+            orgId,
             trackingObj: buildTrackingObj(
               'people : self : steps : create',
               'people',

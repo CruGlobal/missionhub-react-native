@@ -4,7 +4,6 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { renderShallow } from '../../../../testUtils/index';
-import { buildTrackingObj } from '../../../utils/common';
 import { personSelector } from '../../../selectors/people';
 import { SelectPersonStageFlowScreens } from '../selectPersonStageFlow';
 import {
@@ -249,12 +248,6 @@ describe('PersonStageScreen next', () => {
           contactId: otherId,
           organization: { id: orgId },
           contactName: otherName,
-          createStepTracking: buildTrackingObj(
-            'people : person : steps : create',
-            'people',
-            'person',
-            'steps',
-          ),
         });
       });
 
@@ -313,12 +306,6 @@ describe('PersonStageScreen next', () => {
           contactId: otherId,
           organization: { id: orgId },
           contactName: otherName,
-          createStepTracking: buildTrackingObj(
-            'people : person : steps : create',
-            'people',
-            'person',
-            'steps',
-          ),
         });
       });
 
