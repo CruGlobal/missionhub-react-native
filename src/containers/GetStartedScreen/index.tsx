@@ -1,65 +1,54 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component, useEffect } from 'react';
+import { connect, useSelector } from 'react-redux';
 import { SafeAreaView } from 'react-native';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-import { navigatePush } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import { STAGE_ONBOARDING_SCREEN } from '../StageScreen';
 import { disableBack } from '../../utils/common';
 
 import styles from './styles';
 
-@withTranslation('getStarted')
-class GetStartedScreen extends Component {
-  componentDidMount() {
+const GetStartedScreen = ({
+  dispatch,
+  next,
+}: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<any, null, never>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  next: () => ThunkAction<void, any, null, never>;
+}) => {
+  useEffect(() => {
     disableBack.add();
-  }
+    return () => disableBack.remove();
+  }, []);
 
-  componentWillUnmount() {
-    disableBack.remove();
-  }
+  const { t } = useTranslation('getStarted');
 
-  navigateNext = () => {
+  const firstName = useSelector(state => state.profile.firstName);
+  const name = (firstName || '').toLowerCase();
+
+  const navigateNext = () => {
     disableBack.remove();
-    this.props.dispatch(
-      navigatePush(STAGE_ONBOARDING_SCREEN, {
-        section: 'onboarding',
-        subsection: 'self',
-        enableBackButton: false,
-      }),
-    );
+
+    dispatch(next());
   };
 
-  render() {
-    const { t, firstName } = this.props;
-    const name = firstName.toLowerCase();
-
-    return (
-      <SafeAreaView style={styles.container}>
-        <Flex align="center" justify="center" value={1} style={styles.content}>
-          <Flex align="start" justify="center" value={4}>
-            <Text header={true} style={styles.headerTitle}>
-              {t('hi', { name })}
-            </Text>
-            <Text style={styles.text}>{t('tagline')}</Text>
-          </Flex>
-
-          <BottomButton onPress={this.navigateNext} text={t('getStarted')} />
+  return (
+    <SafeAreaView style={styles.container}>
+      <Flex align="center" justify="center" value={1} style={styles.content}>
+        <Flex align="start" justify="center" value={4}>
+          <Text header={true} style={styles.headerTitle}>
+            {t('hi', { name })}
+          </Text>
+          <Text style={styles.text}>{t('tagline')}</Text>
         </Flex>
-      </SafeAreaView>
-    );
-  }
-}
 
-const mapStateToProps = ({ profile }, { navigation }) => {
-  const navParams = navigation.state.params || {};
-  return {
-    id: navParams.id || '',
-    firstName: profile.firstName,
-  };
+        <BottomButton onPress={this.navigateNext} text={t('getStarted')} />
+      </Flex>
+    </SafeAreaView>
+  );
 };
 
-export default connect(mapStateToProps)(GetStartedScreen);
+export default connect()(GetStartedScreen);
 export const GET_STARTED_SCREEN = 'nav/GET_STARTED';

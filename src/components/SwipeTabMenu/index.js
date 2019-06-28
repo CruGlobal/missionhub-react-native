@@ -14,7 +14,6 @@ import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
 
-@connect()
 export class SwipeTabMenu extends Component {
   state = {
     // TODO: tab titles should be equidistant from each other, not equally sized
@@ -188,6 +187,8 @@ export class SwipeTabMenu extends Component {
   }
 }
 
+const connectedSwipeTabMenu = connect()(SwipeTabMenu);
+
 export const generateSwipeTabMenuNavigator = (
   tabs,
   HeaderComponent,
@@ -209,7 +210,11 @@ export const generateSwipeTabMenuNavigator = (
       tabBarComponent: ({ navigation }) => (
         <ViewOverflow style={{ zIndex: 100 }}>
           <HeaderComponent navigation={navigation} isMember={isMember} />
-          <SwipeTabMenu navigation={navigation} tabs={tabs} isLight={isLight} />
+          <connectedSwipeTabMenu
+            navigation={navigation}
+            tabs={tabs}
+            isLight={isLight}
+          />
         </ViewOverflow>
       ),
     },
