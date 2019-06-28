@@ -13,13 +13,14 @@ import {
   renderShallow,
 } from '../../../testUtils';
 import { showReminderOnLoad } from '../../actions/notifications';
-import * as selectStage from '../../actions/selectStage';
+import { updateUserStage } from '../../actions/selectStage';
 import * as analytics from '../../actions/analytics';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { completeOnboarding } from '../../actions/onboardingProfile';
 
 jest.mock('react-native-device-info');
+jest.mock('../PathwayStageScreen', () => 'PathwayStageScreen');
 jest.mock('../../actions/notifications');
 jest.mock('../../actions/navigation');
 jest.mock('../../actions/onboardingProfile', () => ({
@@ -27,6 +28,12 @@ jest.mock('../../actions/onboardingProfile', () => ({
     .fn()
     .mockReturnValue({ type: 'onboarding complete' }),
 }));
+jest.mock('../../actions/selectStage');
+
+const mockStage = {
+  id: '1',
+  name: 'uninterested',
+};
 
 const mockState = {
   personProfile: {
@@ -39,11 +46,7 @@ const mockState = {
     },
   },
   notifications: {},
-  stages: {},
-};
-
-const mockStage = {
-  id: 1,
+  stages: { stages: [mockStage] },
 };
 
 let store;
@@ -110,7 +113,7 @@ describe('person stage screen methods with onComplete prop', () => {
   });
 
   it('runs select stage', async () => {
-    selectStage.updateUserStage = jest.fn(() => () => Promise.resolve());
+    updateUserStage.mockImplementation(() => () => Promise.resolve());
     navigatePush.mockImplementation((screen, { next }) => () =>
       next()(jest.fn()),
     );
@@ -118,7 +121,7 @@ describe('person stage screen methods with onComplete prop', () => {
     await component.handleSelectStage(mockStage, false);
 
     expect(navigateBack).toHaveBeenCalledWith(3);
-    expect(selectStage.updateUserStage).toHaveBeenCalledTimes(1);
+    expect(updateUserStage).toHaveBeenCalledTimes(1);
   });
 
   it('runs celebrate and finish', () => {
@@ -139,7 +142,7 @@ describe('person stage screen methods with onComplete prop but without add conta
       },
       mockStore,
     );
-    selectStage.updateUserStage = () => () => Promise.resolve();
+    updateUserStage.mockImplementation(() => () => Promise.resolve());
 
     await component.handleSelectStage(mockStage, false);
 
@@ -204,7 +207,7 @@ describe('person stage screen methods with add contact flow', () => {
       },
       mockStore,
     );
-    selectStage.updateUserStage = () => () => Promise.resolve();
+    updateUserStage.mockImplementation(() => () => Promise.resolve());
 
     await component.handleSelectStage(mockStage, false);
 
@@ -245,30 +248,36 @@ describe('person stage screen methods', () => {
 
 describe('person stage screen methods with next', () => {
   let component;
-  const mockNext = jest.fn(() => ({ type: 'next' }));
+
+  const next = jest.fn();
+  const nextResponse = { type: 'next' };
+  const updatedStageResult = { type: 'updated user stage' };
 
   beforeEach(() => {
-    component = buildScreen(
-      {
-        ...mockNavState,
-        next: mockNext,
-      },
+    next.mockReturnValue(nextResponse);
+    updateUserStage.mockReturnValue(updatedStageResult);
+
+    component = renderShallow(
+      <PersonStageScreen
+        navigation={createMockNavState({
+          ...mockNavState,
+          onComplete: jest.fn(),
+          enableBackButton: true,
+        })}
+        next={next}
+      />,
       store,
-    );
+    ).instance();
   });
 
   it('runs select stage with stage not previously selected', async () => {
-    selectStage.updateUserStage = jest.fn(() => ({
-      type: 'updated user stage',
-    }));
-
     await component.handleSelectStage(mockStage, false);
 
-    expect(selectStage.updateUserStage).toHaveBeenCalledWith(
+    expect(updateUserStage).toHaveBeenCalledWith(
       mockNavState.contactAssignmentId,
       mockStage.id,
     );
-    expect(mockNext).toHaveBeenCalledWith({
+    expect(next).toHaveBeenCalledWith({
       stage: mockStage,
       contactId: mockNavState.contactId,
       name: mockNavState.name,
@@ -279,14 +288,10 @@ describe('person stage screen methods with next', () => {
   });
 
   it('runs select stage with stage previously selected', async () => {
-    selectStage.updateUserStage = jest.fn(() => ({
-      type: 'updated user stage',
-    }));
-
     await component.handleSelectStage(mockStage, true);
 
-    expect(selectStage.updateUserStage).not.toHaveBeenCalled();
-    expect(mockNext).toHaveBeenCalledWith({
+    expect(updateUserStage).not.toHaveBeenCalled();
+    expect(next).toHaveBeenCalledWith({
       stage: mockStage,
       contactId: mockNavState.contactId,
       name: mockNavState.name,

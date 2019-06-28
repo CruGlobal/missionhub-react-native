@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, View, Keyboard } from 'react-native';
 import { withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { Text, Flex, Input } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -32,7 +33,7 @@ class SetupScreen extends Component {
       Keyboard.dismiss();
       await dispatch(createMyPerson(firstName, lastName));
       disableBack.remove();
-      dispatch(next());
+      dispatch(next({}));
     }
   };
 
@@ -47,7 +48,7 @@ class SetupScreen extends Component {
   onSubmitEditing = () => this.lastName.focus();
 
   render() {
-    const { t } = this.props;
+    const { t, firstName, lastName } = this.props;
 
     return (
       <SafeAreaView style={styles.container}>
@@ -65,7 +66,7 @@ class SetupScreen extends Component {
             <Input
               ref={this.firstNameRef}
               onChangeText={this.updateFirstName}
-              value={this.props.firstName}
+              value={firstName}
               autoFocus={true}
               returnKeyType="next"
               blurOnSubmit={false}
@@ -79,7 +80,7 @@ class SetupScreen extends Component {
             <Input
               ref={this.lastNameRef}
               onChangeText={this.updateLastName}
-              value={this.props.lastName}
+              value={lastName}
               returnKeyType="next"
               placeholder={t('profileLabels.lastName')}
               placeholderTextColor="white"
@@ -94,7 +95,12 @@ class SetupScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ profile }) => ({
+SetupScreen.propTypes = {
+  next: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = ({ profile }, { next }) => ({
+  next,
   firstName: profile.firstName,
   lastName: profile.lastName,
 });

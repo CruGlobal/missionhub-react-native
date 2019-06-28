@@ -44,7 +44,7 @@ const GetStartedScreen = ({
           <Text style={styles.text}>{t('tagline')}</Text>
         </Flex>
 
-        <BottomButton onPress={this.navigateNext} text={t('getStarted')} />
+        <BottomButton onPress={navigateNext} text={t('getStarted')} />
       </Flex>
     </SafeAreaView>
   );

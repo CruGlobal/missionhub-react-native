@@ -16,6 +16,7 @@ import {
   getAnalyticsSubsection,
   isCustomStep,
 } from '../utils/common';
+import { buildCustomStep } from '../utils/steps';
 import {
   COMPLETE_STEP_FLOW,
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
@@ -91,7 +92,7 @@ export function getContactSteps(personId, orgId) {
   };
 }
 
-export function addStep(stepSuggestion, receiverId, organization) {
+export function addStep(stepSuggestion, receiverId, orgId) {
   return async dispatch => {
     const payload = {
       data: {
@@ -115,12 +116,12 @@ export function addStep(stepSuggestion, receiverId, organization) {
                   : (stepSuggestion || {}).id,
             },
           },
-          ...(organization && organization.id !== 'personal'
+          ...(orgId && orgId !== 'personal'
             ? {
                 organization: {
                   data: {
                     type: 'organization',
-                    id: organization.id,
+                    id: orgId,
                   },
                 },
               }
@@ -131,6 +132,19 @@ export function addStep(stepSuggestion, receiverId, organization) {
 
     await dispatch(callApi(REQUESTS.ADD_CHALLENGE, {}, payload));
     dispatch(trackStepAdded(stepSuggestion));
+  };
+}
+
+export function createCustomStep(stepText, receiverId, orgId) {
+  return (dispatch, getState) => {
+    const {
+      auth: {
+        person: { id: myId },
+      },
+    } = getState();
+    const isMe = receiverId === myId;
+
+    dispatch(addStep(buildCustomStep(stepText, isMe), receiverId, orgId));
   };
 }
 

@@ -1,7 +1,6 @@
 import { createStackNavigator } from 'react-navigation';
 
 import { wrapNextAction } from '../helpers';
-import { buildTrackingObj } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
 import { updatePersonAttributes, getPersonDetails } from '../../actions/person';
 import { loadStepsAndJourney } from '../../actions/misc';
@@ -49,12 +48,6 @@ export const SelectPersonStageFlowScreens = {
               contactId,
               organization: { id: orgId },
               contactName: name,
-              createStepTracking: buildTrackingObj(
-                'people : person : steps : create',
-                'people',
-                'person',
-                'steps',
-              ),
             }),
       );
     },

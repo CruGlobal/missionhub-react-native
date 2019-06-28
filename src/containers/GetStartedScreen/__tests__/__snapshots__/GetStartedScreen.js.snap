@@ -92,16 +92,21 @@ Let's figure out where you are on your journey.
           "opacity": 1,
         }
       }
-      testID="Button"
+      testID="bottomButton"
     >
       <View
         style={
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
               "height": 60,
               "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             },
             null,
             Object {

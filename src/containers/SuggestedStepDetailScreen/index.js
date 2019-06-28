@@ -14,7 +14,7 @@ class SuggestedStepDetailScreen extends Component {
   addStep = async () => {
     const { dispatch, step, receiverId, orgId, next } = this.props;
 
-    await dispatch(addStep(step, receiverId, orgId ? { id: orgId } : null));
+    await dispatch(addStep(step, receiverId, orgId));
 
     dispatch(next({ contactId: receiverId, orgId }));
   };
@@ -54,9 +54,10 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { step, receiverId, orgId, next },
+        params: { step, receiverId, orgId },
       },
     },
+    next,
   },
 ) => ({
   step,

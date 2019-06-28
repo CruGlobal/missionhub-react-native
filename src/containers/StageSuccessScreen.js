@@ -23,11 +23,17 @@ class StageSuccessScreen extends Component {
   handleNavigate = () => dispatch => dispatch(navigatePush(ADD_SOMEONE_SCREEN));
 
   handleNavigateToStep = () => {
+    const { dispatch, next, selectedStage } = this.props;
+
     disableBack.remove();
-    this.props.dispatch(
+
+    if (next) {
+      return dispatch(next({ selectedStage }));
+    }
+
+    dispatch(
       navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, {
-        onboarding: true,
-        contactStage: this.props.selectedStage,
+        contactStage: selectedStage,
         enableBackButton: false,
         next: this.handleNavigate,
       }),
@@ -35,16 +41,15 @@ class StageSuccessScreen extends Component {
   };
 
   getMessage() {
-    const { t } = this.props;
+    const { t, selectedStage, firstName } = this.props;
 
     let followUpText =
-      this.props.selectedStage &&
-      this.props.selectedStage.self_followup_description
-        ? this.props.selectedStage.self_followup_description
+      selectedStage && selectedStage.self_followup_description
+        ? selectedStage.self_followup_description
         : t('backupMessage');
     followUpText = followUpText.replace(
       '<<user>>',
-      this.props.firstName ? this.props.firstName : t('friend'),
+      firstName ? firstName : t('friend'),
     );
     return followUpText;
   }
@@ -64,11 +69,23 @@ class StageSuccessScreen extends Component {
 }
 
 StageSuccessScreen.propTypes = {
+  next: PropTypes.func.isRequired,
   selectedStage: PropTypes.object,
 };
 
-const mapStateToProps = ({ profile }, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = (
+  { profile },
+  {
+    navigation: {
+      state: {
+        params: { selectedStage },
+      },
+    },
+    next,
+  },
+) => ({
+  selectedStage,
+  next,
   firstName: profile.firstName,
 });
 

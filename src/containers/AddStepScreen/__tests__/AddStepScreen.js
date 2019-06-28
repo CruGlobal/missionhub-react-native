@@ -1,267 +1,242 @@
 import { Alert } from 'react-native';
 import React from 'react';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
 import AddStepScreen from '..';
 
-import {
-  createMockNavState,
-  testSnapshot,
-  renderShallow,
-  renderWithContext,
-} from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { CREATE_STEP, STEP_NOTE } from '../../../constants';
-import * as common from '../../../utils/common';
 import locale from '../../../i18n/locales/en-US';
 
 //fixed in steps-improvement
 const mockDate = '2018-09-12 12:00:00 PM GMT+0';
 MockDate.set(mockDate);
 
-const mockStore = configureStore([thunk]);
-let store;
-
-const auth = { person: { id: '123123' } };
-
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/analytics');
 
+const next = jest.fn();
+const nextResult = { type: 'next' };
+const auth = { person: { id: '123123' } };
+
+const text = 'Comment';
+const stepId = '1112';
+const personId = '2221';
+const orgId = '333';
+
 beforeEach(() => {
-  store = mockStore({ auth });
+  next.mockReturnValue(nextResult);
 });
 
-it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <AddStepScreen
-        navigation={createMockNavState({
-          next: jest.fn(),
-          type: CREATE_STEP,
-        })}
-      />
-    </Provider>,
-  );
+const baseParams = { stepId, personId, orgId };
+const createStepParams = { ...baseParams, type: CREATE_STEP };
+const journeyParams = { ...baseParams, type: 'journey' };
+const editJourneyParams = {
+  ...baseParams,
+  type: 'editJourney',
+  isEdit: true,
+  text,
+};
+const stepNoteParams = { ...baseParams, type: STEP_NOTE };
+const myStepNoteParams = {
+  ...baseParams,
+  type: STEP_NOTE,
+  personId: auth.person.id,
+};
+const stepNoteEditParams = {
+  ...baseParams,
+  type: STEP_NOTE,
+  isEdit: true,
+  text,
+};
+const myStepNoteEditParams = {
+  type: STEP_NOTE,
+  isEdit: true,
+  text,
+  personId: auth.person.id,
+};
+const interactionParams = { type: 'interaction', hideSkip: 'true' };
+const interactionWithSkipParams = { type: 'interaction', hideSkip: false };
+
+it('renders create step correctly', () => {
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth },
+    navParams: createStepParams,
+  }).snapshot();
 });
 
 it('renders journey correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <AddStepScreen
-        navigation={createMockNavState({
-          next: jest.fn(),
-          type: 'journey',
-        })}
-      />
-    </Provider>,
-  );
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth },
+    navParams: journeyParams,
+  }).snapshot();
 });
 
 it('renders edit journey correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <AddStepScreen
-        navigation={createMockNavState({
-          next: jest.fn(),
-          type: 'editJourney',
-          isEdit: true,
-          text: 'Comment',
-        })}
-      />
-    </Provider>,
-  );
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth },
+    navParams: editJourneyParams,
+  }).snapshot();
 });
 
 it('renders step note correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <AddStepScreen
-        navigation={createMockNavState({
-          next: jest.fn(),
-          type: STEP_NOTE,
-          text: 'Comment',
-        })}
-      />
-    </Provider>,
-  );
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth },
+    navParams: stepNoteParams,
+  }).snapshot();
 });
 
 it('renders step note correctly for me', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <AddStepScreen
-        navigation={createMockNavState({
-          next: jest.fn(),
-          type: STEP_NOTE,
-          text: 'Comment',
-          personId: auth.person.id,
-        })}
-      />
-    </Provider>,
-  );
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth },
+    navParams: myStepNoteParams,
+  }).snapshot();
+});
+
+it('renders step note edit correctly', () => {
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth },
+    navParams: stepNoteEditParams,
+  }).snapshot();
+});
+
+it('renders step note edit correctly for me', () => {
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth },
+    navParams: myStepNoteEditParams,
+  }).snapshot();
 });
 
 it('renders interaction without skip correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <AddStepScreen
-        navigation={createMockNavState({
-          next: jest.fn(),
-          type: 'interaction',
-          hideSkip: true,
-        })}
-      />
-    </Provider>,
-  );
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth },
+    navParams: interactionParams,
+  }).snapshot();
 });
 
 it('renders interaction with skip correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <AddStepScreen
-        navigation={createMockNavState({
-          next: jest.fn(),
-          type: 'interaction',
-          hideSkip: false,
-        })}
-      />
-    </Provider>,
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth },
+    navParams: interactionWithSkipParams,
+  }).snapshot();
+});
+
+it('updates text', () => {
+  const { recordSnapshot, getByTestId, diffSnapshot } = renderWithContext(
+    <AddStepScreen next={next} />,
+    {
+      initialState: { auth },
+      navParams: stepNoteParams,
+    },
   );
+  recordSnapshot();
+
+  fireEvent.changeText(getByTestId('stepInput'), text);
+
+  diffSnapshot();
 });
 
-describe('add step methods', () => {
-  let component;
-  const next = jest.fn(() => ({ type: 'next' }));
-  beforeEach(() => {
-    const screen = renderShallow(
-      <AddStepScreen
-        navigation={createMockNavState({
-          next,
-          type: 'editJourney',
-          isEdit: true,
-          text: 'Comment',
-        })}
-      />,
-      store,
-    );
+it('saves step', () => {
+  const { getByTestId, store } = renderWithContext(
+    <AddStepScreen next={next} />,
+    {
+      initialState: { auth },
+      navParams: stepNoteParams,
+    },
+  );
 
-    component = screen.instance();
-  });
+  fireEvent.changeText(getByTestId('stepInput'), text);
 
-  it('saves a step', () => {
-    component.saveStep();
-    expect(next).toHaveBeenCalledTimes(1);
-  });
-});
+  fireEvent.press(getByTestId('bottomButton'));
 
-describe('add step methods for stepNote with next', () => {
-  let screen;
-  const next = jest.fn(() => ({ type: 'next' }));
-  const onSetComplete = jest.fn(() => Promise.resolve());
-  common.disableBack = { add: jest.fn(), remove: jest.fn() };
-
-  beforeEach(() => {
-    screen = renderShallow(
-      <AddStepScreen
-        navigation={createMockNavState({
-          next,
-          type: STEP_NOTE,
-          text: 'Comment',
-          onSetComplete,
-        })}
-      />,
-      store,
-    );
-
-    expect(common.disableBack.add).toHaveBeenCalledTimes(1);
-  });
-
-  it('runs skip', async () => {
-    await screen
-      .childAt(4)
-      .props()
-      .onSkip();
-
-    expect(onSetComplete).toHaveBeenCalled();
-    expect(next).toHaveBeenCalledTimes(1);
-  });
-
-  it('runs saveStep', () => {
-    const { getByTestId } = renderWithContext(<AddStepScreen />, {
-      navParams: {
-        next,
-        type: STEP_NOTE,
-        text: 'Comment',
-      },
-      store,
-    });
-    fireEvent.changeText(getByTestId('stepInput'), 'test');
-    fireEvent.press(getByTestId('saveStepButton'));
-
-    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
-    expect(next).toHaveBeenCalledTimes(1);
+  expect(store.getActions()).toEqual([nextResult]);
+  expect(next).toHaveBeenCalledWith({
+    text,
+    stepId,
+    personId,
+    orgId,
   });
 });
 
-describe('add step methods without edit', () => {
-  let component;
-  const next = jest.fn();
-  beforeEach(() => {
-    const screen = renderShallow(
-      <AddStepScreen
-        navigation={createMockNavState({
-          next,
-          type: 'journey',
-        })}
-      />,
-      store,
-    );
+it('saves step with onSetComplete', async () => {
+  const onSetComplete = jest.fn();
 
-    component = screen.instance();
+  const { getByTestId, store } = renderWithContext(
+    <AddStepScreen next={next} />,
+    {
+      initialState: { auth },
+      navParams: { ...stepNoteParams, onSetComplete },
+    },
+  );
+
+  fireEvent.changeText(getByTestId('stepInput'), text);
+
+  await fireEvent.press(getByTestId('bottomButton'));
+
+  expect(store.getActions()).toEqual([nextResult]);
+  expect(onSetComplete).toHaveBeenCalledWith();
+  expect(next).toHaveBeenCalledWith({
+    text,
+    stepId,
+    personId,
+    orgId,
   });
+});
 
-  it('doesnt save a step', () => {
-    component.saveStep();
-    expect(next).toHaveBeenCalledTimes(0);
+it('skips save step', () => {
+  const { getByTestId, store } = renderWithContext(
+    <AddStepScreen next={next} />,
+    {
+      initialState: { auth },
+      navParams: stepNoteParams,
+    },
+  );
+
+  fireEvent.changeText(getByTestId('stepInput'), text);
+
+  fireEvent.press(getByTestId('skipButton'));
+
+  expect(store.getActions()).toEqual([nextResult]);
+  expect(next).toHaveBeenCalledWith({
+    text: undefined,
+    stepId,
+    personId,
+    orgId,
   });
 });
 
 describe('Caps create step at 255 characters', () => {
-  let component;
-  const next = jest.fn();
   Alert.alert = jest.fn();
+
   const { makeShorter } = locale.addStep;
-
-  beforeEach(() => {
-    const screen = renderShallow(
-      <AddStepScreen
-        navigation={createMockNavState({
-          next,
-          type: CREATE_STEP,
-        })}
-      />,
-      store,
-    );
-
-    component = screen.instance();
-  });
-
   const twoFiftyFour =
     '254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254char';
   const twoFiftyFive = `${twoFiftyFour}a`;
 
   it('Allows 254 characters', () => {
-    component.onChangeText(twoFiftyFour);
+    const { getByTestId } = renderWithContext(<AddStepScreen next={next} />, {
+      initialState: { auth },
+      navParams: createStepParams,
+    });
+
+    fireEvent.changeText(getByTestId('stepInput'), twoFiftyFour);
+
+    fireEvent.press(getByTestId('bottomButton'));
 
     expect(Alert.alert).not.toHaveBeenCalled();
   });
 
   it('displays alert at 255 characters', () => {
-    component.onChangeText(twoFiftyFive);
+    const { getByTestId } = renderWithContext(<AddStepScreen next={next} />, {
+      initialState: { auth },
+      navParams: createStepParams,
+    });
+
+    fireEvent.changeText(getByTestId('stepInput'), twoFiftyFive);
+
+    fireEvent.press(getByTestId('bottomButton'));
 
     expect(Alert.alert).toHaveBeenCalledWith('', makeShorter);
   });

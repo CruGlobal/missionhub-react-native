@@ -3,16 +3,21 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as reactNavigation from 'react-navigation';
 
+import { CREATE_STEP } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
 import { AddPersonFlowScreens } from '../addPersonFlow';
 import { paramsForStageNavigation } from '../../utils';
 import { buildTrackingObj } from '../../../utils/common';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
+import { createCustomStep } from '../../../actions/steps';
 import { ADD_CONTACT_SCREEN } from '../../../containers/AddContactScreen';
 import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
+import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
+import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/steps');
 jest.mock('../../utils');
 
 const myId = '111';
@@ -28,6 +33,14 @@ const contact = {
 const reverseContactAssignment = {
   id: contactAssignmentId,
 };
+const stepText = 'Step';
+const step = { id: '567', title: stepText };
+const trackingObj = buildTrackingObj(
+  'people : person : steps : create',
+  'people',
+  'person',
+  'steps',
+);
 
 const onFlowComplete = jest.fn();
 
@@ -67,11 +80,13 @@ const navigateBackResponse = { type: 'navigate back' };
 const popToTopResponse = { type: 'pop to top of stack' };
 const popResponse = { type: 'pop once' };
 const flowCompleteResponse = { type: 'on flow complete' };
+const createCustomStepResponse = { type: 'create custom step' };
 
 beforeEach(() => {
   store.clearActions();
   navigatePush.mockReturnValue(navigatePushResponse);
   navigateBack.mockReturnValue(navigateBackResponse);
+  createCustomStep.mockReturnValue(createCustomStepResponse);
   paramsForStageNavigation.mockReturnValue({
     assignment: reverseContactAssignment,
     name: contactName,
@@ -191,10 +206,51 @@ describe('PersonStageScreen next', () => {
 });
 
 describe('PersonSelectStepScreen next', () => {
+  describe('select a suggested step', () => {
+    beforeEach(async () => {
+      await buildAndCallNext(
+        PERSON_SELECT_STEP_SCREEN,
+        {},
+        { receiverId: contactId, step, orgId },
+      );
+    });
+
+    it('should fire required next actions', () => {
+      expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
+        receiverId: contactId,
+        step,
+        orgId,
+      });
+      expect(store.getActions()).toEqual([navigatePushResponse]);
+    });
+  });
+
+  describe('create a step', () => {
+    beforeEach(async () => {
+      await buildAndCallNext(
+        PERSON_SELECT_STEP_SCREEN,
+        {},
+        { receiverId: contactId, step: undefined, orgId },
+      );
+    });
+
+    it('should fire required next actions', () => {
+      expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
+        type: CREATE_STEP,
+        personId: contactId,
+        orgId,
+        trackingObj,
+      });
+      expect(store.getActions()).toEqual([navigatePushResponse]);
+    });
+  });
+});
+
+describe('SuggestedStepDetailScreen next', () => {
   beforeEach(async () => {
     await buildAndCallNext(
-      PERSON_SELECT_STEP_SCREEN,
-      { createStepTracking: {} },
+      SUGGESTED_STEP_DETAIL_SCREEN,
+      { receiverId: contactId, step, orgId },
       { orgId },
     );
   });
@@ -202,5 +258,29 @@ describe('PersonSelectStepScreen next', () => {
   it('should fire required next actions', () => {
     expect(onFlowComplete).toHaveBeenCalledWith({ orgId });
     expect(store.getActions()).toEqual([flowCompleteResponse]);
+  });
+});
+
+describe('AddStepScreen next', () => {
+  beforeEach(async () => {
+    await buildAndCallNext(
+      ADD_STEP_SCREEN,
+      {
+        type: CREATE_STEP,
+        personId: contactId,
+        orgId,
+        trackingObj,
+      },
+      { text: stepText, personId: contactId, orgId },
+    );
+  });
+
+  it('should fire required next actions', () => {
+    expect(createCustomStep).toHaveBeenCalledWith(stepText, contactId, orgId);
+    expect(onFlowComplete).toHaveBeenCalledWith({ orgId });
+    expect(store.getActions()).toEqual([
+      createCustomStepResponse,
+      flowCompleteResponse,
+    ]);
   });
 });
