@@ -1,4 +1,5 @@
-import { REQUESTS } from './api';
+import { REQUESTS } from '../api/routes';
+
 import callApi from './api';
 
 export function getMyGroups() {

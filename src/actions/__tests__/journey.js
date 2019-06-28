@@ -1,7 +1,8 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 import { getJourney, reloadJourney, getGroupJourney } from '../journey';
 import { isAdminOrOwner } from '../../utils/common';
 import { ACCEPTED_STEP } from '../../constants';

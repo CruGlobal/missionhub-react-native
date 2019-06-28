@@ -1,4 +1,4 @@
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 import reportedCommentsReducer from '../reportedComments';
 
 describe('REQUESTS.GET_REPORTED_COMMENTS.SUCCESS', () => {

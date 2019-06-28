@@ -6,7 +6,8 @@ import {
   getPeopleInteractionsReport,
   refreshImpact,
 } from '../impact';
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 
 jest.mock('../api');
 

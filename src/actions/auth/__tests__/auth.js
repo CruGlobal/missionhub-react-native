@@ -2,7 +2,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import PushNotification from 'react-native-push-notification';
 
-import { REQUESTS } from '../../api';
+import { REQUESTS } from '../../../api/routes';
 import { logout, navigateToPostAuthScreen } from '../auth';
 import { deletePushToken } from '../../notifications';
 

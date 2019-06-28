@@ -2,8 +2,9 @@
 
 import { UPDATE_JOURNEY_ITEMS } from '../constants';
 import { isAdminOrOwner } from '../utils/common';
+import { REQUESTS } from '../api/routes';
 
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 
 export function reloadJourney(personId, orgId) {
   return (dispatch, getState) => {

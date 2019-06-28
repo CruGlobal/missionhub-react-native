@@ -6,9 +6,9 @@ import {
   NOT_LOGGED_IN,
   LOGOUT,
 } from '../constants';
-import { REQUESTS } from '../actions/api';
+import { REQUESTS } from '../api/routes';
 
-const initialAnalyticsState = {
+export const initialAnalyticsState = {
   [ANALYTICS.MCID]: '',
   [ANALYTICS.SCREENNAME]: '',
   [ANALYTICS.SITE_SECTION]: '',
@@ -24,12 +24,30 @@ const initialAnalyticsState = {
   [ANALYTICS.CONTENT_LANGUAGE]: i18n.language,
 };
 
-function analyticsReducer(state = initialAnalyticsState, action) {
+interface AnalyticsContextChangedAction {
+  type: typeof ANALYTICS_CONTEXT_CHANGED;
+  analyticsContext: Partial<typeof initialAnalyticsState>;
+}
+
+interface KeyLoginSuccessAction {
+  type: typeof REQUESTS.KEY_LOGIN.SUCCESS;
+  results: { thekey_guid: string };
+}
+
+type AnalyticsAction =
+  | AnalyticsContextChangedAction
+  | KeyLoginSuccessAction
+  | { type: typeof LOGOUT };
+
+function analyticsReducer(
+  state = initialAnalyticsState,
+  action: AnalyticsAction,
+) {
   switch (action.type) {
     case ANALYTICS_CONTEXT_CHANGED:
       return {
         ...state,
-        ...action.analyticsContext,
+        ...(action.analyticsContext as typeof initialAnalyticsState),
       };
     case REQUESTS.KEY_LOGIN.SUCCESS:
       return {

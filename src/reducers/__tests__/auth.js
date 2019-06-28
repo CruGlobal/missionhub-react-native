@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 
 import auth from '../auth';
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 import {
   CLEAR_UPGRADE_TOKEN,
   LOGOUT,

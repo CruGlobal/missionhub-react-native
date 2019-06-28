@@ -1,7 +1,7 @@
 /* eslint max-lines: 0 */
 
 import organizations from '../organizations';
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 import {
   LOAD_ORGANIZATIONS,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
