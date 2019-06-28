@@ -20,7 +20,7 @@ class StageScreen extends Component {
     });
   };
 
-  complete(stage, isAlreadySelected) {
+  complete(stage, isAlreadySelected = false) {
     const { onComplete, next, contactId, orgId, noNav, dispatch } = this.props;
 
     if (next) {
@@ -85,7 +85,6 @@ class StageScreen extends Component {
 StageScreen.propTypes = {
   next: PropTypes.func,
   onComplete: PropTypes.func,
-  contactId: PropTypes.string,
   orgId: PropTypes.string,
   questionText: PropTypes.string,
   firstItem: PropTypes.number,
@@ -95,9 +94,35 @@ StageScreen.propTypes = {
   noNav: PropTypes.bool,
 };
 
-const mapStateToProps = ({ profile }, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = (
+  { auth, profile },
+  {
+    navigation: {
+      state: {
+        params: {
+          onComplete,
+          orgId,
+          questionText,
+          firstItem,
+          section,
+          subsection,
+          noNav,
+        },
+      },
+    },
+    next,
+  },
+) => ({
+  next,
+  onComplete,
+  orgId,
+  questionText,
+  firstItem,
+  section,
+  subsection,
+  noNav,
   firstName: profile.firstName,
+  contactId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(StageScreen);

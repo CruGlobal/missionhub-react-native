@@ -58,7 +58,7 @@ class PersonStageScreen extends Component {
     this.celebrateAndFinishOnboarding();
   };
 
-  complete(stage, isAlreadySelected) {
+  complete(stage, isAlreadySelected = false) {
     const {
       onComplete,
       next,
@@ -216,24 +216,63 @@ PersonStageScreen.propTypes = {
   enableBackButton: PropTypes.bool,
   noNav: PropTypes.bool,
   addingContactFlow: PropTypes.bool,
+  section: PropTypes.string,
+  subsection: PropTypes.string,
+  next: PropTypes.func,
 };
+
 PersonStageScreen.defaultProps = {
   enableBackButton: true,
 };
 
-const mapStateToProps = ({ personProfile, auth }, { navigation }) => {
-  const navProps = navigation.state.params || {};
-
-  return {
-    ...navProps,
-    personFirstName: personProfile.personFirstName,
-    personId: personProfile.id,
-    contactAssignmentId: navProps.onComplete
-      ? navProps.contactAssignmentId
-      : navProps.contactAssignmentId || personProfile.contactAssignmentId, // onComplete currently seems to be used as a flag to indicate if we are in onboarding or not
-    myId: auth.person.id,
-  };
-};
+const mapStateToProps = (
+  { personProfile, auth },
+  {
+    navigation: {
+      state: {
+        params: {
+          onComplete,
+          onCompleteCelebration,
+          name,
+          contactId,
+          currentStage,
+          contactAssignmentId,
+          orgId,
+          firstItem,
+          enableBackButton,
+          noNav,
+          addingContactFlow,
+          section,
+          subsection,
+          questionText,
+        },
+      },
+    },
+    next,
+  },
+) => ({
+  onComplete,
+  onCompleteCelebration,
+  name,
+  contactId,
+  currentStage,
+  contactAssignmentId,
+  orgId,
+  firstItem,
+  enableBackButton,
+  noNav,
+  addingContactFlow,
+  section,
+  subsection,
+  questionText,
+  next,
+  personFirstName: personProfile.personFirstName,
+  personId: personProfile.id,
+  contactAssignmentId: onComplete // onComplete currently seems to be used as a flag to indicate if we are in onboarding or not
+    ? contactAssignmentId
+    : contactAssignmentId || personProfile.contactAssignmentId,
+  myId: auth.person.id,
+});
 
 export default connect(mapStateToProps)(PersonStageScreen);
 export const PERSON_STAGE_SCREEN = 'nav/PERSON_STAGE';

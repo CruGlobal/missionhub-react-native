@@ -6,16 +6,12 @@ import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
-import { navigateBack, navigatePush } from '../../actions/navigation';
-import { addStep } from '../../actions/steps';
-import { buildCustomStep } from '../../utils/steps';
+import { navigateBack } from '../../actions/navigation';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import AbsoluteSkip from '../../components/AbsoluteSkip';
-import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
-import { CREATE_STEP } from '../../constants';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
@@ -25,9 +21,7 @@ import styles from './styles';
 @withTranslation('selectStep')
 class SelectStepScreen extends Component {
   componentDidMount() {
-    const { enableBackButton } = this.props;
-
-    if (!enableBackButton) {
+    if (!this.props.enableBackButton) {
       disableBack.add();
     }
   }
@@ -38,30 +32,23 @@ class SelectStepScreen extends Component {
     }
   }
 
-  complete = () => {
+  navigateNext(step, skip = false) {
     const { dispatch, receiverId, organization, next } = this.props;
     dispatch(
-      next({ contactId: receiverId, orgId: organization && organization.id }),
+      next({ receiverId, step, skip, orgId: organization && organization.id }),
     );
+  }
+
+  navToSuggestedStep = step => {
+    this.navigateNext(step);
   };
 
-  createCustomStep = ({ text }) => dispatch => {
-    const { isMe, receiverId, organization } = this.props;
-
-    dispatch(addStep(buildCustomStep(text, isMe), receiverId, organization));
-    this.complete();
+  navToCreateStep = () => {
+    this.navigateNext();
   };
 
-  handleCreateStep = () => {
-    const { dispatch, createStepTracking } = this.props;
-
-    dispatch(
-      navigatePush(ADD_STEP_SCREEN, {
-        type: CREATE_STEP,
-        trackingObj: createStepTracking,
-        next: this.createCustomStep,
-      }),
-    );
+  handleSkip = () => {
+    this.navigateNext(undefined, true);
   };
 
   navigateBackTwoScreens = () => this.props.dispatch(navigateBack(2));
@@ -92,6 +79,7 @@ class SelectStepScreen extends Component {
 
   render() {
     const {
+      t,
       contactName,
       receiverId,
       organization,
@@ -99,7 +87,6 @@ class SelectStepScreen extends Component {
       enableBackButton,
       enableSkipButton,
       contact,
-      next,
     } = this.props;
     const { headerHeight, parallaxHeaderHeight } = theme;
 
@@ -118,14 +105,11 @@ class SelectStepScreen extends Component {
             receiverId={receiverId}
             organization={organization}
             contactStageId={contactStageId}
-            next={next}
+            onPressStep={this.navToSuggestedStep}
           />
         </ParallaxScrollView>
         <SafeAreaView>
-          <BottomButton
-            onPress={this.handleCreateStep}
-            text={this.props.t('createStep')}
-          />
+          <BottomButton onPress={this.navToCreateStep} text={t('createStep')} />
         </SafeAreaView>
         {enableBackButton && (
           <BackButton
@@ -133,7 +117,7 @@ class SelectStepScreen extends Component {
             absolute={true}
           />
         )}
-        {enableSkipButton && <AbsoluteSkip onSkip={this.complete} />}
+        {enableSkipButton && <AbsoluteSkip onSkip={this.handleSkip} />}
       </View>
     );
   }
@@ -145,21 +129,43 @@ SelectStepScreen.defaultProps = {
 };
 
 SelectStepScreen.propTypes = {
-  createStepTracking: PropTypes.object.isRequired,
+  headerText: PropTypes.string.isRequired,
+  contactName: PropTypes.string,
   contact: PropTypes.object,
   receiverId: PropTypes.string.isRequired,
   enableBackButton: PropTypes.bool,
   enableSkipButton: PropTypes.bool,
   organization: PropTypes.object,
-  contactStageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-    .isRequired,
+  contactStageId: PropTypes.string.isRequired,
   next: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ auth }, { receiverId }) => {
+const mapStateToProps = (
+  { auth },
+  {
+    headerText,
+    contactName,
+    contact,
+    receiverId,
+    enableBackButton,
+    enableSkipButton,
+    orgId,
+    contactStageId,
+    next,
+  },
+) => {
   const myId = auth.person.id;
 
   return {
+    headerText,
+    contactName,
+    contact,
+    receiverId,
+    enableBackButton,
+    enableSkipButton,
+    orgId,
+    contactStageId,
+    next,
     myId,
     isMe: receiverId === myId,
   };

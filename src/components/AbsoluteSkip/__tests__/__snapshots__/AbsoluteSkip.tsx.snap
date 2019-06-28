@@ -29,6 +29,7 @@ exports[`render skip 1`] = `
         undefined,
       ]
     }
+    testID="skipButton"
     text="SKIP"
     type="transparent"
   />
@@ -66,6 +67,7 @@ exports[`renders skip with style 1`] = `
         },
       ]
     }
+    testID="skipButton"
     text="SKIP"
     type="transparent"
   />
@@ -103,6 +105,7 @@ exports[`renders skip with text style 1`] = `
         undefined,
       ]
     }
+    testID="skipButton"
     text="SKIP"
     type="transparent"
   />

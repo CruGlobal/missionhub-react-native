@@ -8,8 +8,8 @@ import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { navigatePush } from '../../actions/navigation';
 import { firstTime } from '../../actions/auth/userData';
 import { Button, Text } from '../../components/common';
-import { WELCOME_SCREEN } from '../WelcomeScreen';
 import {
+  FULL_ONBOARDING_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
   SIGN_IN_FLOW,
 } from '../../routes/constants';
@@ -38,7 +38,7 @@ const LandingScreen = ({
 
   const tryItNow = () => {
     dispatch(firstTime());
-    dispatch(navigatePush(WELCOME_SCREEN));
+    dispatch(navigatePush(FULL_ONBOARDING_FLOW));
   };
 
   const communityCode = () => {

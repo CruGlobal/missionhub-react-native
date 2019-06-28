@@ -362,6 +362,7 @@ exports[`renders back button correctly 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="StageButton0"
             >
               <View
                 style={
@@ -488,6 +489,7 @@ exports[`renders back button correctly 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="StageButton1"
             >
               <View
                 style={
@@ -614,6 +616,7 @@ exports[`renders back button correctly 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="StageButton2"
             >
               <View
                 style={
@@ -919,6 +922,7 @@ exports[`renders correctly 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="StageButton0"
             >
               <View
                 style={
@@ -1045,6 +1049,7 @@ exports[`renders correctly 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="StageButton1"
             >
               <View
                 style={
@@ -1171,6 +1176,7 @@ exports[`renders correctly 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="StageButton2"
             >
               <View
                 style={
@@ -1538,6 +1544,7 @@ exports[`renders firstItem correctly 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="StageButton0"
             >
               <View
                 style={
@@ -1664,6 +1671,7 @@ exports[`renders firstItem correctly 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="StageButton1"
             >
               <View
                 style={
@@ -1790,6 +1798,7 @@ exports[`renders firstItem correctly 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="StageButton2"
             >
               <View
                 style={

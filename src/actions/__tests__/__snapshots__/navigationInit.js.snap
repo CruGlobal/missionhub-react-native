@@ -61,7 +61,7 @@ Array [
     "actions": Array [
       Object {
         "params": Object {},
-        "routeName": "nav/GET_STARTED",
+        "routeName": "nav/GET_STARTED_ONBOARDING_FLOW",
         "type": "Navigation/NAVIGATE",
       },
     ],
@@ -78,7 +78,7 @@ Array [
     "actions": Array [
       Object {
         "params": Object {},
-        "routeName": "nav/ADD_SOMEONE",
+        "routeName": "nav/ADD_SOMEONE_ONBOARDING_FLOW",
         "type": "Navigation/NAVIGATE",
       },
     ],
@@ -95,7 +95,7 @@ Array [
     "actions": Array [
       Object {
         "params": Object {},
-        "routeName": "nav/GET_STARTED",
+        "routeName": "nav/GET_STARTED_ONBOARDING_FLOW",
         "type": "Navigation/NAVIGATE",
       },
     ],

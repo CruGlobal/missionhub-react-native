@@ -6,10 +6,12 @@ import { rollbar } from '../../utils/rollbar.config';
 import { navigateReset } from '../navigation';
 import { deletePushToken } from '../notifications';
 import { trackActionWithoutData } from '../analytics';
-import { SIGN_IN_FLOW } from '../../routes/constants';
-import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';
+import {
+  SIGN_IN_FLOW,
+  ADD_SOMEONE_ONBOARDING_FLOW,
+  GET_STARTED_ONBOARDING_FLOW,
+} from '../../routes/constants';
 import { completeOnboarding } from '../onboardingProfile';
-import { ADD_SOMEONE_SCREEN } from '../../containers/AddSomeoneScreen';
 import { navigateToMainTabs } from '../navigation';
 
 export function logout(forcedLogout = false) {
@@ -55,13 +57,13 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
   const { person } = getState().auth;
 
   if (!person.user.pathway_stage_id) {
-    dispatch(navigateReset(GET_STARTED_SCREEN));
+    dispatch(navigateReset(GET_STARTED_ONBOARDING_FLOW));
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   } else if (hasPersonWithStageSelected(person)) {
     dispatch(navigateToMainTabs());
     dispatch(completeOnboarding());
   } else {
-    dispatch(navigateReset(ADD_SOMEONE_SCREEN));
+    dispatch(navigateReset(ADD_SOMEONE_ONBOARDING_FLOW));
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   }
 };

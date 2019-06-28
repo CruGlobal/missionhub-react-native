@@ -9,10 +9,6 @@ import SelectStepScreen from './SelectStepScreen';
 
 @withTranslation('selectStep')
 class SelectMyStepScreen extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const {
       t,
@@ -21,11 +17,12 @@ class SelectMyStepScreen extends Component {
       personId,
       contactStage,
       organization,
+      onboarding,
       myStageId,
       next,
     } = this.props;
 
-    const section = this.props.onboarding ? 'onboarding' : 'people';
+    const section = onboarding ? 'onboarding' : 'people';
     const stageId = contactStage ? contactStage.id : myStageId;
 
     return (
@@ -53,15 +50,28 @@ SelectMyStepScreen.defaultProps = {
 };
 
 SelectMyStepScreen.propTypes = {
-  next: PropTypes.func.isRequired,
   enableBackButton: PropTypes.bool,
   contactStage: PropTypes.object,
-  contactId: PropTypes.string,
   organization: PropTypes.object,
+  next: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ auth }, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = (
+  { auth },
+  {
+    navigation: {
+      state: {
+        params: { contactStage, organization, enableBackButton, onboarding },
+      },
+    },
+    next,
+  },
+) => ({
+  contactStage,
+  organization,
+  enableBackButton,
+  onboarding,
+  next,
   me: auth.person,
   myStageId: auth.person.user.pathway_stage_id,
   personId: auth.person.id,
