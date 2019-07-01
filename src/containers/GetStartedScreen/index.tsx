@@ -31,7 +31,7 @@ const GetStartedScreen = ({
   const navigateNext = () => {
     disableBack.remove();
 
-    dispatch(next());
+    dispatch(next({}));
   };
 
   return (
