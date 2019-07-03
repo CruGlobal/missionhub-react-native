@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
-import { getSurveyQuestions } from '../../../actions/surveys';
+import { getSurveyQuestions, getFilterStats } from '../../../actions/surveys';
 import { buildTrackingObj, isString } from '../../../utils/common';
 import {
   getFilterOptions,
@@ -43,18 +43,26 @@ export class SurveyContactsFilter extends Component {
   async loadQuestionsAndLabels() {
     const { dispatch, survey, organization } = this.props;
     const questions = await dispatch(getSurveyQuestions(survey.id));
+    const filterStats = await dispatch(getFilterStats(survey.id));
     const labels = await dispatch(getOrgLabels(organization.id));
 
     const { options, toggleOptions } = this.createFilterOptions(
       questions,
+      filterStats,
       labels,
     );
     this.setState({ options, toggleOptions });
   }
 
-  createFilterOptions(questions, labels) {
+  createFilterOptions(questions, filterStats, labels) {
     const { t, filters } = this.props;
-    const filterOptions = getFilterOptions(t, filters, questions, labels);
+    const filterOptions = getFilterOptions(
+      t,
+      filters,
+      questions,
+      filterStats,
+      labels,
+    );
     const options = [
       filterOptions.questions,
       filterOptions.labels,

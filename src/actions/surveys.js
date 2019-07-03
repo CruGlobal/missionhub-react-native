@@ -59,3 +59,16 @@ export function getSurveyQuestions(surveyId) {
     return response;
   };
 }
+
+export function getFilterStats(surveyId) {
+  return async dispatch => {
+    const query = {
+      survey_id: surveyId,
+    };
+
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_FILTER_STATS, query),
+    );
+    return response;
+  };
+}
