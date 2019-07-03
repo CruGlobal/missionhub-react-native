@@ -21,9 +21,17 @@ export const getFilterOptions = (
   labels = [],
 ) => {
   const { questions: filterStatQuestions = [] } = filterStats;
-
   const questionOptions = questions.filter(q => q._type === 'choice_field');
-  const answerOptions = Object.keys(filterStatQuestions);
+  const answerOptions = filterStatQuestions.reduce(
+    (questions, { question_id, answers }) => ({
+      ...questions,
+      [question_id]: {
+        id: question_id,
+        options: answers.map(a => ({ id: a.value, text: a.value })),
+      },
+    }),
+    {},
+  );
   const questionFilters = Object.keys(filters)
     .map(f => filters[f])
     .filter(f => f && f.isAnswer);
@@ -37,13 +45,7 @@ export const getFilterOptions = (
         return {
           id: q.id,
           text: q.label,
-          options:
-            answerOptions[q.id] &&
-            answerOptions[q.id].answers &&
-            answerOptions[q.id].answers.map(a => ({
-              id: a.value,
-              text: a.value,
-            })),
+          options: answerOptions[q.id] && answerOptions[q.id].options,
           preview: filterForQuestion ? filterForQuestion.text : undefined,
         };
       }),

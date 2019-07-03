@@ -63,6 +63,7 @@ export class SurveyContactsFilter extends Component {
       filterStats,
       labels,
     );
+
     const options = [
       filterOptions.questions,
       filterOptions.labels,
