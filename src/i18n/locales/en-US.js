@@ -161,7 +161,7 @@ export default {
     errorDefault: 'There was a problem signing in.',
     errorIncorrect: 'Your Email or Password is Incorrect',
     errorVerify: 'Verify your account via Email',
-    facebookLogin: 'Log In With Facebook',
+    facebookLogin: 'Sign In With Facebook',
   },
   mfaLogin: {
     mfaHeader: 'two-step verification',
