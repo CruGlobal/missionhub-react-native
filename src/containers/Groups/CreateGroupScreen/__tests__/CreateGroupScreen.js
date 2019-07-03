@@ -88,6 +88,13 @@ describe('CreateGroupScreen', () => {
     expect(component.state.name).toEqual(name);
   });
 
+  it('should disable the button when creating a community', () => {
+    const component = buildScreen();
+    component.setState({ name: 'Test', isCreatingCommunity: true });
+
+    expect(component.update()).toMatchSnapshot();
+  });
+
   it('should update the image', () => {
     const screen = buildScreen();
     const component = screen.instance();
