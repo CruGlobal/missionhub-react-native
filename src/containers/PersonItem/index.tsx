@@ -1,9 +1,9 @@
-/* eslint complexity: 0, max-lines-per-function: 0 */
+/* eslint-disable @typescript-eslint/no-explicit-any, complexity */
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
+import { ThunkDispatch } from 'redux-thunk';
+import { useTranslation } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
@@ -14,26 +14,33 @@ import ItemHeaderText from '../../components/ItemHeaderText';
 
 import styles from './styles';
 
-@withTranslation()
-export class PeopleItem extends Component {
-  constructor(props) {
-    super(props);
+interface PersonItemProps {
+  person: PersonAttributes;
+  organization: any;
+  me: PersonAttributes;
+  stagesObj: any;
+  onSelect: (person: PersonAttributes, org: any) => void;
+  dispatch: ThunkDispatch<any, null, never>;
+}
 
-    this.state = {
-      isMe: props.person.id === props.me.id,
-      isPersonal: props.organization && props.organization.id === 'personal',
-    };
-  }
+const PersonItem = ({
+  person,
+  organization,
+  me,
+  stagesObj,
+  onSelect,
+  dispatch,
+}: PersonItemProps) => {
+  const { t } = useTranslation();
+  const isMe = person.id === me.id;
+  const isPersonal = organization && organization.id === 'personal';
 
-  handleSelect = () =>
-    this.props.onSelect(this.props.person, this.props.organization);
+  const handleSelect = () => onSelect(person, organization);
 
-  handleChangeStage = () => {
-    const { me, dispatch, person, organization } = this.props;
-
-    const contactAssignment = (person.reverse_contact_assignments || []).find(
-      a => a.assigned_to && a.assigned_to.id === me.id,
-    );
+  const handleChangeStage = () => {
+    const contactAssignment = (
+      (person as any).reverse_contact_assignments || []
+    ).find((a: any) => a.assigned_to && a.assigned_to.id === me.id);
     const contactAssignmentId = contactAssignment && contactAssignment.id;
 
     dispatch(
@@ -50,114 +57,86 @@ export class PeopleItem extends Component {
     );
   };
 
-  render() {
-    const { person, me, t, stagesObj, organization } = this.props;
-    const { isPersonal, isMe } = this.state;
-    const newPerson = isMe ? me : person;
-    let personName = isMe ? t('me') : newPerson.full_name || '';
-    personName = personName.toUpperCase();
+  const newPerson = isMe ? me : person;
+  let personName = isMe ? t('me') : newPerson.full_name || '';
+  personName = personName.toUpperCase();
 
-    let stage = null;
+  let stage = null;
 
-    const contactAssignments = person.reverse_contact_assignments || [];
-    if (isMe) {
-      stage = me.stage;
-    } else if (stagesObj) {
-      const contactAssignment = contactAssignments.find(
-        a => a.assigned_to.id === me.id,
-      );
-      if (
-        contactAssignment &&
-        contactAssignment.pathway_stage_id &&
-        stagesObj[`${contactAssignment.pathway_stage_id}`]
-      ) {
-        stage = stagesObj[`${contactAssignment.pathway_stage_id}`];
-      }
-    }
-
-    const isCruOrg = orgIsCru(organization);
-
-    let status = 'uncontacted';
-
-    const orgPermissions = person.organizational_permissions || [];
-    if (isMe || !isCruOrg) {
-      status = '';
-    } else if (isCruOrg) {
-      const personOrgPermissions = orgPermissions.find(
-        o => o.organization_id === organization.id,
-      );
-      if (personOrgPermissions) {
-        if (hasOrgPermissions(personOrgPermissions)) {
-          status = '';
-        } else {
-          status = personOrgPermissions.followup_status || '';
-        }
-      }
-    }
-
-    const isUncontacted = status === 'uncontacted';
-
-    return (
-      <Touchable highlight={true} onPress={this.handleSelect}>
-        <Flex direction="row" align="center" style={styles.row}>
-          <Flex justify="center" value={1}>
-            <ItemHeaderText text={personName} />
-            <Flex direction="row" align="center">
-              <Text style={styles.stage}>{stage ? stage.name : ''}</Text>
-              <Text style={styles.stage}>
-                {stage && status ? '  >  ' : null}
-              </Text>
-              <Text
-                style={[
-                  styles.stage,
-                  isUncontacted ? styles.uncontacted : null,
-                ]}
-              >
-                {t(status ? `followupStatus.${status.toLowerCase()}` : null)}
-              </Text>
-            </Flex>
-          </Flex>
-          {!isPersonal && !stage && !isMe ? (
-            <Touchable isAndroidOpacity={true} onPress={this.handleChangeStage}>
-              <Icon
-                name="journeyIcon"
-                type="MissionHub"
-                style={styles.uncontactedIcon}
-              />
-            </Touchable>
-          ) : null}
-        </Flex>
-      </Touchable>
+  const contactAssignments = (person as any).reverse_contact_assignments || [];
+  if (isMe) {
+    stage = (me as any).stage;
+  } else if (stagesObj) {
+    const contactAssignment = contactAssignments.find(
+      (a: any) => a.assigned_to.id === me.id,
     );
+    if (
+      contactAssignment &&
+      contactAssignment.pathway_stage_id &&
+      stagesObj[`${contactAssignment.pathway_stage_id}`]
+    ) {
+      stage = stagesObj[`${contactAssignment.pathway_stage_id}`];
+    }
   }
-}
 
-PeopleItem.propTypes = {
-  person: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    full_name: PropTypes.string.isRequired,
-    first_name: PropTypes.string,
-    last_name: PropTypes.string,
-    gender: PropTypes.string,
-    student_status: PropTypes.string,
-    campus: PropTypes.string,
-    year_in_school: PropTypes.string,
-    major: PropTypes.string,
-    minor: PropTypes.string,
-    birth_date: PropTypes.string,
-    date_became_christian: PropTypes.string,
-    graduation_date: PropTypes.string,
-    picture: PropTypes.string,
-    created_at: PropTypes.string,
-    updated_at: PropTypes.string,
-  }).isRequired,
-  onSelect: PropTypes.func.isRequired,
-  organization: PropTypes.object,
+  const isCruOrg = orgIsCru(organization);
+
+  let status = 'uncontacted';
+
+  const orgPermissions = (person as any).organizational_permissions || [];
+  if (isMe || !isCruOrg) {
+    status = '';
+  } else if (isCruOrg) {
+    const personOrgPermissions = orgPermissions.find(
+      (orgPermission: any) => orgPermission.organization_id === organization.id,
+    );
+    if (personOrgPermissions) {
+      if (hasOrgPermissions(personOrgPermissions)) {
+        status = '';
+      } else {
+        status = personOrgPermissions.followup_status || '';
+      }
+    }
+  }
+
+  const isUncontacted = status === 'uncontacted';
+
+  return (
+    <Touchable highlight={true} onPress={handleSelect}>
+      <Flex direction="row" align="center" style={styles.row}>
+        <Flex justify="center" value={1}>
+          <ItemHeaderText text={personName} />
+          <Flex direction="row" align="center">
+            <Text style={styles.stage}>{stage ? stage.name : ''}</Text>
+            <Text style={styles.stage}>{stage && status ? '  >  ' : null}</Text>
+            <Text
+              style={[styles.stage, isUncontacted ? styles.uncontacted : null]}
+            >
+              {status ? t(`followupStatus.${status.toLowerCase()}`) : null}
+            </Text>
+          </Flex>
+        </Flex>
+        {!isPersonal && !stage && !isMe ? (
+          <Touchable
+            testID="setStageButton"
+            isAndroidOpacity={true}
+            onPress={handleChangeStage}
+          >
+            <Icon
+              name="journeyIcon"
+              type="MissionHub"
+              style={styles.uncontactedIcon}
+            />
+          </Touchable>
+        ) : null}
+      </Flex>
+    </Touchable>
+  );
 };
 
-const mapStateToProps = ({ auth, stages }) => ({
+const mapStateToProps = ({ auth, stages }: { auth: any; stages: any }) => ({
   me: auth.person,
   stagesObj: stages.stagesObj,
 });
 
-export default connect(mapStateToProps)(PeopleItem);
+export default connect(mapStateToProps)(PersonItem);

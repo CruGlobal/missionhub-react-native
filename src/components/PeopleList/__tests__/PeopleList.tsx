@@ -1,9 +1,18 @@
-import { LayoutAnimation } from 'react-native';
 import React from 'react';
+import { LayoutAnimation } from 'react-native';
+import { fireEvent } from 'react-native-testing-library';
 
-import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 
 import PeopleList from '..';
+
+jest.mock('../../../containers/PersonItem', () => 'PersonItem');
+jest.mock('../../IconButton', () => 'IconButton');
+jest.mock('../../common', () => ({
+  Flex: 'Flex',
+  Text: 'Text',
+  RefreshControl: 'RefreshControl',
+}));
 
 LayoutAnimation.configureNext = jest.fn();
 
@@ -28,7 +37,7 @@ const orgs = [
     ],
   },
   {
-    id: 10,
+    id: '10',
     name: 'org 1',
     type: 'organization',
     expanded: false,
@@ -41,13 +50,13 @@ const orgs = [
     user_created: false,
   },
   {
-    id: 20,
+    id: '20',
     name: 'org 2',
     type: 'organization',
     expanded: false,
     people: [
       {
-        id: 21,
+        id: '21',
         type: 'person',
       },
     ],
@@ -57,76 +66,57 @@ const orgs = [
 
 const people = [
   {
-    id: 1,
+    id: '1',
     type: 'person',
   },
   {
-    id: 2,
+    id: '2',
     type: 'person',
   },
   {
-    id: 3,
+    id: '3',
     type: 'person',
   },
 ];
 
+const props = {
+  onSelect: jest.fn(),
+  onAddContact: jest.fn(),
+  refreshing: false,
+  onRefresh: jest.fn(),
+};
+
 it('renders correctly as Casey', () => {
-  testSnapshotShallow(
-    <PeopleList sections={false} items={people} onSelect={jest.fn()} />,
-  );
+  renderWithContext(
+    <PeopleList {...props} sections={false} items={people} />,
+  ).snapshot();
 });
 
 it('renders correctly as Jean', () => {
-  testSnapshotShallow(
-    <PeopleList sections={true} items={orgs} onSelect={jest.fn()} />,
-  );
+  renderWithContext(
+    <PeopleList {...props} sections={true} items={orgs} />,
+  ).snapshot();
 });
 
 describe('button presses', () => {
-  let component;
-  let componentInstance;
-
-  beforeEach(() => {
-    component = renderShallow(
-      <PeopleList
-        sections={true}
-        items={orgs}
-        onSelect={jest.fn()}
-        onAddContact={jest.fn()}
-      />,
-    );
-
-    componentInstance = component.instance();
-
-    componentInstance.toggleSection = jest.fn();
-  });
-
   it('onAddContact is called when add contact icon is pressed', () => {
-    const addContactButton = component.find({ name: 'addContactIcon' }).first();
-    const props = addContactButton.props();
-    props.onPress.apply(null, props.pressProps);
-
-    expect(componentInstance.props.onAddContact).toHaveBeenCalledWith(
-      undefined,
+    const { getAllByTestId } = renderWithContext(
+      <PeopleList {...props} sections={true} items={orgs} />,
     );
+
+    fireEvent.press(getAllByTestId('addContactBtn')[0]);
+
+    expect(props.onAddContact).toHaveBeenCalledWith(undefined);
   });
 
-  it('toggleSection is called when arrow icon is pressed', () => {
-    componentInstance.setState = jest.fn();
-    const arrowButton = component.find({ name: 'upArrowIcon' }).first();
-    const props = arrowButton.props();
-    props.onPress.apply(null, props.pressProps);
+  it('arrow icon toggles collapsed sections', () => {
+    const { recordSnapshot, getAllByTestId, diffSnapshot } = renderWithContext(
+      <PeopleList {...props} sections={true} items={orgs} />,
+    );
 
-    expect(componentInstance.state.items[0]).toEqual({
-      ...orgs[0],
-      expanded: true,
-    });
-  });
-
-  it('renders item', () => {
-    const renderedItem = componentInstance.renderItem(orgs[0])({
-      item: orgs[0].people[0],
-    });
-    expect(renderedItem).toMatchSnapshot();
+    recordSnapshot();
+    const toggleSectionBtn = getAllByTestId('toggleSectionBtn')[0];
+    fireEvent(toggleSectionBtn, 'press', toggleSectionBtn.props.pressProps[0]);
+    diffSnapshot();
   });
 });

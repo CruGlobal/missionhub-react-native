@@ -1,78 +1,59 @@
-import React, { Component } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState } from 'react';
 import { FlatList, ScrollView, LayoutAnimation, UIManager } from 'react-native';
-import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 // For Android to work with the Layout Animation
 // See https://facebook.github.io/react-native/docs/layoutanimation.html
 UIManager.setLayoutAnimationEnabledExperimental &&
   UIManager.setLayoutAnimationEnabledExperimental(true);
 
-import PeopleItem from '../../containers/PeopleItem';
+import PersonItem from '../../containers/PersonItem';
 import { Flex, Text, RefreshControl } from '../common';
-import { merge, keyExtractorId } from '../../utils/common';
+import { keyExtractorId } from '../../utils/common';
 import IconButton from '../IconButton';
 
 import styles from './styles';
 
-@withTranslation('peopleScreen')
-export default class PeopleList extends Component {
-  constructor(props) {
-    super(props);
+interface PeopleListProps {
+  items: any;
+  sections: boolean;
+  refreshing: boolean;
+  onRefresh: () => Promise<void>;
+  onSelect: (person: PersonAttributes, org: any) => void;
+  onAddContact: (org: any) => void;
+  testID?: string;
+}
 
-    const items = (props.items || []).map(s => ({ ...s, expanded: true }));
-    this.state = {
-      items,
-    };
-  }
+export default ({
+  items,
+  sections,
+  refreshing,
+  onRefresh,
+  onSelect,
+  onAddContact,
+}: PeopleListProps) => {
+  const { t } = useTranslation('peopleScreen');
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.sections) {
-      // Format section items merging in the existing expanded state.
-      const items = nextProps.items.map((i, index) => {
-        if (this.state.items[index] && this.state.items[index].id === i.id) {
-          return { ...this.state.items[index], ...i };
-        }
-        return { ...i, expanded: true };
-      });
-      this.setState({ items });
-      this.forceUpdate();
-    } else if (nextProps.items.length !== this.props.items.length) {
-      const items = merge([], this.state.items, nextProps.items);
-      this.setState({ items });
-    }
-  }
+  const [collapsedOrgs, setCollapsedOrgs] = useState(new Set<string>());
 
-  toggleSection = id => {
-    const items = this.state.items.map(org =>
-      org.id === id ? { ...org, expanded: !org.expanded } : org,
-    );
+  const toggleSection = (id: string) => {
+    collapsedOrgs.has(id) ? collapsedOrgs.delete(id) : collapsedOrgs.add(id);
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    this.setState({ items });
+    setCollapsedOrgs(new Set(collapsedOrgs));
   };
 
-  // This still technically creates an arrow function every time it gets rendered, thus breaking
-  // the "react/jsx-no-bind" linting rule. But there's not really another way around it unless
-  // we create an entirely new component wrapper around the <FlatList> that applies props to it.
-  // See <RadioButton>, <IconButton>, <Button>, <RowSwipeable>, and <Touchable> components for how to do it
-  renderItem = organization => ({ item }) => (
-    <PeopleItem
-      onSelect={this.props.onSelect}
-      person={item}
-      organization={organization}
-    />
+  const renderItem = (organization: any) => ({ item }: { item: any }) => (
+    <PersonItem onSelect={onSelect} person={item} organization={organization} />
   );
 
-  renderList(items, organization) {
-    const { sections, refreshing, onRefresh } = this.props;
-
+  const renderList = (items: any, organization?: any) => {
     return (
       <FlatList
-        style={styles.list}
         data={items}
         keyExtractor={keyExtractorId}
         scrollEnabled={!sections}
-        renderItem={this.renderItem(organization)}
+        renderItem={renderItem(organization)}
         refreshControl={
           !sections ? (
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -82,12 +63,9 @@ export default class PeopleList extends Component {
         }
       />
     );
-  }
+  };
 
-  handleAddContact = arg => this.props.onAddContact(arg);
-
-  renderSectionHeader(org) {
-    const { t } = this.props;
+  const renderSectionHeader = (org: any) => {
     return (
       <Flex align="center" direction="row" style={styles.header}>
         <Text style={styles.title} numberOfLines={1}>
@@ -96,52 +74,43 @@ export default class PeopleList extends Component {
         <Flex direction="row" justify="end" align="center">
           {!org.user_created ? (
             <IconButton
+              testID="addContactBtn"
               name="addContactIcon"
               type="MissionHub"
               size={24}
               pressProps={[org && org.id !== 'personal' ? org : undefined]}
-              onPress={this.handleAddContact}
+              onPress={onAddContact}
             />
           ) : null}
           <IconButton
-            name={org.expanded ? 'upArrowIcon' : 'downArrowIcon'}
+            testID="toggleSectionBtn"
+            name={collapsedOrgs.has(org.id) ? 'downArrowIcon' : 'upArrowIcon'}
             type="MissionHub"
             size={10}
             pressProps={[org.id]}
-            onPress={this.toggleSection}
+            onPress={toggleSection}
           />
         </Flex>
       </Flex>
     );
-  }
+  };
 
-  render() {
-    const { items, sections, refreshing, onRefresh } = this.props;
-    if (sections) {
-      return (
-        <ScrollView
-          style={styles.sectionWrap}
-          refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-          }
-        >
-          {this.state.items.map(org => (
-            <Flex key={org.id}>
-              {this.renderSectionHeader(org)}
-              {org.expanded ? this.renderList(org.people, org) : null}
-            </Flex>
-          ))}
-        </ScrollView>
-      );
-    }
-    return this.renderList(items);
+  if (sections) {
+    return (
+      <ScrollView
+        style={styles.sectionWrap}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
+        {items.map((org: any) => (
+          <Flex key={org.id}>
+            {renderSectionHeader(org)}
+            {collapsedOrgs.has(org.id) ? null : renderList(org.people, org)}
+          </Flex>
+        ))}
+      </ScrollView>
+    );
   }
-}
-
-PeopleList.propTypes = {
-  items: PropTypes.array.isRequired,
-  sections: PropTypes.bool,
-  onSelect: PropTypes.func.isRequired,
-  refreshing: PropTypes.bool,
-  onRefresh: PropTypes.func,
+  return renderList(items);
 };

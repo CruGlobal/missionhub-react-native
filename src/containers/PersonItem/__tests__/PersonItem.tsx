@@ -1,12 +1,8 @@
 import 'react-native';
 import React from 'react';
-import { Provider } from 'react-redux';
+import { fireEvent } from 'react-native-testing-library';
 
-import {
-  createThunkStore,
-  renderShallow,
-  testSnapshot,
-} from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 
 import PersonItem from '..';
 
@@ -35,8 +31,6 @@ const mockState = {
     stagesObj: mockStages,
   },
 };
-
-const store = createThunkStore(mockState);
 
 const onSelect = jest.fn();
 
@@ -72,8 +66,6 @@ const mockPerson = {
 const mockNavigatePushResult = { type: 'navigated' };
 const mockGetPeopleResult = { type: 'got people' };
 
-let shallowScreen;
-
 jest.mock('../../../actions/people', () => ({
   getMyPeople: () => mockGetPeopleResult,
 }));
@@ -88,132 +80,134 @@ jest.mock('../../../utils/common');
 it('renders me correctly', () => {
   const mePerson = { ...mockPerson, id: myId };
 
-  orgIsCru.mockReturnValue(false);
-  hasOrgPermissions.mockReturnValue(false);
+  (orgIsCru as jest.Mock).mockReturnValue(false);
+  (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
-  testSnapshot(
-    <Provider store={store}>
-      <PersonItem
-        onSelect={onSelect}
-        person={mePerson}
-        organization={mockPersonalMinistry}
-      />
-    </Provider>,
-  );
+  renderWithContext(
+    <PersonItem
+      onSelect={onSelect}
+      person={(mePerson as unknown) as PersonAttributes}
+      organization={mockPersonalMinistry}
+    />,
+    { initialState: mockState },
+  ).snapshot();
+
   expect(orgIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
   expect(hasOrgPermissions).not.toHaveBeenCalled();
 });
 
 it('renders personal ministry contact correctly', () => {
-  orgIsCru.mockReturnValue(false);
-  hasOrgPermissions.mockReturnValue(false);
+  (orgIsCru as jest.Mock).mockReturnValue(false);
+  (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
-  testSnapshot(
-    <Provider store={store}>
-      <PersonItem
-        onSelect={onSelect}
-        person={mockPerson}
-        organization={mockPersonalMinistry}
-      />
-    </Provider>,
-  );
+  renderWithContext(
+    <PersonItem
+      onSelect={onSelect}
+      person={(mockPerson as unknown) as PersonAttributes}
+      organization={mockPersonalMinistry}
+    />,
+    { initialState: mockState },
+  ).snapshot();
+
   expect(orgIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
   expect(hasOrgPermissions).not.toHaveBeenCalled();
 });
 
 it('renders cru org contact correctly', () => {
-  orgIsCru.mockReturnValue(true);
-  hasOrgPermissions.mockReturnValue(false);
+  (orgIsCru as jest.Mock).mockReturnValue(true);
+  (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
-  testSnapshot(
-    <Provider store={store}>
-      <PersonItem
-        onSelect={onSelect}
-        person={mockPerson}
-        organization={mockOrganization}
-      />
-    </Provider>,
-  );
+  renderWithContext(
+    <PersonItem
+      onSelect={onSelect}
+      person={(mockPerson as unknown) as PersonAttributes}
+      organization={mockOrganization}
+    />,
+    { initialState: mockState },
+  ).snapshot();
+
   expect(orgIsCru).toHaveBeenCalledWith(mockOrganization);
   expect(hasOrgPermissions).toHaveBeenCalledWith(mockOrgPermission);
 });
 
 it('renders cru org contact without stage correctly', () => {
-  orgIsCru.mockReturnValue(true);
-  hasOrgPermissions.mockReturnValue(false);
+  (orgIsCru as jest.Mock).mockReturnValue(true);
+  (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
-  testSnapshot(
-    <Provider store={store}>
-      <PersonItem
-        onSelect={onSelect}
-        person={{
+  renderWithContext(
+    <PersonItem
+      onSelect={onSelect}
+      person={
+        ({
           ...mockPerson,
           reverse_contact_assignments: [mockContactAssignmentNoStage],
-        }}
-        organization={mockOrganization}
-      />
-    </Provider>,
-  );
+        } as unknown) as PersonAttributes
+      }
+      organization={mockOrganization}
+    />,
+    { initialState: mockState },
+  ).snapshot();
+
   expect(orgIsCru).toHaveBeenCalledWith(mockOrganization);
   expect(hasOrgPermissions).toHaveBeenCalledWith(mockOrgPermission);
 });
 
 it('renders uncontacted cru org contact correctly', () => {
-  orgIsCru.mockReturnValue(true);
-  hasOrgPermissions.mockReturnValue(false);
+  (orgIsCru as jest.Mock).mockReturnValue(true);
+  (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
-  testSnapshot(
-    <Provider store={store}>
-      <PersonItem
-        onSelect={onSelect}
-        person={{
+  renderWithContext(
+    <PersonItem
+      onSelect={onSelect}
+      person={
+        ({
           ...mockPerson,
           organizational_permissions: [mockOrgPermissionUncontacted],
-        }}
-        organization={mockOrganization}
-      />
-    </Provider>,
-  );
+        } as unknown) as PersonAttributes
+      }
+      organization={mockOrganization}
+    />,
+    { initialState: mockState },
+  ).snapshot();
+
   expect(orgIsCru).toHaveBeenCalledWith(mockOrganization);
   expect(hasOrgPermissions).toHaveBeenCalledWith(mockOrgPermissionUncontacted);
 });
 
 it('renders cru org member correctly', () => {
-  orgIsCru.mockReturnValue(true);
-  hasOrgPermissions.mockReturnValue(true);
+  (orgIsCru as jest.Mock).mockReturnValue(true);
+  (hasOrgPermissions as jest.Mock).mockReturnValue(true);
 
-  testSnapshot(
-    <Provider store={store}>
-      <PersonItem
-        onSelect={jest.fn()}
-        person={mockPerson}
-        organization={mockOrganization}
-      />
-    </Provider>,
-  );
+  renderWithContext(
+    <PersonItem
+      onSelect={onSelect}
+      person={(mockPerson as unknown) as PersonAttributes}
+      organization={mockOrganization}
+    />,
+    { initialState: mockState },
+  ).snapshot();
+
   expect(orgIsCru).toHaveBeenCalledWith(mockOrganization);
   expect(hasOrgPermissions).toHaveBeenCalledWith(mockOrgPermission);
 });
 
 describe('handleChangeStage', () => {
   it('navigates to person stage screen', () => {
-    shallowScreen = renderShallow(
+    const { getByTestId, store } = renderWithContext(
       <PersonItem
         onSelect={onSelect}
-        person={{
-          ...mockPerson,
-          reverse_contact_assignments: [mockContactAssignmentNoStage],
-        }}
+        person={
+          ({
+            ...mockPerson,
+            reverse_contact_assignments: [mockContactAssignmentNoStage],
+          } as unknown) as PersonAttributes
+        }
         organization={mockOrganization}
       />,
-      store,
+      { initialState: mockState },
     );
 
-    shallowScreen
-      .childAt(0)
-      .childAt(1)
-      .props()
-      .onPress();
+    fireEvent.press(getByTestId('setStageButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
       onComplete: expect.anything(),
@@ -234,16 +228,16 @@ describe('handleChangeStage', () => {
 
 describe('item selected', () => {
   it('calls onSelect', () => {
-    shallowScreen = renderShallow(
+    const { getByText } = renderWithContext(
       <PersonItem
         onSelect={onSelect}
-        person={mockPerson}
+        person={(mockPerson as unknown) as PersonAttributes}
         organization={mockOrganization}
       />,
-      store,
+      { initialState: mockState },
     );
 
-    shallowScreen.props().onPress();
+    fireEvent.press(getByText('JOHN DOE'));
 
     expect(onSelect).toHaveBeenCalledWith(mockPerson, mockOrganization);
   });

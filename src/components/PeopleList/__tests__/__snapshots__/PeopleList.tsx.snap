@@ -1,96 +1,290 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`button presses renders item 1`] = `
-<Connect(withI18nextTranslation(PeopleItem))
-  onSelect={[MockFunction]}
-  organization={
-    Object {
-      "expanded": false,
-      "id": "personal",
-      "people": Array [
-        Object {
-          "id": 1,
-          "type": "person",
-        },
-        Object {
-          "id": 2,
-          "type": "person",
-        },
-        Object {
-          "id": 3,
-          "type": "person",
-        },
-      ],
-      "type": "organization",
-    }
-  }
-  person={
-    Object {
-      "id": 1,
-      "type": "person",
-    }
-  }
-/>
+exports[`button presses arrow icon toggles collapsed sections 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -58,11 +58,11 @@
+              size={24}
+              testID=\\"addContactBtn\\"
+              type=\\"MissionHub\\"
+            />
+            <IconButton
+-             name=\\"upArrowIcon\\"
++             name=\\"downArrowIcon\\"
+              onPress={[Function toggleSection]}
+              pressProps={
+                Array [
+                  \\"personal\\",
+                ]
+@@ -71,159 +71,10 @@
+              testID=\\"toggleSectionBtn\\"
+              type=\\"MissionHub\\"
+            />
+          </Flex>
+        </Flex>
+-       <RCTScrollView
+-         data={
+-           Array [
+-             Object {
+-               \\"id\\": 1,
+-               \\"type\\": \\"person\\",
+-             },
+-             Object {
+-               \\"id\\": 2,
+-               \\"type\\": \\"person\\",
+-             },
+-             Object {
+-               \\"id\\": 3,
+-               \\"type\\": \\"person\\",
+-             },
+-           ]
+-         }
+-         disableVirtualization={false}
+-         getItem={[Function anonymous]}
+-         getItemCount={[Function anonymous]}
+-         horizontal={false}
+-         initialNumToRender={10}
+-         keyExtractor={[Function anonymous]}
+-         maxToRenderPerBatch={10}
+-         numColumns={1}
+-         onContentSizeChange={[Function anonymous]}
+-         onEndReachedThreshold={2}
+-         onLayout={[Function anonymous]}
+-         onMomentumScrollEnd={[Function anonymous]}
+-         onScroll={[Function anonymous]}
+-         onScrollBeginDrag={[Function anonymous]}
+-         onScrollEndDrag={[Function anonymous]}
+-         removeClippedSubviews={false}
+-         renderItem={[Function anonymous]}
+-         scrollEnabled={false}
+-         scrollEventThrottle={50}
+-         stickyHeaderIndices={Array []}
+-         updateCellsBatchingPeriod={50}
+-         viewabilityConfigCallbackPairs={Array []}
+-         windowSize={21}
+-       >
+-         <View>
+-           <View
+-             onLayout={[Function onLayout]}
+-             style={null}
+-           >
+-             <PersonItem
+-               onSelect={[Function mockConstructor]}
+-               organization={
+-                 Object {
+-                   \\"expanded\\": false,
+-                   \\"id\\": \\"personal\\",
+-                   \\"people\\": Array [
+-                     Object {
+-                       \\"id\\": 1,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                     Object {
+-                       \\"id\\": 2,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                     Object {
+-                       \\"id\\": 3,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                   ],
+-                   \\"type\\": \\"organization\\",
+-                 }
+-               }
+-               person={
+-                 Object {
+-                   \\"id\\": 1,
+-                   \\"type\\": \\"person\\",
+-                 }
+-               }
+-             />
+-           </View>
+-           <View
+-             onLayout={[Function onLayout]}
+-             style={null}
+-           >
+-             <PersonItem
+-               onSelect={[Function mockConstructor]}
+-               organization={
+-                 Object {
+-                   \\"expanded\\": false,
+-                   \\"id\\": \\"personal\\",
+-                   \\"people\\": Array [
+-                     Object {
+-                       \\"id\\": 1,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                     Object {
+-                       \\"id\\": 2,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                     Object {
+-                       \\"id\\": 3,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                   ],
+-                   \\"type\\": \\"organization\\",
+-                 }
+-               }
+-               person={
+-                 Object {
+-                   \\"id\\": 2,
+-                   \\"type\\": \\"person\\",
+-                 }
+-               }
+-             />
+-           </View>
+-           <View
+-             onLayout={[Function onLayout]}
+-             style={null}
+-           >
+-             <PersonItem
+-               onSelect={[Function mockConstructor]}
+-               organization={
+-                 Object {
+-                   \\"expanded\\": false,
+-                   \\"id\\": \\"personal\\",
+-                   \\"people\\": Array [
+-                     Object {
+-                       \\"id\\": 1,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                     Object {
+-                       \\"id\\": 2,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                     Object {
+-                       \\"id\\": 3,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                   ],
+-                   \\"type\\": \\"organization\\",
+-                 }
+-               }
+-               person={
+-                 Object {
+-                   \\"id\\": 3,
+-                   \\"type\\": \\"person\\",
+-                 }
+-               }
+-             />
+-           </View>
+-         </View>
+-       </RCTScrollView>
+      </Flex>
+      <Flex>
+        <Flex
+          align=\\"center\\"
+          direction=\\"row\\""
 `;
 
 exports[`renders correctly as Casey 1`] = `
-<FlatList
+<RCTScrollView
   data={
     Array [
       Object {
-        "id": 1,
+        "id": "1",
         "type": "person",
       },
       Object {
-        "id": 2,
+        "id": "2",
         "type": "person",
       },
       Object {
-        "id": 3,
+        "id": "3",
         "type": "person",
       },
     ]
   }
   disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
   horizontal={false}
   initialNumToRender={10}
   keyExtractor={[Function]}
   maxToRenderPerBatch={10}
   numColumns={1}
+  onContentSizeChange={[Function]}
   onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
   refreshControl={
-    <MyRefreshControl
-      colors={
-        Array [
-          "#ffffff",
-          "#52C5DC",
-        ]
-      }
-      progressBackgroundColor="#007398"
-      tintColor="#007398"
+    <RefreshControl
+      onRefresh={[MockFunction]}
+      refreshing={false}
     />
   }
   removeClippedSubviews={false}
   renderItem={[Function]}
   scrollEnabled={true}
   scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
+  viewabilityConfigCallbackPairs={Array []}
   windowSize={21}
-/>
+>
+  <RefreshControl
+    onRefresh={[MockFunction]}
+    refreshing={false}
+  />
+  <View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <PersonItem
+        onSelect={[MockFunction]}
+        person={
+          Object {
+            "id": "1",
+            "type": "person",
+          }
+        }
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <PersonItem
+        onSelect={[MockFunction]}
+        person={
+          Object {
+            "id": "2",
+            "type": "person",
+          }
+        }
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <PersonItem
+        onSelect={[MockFunction]}
+        person={
+          Object {
+            "id": "3",
+            "type": "person",
+          }
+        }
+      />
+    </View>
+  </View>
+</RCTScrollView>
 `;
 
 exports[`renders correctly as Jean 1`] = `
-<ScrollViewMock
+<RCTScrollView
   refreshControl={
-    <MyRefreshControl
-      colors={
-        Array [
-          "#ffffff",
-          "#52C5DC",
-        ]
-      }
-      progressBackgroundColor="#007398"
-      tintColor="#007398"
+    <RefreshControl
+      onRefresh={[MockFunction]}
+      refreshing={false}
     />
   }
   style={
@@ -101,251 +295,458 @@ exports[`renders correctly as Jean 1`] = `
     }
   }
 >
-  <Flex
-    key="personal"
-  >
-    <Flex
-      align="center"
-      direction="row"
-      style={
-        Object {
-          "backgroundColor": "#007398",
-          "height": 50,
-        }
-      }
-    >
-      <MyText
-        numberOfLines={1}
-        style={
-          Object {
-            "color": "#ffffff",
-            "flex": 1,
-            "fontWeight": "bold",
-            "paddingLeft": 20,
-          }
-        }
-      >
-        Personal Ministry
-      </MyText>
+  <RefreshControl
+    onRefresh={[MockFunction]}
+    refreshing={false}
+  />
+  <View>
+    <Flex>
       <Flex
         align="center"
         direction="row"
-        justify="end"
-      >
-        <IconButton
-          name="addContactIcon"
-          onPress={[Function]}
-          pressProps={
-            Array [
-              undefined,
-            ]
-          }
-          size={24}
-          type="MissionHub"
-        />
-        <IconButton
-          name="upArrowIcon"
-          onPress={[Function]}
-          pressProps={
-            Array [
-              "personal",
-            ]
-          }
-          size={10}
-          type="MissionHub"
-        />
-      </Flex>
-    </Flex>
-    <FlatList
-      data={
-        Array [
-          Object {
-            "id": 1,
-            "type": "person",
-          },
-          Object {
-            "id": 2,
-            "type": "person",
-          },
-          Object {
-            "id": 3,
-            "type": "person",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEnabled={false}
-      scrollEventThrottle={50}
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
-  </Flex>
-  <Flex
-    key="10"
-  >
-    <Flex
-      align="center"
-      direction="row"
-      style={
-        Object {
-          "backgroundColor": "#007398",
-          "height": 50,
-        }
-      }
-    >
-      <MyText
-        numberOfLines={1}
         style={
           Object {
-            "color": "#ffffff",
-            "flex": 1,
-            "fontWeight": "bold",
-            "paddingLeft": 20,
+            "backgroundColor": "#007398",
+            "height": 50,
           }
         }
       >
-        org 1
-      </MyText>
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontWeight": "bold",
+              "paddingLeft": 20,
+            }
+          }
+        >
+          Personal Ministry
+        </Text>
+        <Flex
+          align="center"
+          direction="row"
+          justify="end"
+        >
+          <IconButton
+            name="addContactIcon"
+            onPress={[MockFunction]}
+            pressProps={
+              Array [
+                undefined,
+              ]
+            }
+            size={24}
+            testID="addContactBtn"
+            type="MissionHub"
+          />
+          <IconButton
+            name="upArrowIcon"
+            onPress={[Function]}
+            pressProps={
+              Array [
+                "personal",
+              ]
+            }
+            size={10}
+            testID="toggleSectionBtn"
+            type="MissionHub"
+          />
+        </Flex>
+      </Flex>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "id": 1,
+              "type": "person",
+            },
+            Object {
+              "id": 2,
+              "type": "person",
+            },
+            Object {
+              "id": 3,
+              "type": "person",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={false}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <PersonItem
+              onSelect={[MockFunction]}
+              organization={
+                Object {
+                  "expanded": false,
+                  "id": "personal",
+                  "people": Array [
+                    Object {
+                      "id": 1,
+                      "type": "person",
+                    },
+                    Object {
+                      "id": 2,
+                      "type": "person",
+                    },
+                    Object {
+                      "id": 3,
+                      "type": "person",
+                    },
+                  ],
+                  "type": "organization",
+                }
+              }
+              person={
+                Object {
+                  "id": 1,
+                  "type": "person",
+                }
+              }
+            />
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <PersonItem
+              onSelect={[MockFunction]}
+              organization={
+                Object {
+                  "expanded": false,
+                  "id": "personal",
+                  "people": Array [
+                    Object {
+                      "id": 1,
+                      "type": "person",
+                    },
+                    Object {
+                      "id": 2,
+                      "type": "person",
+                    },
+                    Object {
+                      "id": 3,
+                      "type": "person",
+                    },
+                  ],
+                  "type": "organization",
+                }
+              }
+              person={
+                Object {
+                  "id": 2,
+                  "type": "person",
+                }
+              }
+            />
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <PersonItem
+              onSelect={[MockFunction]}
+              organization={
+                Object {
+                  "expanded": false,
+                  "id": "personal",
+                  "people": Array [
+                    Object {
+                      "id": 1,
+                      "type": "person",
+                    },
+                    Object {
+                      "id": 2,
+                      "type": "person",
+                    },
+                    Object {
+                      "id": 3,
+                      "type": "person",
+                    },
+                  ],
+                  "type": "organization",
+                }
+              }
+              person={
+                Object {
+                  "id": 3,
+                  "type": "person",
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </Flex>
+    <Flex>
       <Flex
         align="center"
         direction="row"
-        justify="end"
-      >
-        <IconButton
-          name="addContactIcon"
-          onPress={[Function]}
-          pressProps={
-            Array [
-              Object {
-                "expanded": true,
-                "id": 10,
-                "name": "org 1",
-                "people": Array [
-                  Object {
-                    "id": 11,
-                    "type": "person",
-                  },
-                ],
-                "type": "organization",
-                "user_created": false,
-              },
-            ]
-          }
-          size={24}
-          type="MissionHub"
-        />
-        <IconButton
-          name="upArrowIcon"
-          onPress={[Function]}
-          pressProps={
-            Array [
-              10,
-            ]
-          }
-          size={10}
-          type="MissionHub"
-        />
-      </Flex>
-    </Flex>
-    <FlatList
-      data={
-        Array [
-          Object {
-            "id": 11,
-            "type": "person",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEnabled={false}
-      scrollEventThrottle={50}
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
-  </Flex>
-  <Flex
-    key="20"
-  >
-    <Flex
-      align="center"
-      direction="row"
-      style={
-        Object {
-          "backgroundColor": "#007398",
-          "height": 50,
-        }
-      }
-    >
-      <MyText
-        numberOfLines={1}
         style={
           Object {
-            "color": "#ffffff",
-            "flex": 1,
-            "fontWeight": "bold",
-            "paddingLeft": 20,
+            "backgroundColor": "#007398",
+            "height": 50,
           }
         }
       >
-        org 2
-      </MyText>
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontWeight": "bold",
+              "paddingLeft": 20,
+            }
+          }
+        >
+          org 1
+        </Text>
+        <Flex
+          align="center"
+          direction="row"
+          justify="end"
+        >
+          <IconButton
+            name="addContactIcon"
+            onPress={[MockFunction]}
+            pressProps={
+              Array [
+                Object {
+                  "expanded": false,
+                  "id": "10",
+                  "name": "org 1",
+                  "people": Array [
+                    Object {
+                      "id": 11,
+                      "type": "person",
+                    },
+                  ],
+                  "type": "organization",
+                  "user_created": false,
+                },
+              ]
+            }
+            size={24}
+            testID="addContactBtn"
+            type="MissionHub"
+          />
+          <IconButton
+            name="upArrowIcon"
+            onPress={[Function]}
+            pressProps={
+              Array [
+                "10",
+              ]
+            }
+            size={10}
+            testID="toggleSectionBtn"
+            type="MissionHub"
+          />
+        </Flex>
+      </Flex>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "id": 11,
+              "type": "person",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={false}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <PersonItem
+              onSelect={[MockFunction]}
+              organization={
+                Object {
+                  "expanded": false,
+                  "id": "10",
+                  "name": "org 1",
+                  "people": Array [
+                    Object {
+                      "id": 11,
+                      "type": "person",
+                    },
+                  ],
+                  "type": "organization",
+                  "user_created": false,
+                }
+              }
+              person={
+                Object {
+                  "id": 11,
+                  "type": "person",
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </Flex>
+    <Flex>
       <Flex
         align="center"
         direction="row"
-        justify="end"
-      >
-        <IconButton
-          name="upArrowIcon"
-          onPress={[Function]}
-          pressProps={
-            Array [
-              20,
-            ]
-          }
-          size={10}
-          type="MissionHub"
-        />
-      </Flex>
-    </Flex>
-    <FlatList
-      data={
-        Array [
+        style={
           Object {
-            "id": 21,
-            "type": "person",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEnabled={false}
-      scrollEventThrottle={50}
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
-  </Flex>
-</ScrollViewMock>
+            "backgroundColor": "#007398",
+            "height": 50,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontWeight": "bold",
+              "paddingLeft": 20,
+            }
+          }
+        >
+          org 2
+        </Text>
+        <Flex
+          align="center"
+          direction="row"
+          justify="end"
+        >
+          <IconButton
+            name="upArrowIcon"
+            onPress={[Function]}
+            pressProps={
+              Array [
+                "20",
+              ]
+            }
+            size={10}
+            testID="toggleSectionBtn"
+            type="MissionHub"
+          />
+        </Flex>
+      </Flex>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "id": "21",
+              "type": "person",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={false}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <PersonItem
+              onSelect={[MockFunction]}
+              organization={
+                Object {
+                  "expanded": false,
+                  "id": "20",
+                  "name": "org 2",
+                  "people": Array [
+                    Object {
+                      "id": "21",
+                      "type": "person",
+                    },
+                  ],
+                  "type": "organization",
+                  "user_created": true,
+                }
+              }
+              person={
+                Object {
+                  "id": "21",
+                  "type": "person",
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </Flex>
+  </View>
+</RCTScrollView>
 `;

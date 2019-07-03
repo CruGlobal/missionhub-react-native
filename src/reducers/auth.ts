@@ -20,7 +20,7 @@ export interface AuthState {
   upgradeToken: boolean | null;
 }
 
-const initialAuthState: AuthState = {
+export const initialAuthState: AuthState = {
   isFirstTime: false,
   token: '',
   refreshToken: '',

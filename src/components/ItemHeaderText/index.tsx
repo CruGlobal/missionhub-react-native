@@ -7,7 +7,7 @@ import styles from './styles';
 
 interface ItemHeaderText {
   text: string;
-  style: TextStyle;
+  style?: TextStyle;
 }
 
 export default function ItemHeaderText({ text, style }: ItemHeaderText) {

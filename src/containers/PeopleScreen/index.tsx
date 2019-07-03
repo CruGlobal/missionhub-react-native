@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import { ThunkDispatch } from 'redux-thunk';
 
 import { getMyPeople } from '../../actions/people';
 import { checkForUnreadComments } from '../../actions/unreadComments';
@@ -13,105 +14,116 @@ import { navigatePush } from '../../actions/navigation';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
-import { openMainMenu, refresh } from '../../utils/common';
+import { openMainMenu } from '../../utils/common';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
 import { navToPersonScreen } from '../../actions/person';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 import TrackTabChange from '../TrackTabChange';
 import { PEOPLE_TAB } from '../../constants';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
+import { useRefreshing } from '../../utils/hooks/useRefreshing';
+import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
 
-@withTranslation('peopleScreen')
-export class PeopleScreen extends Component {
-  constructor(props) {
-    super(props);
+interface PeopleScreenProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<any, null, never>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  items: any;
+  isJean: boolean;
+  hasNoContacts: boolean;
+}
 
-    this.state = {
-      refreshing: false,
-    };
+export const PeopleScreen = ({
+  dispatch,
+  items,
+  isJean,
+  hasNoContacts,
+}: PeopleScreenProps) => {
+  const { t } = useTranslation('peopleScreen');
 
-    this.getPeople = this.getPeople.bind(this);
-    this.handleRowSelect = this.handleRowSelect.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
-    this.handleAddContact = this.handleAddContact.bind(this);
-    this.handleRefresh = this.handleRefresh.bind(this);
-  }
+  const onOpenMainMenu = () => dispatch(openMainMenu());
 
-  getPeople = () => this.props.dispatch(getMyPeople());
-
-  openMainMenu = () => this.props.dispatch(openMainMenu());
-
-  handleAddContact(org) {
-    this.props.dispatch(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleAddContact = (org: any) => {
+    dispatch(
       navigatePush(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
         organization: org && org.id ? org : undefined,
       }),
     );
-  }
+  };
 
-  handleSearch() {
-    this.props.dispatch(navigatePush(SEARCH_SCREEN));
-  }
+  const handleSearch = () => {
+    dispatch(navigatePush(SEARCH_SCREEN));
+  };
 
-  handleRowSelect(person, org) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleRowSelect = (person: any, org: any) => {
     const organization = org && org.id !== 'personal' ? org : undefined;
-    this.props.dispatch(navToPersonScreen(person, organization));
-  }
+    dispatch(navToPersonScreen(person, organization));
+  };
 
-  handleRefresh() {
-    this.props.dispatch(checkForUnreadComments());
-    refresh(this, this.getPeople);
-  }
+  const handleRefresh = () => {
+    dispatch(checkForUnreadComments());
+    return dispatch(getMyPeople());
+  };
 
-  render() {
-    const { items, isJean, t, hasNoContacts } = this.props;
-    return (
-      <View style={styles.pageContainer}>
-        <TrackTabChange screen={PEOPLE_TAB} />
-        <Header
-          left={
+  const { isRefreshing, refresh } = useRefreshing(handleRefresh);
+
+  return (
+    <View style={styles.pageContainer}>
+      <TrackTabChange screen={PEOPLE_TAB} />
+      <Header
+        testID="header"
+        left={
+          <IconButton
+            name="menuIcon"
+            type="MissionHub"
+            onPress={onOpenMainMenu}
+          />
+        }
+        right={
+          isJean ? (
             <IconButton
-              name="menuIcon"
+              name="searchIcon"
               type="MissionHub"
-              onPress={this.openMainMenu}
+              onPress={handleSearch}
             />
-          }
-          right={
-            isJean ? (
-              <IconButton
-                name="searchIcon"
-                type="MissionHub"
-                onPress={this.handleSearch}
-              />
-            ) : (
-              <IconButton
-                name="addContactIcon"
-                type="MissionHub"
-                size={24}
-                onPress={this.handleAddContact}
-              />
-            )
-          }
-          title={t('header').toUpperCase()}
-          shadow={!isJean}
-        />
-        <PeopleList
-          sections={isJean}
-          items={items}
-          onSelect={this.handleRowSelect}
-          onAddContact={this.handleAddContact}
-          onRefresh={this.handleRefresh}
-          refreshing={this.state.refreshing}
-        />
-        {hasNoContacts ? <TakeAStepWithSomeoneButton /> : null}
-      </View>
-    );
-  }
-}
+          ) : (
+            <IconButton
+              name="addContactIcon"
+              type="MissionHub"
+              size={24}
+              onPress={handleAddContact}
+            />
+          )
+        }
+        title={t('header').toUpperCase()}
+        shadow={!isJean}
+      />
+      <PeopleList
+        testID="peopleList"
+        sections={isJean}
+        items={items}
+        onSelect={handleRowSelect}
+        onAddContact={handleAddContact}
+        onRefresh={refresh}
+        refreshing={isRefreshing}
+      />
+      {hasNoContacts ? <TakeAStepWithSomeoneButton /> : null}
+    </View>
+  );
+};
 
-export const mapStateToProps = ({ auth, people }) => {
+export const mapStateToProps = ({
+  auth,
+  people,
+}: {
+  auth: AuthState;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  people: any;
+}) => {
   const { isJean } = auth;
   const items = isJean
     ? peopleByOrgSelector({ people, auth })
