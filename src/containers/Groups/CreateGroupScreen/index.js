@@ -26,7 +26,7 @@ import {
 } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
-import { USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
+import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../GroupScreen';
 import { ACTIONS, GROUPS_TAB } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
 
@@ -66,7 +66,12 @@ class CreateGroupScreen extends Component {
     if (!organization) {
       dispatch(navigateToMainTabs(GROUPS_TAB));
     } else {
-      dispatch(navigatePush(USER_CREATED_GROUP_SCREEN, { organization }));
+      dispatch(
+        navigatePush(USER_CREATED_GROUP_SCREEN, {
+          organization,
+          initialTab: GROUP_MEMBERS,
+        }),
+      );
       dispatch(trackActionWithoutData(ACTIONS.SELECT_CREATED_COMMUNITY));
     }
   };

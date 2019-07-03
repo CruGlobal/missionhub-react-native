@@ -22,7 +22,7 @@ import { trackActionWithoutData } from '../../../../actions/analytics';
 import * as organizations from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { ACTIONS, GROUPS_TAB } from '../../../../constants';
-import { USER_CREATED_GROUP_SCREEN } from '../../GroupScreen';
+import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../../GroupScreen';
 
 const mockNewId = '123';
 const mockAddNewOrg = {
@@ -166,6 +166,7 @@ describe('CreateGroupScreen', () => {
     expect(getMyCommunities).toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
       organization: org,
+      initialTab: GROUP_MEMBERS,
     });
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_CREATED_COMMUNITY,
@@ -194,6 +195,7 @@ describe('CreateGroupScreen', () => {
     expect(getMyCommunities).toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
       organization: org,
+      initialTab: GROUP_MEMBERS,
     });
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_CREATED_COMMUNITY,
