@@ -20,6 +20,7 @@ class TakeAStepWithSomeoneButton extends Component {
       <BottomButton
         text={t('mainTabs:takeAStepWithSomeone')}
         onPress={this.navigateToAddSomeoneScreen}
+        testID="TakeAStepWithSomeoneButton"
       />
     );
   }
