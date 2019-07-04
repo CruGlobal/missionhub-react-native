@@ -9,7 +9,9 @@ import { navigatePush } from '../../actions/navigation';
 @withTranslation()
 class TakeAStepWithSomeoneButton extends Component {
   navigateToAddSomeoneScreen = () =>
-    this.props.dispatch(navigatePush(ADD_SOMEONE_ONBOARDING_FLOW));
+    this.props.dispatch(
+      navigatePush(ADD_SOMEONE_ONBOARDING_FLOW, { fromNullScreen: true }),
+    );
 
   render() {
     const { t } = this.props;

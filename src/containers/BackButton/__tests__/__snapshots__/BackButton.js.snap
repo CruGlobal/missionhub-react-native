@@ -22,6 +22,7 @@ exports[`back button absolute renders with absolute 1`] = `
   <IconButton
     name="backIcon"
     onPress={[Function]}
+    testID="BackButton"
     type="MissionHub"
   />
 </RCTSafeAreaView>

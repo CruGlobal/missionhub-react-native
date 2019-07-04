@@ -38,6 +38,10 @@ it('renders skip button correctly', () => {
   renderAndTest({ onSkip: jest.fn() });
 });
 
+it('renders back button correctly', () => {
+  renderAndTest({ onBack: jest.fn() });
+});
+
 it('renders icon correctly', () => {
   renderAndTest({
     iconPath: require('../../../../assets/images/footprints.png'),

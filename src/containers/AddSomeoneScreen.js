@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { navigatePush } from '../actions/navigation';
+import { navigatePush, navigateBack } from '../actions/navigation';
 import { disableBack } from '../utils/common';
 import { skipOnboarding } from '../actions/onboardingProfile';
 
@@ -35,9 +35,15 @@ class AddSomeoneScreen extends Component {
   };
 
   skip = () => this.handleNavigate(true);
+  back = () => this.props.dispatch(navigateBack());
 
   render() {
-    const { t } = this.props;
+    const {
+      t,
+      navigation: {
+        state: { params: { fromNullScreen } = {} },
+      },
+    } = this.props;
 
     return (
       <IconMessageScreen
@@ -45,7 +51,8 @@ class AddSomeoneScreen extends Component {
         onComplete={this.handleNavigate}
         buttonText={t('addSomeone')}
         iconPath={require('../../assets/images/add_someone.png')}
-        onSkip={this.skip}
+        onSkip={fromNullScreen ? undefined : this.skip}
+        onBack={fromNullScreen ? this.back : undefined}
       />
     );
   }
