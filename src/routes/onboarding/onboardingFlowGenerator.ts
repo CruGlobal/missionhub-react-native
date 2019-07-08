@@ -56,15 +56,18 @@ const showNotificationAndCompleteOnboarding = async (
   dispatch(navigatePush(CELEBRATION_SCREEN));
 };
 
+// eslint-disable-next-line complexity
 export const onboardingFlowGenerator = ({
   startScreen = WELCOME_SCREEN,
+  extraProps = {},
 }: {
   startScreen?: string;
+  extraProps?: object;
 }) => ({
   ...(startScreen === WELCOME_SCREEN
     ? {
         [WELCOME_SCREEN]: buildTrackedScreen(
-          wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
+          wrapNextScreen(WelcomeScreen, SETUP_SCREEN, extraProps),
           buildTrackingObj('onboarding : welcome', 'onboarding'),
         ),
         [SETUP_SCREEN]: buildTrackedScreen(
@@ -76,12 +79,15 @@ export const onboardingFlowGenerator = ({
   ...(startScreen === WELCOME_SCREEN || startScreen === GET_STARTED_SCREEN
     ? {
         [GET_STARTED_SCREEN]: buildTrackedScreen(
-          wrapNextAction(GetStartedScreen, () =>
-            navigatePush(STAGE_SCREEN, {
-              section: 'onboarding',
-              subsection: 'self',
-              enableBackButton: false,
-            }),
+          wrapNextAction(
+            GetStartedScreen,
+            () =>
+              navigatePush(STAGE_SCREEN, {
+                section: 'onboarding',
+                subsection: 'self',
+                enableBackButton: false,
+              }),
+            startScreen === GET_STARTED_SCREEN ? extraProps : undefined,
           ),
           buildTrackingObj('onboarding : get started', 'onboarding'),
         ),
@@ -135,19 +141,30 @@ export const onboardingFlowGenerator = ({
       }
     : {}),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(AddSomeoneScreen, ({ skip }: { skip: boolean }) =>
-      skip ? skipOnboarding() : navigatePush(SETUP_PERSON_SCREEN),
+    wrapNextAction(
+      AddSomeoneScreen,
+      ({ skip }: { skip: boolean }) =>
+        skip
+          ? skipOnboarding()
+          : navigatePush(
+              SETUP_PERSON_SCREEN,
+              startScreen === ADD_SOMEONE_SCREEN ? extraProps : {},
+            ),
+      startScreen === ADD_SOMEONE_SCREEN ? extraProps : undefined,
     ),
     buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
   ),
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SetupPersonScreen, ({ skip }: { skip: boolean }) =>
-      skip
-        ? skipOnboarding()
-        : navigatePush(PERSON_STAGE_SCREEN, {
-            section: 'onboarding',
-            subsection: 'add person',
-          }),
+    wrapNextAction(
+      SetupPersonScreen,
+      ({ skip }: { skip: boolean }) =>
+        skip
+          ? skipOnboarding()
+          : navigatePush(PERSON_STAGE_SCREEN, {
+              section: 'onboarding',
+              subsection: 'add person',
+            }),
+      startScreen === SETUP_PERSON_SCREEN ? extraProps : undefined,
     ),
     buildTrackingObj(
       'onboarding : add person : name',
@@ -172,6 +189,7 @@ export const onboardingFlowGenerator = ({
           contactName: name,
           contactId,
         }),
+      startScreen === PERSON_STAGE_SCREEN ? extraProps : undefined,
     ),
   ),
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
@@ -193,6 +211,7 @@ export const onboardingFlowGenerator = ({
                 'steps',
               ),
             }),
+      startScreen === PERSON_SELECT_STEP_SCREEN ? extraProps : undefined,
     ),
     buildTrackingObj(
       'onboarding : add person : steps : add',
@@ -215,6 +234,7 @@ export const onboardingFlowGenerator = ({
         }
         showNotificationAndCompleteOnboarding(dispatch);
       },
+      startScreen === SUGGESTED_STEP_DETAIL_SCREEN ? extraProps : undefined,
     ),
   ),
   [ADD_STEP_SCREEN]: buildTrackedScreen(
@@ -233,10 +253,15 @@ export const onboardingFlowGenerator = ({
         }
         showNotificationAndCompleteOnboarding(dispatch);
       },
+      startScreen === ADD_STEP_SCREEN ? extraProps : undefined,
     ),
   ),
   [CELEBRATION_SCREEN]: buildTrackedScreen(
-    wrapNextAction(CelebrationScreen, () => navigateToMainTabs()),
+    wrapNextAction(
+      CelebrationScreen,
+      () => navigateToMainTabs(),
+      startScreen === CELEBRATION_SCREEN ? extraProps : undefined,
+    ),
     buildTrackingObj('onboarding : complete', 'onboarding'),
   ),
 });

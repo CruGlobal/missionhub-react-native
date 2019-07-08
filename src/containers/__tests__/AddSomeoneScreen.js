@@ -28,9 +28,7 @@ it('renders correctly', () => {
 });
 
 it('renders from null screen', () => {
-  renderWithContext(<AddSomeoneScreen />, {
-    navParams: { fromNullScreen: true },
-  }).snapshot();
+  renderWithContext(<AddSomeoneScreen hideSkipBtn={true} />).snapshot();
 });
 
 describe('onComplete', () => {
@@ -79,9 +77,9 @@ describe('onSkip prop', () => {
 
 describe('onBack prop', () => {
   it('calls back', () => {
-    const { getByTestId, store } = renderWithContext(<AddSomeoneScreen />, {
-      navParams: { fromNullScreen: true },
-    });
+    const { getByTestId, store } = renderWithContext(
+      <AddSomeoneScreen hideSkipBtn={true} />,
+    );
 
     fireEvent.press(getByTestId('BackButton'));
 

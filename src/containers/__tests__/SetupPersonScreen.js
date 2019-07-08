@@ -7,7 +7,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import SetupPersonScreen from '../SetupPersonScreen';
-import { testSnapshot } from '../../../testUtils';
+import { testSnapshot, createMockNavState } from '../../../testUtils';
 import * as profile from '../../actions/onboardingProfile';
 import * as navigation from '../../actions/navigation';
 import * as person from '../../actions/person';
@@ -41,7 +41,17 @@ const navigationResult = { type: 'navigated' };
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={mockStore(mockState)}>
-      <SetupPersonScreen />
+      <SetupPersonScreen navigation={createMockNavState()} />
+    </Provider>,
+  );
+});
+
+it('renders back arrow correctly', () => {
+  testSnapshot(
+    <Provider store={mockStore(mockState)}>
+      <SetupPersonScreen
+        navigation={createMockNavState({ hideSkipBtn: true })}
+      />
     </Provider>,
   );
 });
@@ -58,7 +68,10 @@ describe('setup person screen methods', () => {
       },
     });
 
-    const screen = shallow(<SetupPersonScreen />, { context: { store } });
+    const screen = shallow(
+      <SetupPersonScreen navigation={createMockNavState()} />,
+      { context: { store } },
+    );
 
     component = screen
       .dive()
@@ -71,6 +84,7 @@ describe('setup person screen methods', () => {
     profile.updateOnboardingPerson = jest.fn();
     person.resetPerson = jest.fn();
     navigation.navigatePush = jest.fn().mockReturnValue(navigationResult);
+    navigation.navigateBack = jest.fn().mockReturnValue(navigationResult);
     trackActionWithoutData.mockReturnValue(trackActionResult);
   });
 
@@ -128,5 +142,11 @@ describe('setup person screen methods', () => {
     component.skip();
 
     expect(profile.skipOnboarding).toHaveBeenCalled();
+  });
+
+  it('calls back', () => {
+    component.back();
+
+    expect(navigation.navigateBack).toHaveBeenCalledTimes(1);
   });
 });

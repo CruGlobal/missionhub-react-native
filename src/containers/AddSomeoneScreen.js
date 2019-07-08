@@ -38,12 +38,7 @@ class AddSomeoneScreen extends Component {
   back = () => this.props.dispatch(navigateBack());
 
   render() {
-    const {
-      t,
-      navigation: {
-        state: { params: { fromNullScreen } = {} },
-      },
-    } = this.props;
+    const { t, hideSkipBtn } = this.props;
 
     return (
       <IconMessageScreen
@@ -51,8 +46,8 @@ class AddSomeoneScreen extends Component {
         onComplete={this.handleNavigate}
         buttonText={t('addSomeone')}
         iconPath={require('../../assets/images/add_someone.png')}
-        onSkip={fromNullScreen ? undefined : this.skip}
-        onBack={fromNullScreen ? this.back : undefined}
+        onSkip={hideSkipBtn ? undefined : this.skip}
+        onBack={hideSkipBtn ? this.back : undefined}
       />
     );
   }

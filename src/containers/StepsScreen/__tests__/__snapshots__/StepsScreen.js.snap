@@ -954,7 +954,7 @@ Choose a person to view and add some new steps.
         </MyText>
       </Flex>
     </ScrollViewMock>
-    <Connect(withI18nextTranslation(TakeAStepWithSomeoneButton)) />
+    <Connect(TakeAStepWithSomeoneButton) />
   </View>
 </View>
 `;
