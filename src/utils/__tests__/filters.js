@@ -13,21 +13,50 @@ describe('getFilterOptions', () => {
       _type: 'choice_field',
       id: '1',
       label: 'Question 1',
-      content: '1.1\r\n1.2\r\n1.3\r\n1.4',
     },
     {
       _type: 'text_field',
       id: '2',
       label: 'Question 2',
-      content: '2.1\r\n2.2\r\n2.3\r\n2.4',
     },
     {
       _type: 'choice_field',
       id: '3',
       label: 'Question 3',
-      content: '3.1\r\n3.2\r\n3.3\r\n3.4',
     },
   ];
+
+  const filterStats = {
+    questions: [
+      {
+        question_id: '1',
+        answers: [
+          { value: '1.1' },
+          { value: '1.2' },
+          { value: '1.3' },
+          { value: '1.4' },
+        ],
+      },
+      {
+        question_id: '2',
+        answers: [
+          { value: '2.1' },
+          { value: '2.2' },
+          { value: '2.3' },
+          { value: '2.4' },
+        ],
+      },
+      {
+        question_id: '3',
+        answers: [
+          { value: '3.1' },
+          { value: '3.2' },
+          { value: '3.3' },
+          { value: '3.4' },
+        ],
+      },
+    ],
+  };
 
   it('sets the preview', () => {
     const filters = {
@@ -57,7 +86,7 @@ describe('getFilterOptions', () => {
   it('parses question content and sets question filter', () => {
     const filters = { '1': { id: '1', text: '1.1', isAnswer: true } };
 
-    const results = getFilterOptions(t, filters, questions);
+    const results = getFilterOptions(t, filters, questions, filterStats);
 
     expect(results.questions).toMatchSnapshot();
   });
@@ -68,7 +97,7 @@ describe('getFilterOptions', () => {
       '3': { id: '3', text: '3.1', isAnswer: true },
     };
 
-    const results = getFilterOptions(t, filters, questions);
+    const results = getFilterOptions(t, filters, questions, filterStats);
 
     expect(results.questions).toMatchSnapshot();
   });
@@ -81,7 +110,7 @@ describe('getFilterOptions', () => {
     ];
     const filters = { labels: { text: 'label3' } };
 
-    const results = getFilterOptions(t, filters, [], labels);
+    const results = getFilterOptions(t, filters, [], {}, labels);
 
     expect(results.labels).toMatchSnapshot();
   });
