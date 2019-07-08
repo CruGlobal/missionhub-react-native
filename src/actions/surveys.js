@@ -60,14 +60,14 @@ export function getSurveyQuestions(surveyId) {
   };
 }
 
-export function getFilterStats(surveyId) {
+export function getSurveyFilterStats(survey_id) {
   return async dispatch => {
     const query = {
-      survey_id: surveyId,
+      survey_id,
     };
 
     const { response } = await dispatch(
-      callApi(REQUESTS.GET_FILTER_STATS, query),
+      callApi(REQUESTS.GET_SURVEY_FILTER_STATS, query),
     );
     return response;
   };

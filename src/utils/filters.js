@@ -18,9 +18,12 @@ export const getFilterOptions = (
   filters,
   questions = [],
   filterStats = {},
-  labels = [],
 ) => {
-  const { questions: filterStatQuestions = [] } = filterStats;
+  const {
+    questions: filterStatQuestions = [],
+    labels: filterStatLabels = [],
+  } = filterStats;
+
   const questionOptions = questions.filter(q => q._type === 'choice_field');
   const answerOptions = filterStatQuestions.reduce(
     (questions, { question_id, answers }) => ({
@@ -59,7 +62,7 @@ export const getFilterOptions = (
     labels: {
       id: 'labels',
       text: t('searchFilter:label'),
-      options: labels.map(l => ({ id: l.id, text: l.name })),
+      options: filterStatLabels.map(l => ({ id: l.label_id, text: l.name })),
       preview: filters.labels ? filters.labels.text : undefined,
     },
     gender: {
