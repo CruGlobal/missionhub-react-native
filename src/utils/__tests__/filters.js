@@ -27,6 +27,11 @@ describe('getFilterOptions', () => {
   ];
 
   const filterStats = {
+    labels: [
+      { label_id: '1', name: 'label1' },
+      { label_id: '2', name: 'label2' },
+      { label_id: '3', name: 'label3' },
+    ],
     questions: [
       {
         question_id: '1',
@@ -103,14 +108,9 @@ describe('getFilterOptions', () => {
   });
 
   it('defines options for labels', () => {
-    const labels = [
-      { id: '1', name: 'label1' },
-      { id: '2', name: 'label2' },
-      { id: '3', name: 'label3' },
-    ];
     const filters = { labels: { text: 'label3' } };
 
-    const results = getFilterOptions(t, filters, [], {}, labels);
+    const results = getFilterOptions(t, filters, [], filterStats);
 
     expect(results.labels).toMatchSnapshot();
   });

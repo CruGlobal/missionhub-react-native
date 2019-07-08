@@ -43,7 +43,7 @@ export class SurveyContactsFilter extends Component {
   }
 
   async loadQuestionsAndLabels() {
-    const { dispatch, survey, organization } = this.props;
+    const { dispatch, survey } = this.props;
     const questions = await dispatch(getSurveyQuestions(survey.id));
     const filterStats = await dispatch(getSurveyFilterStats(survey.id));
 
@@ -166,7 +166,6 @@ SurveyContactsFilter.propTypes = {
   onFilter: PropTypes.func.isRequired,
   filters: PropTypes.object.isRequired,
   survey: PropTypes.object.isRequired,
-  organization: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (reduxState, { navigation }) => ({

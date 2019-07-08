@@ -3,7 +3,12 @@ import thunk from 'redux-thunk';
 
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import { getMySurveys, getOrgSurveys, getOrgSurveysNextPage } from '../surveys';
+import {
+  getMySurveys,
+  getOrgSurveys,
+  getOrgSurveysNextPage,
+  getSurveyFilterStats,
+} from '../surveys';
 import { GET_ORGANIZATION_SURVEYS } from '../../constants';
 
 const apiResponse = { type: 'successful' };
@@ -133,5 +138,27 @@ describe('getOrgSurveysNextPage', () => {
     const result = await store.dispatch(getOrgSurveysNextPage(orgId));
 
     expect(result).toEqual(undefined);
+  });
+});
+
+describe('getSurveyFilterStats', () => {
+  it('gets survey filter stats', async () => {
+    const survey_id = '123';
+    const filterStatsResponse = {
+      type: 'filter stats',
+      response: { questions: {}, labels: {} },
+    };
+
+    store = configureStore([thunk])();
+
+    callApi.mockReturnValue(filterStatsResponse);
+
+    const result = await store.dispatch(getSurveyFilterStats(survey_id));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_SURVEY_FILTER_STATS, {
+      survey_id,
+    });
+    expect(store.getActions()).toEqual([filterStatsResponse]);
+    expect(result).toEqual(filterStatsResponse.response);
   });
 });
