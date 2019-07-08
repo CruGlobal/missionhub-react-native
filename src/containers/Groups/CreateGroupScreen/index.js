@@ -26,7 +26,7 @@ import {
 } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
-import { USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
+import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../GroupScreen';
 import { ACTIONS, GROUPS_TAB } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
 
@@ -36,6 +36,7 @@ import styles from './styles';
 class CreateGroupScreen extends Component {
   state = {
     name: '',
+    isCreatingCommunity: false,
     imageData: null,
   };
 
@@ -50,11 +51,17 @@ class CreateGroupScreen extends Component {
       return Promise.resolve();
     }
 
-    const results = await dispatch(addNewOrganization(text, imageData));
-    const newOrgId = results.response.id;
-    // Load the list of communities
-    await dispatch(getMyCommunities());
-    this.getNewOrg(newOrgId);
+    try {
+      this.setState({ isCreatingCommunity: true });
+      const results = await dispatch(addNewOrganization(text, imageData));
+      const newOrgId = results.response.id;
+      // Load the list of communities
+      await dispatch(getMyCommunities());
+      this.getNewOrg(newOrgId);
+      this.setState({ isCreatingCommunity: false });
+    } catch (error) {
+      this.setState({ isCreatingCommunity: false });
+    }
   };
 
   getNewOrg = orgId => {
@@ -66,7 +73,12 @@ class CreateGroupScreen extends Component {
     if (!organization) {
       dispatch(navigateToMainTabs(GROUPS_TAB));
     } else {
-      dispatch(navigatePush(USER_CREATED_GROUP_SCREEN, { organization }));
+      dispatch(
+        navigatePush(USER_CREATED_GROUP_SCREEN, {
+          organization,
+          initialTab: GROUP_MEMBERS,
+        }),
+      );
       dispatch(trackActionWithoutData(ACTIONS.SELECT_CREATED_COMMUNITY));
     }
   };
@@ -93,7 +105,7 @@ class CreateGroupScreen extends Component {
 
   render() {
     const { t } = this.props;
-    const { name } = this.state;
+    const { name, isCreatingCommunity } = this.state;
 
     return (
       <View style={styles.container}>
@@ -141,7 +153,7 @@ class CreateGroupScreen extends Component {
           </ScrollView>
 
           <BottomButton
-            disabled={!name}
+            disabled={!name || isCreatingCommunity}
             onPress={this.createCommunity}
             text={t('createCommunity')}
           />
