@@ -18,6 +18,7 @@ import Surveys from './Surveys';
 import GroupChallenges from './GroupChallenges';
 import { GROUP_PROFILE } from './GroupProfile';
 
+@connect()
 export class GroupScreen extends Component {
   constructor(props) {
     super(props);
@@ -100,8 +101,6 @@ export class GroupScreen extends Component {
   }
 }
 
-const connectedGroupsScreen = connect()(GroupScreen);
-
 const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
 export const GROUP_CHALLENGES = 'nav/GROUP_CHALLENGES';
 export const GROUP_MEMBERS = 'nav/GROUP_MEMBERS';
@@ -182,15 +181,15 @@ export const GLOBAL_TABS = [CRU_TABS[0], CRU_TABS[1], CRU_TABS[3]];
 
 export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
   CRU_TABS,
-  connectedGroupsScreen,
+  GroupScreen,
 );
 export const userCreatedScreenTabNavigator = generateSwipeTabMenuNavigator(
   USER_CREATED_TABS,
-  connectedGroupsScreen,
+  GroupScreen,
 );
 export const globalScreenTabNavigator = generateSwipeTabMenuNavigator(
   GLOBAL_TABS,
-  connectedGroupsScreen,
+  GroupScreen,
 );
 
 export const GROUP_SCREEN = 'nav/GROUP_SCREEN';

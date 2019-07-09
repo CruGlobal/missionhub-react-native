@@ -100,5 +100,5 @@ export default connect(
   mapStateToProps,
   undefined,
   undefined,
-  { forwardRef: true },
+  { withRef: true },
 )(CommentItem);
