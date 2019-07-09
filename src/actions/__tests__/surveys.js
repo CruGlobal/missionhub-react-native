@@ -1,6 +1,4 @@
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-
+import { createThunkStore } from '../../../testUtils';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import {
@@ -18,7 +16,7 @@ jest.mock('../api');
 let store;
 
 beforeEach(() => {
-  store = configureStore([thunk])();
+  store = createThunkStore();
 });
 
 describe('getMySurveys', () => {
@@ -118,7 +116,7 @@ describe('getOrgSurveysNextPage', () => {
   };
 
   it('should get surveys next page in organization', async () => {
-    store = configureStore([thunk])({
+    store = createThunkStore({
       organizations: { surveysPagination: { hasNextPage: true, page: 1 } },
     });
     callApi.mockReturnValue(surveysResponse);
@@ -130,7 +128,7 @@ describe('getOrgSurveysNextPage', () => {
   });
 
   it('should not get next page', async () => {
-    store = configureStore([thunk])({
+    store = createThunkStore({
       organizations: { surveysPagination: { hasNextPage: false, page: 1 } },
     });
     callApi.mockReturnValue(surveysResponse);
@@ -149,7 +147,7 @@ describe('getSurveyFilterStats', () => {
       response: { questions: {}, labels: {} },
     };
 
-    store = configureStore([thunk])();
+    store = createThunkStore();
 
     callApi.mockReturnValue(filterStatsResponse);
 
