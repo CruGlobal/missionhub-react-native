@@ -7033,6 +7033,7 @@ react-native-gesture-handler@^1.2.1:
 react-native-image-crop-picker@^0.24.1:
   version "0.24.1"
   resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.24.1.tgz#4408e2bb20e3c082c0191e0acf0c8c7a1e9804ea"
+  integrity sha512-M+6iFhDXPDtf++X+fvb5mKkLw2978SbyPVVQHigktgKONxtTZtBiOOtYfBUIkPaSetP20P9q4iwOu+iTaZ/R+w==
 
 react-native-markdown-renderer@^3.2.8:
   version "3.2.8"
