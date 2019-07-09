@@ -58,12 +58,11 @@ class SurveyContacts extends Component {
   };
 
   handleFilterPress = () => {
-    const { dispatch, survey, organization } = this.props;
+    const { dispatch, survey } = this.props;
     const { filters } = this.state;
     dispatch(
       navigatePush(SEARCH_SURVEY_CONTACTS_FILTER_SCREEN, {
         survey,
-        organization,
         onFilter: this.handleChangeFilter,
         filters,
       }),
