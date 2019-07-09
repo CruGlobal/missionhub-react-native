@@ -34,22 +34,22 @@ const PersonItem = ({
   const { t } = useTranslation();
   const isMe = person.id === me.id;
   const isPersonal = organization && organization.id === 'personal';
+  const contactAssignments = (person as any).reverse_contact_assignments || [];
+  const contactAssignment =
+    contactAssignments.find(
+      (a: any) => a.assigned_to && a.assigned_to.id === me.id,
+    ) || {};
 
   const handleSelect = () => onSelect(person, organization);
 
   const handleChangeStage = () => {
-    const contactAssignment = (
-      (person as any).reverse_contact_assignments || []
-    ).find((a: any) => a.assigned_to && a.assigned_to.id === me.id);
-    const contactAssignmentId = contactAssignment && contactAssignment.id;
-
     dispatch(
       navigatePush(PERSON_STAGE_SCREEN, {
         onComplete: () => dispatch(getMyPeople()),
         currentStage: null,
         name: person.first_name,
         contactId: person.id,
-        contactAssignmentId: contactAssignmentId,
+        contactAssignmentId: contactAssignment.id,
         section: 'people',
         subsection: 'person',
         orgId: organization.id,
@@ -58,46 +58,25 @@ const PersonItem = ({
   };
 
   const newPerson = isMe ? me : person;
-  let personName = isMe ? t('me') : newPerson.full_name || '';
-  personName = personName.toUpperCase();
+  const personName = (isMe ? t('me') : newPerson.full_name || '').toUpperCase();
 
-  let stage = null;
-
-  const contactAssignments = (person as any).reverse_contact_assignments || [];
-  if (isMe) {
-    stage = (me as any).stage;
-  } else if (stagesObj) {
-    const contactAssignment = contactAssignments.find(
-      (a: any) => a.assigned_to.id === me.id,
-    );
-    if (
-      contactAssignment &&
-      contactAssignment.pathway_stage_id &&
-      stagesObj[`${contactAssignment.pathway_stage_id}`]
-    ) {
-      stage = stagesObj[`${contactAssignment.pathway_stage_id}`];
-    }
-  }
+  const stage = isMe
+    ? (me as any).stage
+    : stagesObj[`${contactAssignment.pathway_stage_id}`];
 
   const isCruOrg = orgIsCru(organization);
 
-  let status = 'uncontacted';
-
   const orgPermissions = (person as any).organizational_permissions || [];
-  if (isMe || !isCruOrg) {
-    status = '';
-  } else if (isCruOrg) {
-    const personOrgPermissions = orgPermissions.find(
-      (orgPermission: any) => orgPermission.organization_id === organization.id,
-    );
-    if (personOrgPermissions) {
-      if (hasOrgPermissions(personOrgPermissions)) {
-        status = '';
-      } else {
-        status = personOrgPermissions.followup_status || '';
-      }
-    }
-  }
+  const personOrgPermissions = orgPermissions.find(
+    (orgPermission: any) => orgPermission.organization_id === organization.id,
+  );
+
+  const status =
+    isMe || !isCruOrg || hasOrgPermissions(personOrgPermissions)
+      ? ''
+      : personOrgPermissions
+      ? personOrgPermissions.followup_status || ''
+      : 'uncontacted';
 
   const isUncontacted = status === 'uncontacted';
 
@@ -136,7 +115,7 @@ const PersonItem = ({
 
 const mapStateToProps = ({ auth, stages }: { auth: any; stages: any }) => ({
   me: auth.person,
-  stagesObj: stages.stagesObj,
+  stagesObj: stages.stagesObj || {},
 });
 
 export default connect(mapStateToProps)(PersonItem);
