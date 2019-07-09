@@ -226,12 +226,11 @@ describe('AddSomeoneScreen next', () => {
 describe('AddSomeoneScreen with extra props', () => {
   let next;
   let component;
-  const extraProps = { hideSkipBtn: true };
 
   beforeEach(() => {
     const testExtraPropsFlow = onboardingFlowGenerator({
       startScreen: ADD_SOMEONE_SCREEN,
-      extraProps,
+      hideSkipBtn: true,
     });
 
     const Component = testExtraPropsFlow[ADD_SOMEONE_SCREEN].screen;
@@ -247,13 +246,9 @@ describe('AddSomeoneScreen with extra props', () => {
   it('should fire required next actions without skip and extra props', async () => {
     await store.dispatch(next({ skip: false }));
 
-    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN, extraProps);
-  });
-
-  it('should fire required next actions without skip and extra props', async () => {
-    await store.dispatch(next({ skip: false }));
-
-    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN, extraProps);
+    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN, {
+      hideSkipBtn: true,
+    });
   });
 
   it('should fire required next actions with skip', async () => {
