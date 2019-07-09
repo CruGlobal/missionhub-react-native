@@ -1,6 +1,4 @@
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-
+import { createThunkStore } from '../../../testUtils';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { getMyLabels, getOrgFilterStats } from '../labels';
@@ -14,7 +12,7 @@ let store;
 const organization_id = '123';
 
 beforeEach(() => {
-  store = configureStore([thunk])();
+  store = createThunkStore();
   callApi.mockReturnValue(apiResponse);
 });
 
