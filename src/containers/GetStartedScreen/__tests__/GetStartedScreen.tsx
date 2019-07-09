@@ -6,7 +6,6 @@ import GetStartedScreen from '..';
 
 import { renderWithContext } from '../../../../testUtils';
 import { disableBack } from '../../../utils/common';
-import { STAGE_ONBOARDING_SCREEN } from '../../../containers/StageScreen';
 
 jest.mock('react-native-device-info');
 jest.mock('../../../utils/common');
@@ -50,6 +49,6 @@ it('navigates to next screen', () => {
   fireEvent.press(getByTestId('bottomButton'));
 
   expect(disableBack.remove).toHaveBeenCalledWith();
-  expect(next).toHaveBeenCalledWith({});
+  expect(next).toHaveBeenCalledWith();
   expect(store.getActions()).toEqual([nextResult]);
 });

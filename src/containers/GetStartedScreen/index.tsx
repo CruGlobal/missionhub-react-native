@@ -1,11 +1,13 @@
-import React, { Component, useEffect } from 'react';
-import { connect, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { Flex, Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import { disableBack } from '../../utils/common';
+import { ProfileState } from '../../reducers/profile';
 
 import styles from './styles';
 
@@ -30,7 +32,7 @@ const GetStartedScreen = ({
   const navigateNext = () => {
     disableBack.remove();
 
-    dispatch(next({}));
+    dispatch(next());
   };
 
   return (
@@ -49,7 +51,7 @@ const GetStartedScreen = ({
   );
 };
 
-const mapStateToProps = ({ profile }) => {
+const mapStateToProps = ({ profile }: { profile: ProfileState }) => {
   const name = (profile.firstName || '').toLowerCase();
 
   return {
