@@ -7,8 +7,8 @@ import { renderWithContext } from '../../../../testUtils';
 import PersonItem from '..';
 
 import { navigatePush } from '../../../actions/navigation';
-import { PERSON_STAGE_SCREEN } from '../../PersonStageScreen';
 import { orgIsCru, hasOrgPermissions } from '../../../utils/common';
+import { SELECT_PERSON_STAGE_FLOW } from '../../../routes/constants';
 
 const myId = '1';
 const stageId = '1';
@@ -64,16 +64,9 @@ const mockPerson = {
 };
 
 const mockNavigatePushResult = { type: 'navigated' };
-const mockGetPeopleResult = { type: 'got people' };
 
-jest.mock('../../../actions/people', () => ({
-  getMyPeople: () => mockGetPeopleResult,
-}));
 jest.mock('../../../actions/navigation', () => ({
-  navigatePush: jest.fn((_, params) => {
-    params.onComplete();
-    return mockNavigatePushResult;
-  }),
+  navigatePush: jest.fn(() => mockNavigatePushResult),
 }));
 jest.mock('../../../utils/common');
 
@@ -209,8 +202,7 @@ describe('handleChangeStage', () => {
 
     fireEvent.press(getByTestId('setStageButton'));
 
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
-      onComplete: expect.anything(),
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
       currentStage: null,
       name: mockPerson.first_name,
       contactId: mockPerson.id,
@@ -219,10 +211,7 @@ describe('handleChangeStage', () => {
       subsection: 'person',
       orgId: mockOrganization.id,
     });
-    expect(store.getActions()).toEqual([
-      mockGetPeopleResult,
-      mockNavigatePushResult,
-    ]);
+    expect(store.getActions()).toEqual([mockNavigatePushResult]);
   });
 });
 

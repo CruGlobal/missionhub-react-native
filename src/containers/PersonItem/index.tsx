@@ -7,10 +7,9 @@ import { useTranslation } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
-import { getMyPeople } from '../../actions/people';
-import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { hasOrgPermissions, orgIsCru } from '../../utils/common';
 import ItemHeaderText from '../../components/ItemHeaderText';
+import { SELECT_PERSON_STAGE_FLOW } from '../../routes/constants';
 
 import styles from './styles';
 
@@ -44,8 +43,7 @@ const PersonItem = ({
 
   const handleChangeStage = () => {
     dispatch(
-      navigatePush(PERSON_STAGE_SCREEN, {
-        onComplete: () => dispatch(getMyPeople()),
+      navigatePush(SELECT_PERSON_STAGE_FLOW, {
         currentStage: null,
         name: person.first_name,
         contactId: person.id,
