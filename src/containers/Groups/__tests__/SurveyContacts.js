@@ -55,7 +55,6 @@ describe('SurveyContacts', () => {
       SEARCH_SURVEY_CONTACTS_FILTER_SCREEN,
       {
         survey,
-        organization,
         onFilter: instance.handleChangeFilter,
         filters: instance.state.filters,
       },

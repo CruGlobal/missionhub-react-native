@@ -15,7 +15,7 @@ import {
 } from '../../../utils/filters';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
-import { getOrgLabels } from '../../../actions/labels';
+import { getOrgFilterStats } from '../../../actions/labels';
 import BackButton from '../../BackButton';
 
 import styles from './styles';
@@ -44,15 +44,15 @@ export class ContactsFilter extends Component {
 
   async loadLabels() {
     const { dispatch, organization } = this.props;
-    const labels = await dispatch(getOrgLabels(organization.id));
+    const filterStats = await dispatch(getOrgFilterStats(organization.id));
 
-    const { options, toggleOptions } = this.createFilterOptions(labels);
+    const { options, toggleOptions } = this.createFilterOptions(filterStats);
     this.setState({ options, toggleOptions });
   }
 
-  createFilterOptions(labels) {
+  createFilterOptions(filterStats) {
     const { t, filters } = this.props;
-    const filterOptions = getFilterOptions(t, filters, [], labels);
+    const filterOptions = getFilterOptions(t, filters, [], filterStats);
     const options = [
       filterOptions.labels,
       filterOptions.gender,
