@@ -5,14 +5,16 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
-import { getSurveyQuestions } from '../../../actions/surveys';
+import {
+  getSurveyQuestions,
+  getSurveyFilterStats,
+} from '../../../actions/surveys';
 import { buildTrackingObj, isString } from '../../../utils/common';
 import {
   getFilterOptions,
   searchHandleToggle,
   searchSelectFilter,
 } from '../../../utils/filters';
-import { getOrgLabels } from '../../../actions/labels';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 import FilterList from '../../../components/FilterList';
@@ -41,20 +43,21 @@ export class SurveyContactsFilter extends Component {
   }
 
   async loadQuestionsAndLabels() {
-    const { dispatch, survey, organization } = this.props;
+    const { dispatch, survey } = this.props;
     const questions = await dispatch(getSurveyQuestions(survey.id));
-    const labels = await dispatch(getOrgLabels(organization.id));
+    const filterStats = await dispatch(getSurveyFilterStats(survey.id));
 
     const { options, toggleOptions } = this.createFilterOptions(
       questions,
-      labels,
+      filterStats,
     );
     this.setState({ options, toggleOptions });
   }
 
-  createFilterOptions(questions, labels) {
+  createFilterOptions(questions, filterStats) {
     const { t, filters } = this.props;
-    const filterOptions = getFilterOptions(t, filters, questions, labels);
+    const filterOptions = getFilterOptions(t, filters, questions, filterStats);
+
     const options = [
       filterOptions.questions,
       filterOptions.labels,
@@ -163,7 +166,6 @@ SurveyContactsFilter.propTypes = {
   onFilter: PropTypes.func.isRequired,
   filters: PropTypes.object.isRequired,
   survey: PropTypes.object.isRequired,
-  organization: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (reduxState, { navigation }) => ({
