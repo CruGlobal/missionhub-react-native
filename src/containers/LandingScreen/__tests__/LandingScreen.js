@@ -6,9 +6,9 @@ import LandingScreen from '..';
 
 import { renderWithContext } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
-import { WELCOME_SCREEN } from '../../WelcomeScreen';
 import { firstTime } from '../../../actions/auth/userData';
 import {
+  FULL_ONBOARDING_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
   SIGN_IN_FLOW,
 } from '../../../routes/constants';
@@ -30,7 +30,7 @@ describe('a button is clicked', () => {
     fireEvent.press(getByTestId('tryItNowButton'));
 
     expect(firstTime).toHaveBeenCalled();
-    expect(navigatePush).toHaveBeenCalledWith(WELCOME_SCREEN);
+    expect(navigatePush).toHaveBeenCalledWith(FULL_ONBOARDING_FLOW);
   });
 
   it('community code to be called', () => {

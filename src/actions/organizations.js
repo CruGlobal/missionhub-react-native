@@ -19,9 +19,10 @@ import {
   getScreenForOrg,
   GROUP_CHALLENGES,
 } from '../containers/Groups/GroupScreen';
+import { REQUESTS } from '../api/routes';
 
 import { getMe, getPersonDetails } from './person';
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 import { reloadGroupChallengeFeed } from './challenges';
 import { navigatePush } from './navigation';

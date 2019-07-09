@@ -6,8 +6,9 @@ import {
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
 } from '../constants';
+import { REQUESTS } from '../api/routes';
 
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 import { reloadGroupCelebrateFeed } from './celebration';
 import { showNotificationPrompt } from './notifications';
 import { navigatePush, navigateBack } from './navigation';

@@ -8,7 +8,8 @@ import {
   RESET_CHALLENGE_PAGINATION,
   RESET_CELEBRATION_PAGINATION,
 } from '../../constants';
-import callApi, { REQUESTS } from '../../actions/api';
+import callApi from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 import { organizationSelector } from '../../selectors/organizations';
 import { getFeed, reloadFeed, CELEBRATE, CHALLENGE } from '../actions';
 

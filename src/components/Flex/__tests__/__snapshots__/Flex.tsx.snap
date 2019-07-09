@@ -64,6 +64,19 @@ exports[`renders direction correctly 1`] = `
 />
 `;
 
+exports[`renders grow correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "flexGrow": 2,
+      },
+    ]
+  }
+/>
+`;
+
 exports[`renders justify center correctly 1`] = `
 <View
   style={

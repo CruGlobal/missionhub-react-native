@@ -56,7 +56,7 @@ exports[`renders cru org contact correctly 1`] = `
                 "fontSize": 16,
                 "fontWeight": "bold",
               },
-              null,
+              undefined,
             ],
           ]
         }
@@ -193,7 +193,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
                 "fontSize": 16,
                 "fontWeight": "bold",
               },
-              null,
+              undefined,
             ],
           ]
         }
@@ -375,7 +375,7 @@ exports[`renders cru org member correctly 1`] = `
                 "fontSize": 16,
                 "fontWeight": "bold",
               },
-              null,
+              undefined,
             ],
           ]
         }
@@ -510,7 +510,7 @@ exports[`renders me correctly 1`] = `
                 "fontSize": 16,
                 "fontWeight": "bold",
               },
-              null,
+              undefined,
             ],
           ]
         }
@@ -645,7 +645,7 @@ exports[`renders personal ministry contact correctly 1`] = `
                 "fontSize": 16,
                 "fontWeight": "bold",
               },
-              null,
+              undefined,
             ],
           ]
         }
@@ -780,7 +780,7 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
                 "fontSize": 16,
                 "fontWeight": "bold",
               },
-              null,
+              undefined,
             ],
           ]
         }

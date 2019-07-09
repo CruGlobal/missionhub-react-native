@@ -1,8 +1,166 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<StepDetailScreen
-  CenterContent={
+<View
+  flex={1}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "flexDirection": "row",
+          "height": 65,
+          "paddingTop": 20,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+        },
+        null,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "paddingLeft": 5,
+          },
+          Object {
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
+            },
+            undefined,
+            null,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {
+                        "color": "#A0A2A6",
+                      },
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    />
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    flex={1}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+          },
+        ]
+      }
+    >
+      do this step
+    </Text>
     <View
       style={
         Object {
@@ -11,16 +169,108 @@ exports[`renders correctly 1`] = `
         }
       }
     />
-  }
-  CenterHeader={null}
-  RightHeader={null}
-  bottomButtonProps={
-    Object {
-      "onPress": [Function],
-      "text": "Add to My Steps",
-    }
-  }
-  markdown="some markdown"
-  text="do this step"
-/>
+    <View
+      flex={1}
+    >
+      <RCTScrollView
+        style={
+          Object {
+            "paddingBottom": 14,
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
+        }
+      >
+        <View>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                  }
+                }
+              >
+                <Text>
+                  some markdown
+                </Text>
+              </Text>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "width": 750,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          ADD TO MY STEPS
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
 `;

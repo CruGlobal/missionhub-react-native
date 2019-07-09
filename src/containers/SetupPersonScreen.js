@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, View, Keyboard, Image } from 'react-native';
 import { withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { Text, Flex } from '../components/common';
 import BottomButton from '../components/BottomButton';
@@ -34,12 +35,20 @@ class SetupPersonScreen extends Component {
     disableBack.remove();
   }
 
-  navigate = () => {
-    this.props.dispatch(
-      navigatePush(PERSON_STAGE_SCREEN, {
-        section: 'onboarding',
-        subsection: 'add person',
-      }),
+  navigate = (skip = false) => {
+    const { dispatch, next } = this.props;
+
+    if (next) {
+      return dispatch(next({ skip }));
+    }
+
+    dispatch(
+      skip
+        ? skipOnboarding()
+        : navigatePush(PERSON_STAGE_SCREEN, {
+            section: 'onboarding',
+            subsection: 'add person',
+          }),
     );
   };
 
@@ -55,15 +64,15 @@ class SetupPersonScreen extends Component {
           lastName: personLastName,
         };
         await dispatch(updateOnboardingPerson(data));
-        this.navigate();
       } else {
         const { response: person } = await dispatch(
           createPerson(personFirstName, personLastName, myId),
         );
         dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
         this.setState({ personId: person.id });
-        this.navigate();
       }
+
+      this.navigate();
     }
   };
 
@@ -77,7 +86,7 @@ class SetupPersonScreen extends Component {
 
   lastNameRef = c => (this.personLastName = c);
 
-  skip = () => this.props.dispatch(skipOnboarding());
+  skip = () => this.navigate(true);
 
   render() {
     const { t, personFirstName, personLastName } = this.props;
@@ -126,7 +135,12 @@ class SetupPersonScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, personProfile }) => ({
+SetupPersonScreen.propTypes = {
+  next: PropTypes.func,
+};
+
+const mapStateToProps = ({ auth, personProfile }, { next }) => ({
+  next,
   myId: auth.person.id,
   personFirstName: personProfile.personFirstName,
   personLastName: personProfile.personLastName,

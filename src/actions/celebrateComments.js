@@ -5,8 +5,9 @@ import {
 } from '../constants';
 import { celebrateCommentsSelector } from '../selectors/celebrateComments';
 import { ACTIONS } from '../constants';
+import { REQUESTS } from '../api/routes';
 
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 
 export function setCelebrateEditingComment(commentId) {

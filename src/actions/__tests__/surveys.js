@@ -1,8 +1,12 @@
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-
-import callApi, { REQUESTS } from '../api';
-import { getMySurveys, getOrgSurveys, getOrgSurveysNextPage } from '../surveys';
+import { createThunkStore } from '../../../testUtils';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
+import {
+  getMySurveys,
+  getOrgSurveys,
+  getOrgSurveysNextPage,
+  getSurveyFilterStats,
+} from '../surveys';
 import { GET_ORGANIZATION_SURVEYS } from '../../constants';
 
 const apiResponse = { type: 'successful' };
@@ -12,7 +16,7 @@ jest.mock('../api');
 let store;
 
 beforeEach(() => {
-  store = configureStore([thunk])();
+  store = createThunkStore();
 });
 
 describe('getMySurveys', () => {
@@ -112,7 +116,7 @@ describe('getOrgSurveysNextPage', () => {
   };
 
   it('should get surveys next page in organization', async () => {
-    store = configureStore([thunk])({
+    store = createThunkStore({
       organizations: { surveysPagination: { hasNextPage: true, page: 1 } },
     });
     callApi.mockReturnValue(surveysResponse);
@@ -124,7 +128,7 @@ describe('getOrgSurveysNextPage', () => {
   });
 
   it('should not get next page', async () => {
-    store = configureStore([thunk])({
+    store = createThunkStore({
       organizations: { surveysPagination: { hasNextPage: false, page: 1 } },
     });
     callApi.mockReturnValue(surveysResponse);
@@ -132,5 +136,27 @@ describe('getOrgSurveysNextPage', () => {
     const result = await store.dispatch(getOrgSurveysNextPage(orgId));
 
     expect(result).toEqual(undefined);
+  });
+});
+
+describe('getSurveyFilterStats', () => {
+  it('gets survey filter stats', async () => {
+    const survey_id = '123';
+    const filterStatsResponse = {
+      type: 'filter stats',
+      response: { questions: {}, labels: {} },
+    };
+
+    store = createThunkStore();
+
+    callApi.mockReturnValue(filterStatsResponse);
+
+    const result = await store.dispatch(getSurveyFilterStats(survey_id));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_SURVEY_FILTER_STATS, {
+      survey_id,
+    });
+    expect(store.getActions()).toEqual([filterStatsResponse]);
+    expect(result).toEqual(filterStatsResponse.response);
   });
 });

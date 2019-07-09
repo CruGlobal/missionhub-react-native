@@ -6,7 +6,8 @@ import {
   toggleLike,
   getGroupCelebrateFeedUnread,
 } from '../celebration';
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 import { DEFAULT_PAGE_LIMIT } from '../../constants';
 import { GET_CELEBRATE_INCLUDE } from '../../utils/actions';
 

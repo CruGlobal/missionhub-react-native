@@ -23,7 +23,8 @@ import {
   REQUEST_NOTIFICATIONS,
 } from '../../constants';
 import * as common from '../../utils/common';
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 import { getPersonDetails, navToPersonScreen } from '../person';
 import {
   navigatePush,

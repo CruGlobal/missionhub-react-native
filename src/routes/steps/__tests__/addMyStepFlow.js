@@ -2,18 +2,33 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
+import { CREATE_STEP } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
+import { buildTrackingObj } from '../../../utils/common';
 import { AddMyStepFlowScreens } from '../addMyStepFlow';
 import { navigatePush } from '../../../actions/navigation';
+import { createCustomStep } from '../../../actions/steps';
 import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
+import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
+import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/steps');
 
 const myId = '111';
 const orgId = '123';
+const stepText = 'hello';
 
-const stage = { id: 1 };
+const stage = { id: '1' };
+const step = { id: '444', title: stepText };
+
+const trackingObj = buildTrackingObj(
+  'people : self : steps : create',
+  'people',
+  'self',
+  'steps',
+);
 
 const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
@@ -39,24 +54,98 @@ const buildAndCallNext = async (screen, navParams, nextProps) => {
 };
 
 const navigatePushResponse = { type: 'navigate push' };
+const createCustomStepResponse = { type: 'create custom step' };
 
 beforeEach(() => {
   store.clearActions();
   navigatePush.mockReturnValue(navigatePushResponse);
+  createCustomStep.mockReturnValue(createCustomStepResponse);
 });
 
-describe('SelectMyStepScreen next', () => {
-  it('navigate to CelebrationScreen', async () => {
+describe('SelectMyStep next', () => {
+  describe('select a suggested step', () => {
+    beforeEach(async () => {
+      await buildAndCallNext(
+        SELECT_MY_STEP_SCREEN,
+        {
+          enableBackButton: true,
+          contactStage: stage,
+          organization: { id: orgId },
+        },
+        { receiverId: myId, step, orgId },
+      );
+    });
+
+    it('should fire required next actions', () => {
+      expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
+        receiverId: myId,
+        step,
+        orgId,
+      });
+      expect(store.getActions()).toEqual([navigatePushResponse]);
+    });
+  });
+
+  describe('create a step', () => {
+    beforeEach(async () => {
+      await buildAndCallNext(
+        SELECT_MY_STEP_SCREEN,
+        {
+          enableBackButton: true,
+          contactStage: stage,
+          organization: { id: orgId },
+        },
+        { receiverId: myId, step: undefined, orgId },
+      );
+    });
+
+    it('should fire required next actions', () => {
+      expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
+        type: CREATE_STEP,
+        personId: myId,
+        orgId,
+        trackingObj,
+      });
+      expect(store.getActions()).toEqual([navigatePushResponse]);
+    });
+  });
+});
+
+describe('SuggestedStepDetailScreen next', () => {
+  beforeEach(async () => {
     await buildAndCallNext(
-      SELECT_MY_STEP_SCREEN,
-      {
-        enableBackButton: true,
-        contactStage: stage,
-        organization: { id: orgId },
-      },
+      SUGGESTED_STEP_DETAIL_SCREEN,
+      { receiverId: myId, step, orgId },
       {},
     );
+  });
 
+  it('should fire required next actions', () => {
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {});
+    expect(store.getActions()).toEqual([navigatePushResponse]);
+  });
+});
+
+describe('AddStepScreen next', () => {
+  beforeEach(async () => {
+    await buildAndCallNext(
+      ADD_STEP_SCREEN,
+      {
+        type: CREATE_STEP,
+        personId: myId,
+        orgId,
+        trackingObj,
+      },
+      { text: stepText, personId: myId, orgId },
+    );
+  });
+
+  it('should fire required next actions', () => {
+    expect(createCustomStep).toHaveBeenCalledWith(stepText, myId, orgId);
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN);
+    expect(store.getActions()).toEqual([
+      createCustomStepResponse,
+      navigatePushResponse,
+    ]);
   });
 });

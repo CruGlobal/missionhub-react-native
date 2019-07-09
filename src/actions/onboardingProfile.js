@@ -19,8 +19,9 @@ import {
   GROUP_SCREEN,
   USER_CREATED_GROUP_SCREEN,
 } from '../containers/Groups/GroupScreen';
+import { REQUESTS } from '../api/routes';
 
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 import { updatePerson } from './person';
 import { navigatePush, navigateReset } from './navigation';
 import { showReminderOnLoad } from './notifications';

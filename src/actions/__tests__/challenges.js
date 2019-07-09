@@ -15,7 +15,8 @@ import {
 import { trackActionWithoutData } from '../analytics';
 import { reloadGroupCelebrateFeed } from '../celebration';
 import { showNotificationPrompt } from '../notifications';
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 import {
   DEFAULT_PAGE_LIMIT,
   RESET_CHALLENGE_PAGINATION,

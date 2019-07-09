@@ -1,4 +1,4 @@
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 import steps from '../steps';
 import {
   COMPLETED_STEP_COUNT,

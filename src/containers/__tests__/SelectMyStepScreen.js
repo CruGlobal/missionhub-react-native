@@ -32,7 +32,6 @@ const navProps = {
   enableBackButton: false,
   onboarding: false,
   contactStage: { id: 4 },
-  next: jest.fn(),
 };
 
 let enableBackButton;
@@ -52,6 +51,7 @@ const test = () => {
         enableBackButton,
         onboarding: isOnboarding,
       })}
+      next={jest.fn()}
     />,
     store,
   );

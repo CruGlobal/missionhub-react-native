@@ -5,7 +5,7 @@ import {
   REQUEST_NOTIFICATIONS,
   LOAD_HOME_NOTIFICATION_REMINDER,
 } from '../../constants';
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 
 it('should update push device', () => {
   const pushDevice = { id: '9', token: 'some token' };

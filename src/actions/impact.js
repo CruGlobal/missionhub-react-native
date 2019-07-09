@@ -2,8 +2,9 @@ import {
   INTERACTION_TYPES,
   UPDATE_PEOPLE_INTERACTION_REPORT,
 } from '../constants';
+import { REQUESTS } from '../api/routes';
 
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 
 export function refreshImpact(orgId) {
   return dispatch => {

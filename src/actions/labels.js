@@ -1,4 +1,5 @@
-import { REQUESTS } from './api';
+import { REQUESTS } from '../api/routes';
+
 import callApi from './api';
 
 export function getMyLabels() {
@@ -10,15 +11,14 @@ export function getMyLabels() {
   };
 }
 
-export function getOrgLabels(orgId) {
+export function getOrgFilterStats(organization_id) {
   return async dispatch => {
     const query = {
-      orgId,
-      include: 'labels',
+      organization_id,
     };
     const { response } = await dispatch(
-      callApi(REQUESTS.GET_ORGANIZATION_LABELS, query),
+      callApi(REQUESTS.GET_ORGANIZATION_FILTER_STATS, query),
     );
-    return response.labels;
+    return response;
   };
 }

@@ -4,8 +4,9 @@ import {
   CELEBRATE,
   GET_CELEBRATE_INCLUDE,
 } from '../utils/actions';
+import { REQUESTS } from '../api/routes';
 
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 
 export function getGroupCelebrateFeedUnread(orgId) {
   return dispatch => {

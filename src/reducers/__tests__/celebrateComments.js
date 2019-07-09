@@ -1,4 +1,4 @@
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 import celebrateCommentsReducer from '../celebrateComments';
 import { getPagination } from '../../utils/common';
 import {

@@ -1,7 +1,8 @@
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
 import { ANALYTICS } from '../../constants';
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 import { updateAnalyticsContext } from '../analytics';
 
 import { retryIfInvalidatedClientToken } from './auth';

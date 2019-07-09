@@ -1,6 +1,7 @@
 import { DEFAULT_PAGE_LIMIT, GET_ORGANIZATION_SURVEYS } from '../constants';
+import { REQUESTS } from '../api/routes';
 
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 
 export function getMySurveys() {
   return dispatch => {
@@ -54,6 +55,19 @@ export function getSurveyQuestions(surveyId) {
   return async dispatch => {
     const { response } = await dispatch(
       callApi(REQUESTS.GET_SURVEY_QUESTIONS, { surveyId }),
+    );
+    return response;
+  };
+}
+
+export function getSurveyFilterStats(survey_id) {
+  return async dispatch => {
+    const query = {
+      survey_id,
+    };
+
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_SURVEY_FILTER_STATS, query),
     );
     return response;
   };

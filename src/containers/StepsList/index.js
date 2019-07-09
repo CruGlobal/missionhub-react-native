@@ -39,22 +39,13 @@ class StepsList extends Component {
   }
 
   renderItem = ({ item }) => {
-    const { organization, receiverId, next } = this.props;
-
-    return (
-      <StepSuggestionItem
-        step={item}
-        receiverId={receiverId}
-        orgId={organization && organization.id}
-        next={next}
-      />
-    );
+    return <StepSuggestionItem step={item} onPress={this.props.onPressStep} />;
   };
 
   stepsListRef = c => (this.stepsList = c);
 
   render() {
-    const { suggestions } = this.props;
+    const { t, suggestions } = this.props;
     const { suggestionIndex } = this.state;
     const { list } = styles;
 
@@ -70,7 +61,7 @@ class StepsList extends Component {
           suggestions.length > suggestionIndex && (
             <LoadMore
               onPress={this.handleLoadSteps}
-              text={this.props.t('loadMoreSteps').toUpperCase()}
+              text={t('loadMoreSteps').toUpperCase()}
             />
           )
         }
@@ -81,20 +72,21 @@ class StepsList extends Component {
 
 StepsList.propTypes = {
   contactName: PropTypes.string,
-  receiverId: PropTypes.string.isRequired,
-  organization: PropTypes.object,
-  contactStageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-    .isRequired,
-  isMe: PropTypes.bool.isRequired,
-  next: PropTypes.func.isRequired,
+  contactStageId: PropTypes.string.isRequired,
+  onPressStep: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ auth, steps }, { contactStageId, receiverId }) => {
+const mapStateToProps = (
+  { auth, steps },
+  { contactName, receiverId, contactStageId, onPressStep },
+) => {
   const myId = auth.person.id;
   const isMe = receiverId === myId;
 
   return {
-    myId,
+    contactName,
+    contactStageId,
+    onPressStep,
     isMe,
     suggestions:
       (isMe

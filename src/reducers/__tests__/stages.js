@@ -1,6 +1,6 @@
 import i18n from 'i18next';
 
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 import stages from '../stages';
 
 it('loads step suggestions for me', () => {

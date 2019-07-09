@@ -10,6 +10,7 @@ export default StyleSheet.create({
     paddingBottom: 10,
   },
   header: {
+    alignItems: 'center',
     alignContent: 'center',
     paddingVertical: 10,
     backgroundColor: theme.extraLightGrey,

@@ -35,7 +35,7 @@ exports[`for another person with steps loadMore should show more steps and hide 
 exports[`for another person with steps renders correctly 1`] = `
 <FlatList
   ListFooterComponent={
-    <withI18nextTranslation(LoadMore)
+    <LoadMore
       onPress={[Function]}
       text="SHOW MORE STEPS"
     />
@@ -145,7 +145,7 @@ exports[`for me with steps loadMore should show more steps and hide button 1`] =
 exports[`for me with steps renders correctly 1`] = `
 <FlatList
   ListFooterComponent={
-    <withI18nextTranslation(LoadMore)
+    <LoadMore
       onPress={[Function]}
       text="SHOW MORE STEPS"
     />
@@ -215,10 +215,7 @@ exports[`for me without steps renders correctly 1`] = `
 `;
 
 exports[`renderItem renders correctly 1`] = `
-<Connect(StepSuggestionItem)
-  next={[MockFunction]}
-  orgId="4234234"
-  receiverId="252342354234"
+<StepSuggestionItem
   step={
     Object {
       "body": "some step",

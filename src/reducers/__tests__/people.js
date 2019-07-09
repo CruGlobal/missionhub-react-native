@@ -6,7 +6,7 @@ import {
   UPDATE_PERSON_ATTRIBUTES,
   GET_ORGANIZATION_PEOPLE,
 } from '../../constants';
-import { REQUESTS } from '../../actions/api';
+import { REQUESTS } from '../../api/routes';
 
 const orgId = '100';
 const orgs = {

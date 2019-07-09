@@ -15,7 +15,7 @@ exports[`renders correctly 1`] = `
       "opacity": 1,
     }
   }
-  testID="Button"
+  testID="bottomButton"
 >
   <View
     style={

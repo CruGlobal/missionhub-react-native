@@ -24,8 +24,9 @@ import {
   contactAssignmentSelector,
 } from '../selectors/people';
 import { organizationSelector } from '../selectors/organizations';
+import { REQUESTS } from '../api/routes';
 
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
 

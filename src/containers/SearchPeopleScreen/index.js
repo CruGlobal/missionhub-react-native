@@ -8,7 +8,7 @@ import NullStateComponent from '../../components/NullStateComponent';
 import SEARCH_NULL from '../../../assets/images/searchNull.png';
 import { navigatePush } from '../../actions/navigation';
 import { searchPeople } from '../../actions/people';
-import { Flex, IconButton, Input, Text } from '../../components/common';
+import { IconButton, Input, Text } from '../../components/common';
 import Header from '../../components/Header';
 import SearchPeopleItem from '../../components/SearchPeopleItem';
 import theme from '../../theme';
@@ -124,12 +124,7 @@ export class SearchPeopleScreen extends Component {
     const { t } = this.props;
     const { text } = this.state;
     return (
-      <Flex
-        direction="row"
-        align="center"
-        style={styles.searchWrap}
-        self="stretch"
-      >
+      <View flexDirection="row" alignItems="center" style={styles.searchWrap}>
         <Input
           ref={this.centerRef}
           onChangeText={this.handleTextChange}
@@ -150,7 +145,7 @@ export class SearchPeopleScreen extends Component {
             style={styles.clearIcon}
           />
         ) : null}
-      </Flex>
+      </View>
     );
   }
 
@@ -162,12 +157,12 @@ export class SearchPeopleScreen extends Component {
     }
 
     return (
-      <Flex direction="column" style={styles.activeFilterWrap}>
+      <View flexDirection="column" style={styles.activeFilterWrap}>
         {keys.map(k => (
-          <Flex
+          <View
             key={filters[k].id}
-            direction="row"
-            align="center"
+            flexDirection="row"
+            alignItems="center"
             style={styles.activeFilterRow}
           >
             <Text style={styles.activeFilterText}>{filters[k].text}</Text>
@@ -178,9 +173,9 @@ export class SearchPeopleScreen extends Component {
               pressProps={[k]}
               onPress={this.removeFilter}
             />
-          </Flex>
+          </View>
         ))}
-      </Flex>
+      </View>
     );
   }
 
@@ -195,16 +190,16 @@ export class SearchPeopleScreen extends Component {
     const { results, text, isSearching } = this.state;
     if (isSearching && results.length === 0) {
       return (
-        <Flex align="center" value={1} style={styles.emptyWrap}>
+        <View flex={1} style={styles.emptyWrap}>
           <Text style={styles.nullText}>{t('loading')}</Text>
-        </Flex>
+        </View>
       );
     }
     if (text && results.length === 0) {
       return (
-        <Flex align="center" value={1} style={styles.emptyWrap}>
+        <View flex={1} style={styles.emptyWrap}>
           <Text style={styles.nullText}>{t('noResults')}</Text>
-        </Flex>
+        </View>
       );
     }
     if (results.length === 0) {

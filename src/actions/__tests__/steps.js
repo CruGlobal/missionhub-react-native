@@ -4,7 +4,8 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import i18next from 'i18next';
 
-import callApi, { REQUESTS } from '../api';
+import callApi from '../api';
+import { REQUESTS } from '../../api/routes';
 import {
   completeStep,
   getStepSuggestions,
@@ -12,6 +13,7 @@ import {
   getContactSteps,
   setStepFocus,
   addStep,
+  createCustomStep,
   deleteStepWithTracking,
 } from '../steps';
 import { reloadGroupCelebrateFeed } from '../celebration';
@@ -135,7 +137,6 @@ describe('addStep', () => {
     body: 'Hello world',
     challenge_type: CUSTOM_STEP_TYPE,
   };
-  const organization = { id: '200' };
 
   const stepAddedResult = { type: 'added steps tracked' };
 
@@ -152,7 +153,7 @@ describe('addStep', () => {
   });
 
   it('creates step with org', async () => {
-    await store.dispatch(addStep(stepSuggestion, receiverId, organization));
+    await store.dispatch(addStep(stepSuggestion, receiverId, orgId));
 
     expect(callApi).toMatchSnapshot();
     expect(store.getActions()).toEqual([stepAddedResult]);
@@ -160,6 +161,41 @@ describe('addStep', () => {
 
   it('creates step with custom step suggestion', async () => {
     await store.dispatch(addStep(customStepSuggestion, receiverId));
+
+    expect(callApi).toMatchSnapshot();
+    expect(store.getActions()).toEqual([stepAddedResult]);
+  });
+});
+
+describe('create custom step', () => {
+  const stepText = 'Custom Step';
+  const myId = '111';
+
+  const stepAddedResult = { type: 'added steps tracked' };
+
+  beforeEach(() => {
+    store = mockStore({ auth: { person: { id: myId } } });
+
+    callApi.mockReturnValue(() => Promise.resolve());
+    trackStepAdded.mockReturnValue(stepAddedResult);
+  });
+
+  it('creates custom step for other person', async () => {
+    await store.dispatch(createCustomStep(stepText, receiverId));
+
+    expect(callApi).toMatchSnapshot();
+    expect(store.getActions()).toEqual([stepAddedResult]);
+  });
+
+  it('creates custom step for me', async () => {
+    await store.dispatch(createCustomStep(stepText, myId));
+
+    expect(callApi).toMatchSnapshot();
+    expect(store.getActions()).toEqual([stepAddedResult]);
+  });
+
+  it('creates custom step for other person in org', async () => {
+    await store.dispatch(createCustomStep(stepText, receiverId, orgId));
 
     expect(callApi).toMatchSnapshot();
     expect(store.getActions()).toEqual([stepAddedResult]);

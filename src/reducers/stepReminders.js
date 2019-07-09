@@ -1,5 +1,5 @@
 import { LOGOUT } from '../constants';
-import { REQUESTS } from '../actions/api';
+import { REQUESTS } from '../api/routes';
 
 const initialState = { allByStep: {} };
 

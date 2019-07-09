@@ -1,7 +1,8 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import callApi, { REQUESTS } from '../../api';
+import callApi from '../../api';
+import { REQUESTS } from '../../../api/routes';
 import { firstTime, authSuccess } from '../userData';
 import { codeLogin, refreshAnonymousLogin } from '../anonymous';
 

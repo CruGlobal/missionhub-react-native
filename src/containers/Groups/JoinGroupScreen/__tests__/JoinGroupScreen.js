@@ -1,6 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { fireEvent } from 'react-native-testing-library';
 
 import JoinGroupScreen from '..';
 
@@ -8,6 +9,7 @@ import {
   renderShallow,
   createMockNavState,
   testSnapshotShallow,
+  renderWithContext,
 } from '../../../../../testUtils';
 import { navigateBack } from '../../../../actions/navigation';
 import { lookupOrgCommunityCode } from '../../../../actions/organizations';
@@ -101,32 +103,22 @@ describe('JoinGroupScreen', () => {
     //tests for temporary implementation of onSearch
     //if input has 6 digits, community added to state
     //otherwise, error added to state
-    it('should set error if input has < 6 digits', async () => {
-      const component = buildScreen();
-
-      component.instance().codeInput = { focus: jest.fn() };
-
-      await component
-        .find('ForwardRef')
-        .dive() // Input
-        .props()
-        .onChangeText('123');
-
-      expect(component.instance().state).toMatchSnapshot();
+    it('should set input without calling serach has < 6 digits', () => {
+      const { getByTestId, snapshot } = renderWithContext(
+        <JoinGroupScreen next={mockNext} />,
+        { store },
+      );
+      fireEvent.changeText(getByTestId('joinInput'), '123');
+      snapshot();
     });
 
-    it('should set community after entering 6th digit', async () => {
-      const component = buildScreen();
-
-      component.instance().codeInput = { focus: jest.fn() };
-
-      await component
-        .find('ForwardRef')
-        .dive() // Input
-        .props()
-        .onChangeText('123456');
-
-      expect(component.instance().state).toMatchSnapshot();
+    it('should set community after entering 6th digit', () => {
+      const { getByTestId, snapshot } = renderWithContext(
+        <JoinGroupScreen next={mockNext} />,
+        { store },
+      );
+      fireEvent.changeText(getByTestId('joinInput'), '123456');
+      snapshot();
       expect(lookupOrgCommunityCode).toHaveBeenCalled();
     });
   });

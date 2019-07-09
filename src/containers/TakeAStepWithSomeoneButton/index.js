@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
-import { ADD_SOMEONE_SCREEN } from '../AddSomeoneScreen';
+import { ADD_SOMEONE_ONBOARDING_FLOW } from '../../routes/constants';
 import BottomButton from '../../components/BottomButton';
 import { navigatePush } from '../../actions/navigation';
 
 @withTranslation()
 class TakeAStepWithSomeoneButton extends Component {
   navigateToAddSomeoneScreen = () =>
-    this.props.dispatch(navigatePush(ADD_SOMEONE_SCREEN));
+    this.props.dispatch(navigatePush(ADD_SOMEONE_ONBOARDING_FLOW));
 
   render() {
     const { t } = this.props;

@@ -9,7 +9,8 @@ import { renderShallow, testSnapshot } from '../../../../testUtils';
 import SetupScreen from '..';
 
 import * as profile from '../../../actions/onboardingProfile';
-import callApi, { REQUESTS } from '../../../actions/api';
+import callApi from '../../../actions/api';
+import { REQUESTS } from '../../../api/routes';
 
 const store = configureStore([thunk])({ profile: {} });
 const next = jest.fn(() => ({ type: 'testNext' }));
@@ -33,7 +34,7 @@ it('renders correctly', () => {
 });
 
 describe('setup screen methods', () => {
-  const instance = renderShallow(<SetupScreen />, store).instance();
+  const instance = renderShallow(<SetupScreen next={next} />, store).instance();
   profile.firstNameChanged = jest.fn(() => ({
     type: 'testFirstNameChanged',
   }));

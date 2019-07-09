@@ -1,6 +1,6 @@
 /* eslint complexity: 0 */
 
-import { REQUESTS } from '../actions/api';
+import { REQUESTS } from '../api/routes';
 import {
   DELETE_PERSON,
   LOGOUT,

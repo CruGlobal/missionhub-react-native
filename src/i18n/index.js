@@ -22,10 +22,13 @@ function chooseLanguage() {
   } else {
     const [baseLocale] = locale.split('-');
 
+    if (translations[baseLocale]) {
+      return baseLocale;
+    }
+
     switch (baseLocale) {
       case 'es':
         return 'es-419';
-      case 'no':
       case 'nb':
       case 'nn':
         return 'no';

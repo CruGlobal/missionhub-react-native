@@ -1,6 +1,7 @@
 import { PEOPLE_WITH_ORG_SECTIONS } from '../constants';
+import { REQUESTS } from '../api/routes';
 
-import callApi, { REQUESTS } from './api';
+import callApi from './api';
 
 export function getMyPeople() {
   return async (dispatch, getState) => {
