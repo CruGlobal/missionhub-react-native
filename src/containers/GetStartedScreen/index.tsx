@@ -12,11 +12,13 @@ import styles from './styles';
 const GetStartedScreen = ({
   dispatch,
   next,
+  name,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: () => ThunkAction<void, any, null, never>;
+  name: string;
 }) => {
   useEffect(() => {
     disableBack.add();
@@ -24,9 +26,6 @@ const GetStartedScreen = ({
   }, []);
 
   const { t } = useTranslation('getStarted');
-
-  const firstName = useSelector(state => state.profile.firstName);
-  const name = (firstName || '').toLowerCase();
 
   const navigateNext = () => {
     disableBack.remove();
@@ -50,5 +49,13 @@ const GetStartedScreen = ({
   );
 };
 
-export default connect()(GetStartedScreen);
+const mapStateToProps = ({ profile }) => {
+  const name = (profile.firstName || '').toLowerCase();
+
+  return {
+    name,
+  };
+};
+
+export default connect(mapStateToProps)(GetStartedScreen);
 export const GET_STARTED_SCREEN = 'nav/GET_STARTED';
