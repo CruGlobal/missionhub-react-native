@@ -17,13 +17,13 @@ const nextResult = { type: 'next' };
 const skipOnboardingResult = { type: 'skip onboarding' };
 
 beforeEach(() => {
-  navigatePush.mockReturnValue(navigateResult);
-  next.mockReturnValue(nextResult);
-  skipOnboarding.mockReturnValue(skipOnboardingResult);
+  (navigatePush as jest.Mock).mockReturnValue(navigateResult);
+  (next as jest.Mock).mockReturnValue(nextResult);
+  (skipOnboarding as jest.Mock).mockReturnValue(skipOnboardingResult);
 });
 
 it('renders correctly', () => {
-  renderWithContext(<AddSomeoneScreen />).snapshot();
+  renderWithContext(<AddSomeoneScreen next={next} />).snapshot();
 });
 
 describe('onComplete', () => {
