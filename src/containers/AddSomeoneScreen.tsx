@@ -21,10 +21,10 @@ interface AddSomeoneScreenProps {
 const AddSomeoneScreen = ({ dispatch, next }: AddSomeoneScreenProps) => {
   const { t } = useTranslation('addContact');
 
-  useDisableBack();
+  const enableBack = useDisableBack();
 
   const handleNavigate = (skip = false) => {
-    disableBack.remove();
+    enableBack();
 
     if (next) {
       return dispatch(next({ skip }));
