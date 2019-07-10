@@ -164,6 +164,7 @@ import {
   ADD_PERSON_STEP_FLOW,
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
+  ADD_SOMEONE_STEP_FLOW,
 } from './routes/constants';
 import {
   AddPersonThenStepScreenFlowNavigator,
@@ -221,6 +222,7 @@ import TabIcon from './containers/TabIcon';
 import GroupUnreadFeed, {
   GROUP_UNREAD_FEED_SCREEN,
 } from './containers/Groups/GroupUnreadFeed';
+import { AddSomeoneStepFlowNavigator } from './routes/addPerson/addSomeoneStepFlow';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -507,6 +509,7 @@ const screens = {
   [JOIN_BY_CODE_FLOW]: JoinByCodeFlowNavigator,
   [JOIN_BY_CODE_ONBOARDING_FLOW]: JoinByCodeOnboardingFlowNavigator,
   [ADD_SOMEONE_ONBOARDING_FLOW]: AddSomeoneOnboardingFlowNavigator,
+  [ADD_SOMEONE_STEP_FLOW]: AddSomeoneStepFlowNavigator,
   [FULL_ONBOARDING_FLOW]: FullOnboardingFlowNavigator,
   [GET_STARTED_ONBOARDING_FLOW]: GetStartedOnboardingFlowNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,

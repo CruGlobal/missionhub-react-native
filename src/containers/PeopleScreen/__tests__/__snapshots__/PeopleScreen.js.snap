@@ -286,6 +286,6 @@ exports[`renders empty correctly 1`] = `
     refreshing={false}
     sections={false}
   />
-  <Connect(withI18nextTranslation(TakeAStepWithSomeoneButton)) />
+  <Connect(TakeAStepWithSomeoneButton) />
 </View>
 `;

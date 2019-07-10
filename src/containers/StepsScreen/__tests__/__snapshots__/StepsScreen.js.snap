@@ -949,12 +949,12 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
             }
           }
         >
-          You don't have any steps of faith.
-Choose a person in People view and add some new steps.
+          You don't have any Steps of Faith.
+Choose a person to view and add some new steps.
         </MyText>
       </Flex>
     </ScrollViewMock>
-    <Connect(withI18nextTranslation(TakeAStepWithSomeoneButton)) />
+    <Connect(TakeAStepWithSomeoneButton) />
   </View>
 </View>
 `;
