@@ -140,21 +140,22 @@ export const onboardingFlowGenerator = ({
     wrapNextAction(
       AddSomeoneScreen,
       ({ skip }: { skip: boolean }) =>
-        skip
-          ? skipOnboarding()
-          : navigatePush(SETUP_PERSON_SCREEN, { hideSkipBtn }),
+        skip ? skipOnboarding() : navigatePush(SETUP_PERSON_SCREEN),
       { hideSkipBtn },
     ),
     buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
   ),
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SetupPersonScreen, ({ skip }: { skip: boolean }) =>
-      skip
-        ? skipOnboarding()
-        : navigatePush(PERSON_STAGE_SCREEN, {
-            section: 'onboarding',
-            subsection: 'add person',
-          }),
+    wrapNextAction(
+      SetupPersonScreen,
+      ({ skip }: { skip: boolean }) =>
+        skip
+          ? skipOnboarding()
+          : navigatePush(PERSON_STAGE_SCREEN, {
+              section: 'onboarding',
+              subsection: 'add person',
+            }),
+      { hideSkipBtn },
     ),
     buildTrackingObj(
       'onboarding : add person : name',

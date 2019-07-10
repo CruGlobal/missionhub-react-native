@@ -213,7 +213,7 @@ describe('AddSomeoneScreen next', () => {
   it('should fire required next actions without skip', async () => {
     await store.dispatch(next({ skip: false }));
 
-    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN, {});
+    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
   });
 
   it('should fire required next actions with skip', async () => {
@@ -226,13 +226,12 @@ describe('AddSomeoneScreen next', () => {
 describe('AddSomeoneScreen with extra props', () => {
   let next;
   let component;
+  const testExtraPropsFlow = onboardingFlowGenerator({
+    startScreen: ADD_SOMEONE_SCREEN,
+    hideSkipBtn: true,
+  });
 
   beforeEach(() => {
-    const testExtraPropsFlow = onboardingFlowGenerator({
-      startScreen: ADD_SOMEONE_SCREEN,
-      hideSkipBtn: true,
-    });
-
     const Component = testExtraPropsFlow[ADD_SOMEONE_SCREEN].screen;
 
     component = renderShallow(<Component />, store);
@@ -243,12 +242,16 @@ describe('AddSomeoneScreen with extra props', () => {
     expect(component.instance().props.hideSkipBtn).toEqual(true);
   });
 
+  it('setup person screen should have hideSkipBtn prop set to true', () => {
+    const Component = testExtraPropsFlow[SETUP_PERSON_SCREEN].screen;
+    const setupPersonComponent = renderShallow(<Component />, store);
+    expect(setupPersonComponent.instance().props.hideSkipBtn).toEqual(true);
+  });
+
   it('should fire required next actions without skip and extra props', async () => {
     await store.dispatch(next({ skip: false }));
 
-    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN, {
-      hideSkipBtn: true,
-    });
+    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
   });
 
   it('should fire required next actions with skip', async () => {

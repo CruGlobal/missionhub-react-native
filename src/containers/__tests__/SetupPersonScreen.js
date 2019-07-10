@@ -7,7 +7,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import SetupPersonScreen from '../SetupPersonScreen';
-import { testSnapshot, createMockNavState } from '../../../testUtils';
+import { testSnapshot } from '../../../testUtils';
 import * as profile from '../../actions/onboardingProfile';
 import * as navigation from '../../actions/navigation';
 import * as person from '../../actions/person';
@@ -41,7 +41,7 @@ const navigationResult = { type: 'navigated' };
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={mockStore(mockState)}>
-      <SetupPersonScreen navigation={createMockNavState()} />
+      <SetupPersonScreen />
     </Provider>,
   );
 });
@@ -49,9 +49,7 @@ it('renders correctly', () => {
 it('renders back arrow correctly', () => {
   testSnapshot(
     <Provider store={mockStore(mockState)}>
-      <SetupPersonScreen
-        navigation={createMockNavState({ hideSkipBtn: true })}
-      />
+      <SetupPersonScreen hideSkipBtn={true} />
     </Provider>,
   );
 });
@@ -68,10 +66,7 @@ describe('setup person screen methods', () => {
       },
     });
 
-    const screen = shallow(
-      <SetupPersonScreen navigation={createMockNavState()} />,
-      { context: { store } },
-    );
+    const screen = shallow(<SetupPersonScreen />, { context: { store } });
 
     component = screen
       .dive()

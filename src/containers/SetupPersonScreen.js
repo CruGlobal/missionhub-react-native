@@ -91,14 +91,7 @@ class SetupPersonScreen extends Component {
   back = () => this.props.dispatch(navigateBack());
 
   render() {
-    const {
-      t,
-      personFirstName,
-      personLastName,
-      navigation: {
-        state: { params: { hideSkipBtn } = {} },
-      },
-    } = this.props;
+    const { t, personFirstName, personLastName, hideSkipBtn } = this.props;
 
     return (
       <SafeAreaView style={styles.container}>
