@@ -21,3 +21,9 @@ it('renders skip button correctly', () => {
     <IconMessageScreen {...defaultProps} onSkip={jest.fn()} />,
   ).snapshot();
 });
+
+it('renders back button correctly', () => {
+  renderWithContext(
+    <IconMessageScreen {...defaultProps} onBack={jest.fn()} />,
+  ).snapshot();
+});

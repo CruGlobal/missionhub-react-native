@@ -137,6 +137,7 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
+   
 </View>
 `;
 
@@ -277,5 +278,6 @@ exports[`renders correctly with default state 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
+   
 </View>
 `;

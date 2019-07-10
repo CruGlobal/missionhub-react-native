@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { Text, Flex } from '../components/common';
 import BottomButton from '../components/BottomButton';
 import Input from '../components/Input/index';
-import { navigatePush } from '../actions/navigation';
+import { navigatePush, navigateBack } from '../actions/navigation';
 import {
   personFirstNameChanged,
   personLastNameChanged,
@@ -22,6 +22,7 @@ import AbsoluteSkip from '../components/AbsoluteSkip';
 
 import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
 import styles from './SetupScreen/styles';
+import { BackButton } from './BackButton';
 
 @withTranslation()
 class SetupPersonScreen extends Component {
@@ -87,9 +88,10 @@ class SetupPersonScreen extends Component {
   lastNameRef = c => (this.personLastName = c);
 
   skip = () => this.navigate(true);
+  back = () => this.props.dispatch(navigateBack());
 
   render() {
-    const { t, personFirstName, personLastName } = this.props;
+    const { t, personFirstName, personLastName, hideSkipBtn } = this.props;
 
     return (
       <SafeAreaView style={styles.container}>
@@ -129,7 +131,10 @@ class SetupPersonScreen extends Component {
           </View>
         </Flex>
         <BottomButton onPress={this.saveAndGoToGetStarted} text={t('next')} />
-        <AbsoluteSkip onSkip={this.skip} />
+        {hideSkipBtn ? null : <AbsoluteSkip onSkip={this.skip} />}
+        {hideSkipBtn ? (
+          <BackButton absolute={true} customNavigate={this.back} />
+        ) : null}
       </SafeAreaView>
     );
   }
