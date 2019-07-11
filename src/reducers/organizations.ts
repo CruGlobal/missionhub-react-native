@@ -19,6 +19,21 @@ import {
 import { REQUESTS } from '../api/routes';
 import { getPagination } from '../utils/common';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Organization = any; // TODO: use GraphQL type
+
+export interface PaginationObject {
+  hasNextPage: boolean;
+  page: number;
+}
+
+export interface OrganizationsState {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  all: [Organization]; // TODO: use GraphQL type
+  surveysPagination: PaginationObject;
+  membersPagination: PaginationObject;
+}
+
 const globalCommunity = {
   id: GLOBAL_COMMUNITY_ID,
   name: i18next.t('groupsList:globalCommunity'),
@@ -26,7 +41,7 @@ const globalCommunity = {
   user_created: true,
 };
 
-const initialState = {
+const initialState: OrganizationsState = {
   all: [globalCommunity],
   surveysPagination: {
     hasNextPage: true,
@@ -38,14 +53,15 @@ const initialState = {
   },
 };
 
-function organizationsReducer(state = initialState, action) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function organizationsReducer(state = initialState, action: any) {
   switch (action.type) {
     case LOAD_ORGANIZATIONS:
       return {
         ...state,
         all: [
           globalCommunity,
-          ...action.orgs.map(actionOrg => ({
+          ...action.orgs.map((actionOrg: Organization) => ({
             ...(state.all.find(stateOrg => stateOrg.id === actionOrg.id) || {}),
             ...actionOrg,
           })),
@@ -65,7 +81,9 @@ function organizationsReducer(state = initialState, action) {
       return {
         ...state,
         all: state.all.map(o => {
-          const contactReport = (reports || []).find(r => r.id === o.id);
+          const contactReport = (reports || []).find(
+            (r: { id: string }) => r.id === o.id,
+          );
           return contactReport ? { ...o, contactReport } : o;
         }),
       };
@@ -240,7 +258,12 @@ function organizationsReducer(state = initialState, action) {
       return updateAllPersonInstances(action.results.response, state);
     case REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION.SUCCESS:
       const commentCounts = action.results.response.organizational_permissions.reduce(
-        (acc, { organization: { id, unread_comments_count } }) => ({
+        (
+          acc: object,
+          {
+            organization: { id, unread_comments_count },
+          }: { organization: Organization },
+        ) => ({
           ...acc,
           [id]: unread_comments_count,
         }),
@@ -261,7 +284,12 @@ function organizationsReducer(state = initialState, action) {
         ...state,
         all: state.all.map(o =>
           o.id === orgId
-            ? { ...o, members: o.members.filter(m => m.id !== personId) }
+            ? {
+                ...o,
+                members: o.members.filter(
+                  (m: { id: string }) => m.id !== personId,
+                ),
+              }
             : o,
         ),
       };
@@ -288,25 +316,35 @@ function organizationsReducer(state = initialState, action) {
 }
 
 function changeOrgCelebrationComment(
-  { query: { orgId, eventId } },
-  state,
-  isIncrement,
+  { query: { orgId, eventId } }: { query: { orgId: string; eventId: string } },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  state: any,
+  isIncrement: boolean,
 ) {
-  return updateCelebrationItem({ id: orgId, eventId }, state, c => ({
-    ...c,
-    comments_count: c.comments_count + (isIncrement ? 1 : -1),
-  }));
+  return updateCelebrationItem(
+    { id: orgId, eventId },
+    state,
+    (c: { comments_count: number }) => ({
+      ...c,
+      comments_count: c.comments_count + (isIncrement ? 1 : -1),
+    }),
+  );
 }
 
-function toggleLiked(liked) {
-  return c => ({
+function toggleLiked(liked: boolean) {
+  return (c: { likes_count: number }) => ({
     ...c,
     liked,
     likes_count: c.likes_count + (liked ? 1 : -1),
   });
 }
 
-function toggleOrgCelebrationLike({ query: { orgId, eventId } }, state, liked) {
+function toggleOrgCelebrationLike(
+  { query: { orgId, eventId } }: { query: { orgId: string; eventId: string } },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  state: any,
+  liked: boolean,
+) {
   return updateCelebrationItem(
     { id: orgId, eventId },
     state,
@@ -314,7 +352,12 @@ function toggleOrgCelebrationLike({ query: { orgId, eventId } }, state, liked) {
   );
 }
 
-function toggleGlobalCelebrationLike({ query: { eventId } }, state, liked) {
+function toggleGlobalCelebrationLike(
+  { query: { eventId } }: { query: { eventId: string } },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  state: any,
+  liked: boolean,
+) {
   return updateCelebrationItem(
     { id: GLOBAL_COMMUNITY_ID, eventId },
     state,
@@ -322,30 +365,38 @@ function toggleGlobalCelebrationLike({ query: { eventId } }, state, liked) {
   );
 }
 
-function updateCelebrationItem({ id, eventId }, state, fn) {
-  const org = state.all.find(o => o.id === id);
+function updateCelebrationItem(
+  { id, eventId }: { id: string; eventId: string },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  state: any,
+  fn: Function,
+) {
+  const org = state.all.find((o: Organization) => o.id === id);
   if (!org) {
     return state; // Return if the organization does not exist
   }
   const newOrg = {
     ...org,
-    celebrateItems: org.celebrateItems.map(c => (c.id === eventId ? fn(c) : c)),
+    celebrateItems: org.celebrateItems.map((c: { id: string }) =>
+      c.id === eventId ? fn(c) : c,
+    ),
   };
 
   return {
     ...state,
-    all: state.all.map(o => (o.id === id ? newOrg : o)),
+    all: state.all.map((o: Organization) => (o.id === id ? newOrg : o)),
   };
 }
 
-function updateAllPersonInstances(updatedPerson, state) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function updateAllPersonInstances(updatedPerson: { id: string }, state: any) {
   return {
     ...state,
-    all: state.all.map(org =>
+    all: state.all.map((org: Organization) =>
       org.members
         ? {
             ...org,
-            members: org.members.map(m =>
+            members: org.members.map((m: { id: string }) =>
               m.id === updatedPerson.id ? { ...m, ...updatedPerson } : m,
             ),
           }
@@ -354,7 +405,8 @@ function updateAllPersonInstances(updatedPerson, state) {
   };
 }
 
-function updateChallenge(action, state) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function updateChallenge(action: any, state: any) {
   const { challenge = {} } = action;
   const orgId =
     (challenge.organization && challenge.organization.id) || undefined;
@@ -362,11 +414,11 @@ function updateChallenge(action, state) {
   return {
     ...state,
     all: orgId
-      ? state.all.map(o =>
+      ? state.all.map((o: Organization) =>
           o.id === orgId
             ? {
                 ...o,
-                challengeItems: o.challengeItems.map(c =>
+                challengeItems: o.challengeItems.map((c: { id: string }) =>
                   c.id === challenge.id ? { ...c, ...challenge } : c,
                 ),
               }
