@@ -17,6 +17,7 @@ export interface IconProps {
   style?: StyleProp<ViewStyle>;
   type?: 'Material' | 'FontAwesome' | 'Ionicons' | 'MissionHub';
   size?: number;
+  testID: string;
 }
 
 const Icon = ({ name, type, size = 18, style = {} }: IconProps) => {

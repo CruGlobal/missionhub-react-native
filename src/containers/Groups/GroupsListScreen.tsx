@@ -60,12 +60,14 @@ const GroupsListScreen = ({
       if (scrollToId) {
         const index = orgs.findIndex(o => o.id === scrollToId);
         if (index >= 0 && flatList.current) {
-          flatList.current.scrollToIndex({
-            animated: true,
-            index,
-            // Put the new org in the top of the list if already there or the center
-            viewPosition: index === 0 ? 0 : 0.5,
-          });
+          try {
+            flatList.current.scrollToIndex({
+              animated: true,
+              index,
+              // Put the new org in the top of the list if already there or the center
+              viewPosition: index === 0 ? 0 : 0.5,
+            });
+          } catch (e) {}
         }
         dispatch(resetScrollGroups());
       }
@@ -116,6 +118,7 @@ const GroupsListScreen = ({
   const renderList = () => {
     return (
       <FlatList
+        testID="FlatList"
         ref={flatList}
         style={styles.cardList}
         data={orgs}
@@ -131,6 +134,7 @@ const GroupsListScreen = ({
       <Header
         left={
           <IconButton
+            testID="IconButton"
             name="menuIcon"
             type="MissionHub"
             onPress={dispatchOpenMainMenu}
