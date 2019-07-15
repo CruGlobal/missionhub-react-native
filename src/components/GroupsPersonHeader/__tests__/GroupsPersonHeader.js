@@ -11,9 +11,6 @@ import {
   updatePersonAttributes,
   getPersonDetails,
 } from '../../../actions/person';
-
-import GroupsPersonHeader from '..';
-
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import {
   getPersonEmailAddress,
@@ -27,6 +24,8 @@ import {
   loadStepsAndJourney,
   navigateToStageScreen,
 } from '../../../actions/misc';
+
+import GroupsPersonHeader from '..';
 
 jest.mock('uuid/v4');
 jest.mock('../../../utils/common');

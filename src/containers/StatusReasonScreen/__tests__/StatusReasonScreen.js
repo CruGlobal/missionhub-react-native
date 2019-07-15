@@ -1,7 +1,5 @@
 import React from 'react';
 
-import StatusReasonScreen from '..';
-
 import {
   createThunkStore,
   renderShallow,
@@ -9,6 +7,8 @@ import {
 } from '../../../../testUtils';
 import { deleteContactAssignment } from '../../../actions/person';
 import { navigateBack } from '../../../actions/navigation';
+
+import StatusReasonScreen from '..';
 
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/navigation');

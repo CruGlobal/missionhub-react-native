@@ -8,8 +8,6 @@ import {
   flushMicrotasksQueue,
 } from 'react-native-testing-library';
 
-import SignInScreen from '..';
-
 import { renderWithContext } from '../../../../../testUtils';
 import {
   openKeyURL,
@@ -22,6 +20,8 @@ import {
   facebookLoginWithAccessToken,
   facebookPromptLogin,
 } from '../../../../actions/auth/facebook';
+
+import SignInScreen from '..';
 
 jest.mock('../../../../actions/analytics');
 jest.mock('../../../../actions/auth/key');

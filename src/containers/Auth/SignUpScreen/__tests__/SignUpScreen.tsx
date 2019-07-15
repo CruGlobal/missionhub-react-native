@@ -1,8 +1,5 @@
 import 'react-native';
 import React from 'react';
-
-import SignUpScreen, { SIGNUP_TYPES } from '..';
-
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
@@ -15,6 +12,8 @@ import {
   facebookLoginWithAccessToken,
 } from '../../../../actions/auth/facebook';
 import { navigatePush } from '../../../../actions/navigation';
+
+import SignUpScreen, { SIGNUP_TYPES } from '..';
 
 const next = jest.fn(() => () => {});
 

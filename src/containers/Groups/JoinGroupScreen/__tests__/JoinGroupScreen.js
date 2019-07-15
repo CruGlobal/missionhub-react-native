@@ -3,8 +3,6 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { fireEvent } from 'react-native-testing-library';
 
-import JoinGroupScreen from '..';
-
 import {
   renderShallow,
   createMockNavState,
@@ -13,6 +11,8 @@ import {
 } from '../../../../../testUtils';
 import { navigateBack } from '../../../../actions/navigation';
 import { lookupOrgCommunityCode } from '../../../../actions/organizations';
+
+import JoinGroupScreen from '..';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),

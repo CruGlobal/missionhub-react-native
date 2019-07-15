@@ -1,8 +1,8 @@
 import React from 'react';
 
-import FilterList from '..';
-
 import { renderShallow } from '../../../../testUtils';
+
+import FilterList from '..';
 
 const options = [{ id: '1', text: 'option1' }, { id: '2', text: 'option 2' }];
 const toggleOptions = [

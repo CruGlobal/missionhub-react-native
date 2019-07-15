@@ -5,8 +5,6 @@ import { Alert } from 'react-native';
 import i18next from 'i18next';
 import Config from 'react-native-config';
 
-import GroupProfile from '..';
-
 import {
   renderShallow,
   createMockNavState,
@@ -28,6 +26,8 @@ import { trackActionWithoutData } from '../../../../actions/analytics';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { ORG_PERMISSIONS, ACTIONS, GROUPS_TAB } from '../../../../constants';
 import * as common from '../../../../utils/common';
+
+import GroupProfile from '..';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),

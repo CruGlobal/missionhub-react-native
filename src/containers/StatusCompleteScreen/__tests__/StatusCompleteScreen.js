@@ -1,7 +1,5 @@
 import React from 'react';
 
-import StatusCompleteScreen from '..';
-
 import { STATUS_REASON_SCREEN } from '../../StatusReasonScreen';
 import {
   createThunkStore,
@@ -10,6 +8,8 @@ import {
   createMockNavState,
 } from '../../../../testUtils';
 import * as navigation from '../../../actions/navigation';
+
+import StatusCompleteScreen from '..';
 
 const store = createThunkStore({
   auth: {

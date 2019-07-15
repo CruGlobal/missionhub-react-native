@@ -1,13 +1,13 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import CelebrateItemContent from '..';
-
 import { CELEBRATEABLE_TYPES, INTERACTION_TYPES } from '../../../constants';
 import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+
+import CelebrateItemContent from '..';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');

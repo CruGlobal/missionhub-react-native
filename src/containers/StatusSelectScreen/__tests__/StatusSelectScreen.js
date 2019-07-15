@@ -1,7 +1,5 @@
 import React from 'react';
 
-import StatusSelectScreen, { mapStateToProps } from '..';
-
 import {
   createThunkStore,
   renderShallow,
@@ -16,6 +14,8 @@ import {
   orgPermissionSelector,
   personSelector,
 } from '../../../selectors/people';
+
+import StatusSelectScreen, { mapStateToProps } from '..';
 
 jest.mock('../../../actions/person', () => ({
   updateFollowupStatus: jest.fn(() => () => Promise.resolve()),

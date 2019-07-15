@@ -1,10 +1,10 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import CelebrateItem from '..';
-
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+
+import CelebrateItem from '..';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');

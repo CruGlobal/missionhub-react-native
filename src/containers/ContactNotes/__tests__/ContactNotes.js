@@ -7,11 +7,10 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { getPersonNote, savePersonNote } from '../../../actions/person';
-
-import { ContactNotes } from '..';
-
 import BottomButton from '../../../components/BottomButton';
 import { trackState } from '../../../actions/analytics';
+
+import { ContactNotes } from '..';
 
 Enzyme.configure({ adapter: new Adapter() });
 

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import SurveyContactsFilter from '..';
-
 import {
   createThunkStore,
   renderShallow,
@@ -10,6 +8,8 @@ import {
 } from '../../../../../testUtils';
 import { navigatePush } from '../../../../actions/navigation';
 import * as filterUtils from '../../../../utils/filters';
+
+import SurveyContactsFilter from '..';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
