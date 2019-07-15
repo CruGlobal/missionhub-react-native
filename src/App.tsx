@@ -9,6 +9,9 @@ import { Alert } from 'react-native';
 // eslint-disable-next-line import/default
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+Icon.loadFont();
 
 import './i18n';
 import { rollbar } from './utils/rollbar.config';
