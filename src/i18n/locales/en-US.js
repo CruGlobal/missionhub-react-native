@@ -426,7 +426,7 @@ export default {
     nullHeader: 'STEPS OF FAITH',
     nullWithReminders: 'Choose a person in People view and add some new steps.',
     nullNoReminders:
-      "You don't have any steps of faith.\nChoose a person in People view and add some new steps.",
+      "You don't have any Steps of Faith.\nChoose a person to view and add some new steps.",
     title: 'Steps of Faith',
     reminderTitle: 'Focus your week',
     reminderDescription:

@@ -2,9 +2,9 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import MemberCelebrate from '..';
-
 import { testSnapshotShallow } from '../../../../testUtils';
+
+import MemberCelebrate from '..';
 
 const mockEmptyState = {
   organizations: {

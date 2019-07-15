@@ -2,13 +2,13 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import PathwayStageDisplay from '..';
-
 import { testSnapshotShallow } from '../../../../testUtils';
 import {
   personSelector,
   contactAssignmentSelector,
 } from '../../../selectors/people';
+
+import PathwayStageDisplay from '..';
 
 jest.mock('../../../selectors/people');
 

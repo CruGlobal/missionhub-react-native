@@ -4,7 +4,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import AddSomeoneScreen from '../AddSomeoneScreen';
 import { renderWithContext } from '../../../testUtils';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { SETUP_PERSON_SCREEN } from '../SetupPersonScreen';
 import { skipOnboarding } from '../../actions/onboardingProfile';
 
@@ -18,12 +18,17 @@ const skipOnboardingResult = { type: 'skip onboarding' };
 
 beforeEach(() => {
   navigatePush.mockReturnValue(navigateResult);
+  navigateBack.mockReturnValue(navigateResult);
   next.mockReturnValue(nextResult);
   skipOnboarding.mockReturnValue(skipOnboardingResult);
 });
 
 it('renders correctly', () => {
   renderWithContext(<AddSomeoneScreen />).snapshot();
+});
+
+it('renders from null screen', () => {
+  renderWithContext(<AddSomeoneScreen hideSkipBtn={true} />).snapshot();
 });
 
 describe('onComplete', () => {
@@ -67,5 +72,17 @@ describe('onSkip prop', () => {
 
     expect(store.getActions()).toEqual([skipOnboardingResult]);
     expect(skipOnboarding).toHaveBeenCalledWith();
+  });
+});
+
+describe('onBack prop', () => {
+  it('calls back', () => {
+    const { getByTestId, store } = renderWithContext(
+      <AddSomeoneScreen hideSkipBtn={true} />,
+    );
+
+    fireEvent.press(getByTestId('BackButton'));
+
+    expect(store.getActions()).toEqual([navigateResult]);
   });
 });

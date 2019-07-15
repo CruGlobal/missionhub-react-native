@@ -2,15 +2,12 @@ import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
+import { renderWithContext } from '../../../../testUtils';
+import { disableBack } from '../../../utils/common';
+
 import GetStartedScreen from '..';
 
-import { renderWithContext } from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
-import { disableBack } from '../../../utils/common';
-import { STAGE_ONBOARDING_SCREEN } from '../../../containers/StageScreen';
-
 jest.mock('react-native-device-info');
-jest.mock('../../../actions/navigation');
 jest.mock('../../../utils/common');
 
 const initialState = {
@@ -20,12 +17,11 @@ const initialState = {
 };
 const next = jest.fn();
 const nextResult = { type: 'next' };
-const navigatePushResult = { type: 'navigate push' };
 
 beforeEach(() => {
+  disableBack.add = jest.fn();
   disableBack.remove = jest.fn();
   next.mockReturnValue(nextResult);
-  navigatePush.mockReturnValue(navigatePushResult);
 });
 
 it('renders correctly', () => {
@@ -34,7 +30,15 @@ it('renders correctly', () => {
   }).snapshot();
 });
 
-it('navigates with next', () => {
+it('disables back on mount', () => {
+  renderWithContext(<GetStartedScreen next={next} />, {
+    initialState,
+  });
+
+  expect(disableBack.add).toHaveBeenCalledWith();
+});
+
+it('navigates to next screen', () => {
   const { getByTestId, store } = renderWithContext(
     <GetStartedScreen next={next} />,
     {
@@ -45,22 +49,6 @@ it('navigates with next', () => {
   fireEvent.press(getByTestId('bottomButton'));
 
   expect(disableBack.remove).toHaveBeenCalledWith();
-  expect(next).toHaveBeenCalledWith({});
+  expect(next).toHaveBeenCalledWith();
   expect(store.getActions()).toEqual([nextResult]);
-});
-
-it('navigates without next', () => {
-  const { getByTestId, store } = renderWithContext(<GetStartedScreen />, {
-    initialState,
-  });
-
-  fireEvent.press(getByTestId('bottomButton'));
-
-  expect(disableBack.remove).toHaveBeenCalledWith();
-  expect(navigatePush).toHaveBeenCalledWith(STAGE_ONBOARDING_SCREEN, {
-    section: 'onboarding',
-    subsection: 'self',
-    enableBackButton: false,
-  });
-  expect(store.getActions()).toEqual([navigatePushResult]);
 });

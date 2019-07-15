@@ -1,10 +1,10 @@
 import React from 'react';
 import { Linking } from 'react-native';
 
-import TosPrivacy from '..';
-
 import { testSnapshot, renderShallow } from '../../../../testUtils';
 import { LINKS } from '../../../constants';
+
+import TosPrivacy from '..';
 
 it('renders tos and privacy', () => {
   testSnapshot(<TosPrivacy />);

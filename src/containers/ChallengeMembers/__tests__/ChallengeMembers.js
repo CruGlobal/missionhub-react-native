@@ -2,8 +2,6 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import ChallengeMembers from '..';
-
 import { renderShallow } from '../../../../testUtils';
 import { navToPersonScreen } from '../../../actions/person';
 import { organizationSelector } from '../../../selectors/organizations';
@@ -11,6 +9,8 @@ import {
   communityChallengeSelector,
   acceptedChallengesSelector,
 } from '../../../selectors/challenges';
+
+import ChallengeMembers from '..';
 
 jest.mock('../../../actions/person');
 jest.mock('../../../selectors/organizations');

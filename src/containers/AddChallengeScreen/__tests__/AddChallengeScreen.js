@@ -2,14 +2,14 @@ import React from 'react';
 import MockDate from 'mockdate';
 import moment from 'moment';
 
-import AddChallengeScreen from '..';
-
 import {
   createMockNavState,
   testSnapshotShallow,
   createThunkStore,
   renderShallow,
 } from '../../../../testUtils';
+
+import AddChallengeScreen from '..';
 
 const mockDate = '2018-09-01';
 MockDate.set(mockDate);

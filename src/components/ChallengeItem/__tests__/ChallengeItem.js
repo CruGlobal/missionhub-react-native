@@ -2,9 +2,9 @@ import React from 'react';
 import MockDate from 'mockdate';
 import moment from 'moment';
 
-import ChallengeItem from '..';
-
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+
+import ChallengeItem from '..';
 
 jest.mock('../../../actions/celebration');
 

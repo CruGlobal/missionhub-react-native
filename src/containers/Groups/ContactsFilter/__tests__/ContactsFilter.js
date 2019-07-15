@@ -1,7 +1,5 @@
 import React from 'react';
 
-import ContactsFilter from '..';
-
 import {
   createThunkStore,
   renderShallow,
@@ -11,15 +9,12 @@ import {
 import { navigatePush } from '../../../../actions/navigation';
 import * as filterUtils from '../../../../utils/filters';
 
+import ContactsFilter from '..';
+
 jest.mock('../../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
-jest.mock('../../../../actions/labels', () => ({
-  getOrgLabels: jest.fn(() => ({
-    type: 'orgLabels',
-    response: [{ id: '3' }, { id: '4' }],
-  })),
-}));
+jest.mock('../../../../actions/labels');
 
 const store = createThunkStore({});
 const timeFilter30 = { id: 'time30', value: 30, text: 'Last 30 days' };

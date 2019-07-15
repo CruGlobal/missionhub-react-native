@@ -3,11 +3,10 @@ import React from 'react';
 import MockDate from 'mockdate';
 
 import { createThunkStore, renderShallow } from '../../../../testUtils';
-
-import ImpactScreen from '..';
-
 import { testSnapshotShallow } from '../../../../testUtils';
 import * as common from '../../../utils/common';
+
+import ImpactScreen from '..';
 
 const state = {
   impact: {

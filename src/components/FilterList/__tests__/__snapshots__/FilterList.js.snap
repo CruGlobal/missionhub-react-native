@@ -1,7 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<_class
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={<Connect(BackButton) />}
+  />
+  <ScrollViewMock
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <withI18nextTranslation(FilterItem)
+      item={
+        Object {
+          "id": "1",
+          "text": "option1",
+        }
+      }
+      key="1"
+      onSelect={[Function]}
+      type="drilldown"
+    />
+    <withI18nextTranslation(FilterItem)
+      item={
+        Object {
+          "id": "2",
+          "text": "option 2",
+        }
+      }
+      key="2"
+      onSelect={[Function]}
+      type="drilldown"
+    />
+    <withI18nextTranslation(FilterItem)
+      isSelected={true}
+      item={
+        Object {
+          "id": "3",
+          "selected": true,
+        }
+      }
+      key="3"
+      onSelect={[Function]}
+      type="switch"
+    />
+    <withI18nextTranslation(FilterItem)
+      isSelected={false}
+      item={
+        Object {
+          "id": "2",
+          "selected": false,
+        }
+      }
+      key="2"
+      onSelect={[Function]}
+      type="switch"
+    />
+  </ScrollViewMock>
+</_class>
 `;

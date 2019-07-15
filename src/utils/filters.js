@@ -13,9 +13,27 @@ export const thirtyDaysFilter = t => ({
   text: t('searchFilter:time30'),
 });
 
-export const getFilterOptions = (t, filters, questions = [], labels = []) => {
-  const choiceQuestions = questions.filter(
-    q => q._type === 'choice_field' && q.content,
+export const getFilterOptions = (
+  t,
+  filters,
+  questions = [],
+  filterStats = {},
+) => {
+  const {
+    questions: filterStatQuestions = [],
+    labels: filterStatLabels = [],
+  } = filterStats;
+
+  const questionOptions = questions.filter(q => q._type === 'choice_field');
+  const answerOptions = filterStatQuestions.reduce(
+    (questions, { question_id, answers }) => ({
+      ...questions,
+      [question_id]: {
+        id: question_id,
+        options: answers.map(a => ({ id: a.value, text: a.value })),
+      },
+    }),
+    {},
   );
   const questionFilters = Object.keys(filters)
     .map(f => filters[f])
@@ -25,15 +43,12 @@ export const getFilterOptions = (t, filters, questions = [], labels = []) => {
     questions: {
       id: 'questions',
       text: t('searchFilter:surveyQuestions'),
-      options: choiceQuestions.map(q => {
+      options: questionOptions.map(q => {
         const filterForQuestion = questionFilters.find(f => f.id === q.id);
         return {
           id: q.id,
           text: q.label,
-          options: q.content
-            .split(/\r*\n/)
-            .filter(o => o !== '')
-            .map(o => ({ id: o, text: o })),
+          options: answerOptions[q.id] && answerOptions[q.id].options,
           preview: filterForQuestion ? filterForQuestion.text : undefined,
         };
       }),
@@ -47,7 +62,7 @@ export const getFilterOptions = (t, filters, questions = [], labels = []) => {
     labels: {
       id: 'labels',
       text: t('searchFilter:label'),
-      options: labels.map(l => ({ id: l.id, text: l.name })),
+      options: filterStatLabels.map(l => ({ id: l.label_id, text: l.name })),
       preview: filters.labels ? filters.labels.text : undefined,
     },
     gender: {

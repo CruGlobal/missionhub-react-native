@@ -3,12 +3,11 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-
-import PersonItem from '..';
-
 import { navigatePush } from '../../../actions/navigation';
 import { orgIsCru, hasOrgPermissions } from '../../../utils/common';
 import { SELECT_PERSON_STAGE_FLOW } from '../../../routes/constants';
+
+import PersonItem from '..';
 
 const myId = '1';
 const stageId = '1';

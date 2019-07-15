@@ -2,10 +2,10 @@ import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import IconMessageScreen from '..';
-
 import { createThunkStore } from '../../../../testUtils';
 import { testSnapshot } from '../../../../testUtils';
+
+import IconMessageScreen from '..';
 
 const store = createThunkStore();
 
@@ -36,6 +36,10 @@ it('renders button text correctly', () => {
 
 it('renders skip button correctly', () => {
   renderAndTest({ onSkip: jest.fn() });
+});
+
+it('renders back button correctly', () => {
+  renderAndTest({ onBack: jest.fn() });
 });
 
 it('renders icon correctly', () => {

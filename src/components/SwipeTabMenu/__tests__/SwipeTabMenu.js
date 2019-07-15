@@ -5,11 +5,11 @@ import {
   NavigationActions,
 } from 'react-navigation';
 
-import { SwipeTabMenu, generateSwipeTabMenuNavigator } from '..';
-
 import { Touchable } from '../../../../src/components/common';
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import * as common from '../../../utils/common';
+
+import { SwipeTabMenu, generateSwipeTabMenuNavigator } from '..';
 
 jest.mock('react-navigation', () => ({
   createMaterialTopTabNavigator: jest.fn(),

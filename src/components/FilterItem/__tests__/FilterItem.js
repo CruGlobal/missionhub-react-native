@@ -1,9 +1,9 @@
 import 'react-native';
 import React from 'react';
 
-import FilterItem from '..';
-
 import { testSnapshot } from '../../../../testUtils';
+
+import FilterItem from '..';
 
 const mockItem = {
   id: '123',

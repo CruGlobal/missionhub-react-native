@@ -6,13 +6,21 @@ import {
 } from '../constants';
 import { REQUESTS } from '../api/routes';
 
-const initialProfileState = {
+export interface ProfileState {
+  firstName: string;
+  lastName: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  community: any; // TODO: use GraphQL type
+}
+
+const initialProfileState: ProfileState = {
   firstName: '',
   lastName: '',
   community: {},
 };
 
-function profileReducer(state = initialProfileState, action) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function profileReducer(state = initialProfileState, action: any) {
   const results = action.results;
 
   switch (action.type) {

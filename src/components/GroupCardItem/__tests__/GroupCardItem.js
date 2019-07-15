@@ -1,9 +1,9 @@
 import React from 'react';
 
-import GroupCardItem from '..';
-
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
+
+import GroupCardItem from '..';
 
 const contactsCount = 768;
 const unassignedCount = 13;

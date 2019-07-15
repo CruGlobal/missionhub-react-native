@@ -2,14 +2,14 @@ import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import SearchPeopleScreenConnected, { SearchPeopleScreen } from '..';
-
 import {
   testSnapshot,
   createThunkStore,
   renderShallow,
 } from '../../../../testUtils';
 import { navToPersonScreen } from '../../../actions/person';
+
+import SearchPeopleScreenConnected, { SearchPeopleScreen } from '..';
 
 const store = createThunkStore();
 

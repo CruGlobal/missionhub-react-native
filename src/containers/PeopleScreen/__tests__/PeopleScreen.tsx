@@ -2,8 +2,6 @@ import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import { PeopleScreen } from '..';
-
 import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
@@ -12,6 +10,8 @@ import { navToPersonScreen } from '../../../actions/person';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../../routes/constants';
 import { SEARCH_SCREEN } from '../../../containers/SearchPeopleScreen';
+
+import { PeopleScreen } from '..';
 
 jest.mock('../../../components/common', () => ({ IconButton: 'IconButton' }));
 jest.mock('../../../components/PeopleList', () => 'PeopleList');
