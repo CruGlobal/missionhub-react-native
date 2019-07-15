@@ -17,7 +17,7 @@ import {
 import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
-import NULL from '../../../assets/images/MemberContacts.png';
+import NullMemberImage from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import { checkForUnreadComments } from '../../actions/unreadComments';
 import { getMyCommunities, navigateToOrg } from '../../actions/organizations';
@@ -54,7 +54,7 @@ const GroupsListScreen = ({
   const flatList = useRef<FlatList<any>>(null);
 
   useEffect(() => {
-    async function asyncMount() {
+    async function loadGroupsAndScrollToId() {
       // Always load groups when this tab mounts
       await loadGroups();
       if (scrollToId) {
@@ -73,16 +73,15 @@ const GroupsListScreen = ({
       }
     }
 
-    asyncMount();
+    loadGroupsAndScrollToId();
   }, []);
 
   const loadGroups = () => dispatch(getMyCommunities());
-  const { isRefreshing, refresh } = useRefreshing(loadGroups);
-
-  const handleRefresh = () => {
+  const { isRefreshing, refresh } = useRefreshing(async () => {
     dispatch(checkForUnreadComments());
-    refresh();
-  };
+    await loadGroups();
+  });
+
   const handlePress = (organization: { id: string }) => {
     dispatch(navigateToOrg(organization.id));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
@@ -106,27 +105,6 @@ const GroupsListScreen = ({
   const renderItem = ({ item }: { item: object }) => (
     <GroupCardItem group={item} onPress={handlePress} />
   );
-  const renderNull = () => {
-    return (
-      <NullStateComponent
-        imageSource={NULL}
-        headerText={t('header').toUpperCase()}
-        descriptionText={t('groupsNull')}
-      />
-    );
-  };
-  const renderList = () => {
-    return (
-      <FlatList
-        testID="FlatList"
-        ref={flatList}
-        style={styles.cardList}
-        data={orgs}
-        keyExtractor={keyExtractorId}
-        renderItem={renderItem}
-      />
-    );
-  };
 
   return (
     <View style={{ flex: 1 }}>
@@ -166,10 +144,25 @@ const GroupsListScreen = ({
       <ScrollView
         style={styles.scrollView}
         refreshControl={
-          <RefreshControl refreshing={isRefreshing} onRefresh={handleRefresh} />
+          <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
         }
       >
-        {orgs.length > 0 ? renderList() : renderNull()}
+        {orgs.length > 0 ? (
+          <FlatList
+            testID="FlatList"
+            ref={flatList}
+            style={styles.cardList}
+            data={orgs}
+            keyExtractor={keyExtractorId}
+            renderItem={renderItem}
+          />
+        ) : (
+          <NullStateComponent
+            imageSource={NullMemberImage}
+            headerText={t('header').toUpperCase()}
+            descriptionText={t('groupsNull')}
+          />
+        )}
       </ScrollView>
     </View>
   );

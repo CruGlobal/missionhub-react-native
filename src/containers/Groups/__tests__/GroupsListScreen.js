@@ -1,6 +1,6 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import { fireEvent, waitForElement } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import GroupsListScreen from '../GroupsListScreen';
 import { renderShallow, renderWithContext } from '../../../../testUtils';
@@ -118,16 +118,15 @@ describe('GroupsListScreen', () => {
     renderWithContext(<GroupsListScreen />, {
       store,
     });
-    await waitForElement(() => {
-      expect(getMyCommunities).toHaveBeenCalled();
-      // TODO: Not sure how to test ref
-      // expect(flatList.scrollToIndex).toHaveBeenCalledWith({
-      //   animated: true,
-      //   index: 1,
-      //   viewPosition: 0.5,
-      // });
-      expect(resetScrollGroups).toHaveBeenCalled();
-    });
+    await flushMicrotasksQueue();
+    expect(getMyCommunities).toHaveBeenCalled();
+    // TODO: Not sure how to test ref
+    // expect(flatList.scrollToIndex).toHaveBeenCalledWith({
+    //   animated: true,
+    //   index: 1,
+    //   viewPosition: 0.5,
+    // });
+    expect(resetScrollGroups).toHaveBeenCalled();
   });
 
   it('should load groups and scroll to index 1', async () => {
@@ -139,16 +138,15 @@ describe('GroupsListScreen', () => {
     renderWithContext(<GroupsListScreen />, {
       store,
     });
-    await waitForElement(() => {
-      expect(getMyCommunities).toHaveBeenCalled();
-      // TODO: Not sure how to test ref
-      // expect(flatList.scrollToIndex).toHaveBeenCalledWith({
-      //   animated: true,
-      //   index: 1,
-      //   viewPosition: 0.5,
-      // });
-      expect(resetScrollGroups).toHaveBeenCalled();
-    });
+    await flushMicrotasksQueue();
+    expect(getMyCommunities).toHaveBeenCalled();
+    // TODO: Not sure how to test ref
+    // expect(flatList.scrollToIndex).toHaveBeenCalledWith({
+    //   animated: true,
+    //   index: 1,
+    //   viewPosition: 0.5,
+    // });
+    expect(resetScrollGroups).toHaveBeenCalled();
   });
 
   it('should load groups and not scroll to index', async () => {
@@ -158,10 +156,9 @@ describe('GroupsListScreen', () => {
       swipe: { groupScrollToId: 'doesnt exist' },
     });
     renderWithContext(<GroupsListScreen />, { store });
-    await waitForElement(() => {
-      expect(getMyCommunities).toHaveBeenCalled();
-      expect(resetScrollGroups).toHaveBeenCalled();
-    });
+    await flushMicrotasksQueue();
+    expect(getMyCommunities).toHaveBeenCalled();
+    expect(resetScrollGroups).toHaveBeenCalled();
   });
 
   it('should refresh the list', () => {
