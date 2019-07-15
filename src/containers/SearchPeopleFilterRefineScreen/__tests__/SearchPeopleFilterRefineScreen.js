@@ -3,10 +3,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import { createThunkStore } from '../../../../testUtils';
+import { createMockNavState, testSnapshot } from '../../../../testUtils';
 
 import SearchPeopleFilterRefineScreen from '..';
-
-import { createMockNavState, testSnapshot } from '../../../../testUtils';
 
 const store = createThunkStore();
 

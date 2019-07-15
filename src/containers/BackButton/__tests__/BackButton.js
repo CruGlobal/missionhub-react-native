@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { BackButton } from '..';
-
 import { renderShallow } from '../../../../testUtils';
 import * as navigation from '../../../actions/navigation';
 import IconButton from '../../../components/IconButton';
+
+import { BackButton } from '..';
 
 let shallowScreen;
 

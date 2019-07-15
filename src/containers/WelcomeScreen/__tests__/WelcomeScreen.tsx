@@ -2,12 +2,12 @@ import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import WelcomeScreen from '..';
-
 import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
+
+import WelcomeScreen from '..';
 
 const next = jest.fn(() => () => {});
 

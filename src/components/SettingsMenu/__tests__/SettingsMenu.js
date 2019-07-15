@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactNative from 'react-native';
+import i18n from 'i18next';
 
 import {
   createThunkStore,
@@ -7,8 +8,6 @@ import {
   renderShallow,
 } from '../../../../testUtils';
 import { LINKS } from '../../../constants';
-
-import i18n from 'i18next';
 
 import SettingsMenu from '..';
 

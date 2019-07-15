@@ -1,9 +1,9 @@
 import 'react-native';
 import React from 'react';
 
-import ItemHeaderText from '..';
-
 import { testSnapshotShallow } from '../../../../testUtils';
+
+import ItemHeaderText from '..';
 
 const text = 'Roge Goers';
 

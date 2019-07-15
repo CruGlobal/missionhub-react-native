@@ -1,7 +1,7 @@
-import API_CALLS from '..';
-
 import * as utils from '../utils';
 import { REQUESTS } from '../../api/routes';
+
+import API_CALLS from '..';
 
 beforeEach(() => {
   global.APILOG = jest.fn();

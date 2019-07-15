@@ -3,9 +3,9 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import TabIcon from '..';
-
 import { renderShallow } from '../../../../testUtils';
+
+import TabIcon from '..';
 
 const mockStore = configureStore([thunk]);
 let store;

@@ -2,14 +2,14 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import JoinGroupScreen from '..';
-
 import {
   renderShallow,
   createMockNavState,
   testSnapshotShallow,
 } from '../../../../../testUtils';
 import { navigateBack } from '../../../../actions/navigation';
+
+import JoinGroupScreen from '..';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),

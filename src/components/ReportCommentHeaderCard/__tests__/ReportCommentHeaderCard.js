@@ -1,8 +1,8 @@
 import React from 'react';
 
-import ReportCommentHeaderCard from '..';
-
 import { testSnapshot, renderShallow } from '../../../../testUtils';
+
+import ReportCommentHeaderCard from '..';
 
 const props = { count: 12, onPress: jest.fn() };
 it('renders correctly', () => {

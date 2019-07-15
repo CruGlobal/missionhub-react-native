@@ -3,8 +3,6 @@
 import 'react-native';
 import React from 'react';
 
-import ContactSteps from '..';
-
 import {
   createThunkStore,
   createMockNavState,
@@ -27,6 +25,8 @@ import {
   ADD_PERSON_STEP_FLOW,
 } from '../../../routes/constants';
 import { reloadJourney } from '../../../actions/journey';
+
+import ContactSteps from '..';
 
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/navigation');

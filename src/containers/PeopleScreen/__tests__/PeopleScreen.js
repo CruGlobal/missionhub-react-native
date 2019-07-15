@@ -1,8 +1,6 @@
 import 'react-native';
 import React from 'react';
 
-import { PeopleScreen, mapStateToProps } from '..';
-
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import {
   peopleByOrgSelector,
@@ -14,6 +12,8 @@ import { getMyPeople } from '../../../actions/people';
 import { navToPersonScreen } from '../../../actions/person';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../../routes/constants';
+
+import { PeopleScreen, mapStateToProps } from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/people');

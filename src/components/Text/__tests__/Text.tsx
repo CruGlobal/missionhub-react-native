@@ -1,9 +1,9 @@
 import 'react-native';
 import React from 'react';
 
-import Text from '..';
-
 import { testSnapshot } from '../../../../testUtils';
+
+import Text from '..';
 
 it('renders correctly', () => {
   testSnapshot(<Text>Hello</Text>);

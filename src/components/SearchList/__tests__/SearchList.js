@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import Text from '../../Text';
 
 import SearchList from '..';
-
-import Text from '../../Text';
 
 it('renders search list', () => {
   testSnapshotShallow(

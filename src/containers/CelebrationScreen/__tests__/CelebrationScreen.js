@@ -8,11 +8,10 @@ import {
   renderShallow,
   createThunkStore,
 } from '../../../../testUtils';
-
-import CelebrationScreen from '..';
-
 import { navigateReset, navigateToMainTabs } from '../../../actions/navigation';
 import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen';
+
+import CelebrationScreen from '..';
 
 let store;
 

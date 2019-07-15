@@ -2,6 +2,12 @@ import React from 'react';
 import { DrawerActions } from 'react-navigation';
 import { shallow } from 'enzyme/build/index';
 
+import { renderShallow, testSnapshotShallow } from '../../../../../testUtils';
+import { PERSON_MENU_DRAWER } from '../../../../constants';
+import { contactAssignmentSelector } from '../../../../selectors/people';
+import { organizationSelector } from '../../../../selectors/organizations';
+import * as common from '../../../../utils/common';
+
 import {
   AssignedPersonScreen,
   mapStateToProps,
@@ -9,12 +15,6 @@ import {
   IS_USER_CREATED_MEMBER_PERSON_TABS,
   IS_GROUPS_MEMBER_PERSON_TABS,
 } from '..';
-
-import { renderShallow, testSnapshotShallow } from '../../../../../testUtils';
-import { PERSON_MENU_DRAWER } from '../../../../constants';
-import { contactAssignmentSelector } from '../../../../selectors/people';
-import { organizationSelector } from '../../../../selectors/organizations';
-import * as common from '../../../../utils/common';
 
 jest.mock('../../../../selectors/people');
 jest.mock('../../../../selectors/organizations');

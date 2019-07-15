@@ -3,12 +3,12 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import CommentLikeComponent from '..';
-
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import { toggleLike } from '../../../actions/celebration';
 import { ACTIONS } from '../../../constants';
 import { trackActionWithoutData } from '../../../actions/analytics';
+
+import CommentLikeComponent from '..';
 
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/analytics');

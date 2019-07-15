@@ -6,14 +6,13 @@ import { Provider } from 'react-redux';
 
 import * as navigation from '../../../actions/navigation';
 import { ACCEPTED_STEP } from '../../../constants';
-
-import ContactJourney from '..';
-
 import {
   createMockNavState,
   renderShallow,
   testSnapshot,
 } from '../../../../testUtils';
+
+import ContactJourney from '..';
 
 const personId = '123';
 const organizationId = 2;

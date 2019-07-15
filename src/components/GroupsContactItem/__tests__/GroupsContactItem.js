@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { testSnapshotShallow } from '../../../../testUtils';
+import { INTERACTION_TYPES } from '../../../constants';
 
 import GroupsContactItem from '..';
-
-import { INTERACTION_TYPES } from '../../../constants';
 
 const created_at = '2018-05-29T17:02:02Z';
 const item = {
