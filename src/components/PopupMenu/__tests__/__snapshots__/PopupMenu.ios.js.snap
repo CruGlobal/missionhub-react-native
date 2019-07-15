@@ -3,7 +3,9 @@
 exports[`PopupMenu iOS renders with 1 button 1`] = `
 <View
   accessible={true}
+  clickable={true}
   isTVSelectable={true}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -58,7 +60,9 @@ exports[`PopupMenu iOS renders with 1 button 1`] = `
 exports[`PopupMenu iOS renders with icon props 1`] = `
 <View
   accessible={true}
+  clickable={true}
   isTVSelectable={true}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
