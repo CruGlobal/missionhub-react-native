@@ -66,7 +66,7 @@ beforeEach(() => {
 
 it('should render null state', () => {
   renderWithContext(<GroupsListScreen />, {
-    store: mockStore({ organizations: { all: [] }, auth, swipe }),
+    initialState: { organizations: { all: [] }, auth, swipe },
   }).snapshot();
 });
 
