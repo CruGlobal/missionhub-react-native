@@ -1,15 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render card 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<_class
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
+        "elevation": 4,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 8,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      },
+      undefined,
+    ]
+  }
+/>
 `;
 
 exports[`render card with children 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<_class
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
+        "elevation": 4,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 8,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      },
+      undefined,
+    ]
+  }
+>
+  <View>
+    <MyText>
+      Testing
+    </MyText>
+  </View>
+</_class>
 `;
 
 exports[`render touchable card 1`] = `

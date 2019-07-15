@@ -372,7 +372,9 @@ exports[`with enableBackButton renders correctly 1`] = `
   >
     <View
       accessible={true}
+      clickable={true}
       isTVSelectable={true}
+      onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -451,7 +453,9 @@ exports[`with enableBackButton renders correctly 1`] = `
   >
     <View
       accessible={true}
+      clickable={true}
       isTVSelectable={true}
+      onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -888,7 +892,9 @@ exports[`with enableSkipButton renders correctly 1`] = `
   >
     <View
       accessible={true}
+      clickable={true}
       isTVSelectable={true}
+      onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -959,7 +965,9 @@ exports[`with enableSkipButton renders correctly 1`] = `
   >
     <View
       accessible={true}
+      clickable={true}
       isTVSelectable={true}
+      onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1398,7 +1406,9 @@ exports[`without enableBackButton nor enableSkipButton renders correctly 1`] = `
   >
     <View
       accessible={true}
+      clickable={true}
       isTVSelectable={true}
+      onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
