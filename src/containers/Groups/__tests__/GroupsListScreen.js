@@ -49,7 +49,8 @@ const organizations = {
 };
 const auth = { isFirstTime: false };
 const swipe = {};
-const store = mockStore({ organizations, auth, swipe });
+const initialState = { organizations, auth, swipe };
+const store = mockStore(initialState);
 
 beforeEach(() => {
   navigatePush.mockReturnValue({ type: 'test' });
@@ -98,7 +99,9 @@ describe('GroupsListScreen', () => {
   });
 
   it('should open main menu', () => {
-    const { getByTestId } = renderWithContext(<GroupsListScreen />, { store });
+    const { getByTestId } = renderWithContext(<GroupsListScreen />, {
+      initialState,
+    });
     expect(getMyCommunities).toHaveBeenCalled();
     fireEvent.press(getByTestId('IconButton'));
     expect(common.openMainMenu).toHaveBeenCalled();
@@ -110,13 +113,8 @@ describe('GroupsListScreen', () => {
   });
 
   it('should load groups and scroll to index 0', async () => {
-    const store = mockStore({
-      organizations,
-      auth,
-      swipe: { groupScrollToId: '1' },
-    });
     renderWithContext(<GroupsListScreen />, {
-      store,
+      initialState: { ...initialState, swipe: { groupScrollToId: '1' } },
     });
     await flushMicrotasksQueue();
     expect(getMyCommunities).toHaveBeenCalled();
@@ -130,13 +128,8 @@ describe('GroupsListScreen', () => {
   });
 
   it('should load groups and scroll to index 1', async () => {
-    const store = mockStore({
-      organizations,
-      auth,
-      swipe: { groupScrollToId: '2' },
-    });
     renderWithContext(<GroupsListScreen />, {
-      store,
+      initialState: { ...initialState, swipe: { groupScrollToId: '2' } },
     });
     await flushMicrotasksQueue();
     expect(getMyCommunities).toHaveBeenCalled();
@@ -150,12 +143,12 @@ describe('GroupsListScreen', () => {
   });
 
   it('should load groups and not scroll to index', async () => {
-    const store = mockStore({
-      organizations,
-      auth,
-      swipe: { groupScrollToId: 'doesnt exist' },
+    renderWithContext(<GroupsListScreen />, {
+      initialState: {
+        ...initialState,
+        swipe: { groupScrollToId: 'doesnt exist' },
+      },
     });
-    renderWithContext(<GroupsListScreen />, { store });
     await flushMicrotasksQueue();
     expect(getMyCommunities).toHaveBeenCalled();
     expect(resetScrollGroups).toHaveBeenCalled();
