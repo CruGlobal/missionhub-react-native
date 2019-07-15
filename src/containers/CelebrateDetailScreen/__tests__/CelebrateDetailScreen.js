@@ -4,8 +4,6 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockDate from 'mockdate';
 
-import CelebrateDetailScreen from '..';
-
 import { renderShallow, createMockNavState } from '../../../../testUtils';
 import { celebrationItemSelector } from '../../../selectors/celebration';
 import { organizationSelector } from '../../../selectors/organizations';
@@ -15,6 +13,8 @@ import {
   resetCelebrateEditingComment,
 } from '../../../actions/celebrateComments';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
+
+import CelebrateDetailScreen from '..';
 
 jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/celebrateComments');

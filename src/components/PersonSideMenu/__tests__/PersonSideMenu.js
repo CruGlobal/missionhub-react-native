@@ -1,8 +1,6 @@
 import React from 'react';
 import { Alert } from 'react-native';
 
-import PersonSideMenu from '..';
-
 import {
   renderShallow,
   createThunkStore,
@@ -19,6 +17,8 @@ import {
 } from '../../../selectors/people';
 import { deleteContactAssignment } from '../../../actions/person';
 import { assignContactAndPickStage } from '../../../actions/misc';
+
+import PersonSideMenu from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/person');

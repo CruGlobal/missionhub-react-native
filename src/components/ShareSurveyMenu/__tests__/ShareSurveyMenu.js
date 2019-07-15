@@ -1,9 +1,9 @@
 import React from 'react';
 import { Share, Linking } from 'react-native';
 
-import ShareSurveyMenu from '..';
-
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+
+import ShareSurveyMenu from '..';
 
 const props = {
   survey: { id: '1', title: 'test' },

@@ -4,11 +4,11 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { fireEvent } from 'react-native-testing-library';
 
-import TakeAStepWithSomeoneButton from '..';
-
 import { renderWithContext } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import { ADD_SOMEONE_STEP_FLOW } from '../../../routes/constants';
+
+import TakeAStepWithSomeoneButton from '..';
 
 jest.mock('../../../actions/navigation');
 

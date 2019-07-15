@@ -1,11 +1,5 @@
 import React from 'react';
 
-import {
-  ChallengeDetailScreen,
-  mapStateToProps,
-  CHALLENGE_DETAIL_TABS,
-} from '..';
-
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import { navigateBack, navigatePush } from '../../../actions/navigation';
@@ -18,6 +12,12 @@ import {
 import { communityChallengeSelector } from '../../../selectors/challenges';
 import { orgPermissionSelector } from '../../../selectors/people';
 import { ORG_PERMISSIONS } from '../../../constants';
+
+import {
+  ChallengeDetailScreen,
+  mapStateToProps,
+  CHALLENGE_DETAIL_TABS,
+} from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/challenges');

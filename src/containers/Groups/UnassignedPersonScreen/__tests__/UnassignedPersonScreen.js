@@ -1,8 +1,6 @@
 import React from 'react';
 import MockDate from 'mockdate';
 
-import UnassignedPersonScreen from '..';
-
 import { INTERACTION_TYPES } from '../../../../constants';
 import {
   renderShallow,
@@ -11,6 +9,8 @@ import {
   createMockNavState,
 } from '../../../../../testUtils';
 import { getGroupJourney } from '../../../../actions/journey';
+
+import UnassignedPersonScreen from '..';
 
 jest.mock('../../../../actions/journey');
 jest.mock('../../../../actions/person', () => ({

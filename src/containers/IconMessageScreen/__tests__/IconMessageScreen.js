@@ -2,10 +2,10 @@ import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import IconMessageScreen from '..';
-
 import { createThunkStore } from '../../../../testUtils';
 import { testSnapshot } from '../../../../testUtils';
+
+import IconMessageScreen from '..';
 
 const store = createThunkStore();
 

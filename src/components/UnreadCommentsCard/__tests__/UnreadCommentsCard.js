@@ -1,8 +1,8 @@
 import React from 'react';
 
-import UnreadCommentCard from '..';
-
 import { testSnapshot, renderShallow } from '../../../../testUtils';
+
+import UnreadCommentCard from '..';
 
 const props = { count: 12, onPress: jest.fn(), onClose: jest.fn() };
 it('renders correctly', () => {

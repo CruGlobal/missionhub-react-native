@@ -3,12 +3,11 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { CELEBRATE_DETAIL_SCREEN } from '../../CelebrateDetailScreen';
-
-import CelebrateFeed from '..';
-
 import { navigatePush } from '../../../actions/navigation';
 import { renderShallow } from '../../../../testUtils';
 import { ACCEPTED_STEP } from '../../../constants';
+
+import CelebrateFeed from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/celebration');

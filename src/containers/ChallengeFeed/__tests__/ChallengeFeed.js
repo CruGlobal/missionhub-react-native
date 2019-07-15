@@ -2,14 +2,14 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import ChallengeFeed from '..';
-
 import { renderShallow } from '../../../../testUtils';
 import * as navigation from '../../../actions/navigation';
 import * as challenges from '../../../actions/challenges';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { CHALLENGE_DETAIL_SCREEN } from '../../ChallengeDetailScreen';
 import { ACTIONS } from '../../../constants';
+
+import ChallengeFeed from '..';
 
 jest.mock('../../../actions/challenges', () => ({
   completeChallenge: jest.fn(() => ({ type: 'complete' })),

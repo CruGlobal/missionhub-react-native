@@ -1,9 +1,9 @@
 import 'react-native';
 import React from 'react';
 
-import Flex from '..';
-
 import { testSnapshot } from '../../../../testUtils';
+
+import Flex from '..';
 
 it('renders correctly', () => {
   testSnapshot(<Flex />);

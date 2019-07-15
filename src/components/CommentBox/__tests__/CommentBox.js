@@ -5,10 +5,9 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import { addNewInteraction } from '../../../actions/interactions';
 
 import CommentBox from '..';
-
-import { addNewInteraction } from '../../../actions/interactions';
 
 jest.mock('../../../actions/interactions');
 

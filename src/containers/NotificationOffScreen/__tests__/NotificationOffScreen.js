@@ -4,12 +4,11 @@ import configureStore from 'redux-mock-store';
 import PushNotification from 'react-native-push-notification';
 
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
-
-import NotificationOffScreen from '..';
-
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
+
+import NotificationOffScreen from '..';
 
 jest.mock('react-native-push-notification');
 jest.mock('../../../actions/analytics');

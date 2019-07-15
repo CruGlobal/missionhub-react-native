@@ -320,9 +320,8 @@ describe('trackStepAdded', () => {
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(
       ACTIONS.STEP_DETAIL.name,
       {
-        [ACTIONS.STEP_DETAIL.key]: `${step.challenge_type} | N | ${
-          step.locale
-        } | ${step.id} | ${step.pathway_stage.id}`,
+        [ACTIONS.STEP_DETAIL
+          .key]: `${step.challenge_type} | N | ${step.locale} | ${step.id} | ${step.pathway_stage.id}`,
       },
     );
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(

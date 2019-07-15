@@ -28,9 +28,7 @@ export function openKeyURL(baseURL) {
     const redirectUri = 'https://missionhub.com/auth';
 
     const uri =
-      `${
-        Config.THE_KEY_URL
-      }${baseURL}&client_id=${THE_KEY_CLIENT_ID}&response_type=code` +
+      `${Config.THE_KEY_URL}${baseURL}&client_id=${THE_KEY_CLIENT_ID}&response_type=code` +
       `&redirect_uri=${redirectUri}&scope=fullticket%20extended&code_challenge_method=S256` +
       `&code_challenge=${codeChallenge}`;
 

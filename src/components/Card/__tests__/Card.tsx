@@ -2,10 +2,9 @@ import React from 'react';
 import { View } from 'react-native';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import Text from '../../Text';
 
 import Card from '..';
-
-import Text from '../../Text';
 
 const children = (
   <View>

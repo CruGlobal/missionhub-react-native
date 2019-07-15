@@ -4,6 +4,10 @@ import Adapter from 'enzyme-adapter-react-16/build/index';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
 
+jest.mock('react-native-vector-icons/MaterialIcons', () => ({
+  loadFont: jest.fn(),
+}));
+
 import App from '../App';
 import {
   EXPIRED_ACCESS_TOKEN,

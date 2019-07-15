@@ -4,8 +4,6 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import i18n from 'i18next';
 
-import CommentsList from '..';
-
 import { renderShallow } from '../../../../testUtils';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
 import { orgPermissionSelector } from '../../../selectors/people';
@@ -21,6 +19,8 @@ import * as common from '../../../utils/common';
 import { ORG_PERMISSIONS } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import Text from '../../../components/Text';
+
+import CommentsList from '..';
 
 jest.mock('../../../actions/celebrateComments');
 jest.mock('../../../actions/reportComments');
