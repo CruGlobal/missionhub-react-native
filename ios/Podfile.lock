@@ -180,7 +180,7 @@ PODS:
     - React-fishhook (= 0.60.3)
   - RNDefaultPreference (1.3.2):
     - React
-  - RNDeviceInfo (2.0.2):
+  - RNDeviceInfo (2.2.2):
     - React
   - RNFirebase (5.5.5):
     - Firebase/Core
@@ -191,7 +191,7 @@ PODS:
     - Fabric
     - Firebase/Core
     - React
-  - RNGestureHandler (1.2.1):
+  - RNGestureHandler (1.3.0):
     - React
   - RNImageCropPicker (0.25.0):
     - QBImagePickerController
@@ -200,7 +200,7 @@ PODS:
     - RSKImageCropper
   - RNOmniture (0.0.1):
     - React
-  - RNVectorIcons (6.4.2):
+  - RNVectorIcons (6.6.0):
     - React
   - Rollbar (1.5.2)
   - RollbarReactNative (0.5.0):
@@ -390,12 +390,12 @@ SPEC CHECKSUMS:
   React-RCTVibration: 5d9ed4a968e9d42880ddcc7c29bee3417c745408
   React-RCTWebSocket: 69d8565d66043f244b4129f3d7154c5689fb7d3e
   RNDefaultPreference: e9a1854383cd5e31aef1d3359b013f699be1d7f4
-  RNDeviceInfo: a74f061640be5fbb5485a4cc29f7eac534759391
+  RNDeviceInfo: 1215084f45c1059b031c530281442dc7079ccf0a
   RNFirebase: b627e5991bb10bf34cea84806819f98f95f39f8b
-  RNGestureHandler: aea90f0ad8e35fec23438db6fc3ad79be58bb734
+  RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNImageCropPicker: 0a731d984e64ee4c28bddaa7ce52262e4b80979f
   RNOmniture: 04a549b9f6c28b0ab9e6fb00d8f47fa3d08585a0
-  RNVectorIcons: 6607bd3a30291d0edb56f9bbe7ae411ee2b928b0
+  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Rollbar: 5060e3fc9fa28ae75e70c61e95b1b31b2b22710c
   RollbarReactNative: 90812f66d5ecbfd7cdccbb2f0b666c0888b7ee47
   RSKImageCropper: 05e3b82a18da83ea3c2b7bffa7f2199a621d6802
