@@ -9,7 +9,7 @@ jest.mock('react-native', () => ({
 
 describe('useDisableBack', () => {
   it('should disable back button on mount and revert on unmount', () => {
-    const { unmount, result } = renderHook(() => useDisableBack());
+    const { unmount } = renderHook(() => useDisableBack());
     expect(BackHandler.addEventListener).toHaveBeenCalledWith(
       'hardwareBackPress',
       expect.any(Function),

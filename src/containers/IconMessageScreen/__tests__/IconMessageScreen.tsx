@@ -1,9 +1,9 @@
 import 'react-native';
 import React from 'react';
 
-import IconMessageScreen from '..';
-
 import { renderWithContext } from '../../../../testUtils';
+
+import IconMessageScreen from '..';
 
 const defaultProps = {
   mainText: 'Hello, world!',
