@@ -15,10 +15,10 @@ import styles from './styles';
 
 interface PersonItemProps {
   person: PersonAttributes;
-  organization: any;
+  organization?: { [key: string]: any };
   me: PersonAttributes;
   stagesObj: any;
-  onSelect: (person: PersonAttributes, org: any) => void;
+  onSelect: (person: PersonAttributes, org?: any) => void;
   dispatch: ThunkDispatch<any, null, never>;
 }
 
@@ -31,8 +31,9 @@ const PersonItem = ({
   dispatch,
 }: PersonItemProps) => {
   const { t } = useTranslation();
+  const orgId = organization && organization.id;
   const isMe = person.id === me.id;
-  const isPersonal = organization && organization.id === 'personal';
+  const isPersonal = orgId === 'personal';
   const contactAssignments = (person as any).reverse_contact_assignments || [];
   const contactAssignment =
     contactAssignments.find(
@@ -50,7 +51,7 @@ const PersonItem = ({
         contactAssignmentId: contactAssignment.id,
         section: 'people',
         subsection: 'person',
-        orgId: organization.id,
+        orgId,
       }),
     );
   };
@@ -66,7 +67,7 @@ const PersonItem = ({
 
   const orgPermissions = (person as any).organizational_permissions || [];
   const personOrgPermissions = orgPermissions.find(
-    (orgPermission: any) => orgPermission.organization_id === organization.id,
+    (orgPermission: any) => orgPermission.organization_id === orgId,
   );
 
   const status =
