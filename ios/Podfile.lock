@@ -178,7 +178,7 @@ PODS:
   - React-RCTWebSocket (0.60.3):
     - React-Core (= 0.60.3)
     - React-fishhook (= 0.60.3)
-  - RNDefaultPreference (1.3.2):
+  - RNDefaultPreference (1.4.0):
     - React
   - RNDeviceInfo (2.2.2):
     - React
@@ -389,7 +389,7 @@ SPEC CHECKSUMS:
   React-RCTText: b026f8350c2cbe0daeb9880dd9c6e018fce0daf7
   React-RCTVibration: 5d9ed4a968e9d42880ddcc7c29bee3417c745408
   React-RCTWebSocket: 69d8565d66043f244b4129f3d7154c5689fb7d3e
-  RNDefaultPreference: e9a1854383cd5e31aef1d3359b013f699be1d7f4
+  RNDefaultPreference: e3f61f101387ca8d5c6d9ea02f4620a7347b93e1
   RNDeviceInfo: 1215084f45c1059b031c530281442dc7079ccf0a
   RNFirebase: b627e5991bb10bf34cea84806819f98f95f39f8b
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
