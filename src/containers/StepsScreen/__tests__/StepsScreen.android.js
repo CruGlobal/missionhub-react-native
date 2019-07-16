@@ -1,9 +1,9 @@
 import 'react-native';
 import React from 'react';
 
-import { StepsScreen } from '..';
-
 import { testSnapshotShallow } from '../../../../testUtils';
+
+import { StepsScreen } from '..';
 
 jest.mock('react-native-device-info');
 jest.mock('../../../utils/common', () => ({

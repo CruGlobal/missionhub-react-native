@@ -3,10 +3,10 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import StepsList from '..';
-
 import { renderShallow } from '../../../../testUtils';
 import { insertName } from '../../../utils/steps';
+
+import StepsList from '..';
 
 jest.mock('../../../utils/steps');
 

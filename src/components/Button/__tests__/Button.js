@@ -2,9 +2,9 @@ import 'react-native';
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Button from '..';
-
 import { testSnapshot } from '../../../../testUtils';
+
+import Button from '..';
 
 it('renders correctly', () => {
   testSnapshot(<Button onPress={jest.fn()} />);

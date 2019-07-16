@@ -3,8 +3,6 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
-import NotificationPrimerScreen from '..';
-
 import {
   createMockNavState,
   testSnapshotShallow,
@@ -13,6 +11,8 @@ import {
 import { requestNativePermissions } from '../../../actions/notifications';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
+
+import NotificationPrimerScreen from '..';
 
 const {
   ONBOARDING,

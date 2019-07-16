@@ -58,8 +58,10 @@ const showNotificationAndCompleteOnboarding = async (
 
 export const onboardingFlowGenerator = ({
   startScreen = WELCOME_SCREEN,
+  hideSkipBtn,
 }: {
   startScreen?: string;
+  hideSkipBtn?: boolean;
 }) => ({
   ...(startScreen === WELCOME_SCREEN
     ? {
@@ -135,19 +137,25 @@ export const onboardingFlowGenerator = ({
       }
     : {}),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(AddSomeoneScreen, ({ skip }: { skip: boolean }) =>
-      skip ? skipOnboarding() : navigatePush(SETUP_PERSON_SCREEN),
+    wrapNextAction(
+      AddSomeoneScreen,
+      ({ skip }: { skip: boolean }) =>
+        skip ? skipOnboarding() : navigatePush(SETUP_PERSON_SCREEN),
+      { hideSkipBtn },
     ),
     buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
   ),
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SetupPersonScreen, ({ skip }: { skip: boolean }) =>
-      skip
-        ? skipOnboarding()
-        : navigatePush(PERSON_STAGE_SCREEN, {
-            section: 'onboarding',
-            subsection: 'add person',
-          }),
+    wrapNextAction(
+      SetupPersonScreen,
+      ({ skip }: { skip: boolean }) =>
+        skip
+          ? skipOnboarding()
+          : navigatePush(PERSON_STAGE_SCREEN, {
+              section: 'onboarding',
+              subsection: 'add person',
+            }),
+      { hideSkipBtn },
     ),
     buildTrackingObj(
       'onboarding : add person : name',

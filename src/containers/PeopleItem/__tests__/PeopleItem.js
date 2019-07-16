@@ -7,12 +7,11 @@ import {
   renderShallow,
   testSnapshot,
 } from '../../../../testUtils';
-
-import PeopleItem from '..';
-
 import { navigatePush } from '../../../actions/navigation';
 import { PERSON_STAGE_SCREEN } from '../../PersonStageScreen';
 import { orgIsCru, hasOrgPermissions } from '../../../utils/common';
+
+import PeopleItem from '..';
 
 const myId = '1';
 const stageId = '1';

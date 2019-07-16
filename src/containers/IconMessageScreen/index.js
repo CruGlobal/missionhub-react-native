@@ -6,12 +6,20 @@ import PropTypes from 'prop-types';
 import { Flex, Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import AbsoluteSkip from '../../components/AbsoluteSkip';
+import { BackButton } from '../BackButton';
 
 import styles from './styles';
 
 class IconMessageScreen extends Component {
   render() {
-    const { onSkip, onComplete, mainText, buttonText, iconPath } = this.props;
+    const {
+      onSkip,
+      onBack,
+      onComplete,
+      mainText,
+      buttonText,
+      iconPath,
+    } = this.props;
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
@@ -24,6 +32,7 @@ class IconMessageScreen extends Component {
           <BottomButton onPress={onComplete} text={buttonText} />
         </SafeAreaView>
         {onSkip ? <AbsoluteSkip onSkip={onSkip} /> : null}
+        {onBack ? <BackButton absolute={true} customNavigate={onBack} /> : null}
       </Flex>
     );
   }

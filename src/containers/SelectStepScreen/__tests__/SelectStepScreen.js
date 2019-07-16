@@ -2,9 +2,9 @@ import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import SelectStepScreen from '..';
-
 import { renderWithContext } from '../../../../testUtils';
+
+import SelectStepScreen from '..';
 
 jest.mock('../../StepsList', () => 'StepsList');
 jest.mock('../../../actions/navigation');

@@ -5,12 +5,11 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { renderShallow, testSnapshot } from '../../../../testUtils';
-
-import SetupScreen from '..';
-
 import * as profile from '../../../actions/onboardingProfile';
 import callApi from '../../../actions/api';
 import { REQUESTS } from '../../../api/routes';
+
+import SetupScreen from '..';
 
 const store = configureStore([thunk])({ profile: {} });
 const next = jest.fn(() => ({ type: 'testNext' }));

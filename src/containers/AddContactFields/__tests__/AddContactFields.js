@@ -3,15 +3,14 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { ORG_PERMISSIONS } from '../../../constants';
-
-import AddContactFields from '..';
-
 import {
   testSnapshotShallow,
   renderShallow,
   createThunkStore,
 } from '../../../../testUtils';
 import { orgPermissionSelector } from '../../../selectors/people';
+
+import AddContactFields from '..';
 
 jest.mock('../../../selectors/people');
 

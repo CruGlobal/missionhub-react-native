@@ -3,13 +3,13 @@ import MockDate from 'mockdate';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import SetReminderScreen from '..';
-
 import { renderShallow, createMockNavState } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 import { createStepReminder } from '../../../actions/stepReminders';
 import { reminderSelector } from '../../../selectors/stepReminders';
 import { REMINDER_RECURRENCES } from '../../../constants';
+
+import SetReminderScreen from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');

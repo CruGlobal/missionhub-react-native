@@ -2,10 +2,10 @@ import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import GetStartedScreen from '..';
-
 import { renderWithContext } from '../../../../testUtils';
 import { disableBack } from '../../../utils/common';
+
+import GetStartedScreen from '..';
 
 jest.mock('react-native-device-info');
 jest.mock('../../../utils/common');

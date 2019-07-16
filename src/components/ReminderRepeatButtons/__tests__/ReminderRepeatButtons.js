@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ReminderRepeatButtons from '..';
-
 import { renderShallow } from '../../../../testUtils';
 import { REMINDER_RECURRENCES } from '../../../constants';
+
+import ReminderRepeatButtons from '..';
 
 const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 

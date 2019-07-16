@@ -2,8 +2,6 @@ import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import LandingScreen from '..';
-
 import { renderWithContext } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import { firstTime } from '../../../actions/auth/userData';
@@ -12,6 +10,8 @@ import {
   JOIN_BY_CODE_ONBOARDING_FLOW,
   SIGN_IN_FLOW,
 } from '../../../routes/constants';
+
+import LandingScreen from '..';
 
 jest.mock('../../../actions/auth/userData');
 jest.mock('../../../actions/navigation', () => ({

@@ -6,10 +6,6 @@ import i18next from 'i18next';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import MemberOptionsMenu, {
-  API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE,
-} from '..';
-
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import {
   transferOrgOwnership,
@@ -22,6 +18,10 @@ import {
   archiveOrgPermission,
 } from '../../../actions/person';
 import { navigateBack } from '../../../actions/navigation';
+
+import MemberOptionsMenu, {
+  API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE,
+} from '..';
 
 jest.mock('../../../actions/organizations.js');
 jest.mock('../../../actions/person.js');

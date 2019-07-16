@@ -32,6 +32,7 @@ export class BackButton extends Component {
           type="MissionHub"
           onPress={this.onPress}
           style={iconStyle}
+          testID="BackButton"
         />
       </Wrapper>
     );

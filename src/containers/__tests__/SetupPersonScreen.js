@@ -46,6 +46,14 @@ it('renders correctly', () => {
   );
 });
 
+it('renders back arrow correctly', () => {
+  testSnapshot(
+    <Provider store={mockStore(mockState)}>
+      <SetupPersonScreen hideSkipBtn={true} />
+    </Provider>,
+  );
+});
+
 describe('setup person screen methods', () => {
   let component;
 
@@ -71,6 +79,7 @@ describe('setup person screen methods', () => {
     profile.updateOnboardingPerson = jest.fn();
     person.resetPerson = jest.fn();
     navigation.navigatePush = jest.fn().mockReturnValue(navigationResult);
+    navigation.navigateBack = jest.fn().mockReturnValue(navigationResult);
     trackActionWithoutData.mockReturnValue(trackActionResult);
   });
 
@@ -128,5 +137,11 @@ describe('setup person screen methods', () => {
     component.skip();
 
     expect(profile.skipOnboarding).toHaveBeenCalled();
+  });
+
+  it('calls back', () => {
+    component.back();
+
+    expect(navigation.navigateBack).toHaveBeenCalledTimes(1);
   });
 });

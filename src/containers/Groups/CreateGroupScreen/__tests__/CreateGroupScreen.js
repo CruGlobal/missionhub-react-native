@@ -1,8 +1,6 @@
 import React from 'react';
 import { Keyboard } from 'react-native';
 
-import CreateGroupScreen from '..';
-
 import {
   renderShallow,
   createMockNavState,
@@ -23,6 +21,8 @@ import * as organizations from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { ACTIONS, GROUPS_TAB } from '../../../../constants';
 import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../../GroupScreen';
+
+import CreateGroupScreen from '..';
 
 const mockNewId = '123';
 const mockAddNewOrg = {

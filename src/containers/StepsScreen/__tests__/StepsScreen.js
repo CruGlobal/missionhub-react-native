@@ -4,9 +4,6 @@ import { ScrollView } from 'react-native';
 import React from 'react';
 
 import { renderShallow } from '../../../../testUtils';
-
-import { StepsScreen, mapStateToProps } from '..';
-
 import {
   reminderStepsSelector,
   nonReminderStepsSelector,
@@ -23,6 +20,8 @@ import { setStepFocus, getMySteps } from '../../../actions/steps';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
+
+import { StepsScreen, mapStateToProps } from '..';
 
 jest.mock('../../../selectors/steps');
 jest.mock('../../../actions/analytics');

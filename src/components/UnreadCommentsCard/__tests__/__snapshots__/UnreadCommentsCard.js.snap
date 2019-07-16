@@ -3,7 +3,9 @@
 exports[`renders correctly 1`] = `
 <View
   accessible={true}
+  clickable={true}
   isTVSelectable={true}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -166,6 +168,7 @@ exports[`renders correctly 1`] = `
     >
       <View
         accessible={true}
+        clickable={true}
         hitSlop={
           Object {
             "bottom": 10,
@@ -175,6 +178,7 @@ exports[`renders correctly 1`] = `
           }
         }
         isTVSelectable={true}
+        onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -243,7 +247,9 @@ exports[`renders correctly 1`] = `
 exports[`renders correctly singular 1`] = `
 <View
   accessible={true}
+  clickable={true}
   isTVSelectable={true}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -406,6 +412,7 @@ exports[`renders correctly singular 1`] = `
     >
       <View
         accessible={true}
+        clickable={true}
         hitSlop={
           Object {
             "bottom": 10,
@@ -415,6 +422,7 @@ exports[`renders correctly singular 1`] = `
           }
         }
         isTVSelectable={true}
+        onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
