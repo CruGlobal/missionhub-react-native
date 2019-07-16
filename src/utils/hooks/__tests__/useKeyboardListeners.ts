@@ -1,5 +1,5 @@
 import { Keyboard } from 'react-native';
-import { renderHook } from 'react-hooks-testing-library';
+import { renderHook } from '@testing-library/react-hooks';
 
 import { useKeyboardListeners } from '../useKeyboardListeners';
 
