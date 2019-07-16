@@ -2,9 +2,9 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import MemberContacts from '..';
-
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+
+import MemberContacts from '..';
 
 const contactAssignment = { id: '1', person: {}, organization: { id: '100' } };
 const contactAssignmentDifferentOrg = {

@@ -4,9 +4,9 @@ import { View } from 'react-native';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import RowSwipeable from '..';
-
 import { testSnapshot } from '../../../../testUtils';
+
+import RowSwipeable from '..';
 
 const mockStart = jest.fn();
 beforeEach(() => {

@@ -2,9 +2,9 @@ import 'react-native';
 import React from 'react';
 import MockDate from 'mockdate';
 
-import CardTime from '..';
-
 import { testSnapshotShallow } from '../../../../testUtils';
+
+import CardTime from '..';
 
 const date = '2017-10-09T13:51:49.888';
 MockDate.set('2017-10-13 12:00:00', 300);

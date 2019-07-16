@@ -4,11 +4,10 @@ import i18n from 'i18next';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
-
-import MFACodeScreen from '..';
-
 import { keyLogin } from '../../../../actions/auth/key';
 import { MFA_REQUIRED } from '../../../../constants';
+
+import MFACodeScreen from '..';
 
 jest.mock('../../../../actions/auth/key');
 jest.mock('../../../../components/MFACodeComponent', () => ({

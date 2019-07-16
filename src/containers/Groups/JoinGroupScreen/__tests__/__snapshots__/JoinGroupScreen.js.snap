@@ -42,7 +42,9 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
     >
       <View
         accessible={true}
+        clickable={true}
         isTVSelectable={true}
+        onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -322,7 +324,9 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
     >
       <View
         accessible={true}
+        clickable={true}
         isTVSelectable={true}
+        onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}

@@ -5,10 +5,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 
 import { testSnapshot, createThunkStore } from '../../../../testUtils';
+import * as common from '../../../utils/common';
 
 import PathwayStageScreen from '..';
-
-import * as common from '../../../utils/common';
 
 const store = {
   stages: {

@@ -103,21 +103,288 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
 `;
 
 exports[`Contact should render AssignedPersonScreen correctly with stage for User-Created Community 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<_class>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="light-content"
+    showHideTransition="fade"
+  />
+  <Header
+    left={<Connect(BackButton) />}
+    right={
+      <IconButton
+        name="moreIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Test Org"
+  />
+  <Flex
+    align="center"
+    justify="center"
+    self="stretch"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "paddingVertical": 10,
+        },
+        undefined,
+      ]
+    }
+  >
+    <MyText
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+        }
+      }
+    >
+      TEST PERSON
+    </MyText>
+    <withI18nextTranslation(GroupsPersonHeader)
+      dispatch={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      isCruOrg={false}
+      isMember={true}
+      isVisible={true}
+      myId="1000"
+      organization={
+        Object {
+          "id": "1",
+          "name": "Test Org",
+        }
+      }
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+      stages={
+        Array [
+          Object {
+            "id": "3",
+            "name": "stage 3",
+          },
+        ]
+      }
+    />
+  </Flex>
+</_class>
 `;
 
 exports[`Contact should render AssignedPersonScreen correctly with stage for cru community 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<_class>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="light-content"
+    showHideTransition="fade"
+  />
+  <Header
+    left={<Connect(BackButton) />}
+    right={
+      <IconButton
+        name="moreIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Test Org"
+  />
+  <Flex
+    align="center"
+    justify="center"
+    self="stretch"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "paddingVertical": 10,
+        },
+        undefined,
+      ]
+    }
+  >
+    <MyText
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+        }
+      }
+    >
+      TEST PERSON
+    </MyText>
+    <Connect(PathwayStageDisplay)
+      orgId="1"
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+    />
+    <withI18nextTranslation(GroupsPersonHeader)
+      dispatch={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      isCruOrg={true}
+      isMember={true}
+      isVisible={true}
+      myId="1000"
+      organization={
+        Object {
+          "id": "1",
+          "name": "Test Org",
+        }
+      }
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+      stages={
+        Array [
+          Object {
+            "id": "3",
+            "name": "stage 3",
+          },
+        ]
+      }
+    />
+  </Flex>
+</_class>
 `;
 
 exports[`Contact should render AssignedPersonScreen correctly without stage 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<_class>
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="light-content"
+    showHideTransition="fade"
+  />
+  <Header
+    left={<Connect(BackButton) />}
+    right={
+      <IconButton
+        name="moreIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Test Org"
+  />
+  <Flex
+    align="center"
+    justify="center"
+    self="stretch"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "paddingVertical": 10,
+        },
+        undefined,
+      ]
+    }
+  >
+    <MyText
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+        }
+      }
+    >
+      TEST PERSON
+    </MyText>
+    <Connect(PathwayStageDisplay)
+      orgId="1"
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+    />
+    <withI18nextTranslation(GroupsPersonHeader)
+      dispatch={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      isCruOrg={true}
+      isMember={true}
+      isVisible={true}
+      myId="1000"
+      organization={
+        Object {
+          "id": "1",
+          "name": "Test Org",
+        }
+      }
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+      stages={
+        Array [
+          Object {
+            "id": "3",
+            "name": "stage 3",
+          },
+        ]
+      }
+    />
+  </Flex>
+</_class>
 `;
 
 exports[`Contact should render contact tabs correctly 1`] = `

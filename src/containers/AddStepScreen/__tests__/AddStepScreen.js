@@ -3,11 +3,11 @@ import React from 'react';
 import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
-import AddStepScreen from '..';
-
 import { renderWithContext } from '../../../../testUtils';
 import { CREATE_STEP, STEP_NOTE } from '../../../constants';
 import locale from '../../../i18n/locales/en-US';
+
+import AddStepScreen from '..';
 
 //fixed in steps-improvement
 const mockDate = '2018-09-12 12:00:00 PM GMT+0';

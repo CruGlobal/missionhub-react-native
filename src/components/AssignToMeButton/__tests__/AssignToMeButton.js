@@ -3,10 +3,9 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { assignContactAndPickStage } from '../../../actions/misc';
 
 import AssignToMeButton from '..';
-
-import { assignContactAndPickStage } from '../../../actions/misc';
 
 jest.mock('../../../actions/misc');
 jest.mock('../../../actions/person');

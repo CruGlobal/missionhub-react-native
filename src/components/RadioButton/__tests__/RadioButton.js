@@ -1,9 +1,9 @@
 import 'react-native';
 import React from 'react';
 
-import RadioButton from '..';
-
 import { testSnapshot } from '../../../../testUtils';
+
+import RadioButton from '..';
 
 const props = {
   onSelect: jest.fn(),
