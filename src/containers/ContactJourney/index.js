@@ -12,11 +12,13 @@ import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { editComment } from '../../actions/interactions';
 import { removeSwipeJourney } from '../../actions/swipe';
-import { updateChallengeNote } from '../../actions/steps';
 import NullStateComponent from '../../components/NullStateComponent';
-import { ACCEPTED_STEP } from '../../constants';
+import {
+  EDIT_JOURNEY_STEP,
+  EDIT_JOURNEY_ITEM,
+  ACCEPTED_STEP,
+} from '../../constants';
 
 import styles from './styles';
 
@@ -29,7 +31,6 @@ class ContactJourney extends Component {
     const isPersonal = props.isCasey || !org.id || org.id === 'personal';
 
     this.state = {
-      editingInteraction: null,
       isPersonalMinistry: isPersonal,
     };
 
@@ -43,9 +44,9 @@ class ContactJourney extends Component {
     this.getInteractions();
   }
 
-  completeBump() {
+  completeBump = () => {
     this.props.dispatch(removeSwipeJourney());
-  }
+  };
 
   getInteractions() {
     const { dispatch, person, organization } = this.props;
@@ -53,38 +54,19 @@ class ContactJourney extends Component {
     dispatch(getJourney(person.id, organization && organization.id));
   }
 
-  handleEditInteraction(interaction) {
-    this.setState({ editingInteraction: interaction });
-    const text =
-      interaction._type === ACCEPTED_STEP
-        ? interaction.note
-        : interaction.comment;
+  handleEditInteraction = interaction => {
+    const isStep = interaction._type === ACCEPTED_STEP;
 
     this.props.dispatch(
       navigatePush(ADD_STEP_SCREEN, {
-        next: this.handleEditComment,
-        type: 'editJourney',
+        type: isStep ? EDIT_JOURNEY_STEP : EDIT_JOURNEY_ITEM,
         isEdit: true,
-        text,
+        text: isStep ? interaction.note : interaction.comment,
       }),
     );
-  }
+  };
 
-  handleEditComment({ text }) {
-    const { editingInteraction } = this.state;
-    const action =
-      editingInteraction._type === ACCEPTED_STEP
-        ? updateChallengeNote(editingInteraction.id, text)
-        : editComment(editingInteraction, text);
-
-    this.props.dispatch(action).then(() => {
-      // Refresh the journey list after editing a comment
-      this.getInteractions();
-      this.setState({ editingInteraction: null });
-    });
-  }
-
-  renderRow({ item }) {
+  renderRow = ({ item }) => {
     const { showReminder, myId, person } = this.props;
     const content = (
       <JourneyItem
@@ -115,7 +97,7 @@ class ContactJourney extends Component {
       );
     }
     return content;
-  }
+  };
 
   listRef = c => (this.list = c);
   keyExtractor = i => `${i.id}-${i._type}`;
