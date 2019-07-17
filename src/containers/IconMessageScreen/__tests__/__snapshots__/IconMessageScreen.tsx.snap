@@ -223,7 +223,6 @@ exports[`renders back button correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-   
 </View>
 `;
 
@@ -366,7 +365,6 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-   
 </View>
 `;
 
@@ -587,6 +585,5 @@ exports[`renders skip button correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-   
 </View>
 `;

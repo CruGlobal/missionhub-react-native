@@ -219,7 +219,6 @@ Take a moment and pray. Who do you want to take steps of faith with?
       </View>
     </View>
   </RCTSafeAreaView>
-   
 </View>
 `;
 
@@ -448,6 +447,5 @@ Take a moment and pray. Who do you want to take steps of faith with?
       </View>
     </View>
   </RCTSafeAreaView>
-   
 </View>
 `;

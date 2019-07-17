@@ -34,9 +34,7 @@ const IconMessageScreen = ({
       <BottomButton onPress={onComplete} text={buttonText} />
     </SafeAreaView>
     {onSkip ? <AbsoluteSkip onSkip={onSkip} /> : null}
-    {onBack ? (
-      <BackButton absolute={true} customNavigate={onBack} />
-    ) : null}{' '}
+    {onBack ? <BackButton absolute={true} customNavigate={onBack} /> : null}
   </Flex>
 );
 
