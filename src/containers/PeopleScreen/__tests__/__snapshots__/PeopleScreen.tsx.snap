@@ -1,105 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mapStateToProps should provide necessary props for Casey with no steps 1`] = `
-Object {
-  "hasNoContacts": true,
-  "isJean": false,
-  "items": Array [
-    Object {
-      "id": "me person",
-    },
-  ],
-}
-`;
-
-exports[`mapStateToProps should provide the necessary props for Casey 1`] = `
-Object {
-  "hasNoContacts": false,
-  "isJean": false,
-  "items": Array [
-    Object {
-      "id": 1,
-      "type": "person",
-    },
-    Object {
-      "id": 2,
-      "type": "person",
-    },
-    Object {
-      "id": 3,
-      "type": "person",
-    },
-  ],
-}
-`;
-
-exports[`mapStateToProps should provide the necessary props for Jean 1`] = `
-Object {
-  "hasNoContacts": false,
-  "isJean": true,
-  "items": Array [
-    Object {
-      "id": "personal",
-      "people": Array [
-        Object {
-          "id": 1,
-          "type": "person",
-        },
-        Object {
-          "id": 2,
-          "type": "person",
-        },
-        Object {
-          "id": 3,
-          "type": "person",
-        },
-      ],
-      "type": "organization",
-    },
-    Object {
-      "id": 10,
-      "name": "org 1",
-      "people": Array [
-        Object {
-          "id": 11,
-          "type": "person",
-        },
-      ],
-      "type": "organization",
-    },
-    Object {
-      "id": 20,
-      "name": "org 2",
-      "people": Array [
-        Object {
-          "id": 21,
-          "type": "person",
-        },
-      ],
-      "type": "organization",
-    },
-  ],
-}
-`;
-
-exports[`mapStateToProps should provide the necessary props for Jean with no contacts 1`] = `
-Object {
-  "hasNoContacts": true,
-  "isJean": true,
-  "items": Array [
-    Object {
-      "id": "personal",
-      "people": Array [
-        Object {
-          "id": "me person",
-        },
-      ],
-      "type": "organization",
-    },
-  ],
-}
-`;
-
 exports[`renders correctly as Casey 1`] = `
 <View
   style={
@@ -109,7 +9,7 @@ exports[`renders correctly as Casey 1`] = `
     }
   }
 >
-  <Component
+  <TrackTabChange
     screen="PeopleTab"
   />
   <Header
@@ -129,9 +29,10 @@ exports[`renders correctly as Casey 1`] = `
       />
     }
     shadow={true}
+    testID="header"
     title="PEOPLE"
   />
-  <withI18nextTranslation(PeopleList)
+  <PeopleList
     items={
       Array [
         Object {
@@ -153,6 +54,7 @@ exports[`renders correctly as Casey 1`] = `
     onSelect={[Function]}
     refreshing={false}
     sections={false}
+    testID="peopleList"
   />
 </View>
 `;
@@ -166,7 +68,7 @@ exports[`renders correctly as Jean 1`] = `
     }
   }
 >
-  <Component
+  <TrackTabChange
     screen="PeopleTab"
   />
   <Header
@@ -185,9 +87,10 @@ exports[`renders correctly as Jean 1`] = `
       />
     }
     shadow={false}
+    testID="header"
     title="PEOPLE"
   />
-  <withI18nextTranslation(PeopleList)
+  <PeopleList
     items={
       Array [
         Object {
@@ -237,6 +140,7 @@ exports[`renders correctly as Jean 1`] = `
     onSelect={[Function]}
     refreshing={false}
     sections={true}
+    testID="peopleList"
   />
 </View>
 `;
@@ -250,7 +154,7 @@ exports[`renders empty correctly 1`] = `
     }
   }
 >
-  <Component
+  <TrackTabChange
     screen="PeopleTab"
   />
   <Header
@@ -270,9 +174,10 @@ exports[`renders empty correctly 1`] = `
       />
     }
     shadow={true}
+    testID="header"
     title="PEOPLE"
   />
-  <withI18nextTranslation(PeopleList)
+  <PeopleList
     items={
       Array [
         Object {
@@ -285,7 +190,8 @@ exports[`renders empty correctly 1`] = `
     onSelect={[Function]}
     refreshing={false}
     sections={false}
+    testID="peopleList"
   />
-  <Connect(TakeAStepWithSomeoneButton) />
+  <TakeAStepWithSomeoneButton />
 </View>
 `;
