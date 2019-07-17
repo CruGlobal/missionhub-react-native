@@ -23,7 +23,7 @@ jest.mock('../../../../actions/auth/key');
 jest.mock('../../../../actions/navigation');
 jest.mock('react-native-fbsdk', () => ({
   LoginManager: {
-    logInWithReadPermissions: jest
+    logInWithPermissions: jest
       .fn()
       .mockReturnValue(Promise.resolve({ isCancelled: true })),
   },

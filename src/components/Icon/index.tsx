@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, ViewStyle, StyleProp } from 'react-native';
+import { Platform, TextStyle, StyleProp } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Material from 'react-native-vector-icons/MaterialIcons';
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
@@ -14,7 +14,7 @@ const MissionHub = createIconSetFromIcoMoon(icoMoonConfig);
 
 export interface IconProps {
   name: string;
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<TextStyle>;
   type?: 'Material' | 'FontAwesome' | 'Ionicons' | 'MissionHub';
   size?: number;
   testID?: string;
