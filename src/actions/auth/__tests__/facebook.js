@@ -19,7 +19,7 @@ import {
 import { authSuccess } from '../userData';
 
 jest.mock('react-native-fbsdk', () => ({
-  LoginManager: { logInWithReadPermissions: jest.fn(), logOut: jest.fn() },
+  LoginManager: { logInWithPermissions: jest.fn(), logOut: jest.fn() },
   AccessToken: {
     getCurrentAccessToken: jest.fn(),
     refreshCurrentAccessTokenAsync: jest.fn(),
@@ -49,18 +49,18 @@ describe('facebookPromptLogin', () => {
   const FACEBOOK_SCOPE = ['public_profile', 'email'];
 
   it('should call the Facebook SDK to prompt user to sign in', async () => {
-    LoginManager.logInWithReadPermissions.mockResolvedValue({
+    LoginManager.logInWithPermissions.mockResolvedValue({
       isCancelled: false,
     });
 
     await store.dispatch(facebookPromptLogin());
 
-    expect(LoginManager.logInWithReadPermissions).toHaveBeenCalledWith(
+    expect(LoginManager.logInWithPermissions).toHaveBeenCalledWith(
       FACEBOOK_SCOPE,
     );
   });
   it('should throw an error if user cancels sign in', async () => {
-    LoginManager.logInWithReadPermissions.mockResolvedValue({
+    LoginManager.logInWithPermissions.mockResolvedValue({
       isCancelled: true,
     });
 
@@ -68,7 +68,7 @@ describe('facebookPromptLogin', () => {
       'Facebook login canceled by user',
     );
 
-    expect(LoginManager.logInWithReadPermissions).toHaveBeenCalledWith(
+    expect(LoginManager.logInWithPermissions).toHaveBeenCalledWith(
       FACEBOOK_SCOPE,
     );
   });
@@ -232,17 +232,17 @@ describe('refreshMissionHubFacebookAccess', () => {
       },
       { type: 'authSuccess' },
     ]);
-    expect(LoginManager.logInWithReadPermissions).not.toHaveBeenCalled();
+    expect(LoginManager.logInWithPermissions).not.toHaveBeenCalled();
   });
 
   it('should prompt user to log in again if an error occurs', async () => {
     AccessToken.refreshCurrentAccessTokenAsync.mockRejectedValue();
-    LoginManager.logInWithReadPermissions.mockResolvedValue({
+    LoginManager.logInWithPermissions.mockResolvedValue({
       isCancelled: false,
     });
 
     await store.dispatch(refreshMissionHubFacebookAccess());
 
-    expect(LoginManager.logInWithReadPermissions).toHaveBeenCalled();
+    expect(LoginManager.logInWithPermissions).toHaveBeenCalled();
   });
 });

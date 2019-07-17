@@ -19,6 +19,7 @@ interface HeaderProps {
   shadow?: boolean;
   style?: StyleProp<ViewStyle>;
   titleStyle?: StyleProp<TextStyle>;
+  testID?: string;
 }
 
 const Header = ({

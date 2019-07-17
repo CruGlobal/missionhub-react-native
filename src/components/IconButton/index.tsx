@@ -12,6 +12,7 @@ interface IconButtonProps extends IconProps {
   style?: StyleProp<ViewStyle>;
   pressProps?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   onPress?: Function;
+  testID?: string;
 }
 const IconButton = ({
   name,

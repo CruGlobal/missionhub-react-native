@@ -28,7 +28,6 @@
 		FA45FFEB1FFE7DD100153E56 /* ADBMobileConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = FA45FFBF1FFE7D9600153E56 /* ADBMobileConfig.json */; };
 		FA45FFED1FFE7DFD00153E56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA45FFEC1FFE7DFD00153E56 /* SystemConfiguration.framework */; };
 		FA45FFEF1FFE7E0900153E56 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA45FFEE1FFE7E0900153E56 /* libsqlite3.0.tbd */; };
-		FA45FFF01FFE7E7300153E56 /* AdobeMobileLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA45FFC21FFE7D9600153E56 /* AdobeMobileLibrary.a */; };
 		FD487B586E344F67806CD6AD /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 965575DE5A994FE09AA10EC4 /* SourceSansPro-Regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -103,7 +102,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D6468F9225826480064215E /* JavaScriptCore.framework in Frameworks */,
-				FA45FFF01FFE7E7300153E56 /* AdobeMobileLibrary.a in Frameworks */,
 				FA45FFEF1FFE7E0900153E56 /* libsqlite3.0.tbd in Frameworks */,
 				FA45FFED1FFE7DFD00153E56 /* SystemConfiguration.framework in Frameworks */,
 				B264100755DB6F3F8458C1A7 /* libPods-MissionHub.a in Frameworks */,
@@ -441,6 +439,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MissionHub/Pods-MissionHub-resources.sh",
+				"${PODS_ROOT}/../AdobeMobileLibrary/ADBMobileConfig.json",
 				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
@@ -463,6 +462,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ADBMobileConfig.json",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
@@ -572,7 +572,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9702;
+				CURRENT_PROJECT_VERSION = 9779;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -664,7 +664,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9702;
+				CURRENT_PROJECT_VERSION = 9779;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = DQ48D9BF2V;
 				FRAMEWORK_SEARCH_PATHS = (
