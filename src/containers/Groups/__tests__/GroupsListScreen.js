@@ -108,7 +108,7 @@ describe('GroupsListScreen', () => {
   });
 
   it('should load groups on mount', () => {
-    renderWithContext(<GroupsListScreen />, { store });
+    renderWithContext(<GroupsListScreen />, { initialState });
     expect(getMyCommunities).toHaveBeenCalled();
   });
 
