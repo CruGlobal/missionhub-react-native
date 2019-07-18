@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
+import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
@@ -11,52 +11,86 @@ import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import AbsoluteSkip from '../../components/AbsoluteSkip';
-import { disableBack } from '../../utils/common';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
 
 import styles from './styles';
 
-@withTranslation('selectStep')
-class SelectStepScreen extends Component {
-  componentDidMount() {
-    if (!this.props.enableBackButton) {
-      disableBack.add();
-    }
+interface SelectStepScreenProps {
+  receiverId: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  organization?: { [key: string]: any };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  contact: { [key: string]: any };
+  contactName?: string;
+  contactStageId: string;
+  headerText: string;
+  enableBackButton?: boolean;
+  enableSkipButton?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<any, null, never>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  next: (nextProps: {
+    receiverId: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    step?: { [key: string]: any };
+    skip: boolean;
+    orgId: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }) => ThunkAction<void, any, null, never>;
+}
+
+const SelectStepScreen = ({
+  receiverId,
+  organization,
+  contact,
+  contactName,
+  contactStageId,
+  headerText,
+  enableBackButton = true,
+  enableSkipButton = false,
+  dispatch,
+  next,
+}: SelectStepScreenProps) => {
+  const { t } = useTranslation('selectStep');
+  if (!enableBackButton) {
+    useDisableBack();
   }
 
-  componentWillUnmount() {
-    if (!this.props.enableBackButton) {
-      disableBack.remove();
-    }
-  }
-
-  navigateNext(step, skip = false) {
-    const { dispatch, receiverId, organization, next } = this.props;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const navigateNext = (step?: { [key: string]: any }, skip = false) => {
     dispatch(
-      next({ receiverId, step, skip, orgId: organization && organization.id }),
+      next({
+        receiverId,
+        step,
+        skip,
+        orgId: organization && organization.id,
+      }),
     );
-  }
-
-  navToSuggestedStep = step => {
-    this.navigateNext(step);
   };
 
-  navToCreateStep = () => {
-    this.navigateNext();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const navToSuggestedStep = (step: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [key: string]: any;
+  }) => {
+    navigateNext(step);
   };
 
-  handleSkip = () => {
-    this.navigateNext(undefined, true);
+  const navToCreateStep = () => {
+    navigateNext();
   };
 
-  navigateBackTwoScreens = () => this.props.dispatch(navigateBack(2));
+  const handleSkip = () => {
+    navigateNext(undefined, true);
+  };
 
-  renderForeground = () => {
-    const { t, headerText } = this.props;
+  const navigateBackTwoScreens = () => dispatch(navigateBack(2));
+
+  const renderForeground = () => {
     return (
-      <View flex={1} alignItems={'center'}>
+      <View style={{ flex: 1, alignItems: 'center' }}>
         <Header shadow={false} />
         <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
         <Text header={true} style={styles.headerTitle}>
@@ -67,107 +101,47 @@ class SelectStepScreen extends Component {
     );
   };
 
-  renderStickyHeader = () => (
+  const renderStickyHeader = () => (
     <Header
       center={
         <Text style={styles.collapsedHeaderTitle}>
-          {this.props.t('stepsOfFaith').toUpperCase()}
+          {t('stepsOfFaith').toUpperCase()}
         </Text>
       }
     />
   );
 
-  render() {
-    const {
-      t,
-      contactName,
-      receiverId,
-      organization,
-      contactStageId,
-      enableBackButton,
-      enableSkipButton,
-      contact,
-    } = this.props;
-    const { headerHeight, parallaxHeaderHeight } = theme;
+  const { headerHeight, parallaxHeaderHeight } = theme;
 
-    return (
-      <View flex={1}>
-        <ParallaxScrollView
-          backgroundColor={theme.primaryColor}
-          contentBackgroundColor={theme.extraLightGrey}
-          parallaxHeaderHeight={parallaxHeaderHeight + theme.notchDifference}
-          renderForeground={this.renderForeground}
-          stickyHeaderHeight={headerHeight}
-          renderStickyHeader={this.renderStickyHeader}
-        >
-          <StepsList
-            contactName={contactName}
-            receiverId={receiverId}
-            organization={organization}
-            contactStageId={contactStageId}
-            onPressStep={this.navToSuggestedStep}
-          />
-        </ParallaxScrollView>
-        <SafeAreaView>
-          <BottomButton onPress={this.navToCreateStep} text={t('createStep')} />
-        </SafeAreaView>
-        {enableBackButton && (
-          <BackButton
-            customNavigate={contact ? undefined : this.navigateBackTwoScreens}
-            absolute={true}
-          />
-        )}
-        {enableSkipButton && <AbsoluteSkip onSkip={this.handleSkip} />}
-      </View>
-    );
-  }
-}
-
-SelectStepScreen.defaultProps = {
-  enableBackButton: true,
-  enableSkipButton: false,
+  return (
+    <View style={{ flex: 1 }}>
+      <ParallaxScrollView
+        backgroundColor={theme.primaryColor}
+        contentBackgroundColor={theme.extraLightGrey}
+        parallaxHeaderHeight={parallaxHeaderHeight + theme.notchDifference}
+        renderForeground={renderForeground}
+        stickyHeaderHeight={headerHeight}
+        renderStickyHeader={renderStickyHeader}
+      >
+        <StepsList
+          contactName={contactName}
+          receiverId={receiverId}
+          contactStageId={contactStageId}
+          onPressStep={navToSuggestedStep}
+        />
+      </ParallaxScrollView>
+      <SafeAreaView>
+        <BottomButton onPress={navToCreateStep} text={t('createStep')} />
+      </SafeAreaView>
+      {enableBackButton && (
+        <BackButton
+          customNavigate={contact ? undefined : navigateBackTwoScreens}
+          absolute={true}
+        />
+      )}
+      {enableSkipButton && <AbsoluteSkip onSkip={handleSkip} />}
+    </View>
+  );
 };
 
-SelectStepScreen.propTypes = {
-  headerText: PropTypes.string.isRequired,
-  contactName: PropTypes.string,
-  contact: PropTypes.object,
-  receiverId: PropTypes.string.isRequired,
-  enableBackButton: PropTypes.bool,
-  enableSkipButton: PropTypes.bool,
-  organization: PropTypes.object,
-  contactStageId: PropTypes.string.isRequired,
-  next: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = (
-  { auth },
-  {
-    headerText,
-    contactName,
-    contact,
-    receiverId,
-    enableBackButton,
-    enableSkipButton,
-    orgId,
-    contactStageId,
-    next,
-  },
-) => {
-  const myId = auth.person.id;
-
-  return {
-    headerText,
-    contactName,
-    contact,
-    receiverId,
-    enableBackButton,
-    enableSkipButton,
-    orgId,
-    contactStageId,
-    next,
-    myId,
-    isMe: receiverId === myId,
-  };
-};
-export default connect(mapStateToProps)(SelectStepScreen);
+export default connect()(SelectStepScreen);

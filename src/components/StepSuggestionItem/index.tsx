@@ -1,36 +1,27 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 import { Text, Card } from '../common';
 
 import styles from './styles';
 
-export default class StepSuggestionItem extends Component {
-  handlePress = () => {
-    const { step, onPress } = this.props;
+interface Step {
+  body: string;
+}
+interface StepSuggestionItemProps {
+  step: Step;
+  onPress: (step: Step) => void;
+}
+
+const StepSuggestionItem = ({ step, onPress }: StepSuggestionItemProps) => {
+  const handlePress = () => {
     onPress(step);
   };
 
-  render() {
-    const {
-      step: { body },
-    } = this.props;
-
-    return (
-      <Card
-        testID="stepSuggestionCard"
-        onPress={this.handlePress}
-        style={styles.card}
-      >
-        <Text style={styles.stepText}>{body}</Text>
-      </Card>
-    );
-  }
-}
-
-StepSuggestionItem.propTypes = {
-  step: PropTypes.shape({
-    body: PropTypes.string.isRequired,
-  }).isRequired,
-  onPress: PropTypes.func.isRequired,
+  return (
+    <Card testID="stepSuggestionCard" onPress={handlePress} style={styles.card}>
+      <Text style={styles.stepText}>{step.body}</Text>
+    </Card>
+  );
 };
+
+export default StepSuggestionItem;

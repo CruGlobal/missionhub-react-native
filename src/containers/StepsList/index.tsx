@@ -1,92 +1,100 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
+import { ThunkDispatch } from 'redux-thunk';
+import { useTranslation } from 'react-i18next';
 
 import { getStepSuggestions } from '../../actions/steps';
 import { insertName } from '../../utils/steps';
 import StepSuggestionItem from '../../components/StepSuggestionItem';
 import LoadMore from '../../components/LoadMore';
 import { keyExtractorId } from '../../utils/common';
+import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
 
-@withTranslation('selectStep')
-class StepsList extends Component {
-  state = {
-    suggestionIndex: 4,
-  };
-
-  componentDidMount() {
-    const { dispatch, isMe, contactStageId } = this.props;
-
-    dispatch(getStepSuggestions(isMe, contactStageId));
-  }
-
-  handleLoadSteps = () => {
-    const { suggestionIndex } = this.state;
-
-    this.setState({ suggestionIndex: suggestionIndex + 4 });
-  };
-
-  getSuggestionSubset() {
-    const { suggestionIndex } = this.state;
-    const { isMe, suggestions, contactName } = this.props;
-
-    const newSuggestions = suggestions.slice(0, suggestionIndex);
-    return isMe ? newSuggestions : insertName(newSuggestions, contactName);
-  }
-
-  renderItem = ({ item }) => {
-    return <StepSuggestionItem step={item} onPress={this.props.onPressStep} />;
-  };
-
-  stepsListRef = c => (this.stepsList = c);
-
-  render() {
-    const { t, suggestions } = this.props;
-    const { suggestionIndex } = this.state;
-    const { list } = styles;
-
-    return (
-      <FlatList
-        ref={this.stepsListRef}
-        keyExtractor={keyExtractorId}
-        data={this.getSuggestionSubset()}
-        renderItem={this.renderItem}
-        scrollEnabled={true}
-        style={list}
-        ListFooterComponent={
-          suggestions.length > suggestionIndex && (
-            <LoadMore
-              onPress={this.handleLoadSteps}
-              text={t('loadMoreSteps').toUpperCase()}
-            />
-          )
-        }
-      />
-    );
-  }
+interface Step {
+  body: string;
 }
 
-StepsList.propTypes = {
-  contactName: PropTypes.string,
-  contactStageId: PropTypes.string.isRequired,
-  onPressStep: PropTypes.func.isRequired,
+interface StepsComputedProps {
+  isMe: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  suggestions: any[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<any, null, never>;
+}
+
+interface StepsListOwnProps {
+  receiverId: string;
+  contactStageId: string;
+  contactName?: string;
+  onPressStep: (step: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [key: string]: any;
+  }) => void;
+}
+
+type StepsListProps = StepsListOwnProps & StepsComputedProps;
+
+const StepsList = ({
+  isMe,
+  contactStageId,
+  suggestions,
+  contactName,
+  onPressStep,
+  dispatch,
+}: StepsListProps) => {
+  const { t } = useTranslation('selectStep');
+
+  const [suggestionIndex, setSuggestionIndex] = useState(4);
+
+  useEffect(() => {
+    dispatch(getStepSuggestions(isMe, contactStageId));
+  }, []);
+
+  const handleLoadSteps = () => {
+    setSuggestionIndex(suggestionIndex => suggestionIndex + 4);
+  };
+
+  const getSuggestionSubset = () => {
+    const newSuggestions = suggestions.slice(0, suggestionIndex);
+    return isMe ? newSuggestions : insertName(newSuggestions, contactName);
+  };
+
+  const renderItem = ({ item }: { item: Step }) => {
+    return <StepSuggestionItem step={item} onPress={onPressStep} />;
+  };
+
+  const { list } = styles;
+
+  return (
+    <FlatList
+      keyExtractor={keyExtractorId}
+      data={getSuggestionSubset()}
+      renderItem={renderItem}
+      scrollEnabled={true}
+      style={list}
+      ListFooterComponent={
+        suggestions.length > suggestionIndex && (
+          <LoadMore
+            onPress={handleLoadSteps}
+            text={t('loadMoreSteps').toUpperCase()}
+          />
+        )
+      }
+    />
+  );
 };
 
 const mapStateToProps = (
-  { auth, steps },
-  { contactName, receiverId, contactStageId, onPressStep },
+  { auth, steps }: { auth: AuthState; steps: { [key: string]: any } }, // eslint-disable-line @typescript-eslint/no-explicit-any
+  { receiverId, contactStageId }: StepsListOwnProps,
 ) => {
   const myId = auth.person.id;
   const isMe = receiverId === myId;
 
   return {
-    contactName,
-    contactStageId,
-    onPressStep,
     isMe,
     suggestions:
       (isMe
