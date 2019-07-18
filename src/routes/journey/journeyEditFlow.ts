@@ -1,4 +1,5 @@
 import { createStackNavigator } from 'react-navigation';
+import { ThunkDispatch } from 'redux-thunk';
 
 import { wrapNextAction } from '../helpers';
 import { navigateBack } from '../../actions/navigation';
@@ -11,7 +12,20 @@ import { editComment } from '../../actions/interactions';
 export const JourneyEditFlowScreens = {
   [ADD_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
-    ({ text, id, type, personId, orgId }) => async dispatch => {
+    ({
+      text,
+      id,
+      type,
+      personId,
+      orgId,
+    }: {
+      text: string;
+      id: string;
+      type: string;
+      personId: string;
+      orgId: string;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    }) => async (dispatch: ThunkDispatch<any, null, any>) => {
       await dispatch(
         type === EDIT_JOURNEY_STEP
           ? updateChallengeNote(id, text)
