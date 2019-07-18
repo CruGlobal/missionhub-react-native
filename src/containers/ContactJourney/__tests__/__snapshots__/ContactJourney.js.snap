@@ -33,7 +33,7 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
           "id": "123",
           "organizational_permissions": Array [
             Object {
-              "organization_id": 2,
+              "organization_id": "222",
             },
           ],
         }
@@ -84,7 +84,7 @@ exports[`ContactJourney renders null screen correctly 1`] = `
           "id": "123",
           "organizational_permissions": Array [
             Object {
-              "organization_id": 2,
+              "organization_id": "222",
             },
           ],
         }
@@ -153,13 +153,18 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
   >
     <Connect(JourneyCommentBox)
       hideActions={true}
+      organization={
+        Object {
+          "id": "personal",
+        }
+      }
       person={
         Object {
           "first_name": "ben",
           "id": "123",
           "organizational_permissions": Array [
             Object {
-              "organization_id": 2,
+              "organization_id": "222",
             },
           ],
         }
@@ -234,7 +239,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
           "id": "123",
           "organizational_permissions": Array [
             Object {
-              "organization_id": 2,
+              "organization_id": "222",
             },
           ],
         }

@@ -103,7 +103,7 @@ describe('AddStepScreen next', () => {
     it('should fire required next actions', async () => {
       await buildAndCallNext(
         COMPLETE_STEP_SCREEN,
-        { stepId, personId: myId, orgId, type: STEP_NOTE },
+        { id: stepId, personId: myId, orgId, type: STEP_NOTE },
         { personId: myId, orgId },
       );
 
@@ -137,7 +137,7 @@ describe('AddStepScreen next', () => {
     it('should fire required next actions', async () => {
       await buildAndCallNext(
         COMPLETE_STEP_SCREEN,
-        { stepId, personId: myId, orgId, type: STEP_NOTE },
+        { id: stepId, personId: myId, orgId, type: STEP_NOTE },
         { personId: myId, orgId },
       );
 
@@ -182,7 +182,7 @@ describe('AddStepScreen next', () => {
     it('should fire required next actions', async () => {
       await buildAndCallNext(
         COMPLETE_STEP_SCREEN,
-        { stepId, personId: myId, orgId, type: STEP_NOTE },
+        { id: stepId, personId: myId, orgId, type: STEP_NOTE },
         { personId: myId, orgId },
       );
 
@@ -219,7 +219,7 @@ describe('AddStepScreen next', () => {
     it('should fire required next actions', async () => {
       await buildAndCallNext(
         COMPLETE_STEP_SCREEN,
-        { stepId, personId: otherId, orgId, type: STEP_NOTE },
+        { id: stepId, personId: otherId, orgId, type: STEP_NOTE },
         { personId: otherId, orgId },
       );
 
@@ -248,7 +248,7 @@ describe('AddStepScreen next', () => {
     it('should fire required next actions', async () => {
       await buildAndCallNext(
         COMPLETE_STEP_SCREEN,
-        { stepId, personId: otherId, orgId, type: STEP_NOTE },
+        { id: stepId, personId: otherId, orgId, type: STEP_NOTE },
         { personId: otherId, orgId },
       );
 
@@ -288,7 +288,7 @@ describe('AddStepScreen next', () => {
     it('should fire required next actions', async () => {
       await buildAndCallNext(
         COMPLETE_STEP_SCREEN,
-        { stepId, personId: otherId, orgId, type: STEP_NOTE },
+        { id: stepId, personId: otherId, orgId, type: STEP_NOTE },
         { personId: otherId, orgId },
       );
 
@@ -327,12 +327,12 @@ describe('AddStepScreen next', () => {
     it('should fire required next actions', async () => {
       await buildAndCallNext(
         COMPLETE_STEP_SCREEN,
-        { stepId, personId: otherId, orgId, type: STEP_NOTE },
+        { id: stepId, personId: otherId, orgId, type: STEP_NOTE },
         {
           personId: otherId,
           orgId,
           text,
-          stepId,
+          id: stepId,
         },
       );
 
