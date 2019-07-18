@@ -11,9 +11,9 @@ import { Flex, Separator, LoadingGuy } from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
-import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { removeSwipeJourney } from '../../actions/swipe';
 import NullStateComponent from '../../components/NullStateComponent';
+import { JOURNEY_EDIT_FLOW } from '../../routes/constants';
 import {
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
@@ -36,7 +36,6 @@ class ContactJourney extends Component {
 
     this.completeBump = this.completeBump.bind(this);
     this.renderRow = this.renderRow.bind(this);
-    this.handleEditComment = this.handleEditComment.bind(this);
     this.handleEditInteraction = this.handleEditInteraction.bind(this);
   }
 
@@ -55,13 +54,18 @@ class ContactJourney extends Component {
   }
 
   handleEditInteraction = interaction => {
+    const { dispatch, person, organization } = this.props;
+
     const isStep = interaction._type === ACCEPTED_STEP;
 
-    this.props.dispatch(
-      navigatePush(ADD_STEP_SCREEN, {
+    dispatch(
+      navigatePush(JOURNEY_EDIT_FLOW, {
+        id: interaction.id,
         type: isStep ? EDIT_JOURNEY_STEP : EDIT_JOURNEY_ITEM,
         isEdit: true,
         text: isStep ? interaction.note : interaction.comment,
+        personId: person.id,
+        orgId: organization && organization.id,
       }),
     );
   };

@@ -91,10 +91,10 @@ class AddStepScreen extends Component {
   getButtonText() {
     const { t, type, personId, myId } = this.props;
 
-    if (type.oneOf(JOURNEY, STEP_NOTE, INTERACTION)) {
+    if ([JOURNEY, STEP_NOTE, INTERACTION].includes(type)) {
       return t(personId === myId ? 'addJourneyMe' : 'addJourneyPerson');
     }
-    if (type.oneOf(EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM)) {
+    if ([EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM].includes(type)) {
       return t('editJourneyButton');
     }
     return t('selectStep:addStep');
@@ -103,10 +103,10 @@ class AddStepScreen extends Component {
   renderTitle() {
     const { t, type } = this.props;
 
-    if (type.oneOf(JOURNEY, STEP_NOTE, INTERACTION)) {
+    if ([JOURNEY, STEP_NOTE, INTERACTION].includes(type)) {
       return t('journeyHeader');
     }
-    if (type.oneOf(EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM)) {
+    if ([EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM].includes(type)) {
       return t('editJourneyHeader');
     }
     return t('header');
