@@ -48,7 +48,7 @@ export function getMe(extraInclude) {
 
 export function getPersonDetails(id, orgId) {
   if (!id) {
-    return Promise.reject();
+    return Promise.resolve();
   }
 
   const personInclude =
