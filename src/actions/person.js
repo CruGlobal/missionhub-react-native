@@ -47,6 +47,10 @@ export function getMe(extraInclude) {
 }
 
 export function getPersonDetails(id, orgId) {
+  if (!id) {
+    return Promise.reject();
+  }
+
   const personInclude =
     'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
