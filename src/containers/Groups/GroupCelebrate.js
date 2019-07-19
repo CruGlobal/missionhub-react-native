@@ -83,6 +83,7 @@ export const mapStateToProps = ({ organizations }, { organization = {} }) => {
   });
 
   return {
+    organization: selectorOrg,
     celebrateItems,
     pagination: selectorOrg && selectorOrg.celebratePagination,
   };
