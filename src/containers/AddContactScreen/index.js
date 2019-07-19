@@ -137,7 +137,7 @@ class AddContactScreen extends Component {
 
     try {
       const results = await dispatch(
-        isEdit && saveData.id ? updatePerson(saveData) : addNewPerson(saveData),
+        isEdit ? updatePerson(saveData) : addNewPerson(saveData),
       );
 
       this.setState({

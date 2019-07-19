@@ -47,14 +47,16 @@ export function getMe(extraInclude) {
 }
 
 export function getPersonDetails(id, orgId) {
-  if (!id) {
-    return Promise.resolve();
-  }
-
   const personInclude =
     'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
   return async dispatch => {
+    if (!id) {
+      return Promise.resolve(
+        'Invalid Data from getPersonDetails: no personId passed in',
+      );
+    }
+
     const query = {
       person_id: id,
       include: personInclude,
@@ -153,15 +155,11 @@ export function updatePersonAttributes(personId, personAttributes) {
 }
 
 export function updatePerson(data) {
-  if (!(data && data.id)) {
-    return Promise.resolve();
-  }
-
   const personInclude =
     'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
   return async dispatch => {
-    if (!data) {
+    if (!(data && data.id)) {
       return dispatch({
         type: 'UPDATE_PERSON_FAIL',
         error: 'InvalidData',

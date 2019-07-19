@@ -120,10 +120,13 @@ describe('getPersonDetails', () => {
     ],
   };
 
-  it("should get a person's details", async () => {
-    const apiResponse = { type: REQUESTS.GET_PERSON.SUCCESS, response: person };
-    callApi.mockReturnValue(apiResponse);
+  const apiResponse = { type: REQUESTS.GET_PERSON.SUCCESS, response: person };
 
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+  });
+
+  it("should get a person's details", async () => {
     await store.dispatch(getPersonDetails(person.id, orgId));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON, {
       person_id: person.id,
@@ -140,20 +143,26 @@ describe('getPersonDetails', () => {
       },
     ]);
   });
+
+  it('should not get person details if no person id', async () => {
+    await store.dispatch(getPersonDetails(undefined, orgId));
+    expect(callApi).not.toHaveBeenCalled();
+
+    expect(store.getActions()).toEqual([]);
+  });
 });
 
 describe('updatePerson', () => {
   const updateInclude = expectedIncludeWithContactAssignmentPerson;
 
-  afterEach(() => {
-    expect(dispatch).toHaveBeenCalled();
-  });
-
   it('should update first name', () => {
-    updatePerson({
-      id: 1,
-      firstName: 'Test Fname',
-    })(dispatch);
+    store.dispatch(
+      updatePerson({
+        id: 1,
+        firstName: 'Test Fname',
+      }),
+    );
+
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
       { personId: 1, include: updateInclude },
@@ -167,12 +176,16 @@ describe('updatePerson', () => {
       },
     );
   });
+
   it('should update last name', () => {
-    updatePerson({
-      id: 1,
-      firstName: 'Test Fname',
-      lastName: 'Test Lname',
-    })(dispatch);
+    store.dispatch(
+      updatePerson({
+        id: 1,
+        firstName: 'Test Fname',
+        lastName: 'Test Lname',
+      }),
+    );
+
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
       { personId: 1, include: updateInclude },
@@ -187,12 +200,16 @@ describe('updatePerson', () => {
       },
     );
   });
+
   it('should update gender', () => {
-    updatePerson({
-      id: 1,
-      firstName: 'Test Fname',
-      gender: 'Male',
-    })(dispatch);
+    store.dispatch(
+      updatePerson({
+        id: 1,
+        firstName: 'Test Fname',
+        gender: 'Male',
+      }),
+    );
+
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
       { personId: 1, include: updateInclude },
@@ -207,12 +224,16 @@ describe('updatePerson', () => {
       },
     );
   });
+
   it('should update email only', () => {
-    updatePerson({
-      id: 1,
-      email: 'a@a.com',
-      emailId: 2,
-    })(dispatch);
+    store.dispatch(
+      updatePerson({
+        id: 1,
+        email: 'a@a.com',
+        emailId: 2,
+      }),
+    );
+
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
       { personId: 1, include: updateInclude },
@@ -230,12 +251,16 @@ describe('updatePerson', () => {
       },
     );
   });
+
   it('should update phone only', () => {
-    updatePerson({
-      id: 1,
-      phone: '1234567890',
-      phoneId: 3,
-    })(dispatch);
+    store.dispatch(
+      updatePerson({
+        id: 1,
+        phone: '1234567890',
+        phoneId: 3,
+      }),
+    );
+
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
       { personId: 1, include: updateInclude },
@@ -252,6 +277,36 @@ describe('updatePerson', () => {
         ],
       },
     );
+  });
+
+  it('does not update person if no data', () => {
+    store.dispatch(updatePerson());
+
+    expect(callApi).not.toHaveBeenCalled();
+
+    expect(store.getActions()).toEqual([
+      {
+        type: 'UPDATE_PERSON_FAIL',
+        error: 'InvalidData',
+        data: undefined,
+      },
+    ]);
+  });
+
+  it('does not update person if no person id', () => {
+    const data = { id: undefined };
+
+    store.dispatch(updatePerson(data));
+
+    expect(callApi).not.toHaveBeenCalled();
+
+    expect(store.getActions()).toEqual([
+      {
+        type: 'UPDATE_PERSON_FAIL',
+        error: 'InvalidData',
+        data,
+      },
+    ]);
   });
 });
 
