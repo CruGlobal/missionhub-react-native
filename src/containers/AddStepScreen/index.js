@@ -6,7 +6,14 @@ import { withTranslation } from 'react-i18next';
 
 import { Flex, Input } from '../../components/common';
 import theme from '../../theme';
-import { STEP_NOTE, CREATE_STEP } from '../../constants';
+import {
+  JOURNEY,
+  EDIT_JOURNEY_STEP,
+  EDIT_JOURNEY_ITEM,
+  STEP_NOTE,
+  CREATE_STEP,
+  INTERACTION,
+} from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
 import AbsoluteSkip from '../../components/AbsoluteSkip';
@@ -48,7 +55,8 @@ class AddStepScreen extends Component {
     const {
       next,
       dispatch,
-      stepId,
+      id,
+      type,
       personId,
       orgId,
       onSetComplete,
@@ -56,7 +64,7 @@ class AddStepScreen extends Component {
     if (onSetComplete) {
       await onSetComplete();
     }
-    dispatch(next({ text, stepId, personId, orgId }));
+    dispatch(next({ text, id, type, personId, orgId }));
   };
 
   saveStep = () => {
@@ -82,26 +90,26 @@ class AddStepScreen extends Component {
 
   getButtonText() {
     const { t, type, personId, myId } = this.props;
-    let text = t('selectStep:addStep');
-    if (type === 'journey' || type === STEP_NOTE || type === 'interaction') {
-      text = t(personId === myId ? 'addJourneyMe' : 'addJourneyPerson');
-    } else if (type === 'editJourney') {
-      text = t('editJourneyButton');
-    }
 
-    return text;
+    if ([JOURNEY, STEP_NOTE, INTERACTION].includes(type)) {
+      return t(personId === myId ? 'addJourneyMe' : 'addJourneyPerson');
+    }
+    if ([EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM].includes(type)) {
+      return t('editJourneyButton');
+    }
+    return t('selectStep:addStep');
   }
 
   renderTitle() {
     const { t, type } = this.props;
 
-    return t(
-      type === 'journey' || type === STEP_NOTE || type === 'interaction'
-        ? 'journeyHeader'
-        : type === 'editJourney'
-        ? 'editJourneyHeader'
-        : 'header',
-    );
+    if ([JOURNEY, STEP_NOTE, INTERACTION].includes(type)) {
+      return t('journeyHeader');
+    }
+    if ([EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM].includes(type)) {
+      return t('editJourneyHeader');
+    }
+    return t('header');
   }
 
   ref = c => (this.stepInput = c);
@@ -144,7 +152,7 @@ class AddStepScreen extends Component {
           testID="saveStepButton"
         />
         <BackButton absolute={true} iconStyle={backButtonStyle} />
-        {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
+        {type === STEP_NOTE || (type === INTERACTION && !hideSkip) ? (
           <AbsoluteSkip onSkip={this.skip} textStyle={skipBtnText} />
         ) : null}
       </SafeAreaView>
@@ -155,16 +163,17 @@ class AddStepScreen extends Component {
 AddStepScreen.propTypes = {
   next: PropTypes.func.isRequired,
   type: PropTypes.oneOf([
-    'journey',
-    'editJourney',
+    JOURNEY,
+    EDIT_JOURNEY_STEP,
+    EDIT_JOURNEY_ITEM,
     STEP_NOTE,
     CREATE_STEP,
-    'interaction',
+    INTERACTION,
   ]),
   isEdit: PropTypes.bool,
   hideSkip: PropTypes.bool,
   text: PropTypes.string,
-  stepId: PropTypes.string,
+  id: PropTypes.string,
   personId: PropTypes.string,
   orgId: PropTypes.string,
   onSetComplete: PropTypes.func,
@@ -180,7 +189,7 @@ const mapStateToProps = (
           isEdit,
           hideSkip,
           text,
-          stepId,
+          id,
           personId,
           orgId,
           onSetComplete,
@@ -194,7 +203,7 @@ const mapStateToProps = (
   isEdit,
   hideSkip,
   text,
-  stepId,
+  id,
   personId,
   orgId,
   onSetComplete,

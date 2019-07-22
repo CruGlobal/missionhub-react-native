@@ -297,7 +297,7 @@ describe('complete challenge', () => {
         params: {
           type: STEP_NOTE,
           personId: receiverId,
-          stepId,
+          id: stepId,
           onSetComplete: expect.any(Function),
           orgId: stepOrgId,
           trackingObj: buildTrackingObj(
@@ -349,7 +349,7 @@ describe('complete challenge', () => {
         params: {
           type: STEP_NOTE,
           personId: receiverId,
-          stepId,
+          id: stepId,
           onSetComplete: expect.any(Function),
           orgId: null,
           trackingObj: buildTrackingObj(
