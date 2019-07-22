@@ -52,7 +52,7 @@ export function getPersonDetails(id, orgId) {
 
   return async dispatch => {
     if (!id) {
-      return Promise.resolve(
+      return Promise.reject(
         'Invalid Data from getPersonDetails: no personId passed in',
       );
     }
