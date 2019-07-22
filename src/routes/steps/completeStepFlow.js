@@ -21,7 +21,7 @@ import { paramsForStageNavigation } from '../utils';
 export const CompleteStepFlowScreens = onFlowComplete => ({
   [COMPLETE_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
-    ({ text, stepId, personId, orgId }) => (dispatch, getState) => {
+    ({ text, id, personId, orgId }) => (dispatch, getState) => {
       const {
         isMe,
         hasHitCount,
@@ -34,7 +34,7 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
       } = paramsForStageNavigation(personId, orgId, getState);
 
       if (text) {
-        dispatch(updateChallengeNote(stepId, text));
+        dispatch(updateChallengeNote(id, text));
         dispatch(
           trackAction(ACTIONS.INTERACTION.name, {
             [ACTIONS.INTERACTION.COMMENT]: null,

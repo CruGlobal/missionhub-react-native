@@ -8,8 +8,14 @@ import {
 import { exists } from '../utils/common';
 import { GROUP_ONBOARDING_TYPES } from '../containers/Groups/OnboardingCard';
 
-// Keep track of all the swipeable rows and whether or not to show a reminder
-const initialState = {
+export interface SwipeState {
+  journey: boolean;
+  groupOnboarding: { [key in string]: boolean };
+  groupInviteInfo: boolean;
+  groupScrollToId: string | number | null;
+}
+
+const initialState: SwipeState = {
   journey: true,
   groupOnboarding: {
     [GROUP_ONBOARDING_TYPES.celebrate]: true,
@@ -23,7 +29,8 @@ const initialState = {
   groupScrollToId: null,
 };
 
-function swipeReducer(state = initialState, action) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function swipeReducer(state = initialState, action: any) {
   switch (action.type) {
     case SWIPE_REMINDER_JOURNEY:
       return { ...state, journey: false };
