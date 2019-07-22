@@ -145,10 +145,12 @@ describe('getPersonDetails', () => {
   });
 
   it('should not get person details if no person id', async () => {
-    await store.dispatch(getPersonDetails(undefined, orgId));
-    expect(callApi).not.toHaveBeenCalled();
-
-    expect(store.getActions()).toEqual([]);
+    try {
+      await store.dispatch(getPersonDetails(undefined, orgId));
+    } catch {
+      expect(callApi).not.toHaveBeenCalled();
+      expect(store.getActions()).toEqual([]);
+    }
   });
 });
 
