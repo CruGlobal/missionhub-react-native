@@ -216,7 +216,7 @@ describe('edit comment', () => {
   });
 
   it('should edit a comment', async () => {
-    await store.dispatch(editComment({ id: interaction.id }, comment));
+    await store.dispatch(editComment(interaction.id, comment));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.EDIT_COMMENT,
@@ -239,7 +239,7 @@ describe('edit comment', () => {
 
   it('should not edit a comment, no comment', async () => {
     try {
-      await store.dispatch(editComment({ id: interaction.id }));
+      await store.dispatch(editComment(interaction.id));
     } catch (e) {
       expect(e).toBe(
         'Invalid Data from editComment: no interaction or no comment passed in',

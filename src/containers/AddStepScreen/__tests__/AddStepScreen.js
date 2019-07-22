@@ -4,7 +4,14 @@ import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import { CREATE_STEP, STEP_NOTE } from '../../../constants';
+import {
+  JOURNEY,
+  EDIT_JOURNEY_STEP,
+  EDIT_JOURNEY_ITEM,
+  CREATE_STEP,
+  STEP_NOTE,
+  INTERACTION,
+} from '../../../constants';
 import locale from '../../../i18n/locales/en-US';
 
 import AddStepScreen from '..';
@@ -22,7 +29,7 @@ const nextResult = { type: 'next' };
 const auth = { person: { id: '123123' } };
 
 const text = 'Comment';
-const stepId = '1112';
+const id = '1112';
 const personId = '2221';
 const orgId = '333';
 
@@ -30,12 +37,18 @@ beforeEach(() => {
   next.mockReturnValue(nextResult);
 });
 
-const baseParams = { stepId, personId, orgId };
+const baseParams = { id, personId, orgId };
 const createStepParams = { ...baseParams, type: CREATE_STEP };
-const journeyParams = { ...baseParams, type: 'journey' };
-const editJourneyParams = {
+const journeyParams = { ...baseParams, type: JOURNEY };
+const editJourneyStepParams = {
   ...baseParams,
-  type: 'editJourney',
+  type: EDIT_JOURNEY_STEP,
+  isEdit: true,
+  text,
+};
+const editJourneyItemParams = {
+  ...baseParams,
+  type: EDIT_JOURNEY_ITEM,
   isEdit: true,
   text,
 };
@@ -57,8 +70,8 @@ const myStepNoteEditParams = {
   text,
   personId: auth.person.id,
 };
-const interactionParams = { type: 'interaction', hideSkip: 'true' };
-const interactionWithSkipParams = { type: 'interaction', hideSkip: false };
+const interactionParams = { type: INTERACTION, hideSkip: 'true' };
+const interactionWithSkipParams = { type: INTERACTION, hideSkip: false };
 
 it('renders create step correctly', () => {
   renderWithContext(<AddStepScreen next={next} />, {
@@ -74,10 +87,17 @@ it('renders journey correctly', () => {
   }).snapshot();
 });
 
-it('renders edit journey correctly', () => {
+it('renders edit journey step correctly', () => {
   renderWithContext(<AddStepScreen next={next} />, {
     initialState: { auth },
-    navParams: editJourneyParams,
+    navParams: editJourneyStepParams,
+  }).snapshot();
+});
+
+it('renders edit journey item correctly', () => {
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth },
+    navParams: editJourneyItemParams,
   }).snapshot();
 });
 
@@ -154,7 +174,8 @@ it('saves step', () => {
   expect(store.getActions()).toEqual([nextResult]);
   expect(next).toHaveBeenCalledWith({
     text,
-    stepId,
+    id,
+    type: STEP_NOTE,
     personId,
     orgId,
   });
@@ -179,7 +200,8 @@ it('saves step with onSetComplete', async () => {
   expect(onSetComplete).toHaveBeenCalledWith();
   expect(next).toHaveBeenCalledWith({
     text,
-    stepId,
+    id,
+    type: STEP_NOTE,
     personId,
     orgId,
   });
@@ -201,7 +223,8 @@ it('skips save step', () => {
   expect(store.getActions()).toEqual([nextResult]);
   expect(next).toHaveBeenCalledWith({
     text: undefined,
-    stepId,
+    id,
+    type: STEP_NOTE,
     personId,
     orgId,
   });

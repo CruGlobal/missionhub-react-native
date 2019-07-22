@@ -165,6 +165,7 @@ import {
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
   ADD_SOMEONE_STEP_FLOW,
+  JOURNEY_EDIT_FLOW,
 } from './routes/constants';
 import {
   AddPersonThenStepScreenFlowNavigator,
@@ -205,6 +206,7 @@ import {
   CompleteStepFlowAndNavigateBackNavigator,
   CompleteStepFlowScreens,
 } from './routes/steps/completeStepFlow';
+import { JourneyEditFlowNavigator } from './routes/journey/journeyEditFlow';
 import CelebrateDetailScreen, {
   CELEBRATE_DETAIL_SCREEN,
 } from './containers/CelebrateDetailScreen';
@@ -533,6 +535,7 @@ const screens = {
   [ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW]: AddPersonThenPeopleScreenFlowNavigator,
   [ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW]: AddPersonThenCommunityMembersFlowNavigator,
   [EDIT_PERSON_FLOW]: EditPersonFlowNavigator,
+  [JOURNEY_EDIT_FLOW]: JourneyEditFlowNavigator,
 };
 
 export const trackableScreens = {
