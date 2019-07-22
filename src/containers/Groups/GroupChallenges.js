@@ -97,7 +97,7 @@ export const mapStateToProps = (
     pagination: selectorOrg.challengePagination,
     myOrgPermissions: orgPermissionSelector(null, {
       person: auth.person,
-      organization: { id: orgId },
+      organization: selectorOrg,
     }),
   };
 };
