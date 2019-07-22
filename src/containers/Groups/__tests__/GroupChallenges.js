@@ -103,7 +103,9 @@ beforeEach(() => {
 
 describe('mapStateToProps', () => {
   it('provides props correctly', () => {
-    organizationSelector.mockReturnValue(org);
+    const selectorOrg = { ...org, title: 'Org' };
+
+    organizationSelector.mockReturnValue(selectorOrg);
 
     expect(mapStateToProps(store, { organization: org })).toEqual({
       challengeItems: challengeSelectorReturnValue,
@@ -111,6 +113,34 @@ describe('mapStateToProps', () => {
         permission_id: '1',
       },
       pagination: challengePagination,
+    });
+    expect(organizationSelector).toHaveBeenCalledWith(
+      { organizations: store.organizations },
+      { orgId: org.id },
+    );
+    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+      person: store.auth.person,
+      organization: selectorOrg,
+    });
+  });
+
+  it('provides props correctly when no org selected', () => {
+    organizationSelector.mockReturnValue(undefined);
+
+    expect(mapStateToProps(store, { organization: org })).toEqual({
+      challengeItems: challengeSelectorReturnValue,
+      myOrgPermissions: {
+        permission_id: '1',
+      },
+      pagination: challengePagination,
+    });
+    expect(organizationSelector).toHaveBeenCalledWith(
+      { organizations: store.organizations },
+      { orgId: org.id },
+    );
+    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+      person: store.auth.person,
+      organization: org,
     });
   });
 });

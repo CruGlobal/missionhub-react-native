@@ -82,6 +82,7 @@ describe('mapStateToProps', () => {
     celebrationSelector.mockReturnValue(celebrateSelectorReturnValue);
 
     expect(mapStateToProps(store, { organization: org })).toEqual({
+      organization: org,
       celebrateItems: celebrateSelectorReturnValue,
       pagination: celebratePagination,
     });
