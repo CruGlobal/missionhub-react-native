@@ -2,7 +2,11 @@
 
 exports[`with enableBackButton renders correctly 1`] = `
 <View
-  flex={1}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
 >
   <View
     onLayout={[Function]}
@@ -78,8 +82,12 @@ exports[`with enableBackButton renders correctly 1`] = `
               }
             >
               <View
-                alignItems="center"
-                flex={1}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  }
+                }
               >
                 <RCTSafeAreaView
                   emulateUnlessSupported={true}
@@ -195,7 +203,9 @@ exports[`with enableBackButton renders correctly 1`] = `
                       },
                     ]
                   }
-                />
+                >
+                  Header Text
+                </Text>
               </View>
             </View>
           </View>
@@ -226,11 +236,6 @@ exports[`with enableBackButton renders correctly 1`] = `
             contactName="roger"
             contactStageId="3"
             onPressStep={[Function]}
-            organization={
-              Object {
-                "id": "4234234",
-              }
-            }
             receiverId="252342354234"
           />
         </View>
@@ -522,7 +527,11 @@ exports[`with enableBackButton renders correctly 1`] = `
 
 exports[`with enableSkipButton renders correctly 1`] = `
 <View
-  flex={1}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
 >
   <View
     onLayout={[Function]}
@@ -598,8 +607,12 @@ exports[`with enableSkipButton renders correctly 1`] = `
               }
             >
               <View
-                alignItems="center"
-                flex={1}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  }
+                }
               >
                 <RCTSafeAreaView
                   emulateUnlessSupported={true}
@@ -715,7 +728,9 @@ exports[`with enableSkipButton renders correctly 1`] = `
                       },
                     ]
                   }
-                />
+                >
+                  Header Text
+                </Text>
               </View>
             </View>
           </View>
@@ -746,11 +761,6 @@ exports[`with enableSkipButton renders correctly 1`] = `
             contactName="roger"
             contactStageId="3"
             onPressStep={[Function]}
-            organization={
-              Object {
-                "id": "4234234",
-              }
-            }
             receiverId="252342354234"
           />
         </View>
@@ -1036,7 +1046,11 @@ exports[`with enableSkipButton renders correctly 1`] = `
 
 exports[`without enableBackButton nor enableSkipButton renders correctly 1`] = `
 <View
-  flex={1}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
 >
   <View
     onLayout={[Function]}
@@ -1112,8 +1126,12 @@ exports[`without enableBackButton nor enableSkipButton renders correctly 1`] = `
               }
             >
               <View
-                alignItems="center"
-                flex={1}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  }
+                }
               >
                 <RCTSafeAreaView
                   emulateUnlessSupported={true}
@@ -1229,7 +1247,9 @@ exports[`without enableBackButton nor enableSkipButton renders correctly 1`] = `
                       },
                     ]
                   }
-                />
+                >
+                  Header Text
+                </Text>
               </View>
             </View>
           </View>
@@ -1260,11 +1280,6 @@ exports[`without enableBackButton nor enableSkipButton renders correctly 1`] = `
             contactName="roger"
             contactStageId="3"
             onPressStep={[Function]}
-            organization={
-              Object {
-                "id": "4234234",
-              }
-            }
             receiverId="252342354234"
           />
         </View>

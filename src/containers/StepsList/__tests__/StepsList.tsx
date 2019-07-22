@@ -1,67 +1,61 @@
 import 'react-native';
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { fireEvent } from 'react-native-testing-library';
 
-import { renderShallow } from '../../../../testUtils';
-import { insertName } from '../../../utils/steps';
+import { renderWithContext } from '../../../../testUtils';
+import { getStepSuggestions } from '../../../actions/steps';
 
 import StepsList from '..';
 
-jest.mock('../../../utils/steps');
+jest.mock('../../../actions/steps', () => ({
+  getStepSuggestions: jest.fn().mockReturnValue({ type: 'getStepSuggestions' }),
+}));
+jest.mock('../../../components/LoadMore', () => 'LoadMore');
 
-const mockStore = configureStore([thunk]);
-let store;
+let personId: string;
+let contactStageId: string;
+let screen: ReturnType<typeof renderWithContext>;
 
-let personId;
-let contactStageId;
-let screen;
-
-const organization = { id: '4234234' };
 const stageIdWithSteps = '3';
 const receiverId = '252342354234';
-const contactName = 'bill';
-const item = { body: 'some step' };
+const contactName = 'Bill';
 const suggestedForMe = {
   [stageIdWithSteps]: [
-    { id: '1' },
-    { id: '2' },
-    { id: '3' },
-    { id: '4' },
-    { id: '5' },
-    { id: '6' },
+    { id: '1', body: 'Step for me' },
+    { id: '2', body: 'Step for me' },
+    { id: '3', body: 'Step for me' },
+    { id: '4', body: 'Step for me' },
+    { id: '5', body: 'Step for me' },
+    { id: '6', body: 'Step for me' },
   ],
 };
 const suggestedForOthers = {
   [stageIdWithSteps]: [
-    { id: '7' },
-    { id: '8' },
-    { id: '9' },
-    { id: '10' },
-    { id: '11' },
-    { id: '12' },
+    { id: '7', body: 'Step with <<name>>' },
+    { id: '8', body: 'Step with <<name>>' },
+    { id: '9', body: 'Step with <<name>>' },
+    { id: '10', body: 'Step with <<name>>' },
+    { id: '11', body: 'Step with <<name>>' },
+    { id: '12', body: 'Step with <<name>>' },
   ],
 };
 
-const insertNameResult = [{ body: 'take a step with roge' }];
-
-const next = jest.fn();
+const onPressStep = jest.fn();
 
 beforeEach(() => {
-  store = mockStore({
-    auth: { person: { id: personId } },
-    steps: { suggestedForMe, suggestedForOthers },
-  });
-
-  screen = renderShallow(
+  screen = renderWithContext(
     <StepsList
       contactStageId={contactStageId}
-      organization={organization}
       receiverId={receiverId}
       contactName={contactName}
-      next={next}
+      onPressStep={onPressStep}
     />,
-    store,
+    {
+      initialState: {
+        auth: { person: { id: personId } },
+        steps: { suggestedForMe, suggestedForOthers },
+      },
+    },
   );
 });
 
@@ -76,7 +70,8 @@ describe('for me', () => {
     });
 
     it('renders correctly', () => {
-      expect(screen).toMatchSnapshot();
+      expect(getStepSuggestions).toHaveBeenCalledWith(true, '100');
+      screen.snapshot();
     });
   });
 
@@ -86,14 +81,15 @@ describe('for me', () => {
     });
 
     it('renders correctly', () => {
-      expect(screen).toMatchSnapshot();
+      expect(getStepSuggestions).toHaveBeenCalledWith(true, '3');
+      screen.snapshot();
     });
 
     describe('loadMore', () => {
       it('should show more steps and hide button', () => {
+        screen.recordSnapshot();
         pressLoadMore();
-
-        expect(screen).toMatchSnapshot();
+        screen.diffSnapshot();
       });
     });
   });
@@ -107,57 +103,34 @@ describe('for another person', () => {
   describe('without steps', () => {
     beforeAll(() => {
       contactStageId = '100';
-      insertName.mockReturnValue([]);
     });
 
     it('renders correctly', () => {
-      expect(screen).toMatchSnapshot();
+      expect(getStepSuggestions).toHaveBeenCalledWith(false, '100');
+      screen.snapshot();
     });
   });
 
   describe('with steps', () => {
     beforeAll(() => {
       contactStageId = stageIdWithSteps;
-      insertName.mockReturnValue(insertNameResult);
     });
 
     it('renders correctly', () => {
-      expect(screen).toMatchSnapshot();
-    });
-
-    it('inserts name into steps', () => {
-      expect(insertName).toHaveBeenCalledWith(
-        suggestedForOthers[contactStageId].slice(0, 4),
-        contactName,
-      );
+      expect(getStepSuggestions).toHaveBeenCalledWith(false, '3');
+      screen.snapshot();
     });
 
     describe('loadMore', () => {
-      beforeEach(() => {
-        pressLoadMore();
-      });
-
       it('should show more steps and hide button', () => {
-        expect(screen).toMatchSnapshot();
-      });
-
-      it('should insert name', () => {
-        expect(insertName).toHaveBeenCalledWith(
-          suggestedForOthers[contactStageId].slice(0, 8),
-          contactName,
-        );
+        screen.recordSnapshot();
+        pressLoadMore();
+        screen.diffSnapshot();
       });
     });
-  });
-});
-
-describe('renderItem', () => {
-  it('renders correctly', () => {
-    expect(screen.props().renderItem({ item })).toMatchSnapshot();
   });
 });
 
 function pressLoadMore() {
-  screen.props().ListFooterComponent.props.onPress();
-  screen.update();
+  fireEvent.press(screen.getByTestId('loadMore'));
 }

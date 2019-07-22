@@ -14,6 +14,7 @@ import AbsoluteSkip from '../../components/AbsoluteSkip';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
+import { useDisableBack } from '../../utils/hooks/useDisableBack';
 
 import styles from './styles';
 

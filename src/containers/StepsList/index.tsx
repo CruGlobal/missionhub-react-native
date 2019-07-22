@@ -76,12 +76,13 @@ const StepsList = ({
       scrollEnabled={true}
       style={list}
       ListFooterComponent={
-        suggestions.length > suggestionIndex && (
+        suggestions.length > suggestionIndex ? (
           <LoadMore
+            testID="loadMore"
             onPress={handleLoadSteps}
             text={t('loadMoreSteps').toUpperCase()}
           />
-        )
+        ) : null
       }
     />
   );
