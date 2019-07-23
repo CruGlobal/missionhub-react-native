@@ -3,7 +3,6 @@
 import { Linking } from 'react-native';
 
 import { contactAssignmentSelector } from '../selectors/people';
-import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import {
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
@@ -81,14 +80,11 @@ export function assignContactAndPickStage(person, organization) {
     );
 
     dispatch(
-      navigatePush(PERSON_STAGE_SCREEN, {
+      navigatePush(SELECT_PERSON_STAGE_FLOW, {
         contactId: resultPerson.id,
         orgId,
         contactAssignmentId: contactAssignment.id,
-        name: resultPerson.first_name,
-        onComplete: () => {
-          dispatch(loadStepsAndJourney(personId, orgId));
-        },
+        firstName: resultPerson.first_name,
         section: 'people',
         subsection: 'person',
       }),

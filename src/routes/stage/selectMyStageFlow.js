@@ -4,14 +4,16 @@ import { wrapNextAction } from '../helpers';
 import { navigatePush } from '../../actions/navigation';
 import { updatePersonAttributes } from '../../actions/person';
 import { loadStepsAndJourney } from '../../actions/misc';
-import StageScreen, { STAGE_SCREEN } from '../../containers/StageScreen';
+import SelectMyStageScreen, {
+  SELECT_MY_STAGE_SCREEN,
+} from '../../containers/SelectMyStageScreen';
 import { SELECT_MY_STEP_SCREEN } from '../../containers/SelectMyStepScreen';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { AddMyStepFlowScreens } from '../steps/addMyStepFlow';
 
 export const SelectMyStageFlowScreens = {
-  [STAGE_SCREEN]: wrapNextAction(
-    StageScreen,
+  [SELECT_MY_STAGE_SCREEN]: wrapNextAction(
+    SelectMyStageScreen,
     ({ stage, contactId, orgId, isAlreadySelected }) => dispatch => {
       dispatch(
         updatePersonAttributes(contactId, {

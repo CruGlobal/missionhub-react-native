@@ -19,17 +19,41 @@ import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
 import PathwayStageScreen from './PathwayStageScreen';
 
+interface selectPersonStageScreenProps {
+  dispatch: ThunkDispatch<any, null, never>;
+  next: (props?: {
+    stage: any;
+    firstName: string;
+    contactId: string;
+    contactAssignmentId: string;
+    orgId?: string;
+    isAlreadySelected: bool;
+  }) => ThunkAction<void, any, null, never>; // TODO: make next required when only used in flows
+  contactId: string;
+  contactAssignmentId: string;
+  firstName: string;
+  myId: string;
+  orgId?: string;
+  questionText?: string;
+  firstItem?: number;
+  section: string;
+  subsection: string;
+  enableBackButton?: bool;
+}
+
 const SelectPersonStageScreen = ({
   dispatch,
   next,
+  contactId,
+  contactAssignmentId,
+  firstName,
+  myId,
   orgId,
   questionText,
   firstItem = 0,
   section,
   subsection,
   enableBackButton = true,
-  firstName,
-  contactId,
 }: selectPersonStageScreenProps) => {
   const { t } = useTranslation('selectStage');
 
@@ -82,9 +106,9 @@ const mapStateToProps = (
     navigation: {
       state: {
         params: {
-          name,
           contactId,
           contactAssignmentId,
+          firstName,
           orgId,
           questionText,
           firstItem,
@@ -97,20 +121,16 @@ const mapStateToProps = (
     next,
   },
 ) => ({
-  name,
-  contactId,
-  contactAssignmentId,
+  next,
   orgId,
   questionText,
   firstItem,
   section,
   subsection,
   enableBackButton,
-  personFirstName: personProfile.personFirstName,
-  personId: personProfile.id,
-  contactAssignmentId: onComplete // onComplete currently seems to be used as a flag to indicate if we are in onboarding or not
-    ? contactAssignmentId
-    : contactAssignmentId || personProfile.contactAssignmentId,
+  contactId: contactId || personProfile.id,
+  contactAssignmentId: contactAssignmentId || personProfile.contactAssignmentId,
+  firstName: firstName || personProfile.personFirstName,
   myId: auth.person.id,
 });
 

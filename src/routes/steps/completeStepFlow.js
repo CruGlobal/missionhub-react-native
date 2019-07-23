@@ -7,8 +7,8 @@ import { RESET_STEP_COUNT, ACTIONS } from '../../constants';
 import AddStepScreen, {
   COMPLETE_STEP_SCREEN,
 } from '../../containers/AddStepScreen';
-import { STAGE_SCREEN } from '../../containers/StageScreen';
-import { PERSON_STAGE_SCREEN } from '../../containers/PersonStageScreen';
+import { SELECT_MY_STAGE_SCREEN } from '../../containers/SelectMyStageScreen';
+import { SELECT_PERSON_STAGE_SCREEN } from '../../containers/SelectPersonStageScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
@@ -30,7 +30,7 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
         firstItemIndex,
         questionText,
         assignment,
-        name,
+        firstName,
       } = paramsForStageNavigation(personId, orgId, getState);
 
       if (text) {
@@ -56,18 +56,20 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
       }
 
       dispatch(
-        navigatePush(isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN, {
-          section: 'people',
-          subsection,
-          firstItem: firstItemIndex,
-          enableBackButton: false,
-          noNav: true,
-          questionText,
-          orgId,
-          contactId: personId,
-          contactAssignmentId: assignment && assignment.id,
-          name,
-        }),
+        navigatePush(
+          isMe ? SELECT_MY_STAGE_SCREEN : SELECT_PERSON_STAGE_SCREEN,
+          {
+            section: 'people',
+            subsection,
+            firstItem: firstItemIndex,
+            enableBackButton: false,
+            questionText,
+            orgId,
+            contactId: personId,
+            contactAssignmentId: assignment && assignment.id,
+            firstName,
+          },
+        ),
       );
     },
   ),
