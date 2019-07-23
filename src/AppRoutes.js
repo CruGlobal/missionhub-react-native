@@ -42,10 +42,7 @@ import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, {
   GET_STARTED_SCREEN,
 } from './containers/GetStartedScreen';
-import StageScreen, {
-  STAGE_ONBOARDING_SCREEN,
-  STAGE_SCREEN,
-} from './containers/StageScreen';
+import StageScreen, { STAGE_SCREEN } from './containers/StageScreen';
 import StageSuccessScreen, {
   STAGE_SUCCESS_SCREEN,
 } from './containers/StageSuccessScreen';
@@ -562,7 +559,6 @@ export const MainStackRoutes = createStackNavigator(
   {
     ...screens,
     [LANDING_SCREEN]: { screen: LandingScreen },
-    [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
     [PERSON_SELECT_STEP_SCREEN]: {
       screen: PersonSelectStepScreen,
       defaultNavigationOptions: { gesturesEnabled: true },
