@@ -98,7 +98,6 @@ export function navigateToStageScreen(
   contactAssignment,
   organization = {},
   firstItemIndex, //todo find a way to not pass this
-  noNav = false,
 ) {
   return dispatch => {
     if (personIsCurrentUser) {
@@ -109,20 +108,18 @@ export function navigateToStageScreen(
           section: 'people',
           subsection: 'self',
           enableBackButton: true,
-          noNav,
         }),
       );
     } else {
       dispatch(
         navigatePush(SELECT_PERSON_STAGE_FLOW, {
           firstItem: firstItemIndex,
-          name: person.first_name,
+          firstName: person.first_name,
           contactId: person.id,
           contactAssignmentId: contactAssignment && contactAssignment.id,
           orgId: organization.id,
           section: 'people',
           subsection: 'person',
-          noNav,
         }),
       );
     }
