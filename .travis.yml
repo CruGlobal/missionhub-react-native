@@ -1,73 +1,73 @@
 matrix:
   include:
-    - name: 'JS lint, test, i18n, and Codepush'
-      language: node_js
-      node_js:
-        - '11'
-      env:
-        - ENVFILE=.env.production
-      before_script:
-        - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
-      script:
-        - yarn test:coverage --maxWorkers=4
-        - yarn lint
-        - yarn lint:ts
-        - yarn prettier:check
-      notifications:
-        email: false
-      after_success:
-        - bash <(curl -s https://codecov.io/bash)
-        - |
-          if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-            yarn onesky:upload;
-            yarn onesky:download;
-            yarn codepush-ios-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.ios.js --extra-bundler-option="--sourcemap-sources-root" --extra-bundler-option="./" --description "#$TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT_RANGE | $TRAVIS_COMMIT_MESSAGE";
-            yarn codepush-android-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.android.js --extra-bundler-option="--sourcemap-sources-root" --extra-bundler-option="./" --description "#$TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT_RANGE | $TRAVIS_COMMIT_MESSAGE";
+    # - name: 'JS lint, test, i18n, and Codepush'
+    #   language: node_js
+    #   node_js:
+    #     - '11'
+    #   env:
+    #     - ENVFILE=.env.production
+    #   before_script:
+    #     - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
+    #   script:
+    #     - yarn test:coverage --maxWorkers=4
+    #     - yarn lint
+    #     - yarn lint:ts
+    #     - yarn prettier:check
+    #   notifications:
+    #     email: false
+    #   after_success:
+    #     - bash <(curl -s https://codecov.io/bash)
+    #     - |
+    #       if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
+    #         yarn onesky:upload;
+    #         yarn onesky:download;
+    #         yarn codepush-ios-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.ios.js --extra-bundler-option="--sourcemap-sources-root" --extra-bundler-option="./" --description "#$TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT_RANGE | $TRAVIS_COMMIT_MESSAGE";
+    #         yarn codepush-android-staging --token "$APPCENTER_TOKEN" --sourcemap-output sourcemap.android.js --extra-bundler-option="--sourcemap-sources-root" --extra-bundler-option="./" --description "#$TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT_RANGE | $TRAVIS_COMMIT_MESSAGE";
 
-            curl https://api.rollbar.com/api/1/sourcemap \
-            -F access_token=$ROLLBAR_POST_SERVER_ITEM_TOKEN \
-            -F version=$TRAVIS_COMMIT.ios \
-            -F minified_url=http://reactnativehost/main.jsbundle \
-            -F source_map=@sourcemap.ios.js
+    #         curl https://api.rollbar.com/api/1/sourcemap \
+    #         -F access_token=$ROLLBAR_POST_SERVER_ITEM_TOKEN \
+    #         -F version=$TRAVIS_COMMIT.ios \
+    #         -F minified_url=http://reactnativehost/main.jsbundle \
+    #         -F source_map=@sourcemap.ios.js
 
-            curl https://api.rollbar.com/api/1/sourcemap \
-            -F access_token=$ROLLBAR_POST_SERVER_ITEM_TOKEN \
-            -F version=$TRAVIS_COMMIT.android \
-            -F minified_url=http://reactnativehost/main.jsbundle \
-            -F source_map=@sourcemap.android.js
-          fi
-      cache:
-        - yarn
+    #         curl https://api.rollbar.com/api/1/sourcemap \
+    #         -F access_token=$ROLLBAR_POST_SERVER_ITEM_TOKEN \
+    #         -F version=$TRAVIS_COMMIT.android \
+    #         -F minified_url=http://reactnativehost/main.jsbundle \
+    #         -F source_map=@sourcemap.android.js
+    #       fi
+    #   cache:
+    #     - yarn
 
-    - name: 'iOS Testflight Build'
-      language: objective-c
-      if: branch = master and type = push
-      xcode_workspace: ios/MissionHub.xcworkspace
-      os: osx
-      osx_image: xcode10.2
-      env:
-        - ENVFILE=.env.production
-      before_install:
-        - brew update
-        - brew install yarn
-      install:
-        - yarn install
-        - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
-        - (cd ios && bundler install)
-      before_script:
-        - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
-        - yarn run onesky:download
-      script:
-        - (cd ios && fastlane ios beta)
-      before_cache:
-        - brew cleanup
-      cache:
-        - yarn
-        - cocoapods
-        - bundler
-        - directories:
-            - $HOME/Library/Developer/Xcode/DerivedData
-            - $HOME/Library/Caches/Homebrew
+    # - name: 'iOS Testflight Build'
+    #   language: objective-c
+    #   if: branch = master and type = push
+    #   xcode_workspace: ios/MissionHub.xcworkspace
+    #   os: osx
+    #   osx_image: xcode10.2
+    #   env:
+    #     - ENVFILE=.env.production
+    #   before_install:
+    #     - brew update
+    #     - brew install yarn
+    #   install:
+    #     - yarn install
+    #     - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
+    #     - (cd ios && bundler install)
+    #   before_script:
+    #     - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
+    #     - yarn run onesky:download
+    #   script:
+    #     - (cd ios && fastlane ios beta)
+    #   before_cache:
+    #     - brew cleanup
+    #   cache:
+    #     - yarn
+    #     - cocoapods
+    #     - bundler
+    #     - directories:
+    #         - $HOME/Library/Developer/Xcode/DerivedData
+    #         - $HOME/Library/Caches/Homebrew
 
     - name: 'Android Beta Build'
       language: android
@@ -86,7 +86,7 @@ matrix:
         licenses:
           - android-sdk-license-.+
 
-      if: branch = master and type = push
+      # if: branch = master and type = push
       env:
         - ENVFILE=.env.production
       before_install:
