@@ -18,6 +18,8 @@ const landscapeHeight = 275;
 export default StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: theme.backgroundColor,
   },
   title: {

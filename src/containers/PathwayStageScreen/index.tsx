@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { View, Image, Keyboard } from 'react-native';
+import { View, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
-import PropTypes from 'prop-types';
+import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
-import { Flex, Text, Button } from '../../components/common';
+import { Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 import LANDSCAPE from '../../../assets/images/landscapeStagesImage.png';
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
@@ -17,6 +17,7 @@ import { getStages } from '../../actions/stages';
 import { trackAction, trackState } from '../../actions/analytics';
 import { buildTrackingObj, disableBack } from '../../utils/common';
 import { ACTIONS } from '../../constants';
+import { useDisableBack } from '../../utils/hooks/useDisableBack';
 
 import styles, {
   sliderWidth,
@@ -28,54 +29,54 @@ import styles, {
 
 const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
-const fallbackIndex = 0;
+interface PathwayStageScreenProps {
+  dispatch: ThunkDispatch<any, null, never>;
+  onSelect: (props?: { skip: boolean }) => ThunkAction<void, any, null, never>; // TODO: make next required when only used in flows
+  onScrollToStage: (props?: any) => void;
+  section: string;
+  subsection: string;
+  questionText: string;
+  buttonText: string;
+  activeButtonText: string;
+  firstItem?: number;
+  enableBackButton: boolean;
+  isSelf: boolean;
+  stages: any;
+}
 
-class PathwayStageScreen extends Component {
-  constructor(props) {
-    super(props);
+const PathwayStageScreen = ({
+  dispatch,
+  onSelect,
+  onScrollToStage,
+  section,
+  subsection,
+  questionText,
+  buttonText,
+  activeButtonText,
+  firstItem = 0,
+  enableBackButton,
+  isSelf,
+  stages,
+}: PathwayStageScreenProps) => {
+  const enableBack = !enableBackButton && useDisableBack();
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-    this.state = {
-      scrollPosition: 0,
-    };
+  const loadStages = async () => {
+    await dispatch(getStages());
 
-    this.renderStage = this.renderStage.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
-    this.handleSnapToItem = this.handleSnapToItem.bind(this);
-  }
+    handleSnapToItem(firstItem);
+  };
 
-  async UNSAFE_componentWillMount() {
-    await this.props.dispatch(getStages());
-    const { firstItem, stages } = this.props;
+  const setStage = (stage, isAlreadySelected) => {
+    !enableBackButton && enableBack();
 
-    const initialIndex = firstItem || fallbackIndex;
-    if (stages[initialIndex]) {
-      this.trackStageState(stages[initialIndex].id);
-    }
-    Keyboard.dismiss();
-  }
+    onSelect(stage, isAlreadySelected);
 
-  componentDidMount() {
-    if (!this.props.enableBackButton) {
-      disableBack.add();
-    }
-  }
-
-  componentWillUnmount() {
-    if (!this.props.enableBackButton) {
-      disableBack.remove();
-    }
-  }
-
-  setStage = (stage, isAlreadySelected) => {
-    if (!this.props.enableBackButton) {
-      disableBack.remove();
-    }
-    this.props.onSelect(stage, isAlreadySelected);
-
-    const action = this.props.isSelf
+    const action = isSelf
       ? ACTIONS.SELF_STAGE_SELECTED
       : ACTIONS.PERSON_STAGE_SELECTED;
-    this.props.dispatch(
+
+    dispatch(
       trackAction(action.name, {
         [action.key]: stage.id,
         [ACTIONS.STAGE_SELECTED.key]: null,
@@ -83,33 +84,25 @@ class PathwayStageScreen extends Component {
     );
   };
 
-  handleScroll(e) {
-    this.setState({ scrollPosition: e.nativeEvent.contentOffset.x });
-  }
+  const handleScroll = e => setScrollPosition(e.nativeEvent.contentOffset.x);
 
-  handleSnapToItem(index) {
-    const { stages } = this.props;
+  const handleSnapToItem = index => {
     if (stages[index]) {
-      this.trackStageState(stages[index].id);
+      const trackingObj = buildTrackingObj(
+        `${section} : ${subsection} : stage : ${stages[index].id}`,
+        section,
+        subsection,
+        'stage',
+      );
+
+      onScrollToStage(trackingObj);
+      dispatch(trackState(trackingObj));
     }
-  }
+  };
 
-  trackStageState(number) {
-    const { section, subsection, dispatch, onScrollToStage } = this.props;
-    const trackingObj = buildTrackingObj(
-      `${section} : ${subsection} : stage : ${number}`,
-      section,
-      subsection,
-      'stage',
-    );
+  const renderStage = ({ item, index }) => {
+    const isActive = firstItem === index;
 
-    onScrollToStage(trackingObj);
-    dispatch(trackState(trackingObj));
-  }
-
-  renderStage({ item, index }) {
-    const { firstItem, activeButtonText, buttonText } = this.props;
-    const isActive = firstItem >= 0 && firstItem === index;
     return (
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>
@@ -123,63 +116,48 @@ class PathwayStageScreen extends Component {
           testID={`StageButton${index}`}
           type="primary"
           pressProps={[item, isActive]}
-          onPress={this.setStage}
-          text={isActive && activeButtonText ? activeButtonText : buttonText}
+          onPress={setStage}
+          text={isActive ? activeButtonText : buttonText}
         />
       </View>
     );
-  }
+  };
 
-  render() {
-    const { enableBackButton, questionText, stages, firstItem } = this.props;
-    const leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
+  loadStages();
+  const leftMargin = scrollPosition / -1 - overScrollMargin;
 
-    return (
-      <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Image
-          source={LANDSCAPE}
-          style={[
-            styles.footerImage,
-            {
-              left: leftMargin,
-              width: getLandscapeWidth((stages || []).length),
-            },
-          ]}
+  return (
+    <View style={styles.container}>
+      <Image
+        source={LANDSCAPE}
+        style={[
+          styles.footerImage,
+          {
+            left: leftMargin,
+            width: getLandscapeWidth((stages || []).length),
+          },
+        ]}
+      />
+      {enableBackButton ? <BackButton absolute={true} /> : null}
+      <Text style={styles.title}>{questionText}</Text>
+      {stages ? (
+        <Carousel
+          firstItem={firstItem}
+          data={stages}
+          inactiveSlideOpacity={1}
+          inactiveSlideScale={1}
+          renderItem={renderStage}
+          sliderWidth={sliderWidth + 75}
+          itemWidth={stageWidth + stageMargin * 2}
+          onScroll={handleScroll}
+          scrollEventThrottle={5}
+          onSnapToItem={handleSnapToItem}
+          removeClippedSubviews={false}
+          containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
         />
-        {enableBackButton ? <BackButton absolute={true} /> : null}
-        <Text style={styles.title}>{questionText}</Text>
-        {stages ? (
-          <Carousel
-            firstItem={firstItem || fallbackIndex}
-            data={stages}
-            inactiveSlideOpacity={1}
-            inactiveSlideScale={1}
-            renderItem={this.renderStage}
-            sliderWidth={sliderWidth + 75}
-            itemWidth={stageWidth + stageMargin * 2}
-            onScroll={this.handleScroll}
-            scrollEventThrottle={5}
-            onSnapToItem={this.handleSnapToItem}
-            removeClippedSubviews={false}
-            containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
-          />
-        ) : null}
-      </Flex>
-    );
-  }
-}
-
-PathwayStageScreen.propTypes = {
-  onSelect: PropTypes.func.isRequired,
-  onScrollToStage: PropTypes.func.isRequired,
-  section: PropTypes.string.isRequired,
-  subsection: PropTypes.string.isRequired,
-  questionText: PropTypes.string,
-  buttonText: PropTypes.string,
-  activeButtonText: PropTypes.string,
-  firstItem: PropTypes.number,
-  enableBackButton: PropTypes.bool,
-  isSelf: PropTypes.bool,
+      ) : null}
+    </View>
+  );
 };
 
 const mapStateToProps = ({ stages }) => ({
