@@ -32,6 +32,11 @@ exports[`renders back button correctly 1`] = `
     }
   >
     <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/add_someone.png",
+        }
+      }
       style={
         Object {
           "height": 80,
@@ -59,7 +64,7 @@ exports[`renders back button correctly 1`] = `
         ]
       }
     >
-      
+      Hello, world!
     </Text>
   </View>
   <RCTSafeAreaView
@@ -105,7 +110,33 @@ exports[`renders back button correctly 1`] = `
             null,
           ]
         }
-      />
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          CLICK ME
+        </Text>
+      </View>
     </View>
   </RCTSafeAreaView>
   <RCTSafeAreaView
@@ -195,7 +226,7 @@ exports[`renders back button correctly 1`] = `
 </View>
 `;
 
-exports[`renders button text correctly 1`] = `
+exports[`renders correctly 1`] = `
 <View
   style={
     Array [
@@ -227,6 +258,11 @@ exports[`renders button text correctly 1`] = `
     }
   >
     <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/add_someone.png",
+        }
+      }
       style={
         Object {
           "height": 80,
@@ -254,7 +290,7 @@ exports[`renders button text correctly 1`] = `
         ]
       }
     >
-      
+      Hello, world!
     </Text>
   </View>
   <RCTSafeAreaView
@@ -332,7 +368,7 @@ exports[`renders button text correctly 1`] = `
 </View>
 `;
 
-exports[`renders icon correctly 1`] = `
+exports[`renders skip button correctly 1`] = `
 <View
   style={
     Array [
@@ -366,120 +402,9 @@ exports[`renders icon correctly 1`] = `
     <Image
       source={
         Object {
-          "testUri": "../../../assets/images/footprints.png",
+          "testUri": "../../../assets/images/add_someone.png",
         }
       }
-      style={
-        Object {
-          "height": 80,
-          "resizeMode": "contain",
-          "width": 80,
-        }
-      }
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "lineHeight": 32,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          },
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "flex": 1,
-        "justifyContent": "flex-end",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bottomButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
-          ]
-        }
-      />
-    </View>
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`renders main text correctly 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-        "paddingHorizontal": 60,
-      },
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "flex-start",
-          "flex": 4,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <Image
       style={
         Object {
           "height": 80,
@@ -553,118 +478,33 @@ exports[`renders main text correctly 1`] = `
             null,
           ]
         }
-      />
-    </View>
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`renders skip button correctly 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-        "paddingHorizontal": 60,
-      },
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "flex-start",
-          "flex": 4,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <Image
-      style={
-        Object {
-          "height": 80,
-          "resizeMode": "contain",
-          "width": 80,
-        }
-      }
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "lineHeight": 32,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          },
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "flex": 1,
-        "justifyContent": "flex-end",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bottomButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
-          ]
-        }
-      />
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          CLICK ME
+        </Text>
+      </View>
     </View>
   </RCTSafeAreaView>
   <RCTSafeAreaView

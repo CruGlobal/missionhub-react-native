@@ -12,7 +12,7 @@ const FACEBOOK_SCOPE = ['public_profile', 'email'];
 
 export function facebookPromptLogin() {
   return async () => {
-    const result = await LoginManager.logInWithReadPermissions(FACEBOOK_SCOPE);
+    const result = await LoginManager.logInWithPermissions(FACEBOOK_SCOPE);
     if (result.isCancelled) {
       throw Error('Facebook login canceled by user');
     }

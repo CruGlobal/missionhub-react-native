@@ -26,6 +26,21 @@ exports[`MemberCelebrate renders correctly 1`] = `
   loadMoreItemsCallback={[Function]}
   organization={
     Object {
+      "celebrateItems": Array [
+        Object {
+          "adjective_attribute_value": 4,
+          "celebrateable_type": "interaction",
+          "changed_attribute_value": "2018-06-11 00:00:00 UTC",
+          "id": "10",
+          "subject_person": Object {
+            "id": "1",
+          },
+        },
+      ],
+      "celebratePagination": Object {
+        "hasNextPage": true,
+        "page": 0,
+      },
       "id": "456",
     }
   }
@@ -41,6 +56,11 @@ exports[`MemberCelebrate renders empty feed correctly 1`] = `
   loadMoreItemsCallback={[Function]}
   organization={
     Object {
+      "celebrateItems": Array [],
+      "celebratePagination": Object {
+        "hasNextPage": true,
+        "page": 0,
+      },
       "id": "123",
     }
   }

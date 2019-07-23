@@ -13,5 +13,5 @@ export function getDate(date) {
 }
 
 export function modeIs24Hour(format) {
-  return !format.match(/h|a/);
+  return !!format.match(/H|k/);
 }

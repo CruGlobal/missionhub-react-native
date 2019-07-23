@@ -35,6 +35,8 @@ target 'MissionHub' do
   pod 'Firebase/Core'
   pod 'Firebase/DynamicLinks'
 
+  pod 'AdobeMobileLibrary', :path => 'AdobeMobileLibrary'
+
   target 'MissionHubTests' do
     inherit! :search_paths
     # Pods for testing

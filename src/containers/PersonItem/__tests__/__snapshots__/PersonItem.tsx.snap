@@ -288,6 +288,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
           "opacity": 1,
         }
       }
+      testID="setStageButton"
     >
       <Text
         allowFontScaling={false}
@@ -453,9 +454,7 @@ exports[`renders cru org member correctly 1`] = `
               ],
             ]
           }
-        >
-          
-        </Text>
+        />
       </View>
     </View>
   </View>
@@ -590,9 +589,7 @@ exports[`renders me correctly 1`] = `
               ],
             ]
           }
-        >
-          
-        </Text>
+        />
       </View>
     </View>
   </View>
@@ -727,9 +724,7 @@ exports[`renders personal ministry contact correctly 1`] = `
               ],
             ]
           }
-        >
-          
-        </Text>
+        />
       </View>
     </View>
   </View>

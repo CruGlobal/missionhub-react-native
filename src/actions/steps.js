@@ -235,7 +235,7 @@ export function completeStep(step, screen, extraBack = false) {
       navigatePush(
         extraBack ? COMPLETE_STEP_FLOW_NAVIGATE_BACK : COMPLETE_STEP_FLOW,
         {
-          stepId,
+          id: stepId,
           personId: receiverId,
           orgId,
           onSetComplete: () => dispatch(completeChallengeAPI(step)),

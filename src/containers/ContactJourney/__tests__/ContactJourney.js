@@ -5,7 +5,12 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 import * as navigation from '../../../actions/navigation';
-import { ACCEPTED_STEP } from '../../../constants';
+import { JOURNEY_EDIT_FLOW } from '../../../routes/constants';
+import {
+  ACCEPTED_STEP,
+  EDIT_JOURNEY_STEP,
+  EDIT_JOURNEY_ITEM,
+} from '../../../constants';
 import {
   createMockNavState,
   renderShallow,
@@ -15,12 +20,12 @@ import {
 import ContactJourney from '..';
 
 const personId = '123';
-const organizationId = 2;
+const orgId = '222';
 
 const mockPerson = {
   id: personId,
   first_name: 'ben',
-  organizational_permissions: [{ organization_id: organizationId }],
+  organizational_permissions: [{ organization_id: orgId }],
 };
 
 const mockJourneyList = [
@@ -57,7 +62,9 @@ const createMockStore = (id, personalJourney, isJean = true) => {
   return configureStore([thunk])(mockState);
 };
 
-const org = { id: '123' };
+const org = { id: orgId };
+const personalOrg = { id: 'personal' };
+const userCreatedOrg = { ...org, user_created: true };
 
 const createComponent = props => {
   return renderShallow(
@@ -90,29 +97,43 @@ describe('ContactJourney', () => {
 
   it('renders screen as personal ministry', () => {
     store = createMockStore(personId, { [personId]: mockJourneyList });
-    component = createComponent();
-    component.setState({ isPersonalMinistry: true });
+    component = createComponent({ organization: personalOrg });
 
     expect(component).toMatchSnapshot();
   });
 
-  it('loads with personal ministry false', () => {
+  it('Not Jean, org is Personal', () => {
     store = createMockStore(personId, { [personId]: mockJourneyList }, false);
-    const instance = createComponent({ organization: org }).instance();
+    const instance = createComponent({ organization: personalOrg }).instance();
 
     expect(instance.state.isPersonalMinistry).toEqual(true);
   });
 
-  it('loads with personal ministry true', () => {
-    store = createMockStore(personId, { [personId]: mockJourneyList });
+  it('Not Jean, org is User-Created', () => {
+    store = createMockStore(personId, { [personId]: mockJourneyList }, false);
+    const instance = createComponent({
+      organization: userCreatedOrg,
+    }).instance();
+
+    expect(instance.state.isPersonalMinistry).toEqual(true);
+  });
+
+  it('Is Jean, org is Personal', () => {
+    store = createMockStore(personId, { [personId]: mockJourneyList }, true);
+    const instance = createComponent({ organization: personalOrg }).instance();
+
+    expect(instance.state.isPersonalMinistry).toEqual(true);
+  });
+
+  it('Is Jean, org is Cru', () => {
+    store = createMockStore(personId, { [personId]: mockJourneyList }, true);
     const instance = createComponent({ organization: org }).instance();
 
     expect(instance.state.isPersonalMinistry).toEqual(false);
   });
 
-  it('loads with user_created true', () => {
-    const userCreatedOrg = { ...org, user_created: true };
-    store = createMockStore(personId, { [personId]: mockJourneyList });
+  it('lIs Jean, org is User-Created', () => {
+    store = createMockStore(personId, { [personId]: mockJourneyList }, true);
     const instance = createComponent({
       organization: userCreatedOrg,
     }).instance();
@@ -125,7 +146,7 @@ describe('journey methods', () => {
   let component;
   beforeEach(() => {
     store = createMockStore(personId, { [personId]: mockJourneyList });
-    component = createComponent().instance();
+    component = createComponent({ organization: org }).instance();
   });
 
   it('renders a step row', () => {
@@ -171,20 +192,46 @@ describe('journey methods', () => {
     expect(snap).toMatchSnapshot();
   });
 
-  it('handles edit comment', () => {
-    const comment = 'test';
-    component.handleEditInteraction({ text: comment });
+  it('handles edit interaction for step', () => {
+    const interactionId = '1';
+    const interactionNote = 'note';
 
-    component.handleEditComment(comment);
+    navigation.navigatePush = jest.fn(screen => ({ type: screen }));
+    component.handleEditInteraction({
+      id: interactionId,
+      note: interactionNote,
+      _type: ACCEPTED_STEP,
+    });
 
-    expect(mockEditComment).toHaveBeenCalledTimes(1);
+    expect(navigation.navigatePush).toHaveBeenCalledWith(JOURNEY_EDIT_FLOW, {
+      id: interactionId,
+      type: EDIT_JOURNEY_STEP,
+      isEdit: true,
+      text: interactionNote,
+      personId,
+      orgId,
+    });
   });
 
-  it('handles edit interaction', () => {
-    navigation.navigatePush = jest.fn(screen => ({ type: screen }));
-    component.handleEditInteraction({ id: 1 });
+  it('handles edit interaction for other', () => {
+    const interactionId = '1';
+    const interactionComment = 'comment';
 
-    expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+    navigation.navigatePush = jest.fn(screen => ({ type: screen }));
+    component.handleEditInteraction({
+      id: interactionId,
+      comment: interactionComment,
+      _type: 'other',
+    });
+
+    expect(navigation.navigatePush).toHaveBeenCalledWith(JOURNEY_EDIT_FLOW, {
+      id: interactionId,
+      type: EDIT_JOURNEY_ITEM,
+      isEdit: true,
+      text: interactionComment,
+      personId,
+      orgId,
+    });
   });
 
   it('should call list ref', () => {

@@ -51,6 +51,12 @@ export function getPersonDetails(id, orgId) {
     'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
   return async dispatch => {
+    if (!id) {
+      return Promise.reject(
+        'Invalid Data from getPersonDetails: no personId passed in',
+      );
+    }
+
     const query = {
       person_id: id,
       include: personInclude,
@@ -153,7 +159,7 @@ export function updatePerson(data) {
     'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
   return async dispatch => {
-    if (!data) {
+    if (!(data && data.id)) {
       return dispatch({
         type: 'UPDATE_PERSON_FAIL',
         error: 'InvalidData',

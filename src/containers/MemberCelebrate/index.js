@@ -70,6 +70,7 @@ const mapStateToProps = ({ organizations }, { organization, person }) => {
   });
 
   return {
+    organization: selectorOrg,
     celebrateItems,
     pagination: selectorOrg.celebratePagination,
   };

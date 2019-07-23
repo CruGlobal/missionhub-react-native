@@ -78,9 +78,9 @@ export function addNewInteraction(
   };
 }
 
-export function editComment(interaction, comment) {
+export function editComment(interactionId, comment) {
   return dispatch => {
-    if (!interaction || !comment) {
+    if (!interactionId || !comment) {
       return Promise.reject(
         'Invalid Data from editComment: no interaction or no comment passed in',
       );
@@ -90,13 +90,13 @@ export function editComment(interaction, comment) {
       data: {
         type: 'interaction',
         attributes: {
-          comment: comment,
+          comment,
         },
       },
       included: [],
     };
     const query = {
-      interactionId: interaction.id,
+      interactionId,
     };
     return dispatch(callApi(REQUESTS.EDIT_COMMENT, query, bodyData)).then(() =>
       dispatch(trackActionWithoutData(ACTIONS.JOURNEY_EDITED)),

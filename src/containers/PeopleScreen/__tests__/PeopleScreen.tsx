@@ -1,26 +1,32 @@
 import 'react-native';
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
-import {
-  peopleByOrgSelector,
-  allAssignedPeopleSelector,
-} from '../../../selectors/people';
+import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { getMyPeople } from '../../../actions/people';
 import { navToPersonScreen } from '../../../actions/person';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../../routes/constants';
+import { SEARCH_SCREEN } from '../../../containers/SearchPeopleScreen';
 
-import { PeopleScreen, mapStateToProps } from '..';
+import { PeopleScreen } from '..';
+
+jest.mock('../../../components/common', () => ({ IconButton: 'IconButton' }));
+jest.mock('../../../components/PeopleList', () => 'PeopleList');
+jest.mock('../../../components/Header', () => 'Header');
+jest.mock('../../TrackTabChange', () => 'TrackTabChange');
+jest.mock(
+  '../../TakeAStepWithSomeoneButton',
+  () => 'TakeAStepWithSomeoneButton',
+);
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/people');
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/unreadComments');
 jest.mock('../../../selectors/people');
-jest.mock('../../TrackTabChange', () => () => null);
 
 jest.mock('../../../actions/people', () => ({
   getMyPeople: jest.fn(),
@@ -86,98 +92,44 @@ const people = [
 
 const props = {
   isJean: true,
+  hasNoContacts: false,
   items: orgs,
   dispatch: jest.fn(response => Promise.resolve(response)),
 };
 
 jest.mock('react-native-device-info');
 
-describe('mapStateToProps', () => {
-  it('should provide the necessary props for Jean', () => {
-    peopleByOrgSelector.mockReturnValue(orgs);
-    expect(
-      mapStateToProps({
-        auth: {
-          isJean: true,
-        },
-        people: {},
-      }),
-    ).toMatchSnapshot();
-    expect(peopleByOrgSelector).toHaveBeenCalled();
-  });
-  it('should provide the necessary props for Jean with no contacts', () => {
-    peopleByOrgSelector.mockReturnValue([
-      {
-        id: 'personal',
-        type: 'organization',
-        people: [
-          {
-            id: 'me person',
-          },
-        ],
-      },
-    ]);
-    expect(
-      mapStateToProps({
-        auth: {
-          isJean: true,
-        },
-        people: {},
-      }),
-    ).toMatchSnapshot();
-    expect(peopleByOrgSelector).toHaveBeenCalled();
-  });
-  it('should provide the necessary props for Casey', () => {
-    allAssignedPeopleSelector.mockReturnValue(people);
-    expect(
-      mapStateToProps({
-        auth: {
-          isJean: false,
-        },
-        people: {},
-      }),
-    ).toMatchSnapshot();
-    expect(allAssignedPeopleSelector).toHaveBeenCalled();
-  });
-  it('should provide necessary props for Casey with no steps', () => {
-    allAssignedPeopleSelector.mockReturnValue([{ id: 'me person' }]);
-    expect(
-      mapStateToProps({
-        auth: {
-          isJean: false,
-        },
-        people: {},
-      }),
-    ).toMatchSnapshot();
-    expect(allAssignedPeopleSelector).toHaveBeenCalled();
-  });
-});
-
 it('renders empty correctly', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <PeopleScreen
       {...props}
       isJean={false}
       items={[{ id: 'me person' }]}
       hasNoContacts={true}
     />,
-  );
+    {
+      initialState: { auth: { person: {} }, stages: {} },
+    },
+  ).snapshot();
 });
 
 it('renders correctly as Casey', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <PeopleScreen {...props} isJean={false} items={people} />,
-  );
+  ).snapshot();
 });
 
 it('renders correctly as Jean', () => {
-  testSnapshotShallow(<PeopleScreen {...props} isJean={true} items={orgs} />);
+  renderWithContext(
+    <PeopleScreen {...props} isJean={true} items={orgs} />,
+  ).snapshot();
 });
 
 it('should open main menu', () => {
-  const instance = renderShallow(<PeopleScreen {...props} />).instance();
-  common.openMainMenu = jest.fn();
-  instance.openMainMenu();
+  (common.openMainMenu as jest.Mock) = jest.fn();
+
+  const { getByTestId } = renderWithContext(<PeopleScreen {...props} />);
+  fireEvent.press(getByTestId('header').props.left);
   expect(common.openMainMenu).toHaveBeenCalled();
 });
 
@@ -185,15 +137,13 @@ describe('handleAddContact', () => {
   const organization = orgs[0];
 
   describe('not isJean', () => {
-    beforeEach(() => {
-      const instance = renderShallow(
-        <PeopleScreen {...props} isJean={false} />,
-      ).instance();
-
-      instance.handleAddContact();
-    });
-
     it('should navigate to add person flow', () => {
+      const { getByTestId } = renderWithContext(
+        <PeopleScreen {...props} isJean={false} />,
+      );
+
+      fireEvent.press(getByTestId('header').props.right);
+
       expect(navigatePush).toHaveBeenCalledWith(
         ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
         { organization: undefined },
@@ -202,16 +152,21 @@ describe('handleAddContact', () => {
   });
 
   describe('isJean', () => {
-    beforeEach(() => {
-      const screen = renderShallow(<PeopleScreen {...props} isJean={true} />);
+    it('should replace top right icon with search', () => {
+      const { getByTestId } = renderWithContext(
+        <PeopleScreen {...props} isJean={true} />,
+      );
 
-      screen
-        .childAt(2)
-        .props()
-        .onAddContact(organization);
+      fireEvent.press(getByTestId('header').props.right);
+      expect(navigatePush).toHaveBeenCalledWith(SEARCH_SCREEN);
     });
 
     it('should navigate to add person flow', () => {
+      const { getByTestId } = renderWithContext(
+        <PeopleScreen {...props} isJean={true} />,
+      );
+      fireEvent(getByTestId('peopleList'), 'addContact', organization);
+
       expect(navigatePush).toHaveBeenCalledWith(
         ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
         { organization },
@@ -224,11 +179,8 @@ describe('handleRowSelect', () => {
   it('should navigate to person screen in personal ministry', () => {
     const org = orgs[0];
     const person = org.people[0];
-    const screen = renderShallow(<PeopleScreen {...props} />);
-    screen
-      .childAt(2)
-      .props()
-      .onSelect(person, org);
+    const { getByTestId } = renderWithContext(<PeopleScreen {...props} />);
+    getByTestId('peopleList').props.onSelect(person, org);
 
     expect(navToPersonScreen).toHaveBeenCalledWith(person, undefined);
   });
@@ -236,39 +188,30 @@ describe('handleRowSelect', () => {
   it('should navigate to person screen in org', () => {
     const org = orgs[1];
     const person = org.people[0];
-    const screen = renderShallow(<PeopleScreen {...props} />);
-    screen
-      .childAt(2)
-      .props()
-      .onSelect(person, org);
+    const { getByTestId } = renderWithContext(<PeopleScreen {...props} />);
+    getByTestId('peopleList').props.onSelect(person, org);
 
     expect(navToPersonScreen).toHaveBeenCalledWith(person, org);
   });
 });
 
 describe('handleRefresh', () => {
-  let screen;
-  let instance;
-
   beforeEach(() => {
-    getMyPeople.mockReturnValue({ type: 'get people' });
-    checkForUnreadComments.mockReturnValue({
+    ((getMyPeople as unknown) as jest.Mock).mockReturnValue({
+      type: 'get people',
+    });
+    ((checkForUnreadComments as unknown) as jest.Mock).mockReturnValue({
       type: 'check for unread comments',
     });
-    common.refresh = jest.fn((_, refreshMethod) => refreshMethod());
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (common as any).refresh = jest.fn((_, refreshMethod) => refreshMethod());
 
-    screen = renderShallow(<PeopleScreen {...props} />);
-    instance = screen.instance();
-
-    instance.handleRefresh();
+    const { getByTestId } = renderWithContext(<PeopleScreen {...props} />);
+    fireEvent(getByTestId('peopleList'), 'refresh');
   });
 
   it('should get me', () => {
     expect(checkForUnreadComments).toHaveBeenCalled();
-  });
-
-  it('should refresh with getPeople method', () => {
-    expect(common.refresh).toHaveBeenCalledWith(instance, instance.getPeople);
   });
 
   it('should get people', () => {

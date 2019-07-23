@@ -15,8 +15,8 @@ import { isFunction } from '../../utils/common';
 
 const FORMATS = {
   date: 'LL',
-  datetime: 'YYYY-MM-DD HH:mm',
-  time: 'HH:mm',
+  datetime: 'YYYY-MM-DD LT',
+  time: 'LT',
 };
 
 @withTranslation('datePicker')
@@ -84,19 +84,19 @@ class MyDatePickerAndroid extends Component {
   }
 
   launchDatePicker() {
-    const { androidMode, minDate, maxDate } = this.props;
+    const { androidDateMode, minDate, maxDate } = this.props;
 
     return DatePickerAndroid.open({
       date: this.state.date,
       minDate: minDate && getDate(minDate),
       maxDate: maxDate && getDate(maxDate),
-      mode: androidMode,
+      mode: androidDateMode,
     });
   }
 
   launchTimePicker() {
     const {
-      androidMode,
+      androidTimeMode,
       mode,
       format = FORMATS[mode],
       is24Hour = modeIs24Hour(format),
@@ -108,7 +108,7 @@ class MyDatePickerAndroid extends Component {
       hour: timeMoment.hour(),
       minute: timeMoment.minutes(),
       is24Hour,
-      mode: androidMode,
+      mode: androidTimeMode,
     });
   }
 
@@ -160,14 +160,16 @@ class MyDatePickerAndroid extends Component {
 
 MyDatePickerAndroid.defaultProps = {
   mode: 'date',
-  androidMode: 'default',
+  androidDateMode: 'default',
+  androidTimeMode: 'spinner',
   date: '',
   disabled: false,
 };
 
 MyDatePickerAndroid.propTypes = {
   mode: PropTypes.oneOf(['date', 'datetime', 'time']),
-  androidMode: PropTypes.oneOf(['clock', 'calendar', 'spinner', 'default']),
+  androidDateMode: PropTypes.oneOf(['calendar', 'spinner', 'default']),
+  androidTimeMode: PropTypes.oneOf(['clock', 'spinner', 'default']),
   date: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.instanceOf(Date),
