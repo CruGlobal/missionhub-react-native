@@ -38,7 +38,8 @@ describe('DatePicker methods', () => {
   const today = moment(date);
   const mockChange = jest.fn();
   const mockCloseModal = jest.fn();
-  const androidMode = 'default';
+  const androidDateMode = 'default';
+  const androidTimeMode = 'spinner';
 
   describe('mode is date', () => {
     beforeEach(() => {
@@ -49,7 +50,7 @@ describe('DatePicker methods', () => {
           maxDate={maxDate}
           onDateChange={mockChange}
           onCloseModal={mockCloseModal}
-          androidMode={androidMode}
+          androidDateMode={androidDateMode}
           mode="date"
         />,
       );
@@ -78,7 +79,7 @@ describe('DatePicker methods', () => {
           date,
           minDate,
           maxDate,
-          mode: androidMode,
+          mode: androidDateMode,
         });
         expect(instance.state.date).toEqual(
           new Date(
@@ -111,7 +112,7 @@ describe('DatePicker methods', () => {
           date,
           minDate,
           maxDate,
-          mode: androidMode,
+          mode: androidDateMode,
         });
         expect(mockCloseModal).toHaveBeenCalled();
       });
@@ -125,7 +126,7 @@ describe('DatePicker methods', () => {
           date={date}
           onDateChange={mockChange}
           onCloseModal={mockCloseModal}
-          androidMode={androidMode}
+          androidTimeMode={androidTimeMode}
           mode="time"
         />,
       );
@@ -148,12 +149,12 @@ describe('DatePicker methods', () => {
           .onPress();
       });
 
-      it('picks date', () => {
+      it('picks time', () => {
         expect(TimePickerAndroid.open).toHaveBeenCalledWith({
           hour: moment(date).hour(),
           minute: moment(date).minutes(),
-          is24Hour: true,
-          mode: androidMode,
+          is24Hour: false,
+          mode: androidTimeMode,
         });
         expect(instance.state.date).toEqual(
           new Date(
@@ -181,7 +182,8 @@ describe('DatePicker methods', () => {
           maxDate={maxDate}
           onDateChange={mockChange}
           onCloseModal={mockCloseModal}
-          androidMode={androidMode}
+          androidDateMode={androidDateMode}
+          androidTimeMode={androidTimeMode}
           mode="datetime"
         />,
       );
@@ -216,13 +218,13 @@ describe('DatePicker methods', () => {
           date,
           minDate,
           maxDate,
-          mode: androidMode,
+          mode: androidDateMode,
         });
         expect(TimePickerAndroid.open).toHaveBeenCalledWith({
           hour: moment(date).hour(),
           minute: moment(date).minutes(),
-          is24Hour: true,
-          mode: androidMode,
+          is24Hour: false,
+          mode: androidTimeMode,
         });
         expect(instance.state.date).toEqual(
           new Date(
