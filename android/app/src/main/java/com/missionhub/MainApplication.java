@@ -17,6 +17,7 @@ import com.facebook.soloader.SoLoader;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.links.RNFirebaseLinksPackage;
 import com.rollbar.RollbarReactNative;
+// import com.microsoft.codepush.react.CodePush;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,6 +26,11 @@ public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     
+    // @Override	
+    //   protected String getJSBundleFile() {	
+    //   return CodePush.getJSBundleFile();	
+    // }
+
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
