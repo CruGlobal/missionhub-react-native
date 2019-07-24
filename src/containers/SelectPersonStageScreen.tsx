@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { PERSON_VIEWED_STAGE_CHANGED } from '../constants';
@@ -15,7 +16,7 @@ interface SelectPersonStageScreenProps {
     contactId: string;
     contactAssignmentId: string;
     orgId?: string;
-    isAlreadySelected: bool;
+    isAlreadySelected: boolean;
   }) => ThunkAction<void, any, null, never>; // TODO: make next required when only used in flows
   contactId: string;
   contactAssignmentId: string;
@@ -26,7 +27,7 @@ interface SelectPersonStageScreenProps {
   firstItem?: number;
   section: string;
   subsection: string;
-  enableBackButton?: bool;
+  enableBackButton?: boolean;
 }
 
 const SelectPersonStageScreen = ({
@@ -45,14 +46,17 @@ const SelectPersonStageScreen = ({
 }: SelectPersonStageScreenProps) => {
   const { t } = useTranslation('selectStage');
 
-  const handleScrollToStage = trackingObj => {
+  const handleScrollToStage = (trackingObj: any) => {
     dispatch({
       type: PERSON_VIEWED_STAGE_CHANGED,
       newActiveTab: trackingObj,
     });
   };
 
-  const handleSelectStage = async (stage, isAlreadySelected = false) => {
+  const handleSelectStage = async (
+    stage: any,
+    isAlreadySelected: boolean = false,
+  ) => {
     !isAlreadySelected &&
       (await dispatch(
         contactAssignmentId
@@ -89,7 +93,14 @@ const SelectPersonStageScreen = ({
 };
 
 const mapStateToProps = (
-  { personProfile, auth },
+  {
+    auth,
+    personProfile,
+  }: {
+    auth: AuthState;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any},
+    personProfile: any;
+  },
   {
     navigation: {
       state: {

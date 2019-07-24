@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { selectMyStage } from '../actions/selectStage';
 import { SELF_VIEWED_STAGE_CHANGED } from '../constants';
@@ -13,14 +14,14 @@ interface SelectMyStageScreenProps {
     stage: any;
     contactId: string;
     orgId?: string;
-    isAlreadySelected: bool;
+    isAlreadySelected: boolean;
   }) => ThunkAction<void, any, null, never>; // TODO: make next required when only used in flows
   orgId?: string;
   questionText?: string;
   firstItem?: number;
   section: string;
   subsection: string;
-  enableBackButton?: bool;
+  enableBackButton?: boolean;
   firstName: string;
   contactId: string;
 }
@@ -39,14 +40,17 @@ const SelectMyStageScreen = ({
 }: SelectMyStageScreenProps) => {
   const { t } = useTranslation('selectStage');
 
-  const handleScrollToStage = trackingObj => {
+  const handleScrollToStage = (trackingObj: any) => {
     dispatch({
       type: SELF_VIEWED_STAGE_CHANGED,
       newActiveTab: trackingObj,
     });
   };
 
-  const handleSelectStage = async (stage, isAlreadySelected = false) => {
+  const handleSelectStage = async (
+    stage: any,
+    isAlreadySelected: boolean = false,
+  ) => {
     !isAlreadySelected && (await dispatch(selectMyStage(stage.id)));
 
     dispatch(next({ stage, contactId, orgId, isAlreadySelected }));
@@ -69,7 +73,14 @@ const SelectMyStageScreen = ({
 };
 
 const mapStateToProps = (
-  { auth, profile },
+  {
+    auth,
+    profile,
+  }: {
+    auth: AuthState;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any},
+    profile: any;
+  },
   {
     navigation: {
       state: {

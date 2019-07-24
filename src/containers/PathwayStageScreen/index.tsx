@@ -31,7 +31,7 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
 interface PathwayStageScreenProps {
   dispatch: ThunkDispatch<any, null, never>;
-  onSelect: (props?: { skip: boolean }) => ThunkAction<void, any, null, never>; // TODO: make next required when only used in flows
+  onSelect: (stage: any, isAlreadySelected: boolean) => Promise<void>;
   onScrollToStage: (props?: any) => void;
   section: string;
   subsection: string;
@@ -58,7 +58,8 @@ const PathwayStageScreen = ({
   isSelf,
   stages,
 }: PathwayStageScreenProps) => {
-  const enableBack = !enableBackButton && useDisableBack();
+  const enableBack: false | (() => void) =
+    !enableBackButton && useDisableBack();
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const loadStages = async () => {
@@ -67,12 +68,12 @@ const PathwayStageScreen = ({
     handleSnapToItem(firstItem);
   };
 
-  const setStage = (stage, isAlreadySelected) => {
-    !enableBackButton && enableBack();
+  const setStage = (stage: any, isAlreadySelected: boolean) => {
+    enableBack && enableBack();
 
     onSelect(stage, isAlreadySelected);
 
-    const action = isSelf
+    const action: any = isSelf
       ? ACTIONS.SELF_STAGE_SELECTED
       : ACTIONS.PERSON_STAGE_SELECTED;
 
@@ -84,9 +85,10 @@ const PathwayStageScreen = ({
     );
   };
 
-  const handleScroll = e => setScrollPosition(e.nativeEvent.contentOffset.x);
+  const handleScroll = (e: any) =>
+    setScrollPosition(e.nativeEvent.contentOffset.x);
 
-  const handleSnapToItem = index => {
+  const handleSnapToItem = (index: string) => {
     if (stages[index]) {
       const trackingObj = buildTrackingObj(
         `${section} : ${subsection} : stage : ${stages[index].id}`,
@@ -100,7 +102,7 @@ const PathwayStageScreen = ({
     }
   };
 
-  const renderStage = ({ item, index }) => {
+  const renderStage = ({ item, index }: { item: any; index: string }) => {
     const isActive = firstItem === index;
 
     return (
