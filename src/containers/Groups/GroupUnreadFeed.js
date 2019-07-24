@@ -13,7 +13,10 @@ import CelebrateFeed from '../CelebrateFeed';
 import theme from '../../theme';
 import { celebrationSelector } from '../../selectors/celebration';
 import { refreshCommunity } from '../../actions/organizations';
-import { markCommentsRead } from '../../actions/unreadComments';
+import {
+  markCommentsRead,
+  markCommentRead,
+} from '../../actions/unreadComments';
 
 import styles from './styles';
 
@@ -46,6 +49,13 @@ class GroupUnreadFeed extends Component {
     const { dispatch, organization } = this.props;
     await dispatch(markCommentsRead(organization.id));
     this.back();
+  };
+
+  clearNotification = async event => {
+    console.log('clear event', event.id);
+    const { dispatch } = this.props;
+    await dispatch(markCommentRead(event.id));
+    this.loadItems();
   };
 
   back = () => this.props.dispatch(navigateBack());
@@ -88,6 +98,7 @@ class GroupUnreadFeed extends Component {
             refreshing={refreshing}
             itemNamePressable={true}
             noHeader={true}
+            onClearNotification={this.clearNotification}
           />
         </SafeAreaView>
       </View>
