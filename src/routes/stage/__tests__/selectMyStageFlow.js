@@ -7,7 +7,7 @@ import { SelectMyStageFlowScreens } from '../selectMyStageFlow';
 import { updatePersonAttributes } from '../../../actions/person';
 import { loadStepsAndJourney } from '../../../actions/misc';
 import { navigatePush } from '../../../actions/navigation';
-import { STAGE_SCREEN } from '../../../containers/StageScreen';
+import { SELECT_MY_STAGE_SCREEN } from '../../../containers/SelectMyStageScreen';
 import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 
@@ -61,13 +61,12 @@ describe('StageScreen next', () => {
   describe('isAlreadySelected', () => {
     beforeEach(async () => {
       await buildAndCallNext(
-        STAGE_SCREEN,
+        SELECT_MY_STAGE_SCREEN,
         {
           section: 'people',
           subsection: 'self',
           firstItem: 0,
           enableBackButton: false,
-          noNav: true,
           questionText,
           orgId,
           contactId: myId,
@@ -105,13 +104,12 @@ describe('StageScreen next', () => {
   describe('not isAlreadySelected', () => {
     beforeEach(async () => {
       await buildAndCallNext(
-        STAGE_SCREEN,
+        SELECT_MY_STAGE_SCREEN,
         {
           section: 'people',
           subsection: 'self',
           firstItem: 0,
           enableBackButton: false,
-          noNav: true,
           questionText,
           orgId,
           contactId: myId,
