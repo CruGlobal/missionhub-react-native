@@ -20,8 +20,8 @@ import {
 } from '../constants';
 import { buildTrackingObj } from '../utils/common';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
-import { STAGE_SCREEN } from '../containers/StageScreen';
-import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
+import { SELECT_MY_STAGE_SCREEN } from '../containers/SelectMyStageScreen';
+import { SELECT_PERSON_STAGE_SCREEN } from '../containers/SelectPersonStageScreen';
 import {
   CRU_TABS,
   GROUP_SCREEN,
@@ -58,12 +58,12 @@ export default function tracking({ dispatch, getState }) {
           break;
         }
 
-        if (topRoute.routeName === PERSON_STAGE_SCREEN) {
+        if (topRoute.routeName === SELECT_PERSON_STAGE_SCREEN) {
           newState = tabsState.activePersonStageTab;
           break;
         }
 
-        if (topRoute.routeName === STAGE_SCREEN) {
+        if (topRoute.routeName === SELECT_MY_STAGE_SCREEN) {
           newState = tabsState.activeSelfStageTab;
           break;
         }
