@@ -24,7 +24,7 @@ export function paramsForStageNavigation(personId, orgId, getState) {
   const subsection = getAnalyticsSubsection(personId, authPerson.id);
   const firstItemIndex = getStageIndex(stages, stageId);
   const firstName = isMe ? authPerson.first_name : person.first_name;
-  const questionText = getQuestionText(isMe, isNotSure, name);
+  const questionText = getQuestionText(isMe, isNotSure, firstName);
 
   return {
     isMe,

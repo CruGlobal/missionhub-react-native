@@ -1,25 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
-import { showReminderOnLoad } from '../actions/notifications';
-import { navigateBack, navigatePush } from '../actions/navigation';
-import { buildTrackingObj } from '../utils/common';
-import { trackActionWithoutData } from '../actions/analytics';
-import {
-  ACTIONS,
-  PERSON_VIEWED_STAGE_CHANGED,
-  NOTIFICATION_PROMPT_TYPES,
-} from '../constants';
-import { completeOnboarding } from '../actions/onboardingProfile';
+import { PERSON_VIEWED_STAGE_CHANGED } from '../constants';
 
-import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
-import { CELEBRATION_SCREEN } from './CelebrationScreen';
 import PathwayStageScreen from './PathwayStageScreen';
 
-interface selectPersonStageScreenProps {
+interface SelectPersonStageScreenProps {
   dispatch: ThunkDispatch<any, null, never>;
   next: (props?: {
     stage: any;
@@ -54,7 +42,7 @@ const SelectPersonStageScreen = ({
   section,
   subsection,
   enableBackButton = true,
-}: selectPersonStageScreenProps) => {
+}: SelectPersonStageScreenProps) => {
   const { t } = useTranslation('selectStage');
 
   const handleScrollToStage = trackingObj => {
@@ -134,5 +122,5 @@ const mapStateToProps = (
   myId: auth.person.id,
 });
 
-export default connect(mapStateToProps)(PersonStageScreen);
+export default connect(mapStateToProps)(SelectPersonStageScreen);
 export const SELECT_PERSON_STAGE_SCREEN = 'nav/SELECT_PERSON_STAGE';

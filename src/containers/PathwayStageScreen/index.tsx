@@ -15,7 +15,7 @@ import GUIDING from '../../../assets/images/guidingIcon.png';
 import NOTSURE from '../../../assets/images/notsureIcon.png';
 import { getStages } from '../../actions/stages';
 import { trackAction, trackState } from '../../actions/analytics';
-import { buildTrackingObj, disableBack } from '../../utils/common';
+import { buildTrackingObj } from '../../utils/common';
 import { ACTIONS } from '../../constants';
 import { useDisableBack } from '../../utils/hooks/useDisableBack';
 

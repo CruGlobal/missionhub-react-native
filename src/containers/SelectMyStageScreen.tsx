@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-import { navigateBack, navigatePush } from '../actions/navigation';
 import { selectMyStage } from '../actions/selectStage';
 import { SELF_VIEWED_STAGE_CHANGED } from '../constants';
 
 import PathwayStageScreen from './PathwayStageScreen';
-import { STAGE_SUCCESS_SCREEN } from './StageSuccessScreen';
-import { SELECT_MY_STEP_SCREEN } from './SelectMyStepScreen';
 
-interface selectMyStageScreenProps {
+interface SelectMyStageScreenProps {
   dispatch: ThunkDispatch<any, null, never>;
   next: (props?: {
     stage: any;
@@ -40,7 +36,7 @@ const SelectMyStageScreen = ({
   enableBackButton = false,
   firstName,
   contactId,
-}: selectMyStageScreenProps) => {
+}: SelectMyStageScreenProps) => {
   const { t } = useTranslation('selectStage');
 
   const handleScrollToStage = trackingObj => {
@@ -101,5 +97,5 @@ const mapStateToProps = (
   contactId: auth.person.id,
 });
 
-export default connect(mapStateToProps)(StageScreen);
+export default connect(mapStateToProps)(SelectMyStageScreen);
 export const SELECT_MY_STAGE_SCREEN = 'nav/SELECT_MY_STAGE';
