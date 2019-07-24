@@ -45,20 +45,22 @@ class CreateGroupScreen extends Component {
   createCommunity = async () => {
     const { dispatch } = this.props;
     const { name, imageData } = this.state;
-    Keyboard.dismiss();
-    const text = (name || '').trim();
-    if (!text) {
-      return Promise.resolve();
-    }
-
     try {
       this.setState({ isCreatingCommunity: true });
+
+      Keyboard.dismiss();
+      const text = (name || '').trim();
+      if (!text) {
+        this.setState({ isCreatingCommunity: false });
+        return Promise.resolve();
+      }
+
       const results = await dispatch(addNewOrganization(text, imageData));
       const newOrgId = results.response.id;
       // Load the list of communities
       await dispatch(getMyCommunities());
       this.getNewOrg(newOrgId);
-      this.setState({ isCreatingCommunity: false });
+      // The button never gets enabled again when successful because we are navigating away
     } catch (error) {
       this.setState({ isCreatingCommunity: false });
     }

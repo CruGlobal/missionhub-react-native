@@ -127,6 +127,27 @@ it('should navigate on end of swipe scroll', () => {
   });
 });
 
+it('should not navigate when tab not found on end of swipe scroll', () => {
+  common.isAndroid = true;
+  const component = renderShallow(
+    <SwipeTabMenu
+      tabs={tabs}
+      navigation={{ state: { index: 0, params: {} } }}
+    />,
+  );
+
+  component.setState({ maxMenuItemWidth: 80, previousIndex: 1 });
+
+  component
+    .find(ScrollView)
+    .first()
+    .simulate('momentumScrollEnd', {
+      nativeEvent: { contentOffset: { x: -10 } },
+    });
+
+  expect(NavigationActions.navigate).not.toHaveBeenCalled();
+});
+
 it('should scroll on navigation state update', () => {
   common.isAndroid = true;
   const component = renderShallow(
