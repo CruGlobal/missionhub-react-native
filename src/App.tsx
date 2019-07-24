@@ -7,8 +7,8 @@ import * as RNOmniture from 'react-native-omniture';
 import DefaultPreference from 'react-native-default-preference';
 import { Alert } from 'react-native';
 // eslint-disable-next-line import/default
-// import codePush from 'react-native-code-push';
-// import Config from 'react-native-config';
+import codePush from 'react-native-code-push';
+import Config from 'react-native-config';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 Icon.loadFont();
@@ -34,12 +34,12 @@ import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
 
-// @codePush({
-//   deploymentKey: isAndroid
-//     ? Config.CODEPUSH_ANDROID_KEY
-//     : Config.CODEPUSH_IOS_KEY,
-//   checkFrequency: codePush.CheckFrequency.ON_APP_START,
-// })
+@codePush({
+  deploymentKey: isAndroid
+    ? Config.CODEPUSH_ANDROID_KEY
+    : Config.CODEPUSH_IOS_KEY,
+  checkFrequency: codePush.CheckFrequency.ON_APP_START,
+})
 export default class App extends Component {
   showingErrorModal = false;
   state = {
