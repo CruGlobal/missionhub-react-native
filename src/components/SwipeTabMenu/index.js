@@ -68,7 +68,7 @@ export class SwipeTabMenu extends Component {
   navigateToTab(index) {
     const { tabs, dispatch, navigation } = this.props;
 
-    if (index !== navigation.state.index) {
+    if (index !== navigation.state.index && tabs[index]) {
       dispatch(
         NavigationActions.navigate({
           routeName: tabs[index].navigationAction,
