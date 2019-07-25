@@ -1,99 +1,177 @@
-import 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { Provider } from 'react-redux';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
-import { testSnapshot, createThunkStore } from '../../../../testUtils';
-import * as common from '../../../utils/common';
+import { renderWithContext } from '../../../../testUtils';
+import { getStages } from '../../../actions/stages';
+import { trackAction } from '../../../actions/analytics';
+import { buildTrackingObj } from '../../../utils/common';
+import { ACTIONS } from '../../../constants';
 
 import PathwayStageScreen from '..';
 
+jest.mock('react-native-device-info');
+jest.mock('../../../actions/stages');
+jest.mock('../../../actions/analytics');
+jest.mock('../../../utils/hooks/useDisableBack');
+
+const stages = [
+  { id: 1, name: 'Stage 1', description: 'Stage 1 description' },
+  { id: 2, name: 'Stage 2', description: 'Stage 2 description' },
+  { id: 3, name: 'Stage 3', description: 'Stage 3 description' },
+];
+const onSelect = jest.fn();
+const onScrollToStage = jest.fn();
+const section = 'section';
+const subsection = 'subsection';
+
 const store = {
   stages: {
-    stages: [
-      { id: 1, name: 'Stage 1', description: 'Stage 1 description' },
-      { id: 2, name: 'Stage 2', description: 'Stage 2 description' },
-      { id: 3, name: 'Stage 3', description: 'Stage 3 description' },
-    ],
+    stages,
   },
 };
 
-jest.mock('react-native-device-info');
-
-const mockProps = {
-  onSelect: jest.fn(),
-  onScrollToStage: jest.fn(),
-  section: 'section',
-  subsection: 'subsection',
+const baseParams = {
+  onSelect,
+  onScrollToStage,
+  section,
+  subsection,
+  questionText: 'question?',
+  buttonText: 'Press Me',
+  activeButtonText: 'Already Pressed',
+  enableBackButton: false,
+  isSelf: false,
 };
 
+const trackActionResult = { type: 'track action' };
+const getStagesResult = { type: 'get stages' };
+
+trackAction.mockReturnValue(trackActionResult);
+getStages.mockReturnValue(getStagesResult);
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+
 it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={createThunkStore(store)}>
-      <PathwayStageScreen {...mockProps} />
-    </Provider>,
-  );
+  renderWithContext(<PathwayStageScreen {...baseParams} />, {
+    initialState: store,
+  }).snapshot();
 });
 
 it('renders firstItem correctly', () => {
-  testSnapshot(
-    <Provider store={createThunkStore(store)}>
-      <PathwayStageScreen {...mockProps} firstItem={1} />
-    </Provider>,
-  );
+  renderWithContext(<PathwayStageScreen {...baseParams} firstItem={1} />, {
+    initialState: store,
+  }).snapshot();
 });
 
 it('renders correctly without stages', () => {
-  testSnapshot(
-    <Provider store={createThunkStore({ stages: {} })}>
-      <PathwayStageScreen {...mockProps} />
-    </Provider>,
-  );
+  renderWithContext(<PathwayStageScreen {...baseParams} />, {
+    initialState: { stages: {} },
+  }).snapshot();
 });
 
 it('renders back button correctly', () => {
-  testSnapshot(
-    <Provider store={createThunkStore(store)}>
-      <PathwayStageScreen {...mockProps} enableBackButton={true} />
-    </Provider>,
-  );
+  renderWithContext(
+    <PathwayStageScreen {...baseParams} enableBackButton={true} />,
+    {
+      initialState: store,
+    },
+  ).snapshot();
 });
 
 describe('pathway stage screen methods', () => {
-  let component;
-  const mockSelect = jest.fn();
-  beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    const screen = shallow(
-      <PathwayStageScreen {...mockProps} onSelect={mockSelect} />,
-      { context: { store: createThunkStore(store) } },
+  const stageId = 1;
+  const stage = stages[stageId];
+  const selfAction = ACTIONS.SELF_STAGE_SELECTED;
+  const otherAction = ACTIONS.PERSON_STAGE_SELECTED;
+
+  it('gets stages and snaps to first item on mount', async () => {
+    const tracking = buildTrackingObj(
+      `${section} : ${subsection} : stage : ${stages[stageId].id}`,
+      section,
+      subsection,
+      'stage',
     );
 
-    component = screen.dive().instance();
-  });
-
-  it('runs onSelect', () => {
-    component.setStage({}, false);
-    expect(mockSelect).toHaveBeenCalledTimes(1);
-  });
-});
-
-describe('pathway stage screen methods without back', () => {
-  let component;
-  beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    const screen = shallow(
-      <PathwayStageScreen {...mockProps} enableBackButton={false} />,
-      { context: { store: createThunkStore(store) } },
+    renderWithContext(
+      <PathwayStageScreen {...baseParams} firstItem={stageId} />,
+      {
+        initialState: store,
+      },
     );
 
-    component = screen.dive().instance();
+    await flushMicrotasksQueue();
+
+    expect(getStages).toHaveBeenCalledWith();
+    expect(baseParams.onScrollToStage).toHaveBeenCalledWith(tracking);
+    expect(trackAction).toHaveBeenCalledWith(tracking);
   });
 
-  it('unmounts', () => {
-    common.disableBack = { remove: jest.fn() };
-    component.componentWillUnmount();
-    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
+  it('selects new stage for me', () => {
+    const { getByTestId } = renderWithContext(
+      <PathwayStageScreen {...baseParams} isSelf={true} />,
+      {
+        initialState: store,
+      },
+    );
+
+    fireEvent.press(getByTestId(`StageButton${stageId}`));
+
+    expect(onSelect).toHaveBeenCalledWith(stage, false);
+    expect(trackAction).toHaveBeenCalledWith(selfAction.name, {
+      [selfAction.key]: stage.id,
+      [ACTIONS.STAGE_SELECTED.key]: null,
+    });
+  });
+
+  it('selects already selected stage for me', () => {
+    const { getByTestId } = renderWithContext(
+      <PathwayStageScreen {...baseParams} isSelf={true} firstItem={stageId} />,
+      {
+        initialState: store,
+      },
+    );
+
+    fireEvent.press(getByTestId(`StageButton${stageId}`));
+
+    expect(onSelect).toHaveBeenCalledWith(stage, true);
+    expect(trackAction).toHaveBeenCalledWith(selfAction.name, {
+      [selfAction.key]: stage.id,
+      [ACTIONS.STAGE_SELECTED.key]: null,
+    });
+  });
+
+  it('selects new stage for other', () => {
+    const { getByTestId } = renderWithContext(
+      <PathwayStageScreen {...baseParams} isSelf={false} />,
+      {
+        initialState: store,
+      },
+    );
+
+    fireEvent.press(getByTestId(`StageButton${stageId}`));
+
+    expect(onSelect).toHaveBeenCalledWith(stage, false);
+    expect(trackAction).toHaveBeenCalledWith(otherAction.name, {
+      [otherAction.key]: stage.id,
+      [ACTIONS.STAGE_SELECTED.key]: null,
+    });
+  });
+
+  it('selects already selected stage for other', () => {
+    const { getByTestId } = renderWithContext(
+      <PathwayStageScreen {...baseParams} isSelf={false} firstItem={stageId} />,
+      {
+        initialState: store,
+      },
+    );
+
+    fireEvent.press(getByTestId(`StageButton${stageId}`));
+
+    expect(onSelect).toHaveBeenCalledWith(stage, true);
+    expect(trackAction).toHaveBeenCalledWith(otherAction.name, {
+      [otherAction.key]: stage.id,
+      [ACTIONS.STAGE_SELECTED.key]: null,
+    });
   });
 });

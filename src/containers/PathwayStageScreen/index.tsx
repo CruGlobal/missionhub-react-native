@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
@@ -53,7 +53,7 @@ const PathwayStageScreen = ({
   questionText,
   buttonText,
   activeButtonText,
-  firstItem = 0,
+  firstItem = -1,
   enableBackButton,
   isSelf,
   stages,
@@ -62,11 +62,20 @@ const PathwayStageScreen = ({
     !enableBackButton && useDisableBack();
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const loadStages = async () => {
-    await dispatch(getStages());
+  useEffect(() => {
+    async function loadStagesAndScrollToId() {
+      console.log('here');
+      await loadStages();
+      console.log('there');
+      handleSnapToItem(firstItem);
+    }
 
-    handleSnapToItem(firstItem);
-  };
+    loadStagesAndScrollToId();
+
+    jest.mock('../../../actions/analytics');
+  }, []);
+
+  const loadStages = dispatch(getStages());
 
   const setStage = (stage: any, isAlreadySelected: boolean) => {
     enableBack && enableBack();
@@ -88,7 +97,7 @@ const PathwayStageScreen = ({
   const handleScroll = (e: any) =>
     setScrollPosition(e.nativeEvent.contentOffset.x);
 
-  const handleSnapToItem = (index: string) => {
+  const handleSnapToItem = (index: number) => {
     if (stages[index]) {
       const trackingObj = buildTrackingObj(
         `${section} : ${subsection} : stage : ${stages[index].id}`,
@@ -102,8 +111,9 @@ const PathwayStageScreen = ({
     }
   };
 
-  const renderStage = ({ item, index }: { item: any; index: string }) => {
+  const renderStage = ({ item, index }: { item: any; index: number }) => {
     const isActive = firstItem === index;
+    const handlePress = () => setStage(item, isActive);
 
     return (
       <View key={item.id} style={styles.cardWrapper}>
@@ -117,15 +127,13 @@ const PathwayStageScreen = ({
         <Button
           testID={`StageButton${index}`}
           type="primary"
-          pressProps={[item, isActive]}
-          onPress={setStage}
+          onPress={handlePress}
           text={isActive ? activeButtonText : buttonText}
         />
       </View>
     );
   };
 
-  loadStages();
   const leftMargin = scrollPosition / -1 - overScrollMargin;
 
   return (
@@ -162,7 +170,7 @@ const PathwayStageScreen = ({
   );
 };
 
-const mapStateToProps = ({ stages }) => ({
+const mapStateToProps = ({ stages }: { stages: any }) => ({
   stages: stages.stages,
 });
 
