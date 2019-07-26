@@ -3,7 +3,11 @@ import thunk from 'redux-thunk';
 
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import { markCommentsRead, checkForUnreadComments } from '../unreadComments';
+import {
+  markCommentsRead,
+  checkForUnreadComments,
+  markCommentRead,
+} from '../unreadComments';
 import { getMe } from '../person';
 
 jest.mock('../api');
@@ -38,6 +42,27 @@ describe('markCommentsRead', () => {
   it("should send a request to mark an org's comments as read", () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.MARK_ORG_COMMENTS_AS_READ, {
       organization_id: orgId,
+    });
+  });
+
+  it('should send a request to refresh unread comments notification', () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION,
+      unreadCommentsQuery,
+    );
+  });
+});
+
+describe('markCommentRead', () => {
+  const eventId = 4;
+
+  beforeEach(async () => {
+    await store.dispatch(markCommentRead(eventId));
+  });
+
+  it('should send a request to mark events comments as read', () => {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.MARK_ORG_COMMENTS_AS_READ, {
+      organization_celebration_item_id: eventId,
     });
   });
 
