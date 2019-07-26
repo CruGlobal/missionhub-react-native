@@ -1,303 +1,261 @@
 import 'react-native';
 import React from 'react';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { fireEvent } from 'react-native-testing-library';
 
-import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
-import PersonStageScreen from '../PersonStageScreen';
-import {
-  testSnapshot,
-  createMockNavState,
-  createThunkStore,
-  renderShallow,
-} from '../../../testUtils';
-import { showReminderOnLoad } from '../../actions/notifications';
-import { updateUserStage } from '../../actions/selectStage';
-import * as analytics from '../../actions/analytics';
-import { navigatePush, navigateBack } from '../../actions/navigation';
-import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
-import { completeOnboarding } from '../../actions/onboardingProfile';
+import SelectPersonStageScreen from '../SelectPersonStageScreen';
+import { renderWithContext } from '../../../testUtils';
+import { selectPersonStage, updateUserStage } from '../../actions/selectStage';
+import { getStages } from '../../actions/stages';
 
 jest.mock('react-native-device-info');
-jest.mock('../PathwayStageScreen', () => 'PathwayStageScreen');
-jest.mock('../../actions/notifications');
-jest.mock('../../actions/navigation');
-jest.mock('../../actions/onboardingProfile', () => ({
-  completeOnboarding: jest
-    .fn()
-    .mockReturnValue({ type: 'onboarding complete' }),
-}));
 jest.mock('../../actions/selectStage');
+jest.mock('../../actions/stages');
 
-const mockStage = {
-  id: '1',
-  name: 'uninterested',
-};
+const section = 'section';
+const subsection = 'subsection';
+const orgId = '111';
+const myId = '321';
+const contactId = '123';
+const contactAssignmentId = '4';
+const firstName = 'Roger';
+
+const stages = [
+  { id: 1, name: 'Stage 1', description: 'Stage 1 description' },
+  { id: 2, name: 'Stage 2', description: 'Stage 2 description' },
+  { id: 3, name: 'Stage 3', description: 'Stage 3 description' },
+];
+const stageId = 0;
+const stage = stages[stageId];
 
 const mockState = {
-  personProfile: {
-    personFirstName: 'Billy',
-    personLastName: 'Test',
-  },
   auth: {
     person: {
-      id: '123',
+      id: myId,
     },
   },
-  notifications: {},
-  stages: { stages: [mockStage] },
+  personProfile: {
+    id: contactId,
+    personFirstName: firstName,
+    contactAssignmentId,
+  },
+  stages: { stages },
 };
 
-let store;
-
-const mockNavState = {
-  name: 'Test',
-  contactId: '123',
-  currentStage: '2',
-  contactAssignmentId: '333',
-  section: 'section',
-  subsection: 'subsection',
+const baseParams = {
+  section,
+  subsection,
 };
-const trackStateResult = { type: 'tracked state' };
 
-function buildScreen(mockNavState, store) {
-  const screen = renderShallow(
-    <PersonStageScreen navigation={createMockNavState(mockNavState)} />,
-    store,
-  );
+const selectPersonStageResult = { type: 'select person stage' };
+const updateUserStageResult = { type: 'update user stage' };
+const getStagesResult = { type: 'get stages' };
+const nextResult = { type: 'next' };
 
-  return screen.instance();
-}
-
-const showReminderResult = { type: 'show notification prompt' };
-const navigatePushResult = { type: 'navigated forward' };
-const navigateBackResult = { type: 'navigated back' };
+const next = jest.fn();
 
 beforeEach(() => {
-  showReminderOnLoad.mockReturnValue(showReminderResult);
-  navigatePush.mockReturnValue(navigatePushResult);
-  navigateBack.mockReturnValue(navigateBackResult);
-
-  analytics.trackState = jest.fn(() => trackStateResult);
-
-  store = createThunkStore(mockState);
+  selectPersonStage.mockReturnValue(selectPersonStageResult);
+  updateUserStage.mockReturnValue(updateUserStageResult);
+  getStages.mockReturnValue(getStagesResult);
+  next.mockReturnValue(nextResult);
 });
 
-it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <PersonStageScreen
-        navigation={createMockNavState({
-          ...mockNavState,
-          onComplete: jest.fn(),
-          enableBackButton: true,
-        })}
-      />
-    </Provider>,
-  );
+it('renders correctly with redux props', () => {
+  renderWithContext(<SelectPersonStageScreen next={next} />, {
+    initialState: mockState,
+    navParams: baseParams,
+  }).snapshot();
 });
 
-describe('person stage screen methods with onComplete prop', () => {
-  let component;
-  const mockComplete = jest.fn();
-
-  beforeEach(() => {
-    component = buildScreen(
-      {
-        ...mockNavState,
-        onComplete: mockComplete,
-      },
-      store,
-    );
-  });
-
-  it('runs select stage', async () => {
-    updateUserStage.mockImplementation(() => () => Promise.resolve());
-    navigatePush.mockImplementation((screen, { next }) => () =>
-      next()(jest.fn()),
-    );
-
-    await component.handleSelectStage(mockStage, false);
-
-    expect(navigateBack).toHaveBeenCalledWith(3);
-    expect(updateUserStage).toHaveBeenCalledTimes(1);
-  });
-
-  it('runs celebrate and finish', () => {
-    component.celebrateAndFinish();
-
-    expect(navigatePush).toHaveBeenCalledTimes(1);
-  });
+it('renders correctly with nav props', () => {
+  renderWithContext(<SelectPersonStageScreen next={next} />, {
+    initialState: mockState,
+    navParams: {
+      ...baseParams,
+      contactId: '789',
+      contactAssignmentId: '7',
+      firstName: 'Bert',
+    },
+  }).snapshot();
 });
 
-describe('person stage screen methods with onComplete prop but without add contact flow', () => {
-  it('runs update stage', async () => {
-    const mockStore = configureStore([thunk])(mockState);
-    const component = buildScreen(
-      {
-        onCompleteCelebration: jest.fn(),
-        addingContactFlow: false,
-        ...mockNavState,
-      },
-      mockStore,
-    );
-    updateUserStage.mockImplementation(() => () => Promise.resolve());
-
-    await component.handleSelectStage(mockStage, false);
-
-    expect(navigatePush).toHaveBeenCalledWith(
-      PERSON_SELECT_STEP_SCREEN,
-      expect.anything(),
-    );
-    expect(completeOnboarding).toHaveBeenCalled();
-  });
+it('renders correctly with back button', () => {
+  renderWithContext(<SelectPersonStageScreen next={next} />, {
+    initialState: mockState,
+    navParams: {
+      ...baseParams,
+      enableBackButton: true,
+    },
+  }).snapshot();
 });
 
-describe('person stage screen methods with add contact flow', () => {
-  let component;
-  const mockComplete = jest.fn();
-
-  beforeEach(() => {
-    component = buildScreen(
-      {
-        onCompleteCelebration: mockComplete,
-        addingContactFlow: true,
-        ...mockNavState,
-      },
-      store,
-    );
-  });
-
-  it('runs handle navigate for addingContactFlow', async () => {
-    component.celebrateAndFinish = jest.fn();
-
-    await component.handleNavigate();
-
-    expect(component.celebrateAndFinish).toHaveBeenCalledTimes(1);
-  });
-
-  it('runs handle navigate for onboarding', async () => {
-    component = buildScreen(
-      {
-        onCompleteCelebration: mockComplete,
-        ...mockNavState,
-      },
-      store,
-    );
-
-    component.celebrateAndFinishOnboarding = jest.fn();
-
-    await component.handleNavigate();
-
-    expect(showReminderOnLoad).toHaveBeenCalledWith(
-      NOTIFICATION_PROMPT_TYPES.ONBOARDING,
-      true,
-    );
-    expect(component.celebrateAndFinishOnboarding).toHaveBeenCalledTimes(1);
-  });
-
-  it('runs update stage', async () => {
-    const mockStore = configureStore([thunk])(mockState);
-    component = buildScreen(
-      {
-        onCompleteCelebration: mockComplete,
-        addingContactFlow: true,
-        ...mockNavState,
-      },
-      mockStore,
-    );
-    updateUserStage.mockImplementation(() => () => Promise.resolve());
-
-    await component.handleSelectStage(mockStage, false);
-
-    expect(navigatePush).toHaveBeenCalledWith(
-      PERSON_SELECT_STEP_SCREEN,
-      expect.anything(),
-    );
-  });
-
-  it('runs celebrate and finish with on complete', () => {
-    component.celebrateAndFinish();
-
-    expect(navigatePush).toHaveBeenCalledTimes(1);
-  });
+it('renders correctly without back button', () => {
+  renderWithContext(<SelectPersonStageScreen next={next} />, {
+    initialState: mockState,
+    navParams: {
+      ...baseParams,
+      enableBackButton: false,
+    },
+  }).snapshot();
 });
 
-describe('person stage screen methods', () => {
-  let component;
-  const mockComplete = jest.fn();
-
-  beforeEach(() => {
-    component = buildScreen(
-      {
-        onComplete: mockComplete,
-        noNav: true,
-        ...mockNavState,
-      },
-      store,
-    );
-  });
-
-  it('runs select stage with active', () => {
-    component.handleSelectStage(mockStage, true);
-
-    expect(mockComplete).toHaveBeenCalledTimes(1);
-  });
+it('renders correctly with question text', () => {
+  renderWithContext(<SelectPersonStageScreen next={next} />, {
+    initialState: mockState,
+    navParams: {
+      ...baseParams,
+      questionText: 'QUESTION',
+    },
+  }).snapshot();
 });
 
-describe('person stage screen methods with next', () => {
-  let component;
+it('renders correctly with first item', () => {
+  renderWithContext(<SelectPersonStageScreen next={next} />, {
+    initialState: mockState,
+    navParams: {
+      ...baseParams,
+      firstItem: 1,
+    },
+  }).snapshot();
+});
 
-  const next = jest.fn();
-  const nextResponse = { type: 'next' };
-  const updatedStageResult = { type: 'updated user stage' };
+describe('handleSelectStage', () => {
+  describe('without contact assignment', () => {
+    const mockStateNoContactAssignment = {
+      ...mockState,
+      personProfile: {
+        ...mockState.personProfile,
+        contactAssignment: null,
+      },
+    };
 
-  beforeEach(() => {
-    next.mockReturnValue(nextResponse);
-    updateUserStage.mockReturnValue(updatedStageResult);
+    it('selects stage because not already selected', async () => {
+      const { getByTestId, store } = renderWithContext(
+        <SelectPersonStageScreen next={next} />,
+        {
+          initialState: mockStateNoContactAssignment,
+          navParams: {
+            ...baseParams,
+            orgId,
+          },
+        },
+      );
 
-    component = renderShallow(
-      <PersonStageScreen
-        navigation={createMockNavState({
-          ...mockNavState,
-          onComplete: jest.fn(),
-          enableBackButton: true,
-        })}
-        next={next}
-      />,
-      store,
-    ).instance();
-  });
+      await fireEvent.press(getByTestId(`StageButton${stageId}`));
 
-  it('runs select stage with stage not previously selected', async () => {
-    await component.handleSelectStage(mockStage, false);
+      expect(selectPersonStage).toHaveBeenCalledWith(
+        contactId,
+        myId,
+        stageId,
+        orgId,
+      );
+      expect(updateUserStage).not.toHaveBeenCalled();
+      expect(next).toHaveBeenCalledWith({
+        stage,
+        firstName,
+        contactId,
+        contactAssignmentId,
+        orgId,
+        isAlreadySelected: false,
+      });
+      expect(store.getActions()).toEqual([
+        getStagesResult,
+        selectPersonStageResult,
+        nextResult,
+      ]);
+    });
 
-    expect(updateUserStage).toHaveBeenCalledWith(
-      mockNavState.contactAssignmentId,
-      mockStage.id,
-    );
-    expect(next).toHaveBeenCalledWith({
-      stage: mockStage,
-      contactId: mockNavState.contactId,
-      name: mockNavState.name,
-      orgId: mockNavState.orgId,
-      isAlreadySelected: false,
-      contactAssignmentId: mockNavState.contactAssignmentId,
+    it('does not select stage because already selected', async () => {
+      const { getByTestId, store } = renderWithContext(
+        <SelectPersonStageScreen next={next} />,
+        {
+          initialState: mockStateNoContactAssignment,
+          navParams: {
+            ...baseParams,
+            orgId,
+            firstItem: stageId,
+          },
+        },
+      );
+
+      await fireEvent.press(getByTestId(`StageButton${stageId}`));
+
+      expect(selectPersonStage).not.toHaveBeenCalled();
+      expect(updateUserStage).not.toHaveBeenCalled();
+      expect(next).toHaveBeenCalledWith({
+        stage,
+        firstName,
+        contactId,
+        contactAssignmentId,
+        orgId,
+        isAlreadySelected: true,
+      });
+      expect(store.getActions()).toEqual([getStagesResult, nextResult]);
     });
   });
 
-  it('runs select stage with stage previously selected', async () => {
-    await component.handleSelectStage(mockStage, true);
+  describe('with contactAssignment', () => {
+    it('selects stage because not already selected', async () => {
+      const { getByTestId, store } = renderWithContext(
+        <SelectPersonStageScreen next={next} />,
+        {
+          initialState: mockState,
+          navParams: {
+            ...baseParams,
+            orgId,
+          },
+        },
+      );
 
-    expect(updateUserStage).not.toHaveBeenCalled();
-    expect(next).toHaveBeenCalledWith({
-      stage: mockStage,
-      contactId: mockNavState.contactId,
-      name: mockNavState.name,
-      orgId: mockNavState.orgId,
-      isAlreadySelected: true,
-      contactAssignmentId: mockNavState.contactAssignmentId,
+      await fireEvent.press(getByTestId(`StageButton${stageId}`));
+
+      expect(selectPersonStage).not.toHaveBeenCalled();
+      expect(updateUserStage).toHaveBeenCalledWith(
+        contactAssignmentId,
+        stageId,
+        orgId,
+      );
+      expect(next).toHaveBeenCalledWith({
+        stage,
+        firstName,
+        contactId,
+        contactAssignmentId,
+        orgId,
+        isAlreadySelected: false,
+      });
+      expect(store.getActions()).toEqual([
+        getStagesResult,
+        updateUserStageResult,
+        nextResult,
+      ]);
+    });
+
+    it('does not select stage because already selected', async () => {
+      const { getByTestId, store } = renderWithContext(
+        <SelectPersonStageScreen next={next} />,
+        {
+          initialState: mockState,
+          navParams: {
+            ...baseParams,
+            orgId,
+            firstItem: stageId,
+          },
+        },
+      );
+
+      await fireEvent.press(getByTestId(`StageButton${stageId}`));
+
+      expect(selectPersonStage).not.toHaveBeenCalled();
+      expect(updateUserStage).not.toHaveBeenCalled();
+      expect(next).toHaveBeenCalledWith({
+        stage,
+        firstName,
+        contactId,
+        contactAssignmentId,
+        orgId,
+        isAlreadySelected: true,
+      });
+      expect(store.getActions()).toEqual([getStagesResult, nextResult]);
     });
   });
 });
