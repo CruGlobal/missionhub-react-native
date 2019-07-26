@@ -11,4 +11,6 @@ YellowBox.ignoreWarnings([
   'Remote debugger',
 ]);
 
+console.disableYellowBox = true;
+
 AppRegistry.registerComponent('MissionHub', () => App);

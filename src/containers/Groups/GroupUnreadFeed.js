@@ -52,7 +52,6 @@ class GroupUnreadFeed extends Component {
   };
 
   clearNotification = async event => {
-    console.log('clear event', event.id);
     const { dispatch } = this.props;
     await dispatch(markCommentRead(event.id));
     this.loadItems();
