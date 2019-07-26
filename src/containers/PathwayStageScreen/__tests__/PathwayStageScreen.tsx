@@ -79,11 +79,9 @@ it('renders back button correctly', () => {
   ).snapshot();
 });
 
-describe('pathway stage screen methods', () => {
+describe('actions on mount', () => {
   const stageId = 1;
   const stage = stages[stageId];
-  const selfAction = ACTIONS.SELF_STAGE_SELECTED;
-  const otherAction = ACTIONS.PERSON_STAGE_SELECTED;
 
   it('gets stages and snaps to first item on mount', async () => {
     const tracking = buildTrackingObj(
@@ -106,6 +104,13 @@ describe('pathway stage screen methods', () => {
     expect(baseParams.onScrollToStage).toHaveBeenCalledWith(tracking);
     expect(trackAction).toHaveBeenCalledWith(tracking);
   });
+});
+
+describe('setStage', () => {
+  const stageId = 1;
+  const stage = stages[stageId];
+  const selfAction = ACTIONS.SELF_STAGE_SELECTED;
+  const otherAction = ACTIONS.PERSON_STAGE_SELECTED;
 
   it('selects new stage for me', () => {
     const { getByTestId } = renderWithContext(

@@ -64,15 +64,15 @@ const PathwayStageScreen = ({
 
   useEffect(() => {
     async function loadStagesAndScrollToId() {
-      console.log('here');
       await loadStages();
-      console.log('there');
       handleSnapToItem(firstItem);
     }
 
     loadStagesAndScrollToId();
 
-    jest.mock('../../../actions/analytics');
+    if (enableBack) {
+      return enableBack();
+    }
   }, []);
 
   const loadStages = dispatch(getStages());

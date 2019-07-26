@@ -1,28 +1,28 @@
 import 'react-native';
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { fireEvent } from 'react-native-testing-library';
 
-import StageScreen from '../StageScreen';
-import {
-  renderWithContext,
-  createMockNavState,
-  renderShallow,
-} from '../../../testUtils';
+import SelectMyStageScreen from '../SelectMyStageScreen';
+import { renderWithContext } from '../../../testUtils';
 import { selectMyStage } from '../../actions/selectStage';
-import { navigatePush, navigateBack } from '../../actions/navigation';
+import { getStages } from '../../actions/stages';
 
 jest.mock('react-native-device-info');
-jest.mock('../PathwayStageScreen', () => 'PathwayStageScreen');
 jest.mock('../../actions/selectStage');
-jest.mock('../../actions/navigation');
+jest.mock('../../actions/stages');
 
+const section = 'section';
+const subsection = 'subsection';
 const orgId = '111';
 const contactId = '123';
-const mockStage = {
-  id: '0',
-  name: 'uninterested',
-};
+
+const stages = [
+  { id: 1, name: 'Stage 1', description: 'Stage 1 description' },
+  { id: 2, name: 'Stage 2', description: 'Stage 2 description' },
+  { id: 3, name: 'Stage 3', description: 'Stage 3 description' },
+];
+const stageId = 0;
+const stage = stages[stageId];
 
 const mockState = {
   auth: {
@@ -33,162 +33,117 @@ const mockState = {
   profile: {
     firstName: 'Roger',
   },
-  stages: { stages: [mockStage] },
+  stages: { stages },
 };
 
-const mockCurrentStage = { id: 2 };
+const baseParams = {
+  section,
+  subsection,
+};
 
-const mockComplete = jest.fn();
+const selectMyStageResult = { type: 'select my stage' };
+const getStagesResult = { type: 'get stages' };
+const nextResult = { type: 'next' };
 
-const mockStore = configureStore([thunk]);
-let store;
-let component;
-
-function buildShallowScreen(props) {
-  return renderShallow(
-    <StageScreen
-      navigation={createMockNavState({
-        name: 'Test',
-        contactId,
-        orgId,
-        currentStage: mockCurrentStage.id,
-        section: 'section',
-        subsection: 'subsection',
-        onComplete: mockComplete,
-        dispatch: null,
-        ...props,
-      })}
-    />,
-    store,
-  ).instance();
-}
+const next = jest.fn();
 
 beforeEach(() => {
-  store = mockStore(mockState);
+  selectMyStage.mockReturnValue(selectMyStageResult);
+  getStages.mockReturnValue(getStagesResult);
+  next.mockReturnValue(nextResult);
 });
 
 it('renders correctly with back button', () => {
-  renderWithContext(<StageScreen />, {
+  renderWithContext(<SelectMyStageScreen next={next} />, {
     initialState: mockState,
     navParams: {
+      ...baseParams,
       enableBackButton: true,
-      section: 'section',
-      subsection: 'subsection',
     },
   }).snapshot();
 });
 
 it('renders correctly without back button', () => {
-  renderWithContext(<StageScreen />, {
+  renderWithContext(<SelectMyStageScreen next={next} />, {
     initialState: mockState,
     navParams: {
+      ...baseParams,
       enableBackButton: false,
-      section: 'section',
-      subsection: 'subsection',
+    },
+  }).snapshot();
+});
+
+it('renders correctly with question text', () => {
+  renderWithContext(<SelectMyStageScreen next={next} />, {
+    initialState: mockState,
+    navParams: {
+      ...baseParams,
+      questionText: 'QUESTION',
+    },
+  }).snapshot();
+});
+
+it('renders correctly with first item', () => {
+  renderWithContext(<SelectMyStageScreen next={next} />, {
+    initialState: mockState,
+    navParams: {
+      ...baseParams,
+      firstItem: 1,
     },
   }).snapshot();
 });
 
 describe('handleSelectStage', () => {
-  const selectStageAction = { type: 'selected stage' };
-  const selectMyStepNavAction = {
-    type: 'navigated to select my step screen',
-  };
-  const navigateBackAction = { type: 'navigated back 2x' };
-  const nextResponse = { type: 'next' };
-
-  selectMyStage.mockReturnValue(selectStageAction);
-  navigatePush.mockImplementation((screen, { next }) => {
-    store.dispatch(next());
-    return selectMyStepNavAction;
-  });
-  navigateBack.mockReturnValue(navigateBackAction);
-
-  describe('when not already selected', () => {
-    describe('and onComplete prop exists', () => {
-      beforeEach(() => {
-        component = buildShallowScreen({});
-      });
-
-      describe('and no nav is false', () => {
-        it('should select stage, navigate to select step screen, then onComplete navigates to contact screen', async () => {
-          await component.handleSelectStage(mockStage, false);
-
-          expect(store.getActions()).toEqual([
-            selectStageAction,
-            navigateBackAction,
-            selectMyStepNavAction,
-          ]);
-        });
-      });
-    });
-
-    describe('and next prop exists', () => {
-      const next = jest.fn();
-
-      beforeEach(() => {
-        next.mockReturnValue(nextResponse);
-
-        component = renderShallow(
-          <StageScreen
-            navigation={createMockNavState({
-              name: 'Test',
-              contactId,
-              orgId,
-              currentStage: mockCurrentStage.id,
-              section: 'section',
-              subsection: 'subsection',
-              dispatch: null,
-            })}
-            next={next}
-          />,
-          store,
-        ).instance();
-      });
-
-      it('should select stage, then call next, if stage not already selected', async () => {
-        await component.handleSelectStage(mockStage, false);
-
-        expect(selectMyStage).toHaveBeenCalledWith(mockStage.id);
-        expect(next).toHaveBeenCalledWith({
-          stage: mockStage,
-          contactId,
+  it('selects stage because not already selected', async () => {
+    const { getByTestId, store } = renderWithContext(
+      <SelectMyStageScreen next={next} />,
+      {
+        initialState: mockState,
+        navParams: {
+          ...baseParams,
           orgId,
-          isAlreadySelected: false,
-        });
-        expect(store.getActions()).toEqual([selectStageAction, nextResponse]);
-      });
+        },
+      },
+    );
 
-      it('should only call next if stage already selected', async () => {
-        await component.handleSelectStage(mockStage, true);
+    await fireEvent.press(getByTestId(`StageButton${stageId}`));
 
-        expect(selectMyStage).not.toHaveBeenCalled();
-        expect(next).toHaveBeenCalledWith({
-          stage: mockStage,
-          contactId,
-          orgId,
-          isAlreadySelected: true,
-        });
-        expect(store.getActions()).toEqual([nextResponse]);
-      });
+    expect(selectMyStage).toHaveBeenCalledWith(stage.id);
+    expect(next).toHaveBeenCalledWith({
+      stage,
+      contactId,
+      orgId,
+      isAlreadySelected: false,
     });
-  });
-});
-
-describe('stage screen methods', () => {
-  it('runs select stage with active', () => {
-    component = buildShallowScreen({ noNav: true });
-
-    component.handleSelectStage(mockStage, true);
-
-    expect(mockComplete).toHaveBeenCalledTimes(1);
+    expect(store.getActions()).toEqual([
+      getStagesResult,
+      selectMyStageResult,
+      nextResult,
+    ]);
   });
 
-  it('runs select stage with active', () => {
-    component = buildShallowScreen({ noNav: true });
+  it('does not select stage because already selected', async () => {
+    const { getByTestId, store } = renderWithContext(
+      <SelectMyStageScreen next={next} />,
+      {
+        initialState: mockState,
+        navParams: {
+          ...baseParams,
+          orgId,
+          firstItem: stageId,
+        },
+      },
+    );
 
-    component.handleSelectStage(mockStage, true);
+    await fireEvent.press(getByTestId(`StageButton${stageId}`));
 
-    expect(mockComplete).toHaveBeenCalledTimes(1);
+    expect(selectMyStage).not.toHaveBeenCalled();
+    expect(next).toHaveBeenCalledWith({
+      stage,
+      contactId,
+      orgId,
+      isAlreadySelected: true,
+    });
+    expect(store.getActions()).toEqual([getStagesResult, nextResult]);
   });
 });

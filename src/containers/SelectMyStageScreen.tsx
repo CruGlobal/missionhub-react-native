@@ -31,7 +31,7 @@ const SelectMyStageScreen = ({
   next,
   orgId,
   questionText,
-  firstItem = 0,
+  firstItem = -1,
   section,
   subsection,
   enableBackButton = false,
