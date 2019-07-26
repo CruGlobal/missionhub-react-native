@@ -7,7 +7,7 @@ export const sliderWidth = theme.fullWidth;
 export const stageWidth = theme.fullWidth - screenMargin * 2;
 export const stageMargin = theme.fullWidth / 30;
 export const overScrollMargin = 150;
-export const getLandscapeWidth = stages =>
+export const getLandscapeWidth = (stages: number) =>
   stageWidth * stages +
   stageMargin * (stages - 1) +
   screenMargin * 2 +

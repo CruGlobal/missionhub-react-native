@@ -45,8 +45,8 @@ const baseParams = {
 const trackActionResult = { type: 'track action' };
 const getStagesResult = { type: 'get stages' };
 
-trackAction.mockReturnValue(trackActionResult);
-getStages.mockReturnValue(getStagesResult);
+(trackAction as jest.Mock).mockReturnValue(trackActionResult);
+(getStages as jest.Mock).mockReturnValue(getStagesResult);
 
 beforeEach(() => {
   jest.clearAllMocks();

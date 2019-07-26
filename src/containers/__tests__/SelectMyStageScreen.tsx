@@ -48,8 +48,8 @@ const nextResult = { type: 'next' };
 const next = jest.fn();
 
 beforeEach(() => {
-  selectMyStage.mockReturnValue(selectMyStageResult);
-  getStages.mockReturnValue(getStagesResult);
+  (selectMyStage as jest.Mock).mockReturnValue(selectMyStageResult);
+  (getStages as jest.Mock).mockReturnValue(getStagesResult);
   next.mockReturnValue(nextResult);
 });
 

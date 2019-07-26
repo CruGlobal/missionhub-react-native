@@ -54,9 +54,9 @@ const nextResult = { type: 'next' };
 const next = jest.fn();
 
 beforeEach(() => {
-  selectPersonStage.mockReturnValue(selectPersonStageResult);
-  updateUserStage.mockReturnValue(updateUserStageResult);
-  getStages.mockReturnValue(getStagesResult);
+  (selectPersonStage as jest.Mock).mockReturnValue(selectPersonStageResult);
+  (updateUserStage as jest.Mock).mockReturnValue(updateUserStageResult);
+  (getStages as jest.Mock).mockReturnValue(getStagesResult);
   next.mockReturnValue(nextResult);
 });
 

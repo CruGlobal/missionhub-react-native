@@ -1,23 +1,29 @@
 import React from 'react';
+import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
+import { AuthState } from '../reducers/auth';
+import { Stage } from '../reducers/stages';
+import { PersonProfileState } from '../reducers/personProfile';
 import { PERSON_VIEWED_STAGE_CHANGED } from '../constants';
 
 import PathwayStageScreen from './PathwayStageScreen';
 
 interface SelectPersonStageScreenProps {
-  dispatch: ThunkDispatch<any, null, never>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   next: (props?: {
-    stage: any;
+    stage: Stage;
     firstName: string;
     contactId: string;
     contactAssignmentId: string;
     orgId?: string;
     isAlreadySelected: boolean;
-  }) => ThunkAction<void, any, null, never>; // TODO: make next required when only used in flows
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }) => ThunkAction<void, any, {}, never>; // TODO: make next required when only used in flows
   contactId: string;
   contactAssignmentId: string;
   firstName: string;
@@ -98,8 +104,7 @@ const mapStateToProps = (
     personProfile,
   }: {
     auth: AuthState;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any},
-    personProfile: any;
+    personProfile: PersonProfileState;
   },
   {
     navigation: {
@@ -118,7 +123,8 @@ const mapStateToProps = (
       },
     },
     next,
-  },
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any},
+  any,
 ) => ({
   next,
   orgId,
