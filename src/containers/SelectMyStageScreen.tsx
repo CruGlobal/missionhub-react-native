@@ -19,6 +19,7 @@ interface SelectMyStageScreenProps {
     contactId: string;
     orgId?: string;
     isAlreadySelected: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>; // TODO: make next required when only used in flows
   orgId?: string;
   questionText?: string;
@@ -44,6 +45,7 @@ const SelectMyStageScreen = ({
 }: SelectMyStageScreenProps) => {
   const { t } = useTranslation('selectStage');
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleScrollToStage = (trackingObj: any) => {
     dispatch({
       type: SELF_VIEWED_STAGE_CHANGED,
@@ -52,7 +54,7 @@ const SelectMyStageScreen = ({
   };
 
   const handleSelectStage = async (
-    stage: any,
+    stage: Stage,
     isAlreadySelected: boolean = false,
   ) => {
     !isAlreadySelected && (await dispatch(selectMyStage(stage.id)));
@@ -82,8 +84,7 @@ const mapStateToProps = (
     profile,
   }: {
     auth: AuthState;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any},
-    profile: any;
+    profile: ProfileState;
   },
   {
     navigation: {
@@ -99,7 +100,7 @@ const mapStateToProps = (
       },
     },
     next,
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any},
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => ({
   next,

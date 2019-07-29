@@ -52,6 +52,7 @@ const SelectPersonStageScreen = ({
 }: SelectPersonStageScreenProps) => {
   const { t } = useTranslation('selectStage');
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleScrollToStage = (trackingObj: any) => {
     dispatch({
       type: PERSON_VIEWED_STAGE_CHANGED,
@@ -60,10 +61,9 @@ const SelectPersonStageScreen = ({
   };
 
   const handleSelectStage = async (
-    stage: any,
+    stage: Stage,
     isAlreadySelected: boolean = false,
   ) => {
-    console.log(isAlreadySelected);
     !isAlreadySelected &&
       (await dispatch(
         contactAssignmentId
@@ -124,7 +124,7 @@ const mapStateToProps = (
       },
     },
     next,
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any},
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => ({
   next,

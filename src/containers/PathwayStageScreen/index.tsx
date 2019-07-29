@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { ThunkDispatch } from 'redux-thunk';
 
 import { Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
@@ -18,6 +18,7 @@ import { trackAction, trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 import { ACTIONS } from '../../constants';
 import { useDisableBack } from '../../utils/hooks/useDisableBack';
+import { Stage, StagesState } from '../../reducers/stages';
 
 import styles, {
   sliderWidth,
@@ -30,8 +31,10 @@ import styles, {
 const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
 interface PathwayStageScreenProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
-  onSelect: (stage: any, isAlreadySelected: boolean) => Promise<void>;
+  onSelect: (stage: Stage, isAlreadySelected: boolean) => Promise<void>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onScrollToStage: (props?: any) => void;
   section: string;
   subsection: string;
@@ -41,7 +44,7 @@ interface PathwayStageScreenProps {
   firstItem?: number;
   enableBackButton: boolean;
   isSelf: boolean;
-  stages: any;
+  stages: Stage;
 }
 
 const PathwayStageScreen = ({
@@ -65,7 +68,6 @@ const PathwayStageScreen = ({
   useEffect(() => {
     async function loadStagesAndScrollToId() {
       await loadStages();
-      console.log('here');
       handleSnapToItem(firstItem);
     }
 
@@ -78,11 +80,12 @@ const PathwayStageScreen = ({
 
   const loadStages = dispatch(getStages());
 
-  const setStage = (stage: any, isAlreadySelected: boolean) => {
+  const setStage = (stage: Stage, isAlreadySelected: boolean) => {
     enableBack && enableBack();
 
     onSelect(stage, isAlreadySelected);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const action: any = isSelf
       ? ACTIONS.SELF_STAGE_SELECTED
       : ACTIONS.PERSON_STAGE_SELECTED;
@@ -95,6 +98,7 @@ const PathwayStageScreen = ({
     );
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleScroll = (e: any) =>
     setScrollPosition(e.nativeEvent.contentOffset.x);
 
@@ -112,7 +116,7 @@ const PathwayStageScreen = ({
     }
   };
 
-  const renderStage = ({ item, index }: { item: any; index: number }) => {
+  const renderStage = ({ item, index }: { item: Stage; index: number }) => {
     const isActive = firstItem === index;
 
     return (
@@ -170,7 +174,7 @@ const PathwayStageScreen = ({
   );
 };
 
-const mapStateToProps = ({ stages }: { stages: any }) => ({
+const mapStateToProps = ({ stages }: { stages: StagesState }) => ({
   stages: stages.stages,
 });
 
