@@ -65,6 +65,7 @@ const PathwayStageScreen = ({
   useEffect(() => {
     async function loadStagesAndScrollToId() {
       await loadStages();
+      console.log('here');
       handleSnapToItem(firstItem);
     }
 
@@ -113,7 +114,6 @@ const PathwayStageScreen = ({
 
   const renderStage = ({ item, index }: { item: any; index: number }) => {
     const isActive = firstItem === index;
-    const handlePress = () => setStage(item, isActive);
 
     return (
       <View key={item.id} style={styles.cardWrapper}>
@@ -127,7 +127,7 @@ const PathwayStageScreen = ({
         <Button
           testID={`StageButton${index}`}
           type="primary"
-          onPress={handlePress}
+          onPress={() => setStage(item, isActive)}
           text={isActive ? activeButtonText : buttonText}
         />
       </View>

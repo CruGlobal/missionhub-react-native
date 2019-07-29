@@ -45,7 +45,7 @@ const SelectPersonStageScreen = ({
   myId,
   orgId,
   questionText,
-  firstItem = 0,
+  firstItem = -1,
   section,
   subsection,
   enableBackButton = true,
@@ -63,6 +63,7 @@ const SelectPersonStageScreen = ({
     stage: any,
     isAlreadySelected: boolean = false,
   ) => {
+    console.log(isAlreadySelected);
     !isAlreadySelected &&
       (await dispatch(
         contactAssignmentId

@@ -45,11 +45,9 @@ const baseParams = {
 const trackActionResult = { type: 'track action' };
 const getStagesResult = { type: 'get stages' };
 
-(trackAction as jest.Mock).mockReturnValue(trackActionResult);
-(getStages as jest.Mock).mockReturnValue(getStagesResult);
-
 beforeEach(() => {
-  jest.clearAllMocks();
+  (trackAction as jest.Mock).mockReturnValue(trackActionResult);
+  (getStages as jest.Mock).mockReturnValue(getStagesResult);
 });
 
 it('renders correctly', () => {
@@ -85,7 +83,7 @@ describe('actions on mount', () => {
 
   it('gets stages and snaps to first item on mount', async () => {
     const tracking = buildTrackingObj(
-      `${section} : ${subsection} : stage : ${stages[stageId].id}`,
+      `${section} : ${subsection} : stage : ${stage.id}`,
       section,
       subsection,
       'stage',
@@ -101,7 +99,7 @@ describe('actions on mount', () => {
     await flushMicrotasksQueue();
 
     expect(getStages).toHaveBeenCalledWith();
-    expect(baseParams.onScrollToStage).toHaveBeenCalledWith(tracking);
+    expect(onScrollToStage).toHaveBeenCalledWith(tracking);
     expect(trackAction).toHaveBeenCalledWith(tracking);
   });
 });

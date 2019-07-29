@@ -125,7 +125,7 @@ describe('handleSelectStage', () => {
       ...mockState,
       personProfile: {
         ...mockState.personProfile,
-        contactAssignment: null,
+        contactAssignmentId: null,
       },
     };
 
@@ -146,7 +146,7 @@ describe('handleSelectStage', () => {
       expect(selectPersonStage).toHaveBeenCalledWith(
         contactId,
         myId,
-        stageId,
+        stage.id,
         orgId,
       );
       expect(updateUserStage).not.toHaveBeenCalled();
@@ -154,7 +154,7 @@ describe('handleSelectStage', () => {
         stage,
         firstName,
         contactId,
-        contactAssignmentId,
+        contactAssignmentId: null,
         orgId,
         isAlreadySelected: false,
       });
@@ -186,7 +186,7 @@ describe('handleSelectStage', () => {
         stage,
         firstName,
         contactId,
-        contactAssignmentId,
+        contactAssignmentId: null,
         orgId,
         isAlreadySelected: true,
       });
@@ -212,8 +212,7 @@ describe('handleSelectStage', () => {
       expect(selectPersonStage).not.toHaveBeenCalled();
       expect(updateUserStage).toHaveBeenCalledWith(
         contactAssignmentId,
-        stageId,
-        orgId,
+        stage.id,
       );
       expect(next).toHaveBeenCalledWith({
         stage,
