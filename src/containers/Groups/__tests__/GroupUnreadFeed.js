@@ -10,7 +10,10 @@ import { ACCEPTED_STEP } from '../../../constants';
 import { celebrationSelector } from '../../../selectors/celebration';
 import { organizationSelector } from '../../../selectors/organizations';
 import { getGroupCelebrateFeedUnread } from '../../../actions/celebration';
-import { markCommentsRead } from '../../../actions/unreadComments';
+import {
+  markCommentsRead,
+  markCommentRead,
+} from '../../../actions/unreadComments';
 import { refreshCommunity } from '../../../actions/organizations';
 
 jest.mock('../../../actions/celebration');
@@ -60,6 +63,7 @@ getGroupCelebrateFeedUnread.mockReturnValue({
 });
 navigateBack.mockReturnValue({ type: 'navigateBack' });
 markCommentsRead.mockReturnValue({ type: 'markCommentsRead' });
+markCommentRead.mockReturnValue({ type: 'markCommentRead' });
 refreshCommunity.mockReturnValue({ type: 'refreshCommunity' });
 
 const buildScreen = () => {
@@ -109,6 +113,28 @@ it('should call mark comments read and go back', async () => {
     .right.props.onPress();
   expect(markCommentsRead).toHaveBeenCalledWith(org.id);
   expect(navigateBack).toHaveBeenCalled();
+});
+
+it('should call mark specific celebration item comments as read and go back', async () => {
+  const component = buildScreen();
+
+  const event = { id: '1' };
+  component.instance().loadItems = jest.fn();
+  await component
+    .childAt(2)
+    .childAt(0)
+    .props()
+    .onClearNotification(event);
+
+  expect(markCommentRead).toHaveBeenCalledWith(event.id);
+  expect(component.instance().loadItems).toHaveBeenCalled();
+});
+
+it('should mount', async () => {
+  const component = buildScreen();
+  await component.instance().loadItems();
+  expect(refreshCommunity).toHaveBeenCalledWith(org.id);
+  expect(getGroupCelebrateFeedUnread).toHaveBeenCalledWith(org.id);
 });
 
 it('should mount', async () => {
