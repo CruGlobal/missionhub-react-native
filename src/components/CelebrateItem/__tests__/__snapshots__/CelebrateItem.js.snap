@@ -69,3 +69,111 @@ exports[`CelebrateItem renders event with fixed height 1`] = `
   </View>
 </Card>
 `;
+
+exports[`clear notification button renders clear notification button 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <View
+    flex={1}
+    flexDirection="column"
+  >
+    <View
+      style={
+        Object {
+          "padding": 14,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "justifyContent": "flex-start",
+            }
+          }
+        >
+          <Connect(withI18nextTranslation(CelebrateItemName))
+            name="John Smith"
+          />
+          <CardTime
+            date="2004-04-04 00:00:00 UTC"
+          />
+        </View>
+      </View>
+      <Connect(withI18nextTranslation(CelebrateItemContent))
+        event={
+          Object {
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+    <Separator />
+    <View
+      justifyContent="flex-end"
+      style={
+        Object {
+          "padding": 14,
+        }
+      }
+    >
+      <Connect(CommentLikeComponent)
+        event={
+          Object {
+            "changed_attribute_value": "2004-04-04 00:00:00 UTC",
+            "subject_person_name": "John Smith",
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "position": "absolute",
+        "right": -5,
+        "top": -5,
+      }
+    }
+  >
+    <TouchableIOS
+      onPress={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#505256",
+          "borderRadius": 20,
+          "elevation": 4,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
+        }
+      }
+    >
+      <Icon
+        name="deleteIcon"
+        size={10}
+        style={
+          Object {
+            "color": "#ffffff",
+            "padding": 8,
+          }
+        }
+        type="MissionHub"
+      />
+    </TouchableIOS>
+  </View>
+</Card>
+`;
