@@ -12,7 +12,6 @@ import PathwayStageScreen from '..';
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/stages');
 jest.mock('../../../actions/analytics');
-jest.mock('../../../utils/hooks/useDisableBack');
 
 const stages = [
   { id: 1, name: 'Stage 1', description: 'Stage 1 description' },
