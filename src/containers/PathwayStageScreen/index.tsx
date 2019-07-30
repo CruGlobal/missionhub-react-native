@@ -128,7 +128,7 @@ const PathwayStageScreen = ({
           <Text style={styles.cardText}>{item.description}</Text>
         </View>
         <Button
-          testID={`StageButton${index}`}
+          testID={'stageSelectButton'}
           type="primary"
           onPress={() => setStage(item, isActive)}
           text={isActive ? activeButtonText : buttonText}
