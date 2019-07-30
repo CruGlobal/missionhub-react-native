@@ -104,7 +104,8 @@ describe('button presses', () => {
       <PeopleList {...props} sections={true} items={orgs} />,
     );
 
-    fireEvent.press(getAllByTestId('addContactBtn')[0]);
+    const addContactBtn = getAllByTestId('addContactBtn')[0];
+    fireEvent(addContactBtn, 'press', addContactBtn.props.pressProps[0]);
 
     expect(props.onAddContact).toHaveBeenCalledWith(undefined);
   });
