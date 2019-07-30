@@ -10,6 +10,7 @@ import { getStages } from '../../actions/stages';
 jest.mock('react-native-device-info');
 jest.mock('../../actions/selectStage');
 jest.mock('../../actions/stages');
+jest.mock('../../containers/PathwayStageScreen', () => 'PathwayStageScreen');
 
 const section = 'section';
 const subsection = 'subsection';
@@ -106,7 +107,7 @@ describe('handleSelectStage', () => {
       },
     );
 
-    await fireEvent.press(getByTestId(`StageButton${stageId}`));
+    await fireEvent(getByTestId(`stageScreen`), 'onSelect', [stage, false]);
 
     expect(selectMyStage).toHaveBeenCalledWith(stage.id);
     expect(next).toHaveBeenCalledWith({
@@ -135,7 +136,7 @@ describe('handleSelectStage', () => {
       },
     );
 
-    await fireEvent.press(getByTestId(`StageButton${stageId}`));
+    await fireEvent(getByTestId(`stageScreen`), 'onSelect', [stage, true]);
 
     expect(selectMyStage).not.toHaveBeenCalled();
     expect(next).toHaveBeenCalledWith({

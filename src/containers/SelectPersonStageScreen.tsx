@@ -85,6 +85,7 @@ const SelectPersonStageScreen = ({
 
   return (
     <PathwayStageScreen
+      testID={'stageScreen'}
       buttonText={t('iAmHere').toUpperCase()}
       activeButtonText={t('stillHere').toUpperCase()}
       questionText={questionText || t('personQuestion', { name: firstName })}

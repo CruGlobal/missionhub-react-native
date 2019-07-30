@@ -45,6 +45,7 @@ interface PathwayStageScreenProps {
   enableBackButton: boolean;
   isSelf: boolean;
   stages: Stage;
+  testID?: string;
 }
 
 const PathwayStageScreen = ({
@@ -76,7 +77,7 @@ const PathwayStageScreen = ({
     loadStagesAndScrollToId();
   }, []);
 
-  const loadStages = dispatch(getStages());
+  const loadStages = () => dispatch(getStages());
 
   const setStage = (stage: Stage, isAlreadySelected: boolean) => {
     enableBack();
