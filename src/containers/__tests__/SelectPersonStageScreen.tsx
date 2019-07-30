@@ -4,14 +4,10 @@ import { fireEvent } from 'react-native-testing-library';
 
 import SelectPersonStageScreen from '../SelectPersonStageScreen';
 import { renderWithContext } from '../../../testUtils';
-import { trackAction } from '../../actions/analytics';
 import { selectPersonStage, updateUserStage } from '../../actions/selectStage';
-import { getStages } from '../../actions/stages';
-import { ACTIONS } from '../../constants';
 
 jest.mock('react-native-device-info');
 jest.mock('../../actions/selectStage');
-jest.mock('../../actions/stages');
 jest.mock('../../containers/PathwayStageScreen', () => 'PathwayStageScreen');
 
 const section = 'section';
@@ -49,19 +45,15 @@ const baseParams = {
   subsection,
 };
 
-const trackActionResult = { type: 'track action' };
 const selectPersonStageResult = { type: 'select person stage' };
 const updateUserStageResult = { type: 'update user stage' };
-const getStagesResult = { type: 'get stages' };
 const nextResult = { type: 'next' };
 
 const next = jest.fn();
 
 beforeEach(() => {
-  (trackAction as jest.Mock).mockReturnValue(trackActionResult);
   (selectPersonStage as jest.Mock).mockReturnValue(selectPersonStageResult);
   (updateUserStage as jest.Mock).mockReturnValue(updateUserStageResult);
-  (getStages as jest.Mock).mockReturnValue(getStagesResult);
   next.mockReturnValue(nextResult);
 });
 
@@ -145,9 +137,8 @@ describe('handleSelectStage', () => {
           },
         },
       );
-      const action = ACTIONS.PERSON_STAGE_SELECTED;
 
-      await fireEvent(getByTestId(`stageScreen`), 'onSelect', [stage, false]);
+      await fireEvent(getByTestId('stageScreen'), 'onSelect', stage, false);
 
       expect(selectPersonStage).toHaveBeenCalledWith(
         contactId,
@@ -156,10 +147,6 @@ describe('handleSelectStage', () => {
         orgId,
       );
       expect(updateUserStage).not.toHaveBeenCalled();
-      expect(trackAction).toHaveBeenCalledWith({
-        [action.key]: stage.id,
-        [ACTIONS.STAGE_SELECTED.key]: null,
-      });
       expect(next).toHaveBeenCalledWith({
         stage,
         firstName,
@@ -168,12 +155,7 @@ describe('handleSelectStage', () => {
         orgId,
         isAlreadySelected: false,
       });
-      expect(store.getActions()).toEqual([
-        getStagesResult,
-        selectPersonStageResult,
-        trackActionResult,
-        nextResult,
-      ]);
+      expect(store.getActions()).toEqual([selectPersonStageResult, nextResult]);
     });
 
     it('does not select stage because already selected', async () => {
@@ -189,7 +171,7 @@ describe('handleSelectStage', () => {
         },
       );
 
-      await fireEvent(getByTestId(`stageScreen`), 'onSelect', [stage, true]);
+      await fireEvent(getByTestId('stageScreen'), 'onSelect', stage, true);
 
       expect(selectPersonStage).not.toHaveBeenCalled();
       expect(updateUserStage).not.toHaveBeenCalled();
@@ -201,7 +183,7 @@ describe('handleSelectStage', () => {
         orgId,
         isAlreadySelected: true,
       });
-      expect(store.getActions()).toEqual([getStagesResult, nextResult]);
+      expect(store.getActions()).toEqual([nextResult]);
     });
   });
 
@@ -218,7 +200,7 @@ describe('handleSelectStage', () => {
         },
       );
 
-      await fireEvent(getByTestId(`stageScreen`), 'onSelect', [stage, false]);
+      await fireEvent(getByTestId('stageScreen'), 'onSelect', stage, false);
 
       expect(selectPersonStage).not.toHaveBeenCalled();
       expect(updateUserStage).toHaveBeenCalledWith(
@@ -233,11 +215,7 @@ describe('handleSelectStage', () => {
         orgId,
         isAlreadySelected: false,
       });
-      expect(store.getActions()).toEqual([
-        getStagesResult,
-        updateUserStageResult,
-        nextResult,
-      ]);
+      expect(store.getActions()).toEqual([updateUserStageResult, nextResult]);
     });
 
     it('does not select stage because already selected', async () => {
@@ -253,7 +231,7 @@ describe('handleSelectStage', () => {
         },
       );
 
-      await fireEvent(getByTestId(`stageScreen`), 'onSelect', [stage, true]);
+      await fireEvent(getByTestId('stageScreen'), 'onSelect', stage, true);
 
       expect(selectPersonStage).not.toHaveBeenCalled();
       expect(updateUserStage).not.toHaveBeenCalled();
@@ -265,7 +243,7 @@ describe('handleSelectStage', () => {
         orgId,
         isAlreadySelected: true,
       });
-      expect(store.getActions()).toEqual([getStagesResult, nextResult]);
+      expect(store.getActions()).toEqual([nextResult]);
     });
   });
 });

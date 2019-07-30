@@ -74,7 +74,7 @@ const GroupsListScreen = ({
     }
 
     loadGroupsAndScrollToId();
-  }, []);
+  });
 
   const loadGroups = () => dispatch(getMyCommunities());
   const { isRefreshing, refresh } = useRefreshing(async () => {

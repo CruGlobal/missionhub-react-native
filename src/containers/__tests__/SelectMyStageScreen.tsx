@@ -5,11 +5,9 @@ import { fireEvent } from 'react-native-testing-library';
 import SelectMyStageScreen from '../SelectMyStageScreen';
 import { renderWithContext } from '../../../testUtils';
 import { selectMyStage } from '../../actions/selectStage';
-import { getStages } from '../../actions/stages';
 
 jest.mock('react-native-device-info');
 jest.mock('../../actions/selectStage');
-jest.mock('../../actions/stages');
 jest.mock('../../containers/PathwayStageScreen', () => 'PathwayStageScreen');
 
 const section = 'section';
@@ -43,14 +41,12 @@ const baseParams = {
 };
 
 const selectMyStageResult = { type: 'select my stage' };
-const getStagesResult = { type: 'get stages' };
 const nextResult = { type: 'next' };
 
 const next = jest.fn();
 
 beforeEach(() => {
   (selectMyStage as jest.Mock).mockReturnValue(selectMyStageResult);
-  (getStages as jest.Mock).mockReturnValue(getStagesResult);
   next.mockReturnValue(nextResult);
 });
 
@@ -107,7 +103,7 @@ describe('handleSelectStage', () => {
       },
     );
 
-    await fireEvent(getByTestId(`stageScreen`), 'onSelect', [stage, false]);
+    await fireEvent(getByTestId('stageScreen'), 'onSelect', stage, false);
 
     expect(selectMyStage).toHaveBeenCalledWith(stage.id);
     expect(next).toHaveBeenCalledWith({
@@ -116,11 +112,7 @@ describe('handleSelectStage', () => {
       orgId,
       isAlreadySelected: false,
     });
-    expect(store.getActions()).toEqual([
-      getStagesResult,
-      selectMyStageResult,
-      nextResult,
-    ]);
+    expect(store.getActions()).toEqual([selectMyStageResult, nextResult]);
   });
 
   it('does not select stage because already selected', async () => {
@@ -136,7 +128,7 @@ describe('handleSelectStage', () => {
       },
     );
 
-    await fireEvent(getByTestId(`stageScreen`), 'onSelect', [stage, true]);
+    await fireEvent(getByTestId('stageScreen'), 'onSelect', stage, true);
 
     expect(selectMyStage).not.toHaveBeenCalled();
     expect(next).toHaveBeenCalledWith({
@@ -145,6 +137,6 @@ describe('handleSelectStage', () => {
       orgId,
       isAlreadySelected: true,
     });
-    expect(store.getActions()).toEqual([getStagesResult, nextResult]);
+    expect(store.getActions()).toEqual([nextResult]);
   });
 });

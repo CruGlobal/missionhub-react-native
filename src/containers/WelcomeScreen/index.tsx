@@ -27,7 +27,7 @@ const WelcomeScreen = ({
 
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
     return () => disableBack.remove();
-  }, []);
+  });
 
   const navigateToNext = (signin = false) => {
     // Remove the back handler when moving forward
