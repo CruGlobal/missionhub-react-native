@@ -45,7 +45,7 @@ const SelectPersonStageScreen = ({
   myId,
   orgId,
   questionText,
-  firstItem = -1,
+  firstItem,
   section,
   subsection,
   enableBackButton = true,
@@ -90,7 +90,7 @@ const SelectPersonStageScreen = ({
       questionText={questionText || t('personQuestion', { name: firstName })}
       onSelect={handleSelectStage}
       onScrollToStage={handleScrollToStage}
-      firstItem={firstItem}
+      selectedStageId={firstItem}
       section={section}
       subsection={subsection}
       enableBackButton={enableBackButton}

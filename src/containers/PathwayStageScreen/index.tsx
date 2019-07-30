@@ -41,7 +41,7 @@ interface PathwayStageScreenProps {
   questionText: string;
   buttonText: string;
   activeButtonText: string;
-  firstItem?: number;
+  selectedStageId?: number;
   enableBackButton: boolean;
   isSelf: boolean;
   stages: Stage;
@@ -56,7 +56,8 @@ const PathwayStageScreen = ({
   questionText,
   buttonText,
   activeButtonText,
-  firstItem = -1,
+  selectedStageId,
+
   enableBackButton,
   isSelf,
   stages,
@@ -65,10 +66,12 @@ const PathwayStageScreen = ({
     !enableBackButton && useDisableBack();
   const [scrollPosition, setScrollPosition] = useState(0);
 
+  const startIndex = selectedStageId || 0;
+
   useEffect(() => {
     async function loadStagesAndScrollToId() {
       await loadStages();
-      handleSnapToItem(firstItem);
+      handleSnapToItem(startIndex);
     }
 
     loadStagesAndScrollToId();
@@ -117,7 +120,7 @@ const PathwayStageScreen = ({
   };
 
   const renderStage = ({ item, index }: { item: Stage; index: number }) => {
-    const isActive = firstItem === index;
+    const isActive = selectedStageId === index;
 
     return (
       <View key={item.id} style={styles.cardWrapper}>
@@ -156,7 +159,7 @@ const PathwayStageScreen = ({
       <Text style={styles.title}>{questionText}</Text>
       {stages ? (
         <Carousel
-          firstItem={firstItem}
+          firstItem={startIndex}
           data={stages}
           inactiveSlideOpacity={1}
           inactiveSlideScale={1}

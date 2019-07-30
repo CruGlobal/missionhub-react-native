@@ -57,9 +57,12 @@ it('renders correctly', () => {
 });
 
 it('renders firstItem correctly', () => {
-  renderWithContext(<PathwayStageScreen {...baseParams} firstItem={1} />, {
-    initialState: store,
-  }).snapshot();
+  renderWithContext(
+    <PathwayStageScreen {...baseParams} selectedStageId={1} />,
+    {
+      initialState: store,
+    },
+  ).snapshot();
 });
 
 it('renders correctly without stages', () => {
@@ -90,7 +93,7 @@ describe('actions on mount', () => {
     );
 
     renderWithContext(
-      <PathwayStageScreen {...baseParams} firstItem={stageId} />,
+      <PathwayStageScreen {...baseParams} selectedStageId={stageId} />,
       {
         initialState: store,
       },
@@ -129,7 +132,11 @@ describe('setStage', () => {
 
   it('selects already selected stage for me', () => {
     const { getByTestId } = renderWithContext(
-      <PathwayStageScreen {...baseParams} isSelf={true} firstItem={stageId} />,
+      <PathwayStageScreen
+        {...baseParams}
+        isSelf={true}
+        selectedStageId={stageId}
+      />,
       {
         initialState: store,
       },
@@ -163,7 +170,11 @@ describe('setStage', () => {
 
   it('selects already selected stage for other', () => {
     const { getByTestId } = renderWithContext(
-      <PathwayStageScreen {...baseParams} isSelf={false} firstItem={stageId} />,
+      <PathwayStageScreen
+        {...baseParams}
+        isSelf={false}
+        selectedStageId={stageId}
+      />,
       {
         initialState: store,
       },
