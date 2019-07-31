@@ -58,7 +58,6 @@ const PathwayStageScreen = ({
   buttonText,
   activeButtonText,
   selectedStageId,
-
   enableBackButton,
   isSelf,
   stages,
