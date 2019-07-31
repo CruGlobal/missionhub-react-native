@@ -3,6 +3,7 @@ import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { useNavigationState } from 'react-navigation-hooks';
 
 import { selectMyStage } from '../actions/selectStage';
 import { Stage } from '../reducers/stages';
@@ -21,28 +22,34 @@ interface SelectMyStageScreenProps {
     isAlreadySelected: boolean;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>; // TODO: make next required when only used in flows
-  orgId?: string;
-  questionText?: string;
-  firstItem?: number;
-  section: string;
-  subsection: string;
-  enableBackButton?: boolean;
   firstName: string;
   contactId: string;
+}
+
+interface SelectMyStageNavParams {
+  orgId?: string;
+  questionText?: string;
+  firstItem?: string;
+  section: string;
+  subsection: string;
+  enableBackButton: boolean;
 }
 
 const SelectMyStageScreen = ({
   dispatch,
   next,
-  orgId,
-  questionText,
-  firstItem,
-  section,
-  subsection,
-  enableBackButton = false,
   firstName,
   contactId,
 }: SelectMyStageScreenProps) => {
+  const {
+    orgId,
+    questionText,
+    firstItem,
+    section,
+    subsection,
+    enableBackButton = false,
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any = useNavigationState().params;
   const { t } = useTranslation('selectStage');
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -79,38 +86,13 @@ const SelectMyStageScreen = ({
   );
 };
 
-const mapStateToProps = (
-  {
-    auth,
-    profile,
-  }: {
-    auth: AuthState;
-    profile: ProfileState;
-  },
-  {
-    navigation: {
-      state: {
-        params: {
-          orgId,
-          questionText,
-          firstItem,
-          section,
-          subsection,
-          enableBackButton,
-        },
-      },
-    },
-    next,
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
-) => ({
-  next,
-  orgId,
-  questionText,
-  firstItem,
-  section,
-  subsection,
-  enableBackButton,
+const mapStateToProps = ({
+  auth,
+  profile,
+}: {
+  auth: AuthState;
+  profile: ProfileState;
+}) => ({
   firstName: profile.firstName,
   contactId: auth.person.id,
 });

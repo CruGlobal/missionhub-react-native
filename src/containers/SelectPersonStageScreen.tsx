@@ -3,6 +3,7 @@ import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { useNavigationState } from 'react-navigation-hooks';
 
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { AuthState } from '../reducers/auth';
@@ -28,12 +29,15 @@ interface SelectPersonStageScreenProps {
   contactAssignmentId: string;
   firstName: string;
   myId: string;
+}
+
+interface SelectPersonStageNavParams {
   orgId?: string;
   questionText?: string;
-  firstItem?: number;
+  firstItem?: string;
   section: string;
   subsection: string;
-  enableBackButton?: boolean;
+  enableBackButton: boolean;
 }
 
 const SelectPersonStageScreen = ({
@@ -43,13 +47,16 @@ const SelectPersonStageScreen = ({
   contactAssignmentId,
   firstName,
   myId,
-  orgId,
-  questionText,
-  firstItem,
-  section,
-  subsection,
-  enableBackButton = true,
 }: SelectPersonStageScreenProps) => {
+  const {
+    orgId,
+    questionText,
+    firstItem,
+    section,
+    subsection,
+    enableBackButton = true,
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any = useNavigationState().params;
   const { t } = useTranslation('selectStage');
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -111,30 +118,12 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: {
-          contactId,
-          contactAssignmentId,
-          firstName,
-          orgId,
-          questionText,
-          firstItem,
-          section,
-          subsection,
-          enableBackButton,
-        },
+        params: { contactId, contactAssignmentId, firstName },
       },
     },
-    next,
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => ({
-  next,
-  orgId,
-  questionText,
-  firstItem,
-  section,
-  subsection,
-  enableBackButton,
   contactId: contactId || personProfile.id,
   contactAssignmentId: contactAssignmentId || personProfile.contactAssignmentId,
   firstName: firstName || personProfile.personFirstName,
