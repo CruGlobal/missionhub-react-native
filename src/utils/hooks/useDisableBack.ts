@@ -19,5 +19,5 @@ export const useDisableBack = (enableBackButton: boolean = false) => {
     }
   });
 
-  return !enableBackButton ? removeListener : () => {};
+  return removeListener;
 };

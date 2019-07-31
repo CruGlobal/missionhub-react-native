@@ -63,7 +63,7 @@ const PathwayStageScreen = ({
   isSelf,
   stages,
 }: PathwayStageScreenProps) => {
-  const enableBack: () => void = useDisableBack(enableBackButton);
+  const enableBack = useDisableBack(enableBackButton);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const startIndex = selectedStageId || 0;
