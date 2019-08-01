@@ -34,7 +34,7 @@ const WelcomeScreen = ({
   const signIn = () => {
     navigateToNext(true);
   };
-  const goBack = () => dispatch(navigateBack(true));
+  const goBack = () => dispatch(navigateBack());
 
   const allowSignIn = useNavigationParam('allowSignIn');
   const { t } = useTranslation('welcome');
