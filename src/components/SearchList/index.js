@@ -58,27 +58,26 @@ class SearchList extends Component {
     }
   };
 
-  handleOnEndReached = async () => {
-    const { listHasScrolled, text, isSearching } = this.state;
-    if (!listHasScrolled || isSearching) {
-      return;
-    }
-
-    this.setState({ isSearching: true });
-
+  handleLoadMore = async () => {
+    const { text, results } = this.state;
     const { onLoadMore } = this.props;
 
     const newResults = await onLoadMore(text);
 
-    this.setState({
-      listHasScrolled: false,
-      isSearching: false,
-      results: [...this.state.results, ...newResults],
-    });
+    this.setState({ results: [...results, ...newResults] });
+  };
+
+  handleOnEndReached = () => {
+    if (this.state.listHasScrolled) {
+      this.handleLoadMore();
+      this.setState({ listHasScrolled: false });
+    }
   };
 
   handleScrollEndDrag = () => {
-    this.setState({ listHasScrolled: true });
+    if (!this.state.listHasScrolled) {
+      this.setState({ listHasScrolled: true });
+    }
   };
 
   clearSearch = () => {
@@ -179,13 +178,31 @@ class SearchList extends Component {
         style={styles.list}
         data={resultsLength === 0 ? defaultData : results}
         keyExtractor={this.keyExtractor}
-        onEndReached={this.handleOnEndReached}
-        onEndReachedThreshold={0.2}
-        onScrollEndDrag={this.handleScrollEndDrag}
-        ListFooterComponent={this.renderListFooter()}
         keyboardShouldPersistTaps="handled"
         {...listProps}
       />
+    );
+  }
+
+  renderListHeader() {
+    const { headerComponent } = this.props;
+
+    return (
+      <View>
+        {headerComponent || null}
+        <Flex style={styles.searchWrap}>
+          <Flex direction="row" align="center" style={styles.searchFilterWrap}>
+            {this.renderCenter()}
+            <IconButton
+              name="filterIcon"
+              type="MissionHub"
+              onPress={this.handleFilter}
+              style={styles.filterButton}
+            />
+          </Flex>
+          {this.renderFilters()}
+        </Flex>
+      </View>
     );
   }
 
@@ -200,21 +217,17 @@ class SearchList extends Component {
 
   render() {
     return (
-      <View style={styles.pageContainer}>
-        <Flex style={styles.searchWrap}>
-          <Flex direction="row" align="center" style={styles.searchFilterWrap}>
-            {this.renderCenter()}
-            <IconButton
-              name="filterIcon"
-              type="MissionHub"
-              onPress={this.handleFilter}
-              style={styles.filterButton}
-            />
-          </Flex>
-          {this.renderFilters()}
-        </Flex>
+      <ScrollView
+        style={styles.pageContainer}
+        onEndReached={this.handleOnEndReached}
+        onEndReachedThreshold={0.2}
+        onScrollEndDrag={this.handleScrollEndDrag}
+        keyboardShouldPersistTaps="handled"
+      >
+        {this.renderListHeader()}
         {this.renderContent()}
-      </View>
+        {this.renderListFooter()}
+      </ScrollView>
     );
   }
 }

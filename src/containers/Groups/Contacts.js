@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -118,27 +118,29 @@ class Contacts extends Component {
     />
   );
 
+  renderOnboardingCard() {
+    return <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />;
+  }
+
   render() {
     const { t } = this.props;
     const { filters, defaultResults } = this.state;
     return (
       <SafeAreaView style={styles.pageContainer}>
-        <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="handled">
-          <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />
-          <SearchList
-            setSearch={this.setSearch}
-            defaultData={defaultResults}
-            onFilterPress={this.handleFilterPress}
-            listProps={{
-              renderItem: this.renderItem,
-            }}
-            onSearch={this.handleSearch}
-            onRemoveFilter={this.handleRemoveFilter}
-            onLoadMore={this.handleLoadMore}
-            filters={filters}
-            placeholder={t('searchPlaceholder')}
-          />
-        </ScrollView>
+        <SearchList
+          setSearch={this.setSearch}
+          defaultData={defaultResults}
+          onFilterPress={this.handleFilterPress}
+          listProps={{
+            renderItem: this.renderItem,
+          }}
+          onSearch={this.handleSearch}
+          onRemoveFilter={this.handleRemoveFilter}
+          onLoadMore={this.handleLoadMore}
+          filters={filters}
+          placeholder={t('searchPlaceholder')}
+          headerComponent={this.renderOnboardingCard()}
+        />
       </SafeAreaView>
     );
   }
