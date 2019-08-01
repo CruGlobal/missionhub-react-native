@@ -6765,10 +6765,10 @@ react-native-default-preference@^1.4.0:
   resolved "https://registry.yarnpkg.com/react-native-default-preference/-/react-native-default-preference-1.4.0.tgz#52b9fb81fb8376c505f2f0b2aacd457a3c5f2d47"
   integrity sha512-40yjYNvwbrMxd+8Gz6riHzjkHgCZ7CtrAeTeN82NEZRC9sV0N1qJSxWhqnBlzVjmkqA24P/ZYOeZmmZLKzyl6w==
 
-react-native-device-info@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-2.2.2.tgz#777388b8cff4594c8db2ea3a53f2f1f9e2c611a1"
-  integrity sha512-2b0TycUJbW/9T7L070L6q4+ce8guD4c0c8mWWjiVNuvCrZVf7VNomvNk1BqIVXcnYbZO43V0SVN6z1fvp2HTyg==
+react-native-device-info@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-2.3.2.tgz#db2b8f135aaf2515583e367ab791dcc7d2f0d14c"
+  integrity sha512-ccpPuUbwhw5uYdVwN1UJp6ykMZz6U/u82HNM3oJ7O6MP8RIMlMDkHbqR4O0sDtUSuRMGiqqRzFtmOLFYeQ0ODw==
 
 react-native-fbsdk@^1.0.0-rc.4:
   version "1.0.0-rc.5"
