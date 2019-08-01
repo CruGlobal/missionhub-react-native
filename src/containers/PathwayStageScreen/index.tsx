@@ -74,7 +74,7 @@ const PathwayStageScreen = ({
     }
 
     loadStagesAndScrollToId();
-  });
+  }, []);
 
   const loadStages = () => dispatch(getStages());
 

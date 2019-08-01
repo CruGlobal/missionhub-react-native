@@ -29,7 +29,7 @@ interface SelectMyStageScreenProps {
 interface SelectMyStageNavParams {
   orgId?: string;
   questionText?: string;
-  firstItem?: string;
+  firstItem?: number;
   section: string;
   subsection: string;
   enableBackButton: boolean;
@@ -48,8 +48,7 @@ const SelectMyStageScreen = ({
     section,
     subsection,
     enableBackButton = false,
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any = useNavigationState().params;
+  } = useNavigationState().params as SelectMyStageNavParams;
   const { t } = useTranslation('selectStage');
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
