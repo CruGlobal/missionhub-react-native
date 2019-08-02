@@ -3,7 +3,6 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import * as common from '../../../utils/common';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
 
@@ -19,9 +18,6 @@ jest.mock('../../../components/common', () => ({
   Text: 'Text',
   Button: 'Button',
 }));
-
-// @ts-ignore
-common.disableBack = { add: jest.fn(), remove: jest.fn() };
 
 (trackActionWithoutData as jest.Mock).mockReturnValue({
   type: 'tracked action without data',
@@ -47,7 +43,6 @@ describe('WelcomeScreen', () => {
     const { getByTestId } = renderWithContext(<WelcomeScreen next={next} />);
     fireEvent.press(getByTestId('get-started'));
 
-    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledWith({ signin: false });
   });
@@ -59,7 +54,6 @@ describe('WelcomeScreen', () => {
     );
     fireEvent.press(getByTestId('get-started-sign-in-variant'));
 
-    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledWith({ signin: false });
   });
@@ -81,11 +75,5 @@ describe('WelcomeScreen', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.ONBOARDING_STARTED,
     );
-  });
-
-  it('should clean up back handler on unmount', () => {
-    renderWithContext(<WelcomeScreen next={next} />).unmount();
-
-    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
   });
 });

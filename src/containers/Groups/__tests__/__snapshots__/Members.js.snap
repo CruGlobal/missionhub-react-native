@@ -30,6 +30,7 @@ exports[`Members calls render item 1`] = `
         },
       ],
       "name": "Test Org",
+      "user_created": true,
     }
   }
   person={

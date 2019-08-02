@@ -7,9 +7,10 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import { disableBack } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+import { navigateBack } from '../../actions/navigation';
+import BackButton from '../BackButton';
 
 import styles from './styles';
 
@@ -23,22 +24,17 @@ const WelcomeScreen = ({
   next: (params: { signin: boolean }) => ThunkAction<void, any, null, never>;
 }) => {
   useEffect(() => {
-    disableBack.add();
-
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
-    return () => disableBack.remove();
   }, []);
 
   const navigateToNext = (signin = false) => {
-    // Remove the back handler when moving forward
-    disableBack.remove();
-
     dispatch(next({ signin }));
   };
 
   const signIn = () => {
     navigateToNext(true);
   };
+  const goBack = () => dispatch(navigateBack());
 
   const allowSignIn = useNavigationParam('allowSignIn');
   const { t } = useTranslation('welcome');
@@ -80,6 +76,7 @@ const WelcomeScreen = ({
           />
         )}
       </Flex>
+      <BackButton absolute={true} customNavigate={goBack} />
     </SafeAreaView>
   );
 };
