@@ -160,7 +160,7 @@ class SearchList extends Component {
 
   keyExtractor = i => i.unique_key || i.id;
 
-  renderListHeader() {
+  renderHeader() {
     const { headerComponent } = this.props;
 
     return (
@@ -194,13 +194,7 @@ class SearchList extends Component {
     );
   }
 
-  renderListFooter() {
-    return this.state.isSearching ? (
-      <LoadingWheel style={styles.loadingIndicator} />
-    ) : null;
-  }
-
-  render() {
+  renderContent() {
     const { listProps, defaultData = [] } = this.props;
     const { results } = this.state;
     const resultsLength = results.length;
@@ -209,9 +203,7 @@ class SearchList extends Component {
       <FlatList
         style={styles.pageContainer}
         data={resultsLength === 0 ? defaultData : results}
-        ListHeaderComponent={this.renderListHeader()}
         ListFooterComponent={this.renderListFooter()}
-        ListEmptyComponent={this.renderEmpty()}
         onEndReached={this.handleOnEndReached}
         onEndReachedThreshold={0.2}
         onScrollEndDrag={this.handleScrollEndDrag}
@@ -219,6 +211,27 @@ class SearchList extends Component {
         keyboardShouldPersistTaps="handled"
         {...listProps}
       />
+    );
+  }
+
+  renderListFooter() {
+    return this.state.isSearching ? (
+      <LoadingWheel style={styles.loadingIndicator} />
+    ) : null;
+  }
+
+  render() {
+    const { defaultData = [] } = this.props;
+    const { results, isSearching } = this.state;
+    const resultsLength = results.length;
+
+    return (
+      <View>
+        {this.renderHeader()}
+        {!isSearching && resultsLength === 0 && defaultData.length === 0
+          ? this.renderEmpty()
+          : this.renderContent()}
+      </View>
     );
   }
 }

@@ -106,10 +106,6 @@ class Contacts extends Component {
     />
   );
 
-  renderOnboardingCard() {
-    return <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />;
-  }
-
   render() {
     const { t } = this.props;
     const { filters, defaultResults } = this.state;
@@ -127,7 +123,6 @@ class Contacts extends Component {
           onLoadMore={this.handleLoadMore}
           filters={filters}
           placeholder={t('searchPlaceholder')}
-          headerComponent={this.renderOnboardingCard()}
         />
       </SafeAreaView>
     );
