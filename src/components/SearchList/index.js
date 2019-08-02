@@ -160,30 +160,6 @@ class SearchList extends Component {
 
   keyExtractor = i => i.unique_key || i.id;
 
-  renderContent() {
-    const { t, listProps, defaultData = [] } = this.props;
-    const { results, isSearching } = this.state;
-    const resultsLength = results.length;
-
-    if (!isSearching && resultsLength === 0 && defaultData.length === 0) {
-      return (
-        <Flex align="center" value={1} style={styles.emptyWrap}>
-          <Text style={styles.nullText}>{t('noResults')}</Text>
-        </Flex>
-      );
-    }
-
-    return (
-      <FlatList
-        style={styles.list}
-        data={resultsLength === 0 ? defaultData : results}
-        keyExtractor={this.keyExtractor}
-        keyboardShouldPersistTaps="handled"
-        {...listProps}
-      />
-    );
-  }
-
   renderListHeader() {
     const { headerComponent } = this.props;
 
@@ -206,6 +182,16 @@ class SearchList extends Component {
     );
   }
 
+  renderEmpty() {
+    return this.state.isSearch() ? (
+      <View />
+    ) : (
+      <Flex align="center" value={1} style={styles.emptyWrap}>
+        <Text style={styles.nullText}>{t('noResults')}</Text>
+      </Flex>
+    );
+  }
+
   renderListFooter() {
     const { isSearching } = this.state;
 
@@ -216,18 +202,24 @@ class SearchList extends Component {
   }
 
   render() {
+    const { t, listProps, defaultData = [] } = this.props;
+    const { results } = this.state;
+    const resultsLength = results.length;
+
     return (
-      <ScrollView
+      <FlatList
         style={styles.pageContainer}
+        data={resultsLength === 0 ? defaultData : results}
+        ListHeaderComponent={this.renderListHeader()}
+        ListFooterComponent={this.renderListFooter()}
+        ListEmptyComponent={this.render}
         onEndReached={this.handleOnEndReached}
         onEndReachedThreshold={0.2}
         onScrollEndDrag={this.handleScrollEndDrag}
+        keyExtractor={this.keyExtractor}
         keyboardShouldPersistTaps="handled"
-      >
-        {this.renderListHeader()}
-        {this.renderContent()}
-        {this.renderListFooter()}
-      </ScrollView>
+        {...listProps}
+      />
     );
   }
 }
