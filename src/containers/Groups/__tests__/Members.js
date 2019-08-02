@@ -18,11 +18,14 @@ import {
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ORG_PERMISSIONS, ACTIONS } from '../../../constants';
 import { removeGroupInviteInfo } from '../../../actions/swipe';
+import { navigatePush } from '../../../actions/navigation';
+import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../../routes/constants';
 
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/swipe');
 jest.mock('../../../actions/analytics');
+jest.mock('../../../actions/navigation');
 common.refresh = jest.fn();
 Alert.alert = jest.fn();
 
@@ -35,7 +38,7 @@ const members = [
 const orgId = '1';
 const myId = '111';
 
-const organization = { id: orgId, name: 'Test Org' };
+const organization = { id: orgId, name: 'Test Org', user_created: true };
 const store = createThunkStore({
   organizations: {
     all: [
@@ -170,103 +173,146 @@ describe('Members', () => {
     expect(renderedItem).toMatchSnapshot();
   });
 
-  it('calls invite and shows alert', async () => {
-    const url = '123';
-    const code = 'ABCDEF';
-    const store2 = createThunkStore({
-      organizations: {
-        all: [
-          {
-            ...organization,
-            community_url: url,
-            community_code: code,
-            members,
+  describe('invite button', () => {
+    describe('user_created', () => {
+      it('should call invite and show alert', async () => {
+        const url = '123';
+        const code = 'ABCDEF';
+        const store2 = createThunkStore({
+          organizations: {
+            all: [
+              {
+                ...organization,
+                community_url: url,
+                community_code: code,
+                members,
+              },
+            ],
+            membersPagination: { hasNextPage: true },
           },
-        ],
-        membersPagination: { hasNextPage: true },
-      },
-      auth: {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: orgId,
-              permission_id: ORG_PERMISSIONS.ADMIN,
+          auth: {
+            person: {
+              organizational_permissions: [
+                {
+                  organization_id: orgId,
+                  permission_id: ORG_PERMISSIONS.ADMIN,
+                },
+              ],
             },
-          ],
-        },
-      },
-      swipe: { groupInviteInfo: true },
-    });
-    const component = renderShallow(
-      <Members organization={organization} />,
-      store2,
-    );
-    Share.share = jest.fn(() => ({ action: Share.sharedAction }));
-    common.getCommunityUrl = jest.fn(() => url);
-    await component
-      .childAt(1)
-      .props()
-      .onPress();
-
-    expect(Share.share).toHaveBeenCalledWith({
-      message: i18n.t('groupsMembers:sendInviteMessage', { url, code }),
-    });
-    expect(Alert.alert).toHaveBeenCalledWith(
-      '',
-      i18n.t('groupsMembers:invited', { orgName: organization.name }),
-    );
-    expect(removeGroupInviteInfo).toHaveBeenCalled();
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.SEND_COMMUNITY_INVITE,
-    );
-  });
-
-  it('calls invite and does not show alert', async () => {
-    const url = '123';
-    const code = 'ABCDEF';
-    const store2 = createThunkStore({
-      organizations: {
-        all: [
-          {
-            ...organization,
-            community_url: url,
-            community_code: code,
-            members,
           },
-        ],
-        membersPagination: { hasNextPage: true },
-      },
-      auth: {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: orgId,
-              permission_id: ORG_PERMISSIONS.ADMIN,
-            },
-          ],
-        },
-      },
-      swipe: { groupInviteInfo: false },
-    });
-    const component = renderShallow(
-      <Members organization={organization} />,
-      store2,
-    );
-    Share.share = jest.fn(() => ({ action: Share.sharedAction }));
-    common.getCommunityUrl = jest.fn(() => url);
-    await component
-      .childAt(1)
-      .props()
-      .onPress();
+          swipe: { groupInviteInfo: true },
+        });
+        const component = renderShallow(
+          <Members organization={organization} />,
+          store2,
+        );
+        Share.share = jest.fn(() => ({ action: Share.sharedAction }));
+        common.getCommunityUrl = jest.fn(() => url);
+        await component
+          .childAt(1)
+          .props()
+          .onPress();
 
-    expect(Share.share).toHaveBeenCalledWith({
-      message: i18n.t('groupsMembers:sendInviteMessage', { url, code }),
+        expect(Share.share).toHaveBeenCalledWith({
+          message: i18n.t('groupsMembers:sendInviteMessage', { url, code }),
+        });
+        expect(Alert.alert).toHaveBeenCalledWith(
+          '',
+          i18n.t('groupsMembers:invited', { orgName: organization.name }),
+        );
+        expect(removeGroupInviteInfo).toHaveBeenCalled();
+        expect(trackActionWithoutData).toHaveBeenCalledWith(
+          ACTIONS.SEND_COMMUNITY_INVITE,
+        );
+      });
+
+      it('should call invite and not show alert', async () => {
+        const url = '123';
+        const code = 'ABCDEF';
+        const store2 = createThunkStore({
+          organizations: {
+            all: [
+              {
+                ...organization,
+                community_url: url,
+                community_code: code,
+                members,
+              },
+            ],
+            membersPagination: { hasNextPage: true },
+          },
+          auth: {
+            person: {
+              organizational_permissions: [
+                {
+                  organization_id: orgId,
+                  permission_id: ORG_PERMISSIONS.ADMIN,
+                },
+              ],
+            },
+          },
+          swipe: { groupInviteInfo: false },
+        });
+        const component = renderShallow(
+          <Members organization={organization} />,
+          store2,
+        );
+        Share.share = jest.fn(() => ({ action: Share.sharedAction }));
+        common.getCommunityUrl = jest.fn(() => url);
+        await component
+          .childAt(1)
+          .props()
+          .onPress();
+
+        expect(Share.share).toHaveBeenCalledWith({
+          message: i18n.t('groupsMembers:sendInviteMessage', { url, code }),
+        });
+        expect(Alert.alert).not.toHaveBeenCalled();
+        expect(removeGroupInviteInfo).not.toHaveBeenCalled();
+        expect(trackActionWithoutData).toHaveBeenCalledWith(
+          ACTIONS.SEND_COMMUNITY_INVITE,
+        );
+      });
     });
-    expect(Alert.alert).not.toHaveBeenCalled();
-    expect(removeGroupInviteInfo).not.toHaveBeenCalled();
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.SEND_COMMUNITY_INVITE,
-    );
+    describe('non user_created', () => {
+      it('should navigate to ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW', async () => {
+        navigatePush.mockReturnValue({ type: 'navigatePush' });
+        const nonUserCreatedOrg = {
+          ...organization,
+          user_created: false,
+        };
+        const store = createThunkStore({
+          organizations: {
+            all: [nonUserCreatedOrg],
+            membersPagination: { hasNextPage: true },
+          },
+          auth: {
+            person: {
+              organizational_permissions: [
+                {
+                  organization_id: orgId,
+                  permission_id: ORG_PERMISSIONS.ADMIN,
+                },
+              ],
+            },
+          },
+          swipe: { groupInviteInfo: true },
+        });
+        const component = renderShallow(
+          <Members organization={nonUserCreatedOrg} />,
+          store,
+        );
+        await component
+          .childAt(1)
+          .props()
+          .onPress();
+
+        expect(navigatePush).toHaveBeenCalledWith(
+          ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW,
+          { organization: nonUserCreatedOrg },
+        );
+      });
+    });
   });
 
   it('renderHeader match snapshot', () => {
