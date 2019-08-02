@@ -18,7 +18,9 @@ import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import GetStartedScreen, {
   GET_STARTED_SCREEN,
 } from '../../containers/GetStartedScreen';
-import StageScreen, { STAGE_SCREEN } from '../../containers/StageScreen';
+import SelectMyStageScreen, {
+  SELECT_MY_STAGE_SCREEN,
+} from '../../containers/SelectMyStageScreen';
 import StageSuccessScreen, {
   STAGE_SUCCESS_SCREEN,
 } from '../../containers/StageSuccessScreen';
@@ -31,9 +33,9 @@ import AddSomeoneScreen, {
 import SetupPersonScreen, {
   SETUP_PERSON_SCREEN,
 } from '../../containers/SetupPersonScreen';
-import PersonStageScreen, {
-  PERSON_STAGE_SCREEN,
-} from '../../containers/PersonStageScreen';
+import SelectPersonStageScreen, {
+  SELECT_PERSON_STAGE_SCREEN,
+} from '../../containers/SelectPersonStageScreen';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
@@ -79,7 +81,7 @@ export const onboardingFlowGenerator = ({
     ? {
         [GET_STARTED_SCREEN]: buildTrackedScreen(
           wrapNextAction(GetStartedScreen, () =>
-            navigatePush(STAGE_SCREEN, {
+            navigatePush(SELECT_MY_STAGE_SCREEN, {
               section: 'onboarding',
               subsection: 'self',
               enableBackButton: false,
@@ -87,8 +89,8 @@ export const onboardingFlowGenerator = ({
           ),
           buildTrackingObj('onboarding : get started', 'onboarding'),
         ),
-        [STAGE_SCREEN]: buildTrackedScreen(
-          wrapNextAction(StageScreen, ({ stage }: { stage: object }) =>
+        [SELECT_MY_STAGE_SCREEN]: buildTrackedScreen(
+          wrapNextAction(SelectMyStageScreen, ({ stage }: { stage: object }) =>
             navigatePush(STAGE_SUCCESS_SCREEN, { selectedStage: stage }),
           ),
         ),
@@ -151,7 +153,7 @@ export const onboardingFlowGenerator = ({
       ({ skip }: { skip: boolean }) =>
         skip
           ? skipOnboarding()
-          : navigatePush(PERSON_STAGE_SCREEN, {
+          : navigatePush(SELECT_PERSON_STAGE_SCREEN, {
               section: 'onboarding',
               subsection: 'add person',
             }),
@@ -163,21 +165,21 @@ export const onboardingFlowGenerator = ({
       'add person',
     ),
   ),
-  [PERSON_STAGE_SCREEN]: buildTrackedScreen(
+  [SELECT_PERSON_STAGE_SCREEN]: buildTrackedScreen(
     wrapNextAction(
-      PersonStageScreen,
+      SelectPersonStageScreen,
       ({
         stage,
         contactId,
-        name,
+        firstName,
       }: {
         stage: object;
         contactId: string;
-        name: string;
+        firstName: string;
       }) =>
         navigatePush(PERSON_SELECT_STEP_SCREEN, {
           contactStage: stage,
-          contactName: name,
+          contactName: firstName,
           contactId,
         }),
     ),

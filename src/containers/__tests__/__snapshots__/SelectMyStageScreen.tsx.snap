@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with back button 1`] = `
+<PathwayStageScreen
+  activeButtonText="STILL HERE"
+  buttonText="I AM HERE"
+  enableBackButton={true}
+  isSelf={true}
+  onScrollToStage={[Function]}
+  onSelect={[Function]}
+  questionText="Roger, which stage best describes where you are on your journey?"
+  section="section"
+  subsection="subsection"
+  testID="stageScreen"
+/>
+`;
+
+exports[`renders correctly with first item 1`] = `
+<PathwayStageScreen
+  activeButtonText="STILL HERE"
+  buttonText="I AM HERE"
+  enableBackButton={false}
+  isSelf={true}
+  onScrollToStage={[Function]}
+  onSelect={[Function]}
+  questionText="Roger, which stage best describes where you are on your journey?"
+  section="section"
+  selectedStageId={1}
+  subsection="subsection"
+  testID="stageScreen"
+/>
+`;
+
+exports[`renders correctly with question text 1`] = `
+<PathwayStageScreen
+  activeButtonText="STILL HERE"
+  buttonText="I AM HERE"
+  enableBackButton={false}
+  isSelf={true}
+  onScrollToStage={[Function]}
+  onSelect={[Function]}
+  questionText="QUESTION"
+  section="section"
+  subsection="subsection"
+  testID="stageScreen"
+/>
+`;
+
+exports[`renders correctly without back button 1`] = `
+<PathwayStageScreen
+  activeButtonText="STILL HERE"
+  buttonText="I AM HERE"
+  enableBackButton={false}
+  isSelf={true}
+  onScrollToStage={[Function]}
+  onSelect={[Function]}
+  questionText="Roger, which stage best describes where you are on your journey?"
+  section="section"
+  subsection="subsection"
+  testID="stageScreen"
+/>
+`;

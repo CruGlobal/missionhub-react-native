@@ -23,8 +23,8 @@ export function paramsForStageNavigation(personId, orgId, getState) {
   const isNotSure = hasNotSureStage(stagesObj, stageId);
   const subsection = getAnalyticsSubsection(personId, authPerson.id);
   const firstItemIndex = getStageIndex(stages, stageId);
-  const name = isMe ? authPerson.first_name : person.first_name;
-  const questionText = getQuestionText(isMe, isNotSure, name);
+  const firstName = isMe ? authPerson.first_name : person.first_name;
+  const questionText = getQuestionText(isMe, isNotSure, firstName);
 
   return {
     isMe,
@@ -34,7 +34,7 @@ export function paramsForStageNavigation(personId, orgId, getState) {
     firstItemIndex,
     questionText,
     assignment,
-    name,
+    firstName,
   };
 }
 

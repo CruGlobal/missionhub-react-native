@@ -12,7 +12,7 @@ import {
 } from '../../../actions/person';
 import { loadStepsAndJourney } from '../../../actions/misc';
 import { navigatePush } from '../../../actions/navigation';
-import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
+import { SELECT_PERSON_STAGE_SCREEN } from '../../../containers/SelectPersonStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen/index';
 
@@ -79,23 +79,22 @@ describe('PersonStageScreen next', () => {
     describe('with contactAssignmentId', () => {
       beforeEach(async () => {
         await buildAndCallNext(
-          PERSON_STAGE_SCREEN,
+          SELECT_PERSON_STAGE_SCREEN,
           {
             section: 'people',
             subsection: 'person',
             firstItem: 0,
             enableBackButton: false,
-            noNav: true,
             questionText,
             orgId,
             contactId: otherId,
             contactAssignmentId,
-            name: otherName,
+            firstName: otherName,
           },
           {
             stage,
             contactId: otherId,
-            name: otherName,
+            firstName: otherName,
             orgId,
             isAlreadySelected: true,
             contactAssignmentId,
@@ -141,22 +140,21 @@ describe('PersonStageScreen next', () => {
     describe('without contactAssignmentId', () => {
       beforeEach(async () => {
         await buildAndCallNext(
-          PERSON_STAGE_SCREEN,
+          SELECT_PERSON_STAGE_SCREEN,
           {
             section: 'people',
             subsection: 'person',
             firstItem: 0,
             enableBackButton: false,
-            noNav: true,
             questionText,
             orgId,
             contactId: otherId,
-            name: otherName,
+            firstName: otherName,
           },
           {
             stage,
             contactId: otherId,
-            name: otherName,
+            firstName: otherName,
             orgId,
             isAlreadySelected: true,
           },
@@ -199,23 +197,22 @@ describe('PersonStageScreen next', () => {
     describe('with contactAssignmentId', () => {
       beforeEach(async () => {
         await buildAndCallNext(
-          PERSON_STAGE_SCREEN,
+          SELECT_PERSON_STAGE_SCREEN,
           {
             section: 'people',
             subsection: 'person',
             firstItem: 0,
             enableBackButton: false,
-            noNav: true,
             questionText,
             orgId,
             contactId: otherId,
             contactAssignmentId,
-            name: otherName,
+            firstName: otherName,
           },
           {
             stage,
             contactId: otherId,
-            name: otherName,
+            firstName: otherName,
             orgId,
             isAlreadySelected: false,
             contactAssignmentId,
@@ -263,7 +260,7 @@ describe('PersonStageScreen next', () => {
     describe('without contactAssignmentId', () => {
       beforeEach(async () => {
         await buildAndCallNext(
-          PERSON_STAGE_SCREEN,
+          SELECT_PERSON_STAGE_SCREEN,
           {
             section: 'people',
             subsection: 'person',
@@ -273,12 +270,12 @@ describe('PersonStageScreen next', () => {
             questionText,
             orgId,
             contactId: otherId,
-            name: otherName,
+            firstName: otherName,
           },
           {
             stage,
             contactId: otherId,
-            name: otherName,
+            firstName: otherName,
             orgId,
             isAlreadySelected: false,
           },

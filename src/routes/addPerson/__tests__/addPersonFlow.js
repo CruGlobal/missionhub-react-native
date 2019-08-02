@@ -11,7 +11,7 @@ import { buildTrackingObj } from '../../../utils/common';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { createCustomStep } from '../../../actions/steps';
 import { ADD_CONTACT_SCREEN } from '../../../containers/AddContactScreen';
-import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
+import { SELECT_PERSON_STAGE_SCREEN } from '../../../containers/SelectPersonStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
@@ -89,7 +89,7 @@ beforeEach(() => {
   createCustomStep.mockReturnValue(createCustomStepResponse);
   paramsForStageNavigation.mockReturnValue({
     assignment: reverseContactAssignment,
-    name: contactName,
+    firstName: contactName,
   });
   reactNavigation.StackActions.popToTop = jest
     .fn()
@@ -120,11 +120,9 @@ describe('AddStepScreen next', () => {
         orgId,
         store.getState,
       );
-      expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
-        addingContactFlow: true,
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_SCREEN, {
         enableBackButton: false,
-        currentStage: null,
-        name: contactName,
+        firstName: contactName,
         contactId,
         contactAssignmentId,
         section: 'people',
@@ -152,9 +150,9 @@ describe('AddStepScreen next', () => {
 describe('PersonStageScreen next', () => {
   beforeEach(async () => {
     await buildAndCallNext(
-      PERSON_STAGE_SCREEN,
+      SELECT_PERSON_STAGE_SCREEN,
       {},
-      { stage, name: contactName, contactId, orgId },
+      { stage, firstName: contactName, contactId, orgId },
     );
   });
 
@@ -180,9 +178,9 @@ describe('PersonStageScreen next', () => {
 describe('PersonStageScreen next', () => {
   beforeEach(async () => {
     await buildAndCallNext(
-      PERSON_STAGE_SCREEN,
+      SELECT_PERSON_STAGE_SCREEN,
       {},
-      { stage, name: contactName, contactId, orgId },
+      { stage, firstName: contactName, contactId, orgId },
     );
   });
 
