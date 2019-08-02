@@ -9,7 +9,7 @@ exports[`renders filters 1`] = `
     }
   }
 >
-  <Flex
+  <View
     style={
       Object {
         "backgroundColor": "#ECEEF2",
@@ -18,19 +18,20 @@ exports[`renders filters 1`] = `
       }
     }
   >
-    <Flex
-      align="center"
-      direction="row"
+    <View
+      alignItems="center"
+      flexDirection="row"
       style={
         Object {
           "paddingRight": 5,
         }
       }
     >
-      <Flex
-        align="center"
-        direction="row"
-        self="stretch"
+      <View
+        alignItems="center"
+        alignSelf="stretch"
+        flex={1}
+        flexDirection="row"
         style={
           Object {
             "backgroundColor": "#ffffff",
@@ -39,7 +40,6 @@ exports[`renders filters 1`] = `
             "paddingRight": 5,
           }
         }
-        value={1}
       >
         <Input
           autoFocus={false}
@@ -60,7 +60,7 @@ exports[`renders filters 1`] = `
           }
           value=""
         />
-      </Flex>
+      </View>
       <IconButton
         name="filterIcon"
         onPress={[Function]}
@@ -71,7 +71,7 @@ exports[`renders filters 1`] = `
         }
         type="MissionHub"
       />
-    </Flex>
+    </View>
     <ScrollViewMock
       horizontal={true}
       style={
@@ -82,9 +82,9 @@ exports[`renders filters 1`] = `
         }
       }
     >
-      <Flex
-        align="center"
-        direction="row"
+      <View
+        alignItems="center"
+        flexDirection="row"
         key="1"
         style={
           Object {
@@ -123,10 +123,10 @@ exports[`renders filters 1`] = `
           }
           type="MissionHub"
         />
-      </Flex>
-      <Flex
-        align="center"
-        direction="row"
+      </View>
+      <View
+        alignItems="center"
+        flexDirection="row"
         key="2"
         style={
           Object {
@@ -165,10 +165,10 @@ exports[`renders filters 1`] = `
           }
           type="MissionHub"
         />
-      </Flex>
-      <Flex
-        align="center"
-        direction="row"
+      </View>
+      <View
+        alignItems="center"
+        flexDirection="row"
         key="3"
         style={
           Object {
@@ -207,10 +207,10 @@ exports[`renders filters 1`] = `
           }
           type="MissionHub"
         />
-      </Flex>
-      <Flex
-        align="center"
-        direction="row"
+      </View>
+      <View
+        alignItems="center"
+        flexDirection="row"
         key="4"
         style={
           Object {
@@ -249,17 +249,17 @@ exports[`renders filters 1`] = `
           }
           type="MissionHub"
         />
-      </Flex>
+      </View>
     </ScrollViewMock>
-  </Flex>
-  <Flex
-    align="center"
+  </View>
+  <View
+    alignItems="center"
+    flex={1}
     style={
       Object {
         "paddingTop": 15,
       }
     }
-    value={1}
   >
     <MyText
       style={
@@ -270,7 +270,7 @@ exports[`renders filters 1`] = `
     >
       No Results.
     </MyText>
-  </Flex>
+  </View>
 </View>
 `;
 
@@ -283,7 +283,7 @@ exports[`renders search list 1`] = `
     }
   }
 >
-  <Flex
+  <View
     style={
       Object {
         "backgroundColor": "#ECEEF2",
@@ -292,19 +292,20 @@ exports[`renders search list 1`] = `
       }
     }
   >
-    <Flex
-      align="center"
-      direction="row"
+    <View
+      alignItems="center"
+      flexDirection="row"
       style={
         Object {
           "paddingRight": 5,
         }
       }
     >
-      <Flex
-        align="center"
-        direction="row"
-        self="stretch"
+      <View
+        alignItems="center"
+        alignSelf="stretch"
+        flex={1}
+        flexDirection="row"
         style={
           Object {
             "backgroundColor": "#ffffff",
@@ -313,7 +314,6 @@ exports[`renders search list 1`] = `
             "paddingRight": 5,
           }
         }
-        value={1}
       >
         <Input
           autoFocus={false}
@@ -334,7 +334,7 @@ exports[`renders search list 1`] = `
           }
           value=""
         />
-      </Flex>
+      </View>
       <IconButton
         name="filterIcon"
         onPress={[Function]}
@@ -345,16 +345,16 @@ exports[`renders search list 1`] = `
         }
         type="MissionHub"
       />
-    </Flex>
-  </Flex>
-  <Flex
-    align="center"
+    </View>
+  </View>
+  <View
+    alignItems="center"
+    flex={1}
     style={
       Object {
         "paddingTop": 15,
       }
     }
-    value={1}
   >
     <MyText
       style={
@@ -365,7 +365,7 @@ exports[`renders search list 1`] = `
     >
       No Results.
     </MyText>
-  </Flex>
+  </View>
 </View>
 `;
 
@@ -378,7 +378,7 @@ exports[`renders text in search box 1`] = `
     }
   }
 >
-  <Flex
+  <View
     style={
       Object {
         "backgroundColor": "#ECEEF2",
@@ -387,19 +387,20 @@ exports[`renders text in search box 1`] = `
       }
     }
   >
-    <Flex
-      align="center"
-      direction="row"
+    <View
+      alignItems="center"
+      flexDirection="row"
       style={
         Object {
           "paddingRight": 5,
         }
       }
     >
-      <Flex
-        align="center"
-        direction="row"
-        self="stretch"
+      <View
+        alignItems="center"
+        alignSelf="stretch"
+        flex={1}
+        flexDirection="row"
         style={
           Object {
             "backgroundColor": "#ffffff",
@@ -408,7 +409,6 @@ exports[`renders text in search box 1`] = `
             "paddingRight": 5,
           }
         }
-        value={1}
       >
         <Input
           autoFocus={false}
@@ -440,7 +440,7 @@ exports[`renders text in search box 1`] = `
           }
           type="MissionHub"
         />
-      </Flex>
+      </View>
       <IconButton
         name="filterIcon"
         onPress={[Function]}
@@ -451,16 +451,16 @@ exports[`renders text in search box 1`] = `
         }
         type="MissionHub"
       />
-    </Flex>
-  </Flex>
-  <Flex
-    align="center"
+    </View>
+  </View>
+  <View
+    alignItems="center"
+    flex={1}
     style={
       Object {
         "paddingTop": 15,
       }
     }
-    value={1}
   >
     <MyText
       style={
@@ -471,6 +471,6 @@ exports[`renders text in search box 1`] = `
     >
       No Results.
     </MyText>
-  </Flex>
+  </View>
 </View>
 `;

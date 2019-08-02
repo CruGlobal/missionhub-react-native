@@ -43,7 +43,7 @@ describe('SurveyContacts', () => {
 
   it('should load contacts with filter', async () => {
     const instance = renderShallow(component, store).instance();
-    instance.handleSearch = jest.fn(() => Promise.resolve(people));
+    instance.handleLoadMore = jest.fn(() => Promise.resolve(people));
     await instance.loadContactsWithFilters();
     expect(instance.state.defaultResults).toEqual(people);
   });
