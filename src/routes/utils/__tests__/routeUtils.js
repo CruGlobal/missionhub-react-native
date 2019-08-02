@@ -77,7 +77,7 @@ describe('is Me, not "Not Sure" stage, step count not complete', () => {
       firstItemIndex: 0,
       questionText: i18next.t('selectStage:completed3StepsMe'),
       assignment: null,
-      name: myName,
+      firstName: myName,
     });
   });
 });
@@ -107,7 +107,7 @@ describe('is Me, "Not Sure" stage, step count not complete', () => {
         name: myName,
       }),
       assignment: null,
-      name: myName,
+      firstName: myName,
     });
   });
 });
@@ -137,7 +137,7 @@ describe('is Me, not "Not Sure" stage, step count complete', () => {
       firstItemIndex: 0,
       questionText: i18next.t('selectStage:completed3StepsMe'),
       assignment: null,
-      name: myName,
+      firstName: myName,
     });
   });
 });
@@ -156,7 +156,7 @@ describe('is not Me, not "Not Sure" stage, step count not complete', () => {
         name: otherName,
       }),
       assignment: reverseAssignment,
-      name: otherName,
+      firstName: otherName,
     });
   });
 });
@@ -186,7 +186,7 @@ describe('is not Me, "Not Sure" stage, step count not complete', () => {
         name: otherName,
       }),
       assignment: reverseAssignmentNotSure,
-      name: otherName,
+      firstName: otherName,
     });
   });
 });
@@ -218,7 +218,7 @@ describe('is not Me, not "Not Sure" stage, step count complete', () => {
         name: otherName,
       }),
       assignment: reverseAssignment,
-      name: otherName,
+      firstName: otherName,
     });
   });
 });

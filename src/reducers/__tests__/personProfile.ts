@@ -21,15 +21,12 @@ const person = {
 };
 
 it('updates from API call', () => {
-  const state = personProfile(
-    {},
-    {
-      type: REQUESTS.ADD_NEW_PERSON.SUCCESS,
-      results: {
-        response: person,
-      },
+  const state = personProfile(undefined, {
+    type: REQUESTS.ADD_NEW_PERSON.SUCCESS,
+    results: {
+      response: person,
     },
-  );
+  });
 
   expect(state.id).toBe(person.id);
   expect(state.personFirstName).toBe(person.first_name);
@@ -40,15 +37,12 @@ it('updates from API call', () => {
 });
 
 it('updates from update API call', () => {
-  const state = personProfile(
-    {},
-    {
-      type: UPDATE_ONBOARDING_PERSON,
-      results: {
-        response: person,
-      },
+  const state = personProfile(undefined, {
+    type: UPDATE_ONBOARDING_PERSON,
+    results: {
+      response: person,
     },
-  );
+  });
 
   expect(state.id).toBe(person.id);
   expect(state.personFirstName).toBe(person.first_name);
@@ -60,26 +54,20 @@ it('updates from update API call', () => {
 
 it('updates first name', () => {
   const firstName = 'test';
-  const state = personProfile(
-    {},
-    {
-      type: PERSON_FIRST_NAME_CHANGED,
-      personFirstName: firstName,
-    },
-  );
+  const state = personProfile(undefined, {
+    type: PERSON_FIRST_NAME_CHANGED,
+    personFirstName: firstName,
+  });
 
   expect(state.personFirstName).toBe(firstName);
 });
 
 it('updates last name', () => {
   const lastName = 'test';
-  const state = personProfile(
-    {},
-    {
-      type: PERSON_LAST_NAME_CHANGED,
-      personLastName: lastName,
-    },
-  );
+  const state = personProfile(undefined, {
+    type: PERSON_LAST_NAME_CHANGED,
+    personLastName: lastName,
+  });
 
   expect(state.personLastName).toBe(lastName);
 });
@@ -90,22 +78,25 @@ it('resets onboarding person and sets completed to true', () => {
   });
 
   expect(state).toEqual({
+    id: null,
     hasCompletedOnboarding: true,
     personFirstName: '',
     personLastName: '',
+    contactAssignmentId: null,
   });
 });
 
 it('completes onboarding', () => {
-  const state = personProfile(
-    {},
-    {
-      type: COMPLETE_ONBOARDING,
-    },
-  );
+  const state = personProfile(undefined, {
+    type: COMPLETE_ONBOARDING,
+  });
 
   expect(state).toEqual({
+    id: null,
     hasCompletedOnboarding: true,
+    personFirstName: '',
+    personLastName: '',
+    contactAssignmentId: null,
   });
 });
 
@@ -115,8 +106,10 @@ it('resets state on logout', () => {
   });
 
   expect(state).toEqual({
+    id: null,
     hasCompletedOnboarding: false,
     personFirstName: '',
     personLastName: '',
+    contactAssignmentId: null,
   });
 });

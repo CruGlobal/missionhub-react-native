@@ -8,13 +8,24 @@ import {
 } from '../constants';
 import { REQUESTS } from '../api/routes';
 
-const initialPersonProfileState = {
+export interface PersonProfileState {
+  id: string | null;
+  hasCompletedOnboarding: boolean;
+  personFirstName: string;
+  personLastName: string;
+  contactAssignmentId: string | null;
+}
+
+const initialPersonProfileState: PersonProfileState = {
+  id: null,
   hasCompletedOnboarding: false,
   personFirstName: '',
   personLastName: '',
+  contactAssignmentId: null,
 };
 
-function personProfileReducer(state = initialPersonProfileState, action) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function personProfileReducer(state = initialPersonProfileState, action: any) {
   switch (action.type) {
     case PERSON_FIRST_NAME_CHANGED:
       return {

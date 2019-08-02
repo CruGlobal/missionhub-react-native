@@ -13,9 +13,9 @@ import { createCustomStep } from '../../actions/steps';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
 } from '../../containers/AddContactScreen';
-import PersonStageScreen, {
-  PERSON_STAGE_SCREEN,
-} from '../../containers/PersonStageScreen';
+import SelectPersonStageScreen, {
+  SELECT_PERSON_STAGE_SCREEN,
+} from '../../containers/SelectPersonStageScreen';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
@@ -36,18 +36,16 @@ export const AddPersonFlowScreens = onFlowComplete => ({
       }
 
       const { id: contactId } = person;
-      const { assignment, name } = paramsForStageNavigation(
+      const { assignment, firstName } = paramsForStageNavigation(
         contactId,
         orgId,
         getState,
       );
 
       dispatch(
-        navigatePush(PERSON_STAGE_SCREEN, {
-          addingContactFlow: true,
+        navigatePush(SELECT_PERSON_STAGE_SCREEN, {
           enableBackButton: false,
-          currentStage: null,
-          name,
+          firstName,
           contactId,
           contactAssignmentId: assignment && assignment.id,
           section: 'people',
@@ -57,9 +55,9 @@ export const AddPersonFlowScreens = onFlowComplete => ({
       );
     },
   ),
-  [PERSON_STAGE_SCREEN]: wrapNextAction(
-    PersonStageScreen,
-    ({ stage, name, contactId, orgId }) => dispatch => {
+  [SELECT_PERSON_STAGE_SCREEN]: wrapNextAction(
+    SelectPersonStageScreen,
+    ({ stage, firstName, contactId, orgId }) => dispatch => {
       dispatch(
         navigatePush(PERSON_SELECT_STEP_SCREEN, {
           contactStage: stage,
@@ -69,7 +67,7 @@ export const AddPersonFlowScreens = onFlowComplete => ({
             'person',
             'steps',
           ),
-          contactName: name,
+          contactName: firstName,
           contactId,
           organization: { id: orgId },
           enableBackButton: false,
