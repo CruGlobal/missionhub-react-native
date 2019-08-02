@@ -7,7 +7,12 @@ import PropTypes from 'prop-types';
 import { ACTIONS } from '../../constants';
 import { RefreshControl } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import { refresh, getCommunityUrl, keyExtractorId } from '../../utils/common';
+import {
+  refresh,
+  getCommunityUrl,
+  keyExtractorId,
+  orgIsUserCreated,
+} from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
 import {
@@ -20,6 +25,8 @@ import { organizationSelector } from '../../selectors/organizations';
 import { orgPermissionSelector } from '../../selectors/people';
 import { removeGroupInviteInfo } from '../../actions/swipe';
 import { trackActionWithoutData } from '../../actions/analytics';
+import { navigatePush } from '../../actions/navigation';
+import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../routes/constants';
 
 import styles from './styles';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
@@ -58,18 +65,27 @@ class Members extends Component {
 
   handleInvite = async () => {
     const { t, organization, groupInviteInfo, dispatch } = this.props;
-    const url = getCommunityUrl(organization.community_url);
-    const code = organization.community_code;
 
-    const { action } = await Share.share({
-      message: t('sendInviteMessage', { url, code }),
-    });
-    if (action === Share.sharedAction) {
-      dispatch(trackActionWithoutData(ACTIONS.SEND_COMMUNITY_INVITE));
-      if (groupInviteInfo) {
-        Alert.alert('', t('invited', { orgName: organization.name }));
-        dispatch(removeGroupInviteInfo());
+    if (orgIsUserCreated(organization)) {
+      const url = getCommunityUrl(organization.community_url);
+      const code = organization.community_code;
+
+      const { action } = await Share.share({
+        message: t('sendInviteMessage', { url, code }),
+      });
+      if (action === Share.sharedAction) {
+        dispatch(trackActionWithoutData(ACTIONS.SEND_COMMUNITY_INVITE));
+        if (groupInviteInfo) {
+          Alert.alert('', t('invited', { orgName: organization.name }));
+          dispatch(removeGroupInviteInfo());
+        }
       }
+    } else {
+      dispatch(
+        navigatePush(ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW, {
+          organization: organization.id ? organization : undefined,
+        }),
+      );
     }
   };
 
