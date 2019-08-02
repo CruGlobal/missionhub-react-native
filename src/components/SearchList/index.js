@@ -4,7 +4,7 @@ import debounce from 'lodash/debounce';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Flex, IconButton, Input, Text } from '../../components/common';
+import { IconButton, Input, Text } from '../../components/common';
 import LoadingWheel from '../../components/LoadingWheel';
 import theme from '../../theme';
 
@@ -97,12 +97,12 @@ class SearchList extends Component {
     const { t, placeholder } = this.props;
     const { text } = this.state;
     return (
-      <Flex
-        value={1}
-        direction="row"
-        align="center"
+      <View
+        flex={1}
+        flexDirection="row"
+        alignItems="center"
         style={styles.inputWrap}
-        self="stretch"
+        alignSelf="stretch"
       >
         <Input
           ref={this.ref}
@@ -124,7 +124,7 @@ class SearchList extends Component {
             style={styles.clearIcon}
           />
         ) : null}
-      </Flex>
+      </View>
     );
   }
 
@@ -138,10 +138,10 @@ class SearchList extends Component {
     return (
       <ScrollView horizontal={true} style={styles.activeFilterWrap}>
         {keys.map(k => (
-          <Flex
+          <View
             key={filters[k].id}
-            direction="row"
-            align="center"
+            flexDirection="row"
+            alignItems="center"
             style={styles.activeFilterRow}
           >
             <Text style={styles.activeFilterText}>{filters[k].text}</Text>
@@ -152,7 +152,7 @@ class SearchList extends Component {
               pressProps={[k]}
               onPress={this.removeFilter}
             />
-          </Flex>
+          </View>
         ))}
       </ScrollView>
     );
@@ -166,8 +166,12 @@ class SearchList extends Component {
     return (
       <View>
         {headerComponent || null}
-        <Flex style={styles.searchWrap}>
-          <Flex direction="row" align="center" style={styles.searchFilterWrap}>
+        <View style={styles.searchWrap}>
+          <View
+            flexDirection="row"
+            alignItems="center"
+            style={styles.searchFilterWrap}
+          >
             {this.renderCenter()}
             <IconButton
               name="filterIcon"
@@ -175,34 +179,29 @@ class SearchList extends Component {
               onPress={this.handleFilter}
               style={styles.filterButton}
             />
-          </Flex>
+          </View>
           {this.renderFilters()}
-        </Flex>
+        </View>
       </View>
     );
   }
 
   renderEmpty() {
-    return this.state.isSearch() ? (
-      <View />
-    ) : (
-      <Flex align="center" value={1} style={styles.emptyWrap}>
-        <Text style={styles.nullText}>{t('noResults')}</Text>
-      </Flex>
+    return this.state.isSearching ? null : (
+      <View alignItems="center" flex={1} style={styles.emptyWrap}>
+        <Text style={styles.nullText}>{this.props.t('noResults')}</Text>
+      </View>
     );
   }
 
   renderListFooter() {
-    const { isSearching } = this.state;
-
-    if (isSearching) {
-      return <LoadingWheel style={styles.loadingIndicator} />;
-    }
-    return null;
+    return this.state.isSearching ? (
+      <LoadingWheel style={styles.loadingIndicator} />
+    ) : null;
   }
 
   render() {
-    const { t, listProps, defaultData = [] } = this.props;
+    const { listProps, defaultData = [] } = this.props;
     const { results } = this.state;
     const resultsLength = results.length;
 
@@ -212,7 +211,7 @@ class SearchList extends Component {
         data={resultsLength === 0 ? defaultData : results}
         ListHeaderComponent={this.renderListHeader()}
         ListFooterComponent={this.renderListFooter()}
-        ListEmptyComponent={this.render}
+        ListEmptyComponent={this.renderEmpty()}
         onEndReached={this.handleOnEndReached}
         onEndReachedThreshold={0.2}
         onScrollEndDrag={this.handleScrollEndDrag}
