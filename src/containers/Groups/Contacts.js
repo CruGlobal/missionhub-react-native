@@ -13,7 +13,6 @@ import { searchRemoveFilter, unassignedFilter } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
-import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 import styles from './styles';
 
 @withTranslation('groupsContacts')

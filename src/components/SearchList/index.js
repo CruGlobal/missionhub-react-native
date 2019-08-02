@@ -58,20 +58,21 @@ class SearchList extends Component {
     }
   };
 
-  handleLoadMore = async () => {
-    const { text, results } = this.state;
-    const { onLoadMore } = this.props;
-
-    const newResults = await onLoadMore(text);
-
-    this.setState({ results: [...results, ...newResults] });
-  };
-
-  handleOnEndReached = () => {
-    if (this.state.listHasScrolled) {
-      this.handleLoadMore();
-      this.setState({ listHasScrolled: false });
+  handleOnEndReached = async () => {
+    const { listHasScrolled, text, isSearching, results } = this.state;
+    if (!listHasScrolled || isSearching) {
+      return;
     }
+
+    this.setState({ isSearching: true });
+
+    const newResults = await this.props.onLoadMore(text);
+
+    this.setState({
+      listHasScrolled: false,
+      isSearching: false,
+      results: [...results, ...newResults],
+    });
   };
 
   handleScrollEndDrag = () => {
@@ -161,27 +162,22 @@ class SearchList extends Component {
   keyExtractor = i => i.unique_key || i.id;
 
   renderHeader() {
-    const { headerComponent } = this.props;
-
     return (
-      <View>
-        {headerComponent || null}
-        <View style={styles.searchWrap}>
-          <View
-            flexDirection="row"
-            alignItems="center"
-            style={styles.searchFilterWrap}
-          >
-            {this.renderCenter()}
-            <IconButton
-              name="filterIcon"
-              type="MissionHub"
-              onPress={this.handleFilter}
-              style={styles.filterButton}
-            />
-          </View>
-          {this.renderFilters()}
+      <View style={styles.searchWrap}>
+        <View
+          flexDirection="row"
+          alignItems="center"
+          style={styles.searchFilterWrap}
+        >
+          {this.renderCenter()}
+          <IconButton
+            name="filterIcon"
+            type="MissionHub"
+            onPress={this.handleFilter}
+            style={styles.filterButton}
+          />
         </View>
+        {this.renderFilters()}
       </View>
     );
   }
@@ -201,13 +197,13 @@ class SearchList extends Component {
 
     return (
       <FlatList
-        style={styles.pageContainer}
+        style={styles.list}
         data={resultsLength === 0 ? defaultData : results}
-        ListFooterComponent={this.renderListFooter()}
+        keyExtractor={this.keyExtractor}
         onEndReached={this.handleOnEndReached}
         onEndReachedThreshold={0.2}
         onScrollEndDrag={this.handleScrollEndDrag}
-        keyExtractor={this.keyExtractor}
+        ListFooterComponent={this.renderListFooter()}
         keyboardShouldPersistTaps="handled"
         {...listProps}
       />
@@ -226,7 +222,7 @@ class SearchList extends Component {
     const resultsLength = results.length;
 
     return (
-      <View>
+      <View style={styles.pageContainer}>
         {this.renderHeader()}
         {!isSearching && resultsLength === 0 && defaultData.length === 0
           ? this.renderEmpty()
