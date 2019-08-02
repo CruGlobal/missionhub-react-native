@@ -40,13 +40,6 @@ You'll also need to create a .env file in your project root directory. The easie
 - Run `yarn android`
 - *Note: You can also use Android Studio to run the application instead of the terminal*
 
-##### Release builds
-
-- Add a new password to Keychain Access with `Name` set to `MISSIONHUB_GOOGLE_PLAY_UPLOAD_KEY_PASSWORD`, `Account` set to `MissionHub Team`, and `Password` set to the current value of the Travis `GOOGLE_PLAY_UPLOAD_KEY_PASSWORD` variable. That can be obtained by debugging a Travis build, sshing into it and running `echo $GOOGLE_PLAY_UPLOAD_KEY_PASSWORD`.
-- The `signingConfigs` in `android/app/build.gradle` are configured to retrieve this password from your Keychain.
-- Run `yarn android:build`.
-- See https://facebook.github.io/react-native/docs/signed-apk-android#setting-up-gradle-variables and https://pilloxa.gitlab.io/posts/safer-passwords-in-gradle/ for more info
-
 
 
 ## Debugging
