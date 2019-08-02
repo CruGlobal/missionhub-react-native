@@ -25,23 +25,18 @@ import styles from './styles';
 
 @withTranslation('groupsSurveyContacts')
 class SurveyContacts extends Component {
-  constructor(props) {
-    super(props);
-    const { t } = props;
-
-    this.state = {
-      pagination: {
-        page: 0,
-        hasMore: true,
-      },
-      //Default filters
-      filters: {
-        unassigned: unassignedFilter(t, true),
-        time: thirtyDaysFilter(t),
-      },
-      defaultResults: [],
-    };
-  }
+  state = {
+    pagination: {
+      page: 0,
+      hasMore: true,
+    },
+    //Default filters
+    filters: {
+      unassigned: unassignedFilter(this.props.t, true),
+      time: thirtyDaysFilter(this.props.t),
+    },
+    defaultResults: [],
+  };
 
   componentDidMount() {
     // Use the default filters to load in these people
@@ -49,7 +44,7 @@ class SurveyContacts extends Component {
   }
 
   loadContactsWithFilters = async () => {
-    const contacts = await this.handleSearch('');
+    const contacts = await this.handleLoadMore('');
     this.setState({ defaultResults: contacts });
   };
 
@@ -75,13 +70,7 @@ class SurveyContacts extends Component {
   };
 
   handleSearch = async text => {
-    const pagination = {
-      page: 0,
-      hasMore: true,
-    };
-
-    await this.setState({ pagination });
-
+    await this.setState({ pagination: { page: 0, hasMore: true } });
     return this.handleLoadMore(text);
   };
 

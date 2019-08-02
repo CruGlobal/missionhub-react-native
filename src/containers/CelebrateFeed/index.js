@@ -47,10 +47,11 @@ class CelebrateFeed extends Component {
   };
 
   renderItem = ({ item }) => {
-    const { organization, itemNamePressable } = this.props;
+    const { organization, itemNamePressable, onClearNotification } = this.props;
 
     return (
       <CelebrateItem
+        onClearNotification={onClearNotification}
         event={item}
         organization={organization}
         onPressItem={

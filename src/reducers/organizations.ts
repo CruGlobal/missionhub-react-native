@@ -297,6 +297,9 @@ function organizationsReducer(state = initialState, action: any) {
       return updateChallenge(action, state);
 
     case REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS:
+      if (!action.query.organization_id) {
+        return state;
+      }
       return {
         ...state,
         all: state.all.map(org =>

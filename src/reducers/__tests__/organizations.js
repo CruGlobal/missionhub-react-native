@@ -1163,6 +1163,16 @@ describe('REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS', () => {
       ],
     });
   });
+
+  it('should not update anything if there is no org id', () => {
+    const initUnreadState = { all: [{ id: org1Id, unread_comments_count: 5 }] };
+    expect(
+      organizations(initUnreadState, {
+        type: REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS,
+        query: { organization_celebration_item_id: 'testEventId' },
+      }),
+    ).toEqual(initUnreadState);
+  });
 });
 
 describe('global like/unlike', () => {

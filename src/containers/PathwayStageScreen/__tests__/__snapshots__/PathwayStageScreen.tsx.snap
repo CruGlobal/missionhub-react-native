@@ -3,17 +3,12 @@
 exports[`renders back button correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "backgroundColor": "#66D9F0",
-        "flex": 1,
-      },
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-    ]
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#66D9F0",
+      "flex": 1,
+      "justifyContent": "center",
+    }
   }
 >
   <Image
@@ -36,113 +31,26 @@ exports[`renders back button correctly 1`] = `
       ]
     }
   />
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Array [
-        Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
-        },
-        undefined,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
-      ]
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {},
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
+  <BackButton
+    absolute={true}
+  />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#007398",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 18,
-          "fontWeight": "500",
-          "paddingBottom": 25,
-          "paddingHorizontal": 30,
-          "paddingTop": 45,
-          "textAlign": "center",
-          "width": 650,
-        },
-      ]
+      Object {
+        "color": "#007398",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 18,
+        "fontWeight": "500",
+        "paddingBottom": 25,
+        "paddingHorizontal": 30,
+        "paddingTop": 45,
+        "textAlign": "center",
+        "width": 650,
+      }
     }
-  />
+  >
+    question?
+  </Text>
   <RCTScrollView
     activeAnimationOptions={null}
     activeAnimationType="timing"
@@ -310,80 +218,37 @@ exports[`renders back button correctly 1`] = `
                 }
               />
               <Text
+                header={true}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "AmaticSC-Bold",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 42,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#007398",
+                    "fontSize": 42,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 stage 1
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 Stage 1 description
               </Text>
             </View>
-            <View
-              accessible={true}
-              clickable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="StageButton0"
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#007398",
-                      "height": 60,
-                      "justifyContent": "center",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              />
-            </View>
+            <Button
+              onPress={[Function]}
+              testID="stageSelectButton"
+              text="Press Me"
+              type="primary"
+            />
           </View>
         </View>
       </View>
@@ -439,80 +304,37 @@ exports[`renders back button correctly 1`] = `
                 }
               />
               <Text
+                header={true}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "AmaticSC-Bold",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 42,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#007398",
+                    "fontSize": 42,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 stage 2
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 Stage 2 description
               </Text>
             </View>
-            <View
-              accessible={true}
-              clickable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="StageButton1"
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#007398",
-                      "height": 60,
-                      "justifyContent": "center",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              />
-            </View>
+            <Button
+              onPress={[Function]}
+              testID="stageSelectButton"
+              text="Press Me"
+              type="primary"
+            />
           </View>
         </View>
       </View>
@@ -568,80 +390,37 @@ exports[`renders back button correctly 1`] = `
                 }
               />
               <Text
+                header={true}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "AmaticSC-Bold",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 42,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#007398",
+                    "fontSize": 42,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 stage 3
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 Stage 3 description
               </Text>
             </View>
-            <View
-              accessible={true}
-              clickable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="StageButton2"
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#007398",
-                      "height": 60,
-                      "justifyContent": "center",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              />
-            </View>
+            <Button
+              onPress={[Function]}
+              testID="stageSelectButton"
+              text="Press Me"
+              type="primary"
+            />
           </View>
         </View>
       </View>
@@ -653,17 +432,12 @@ exports[`renders back button correctly 1`] = `
 exports[`renders correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "backgroundColor": "#66D9F0",
-        "flex": 1,
-      },
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-    ]
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#66D9F0",
+      "flex": 1,
+      "justifyContent": "center",
+    }
   }
 >
   <Image
@@ -688,27 +462,21 @@ exports[`renders correctly 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#007398",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 18,
-          "fontWeight": "500",
-          "paddingBottom": 25,
-          "paddingHorizontal": 30,
-          "paddingTop": 45,
-          "textAlign": "center",
-          "width": 650,
-        },
-      ]
+      Object {
+        "color": "#007398",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 18,
+        "fontWeight": "500",
+        "paddingBottom": 25,
+        "paddingHorizontal": 30,
+        "paddingTop": 45,
+        "textAlign": "center",
+        "width": 650,
+      }
     }
-  />
+  >
+    question?
+  </Text>
   <RCTScrollView
     activeAnimationOptions={null}
     activeAnimationType="timing"
@@ -876,80 +644,37 @@ exports[`renders correctly 1`] = `
                 }
               />
               <Text
+                header={true}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "AmaticSC-Bold",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 42,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#007398",
+                    "fontSize": 42,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 stage 1
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 Stage 1 description
               </Text>
             </View>
-            <View
-              accessible={true}
-              clickable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="StageButton0"
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#007398",
-                      "height": 60,
-                      "justifyContent": "center",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              />
-            </View>
+            <Button
+              onPress={[Function]}
+              testID="stageSelectButton"
+              text="Press Me"
+              type="primary"
+            />
           </View>
         </View>
       </View>
@@ -1005,80 +730,37 @@ exports[`renders correctly 1`] = `
                 }
               />
               <Text
+                header={true}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "AmaticSC-Bold",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 42,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#007398",
+                    "fontSize": 42,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 stage 2
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 Stage 2 description
               </Text>
             </View>
-            <View
-              accessible={true}
-              clickable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="StageButton1"
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#007398",
-                      "height": 60,
-                      "justifyContent": "center",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              />
-            </View>
+            <Button
+              onPress={[Function]}
+              testID="stageSelectButton"
+              text="Press Me"
+              type="primary"
+            />
           </View>
         </View>
       </View>
@@ -1134,80 +816,37 @@ exports[`renders correctly 1`] = `
                 }
               />
               <Text
+                header={true}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "AmaticSC-Bold",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 42,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#007398",
+                    "fontSize": 42,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 stage 3
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 Stage 3 description
               </Text>
             </View>
-            <View
-              accessible={true}
-              clickable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="StageButton2"
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#007398",
-                      "height": 60,
-                      "justifyContent": "center",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              />
-            </View>
+            <Button
+              onPress={[Function]}
+              testID="stageSelectButton"
+              text="Press Me"
+              type="primary"
+            />
           </View>
         </View>
       </View>
@@ -1219,17 +858,12 @@ exports[`renders correctly 1`] = `
 exports[`renders correctly without stages 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "backgroundColor": "#66D9F0",
-        "flex": 1,
-      },
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-    ]
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#66D9F0",
+      "flex": 1,
+      "justifyContent": "center",
+    }
   }
 >
   <Image
@@ -1254,44 +888,33 @@ exports[`renders correctly without stages 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#007398",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 18,
-          "fontWeight": "500",
-          "paddingBottom": 25,
-          "paddingHorizontal": 30,
-          "paddingTop": 45,
-          "textAlign": "center",
-          "width": 650,
-        },
-      ]
+      Object {
+        "color": "#007398",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 18,
+        "fontWeight": "500",
+        "paddingBottom": 25,
+        "paddingHorizontal": 30,
+        "paddingTop": 45,
+        "textAlign": "center",
+        "width": 650,
+      }
     }
-  />
+  >
+    question?
+  </Text>
 </View>
 `;
 
 exports[`renders firstItem correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "backgroundColor": "#66D9F0",
-        "flex": 1,
-      },
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-    ]
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#66D9F0",
+      "flex": 1,
+      "justifyContent": "center",
+    }
   }
 >
   <Image
@@ -1316,27 +939,21 @@ exports[`renders firstItem correctly 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#007398",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 18,
-          "fontWeight": "500",
-          "paddingBottom": 25,
-          "paddingHorizontal": 30,
-          "paddingTop": 45,
-          "textAlign": "center",
-          "width": 650,
-        },
-      ]
+      Object {
+        "color": "#007398",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 18,
+        "fontWeight": "500",
+        "paddingBottom": 25,
+        "paddingHorizontal": 30,
+        "paddingTop": 45,
+        "textAlign": "center",
+        "width": 650,
+      }
     }
-  />
+  >
+    question?
+  </Text>
   <RCTScrollView
     activeAnimationOptions={null}
     activeAnimationType="timing"
@@ -1504,80 +1121,37 @@ exports[`renders firstItem correctly 1`] = `
                 }
               />
               <Text
+                header={true}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "AmaticSC-Bold",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 42,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#007398",
+                    "fontSize": 42,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 stage 1
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 Stage 1 description
               </Text>
             </View>
-            <View
-              accessible={true}
-              clickable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="StageButton0"
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#007398",
-                      "height": 60,
-                      "justifyContent": "center",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              />
-            </View>
+            <Button
+              onPress={[Function]}
+              testID="stageSelectButton"
+              text="Press Me"
+              type="primary"
+            />
           </View>
         </View>
       </View>
@@ -1633,80 +1207,37 @@ exports[`renders firstItem correctly 1`] = `
                 }
               />
               <Text
+                header={true}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "AmaticSC-Bold",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 42,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#007398",
+                    "fontSize": 42,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 stage 2
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 Stage 2 description
               </Text>
             </View>
-            <View
-              accessible={true}
-              clickable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="StageButton1"
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#007398",
-                      "height": 60,
-                      "justifyContent": "center",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              />
-            </View>
+            <Button
+              onPress={[Function]}
+              testID="stageSelectButton"
+              text="Already Pressed"
+              type="primary"
+            />
           </View>
         </View>
       </View>
@@ -1762,80 +1293,37 @@ exports[`renders firstItem correctly 1`] = `
                 }
               />
               <Text
+                header={true}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "AmaticSC-Bold",
-                    },
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 42,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#007398",
+                    "fontSize": 42,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 stage 3
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "padding": 5,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                    "padding": 5,
+                    "textAlign": "center",
+                  }
                 }
               >
                 Stage 3 description
               </Text>
             </View>
-            <View
-              accessible={true}
-              clickable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="StageButton2"
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#007398",
-                      "height": 60,
-                      "justifyContent": "center",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              />
-            </View>
+            <Button
+              onPress={[Function]}
+              testID="stageSelectButton"
+              text="Press Me"
+              type="primary"
+            />
           </View>
         </View>
       </View>

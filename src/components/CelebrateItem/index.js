@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Card, Separator } from '../../components/common';
+import { Card, Separator, Touchable, Icon } from '../../components/common';
 import CardTime from '../CardTime';
 import CommentLikeComponent from '../../containers/CommentLikeComponent';
 import CelebrateItemName from '../../containers/CelebrateItemName';
@@ -17,6 +17,29 @@ class CelebrateItem extends Component {
     onPressItem && onPressItem(event);
   };
 
+  clearNotification = () => {
+    const { onClearNotification, event } = this.props;
+    onClearNotification(event);
+  };
+
+  renderClearNotification() {
+    return (
+      <View style={styles.clearNotificationWrap}>
+        <Touchable
+          onPress={this.clearNotification}
+          style={styles.clearNotificationTouchable}
+        >
+          <Icon
+            name="deleteIcon"
+            type="MissionHub"
+            size={10}
+            style={styles.clearNotificationIcon}
+          />
+        </Touchable>
+      </View>
+    );
+  }
+
   render() {
     const {
       event,
@@ -24,6 +47,7 @@ class CelebrateItem extends Component {
       rightCorner,
       namePressable,
       fixedHeight,
+      onClearNotification,
     } = this.props;
     const {
       changed_attribute_value,
@@ -60,6 +84,7 @@ class CelebrateItem extends Component {
             <CommentLikeComponent event={event} />
           </View>
         </View>
+        {onClearNotification ? this.renderClearNotification() : null}
       </Card>
     );
   }
@@ -70,6 +95,7 @@ CelebrateItem.propTypes = {
   organization: PropTypes.object,
   namePressable: PropTypes.bool,
   fixedHeight: PropTypes.bool,
+  onClearNotification: PropTypes.func,
 };
 
 export default connect()(CelebrateItem);

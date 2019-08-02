@@ -53,3 +53,34 @@ describe('press card', () => {
     expect(onPressItem).toHaveBeenCalledWith(baseEvent);
   });
 });
+
+describe('clear notification button', () => {
+  it('renders clear notification button', () => {
+    testSnapshotShallow(
+      <CelebrateItem
+        event={baseEvent}
+        onPressItem={jest.fn()}
+        onClearNotification={jest.fn()}
+      />,
+      store,
+    );
+  });
+
+  it('calls onClearNotification', () => {
+    const onClearNotification = jest.fn();
+    renderShallow(
+      <CelebrateItem
+        event={baseEvent}
+        onPressItem={jest.fn()}
+        onClearNotification={onClearNotification}
+      />,
+      store,
+    )
+      .childAt(1)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(onClearNotification).toHaveBeenCalledWith(baseEvent);
+  });
+});
