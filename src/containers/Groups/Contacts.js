@@ -18,24 +18,19 @@ import styles from './styles';
 
 @withTranslation('groupsContacts')
 class Contacts extends Component {
-  constructor(props) {
-    super(props);
-    const { t } = props;
-
-    this.state = {
-      pagination: {
-        page: 0,
-        hasMore: true,
-      },
-      filters: {
-        // Default filters
-        unassigned: unassignedFilter(t, true),
-        // TODO: temporarily remove this until the API supports it
-        // time: thirtyDaysFilter(t),
-      },
-      defaultResults: [],
-    };
-  }
+  state = {
+    pagination: {
+      page: 0,
+      hasMore: true,
+    },
+    filters: {
+      // Default filters
+      unassigned: unassignedFilter(this.props.t, true),
+      // TODO: temporarily remove this until the API supports it
+      // time: thirtyDaysFilter(t),
+    },
+    defaultResults: [],
+  };
 
   componentDidMount() {
     // TODO: Only do this when this tab is focused to improve performance
@@ -44,8 +39,7 @@ class Contacts extends Component {
   }
 
   loadContactsWithFilters = async () => {
-    const contacts = await this.handleSearch('');
-
+    const contacts = await this.handleLoadMore('');
     this.setState({ defaultResults: contacts });
   };
 
@@ -71,13 +65,7 @@ class Contacts extends Component {
   };
 
   handleSearch = async text => {
-    const pagination = {
-      page: 0,
-      hasMore: true,
-    };
-
-    await this.setState({ pagination });
-
+    await this.setState({ pagination: { page: 0, hasMore: true } });
     return this.handleLoadMore(text);
   };
 
