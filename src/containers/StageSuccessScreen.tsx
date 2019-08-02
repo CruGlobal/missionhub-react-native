@@ -56,6 +56,7 @@ const StageSuccessScreen = ({
   message = message.replace('<<user>>', firstName ? firstName : t('friend'));
   return (
     <IconMessageScreen
+      testID="IconMessageScreen"
       mainText={message}
       buttonText={t('chooseSteps')}
       onComplete={handleNavigateToStep}
