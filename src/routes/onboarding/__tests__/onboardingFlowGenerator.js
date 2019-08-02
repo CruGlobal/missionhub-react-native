@@ -13,12 +13,12 @@ import { buildTrackingObj } from '../../../utils/common';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
-import { STAGE_SCREEN } from '../../../containers/StageScreen';
+import { SELECT_MY_STAGE_SCREEN } from '../../../containers/SelectMyStageScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
 import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupPersonScreen';
-import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
+import { SELECT_PERSON_STAGE_SCREEN } from '../../../containers/SelectPersonStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
@@ -103,7 +103,7 @@ describe('GetStartedScreen next', () => {
         .props.next(),
     );
 
-    expect(navigatePush).toHaveBeenCalledWith(STAGE_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_SCREEN, {
       section: 'onboarding',
       subsection: 'self',
       enableBackButton: false,
@@ -113,7 +113,7 @@ describe('GetStartedScreen next', () => {
 
 describe('StageScreen next', () => {
   it('should fire required next actions', async () => {
-    const Component = testFlow[STAGE_SCREEN].screen;
+    const Component = testFlow[SELECT_MY_STAGE_SCREEN].screen;
 
     await store.dispatch(
       renderShallow(
@@ -273,7 +273,7 @@ describe('SetupPersonScreen next', () => {
   it('should fire required next actions without skip', async () => {
     await store.dispatch(next({ skip: false }));
 
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_SCREEN, {
       section: 'onboarding',
       subsection: 'add person',
     });
@@ -288,7 +288,7 @@ describe('SetupPersonScreen next', () => {
 
 describe('PersonStageScreen next', () => {
   it('should fire required next actions', async () => {
-    const Component = testFlow[PERSON_STAGE_SCREEN].screen;
+    const Component = testFlow[SELECT_PERSON_STAGE_SCREEN].screen;
 
     await store.dispatch(
       renderShallow(
@@ -305,7 +305,7 @@ describe('PersonStageScreen next', () => {
         .props.next({
           stage: stage,
           contactId: personId,
-          name: personFirstName,
+          firstName: personFirstName,
         }),
     );
 

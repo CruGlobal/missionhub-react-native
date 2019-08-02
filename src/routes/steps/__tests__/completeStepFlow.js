@@ -11,8 +11,8 @@ import { paramsForStageNavigation } from '../../utils';
 import { navigatePush } from '../../../actions/navigation';
 import { reloadJourney } from '../../../actions/journey';
 import { COMPLETE_STEP_SCREEN } from '../../../containers/AddStepScreen';
-import { STAGE_SCREEN } from '../../../containers/StageScreen';
-import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
+import { SELECT_MY_STAGE_SCREEN } from '../../../containers/SelectMyStageScreen';
+import { SELECT_PERSON_STAGE_SCREEN } from '../../../containers/SelectPersonStageScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { updateChallengeNote } from '../../../actions/steps';
 import { trackAction } from '../../../actions/analytics';
@@ -96,7 +96,7 @@ describe('AddStepScreen next', () => {
         firstItemIndex: 0,
         questionText,
         assignment: null,
-        name: myName,
+        firstName: myName,
       });
     });
 
@@ -130,7 +130,7 @@ describe('AddStepScreen next', () => {
         firstItemIndex: 1,
         questionText,
         assignment: null,
-        name: myName,
+        firstName: myName,
       });
     });
 
@@ -146,17 +146,16 @@ describe('AddStepScreen next', () => {
         orgId,
         store.getState,
       );
-      expect(navigatePush).toHaveBeenCalledWith(STAGE_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_SCREEN, {
         section: 'people',
         subsection: 'self',
         firstItem: 1,
         enableBackButton: false,
-        noNav: true,
         questionText,
         orgId,
         contactId: myId,
         contactAssignmentId: null,
-        name: myName,
+        firstName: myName,
       });
       expect(store.getActions()).toEqual([
         { type: RESET_STEP_COUNT, userId: myId },
@@ -175,7 +174,7 @@ describe('AddStepScreen next', () => {
         firstItemIndex: 0,
         questionText,
         assignment: null,
-        name: myName,
+        firstName: myName,
       });
     });
 
@@ -186,17 +185,16 @@ describe('AddStepScreen next', () => {
         { personId: myId, orgId },
       );
 
-      expect(navigatePush).toHaveBeenCalledWith(STAGE_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_SCREEN, {
         section: 'people',
         subsection: 'self',
         firstItem: 0,
         enableBackButton: false,
-        noNav: true,
         questionText,
         orgId,
         contactId: myId,
         contactAssignmentId: null,
-        name: myName,
+        firstName: myName,
       });
       expect(store.getActions()).toEqual([navigatePushResponse]);
     });
@@ -212,7 +210,7 @@ describe('AddStepScreen next', () => {
         firstItemIndex: 0,
         questionText,
         assignment: reverseContactAssignment,
-        name: otherName,
+        firstName: otherName,
       });
     });
 
@@ -241,7 +239,7 @@ describe('AddStepScreen next', () => {
         firstItemIndex: 1,
         questionText,
         assignment: reverseContactAssignment,
-        name: otherName,
+        firstName: otherName,
       });
     });
 
@@ -252,17 +250,16 @@ describe('AddStepScreen next', () => {
         { personId: otherId, orgId },
       );
 
-      expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_SCREEN, {
         section: 'people',
         subsection: 'person',
         firstItem: 1,
         enableBackButton: false,
-        noNav: true,
         questionText,
         orgId,
         contactId: otherId,
         contactAssignmentId,
-        name: otherName,
+        firstName: otherName,
       });
       expect(store.getActions()).toEqual([
         { type: RESET_STEP_COUNT, userId: otherId },
@@ -281,7 +278,7 @@ describe('AddStepScreen next', () => {
         firstItemIndex: 0,
         questionText,
         assignment: reverseContactAssignment,
-        name: otherName,
+        firstName: otherName,
       });
     });
 
@@ -292,17 +289,16 @@ describe('AddStepScreen next', () => {
         { personId: otherId, orgId },
       );
 
-      expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_SCREEN, {
         section: 'people',
         subsection: 'person',
         firstItem: 0,
         enableBackButton: false,
-        noNav: true,
         questionText,
         orgId,
         contactId: otherId,
         contactAssignmentId,
-        name: otherName,
+        firstName: otherName,
       });
       expect(store.getActions()).toEqual([navigatePushResponse]);
     });
@@ -320,7 +316,7 @@ describe('AddStepScreen next', () => {
         firstItemIndex: 0,
         questionText,
         assignment: reverseContactAssignment,
-        name: otherName,
+        firstName: otherName,
       });
     });
 

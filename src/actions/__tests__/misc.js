@@ -17,7 +17,6 @@ import {
 import { getContactSteps } from '../steps';
 import { reloadJourney } from '../journey';
 import { navigatePush, navigateReplace } from '../navigation';
-import { PERSON_STAGE_SCREEN } from '../../containers/PersonStageScreen';
 import { CONTACT_PERSON_SCREEN } from '../../containers/Groups/AssignedPersonScreen';
 import {
   contactAssignmentSelector,
@@ -149,21 +148,16 @@ describe('assignContactAndPickStage', () => {
       person,
       organization,
     });
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
       contactId: personId,
       orgId: orgId,
       contactAssignmentId: contactAssignment.id,
-      name: person.first_name,
-      onComplete: expect.anything(),
+      firstName: person.first_name,
       section: 'people',
       subsection: 'person',
     });
-    expect(getContactSteps).toHaveBeenCalledWith(personId, orgId);
-    expect(reloadJourney).toHaveBeenCalledWith(personId, orgId);
     expect(store.getActions()).toEqual([
       navigateReplaceResult,
-      getStepsResult,
-      reloadJourneyResult,
       navigatePushResult,
     ]);
   });
@@ -188,7 +182,6 @@ describe('navigateToStageScreen', () => {
       section: 'people',
       subsection: 'self',
       enableBackButton: true,
-      noNav: true,
     });
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
@@ -210,13 +203,12 @@ describe('navigateToStageScreen', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
       firstItem: firstItemIndex,
-      name: person.first_name,
+      firstName: person.first_name,
       contactId: person.id,
       contactAssignmentId: contactAssignment.id,
       orgId: organization.id,
       section: 'people',
       subsection: 'person',
-      noNav: true,
     });
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
