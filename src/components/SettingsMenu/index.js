@@ -54,29 +54,23 @@ export class SettingsMenu extends Component {
         label: t('tos'),
         action: () => this.openUrl(LINKS.terms),
       },
-      // ...(isFirstTime
-      //   ? [
-      //       {
-      //         label: t('signIn'),
-      //         action: () => dispatch(navigatePush(SIGN_IN_FLOW)),
-      //       },
-      //       {
-      //         label: t('signUp'),
-      //         action: () => dispatch(navigatePush(SIGN_UP_FLOW)),
-      //       },
-      //     ]
-      //   : [
-      //       {
-      //         label: t('signOut'),
-      //         action: () => dispatch(logout()),
-      //       },
-      //     ]),
-      ...[
-        {
-          label: t('signOut'),
-          action: () => dispatch(logout()),
-        },
-      ],
+      ...(isFirstTime
+        ? [
+            {
+              label: t('signIn'),
+              action: () => dispatch(navigatePush(SIGN_IN_FLOW)),
+            },
+            {
+              label: t('signUp'),
+              action: () => dispatch(navigatePush(SIGN_UP_FLOW)),
+            },
+          ]
+        : [
+            {
+              label: t('signOut'),
+              action: () => dispatch(logout()),
+            },
+          ]),
     ];
 
     return <SideMenu menuItems={menuItems} />;
