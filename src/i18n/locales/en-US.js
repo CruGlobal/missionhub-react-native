@@ -179,6 +179,11 @@ export default {
   setup: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
+    goBackAlert: {
+      title: 'Go back?',
+      description: 'You will lose any info you have entered and be logged out',
+      action: 'Go Back',
+    },
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',

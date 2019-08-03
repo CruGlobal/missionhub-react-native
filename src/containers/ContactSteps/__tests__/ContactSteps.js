@@ -18,7 +18,7 @@ import {
 } from '../../../actions/steps';
 import { contactAssignmentSelector } from '../../../selectors/people';
 import { assignContactAndPickStage } from '../../../actions/misc';
-import { promptToAssign } from '../../../utils/promptToAssign';
+import { promptToAssign } from '../../../utils/prompt';
 import { navigateToStageScreen } from '../../../actions/misc';
 import {
   ADD_MY_STEP_FLOW,
@@ -32,7 +32,7 @@ jest.mock('../../../actions/steps');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/people');
 jest.mock('../../../actions/misc');
-jest.mock('../../../utils/promptToAssign');
+jest.mock('../../../utils/prompt');
 jest.mock('../../../actions/swipe');
 jest.mock('../../../actions/journey');
 
