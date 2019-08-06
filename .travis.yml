@@ -127,7 +127,7 @@ matrix:
       xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
       osx_image: xcode10.2
-      if: tag =~ ^v(\d+\.){1,}\d+
+      if: tag =~ ^v\d+\.\d+\.\d+(-ios|-android)?$
       before_install:
         - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
         - brew update
