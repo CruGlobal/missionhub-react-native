@@ -9,41 +9,29 @@ exports[`Contacts should render correctly 1`] = `
     }
   }
 >
-  <ScrollViewMock
-    keyboardShouldPersistTaps="handled"
-    style={
+  <withI18nextTranslation(SearchList)
+    defaultData={Array []}
+    filters={
       Object {
-        "flex": 1,
+        "unassigned": Object {
+          "id": "unassigned",
+          "selected": true,
+          "text": "Unassigned",
+        },
       }
     }
-  >
-    <Connect(withI18nextTranslation(OnboardingCard))
-      type="contacts"
-    />
-    <withI18nextTranslation(SearchList)
-      defaultData={Array []}
-      filters={
-        Object {
-          "unassigned": Object {
-            "id": "unassigned",
-            "selected": true,
-            "text": "Unassigned",
-          },
-        }
+    listProps={
+      Object {
+        "renderItem": [Function],
       }
-      listProps={
-        Object {
-          "renderItem": [Function],
-        }
-      }
-      onFilterPress={[Function]}
-      onLoadMore={[Function]}
-      onRemoveFilter={[Function]}
-      onSearch={[Function]}
-      placeholder="Search Contacts"
-      setSearch={[Function]}
-    />
-  </ScrollViewMock>
+    }
+    onFilterPress={[Function]}
+    onLoadMore={[Function]}
+    onRemoveFilter={[Function]}
+    onSearch={[Function]}
+    placeholder="Search Contacts"
+    setSearch={[Function]}
+  />
 </SafeAreaView>
 `;
 

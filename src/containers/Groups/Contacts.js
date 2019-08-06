@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -13,29 +13,23 @@ import { searchRemoveFilter, unassignedFilter } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
-import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 import styles from './styles';
 
 @withTranslation('groupsContacts')
 class Contacts extends Component {
-  constructor(props) {
-    super(props);
-    const { t } = props;
-
-    this.state = {
-      pagination: {
-        page: 0,
-        hasMore: true,
-      },
-      filters: {
-        // Default filters
-        unassigned: unassignedFilter(t, true),
-        // TODO: temporarily remove this until the API supports it
-        // time: thirtyDaysFilter(t),
-      },
-      defaultResults: [],
-    };
-  }
+  state = {
+    pagination: {
+      page: 0,
+      hasMore: true,
+    },
+    filters: {
+      // Default filters
+      unassigned: unassignedFilter(this.props.t, true),
+      // TODO: temporarily remove this until the API supports it
+      // time: thirtyDaysFilter(t),
+    },
+    defaultResults: [],
+  };
 
   componentDidMount() {
     // TODO: Only do this when this tab is focused to improve performance
@@ -44,8 +38,7 @@ class Contacts extends Component {
   }
 
   loadContactsWithFilters = async () => {
-    const contacts = await this.handleSearch('');
-
+    const contacts = await this.handleLoadMore('');
     this.setState({ defaultResults: contacts });
   };
 
@@ -71,13 +64,7 @@ class Contacts extends Component {
   };
 
   handleSearch = async text => {
-    const pagination = {
-      page: 0,
-      hasMore: true,
-    };
-
-    await this.setState({ pagination });
-
+    await this.setState({ pagination: { page: 0, hasMore: true } });
     return this.handleLoadMore(text);
   };
 
@@ -123,22 +110,19 @@ class Contacts extends Component {
     const { filters, defaultResults } = this.state;
     return (
       <SafeAreaView style={styles.pageContainer}>
-        <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="handled">
-          <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />
-          <SearchList
-            setSearch={this.setSearch}
-            defaultData={defaultResults}
-            onFilterPress={this.handleFilterPress}
-            listProps={{
-              renderItem: this.renderItem,
-            }}
-            onSearch={this.handleSearch}
-            onRemoveFilter={this.handleRemoveFilter}
-            onLoadMore={this.handleLoadMore}
-            filters={filters}
-            placeholder={t('searchPlaceholder')}
-          />
-        </ScrollView>
+        <SearchList
+          setSearch={this.setSearch}
+          defaultData={defaultResults}
+          onFilterPress={this.handleFilterPress}
+          listProps={{
+            renderItem: this.renderItem,
+          }}
+          onSearch={this.handleSearch}
+          onRemoveFilter={this.handleRemoveFilter}
+          onLoadMore={this.handleLoadMore}
+          filters={filters}
+          placeholder={t('searchPlaceholder')}
+        />
       </SafeAreaView>
     );
   }
