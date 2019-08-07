@@ -15,6 +15,7 @@ interface IconMessageScreenProps {
   onComplete: () => void;
   onSkip?: () => void;
   onBack?: () => void;
+  testID?: string;
 }
 
 const IconMessageScreen = ({
