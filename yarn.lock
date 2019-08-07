@@ -1072,10 +1072,10 @@
   version "20.0.1"
   resolved "https://registry.yarnpkg.com/@types/jest-diff/-/jest-diff-20.0.1.tgz#35cc15b9c4f30a18ef21852e255fdb02f6d59b89"
 
-"@types/jest@^24.0.16":
-  version "24.0.16"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.16.tgz#8d3e406ec0f0dc1688d6711af3062ff9bd428066"
-  integrity sha512-JrAiyV+PPGKZzw6uxbI761cHZ0G7QMOHXPhtSpcl08rZH6CswXaaejckn3goFKmF7M3nzEoJ0lwYCbqLMmjziQ==
+"@types/jest@^24.0.17":
+  version "24.0.17"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.17.tgz#b66ea026efb746eb5db1356ee28518aaff7af416"
+  integrity sha512-1cy3xkOAfSYn78dsBWy4M3h/QF/HeWPchNFDjysVtp3GHeTdSmtluNnELfCmfNRRHo0OWEcpf+NsEJQvwQfdqQ==
   dependencies:
     "@types/jest-diff" "*"
 
@@ -2788,11 +2788,12 @@ enzyme-adapter-utils@^1.12.0:
     prop-types "^15.7.2"
     semver "^5.6.0"
 
-enzyme-to-json@^3.3.5:
-  version "3.3.5"
-  resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.3.5.tgz#f8eb82bd3d5941c9d8bc6fd9140030777d17d0af"
+enzyme-to-json@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.4.0.tgz#2b6330a784a57ba68298e3c0d6cef17ee4fedc0e"
+  integrity sha512-gbu8P8PMAtb+qtKuGVRdZIYxWHC03q1dGS3EKRmUzmTDIracu3o6cQ0d4xI2YWojbelbxjYOsmqM5EgAL0WgIA==
   dependencies:
-    lodash "^4.17.4"
+    lodash "^4.17.12"
 
 enzyme@^3.10.0:
   version "3.10.0"
@@ -3938,10 +3939,10 @@ husky@^3.0.2:
     run-node "^1.0.0"
     slash "^3.0.0"
 
-i18next@^17.0.8:
-  version "17.0.8"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-17.0.8.tgz#0c7113a88ad156eb37b9025d83a7684e1bbc2e18"
-  integrity sha512-oojOrqEPQzKo1HDMDDOl19zTM/EaDwBRPobUSD4kEjNoTi2oERvUbngK2lkIm9nOGddh55jbMGbm6fusMBeoKQ==
+i18next@^17.0.9:
+  version "17.0.9"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-17.0.9.tgz#5f835e91a34fa5e7da1e5ae4c4586c81d7c4b17f"
+  integrity sha512-fCYpm3TDzcfPIPN3hmgvC/QJx17QHI+Ul88qbixwIrifN9nBmk2c2oVxVYSDxnV5FgBXZJJ0O4yBYiZ8v1bX2A==
   dependencies:
     "@babel/runtime" "^7.3.1"
 
@@ -5152,7 +5153,7 @@ lodash@^3.10.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.0.0, lodash@^4.13.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.6.1:
+lodash@^4.0.0, lodash@^4.13.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
