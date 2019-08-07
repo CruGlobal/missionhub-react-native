@@ -41,7 +41,7 @@
     "buffer": "^5.2.1",
     "color": "^3.1.2",
     "core-js": "^3.1.4",
-    "i18next": "^17.0.8",
+    "i18next": "^17.0.9",
     "js-sha256": "^0.9.0",
     "jsan": "^3.1.13",
     "jsonapi-datastore": "^0.4.0-beta",
