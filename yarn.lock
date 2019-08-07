@@ -1416,10 +1416,10 @@ anymatch@^2.0.0:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
 
-appcenter-cli@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/appcenter-cli/-/appcenter-cli-2.0.0.tgz#b21881cd4db4b594b132f12caffdab05436ce9f4"
-  integrity sha512-p9Tn4o8nmdwwnPXiltoD66aFN+Q46CEYg85zItmyfXNGa7ajdhMm5efGmG4dYLIzU5kcD3oVgCRzQLm8QsuSyQ==
+appcenter-cli@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/appcenter-cli/-/appcenter-cli-2.1.0.tgz#2aefe3541e7dc63eebdb496a2a8e60bb5811d1d5"
+  integrity sha512-2Woq/ZgrYio/9S0aTtfAl+mx8PskM46JMfaeJPvZZ34pPg+AAVPQvy8U+4zimM3MnFayCekUamrJ+VJtSz4eoQ==
   dependencies:
     "@types/mkdirp" "^0.5.2"
     "@types/wordwrap" "^1.0.0"
