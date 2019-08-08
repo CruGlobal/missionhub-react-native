@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { ScrollView, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -53,6 +53,10 @@ const GroupsListScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
 
+  const loadGroups = useCallback(() => dispatch(getMyCommunities()), [
+    dispatch,
+  ]);
+
   useEffect(() => {
     async function loadGroupsAndScrollToId() {
       // Always load groups when this tab mounts
@@ -74,9 +78,8 @@ const GroupsListScreen = ({
     }
 
     loadGroupsAndScrollToId();
-  }, []);
+  }, [dispatch, loadGroups, scrollToId, orgs, flatList]);
 
-  const loadGroups = () => dispatch(getMyCommunities());
   const { isRefreshing, refresh } = useRefreshing(async () => {
     dispatch(checkForUnreadComments());
     await loadGroups();
