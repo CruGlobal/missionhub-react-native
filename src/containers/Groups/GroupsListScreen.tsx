@@ -56,7 +56,7 @@ const GroupsListScreen = ({
   useEffect(() => {
     async function loadGroupsAndScrollToId() {
       // Always load groups when this tab mounts
-      await loadGroups();
+      await dispatch(getMyCommunities());
       if (scrollToId) {
         const index = orgs.findIndex(o => o.id === scrollToId);
         if (index >= 0 && flatList.current) {
@@ -74,12 +74,11 @@ const GroupsListScreen = ({
     }
 
     loadGroupsAndScrollToId();
-  });
+  }, [dispatch, scrollToId, orgs, flatList]);
 
-  const loadGroups = () => dispatch(getMyCommunities());
   const { isRefreshing, refresh } = useRefreshing(async () => {
     dispatch(checkForUnreadComments());
-    await loadGroups();
+    await dispatch(getMyCommunities());
   });
 
   const handlePress = (organization: { id: string }) => {

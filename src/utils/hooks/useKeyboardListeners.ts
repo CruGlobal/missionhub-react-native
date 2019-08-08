@@ -21,5 +21,5 @@ export const useKeyboardListeners = (
       keyboardShowListener.remove();
       keyboardHideListener.remove();
     };
-  });
+  }, [onShow, onHide]);
 };
