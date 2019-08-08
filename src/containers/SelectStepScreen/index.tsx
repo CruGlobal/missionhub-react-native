@@ -58,9 +58,7 @@ const SelectStepScreen = ({
   next,
 }: SelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
-  if (!enableBackButton) {
-    useDisableBack();
-  }
+  useDisableBack(enableBackButton);
 
   const navigateNext = (step?: Step, skip = false) => {
     dispatch(

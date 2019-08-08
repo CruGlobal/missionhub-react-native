@@ -51,7 +51,7 @@ const StepsList = ({
 
   useEffect(() => {
     dispatch(getStepSuggestions(isMe, contactStageId));
-  }, []);
+  }, [contactStageId, dispatch, isMe]);
 
   const handleLoadSteps = () => {
     setSuggestionIndex(suggestionIndex => suggestionIndex + 4);
