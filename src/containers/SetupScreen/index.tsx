@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, View, Keyboard, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -39,6 +39,7 @@ const SetupScreen = ({
   lastName,
   personId,
 }: SetupScreenProps) => {
+  const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation('setup');
   const lastNameRef = useRef<TextInput>(null);
 
@@ -47,18 +48,23 @@ const SetupScreen = ({
     if (!firstName) {
       return;
     }
-    if (personId) {
-      await dispatch(
-        updatePerson({
-          id: personId,
-          firstName,
-          lastName,
-        }),
-      );
-      dispatch(next());
-    } else {
-      await dispatch(createMyPerson(firstName, lastName));
-      dispatch(next());
+    try {
+      setIsLoading(true);
+      if (personId) {
+        await dispatch(
+          updatePerson({
+            id: personId,
+            firstName,
+            lastName,
+          }),
+        );
+        dispatch(next());
+      } else {
+        await dispatch(createMyPerson(firstName, lastName));
+        dispatch(next());
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
   const updateFirstName = (t: string) => dispatch(firstNameChanged(t));
@@ -73,8 +79,10 @@ const SetupScreen = ({
         title: t('goBackAlert.title'),
         description: t('goBackAlert.description'),
         actionLabel: t('goBackAlert.action'),
-      }).then(() => {
-        dispatch(logout());
+      }).then(isLoggingOut => {
+        if (isLoggingOut) {
+          dispatch(logout());
+        }
       });
     } else {
       dispatch(navigateBack());
@@ -124,6 +132,7 @@ const SetupScreen = ({
       </Flex>
       <BottomButton
         testID="SaveBottomButton"
+        disabled={isLoading}
         onPress={saveAndGoToGetStarted}
         text={t('next')}
       />

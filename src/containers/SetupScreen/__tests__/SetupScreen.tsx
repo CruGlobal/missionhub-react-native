@@ -98,7 +98,9 @@ describe('saveAndGoToGetStarted with person id', () => {
     expect(updatePerson).toHaveBeenCalled();
     expect(next).toHaveBeenCalled();
   });
+
   it('logs out', async () => {
+    (prompt as jest.Mock).mockReturnValue(Promise.resolve(true));
     const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
       initialState: {
         profile: { firstName },
@@ -114,6 +116,25 @@ describe('saveAndGoToGetStarted with person id', () => {
       actionLabel: i18next.t('setup:goBackAlert.action'),
     });
     expect(logout).toHaveBeenCalled();
+  });
+
+  it('cancels logs out', async () => {
+    (prompt as jest.Mock).mockReturnValue(Promise.resolve(false));
+    const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
+      initialState: {
+        profile: { firstName },
+        auth: { person: { id: personId } },
+      },
+    });
+
+    // With the "id" set, press the back button
+    await fireEvent(getByTestId('BackButton'), 'customNavigate');
+    expect(prompt).toHaveBeenCalledWith({
+      title: i18next.t('setup:goBackAlert.title'),
+      description: i18next.t('setup:goBackAlert.description'),
+      actionLabel: i18next.t('setup:goBackAlert.action'),
+    });
+    expect(logout).not.toHaveBeenCalled();
   });
 });
 
