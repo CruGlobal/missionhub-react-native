@@ -121,10 +121,11 @@ exports[`renders correctly 1`] = `
         blurOnSubmit={true}
         multiline={false}
         onChangeText={[Function]}
+        onSubmitEditing={[Function]}
         placeholder="Last Name"
         placeholderTextColor="white"
         rejectResponderTermination={true}
-        returnKeyType="next"
+        returnKeyType="done"
         selectionColor="#005A7F"
         style={
           Array [

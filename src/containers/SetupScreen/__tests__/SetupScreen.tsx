@@ -16,14 +16,13 @@ import {
 
 import SetupScreen from '..';
 
-const mockState = { profile: {} };
+const mockState = { profile: {}, auth: { person: {} } };
 const nextResult = { type: 'testNext' };
 const next = jest.fn().mockReturnValue(nextResult);
 
 const firstName = 'TestFname';
 const lastName = 'TestLname';
 
-jest.mock('react-native-device-info');
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/auth/auth');
@@ -40,7 +39,6 @@ beforeEach(() => {
   (lastNameChanged as jest.Mock).mockReturnValue({ type: 'lastNameChanged' });
   (createMyPerson as jest.Mock).mockReturnValue({
     type: 'createMyPerson',
-    person_id: '123',
   });
   (updatePerson as jest.Mock).mockReturnValue({ type: 'updatePerson' });
 });
@@ -66,29 +64,47 @@ describe('setup screen methods', () => {
     expect(lastNameChanged).toHaveBeenCalledWith(lastName);
   });
 });
+
 describe('saveAndGoToGetStarted', () => {
+  const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
+    initialState: { profile: { firstName }, auth: { person: {} } },
+  });
   it('creates person and calls next', async () => {
-    const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
-      initialState: { profile: { firstName } },
-    });
     await fireEvent.press(getByTestId('SaveBottomButton'));
 
     expect(createMyPerson).toHaveBeenCalled();
     expect(next).toHaveBeenCalled();
   });
-  it('creates person, then updates person, then logs out', async () => {
-    const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
-      initialState: { profile: { firstName } },
-    });
-    await fireEvent.press(getByTestId('SaveBottomButton'));
+
+  it('calls last name submit', async () => {
+    await fireEvent(getByTestId('InputLastName'), 'onSubmitEditing');
 
     expect(createMyPerson).toHaveBeenCalled();
     expect(next).toHaveBeenCalled();
+  });
+});
 
+describe('saveAndGoToGetStarted with person id', () => {
+  const personId = '1';
+  it('updates person and calls next', async () => {
+    const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
+      initialState: {
+        profile: { firstName },
+        auth: { person: { id: personId } },
+      },
+    });
     await fireEvent.press(getByTestId('SaveBottomButton'));
 
     expect(updatePerson).toHaveBeenCalled();
     expect(next).toHaveBeenCalled();
+  });
+  it('logs out', async () => {
+    const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
+      initialState: {
+        profile: { firstName },
+        auth: { person: { id: personId } },
+      },
+    });
 
     // With the "id" set, press the back button
     await fireEvent(getByTestId('BackButton'), 'customNavigate');
@@ -100,6 +116,7 @@ describe('saveAndGoToGetStarted', () => {
     expect(logout).toHaveBeenCalled();
   });
 });
+
 describe('saveAndGoToGetStarted without first name', () => {
   it('does nothing if first name is not entered', async () => {
     const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
@@ -110,6 +127,7 @@ describe('saveAndGoToGetStarted without first name', () => {
     expect(next).not.toHaveBeenCalled();
   });
 });
+
 describe('calls back without creating a person', () => {
   it('navigates back', async () => {
     const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {

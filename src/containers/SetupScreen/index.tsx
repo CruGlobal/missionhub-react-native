@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, View, Keyboard, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +15,7 @@ import {
 } from '../../actions/onboardingProfile';
 import TosPrivacy from '../../components/TosPrivacy';
 import { ProfileState } from '../../reducers/profile';
+import { AuthState } from '../../reducers/auth';
 import { updatePerson } from '../../actions/person';
 import { BackButton } from '../BackButton';
 import { prompt } from '../../utils/prompt';
@@ -24,10 +25,10 @@ import { navigateBack } from '../../actions/navigation';
 import styles from './styles';
 
 interface SetupScreenProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: (...args: any[]) => ThunkAction<unknown, {}, {}, AnyAction>;
+  next: () => ThunkAction<unknown, {}, {}, AnyAction>;
   firstName?: string;
   lastName?: string;
+  personId?: string;
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
 }
 
@@ -36,8 +37,8 @@ const SetupScreen = ({
   next,
   firstName,
   lastName,
+  personId,
 }: SetupScreenProps) => {
-  const [id, setId] = useState(null);
   const { t } = useTranslation('setup');
   const lastNameRef = useRef<TextInput>(null);
 
@@ -46,31 +47,28 @@ const SetupScreen = ({
     if (!firstName) {
       return;
     }
-    if (id) {
+    if (personId) {
       await dispatch(
         updatePerson({
-          id,
+          id: personId,
           firstName,
           lastName,
         }),
       );
       dispatch(next());
     } else {
-      const { person_id: personId } = await dispatch(
-        createMyPerson(firstName, lastName),
-      );
+      await dispatch(createMyPerson(firstName, lastName));
       dispatch(next());
-      setId(personId);
     }
   };
   const updateFirstName = (t: string) => dispatch(firstNameChanged(t));
   const updateLastName = (t: string) => dispatch(lastNameChanged(t));
-  const onSubmitEditing = () =>
+  const onFirstNameSubmitEditing = () =>
     lastNameRef.current && lastNameRef.current.focus();
 
   const handleBack = () => {
     // When id exists, try to logout
-    if (id) {
+    if (personId) {
       prompt({
         title: t('goBackAlert.title'),
         description: t('goBackAlert.description'),
@@ -102,7 +100,7 @@ const SetupScreen = ({
             autoFocus={true}
             returnKeyType="next"
             blurOnSubmit={false}
-            onSubmitEditing={onSubmitEditing}
+            onSubmitEditing={onFirstNameSubmitEditing}
             placeholder={t('profileLabels.firstName')}
             placeholderTextColor="white"
             testID="InputFirstName"
@@ -114,10 +112,11 @@ const SetupScreen = ({
             ref={lastNameRef}
             onChangeText={updateLastName}
             value={lastName}
-            returnKeyType="next"
+            returnKeyType="done"
             placeholder={t('profileLabels.lastName')}
             placeholderTextColor="white"
             blurOnSubmit={true}
+            onSubmitEditing={saveAndGoToGetStarted}
             testID="InputLastName"
           />
         </View>
@@ -137,9 +136,16 @@ const SetupScreen = ({
     </SafeAreaView>
   );
 };
-const mapStateToProps = ({ profile }: { profile: ProfileState }) => ({
+const mapStateToProps = ({
+  auth,
+  profile,
+}: {
+  auth: AuthState;
+  profile: ProfileState;
+}) => ({
   firstName: profile.firstName,
   lastName: profile.lastName,
+  personId: auth.person.id,
 });
 export default connect(mapStateToProps)(SetupScreen);
 export const SETUP_SCREEN = 'nav/SETUP';
