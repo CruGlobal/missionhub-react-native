@@ -7,7 +7,6 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import { useDisableBack } from '../../utils/hooks/useDisableBack';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { navigateBack } from '../../actions/navigation';
@@ -24,15 +23,11 @@ const WelcomeScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: (params: { signin: boolean }) => ThunkAction<void, any, null, never>;
 }) => {
-  const enableBack = useDisableBack();
-
   useEffect(() => {
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   }, [dispatch]);
 
   const navigateToNext = (signin = false) => {
-    enableBack();
-
     dispatch(next({ signin }));
   };
 
