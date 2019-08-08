@@ -25,7 +25,7 @@ const WelcomeScreen = ({
 }) => {
   useEffect(() => {
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
-  }, []);
+  }, [dispatch]);
 
   const navigateToNext = (signin = false) => {
     dispatch(next({ signin }));

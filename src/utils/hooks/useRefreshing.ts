@@ -11,7 +11,7 @@ export const useRefreshing = (onRefreshAction: () => any) => {
     } finally {
       setRefreshing(false);
     }
-  }, []);
+  }, [onRefreshAction, setRefreshing]);
 
   return { isRefreshing, refresh };
 };

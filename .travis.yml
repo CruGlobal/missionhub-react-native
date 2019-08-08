@@ -51,7 +51,7 @@ matrix:
         - brew update
         - brew install yarn
       install:
-        - yarn install
+        - yarn
         - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
         - (cd ios && bundler install)
       before_script:
@@ -127,10 +127,13 @@ matrix:
       xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
       osx_image: xcode10.2
-      if: tag =~ ^v(\d+\.){1,}\d+
+      if: tag =~ ^v\d+\.\d+\.\d+(-ios|-android)?$
       before_install:
         - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
+        - brew update
+        - brew install yarn
       install:
+        - yarn
         - (cd ios && bundler install)
         - (cd android && bundler install)
       script:
@@ -138,6 +141,7 @@ matrix:
         - (cd android && fastlane android release)
       cache:
         - bundler
+        - yarn
 
 env:
   global:
