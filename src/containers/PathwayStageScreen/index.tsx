@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
@@ -67,6 +67,25 @@ const PathwayStageScreen = ({
 
   const startIndex = selectedStageId || 0;
 
+  const loadStages = useCallback(() => dispatch(getStages()), [dispatch]);
+
+  const handleSnapToItem = useCallback(
+    (index: number) => {
+      if (stages[index]) {
+        const trackingObj = buildTrackingObj(
+          `${section} : ${subsection} : stage : ${stages[index].id}`,
+          section,
+          subsection,
+          'stage',
+        );
+
+        onScrollToStage(trackingObj);
+        dispatch(trackState(trackingObj));
+      }
+    },
+    [dispatch, stages, section, subsection, onScrollToStage],
+  );
+
   useEffect(() => {
     async function loadStagesAndScrollToId() {
       await loadStages();
@@ -74,9 +93,7 @@ const PathwayStageScreen = ({
     }
 
     loadStagesAndScrollToId();
-  }, []);
-
-  const loadStages = () => dispatch(getStages());
+  }, [dispatch, loadStages, handleSnapToItem, startIndex]);
 
   const setStage = (stage: Stage, isAlreadySelected: boolean) => {
     enableBack();
@@ -99,20 +116,6 @@ const PathwayStageScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleScroll = (e: any) =>
     setScrollPosition(e.nativeEvent.contentOffset.x);
-
-  const handleSnapToItem = (index: number) => {
-    if (stages[index]) {
-      const trackingObj = buildTrackingObj(
-        `${section} : ${subsection} : stage : ${stages[index].id}`,
-        section,
-        subsection,
-        'stage',
-      );
-
-      onScrollToStage(trackingObj);
-      dispatch(trackState(trackingObj));
-    }
-  };
 
   const renderStage = ({ item, index }: { item: Stage; index: number }) => {
     const isActive = selectedStageId === index;
