@@ -18,6 +18,11 @@ import { useDisableBack } from '../../utils/hooks/useDisableBack';
 
 import styles from './styles';
 
+interface Step {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
+}
+
 interface SelectStepScreenProps {
   receiverId: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,11 +36,9 @@ interface SelectStepScreenProps {
   enableSkipButton?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: (nextProps: {
     receiverId: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    step?: { [key: string]: any };
+    step?: Step;
     skip: boolean;
     orgId: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -59,8 +62,7 @@ const SelectStepScreen = ({
     useDisableBack();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const navigateNext = (step?: { [key: string]: any }, skip = false) => {
+  const navigateNext = (step?: Step, skip = false) => {
     dispatch(
       next({
         receiverId,
@@ -71,11 +73,7 @@ const SelectStepScreen = ({
     );
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const navToSuggestedStep = (step: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [key: string]: any;
-  }) => {
+  const navToSuggestedStep = (step: Step) => {
     navigateNext(step);
   };
 
