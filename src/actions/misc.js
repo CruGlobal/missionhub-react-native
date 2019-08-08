@@ -3,7 +3,6 @@
 import { Linking } from 'react-native';
 
 import { contactAssignmentSelector } from '../selectors/people';
-import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import {
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
@@ -81,14 +80,11 @@ export function assignContactAndPickStage(person, organization) {
     );
 
     dispatch(
-      navigatePush(PERSON_STAGE_SCREEN, {
+      navigatePush(SELECT_PERSON_STAGE_FLOW, {
         contactId: resultPerson.id,
         orgId,
         contactAssignmentId: contactAssignment.id,
-        name: resultPerson.first_name,
-        onComplete: () => {
-          dispatch(loadStepsAndJourney(personId, orgId));
-        },
+        firstName: resultPerson.first_name,
         section: 'people',
         subsection: 'person',
       }),
@@ -102,7 +98,6 @@ export function navigateToStageScreen(
   contactAssignment,
   organization = {},
   firstItemIndex, //todo find a way to not pass this
-  noNav = false,
 ) {
   return dispatch => {
     if (personIsCurrentUser) {
@@ -113,20 +108,18 @@ export function navigateToStageScreen(
           section: 'people',
           subsection: 'self',
           enableBackButton: true,
-          noNav,
         }),
       );
     } else {
       dispatch(
         navigatePush(SELECT_PERSON_STAGE_FLOW, {
           firstItem: firstItemIndex,
-          name: person.first_name,
+          firstName: person.first_name,
           contactId: person.id,
           contactAssignmentId: contactAssignment && contactAssignment.id,
           orgId: organization.id,
           section: 'people',
           subsection: 'person',
-          noNav,
         }),
       );
     }

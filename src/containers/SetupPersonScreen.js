@@ -20,7 +20,7 @@ import { trackActionWithoutData } from '../actions/analytics';
 import { ACTIONS } from '../constants';
 import AbsoluteSkip from '../components/AbsoluteSkip';
 
-import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
+import { SELECT_PERSON_STAGE_SCREEN } from './SelectPersonStageScreen';
 import styles from './SetupScreen/styles';
 import { BackButton } from './BackButton';
 
@@ -46,7 +46,7 @@ class SetupPersonScreen extends Component {
     dispatch(
       skip
         ? skipOnboarding()
-        : navigatePush(PERSON_STAGE_SCREEN, {
+        : navigatePush(SELECT_PERSON_STAGE_SCREEN, {
             section: 'onboarding',
             subsection: 'add person',
           }),

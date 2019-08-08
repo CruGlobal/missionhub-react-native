@@ -1,8 +1,8 @@
 import React from 'react';
 import { ViewStyle, StyleProp } from 'react-native';
 
-import { Button, Icon } from '../common';
-import { IconProps } from '../Icon';
+import { Button } from '../common';
+import Icon, { IconProps } from '../Icon';
 
 import styles from './styles';
 

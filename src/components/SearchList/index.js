@@ -4,7 +4,7 @@ import debounce from 'lodash/debounce';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Flex, IconButton, Input, Text } from '../../components/common';
+import { IconButton, Input, Text } from '../../components/common';
 import LoadingWheel from '../../components/LoadingWheel';
 import theme from '../../theme';
 
@@ -59,26 +59,26 @@ class SearchList extends Component {
   };
 
   handleOnEndReached = async () => {
-    const { listHasScrolled, text, isSearching } = this.state;
+    const { listHasScrolled, text, isSearching, results } = this.state;
     if (!listHasScrolled || isSearching) {
       return;
     }
 
     this.setState({ isSearching: true });
 
-    const { onLoadMore } = this.props;
-
-    const newResults = await onLoadMore(text);
+    const newResults = await this.props.onLoadMore(text);
 
     this.setState({
       listHasScrolled: false,
       isSearching: false,
-      results: [...this.state.results, ...newResults],
+      results: [...results, ...newResults],
     });
   };
 
   handleScrollEndDrag = () => {
-    this.setState({ listHasScrolled: true });
+    if (!this.state.listHasScrolled) {
+      this.setState({ listHasScrolled: true });
+    }
   };
 
   clearSearch = () => {
@@ -98,12 +98,12 @@ class SearchList extends Component {
     const { t, placeholder } = this.props;
     const { text } = this.state;
     return (
-      <Flex
-        value={1}
-        direction="row"
-        align="center"
+      <View
+        flex={1}
+        flexDirection="row"
+        alignItems="center"
         style={styles.inputWrap}
-        self="stretch"
+        alignSelf="stretch"
       >
         <Input
           ref={this.ref}
@@ -125,7 +125,7 @@ class SearchList extends Component {
             style={styles.clearIcon}
           />
         ) : null}
-      </Flex>
+      </View>
     );
   }
 
@@ -139,10 +139,10 @@ class SearchList extends Component {
     return (
       <ScrollView horizontal={true} style={styles.activeFilterWrap}>
         {keys.map(k => (
-          <Flex
+          <View
             key={filters[k].id}
-            direction="row"
-            align="center"
+            flexDirection="row"
+            alignItems="center"
             style={styles.activeFilterRow}
           >
             <Text style={styles.activeFilterText}>{filters[k].text}</Text>
@@ -153,7 +153,7 @@ class SearchList extends Component {
               pressProps={[k]}
               onPress={this.removeFilter}
             />
-          </Flex>
+          </View>
         ))}
       </ScrollView>
     );
@@ -161,18 +161,39 @@ class SearchList extends Component {
 
   keyExtractor = i => i.unique_key || i.id;
 
-  renderContent() {
-    const { t, listProps, defaultData = [] } = this.props;
-    const { results, isSearching } = this.state;
-    const resultsLength = results.length;
+  renderHeader() {
+    return (
+      <View style={styles.searchWrap}>
+        <View
+          flexDirection="row"
+          alignItems="center"
+          style={styles.searchFilterWrap}
+        >
+          {this.renderCenter()}
+          <IconButton
+            name="filterIcon"
+            type="MissionHub"
+            onPress={this.handleFilter}
+            style={styles.filterButton}
+          />
+        </View>
+        {this.renderFilters()}
+      </View>
+    );
+  }
 
-    if (!isSearching && resultsLength === 0 && defaultData.length === 0) {
-      return (
-        <Flex align="center" value={1} style={styles.emptyWrap}>
-          <Text style={styles.nullText}>{t('noResults')}</Text>
-        </Flex>
-      );
-    }
+  renderEmpty() {
+    return this.state.isSearching ? null : (
+      <View alignItems="center" flex={1} style={styles.emptyWrap}>
+        <Text style={styles.nullText}>{this.props.t('noResults')}</Text>
+      </View>
+    );
+  }
+
+  renderContent() {
+    const { listProps, defaultData = [] } = this.props;
+    const { results } = this.state;
+    const resultsLength = results.length;
 
     return (
       <FlatList
@@ -190,30 +211,22 @@ class SearchList extends Component {
   }
 
   renderListFooter() {
-    const { isSearching } = this.state;
-
-    if (isSearching) {
-      return <LoadingWheel style={styles.loadingIndicator} />;
-    }
-    return null;
+    return this.state.isSearching ? (
+      <LoadingWheel style={styles.loadingIndicator} />
+    ) : null;
   }
 
   render() {
+    const { defaultData = [] } = this.props;
+    const { results, isSearching } = this.state;
+    const resultsLength = results.length;
+
     return (
       <View style={styles.pageContainer}>
-        <Flex style={styles.searchWrap}>
-          <Flex direction="row" align="center" style={styles.searchFilterWrap}>
-            {this.renderCenter()}
-            <IconButton
-              name="filterIcon"
-              type="MissionHub"
-              onPress={this.handleFilter}
-              style={styles.filterButton}
-            />
-          </Flex>
-          {this.renderFilters()}
-        </Flex>
-        {this.renderContent()}
+        {this.renderHeader()}
+        {!isSearching && resultsLength === 0 && defaultData.length === 0
+          ? this.renderEmpty()
+          : this.renderContent()}
       </View>
     );
   }

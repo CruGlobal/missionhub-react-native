@@ -5,20 +5,20 @@ import { navigatePush } from '../../actions/navigation';
 import { updatePersonAttributes, getPersonDetails } from '../../actions/person';
 import { loadStepsAndJourney } from '../../actions/misc';
 import { personSelector } from '../../selectors/people';
-import PersonStageScreen, {
-  PERSON_STAGE_SCREEN,
-} from '../../containers/PersonStageScreen';
+import SelectPersonStageScreen, {
+  SELECT_PERSON_STAGE_SCREEN,
+} from '../../containers/SelectPersonStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../containers/PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { AddPersonStepFlowScreens } from '../steps/addPersonStepFlow';
 
 export const SelectPersonStageFlowScreens = {
-  [PERSON_STAGE_SCREEN]: wrapNextAction(
-    PersonStageScreen,
+  [SELECT_PERSON_STAGE_SCREEN]: wrapNextAction(
+    SelectPersonStageScreen,
     ({
       stage,
       contactId,
-      name,
+      firstName,
       orgId,
       isAlreadySelected,
       contactAssignmentId,
@@ -47,7 +47,7 @@ export const SelectPersonStageFlowScreens = {
               contactStage: stage,
               contactId,
               organization: { id: orgId },
-              contactName: name,
+              contactName: firstName,
             }),
       );
     },

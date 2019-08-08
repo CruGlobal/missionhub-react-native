@@ -10,6 +10,8 @@ import BottomButton from '../../components/BottomButton';
 import { useDisableBack } from '../../utils/hooks/useDisableBack';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+import { navigateBack } from '../../actions/navigation';
+import BackButton from '../BackButton';
 
 import styles from './styles';
 
@@ -37,6 +39,7 @@ const WelcomeScreen = ({
   const signIn = () => {
     navigateToNext(true);
   };
+  const goBack = () => dispatch(navigateBack());
 
   const allowSignIn = useNavigationParam('allowSignIn');
   const { t } = useTranslation('welcome');
@@ -78,6 +81,7 @@ const WelcomeScreen = ({
           />
         )}
       </Flex>
+      <BackButton absolute={true} customNavigate={goBack} />
     </SafeAreaView>
   );
 };
