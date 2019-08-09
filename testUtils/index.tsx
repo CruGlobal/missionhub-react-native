@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import configureStore, { MockStore } from 'redux-mock-store';
 import { NavigationParams } from 'react-navigation';
 import { NavigationProvider } from '@react-navigation/core';
-import { ApolloProvider } from 'react-apollo-hooks';
+import { ApolloProvider } from '@apollo/react-hooks';
 import { ReactTestRendererJSON } from 'react-test-renderer';
 import { render, RenderAPI } from 'react-native-testing-library';
 import snapshotDiff from 'snapshot-diff';
