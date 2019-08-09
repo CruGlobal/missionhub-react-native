@@ -1,36 +1,38 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { Flex, Text } from '../../components/common';
+import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
-import { disableBack } from '../../utils/common';
+import { useDisableBack } from '../../utils/hooks/useDisableBack';
 import { ProfileState } from '../../reducers/profile';
 
 import styles from './styles';
 
-const GetStartedScreen = ({
-  dispatch,
-  next,
-  name,
-}: {
+interface GetStartedScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: () => ThunkAction<void, any, null, never>;
   name: string;
-}) => {
-  useEffect(() => {
-    disableBack.add();
-    return () => disableBack.remove();
-  }, []);
+  enableBackButton: boolean;
+}
+
+const GetStartedScreen = ({
+  dispatch,
+  next,
+  name,
+  enableBackButton = true,
+}: GetStartedScreenProps) => {
+  const enableBack = useDisableBack(enableBackButton);
 
   const { t } = useTranslation('getStarted');
 
   const navigateNext = () => {
-    disableBack.remove();
+    enableBack();
 
     dispatch(next());
   };
@@ -44,18 +46,29 @@ const GetStartedScreen = ({
           </Text>
           <Text style={styles.text}>{t('tagline')}</Text>
         </Flex>
-
         <BottomButton onPress={navigateNext} text={t('getStarted')} />
+        {enableBackButton ? <BackButton absolute={true} /> : null}
       </Flex>
     </SafeAreaView>
   );
 };
 
-const mapStateToProps = ({ profile }: { profile: ProfileState }) => {
+const mapStateToProps = (
+  { profile }: { profile: ProfileState },
+  {
+    navigation: {
+      state: {
+        params: { enableBackButton },
+      },
+    },
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+) => {
   const name = (profile.firstName || '').toLowerCase();
 
   return {
     name,
+    enableBackButton,
   };
 };
 

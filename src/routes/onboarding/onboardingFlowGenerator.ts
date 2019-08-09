@@ -84,7 +84,7 @@ export const onboardingFlowGenerator = ({
             navigatePush(SELECT_MY_STAGE_SCREEN, {
               section: 'onboarding',
               subsection: 'self',
-              enableBackButton: false,
+              enableBackButton: true,
             }),
           ),
           buildTrackingObj('onboarding : get started', 'onboarding'),

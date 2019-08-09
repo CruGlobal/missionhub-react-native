@@ -11,6 +11,7 @@ import {
   firstNameChanged,
   lastNameChanged,
 } from '../../actions/onboardingProfile';
+import { updatePerson } from '../../actions/person';
 import { disableBack } from '../../utils/common';
 import TosPrivacy from '../../components/TosPrivacy';
 
@@ -18,6 +19,10 @@ import styles from './styles';
 
 @withTranslation('setup')
 class SetupScreen extends Component {
+  state = {
+    id: null,
+  };
+
   componentDidMount() {
     disableBack.add();
   }
@@ -26,12 +31,32 @@ class SetupScreen extends Component {
     disableBack.remove();
   }
 
+  updateMyPerson = async () => {
+    const { dispatch, firstName, lastName } = this.props;
+    const { id } = this.state;
+
+    const { response } = await dispatch(
+      updatePerson({ id, firstName, lastName }),
+    );
+    this.setState({ id: response.id });
+  };
+
+  createMyPerson = async () => {
+    const { dispatch, firstName, lastName } = this.props;
+
+    const { person_id } = await dispatch(createMyPerson(firstName, lastName));
+    this.setState({ id: person_id });
+  };
+
   saveAndGoToGetStarted = async () => {
-    const { dispatch, next, firstName, lastName } = this.props;
+    const { dispatch, next, firstName } = this.props;
+    const { id } = this.state;
 
     if (firstName) {
       Keyboard.dismiss();
-      await dispatch(createMyPerson(firstName, lastName));
+
+      await (id ? this.updateMyPerson() : this.createMyPerson());
+
       disableBack.remove();
       dispatch(next({}));
     }
