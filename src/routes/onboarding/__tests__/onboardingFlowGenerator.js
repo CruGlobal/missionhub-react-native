@@ -98,7 +98,16 @@ describe('GetStartedScreen next', () => {
     const Component = testFlow[GET_STARTED_SCREEN].screen;
 
     await store.dispatch(
-      renderShallow(<Component />, store)
+      renderShallow(
+        <Component
+          navigation={{
+            state: {
+              params: {},
+            },
+          }}
+        />,
+        store,
+      )
         .instance()
         .props.next(),
     );
@@ -106,7 +115,6 @@ describe('GetStartedScreen next', () => {
     expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_SCREEN, {
       section: 'onboarding',
       subsection: 'self',
-      enableBackButton: false,
     });
   });
 });

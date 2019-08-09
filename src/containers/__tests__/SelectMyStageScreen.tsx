@@ -55,7 +55,6 @@ it('renders correctly with back button', () => {
     initialState: mockState,
     navParams: {
       ...baseParams,
-      enableBackButton: true,
     },
   }).snapshot();
 });
