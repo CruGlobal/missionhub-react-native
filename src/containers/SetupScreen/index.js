@@ -32,7 +32,6 @@ class SetupScreen extends Component {
     if (firstName) {
       Keyboard.dismiss();
       await dispatch(createMyPerson(firstName, lastName));
-
       disableBack.remove();
       dispatch(next({}));
     }
