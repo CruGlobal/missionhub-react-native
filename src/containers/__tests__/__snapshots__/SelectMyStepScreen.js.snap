@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly for onboarding 1`] = `
-<Connect(withI18nextTranslation(SelectStepScreen))
+<Connect(SelectStepScreen)
   contact={
     Object {
       "id": "1234",
@@ -26,7 +26,7 @@ exports[`renders correctly for onboarding 1`] = `
 `;
 
 exports[`renders correctly with back button 1`] = `
-<Connect(withI18nextTranslation(SelectStepScreen))
+<Connect(SelectStepScreen)
   contact={
     Object {
       "id": "1234",
@@ -51,7 +51,7 @@ exports[`renders correctly with back button 1`] = `
 `;
 
 exports[`renders correctly without back button 1`] = `
-<Connect(withI18nextTranslation(SelectStepScreen))
+<Connect(SelectStepScreen)
   contact={
     Object {
       "id": "1234",

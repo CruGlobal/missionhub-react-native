@@ -9,12 +9,10 @@ import SelectStepScreen from '..';
 jest.mock('../../StepsList', () => 'StepsList');
 jest.mock('../../../actions/navigation');
 
-const nextResult = { type: 'next' };
-const next = jest.fn(() => nextResult);
+const next = jest.fn(() => () => ({}));
 const organization = { id: '4234234' };
 const contactStageId = '3';
 const receiverId = '252342354234';
-const createStepTracking = { prop: 'hello world' };
 const contactName = 'roger';
 const contact = { id: receiverId };
 const state = {
@@ -22,9 +20,9 @@ const state = {
   steps: { suggestedForOthers: {} },
 };
 
-let screen;
-let enableBackButton;
-let enableSkipButton;
+let screen: ReturnType<typeof renderWithContext>;
+let enableBackButton = false;
+let enableSkipButton = false;
 
 beforeEach(() => {
   screen = renderWithContext(
@@ -35,7 +33,7 @@ beforeEach(() => {
       receiverId={receiverId}
       enableBackButton={enableBackButton}
       enableSkipButton={enableSkipButton}
-      createStepTracking={createStepTracking}
+      headerText="Header Text"
       contactName={contactName}
       next={next}
     />,
@@ -96,10 +94,6 @@ describe('skip button', () => {
       orgId: organization.id,
     });
   });
-
-  it('dispatches actions to store', () => {
-    expect(screen.store.getActions()).toEqual([nextResult]);
-  });
 });
 
 describe('BottomButton', () => {
@@ -114,9 +108,5 @@ describe('BottomButton', () => {
       skip: false,
       orgId: organization.id,
     });
-  });
-
-  it('dispatches actions to store', () => {
-    expect(screen.store.getActions()).toEqual([nextResult]);
   });
 });
