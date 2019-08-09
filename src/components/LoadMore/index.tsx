@@ -6,6 +6,7 @@ import { Button } from '../common';
 import styles from './styles';
 
 interface LoadMoreProps {
+  testID?: string;
   onPress: Function;
   text?: string;
 }
