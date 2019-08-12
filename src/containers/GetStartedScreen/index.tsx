@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { useNavigationParams } from 'react-navigation-hooks';
 
 import { Flex, Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -19,7 +20,7 @@ const GetStartedScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: () => ThunkAction<void, any, null, never>;
+  next: (props: { id: string }) => ThunkAction<void, any, null, never>;
   name: string;
 }) => {
   useEffect(() => {
@@ -27,12 +28,13 @@ const GetStartedScreen = ({
     return () => disableBack.remove();
   }, []);
 
+  const id = useNavigationParams('id');
   const { t } = useTranslation('getStarted');
 
   const navigateNext = () => {
     disableBack.remove();
 
-    dispatch(next());
+    dispatch(next({ id }));
   };
 
   return (

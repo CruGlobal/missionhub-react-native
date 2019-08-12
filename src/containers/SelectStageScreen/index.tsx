@@ -58,6 +58,7 @@ interface SelectStageScreenProps {
     contactAssignmentId: string;
     orgId?: string;
     isAlreadySelected: boolean;
+    isMe: boolean;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>; // TODO: make next required when only used in flows
   myId: string;
@@ -69,10 +70,10 @@ interface SelectStageScreenProps {
 }
 
 interface SelectStageNavParams {
-  selectedStageId: number;
+  selectedStageId?: number;
   enableBackButton: boolean;
   personId: string;
-  orgId: string;
+  orgId?: string;
   section: string;
   subsection: string;
   questionText?: string;
@@ -154,6 +155,7 @@ const SelectStageScreen = ({
         contactAssignmentId,
         orgId,
         isAlreadySelected,
+        isMe,
       }),
     );
 

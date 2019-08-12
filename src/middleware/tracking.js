@@ -47,7 +47,7 @@ export default function tracking({ dispatch, getState }) {
       case NAVIGATE_POP:
         const routes = navState.routes;
         const topRoute = routes[routes.length - 1];
-
+        console.log(topRoute);
         if (topRoute.routeName === MAIN_TABS) {
           newState = tabsState.activeMainTab;
           break;

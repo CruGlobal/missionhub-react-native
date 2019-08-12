@@ -7,8 +7,7 @@ import { RESET_STEP_COUNT, ACTIONS } from '../../constants';
 import AddStepScreen, {
   COMPLETE_STEP_SCREEN,
 } from '../../containers/AddStepScreen';
-import { SELECT_MY_STAGE_SCREEN } from '../../containers/SelectMyStageScreen';
-import { SELECT_PERSON_STAGE_SCREEN } from '../../containers/SelectPersonStageScreen';
+import { SELECT_STAGE_SCREEN } from '../../containers/SelectMyStageScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
@@ -23,14 +22,11 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
     AddStepScreen,
     ({ text, id, personId, orgId }) => (dispatch, getState) => {
       const {
-        isMe,
         hasHitCount,
         isNotSure,
         subsection,
         firstItemIndex,
         questionText,
-        assignment,
-        firstName,
       } = paramsForStageNavigation(personId, orgId, getState);
 
       if (text) {
@@ -56,20 +52,15 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
       }
 
       dispatch(
-        navigatePush(
-          isMe ? SELECT_MY_STAGE_SCREEN : SELECT_PERSON_STAGE_SCREEN,
-          {
-            section: 'people',
-            subsection,
-            firstItem: firstItemIndex,
-            enableBackButton: false,
-            questionText,
-            orgId,
-            contactId: personId,
-            contactAssignmentId: assignment && assignment.id,
-            firstName,
-          },
-        ),
+        navigatePush(SELECT_STAGE_SCREEN, {
+          section: 'people',
+          subsection,
+          selectedStageId: firstItemIndex,
+          enableBackButton: false,
+          questionText,
+          orgId,
+          personId,
+        }),
       );
     },
   ),

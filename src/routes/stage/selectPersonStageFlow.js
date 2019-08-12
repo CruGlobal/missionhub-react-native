@@ -6,29 +6,29 @@ import { updatePersonAttributes, getPersonDetails } from '../../actions/person';
 import { loadStepsAndJourney } from '../../actions/misc';
 import { personSelector } from '../../selectors/people';
 import SelectPersonStageScreen, {
-  SELECT_PERSON_STAGE_SCREEN,
+  SELECT_STAGE_SCREEN,
 } from '../../containers/SelectPersonStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../containers/PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { AddPersonStepFlowScreens } from '../steps/addPersonStepFlow';
 
 export const SelectPersonStageFlowScreens = {
-  [SELECT_PERSON_STAGE_SCREEN]: wrapNextAction(
+  [SELECT_STAGE_SCREEN]: wrapNextAction(
     SelectPersonStageScreen,
     ({
       stage,
-      contactId,
+      personId,
       firstName,
       orgId,
       isAlreadySelected,
       contactAssignmentId,
     }) => (dispatch, getState) => {
       const { people } = getState();
-      const person = personSelector({ people }, { personId: contactId, orgId });
+      const person = personSelector({ people }, { personId, orgId });
 
       dispatch(
         contactAssignmentId
-          ? updatePersonAttributes(contactId, {
+          ? updatePersonAttributes(personId, {
               reverse_contact_assignments: person.reverse_contact_assignments.map(
                 assignment =>
                   assignment.id === contactAssignmentId
@@ -36,16 +36,16 @@ export const SelectPersonStageFlowScreens = {
                     : assignment,
               ),
             })
-          : getPersonDetails(contactId, orgId),
+          : getPersonDetails(personId, orgId),
       );
-      dispatch(loadStepsAndJourney(contactId, orgId));
+      dispatch(loadStepsAndJourney(personId, orgId));
 
       dispatch(
         isAlreadySelected
-          ? navigatePush(CELEBRATION_SCREEN, { contactId, orgId })
+          ? navigatePush(CELEBRATION_SCREEN, { contactId: personId, orgId })
           : navigatePush(PERSON_SELECT_STEP_SCREEN, {
               contactStage: stage,
-              contactId,
+              contactId: personId,
               organization: { id: orgId },
               contactName: firstName,
             }),

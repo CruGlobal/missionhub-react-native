@@ -25,7 +25,10 @@ import { navigateBack } from '../../actions/navigation';
 import styles from './styles';
 
 interface SetupScreenProps {
-  next: () => ThunkAction<unknown, {}, {}, AnyAction>;
+  next: (props?: {
+    id: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }) => ThunkAction<void, any, {}, never>; // TODO: make next required when only used in flows
   firstName?: string;
   lastName?: string;
   personId?: string;
@@ -58,10 +61,12 @@ const SetupScreen = ({
             lastName,
           }),
         );
-        dispatch(next());
+        dispatch(next({ id: personId }));
       } else {
-        await dispatch(createMyPerson(firstName, lastName));
-        dispatch(next());
+        const { person_id } = await dispatch(
+          createMyPerson(firstName, lastName),
+        );
+        dispatch(next({ id: person_id }));
       }
     } finally {
       setIsLoading(false);
