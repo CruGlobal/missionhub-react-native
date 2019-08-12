@@ -45,9 +45,7 @@ const PersonItem = ({
   const handleChangeStage = () => {
     dispatch(
       navigatePush(SELECT_PERSON_STAGE_FLOW, {
-        firstName: person.first_name,
-        contactId: person.id,
-        contactAssignmentId: contactAssignment.id,
+        personId: person.id,
         section: 'people',
         subsection: 'person',
         orgId,

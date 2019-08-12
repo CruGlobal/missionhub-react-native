@@ -123,7 +123,7 @@ const SelectStageScreen = ({
         dispatch(trackState(trackingObj));
       }
     },
-    [dispatch, stages, section, subsection],
+    [dispatch, stages, section, subsection, isMe],
   );
 
   useEffect(() => {

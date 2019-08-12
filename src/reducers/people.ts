@@ -9,6 +9,7 @@ import {
   UPDATE_PERSON_ATTRIBUTES,
   GET_ORGANIZATION_PEOPLE,
 } from '../constants';
+
 import { Organization } from './organizations';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

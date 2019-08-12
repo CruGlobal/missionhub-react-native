@@ -81,10 +81,8 @@ export function assignContactAndPickStage(person, organization) {
 
     dispatch(
       navigatePush(SELECT_PERSON_STAGE_FLOW, {
-        contactId: resultPerson.id,
+        personId: resultPerson.id,
         orgId,
-        contactAssignmentId: contactAssignment.id,
-        firstName: resultPerson.first_name,
         section: 'people',
         subsection: 'person',
       }),
@@ -103,20 +101,17 @@ export function navigateToStageScreen(
     if (personIsCurrentUser) {
       dispatch(
         navigatePush(SELECT_MY_STAGE_FLOW, {
-          firstItem: firstItemIndex,
-          contactId: person.id,
+          selectedStageId: firstItemIndex,
+          personId: person.id,
           section: 'people',
           subsection: 'self',
-          enableBackButton: true,
         }),
       );
     } else {
       dispatch(
         navigatePush(SELECT_PERSON_STAGE_FLOW, {
-          firstItem: firstItemIndex,
-          firstName: person.first_name,
-          contactId: person.id,
-          contactAssignmentId: contactAssignment && contactAssignment.id,
+          selectedStageId: firstItemIndex,
+          personId: person.id,
           orgId: organization.id,
           section: 'people',
           subsection: 'person',
