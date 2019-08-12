@@ -6,7 +6,7 @@ import { updatePersonAttributes } from '../../actions/person';
 import { loadStepsAndJourney } from '../../actions/misc';
 import SelectStageScreen, {
   SELECT_STAGE_SCREEN,
-} from '../../containers/SelectMyStageScreen';
+} from '../../containers/SelectStageScreen';
 import { SELECT_MY_STEP_SCREEN } from '../../containers/SelectMyStepScreen';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { AddMyStepFlowScreens } from '../steps/addMyStepFlow';

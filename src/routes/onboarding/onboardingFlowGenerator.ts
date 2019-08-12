@@ -69,11 +69,7 @@ export const onboardingFlowGenerator = ({
           buildTrackingObj('onboarding : welcome', 'onboarding'),
         ),
         [SETUP_SCREEN]: buildTrackedScreen(
-          wrapNextAction(SetupScreen, ({ id }: { id: string }) =>
-            navigatePush(GET_STARTED_SCREEN, {
-              id,
-            }),
-          ),
+          wrapNextScreen(SetupScreen, GET_STARTED_SCREEN),
           buildTrackingObj('onboarding : name', 'onboarding'),
         ),
       }
@@ -170,7 +166,7 @@ export const onboardingFlowGenerator = ({
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       SetupPersonScreen,
-      ({ skip, personId }: { skip: boolean; personId: boolean }) =>
+      ({ skip, personId }: { skip: boolean; personId: string }) =>
         skip
           ? skipOnboarding()
           : navigatePush(SELECT_STAGE_SCREEN, {

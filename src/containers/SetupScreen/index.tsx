@@ -61,12 +61,10 @@ const SetupScreen = ({
             lastName,
           }),
         );
-        dispatch(next({ id: personId }));
+        dispatch(next());
       } else {
-        const { person_id } = await dispatch(
-          createMyPerson(firstName, lastName),
-        );
-        dispatch(next({ id: person_id }));
+        await dispatch(createMyPerson(firstName, lastName));
+        dispatch(next());
       }
     } finally {
       setIsLoading(false);

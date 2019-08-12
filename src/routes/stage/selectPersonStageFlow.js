@@ -5,16 +5,16 @@ import { navigatePush } from '../../actions/navigation';
 import { updatePersonAttributes, getPersonDetails } from '../../actions/person';
 import { loadStepsAndJourney } from '../../actions/misc';
 import { personSelector } from '../../selectors/people';
-import SelectPersonStageScreen, {
+import SelectStageScreen, {
   SELECT_STAGE_SCREEN,
-} from '../../containers/SelectPersonStageScreen';
+} from '../../containers/SelectStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../containers/PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { AddPersonStepFlowScreens } from '../steps/addPersonStepFlow';
 
 export const SelectPersonStageFlowScreens = {
   [SELECT_STAGE_SCREEN]: wrapNextAction(
-    SelectPersonStageScreen,
+    SelectStageScreen,
     ({
       stage,
       personId,

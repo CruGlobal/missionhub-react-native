@@ -7,7 +7,7 @@ import { RESET_STEP_COUNT, ACTIONS } from '../../constants';
 import AddStepScreen, {
   COMPLETE_STEP_SCREEN,
 } from '../../containers/AddStepScreen';
-import { SELECT_STAGE_SCREEN } from '../../containers/SelectMyStageScreen';
+import { SELECT_STAGE_SCREEN } from '../../containers/SelectStageScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';

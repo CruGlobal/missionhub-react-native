@@ -259,7 +259,7 @@ const mapStateToProps = (
   const person = personSelector({ people }, { personId, orgId }) || {};
   const contactAssignment =
     contactAssignmentSelector({ auth }, { person, orgId }) || {};
-
+  console.log(person);
   return {
     myId,
     firstName: person.first_name,
