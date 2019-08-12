@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { AndroidBackHandler } from 'react-navigation-backhandler';
+import { useNavigationState } from 'react-navigation-hooks';
 
 import { navigateBack } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
@@ -20,17 +21,16 @@ interface GetStartedScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: () => ThunkAction<void, any, null, never>;
   name: string;
+}
+
+interface GetStartedNavParams {
   enableBackButton: boolean;
 }
 
-const GetStartedScreen = ({
-  dispatch,
-  next,
-  name,
-  enableBackButton = true,
-}: GetStartedScreenProps) => {
+const GetStartedScreen = ({ dispatch, next, name }: GetStartedScreenProps) => {
+  const { enableBackButton = true } = useNavigationState()
+    .params as GetStartedNavParams;
   const enableBack = useDisableBack(enableBackButton);
-
   const { t } = useTranslation('getStarted');
 
   const handleBack = () => {
@@ -62,24 +62,9 @@ const GetStartedScreen = ({
   );
 };
 
-const mapStateToProps = (
-  { profile }: { profile: ProfileState },
-  {
-    navigation: {
-      state: {
-        params: { enableBackButton },
-      },
-    },
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
-) => {
-  const name = (profile.firstName || '').toLowerCase();
-
-  return {
-    name,
-    enableBackButton,
-  };
-};
+const mapStateToProps = ({ profile }: { profile: ProfileState }) => ({
+  name: (profile.firstName || '').toLowerCase(),
+});
 
 export default connect(mapStateToProps)(GetStartedScreen);
 export const GET_STARTED_SCREEN = 'nav/GET_STARTED';
