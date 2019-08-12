@@ -48,7 +48,7 @@ import styles, {
 
 const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
-interface PathwayStageScreenProps {
+interface SelectStageScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   next: (props?: {
@@ -68,7 +68,7 @@ interface PathwayStageScreenProps {
   testID?: string;
 }
 
-interface PathwayStageNavParams {
+interface SelectStageNavParams {
   selectedStageId: number;
   enableBackButton: boolean;
   personId: string;
@@ -78,7 +78,7 @@ interface PathwayStageNavParams {
   questionText?: string;
 }
 
-const PathwayStageScreen = ({
+const SelectStageScreen = ({
   dispatch,
   next,
   myId,
@@ -86,16 +86,16 @@ const PathwayStageScreen = ({
   contactAssignmentId,
   isMe,
   stages,
-}: PathwayStageScreenProps) => {
+}: SelectStageScreenProps) => {
   const {
     selectedStageId,
-    enableBackButton,
+    enableBackButton = true,
     personId,
     orgId,
     section,
     subsection,
     questionText,
-  } = useNavigationState().params as PathwayStageNavParams;
+  } = useNavigationState().params as SelectStageNavParams;
 
   const enableBack = useDisableBack(enableBackButton);
   const { t } = useTranslation('selectStage');
@@ -267,4 +267,5 @@ const mapStateToProps = (
   };
 };
 
-export default connect(mapStateToProps)(PathwayStageScreen);
+export default connect(mapStateToProps)(SelectStageScreen);
+export const SELECT_STAGE_SCREEN = 'nav/Select_STAGE';
