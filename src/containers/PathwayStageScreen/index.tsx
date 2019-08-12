@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import { ThunkDispatch } from 'redux-thunk';
+import { useTranslation } from 'react-i18next';
 
 import { Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
@@ -18,7 +19,12 @@ import { trackAction, trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 import { ACTIONS } from '../../constants';
 import { useDisableBack } from '../../utils/hooks/useDisableBack';
+import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
+import {
+  personSelector,
+  contactAssignmentSelector,
+} from '../../selectors/people';
 
 import styles, {
   sliderWidth,
@@ -33,36 +39,30 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 interface PathwayStageScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
-  onSelect: (stage: Stage, isAlreadySelected: boolean) => Promise<void>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onScrollToStage: (props?: any) => void;
-  section: string;
-  subsection: string;
-  questionText: string;
-  buttonText: string;
-  activeButtonText: string;
   selectedStageId?: number;
   enableBackButton: boolean;
-  isSelf: boolean;
+  personId: string;
+  orgId: string;
+  firstName: string;
+  contactAssignmentId: string;
+  isMe: boolean;
   stages: Stage;
   testID?: string;
 }
 
 const PathwayStageScreen = ({
   dispatch,
-  onSelect,
-  onScrollToStage,
-  section,
-  subsection,
-  questionText,
-  buttonText,
-  activeButtonText,
   selectedStageId,
   enableBackButton,
-  isSelf,
+  personId,
+  orgId,
+  firstName,
+  contactAssignmentId,
+  isMe,
   stages,
 }: PathwayStageScreenProps) => {
   const enableBack = useDisableBack(enableBackButton);
+  const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const startIndex = selectedStageId || 0;
@@ -175,8 +175,33 @@ const PathwayStageScreen = ({
   );
 };
 
-const mapStateToProps = ({ stages }: { stages: StagesState }) => ({
-  stages: stages.stages,
-});
+const mapStateToProps = (
+  { auth, people, stages }: { auth: AuthState; stages: StagesState },
+  {
+    navigation: {
+      state: {
+        params: { selectedStageId, enableBackButton, personId, orgId },
+      },
+    },
+    next,
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+) => {
+  const person = personSelector({ people }, { personId, orgId }) || {};
+  const contactAssignment =
+    contactAssignmentSelector({ auth }, { person, orgId }) || {};
+
+  return {
+    selectedStageId,
+    enableBackButton,
+    personId,
+    orgId,
+    firstName: person.first_name,
+    contactAssignmentId: contactAssignment.id,
+    isMe: personId === auth.person.id,
+    stages: stages.stages,
+    next,
+  };
+};
 
 export default connect(mapStateToProps)(PathwayStageScreen);
