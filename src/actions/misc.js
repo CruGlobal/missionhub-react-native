@@ -107,7 +107,6 @@ export function navigateToStageScreen(
           contactId: person.id,
           section: 'people',
           subsection: 'self',
-          enableBackButton: true,
         }),
       );
     } else {

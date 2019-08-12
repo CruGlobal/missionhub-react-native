@@ -1,36 +1,46 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { AndroidBackHandler } from 'react-navigation-backhandler';
+import { useNavigationState } from 'react-navigation-hooks';
 
+import { navigateBack } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
+import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
-import { disableBack } from '../../utils/common';
+import { useDisableBack } from '../../utils/hooks/useDisableBack';
 import { ProfileState } from '../../reducers/profile';
 
 import styles from './styles';
 
-const GetStartedScreen = ({
-  dispatch,
-  next,
-  name,
-}: {
+interface GetStartedScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: () => ThunkAction<void, any, null, never>;
   name: string;
-}) => {
-  useEffect(() => {
-    disableBack.add();
-    return () => disableBack.remove();
-  }, []);
+}
 
+interface GetStartedNavParams {
+  enableBackButton: boolean;
+}
+
+const GetStartedScreen = ({ dispatch, next, name }: GetStartedScreenProps) => {
+  const { enableBackButton = true } = useNavigationState()
+    .params as GetStartedNavParams;
+  const enableBack = useDisableBack(enableBackButton);
   const { t } = useTranslation('getStarted');
 
+  const handleBack = () => {
+    enableBackButton && dispatch(navigateBack());
+
+    return true;
+  };
+
   const navigateNext = () => {
-    disableBack.remove();
+    enableBack();
 
     dispatch(next());
   };
@@ -44,20 +54,17 @@ const GetStartedScreen = ({
           </Text>
           <Text style={styles.text}>{t('tagline')}</Text>
         </Flex>
-
         <BottomButton onPress={navigateNext} text={t('getStarted')} />
+        <AndroidBackHandler onBackPress={handleBack} />
+        {enableBackButton ? <BackButton absolute={true} /> : null}
       </Flex>
     </SafeAreaView>
   );
 };
 
-const mapStateToProps = ({ profile }: { profile: ProfileState }) => {
-  const name = (profile.firstName || '').toLowerCase();
-
-  return {
-    name,
-  };
-};
+const mapStateToProps = ({ profile }: { profile: ProfileState }) => ({
+  name: (profile.firstName || '').toLowerCase(),
+});
 
 export default connect(mapStateToProps)(GetStartedScreen);
 export const GET_STARTED_SCREEN = 'nav/GET_STARTED';

@@ -47,7 +47,7 @@ const SelectMyStageScreen = ({
     firstItem,
     section,
     subsection,
-    enableBackButton = false,
+    enableBackButton = true,
   } = useNavigationState().params as SelectMyStageNavParams;
   const { t } = useTranslation('selectStage');
 

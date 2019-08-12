@@ -19,7 +19,7 @@ exports[`renders correctly with first item 1`] = `
 <PathwayStageScreen
   activeButtonText="STILL HERE"
   buttonText="I AM HERE"
-  enableBackButton={false}
+  enableBackButton={true}
   isSelf={true}
   onScrollToStage={[Function]}
   onSelect={[Function]}
@@ -35,7 +35,7 @@ exports[`renders correctly with question text 1`] = `
 <PathwayStageScreen
   activeButtonText="STILL HERE"
   buttonText="I AM HERE"
-  enableBackButton={false}
+  enableBackButton={true}
   isSelf={true}
   onScrollToStage={[Function]}
   onSelect={[Function]}
