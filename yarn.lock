@@ -6734,10 +6734,10 @@ react-dom@^16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
-react-i18next@^10.11.5:
-  version "10.11.5"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-10.11.5.tgz#10d0726a6c63c2d928078a7e7ec3db708246be04"
-  integrity sha512-+LXYehLGWbOzM4on9pgeCMTmo7J24Pm2rio4S8OSVdYudUKxLSYzoMDgJect0SQbTlIiK6b6+OTgTGY4YKPECw==
+react-i18next@^10.12.1:
+  version "10.12.1"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-10.12.1.tgz#13965943b3175e5bef6023cf180c759fe8fd1aae"
+  integrity sha512-cy8jnWVufZsotExiYpmwqqOHjUJsPWTunifjrqWjvkFrBFf1biBCdCHjr9h+pt+ZsLLn+y3o0v6qXDBPpKvqUg==
   dependencies:
     "@babel/runtime" "^7.3.1"
     html-parse-stringify2 "2.0.1"
