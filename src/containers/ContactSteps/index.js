@@ -16,7 +16,7 @@ import {
   orgIsCru,
   keyExtractorId,
 } from '../../utils/common';
-import { promptToAssign } from '../../utils/promptToAssign';
+import { promptToAssign } from '../../utils/prompt';
 import { ADD_MY_STEP_FLOW, ADD_PERSON_STEP_FLOW } from '../../routes/constants';
 import {
   contactAssignmentSelector,

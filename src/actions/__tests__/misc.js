@@ -181,7 +181,6 @@ describe('navigateToStageScreen', () => {
       contactId: person.id,
       section: 'people',
       subsection: 'self',
-      enableBackButton: true,
     });
     expect(store.getActions()).toEqual([navigatePushResult]);
   });

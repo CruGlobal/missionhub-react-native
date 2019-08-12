@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import { ThunkDispatch } from 'redux-thunk';
+import { AndroidBackHandler } from 'react-navigation-backhandler';
 
 import { Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
@@ -15,6 +16,7 @@ import GUIDING from '../../../assets/images/guidingIcon.png';
 import NOTSURE from '../../../assets/images/notsureIcon.png';
 import { getStages } from '../../actions/stages';
 import { trackAction, trackState } from '../../actions/analytics';
+import { navigateBack } from '../../actions/navigation';
 import { buildTrackingObj } from '../../utils/common';
 import { ACTIONS } from '../../constants';
 import { useDisableBack } from '../../utils/hooks/useDisableBack';
@@ -67,6 +69,25 @@ const PathwayStageScreen = ({
 
   const startIndex = selectedStageId || 0;
 
+  const loadStages = useCallback(() => dispatch(getStages()), [dispatch]);
+
+  const handleSnapToItem = useCallback(
+    (index: number) => {
+      if (stages[index]) {
+        const trackingObj = buildTrackingObj(
+          `${section} : ${subsection} : stage : ${stages[index].id}`,
+          section,
+          subsection,
+          'stage',
+        );
+
+        onScrollToStage(trackingObj);
+        dispatch(trackState(trackingObj));
+      }
+    },
+    [dispatch, stages, section, subsection, onScrollToStage],
+  );
+
   useEffect(() => {
     async function loadStagesAndScrollToId() {
       await loadStages();
@@ -74,9 +95,7 @@ const PathwayStageScreen = ({
     }
 
     loadStagesAndScrollToId();
-  }, []);
-
-  const loadStages = () => dispatch(getStages());
+  }, [dispatch, loadStages, handleSnapToItem, startIndex]);
 
   const setStage = (stage: Stage, isAlreadySelected: boolean) => {
     enableBack();
@@ -96,23 +115,15 @@ const PathwayStageScreen = ({
     );
   };
 
+  const handleBack = () => {
+    enableBackButton && dispatch(navigateBack());
+
+    return true;
+  };
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleScroll = (e: any) =>
     setScrollPosition(e.nativeEvent.contentOffset.x);
-
-  const handleSnapToItem = (index: number) => {
-    if (stages[index]) {
-      const trackingObj = buildTrackingObj(
-        `${section} : ${subsection} : stage : ${stages[index].id}`,
-        section,
-        subsection,
-        'stage',
-      );
-
-      onScrollToStage(trackingObj);
-      dispatch(trackState(trackingObj));
-    }
-  };
 
   const renderStage = ({ item, index }: { item: Stage; index: number }) => {
     const isActive = selectedStageId === index;
@@ -150,6 +161,7 @@ const PathwayStageScreen = ({
           },
         ]}
       />
+      <AndroidBackHandler onBackPress={handleBack} />
       {enableBackButton ? <BackButton absolute={true} /> : null}
       <Text style={styles.title}>{questionText}</Text>
       {stages ? (

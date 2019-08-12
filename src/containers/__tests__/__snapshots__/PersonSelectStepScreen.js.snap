@@ -2,7 +2,11 @@
 
 exports[`allows for undefined organization 1`] = `
 <View
-  flex={1}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
 >
   <View
     onLayout={[Function]}
@@ -78,8 +82,12 @@ exports[`allows for undefined organization 1`] = `
               }
             >
               <View
-                alignItems="center"
-                flex={1}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  }
+                }
               >
                 <RCTSafeAreaView
                   emulateUnlessSupported={true}
@@ -225,7 +233,7 @@ exports[`allows for undefined organization 1`] = `
             }
           />
           <RCTScrollView
-            ListFooterComponent={false}
+            ListFooterComponent={null}
             data={Array []}
             disableVirtualization={false}
             getItem={[Function]}
@@ -548,7 +556,11 @@ exports[`allows for undefined organization 1`] = `
 
 exports[`renders correctly 1`] = `
 <View
-  flex={1}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
 >
   <View
     onLayout={[Function]}
@@ -624,8 +636,12 @@ exports[`renders correctly 1`] = `
               }
             >
               <View
-                alignItems="center"
-                flex={1}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  }
+                }
               >
                 <RCTSafeAreaView
                   emulateUnlessSupported={true}
@@ -771,7 +787,7 @@ exports[`renders correctly 1`] = `
             }
           />
           <RCTScrollView
-            ListFooterComponent={false}
+            ListFooterComponent={null}
             data={Array []}
             disableVirtualization={false}
             getItem={[Function]}
