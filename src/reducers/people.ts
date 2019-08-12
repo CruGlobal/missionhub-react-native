@@ -9,14 +9,24 @@ import {
   UPDATE_PERSON_ATTRIBUTES,
   GET_ORGANIZATION_PEOPLE,
 } from '../constants';
+import { Organization } from './organizations';
 
-const initialState = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Person = any;
+
+export interface PeopleState {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  allByOrg: any;
+}
+
+const initialState: PeopleState = {
   allByOrg: {
     personal: { id: 'personal', people: {} },
   },
 };
 
-export default function peopleReducer(state = initialState, action) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function peopleReducer(state = initialState, action: any) {
   switch (action.type) {
     case LOAD_PERSON_DETAILS:
       const orgId = action.orgId || 'personal';
@@ -70,12 +80,13 @@ export default function peopleReducer(state = initialState, action) {
   }
 }
 
-function loadPeople(state, action) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function loadPeople(state: PeopleState, action: any) {
   const { response, orgId } = action;
 
   const org = state.allByOrg[orgId] || { id: orgId };
   const allPeople = org.people || {};
-  response.forEach(person => {
+  response.forEach((person: Person) => {
     const existing = allPeople[person.id];
     allPeople[person.id] = existing ? { ...existing, ...person } : person;
   });
@@ -92,11 +103,13 @@ function loadPeople(state, action) {
   };
 }
 
-function loadContactsFromSteps(state, action) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function loadContactsFromSteps(state: PeopleState, action: any) {
   const { response } = action.results;
 
   const { allByOrg } = state;
-  response.forEach(s => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  response.forEach((s: any) => {
     if (!s) {
       return;
     }
@@ -124,8 +137,13 @@ function loadContactsFromSteps(state, action) {
   };
 }
 
-function updateAllPersonInstances(allByOrg, updatedPerson, replace = false) {
-  return mapObject(allByOrg, ([orgId, org]) => ({
+function updateAllPersonInstances(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  allByOrg: any,
+  updatedPerson: Person,
+  replace = false,
+) {
+  return mapObject(allByOrg, ([orgId, org]: [string, Organization]) => ({
     [orgId]: {
       ...org,
       people: {
@@ -147,15 +165,20 @@ function updateAllPersonInstances(allByOrg, updatedPerson, replace = false) {
   }));
 }
 
-function deletePersonInOrg(allByOrg, deletePersonId, personOrgId = 'personal') {
-  return mapObject(allByOrg, ([orgId, org]) => ({
+function deletePersonInOrg(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  allByOrg: any,
+  deletePersonId: string,
+  personOrgId = 'personal',
+) {
+  return mapObject(allByOrg, ([orgId, org]: [string, Organization]) => ({
     [orgId]: {
       ...org,
       people: {
         ...(orgId === personOrgId
           ? filterObject(
               org.people,
-              ([personId]) => personId !== deletePersonId,
+              ([personId]: [string]) => personId !== deletePersonId,
             )
           : org.people),
       },
@@ -163,11 +186,13 @@ function deletePersonInOrg(allByOrg, deletePersonId, personOrgId = 'personal') {
   }));
 }
 
-function mapObject(obj, fn) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mapObject(obj: any, fn: (element: any) => any) {
   return Object.assign({}, ...Object.entries(obj).map(fn));
 }
 
-function filterObject(obj, fn) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function filterObject(obj: any, fn: (element: any) => any) {
   return Object.assign(
     {},
     ...Object.entries(obj)

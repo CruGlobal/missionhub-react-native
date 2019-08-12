@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
-import { ThunkDispatch } from 'redux-thunk';
+import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
+import { useNavigationState } from 'react-navigation-hooks';
+import Carousel from 'react-native-snap-carousel';
 
 import { Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
@@ -15,12 +17,22 @@ import GROWING from '../../../assets/images/growingIcon.png';
 import GUIDING from '../../../assets/images/guidingIcon.png';
 import NOTSURE from '../../../assets/images/notsureIcon.png';
 import { getStages } from '../../actions/stages';
+import {
+  selectMyStage,
+  selectPersonStage,
+  updateUserStage,
+} from '../../actions/selectStage';
 import { trackAction, trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
-import { ACTIONS } from '../../constants';
+import {
+  ACTIONS,
+  SELF_VIEWED_STAGE_CHANGED,
+  PERSON_VIEWED_STAGE_CHANGED,
+} from '../../constants';
 import { useDisableBack } from '../../utils/hooks/useDisableBack';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
+import { PeopleState } from '../../reducers/people';
 import {
   personSelector,
   contactAssignmentSelector,
@@ -38,11 +50,17 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
 interface PathwayStageScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
-  selectedStageId?: number;
-  enableBackButton: boolean;
-  personId: string;
-  orgId: string;
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  next: (props?: {
+    stage: Stage;
+    firstName: string;
+    personId: string;
+    contactAssignmentId: string;
+    orgId?: string;
+    isAlreadySelected: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }) => ThunkAction<void, any, {}, never>; // TODO: make next required when only used in flows
+  myId: string;
   firstName: string;
   contactAssignmentId: string;
   isMe: boolean;
@@ -50,17 +68,35 @@ interface PathwayStageScreenProps {
   testID?: string;
 }
 
+interface PathwayStageNavParams {
+  selectedStageId: number;
+  enableBackButton: boolean;
+  personId: string;
+  orgId: string;
+  section: string;
+  subsection: string;
+  questionText?: string;
+}
+
 const PathwayStageScreen = ({
   dispatch,
-  selectedStageId,
-  enableBackButton,
-  personId,
-  orgId,
+  next,
+  myId,
   firstName,
   contactAssignmentId,
   isMe,
   stages,
 }: PathwayStageScreenProps) => {
+  const {
+    selectedStageId,
+    enableBackButton,
+    personId,
+    orgId,
+    section,
+    subsection,
+    questionText,
+  } = useNavigationState().params as PathwayStageNavParams;
+
   const enableBack = useDisableBack(enableBackButton);
   const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -79,11 +115,14 @@ const PathwayStageScreen = ({
           'stage',
         );
 
-        onScrollToStage(trackingObj);
+        dispatch({
+          type: isMe ? SELF_VIEWED_STAGE_CHANGED : PERSON_VIEWED_STAGE_CHANGED,
+          newActiveTab: trackingObj,
+        });
         dispatch(trackState(trackingObj));
       }
     },
-    [dispatch, stages, section, subsection, onScrollToStage],
+    [dispatch, stages, section, subsection],
   );
 
   useEffect(() => {
@@ -95,13 +134,31 @@ const PathwayStageScreen = ({
     loadStagesAndScrollToId();
   }, [dispatch, loadStages, handleSnapToItem, startIndex]);
 
-  const setStage = (stage: Stage, isAlreadySelected: boolean) => {
+  const setStage = async (stage: Stage, isAlreadySelected: boolean) => {
     enableBack();
 
-    onSelect(stage, isAlreadySelected);
+    !isAlreadySelected &&
+      (await dispatch(
+        isMe
+          ? selectMyStage(stage.id)
+          : contactAssignmentId
+          ? updateUserStage(contactAssignmentId, stage.id)
+          : selectPersonStage(personId, myId, stage.id, orgId),
+      ));
+
+    dispatch(
+      next({
+        stage,
+        firstName,
+        personId,
+        contactAssignmentId,
+        orgId,
+        isAlreadySelected,
+      }),
+    );
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const action: any = isSelf
+    const action: any = isMe
       ? ACTIONS.SELF_STAGE_SELECTED
       : ACTIONS.PERSON_STAGE_SELECTED;
 
@@ -141,6 +198,12 @@ const PathwayStageScreen = ({
 
   const leftMargin = scrollPosition / -1 - overScrollMargin;
 
+  const buttonText = t(isMe ? 'iAmHere' : 'here').toUpperCase();
+  const activeButtonText = t('stillHere').toUpperCase();
+  const headerText =
+    questionText ||
+    t(isMe ? 'meQuestion' : 'personQuestion', { name: firstName });
+
   return (
     <View style={styles.container}>
       <Image
@@ -154,7 +217,7 @@ const PathwayStageScreen = ({
         ]}
       />
       {enableBackButton ? <BackButton absolute={true} /> : null}
-      <Text style={styles.title}>{questionText}</Text>
+      <Text style={styles.title}>{headerText}</Text>
       {stages ? (
         <Carousel
           firstItem={startIndex}
@@ -176,31 +239,31 @@ const PathwayStageScreen = ({
 };
 
 const mapStateToProps = (
-  { auth, people, stages }: { auth: AuthState; stages: StagesState },
+  {
+    auth,
+    people,
+    stages,
+  }: { auth: AuthState; people: PeopleState; stages: StagesState },
   {
     navigation: {
       state: {
-        params: { selectedStageId, enableBackButton, personId, orgId },
+        params: { personId, orgId },
       },
     },
-    next,
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => {
+  const myId = auth.person.id;
   const person = personSelector({ people }, { personId, orgId }) || {};
   const contactAssignment =
     contactAssignmentSelector({ auth }, { person, orgId }) || {};
 
   return {
-    selectedStageId,
-    enableBackButton,
-    personId,
-    orgId,
+    myId,
     firstName: person.first_name,
     contactAssignmentId: contactAssignment.id,
-    isMe: personId === auth.person.id,
+    isMe: personId === myId,
     stages: stages.stages,
-    next,
   };
 };
 
