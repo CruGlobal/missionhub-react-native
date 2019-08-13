@@ -101,6 +101,7 @@ const SelectStageScreen = ({
   const enableBack = useDisableBack(enableBackButton);
   const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [hasMounted, setHasMounted] = useState(false);
 
   const startIndex = selectedStageId || 0;
 
@@ -130,10 +131,11 @@ const SelectStageScreen = ({
     async function loadStagesAndScrollToId() {
       await loadStages();
       handleSnapToItem(startIndex);
+      setHasMounted(true);
     }
 
-    loadStagesAndScrollToId();
-  }, [loadStages, handleSnapToItem, startIndex]);
+    !hasMounted && loadStagesAndScrollToId();
+  }, [loadStages, handleSnapToItem, startIndex, hasMounted, setHasMounted]);
 
   const setStage = async (stage: Stage, isAlreadySelected: boolean) => {
     enableBack();
