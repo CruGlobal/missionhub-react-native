@@ -55,7 +55,7 @@ interface SelectStageScreenProps {
     stage: Stage;
     firstName: string;
     personId: string;
-    contactAssignmentId: string;
+    contactAssignmentId: string | undefined;
     orgId?: string;
     isAlreadySelected: boolean;
     isMe: boolean;
@@ -63,7 +63,7 @@ interface SelectStageScreenProps {
   }) => ThunkAction<void, any, {}, never>; // TODO: make next required when only used in flows
   myId: string;
   firstName: string;
-  contactAssignmentId: string;
+  contactAssignmentId?: string;
   isMe: boolean;
   stages: Stage;
   testID?: string;
@@ -133,7 +133,7 @@ const SelectStageScreen = ({
     }
 
     loadStagesAndScrollToId();
-  }, [dispatch, loadStages, handleSnapToItem, startIndex]);
+  }, [loadStages, handleSnapToItem, startIndex]);
 
   const setStage = async (stage: Stage, isAlreadySelected: boolean) => {
     enableBack();
@@ -259,7 +259,7 @@ const mapStateToProps = (
   const person = personSelector({ people }, { personId, orgId }) || {};
   const contactAssignment =
     contactAssignmentSelector({ auth }, { person, orgId }) || {};
-  console.log(person);
+
   return {
     myId,
     firstName: person.first_name,

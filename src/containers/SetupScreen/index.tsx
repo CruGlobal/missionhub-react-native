@@ -25,10 +25,7 @@ import { navigateBack } from '../../actions/navigation';
 import styles from './styles';
 
 interface SetupScreenProps {
-  next: (props?: {
-    id: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }) => ThunkAction<void, any, {}, never>; // TODO: make next required when only used in flows
+  next: () => ThunkAction<unknown, {}, {}, AnyAction>;
   firstName?: string;
   lastName?: string;
   personId?: string;
