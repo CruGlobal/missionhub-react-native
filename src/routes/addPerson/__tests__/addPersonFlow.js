@@ -168,7 +168,6 @@ describe('PersonStageScreen next', () => {
       contactName,
       contactId,
       organization: { id: orgId },
-      enableBackButton: false,
       enableSkipButton: true,
     });
     expect(store.getActions()).toEqual([navigatePushResponse]);
@@ -196,7 +195,6 @@ describe('PersonStageScreen next', () => {
       contactName,
       contactId,
       organization: { id: orgId },
-      enableBackButton: false,
       enableSkipButton: true,
     });
     expect(store.getActions()).toEqual([navigatePushResponse]);

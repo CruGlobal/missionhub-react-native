@@ -70,7 +70,6 @@ export const AddPersonFlowScreens = onFlowComplete => ({
           contactName: firstName,
           contactId,
           organization: { id: orgId },
-          enableBackButton: false,
           enableSkipButton: true,
         }),
       );
