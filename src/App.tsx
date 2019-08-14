@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { AppState, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ApolloProvider } from '@apollo/react-hooks';
 import i18n from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
 import DefaultPreference from 'react-native-default-preference';
@@ -33,6 +34,7 @@ import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
+import { apolloClient } from './apolloClient';
 
 @codePush({
   deploymentKey: isAndroid
@@ -190,18 +192,20 @@ export default class App extends Component {
     return (
       <Fragment>
         <StatusBar {...theme.statusBar.lightContent} />
-        <Provider store={store}>
-          <PersistGate
-            loading={<LoadingScreen />}
-            onBeforeLift={this.onBeforeLift}
-            persistor={persistor}
-          >
-            {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
-            <PlatformKeyboardAvoidingView>
-              <AppWithNavigationState />
-            </PlatformKeyboardAvoidingView>
-          </PersistGate>
-        </Provider>
+        <ApolloProvider client={apolloClient}>
+          <Provider store={store}>
+            <PersistGate
+              loading={<LoadingScreen />}
+              onBeforeLift={this.onBeforeLift}
+              persistor={persistor}
+            >
+              {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
+              <PlatformKeyboardAvoidingView>
+                <AppWithNavigationState />
+              </PlatformKeyboardAvoidingView>
+            </PersistGate>
+          </Provider>
+        </ApolloProvider>
       </Fragment>
     );
   }

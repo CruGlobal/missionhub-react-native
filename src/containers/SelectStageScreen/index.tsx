@@ -6,6 +6,7 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useNavigationState } from 'react-navigation-hooks';
 import Carousel from 'react-native-snap-carousel';
+import { AndroidBackHandler } from 'react-navigation-backhandler';
 
 import { Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
@@ -23,6 +24,7 @@ import {
   updateUserStage,
 } from '../../actions/selectStage';
 import { trackAction, trackState } from '../../actions/analytics';
+import { navigateBack } from '../../actions/navigation';
 import { buildTrackingObj } from '../../utils/common';
 import {
   ACTIONS,
@@ -174,6 +176,12 @@ const SelectStageScreen = ({
     );
   };
 
+  const handleBack = () => {
+    enableBackButton && dispatch(navigateBack());
+
+    return true;
+  };
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleScroll = (e: any) =>
     setScrollPosition(e.nativeEvent.contentOffset.x);
@@ -220,6 +228,7 @@ const SelectStageScreen = ({
           },
         ]}
       />
+      <AndroidBackHandler onBackPress={handleBack} />
       {enableBackButton ? <BackButton absolute={true} /> : null}
       <Text style={styles.title}>{headerText}</Text>
       {stages ? (

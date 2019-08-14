@@ -105,7 +105,16 @@ describe('GetStartedScreen next', () => {
     const Component = testFlow[GET_STARTED_SCREEN].screen;
 
     await store.dispatch(
-      renderShallow(<Component />, store)
+      renderShallow(
+        <Component
+          navigation={{
+            state: {
+              params: {},
+            },
+          }}
+        />,
+        store,
+      )
         .instance()
         .props.next({ id: myId }),
     );

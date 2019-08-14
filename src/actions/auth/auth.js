@@ -13,6 +13,7 @@ import {
 } from '../../routes/constants';
 import { completeOnboarding } from '../onboardingProfile';
 import { navigateToMainTabs } from '../navigation';
+import { apolloClient } from '../../apolloClient';
 
 export function logout(forcedLogout = false) {
   return async dispatch => {
@@ -20,6 +21,7 @@ export function logout(forcedLogout = false) {
       await dispatch(deletePushToken());
     } finally {
       dispatch({ type: LOGOUT });
+      apolloClient.clearStore();
       dispatch(
         forcedLogout
           ? navigateReset(SIGN_IN_FLOW, { forcedLogout })
@@ -57,7 +59,9 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
   const { person } = getState().auth;
 
   if (!person.user.pathway_stage_id) {
-    dispatch(navigateReset(GET_STARTED_ONBOARDING_FLOW));
+    dispatch(
+      navigateReset(GET_STARTED_ONBOARDING_FLOW, { enableBackButton: false }),
+    );
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   } else if (hasPersonWithStageSelected(person)) {
     dispatch(navigateToMainTabs());

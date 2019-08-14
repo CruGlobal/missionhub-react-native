@@ -30,15 +30,15 @@ beforeEach(() => {
 it('renders correctly', () => {
   renderWithContext(<GetStartedScreen next={next} />, {
     initialState,
+    navParams: {},
   }).snapshot();
 });
 
-it('disables back on mount', () => {
+it('renders without back button correctly', () => {
   renderWithContext(<GetStartedScreen next={next} />, {
     initialState,
-  });
-
-  expect(disableBack.add).toHaveBeenCalledWith();
+    navParams: { enableBackButton: false },
+  }).snapshot();
 });
 
 it('navigates to next screen', () => {
@@ -46,12 +46,12 @@ it('navigates to next screen', () => {
     <GetStartedScreen next={next} />,
     {
       initialState,
+      navParams: {},
     },
   );
 
   fireEvent.press(getByTestId('bottomButton'));
 
-  expect(disableBack.remove).toHaveBeenCalledWith();
   expect(next).toHaveBeenCalledWith({ id });
   expect(store.getActions()).toEqual([nextResult]);
 });

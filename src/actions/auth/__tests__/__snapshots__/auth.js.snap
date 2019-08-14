@@ -92,7 +92,9 @@ Array [
   Object {
     "actions": Array [
       Object {
-        "params": Object {},
+        "params": Object {
+          "enableBackButton": false,
+        },
         "routeName": "nav/GET_STARTED_ONBOARDING_FLOW",
         "type": "Navigation/NAVIGATE",
       },
