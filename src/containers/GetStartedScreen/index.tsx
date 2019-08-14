@@ -28,7 +28,12 @@ interface GetStartedNavParams {
   enableBackButton: boolean;
 }
 
-const GetStartedScreen = ({ dispatch, next, name }: GetStartedScreenProps) => {
+const GetStartedScreen = ({
+  dispatch,
+  next,
+  id,
+  name,
+}: GetStartedScreenProps) => {
   const { enableBackButton = true } = useNavigationState()
     .params as GetStartedNavParams;
   const enableBack = useDisableBack(enableBackButton);
