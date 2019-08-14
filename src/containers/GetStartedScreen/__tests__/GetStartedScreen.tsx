@@ -10,8 +10,11 @@ import GetStartedScreen from '..';
 jest.mock('react-native-device-info');
 jest.mock('../../../utils/common');
 
+const id = '1';
+
 const initialState = {
   profile: {
+    id,
     firstName: 'Roger',
   },
 };
@@ -49,6 +52,6 @@ it('navigates to next screen', () => {
   fireEvent.press(getByTestId('bottomButton'));
 
   expect(disableBack.remove).toHaveBeenCalledWith();
-  expect(next).toHaveBeenCalledWith();
+  expect(next).toHaveBeenCalledWith({ id });
   expect(store.getActions()).toEqual([nextResult]);
 });

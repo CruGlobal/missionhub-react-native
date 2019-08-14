@@ -35,8 +35,11 @@ const mockState = {
   },
 };
 
+const personId = '2';
+
 const trackActionResult = { type: 'tracked action' };
 const navigationResult = { type: 'navigated' };
+const nextResult = { type: 'next' };
 
 it('renders correctly', () => {
   testSnapshot(
@@ -57,7 +60,11 @@ it('renders back arrow correctly', () => {
 describe('setup person screen methods', () => {
   let component;
 
+  const next = jest.fn();
+
   beforeEach(() => {
+    next.mockReturnValue(nextResult);
+
     store = mockStore({
       ...mockState,
       personProfile: {
@@ -66,7 +73,9 @@ describe('setup person screen methods', () => {
       },
     });
 
-    const screen = shallow(<SetupPersonScreen />, { context: { store } });
+    const screen = shallow(<SetupPersonScreen next={next} />, {
+      context: { store },
+    });
 
     component = screen
       .dive()
@@ -75,10 +84,11 @@ describe('setup person screen methods', () => {
 
     profile.createPerson = jest
       .fn()
-      .mockReturnValue(() => Promise.resolve({ response: { id: '2' } }));
-    profile.updateOnboardingPerson = jest.fn();
+      .mockReturnValue(() => Promise.resolve({ response: { id: personId } }));
+    profile.updateOnboardingPerson = jest
+      .fn()
+      .mockReturnValue(() => Promise.resolve({ response: { id: personId } }));
     person.resetPerson = jest.fn();
-    navigation.navigatePush = jest.fn().mockReturnValue(navigationResult);
     navigation.navigateBack = jest.fn().mockReturnValue(navigationResult);
     trackActionWithoutData.mockReturnValue(trackActionResult);
   });
@@ -86,27 +96,33 @@ describe('setup person screen methods', () => {
   it('navigates away', () => {
     component.navigate();
 
-    expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+    expect(next).toHaveBeenCalledWith({ skip: false, personId: null });
+    expect(store.getActions()).toEqual([nextResult]);
   });
 
-  it('saves and creates person', () => {
-    component.saveAndGoToGetStarted();
+  it('saves and creates person', async () => {
+    await component.saveAndGoToGetStarted();
 
     expect(profile.createPerson).toHaveBeenCalledTimes(1);
+    expect(next).toHaveBeenCalledWith({ skip: false, personId });
+    expect(store.getActions()).toEqual([trackActionResult, nextResult]);
   });
 
-  it('saves and updates person', () => {
-    component.setState({ personId: 1 });
-    component.saveAndGoToGetStarted();
+  it('saves and updates person', async () => {
+    component.setState({ personId });
+    await component.saveAndGoToGetStarted();
 
     expect(profile.updateOnboardingPerson).toHaveBeenCalledTimes(1);
+    expect(next).toHaveBeenCalledWith({ skip: false, personId });
+    expect(store.getActions()).toEqual([nextResult]);
   });
 
   it('tracks an action', async () => {
     await component.saveAndGoToGetStarted();
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PERSON_ADDED);
-    expect(store.getActions()).toEqual([trackActionResult, navigationResult]);
+    expect(next).toHaveBeenCalledWith({ skip: false, personId });
+    expect(store.getActions()).toEqual([trackActionResult, nextResult]);
   });
 
   it('on submit editing', () => {
@@ -133,10 +149,10 @@ describe('setup person screen methods', () => {
   });
 
   it('calls skip', () => {
-    profile.skipOnboarding = jest.fn(() => ({ type: 'skip' }));
     component.skip();
 
-    expect(profile.skipOnboarding).toHaveBeenCalled();
+    expect(next).toHaveBeenCalledWith({ skip: true, personId: null });
+    expect(store.getActions()).toEqual([nextResult]);
   });
 
   it('calls back', () => {

@@ -149,10 +149,8 @@ describe('assignContactAndPickStage', () => {
       organization,
     });
     expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
-      contactId: personId,
+      personId,
       orgId: orgId,
-      contactAssignmentId: contactAssignment.id,
-      firstName: person.first_name,
       section: 'people',
       subsection: 'person',
     });
@@ -177,11 +175,10 @@ describe('navigateToStageScreen', () => {
     );
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_FLOW, {
-      firstItem: firstItemIndex,
-      contactId: person.id,
+      selectedStageId: firstItemIndex,
+      personId: person.id,
       section: 'people',
       subsection: 'self',
-      enableBackButton: true,
     });
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
@@ -202,10 +199,8 @@ describe('navigateToStageScreen', () => {
     );
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
-      firstItem: firstItemIndex,
-      firstName: person.first_name,
-      contactId: person.id,
-      contactAssignmentId: contactAssignment.id,
+      selectedStageId: firstItemIndex,
+      personId: person.id,
       orgId: organization.id,
       section: 'people',
       subsection: 'person',
