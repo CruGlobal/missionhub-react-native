@@ -26,12 +26,13 @@ import {
   USER_CREATED_GROUP_SCREEN,
   GLOBAL_GROUP_SCREEN,
 } from '../containers/Groups/GroupScreen';
+import { SELECT_STAGE_SCREEN } from '../containers/SelectStageScreen';
 
 export default function tracking({ dispatch, getState }) {
   return next => action => {
     let newState;
     const returnValue = next(action);
-    const { nav: navState, tabs: tabsState } = getState();
+    const { auth: authState, nav: navState, tabs: tabsState } = getState();
 
     switch (action.type) {
       case DrawerActions.OPEN_DRAWER:
@@ -45,7 +46,7 @@ export default function tracking({ dispatch, getState }) {
       case NAVIGATE_POP:
         const routes = navState.routes;
         const topRoute = routes[routes.length - 1];
-        console.log(topRoute);
+
         if (topRoute.routeName === MAIN_TABS) {
           newState = tabsState.activeMainTab;
           break;
@@ -53,6 +54,14 @@ export default function tracking({ dispatch, getState }) {
 
         if (topRoute.routeName === LANDING_SCREEN) {
           newState = tabsState.activeLoginTab;
+          break;
+        }
+
+        if (topRoute.routeName === SELECT_STAGE_SCREEN) {
+          const isMe = topRoute.params.personId === authState.person.id;
+          newState = isMe
+            ? tabsState.activeSelfStageTab
+            : tabsState.activePersonStageTab;
           break;
         }
 

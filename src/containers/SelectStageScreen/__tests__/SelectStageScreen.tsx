@@ -1,3 +1,4 @@
+/* eslint max-lines: 0 */
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
@@ -174,6 +175,7 @@ describe('renders for other', () => {
   });
 });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const buildAndTestMount = async (navParams: any) => {
   const startIndex = navParams.selectedStageId || 0;
   const person = navParams.personId === myId ? mePerson : otherPerson;
@@ -266,8 +268,10 @@ describe('setStage', () => {
   const selectedStageId = 1;
   const stage = stages[selectedStageId];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let selectAction: any;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const buildAndTestSelect = async (navParams: any, nextProps: any) => {
     const { store, getAllByTestId, snapTracking } = await buildAndTestMount(
       navParams,

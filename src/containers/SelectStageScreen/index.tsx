@@ -272,4 +272,4 @@ const mapStateToProps = (
 };
 
 export default connect(mapStateToProps)(SelectStageScreen);
-export const SELECT_STAGE_SCREEN = 'nav/Select_STAGE';
+export const SELECT_STAGE_SCREEN = 'nav/SELECT_STAGE';
