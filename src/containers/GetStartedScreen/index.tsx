@@ -63,7 +63,6 @@ const GetStartedScreen = ({ dispatch, next, name }: GetStartedScreenProps) => {
   );
 };
 
-<<<<<<< HEAD
 const mapStateToProps = ({ profile }: { profile: ProfileState }) => {
   const id = profile.id || '';
   const name = (profile.firstName || '').toLowerCase();
@@ -73,11 +72,6 @@ const mapStateToProps = ({ profile }: { profile: ProfileState }) => {
     name,
   };
 };
-=======
-const mapStateToProps = ({ profile }: { profile: ProfileState }) => ({
-  name: (profile.firstName || '').toLowerCase(),
-});
->>>>>>> origin/develop
 
 export default connect(mapStateToProps)(GetStartedScreen);
 export const GET_STARTED_SCREEN = 'nav/GET_STARTED';
