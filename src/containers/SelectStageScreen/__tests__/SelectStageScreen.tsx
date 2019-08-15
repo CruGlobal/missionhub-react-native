@@ -10,10 +10,6 @@ import {
   selectPersonStage,
   updateUserStage,
 } from '../../../actions/selectStage';
-import {
-  personSelector,
-  contactAssignmentSelector,
-} from '../../../selectors/people';
 import { buildTrackingObj } from '../../../utils/common';
 import {
   ACTIONS,
@@ -32,10 +28,6 @@ jest.mock('../../../components/common', () => ({
   Button: 'Button',
 }));
 jest.mock('../../BackButton', () => 'BackButton');
-jest.mock('../../../selectors/people', () => ({
-  personSelector: jest.fn(),
-  contactAssignmentSelector: jest.fn(),
-}));
 
 const stages = [
   { id: 1, name: 'Stage 1', description: 'Stage 1 description' },
@@ -47,23 +39,59 @@ const section = 'section';
 const subsection = 'subsection';
 const myId = '111';
 const myName = 'Me';
-const otherId = '123';
-const otherName = 'Person';
+const assignedPersonId = '123';
+const assignedPersonName = 'Person';
+const unassignedPersonId = '321';
+const unassignedPersonName = 'Nosrep';
 const orgId = '222';
 const contactAssignmentId = '1';
 
-const mePerson = { id: myId, first_name: myName };
-const otherPerson = { id: otherId, first_name: otherName };
-const contactAssignment = { id: contactAssignmentId };
+const contactAssignment = {
+  id: contactAssignmentId,
+  organization: { id: orgId },
+  assigned_to: { id: myId },
+};
 
-const auth = { person: { id: myId } };
-const people = { allByOrg: {} };
-const state = { auth, people, stages: { stages } };
+const mePerson = {
+  id: myId,
+  first_name: myName,
+  organizational_permissions: [{ organization_id: orgId }],
+};
+const assignedPerson = {
+  id: assignedPersonId,
+  first_name: assignedPersonName,
+  organizational_permissions: [{ organization_id: orgId }],
+  reverse_contact_assignments: [contactAssignment],
+};
+const unassignedPerson = {
+  id: unassignedPersonId,
+  first_name: unassignedPersonName,
+  organizational_permissions: [{ organization_id: orgId }],
+  reverse_contact_assignments: [],
+};
+
+const state = {
+  auth: { person: { id: myId } },
+  people: {
+    allByOrg: {
+      [orgId]: {
+        id: orgId,
+        people: {
+          [myId]: mePerson,
+          [assignedPersonId]: assignedPerson,
+          [unassignedPersonId]: unassignedPerson,
+        },
+      },
+    },
+  },
+  stages: { stages },
+};
 
 const baseParams = {
   section,
   subsection,
-  personId: otherId,
+  personId: assignedPersonId,
+  orgId,
 };
 
 const next = jest.fn();
@@ -87,11 +115,6 @@ beforeEach(() => {
 });
 
 describe('renders', () => {
-  beforeEach(() => {
-    (personSelector as jest.Mock).mockReturnValue(otherPerson);
-    (contactAssignmentSelector as jest.Mock).mockReturnValue(contactAssignment);
-  });
-
   it('renders correctly without stages', () => {
     renderWithContext(<SelectStageScreen next={next} />, {
       initialState: {
@@ -129,11 +152,6 @@ describe('renders for me', () => {
     personId: myId,
   };
 
-  beforeEach(() => {
-    (personSelector as jest.Mock).mockReturnValue(mePerson);
-    (contactAssignmentSelector as jest.Mock).mockReturnValue({});
-  });
-
   it('renders correctly', () => {
     renderWithContext(<SelectStageScreen next={next} />, {
       initialState: state,
@@ -152,13 +170,8 @@ describe('renders for me', () => {
 describe('renders for other', () => {
   const otherNavParams = {
     ...baseParams,
-    personId: otherId,
+    personId: assignedPersonId,
   };
-
-  beforeEach(() => {
-    (personSelector as jest.Mock).mockReturnValue(otherPerson);
-    (contactAssignmentSelector as jest.Mock).mockReturnValue(contactAssignment);
-  });
 
   it('renders correctly', () => {
     renderWithContext(<SelectStageScreen next={next} />, {
@@ -178,7 +191,6 @@ describe('renders for other', () => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const buildAndTestMount = async (navParams: any) => {
   const startIndex = navParams.selectedStageId || 0;
-  const person = navParams.personId === myId ? mePerson : otherPerson;
   const snapTracking = buildTrackingObj(
     `${section} : ${subsection} : stage : ${stages[startIndex].id}`,
     section,
@@ -196,14 +208,6 @@ const buildAndTestMount = async (navParams: any) => {
 
   await flushMicrotasksQueue();
 
-  expect(personSelector).toHaveBeenCalledWith(
-    { people },
-    { personId: navParams.personId, orgId: navParams.orgId },
-  );
-  expect(contactAssignmentSelector).toHaveBeenCalledWith(
-    { auth },
-    { person, orgId: navParams.orgId },
-  );
   expect(getStages).toHaveBeenCalledWith();
   expect(trackState).toHaveBeenCalledWith(snapTracking);
 
@@ -214,11 +218,6 @@ describe('actions on mount', () => {
   const stageId = 1;
 
   describe('for me', () => {
-    beforeEach(() => {
-      (personSelector as jest.Mock).mockReturnValue(mePerson);
-      (contactAssignmentSelector as jest.Mock).mockReturnValue({});
-    });
-
     it('gets stages and snaps to first item on mount', async () => {
       const { store, snapTracking } = await buildAndTestMount({
         ...baseParams,
@@ -238,17 +237,10 @@ describe('actions on mount', () => {
   });
 
   describe('for other', () => {
-    beforeEach(() => {
-      (personSelector as jest.Mock).mockReturnValue(otherPerson);
-      (contactAssignmentSelector as jest.Mock).mockReturnValue(
-        contactAssignment,
-      );
-    });
-
     it('gets stages and snaps to first item on mount', async () => {
       const { store, snapTracking } = await buildAndTestMount({
         ...baseParams,
-        personId: otherId,
+        personId: assignedPersonId,
         selectedStageId: stageId,
       });
 
@@ -291,15 +283,12 @@ describe('setStage', () => {
   describe('for me', () => {
     beforeEach(() => {
       selectAction = ACTIONS.SELF_STAGE_SELECTED;
-      (personSelector as jest.Mock).mockReturnValue(mePerson);
-      (contactAssignmentSelector as jest.Mock).mockReturnValue({});
     });
 
     it('selects new stage', async () => {
       const navParams = {
         ...baseParams,
         personId: myId,
-        orgId,
       };
       const nextProps = {
         stage,
@@ -334,7 +323,6 @@ describe('setStage', () => {
       const navParams = {
         ...baseParams,
         personId: myId,
-        orgId,
         selectedStageId,
       };
       const nextProps = {
@@ -369,22 +357,17 @@ describe('setStage', () => {
   describe('for other assigned to me', () => {
     beforeEach(() => {
       selectAction = ACTIONS.PERSON_STAGE_SELECTED;
-      (personSelector as jest.Mock).mockReturnValue(otherPerson);
-      (contactAssignmentSelector as jest.Mock).mockReturnValue(
-        contactAssignment,
-      );
     });
 
     it('selects new stage', async () => {
       const navParams = {
         ...baseParams,
-        personId: otherId,
-        orgId,
+        personId: assignedPersonId,
       };
       const nextProps = {
         stage,
-        firstName: otherName,
-        personId: otherId,
+        firstName: assignedPersonName,
+        personId: assignedPersonId,
         contactAssignmentId,
         orgId,
         isAlreadySelected: false,
@@ -416,14 +399,13 @@ describe('setStage', () => {
     it('selects already selected stage', async () => {
       const navParams = {
         ...baseParams,
-        personId: otherId,
-        orgId,
+        personId: assignedPersonId,
         selectedStageId,
       };
       const nextProps = {
         stage,
-        firstName: otherName,
-        personId: otherId,
+        firstName: assignedPersonName,
+        personId: assignedPersonId,
         contactAssignmentId,
         orgId,
         isAlreadySelected: true,
@@ -452,20 +434,17 @@ describe('setStage', () => {
   describe('for other not assigned to me', () => {
     beforeEach(() => {
       selectAction = ACTIONS.PERSON_STAGE_SELECTED;
-      (personSelector as jest.Mock).mockReturnValue(otherPerson);
-      (contactAssignmentSelector as jest.Mock).mockReturnValue({});
     });
 
     it('selects new stage', async () => {
       const navParams = {
         ...baseParams,
-        personId: otherId,
-        orgId,
+        personId: unassignedPersonId,
       };
       const nextProps = {
         stage,
-        firstName: otherName,
-        personId: otherId,
+        firstName: unassignedPersonName,
+        personId: unassignedPersonId,
         contactAssignmentId: undefined,
         orgId,
         isAlreadySelected: false,
@@ -478,7 +457,7 @@ describe('setStage', () => {
       );
 
       expect(selectPersonStage).toHaveBeenCalledWith(
-        otherId,
+        unassignedPersonId,
         myId,
         stage.id,
         orgId,
@@ -499,14 +478,13 @@ describe('setStage', () => {
     it('selects already selected stage', async () => {
       const navParams = {
         ...baseParams,
-        personId: otherId,
-        orgId,
+        personId: unassignedPersonId,
         selectedStageId,
       };
       const nextProps = {
         stage,
-        firstName: otherName,
-        personId: otherId,
+        firstName: unassignedPersonName,
+        personId: unassignedPersonId,
         contactAssignmentId: undefined,
         orgId,
         isAlreadySelected: true,
