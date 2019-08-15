@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { ScrollView, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -49,6 +49,7 @@ const GroupsListScreen = ({
   isFirstTime?: boolean;
   scrollToId?: string | number | null;
 }) => {
+  const [hasMounted, setHasMounted] = useState(false);
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
@@ -59,6 +60,8 @@ const GroupsListScreen = ({
 
   useEffect(() => {
     async function loadGroupsAndScrollToId() {
+      setHasMounted(true);
+
       // Always load groups when this tab mounts
       await loadGroups();
       if (scrollToId) {
@@ -77,8 +80,16 @@ const GroupsListScreen = ({
       }
     }
 
-    loadGroupsAndScrollToId();
-  }, [dispatch, loadGroups, scrollToId, orgs, flatList]);
+    !hasMounted && loadGroupsAndScrollToId();
+  }, [
+    dispatch,
+    loadGroups,
+    scrollToId,
+    orgs,
+    flatList,
+    hasMounted,
+    setHasMounted,
+  ]);
 
   const { isRefreshing, refresh } = useRefreshing(async () => {
     dispatch(checkForUnreadComments());
