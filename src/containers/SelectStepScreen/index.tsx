@@ -126,12 +126,10 @@ const SelectStepScreen = ({
       <SafeAreaView>
         <BottomButton onPress={navToCreateStep} text={t('createStep')} />
       </SafeAreaView>
-      {
-        <BackButton
-          customNavigate={contact ? undefined : navigateBackTwoScreens}
-          absolute={true}
-        />
-      }
+      <BackButton
+        customNavigate={contact ? undefined : navigateBackTwoScreens}
+        absolute={true}
+      />
       {enableSkipButton && <AbsoluteSkip onSkip={handleSkip} />}
     </View>
   );
