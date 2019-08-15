@@ -6,12 +6,12 @@ import { Organization } from '../reducers/organizations';
 
 import { removeHiddenOrgs } from './selectorUtils';
 
-type Org = {
+interface Org {
   id: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   people: any;
   name: string;
-};
+}
 
 export const peopleByOrgSelector = createSelector(
   ({ people }: { auth: AuthState; people: PeopleState }) => people.allByOrg,
@@ -93,8 +93,8 @@ const sortOrgs = (orgs: any, authUser: Person) => {
       );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const sortWithPersonalInFront = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   orgs: any,
   sortFn: (a: Org, b: Org) => boolean | number,
 ) =>
