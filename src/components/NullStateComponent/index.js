@@ -30,6 +30,7 @@ NullStateComponent.propTypes = {
     .isRequired,
   headerText: PropTypes.string.isRequired,
   descriptionText: PropTypes.string.isRequired,
+  content: PropTypes.element,
 };
 
 export default NullStateComponent;
