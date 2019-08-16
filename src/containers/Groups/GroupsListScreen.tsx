@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback, useState } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { ScrollView, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -49,47 +49,38 @@ const GroupsListScreen = ({
   isFirstTime?: boolean;
   scrollToId?: string | number | null;
 }) => {
-  const [hasMounted, setHasMounted] = useState(false);
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
 
-  const loadGroups = useCallback(() => dispatch(getMyCommunities()), [
-    dispatch,
-  ]);
+  const loadGroups = useCallback(() => dispatch(getMyCommunities()), []);
+
+  const scrollToGroup = useCallback(() => {
+    if (scrollToId) {
+      const index = orgs.findIndex(o => o.id === scrollToId);
+      if (index >= 0 && flatList.current) {
+        try {
+          flatList.current.scrollToIndex({
+            animated: true,
+            index,
+            // Put the new org in the top of the list if already there or the center
+            viewPosition: index === 0 ? 0 : 0.5,
+          });
+        } catch (e) {}
+      }
+      dispatch(resetScrollGroups());
+    }
+  }, []);
 
   useEffect(() => {
     async function loadGroupsAndScrollToId() {
-      setHasMounted(true);
-
       // Always load groups when this tab mounts
       await loadGroups();
-      if (scrollToId) {
-        const index = orgs.findIndex(o => o.id === scrollToId);
-        if (index >= 0 && flatList.current) {
-          try {
-            flatList.current.scrollToIndex({
-              animated: true,
-              index,
-              // Put the new org in the top of the list if already there or the center
-              viewPosition: index === 0 ? 0 : 0.5,
-            });
-          } catch (e) {}
-        }
-        dispatch(resetScrollGroups());
-      }
+      scrollToGroup();
     }
 
-    !hasMounted && loadGroupsAndScrollToId();
-  }, [
-    dispatch,
-    loadGroups,
-    scrollToId,
-    orgs,
-    flatList,
-    hasMounted,
-    setHasMounted,
-  ]);
+    loadGroupsAndScrollToId();
+  }, [loadGroups, scrollToGroup]);
 
   const { isRefreshing, refresh } = useRefreshing(async () => {
     dispatch(checkForUnreadComments());
