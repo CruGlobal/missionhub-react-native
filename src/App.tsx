@@ -17,7 +17,7 @@ Icon.loadFont();
 import './i18n';
 import { rollbar } from './utils/rollbar.config';
 import { store, persistor } from './store';
-import './utils/globals';
+import { LOG } from './utils/logging';
 import LoadingScreen from './containers/LoadingScreen';
 import AppWithNavigationState from './AppNavigator';
 import { codeLogin } from './actions/auth/anonymous';
@@ -145,7 +145,7 @@ export default class App extends Component {
     } else {
       rollbar.error(Error(`Unknown Error:\n${JSON.stringify(e, null, 2)}`));
     }
-    // @ts-ignore
+
     LOG(e);
   }
 

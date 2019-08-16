@@ -271,7 +271,6 @@ describe('press image picker', () => {
 
   describe('pick image errors', () => {
     beforeEach(() => {
-      LOG = jest.fn();
       Alert.alert = jest.fn();
       showMenu.mockImplementation(actions => actions[1].onPress());
     });

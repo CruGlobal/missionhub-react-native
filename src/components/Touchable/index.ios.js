@@ -10,10 +10,10 @@ import theme from '../../theme';
 
 class TouchableIOS extends Component {
   handlePress = () => {
-    const { pressProps, onPress } = this.props;
+    const { pressProps = [], onPress } = this.props;
     if (onPress) {
       // Call the onPress with all of the pressProps passed in or just undefined if it doesn't exist
-      onPress.apply(null, pressProps);
+      onPress(...pressProps);
     }
   };
 

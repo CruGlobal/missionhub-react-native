@@ -59,10 +59,7 @@ const SelectMyStageScreen = ({
     });
   };
 
-  const handleSelectStage = async (
-    stage: Stage,
-    isAlreadySelected: boolean = false,
-  ) => {
+  const handleSelectStage = async (stage: Stage, isAlreadySelected = false) => {
     !isAlreadySelected && (await dispatch(selectMyStage(stage.id)));
 
     dispatch(next({ stage, contactId, orgId, isAlreadySelected }));
