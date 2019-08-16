@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -10,15 +10,8 @@ import {
 
 import styles from './styles';
 
-class PathwayStageDisplay extends Component {
-  render() {
-    const { pathwayStage } = this.props;
-
-    return pathwayStage ? (
-      <Text style={styles.stage}>{pathwayStage.name}</Text>
-    ) : null;
-  }
-}
+const PathwayStageDisplay = ({ pathwayStage }) =>
+  pathwayStage ? <Text style={styles.stage}>{pathwayStage.name}</Text> : null;
 
 PathwayStageDisplay.propTypes = {
   person: PropTypes.object,
