@@ -30,7 +30,7 @@ import {
 import TrackTabChange from '../TrackTabChange';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
-import { OrganizationsState } from '../../reducers/organizations';
+import { OrganizationsState, Organization } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
@@ -87,8 +87,8 @@ const GroupsListScreen = ({
     await loadGroups();
   });
 
-  const handlePress = (organization: { id: string }) => {
-    dispatch(navigateToOrg(organization.id));
+  const handlePress = (organization: Organization) => {
+    dispatch(navigateToOrg(organization));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
   const dispatchOpenMainMenu = () => {

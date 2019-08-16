@@ -4,10 +4,12 @@ import i18next from 'i18next';
 
 import Header from '../../components/Header/index';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
+import { refreshCommunity } from '../../actions/organizations';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ImpactView from '../ImpactView';
 import IconButton from '../../components/IconButton';
 import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../routes/constants';
+import { organizationSelector } from '../../selectors/organizations';
 import { buildTrackingObj, disableBack } from '../../utils/common';
 import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../constants';
 
@@ -18,18 +20,12 @@ import Surveys from './Surveys';
 import GroupChallenges from './GroupChallenges';
 import { GROUP_PROFILE } from './GroupProfile';
 
-@connect()
-export class GroupScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      organization: (props.navigation.state.params || {}).organization || {},
-    };
-  }
-
+class GroupScreen extends Component {
   componentDidMount() {
     disableBack.add();
+
+    const { dispatch, orgId } = this.props;
+    dispatch(refreshCommunity(orgId));
   }
 
   componentWillUnmount() {
@@ -37,8 +33,7 @@ export class GroupScreen extends Component {
   }
 
   handleAddContact = () => {
-    const { dispatch } = this.props;
-    const { organization } = this.state;
+    const { dispatch, organization } = this.props;
 
     dispatch(
       navigatePush(ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW, {
@@ -48,8 +43,7 @@ export class GroupScreen extends Component {
   };
 
   handleProfile = () => {
-    const { dispatch } = this.props;
-    const { organization } = this.state;
+    const { dispatch, organization } = this.props;
 
     dispatch(navigatePush(GROUP_PROFILE, { organization }));
   };
@@ -59,7 +53,7 @@ export class GroupScreen extends Component {
   };
 
   renderAddContactIcon() {
-    const { organization } = this.state;
+    const { organization } = this.props;
 
     if (organization.id === GLOBAL_COMMUNITY_ID) {
       return null;
@@ -82,7 +76,8 @@ export class GroupScreen extends Component {
   }
 
   render() {
-    const { organization } = this.state;
+    const { organization } = this.props;
+    console.log(organization);
     return (
       <Header
         left={
@@ -100,6 +95,17 @@ export class GroupScreen extends Component {
     );
   }
 }
+
+const mapStateToProps = ({ organizations }, { orgId, initialTab }) => {
+  console.log(orgId);
+  return {
+    orgId,
+    organization: organizationSelector({ organizations }, { orgId }),
+    initialTab,
+  };
+};
+
+export const connectedGroupScreen = connect(mapStateToProps)(GroupScreen);
 
 const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
 export const GROUP_CHALLENGES = 'nav/GROUP_CHALLENGES';
@@ -181,25 +187,25 @@ export const GLOBAL_TABS = [CRU_TABS[0], CRU_TABS[1], CRU_TABS[3]];
 
 export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
   CRU_TABS,
-  GroupScreen,
+  connectedGroupScreen,
 );
 export const userCreatedScreenTabNavigator = generateSwipeTabMenuNavigator(
   USER_CREATED_TABS,
-  GroupScreen,
+  connectedGroupScreen,
 );
 export const globalScreenTabNavigator = generateSwipeTabMenuNavigator(
   GLOBAL_TABS,
-  GroupScreen,
+  connectedGroupScreen,
 );
 
 export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
 export const USER_CREATED_GROUP_SCREEN = 'nav/USER_CREATED_GROUP_SCREEN';
 export const GLOBAL_GROUP_SCREEN = 'nav/GLOBAL_GROUP_SCREEN';
 
-export function getScreenForOrg(org) {
-  return org.id === GLOBAL_COMMUNITY_ID
+export function getScreenForOrg(orgId, user_created) {
+  return orgId === GLOBAL_COMMUNITY_ID
     ? GLOBAL_GROUP_SCREEN
-    : org.user_created
+    : user_created
     ? USER_CREATED_GROUP_SCREEN
     : GROUP_SCREEN;
 }

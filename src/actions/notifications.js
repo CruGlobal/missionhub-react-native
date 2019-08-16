@@ -18,7 +18,7 @@ import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 import { REQUESTS } from '../api/routes';
 
-import { navigateToOrg } from './organizations';
+import { refreshCommunity, navigateToOrg } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
 import { navigatePush, navigateBack, navigateToMainTabs } from './navigation';
 import callApi from './api';
@@ -140,9 +140,11 @@ function handleNotification(notification) {
           }),
         );
       case 'celebrate':
-        return dispatch(navigateToOrg(organization));
+        const celebrateOrg = await refreshCommunity(organization);
+        return dispatch(navigateToOrg(celebrateOrg));
       case 'community_challenges':
-        return dispatch(navigateToOrg(organization, GROUP_CHALLENGES));
+        const challengeOrg = await refreshCommunity(organization);
+        return dispatch(navigateToOrg(challengeOrg, GROUP_CHALLENGES));
     }
   };
 }
