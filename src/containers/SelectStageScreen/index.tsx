@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
@@ -103,41 +103,36 @@ const SelectStageScreen = ({
   const enableBack = useDisableBack(enableBackButton);
   const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [hasMounted, setHasMounted] = useState(false);
 
   const startIndex = selectedStageId || 0;
 
-  const loadStages = useCallback(() => dispatch(getStages()), [dispatch]);
+  const loadStages = () => dispatch(getStages());
 
-  const handleSnapToItem = useCallback(
-    (index: number) => {
-      if (stages[index]) {
-        const trackingObj = buildTrackingObj(
-          `${section} : ${subsection} : stage : ${stages[index].id}`,
-          section,
-          subsection,
-          'stage',
-        );
+  const handleSnapToItem = (index: number) => {
+    if (stages[index]) {
+      const trackingObj = buildTrackingObj(
+        `${section} : ${subsection} : stage : ${stages[index].id}`,
+        section,
+        subsection,
+        'stage',
+      );
 
-        dispatch({
-          type: isMe ? SELF_VIEWED_STAGE_CHANGED : PERSON_VIEWED_STAGE_CHANGED,
-          newActiveTab: trackingObj,
-        });
-        dispatch(trackState(trackingObj));
-      }
-    },
-    [dispatch, stages, section, subsection, isMe],
-  );
+      dispatch({
+        type: isMe ? SELF_VIEWED_STAGE_CHANGED : PERSON_VIEWED_STAGE_CHANGED,
+        newActiveTab: trackingObj,
+      });
+      dispatch(trackState(trackingObj));
+    }
+  };
 
   useEffect(() => {
     async function loadStagesAndScrollToId() {
       await loadStages();
       handleSnapToItem(startIndex);
-      setHasMounted(true);
     }
 
-    !hasMounted && loadStagesAndScrollToId();
-  }, [loadStages, handleSnapToItem, startIndex, hasMounted, setHasMounted]);
+    loadStagesAndScrollToId();
+  }, []);
 
   const setStage = async (stage: Stage, isAlreadySelected: boolean) => {
     enableBack();

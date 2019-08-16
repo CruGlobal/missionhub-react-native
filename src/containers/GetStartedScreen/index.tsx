@@ -32,7 +32,7 @@ const GetStartedScreen = ({
   dispatch,
   next,
   id,
-  name,
+  name = '',
 }: GetStartedScreenProps) => {
   const { enableBackButton = true } = useNavigationState()
     .params as GetStartedNavParams;
@@ -56,7 +56,7 @@ const GetStartedScreen = ({
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex align="start" justify="center" value={4}>
           <Text header={true} style={styles.headerTitle}>
-            {t('hi', { name })}
+            {t('hi', { name: name.toLowerCase() })}
           </Text>
           <Text style={styles.text}>{t('tagline')}</Text>
         </Flex>
@@ -68,15 +68,10 @@ const GetStartedScreen = ({
   );
 };
 
-const mapStateToProps = ({ profile }: { profile: ProfileState }) => {
-  const id = profile.id || '';
-  const name = (profile.firstName || '').toLowerCase();
-
-  return {
-    id,
-    name,
-  };
-};
+const mapStateToProps = ({ profile }: { profile: ProfileState }) => ({
+  id: profile.id,
+  name: profile.firstName,
+});
 
 export default connect(mapStateToProps)(GetStartedScreen);
 export const GET_STARTED_SCREEN = 'nav/GET_STARTED';
