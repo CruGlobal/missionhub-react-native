@@ -165,7 +165,6 @@ describe('StageSuccessScreen next', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
       contactStage: stage,
-      enableBackButton: false,
     });
   });
 });
