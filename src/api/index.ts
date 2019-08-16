@@ -1,6 +1,8 @@
-/* eslint complexity: 0, max-lines-per-function: 0 */
+/* eslint complexity: off, max-lines-per-function: off */
 
 import { JsonApiDataStore } from 'jsonapi-datastore';
+
+import { LOG, APILOG } from '../utils/logging';
 
 import request from './utils';
 import { REQUESTS, ApiRouteConfig } from './routes';
@@ -67,7 +69,6 @@ const API_CALLS: {
       }
 
       // Call the request
-      // @ts-ignore
       APILOG(`${key} FETCH`, method, endpoint, query, data);
       try {
         const { jsonResponse, sessionHeader } = await request(
@@ -78,7 +79,6 @@ const API_CALLS: {
           extra,
           routeData.stringify,
         );
-        // @ts-ignore
         APILOG(`${key} SUCCESS`, jsonResponse);
         if (!jsonResponse) {
           return { sessionHeader };
@@ -98,13 +98,11 @@ const API_CALLS: {
           };
         }
       } catch (requestError) {
-        // @ts-ignore
         LOG(
           'request error or error in logic that handles the request',
           key,
           requestError,
         );
-        // @ts-ignore
         APILOG(`${key} FAIL`, requestError);
 
         throw { key, endpoint, method, query, apiError: requestError };

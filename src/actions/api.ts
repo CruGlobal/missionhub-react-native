@@ -12,6 +12,7 @@ import {
   INVALID_GRANT,
   UPDATE_TOKEN,
 } from '../constants';
+import { LOG, APILOG } from '../utils/logging';
 
 import { logout } from './auth/auth';
 import { refreshAccessToken } from './auth/key';
@@ -45,7 +46,6 @@ export default function callApi(
     // Generic error handler
     const throwErr = (msg: string) => {
       if (__DEV__) {
-        // @ts-ignore
         LOG(msg);
         throw new Error(msg);
       }
@@ -97,7 +97,6 @@ export default function callApi(
     }
 
     const handleError = (err: any) => {
-      // @ts-ignore
       APILOG('REQUEST ERROR', action.name, err);
       const { apiError } = err;
 

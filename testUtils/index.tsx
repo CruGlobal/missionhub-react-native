@@ -101,8 +101,8 @@ export const renderShallow = (
 
   // If component has translation wrappers, dive deeper
   while (
-    // @ts-ignore
-    (renderedComponent.type().displayName || '').startsWith(
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+    ((renderedComponent.type() as any).displayName || '').startsWith(
       'withI18nextTranslation(',
     )
   ) {

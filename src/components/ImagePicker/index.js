@@ -6,6 +6,7 @@ import ImageCropPicker from 'react-native-image-crop-picker';
 
 import { showMenu } from '../../utils/common';
 import theme from '../../theme.ts';
+import { LOG } from '../../utils/logging';
 
 // See all options: https://github.com/ivpusic/react-native-image-crop-picker
 const DEFAULT_OPTIONS = {
