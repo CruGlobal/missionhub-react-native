@@ -31,8 +31,10 @@ Components to convert to TS+Hooks
 - PillButton
 - PlatformKeyboardAvoidingView
 - PopupMenu
-- RadioButton
-- RefreshControl
+
+* - RadioButton
+* - RefreshControl
+
 - ReminderButton
 - ReminderDateText
 - ReminderRepeatButtons
@@ -41,7 +43,9 @@ Components to convert to TS+Hooks
 - RowSwipeable
 - SearchList
 - SearchPeopleItem
-- Separator
+
+* - Separator
+
 - SettingsMenu
 - ShareSurveyMenu
 - SideMenu
