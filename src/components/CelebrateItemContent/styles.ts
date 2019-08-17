@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  content: {
-    padding: 14,
+  row: {
+    flexDirection: 'row',
   },
   description: {
     marginTop: 14,
@@ -28,12 +28,5 @@ export default StyleSheet.create({
     letterSpacing: 0,
     color: theme.primaryColor,
     textAlign: 'left',
-  },
-  top: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  topLeft: {
-    justifyContent: 'flex-start',
   },
 });

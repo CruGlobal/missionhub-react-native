@@ -5,8 +5,6 @@ Components to convert to TS+Hooks
 - AssignToMeButton
 - Button
 - CelebrateCommentBox
-- CelebrateItem
-- CelebrateItemContent
 - CenteredIconButtonWithText
 - ChallengeDetailHeader
 - ChallengeItem
@@ -31,10 +29,6 @@ Components to convert to TS+Hooks
 - PillButton
 - PlatformKeyboardAvoidingView
 - PopupMenu
-
-* - RadioButton
-* - RefreshControl
-
 - ReminderButton
 - ReminderDateText
 - ReminderRepeatButtons
@@ -43,9 +37,6 @@ Components to convert to TS+Hooks
 - RowSwipeable
 - SearchList
 - SearchPeopleItem
-
-* - Separator
-
 - SettingsMenu
 - ShareSurveyMenu
 - SideMenu
@@ -57,3 +48,13 @@ Components to convert to TS+Hooks
 - Touchable
 - UnreadCommentsCard
 - common.js
+
+#### Finished
+
+(Need to do tests)
+
+- CelebrateItem
+- CelebrateItemContent
+- RadioButton
+- RefreshControl
+- Separator
