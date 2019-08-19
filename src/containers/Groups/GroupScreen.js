@@ -77,7 +77,7 @@ class GroupScreen extends Component {
 
   render() {
     const { organization } = this.props;
-    console.log(organization);
+
     return (
       <Header
         left={
@@ -96,14 +96,20 @@ class GroupScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ organizations }, { orgId, initialTab }) => {
-  console.log(orgId);
-  return {
-    orgId,
-    organization: organizationSelector({ organizations }, { orgId }),
-    initialTab,
-  };
-};
+const mapStateToProps = (
+  { organizations },
+  {
+    navigation: {
+      state: {
+        params: { orgId, initialTab },
+      },
+    },
+  },
+) => ({
+  orgId,
+  organization: organizationSelector({ organizations }, { orgId }),
+  initialTab,
+});
 
 export const connectedGroupScreen = connect(mapStateToProps)(GroupScreen);
 
@@ -121,10 +127,10 @@ export const CRU_TABS = [
     component: ({
       navigation: {
         state: {
-          params: { organization },
+          params: { orgId },
         },
       },
-    }) => <GroupCelebrate organization={organization} />,
+    }) => <GroupCelebrate orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:challenges'),
@@ -132,10 +138,10 @@ export const CRU_TABS = [
     component: ({
       navigation: {
         state: {
-          params: { organization },
+          params: { orgId },
         },
       },
-    }) => <GroupChallenges organization={organization} />,
+    }) => <GroupChallenges orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:members'),
@@ -143,10 +149,10 @@ export const CRU_TABS = [
     component: ({
       navigation: {
         state: {
-          params: { organization },
+          params: { orgId },
         },
       },
-    }) => <Members organization={organization} />,
+    }) => <Members orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:impact'),
@@ -154,10 +160,10 @@ export const CRU_TABS = [
     component: ({
       navigation: {
         state: {
-          params: { organization },
+          params: { orgId },
         },
       },
-    }) => <ImpactView organization={organization} />,
+    }) => <ImpactView orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:contacts'),
@@ -165,10 +171,10 @@ export const CRU_TABS = [
     component: ({
       navigation: {
         state: {
-          params: { organization },
+          params: { orgId },
         },
       },
-    }) => <Contacts organization={organization} />,
+    }) => <Contacts orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:surveys'),
@@ -176,10 +182,10 @@ export const CRU_TABS = [
     component: ({
       navigation: {
         state: {
-          params: { organization },
+          params: { orgId },
         },
       },
-    }) => <Surveys organization={organization} />,
+    }) => <Surveys orgId={orgId} />,
   },
 ];
 export const USER_CREATED_TABS = CRU_TABS.slice(0, 4);

@@ -16,6 +16,7 @@ import {
   impactInteractionsSelector,
   impactSummarySelector,
 } from '../../selectors/impact';
+import { organizationSelector } from '../../selectors/organizations';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
@@ -274,14 +275,15 @@ ImpactView.propTypes = {
 };
 
 export const mapStateToProps = (
-  { impact, auth },
-  { person = {}, organization = {} },
+  { impact, auth, organizations },
+  { person = {}, orgId = 'personal' },
 ) => {
-  const orgId = organization.id || 'personal';
   const personId = person.id;
   const myId = auth.person.id;
   const isMe = personId === myId;
   const isGlobalCommunity = orgId === GLOBAL_COMMUNITY_ID;
+
+  const organization = organizationSelector({ organizations }, { orgId });
 
   return {
     isMe,

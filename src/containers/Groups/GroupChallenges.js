@@ -81,23 +81,19 @@ export class GroupChallenges extends Component {
 
 export const mapStateToProps = (
   { auth, organizations },
-  { organization = {} },
+  { orgId = 'personal' },
 ) => {
-  const orgId = organization.id || 'personal';
-
-  const selectorOrg =
-    organizationSelector({ organizations }, { orgId }) || organization;
-
-  const challengeItems = challengesSelector({
-    challengeItems: (selectorOrg || {}).challengeItems || [],
-  });
+  const organization = organizationSelector({ organizations }, { orgId });
 
   return {
-    challengeItems,
-    pagination: selectorOrg.challengePagination,
+    organization,
+    challengeItems: challengesSelector({
+      challengeItems: organization.challengeItems || [],
+    }),
+    pagination: organization.challengePagination,
     myOrgPermissions: orgPermissionSelector(null, {
       person: auth.person,
-      organization: selectorOrg,
+      organization,
     }),
   };
 };

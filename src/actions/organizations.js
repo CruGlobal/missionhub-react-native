@@ -644,6 +644,7 @@ export function removeOrganizationMember(personId, orgId) {
 export function navigateToOrg(organization, initialTab) {
   return dispatch => {
     const { id: orgId = GLOBAL_COMMUNITY_ID, user_created } = organization;
+
     return dispatch(
       navigatePush(getScreenForOrg(orgId, user_created), {
         orgId,

@@ -93,13 +93,12 @@ Surveys.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations }, { organization = {} }) => {
-  const selectorOrg =
-    organizationSelector({ organizations }, { orgId: organization.id }) ||
-    organization;
+const mapStateToProps = ({ organizations }, { orgId }) => {
+  const organization = organizationSelector({ organizations }, { orgId });
+
   return {
     // organizations may have _placeholder surveys until the mounting request is completed
-    surveys: (selectorOrg.surveys || []).filter(s => !s._placeHolder),
+    surveys: (organization.surveys || []).filter(s => !s._placeHolder),
     pagination: organizations.surveysPagination,
   };
 };
