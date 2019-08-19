@@ -12,7 +12,6 @@ class SelectMyStepScreen extends Component {
   render() {
     const {
       t,
-      enableBackButton,
       me,
       personId,
       contactStage,
@@ -38,19 +37,13 @@ class SelectMyStepScreen extends Component {
           'self',
           'steps',
         )}
-        enableBackButton={enableBackButton}
         next={next}
       />
     );
   }
 }
 
-SelectMyStepScreen.defaultProps = {
-  enableBackButton: true,
-};
-
 SelectMyStepScreen.propTypes = {
-  enableBackButton: PropTypes.bool,
   contactStage: PropTypes.object,
   organization: PropTypes.object,
   next: PropTypes.func.isRequired,
@@ -61,7 +54,7 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { contactStage, organization, enableBackButton, onboarding },
+        params: { contactStage, organization, onboarding },
       },
     },
     next,
@@ -69,7 +62,6 @@ const mapStateToProps = (
 ) => ({
   contactStage,
   organization,
-  enableBackButton,
   onboarding,
   next,
   me: auth.person,

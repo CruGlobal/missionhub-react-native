@@ -14,7 +14,6 @@ import AbsoluteSkip from '../../components/AbsoluteSkip';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
-import { useDisableBack } from '../../utils/hooks/useDisableBack';
 
 import styles from './styles';
 
@@ -32,7 +31,6 @@ interface SelectStepScreenProps {
   contactName?: string;
   contactStageId: string;
   headerText: string;
-  enableBackButton?: boolean;
   enableSkipButton?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
@@ -52,13 +50,11 @@ const SelectStepScreen = ({
   contactName,
   contactStageId,
   headerText,
-  enableBackButton = true,
   enableSkipButton = false,
   dispatch,
   next,
 }: SelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
-  useDisableBack(enableBackButton);
 
   const navigateNext = (step?: Step, skip = false) => {
     dispatch(
@@ -130,12 +126,10 @@ const SelectStepScreen = ({
       <SafeAreaView>
         <BottomButton onPress={navToCreateStep} text={t('createStep')} />
       </SafeAreaView>
-      {enableBackButton && (
-        <BackButton
-          customNavigate={contact ? undefined : navigateBackTwoScreens}
-          absolute={true}
-        />
-      )}
+      <BackButton
+        customNavigate={contact ? undefined : navigateBackTwoScreens}
+        absolute={true}
+      />
       {enableSkipButton && <AbsoluteSkip onSkip={handleSkip} />}
     </View>
   );

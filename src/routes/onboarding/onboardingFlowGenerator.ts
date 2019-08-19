@@ -116,7 +116,6 @@ export const onboardingFlowGenerator = ({
             ({ selectedStage }: { selectedStage: object }) =>
               navigatePush(SELECT_MY_STEP_SCREEN, {
                 contactStage: selectedStage,
-                enableBackButton: false,
               }),
           ),
           buildTrackingObj(

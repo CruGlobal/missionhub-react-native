@@ -21,7 +21,6 @@ const state = {
 };
 
 let screen: ReturnType<typeof renderWithContext>;
-let enableBackButton = false;
 let enableSkipButton = false;
 
 beforeEach(() => {
@@ -31,7 +30,6 @@ beforeEach(() => {
       contactStageId={contactStageId}
       organization={organization}
       receiverId={receiverId}
-      enableBackButton={enableBackButton}
       enableSkipButton={enableSkipButton}
       headerText="Header Text"
       contactName={contactName}
@@ -43,20 +41,8 @@ beforeEach(() => {
   );
 });
 
-describe('without enableBackButton nor enableSkipButton', () => {
+describe('without enableSkipButton', () => {
   beforeAll(() => {
-    enableBackButton = false;
-    enableSkipButton = false;
-  });
-
-  it('renders correctly', () => {
-    screen.snapshot();
-  });
-});
-
-describe('with enableBackButton', () => {
-  beforeAll(() => {
-    enableBackButton = true;
     enableSkipButton = false;
   });
 
@@ -67,7 +53,6 @@ describe('with enableBackButton', () => {
 
 describe('with enableSkipButton', () => {
   beforeAll(() => {
-    enableBackButton = false;
     enableSkipButton = true;
   });
 
@@ -78,7 +63,6 @@ describe('with enableSkipButton', () => {
 
 describe('skip button', () => {
   beforeAll(() => {
-    enableBackButton = false;
     enableSkipButton = true;
   });
 
