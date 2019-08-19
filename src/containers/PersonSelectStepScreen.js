@@ -21,7 +21,6 @@ class PersonSelectStepScreen extends Component {
       contact,
       organization,
       next,
-      enableBackButton,
       enableSkipButton,
     } = this.props;
 
@@ -38,7 +37,6 @@ class PersonSelectStepScreen extends Component {
         headerText={t('personHeader', { name })}
         contact={contact ? contact : null}
         organization={organization}
-        enableBackButton={enableBackButton}
         enableSkipButton={enableSkipButton}
         next={next}
       />
@@ -47,7 +45,6 @@ class PersonSelectStepScreen extends Component {
 }
 
 PersonSelectStepScreen.defaultProps = {
-  enableBackButton: true,
   enableSkipButton: false,
 };
 
@@ -57,7 +54,6 @@ PersonSelectStepScreen.propTypes = {
   contactStage: PropTypes.object,
   contact: PropTypes.object,
   organization: PropTypes.object,
-  enableBackButton: PropTypes.bool,
   enableSkipButton: PropTypes.bool,
   next: PropTypes.func.isRequired,
 };
@@ -73,7 +69,6 @@ const mapStateToProps = (
           contactStage,
           contact,
           organization = {},
-          enableBackButton,
           enableSkipButton,
         },
       },
@@ -86,7 +81,6 @@ const mapStateToProps = (
   contactStage,
   contact,
   organization,
-  enableBackButton,
   enableSkipButton,
   next,
   personFirstName: personProfile.personFirstName,

@@ -230,7 +230,6 @@ describe('handleCreateStep', () => {
       instance.handleCreateStep();
 
       expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW, {
-        enableBackButton: true,
         trackingObj,
       });
     });

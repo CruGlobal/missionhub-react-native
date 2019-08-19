@@ -5,7 +5,6 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { navigatePush, navigateBack } from '../actions/navigation';
 import { skipOnboarding } from '../actions/onboardingProfile';
-import { useDisableBack } from '../utils/hooks/useDisableBack';
 
 import { SETUP_PERSON_SCREEN } from './SetupPersonScreen';
 import IconMessageScreen from './IconMessageScreen';
@@ -25,11 +24,7 @@ const AddSomeoneScreen = ({
 }: AddSomeoneScreenProps) => {
   const { t } = useTranslation('addContact');
 
-  const enableBack = useDisableBack();
-
   const handleNavigate = (skip = false) => {
-    enableBack();
-
     if (next) {
       return dispatch(next({ skip }));
     }
@@ -47,7 +42,7 @@ const AddSomeoneScreen = ({
       buttonText={t('addSomeone')}
       iconPath={require('../../assets/images/add_someone.png')}
       onSkip={hideSkipBtn ? undefined : skip}
-      onBack={hideSkipBtn ? back : undefined}
+      onBack={back}
     />
   );
 };
