@@ -4,14 +4,16 @@ import 'react-native';
 import React from 'react';
 import MockDate from 'mockdate';
 
-import { testSnapshotShallow } from '../../../../testUtils';
+import { GROUP_ONBOARDING_TYPES } from '../../Groups/OnboardingCard';
+import { renderWithContext } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
-import { ImpactView, mapStateToProps } from '..';
+import ImpactView from '..';
 
 MockDate.set('2018-09-12 12:00:00 PM GMT+0');
 
-const dispatch = jest.fn(response => Promise.resolve(response));
+const cruOrgId = '34';
+const userCreatedOrgId = '43';
 
 const me = { id: '1', type: 'person', first_name: 'ME' };
 const person = { id: '2', type: 'person', first_name: 'Test Fname' };
@@ -29,6 +31,20 @@ const personImpact = {
   receivers_count: 6,
   pathway_moved_count: 4,
 };
+const cruOrgImpact = {
+  id: '34-2018',
+  type: 'impact_report',
+  steps_count: 12,
+  receivers_count: 7,
+  pathway_moved_count: 5,
+};
+const userCreatedOrgImpact = {
+  id: '43-2018',
+  type: 'impact_report',
+  steps_count: 13,
+  receivers_count: 8,
+  pathway_moved_count: 6,
+};
 const globalImpact = {
   id: 'global-2018',
   type: 'impact_report',
@@ -37,7 +53,7 @@ const globalImpact = {
   step_owners_count: 200,
   pathway_moved_count: 50,
 };
-const personInteractions = {
+const interactions = {
   P1W: [
     {
       id: '100',
@@ -95,497 +111,534 @@ const personInteractions = {
     },
   ],
 };
-const organization = { id: '34', _type: 'organization', name: 'Test Org' };
+const globalOrg = {
+  id: GLOBAL_COMMUNITY_ID,
+  name: 'Global Community',
+  user_created: true,
+};
+const cruOrg = {
+  id: cruOrgId,
+  name: 'Cru Org',
+  user_created: false,
+};
+const userCreatedOrg = {
+  id: userCreatedOrgId,
+  name: 'User Created Org',
+  user_created: true,
+};
+
+const state = {
+  auth: { person: me },
+  impact: {
+    summary: {
+      [`${me.id}-`]: myImpact,
+      [`${person.id}-`]: personImpact,
+      [`-${cruOrgId}`]: cruOrgImpact,
+      [`-${userCreatedOrgId}`]: userCreatedOrgImpact,
+      '-': globalImpact,
+    },
+    interactions: {
+      [`${me.id}-${cruOrgId}`]: interactions,
+      [`${person.id}-${cruOrgId}`]: interactions,
+    },
+  },
+  organizations: {
+    all: [globalOrg, cruOrg, userCreatedOrg],
+  },
+  swipe: {
+    groupOnboarding: {
+      [GROUP_ONBOARDING_TYPES.impact]: false,
+    },
+  },
+};
 
 describe('ImpactView', () => {
-  describe('mapStateToProps', () => {
-    it('should provide the necessary props when viewing ME person', () => {
-      expect(
-        mapStateToProps(
-          {
-            impact: {
-              summary: {
-                [`${me.id}-`]: myImpact,
-                '-': globalImpact,
-              },
-              interactions: {
-                [`${me.id}-${organization.id}`]: personInteractions,
-              },
-            },
-            auth: {
-              person: me,
-            },
-          },
-          {
-            person: me,
-            organization,
-          },
-        ),
-      ).toMatchSnapshot();
-    });
-    it('should provide the necessary props when not viewing ME person', () => {
-      expect(
-        mapStateToProps(
-          {
-            impact: {
-              summary: {
-                [`${person.id}-`]: personImpact,
-                '-': globalImpact,
-              },
-              interactions: {
-                [`${person.id}-${organization.id}`]: personInteractions,
-              },
-            },
-            auth: {
-              person,
-            },
-          },
-          {
-            person,
-            organization,
-          },
-        ),
-      ).toMatchSnapshot();
-    });
-    it('should provide the necessary props when viewing global org', () => {
-      expect(
-        mapStateToProps(
-          {
-            impact: {
-              summary: {
-                [`${me.id}-`]: myImpact,
-                '-': globalImpact,
-              },
-              interactions: {
-                [`${me.id}-`]: personInteractions,
-              },
-            },
-            auth: {
-              person,
-            },
-          },
-          {
-            organization: { id: GLOBAL_COMMUNITY_ID },
-          },
-        ),
-      ).toMatchSnapshot();
-    });
-  });
   describe('ME person personal impact view', () => {
     it('renders empty state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={me}
-          isMe={true}
-          isPersonalMinistryMe={true}
-          isOrgImpact={false}
-          isUserCreatedOrg={false}
-          impact={{
-            ...myImpact,
-            steps_count: 0,
-            pathway_moved_count: 0,
-          }}
-          globalImpact={{
-            ...globalImpact,
-            steps_count: 0,
-            pathway_moved_count: 0,
-          }}
-        />,
-      );
+      renderWithContext(<ImpactView person={me} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`${me.id}-`]: {
+                ...myImpact,
+                steps_count: 0,
+                pathway_moved_count: 0,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 0,
+                step_owners_count: 0,
+                pathway_moved_count: 0,
+              },
+            },
+          },
+        },
+      }).snapshot();
     });
+
     it('renders singular state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={me}
-          isMe={true}
-          isPersonalMinistryMe={true}
-          isOrgImpact={false}
-          isUserCreatedOrg={false}
-          impact={{
-            ...myImpact,
-            steps_count: 1,
-            receivers_count: 1,
-            pathway_moved_count: 1,
-          }}
-          globalImpact={{
-            ...globalImpact,
-            steps_count: 1,
-            receivers_count: 1,
-            pathway_moved_count: 1,
-          }}
-        />,
-      );
+      renderWithContext(<ImpactView person={me} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`${me.id}-`]: {
+                ...myImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                pathway_moved_count: 1,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                step_owners_count: 1,
+                pathway_moved_count: 1,
+              },
+            },
+          },
+        },
+      }).snapshot();
     });
+
     it('renders plural state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={me}
-          isMe={true}
-          isPersonalMinistryMe={true}
-          isOrgImpact={false}
-          isUserCreatedOrg={false}
-          impact={myImpact}
-          globalImpact={globalImpact}
-        />,
-      );
+      renderWithContext(<ImpactView person={me} />, {
+        initialState: state,
+      }).snapshot();
     });
   });
+
   describe('ME person community impact view', () => {
     it('renders empty state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={me}
-          isMe={true}
-          isPersonalMinistryMe={false}
-          isOrgImpact={false}
-          isUserCreatedOrg={false}
-          impact={{
-            ...myImpact,
-            steps_count: 0,
-            pathway_moved_count: 0,
-          }}
-          globalImpact={{
-            ...globalImpact,
-            steps_count: 0,
-            pathway_moved_count: 0,
-          }}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView person={me} orgId={cruOrgId} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`${me.id}-`]: {
+                ...myImpact,
+                steps_count: 0,
+                pathway_moved_count: 0,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 0,
+                step_owners_count: 0,
+                pathway_moved_count: 0,
+              },
+            },
+          },
+        },
+      }).snapshot();
     });
+
     it('renders singular state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={me}
-          isMe={true}
-          isPersonalMinistryMe={false}
-          isOrgImpact={false}
-          isUserCreatedOrg={false}
-          impact={{
-            ...myImpact,
-            steps_count: 1,
-            receivers_count: 1,
-            pathway_moved_count: 1,
-          }}
-          globalImpact={{
-            ...globalImpact,
-            steps_count: 1,
-            receivers_count: 1,
-            pathway_moved_count: 1,
-          }}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView person={me} orgId={cruOrgId} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`${me.id}-`]: {
+                ...myImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                pathway_moved_count: 1,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                step_owners_count: 1,
+                pathway_moved_count: 1,
+              },
+            },
+          },
+        },
+      }).snapshot();
     });
+
     it('renders plural state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={me}
-          isMe={true}
-          isPersonalMinistryMe={false}
-          isOrgImpact={false}
-          isUserCreatedOrg={false}
-          impact={myImpact}
-          globalImpact={globalImpact}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView person={me} orgId={cruOrgId} />, {
+        initialState: state,
+      }).snapshot();
     });
   });
+
   describe('ME person impact view for user created org', () => {
     it('renders empty state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={me}
-          isMe={true}
-          isPersonalMinistryMe={false}
-          isOrgImpact={false}
-          isUserCreatedOrg={true}
-          impact={{
-            ...myImpact,
-            steps_count: 0,
-            pathway_moved_count: 0,
-          }}
-          globalImpact={{
-            ...globalImpact,
-            steps_count: 0,
-            pathway_moved_count: 0,
-          }}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView person={me} orgId={userCreatedOrgId} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`${me.id}-`]: {
+                ...myImpact,
+                steps_count: 0,
+                pathway_moved_count: 0,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 0,
+                step_owners_count: 0,
+                pathway_moved_count: 0,
+              },
+            },
+          },
+        },
+      }).snapshot();
     });
+
     it('renders singular state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={me}
-          isMe={true}
-          isPersonalMinistryMe={false}
-          isOrgImpact={false}
-          isUserCreatedOrg={true}
-          impact={{
-            ...myImpact,
-            steps_count: 1,
-            receivers_count: 1,
-            pathway_moved_count: 1,
-          }}
-          globalImpact={{
-            ...globalImpact,
-            steps_count: 1,
-            receivers_count: 1,
-            pathway_moved_count: 1,
-          }}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView person={me} orgId={userCreatedOrgId} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`${me.id}-`]: {
+                ...myImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                pathway_moved_count: 1,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                step_owners_count: 1,
+                pathway_moved_count: 1,
+              },
+            },
+          },
+        },
+      }).snapshot();
     });
+
     it('renders plural state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={me}
-          isMe={true}
-          isPersonalMinistryMe={false}
-          isOrgImpact={false}
-          isUserCreatedOrg={true}
-          impact={myImpact}
-          globalImpact={globalImpact}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView person={me} orgId={userCreatedOrgId} />, {
+        initialState: state,
+      }).snapshot();
     });
   });
+
   describe('contact impact', () => {
     it('renders empty state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={person}
-          isMe={false}
-          isPersonalMinistryMe={false}
-          isOrgImpact={false}
-          isUserCreatedOrg={false}
-          impact={{
-            ...personImpact,
-            steps_count: 0,
-            pathway_moved_count: 0,
-          }}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView person={person} orgId={cruOrgId} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`${person.id}-`]: {
+                ...personImpact,
+                steps_count: 0,
+                pathway_moved_count: 0,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 0,
+                step_owners_count: 0,
+                pathway_moved_count: 0,
+              },
+            },
+          },
+        },
+      }).snapshot();
     });
+
     it('renders singular state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={person}
-          isMe={false}
-          isPersonalMinistryMe={false}
-          isOrgImpact={false}
-          isUserCreatedOrg={false}
-          impact={{
-            ...personImpact,
-            steps_count: 1,
-            receivers_count: 1,
-            pathway_moved_count: 1,
-          }}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView person={person} orgId={cruOrgId} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`${person.id}-`]: {
+                ...personImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                pathway_moved_count: 1,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                step_owners_count: 1,
+                pathway_moved_count: 1,
+              },
+            },
+          },
+        },
+      }).snapshot();
     });
+
     it('renders plural state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={person}
-          isMe={false}
-          isPersonalMinistryMe={false}
-          isOrgImpact={false}
-          isUserCreatedOrg={false}
-          impact={personImpact}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView person={person} orgId={cruOrgId} />, {
+        initialState: state,
+      }).snapshot();
     });
   });
+
   describe('user created member impact', () => {
     it('renders empty state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={person}
-          isMe={false}
-          isPersonalMinistryMe={false}
-          isOrgImpact={false}
-          isUserCreatedOrg={true}
-          impact={{
-            ...personImpact,
-            steps_count: 0,
-            pathway_moved_count: 0,
-          }}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(
+        <ImpactView person={person} orgId={userCreatedOrgId} />,
+        {
+          initialState: {
+            ...state,
+            impact: {
+              ...state.impact,
+              summary: {
+                ...state.impact.summary,
+                [`${person.id}-`]: {
+                  ...personImpact,
+                  steps_count: 0,
+                  pathway_moved_count: 0,
+                },
+                '-': {
+                  ...globalImpact,
+                  steps_count: 0,
+                  step_owners_count: 0,
+                  pathway_moved_count: 0,
+                },
+              },
+            },
+          },
+        },
+      ).snapshot();
     });
+
     it('renders singular state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={person}
-          isMe={false}
-          isPersonalMinistryMe={false}
-          isOrgImpact={false}
-          isUserCreatedOrg={true}
-          impact={{
-            ...personImpact,
-            steps_count: 1,
-            receivers_count: 1,
-            pathway_moved_count: 1,
-          }}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(
+        <ImpactView person={person} orgId={userCreatedOrgId} />,
+        {
+          initialState: {
+            ...state,
+            impact: {
+              ...state.impact,
+              summary: {
+                ...state.impact.summary,
+                [`${person.id}-`]: {
+                  ...personImpact,
+                  steps_count: 1,
+                  receivers_count: 1,
+                  pathway_moved_count: 1,
+                },
+                '-': {
+                  ...globalImpact,
+                  steps_count: 1,
+                  receivers_count: 1,
+                  step_owners_count: 1,
+                  pathway_moved_count: 1,
+                },
+              },
+            },
+          },
+        },
+      ).snapshot();
     });
+
     it('renders plural state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          person={person}
-          isMe={false}
-          isPersonalMinistryMe={false}
-          isOrgImpact={false}
-          isUserCreatedOrg={true}
-          impact={personImpact}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(
+        <ImpactView person={person} orgId={userCreatedOrgId} />,
+        {
+          initialState: state,
+        },
+      ).snapshot();
     });
   });
-  describe('group impact', () => {
+
+  describe('cru community impact', () => {
     it('renders empty state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          organization={organization}
-          isMe={false}
-          isPersonalMinistryMe={false}
-          isOrgImpact={true}
-          isUserCreatedOrg={false}
-          impact={{
-            ...personImpact,
-            steps_count: 0,
-            pathway_moved_count: 0,
-          }}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView orgId={cruOrgId} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`-${cruOrgId}`]: {
+                ...cruOrgImpact,
+                steps_count: 0,
+                pathway_moved_count: 0,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 0,
+                step_owners_count: 0,
+                pathway_moved_count: 0,
+              },
+            },
+          },
+        },
+      }).snapshot();
     });
+
     it('renders singular state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          organization={organization}
-          isMe={false}
-          isPersonalMinistryMe={false}
-          isOrgImpact={true}
-          isUserCreatedOrg={false}
-          impact={{
-            ...personImpact,
-            steps_count: 1,
-            receivers_count: 1,
-            pathway_moved_count: 1,
-          }}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView orgId={cruOrgId} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`-${cruOrgId}`]: {
+                ...cruOrgImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                pathway_moved_count: 1,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                step_owners_count: 1,
+                pathway_moved_count: 1,
+              },
+            },
+          },
+        },
+      }).snapshot();
     });
+
     it('renders plural state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          organization={organization}
-          isMe={false}
-          isPersonalMinistryMe={false}
-          isOrgImpact={true}
-          isUserCreatedOrg={false}
-          impact={personImpact}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView orgId={cruOrgId} />, {
+        initialState: state,
+      }).snapshot();
     });
   });
-  describe('user-created group impact', () => {
-    const userCreatedOrg = { ...organization, user_created: true };
+
+  describe('user-created community impact', () => {
     it('renders empty state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          organization={userCreatedOrg}
-          isMe={false}
-          isPersonalMinistryMe={false}
-          isOrgImpact={true}
-          isUserCreatedOrg={true}
-          impact={{
-            ...personImpact,
-            steps_count: 0,
-            pathway_moved_count: 0,
-          }}
-          globalImpact={{
-            ...globalImpact,
-            steps_count: 0,
-            pathway_moved_count: 0,
-          }}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView orgId={userCreatedOrgId} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`-${userCreatedOrgId}`]: {
+                ...userCreatedOrgImpact,
+                steps_count: 0,
+                pathway_moved_count: 0,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 0,
+                step_owners_count: 0,
+                pathway_moved_count: 0,
+              },
+            },
+          },
+        },
+      }).snapshot();
     });
+
     it('renders singular state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          organization={userCreatedOrg}
-          isMe={false}
-          isPersonalMinistryMe={false}
-          isOrgImpact={true}
-          isUserCreatedOrg={true}
-          impact={{
-            ...personImpact,
-            steps_count: 1,
-            receivers_count: 1,
-            pathway_moved_count: 1,
-          }}
-          globalImpact={{
-            ...globalImpact,
-            steps_count: 1,
-            receivers_count: 1,
-            pathway_moved_count: 1,
-          }}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView orgId={userCreatedOrgId} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`-${userCreatedOrgId}`]: {
+                ...userCreatedOrgImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                pathway_moved_count: 1,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                step_owners_count: 1,
+                pathway_moved_count: 1,
+              },
+            },
+          },
+        },
+      }).snapshot();
     });
+
     it('renders plural state', () => {
-      testSnapshotShallow(
-        <ImpactView
-          dispatch={dispatch}
-          organization={userCreatedOrg}
-          isMe={false}
-          isPersonalMinistryMe={false}
-          isOrgImpact={true}
-          isUserCreatedOrg={true}
-          impact={personImpact}
-          globalImpact={globalImpact}
-          interactions={personInteractions}
-        />,
-      );
+      renderWithContext(<ImpactView orgId={userCreatedOrgId} />, {
+        initialState: state,
+      }).snapshot();
+    });
+  });
+
+  describe('global community impact', () => {
+    it('renders empty state', () => {
+      renderWithContext(<ImpactView orgId={GLOBAL_COMMUNITY_ID} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`${me.id}-`]: {
+                ...myImpact,
+                steps_count: 0,
+                pathway_moved_count: 0,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 0,
+                step_owners_count: 0,
+                pathway_moved_count: 0,
+              },
+            },
+          },
+        },
+      }).snapshot();
+    });
+
+    it('renders singular state', () => {
+      renderWithContext(<ImpactView orgId={GLOBAL_COMMUNITY_ID} />, {
+        initialState: {
+          ...state,
+          impact: {
+            ...state.impact,
+            summary: {
+              ...state.impact.summary,
+              [`${me.id}-`]: {
+                ...myImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                pathway_moved_count: 1,
+              },
+              '-': {
+                ...globalImpact,
+                steps_count: 1,
+                receivers_count: 1,
+                step_owners_count: 1,
+                pathway_moved_count: 1,
+              },
+            },
+          },
+        },
+      }).snapshot();
+    });
+
+    it('renders plural state', () => {
+      renderWithContext(<ImpactView orgId={GLOBAL_COMMUNITY_ID} />, {
+        initialState: state,
+      }).snapshot();
     });
   });
 });
