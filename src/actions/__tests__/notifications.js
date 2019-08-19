@@ -32,7 +32,7 @@ import {
   navigateReset,
   navigateToMainTabs,
 } from '../navigation';
-import { navigateToOrg } from '../organizations';
+import { refreshCommunity, navigateToOrg } from '../organizations';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
@@ -508,6 +508,7 @@ describe('askNotificationPermissions', () => {
     const finish = jest.fn();
     const getPersonResult = { type: LOAD_PERSON_DETAILS, person };
     const navToPersonScreenResult = { type: 'navigated to person screen' };
+    const refreshCommunityResult = { type: 'refresh community' };
     const navToOrgResult = { type: 'navigated to org' };
 
     beforeEach(() => {
@@ -515,6 +516,7 @@ describe('askNotificationPermissions', () => {
       store.clearActions();
       getPersonDetails.mockReturnValue(getPersonResult);
       navToPersonScreen.mockReturnValue(navToPersonScreenResult);
+      refreshCommunity.mockReturnValue(refreshCommunityResult);
       navigateToOrg.mockReturnValue(navToOrgResult);
     });
 
@@ -658,6 +660,7 @@ describe('askNotificationPermissions', () => {
           organization_id: organization.id,
         });
 
+        expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(navigateToOrg).toHaveBeenCalledWith(organization.id);
       });
     });
@@ -669,6 +672,7 @@ describe('askNotificationPermissions', () => {
           organization_id: organization.id,
         });
 
+        expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(navigateToOrg).toHaveBeenCalledWith(
           organization.id,
           GROUP_CHALLENGES,

@@ -1,14 +1,12 @@
 import React from 'react';
 import MockDate from 'mockdate';
 
-import GroupChallenges, { mapStateToProps } from '../GroupChallenges';
+import GroupChallenges from '../GroupChallenges';
 import {
   renderShallow,
   testSnapshotShallow,
   createThunkStore,
 } from '../../../../testUtils';
-import { organizationSelector } from '../../../selectors/organizations';
-import { challengesSelector } from '../../../selectors/challenges';
 import {
   getGroupChallengeFeed,
   createChallenge,
@@ -16,7 +14,6 @@ import {
 import * as common from '../../../utils/common';
 import * as navigation from '../../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
-import { orgPermissionSelector } from '../../../selectors/people';
 import { ORG_PERMISSIONS } from '../../../constants';
 
 jest.mock('../../../actions/challenges');

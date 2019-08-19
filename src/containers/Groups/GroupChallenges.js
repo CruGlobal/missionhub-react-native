@@ -19,7 +19,7 @@ import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
 
 @withTranslation('groupsChallenge')
-export class GroupChallenges extends Component {
+class GroupChallenges extends Component {
   state = { refreshing: false };
 
   componentDidMount() {
@@ -79,10 +79,7 @@ export class GroupChallenges extends Component {
   }
 }
 
-export const mapStateToProps = (
-  { auth, organizations },
-  { orgId = 'personal' },
-) => {
+const mapStateToProps = ({ auth, organizations }, { orgId = 'personal' }) => {
   const organization = organizationSelector({ organizations }, { orgId });
 
   return {
