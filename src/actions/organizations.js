@@ -15,6 +15,7 @@ import {
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 import { removeHiddenOrgs } from '../selectors/selectorUtils';
+import { organizationSelector } from '../selectors/organizations';
 import { getScreenForOrg } from '../containers/Groups/GroupScreen';
 import { REQUESTS } from '../api/routes';
 
@@ -641,9 +642,10 @@ export function removeOrganizationMember(personId, orgId) {
   };
 }
 
-export function navigateToOrg(organization, initialTab) {
-  return dispatch => {
-    const { id: orgId = GLOBAL_COMMUNITY_ID, user_created } = organization;
+export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
+  return (dispatch, getState) => {
+    const { organizations } = getState();
+    const { user_created } = organizationSelector({ organizations }, { orgId });
 
     return dispatch(
       navigatePush(getScreenForOrg(orgId, user_created), {

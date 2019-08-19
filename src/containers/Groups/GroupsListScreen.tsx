@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ScrollView, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -53,34 +53,30 @@ const GroupsListScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
 
-  const loadGroups = useCallback(() => dispatch(getMyCommunities()), []);
-
-  const scrollToGroup = useCallback(() => {
-    if (scrollToId) {
-      const index = orgs.findIndex(o => o.id === scrollToId);
-      if (index >= 0 && flatList.current) {
-        try {
-          flatList.current.scrollToIndex({
-            animated: true,
-            index,
-            // Put the new org in the top of the list if already there or the center
-            viewPosition: index === 0 ? 0 : 0.5,
-          });
-        } catch (e) {}
-      }
-      dispatch(resetScrollGroups());
-    }
-  }, []);
+  const loadGroups = () => dispatch(getMyCommunities());
 
   useEffect(() => {
     async function loadGroupsAndScrollToId() {
       // Always load groups when this tab mounts
       await loadGroups();
-      scrollToGroup();
+      if (scrollToId) {
+        const index = orgs.findIndex(o => o.id === scrollToId);
+        if (index >= 0 && flatList.current) {
+          try {
+            flatList.current.scrollToIndex({
+              animated: true,
+              index,
+              // Put the new org in the top of the list if already there or the center
+              viewPosition: index === 0 ? 0 : 0.5,
+            });
+          } catch (e) {}
+        }
+        dispatch(resetScrollGroups());
+      }
     }
 
     loadGroupsAndScrollToId();
-  }, [loadGroups, scrollToGroup]);
+  }, []);
 
   const { isRefreshing, refresh } = useRefreshing(async () => {
     dispatch(checkForUnreadComments());
@@ -88,7 +84,7 @@ const GroupsListScreen = ({
   });
 
   const handlePress = (organization: Organization) => {
-    dispatch(navigateToOrg(organization));
+    dispatch(navigateToOrg(organization.id));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
   const dispatchOpenMainMenu = () => {

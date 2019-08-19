@@ -140,11 +140,11 @@ function handleNotification(notification) {
           }),
         );
       case 'celebrate':
-        const celebrateOrg = await refreshCommunity(organization);
-        return dispatch(navigateToOrg(celebrateOrg));
+        await refreshCommunity(organization);
+        return dispatch(navigateToOrg(organization));
       case 'community_challenges':
-        const challengeOrg = await refreshCommunity(organization);
-        return dispatch(navigateToOrg(challengeOrg, GROUP_CHALLENGES));
+        refreshCommunity(organization);
+        return dispatch(navigateToOrg(organization, GROUP_CHALLENGES));
     }
   };
 }

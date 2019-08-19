@@ -208,10 +208,10 @@ export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
 export const USER_CREATED_GROUP_SCREEN = 'nav/USER_CREATED_GROUP_SCREEN';
 export const GLOBAL_GROUP_SCREEN = 'nav/GLOBAL_GROUP_SCREEN';
 
-export function getScreenForOrg(orgId, user_created) {
+export function getScreenForOrg(orgId, isUserCreated) {
   return orgId === GLOBAL_COMMUNITY_ID
     ? GLOBAL_GROUP_SCREEN
-    : user_created
+    : isUserCreated
     ? USER_CREATED_GROUP_SCREEN
     : GROUP_SCREEN;
 }

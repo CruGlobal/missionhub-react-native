@@ -62,7 +62,7 @@ export class ImpactView extends Component {
     const {
       dispatch,
       person = {},
-      organization = {},
+      organization,
       isPersonalMinistryMe,
       isUserCreatedOrg,
       myId,
@@ -85,7 +85,7 @@ export class ImpactView extends Component {
   }
 
   getInteractionReport() {
-    const { dispatch, person = {}, organization = {} } = this.props;
+    const { dispatch, person = {}, organization } = this.props;
 
     dispatch(
       getPeopleInteractionsReport(
@@ -241,7 +241,7 @@ export class ImpactView extends Component {
 
     return (
       <ScrollView style={styles.container} bounces={false}>
-        {organization ? (
+        {organization.id !== 'person' ? (
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
         ) : null}
         <Flex style={styles.topSection}>
@@ -305,6 +305,7 @@ export const mapStateToProps = (
     globalImpact: impactSummarySelector({ impact }),
     isGlobalCommunity,
     myId,
+    organization,
   };
 };
 

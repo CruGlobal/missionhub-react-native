@@ -90,7 +90,7 @@ export const mapStateToProps = (
     challengeItems: challengesSelector({
       challengeItems: organization.challengeItems || [],
     }),
-    pagination: organization.challengePagination,
+    pagination: organization.challengePagination || {},
     myOrgPermissions: orgPermissionSelector(null, {
       person: auth.person,
       organization,
