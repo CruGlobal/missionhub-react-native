@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { GroupScreen, CRU_TABS, USER_CREATED_TABS } from '../GroupScreen';
+import {
+  ConnectedGroupScreen,
+  CRU_TABS,
+  USER_CREATED_TABS,
+} from '../GroupScreen';
 import {
   testSnapshotShallow,
   createMockNavState,
@@ -15,38 +19,45 @@ import { GROUP_PROFILE } from '../GroupProfile';
 
 jest.mock('../../../actions/navigation');
 
-const organization = { id: '5', name: 'Test  Org', user_created: false };
+const orgId = '5';
+const organization = { id: orgId, name: 'Test  Org', user_created: false };
 const userOrg = { ...organization, user_created: true };
+const globalOrg = {
+  id: GLOBAL_COMMUNITY_ID,
+  name: 'MissionHub Community',
+  community: true,
+  user_created: true,
+};
 
 navigatePush.mockReturnValue({ type: 'navigate push' });
 navigateToMainTabs.mockReturnValue({ type: 'navigateToMainTabs' });
 
 describe('GroupScreen', () => {
-  const createHeader = org => (
-    <GroupScreen
-      navigation={createMockNavState({
-        organization: org,
-      })}
-    />
-  );
-
   it('should render header correctly for global community', () => {
     testSnapshotShallow(
-      createHeader({
-        id: GLOBAL_COMMUNITY_ID,
-        name: 'MissionHub Community',
-        community: true,
-        user_created: true,
-      }),
+      <ConnectedGroupScreen
+        navigation={createMockNavState({ orgId: GLOBAL_COMMUNITY_ID })}
+        store={createThunkStore({ organizations: { all: [globalOrg] } })}
+      />,
     );
   });
 
-  it('should render header correctly', () => {
-    testSnapshotShallow(createHeader(organization));
+  it('should render header correctly for cru community', () => {
+    testSnapshotShallow(
+      <ConnectedGroupScreen
+        navigation={createMockNavState({ orgId })}
+        store={createThunkStore({ organizations: { all: [organization] } })}
+      />,
+    );
   });
 
-  it('should render header correctly for user_created org', () => {
-    testSnapshotShallow(createHeader(userOrg));
+  it('should render header correctly for user_created community', () => {
+    testSnapshotShallow(
+      <ConnectedGroupScreen
+        navigation={createMockNavState({ orgId })}
+        store={createThunkStore({ organizations: { all: [userOrg] } })}
+      />,
+    );
   });
 
   it('should render Cru Community tabs correctly', () => {
@@ -58,16 +69,16 @@ describe('GroupScreen', () => {
   });
 
   it('should handle add contact button correctly', () => {
-    const instance = renderShallow(
-      <GroupScreen
+    const component = renderShallow(
+      <ConnectedGroupScreen
         navigation={createMockNavState({
-          organization,
+          orgId,
         })}
-        store={createThunkStore()}
       />,
-    ).instance();
+      createThunkStore({ organizations: { all: [organization] } }),
+    );
 
-    instance.handleAddContact();
+    component.props().right.props.onPress();
 
     expect(navigatePush).toHaveBeenCalledWith(
       ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW,
@@ -78,16 +89,12 @@ describe('GroupScreen', () => {
   });
 
   it('should handle profile button correctly', () => {
-    const instance = renderShallow(
-      <GroupScreen
-        navigation={createMockNavState({
-          organization: userOrg,
-        })}
-        store={createThunkStore()}
-      />,
-    ).instance();
+    const component = renderShallow(
+      <ConnectedGroupScreen navigation={createMockNavState({ orgId })} />,
+      createThunkStore({ organizations: { all: [userOrg] } }),
+    );
 
-    instance.handleProfile();
+    component.props().right.props.onPress();
 
     expect(navigatePush).toHaveBeenCalledWith(GROUP_PROFILE, {
       organization: userOrg,
@@ -96,12 +103,8 @@ describe('GroupScreen', () => {
 
   it('should handle go back correctly', () => {
     const component = renderShallow(
-      <GroupScreen
-        navigation={createMockNavState({
-          organization,
-        })}
-        store={createThunkStore()}
-      />,
+      <ConnectedGroupScreen navigation={createMockNavState({ orgId })} />,
+      createThunkStore({ organizations: { all: [organization] } }),
     );
 
     component.props().left.props.onPress();
@@ -111,12 +114,12 @@ describe('GroupScreen', () => {
 
   it('calls disable back add', () => {
     const instance = renderShallow(
-      <GroupScreen
+      <ConnectedGroupScreen
         navigation={createMockNavState({
-          organization,
+          orgId,
         })}
-        store={createThunkStore()}
       />,
+      createThunkStore({ organizations: { all: [organization] } }),
     ).instance();
 
     common.disableBack = { add: jest.fn() };
@@ -126,12 +129,12 @@ describe('GroupScreen', () => {
 
   it('calls disable back remove', () => {
     const instance = renderShallow(
-      <GroupScreen
+      <ConnectedGroupScreen
         navigation={createMockNavState({
           organization,
         })}
-        store={createThunkStore()}
       />,
+      createThunkStore({ organizations: { all: [organization] } }),
     ).instance();
 
     common.disableBack = { remove: jest.fn() };

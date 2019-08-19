@@ -111,7 +111,7 @@ const mapStateToProps = (
   initialTab,
 });
 
-export const connectedGroupScreen = connect(mapStateToProps)(GroupScreen);
+export const ConnectedGroupScreen = connect(mapStateToProps)(GroupScreen);
 
 const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
 export const GROUP_CHALLENGES = 'nav/GROUP_CHALLENGES';
@@ -193,15 +193,15 @@ export const GLOBAL_TABS = [CRU_TABS[0], CRU_TABS[1], CRU_TABS[3]];
 
 export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
   CRU_TABS,
-  connectedGroupScreen,
+  ConnectedGroupScreen,
 );
 export const userCreatedScreenTabNavigator = generateSwipeTabMenuNavigator(
   USER_CREATED_TABS,
-  connectedGroupScreen,
+  ConnectedGroupScreen,
 );
 export const globalScreenTabNavigator = generateSwipeTabMenuNavigator(
   GLOBAL_TABS,
-  connectedGroupScreen,
+  ConnectedGroupScreen,
 );
 
 export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
