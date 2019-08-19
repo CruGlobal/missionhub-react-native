@@ -18,14 +18,3 @@ it('removes hidden orgs', () => {
     }),
   ).toEqual([org2]);
 });
-
-it('hides global org', () => {
-  expect(
-    removeHiddenOrgs([{ id: GLOBAL_COMMUNITY_ID }, ...orgs], {
-      user: {
-        hidden_organizations: [org1.id, org3.id],
-        hide_global_community: true,
-      },
-    }),
-  ).toEqual([org2]);
-});
