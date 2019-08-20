@@ -41,30 +41,30 @@ const surveys = [
     uncontacted_contacts_count: 5,
   },
 ];
-const store = createThunkStore({
-  organizations: {
-    all: [
-      {
-        id: '1',
-        surveys,
-      },
-    ],
-    surveysPagination: { hasNextPage: true },
-  },
-});
-
 const organization = {
   id: '1',
   name: 'Test Org',
+  surveys,
 };
+
+let store;
 
 navigatePush.mockReturnValue({ type: 'navigated push' });
 getOrgSurveysNextPage.mockReturnValue({ type: 'got org surveys next page' });
 getOrgSurveys.mockReturnValue({ type: 'got org surveys' });
 refreshCommunity.mockReturnValue({ type: 'refreshed community' });
 
+beforeEach(() => {
+  store = createThunkStore({
+    organizations: {
+      all: [organization],
+      surveysPagination: { hasNextPage: true },
+    },
+  });
+});
+
 describe('Surveys', () => {
-  const component = <Surveys organization={organization} />;
+  const component = <Surveys orgId={organization.id} />;
 
   it('should render correctly', () => {
     testSnapshotShallow(component, store);
@@ -75,7 +75,7 @@ describe('Surveys', () => {
       organizations: {
         all: [
           {
-            id: '1',
+            ...organization,
             surveys: [],
           },
         ],

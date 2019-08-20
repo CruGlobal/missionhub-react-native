@@ -1,13 +1,12 @@
 import React from 'react';
+import MockDate from 'mockdate';
 
-import GroupChallenges, { mapStateToProps } from '../GroupChallenges';
+import GroupChallenges from '../GroupChallenges';
 import {
   renderShallow,
   testSnapshotShallow,
   createThunkStore,
 } from '../../../../testUtils';
-import { organizationSelector } from '../../../selectors/organizations';
-import { challengesSelector } from '../../../selectors/challenges';
 import {
   getGroupChallengeFeed,
   createChallenge,
@@ -15,24 +14,21 @@ import {
 import * as common from '../../../utils/common';
 import * as navigation from '../../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
-import { orgPermissionSelector } from '../../../selectors/people';
 import { ORG_PERMISSIONS } from '../../../constants';
 
-jest.mock('../../../selectors/people');
-jest.mock('../../../selectors/organizations');
-jest.mock('../../../selectors/challenges');
 jest.mock('../../../actions/challenges');
 
-const orgPermission = { permission_id: ORG_PERMISSIONS.ADMIN };
-orgPermissionSelector.mockReturnValue(orgPermission);
+const mockDate = '2018-09-01';
+const futureDate = '2018-10-06T14:13:21Z';
+const pastDate = '2018-07-06T14:13:21Z';
+MockDate.set(mockDate);
 
-const date = '2018-09-06T14:13:21Z';
 const challenge1 = {
   id: '1',
   creator_id: 'person1',
   organization_id: '123',
   title: 'Read "There and Back Again"',
-  end_date: date,
+  end_date: futureDate,
   accepted_count: 5,
   completed_count: 3,
 };
@@ -41,7 +37,7 @@ const challenge2 = {
   creator_id: 'person1',
   organization_id: '123',
   title: 'Past Challenge',
-  end_date: date,
+  end_date: pastDate,
   accepted_count: 5,
   completed_count: 3,
 };
@@ -51,33 +47,12 @@ const challengePagination = {
   page: 1,
 };
 
+const orgId = '123';
 const org = {
-  id: '123',
+  id: orgId,
   challengeItems: [challenge1, challenge2],
   challengePagination: challengePagination,
 };
-
-const challengeSelectorReturnValue = [
-  {
-    title: '',
-    data: [challenge1],
-  },
-  {
-    title: 'Past Challenge',
-    data: [challenge2],
-  },
-];
-
-const emptyChallengeSelectorReturnValue = [
-  {
-    title: '',
-    data: [],
-  },
-  {
-    title: 'Past Challenge',
-    data: [],
-  },
-];
 
 const store = {
   auth: {
@@ -97,70 +72,34 @@ const store = {
 
 getGroupChallengeFeed.mockReturnValue({ type: 'got group challenge feed' });
 
-beforeEach(() => {
-  challengesSelector.mockReturnValue(challengeSelectorReturnValue);
-});
-
-describe('mapStateToProps', () => {
-  it('provides props correctly', () => {
-    const selectorOrg = { ...org, title: 'Org' };
-
-    organizationSelector.mockReturnValue(selectorOrg);
-
-    expect(mapStateToProps(store, { organization: org })).toEqual({
-      challengeItems: challengeSelectorReturnValue,
-      myOrgPermissions: {
-        permission_id: '1',
-      },
-      pagination: challengePagination,
-    });
-    expect(organizationSelector).toHaveBeenCalledWith(
-      { organizations: store.organizations },
-      { orgId: org.id },
-    );
-    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-      person: store.auth.person,
-      organization: selectorOrg,
-    });
-  });
-
-  it('provides props correctly when no org selected', () => {
-    organizationSelector.mockReturnValue(undefined);
-
-    expect(mapStateToProps(store, { organization: org })).toEqual({
-      challengeItems: challengeSelectorReturnValue,
-      myOrgPermissions: {
-        permission_id: '1',
-      },
-      pagination: challengePagination,
-    });
-    expect(organizationSelector).toHaveBeenCalledWith(
-      { organizations: store.organizations },
-      { orgId: org.id },
-    );
-    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-      person: store.auth.person,
-      organization: org,
-    });
-  });
-});
-
 it('should render correctly', () => {
   testSnapshotShallow(
-    <GroupChallenges organization={org} store={createThunkStore(store)} />,
+    <GroupChallenges orgId={orgId} store={createThunkStore(store)} />,
   );
 });
 
 it('should render empty correctly', () => {
-  challengesSelector.mockReturnValue(emptyChallengeSelectorReturnValue);
   testSnapshotShallow(
-    <GroupChallenges organization={org} store={createThunkStore(store)} />,
+    <GroupChallenges
+      orgId={orgId}
+      store={createThunkStore({
+        ...store,
+        organizations: {
+          all: [
+            {
+              ...org,
+              challengeItems: [],
+            },
+          ],
+        },
+      })}
+    />,
   );
 });
 
 it('should refresh items properly', () => {
   const component = renderShallow(
-    <GroupChallenges organization={org} store={createThunkStore(store)} />,
+    <GroupChallenges orgId={orgId} store={createThunkStore(store)} />,
     store,
   );
 
@@ -176,7 +115,7 @@ it('should refresh items properly', () => {
 
 it('should call create', () => {
   const component = renderShallow(
-    <GroupChallenges organization={org} store={createThunkStore(store)} />,
+    <GroupChallenges orgId={orgId} store={createThunkStore(store)} />,
     store,
   );
 
@@ -196,7 +135,7 @@ it('should call create', () => {
 
 it('should call API to create', () => {
   const instance = renderShallow(
-    <GroupChallenges organization={org} store={createThunkStore(store)} />,
+    <GroupChallenges orgId={orgId} store={createThunkStore(store)} />,
     store,
   ).instance();
   createChallenge.mockReturnValue({ type: 'create' });
