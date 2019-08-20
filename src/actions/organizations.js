@@ -15,16 +15,13 @@ import {
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 import { removeHiddenOrgs } from '../selectors/selectorUtils';
-import {
-  getScreenForOrg,
-  GROUP_CHALLENGES,
-} from '../containers/Groups/GroupScreen';
+import { organizationSelector } from '../selectors/organizations';
+import { getScreenForOrg } from '../containers/Groups/GroupScreen';
 import { REQUESTS } from '../api/routes';
 
 import { getMe, getPersonDetails } from './person';
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
-import { reloadGroupChallengeFeed } from './challenges';
 import { navigatePush } from './navigation';
 
 const getOrganizationsQuery = {
@@ -646,16 +643,13 @@ export function removeOrganizationMember(personId, orgId) {
 }
 
 export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
-  return async dispatch => {
-    const organization = await dispatch(refreshCommunity(orgId));
-
-    if (initialTab === GROUP_CHALLENGES) {
-      await dispatch(reloadGroupChallengeFeed(organization.id));
-    }
+  return (dispatch, getState) => {
+    const { organizations } = getState();
+    const { user_created } = organizationSelector({ organizations }, { orgId });
 
     return dispatch(
-      navigatePush(getScreenForOrg(organization), {
-        organization,
+      navigatePush(getScreenForOrg(orgId, user_created), {
+        orgId,
         initialTab,
       }),
     );

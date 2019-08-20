@@ -40,14 +40,9 @@ const orgId = '1';
 const myId = '111';
 
 const organization = { id: orgId, name: 'Test Org', user_created: true };
-const store = createThunkStore({
+const state = {
   organizations: {
-    all: [
-      {
-        ...organization,
-        members,
-      },
-    ],
+    all: [{ ...organization, members }],
     membersPagination: { hasNextPage: true },
   },
   auth: {
@@ -62,7 +57,9 @@ const store = createThunkStore({
     },
   },
   swipe: { groupInviteInfo: true },
-});
+};
+
+let store;
 
 trackActionWithoutData.mockReturnValue({ type: 'tracked action without data' });
 removeGroupInviteInfo.mockReturnValue({ type: 'removed group invite info' });
@@ -76,21 +73,21 @@ getOrganizationMembers.mockReturnValue({
 refreshCommunity.mockReturnValue({ type: 'refreshed community' });
 
 describe('Members', () => {
-  const component = <Members organization={organization} />;
+  const component = <Members orgId={orgId} />;
+
+  beforeEach(() => {
+    store = createThunkStore(state);
+  });
 
   it('should render correctly', () => {
     testSnapshotShallow(component, store);
   });
 
   it('should mount correctly', () => {
-    const store2 = createThunkStore({
+    store = createThunkStore({
+      ...state,
       organizations: {
-        all: [
-          {
-            id: '1',
-            members: [],
-          },
-        ],
+        all: [{ ...organization, members: [] }],
         membersPagination: { hasNextPage: true },
       },
       auth: {
@@ -105,21 +102,18 @@ describe('Members', () => {
       },
       swipe: { groupInviteInfo: true },
     });
-    const instance = renderShallow(component, store2).instance();
+
+    const instance = renderShallow(component, store).instance();
     instance.componentDidMount();
     expect(refreshCommunity).toHaveBeenCalledWith(orgId);
     expect(getOrganizationMembers).toHaveBeenCalledWith(orgId);
   });
 
   it('should not render load more correctly', () => {
-    const store2 = createThunkStore({
+    store = createThunkStore({
+      ...state,
       organizations: {
-        all: [
-          {
-            id: '1',
-            members,
-          },
-        ],
+        all: [{ ...organization, members }],
         membersPagination: { hasNextPage: false },
       },
       auth: {
@@ -134,7 +128,8 @@ describe('Members', () => {
       },
       swipe: { groupInviteInfo: true },
     });
-    const instance = renderShallow(component, store2).instance();
+
+    const instance = renderShallow(component, store).instance();
     instance.componentDidMount();
     expect(refreshCommunity).not.toHaveBeenCalled();
     expect(getOrganizationMembers).not.toHaveBeenCalled();
@@ -179,8 +174,10 @@ describe('Members', () => {
       it('should call invite and show alert', async () => {
         const url = '123';
         const code = 'ABCDEF';
-        const store2 = createThunkStore({
+        store = createThunkStore({
+          ...state,
           organizations: {
+            ...state.organizations,
             all: [
               {
                 ...organization,
@@ -189,10 +186,10 @@ describe('Members', () => {
                 members,
               },
             ],
-            membersPagination: { hasNextPage: true },
           },
           auth: {
             person: {
+              ...state.auth.person,
               organizational_permissions: [
                 {
                   organization_id: orgId,
@@ -201,12 +198,8 @@ describe('Members', () => {
               ],
             },
           },
-          swipe: { groupInviteInfo: true },
         });
-        const component = renderShallow(
-          <Members organization={organization} />,
-          store2,
-        );
+        const component = renderShallow(<Members orgId={orgId} />, store);
         Share.share = jest.fn(() => ({ action: Share.sharedAction }));
         common.getCommunityUrl = jest.fn(() => url);
         await component
@@ -230,7 +223,7 @@ describe('Members', () => {
       it('should call invite and not show alert', async () => {
         const url = '123';
         const code = 'ABCDEF';
-        const store2 = createThunkStore({
+        store = createThunkStore({
           organizations: {
             all: [
               {
@@ -254,10 +247,7 @@ describe('Members', () => {
           },
           swipe: { groupInviteInfo: false },
         });
-        const component = renderShallow(
-          <Members organization={organization} />,
-          store2,
-        );
+        const component = renderShallow(<Members orgId={orgId} />, store);
         Share.share = jest.fn(() => ({ action: Share.sharedAction }));
         common.getCommunityUrl = jest.fn(() => url);
         await component
@@ -282,7 +272,7 @@ describe('Members', () => {
           ...organization,
           user_created: false,
         };
-        const store = createThunkStore({
+        store = createThunkStore({
           organizations: {
             all: [nonUserCreatedOrg],
             membersPagination: { hasNextPage: true },
@@ -299,10 +289,7 @@ describe('Members', () => {
           },
           swipe: { groupInviteInfo: true },
         });
-        const component = renderShallow(
-          <Members organization={nonUserCreatedOrg} />,
-          store,
-        );
+        const component = renderShallow(<Members orgId={orgId} />, store);
         await component
           .childAt(1)
           .props()

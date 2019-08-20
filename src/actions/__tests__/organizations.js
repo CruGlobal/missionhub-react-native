@@ -42,7 +42,6 @@ import {
   navigateToOrg,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
-import { reloadGroupChallengeFeed } from '../challenges';
 import { navigatePush } from '../navigation';
 import { removeHiddenOrgs } from '../../selectors/selectorUtils';
 import {
@@ -53,7 +52,6 @@ import {
 } from '../../containers/Groups/GroupScreen';
 
 jest.mock('../analytics');
-jest.mock('../../selectors/organizations');
 jest.mock('../api');
 jest.mock('../person');
 jest.mock('../challenges');
@@ -979,118 +977,67 @@ describe('removeOrganizationMember', () => {
 });
 
 describe('navigateToOrg', () => {
-  const orgId = '123456';
-  const cruOrg = { id: orgId, user_created: false };
-  const userCreatedOrg = { id: orgId, user_created: true };
+  const cruOrgId = '123456';
+  const cruOrg = { id: cruOrgId, user_created: false };
+  const userCreatedOrgId = '654321';
+  const userCreatedOrg = { id: userCreatedOrgId, user_created: true };
 
   beforeEach(() => {
-    reloadGroupChallengeFeed.mockReturnValue({ type: 'test' });
+    store = mockStore({
+      organizations: {
+        all: [globalCommunity, cruOrg, userCreatedOrg],
+      },
+    });
     navigatePush.mockReturnValue({ type: 'test' });
   });
 
   describe('default', () => {
-    beforeEach(async () => {
-      callApi.mockReturnValue({ type: 'test' });
-      await store.dispatch(navigateToOrg());
-    });
-
-    it('makes API call to get org', () => {
-      expect(callApi).not.toHaveBeenCalled();
-    });
-
-    it('does not get me', () => {
-      expect(getMe).not.toHaveBeenCalled();
-    });
-
-    it('does not reload Challenge Feed', () => {
-      expect(reloadGroupChallengeFeed).not.toHaveBeenCalled();
+    beforeEach(() => {
+      store.dispatch(navigateToOrg());
     });
 
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
       expect(navigatePush).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
-        organization: globalCommunity,
+        orgId: GLOBAL_COMMUNITY_ID,
         initialTab: undefined,
       });
     });
   });
 
   describe('Cru org', () => {
-    beforeEach(async () => {
-      callApi.mockReturnValue({ type: 'test', response: cruOrg });
-      await store.dispatch(navigateToOrg(orgId));
-    });
-
-    it('makes API call to get org', () => {
-      expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATION, {
-        orgId,
-      });
-    });
-
-    it('gets me', () => {
-      expect(getMe).toHaveBeenCalledWith();
-    });
-
-    it('does not reload Challenge Feed', () => {
-      expect(reloadGroupChallengeFeed).not.toHaveBeenCalled();
+    beforeEach(() => {
+      store.dispatch(navigateToOrg(cruOrgId));
     });
 
     it('navigates to GROUPS_SCREEN', () => {
       expect(navigatePush).toBeCalledWith(GROUP_SCREEN, {
-        organization: cruOrg,
+        orgId: cruOrgId,
         initialTab: undefined,
       });
     });
   });
 
   describe('user-created org', () => {
-    beforeEach(async () => {
-      callApi.mockReturnValue({ type: 'test', response: userCreatedOrg });
-      await store.dispatch(navigateToOrg(orgId));
-    });
-
-    it('makes API call to get org', () => {
-      expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATION, {
-        orgId,
-      });
-    });
-
-    it('gets me', () => {
-      expect(getMe).toHaveBeenCalledWith();
-    });
-
-    it('does not reload Challenge Feed', () => {
-      expect(reloadGroupChallengeFeed).not.toHaveBeenCalled();
+    beforeEach(() => {
+      store.dispatch(navigateToOrg(userCreatedOrgId));
     });
 
     it('navigates to USER_CREATED_GROUPS_SCREEN', () => {
       expect(navigatePush).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
-        organization: userCreatedOrg,
+        orgId: userCreatedOrgId,
         initialTab: undefined,
       });
     });
   });
 
   describe('global org', () => {
-    beforeEach(async () => {
-      callApi.mockReturnValue({ type: 'test' });
-      await store.dispatch(navigateToOrg(GLOBAL_COMMUNITY_ID));
-    });
-
-    it('makes API call to get org', () => {
-      expect(callApi).not.toHaveBeenCalled();
-    });
-
-    it('does not get me', () => {
-      expect(getMe).not.toHaveBeenCalled();
-    });
-
-    it('does not reload Challenge Feed', () => {
-      expect(reloadGroupChallengeFeed).not.toHaveBeenCalled();
+    beforeEach(() => {
+      store.dispatch(navigateToOrg(GLOBAL_COMMUNITY_ID));
     });
 
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
       expect(navigatePush).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
-        organization: globalCommunity,
+        orgId: GLOBAL_COMMUNITY_ID,
         initialTab: undefined,
       });
     });
@@ -1098,27 +1045,12 @@ describe('navigateToOrg', () => {
 
   describe('intial tab', () => {
     beforeEach(async () => {
-      callApi.mockReturnValue({ type: 'test', response: userCreatedOrg });
-      await store.dispatch(navigateToOrg(orgId, GROUP_CHALLENGES));
-    });
-
-    it('makes API call to get org', () => {
-      expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATION, {
-        orgId,
-      });
-    });
-
-    it('gets me', () => {
-      expect(getMe).toHaveBeenCalledWith();
-    });
-
-    it('reloads Challenge Feed', () => {
-      expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(orgId);
+      await store.dispatch(navigateToOrg(userCreatedOrgId, GROUP_CHALLENGES));
     });
 
     it('navigates to USER_CREATED_GROUPS_SCREEN with initial tab', () => {
       expect(navigatePush).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
-        organization: userCreatedOrg,
+        orgId: userCreatedOrgId,
         initialTab: GROUP_CHALLENGES,
       });
     });

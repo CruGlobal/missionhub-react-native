@@ -23,9 +23,10 @@ jest.mock('../../../utils/pagination');
 
 const people = [{ id: '1' }, { id: '2' }];
 
-const store = createThunkStore({});
+const orgId = '1';
+const organization = { id: orgId, name: 'Test Org' };
 
-const organization = { id: '1', name: 'Test Org' };
+const store = createThunkStore({ organizations: { all: [organization] } });
 
 getOrganizationContacts.mockReturnValue({
   type: 'got org contacts',
@@ -34,7 +35,7 @@ getOrganizationContacts.mockReturnValue({
 buildUpdatedPagination.mockReturnValue({});
 
 describe('Contacts', () => {
-  const component = <Contacts organization={organization} />;
+  const component = <Contacts orgId={orgId} />;
 
   it('should render correctly', () => {
     testSnapshotShallow(component, store);

@@ -12,7 +12,7 @@ import {
 } from '../../../actions/person';
 import { loadStepsAndJourney } from '../../../actions/misc';
 import { navigatePush } from '../../../actions/navigation';
-import { SELECT_PERSON_STAGE_SCREEN } from '../../../containers/SelectPersonStageScreen';
+import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen/index';
 
@@ -33,12 +33,13 @@ const person = {
   id: otherId,
   reverse_contact_assignments: [{ id: contactAssignmentId }],
 };
-const people = { allByOrg: {} };
+
+const people = { allByOrg: { [orgId]: { people: { [otherId]: person } } } };
 
 const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
-  personProfile: { id: '1', personFirstName: otherName },
   people,
+  stages: { stages: [stage] },
 });
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
@@ -74,26 +75,24 @@ beforeEach(() => {
   navigatePush.mockReturnValue(navigatePushResponse);
 });
 
-describe('PersonStageScreen next', () => {
+describe('SelectStageScreen next', () => {
   describe('isAlreadySelected', () => {
     describe('with contactAssignmentId', () => {
       beforeEach(async () => {
         await buildAndCallNext(
-          SELECT_PERSON_STAGE_SCREEN,
+          SELECT_STAGE_SCREEN,
           {
             section: 'people',
             subsection: 'person',
-            firstItem: 0,
+            SelectedStageId: 0,
             enableBackButton: false,
             questionText,
             orgId,
-            contactId: otherId,
-            contactAssignmentId,
-            firstName: otherName,
+            personId: otherId,
           },
           {
             stage,
-            contactId: otherId,
+            personId: otherId,
             firstName: otherName,
             orgId,
             isAlreadySelected: true,
@@ -140,20 +139,19 @@ describe('PersonStageScreen next', () => {
     describe('without contactAssignmentId', () => {
       beforeEach(async () => {
         await buildAndCallNext(
-          SELECT_PERSON_STAGE_SCREEN,
+          SELECT_STAGE_SCREEN,
           {
             section: 'people',
             subsection: 'person',
-            firstItem: 0,
+            selectedStageId: 0,
             enableBackButton: false,
             questionText,
             orgId,
-            contactId: otherId,
-            firstName: otherName,
+            personId: otherId,
           },
           {
             stage,
-            contactId: otherId,
+            personId: otherId,
             firstName: otherName,
             orgId,
             isAlreadySelected: true,
@@ -197,21 +195,19 @@ describe('PersonStageScreen next', () => {
     describe('with contactAssignmentId', () => {
       beforeEach(async () => {
         await buildAndCallNext(
-          SELECT_PERSON_STAGE_SCREEN,
+          SELECT_STAGE_SCREEN,
           {
             section: 'people',
             subsection: 'person',
-            firstItem: 0,
+            selectedStageId: 0,
             enableBackButton: false,
             questionText,
             orgId,
-            contactId: otherId,
-            contactAssignmentId,
-            firstName: otherName,
+            personId: otherId,
           },
           {
             stage,
-            contactId: otherId,
+            personId: otherId,
             firstName: otherName,
             orgId,
             isAlreadySelected: false,
@@ -260,21 +256,19 @@ describe('PersonStageScreen next', () => {
     describe('without contactAssignmentId', () => {
       beforeEach(async () => {
         await buildAndCallNext(
-          SELECT_PERSON_STAGE_SCREEN,
+          SELECT_STAGE_SCREEN,
           {
             section: 'people',
             subsection: 'person',
-            firstItem: 0,
+            selectedStageId: 0,
             enableBackButton: false,
-            noNav: true,
             questionText,
             orgId,
-            contactId: otherId,
-            firstName: otherName,
+            personId: otherId,
           },
           {
             stage,
-            contactId: otherId,
+            personId: otherId,
             firstName: otherName,
             orgId,
             isAlreadySelected: false,
