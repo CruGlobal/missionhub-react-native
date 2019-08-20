@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import { useQuery, useMutation } from 'react-apollo-hooks';
+import { gql } from 'apollo-boost';
 
 import { communitiesSelector } from '../../selectors/organizations';
 import Header from '../../components/Header';
@@ -36,6 +38,18 @@ import { AuthState } from '../../reducers/auth';
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
 
+export const COMMUNITIES_QUERY = gql`
+  query communities(
+    ministryActivitiesOnly: true
+    sortBy: name_ASC
+  ) {
+    id
+    name
+    unreadCommentsCount
+    userCreated
+  }
+`;
+
 const GroupsListScreen = ({
   dispatch,
   orgs,
@@ -56,6 +70,12 @@ const GroupsListScreen = ({
   const loadGroups = useCallback(() => dispatch(getMyCommunities()), [
     dispatch,
   ]);
+
+  const { data: { communities = {} } = {}, error, loading } = useQuery(
+    COMMUNITIES_QUERY,
+  );
+  console.log(error);
+  console.log(communities);
 
   useEffect(() => {
     async function loadGroupsAndScrollToId() {
