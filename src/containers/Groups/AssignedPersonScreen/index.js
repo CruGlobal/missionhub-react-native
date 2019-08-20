@@ -105,7 +105,7 @@ const memberImpact = {
         params: { organization, person },
       },
     },
-  }) => <ImpactView organization={organization} person={person} />,
+  }) => <ImpactView orgId={organization.id} person={person} />,
 };
 const memberCelebrate = {
   name: i18next.t('personTabs:celebrate'),
@@ -149,7 +149,7 @@ const myImpact = {
         params: { organization, person },
       },
     },
-  }) => <ImpactView organization={organization} person={person} />,
+  }) => <ImpactView orgId={organization.id} person={person} />,
 };
 
 export const CONTACT_PERSON_TABS = [personSteps, personNotes, personJourney];

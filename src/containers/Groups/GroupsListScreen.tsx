@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ScrollView, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -30,7 +30,7 @@ import {
 import TrackTabChange from '../TrackTabChange';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
-import { OrganizationsState } from '../../reducers/organizations';
+import { OrganizationsState, Organization } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
@@ -53,9 +53,7 @@ const GroupsListScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
 
-  const loadGroups = useCallback(() => dispatch(getMyCommunities()), [
-    dispatch,
-  ]);
+  const loadGroups = () => dispatch(getMyCommunities());
 
   useEffect(() => {
     async function loadGroupsAndScrollToId() {
@@ -78,14 +76,14 @@ const GroupsListScreen = ({
     }
 
     loadGroupsAndScrollToId();
-  }, [dispatch, loadGroups, scrollToId, orgs, flatList]);
+  }, []);
 
   const { isRefreshing, refresh } = useRefreshing(async () => {
     dispatch(checkForUnreadComments());
     await loadGroups();
   });
 
-  const handlePress = (organization: { id: string }) => {
+  const handlePress = (organization: Organization) => {
     dispatch(navigateToOrg(organization.id));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };

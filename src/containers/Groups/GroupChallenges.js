@@ -19,7 +19,7 @@ import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
 
 @withTranslation('groupsChallenge')
-export class GroupChallenges extends Component {
+class GroupChallenges extends Component {
   state = { refreshing: false };
 
   componentDidMount() {
@@ -79,25 +79,18 @@ export class GroupChallenges extends Component {
   }
 }
 
-export const mapStateToProps = (
-  { auth, organizations },
-  { organization = {} },
-) => {
-  const orgId = organization.id || 'personal';
-
-  const selectorOrg =
-    organizationSelector({ organizations }, { orgId }) || organization;
-
-  const challengeItems = challengesSelector({
-    challengeItems: (selectorOrg || {}).challengeItems || [],
-  });
+const mapStateToProps = ({ auth, organizations }, { orgId = 'personal' }) => {
+  const organization = organizationSelector({ organizations }, { orgId });
 
   return {
-    challengeItems,
-    pagination: selectorOrg.challengePagination,
+    organization,
+    challengeItems: challengesSelector({
+      challengeItems: organization.challengeItems || [],
+    }),
+    pagination: organization.challengePagination || {},
     myOrgPermissions: orgPermissionSelector(null, {
       person: auth.person,
-      organization: selectorOrg,
+      organization,
     }),
   };
 };

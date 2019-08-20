@@ -221,6 +221,7 @@ describe('generateSwipeTabMenuNavigator', () => {
       },
       {
         backBehavior: 'none',
+        lazy: true,
         swipeEnabled: false,
         tabBarComponent: expect.any(Function),
       },

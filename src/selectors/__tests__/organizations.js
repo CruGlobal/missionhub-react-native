@@ -33,6 +33,14 @@ describe('organizationSelector', () => {
 
     expect(result).toEqual({});
   });
+
+  it('should return only orgId when org not found', () => {
+    const newOrgId = '98';
+
+    const result = organizationSelector({ organizations }, { orgId: newOrgId });
+
+    expect(result).toEqual({ id: newOrgId });
+  });
 });
 
 describe('allOrganizationsSelector', () => {
