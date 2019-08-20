@@ -76,13 +76,11 @@ class GroupCelebrate extends Component {
 const mapStateToProps = ({ organizations }, { orgId }) => {
   const organization = organizationSelector({ organizations }, { orgId });
 
-  const celebrateItems = celebrationSelector({
-    celebrateItems: organization.celebrateItems || [],
-  });
-
   return {
     organization,
-    celebrateItems,
+    celebrateItems: celebrationSelector({
+      celebrateItems: organization.celebrateItems || [],
+    }),
     pagination: organization.celebratePagination || {},
   };
 };

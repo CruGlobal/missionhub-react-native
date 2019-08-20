@@ -74,8 +74,8 @@ describe('GroupScreen', () => {
         navigation={createMockNavState({
           orgId,
         })}
+        store={createThunkStore({ organizations: { all: [organization] } })}
       />,
-      createThunkStore({ organizations: { all: [organization] } }),
     );
 
     component.props().right.props.onPress();
@@ -90,8 +90,10 @@ describe('GroupScreen', () => {
 
   it('should handle profile button correctly', () => {
     const component = renderShallow(
-      <ConnectedGroupScreen navigation={createMockNavState({ orgId })} />,
-      createThunkStore({ organizations: { all: [userOrg] } }),
+      <ConnectedGroupScreen
+        navigation={createMockNavState({ orgId })}
+        store={createThunkStore({ organizations: { all: [userOrg] } })}
+      />,
     );
 
     component.props().right.props.onPress();
@@ -103,8 +105,10 @@ describe('GroupScreen', () => {
 
   it('should handle go back correctly', () => {
     const component = renderShallow(
-      <ConnectedGroupScreen navigation={createMockNavState({ orgId })} />,
-      createThunkStore({ organizations: { all: [organization] } }),
+      <ConnectedGroupScreen
+        navigation={createMockNavState({ orgId })}
+        store={createThunkStore({ organizations: { all: [organization] } })}
+      />,
     );
 
     component.props().left.props.onPress();
@@ -118,8 +122,8 @@ describe('GroupScreen', () => {
         navigation={createMockNavState({
           orgId,
         })}
+        store={createThunkStore({ organizations: { all: [organization] } })}
       />,
-      createThunkStore({ organizations: { all: [organization] } }),
     ).instance();
 
     common.disableBack = { add: jest.fn() };
@@ -133,8 +137,8 @@ describe('GroupScreen', () => {
         navigation={createMockNavState({
           organization,
         })}
+        store={createThunkStore({ organizations: { all: [organization] } })}
       />,
-      createThunkStore({ organizations: { all: [organization] } }),
     ).instance();
 
     common.disableBack = { remove: jest.fn() };

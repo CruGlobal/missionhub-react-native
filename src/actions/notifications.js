@@ -20,6 +20,8 @@ import { REQUESTS } from '../api/routes';
 
 import { refreshCommunity, navigateToOrg } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
+import { reloadGroupChallengeFeed } from './challenges';
+import { reloadGroupCelebrateFeed } from './celebration';
 import { navigatePush, navigateBack, navigateToMainTabs } from './navigation';
 import callApi from './api';
 
@@ -141,9 +143,11 @@ function handleNotification(notification) {
         );
       case 'celebrate':
         await refreshCommunity(organization);
+        await reloadGroupCelebrateFeed(organization);
         return dispatch(navigateToOrg(organization));
       case 'community_challenges':
-        refreshCommunity(organization);
+        await refreshCommunity(organization);
+        await reloadGroupChallengeFeed(organization);
         return dispatch(navigateToOrg(organization, GROUP_CHALLENGES));
     }
   };
