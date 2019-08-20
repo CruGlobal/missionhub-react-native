@@ -39,7 +39,7 @@ export default class Button extends Component {
     try {
       // If pressProps are passed in, use those when calling the `onPress` method
       if (pressProps) {
-        await onPress.apply(null, pressProps);
+        await onPress(...pressProps);
       } else {
         // Call the users click function with all the normal click parameters
         await onPress(...args);
