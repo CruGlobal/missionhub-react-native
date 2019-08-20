@@ -7,6 +7,7 @@ import {
 import { REQUESTS } from '../api/routes';
 
 export interface ProfileState {
+  id: string | null;
   firstName: string;
   lastName: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -14,6 +15,7 @@ export interface ProfileState {
 }
 
 const initialProfileState: ProfileState = {
+  id: null,
   firstName: '',
   lastName: '',
   community: {},
@@ -37,6 +39,7 @@ function profileReducer(state = initialProfileState, action: any) {
     case REQUESTS.CREATE_MY_PERSON.SUCCESS:
       return {
         ...state,
+        id: results.person_id,
         firstName: results.first_name,
         lastName: results.last_name,
       };

@@ -27,14 +27,11 @@ export function paramsForStageNavigation(personId, orgId, getState) {
   const questionText = getQuestionText(isMe, isNotSure, firstName);
 
   return {
-    isMe,
     hasHitCount,
     isNotSure,
     subsection,
     firstItemIndex,
     questionText,
-    assignment,
-    firstName,
   };
 }
 

@@ -70,14 +70,11 @@ describe('is Me, not "Not Sure" stage, step count not complete', () => {
     const result = paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({
-      isMe: true,
       hasHitCount: false,
       isNotSure: false,
       subsection: 'self',
       firstItemIndex: 0,
       questionText: i18next.t('selectStage:completed3StepsMe'),
-      assignment: null,
-      firstName: myName,
     });
   });
 });
@@ -98,7 +95,6 @@ describe('is Me, "Not Sure" stage, step count not complete', () => {
     const result = paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({
-      isMe: true,
       hasHitCount: false,
       isNotSure: true,
       subsection: 'self',
@@ -106,8 +102,6 @@ describe('is Me, "Not Sure" stage, step count not complete', () => {
       questionText: i18next.t('selectStage:meQuestion', {
         name: myName,
       }),
-      assignment: null,
-      firstName: myName,
     });
   });
 });
@@ -130,14 +124,11 @@ describe('is Me, not "Not Sure" stage, step count complete', () => {
     const result = paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({
-      isMe: true,
       hasHitCount: true,
       isNotSure: false,
       subsection: 'self',
       firstItemIndex: 0,
       questionText: i18next.t('selectStage:completed3StepsMe'),
-      assignment: null,
-      firstName: myName,
     });
   });
 });
@@ -147,7 +138,6 @@ describe('is not Me, not "Not Sure" stage, step count not complete', () => {
     const result = paramsForStageNavigation(otherId, orgId, getState);
 
     expect(result).toEqual({
-      isMe: false,
       hasHitCount: false,
       isNotSure: false,
       subsection: 'person',
@@ -155,8 +145,6 @@ describe('is not Me, not "Not Sure" stage, step count not complete', () => {
       questionText: i18next.t('selectStage:completed3Steps', {
         name: otherName,
       }),
-      assignment: reverseAssignment,
-      firstName: otherName,
     });
   });
 });
@@ -177,7 +165,6 @@ describe('is not Me, "Not Sure" stage, step count not complete', () => {
     const result = paramsForStageNavigation(otherId, orgId, getState);
 
     expect(result).toEqual({
-      isMe: false,
       hasHitCount: false,
       isNotSure: true,
       subsection: 'person',
@@ -185,8 +172,6 @@ describe('is not Me, "Not Sure" stage, step count not complete', () => {
       questionText: i18next.t('selectStage:completed1Step', {
         name: otherName,
       }),
-      assignment: reverseAssignmentNotSure,
-      firstName: otherName,
     });
   });
 });
@@ -209,7 +194,6 @@ describe('is not Me, not "Not Sure" stage, step count complete', () => {
     const result = paramsForStageNavigation(otherId, orgId, getState);
 
     expect(result).toEqual({
-      isMe: false,
       hasHitCount: true,
       isNotSure: false,
       subsection: 'person',
@@ -217,8 +201,6 @@ describe('is not Me, not "Not Sure" stage, step count complete', () => {
       questionText: i18next.t('selectStage:completed3Steps', {
         name: otherName,
       }),
-      assignment: reverseAssignment,
-      firstName: otherName,
     });
   });
 });
