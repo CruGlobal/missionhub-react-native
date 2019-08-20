@@ -60,7 +60,6 @@ const CelebrateItemContent = ({
     adjective_attribute_value,
     changed_attribute_name,
     subject_person,
-    challengeId,
     subject_person_name,
     celebrateable_type,
     object_description,
@@ -68,6 +67,7 @@ const CelebrateItemContent = ({
 
   const onPressChallengeLink = () => {
     const orgId = org.id;
+    const challengeId = adjective_attribute_value;
     if (orgId && orgId !== GLOBAL_COMMUNITY_ID) {
       dispatch(
         navigatePush(CHALLENGE_DETAIL_SCREEN, {

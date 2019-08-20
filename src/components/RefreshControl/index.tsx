@@ -1,9 +1,9 @@
 import React from 'react';
-import { RefreshControlProps } from 'react-native';
+import { RefreshControl, RefreshControlProps } from 'react-native';
 
 import theme from '../../theme';
 
-const RefreshControl = ({ refreshing, ...rest }: RefreshControlProps) => {
+const MyRefreshControl = ({ refreshing, ...rest }: RefreshControlProps) => {
   return (
     <RefreshControl
       progressBackgroundColor={theme.primaryColor}
@@ -15,4 +15,4 @@ const RefreshControl = ({ refreshing, ...rest }: RefreshControlProps) => {
   );
 };
 
-export default RefreshControl;
+export default MyRefreshControl;
