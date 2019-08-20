@@ -162,8 +162,8 @@ export const useFirstExists = (...args) => {
 // Return true if the object's props are all the same
 export const isEquivalentObject = (a, b) => {
   // Create arrays of property names
-  var aProps = Object.getOwnPropertyNames(a);
-  var bProps = Object.getOwnPropertyNames(b);
+  const aProps = Object.getOwnPropertyNames(a);
+  const bProps = Object.getOwnPropertyNames(b);
 
   // If number of properties is different,
   // objects are not equivalent
@@ -171,8 +171,8 @@ export const isEquivalentObject = (a, b) => {
     return false;
   }
 
-  for (var i = 0; i < aProps.length; i++) {
-    var propName = aProps[i];
+  for (let i = 0; i < aProps.length; i++) {
+    const propName = aProps[i];
 
     // If values of same property are not equal,
     // objects are not equivalent

@@ -19,13 +19,13 @@ const IconButton = ({
   type,
   style = {},
   onPress,
-  pressProps,
+  pressProps = [],
   ...rest
 }: IconButtonProps) => {
   const handlePress = () => {
     if (onPress) {
       // Call the onPress with all of the pressProps passed in or just undefined if it doesn't exist
-      onPress.apply(null, pressProps);
+      onPress(...pressProps);
     }
   };
   return (

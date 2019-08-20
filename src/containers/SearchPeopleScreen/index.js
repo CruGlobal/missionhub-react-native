@@ -16,6 +16,7 @@ import { SEARCH_FILTER_SCREEN } from '../SearchPeopleFilterScreen';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
 import { findAllNonPlaceHolders } from '../../utils/common';
+import { LOG } from '../../utils/logging';
 
 import styles from './styles';
 
