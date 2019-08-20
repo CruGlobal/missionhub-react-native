@@ -123,7 +123,7 @@
     "appcenter-cli": "^2.1.1",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.9.0",
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.1.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
