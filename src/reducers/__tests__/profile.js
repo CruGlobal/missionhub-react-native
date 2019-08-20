@@ -29,6 +29,28 @@ it('saves first and last name after logging in with ticket', () => {
   testNameSaved(REQUESTS.TICKET_LOGIN.SUCCESS);
 });
 
+it('saves my person', () => {
+  const person_id = 1;
+  const first_name = 'Buddy';
+  const last_name = 'Smith';
+
+  const state = profile(undefined, {
+    type: REQUESTS.CREATE_MY_PERSON.SUCCESS,
+    results: {
+      person_id,
+      first_name,
+      last_name,
+    },
+  });
+
+  expect(state).toEqual({
+    id: person_id,
+    firstName: first_name,
+    lastName: last_name,
+    community: {},
+  });
+});
+
 it('stashes the community for later', () => {
   const state = profile(
     {},

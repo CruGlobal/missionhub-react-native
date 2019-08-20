@@ -3,7 +3,7 @@ import { StyleProp, TextStyle } from 'react-native';
 import moment, * as MomentTypes from 'moment';
 import { useTranslation } from 'react-i18next';
 
-import { isString, momentUtc } from '../../utils/common';
+import { momentUtc } from '../../utils/common';
 import Text from '../Text';
 
 export const DateConstants = {
@@ -24,8 +24,7 @@ export const DateConstants = {
 
 function getMomentDate(date: string | Date) {
   // This ts-ignore can be removed once the utils/common file is converted to typescript
-  // @ts-ignore:
-  if (isString(date) && date.indexOf('UTC') >= 0) {
+  if (typeof date === 'string' && date.indexOf('UTC') >= 0) {
     return momentUtc(date).local();
   }
   return moment(date);

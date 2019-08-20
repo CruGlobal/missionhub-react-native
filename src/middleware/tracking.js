@@ -20,20 +20,19 @@ import {
 } from '../constants';
 import { buildTrackingObj } from '../utils/common';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
-import { SELECT_MY_STAGE_SCREEN } from '../containers/SelectMyStageScreen';
-import { SELECT_PERSON_STAGE_SCREEN } from '../containers/SelectPersonStageScreen';
 import {
   CRU_TABS,
   GROUP_SCREEN,
   USER_CREATED_GROUP_SCREEN,
   GLOBAL_GROUP_SCREEN,
 } from '../containers/Groups/GroupScreen';
+import { SELECT_STAGE_SCREEN } from '../containers/SelectStageScreen';
 
 export default function tracking({ dispatch, getState }) {
   return next => action => {
     let newState;
     const returnValue = next(action);
-    const { nav: navState, tabs: tabsState } = getState();
+    const { auth: authState, nav: navState, tabs: tabsState } = getState();
 
     switch (action.type) {
       case DrawerActions.OPEN_DRAWER:
@@ -58,13 +57,11 @@ export default function tracking({ dispatch, getState }) {
           break;
         }
 
-        if (topRoute.routeName === SELECT_PERSON_STAGE_SCREEN) {
-          newState = tabsState.activePersonStageTab;
-          break;
-        }
-
-        if (topRoute.routeName === SELECT_MY_STAGE_SCREEN) {
-          newState = tabsState.activeSelfStageTab;
+        if (topRoute.routeName === SELECT_STAGE_SCREEN) {
+          const isMe = topRoute.params.personId === authState.person.id;
+          newState = isMe
+            ? tabsState.activeSelfStageTab
+            : tabsState.activePersonStageTab;
           break;
         }
 

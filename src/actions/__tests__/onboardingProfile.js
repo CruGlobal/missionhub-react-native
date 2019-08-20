@@ -29,6 +29,7 @@ import {
   STASH_COMMUNITY_TO_JOIN,
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
+  LOAD_PERSON_DETAILS,
 } from '../../constants';
 import * as common from '../../utils/common';
 import callApi from '../api';
@@ -89,25 +90,49 @@ describe('lastNameChanged', () => {
 
 describe('createMyPerson', () => {
   it('should send the correct API request', async () => {
-    callApi.mockReturnValue({ person_id: '123456' });
+    const person_id = '123456';
+    const first_name = 'Roger';
+    const last_name = 'Goers';
+
+    callApi.mockReturnValue({ person_id, first_name, last_name });
+
     await createMyPerson('Roger', 'Goers')(dispatch);
+
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.CREATE_MY_PERSON,
       {},
       {
         code: expect.any(String),
-        first_name: 'Roger',
-        last_name: 'Goers',
+        first_name,
+        last_name,
       },
     );
-    expect(dispatch).toHaveBeenCalled();
-    expect(rollbar.setPerson).toHaveBeenCalledWith('123456');
+    expect(rollbar.setPerson).toHaveBeenCalledWith(person_id);
+    expect(dispatch).toHaveBeenCalledWith({
+      type: LOAD_PERSON_DETAILS,
+      person: {
+        type: 'person',
+        id: person_id,
+        first_name,
+        last_name,
+      },
+    });
   });
 });
 
 describe('createPerson', () => {
-  it('should send the correct API request', () => {
-    createPerson('Roger', 'Goers', '1')(dispatch);
+  it('should send the correct API request', async () => {
+    const myId = '1';
+    const person_id = '123456';
+    const first_name = 'Roger';
+    const last_name = 'Goers';
+
+    const person = { person_id, first_name, last_name };
+
+    callApi.mockReturnValue({ type: 'callApi', response: person });
+
+    await createPerson(first_name, last_name, myId)(dispatch);
+
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.ADD_NEW_PERSON,
       {},
@@ -115,21 +140,24 @@ describe('createPerson', () => {
         data: {
           type: 'person',
           attributes: {
-            first_name: 'Roger',
-            last_name: 'Goers',
+            first_name,
+            last_name,
           },
         },
         included: [
           {
             type: 'contact_assignment',
             attributes: {
-              assigned_to_id: '1',
+              assigned_to_id: myId,
             },
           },
         ],
       },
     );
-    expect(dispatch).toHaveBeenCalled();
+    expect(dispatch).toHaveBeenCalledWith({
+      type: LOAD_PERSON_DETAILS,
+      person,
+    });
   });
 });
 

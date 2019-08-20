@@ -7,20 +7,18 @@ import PropTypes from 'prop-types';
 import { Text, Flex } from '../components/common';
 import BottomButton from '../components/BottomButton';
 import Input from '../components/Input/index';
-import { navigatePush, navigateBack } from '../actions/navigation';
+import { navigateBack } from '../actions/navigation';
 import {
   personFirstNameChanged,
   personLastNameChanged,
   createPerson,
   updateOnboardingPerson,
-  skipOnboarding,
 } from '../actions/onboardingProfile';
 import { disableBack } from '../utils/common';
 import { trackActionWithoutData } from '../actions/analytics';
 import { ACTIONS } from '../constants';
 import AbsoluteSkip from '../components/AbsoluteSkip';
 
-import { SELECT_PERSON_STAGE_SCREEN } from './SelectPersonStageScreen';
 import styles from './SetupScreen/styles';
 import { BackButton } from './BackButton';
 
@@ -38,19 +36,9 @@ class SetupPersonScreen extends Component {
 
   navigate = (skip = false) => {
     const { dispatch, next } = this.props;
+    const { personId } = this.state;
 
-    if (next) {
-      return dispatch(next({ skip }));
-    }
-
-    dispatch(
-      skip
-        ? skipOnboarding()
-        : navigatePush(SELECT_PERSON_STAGE_SCREEN, {
-            section: 'onboarding',
-            subsection: 'add person',
-          }),
-    );
+    dispatch(next({ skip, personId }));
   };
 
   saveAndGoToGetStarted = async () => {

@@ -9,6 +9,7 @@ import { getOrganizationContacts } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import SearchList from '../../components/SearchList';
 import PersonListItem from '../../components/PersonListItem';
+import { organizationSelector } from '../../selectors/organizations';
 import { searchRemoveFilter, unassignedFilter } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
 
@@ -132,4 +133,8 @@ Contacts.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-export default connect()(Contacts);
+const mapStateToProps = ({ organizations }, { orgId }) => ({
+  organization: organizationSelector({ organizations }, { orgId }),
+});
+
+export default connect(mapStateToProps)(Contacts);

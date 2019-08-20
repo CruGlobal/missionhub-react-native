@@ -11,6 +11,7 @@ import {
   UPDATE_ONBOARDING_PERSON,
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
+  LOAD_PERSON_DETAILS,
 } from '../constants';
 import { rollbar } from '../utils/rollbar.config';
 import { buildTrackingObj } from '../utils/common';
@@ -60,7 +61,19 @@ export function createMyPerson(firstName, lastName) {
 
   return async dispatch => {
     const me = await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
+
     rollbar.setPerson(me.person_id);
+
+    dispatch({
+      type: LOAD_PERSON_DETAILS,
+      person: {
+        type: 'person',
+        id: me.person_id,
+        first_name: me.first_name,
+        last_name: me.last_name,
+      },
+    });
+
     return me;
   };
 }
@@ -98,8 +111,15 @@ export function createPerson(firstName, lastName, myId) {
     ],
   };
 
-  return dispatch => {
-    return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, {}, data));
+  return async dispatch => {
+    const results = await dispatch(callApi(REQUESTS.ADD_NEW_PERSON, {}, data));
+
+    dispatch({
+      type: LOAD_PERSON_DETAILS,
+      person: results.response,
+    });
+
+    return results;
   };
 }
 

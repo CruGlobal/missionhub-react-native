@@ -19,7 +19,8 @@ interface GetStartedScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: () => ThunkAction<void, any, null, never>;
+  next: (props: { id: string | null }) => ThunkAction<void, any, null, never>;
+  id: string | null;
   name: string;
 }
 
@@ -27,7 +28,12 @@ interface GetStartedNavParams {
   enableBackButton: boolean;
 }
 
-const GetStartedScreen = ({ dispatch, next, name }: GetStartedScreenProps) => {
+const GetStartedScreen = ({
+  dispatch,
+  next,
+  id,
+  name = '',
+}: GetStartedScreenProps) => {
   const { enableBackButton = true } = useNavigationState()
     .params as GetStartedNavParams;
   const enableBack = useDisableBack(enableBackButton);
@@ -42,7 +48,7 @@ const GetStartedScreen = ({ dispatch, next, name }: GetStartedScreenProps) => {
   const navigateNext = () => {
     enableBack();
 
-    dispatch(next());
+    dispatch(next({ id }));
   };
 
   return (
@@ -50,7 +56,7 @@ const GetStartedScreen = ({ dispatch, next, name }: GetStartedScreenProps) => {
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex align="start" justify="center" value={4}>
           <Text header={true} style={styles.headerTitle}>
-            {t('hi', { name })}
+            {t('hi', { name: name.toLowerCase() })}
           </Text>
           <Text style={styles.text}>{t('tagline')}</Text>
         </Flex>
@@ -63,7 +69,8 @@ const GetStartedScreen = ({ dispatch, next, name }: GetStartedScreenProps) => {
 };
 
 const mapStateToProps = ({ profile }: { profile: ProfileState }) => ({
-  name: (profile.firstName || '').toLowerCase(),
+  id: profile.id,
+  name: profile.firstName,
 });
 
 export default connect(mapStateToProps)(GetStartedScreen);
