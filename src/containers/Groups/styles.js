@@ -3,6 +3,10 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
+  tabContainer: {
+    flex: 1,
+    backgroundColor: theme.extraLightGrey,
+  },
   pageContainer: {
     flex: 1,
     backgroundColor: theme.white,
@@ -17,7 +21,8 @@ export default StyleSheet.create({
   },
   cardList: {
     flex: 1,
-    backgroundColor: theme.extraLightGrey,
+    marginVertical: 8,
+    backgroundColor: theme.transparent,
   },
   cardSectionHeader: {
     marginVertical: 8,

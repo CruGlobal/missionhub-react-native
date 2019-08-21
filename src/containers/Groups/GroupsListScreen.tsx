@@ -22,9 +22,9 @@ import { openMainMenu, keyExtractorId } from '../../utils/common';
 import NullMemberImage from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import { checkForUnreadComments } from '../../actions/unreadComments';
-import { getMyCommunities, navigateToOrg } from '../../actions/organizations';
+import { navigateToOrg } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
-import { ACTIONS, GROUPS_TAB } from '../../constants';
+import { ACTIONS, GROUPS_TAB, GLOBAL_COMMUNITY_ID } from '../../constants';
 import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
@@ -32,7 +32,7 @@ import {
 import TrackTabChange from '../TrackTabChange';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
-import { OrganizationsState, Organization } from '../../reducers/organizations';
+import { Organization } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
@@ -54,14 +54,11 @@ export const COMMUNITIES_QUERY = gql`
 
 const GroupsListScreen = ({
   dispatch,
-  orgs,
   isFirstTime,
   scrollToId,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  orgs: any[];
   isFirstTime?: boolean;
   scrollToId?: string | number | null;
 }) => {
@@ -69,20 +66,23 @@ const GroupsListScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
 
-  const loadGroups = () => dispatch(getMyCommunities());
+  const globalCommunity = {
+    id: GLOBAL_COMMUNITY_ID,
+    name: t('groupsList:globalCommunity'),
+    community: true,
+    user_created: true,
+  };
 
-  const { data: { communities = {} } = {}, error, loading } = useQuery<
+  const { data: { communities: { nodes = [] } = {} } = {} } = useQuery<
     CommunitiesList
   >(COMMUNITIES_QUERY);
-  console.log(error);
-  console.log(communities);
+  const communities = [globalCommunity, ...nodes];
 
   useEffect(() => {
-    async function loadGroupsAndScrollToId() {
+    function loadGroupsAndScrollToId() {
       // Always load groups when this tab mounts
-      await loadGroups();
       if (scrollToId) {
-        const index = orgs.findIndex(o => o.id === scrollToId);
+        const index = communities.findIndex(o => o.id === scrollToId);
         if (index >= 0 && flatList.current) {
           try {
             flatList.current.scrollToIndex({
@@ -98,11 +98,10 @@ const GroupsListScreen = ({
     }
 
     loadGroupsAndScrollToId();
-  }, []);
+  }, [communities, scrollToId, flatList]);
 
   const { isRefreshing, refresh } = useRefreshing(async () => {
     dispatch(checkForUnreadComments());
-    await loadGroups();
   });
 
   const handlePress = (organization: Organization) => {
@@ -130,7 +129,7 @@ const GroupsListScreen = ({
   );
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.tabContainer}>
       <TrackTabChange screen={GROUPS_TAB} />
       <Header
         left={
@@ -144,8 +143,8 @@ const GroupsListScreen = ({
         title={t('header').toUpperCase()}
         shadow={false}
       />
-      <Flex direction="row">
-        <Flex value={1}>
+      <View style={{ flexDirection: 'row' }}>
+        <View style={{ flex: 1 }}>
           <Button
             type="transparent"
             style={[styles.blockBtn, styles.blockBtnBorderRight]}
@@ -153,8 +152,8 @@ const GroupsListScreen = ({
             text={t('joinCommunity').toUpperCase()}
             onPress={join}
           />
-        </Flex>
-        <Flex value={1}>
+        </View>
+        <View style={{ flex: 1 }}>
           <Button
             type="transparent"
             style={styles.blockBtn}
@@ -162,20 +161,20 @@ const GroupsListScreen = ({
             text={t('createCommunity').toUpperCase()}
             onPress={create}
           />
-        </Flex>
-      </Flex>
+        </View>
+      </View>
       <ScrollView
-        style={styles.scrollView}
+        style={{ flex: 1 }}
         refreshControl={
           <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
         }
       >
-        {orgs.length > 0 ? (
+        {communities.length > 0 ? (
           <FlatList
             testID="FlatList"
             ref={flatList}
             style={styles.cardList}
-            data={orgs}
+            data={communities}
             keyExtractor={keyExtractorId}
             renderItem={renderItem}
           />
@@ -192,15 +191,12 @@ const GroupsListScreen = ({
 };
 
 const mapStateToProps = ({
-  organizations,
   auth,
   swipe,
 }: {
-  organizations: OrganizationsState;
   auth: AuthState;
   swipe: SwipeState;
 }) => ({
-  orgs: communitiesSelector({ organizations, auth }),
   isFirstTime: auth.isFirstTime,
   scrollToId: swipe.groupScrollToId,
 });
