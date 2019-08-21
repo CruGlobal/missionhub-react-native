@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import { useQuery, useMutation } from 'react-apollo-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
 import { communitiesSelector } from '../../selectors/organizations';
@@ -37,16 +37,18 @@ import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
+import { CommunitiesList } from './__generated__/CommunitiesList';
 
 export const COMMUNITIES_QUERY = gql`
-  query communities(
-    ministryActivitiesOnly: true
-    sortBy: name_ASC
-  ) {
-    id
-    name
-    unreadCommentsCount
-    userCreated
+  query CommunitiesList {
+    communities(ministryActivitiesOnly: true, sortBy: name_ASC) {
+      nodes {
+        id
+        name
+        unreadCommentsCount
+        userCreated
+      }
+    }
   }
 `;
 
@@ -69,9 +71,9 @@ const GroupsListScreen = ({
 
   const loadGroups = () => dispatch(getMyCommunities());
 
-  const { data: { communities = {} } = {}, error, loading } = useQuery(
-    COMMUNITIES_QUERY,
-  );
+  const { data: { communities = {} } = {}, error, loading } = useQuery<
+    CommunitiesList
+  >(COMMUNITIES_QUERY);
   console.log(error);
   console.log(communities);
 
