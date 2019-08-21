@@ -270,6 +270,251 @@ exports[`CelebrateItemContent message renders event with no subject person name 
 </View>
 `;
 
+exports[`CelebrateItemContent message renders interaction event discipleship 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    John S. had a Discipleship Conversation.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders interaction event gospel 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    John S. had a Gospel Presentation.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders interaction event holy spirit 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    John S. had a Holy Spirit Presentation.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders interaction event not found 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    John S. had a .
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders interaction event personal decision 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    John S. saw someone make a Personal Decision.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders interaction event something cool 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    John S. saw something cool happen with someone.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders interaction event spiritual 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    John S. had a Spiritual Conversation.
+  </Text>
+</View>
+`;
+
 exports[`CelebrateItemContent message renders joined community event 1`] = `
 <View
   style={
@@ -340,7 +585,7 @@ exports[`CelebrateItemContent message renders joined community with passed in or
 </View>
 `;
 
-exports[`CelebrateItemContent message renders other interaction event 1`] = `
+exports[`CelebrateItemContent message renders step of faith event with stage 1 1`] = `
 <View
   style={
     Array [
@@ -370,12 +615,12 @@ exports[`CelebrateItemContent message renders other interaction event 1`] = `
       ]
     }
   >
-    John S. had a Spiritual Conversation.
+    John S. completed a Step of Faith with a Uninterested person.
   </Text>
 </View>
 `;
 
-exports[`CelebrateItemContent message renders personal decision interaction event 1`] = `
+exports[`CelebrateItemContent message renders step of faith event with stage 2 1`] = `
 <View
   style={
     Array [
@@ -405,82 +650,12 @@ exports[`CelebrateItemContent message renders personal decision interaction even
       ]
     }
   >
-    John S. saw someone make a Personal Decision.
+    John S. completed a Step of Faith with a Curious person.
   </Text>
 </View>
 `;
 
-exports[`CelebrateItemContent message renders something cool happened event 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-        "maxHeight": 70,
-      },
-      Object {},
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    John S. saw something cool happen with someone.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent message renders step of faith event with Not Sure stage 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-        "maxHeight": 70,
-      },
-      Object {},
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    John S. completed a Step of Faith.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent message renders step of faith event with stage 1`] = `
+exports[`CelebrateItemContent message renders step of faith event with stage 3 1`] = `
 <View
   style={
     Array [
@@ -511,6 +686,111 @@ exports[`CelebrateItemContent message renders step of faith event with stage 1`]
     }
   >
     John S. completed a Step of Faith with a Forgiven person.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders step of faith event with stage 4 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    John S. completed a Step of Faith with a Growing person.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders step of faith event with stage 5 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    John S. completed a Step of Faith with a Guiding person.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent message renders step of faith event with stage Not Sure 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    John S. completed a Step of Faith.
   </Text>
 </View>
 `;

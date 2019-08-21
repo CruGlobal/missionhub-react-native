@@ -18,7 +18,7 @@ it('renders correctly', () => {
 });
 
 it('renders not checked correctly', () => {
-  renderWithContext(<RadioButton {...props} />, {
+  renderWithContext(<RadioButton {...props} checked={false} />, {
     noWrappers: true,
   }).snapshot();
 });

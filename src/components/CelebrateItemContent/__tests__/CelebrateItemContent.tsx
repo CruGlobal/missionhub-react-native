@@ -130,20 +130,21 @@ describe('CelebrateItemContent', () => {
       });
     });
 
-    it('renders step of faith event with stage', () => {
-      testEvent({
-        ...messageBaseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
-        adjective_attribute_value: '3',
-      });
-    });
+    describe('renders step of faith event with stage', () => {
+      const testEventStage = (stageNum: string) =>
+        testEvent({
+          ...messageBaseEvent,
+          celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
+          adjective_attribute_value: stageNum,
+        });
 
-    it('renders step of faith event with Not Sure stage', () => {
-      testEvent({
-        ...messageBaseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
-        adjective_attribute_value: '6',
-      });
+      it('1', () => testEventStage('1'));
+      it('2', () => testEventStage('2'));
+      it('3', () => testEventStage('3'));
+      it('4', () => testEventStage('4'));
+      it('5', () => testEventStage('5'));
+
+      it('Not Sure', () => testEventStage('6'));
     });
 
     it('renders step of faith event without stage', () => {
@@ -153,31 +154,39 @@ describe('CelebrateItemContent', () => {
       });
     });
 
-    it('renders personal decision interaction event', () => {
-      testEvent({
-        ...messageBaseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.completedInteraction,
-        adjective_attribute_value:
+    describe('renders interaction event', () => {
+      const testEventInteraction = (interaction: string) =>
+        testEvent({
+          ...messageBaseEvent,
+          celebrateable_type: CELEBRATEABLE_TYPES.completedInteraction,
+          adjective_attribute_value: interaction,
+        });
+
+      it('personal decision', () =>
+        testEventInteraction(
           INTERACTION_TYPES.MHInteractionTypePersonalDecision.id,
-      });
-    });
-
-    it('renders something cool happened event', () => {
-      testEvent({
-        ...messageBaseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.completedInteraction,
-        adjective_attribute_value:
+        ));
+      it('something cool', () =>
+        testEventInteraction(
           INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
-      });
-    });
-
-    it('renders other interaction event', () => {
-      testEvent({
-        ...messageBaseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.completedInteraction,
-        adjective_attribute_value:
+        ));
+      it('spiritual', () =>
+        testEventInteraction(
           INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
-      });
+        ));
+      it('gospel', () =>
+        testEventInteraction(
+          INTERACTION_TYPES.MHInteractionTypeGospelPresentation.id,
+        ));
+      it('holy spirit', () =>
+        testEventInteraction(
+          INTERACTION_TYPES.MHInteractionTypeHolySpiritConversation.id,
+        ));
+      it('discipleship', () =>
+        testEventInteraction(
+          INTERACTION_TYPES.MHInteractionTypeDiscipleshipConversation.id,
+        ));
+      it('not found', () => testEventInteraction('not found'));
     });
 
     it('renders accepted challenge event', () => {
