@@ -18,7 +18,6 @@ export interface CelebrateItemProps {
   organization?: object;
   namePressable?: boolean;
   fixedHeight?: boolean;
-  rightCorner?: React.ReactNode;
   onClearNotification?: (event: Event) => void;
   onPressItem?: (event: Event) => void;
   cardStyle?: StyleProp<ViewStyle>;
@@ -30,7 +29,6 @@ const CelebrateItem = ({
   namePressable,
   fixedHeight,
   onClearNotification,
-  rightCorner,
   onPressItem,
   cardStyle,
 }: CelebrateItemProps) => {
@@ -59,7 +57,6 @@ const CelebrateItem = ({
               />
               <CardTime date={changed_attribute_value} />
             </View>
-            {rightCorner}
           </View>
           <CelebrateItemContent
             event={event}

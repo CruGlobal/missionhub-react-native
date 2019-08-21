@@ -44,9 +44,6 @@ describe('CelebrateItem', () => {
 
   it('renders event with name pressable', () =>
     testEvent(baseEvent, { namePressable: true }));
-
-  it('renders event with right corner', () =>
-    testEvent(baseEvent, { rightCorner: <View /> }));
 });
 
 describe('press card', () => {

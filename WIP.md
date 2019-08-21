@@ -51,8 +51,6 @@ Components to convert to TS+Hooks
 
 #### Finished
 
-(Need to do tests)
-
 - CelebrateItem
 - CelebrateItemContent
 - RadioButton

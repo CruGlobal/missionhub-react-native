@@ -9,7 +9,7 @@ interface RadioButtonProps {
   onSelect: Function;
   checked: boolean;
   label: string;
-  size: number;
+  size?: number;
   style?: StyleProp<ViewStyle>;
   labelTextStyle?: StyleProp<TextStyle>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
