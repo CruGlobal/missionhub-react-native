@@ -6,12 +6,11 @@ import * as reactNavigation from 'react-navigation';
 import { CREATE_STEP } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
 import { AddPersonFlowScreens } from '../addPersonFlow';
-import { paramsForStageNavigation } from '../../utils';
 import { buildTrackingObj } from '../../../utils/common';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { createCustomStep } from '../../../actions/steps';
 import { ADD_CONTACT_SCREEN } from '../../../containers/AddContactScreen';
-import { SELECT_PERSON_STAGE_SCREEN } from '../../../containers/SelectPersonStageScreen';
+import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
@@ -24,14 +23,10 @@ const myId = '111';
 const contactId = '222';
 const contactName = 'Other';
 const orgId = '123';
-const contactAssignmentId = '22';
 
 const stage = { id: '1234' };
 const contact = {
   id: contactId,
-};
-const reverseContactAssignment = {
-  id: contactAssignmentId,
 };
 const stepText = 'Step';
 const step = { id: '567', title: stepText };
@@ -54,6 +49,17 @@ const store = configureStore([thunk])({
     id: contactId,
     personFirstName: contactName,
   },
+  people: {
+    allByOrg: {
+      [orgId]: {
+        [contactId]: {
+          id: contactId,
+          first_name: contactName,
+        },
+      },
+    },
+  },
+  stages: { stages: [] },
 });
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
@@ -87,10 +93,6 @@ beforeEach(() => {
   navigatePush.mockReturnValue(navigatePushResponse);
   navigateBack.mockReturnValue(navigateBackResponse);
   createCustomStep.mockReturnValue(createCustomStepResponse);
-  paramsForStageNavigation.mockReturnValue({
-    assignment: reverseContactAssignment,
-    firstName: contactName,
-  });
   reactNavigation.StackActions.popToTop = jest
     .fn()
     .mockReturnValue(popToTopResponse);
@@ -115,16 +117,9 @@ describe('AddStepScreen next', () => {
     });
 
     it('should fire required next actions', () => {
-      expect(paramsForStageNavigation).toHaveBeenCalledWith(
-        contactId,
-        orgId,
-        store.getState,
-      );
-      expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
         enableBackButton: false,
-        firstName: contactName,
-        contactId,
-        contactAssignmentId,
+        personId: contactId,
         section: 'people',
         subsection: 'person',
         orgId,
@@ -139,7 +134,6 @@ describe('AddStepScreen next', () => {
     });
 
     it('should fire required next actions', () => {
-      expect(paramsForStageNavigation).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
       expect(navigateBack).toHaveBeenCalledWith();
       expect(store.getActions()).toEqual([navigateBackResponse]);
@@ -150,9 +144,9 @@ describe('AddStepScreen next', () => {
 describe('PersonStageScreen next', () => {
   beforeEach(async () => {
     await buildAndCallNext(
-      SELECT_PERSON_STAGE_SCREEN,
+      SELECT_STAGE_SCREEN,
       {},
-      { stage, firstName: contactName, contactId, orgId },
+      { stage, firstName: contactName, personId: contactId, orgId },
     );
   });
 
@@ -168,7 +162,6 @@ describe('PersonStageScreen next', () => {
       contactName,
       contactId,
       organization: { id: orgId },
-      enableBackButton: false,
       enableSkipButton: true,
     });
     expect(store.getActions()).toEqual([navigatePushResponse]);
@@ -178,9 +171,9 @@ describe('PersonStageScreen next', () => {
 describe('PersonStageScreen next', () => {
   beforeEach(async () => {
     await buildAndCallNext(
-      SELECT_PERSON_STAGE_SCREEN,
+      SELECT_STAGE_SCREEN,
       {},
-      { stage, firstName: contactName, contactId, orgId },
+      { stage, firstName: contactName, personId: contactId, orgId },
     );
   });
 
@@ -196,7 +189,6 @@ describe('PersonStageScreen next', () => {
       contactName,
       contactId,
       organization: { id: orgId },
-      enableBackButton: false,
       enableSkipButton: true,
     });
     expect(store.getActions()).toEqual([navigatePushResponse]);

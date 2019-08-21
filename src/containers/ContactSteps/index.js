@@ -82,7 +82,6 @@ class ContactSteps extends Component {
       dispatch(
         navigatePush(ADD_MY_STEP_FLOW, {
           ...trackingParams,
-          enableBackButton: true,
           organization,
         }),
       );

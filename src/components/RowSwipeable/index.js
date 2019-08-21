@@ -146,7 +146,7 @@ class RowSwipeable extends Component {
     const { deletePressProps, onDelete } = this.props;
     if (onDelete) {
       // Call the onDelete with all of the deletePressProps passed in or just undefined if they don't exist
-      onDelete.apply(null, deletePressProps);
+      onDelete(...deletePressProps);
     }
   };
 
@@ -154,7 +154,7 @@ class RowSwipeable extends Component {
     const { completePressProps, onComplete } = this.props;
     if (onComplete) {
       // Call the onComplete with all of the completePressProps passed in or just undefined if they don't exist
-      onComplete.apply(null, completePressProps);
+      onComplete(...completePressProps);
     }
   };
 
@@ -162,7 +162,7 @@ class RowSwipeable extends Component {
     const { editPressProps, onEdit } = this.props;
     if (onEdit) {
       // Call the onEdit with all of the editPressProps passed in or just undefined if they don't exist
-      onEdit.apply(null, editPressProps);
+      onEdit(...editPressProps);
     }
   };
 

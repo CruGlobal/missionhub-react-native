@@ -6,7 +6,7 @@ export const organizationSelector = createSelector(
   ({ organizations }) => organizations.all,
   (_, { orgId }) => orgId,
   (organizations, orgId) =>
-    (organizations || []).find(org => org.id === orgId) || {},
+    (organizations || []).find(org => org.id === orgId) || { id: orgId },
 );
 
 export const allOrganizationsSelector = createSelector(

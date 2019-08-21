@@ -11,8 +11,7 @@ import { paramsForStageNavigation } from '../../utils';
 import { navigatePush } from '../../../actions/navigation';
 import { reloadJourney } from '../../../actions/journey';
 import { COMPLETE_STEP_SCREEN } from '../../../containers/AddStepScreen';
-import { SELECT_MY_STAGE_SCREEN } from '../../../containers/SelectMyStageScreen';
-import { SELECT_PERSON_STAGE_SCREEN } from '../../../containers/SelectPersonStageScreen';
+import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { updateChallengeNote } from '../../../actions/steps';
 import { trackAction } from '../../../actions/analytics';
@@ -25,16 +24,9 @@ jest.mock('../../../actions/analytics');
 
 const myId = '111';
 const otherId = '222';
-const myName = 'Me';
-const otherName = 'Other';
 const stepId = '11';
 const orgId = '123';
-const contactAssignmentId = '22';
 const questionText = 'Text';
-
-const reverseContactAssignment = {
-  id: contactAssignmentId,
-};
 
 let onFlowComplete = undefined;
 
@@ -89,14 +81,11 @@ describe('AddStepScreen next', () => {
   describe('isMe, stage is not "Not Sure", has not completed 3 steps', () => {
     beforeEach(() => {
       paramsForStageNavigation.mockReturnValue({
-        isMe: true,
         hasHitCount: false,
         isNotSure: false,
         subsection: 'self',
         firstItemIndex: 0,
         questionText,
-        assignment: null,
-        firstName: myName,
       });
     });
 
@@ -123,14 +112,11 @@ describe('AddStepScreen next', () => {
   describe('isMe, stage is "Not Sure"', () => {
     beforeEach(() => {
       paramsForStageNavigation.mockReturnValue({
-        isMe: true,
         hasHitCount: false,
         isNotSure: true,
         subsection: 'self',
         firstItemIndex: 1,
         questionText,
-        assignment: null,
-        firstName: myName,
       });
     });
 
@@ -146,16 +132,14 @@ describe('AddStepScreen next', () => {
         orgId,
         store.getState,
       );
-      expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
         section: 'people',
         subsection: 'self',
-        firstItem: 1,
+        selectedStageId: 1,
         enableBackButton: false,
         questionText,
         orgId,
-        contactId: myId,
-        contactAssignmentId: null,
-        firstName: myName,
+        personId: myId,
       });
       expect(store.getActions()).toEqual([
         { type: RESET_STEP_COUNT, userId: myId },
@@ -167,14 +151,11 @@ describe('AddStepScreen next', () => {
   describe('isMe, has completed 3 steps', () => {
     beforeEach(() => {
       paramsForStageNavigation.mockReturnValue({
-        isMe: true,
         hasHitCount: true,
         isNotSure: false,
         subsection: 'self',
         firstItemIndex: 0,
         questionText,
-        assignment: null,
-        firstName: myName,
       });
     });
 
@@ -185,16 +166,14 @@ describe('AddStepScreen next', () => {
         { personId: myId, orgId },
       );
 
-      expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
         section: 'people',
         subsection: 'self',
-        firstItem: 0,
+        selectedStageId: 0,
         enableBackButton: false,
         questionText,
         orgId,
-        contactId: myId,
-        contactAssignmentId: null,
-        firstName: myName,
+        personId: myId,
       });
       expect(store.getActions()).toEqual([navigatePushResponse]);
     });
@@ -203,14 +182,11 @@ describe('AddStepScreen next', () => {
   describe('not isMe, stage is not "Not Sure", has not completed 3 steps', () => {
     beforeEach(() => {
       paramsForStageNavigation.mockReturnValue({
-        isMe: false,
         hasHitCount: false,
         isNotSure: false,
         subsection: 'person',
         firstItemIndex: 0,
         questionText,
-        assignment: reverseContactAssignment,
-        firstName: otherName,
       });
     });
 
@@ -232,14 +208,11 @@ describe('AddStepScreen next', () => {
   describe('not isMe, stage is "Not Sure"', () => {
     beforeEach(() => {
       paramsForStageNavigation.mockReturnValue({
-        isMe: false,
         hasHitCount: false,
         isNotSure: true,
         subsection: 'person',
         firstItemIndex: 1,
         questionText,
-        assignment: reverseContactAssignment,
-        firstName: otherName,
       });
     });
 
@@ -250,16 +223,14 @@ describe('AddStepScreen next', () => {
         { personId: otherId, orgId },
       );
 
-      expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
         section: 'people',
         subsection: 'person',
-        firstItem: 1,
+        selectedStageId: 1,
         enableBackButton: false,
         questionText,
         orgId,
-        contactId: otherId,
-        contactAssignmentId,
-        firstName: otherName,
+        personId: otherId,
       });
       expect(store.getActions()).toEqual([
         { type: RESET_STEP_COUNT, userId: otherId },
@@ -271,14 +242,11 @@ describe('AddStepScreen next', () => {
   describe('not isMe, has completed 3 steps', () => {
     beforeEach(() => {
       paramsForStageNavigation.mockReturnValue({
-        isMe: false,
         hasHitCount: true,
         isNotSure: false,
         subsection: 'person',
         firstItemIndex: 0,
         questionText,
-        assignment: reverseContactAssignment,
-        firstName: otherName,
       });
     });
 
@@ -289,16 +257,14 @@ describe('AddStepScreen next', () => {
         { personId: otherId, orgId },
       );
 
-      expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
         section: 'people',
         subsection: 'person',
-        firstItem: 0,
+        selectedStageId: 0,
         enableBackButton: false,
         questionText,
         orgId,
-        contactId: otherId,
-        contactAssignmentId,
-        firstName: otherName,
+        personId: otherId,
       });
       expect(store.getActions()).toEqual([navigatePushResponse]);
     });
@@ -309,14 +275,11 @@ describe('AddStepScreen next', () => {
 
     beforeEach(() => {
       paramsForStageNavigation.mockReturnValue({
-        isMe: false,
         hasHitCount: true,
         isNotSure: false,
         subsection: 'person',
         firstItemIndex: 0,
         questionText,
-        assignment: reverseContactAssignment,
-        firstName: otherName,
       });
     });
 

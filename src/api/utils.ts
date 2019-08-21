@@ -3,6 +3,8 @@
 import qs from 'qs';
 import Config from 'react-native-config';
 
+import { APILOG } from '../utils/logging';
+
 const API_VERSION = 'v4';
 
 export const BASE_URL = Config.API_BASE_URL;
@@ -105,11 +107,10 @@ export default async function request(
   query: {},
   data: {} | undefined,
   extra: RequestInit,
-  stringify: boolean = true,
+  stringify = true,
 ) {
   const newUrl = createUrl(url, query);
   const newObject = defaultObject(type, extra, data, stringify);
-  // @ts-ignore
   APILOG('REQUEST', newObject.method, newUrl, newObject);
 
   const response = await fetch(newUrl, newObject);

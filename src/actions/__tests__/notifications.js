@@ -32,7 +32,9 @@ import {
   navigateReset,
   navigateToMainTabs,
 } from '../navigation';
-import { navigateToOrg } from '../organizations';
+import { refreshCommunity, navigateToOrg } from '../organizations';
+import { reloadGroupCelebrateFeed } from '../celebration';
+import { reloadGroupChallengeFeed } from '../challenges';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
@@ -40,6 +42,8 @@ import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
 
 jest.mock('../person');
 jest.mock('../organizations');
+jest.mock('../celebration');
+jest.mock('../challenges');
 jest.mock('../navigation');
 jest.mock('../api');
 jest.mock('react-native-push-notification');
@@ -508,6 +512,9 @@ describe('askNotificationPermissions', () => {
     const finish = jest.fn();
     const getPersonResult = { type: LOAD_PERSON_DETAILS, person };
     const navToPersonScreenResult = { type: 'navigated to person screen' };
+    const refreshCommunityResult = { type: 'refresh community' };
+    const reloadGroupCelebrateFeedResult = { type: 'reload celebrate feed' };
+    const reloadGroupChallengeFeedResult = { type: 'reload challenge feed' };
     const navToOrgResult = { type: 'navigated to org' };
 
     beforeEach(() => {
@@ -515,6 +522,9 @@ describe('askNotificationPermissions', () => {
       store.clearActions();
       getPersonDetails.mockReturnValue(getPersonResult);
       navToPersonScreen.mockReturnValue(navToPersonScreenResult);
+      refreshCommunity.mockReturnValue(refreshCommunityResult);
+      reloadGroupCelebrateFeed.mockReturnValue(reloadGroupCelebrateFeedResult);
+      reloadGroupChallengeFeed.mockReturnValue(reloadGroupChallengeFeedResult);
       navigateToOrg.mockReturnValue(navToOrgResult);
     });
 
@@ -658,6 +668,8 @@ describe('askNotificationPermissions', () => {
           organization_id: organization.id,
         });
 
+        expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
+        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToOrg).toHaveBeenCalledWith(organization.id);
       });
     });
@@ -669,6 +681,8 @@ describe('askNotificationPermissions', () => {
           organization_id: organization.id,
         });
 
+        expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
+        expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToOrg).toHaveBeenCalledWith(
           organization.id,
           GROUP_CHALLENGES,

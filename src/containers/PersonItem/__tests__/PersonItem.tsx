@@ -202,9 +202,7 @@ describe('handleChangeStage', () => {
     fireEvent.press(getByTestId('setStageButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
-      firstName: mockPerson.first_name,
-      contactId: mockPerson.id,
-      contactAssignmentId: mockContactAssignment.id,
+      personId: mockPerson.id,
       section: 'people',
       subsection: 'person',
       orgId: mockOrganization.id,

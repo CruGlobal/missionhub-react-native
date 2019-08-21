@@ -14,11 +14,11 @@ function getArgs(a, stringify = false) {
   return args;
 }
 
-global.LOG = function() {
+export const LOG = (...originalArgs) => {
   if (__DEV__) {
-    const args = getArgs(arguments);
+    const args = getArgs(originalArgs);
     if (ENABLE_LOGS) {
-      console.log.apply(console, args);
+      console.log(...args);
     }
 
     if (console.tron) {
@@ -31,11 +31,11 @@ global.LOG = function() {
   }
 };
 
-global.WARN = function() {
+export const WARN = (...originalArgs) => {
   if (__DEV__) {
-    const args = getArgs(arguments, true);
+    const args = getArgs(originalArgs, true);
     if (ENABLE_WARN) {
-      console.warn.apply(console, args);
+      console.warn(...args);
     }
 
     if (console.tron) {
@@ -48,9 +48,9 @@ global.WARN = function() {
   }
 };
 
-global.APILOG = function() {
+export const APILOG = (...originalArgs) => {
   if (__DEV__) {
-    const args = getArgs(arguments);
+    const args = getArgs(originalArgs);
 
     if (console.tron) {
       console.tron.display({

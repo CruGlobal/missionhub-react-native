@@ -17,7 +17,7 @@ import { getReportedComments } from '../../actions/reportComments';
 import theme from '../../theme';
 
 @withTranslation('groupsCelebrate')
-export class GroupCelebrate extends Component {
+class GroupCelebrate extends Component {
   state = { refreshing: false };
 
   componentDidMount() {
@@ -73,19 +73,15 @@ export class GroupCelebrate extends Component {
   }
 }
 
-export const mapStateToProps = ({ organizations }, { organization = {} }) => {
-  const selectorOrg =
-    organizationSelector({ organizations }, { orgId: organization.id }) ||
-    organization;
-
-  const celebrateItems = celebrationSelector({
-    celebrateItems: selectorOrg.celebrateItems || [],
-  });
+const mapStateToProps = ({ organizations }, { orgId }) => {
+  const organization = organizationSelector({ organizations }, { orgId });
 
   return {
-    organization: selectorOrg,
-    celebrateItems,
-    pagination: selectorOrg && selectorOrg.celebratePagination,
+    organization,
+    celebrateItems: celebrationSelector({
+      celebrateItems: organization.celebrateItems || [],
+    }),
+    pagination: organization.celebratePagination || {},
   };
 };
 

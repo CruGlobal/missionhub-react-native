@@ -60,7 +60,7 @@ Array [
 ]
 `;
 
-exports[`GroupScreen should render header correctly 1`] = `
+exports[`GroupScreen should render header correctly for cru community 1`] = `
 <Header
   left={
     <IconButton
@@ -99,7 +99,7 @@ exports[`GroupScreen should render header correctly for global community 1`] = `
 />
 `;
 
-exports[`GroupScreen should render header correctly for user_created org 1`] = `
+exports[`GroupScreen should render header correctly for user_created community 1`] = `
 <Header
   left={
     <IconButton

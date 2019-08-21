@@ -13,12 +13,11 @@ import { buildTrackingObj } from '../../../utils/common';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
-import { SELECT_MY_STAGE_SCREEN } from '../../../containers/SelectMyStageScreen';
+import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
 import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupPersonScreen';
-import { SELECT_PERSON_STAGE_SCREEN } from '../../../containers/SelectPersonStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
@@ -51,6 +50,14 @@ const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
   profile: { firstName: myFirstName, lastName: myLastName },
   personProfile: { firstName: personFirstName, lastName: personLastName },
+  people: {
+    allByOrg: {
+      personal: {
+        people: { [personId]: { id: personId, first_name: personFirstName } },
+      },
+    },
+  },
+  stages: { stges: [] },
 });
 
 const testFlow = onboardingFlowGenerator({});
@@ -109,41 +116,77 @@ describe('GetStartedScreen next', () => {
         store,
       )
         .instance()
-        .props.next(),
+        .props.next({ id: myId }),
     );
 
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
       section: 'onboarding',
       subsection: 'self',
+      enableBackButton: false,
+      personId: myId,
     });
   });
 });
 
-describe('StageScreen next', () => {
-  it('should fire required next actions', async () => {
-    const Component = testFlow[SELECT_MY_STAGE_SCREEN].screen;
+describe('SelectStageScreen next', () => {
+  describe('person is me', () => {
+    it('should fire required next actions', async () => {
+      const Component = testFlow[SELECT_STAGE_SCREEN].screen;
 
-    await store.dispatch(
-      renderShallow(
-        <Component
-          navigation={{
-            state: {
-              params: {
-                section: 'onboarding',
-                subsection: 'self',
-                enableBackButton: false,
+      await store.dispatch(
+        renderShallow(
+          <Component
+            navigation={{
+              state: {
+                params: {
+                  section: 'onboarding',
+                  subsection: 'self',
+                  enableBackButton: false,
+                },
               },
-            },
-          }}
-        />,
-        store,
-      )
-        .instance()
-        .props.next({ stage }),
-    );
+            }}
+          />,
+          store,
+        )
+          .instance()
+          .props.next({ stage, isMe: true }),
+      );
 
-    expect(navigatePush).toHaveBeenCalledWith(STAGE_SUCCESS_SCREEN, {
-      selectedStage: stage,
+      expect(navigatePush).toHaveBeenCalledWith(STAGE_SUCCESS_SCREEN, {
+        selectedStage: stage,
+      });
+    });
+  });
+
+  describe('person is other', () => {
+    it('should fire required next actions', async () => {
+      const Component = testFlow[SELECT_STAGE_SCREEN].screen;
+
+      await store.dispatch(
+        renderShallow(
+          <Component
+            navigation={{
+              state: {
+                params: { section: 'onboarding', subsection: 'add person' },
+              },
+            }}
+          />,
+          store,
+        )
+          .instance()
+          .props.next({
+            stage: stage,
+            personId,
+            firstName: personFirstName,
+            isMe: false,
+          }),
+      );
+
+      expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+        contactStage: stage,
+        contactName: personFirstName,
+        contactId: personId,
+      });
     });
   });
 });
@@ -165,7 +208,6 @@ describe('StageSuccessScreen next', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
       contactStage: stage,
-      enableBackButton: false,
     });
   });
 });
@@ -279,11 +321,12 @@ describe('SetupPersonScreen next', () => {
   });
 
   it('should fire required next actions without skip', async () => {
-    await store.dispatch(next({ skip: false }));
+    await store.dispatch(next({ skip: false, personId }));
 
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
       section: 'onboarding',
       subsection: 'add person',
+      personId,
     });
   });
 
@@ -291,37 +334,6 @@ describe('SetupPersonScreen next', () => {
     await store.dispatch(next({ skip: true }));
 
     expect(skipOnboarding).toHaveBeenCalledWith();
-  });
-});
-
-describe('PersonStageScreen next', () => {
-  it('should fire required next actions', async () => {
-    const Component = testFlow[SELECT_PERSON_STAGE_SCREEN].screen;
-
-    await store.dispatch(
-      renderShallow(
-        <Component
-          navigation={{
-            state: {
-              params: { section: 'onboarding', subsection: 'add person' },
-            },
-          }}
-        />,
-        store,
-      )
-        .instance()
-        .props.next({
-          stage: stage,
-          contactId: personId,
-          firstName: personFirstName,
-        }),
-    );
-
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
-      contactStage: stage,
-      contactName: personFirstName,
-      contactId: personId,
-    });
   });
 });
 

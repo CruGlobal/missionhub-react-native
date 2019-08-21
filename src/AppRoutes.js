@@ -42,9 +42,9 @@ import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, {
   GET_STARTED_SCREEN,
 } from './containers/GetStartedScreen';
-import SelectMyStageScreen, {
-  SELECT_MY_STAGE_SCREEN,
-} from './containers/SelectMyStageScreen';
+import SelectStageScreen, {
+  SELECT_STAGE_SCREEN,
+} from './containers/SelectStageScreen';
 import StageSuccessScreen, {
   STAGE_SUCCESS_SCREEN,
 } from './containers/StageSuccessScreen';
@@ -60,9 +60,6 @@ import NotificationPrimerScreen, {
 import SetupPersonScreen, {
   SETUP_PERSON_SCREEN,
 } from './containers/SetupPersonScreen';
-import SelectPersonStageScreen, {
-  SELECT_PERSON_STAGE_SCREEN,
-} from './containers/SelectPersonStageScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from './containers/CelebrationScreen';
@@ -573,12 +570,8 @@ export const MainStackRoutes = createStackNavigator(
     [ADD_STEP_SCREEN]: { screen: AddStepScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },
     [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
-    [SELECT_PERSON_STAGE_SCREEN]: {
-      screen: SelectPersonStageScreen,
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [SELECT_MY_STAGE_SCREEN]: {
-      screen: SelectMyStageScreen,
+    [SELECT_STAGE_SCREEN]: {
+      screen: SelectStageScreen,
       defaultNavigationOptions: { gesturesEnabled: true },
     },
     [SEARCH_REFINE_SCREEN]: {

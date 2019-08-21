@@ -17,8 +17,9 @@ exports[`should render correctly 1`] = `
               "accepted_count": 5,
               "completed_count": 3,
               "creator_id": "person1",
-              "end_date": "2018-09-06T14:13:21Z",
+              "end_date": "2018-10-06T14:13:21Z",
               "id": "1",
+              "isPast": false,
               "organization_id": "123",
               "title": "Read \\"There and Back Again\\"",
             },
@@ -31,13 +32,14 @@ exports[`should render correctly 1`] = `
               "accepted_count": 5,
               "completed_count": 3,
               "creator_id": "person1",
-              "end_date": "2018-09-06T14:13:21Z",
+              "end_date": "2018-07-06T14:13:21Z",
               "id": "2",
+              "isPast": true,
               "organization_id": "123",
               "title": "Past Challenge",
             },
           ],
-          "title": "Past Challenge",
+          "title": "Past Challenges",
         },
       ]
     }
@@ -49,7 +51,7 @@ exports[`should render correctly 1`] = `
             "accepted_count": 5,
             "completed_count": 3,
             "creator_id": "person1",
-            "end_date": "2018-09-06T14:13:21Z",
+            "end_date": "2018-10-06T14:13:21Z",
             "id": "1",
             "organization_id": "123",
             "title": "Read \\"There and Back Again\\"",
@@ -58,7 +60,7 @@ exports[`should render correctly 1`] = `
             "accepted_count": 5,
             "completed_count": 3,
             "creator_id": "person1",
-            "end_date": "2018-09-06T14:13:21Z",
+            "end_date": "2018-07-06T14:13:21Z",
             "id": "2",
             "organization_id": "123",
             "title": "Past Challenge",
@@ -96,35 +98,12 @@ exports[`should render empty correctly 1`] = `
           "data": Array [],
           "title": "",
         },
-        Object {
-          "data": Array [],
-          "title": "Past Challenge",
-        },
       ]
     }
     loadMoreItemsCallback={[Function]}
     organization={
       Object {
-        "challengeItems": Array [
-          Object {
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person1",
-            "end_date": "2018-09-06T14:13:21Z",
-            "id": "1",
-            "organization_id": "123",
-            "title": "Read \\"There and Back Again\\"",
-          },
-          Object {
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person1",
-            "end_date": "2018-09-06T14:13:21Z",
-            "id": "2",
-            "organization_id": "123",
-            "title": "Past Challenge",
-          },
-        ],
+        "challengeItems": Array [],
         "challengePagination": Object {
           "hasNextPage": true,
           "page": 1,

@@ -7,7 +7,7 @@ import { SelectMyStageFlowScreens } from '../selectMyStageFlow';
 import { updatePersonAttributes } from '../../../actions/person';
 import { loadStepsAndJourney } from '../../../actions/misc';
 import { navigatePush } from '../../../actions/navigation';
-import { SELECT_MY_STAGE_SCREEN } from '../../../containers/SelectMyStageScreen';
+import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 
@@ -21,10 +21,16 @@ const orgId = '123';
 const questionText = 'Text';
 
 const stage = { id: 1 };
+const mePerson = {
+  id: myId,
+  first_name: myName,
+  user: { pathway_stage_id: 0 },
+};
 
 const store = configureStore([thunk])({
-  auth: { person: { id: myId, user: { pathway_stage_id: 0 } } },
-  profile: { id: '2', firstName: myName },
+  auth: { person: mePerson },
+  people: { allByOrg: { personal: { people: { [myId]: mePerson } } } },
+  stages: { stages: [stage] },
 });
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
@@ -57,21 +63,21 @@ beforeEach(() => {
   navigatePush.mockReturnValue(navigatePushResponse);
 });
 
-describe('StageScreen next', () => {
+describe('SelectStageScreen next', () => {
   describe('isAlreadySelected', () => {
     beforeEach(async () => {
       await buildAndCallNext(
-        SELECT_MY_STAGE_SCREEN,
+        SELECT_STAGE_SCREEN,
         {
           section: 'people',
           subsection: 'self',
-          firstItem: 0,
+          selectedStageId: 0,
           enableBackButton: false,
           questionText,
           orgId,
-          contactId: myId,
+          personId: myId,
         },
-        { stage, contactId: myId, orgId, isAlreadySelected: true },
+        { stage, personId: myId, orgId, isAlreadySelected: true },
       );
     });
 
@@ -104,17 +110,17 @@ describe('StageScreen next', () => {
   describe('not isAlreadySelected', () => {
     beforeEach(async () => {
       await buildAndCallNext(
-        SELECT_MY_STAGE_SCREEN,
+        SELECT_STAGE_SCREEN,
         {
           section: 'people',
           subsection: 'self',
-          firstItem: 0,
+          selectedStageId: 0,
           enableBackButton: false,
           questionText,
           orgId,
-          contactId: myId,
+          personId: myId,
         },
-        { stage, contactId: myId, orgId, isAlreadySelected: false },
+        { stage, personId: myId, orgId, isAlreadySelected: false },
       );
     });
 
@@ -130,7 +136,6 @@ describe('StageScreen next', () => {
 
     it('should navigate to SelectMyStepScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
-        enableBackButton: true,
         contactStage: stage,
         organization: { id: orgId },
       });
