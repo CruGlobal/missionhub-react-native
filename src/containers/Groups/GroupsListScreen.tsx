@@ -7,15 +7,9 @@ import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
-import { communitiesSelector } from '../../selectors/organizations';
 import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
-import {
-  IconButton,
-  RefreshControl,
-  Button,
-  Flex,
-} from '../../components/common';
+import { IconButton, RefreshControl, Button } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
@@ -68,12 +62,12 @@ const GroupsListScreen = ({
 
   const globalCommunity = {
     id: GLOBAL_COMMUNITY_ID,
-    name: t('groupsList:globalCommunity'),
+    name: t('globalCommunity'),
     community: true,
     user_created: true,
   };
 
-  const { data: { communities: { nodes = [] } = {} } = {} } = useQuery<
+  const { data: { communities: { nodes = [] } = {} } = {}, refetch } = useQuery<
     CommunitiesList
   >(COMMUNITIES_QUERY);
   const communities = [globalCommunity, ...nodes];
@@ -100,9 +94,7 @@ const GroupsListScreen = ({
     loadGroupsAndScrollToId();
   }, [communities, scrollToId, flatList]);
 
-  const { isRefreshing, refresh } = useRefreshing(async () => {
-    dispatch(checkForUnreadComments());
-  });
+  const { isRefreshing, refresh } = useRefreshing(refetch);
 
   const handlePress = (organization: Organization) => {
     dispatch(navigateToOrg(organization.id));

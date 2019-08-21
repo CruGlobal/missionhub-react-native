@@ -24,9 +24,10 @@ export default class GroupCardItem extends Component {
 
   renderInfo() {
     const { t, group, onJoin } = this.props;
-    const owner = group.owner;
+    const { owner, contactReport, userCreated } = group;
+
     const { contactsCount = 0, unassignedCount = 0, memberCount = 0 } =
-      group.contactReport || {};
+      contactReport || {};
 
     if (onJoin) {
       return (
@@ -38,13 +39,13 @@ export default class GroupCardItem extends Component {
                   owner.last_name,
                 ),
               })
-            : group.user_created
+            : userCreated
             ? t('privateGroup')
             : ''}
         </Text>
       );
     }
-    if (group.user_created) {
+    if (userCreated) {
       return (
         <Text style={styles.groupNumber}>
           {t('numMembers', { count: memberCount })}
@@ -62,11 +63,13 @@ export default class GroupCardItem extends Component {
 
   getSource() {
     const { group } = this.props;
-    if (group.community_photo_url) {
-      return { uri: group.community_photo_url };
+    const { community_photo_url, userCreated } = this.props;
+
+    if (community_photo_url) {
+      return { uri: community_photo_url };
     } else if (orgIsGlobal(group)) {
       return GLOBAL_COMMUNITY_IMAGE;
-    } else if (group.user_created) {
+    } else if (userCreated) {
       return undefined;
     } else {
       return DEFAULT_MISSIONHUB_IMAGE;
@@ -75,10 +78,11 @@ export default class GroupCardItem extends Component {
 
   render() {
     const { t, group, onPress, onJoin } = this.props;
+    const { unreadCommentsCount, userCreated, name } = group;
     const source = this.getSource();
 
     const isGlobal = orgIsGlobal(group);
-    const hasNotification = !isGlobal && group.unread_comments_count !== 0;
+    const hasNotification = !isGlobal && unreadCommentsCount !== 0;
 
     //not passing a value for onPress to Card makes the card unclickable.
     //In some cases we want to prevent clicking on GroupCardItem.
@@ -91,9 +95,7 @@ export default class GroupCardItem extends Component {
           value={1}
           style={[
             styles.content,
-            group.user_created && !isGlobal
-              ? styles.userCreatedContent
-              : undefined,
+            userCreated && !isGlobal ? styles.userCreatedContent : undefined,
           ]}
         >
           {source ? (
@@ -101,7 +103,7 @@ export default class GroupCardItem extends Component {
           ) : null}
           <Flex justify="center" direction="row" style={styles.infoWrap}>
             <Flex value={1}>
-              <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
+              <Text style={styles.groupName}>{name.toUpperCase()}</Text>
               {this.renderInfo()}
             </Flex>
             {onJoin ? (
@@ -138,7 +140,7 @@ GroupCardItem.propTypes = {
     name: PropTypes.string.isRequired,
     owner: PropTypes.object,
     contactReport: PropTypes.object,
-    user_created: PropTypes.bool,
+    userCreated: PropTypes.bool,
   }).isRequired,
   onPress: PropTypes.func,
   onJoin: PropTypes.func,
