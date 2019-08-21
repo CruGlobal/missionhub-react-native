@@ -102,7 +102,7 @@ exports[`CelebrateItem renders event with card style 1`] = `
             }
             testID="Text"
           >
-            7:00 PM
+            12:00 PM
           </Text>
         </View>
       </View>
@@ -333,7 +333,7 @@ exports[`CelebrateItem renders event with fixed height 1`] = `
             }
             testID="Text"
           >
-            7:00 PM
+            12:00 PM
           </Text>
         </View>
       </View>
@@ -597,7 +597,7 @@ exports[`CelebrateItem renders event with name pressable 1`] = `
             }
             testID="Text"
           >
-            7:00 PM
+            12:00 PM
           </Text>
         </View>
       </View>
@@ -828,7 +828,7 @@ exports[`clear notification button renders clear notification button 1`] = `
             }
             testID="Text"
           >
-            7:00 PM
+            12:00 PM
           </Text>
         </View>
       </View>

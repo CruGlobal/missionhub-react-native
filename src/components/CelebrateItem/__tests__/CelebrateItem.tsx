@@ -1,6 +1,6 @@
 import React from 'react';
-import { View } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
+import MockDate from 'mockdate';
 
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { renderWithContext } from '../../../../testUtils';
@@ -12,6 +12,9 @@ jest.mock('../../../actions/navigation');
 
 const myId = '123';
 
+const date = '2019-08-21T12:00:00.000';
+MockDate.set('2019-08-21 12:00:00', 300);
+
 const trackActionResult = { type: 'tracked plain action' };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -19,7 +22,7 @@ type Event = any;
 
 const baseEvent = {
   subject_person_name: 'John Smith',
-  changed_attribute_value: '2004-04-04 00:00:00 UTC',
+  changed_attribute_value: date,
 };
 
 const initialState = { auth: { person: { id: myId } } };
