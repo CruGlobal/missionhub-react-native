@@ -3,3 +3,5 @@
 exports[`renders correctly 1`] = `<RCTRefreshControl />`;
 
 exports[`renders correctly overriding default props 1`] = `<RCTRefreshControl />`;
+
+exports[`renders correctly refreshing false 1`] = `<RCTRefreshControl />`;

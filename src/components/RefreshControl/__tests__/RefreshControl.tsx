@@ -11,6 +11,12 @@ it('renders correctly', () => {
   }).snapshot();
 });
 
+it('renders correctly refreshing false', () => {
+  renderWithContext(<RefreshControl {...props} refreshing={false} />, {
+    noWrappers: true,
+  }).snapshot();
+});
+
 it('renders correctly overriding default props', () => {
   renderWithContext(
     <RefreshControl

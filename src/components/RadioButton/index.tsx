@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, StyleProp, ViewStyle, TextStyle } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
-import { Touchable, Flex, Text } from '../common';
+import { Touchable, Text } from '../common';
 
 import styles from './styles';
 
@@ -26,7 +27,7 @@ const RadioButton = ({
 }: RadioButtonProps) => {
   return (
     <Touchable pressProps={pressProps} onPress={onSelect}>
-      <Flex direction="row" align="center" style={style}>
+      <View style={[styles.wrap, style]}>
         <View
           style={[
             styles.outside,
@@ -39,8 +40,7 @@ const RadioButton = ({
           ]}
         >
           {checked ? (
-            <Flex
-              value={1}
+            <Animatable.View
               duration={700}
               animation="bounceIn"
               style={styles.inside}
@@ -48,7 +48,7 @@ const RadioButton = ({
           ) : null}
         </View>
         <Text style={[styles.label, labelTextStyle]}>{label}</Text>
-      </Flex>
+      </View>
     </Touchable>
   );
 };
