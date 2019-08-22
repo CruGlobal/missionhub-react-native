@@ -15,7 +15,6 @@ import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
 import NullMemberImage from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
-import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigateToOrg } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GROUPS_TAB, GLOBAL_COMMUNITY_ID } from '../../constants';
@@ -71,6 +70,10 @@ const GroupsListScreen = ({
     CommunitiesList
   >(COMMUNITIES_QUERY);
   const communities = [globalCommunity, ...nodes];
+
+  useEffect(() => {
+    refetch();
+  }, []);
 
   useEffect(() => {
     function loadGroupsAndScrollToId() {
