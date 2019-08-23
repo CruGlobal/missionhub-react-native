@@ -203,7 +203,7 @@ dependencies {
     // // This is for multidex support for Android versions <5.0
     implementation 'androidx.multidex:multidex:2.0.1'
 
-    implementation 'com.google.android.gms:play-services-base:17.0.0'
+    implementation 'com.google.android.gms:play-services-base:17.1.0'
     implementation 'com.google.firebase:firebase-core:17.1.0'
     implementation 'com.google.firebase:firebase-invites:17.0.0'
 
