@@ -42,16 +42,8 @@ exports[`renders android correctly 1`] = `
       onScroll={[Function]}
       refreshControl={
         <MyRefreshControl
-          colors={
-            Array [
-              "#ffffff",
-              "#52C5DC",
-            ]
-          }
           onRefresh={[Function]}
-          progressBackgroundColor="#007398"
           refreshing={false}
-          tintColor="#007398"
         />
       }
       scrollEventThrottle={16}
