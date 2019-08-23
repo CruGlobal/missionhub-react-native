@@ -3,11 +3,13 @@ import { useRef, useEffect } from 'react';
 
 export const useDisableBack = (enableBackButton = false) => {
   const disableBackPress = useRef(() => true);
-  const removeListener = () =>
-    BackHandler.removeEventListener(
-      'hardwareBackPress',
-      disableBackPress.current,
-    );
+  const removeListener = () => {
+    !enableBackButton &&
+      BackHandler.removeEventListener(
+        'hardwareBackPress',
+        disableBackPress.current,
+      );
+  };
 
   useEffect(() => {
     if (!enableBackButton) {
@@ -19,5 +21,5 @@ export const useDisableBack = (enableBackButton = false) => {
     }
   });
 
-  return enableBackButton ? () => {} : removeListener;
+  return removeListener;
 };
