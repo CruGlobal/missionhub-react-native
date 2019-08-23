@@ -3,11 +3,21 @@ import thunk from 'redux-thunk';
 import PushNotification from 'react-native-push-notification';
 
 import { REQUESTS } from '../../../api/routes';
-import { logout, navigateToPostAuthScreen } from '../auth';
+import {
+  logout,
+  navigateToPostAuthScreen,
+  handleInvalidAccessToken,
+} from '../auth';
+import { refreshAccessToken } from '../key';
+import { refreshAnonymousLogin } from '../anonymous';
+import { refreshMissionHubFacebookAccess } from '../facebook';
 import { deletePushToken } from '../../notifications';
 
 jest.mock('react-native-push-notification');
 jest.mock('../../notifications');
+jest.mock('../key');
+jest.mock('../anonymous');
+jest.mock('../facebook');
 
 const mockStore = configureStore([thunk]);
 
@@ -84,5 +94,84 @@ describe('navigateToPostAuthScreen', () => {
 
     store.dispatch(navigateToPostAuthScreen());
     expect(store.getActions()).toMatchSnapshot();
+  });
+});
+
+describe('handleInvalidAccessToken', () => {
+  it('should refresh key access token if user is logged in with TheKey with expired token', async () => {
+    await store.dispatch(handleInvalidAccessToken());
+
+    return test(
+      { refreshToken: 'refresh' },
+      getMeRequest,
+      expiredTokenError,
+      refreshAccessToken,
+      [],
+      { type: 'refreshed token' },
+      accessTokenQuery,
+      {},
+    );
+  });
+  it('should refresh key access token if user is logged in with TheKey with invalid token', () => {
+    return test(
+      { refreshToken: 'refresh' },
+      getMeRequest,
+      invalidTokenError,
+      refreshAccessToken,
+      [],
+      { type: 'refreshed token' },
+      accessTokenQuery,
+      {},
+    );
+  });
+
+  it('should refresh anonymous login if user is Try It Now with expired token', () => {
+    return test(
+      { isFirstTime: true },
+      getMeRequest,
+      expiredTokenError,
+      refreshAnonymousLogin,
+      [],
+      { type: 'refreshed anonymous token' },
+      accessTokenQuery,
+      {},
+    );
+  });
+  it('should refresh anonymous login if user is Try It Now with invalid token', () => {
+    return test(
+      { isFirstTime: true },
+      getMeRequest,
+      invalidTokenError,
+      refreshAnonymousLogin,
+      [],
+      { type: 'refreshed anonymous token' },
+      accessTokenQuery,
+      {},
+    );
+  });
+
+  it('should refresh facebook login if user is not logged in with TheKey or Try It Now with expired token', () => {
+    return test(
+      {},
+      getMeRequest,
+      expiredTokenError,
+      refreshMissionHubFacebookAccess,
+      [],
+      { type: 'refreshed fb login' },
+      accessTokenQuery,
+      {},
+    );
+  });
+  it('should refresh facebook login if user is not logged in with TheKey or Try It Now with invalid token', () => {
+    return test(
+      {},
+      getMeRequest,
+      invalidTokenError,
+      refreshMissionHubFacebookAccess,
+      [],
+      { type: 'refreshed fb login' },
+      accessTokenQuery,
+      {},
+    );
   });
 });
