@@ -10,11 +10,13 @@ import { authSuccess } from './userData';
 
 const FACEBOOK_SCOPE = ['public_profile', 'email'];
 
+const FACEBOOK_CANCELED_ERROR = 'Facebook login canceled by user';
+
 export function facebookPromptLogin() {
   return async () => {
     const result = await LoginManager.logInWithPermissions(FACEBOOK_SCOPE);
     if (result.isCancelled) {
-      throw Error('Facebook login canceled by user');
+      throw Error(FACEBOOK_CANCELED_ERROR);
     }
   };
 }
@@ -66,10 +68,17 @@ export function refreshMissionHubFacebookAccess() {
   return async dispatch => {
     try {
       await AccessToken.refreshCurrentAccessTokenAsync();
-    } catch (error) {
-      await dispatch(facebookPromptLogin());
-    } finally {
       await dispatch(facebookLoginWithAccessToken());
+    } catch (refreshError) {
+      try {
+        await dispatch(facebookPromptLogin());
+        await dispatch(facebookLoginWithAccessToken());
+      } catch (loginError) {
+        if (loginError.message === FACEBOOK_CANCELED_ERROR) {
+          LoginManager.logOut();
+          throw loginError;
+        }
+      }
     }
   };
 }
