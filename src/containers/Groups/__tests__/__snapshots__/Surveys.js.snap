@@ -75,16 +75,8 @@ exports[`Surveys should render correctly 1`] = `
     onEndReachedThreshold={2}
     refreshControl={
       <MyRefreshControl
-        colors={
-          Array [
-            "#ffffff",
-            "#52C5DC",
-          ]
-        }
         onRefresh={[Function]}
-        progressBackgroundColor="#007398"
         refreshing={false}
-        tintColor="#007398"
       />
     }
     removeClippedSubviews={false}
