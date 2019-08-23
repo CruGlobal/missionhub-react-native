@@ -31,7 +31,8 @@
     "codepush-android-staging": "appcenter codepush release-react -a Cru/MissionHub-Android",
     "onesky:upload": "babel-node ./bin/oneskyUpload.js",
     "onesky:download": "babel-node ./bin/oneskyDownload.js",
-    "precommit": "pretty-quick --staged"
+    "precommit": "pretty-quick --staged",
+    "postinstall": "jetify"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",
