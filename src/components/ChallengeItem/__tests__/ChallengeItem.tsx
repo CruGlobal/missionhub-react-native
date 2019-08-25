@@ -1,15 +1,16 @@
 import React from 'react';
 import MockDate from 'mockdate';
 import moment from 'moment';
+import { fireEvent } from 'react-native-testing-library';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 
 import ChallengeItem from '..';
 
 jest.mock('../../../actions/celebration');
 
 MockDate.set(
-  moment('2018-09-15')
+  moment('2019-08-25')
     .endOf('day')
     .utc()
     .toDate(),
@@ -17,7 +18,7 @@ MockDate.set(
 
 const organization = { id: '456' };
 const date = '2018-09-22';
-const acceptedChallenge = { id: 'a1' };
+const acceptedChallenge = { id: 'a1', title: 'Accepted' };
 const completedChallenge = { ...acceptedChallenge, completed_at: date };
 const item = {
   id: '1',
@@ -31,54 +32,41 @@ const item = {
   created_at: '2018-09-01T12:00:00Z',
 };
 const props = {
+  item,
   onComplete: jest.fn(),
   onJoin: jest.fn(),
   onSelect: jest.fn(),
 };
 
 it('render active challenge item', () => {
-  testSnapshotShallow(<ChallengeItem {...props} item={item} />);
-});
-
-it('render active challenge item with edit', () => {
-  testSnapshotShallow(
-    <ChallengeItem {...props} item={item} onEdit={jest.fn()} />,
-  );
+  renderWithContext(<ChallengeItem {...props} />, {
+    noWrappers: true,
+  }).snapshot();
 });
 
 it('render active and joined challenge item', () => {
-  testSnapshotShallow(
-    <ChallengeItem
-      {...props}
-      item={item}
-      acceptedChallenge={acceptedChallenge}
-    />,
-  );
+  renderWithContext(
+    <ChallengeItem {...props} acceptedChallenge={acceptedChallenge} />,
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('render active and joined challenge item with edit', () => {
-  testSnapshotShallow(
-    <ChallengeItem
-      {...props}
-      item={item}
-      acceptedChallenge={acceptedChallenge}
-      onEdit={jest.fn()}
-    />,
-  );
+  renderWithContext(
+    <ChallengeItem {...props} acceptedChallenge={acceptedChallenge} />,
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('render active and joined and completed challenge item', () => {
-  testSnapshotShallow(
-    <ChallengeItem
-      {...props}
-      item={item}
-      acceptedChallenge={completedChallenge}
-    />,
-  );
+  renderWithContext(
+    <ChallengeItem {...props} acceptedChallenge={completedChallenge} />,
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('render past challenge item', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <ChallengeItem
       {...props}
       item={{
@@ -86,64 +74,64 @@ it('render past challenge item', () => {
         isPast: true,
         end_date: moment('2018-09-10')
           .utc()
-          .endOf('day'),
+          .endOf('day')
+          .toDate()
+          .toString(),
       }}
     />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('render past and joined challenge item', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <ChallengeItem
       {...props}
       item={{ ...item, isPast: true }}
       acceptedChallenge={acceptedChallenge}
     />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('render past and joined and completed challenge item', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <ChallengeItem
       {...props}
       item={{ ...item, isPast: true }}
       acceptedChallenge={completedChallenge}
     />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('should call onComplete from press', () => {
-  const component = renderShallow(
-    <ChallengeItem
-      item={item}
-      {...props}
-      acceptedChallenge={acceptedChallenge}
-    />,
+  const { getByTestId } = renderWithContext(
+    <ChallengeItem {...props} acceptedChallenge={acceptedChallenge} />,
+    { noWrappers: true },
   );
 
-  component
-    .childAt(1)
-    .props()
-    .onPress();
+  fireEvent.press(getByTestId('ChallengeItemActionButton'));
+
   expect(props.onComplete).toHaveBeenCalledWith(item);
 });
 
 it('should call onJoin from press', () => {
-  const component = renderShallow(<ChallengeItem item={item} {...props} />);
+  const { getByTestId } = renderWithContext(<ChallengeItem {...props} />, {
+    noWrappers: true,
+  });
 
-  component
-    .childAt(1)
-    .props()
-    .onPress();
+  fireEvent.press(getByTestId('ChallengeItemActionButton'));
+
   expect(props.onJoin).toHaveBeenCalledWith(item);
 });
 
 it('should call onSelect from press', () => {
-  const component = renderShallow(<ChallengeItem item={item} {...props} />);
+  const { getByTestId } = renderWithContext(<ChallengeItem {...props} />, {
+    noWrappers: true,
+  });
 
-  component
-    .childAt(0)
-    .props()
-    .onPress();
+  fireEvent.press(getByTestId('ChallengeItemSelectButton'));
+
   expect(props.onSelect).toHaveBeenCalledWith(item);
 });

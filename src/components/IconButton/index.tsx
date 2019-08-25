@@ -1,5 +1,5 @@
 import React from 'react';
-import { ViewStyle, StyleProp } from 'react-native';
+import { StyleProp, TextStyle } from 'react-native';
 
 import { Button } from '../common';
 import Icon, { IconProps } from '../Icon';
@@ -9,11 +9,13 @@ import styles from './styles';
 interface IconButtonProps extends IconProps {
   name: string;
   type?: 'Material' | 'FontAwesome' | 'Ionicons' | 'MissionHub';
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<TextStyle>;
   pressProps?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   onPress?: Function;
   testID?: string;
+  disabled?: boolean;
 }
+
 const IconButton = ({
   name,
   type,

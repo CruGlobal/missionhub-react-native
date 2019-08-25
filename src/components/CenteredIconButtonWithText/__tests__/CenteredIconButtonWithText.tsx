@@ -1,27 +1,27 @@
 import React from 'react';
 
-import { testSnapshotShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 
 import CenteredIconButtonWithText from '..';
 
 it('renders correctly with non-null onClick', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <CenteredIconButtonWithText
       onClick={jest.fn()}
       icon="some icon"
       text="Hello, MissionHub"
-      wrapperStyle={{ name: 'extra wrapper style' }}
-      buttonStyle={{ name: 'extra button style' }}
+      wrapperStyle={{ padding: 10 }}
+      buttonStyle={{ padding: 10 }}
     />,
-  );
+  ).snapshot();
 });
 
 it('renders correctly with undefined onClick', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <CenteredIconButtonWithText
       onClick={undefined}
       icon="some icon"
       text="Hello, MissionHub"
     />,
-  );
+  ).snapshot();
 });

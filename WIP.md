@@ -1,10 +1,6 @@
 Components to convert to TS+Hooks
 
 - Button
-- CenteredIconButtonWithText
-- ChallengeDetailHeader
-- ChallengeItem
-- ChallengeStats
 - CommentBox
 - DatePicker
 - FilterItem
@@ -46,13 +42,17 @@ Components to convert to TS+Hooks
 
 #### Finished
 
-- CelebrateItem
-- CelebrateItemContent
-- RadioButton
-- RefreshControl
-- Separator
 - AcceptedStepItem
-- ReminderDateText
 - AssignStageButton
 - AssignToMeButton
 - CelebrateCommentBox
+- CelebrateItem
+- CelebrateItemContent
+- CenteredIconButtonWithText
+- ChallengeDetailHeader
+- RadioButton
+- RefreshControl
+- ReminderDateText
+- Separator
+- ChallengeItem
+- ChallengeStats
