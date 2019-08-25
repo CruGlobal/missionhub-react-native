@@ -1,6 +1,7 @@
 import React from 'react';
 import i18n from 'i18next';
-import moment from 'moment';
+import moment, * as MomentTypes from 'moment';
+import { StyleProp, TextStyle } from 'react-native';
 
 import { Text } from '../common';
 import { momentUtc } from '../../utils/common';
@@ -8,17 +9,23 @@ import { REMINDER_RECURRENCES } from '../../constants';
 
 import styles from './styles';
 
-function isTomorrow(momentDate) {
+export interface ReminderType {
+  id?: string;
+  next_occurrence_at: string;
+  reminder_type: string;
+}
+
+function isTomorrow(momentDate: MomentTypes.Moment) {
   return momentDate.isSame(moment().add(1, 'days'), 'day');
 }
-function isToday(momentDate) {
+function isToday(momentDate: MomentTypes.Moment) {
   return momentDate.isSame(moment(), 'day');
 }
-function inNextWeek(momentDate) {
+function inNextWeek(momentDate: MomentTypes.Moment) {
   return momentDate.isBetween(moment(), moment().add(7, 'days'), 'day', '[]');
 }
 
-function formatReminder({ reminder_type, next_occurrence_at }) {
+function formatReminder({ reminder_type, next_occurrence_at }: ReminderType) {
   const timeFormat = 'LT';
   const momentDate = momentUtc(next_occurrence_at).local();
   switch (reminder_type) {
@@ -49,12 +56,18 @@ function formatReminder({ reminder_type, next_occurrence_at }) {
   return momentDate.format(`dddd, MMM D @ ${timeFormat}`);
 }
 
-export default function ReminderDateText({ reminder, style, placeholder }) {
-  const { next_occurrence_at } = reminder || {};
-
+export default function ReminderDateText({
+  reminder,
+  style,
+  placeholder,
+}: {
+  reminder?: ReminderType;
+  style?: StyleProp<TextStyle>;
+  placeholder?: string;
+}) {
   return (
     <Text style={[styles.reminderText, style]}>
-      {next_occurrence_at
+      {reminder && reminder.next_occurrence_at
         ? formatReminder(reminder)
         : placeholder || i18n.t('stepReminder:setReminder')}
     </Text>

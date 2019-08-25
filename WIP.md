@@ -1,6 +1,5 @@
 Components to convert to TS+Hooks
 
-- AcceptedStepItem
 - AssignStageButton
 - AssignToMeButton
 - Button
@@ -30,7 +29,6 @@ Components to convert to TS+Hooks
 - PlatformKeyboardAvoidingView
 - PopupMenu
 - ReminderButton
-- ReminderDateText
 - ReminderRepeatButtons
 - ReportCommentHeaderCard
 - ReportCommentLabel
@@ -56,3 +54,5 @@ Components to convert to TS+Hooks
 - RadioButton
 - RefreshControl
 - Separator
+- AcceptedStepItem
+- ReminderDateText

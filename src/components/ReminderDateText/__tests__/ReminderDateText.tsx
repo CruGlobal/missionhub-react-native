@@ -2,8 +2,8 @@ import React from 'react';
 import MockDate from 'mockdate';
 import moment from 'moment';
 
-import { testSnapshotShallow } from '../../../../testUtils/index';
-import ReminderDateText from '../';
+import { renderWithContext } from '../../../../testUtils/index';
+import ReminderDateText, { ReminderType } from '../';
 import { REMINDER_RECURRENCES } from '../../../constants';
 import * as common from '../../../utils/common';
 
@@ -14,27 +14,28 @@ const reminder = {
   next_occurrence_at: mockDate,
 };
 MockDate.set(mockDate);
+
 // Need to mock out the `.local()` method from utc dates
-common.momentUtc = date => {
+(common.momentUtc as jest.Mock) = jest.fn(date => {
   const value = moment.utc(date, 'YYYY-MM-DD HH:mm:ss UTC');
   value.local = () => moment.utc(date, 'YYYY-MM-DD HH:mm:ss UTC');
   return value;
-};
+});
 
 it('renders with reminder correctly', () => {
-  testSnapshotShallow(<ReminderDateText reminder={reminder} />);
+  renderWithContext(<ReminderDateText reminder={reminder} />).snapshot();
 });
 
 it('renders with placeholder correctly', () => {
-  testSnapshotShallow(<ReminderDateText placeholder="text" />);
+  renderWithContext(<ReminderDateText placeholder="text" />).snapshot();
 });
 
 it('renders without reminder or placeholder correctly', () => {
-  testSnapshotShallow(<ReminderDateText />);
+  renderWithContext(<ReminderDateText />).snapshot();
 });
 
-const test = reminder => {
-  testSnapshotShallow(<ReminderDateText reminder={reminder} />);
+const test = (reminder: ReminderType) => {
+  renderWithContext(<ReminderDateText reminder={reminder} />);
 };
 it('renders daily', () => {
   test({

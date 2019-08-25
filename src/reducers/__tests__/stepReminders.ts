@@ -86,9 +86,7 @@ describe('REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS', () => {
 
     expect(
       stepReminders(
-        {
-          allByStep: { ...remindersObject, [challenge_id]: { id: '1111' } },
-        },
+        { allByStep: { ...remindersObject, [challenge_id]: { id: '1111' } } },
         {
           type: REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS,
           results: { response },
@@ -102,11 +100,7 @@ describe('REQUESTS.DELETE_CHALLENGE_REMINDER.SUCCESS', () => {
   it('removes reminder from state', () => {
     expect(
       stepReminders(
-        {
-          allByStep: {
-            [challenge_id]: reminder,
-          },
-        },
+        { allByStep: { [challenge_id]: reminder } },
         {
           type: REQUESTS.DELETE_CHALLENGE_REMINDER.SUCCESS,
           query: { challenge_id },

@@ -7,8 +7,14 @@ export default StyleSheet.create({
     marginVertical: 4,
     padding: 16,
     alignItems: 'center',
+    flexDirection: 'row',
+    flex: 1,
+  },
+  flex1: {
+    flex: 1,
   },
   reminderButton: {
+    flexDirection: 'row',
     justifyContent: 'flex-start',
     padding: 4,
   },

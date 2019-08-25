@@ -1,25 +1,28 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { fireEvent } from 'react-native-testing-library';
+import MockDate from 'mockdate';
 
-import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { completeStep } from '../../../actions/steps';
 import { navigatePush } from '../../../actions/navigation';
-import StepSuggestionItem from '../';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../../containers/AcceptedStepDetailScreen';
 import { CONTACT_STEPS } from '../../../constants';
 import { reminderSelector } from '../../../selectors/stepReminders';
 import { COMPLETED_STEP_DETAIL_SCREEN } from '../../../containers/CompletedStepDetailScreen';
 
+import AcceptedStepItem from '..';
+
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
 jest.mock('../../../selectors/stepReminders');
+MockDate.set('2019-08-24 12:00:00', 300);
 
 const stepId = '1';
 const reminderId = '11';
 const reminder = { id: reminderId };
 const step = {
   id: '1',
+  title: 'title',
   body: 'Step of Faith',
   reminder,
 };
@@ -29,31 +32,31 @@ const stepReminders = {
   },
 };
 
-const mockStore = configureStore([thunk]);
-
-let store;
+const initialState = { stepReminders };
 
 beforeEach(() => {
-  store = mockStore({
-    stepReminders,
-  });
-  reminderSelector.mockReturnValue(reminder);
+  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
+  (completeStep as jest.Mock).mockReturnValue({ type: 'complete step' });
 });
 
 describe('AcceptedStepItem', () => {
   it('renders accepted correctly', () => {
-    testSnapshotShallow(<StepSuggestionItem step={step} />, store);
+    renderWithContext(<AcceptedStepItem step={step} />, {
+      initialState,
+    }).snapshot();
   });
 
   it('renders completed correctly', () => {
-    testSnapshotShallow(
-      <StepSuggestionItem step={{ ...step, completed_at: '12/12/2012' }} />,
-      store,
-    );
+    renderWithContext(
+      <AcceptedStepItem step={{ ...step, completed_at: '12/12/2012' }} />,
+      { initialState },
+    ).snapshot();
   });
 
   it('selects reminder from Redux', () => {
-    renderShallow(<StepSuggestionItem step={step} />, store);
+    renderWithContext(<AcceptedStepItem step={step} />, {
+      initialState,
+    });
 
     expect(reminderSelector).toHaveBeenCalledWith(
       { stepReminders },
@@ -62,11 +65,12 @@ describe('AcceptedStepItem', () => {
   });
 
   it('navigates to AcceptedStepDetailScreen', () => {
-    navigatePush.mockReturnValue({ type: 'navigate push' });
+    const { getByTestId } = renderWithContext(
+      <AcceptedStepItem step={step} />,
+      { initialState },
+    );
 
-    const component = renderShallow(<StepSuggestionItem step={step} />, store);
-
-    component.props().onPress();
+    fireEvent.press(getByTestId('AcceptedCardButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
       step,
@@ -75,13 +79,12 @@ describe('AcceptedStepItem', () => {
 
   it('navigates to CompletedStepDetailScreen', () => {
     const completedStep = { ...step, completed_at: '2018' };
-    navigatePush.mockReturnValue({ type: 'navigate push' });
-
-    const component = renderShallow(
-      <StepSuggestionItem step={completedStep} />,
+    const { getByTestId } = renderWithContext(
+      <AcceptedStepItem step={completedStep} />,
+      { initialState },
     );
 
-    component.props().onPress();
+    fireEvent.press(getByTestId('CompletedCardButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(COMPLETED_STEP_DETAIL_SCREEN, {
       step: completedStep,
@@ -89,18 +92,13 @@ describe('AcceptedStepItem', () => {
   });
 
   it('calls completeStep', async () => {
-    completeStep.mockReturnValue({ type: 'complete step' });
     const onComplete = jest.fn();
-
-    const component = renderShallow(
-      <StepSuggestionItem step={step} onComplete={onComplete} />,
-      store,
+    const { getByTestId } = renderWithContext(
+      <AcceptedStepItem step={step} onComplete={onComplete} />,
+      { initialState },
     );
 
-    await component
-      .childAt(1)
-      .props()
-      .onPress();
+    await fireEvent.press(getByTestId('CompleteStepButton'));
 
     expect(completeStep).toHaveBeenCalledWith(step, CONTACT_STEPS);
     expect(onComplete).toHaveBeenCalled();
