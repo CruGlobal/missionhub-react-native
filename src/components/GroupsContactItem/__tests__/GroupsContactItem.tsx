@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { testSnapshotShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { INTERACTION_TYPES } from '../../../constants';
 
 import GroupsContactItem from '..';
@@ -17,6 +17,9 @@ const item = {
   receiver: { first_name: 'Contact' },
   assigned_to: { id: '10', first_name: 'Iron Man' },
   assigned_by: { id: '11', first_name: 'Captain America' },
+  person: { first_name: 'Item person' },
+  old_pathway_stage: { name: 'stage' },
+  new_pathway_stage: { name: 'stage' },
 };
 
 const person = {
@@ -26,11 +29,12 @@ const person = {
 const myId = '234234';
 
 it('renders survey item', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <GroupsContactItem
       person={person}
       myId={myId}
       item={{
+        ...item,
         id: '1',
         created_at,
         _type: 'answer_sheet',
@@ -42,7 +46,8 @@ it('renders survey item', () => {
         ],
       }}
     />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('renders contact assignment item', () => {
@@ -52,9 +57,10 @@ it('renders contact assignment item', () => {
     created_at,
   };
 
-  testSnapshotShallow(
+  renderWithContext(
     <GroupsContactItem person={person} item={newItem} myId={myId} />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('renders contact unassignment item', () => {
@@ -64,9 +70,10 @@ it('renders contact unassignment item', () => {
     created_at,
   };
 
-  testSnapshotShallow(
+  renderWithContext(
     <GroupsContactItem person={person} item={newItem} myId={myId} />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('renders contact unassignment item with note', () => {
@@ -77,13 +84,14 @@ it('renders contact unassignment item with note', () => {
     unassignment_reason: 'unassignment note',
   };
 
-  testSnapshotShallow(
+  renderWithContext(
     <GroupsContactItem person={person} item={newItem} myId={myId} />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
-function testInteraction(id) {
-  testSnapshotShallow(
+function testInteraction(id: string) {
+  renderWithContext(
     <GroupsContactItem
       person={person}
       item={{
@@ -92,7 +100,8 @@ function testInteraction(id) {
       }}
       myId={myId}
     />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 }
 
 describe('interaction items', () => {

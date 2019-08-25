@@ -1,7 +1,7 @@
 import 'react-native';
 import React from 'react';
 
-import { testSnapshot } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 
 import FilterItem from '..';
 
@@ -15,30 +15,34 @@ const onSelect = jest.fn();
 jest.mock('Switch');
 
 it('renders single item correctly', () => {
-  testSnapshot(
+  renderWithContext(
     <FilterItem item={mockItem} onSelect={onSelect} type="single" />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('renders drilldown item correctly', () => {
-  testSnapshot(
+  renderWithContext(
     <FilterItem item={mockItem} onSelect={onSelect} type="drilldown" />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('renders switch item correctly', () => {
-  testSnapshot(
+  renderWithContext(
     <FilterItem item={mockItem} onSelect={onSelect} type="switch" />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('renders selected switch item correctly', () => {
-  testSnapshot(
+  renderWithContext(
     <FilterItem
       item={mockItem}
       onSelect={onSelect}
       type="switch"
       isSelected={true}
     />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
