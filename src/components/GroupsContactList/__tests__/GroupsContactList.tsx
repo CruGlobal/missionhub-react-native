@@ -1,8 +1,12 @@
 import React from 'react';
+import MockDate from 'mockdate';
 
 import { renderWithContext } from '../../../../testUtils';
 
 import GroupsContactList from '..';
+
+const mockDate = '2019-08-25 12:00:00 PM GMT+0';
+MockDate.set(mockDate);
 
 const person = {
   id: '123',

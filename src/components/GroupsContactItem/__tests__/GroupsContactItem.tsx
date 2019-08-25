@@ -1,9 +1,13 @@
 import React from 'react';
+import MockDate from 'mockdate';
 
 import { renderWithContext } from '../../../../testUtils';
 import { INTERACTION_TYPES } from '../../../constants';
 
 import GroupsContactItem from '..';
+
+const mockDate = '2019-08-25 12:00:00 PM GMT+0';
+MockDate.set(mockDate);
 
 const created_at = '2018-05-29T17:02:02Z';
 const item = {
