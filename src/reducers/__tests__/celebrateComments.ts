@@ -116,6 +116,7 @@ describe('REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS', () => {
             comments: [existingComment, response],
           }),
         },
+        editingCommentId,
       },
     );
   });
@@ -146,6 +147,7 @@ describe('REQUESTS.DELETE_CELEBRATE_COMMENTS.SUCCESS', () => {
             comments: [existingComment2],
           }),
         },
+        editingCommentId,
       },
     );
   });
@@ -182,6 +184,7 @@ describe('REQUESTS.UPDATE_CELEBRATE_COMMENTS.SUCCESS', () => {
             ],
           }),
         },
+        editingCommentId,
       },
     );
   });

@@ -181,9 +181,9 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
             }
           >
             <RCTDatePicker
-              date={1566662400000}
+              date={1566648000000}
               locale="en-TEST"
-              minimumDate={1566662400000}
+              minimumDate={1566648000000}
               mode="datetime"
               onChange={[Function]}
               onResponderTerminationRequest={[Function]}

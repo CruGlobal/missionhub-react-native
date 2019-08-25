@@ -15,7 +15,8 @@ import AcceptedStepItem from '..';
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
 jest.mock('../../../selectors/stepReminders');
-MockDate.set('2019-08-24 12:00:00', 300);
+const mockDate = '2019-08-24 12:00:00 PM GMT+0';
+MockDate.set(mockDate);
 
 const stepId = '1';
 const reminderId = '11';
