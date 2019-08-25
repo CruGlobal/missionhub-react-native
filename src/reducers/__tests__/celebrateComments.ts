@@ -11,7 +11,7 @@ jest.mock('../../utils/common');
 const editingCommentId = null;
 const getPaginationResult = { page: 4 };
 const pagination = getPaginationResult;
-getPagination.mockReturnValue(getPaginationResult);
+(getPagination as jest.Mock).mockReturnValue(getPaginationResult);
 
 describe('REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS', () => {
   const eventId = '13407923';
@@ -99,6 +99,7 @@ describe('REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS', () => {
     all: {
       [eventId]: { comments: [existingComment] },
     },
+    editingCommentId: null,
   };
 
   const action = {
@@ -129,6 +130,7 @@ describe('REQUESTS.DELETE_CELEBRATE_COMMENTS.SUCCESS', () => {
     all: {
       [eventId]: { comments: [existingComment1, existingComment2] },
     },
+    editingCommentId: null,
   };
 
   const action = {
@@ -158,6 +160,7 @@ describe('REQUESTS.UPDATE_CELEBRATE_COMMENTS.SUCCESS', () => {
     all: {
       [eventId]: { comments: [existingComment1, existingComment2] },
     },
+    editingCommentId: null,
   };
 
   const updated = 'text 1 updated';
@@ -186,22 +189,16 @@ describe('REQUESTS.UPDATE_CELEBRATE_COMMENTS.SUCCESS', () => {
 
 it('sets editing comment', () => {
   const comment = { id: 'test' };
-  const state = celebrateCommentsReducer(
-    {},
-    {
-      type: SET_CELEBRATE_EDITING_COMMENT,
-      commentId: comment.id,
-    },
-  );
+  const state = celebrateCommentsReducer(undefined, {
+    type: SET_CELEBRATE_EDITING_COMMENT,
+    commentId: comment.id,
+  });
   expect(state.editingCommentId).toEqual(comment.id);
 });
 
 it('resets editing comment', () => {
-  const state = celebrateCommentsReducer(
-    {},
-    {
-      type: RESET_CELEBRATE_EDITING_COMMENT,
-    },
-  );
+  const state = celebrateCommentsReducer(undefined, {
+    type: RESET_CELEBRATE_EDITING_COMMENT,
+  });
   expect(state.editingCommentId).toEqual(null);
 });

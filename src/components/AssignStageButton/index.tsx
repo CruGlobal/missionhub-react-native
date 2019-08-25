@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import { ThunkDispatch } from 'redux-thunk';
 
 import { Button } from '../common';
 import {
@@ -10,21 +10,35 @@ import {
 } from '../../selectors/people';
 import { navigateToStageScreen } from '../../actions/misc';
 import { getStageIndex } from '../../utils/common';
+import { PeopleState } from '../../reducers/people';
+import { AuthState } from '../../reducers/auth';
+import { StagesState, Stage } from '../../reducers/stages';
 
 import styles from './styles';
 
-@withTranslation('contactHeader')
-class AssignStageButton extends Component {
-  assignStage = () => {
-    const {
-      dispatch,
-      isMe,
-      person,
-      contactAssignment = null,
-      organization,
-      firstItemIndex,
-    } = this.props;
+interface AssignStageButtonProps {
+  person: object;
+  organization: object;
+  isMe: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  contactAssignment: any;
+  firstItemIndex: number;
+  pathwayStage: Stage;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<any, null, never>;
+}
 
+const AssignStageButton = ({
+  dispatch,
+  isMe,
+  person,
+  contactAssignment = null,
+  organization,
+  firstItemIndex,
+  pathwayStage,
+}: AssignStageButtonProps) => {
+  const { t } = useTranslation('contactHeader');
+  const assignStage = () => {
     dispatch(
       navigateToStageScreen(
         isMe,
@@ -35,42 +49,34 @@ class AssignStageButton extends Component {
       ),
     );
   };
-
-  render() {
-    const { t, pathwayStage } = this.props;
-
-    return (
-      <Button
-        type="transparent"
-        onPress={this.assignStage}
-        text={(pathwayStage
-          ? pathwayStage.name
-          : t('selectStage')
-        ).toUpperCase()}
-        style={[
-          styles.assignButton,
-          pathwayStage ? styles.buttonWithStage : styles.buttonWithNoStage,
-        ]}
-        buttonTextStyle={styles.assignButtonText}
-      />
-    );
-  }
-}
-
-AssignStageButton.propTypes = {
-  person: PropTypes.object.isRequired,
-  organization: PropTypes.object.isRequired,
+  return (
+    <Button
+      testID="AssignStageButton"
+      type="transparent"
+      onPress={assignStage}
+      text={(pathwayStage ? pathwayStage.name : t('selectStage')).toUpperCase()}
+      style={[
+        styles.assignButton,
+        pathwayStage ? styles.buttonWithStage : styles.buttonWithNoStage,
+      ]}
+      buttonTextStyle={styles.assignButtonText}
+    />
+  );
 };
 
 const mapStateToProps = (
-  { people, auth, stages },
-  { person = {}, organization = {} },
+  {
+    people,
+    auth,
+    stages,
+  }: { people: PeopleState; auth: AuthState; stages: StagesState },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  { person = {}, organization = {} }: any,
 ) => {
   const personId = person.id;
   const orgId = organization.id;
   const authPerson = auth.person;
   const stagesList = stages.stages || [];
-
   if (authPerson.id === personId) {
     const myStageId = authPerson.user.pathway_stage_id;
     return {
@@ -79,7 +85,6 @@ const mapStateToProps = (
       firstItemIndex: getStageIndex(stagesList, myStageId),
     };
   }
-
   const loadedPerson =
     personSelector({ people }, { personId, orgId }) || person;
   const contactAssignment = contactAssignmentSelector(
@@ -87,7 +92,6 @@ const mapStateToProps = (
     { person: loadedPerson, orgId },
   );
   const personStageId = contactAssignment && contactAssignment.pathway_stage_id;
-
   return {
     isMe: false,
     pathwayStage:
@@ -97,5 +101,4 @@ const mapStateToProps = (
     contactAssignment,
   };
 };
-
 export default connect(mapStateToProps)(AssignStageButton);

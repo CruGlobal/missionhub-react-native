@@ -2,27 +2,45 @@ import { createSelector } from 'reselect';
 
 import { momentUtc } from '../utils/common';
 import { CELEBRATEABLE_TYPES } from '../constants';
+import { OrganizationsState } from '../reducers/organizations';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type CelebrateItem = any;
 
 export const celebrationItemSelector = createSelector(
-  ({ organizations }) => organizations.all,
-  (_, { eventId }) => eventId,
-  (_, { organizationId }) => organizationId,
+  ({ organizations }: { organizations: OrganizationsState }) =>
+    organizations.all,
+  (
+    _: { organizations: OrganizationsState },
+    { eventId }: { eventId: string; organizationId: string },
+  ) => eventId,
+  (
+    _: { organizations: OrganizationsState },
+    { organizationId }: { eventId: string; organizationId: string },
+  ) => organizationId,
   (orgs, eventId, organizationId) => {
     const { celebrateItems } = orgs.find(({ id }) => id === organizationId);
 
-    return celebrateItems && celebrateItems.find(({ id }) => id === eventId);
+    return (
+      celebrateItems &&
+      celebrateItems.find(({ id }: CelebrateItem) => id === eventId)
+    );
   },
 );
 
 export const celebrationSelector = createSelector(
-  ({ celebrateItems }) => celebrateItems,
+  ({ celebrateItems }: { celebrateItems: CelebrateItem[] }) => celebrateItems,
   celebrateItems => {
     const filteredCelebrateItems = filterCelebrationFeedItems(celebrateItems);
     const sortByDate = filteredCelebrateItems;
     sortByDate.sort(compare);
 
-    const dateSections = [];
-    sortByDate.forEach(item => {
+    const dateSections: {
+      id: number;
+      date: string;
+      data: CelebrateItem[];
+    }[] = [];
+    sortByDate.forEach((item: CelebrateItem) => {
       const length = dateSections.length;
       const itemMoment = momentUtc(item.changed_attribute_value).local();
 
@@ -47,7 +65,7 @@ export const celebrationSelector = createSelector(
   },
 );
 
-const compare = (a, b) => {
+const compare = (a: CelebrateItem, b: CelebrateItem) => {
   const aValue = a.changed_attribute_value,
     bValue = b.changed_attribute_value;
 
@@ -60,7 +78,7 @@ const compare = (a, b) => {
   return 0;
 };
 
-const filterCelebrationFeedItems = items => {
+const filterCelebrationFeedItems = (items: CelebrateItem[]) => {
   const {
     completedInteraction,
     completedStep,

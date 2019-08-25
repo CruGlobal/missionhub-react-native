@@ -1,8 +1,7 @@
 import React from 'react';
-import thunk from 'redux-thunk';
-import configureStore from 'redux-mock-store';
+import { fireEvent } from 'react-native-testing-library';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { contactAssignmentSelector } from '../../../selectors/people';
 import { navigateToStageScreen } from '../../../actions/misc';
 import { getStageIndex } from '../../../utils/common';
@@ -23,7 +22,7 @@ const mockContactAssignment = {
 };
 const navigateToStageResult = { type: 'navigate to stage screen' };
 
-const state = {
+const initialState = {
   auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
   people: {},
   stages: {
@@ -35,7 +34,6 @@ const state = {
     ],
   },
 };
-let store;
 
 const props = {
   person: { id: '1' },
@@ -43,61 +41,56 @@ const props = {
 };
 
 beforeEach(() => {
-  contactAssignmentSelector.mockReturnValue(mockContactAssignment);
-  navigateToStageScreen.mockReturnValue(navigateToStageResult);
-  getStageIndex.mockReturnValue(stageId);
-  store = configureStore([thunk])(state);
+  ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
+    mockContactAssignment,
+  );
+  (navigateToStageScreen as jest.Mock).mockReturnValue(navigateToStageResult);
+  (getStageIndex as jest.Mock).mockReturnValue(stageId);
 });
 
 it('renders correctly for me', () => {
-  testSnapshotShallow(
-    <AssignStageButton {...props} person={{ id: myId }} />,
-    store,
-  );
+  renderWithContext(<AssignStageButton {...props} person={{ id: myId }} />, {
+    initialState,
+  }).snapshot();
 });
 
 it('renders correctly for me without stage', () => {
-  store = configureStore([thunk])({
-    ...state,
-    auth: {
-      person: {
-        id: myId,
-        user: {},
+  renderWithContext(<AssignStageButton {...props} person={{ id: myId }} />, {
+    initialState: {
+      ...initialState,
+      auth: {
+        person: {
+          id: myId,
+          user: {},
+        },
       },
     },
-  });
-
-  testSnapshotShallow(
-    <AssignStageButton {...props} person={{ id: myId }} />,
-    store,
-  );
+  }).snapshot();
 });
 
 it('renders correctly for other', () => {
-  testSnapshotShallow(
-    <AssignStageButton {...props} person={{ id: otherId }} />,
-    store,
-  );
+  renderWithContext(<AssignStageButton {...props} person={{ id: otherId }} />, {
+    initialState,
+  });
 });
 
 it('renders correctly for other without stage', () => {
-  contactAssignmentSelector.mockReturnValue({});
-  testSnapshotShallow(
-    <AssignStageButton {...props} person={{ id: otherId }} />,
-    store,
-  );
+  ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue({});
+  renderWithContext(<AssignStageButton {...props} person={{ id: otherId }} />, {
+    initialState,
+  });
 });
 
 describe('assignStage', () => {
   describe('for me', () => {
     it('navigates to select my steps flow', () => {
       const person = { id: myId };
-      const component = renderShallow(
+      const { getByTestId } = renderWithContext(
         <AssignStageButton {...props} person={person} />,
-        store,
+        { initialState },
       );
 
-      component.props().onPress();
+      fireEvent.press(getByTestId('AssignStageButton'));
 
       expect(navigateToStageScreen).toHaveBeenCalledWith(
         true,
@@ -112,12 +105,12 @@ describe('assignStage', () => {
   describe('for other', () => {
     it('navigates to select person steps flow', () => {
       const person = { id: otherId };
-      const component = renderShallow(
+      const { getByTestId } = renderWithContext(
         <AssignStageButton {...props} person={person} />,
-        store,
+        { initialState },
       );
 
-      component.props().onPress();
+      fireEvent.press(getByTestId('AssignStageButton'));
 
       expect(navigateToStageScreen).toHaveBeenCalledWith(
         false,

@@ -2,7 +2,7 @@ import { LOGOUT } from '../constants';
 import { REQUESTS } from '../api/routes';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type ReminderType = any; // TODO: GraphQL response type for reminder
+export type ReminderType = any; // TODO: GraphQL response type for reminder
 
 export interface StepReminderState {
   allByStep: { [key in string]: ReminderType };

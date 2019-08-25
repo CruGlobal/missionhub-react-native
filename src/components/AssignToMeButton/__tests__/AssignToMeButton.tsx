@@ -1,8 +1,7 @@
 import React from 'react';
-import thunk from 'redux-thunk';
-import configureStore from 'redux-mock-store';
+import { fireEvent } from 'react-native-testing-library';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { assignContactAndPickStage } from '../../../actions/misc';
 
 import AssignToMeButton from '..';
@@ -11,10 +10,6 @@ jest.mock('../../../actions/misc');
 jest.mock('../../../actions/person');
 jest.mock('../../../selectors/people');
 jest.mock('../../../actions/navigation');
-
-const myId = '25';
-const state = { auth: { person: { id: myId } } };
-let store;
 
 const person = { id: '100', first_name: 'Roge' };
 const organization = { id: '800' };
@@ -25,45 +20,36 @@ const props = {
 
 const assignResponse = { type: 'success' };
 
-beforeEach(() => {
-  store = configureStore([thunk])(state);
-});
-
 it('renders correctly', () => {
-  testSnapshotShallow(<AssignToMeButton {...props} />, store);
+  renderWithContext(<AssignToMeButton {...props} />).snapshot();
 });
 
 describe('assignToMe', () => {
-  assignContactAndPickStage.mockReturnValue(assignResponse);
+  (assignContactAndPickStage as jest.Mock).mockReturnValue(assignResponse);
 
   it('calls assignContactAndPickStage on press', async () => {
-    const screen = renderShallow(<AssignToMeButton {...props} />, store);
+    const { getByTestId } = renderWithContext(<AssignToMeButton {...props} />);
 
-    await screen.props().onPress();
+    await fireEvent.press(getByTestId('AssignToMeButton'));
 
     expect(assignContactAndPickStage).toHaveBeenCalledWith(
       person,
       organization,
-      myId,
     );
-    expect(store.getActions()).toEqual([assignResponse]);
   });
 
   it('calls assignContactAndPickStage and onComplete on press', async () => {
     const onComplete = jest.fn();
-    const screen = renderShallow(
+    const { getByTestId } = renderWithContext(
       <AssignToMeButton {...props} onComplete={onComplete} />,
-      store,
     );
 
-    await screen.props().onPress();
+    await fireEvent.press(getByTestId('AssignToMeButton'));
 
     expect(assignContactAndPickStage).toHaveBeenCalledWith(
       person,
       organization,
-      myId,
     );
     expect(onComplete).toHaveBeenCalled();
-    expect(store.getActions()).toEqual([assignResponse]);
   });
 });

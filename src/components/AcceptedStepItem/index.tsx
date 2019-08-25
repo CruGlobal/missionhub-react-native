@@ -15,7 +15,7 @@ import { reminderSelector } from '../../selectors/stepReminders';
 import { CONTACT_STEPS } from '../../constants';
 import { COMPLETED_STEP_DETAIL_SCREEN } from '../../containers/CompletedStepDetailScreen';
 import Icon from '../Icon';
-import { StepReminderState } from '../../reducers/stepReminders';
+import { StepReminderState, ReminderType } from '../../reducers/stepReminders';
 
 import styles from './styles';
 
@@ -26,8 +26,7 @@ type AcceptedStepItemProps = {
     body?: string;
     completed_at?: string;
   };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  reminder?: any;
+  reminder?: ReminderType;
   onComplete?: () => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;

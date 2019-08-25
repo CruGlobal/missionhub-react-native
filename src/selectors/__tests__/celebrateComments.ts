@@ -8,6 +8,7 @@ const celebrateComments = {
     [eventId]: comments,
     '234234135': { id: 'wrong comment obj' },
   },
+  editingCommentId: null,
 };
 
 it('should return comments for matching event id', () => {

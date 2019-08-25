@@ -1,3 +1,5 @@
+import { AnyAction } from 'redux';
+
 import {
   LOGOUT,
   SET_CELEBRATE_EDITING_COMMENT,
@@ -6,12 +8,32 @@ import {
 import { REQUESTS } from '../api/routes';
 import { getPagination } from '../utils/common';
 
-const initialState = {
+import { PaginationObject } from './organizations';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Event = any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type CelebrateComment = any;
+
+export interface CelebrateCommentsState {
+  all: {
+    [key in string]: Event & {
+      comments: CelebrateComment[];
+      pagination: PaginationObject;
+    };
+  };
+  editingCommentId: string | null;
+}
+
+const initialState: CelebrateCommentsState = {
   all: {},
   editingCommentId: null,
 };
 
-export default function celebrateCommentsReducer(state = initialState, action) {
+export default function celebrateCommentsReducer(
+  state = initialState,
+  action: AnyAction,
+) {
   switch (action.type) {
     case REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS:
       return addCommentsToState(state, action);
@@ -38,7 +60,7 @@ export default function celebrateCommentsReducer(state = initialState, action) {
   }
 }
 
-function addCommentsToState(state, action) {
+function addCommentsToState(state: CelebrateCommentsState, action: AnyAction) {
   const {
     results: { response },
     query: { eventId, page },
@@ -60,7 +82,10 @@ function addCommentsToState(state, action) {
   };
 }
 
-function addCreatedCommentToState(state, action) {
+function addCreatedCommentToState(
+  state: CelebrateCommentsState,
+  action: AnyAction,
+) {
   const {
     results: { response },
     query: { eventId },
@@ -81,7 +106,10 @@ function addCreatedCommentToState(state, action) {
   };
 }
 
-function removeCommentFromState(state, action) {
+function removeCommentFromState(
+  state: CelebrateCommentsState,
+  action: AnyAction,
+) {
   const {
     query: { eventId, commentId },
   } = action;
@@ -91,7 +119,9 @@ function removeCommentFromState(state, action) {
   if (!event) {
     return state;
   }
-  const comments = event.comments.filter(c => c.id !== commentId);
+  const comments = event.comments.filter(
+    (c: CelebrateComment) => c.id !== commentId,
+  );
 
   return {
     ...state,
@@ -105,14 +135,16 @@ function removeCommentFromState(state, action) {
   };
 }
 
-function editCommentsInState(state, action) {
+function editCommentsInState(state: CelebrateCommentsState, action: AnyAction) {
   const {
     results: { response },
     query: { eventId, commentId },
   } = action;
 
   const event = state.all[eventId];
-  const comments = event.comments.map(c => (c.id === commentId ? response : c));
+  const comments = event.comments.map((c: CelebrateComment) =>
+    c.id === commentId ? response : c,
+  );
 
   return {
     ...state,
