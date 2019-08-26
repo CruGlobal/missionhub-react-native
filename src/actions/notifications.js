@@ -18,7 +18,11 @@ import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 import { REQUESTS } from '../api/routes';
 
-import { refreshCommunity, navigateToOrg } from './organizations';
+import {
+  refreshCommunity,
+  navigateToOrg,
+  navigateToCelebrateComments,
+} from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
 import { reloadGroupChallengeFeed } from './challenges';
 import { reloadGroupCelebrateFeed } from './celebration';
@@ -114,13 +118,11 @@ function handleNotification(notification) {
 
     const { person: me } = getState().auth;
 
-    const {
-      screen,
-      person_id,
-      organization_id,
-      celebration_item_id,
-    } = parseNotificationData(notification);
+    const notificationData = parseNotificationData(notification);
 
+    const { screen, person_id, celebration_item_id } = notificationData;
+    const organization_id =
+      notificationData.organization_id && `${notificationData.organization_id}`;
     switch (screen) {
       case 'home':
       case 'steps':
@@ -144,7 +146,10 @@ function handleNotification(notification) {
       case 'celebrate':
         await refreshCommunity(organization_id);
         await reloadGroupCelebrateFeed(organization_id);
-        return dispatch(navigateToOrg(organization_id));
+        return dispatch(
+          navigateToCelebrateComments(organization_id, celebration_item_id),
+        );
+        return;
       case 'community_challenges':
         await refreshCommunity(organization_id);
         await reloadGroupChallengeFeed(organization_id);

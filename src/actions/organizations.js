@@ -17,6 +17,8 @@ import { timeFilter } from '../utils/filters';
 import { removeHiddenOrgs } from '../selectors/selectorUtils';
 import { organizationSelector } from '../selectors/organizations';
 import { getScreenForOrg } from '../containers/Groups/GroupScreen';
+import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
+import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
 import { REQUESTS } from '../api/routes';
 
 import { getMe, getPersonDetails } from './person';
@@ -651,6 +653,25 @@ export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
       navigatePush(getScreenForOrg(orgId, user_created), {
         orgId,
         initialTab,
+      }),
+    );
+  };
+}
+
+export function navigateToCelebrateComments(orgId, celebrationItemId) {
+  return async (dispatch, getState) => {
+    const { organizations } = getState();
+    const organization = organizationSelector({ organizations }, { orgId });
+
+    await dispatch(
+      navigatePush(getScreenForOrg(orgId, organization.user_created), {
+        orgId,
+      }),
+    );
+    await dispatch(navigatePush(GROUP_UNREAD_FEED_SCREEN, { organization }));
+    return dispatch(
+      navigatePush(CELEBRATE_DETAIL_SCREEN, {
+        event: { id: celebrationItemId, organization },
       }),
     );
   };
