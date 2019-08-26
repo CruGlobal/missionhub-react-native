@@ -198,6 +198,7 @@ exports[`renders correctly 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={null}
+        testID="FilterItemTouchable"
       >
         <View
           style={
@@ -316,6 +317,7 @@ exports[`renders correctly 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={null}
+        testID="FilterItemTouchable"
       >
         <View
           style={
@@ -434,6 +436,7 @@ exports[`renders correctly 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={null}
+        testID="FilterItemTouchable"
       >
         <View
           style={
@@ -552,6 +555,7 @@ exports[`renders correctly 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={null}
+        testID="FilterItemTouchable"
       >
         <View
           style={
@@ -670,6 +674,7 @@ exports[`renders correctly 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={null}
+        testID="FilterItemTouchable"
       >
         <View
           style={
