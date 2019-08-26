@@ -24,7 +24,7 @@ import { REQUESTS } from '../api/routes';
 import { getMe, getPersonDetails } from './person';
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
-import { navigatePush } from './navigation';
+import { navigatePush, navigateNestedReset } from './navigation';
 
 const getOrganizationsQuery = {
   limit: 100,
@@ -663,16 +663,17 @@ export function navigateToCelebrateComments(orgId, celebrationItemId) {
     const { organizations } = getState();
     const organization = organizationSelector({ organizations }, { orgId });
 
+    const event = { id: celebrationItemId, organization };
+
     await dispatch(
-      navigatePush(getScreenForOrg(orgId, organization.user_created), {
-        orgId,
-      }),
-    );
-    await dispatch(navigatePush(GROUP_UNREAD_FEED_SCREEN, { organization }));
-    return dispatch(
-      navigatePush(CELEBRATE_DETAIL_SCREEN, {
-        event: { id: celebrationItemId, organization },
-      }),
+      navigateNestedReset([
+        {
+          routeName: getScreenForOrg(orgId, organization.user_created),
+          params: { orgId },
+        },
+        { routeName: GROUP_UNREAD_FEED_SCREEN, params: { organization } },
+        { routeName: CELEBRATE_DETAIL_SCREEN, params: { event } },
+      ]),
     );
   };
 }
