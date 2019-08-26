@@ -1,18 +1,19 @@
 import React from 'react';
 import MockDate from 'mockdate';
+import moment from 'moment';
 
 import { renderWithContext } from '../../../../testUtils';
 import { INTERACTION_TYPES } from '../../../constants';
 
 import GroupsContactItem from '..';
 
-const mockDate = '2019-08-25 12:00:00 PM GMT+0';
-MockDate.set(mockDate);
+const mockDate = moment('2019-08-25 13:00:00').toDate();
+MockDate.set(mockDate, 0);
 
-const created_at = mockDate;
+const created_at = mockDate.toString();
 const item = {
   id: '1',
-  created_at: mockDate,
+  created_at,
   text: 'Someone had a spiritual conversation',
   comment: 'Some comment',
   _type: 'interaction',
