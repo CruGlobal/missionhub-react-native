@@ -114,23 +114,23 @@ function handleNotification(notification) {
 
     const { person: me } = getState().auth;
 
-    const notificationData = parseNotificationData(notification);
-    const { screen, person } = notificationData;
-    const organization =
-      notificationData.organization && `${notificationData.organization}`;
+    const {
+      screen,
+      person_id,
+      organization_id,
+      celebration_item_id,
+    } = parseNotificationData(notification);
 
     switch (screen) {
       case 'home':
       case 'steps':
         return dispatch(navigateToMainTabs());
       case 'person_steps':
-        if (person) {
-          const { person: loadedPerson } = await dispatch(
-            getPersonDetails(person, organization),
+        if (person_id) {
+          const { person } = await dispatch(
+            getPersonDetails(person_id, organization_id),
           );
-          return dispatch(
-            navToPersonScreen(loadedPerson, { id: organization }),
-          );
+          return dispatch(navToPersonScreen(person, { id: organization_id }));
         }
         return;
       case 'my_steps':
@@ -138,17 +138,17 @@ function handleNotification(notification) {
       case 'add_a_person':
         return dispatch(
           navigatePush(ADD_PERSON_THEN_STEP_SCREEN_FLOW, {
-            organization: { id: organization },
+            organization: { id: organization_id },
           }),
         );
       case 'celebrate':
-        await refreshCommunity(organization);
-        await reloadGroupCelebrateFeed(organization);
-        return dispatch(navigateToOrg(organization));
+        await refreshCommunity(organization_id);
+        await reloadGroupCelebrateFeed(organization_id);
+        return dispatch(navigateToOrg(organization_id));
       case 'community_challenges':
-        await refreshCommunity(organization);
-        await reloadGroupChallengeFeed(organization);
-        return dispatch(navigateToOrg(organization, GROUP_CHALLENGES));
+        await refreshCommunity(organization_id);
+        await reloadGroupChallengeFeed(organization_id);
+        return dispatch(navigateToOrg(organization_id, GROUP_CHALLENGES));
     }
   };
 }
@@ -157,13 +157,16 @@ function parseNotificationData(notification) {
   const { data: { link: { data: iosData = {} } = {} } = {} } = notification;
   const data = {
     ...notification,
+    ...notification.screen_extra_data,
     ...iosData,
+    ...iosData.screen_extra_data,
   };
 
   return {
     screen: data.screen,
-    person: data.person_id,
-    organization: data.organization_id,
+    person_id: data.person_id,
+    organization_id: data.organization_id,
+    celebration_item_id: data.celebration_item_id,
   };
 }
 
