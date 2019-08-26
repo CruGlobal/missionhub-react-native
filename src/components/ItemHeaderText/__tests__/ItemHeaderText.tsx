@@ -1,4 +1,3 @@
-import 'react-native';
 import React from 'react';
 
 import { testSnapshotShallow } from '../../../../testUtils';

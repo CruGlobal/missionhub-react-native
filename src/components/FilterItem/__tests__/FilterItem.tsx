@@ -1,5 +1,5 @@
-import 'react-native';
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 
@@ -45,4 +45,14 @@ it('renders selected switch item correctly', () => {
     />,
     { noWrappers: true },
   ).snapshot();
+});
+
+it('presses select', () => {
+  const { getByTestId } = renderWithContext(
+    <FilterItem item={mockItem} onSelect={onSelect} type="drilldown" />,
+    { noWrappers: true },
+  );
+
+  fireEvent.press(getByTestId('FilterItemTouchable'));
+  expect(onSelect).toHaveBeenCalledWith(mockItem);
 });

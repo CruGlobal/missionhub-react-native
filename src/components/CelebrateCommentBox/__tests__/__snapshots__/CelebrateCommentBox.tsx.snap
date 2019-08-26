@@ -116,6 +116,122 @@ exports[`renders correctly 1`] = `
 </View>
 `;
 
+exports[`renders correctly without finding celebrate comment 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderTopColor": "#B2B0B2",
+          "borderTopWidth": 1,
+          "paddingBottom": 5,
+          "paddingTop": 5,
+          "width": 750,
+        },
+        Object {
+          "backgroundColor": "#C5C7CB",
+        },
+      ],
+      Object {
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 5,
+          "marginHorizontal": 10,
+          "paddingHorizontal": 5,
+        },
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderColor": "#B2B0B2",
+            "borderRadius": 20,
+            "borderWidth": 1,
+          },
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flex": 1,
+            "flexDirection": "column",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 13,
+            },
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          multiline={false}
+          onChangeText={[Function]}
+          placeholder="Write a comment..."
+          placeholderTextColor="#B2B0B2"
+          rejectResponderTermination={true}
+          returnKeyType="done"
+          selectionColor="#005A7F"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {
+                "borderBottomWidth": 0,
+                "color": "#4E4C4E",
+                "flex": 1,
+                "fontSize": 16,
+                "paddingLeft": 5,
+                "paddingVertical": 7,
+              },
+            ]
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value=""
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`renders editing correctly 1`] = `
 <View
   style={

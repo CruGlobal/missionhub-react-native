@@ -81,6 +81,168 @@ exports[`renders correctly for me 1`] = `
 </View>
 `;
 
+exports[`renders correctly for me without organization 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="AssignStageButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "alignSelf": "center",
+            "borderRadius": 25,
+            "marginVertical": 8,
+            "minWidth": 200,
+            "paddingVertical": 8,
+          },
+          Object {
+            "backgroundColor": "#52C5DC",
+          },
+        ],
+        null,
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "textAlign": "center",
+            },
+            Object {
+              "fontSize": 14,
+            },
+          ],
+        ]
+      }
+    >
+      STAGE NAME
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders correctly for me without person 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="AssignStageButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "alignSelf": "center",
+            "borderRadius": 25,
+            "marginVertical": 8,
+            "minWidth": 200,
+            "paddingVertical": 8,
+          },
+          Object {
+            "backgroundColor": "#52C5DC",
+          },
+        ],
+        null,
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "textAlign": "center",
+            },
+            Object {
+              "fontSize": 14,
+            },
+          ],
+        ]
+      }
+    >
+      STAGE NAME
+    </Text>
+  </View>
+</View>
+`;
+
 exports[`renders correctly for me without stage 1`] = `
 <View
   accessible={true}

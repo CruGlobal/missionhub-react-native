@@ -73,7 +73,11 @@ const FilterItem = ({ item, onSelect, type, isSelected }: FilterItemProps) => {
 
   if (type === 'drilldown' || type === 'single') {
     return (
-      <Touchable highlight={true} onPress={handleSelect}>
+      <Touchable
+        testID="FilterItemTouchable"
+        highlight={true}
+        onPress={handleSelect}
+      >
         {content}
       </Touchable>
     );

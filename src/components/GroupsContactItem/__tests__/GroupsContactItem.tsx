@@ -46,6 +46,7 @@ it('renders survey item', () => {
         survey: {
           title: 'Survey Title',
         },
+        comment: '',
         answers: [
           { id: 'a1', question: { label: 'Label 1' }, value: 'Answer 1' },
         ],
@@ -87,6 +88,31 @@ it('renders contact unassignment item with note', () => {
     _type: 'contact_unassignment',
     created_at,
     unassignment_reason: 'unassignment note',
+  };
+
+  renderWithContext(
+    <GroupsContactItem person={person} item={newItem} myId={myId} />,
+    { noWrappers: true },
+  ).snapshot();
+});
+
+it('renders pathway progression audit with old pathway stage', () => {
+  const newItem = {
+    ...item,
+    _type: 'pathway_progression_audit',
+  };
+
+  renderWithContext(
+    <GroupsContactItem person={person} item={newItem} myId={myId} />,
+    { noWrappers: true },
+  ).snapshot();
+});
+
+it('renders pathway progression audit without old pathway stage', () => {
+  const newItem = {
+    ...item,
+    _type: 'pathway_progression_audit',
+    old_pathway_stage: undefined,
   };
 
   renderWithContext(

@@ -56,6 +56,11 @@ it('renders correctly', () => {
   render().snapshot();
 });
 
+it('renders correctly without finding celebrate comment', () => {
+  (createCelebrateComment as jest.Mock).mockReturnValue(undefined);
+  render().snapshot();
+});
+
 describe('onSubmit', () => {
   it('creates comment with add', async () => {
     const text = 'roger is a good pig';

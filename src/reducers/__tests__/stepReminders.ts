@@ -1,5 +1,6 @@
 import { REQUESTS } from '../../api/routes';
 import stepReminders from '../stepReminders';
+import { LOGOUT } from '../../constants';
 
 const challenge_id = '10043234';
 const remindersArray = [{ id: '11' }, { id: '22' }, { id: '33' }];
@@ -107,5 +108,25 @@ describe('REQUESTS.DELETE_CHALLENGE_REMINDER.SUCCESS', () => {
         },
       ),
     ).toEqual({ allByStep: {} });
+  });
+});
+
+describe('LOGOUT', () => {
+  it('removes reminder from state', () => {
+    expect(
+      stepReminders(
+        { allByStep: { [challenge_id]: reminder } },
+        { type: LOGOUT },
+      ),
+    ).toEqual({ allByStep: {} });
+  });
+});
+
+describe('LOGOUT', () => {
+  it('removes reminder from state', () => {
+    const testState = { allByStep: { [challenge_id]: reminder } };
+    expect(stepReminders(testState, { type: 'NOT FOUND TYPE' })).toEqual(
+      testState,
+    );
   });
 });

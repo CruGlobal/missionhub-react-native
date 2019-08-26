@@ -11,6 +11,8 @@ MockDate.set('2019-08-25 13:00:00', 300);
 const person = {
   id: '123',
   full_name: 'Full Name',
+  first_name: 'First',
+  last_name: 'Last',
 };
 const organization = {
   id: '900',
@@ -54,26 +56,36 @@ const activity = [
   },
 ];
 
+const props = {
+  onAssign: jest.fn(),
+  activity,
+  person,
+  organization,
+  myId: '1',
+};
+
 it('renders activity list', () => {
+  renderWithContext(<GroupsContactList {...props} />).snapshot();
+});
+
+it('renders empty list', () => {
+  renderWithContext(<GroupsContactList {...props} activity={[]} />).snapshot();
+});
+
+it('renders person without full name', () => {
   renderWithContext(
     <GroupsContactList
-      onAssign={jest.fn()}
-      activity={activity}
-      person={person}
-      organization={organization}
-      myId="1"
+      {...props}
+      person={{ ...person, full_name: undefined }}
     />,
   ).snapshot();
 });
 
-it('renders empty list', () => {
+it('renders person without last name', () => {
   renderWithContext(
     <GroupsContactList
-      onAssign={jest.fn()}
-      activity={[]}
-      person={person}
-      organization={organization}
-      myId="1"
+      {...props}
+      person={{ ...person, full_name: undefined, last_name: undefined }}
     />,
   ).snapshot();
 });

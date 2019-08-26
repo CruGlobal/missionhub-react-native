@@ -1,7 +1,9 @@
 import { createSelector } from 'reselect';
 
-import { CelebrateCommentsState } from '../reducers/celebrateComments';
-import { CelebrateComment } from '../reducers/celebrateComments';
+import {
+  CelebrateCommentsState,
+  CelebrateComment,
+} from '../reducers/celebrateComments';
 
 export const celebrateCommentsSelector = createSelector(
   ({ celebrateComments }: { celebrateComments: CelebrateCommentsState }) =>

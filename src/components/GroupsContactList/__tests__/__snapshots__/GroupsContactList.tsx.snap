@@ -1085,3 +1085,1799 @@ exports[`renders empty list 1`] = `
   </View>
 </View>
 `;
+
+exports[`renders person without full name 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "paddingBottom": 10,
+          "paddingTop": 5,
+        },
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "fontWeight": "bold",
+          },
+        ]
+      }
+    >
+      FIRST LAST
+    </Text>
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="AssignToMeButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "alignSelf": "center",
+              "backgroundColor": "#FF5532",
+              "borderRadius": 25,
+              "marginVertical": 8,
+              "minWidth": 200,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "fontSize": 14,
+                },
+              ],
+            ]
+          }
+        >
+          ASSIGN TO ME
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+        },
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Object {
+          "paddingTop": 15,
+        }
+      }
+      data={
+        Array [
+          Object {
+            "comment": "Some comment",
+            "created_at": "2019-08-25T13:00:00.000",
+            "id": "1",
+            "interaction_type_id": "2",
+            "text": "Someone had a spiritual conversation",
+            "type": "interaction",
+          },
+          Object {
+            "comment": "",
+            "created_at": "2019-08-25T13:00:00.000",
+            "id": "2",
+            "interaction_type_id": "2",
+            "text": "Someone else had a spiritual conversation",
+            "type": "interaction",
+          },
+          Object {
+            "comment": "",
+            "created_at": "2019-08-25T13:00:00.000",
+            "id": "3",
+            "interaction_type_id": "3",
+            "text": "Someone else had a gospel conversation",
+            "type": "interaction",
+          },
+          Object {
+            "created_at": "2019-08-25T13:00:00.000",
+            "id": "4",
+            "text": "Someone else had a spiritual conversation",
+          },
+          Object {
+            "created_at": "2019-08-25T13:00:00.000",
+            "id": "5",
+            "text": "Someone else had a spiritual conversation",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 8,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "marginHorizontal": 16,
+                  "marginVertical": 8,
+                  "shadowColor": "#000000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.3,
+                  "shadowRadius": 2,
+                },
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "marginBottom": 15,
+                  "marginHorizontal": 15,
+                  "paddingHorizontal": 13,
+                  "paddingVertical": 16,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "alignSelf": "center",
+                        "color": "#007398",
+                        "textAlign": "center",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingLeft": 15,
+                  },
+                  Object {
+                    "flex": 5,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B2B0B2",
+                      "fontSize": 14,
+                      "marginBottom": 5,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                August 25, 2019 1:00 PM
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
+                    },
+                  ]
+                }
+              >
+                Someone had a spiritual conversation
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "fontSize": 14,
+                      "marginBottom": 5,
+                      "marginTop": 25,
+                    },
+                  ]
+                }
+              >
+                Some comment
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 8,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "marginHorizontal": 16,
+                  "marginVertical": 8,
+                  "shadowColor": "#000000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.3,
+                  "shadowRadius": 2,
+                },
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "marginBottom": 15,
+                  "marginHorizontal": 15,
+                  "paddingHorizontal": 13,
+                  "paddingVertical": 16,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "alignSelf": "center",
+                        "color": "#007398",
+                        "textAlign": "center",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingLeft": 15,
+                  },
+                  Object {
+                    "flex": 5,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B2B0B2",
+                      "fontSize": 14,
+                      "marginBottom": 5,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                August 25, 2019 1:00 PM
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
+                    },
+                  ]
+                }
+              >
+                Someone else had a spiritual conversation
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 8,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "marginHorizontal": 16,
+                  "marginVertical": 8,
+                  "shadowColor": "#000000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.3,
+                  "shadowRadius": 2,
+                },
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "marginBottom": 15,
+                  "marginHorizontal": 15,
+                  "paddingHorizontal": 13,
+                  "paddingVertical": 16,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "alignSelf": "center",
+                        "color": "#007398",
+                        "textAlign": "center",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingLeft": 15,
+                  },
+                  Object {
+                    "flex": 5,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B2B0B2",
+                      "fontSize": 14,
+                      "marginBottom": 5,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                August 25, 2019 1:00 PM
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
+                    },
+                  ]
+                }
+              >
+                Someone else had a gospel conversation
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 8,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "marginHorizontal": 16,
+                  "marginVertical": 8,
+                  "shadowColor": "#000000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.3,
+                  "shadowRadius": 2,
+                },
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "marginBottom": 15,
+                  "marginHorizontal": 15,
+                  "paddingHorizontal": 13,
+                  "paddingVertical": 16,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "alignSelf": "center",
+                        "color": "#007398",
+                        "textAlign": "center",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingLeft": 15,
+                  },
+                  Object {
+                    "flex": 5,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B2B0B2",
+                      "fontSize": 14,
+                      "marginBottom": 5,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                August 25, 2019 1:00 PM
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
+                    },
+                  ]
+                }
+              >
+                Someone else had a spiritual conversation
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 8,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "marginHorizontal": 16,
+                  "marginVertical": 8,
+                  "shadowColor": "#000000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.3,
+                  "shadowRadius": 2,
+                },
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "marginBottom": 15,
+                  "marginHorizontal": 15,
+                  "paddingHorizontal": 13,
+                  "paddingVertical": 16,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "alignSelf": "center",
+                        "color": "#007398",
+                        "textAlign": "center",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingLeft": 15,
+                  },
+                  Object {
+                    "flex": 5,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B2B0B2",
+                      "fontSize": 14,
+                      "marginBottom": 5,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                August 25, 2019 1:00 PM
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
+                    },
+                  ]
+                }
+              >
+                Someone else had a spiritual conversation
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`renders person without last name 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "paddingBottom": 10,
+          "paddingTop": 5,
+        },
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "fontWeight": "bold",
+          },
+        ]
+      }
+    >
+      FIRST
+    </Text>
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="AssignToMeButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "alignSelf": "center",
+              "backgroundColor": "#FF5532",
+              "borderRadius": 25,
+              "marginVertical": 8,
+              "minWidth": 200,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "fontSize": 14,
+                },
+              ],
+            ]
+          }
+        >
+          ASSIGN TO ME
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+        },
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Object {
+          "paddingTop": 15,
+        }
+      }
+      data={
+        Array [
+          Object {
+            "comment": "Some comment",
+            "created_at": "2019-08-25T13:00:00.000",
+            "id": "1",
+            "interaction_type_id": "2",
+            "text": "Someone had a spiritual conversation",
+            "type": "interaction",
+          },
+          Object {
+            "comment": "",
+            "created_at": "2019-08-25T13:00:00.000",
+            "id": "2",
+            "interaction_type_id": "2",
+            "text": "Someone else had a spiritual conversation",
+            "type": "interaction",
+          },
+          Object {
+            "comment": "",
+            "created_at": "2019-08-25T13:00:00.000",
+            "id": "3",
+            "interaction_type_id": "3",
+            "text": "Someone else had a gospel conversation",
+            "type": "interaction",
+          },
+          Object {
+            "created_at": "2019-08-25T13:00:00.000",
+            "id": "4",
+            "text": "Someone else had a spiritual conversation",
+          },
+          Object {
+            "created_at": "2019-08-25T13:00:00.000",
+            "id": "5",
+            "text": "Someone else had a spiritual conversation",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 8,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "marginHorizontal": 16,
+                  "marginVertical": 8,
+                  "shadowColor": "#000000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.3,
+                  "shadowRadius": 2,
+                },
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "marginBottom": 15,
+                  "marginHorizontal": 15,
+                  "paddingHorizontal": 13,
+                  "paddingVertical": 16,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "alignSelf": "center",
+                        "color": "#007398",
+                        "textAlign": "center",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingLeft": 15,
+                  },
+                  Object {
+                    "flex": 5,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B2B0B2",
+                      "fontSize": 14,
+                      "marginBottom": 5,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                August 25, 2019 1:00 PM
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
+                    },
+                  ]
+                }
+              >
+                Someone had a spiritual conversation
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "fontSize": 14,
+                      "marginBottom": 5,
+                      "marginTop": 25,
+                    },
+                  ]
+                }
+              >
+                Some comment
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 8,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "marginHorizontal": 16,
+                  "marginVertical": 8,
+                  "shadowColor": "#000000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.3,
+                  "shadowRadius": 2,
+                },
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "marginBottom": 15,
+                  "marginHorizontal": 15,
+                  "paddingHorizontal": 13,
+                  "paddingVertical": 16,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "alignSelf": "center",
+                        "color": "#007398",
+                        "textAlign": "center",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingLeft": 15,
+                  },
+                  Object {
+                    "flex": 5,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B2B0B2",
+                      "fontSize": 14,
+                      "marginBottom": 5,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                August 25, 2019 1:00 PM
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
+                    },
+                  ]
+                }
+              >
+                Someone else had a spiritual conversation
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 8,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "marginHorizontal": 16,
+                  "marginVertical": 8,
+                  "shadowColor": "#000000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.3,
+                  "shadowRadius": 2,
+                },
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "marginBottom": 15,
+                  "marginHorizontal": 15,
+                  "paddingHorizontal": 13,
+                  "paddingVertical": 16,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "alignSelf": "center",
+                        "color": "#007398",
+                        "textAlign": "center",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingLeft": 15,
+                  },
+                  Object {
+                    "flex": 5,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B2B0B2",
+                      "fontSize": 14,
+                      "marginBottom": 5,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                August 25, 2019 1:00 PM
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
+                    },
+                  ]
+                }
+              >
+                Someone else had a gospel conversation
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 8,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "marginHorizontal": 16,
+                  "marginVertical": 8,
+                  "shadowColor": "#000000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.3,
+                  "shadowRadius": 2,
+                },
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "marginBottom": 15,
+                  "marginHorizontal": 15,
+                  "paddingHorizontal": 13,
+                  "paddingVertical": 16,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "alignSelf": "center",
+                        "color": "#007398",
+                        "textAlign": "center",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingLeft": 15,
+                  },
+                  Object {
+                    "flex": 5,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B2B0B2",
+                      "fontSize": 14,
+                      "marginBottom": 5,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                August 25, 2019 1:00 PM
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
+                    },
+                  ]
+                }
+              >
+                Someone else had a spiritual conversation
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 8,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "marginHorizontal": 16,
+                  "marginVertical": 8,
+                  "shadowColor": "#000000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.3,
+                  "shadowRadius": 2,
+                },
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "marginBottom": 15,
+                  "marginHorizontal": 15,
+                  "paddingHorizontal": 13,
+                  "paddingVertical": 16,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "alignSelf": "center",
+                        "color": "#007398",
+                        "textAlign": "center",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingLeft": 15,
+                  },
+                  Object {
+                    "flex": 5,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B2B0B2",
+                      "fontSize": 14,
+                      "marginBottom": 5,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                August 25, 2019 1:00 PM
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
+                    },
+                  ]
+                }
+              >
+                Someone else had a spiritual conversation
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;

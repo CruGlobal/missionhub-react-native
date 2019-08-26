@@ -13,6 +13,7 @@ exports[`renders drilldown item correctly 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={null}
+  testID="FilterItemTouchable"
 >
   <View
     style={
@@ -177,6 +178,7 @@ exports[`renders single item correctly 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={null}
+  testID="FilterItemTouchable"
 >
   <View
     style={

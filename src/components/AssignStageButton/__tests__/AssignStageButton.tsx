@@ -54,6 +54,18 @@ it('renders correctly for me', () => {
   }).snapshot();
 });
 
+it('renders correctly for me without person', () => {
+  renderWithContext(<AssignStageButton {...props} person={undefined} />, {
+    initialState,
+  }).snapshot();
+});
+
+it('renders correctly for me without organization', () => {
+  renderWithContext(<AssignStageButton {...props} organization={undefined} />, {
+    initialState,
+  }).snapshot();
+});
+
 it('renders correctly for me without stage', () => {
   renderWithContext(<AssignStageButton {...props} person={{ id: myId }} />, {
     initialState: {

@@ -20,7 +20,7 @@ type GroupsContactItemType = {
   _type: string;
   interaction_type_id?: string;
   person: Person;
-  old_pathway_stage: Stage;
+  old_pathway_stage?: Stage;
   new_pathway_stage: Stage;
   created_at: string;
   comment: string;
