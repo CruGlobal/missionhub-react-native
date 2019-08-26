@@ -6,7 +6,7 @@ import { renderWithContext } from '../../../../testUtils';
 import GroupsContactList from '..';
 
 const mockDate = '2019-08-25 12:00:00 PM GMT+0';
-MockDate.set(mockDate);
+MockDate.set(mockDate, 300);
 
 const person = {
   id: '123',
@@ -20,7 +20,7 @@ const organization = {
 const activity = [
   {
     id: '1',
-    created_at: '2018-05-29T17:02:02Z',
+    created_at: mockDate,
     text: 'Someone had a spiritual conversation',
     comment: 'Some comment',
     type: 'interaction',
@@ -28,7 +28,7 @@ const activity = [
   },
   {
     id: '2',
-    created_at: '2018-05-29T17:02:02Z',
+    created_at: mockDate,
     text: 'Someone else had a spiritual conversation',
     comment: '',
     type: 'interaction',
@@ -36,7 +36,7 @@ const activity = [
   },
   {
     id: '3',
-    created_at: '2018-05-29T17:02:02Z',
+    created_at: mockDate,
     text: 'Someone else had a gospel conversation',
     comment: '',
     type: 'interaction',
@@ -44,12 +44,12 @@ const activity = [
   },
   {
     id: '4',
-    created_at: '2018-05-29T17:02:02Z',
+    created_at: mockDate,
     text: 'Someone else had a spiritual conversation',
   },
   {
     id: '5',
-    created_at: '2018-05-29T17:02:02Z',
+    created_at: mockDate,
     text: 'Someone else had a spiritual conversation',
   },
 ];
