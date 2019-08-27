@@ -81,7 +81,6 @@ export const onboardingFlowGenerator = ({
             navigatePush(SELECT_STAGE_SCREEN, {
               section: 'onboarding',
               subsection: 'self',
-              enableBackButton: false,
               personId: id,
             }),
           ),
