@@ -119,10 +119,10 @@ function handleNotification(notification) {
     const { person: me } = getState().auth;
 
     const notificationData = parseNotificationData(notification);
-
     const { screen, person_id, celebration_item_id } = notificationData;
     const organization_id =
       notificationData.organization_id && `${notificationData.organization_id}`;
+
     switch (screen) {
       case 'home':
       case 'steps':

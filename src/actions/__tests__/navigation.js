@@ -115,12 +115,19 @@ describe('navigateReset', () => {
 
 describe('navigateNestedReset', () => {
   const screen1 = 'roger';
+  const params1 = { id: '1' };
   const screen2 = 'the dummy';
+  const params2 = { id: '2' };
 
   it('should reset to a nested navigate stack', () => {
     const { dispatch, getActions } = createThunkStore();
 
-    dispatch(navigateNestedReset(screen1, screen2));
+    dispatch(
+      navigateNestedReset([
+        { routeName: screen1, params: params1 },
+        { routeName: screen2, params: params2 },
+      ]),
+    );
 
     expect(getActions()).toEqual([
       {
@@ -128,8 +135,8 @@ describe('navigateNestedReset', () => {
         index: 1,
         key: null,
         actions: [
-          { type: 'Navigation/NAVIGATE', routeName: screen1 },
-          { type: 'Navigation/NAVIGATE', routeName: screen2 },
+          { type: 'Navigation/NAVIGATE', routeName: screen1, params: params1 },
+          { type: 'Navigation/NAVIGATE', routeName: screen2, params: params2 },
         ],
       },
     ]);

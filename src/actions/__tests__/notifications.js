@@ -32,7 +32,11 @@ import {
   navigateReset,
   navigateToMainTabs,
 } from '../navigation';
-import { refreshCommunity, navigateToOrg } from '../organizations';
+import {
+  refreshCommunity,
+  navigateToOrg,
+  navigateToCelebrateComments,
+} from '../organizations';
 import { reloadGroupCelebrateFeed } from '../celebration';
 import { reloadGroupChallengeFeed } from '../challenges';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
@@ -500,6 +504,7 @@ describe('askNotificationPermissions', () => {
     const organizations = {
       someProp: 'hello, Roge',
     };
+    const celebration_item_id = '111';
 
     const store = mockStore({
       auth: {
@@ -515,6 +520,7 @@ describe('askNotificationPermissions', () => {
     const refreshCommunityResult = { type: 'refresh community' };
     const reloadGroupCelebrateFeedResult = { type: 'reload celebrate feed' };
     const reloadGroupChallengeFeedResult = { type: 'reload challenge feed' };
+    const navToCelebrateResult = { type: 'navigated to celebrate comments' };
     const navToOrgResult = { type: 'navigated to org' };
 
     beforeEach(() => {
@@ -525,6 +531,7 @@ describe('askNotificationPermissions', () => {
       refreshCommunity.mockReturnValue(refreshCommunityResult);
       reloadGroupCelebrateFeed.mockReturnValue(reloadGroupCelebrateFeedResult);
       reloadGroupChallengeFeed.mockReturnValue(reloadGroupChallengeFeedResult);
+      navigateToCelebrateComments.mockReturnValue(navToCelebrateResult);
       navigateToOrg.mockReturnValue(navToOrgResult);
     });
 
@@ -666,11 +673,15 @@ describe('askNotificationPermissions', () => {
         await testNotification({
           screen: 'celebrate',
           organization_id: organization.id,
+          celebration_item_id,
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(organization.id);
-        expect(navigateToOrg).toHaveBeenCalledWith(organization.id);
+        expect(navigateToCelebrateComments).toHaveBeenCalledWith(
+          organization.id,
+          celebration_item_id,
+        );
       });
     });
 
