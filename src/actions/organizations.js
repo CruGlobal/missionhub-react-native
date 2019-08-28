@@ -17,12 +17,14 @@ import { timeFilter } from '../utils/filters';
 import { removeHiddenOrgs } from '../selectors/selectorUtils';
 import { organizationSelector } from '../selectors/organizations';
 import { getScreenForOrg } from '../containers/Groups/GroupScreen';
+import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
+import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
 import { REQUESTS } from '../api/routes';
 
 import { getMe, getPersonDetails } from './person';
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
-import { navigatePush } from './navigation';
+import { navigatePush, navigateNestedReset } from './navigation';
 
 const getOrganizationsQuery = {
   limit: 100,
@@ -652,6 +654,26 @@ export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
         orgId,
         initialTab,
       }),
+    );
+  };
+}
+
+export function navigateToCelebrateComments(orgId, celebrationItemId) {
+  return async (dispatch, getState) => {
+    const { organizations } = getState();
+    const organization = organizationSelector({ organizations }, { orgId });
+
+    const event = { id: celebrationItemId, organization };
+
+    await dispatch(
+      navigateNestedReset([
+        {
+          routeName: getScreenForOrg(orgId, organization.user_created),
+          params: { orgId },
+        },
+        { routeName: GROUP_UNREAD_FEED_SCREEN, params: { organization } },
+        { routeName: CELEBRATE_DETAIL_SCREEN, params: { event } },
+      ]),
     );
   };
 }
