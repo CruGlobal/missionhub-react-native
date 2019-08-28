@@ -1,13 +1,14 @@
-import 'react-native';
+import { TextInput } from 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { fireEvent } from 'react-native-testing-library';
 
-import { testSnapshot } from '../../../../testUtils';
-import * as profile from '../../../actions/onboardingProfile';
+import { renderWithContext } from '../../../../testUtils';
+import {
+  createPerson,
+  updateOnboardingPerson,
+  personFirstNameChanged,
+  personLastNameChanged,
+} from '../../../actions/onboardingProfile';
 import * as navigation from '../../../actions/navigation';
 import * as person from '../../../actions/person';
 import { trackActionWithoutData } from '../../../actions/analytics';
@@ -15,150 +16,229 @@ import { ACTIONS } from '../../../constants';
 
 import SetupPersonScreen from '..';
 
-jest.mock('../../actions/onboardingProfile');
 jest.mock('react-native-device-info');
-jest.mock('../../actions/analytics');
+jest.mock('../../../actions/analytics');
+jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/onboardingProfile');
 
-Enzyme.configure({ adapter: new Adapter() });
+const myId = '1';
+const personId = '2';
+const personFirstName = 'John';
+const personLastName = 'Smith';
 
-const mockStore = configureStore([thunk]);
-let store;
-
-const mockState = {
+const initialState = {
   personProfile: {
+    id: null,
     personFirstName: '',
     personLastName: '',
   },
   auth: {
     person: {
-      id: '1',
+      id: myId,
     },
   },
 };
 
-const personId = '2';
-
+const createPersonResult = { type: 'create person' };
+const updateOnboardingPersonResult = { type: 'update person' };
 const trackActionResult = { type: 'tracked action' };
-const navigationResult = { type: 'navigated' };
 const nextResult = { type: 'next' };
+const firstNameChangedResult = { type: 'person first name changed' };
+const lastNameChangedResult = { type: 'person last name changed' };
 
-it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={mockStore(mockState)}>
-      <SetupPersonScreen />
-    </Provider>,
+const next = jest.fn();
+
+beforeEach(() => {
+  (createPerson as jest.Mock).mockReturnValue(createPersonResult);
+  (updateOnboardingPerson as jest.Mock).mockReturnValue(
+    updateOnboardingPersonResult,
   );
+  (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
+  next.mockReturnValue(nextResult);
+  (personFirstNameChanged as jest.Mock).mockReturnValue(firstNameChangedResult);
+  (personLastNameChanged as jest.Mock).mockReturnValue(lastNameChangedResult);
 });
 
-it('renders back arrow correctly', () => {
-  testSnapshot(
-    <Provider store={mockStore(mockState)}>
-      <SetupPersonScreen hideSkipBtn={true} />
-    </Provider>,
-  );
+it('renders correctly', () => {
+  renderWithContext(<SetupPersonScreen next={next} />, {
+    initialState,
+  }).snapshot();
+});
+
+it('renders with first and last name', () => {
+  renderWithContext(<SetupPersonScreen next={next} />, {
+    initialState: {
+      ...initialState,
+      personProfile: {
+        id: personId,
+        personFirstName,
+        personLastName,
+      },
+    },
+  }).snapshot();
 });
 
 describe('setup person screen methods', () => {
-  let component;
-
-  const next = jest.fn();
-
-  beforeEach(() => {
-    next.mockReturnValue(nextResult);
-
-    store = mockStore({
-      ...mockState,
-      personProfile: {
-        ...mockState.personProfile,
-        personFirstName: 'Test',
+  it('saves and creates person, then calls next', async () => {
+    const { getByTestId, store } = renderWithContext(
+      <SetupPersonScreen next={next} />,
+      {
+        initialState: {
+          ...initialState,
+          personProfile: {
+            id: null,
+            personFirstName,
+            personLastName,
+          },
+        },
       },
-    });
+    );
 
-    const screen = shallow(<SetupPersonScreen next={next} />, {
-      context: { store },
-    });
+    await fireEvent.press(getByTestId('bottomButton'));
 
-    component = screen
-      .dive()
-      .dive()
-      .instance();
-
-    profile.createPerson = jest
-      .fn()
-      .mockReturnValue(() => Promise.resolve({ response: { id: personId } }));
-    profile.updateOnboardingPerson = jest
-      .fn()
-      .mockReturnValue(() => Promise.resolve({ response: { id: personId } }));
-    person.resetPerson = jest.fn();
-    navigation.navigateBack = jest.fn().mockReturnValue(navigationResult);
-    trackActionWithoutData.mockReturnValue(trackActionResult);
-  });
-
-  it('navigates away', () => {
-    component.navigate();
-
-    expect(next).toHaveBeenCalledWith({ skip: false, personId: null });
-    expect(store.getActions()).toEqual([nextResult]);
-  });
-
-  it('saves and creates person', async () => {
-    await component.saveAndGoToGetStarted();
-
-    expect(profile.createPerson).toHaveBeenCalledTimes(1);
-    expect(next).toHaveBeenCalledWith({ skip: false, personId });
-    expect(store.getActions()).toEqual([trackActionResult, nextResult]);
-  });
-
-  it('saves and updates person', async () => {
-    component.setState({ personId });
-    await component.saveAndGoToGetStarted();
-
-    expect(profile.updateOnboardingPerson).toHaveBeenCalledTimes(1);
-    expect(next).toHaveBeenCalledWith({ skip: false, personId });
-    expect(store.getActions()).toEqual([nextResult]);
-  });
-
-  it('tracks an action', async () => {
-    await component.saveAndGoToGetStarted();
-
+    expect(createPerson).toHaveBeenCalledWith(
+      personFirstName,
+      personLastName,
+      myId,
+    );
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PERSON_ADDED);
-    expect(next).toHaveBeenCalledWith({ skip: false, personId });
-    expect(store.getActions()).toEqual([trackActionResult, nextResult]);
+    expect(next).toHaveBeenCalledWith({ skip: false, personId: null });
+    expect(store.getActions()).toEqual([
+      createPersonResult,
+      trackActionResult,
+      nextResult,
+    ]);
   });
 
-  it('on submit editing', () => {
-    component.personLastName = { focus: jest.fn() };
-    component.onSubmitEditing();
+  it('saves and creates person on submit for last name', async () => {
+    const { getByTestId, store } = renderWithContext(
+      <SetupPersonScreen next={next} />,
+      {
+        initialState: {
+          ...initialState,
+          personProfile: {
+            id: null,
+            personFirstName,
+            personLastName,
+          },
+        },
+      },
+    );
 
-    expect(component.personLastName.focus).toHaveBeenCalled();
+    await fireEvent(getByTestId('lastNameInput'), 'onSubmitEditing');
+
+    expect(createPerson).toHaveBeenCalledWith(
+      personFirstName,
+      personLastName,
+      myId,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PERSON_ADDED);
+    expect(next).toHaveBeenCalledWith({ skip: false, personId: null });
+    expect(store.getActions()).toEqual([
+      createPersonResult,
+      trackActionResult,
+      nextResult,
+    ]);
+  });
+
+  it('saves and updates person, then calls next', async () => {
+    const { getByTestId, store } = renderWithContext(
+      <SetupPersonScreen next={next} />,
+      {
+        initialState: {
+          ...initialState,
+          personProfile: {
+            id: personId,
+            personFirstName,
+            personLastName,
+          },
+        },
+      },
+    );
+
+    await fireEvent.press(getByTestId('bottomButton'));
+
+    expect(updateOnboardingPerson).toHaveBeenCalledWith({
+      id: personId,
+      firstName: personFirstName,
+      lastName: personLastName,
+    });
+    expect(trackActionWithoutData).not.toHaveBeenCalled();
+    expect(next).toHaveBeenCalledWith({ skip: false, personId });
+    expect(store.getActions()).toEqual([
+      updateOnboardingPersonResult,
+      nextResult,
+    ]);
+  });
+
+  it('does not save if no first name', async () => {
+    const { getByTestId, store } = renderWithContext(
+      <SetupPersonScreen next={next} />,
+      {
+        initialState: {
+          ...initialState,
+          personProfile: {
+            id: personId,
+            personFirstName: '',
+            personLastName,
+          },
+        },
+      },
+    );
+
+    await fireEvent.press(getByTestId('bottomButton'));
+
+    expect(createPerson).not.toHaveBeenCalled();
+    expect(updateOnboardingPerson).not.toHaveBeenCalled();
+    expect(trackActionWithoutData).not.toHaveBeenCalled();
+    expect(next).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([]);
   });
 
   it('on update person first name', () => {
-    profile.personFirstNameChanged = jest.fn(() => ({ type: 'test' }));
-    const val = 'test';
-    component.updatePersonFirstName(val);
+    const { getByTestId } = renderWithContext(
+      <SetupPersonScreen next={next} />,
+      {
+        initialState,
+      },
+    );
 
-    expect(profile.personFirstNameChanged).toHaveBeenCalledWith(val);
+    fireEvent(getByTestId('firstNameInput'), 'onChangeText', personFirstName);
+
+    expect(personFirstNameChanged).toHaveBeenCalledWith(personFirstName);
   });
 
   it('on update person last name', () => {
-    profile.personLastNameChanged = jest.fn(() => ({ type: 'test' }));
-    const val = 'test';
-    component.updatePersonLastName(val);
+    const { getByTestId } = renderWithContext(
+      <SetupPersonScreen next={next} />,
+      {
+        initialState,
+      },
+    );
 
-    expect(profile.personLastNameChanged).toHaveBeenCalledWith(val);
+    fireEvent(getByTestId('lastNameInput'), 'onChangeText', personLastName);
+
+    expect(personLastNameChanged).toHaveBeenCalledWith(personLastName);
   });
 
   it('calls skip', () => {
-    component.skip();
+    const { getByTestId, store } = renderWithContext(
+      <SetupPersonScreen next={next} />,
+      {
+        initialState: {
+          ...initialState,
+          personProfile: {
+            id: personId,
+            personFirstName,
+            personLastName,
+          },
+        },
+      },
+    );
 
-    expect(next).toHaveBeenCalledWith({ skip: true, personId: null });
+    fireEvent.press(getByTestId('skipButton'));
+
+    expect(next).toHaveBeenCalledWith({ skip: true, personId });
     expect(store.getActions()).toEqual([nextResult]);
-  });
-
-  it('calls back', () => {
-    component.back();
-
-    expect(navigation.navigateBack).toHaveBeenCalledTimes(1);
   });
 });

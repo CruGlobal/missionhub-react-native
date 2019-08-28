@@ -99,6 +99,7 @@ const SetupPersonScreen = ({
             {t('profileLabels.firstNameNickname')}
           </Text>
           <Input
+            testID={'firstNameInput'}
             onChangeText={updateFirstName}
             value={firstName}
             autoFocus={true}
@@ -112,6 +113,7 @@ const SetupPersonScreen = ({
 
         <View style={{ paddingTop: 30 }}>
           <Input
+            testID={'lastNameInput'}
             ref={lastNameRef}
             onChangeText={updateLastName}
             value={lastName}
@@ -119,6 +121,7 @@ const SetupPersonScreen = ({
             placeholder={t('lastNameOptional')}
             placeholderTextColor="white"
             blurOnSubmit={true}
+            onSubmitEditing={savePerson}
           />
         </View>
       </Flex>
