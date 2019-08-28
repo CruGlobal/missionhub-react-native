@@ -90,7 +90,7 @@ const SetupPersonScreen = ({
     <SafeAreaView style={styles.container}>
       <Flex value={1} />
       <Flex value={2} align="center">
-        <Image source={require('../../assets/images/add_someone.png')} />
+        <Image source={require('../../../assets/images/add_someone.png')} />
       </Flex>
 
       <Flex value={3} style={{ padding: 30 }}>
