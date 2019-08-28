@@ -14,23 +14,17 @@ exports[`renders correctly 1`] = `
 >
   <View
     style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   />
   <View
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 2,
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "flex": 2,
+      }
     }
   >
     <Image
@@ -43,14 +37,10 @@ exports[`renders correctly 1`] = `
   </View>
   <View
     style={
-      Array [
-        Object {
-          "padding": 30,
-        },
-        Object {
-          "flex": 3,
-        },
-      ]
+      Object {
+        "flex": 3,
+        "padding": 30,
+      }
     }
   >
     <View>
@@ -387,23 +377,17 @@ exports[`renders with first and last name 1`] = `
 >
   <View
     style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   />
   <View
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 2,
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "flex": 2,
+      }
     }
   >
     <Image
@@ -416,14 +400,10 @@ exports[`renders with first and last name 1`] = `
   </View>
   <View
     style={
-      Array [
-        Object {
-          "padding": 30,
-        },
-        Object {
-          "flex": 3,
-        },
-      ]
+      Object {
+        "flex": 3,
+        "padding": 30,
+      }
     }
   >
     <View>
