@@ -83,16 +83,8 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
       onScroll={[Function]}
       refreshControl={
         <MyRefreshControl
-          colors={
-            Array [
-              "#ffffff",
-              "#52C5DC",
-            ]
-          }
           onRefresh={[Function]}
-          progressBackgroundColor="#007398"
           refreshing={false}
-          tintColor="#007398"
         />
       }
       scrollEventThrottle={16}
@@ -228,16 +220,8 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
       onScroll={[Function]}
       refreshControl={
         <MyRefreshControl
-          colors={
-            Array [
-              "#ffffff",
-              "#52C5DC",
-            ]
-          }
           onRefresh={[Function]}
-          progressBackgroundColor="#007398"
           refreshing={false}
-          tintColor="#007398"
         />
       }
       scrollEventThrottle={16}
@@ -384,16 +368,8 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
       onScroll={[Function]}
       refreshControl={
         <MyRefreshControl
-          colors={
-            Array [
-              "#ffffff",
-              "#52C5DC",
-            ]
-          }
           onRefresh={[Function]}
-          progressBackgroundColor="#007398"
           refreshing={false}
-          tintColor="#007398"
         />
       }
       scrollEventThrottle={16}
@@ -565,16 +541,8 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
       onScroll={[Function]}
       refreshControl={
         <MyRefreshControl
-          colors={
-            Array [
-              "#ffffff",
-              "#52C5DC",
-            ]
-          }
           onRefresh={[Function]}
-          progressBackgroundColor="#007398"
           refreshing={false}
-          tintColor="#007398"
         />
       }
       scrollEventThrottle={16}
@@ -745,16 +713,8 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
       onScroll={[Function]}
       refreshControl={
         <MyRefreshControl
-          colors={
-            Array [
-              "#ffffff",
-              "#52C5DC",
-            ]
-          }
           onRefresh={[Function]}
-          progressBackgroundColor="#007398"
           refreshing={false}
-          tintColor="#007398"
         />
       }
       scrollEventThrottle={16}
@@ -890,16 +850,8 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
       onScroll={[Function]}
       refreshControl={
         <MyRefreshControl
-          colors={
-            Array [
-              "#ffffff",
-              "#52C5DC",
-            ]
-          }
           onRefresh={[Function]}
-          progressBackgroundColor="#007398"
           refreshing={false}
-          tintColor="#007398"
         />
       }
       scrollEventThrottle={16}

@@ -122,7 +122,6 @@ describe('GetStartedScreen next', () => {
     expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
       section: 'onboarding',
       subsection: 'self',
-      enableBackButton: false,
       personId: myId,
     });
   });

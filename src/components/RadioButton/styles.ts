@@ -3,6 +3,10 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
+  wrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   outside: {
     borderWidth: 1,
     borderColor: theme.secondaryColor,
@@ -12,6 +16,7 @@ export default StyleSheet.create({
     borderColor: theme.secondaryColor,
   },
   inside: {
+    flex: 1,
     borderRadius: 100,
     backgroundColor: theme.secondaryColor,
   },
