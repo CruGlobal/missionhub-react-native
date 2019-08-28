@@ -30,6 +30,7 @@ import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import * as analytics from '../analytics';
 import { navigatePush } from '../navigation';
+import { getMySteps } from '../steps';
 import {
   CONTACT_PERSON_SCREEN,
   IS_USER_CREATED_MEMBER_PERSON_SCREEN,
@@ -49,6 +50,7 @@ import { organizationSelector } from '../../selectors/organizations';
 
 jest.mock('../api');
 jest.mock('../navigation');
+jest.mock('../steps');
 jest.mock('../../selectors/people');
 jest.mock('../../selectors/organizations');
 jest.mock('../analytics');
@@ -541,6 +543,9 @@ describe('deleteContactAssignment', () => {
     },
   };
 
+  const callAPIResult = { type: 'call api' };
+  const getMyStepsResult = { type: 'get my steps' };
+
   const deleteAction = {
     type: DELETE_PERSON,
     personId,
@@ -553,11 +558,21 @@ describe('deleteContactAssignment', () => {
       query,
       data,
     );
-    expect(dispatch).toHaveBeenCalledWith(deleteAction);
+    expect(getMySteps).toHaveBeenCalledWith();
+    expect(store.getActions()).toEqual([
+      callAPIResult,
+      getMyStepsResult,
+      deleteAction,
+    ]);
   };
 
+  beforeEach(() => {
+    getMySteps.mockReturnValue(getMyStepsResult);
+    callApi.mockReturnValue(callAPIResult);
+  });
+
   it('should send the correct API request', async () => {
-    await deleteContactAssignment(1, personId, personOrgId)(dispatch);
+    await store.dispatch(deleteContactAssignment(1, personId, personOrgId));
 
     testDelete();
   });
@@ -566,7 +581,9 @@ describe('deleteContactAssignment', () => {
     const note = 'testNote';
     data.data.attributes.unassignment_reason = note;
 
-    await deleteContactAssignment(1, personId, personOrgId, note)(dispatch);
+    await store.dispatch(
+      deleteContactAssignment(1, personId, personOrgId, note),
+    );
 
     testDelete();
   });
