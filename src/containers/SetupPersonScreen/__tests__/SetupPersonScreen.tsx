@@ -1,4 +1,4 @@
-import { TextInput } from 'react-native';
+import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
@@ -9,8 +9,6 @@ import {
   personFirstNameChanged,
   personLastNameChanged,
 } from '../../../actions/onboardingProfile';
-import * as navigation from '../../../actions/navigation';
-import * as person from '../../../actions/person';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
 

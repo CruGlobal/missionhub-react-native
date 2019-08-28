@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { AndroidBackHandler } from 'react-navigation-backhandler';
 
 import { BackButton } from '../BackButton';
-import { Text, Flex } from '../../components/common';
+import { Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import Input from '../../components/Input/index';
 import AbsoluteSkip from '../../components/AbsoluteSkip';
@@ -88,12 +88,11 @@ const SetupPersonScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
-      <Flex value={1} />
-      <Flex value={2} align="center">
+      <View style={{ flex: 1 }} />
+      <View style={styles.imageWrap}>
         <Image source={require('../../../assets/images/add_someone.png')} />
-      </Flex>
-
-      <Flex value={3} style={{ padding: 30 }}>
+      </View>
+      <View style={styles.inputWrap}>
         <View>
           <Text style={styles.label}>
             {t('profileLabels.firstNameNickname')}
@@ -110,7 +109,6 @@ const SetupPersonScreen = ({
             placeholderTextColor="white"
           />
         </View>
-
         <View style={{ paddingTop: 30 }}>
           <Input
             testID={'lastNameInput'}
@@ -124,7 +122,7 @@ const SetupPersonScreen = ({
             onSubmitEditing={savePerson}
           />
         </View>
-      </Flex>
+      </View>
       <BottomButton
         onPress={savePerson}
         text={t('next')}

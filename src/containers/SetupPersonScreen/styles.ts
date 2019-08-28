@@ -9,6 +9,8 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'column',
   },
+  imageWrap: { flex: 2, alignItems: 'center' },
+  inputWrap: { flex: 3, padding: 30 },
   label: {
     color: theme.secondaryColor,
     fontSize: 12,

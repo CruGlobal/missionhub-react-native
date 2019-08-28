@@ -4,8 +4,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import AddSomeoneScreen from '../AddSomeoneScreen';
 import { renderWithContext } from '../../../testUtils';
-import { navigatePush, navigateBack } from '../../actions/navigation';
-import { SETUP_PERSON_SCREEN } from '../SetupPersonScreen';
+import { navigateBack } from '../../actions/navigation';
 import { skipOnboarding } from '../../actions/onboardingProfile';
 
 jest.mock('../../actions/navigation');
