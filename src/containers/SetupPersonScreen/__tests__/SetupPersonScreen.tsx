@@ -6,13 +6,14 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import SetupPersonScreen from '../SetupPersonScreen';
-import { testSnapshot } from '../../../testUtils';
-import * as profile from '../../actions/onboardingProfile';
-import * as navigation from '../../actions/navigation';
-import * as person from '../../actions/person';
-import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+import { testSnapshot } from '../../../../testUtils';
+import * as profile from '../../../actions/onboardingProfile';
+import * as navigation from '../../../actions/navigation';
+import * as person from '../../../actions/person';
+import { trackActionWithoutData } from '../../../actions/analytics';
+import { ACTIONS } from '../../../constants';
+
+import SetupPersonScreen from '..';
 
 jest.mock('../../actions/onboardingProfile');
 jest.mock('react-native-device-info');
