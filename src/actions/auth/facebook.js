@@ -76,8 +76,8 @@ export function refreshMissionHubFacebookAccess() {
       } catch (loginError) {
         if (loginError.message === FACEBOOK_CANCELED_ERROR) {
           LoginManager.logOut();
-          throw loginError;
         }
+        throw loginError;
       }
     }
   };
