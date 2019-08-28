@@ -7,7 +7,10 @@ import { authFlowGenerator } from '../auth/authFlowGenerator';
 import { SIGNUP_TYPES } from '../../containers/Auth/SignUpScreen';
 
 export const CreateCommunityUnauthenticatedFlowScreens = authFlowGenerator({
-  completeAction: navigateNestedReset(MAIN_TABS, CREATE_GROUP_SCREEN),
+  completeAction: navigateNestedReset([
+    { routeName: MAIN_TABS },
+    { routeName: CREATE_GROUP_SCREEN },
+  ]),
   includeSignUp: true,
   signUpType: SIGNUP_TYPES.CREATE_COMMUNITY,
 });
