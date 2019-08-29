@@ -64,8 +64,8 @@ const SetupPersonScreen = ({
         await dispatch(createPerson(firstName, lastName, myId));
         dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
       }
-    } finally {
       navigateNext();
+    } finally {
       setIsLoading(false);
     }
   };

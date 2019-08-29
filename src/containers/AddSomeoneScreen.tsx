@@ -11,7 +11,7 @@ interface AddSomeoneScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: (props?: { skip: boolean }) => ThunkAction<void, any, null, never>; // TODO: make next required when only used in flows
+  next: (props?: { skip: boolean }) => ThunkAction<void, any, null, never>;
   hideSkipBtn?: boolean;
 }
 
