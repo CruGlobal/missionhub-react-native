@@ -28,9 +28,11 @@ export function navigateBack(times) {
 export const navigateReset = (screen, props = {}) =>
   resetStack(NavigationActions.navigate({ routeName: screen, params: props }));
 
-export const navigateNestedReset = (...screens) =>
+export const navigateNestedReset = screens =>
   resetStack(
-    screens.map(routeName => NavigationActions.navigate({ routeName })),
+    screens.map(({ routeName, params = {} }) =>
+      NavigationActions.navigate({ routeName, params }),
+    ),
     screens.length - 1,
   );
 

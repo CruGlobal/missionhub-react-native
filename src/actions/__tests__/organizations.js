@@ -40,9 +40,10 @@ import {
   joinCommunity,
   lookupOrgCommunityUrl,
   navigateToOrg,
+  navigateToCelebrateComments,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
-import { navigatePush } from '../navigation';
+import { navigatePush, navigateNestedReset } from '../navigation';
 import { removeHiddenOrgs } from '../../selectors/selectorUtils';
 import {
   GROUP_CHALLENGES,
@@ -50,6 +51,8 @@ import {
   USER_CREATED_GROUP_SCREEN,
   GLOBAL_GROUP_SCREEN,
 } from '../../containers/Groups/GroupScreen';
+import { GROUP_UNREAD_FEED_SCREEN } from '../../containers/Groups/GroupUnreadFeed';
+import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 
 jest.mock('../analytics');
 jest.mock('../api');
@@ -1053,6 +1056,75 @@ describe('navigateToOrg', () => {
         orgId: userCreatedOrgId,
         initialTab: GROUP_CHALLENGES,
       });
+    });
+  });
+});
+
+describe('navigateToCelebrateComments', () => {
+  const cruOrgId = '123456';
+  const cruOrg = { id: cruOrgId, user_created: false };
+  const userCreatedOrgId = '654321';
+  const userCreatedOrg = { id: userCreatedOrgId, user_created: true };
+  const celebrateItemId = '111';
+
+  beforeEach(() => {
+    store = mockStore({
+      organizations: {
+        all: [globalCommunity, cruOrg, userCreatedOrg],
+      },
+    });
+    navigateNestedReset.mockReturnValue({ type: 'test' });
+  });
+
+  describe('Cru org', () => {
+    beforeEach(() => {
+      store.dispatch(navigateToCelebrateComments(cruOrgId, celebrateItemId));
+    });
+
+    it('navigates to CELEBRATE_DETAIL_SCREEN', () => {
+      expect(navigateNestedReset).toBeCalledWith([
+        {
+          routeName: GROUP_SCREEN,
+          params: { orgId: cruOrgId },
+        },
+        {
+          routeName: GROUP_UNREAD_FEED_SCREEN,
+          params: { organization: cruOrg },
+        },
+        {
+          routeName: CELEBRATE_DETAIL_SCREEN,
+          params: {
+            event: { id: celebrateItemId, organization: cruOrg },
+          },
+        },
+      ]);
+    });
+  });
+
+  describe('user-created org', () => {
+    beforeEach(() => {
+      store.dispatch(
+        navigateToCelebrateComments(userCreatedOrgId, celebrateItemId),
+      );
+    });
+
+    it('navigates to CELEBRATE_DETAIL_SCREEN', () => {
+      expect(navigateNestedReset).toBeCalledWith([
+        {
+          routeName: USER_CREATED_GROUP_SCREEN,
+          params: { orgId: userCreatedOrgId },
+        },
+        {
+          routeName: GROUP_UNREAD_FEED_SCREEN,
+          params: { organization: userCreatedOrg },
+        },
+        {
+          routeName: CELEBRATE_DETAIL_SCREEN,
+          params: {
+            event: { id: celebrateItemId, organization: userCreatedOrg },
+          },
+        },
+      ]);
     });
   });
 });
