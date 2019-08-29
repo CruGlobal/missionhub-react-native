@@ -3,17 +3,15 @@ import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
-import { navigatePush, navigateBack } from '../actions/navigation';
-import { skipOnboarding } from '../actions/onboardingProfile';
+import { navigateBack } from '../actions/navigation';
 
-import { SETUP_PERSON_SCREEN } from './SetupPersonScreen';
 import IconMessageScreen from './IconMessageScreen';
 
 interface AddSomeoneScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next?: (props?: { skip: boolean }) => ThunkAction<void, any, null, never>; // TODO: make next required when only used in flows
+  next: (props?: { skip: boolean }) => ThunkAction<void, any, null, never>;
   hideSkipBtn?: boolean;
 }
 
@@ -24,13 +22,7 @@ const AddSomeoneScreen = ({
 }: AddSomeoneScreenProps) => {
   const { t } = useTranslation('addContact');
 
-  const handleNavigate = (skip = false) => {
-    if (next) {
-      return dispatch(next({ skip }));
-    }
-
-    dispatch(skip ? skipOnboarding() : navigatePush(SETUP_PERSON_SCREEN));
-  };
+  const handleNavigate = (skip = false) => dispatch(next({ skip }));
 
   const skip = () => handleNavigate(true);
   const back = () => dispatch(navigateBack());
