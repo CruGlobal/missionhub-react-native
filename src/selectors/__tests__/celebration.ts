@@ -99,7 +99,11 @@ describe('celebrationItemSelector', () => {
   expect(
     celebrationItemSelector(
       {
-        organizations: { all: [org] },
+        organizations: {
+          all: [org],
+          surveysPagination: { page: 1, hasNextPage: false },
+          membersPagination: { page: 1, hasNextPage: false },
+        },
       },
       { organizationId: org.id, eventId: itemOne.id },
     ),

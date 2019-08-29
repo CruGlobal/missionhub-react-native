@@ -30,8 +30,8 @@ export interface PaginationObject {
 export interface OrganizationsState {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   all: [Organization]; // TODO: use GraphQL type
-  surveysPagination?: PaginationObject;
-  membersPagination?: PaginationObject;
+  surveysPagination: PaginationObject;
+  membersPagination: PaginationObject;
 }
 
 const globalCommunity = {

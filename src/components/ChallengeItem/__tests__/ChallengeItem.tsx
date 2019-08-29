@@ -51,13 +51,6 @@ it('render active and joined challenge item', () => {
   ).snapshot();
 });
 
-it('render active and joined challenge item with edit', () => {
-  renderWithContext(
-    <ChallengeItem {...props} acceptedChallenge={acceptedChallenge} />,
-    { noWrappers: true },
-  ).snapshot();
-});
-
 it('render active and joined and completed challenge item', () => {
   renderWithContext(
     <ChallengeItem {...props} acceptedChallenge={completedChallenge} />,

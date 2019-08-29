@@ -54,19 +54,19 @@ it('renders correctly for me', () => {
   }).snapshot();
 });
 
-it('renders correctly for me without person', () => {
+it('renders correctly without person', () => {
   renderWithContext(<AssignStageButton {...props} person={undefined} />, {
     initialState,
   }).snapshot();
 });
 
-it('renders correctly for me without organization', () => {
+it('renders correctly without organization', () => {
   renderWithContext(<AssignStageButton {...props} organization={undefined} />, {
     initialState,
   }).snapshot();
 });
 
-it('renders correctly for me without stage', () => {
+it('renders correctly without stage', () => {
   renderWithContext(<AssignStageButton {...props} person={{ id: myId }} />, {
     initialState: {
       ...initialState,

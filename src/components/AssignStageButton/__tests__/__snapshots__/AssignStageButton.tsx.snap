@@ -81,7 +81,7 @@ exports[`renders correctly for me 1`] = `
 </View>
 `;
 
-exports[`renders correctly for me without organization 1`] = `
+exports[`renders correctly without organization 1`] = `
 <View
   accessible={true}
   clickable={true}
@@ -162,7 +162,7 @@ exports[`renders correctly for me without organization 1`] = `
 </View>
 `;
 
-exports[`renders correctly for me without person 1`] = `
+exports[`renders correctly without person 1`] = `
 <View
   accessible={true}
   clickable={true}
@@ -243,7 +243,7 @@ exports[`renders correctly for me without person 1`] = `
 </View>
 `;
 
-exports[`renders correctly for me without stage 1`] = `
+exports[`renders correctly without stage 1`] = `
 <View
   accessible={true}
   clickable={true}

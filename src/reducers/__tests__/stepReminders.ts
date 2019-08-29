@@ -112,7 +112,7 @@ describe('REQUESTS.DELETE_CHALLENGE_REMINDER.SUCCESS', () => {
 });
 
 describe('LOGOUT', () => {
-  it('removes reminder from state', () => {
+  it('resets to initial state', () => {
     expect(
       stepReminders(
         { allByStep: { [challenge_id]: reminder } },
@@ -122,8 +122,8 @@ describe('LOGOUT', () => {
   });
 });
 
-describe('LOGOUT', () => {
-  it('removes reminder from state', () => {
+describe('NOT FOUND', () => {
+  it('type is not found', () => {
     const testState = { allByStep: { [challenge_id]: reminder } };
     expect(stepReminders(testState, { type: 'NOT FOUND TYPE' })).toEqual(
       testState,
