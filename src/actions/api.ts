@@ -14,10 +14,7 @@ import {
 } from '../constants';
 import { LOG, APILOG } from '../utils/logging';
 
-import { logout } from './auth/auth';
-import { refreshAccessToken } from './auth/key';
-import { refreshAnonymousLogin } from './auth/anonymous';
-import { refreshMissionHubFacebookAccess } from './auth/facebook';
+import { logout, handleInvalidAccessToken } from './auth/auth';
 
 // WARNING: You shouldn't have to touch this file to change routes/mapping
 // Put new routes in '../api/routes';
@@ -111,13 +108,7 @@ export default function callApi(
             errorDetail === EXPIRED_ACCESS_TOKEN ||
             errorDetail === INVALID_ACCESS_TOKEN
           ) {
-            if (authState.refreshToken) {
-              dispatch(refreshAccessToken());
-            } else if (authState.isFirstTime) {
-              dispatch(refreshAnonymousLogin());
-            } else {
-              dispatch(refreshMissionHubFacebookAccess());
-            }
+            dispatch(handleInvalidAccessToken());
           }
         } else if (
           apiError.error === INVALID_GRANT &&
