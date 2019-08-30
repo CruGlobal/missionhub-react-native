@@ -109,19 +109,21 @@ class AddChallengeScreen extends Component {
     const { container, backButton } = styles;
 
     return (
-      <SafeAreaView style={container}>
-        <StatusBar {...theme.statusBar.darkContent} />
-        <View flex={1}>
-          {this.renderTitleInput()}
-          {this.renderDateInput()}
-        </View>
-        <BottomButton
-          disabled={disableBtn}
-          onPress={this.saveChallenge}
-          text={t(isEdit ? 'save' : 'add')}
-        />
+      <View style={{ flex: 1 }}>
+        <SafeAreaView style={container}>
+          <StatusBar {...theme.statusBar.darkContent} />
+          <View style={{ flex: 1 }}>
+            {this.renderTitleInput()}
+            {this.renderDateInput()}
+          </View>
+          <BottomButton
+            disabled={disableBtn}
+            onPress={this.saveChallenge}
+            text={t(isEdit ? 'save' : 'add')}
+          />
+        </SafeAreaView>
         <BackButton iconStyle={backButton} absolute={true} />
-      </SafeAreaView>
+      </View>
     );
   }
 }

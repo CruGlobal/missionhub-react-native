@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="AssignToMeButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        null,
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "#FF5532",
+          "borderRadius": 25,
+          "marginVertical": 8,
+          "minWidth": 200,
+          "paddingVertical": 8,
+        },
+        null,
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "textAlign": "center",
+            },
+            Object {
+              "fontSize": 14,
+            },
+          ],
+        ]
+      }
+    >
+      ASSIGN TO ME
+    </Text>
+  </View>
+</View>
+`;

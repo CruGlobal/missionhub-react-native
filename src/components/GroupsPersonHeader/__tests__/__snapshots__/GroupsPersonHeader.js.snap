@@ -29,7 +29,7 @@ exports[`is self renders for Cru Community 1`] = `
 
 exports[`is self renders for User Created Community 1`] = `
 <Flex>
-  <Connect(withI18nextTranslation(AssignStageButton))
+  <Connect(AssignStageButton)
     organization={
       Object {
         "id": "50",
@@ -87,7 +87,7 @@ exports[`isContact with contact assignment does not render status button if cont
 
 exports[`isContact with contact assignment renders no contact buttons if not Cru Org 1`] = `
 <Flex>
-  <Connect(withI18nextTranslation(AssignStageButton))
+  <Connect(AssignStageButton)
     organization={
       Object {
         "id": "50",
@@ -151,7 +151,7 @@ exports[`isContact with contact assignment renders status button if contact is p
 
 exports[`isContact with no contact assignment renders with no contact assignment 1`] = `
 <Flex>
-  <Connect(withI18nextTranslation(AssignToMeButton))
+  <Connect(AssignToMeButton)
     organization={
       Object {
         "id": "50",
@@ -214,7 +214,7 @@ exports[`isMember has contact info and contact assignment renders for Cru Commun
 
 exports[`isMember has contact info and contact assignment renders for User-Created Community 1`] = `
 <Flex>
-  <Connect(withI18nextTranslation(AssignStageButton))
+  <Connect(AssignStageButton)
     organization={
       Object {
         "id": "50",
@@ -236,7 +236,7 @@ exports[`isMember renders null with no contact assignment for User-Created Org 1
 
 exports[`isMember renders with no contact assignment and no contact info 1`] = `
 <Flex>
-  <Connect(withI18nextTranslation(AssignToMeButton))
+  <Connect(AssignToMeButton)
     organization={
       Object {
         "id": "50",

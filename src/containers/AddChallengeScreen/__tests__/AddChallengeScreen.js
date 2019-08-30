@@ -100,6 +100,7 @@ describe('create methods', () => {
     };
     instance.setState({ title: challenge.title, date: challenge.date });
     component
+      .childAt(0)
       .childAt(2)
       .props()
       .onPress();
@@ -109,6 +110,7 @@ describe('create methods', () => {
   it('calls onChangeTitle from input', () => {
     const title = 'New Title';
     component
+      .childAt(0)
       .childAt(1)
       .childAt(0)
       .props()
@@ -119,6 +121,7 @@ describe('create methods', () => {
   it('calls onChangeDate from input', () => {
     const date = new Date();
     component
+      .childAt(0)
       .childAt(1)
       .childAt(1)
       .props()
@@ -159,6 +162,7 @@ describe('edit methods', () => {
       disableBtn: false,
     });
     component
+      .childAt(0)
       .childAt(2)
       .props()
       .onPress();
