@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleProp, TextStyle } from 'react-native';
+import { StyleProp, TextStyle, Insets } from 'react-native';
 
 import { Button } from '../common';
 import Icon, { IconProps } from '../Icon';
@@ -13,6 +13,7 @@ interface IconButtonProps extends IconProps {
   pressProps?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   onPress?: Function;
   testID?: string;
+  hitSlop?: Insets;
   disabled?: boolean;
 }
 

@@ -14,7 +14,6 @@ Components to convert to TS+Hooks
 - NullStateComponent
 - PersonListItem
 - PersonSideMenu
-- PillButton
 - PlatformKeyboardAvoidingView
 - PopupMenu
 - ReminderButton
@@ -56,3 +55,7 @@ Components to convert to TS+Hooks
 - RefreshControl
 - ReminderDateText
 - Separator
+
+#### Removed
+
+- PillButton
