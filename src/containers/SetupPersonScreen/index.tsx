@@ -129,7 +129,7 @@ const SetupPersonScreen = ({
         disabled={isLoading}
       />
       <AbsoluteSkip onSkip={skip} />
-      <BackButton absolute={true} />
+      <BackButton absolute={true} customNavigate={handleBack} />
       <AndroidBackHandler onBackPress={handleBack} />
     </SafeAreaView>
   );
