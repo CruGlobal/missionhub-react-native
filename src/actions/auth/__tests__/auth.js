@@ -107,9 +107,7 @@ describe('navigateToPostAuthScreen', () => {
 
     store.dispatch(navigateToPostAuthScreen());
 
-    expect(navigateReset).toHaveBeenCalledWith(GET_STARTED_ONBOARDING_FLOW, {
-      enableBackButton: false,
-    });
+    expect(navigateReset).toHaveBeenCalledWith(GET_STARTED_ONBOARDING_FLOW);
     expect(store.getActions()).toEqual([navigateResetResult]);
   });
 
