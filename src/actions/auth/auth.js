@@ -72,7 +72,9 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
     dispatch(navigateToMainTabs());
     dispatch(completeOnboarding());
   } else {
-    dispatch(navigateReset(ADD_SOMEONE_ONBOARDING_FLOW));
+    dispatch(
+      navigateReset(ADD_SOMEONE_ONBOARDING_FLOW, { enableBackButton: false }),
+    );
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   }
 };

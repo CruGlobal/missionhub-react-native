@@ -386,6 +386,7 @@ const screens = {
       'onboarding',
       'add person',
     ),
+    { gesturesEnabled: true },
   ),
   [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(
     NotificationPrimerScreen,
