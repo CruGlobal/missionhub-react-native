@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-import { useNavigationState } from 'react-navigation-hooks';
 
 import { navigateBack } from '../actions/navigation';
 import { useDisableBack } from '../utils/hooks/useDisableBack';
@@ -15,19 +14,15 @@ interface AddSomeoneScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: (props?: { skip: boolean }) => ThunkAction<void, any, null, never>;
   hideSkipBtn?: boolean;
-}
-
-interface AddSomeoneNavParams {
-  enableBackButton: boolean;
+  enableBackButton?: boolean;
 }
 
 const AddSomeoneScreen = ({
   dispatch,
   next,
   hideSkipBtn = false,
+  enableBackButton = true,
 }: AddSomeoneScreenProps) => {
-  const { enableBackButton = true } = useNavigationState()
-    .params as AddSomeoneNavParams;
   const enableBack = useDisableBack(enableBackButton);
   const { t } = useTranslation('addContact');
 
