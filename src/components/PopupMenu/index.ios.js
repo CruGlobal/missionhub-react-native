@@ -1,16 +1,39 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
+import { ActionSheetIOS } from 'react-native';
 
 import { IconButton } from '../common';
-import { showMenu } from '../../utils/common';
+import { isFunction } from '../../utils/common';
 
 import styles from './styles';
 
 // iOS only component
+@withTranslation()
 class PopupMenu extends Component {
-  open = () => {
-    showMenu(this.props.actions);
+  showMenu = () => {
+    const { actions, t, title } = this.props;
+
+    const options = actions.map(a => a.text).concat(t('cancel'));
+    const select = i =>
+      actions[i] && isFunction(actions[i].onPress) && actions[i].onPress();
+
+    let destructiveButtonIndex = actions.findIndex(o => o.destructive);
+    if (destructiveButtonIndex < 0) {
+      destructiveButtonIndex = undefined;
+    }
+
+    const params = {
+      options,
+      cancelButtonIndex: options.length - 1,
+      destructiveButtonIndex,
+      ...(title ? { title } : {}),
+    };
+
+    ActionSheetIOS.showActionSheetWithOptions(params, btnIndex =>
+      select(btnIndex),
+    );
   };
 
   render() {
@@ -20,7 +43,7 @@ class PopupMenu extends Component {
         <IconButton
           name="moreIcon"
           type="MissionHub"
-          onPress={this.open}
+          onPress={this.showMenu}
           style={[styles.icon, iconStyle]}
         />
       </View>
@@ -36,7 +59,12 @@ PopupMenu.propTypes = {
       destructive: PropTypes.bool,
     }),
   ).isRequired,
-  style: PropTypes.oneOfType([
+  containerStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array,
+  ]),
+  iconStyle: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
     PropTypes.array,
