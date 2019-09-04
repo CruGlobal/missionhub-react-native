@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import Menu, { MenuItem } from 'react-native-material-menu';
 
-import { IconButton } from '../common';
+import { IconButton, Touchable } from '../common';
 
 import styles from './styles';
 
@@ -24,13 +24,26 @@ class PopupMenu extends Component {
     return <MenuItem onPress={handlePress}>{text}</MenuItem>;
   };
 
-  renderButton = () => {
-    return (
+  renderMenuTrigger = () => {
+    const { children, disabled, triggerOnLongPress, iconStyle } = this.props;
+
+    return children ? (
+      triggerOnLongPress ? (
+        <Touchable disabled={disabled} onLongPress={this.showMenu}>
+          {children}
+        </Touchable>
+      ) : (
+        <Touchable disabled={disabled} onPress={this.showMenu}>
+          {children}
+        </Touchable>
+      )
+    ) : (
       <IconButton
         ref={this.ref}
         name="moreIcon"
         type="MissionHub"
-        style={[styles.icon, this.props.iconStyle]}
+        style={[styles.icon, iconStyle]}
+        disabled={disabled}
         onPress={this.showMenu}
       />
     );
@@ -41,7 +54,7 @@ class PopupMenu extends Component {
 
     return (
       <View style={[styles.container, containerStyle]}>
-        <Menu ref={this.ref} button={this.renderButton()}>
+        <Menu ref={this.ref} button={this.renderMenuTrigger()}>
           {actions.map(this.renderItem)}
         </Menu>
       </View>
@@ -56,6 +69,9 @@ PopupMenu.propTypes = {
       onPress: PropTypes.func.isRequired,
     }),
   ).isRequired,
+  children: PropTypes.element,
+  disabled: PropTypes.bool,
+  triggerOnLongPress: PropTypes.bool,
   containerStyle: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { ActionSheetIOS } from 'react-native';
 
-import { IconButton } from '../common';
+import { IconButton, Touchable } from '../common';
 import { isFunction } from '../../utils/common';
 
 import styles from './styles';
@@ -37,15 +37,33 @@ class PopupMenu extends Component {
   };
 
   render() {
-    const { containerStyle, iconStyle } = this.props;
+    const {
+      containerStyle,
+      children,
+      disabled,
+      triggerOnLongPress,
+      iconStyle,
+    } = this.props;
     return (
       <View style={[styles.container, containerStyle]}>
-        <IconButton
-          name="moreIcon"
-          type="MissionHub"
-          onPress={this.showMenu}
-          style={[styles.icon, iconStyle]}
-        />
+        {children ? (
+          <Touchable
+            disabled={disabled}
+            {...(triggerOnLongPress
+              ? { onLongPress: this.showMenu }
+              : { onPress: this.showMenu })}
+          >
+            {children}
+          </Touchable>
+        ) : (
+          <IconButton
+            name="moreIcon"
+            type="MissionHub"
+            style={[styles.icon, iconStyle]}
+            disabled={disabled}
+            onPress={this.showMenu}
+          />
+        )}
       </View>
     );
   }
