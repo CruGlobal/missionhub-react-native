@@ -2,45 +2,39 @@ import React from 'react';
 import ReactNative from 'react-native';
 import i18n from 'i18next';
 
-import {
-  createThunkStore,
-  testSnapshotShallow,
-  renderShallow,
-} from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { LINKS } from '../../../constants';
 
 import SettingsMenu from '..';
 
+function getState(isFirstTime = false) {
+  return { drawer: { isOpen: false }, auth: { isFirstTime } };
+}
+
 it('renders correctly for authenticated user', () => {
-  const mockState = {
-    auth: { isFirstTime: false },
-  };
-  const store = createThunkStore(mockState);
-  testSnapshotShallow(<SettingsMenu />, store);
+  renderWithContext(<SettingsMenu />, { initialState: getState() }).snapshot();
 });
 
 it('renders correctly for try it now user', () => {
-  const mockState = {
-    auth: { isFirstTime: true },
-  };
-  const store = createThunkStore(mockState);
-  testSnapshotShallow(<SettingsMenu />, store);
+  renderWithContext(<SettingsMenu />, {
+    initialState: getState(true),
+  }).snapshot();
 });
 
 describe('menu items and links', () => {
-  let component;
-  const mockState = {
-    auth: { isFirstTime: false },
-  };
-  const store = createThunkStore(mockState);
+  function getMenuItems() {
+    const { getByTestId } = renderWithContext(<SettingsMenu />, {
+      initialState: getState(),
+    });
+    return getByTestId('Menu').props.menuItems;
+  }
 
   beforeEach(() => {
     ReactNative.Linking.openURL = jest.fn();
-    component = renderShallow(<SettingsMenu />, store);
   });
 
   it('links are ordered correctly', () => {
-    const items = component.props().menuItems;
+    const items = getMenuItems();
 
     expect(items[0].label).toEqual(i18n.t('settingsMenu:about'));
     expect(items[1].label).toEqual(i18n.t('settingsMenu:help'));
@@ -56,9 +50,9 @@ describe('menu items and links', () => {
       .fn()
       .mockReturnValue(Promise.resolve(true));
 
-    const items = component.props().menuItems;
+    const items = getMenuItems();
 
-    const testUrl = async (index, url) => {
+    const testUrl = async (index: number, url: string) => {
       await items[index].action();
       expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
       expect(ReactNative.Linking.openURL).toHaveBeenCalledWith(url);
@@ -77,7 +71,7 @@ describe('menu items and links', () => {
       .fn()
       .mockReturnValue(Promise.resolve(false));
 
-    const items = component.props().menuItems;
+    const items = getMenuItems();
 
     await items[0].action();
 

@@ -1,30 +1,38 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { StatusBar, SafeAreaView, View } from 'react-native';
-import PropTypes from 'prop-types';
 import Markdown from 'react-native-markdown-renderer';
 import { ScrollView } from 'react-native';
 
 import Header from '../Header/index';
 import BackButton from '../../containers/BackButton/index';
-import BottomButton from '../BottomButton/index';
+import BottomButton, { BottomButtonProps } from '../BottomButton/index';
 import { Text } from '../common';
 import markdownStyles from '../../markdownStyles';
 import theme from '../../theme';
 
 import styles from './styles';
 
-export default function StepDetailScreen({
+interface StepDetailScreenProps {
+  text: string;
+  markdown?: string;
+  CenterHeader?: React.ReactNode;
+  RightHeader?: React.ReactNode;
+  CenterContent?: React.ReactNode;
+  bottomButtonProps?: BottomButtonProps;
+}
+
+const StepDetailScreen = ({
   text,
   markdown,
   CenterHeader,
   RightHeader,
   CenterContent,
   bottomButtonProps,
-}) {
-  const { container, stepTitleText, backButton } = styles;
+}: StepDetailScreenProps) => {
+  const { container, stepTitleText, backButton, flex1 } = styles;
 
   return (
-    <View flex={1} style={container}>
+    <View style={container}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
         left={<BackButton iconStyle={backButton} />}
@@ -33,10 +41,10 @@ export default function StepDetailScreen({
         shadow={false}
         style={container}
       />
-      <SafeAreaView flex={1}>
+      <SafeAreaView style={flex1}>
         <Text style={stepTitleText}>{text}</Text>
         {CenterContent}
-        <View flex={1}>
+        <View style={flex1}>
           {markdown ? (
             <ScrollView style={styles.body}>
               <Markdown style={markdownStyles}>{markdown}</Markdown>
@@ -47,12 +55,6 @@ export default function StepDetailScreen({
       </SafeAreaView>
     </View>
   );
-}
-
-StepDetailScreen.propTypes = {
-  text: PropTypes.string.isRequired,
-  markdown: PropTypes.string,
-  CenterHeader: PropTypes.object,
-  RightHeader: PropTypes.object,
-  bottomButtonProps: PropTypes.object,
 };
+
+export default StepDetailScreen;

@@ -26,13 +26,7 @@ Components to convert to TS+Hooks
 - SettingsMenu
 - ShareSurveyMenu
 - SideMenu
-- StepDetailScreen
-- StepItem
-- StepItemDraggable
 - SwipeTabMenu
-- TosPrivacy
-- Touchable
-- UnreadCommentsCard
 - common.js
 
 #### Finished
@@ -54,8 +48,14 @@ Components to convert to TS+Hooks
 - RadioButton
 - RefreshControl
 - ReminderDateText
+- StepDetailScreen
 - Separator
+- StepItem
+- TosPrivacy
+- Touchable
+- UnreadCommentsCard
 
 #### Removed
 
 - PillButton
+- StepItemDraggable
