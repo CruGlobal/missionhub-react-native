@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { Touchable, Icon } from '../common';
+import { IconButton } from '../common';
 import { showMenu } from '../../utils/common';
 
 import styles from './styles';
@@ -13,16 +14,16 @@ class PopupMenu extends Component {
   };
 
   render() {
-    const { iconProps = {}, style } = this.props;
+    const { containerStyle, iconStyle } = this.props;
     return (
-      <Touchable onPress={this.open} style={[styles.container, style]}>
-        <Icon
+      <View style={[styles.container, containerStyle]}>
+        <IconButton
           name="moreIcon"
           type="MissionHub"
-          {...iconProps}
-          style={[styles.icon, iconProps.style]}
+          onPress={this.open}
+          style={[styles.icon, iconStyle]}
         />
-      </Touchable>
+      </View>
     );
   }
 }
@@ -35,7 +36,6 @@ PopupMenu.propTypes = {
       destructive: PropTypes.bool,
     }),
   ).isRequired,
-  iconProps: PropTypes.object,
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,

@@ -78,6 +78,7 @@ export default StyleSheet.create({
   },
   menu: {
     marginLeft: 15,
+    fontSize: 20,
     color: theme.white,
   },
   btn: {
