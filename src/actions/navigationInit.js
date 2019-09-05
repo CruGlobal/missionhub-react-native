@@ -22,7 +22,6 @@ export const resetToInitialRoute = () => (dispatch, getState) => {
         auth.person.user.pathway_stage_id
           ? ADD_SOMEONE_ONBOARDING_FLOW
           : GET_STARTED_ONBOARDING_FLOW,
-        { enableBackButton: false },
       ),
     );
   }

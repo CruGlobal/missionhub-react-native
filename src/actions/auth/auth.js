@@ -64,9 +64,7 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
   const { person } = getState().auth;
 
   if (!person.user.pathway_stage_id) {
-    dispatch(
-      navigateReset(GET_STARTED_ONBOARDING_FLOW, { enableBackButton: false }),
-    );
+    dispatch(navigateReset(GET_STARTED_ONBOARDING_FLOW));
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   } else if (hasPersonWithStageSelected(person)) {
     dispatch(navigateToMainTabs());
