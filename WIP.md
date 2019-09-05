@@ -1,22 +1,10 @@
 Components to convert to TS+Hooks
 
-- AcceptedStepItem
-- AssignStageButton
-- AssignToMeButton
 - Button
-- CelebrateCommentBox
-- CenteredIconButtonWithText
-- ChallengeDetailHeader
-- ChallengeItem
-- ChallengeStats
 - CommentBox
 - DatePicker
-- FilterItem
-- FilterList
 - GroupCardItem
 - GroupMemberItem
-- GroupsContactItem
-- GroupsContactList
 - GroupsPersonHeader
 - GroupSurveyItem
 - ImagePicker
@@ -30,7 +18,6 @@ Components to convert to TS+Hooks
 - PlatformKeyboardAvoidingView
 - PopupMenu
 - ReminderButton
-- ReminderDateText
 - ReminderRepeatButtons
 - ReportCommentHeaderCard
 - ReportCommentLabel
@@ -51,8 +38,21 @@ Components to convert to TS+Hooks
 
 #### Finished
 
+- AcceptedStepItem
+- AssignStageButton
+- AssignToMeButton
+- CelebrateCommentBox
 - CelebrateItem
 - CelebrateItemContent
+- CenteredIconButtonWithText
+- ChallengeDetailHeader
+- ChallengeItem
+- ChallengeStats
+- FilterItem
+- FilterList
+- GroupsContactItem
+- GroupsContactList
 - RadioButton
 - RefreshControl
+- ReminderDateText
 - Separator

@@ -85,6 +85,7 @@ export const CANNOT_EDIT_FIRST_NAME =
 export const ERROR_PERSON_PART_OF_ORG =
   'this person already has permissions on this organization';
 export const MFA_REQUIRED = 'mfa_required';
+export const FACEBOOK_CANCELED_ERROR = 'Facebook login canceled by user';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const URL_FORM_DATA = 'multipart/form-data';

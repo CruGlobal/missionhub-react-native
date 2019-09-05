@@ -1,4 +1,5 @@
 import PushNotification from 'react-native-push-notification';
+import { AccessToken } from 'react-native-fbsdk';
 
 import { ACTIONS, CLEAR_UPGRADE_TOKEN, LOGOUT } from '../../constants';
 import { LANDING_SCREEN } from '../../containers/LandingScreen';
@@ -14,6 +15,10 @@ import {
 import { completeOnboarding } from '../onboardingProfile';
 import { navigateToMainTabs } from '../navigation';
 import { apolloClient } from '../../apolloClient';
+
+import { refreshAccessToken } from './key';
+import { refreshAnonymousLogin } from './anonymous';
+import { refreshMissionHubFacebookAccess } from './facebook';
 
 export function logout(forcedLogout = false) {
   return async dispatch => {
@@ -59,9 +64,7 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
   const { person } = getState().auth;
 
   if (!person.user.pathway_stage_id) {
-    dispatch(
-      navigateReset(GET_STARTED_ONBOARDING_FLOW, { enableBackButton: false }),
-    );
+    dispatch(navigateReset(GET_STARTED_ONBOARDING_FLOW));
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   } else if (hasPersonWithStageSelected(person)) {
     dispatch(navigateToMainTabs());
@@ -75,3 +78,24 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
 function hasPersonWithStageSelected(person) {
   return person.contact_assignments.some(contact => contact.pathway_stage_id);
 }
+
+export const handleInvalidAccessToken = () => {
+  return async (dispatch, getState) => {
+    const { auth } = getState();
+
+    if (auth.refreshToken) {
+      return dispatch(refreshAccessToken());
+    }
+
+    if (auth.isFirstTime) {
+      return dispatch(refreshAnonymousLogin());
+    }
+
+    const { accessToken } = (await AccessToken.getCurrentAccessToken()) || {};
+    if (accessToken) {
+      return dispatch(refreshMissionHubFacebookAccess());
+    }
+
+    dispatch(logout(true));
+  };
+};
