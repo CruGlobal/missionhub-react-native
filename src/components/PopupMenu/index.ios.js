@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { ActionSheetIOS } from 'react-native';
@@ -44,27 +43,24 @@ class PopupMenu extends Component {
       triggerOnLongPress,
       iconStyle,
     } = this.props;
-    return (
-      <View style={[styles.container, containerStyle]}>
-        {children ? (
-          <Touchable
-            disabled={disabled}
-            {...(triggerOnLongPress
-              ? { onLongPress: this.showMenu }
-              : { onPress: this.showMenu })}
-          >
-            {children}
-          </Touchable>
-        ) : (
-          <IconButton
-            name="moreIcon"
-            type="MissionHub"
-            style={[styles.icon, iconStyle]}
-            disabled={disabled}
-            onPress={this.showMenu}
-          />
-        )}
-      </View>
+    return children ? (
+      <Touchable
+        disabled={disabled}
+        {...(triggerOnLongPress
+          ? { onLongPress: this.showMenu }
+          : { onPress: this.showMenu })}
+      >
+        {children}
+      </Touchable>
+    ) : (
+      <IconButton
+        name="moreIcon"
+        type="MissionHub"
+        buttonStyle={[styles.container, containerStyle]}
+        style={[styles.icon, iconStyle]}
+        disabled={disabled}
+        onPress={this.showMenu}
+      />
     );
   }
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import Menu, { MenuItem } from 'react-native-material-menu';
 
@@ -25,23 +24,30 @@ class PopupMenu extends Component {
   };
 
   renderMenuTrigger = () => {
-    const { children, disabled, triggerOnLongPress, iconStyle } = this.props;
+    const {
+      containerStyle,
+      children,
+      disabled,
+      triggerOnLongPress,
+      iconStyle,
+    } = this.props;
 
     return children ? (
-      triggerOnLongPress ? (
-        <Touchable disabled={disabled} onLongPress={this.showMenu}>
-          {children}
-        </Touchable>
-      ) : (
-        <Touchable disabled={disabled} onPress={this.showMenu}>
-          {children}
-        </Touchable>
-      )
+      <Touchable
+        isAndroidOpacity={true}
+        disabled={disabled}
+        {...(triggerOnLongPress
+          ? { onLongPress: this.showMenu }
+          : { onPress: this.showMenu })}
+      >
+        {children}
+      </Touchable>
     ) : (
       <IconButton
         ref={this.ref}
         name="moreIcon"
         type="MissionHub"
+        buttonStyle={[styles.container, containerStyle]}
         style={[styles.icon, iconStyle]}
         disabled={disabled}
         onPress={this.showMenu}
@@ -50,14 +56,12 @@ class PopupMenu extends Component {
   };
 
   render() {
-    const { containerStyle, actions } = this.props;
+    const { actions } = this.props;
 
     return (
-      <View style={[styles.container, containerStyle]}>
-        <Menu ref={this.ref} button={this.renderMenuTrigger()}>
-          {actions.map(this.renderItem)}
-        </Menu>
-      </View>
+      <Menu ref={this.ref} button={this.renderMenuTrigger()}>
+        {actions.map(this.renderItem)}
+      </Menu>
     );
   }
 }

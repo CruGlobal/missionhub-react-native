@@ -86,6 +86,7 @@ class ImagePicker extends Component {
           { text: t('chooseFromLibrary'), onPress: this.chooseFromLibrary },
         ]}
         containerStyle={{ activeOpacity: 0.75 }}
+        title={t('selectImage')}
       >
         {this.props.children}
       </PopupMenu>

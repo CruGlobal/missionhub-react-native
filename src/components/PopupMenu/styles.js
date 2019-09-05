@@ -8,6 +8,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   icon: {
+    margin: 0,
     paddingHorizontal: 10,
     color: theme.grey1,
   },
