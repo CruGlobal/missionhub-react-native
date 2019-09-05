@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Alert, TouchableOpacity } from 'react-native';
+import { Alert } from 'react-native';
 import { withTranslation } from 'react-i18next';
 import ImageCropPicker from 'react-native-image-crop-picker';
 
-import { showMenu } from '../../utils/common';
+import PopupMenu from '../../components/PopupMenu';
 import theme from '../../theme.ts';
 import { LOG } from '../../utils/logging';
 
@@ -26,18 +26,6 @@ function getType(response) {
 
 @withTranslation('imagePicker')
 class ImagePicker extends Component {
-  showImageOptionsMenu = () => {
-    const { t } = this.props;
-    showMenu(
-      [
-        { text: t('takePhoto'), onPress: this.takePhoto },
-        { text: t('chooseFromLibrary'), onPress: this.chooseFromLibrary },
-      ],
-      this.picker,
-      t('selectImage'),
-    );
-  };
-
   takePhoto = () => {
     this.selectImage(true);
   };
@@ -88,17 +76,19 @@ class ImagePicker extends Component {
     }
   }
 
-  ref = c => (this.picker = c);
-
   render() {
+    const { t } = this.props;
+
     return (
-      <TouchableOpacity
-        onPress={this.showImageOptionsMenu}
-        activeOpacity={0.75}
-        ref={this.ref}
+      <PopupMenu
+        actions={[
+          { text: t('takePhoto'), onPress: this.takePhoto },
+          { text: t('chooseFromLibrary'), onPress: this.chooseFromLibrary },
+        ]}
+        containerStyle={{ activeOpacity: 0.75 }}
       >
         {this.props.children}
-      </TouchableOpacity>
+      </PopupMenu>
     );
   }
 }
