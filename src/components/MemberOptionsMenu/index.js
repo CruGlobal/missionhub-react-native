@@ -171,6 +171,7 @@ class MemberOptionsMenu extends Component {
           ? this.createOption('removeMember', this.removeFromCommunity)
           : []),
       ],
+      buttonProps: { syle: styles.container },
     };
 
     return <PopupMenu {...props} />;

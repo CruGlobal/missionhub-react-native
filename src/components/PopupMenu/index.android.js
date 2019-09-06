@@ -25,32 +25,38 @@ class PopupMenu extends Component {
 
   renderMenuTrigger = () => {
     const {
-      containerStyle,
       children,
       disabled,
       triggerOnLongPress,
-      iconStyle,
+      buttonProps = {},
+      iconProps = {},
     } = this.props;
 
     return children ? (
       <Touchable
-        isAndroidOpacity={true}
         disabled={disabled}
+        {...buttonProps}
         {...(triggerOnLongPress
           ? { onLongPress: this.showMenu }
           : { onPress: this.showMenu })}
+        testID="popupMenuButton"
       >
         {children}
       </Touchable>
     ) : (
       <IconButton
-        ref={this.ref}
-        name="moreIcon"
         type="MissionHub"
-        buttonStyle={[styles.container, containerStyle]}
-        style={[styles.icon, iconStyle]}
         disabled={disabled}
-        onPress={this.showMenu}
+        {...buttonProps}
+        {...iconProps}
+        {...(triggerOnLongPress
+          ? { onLongPress: this.showMenu }
+          : { onPress: this.showMenu })}
+        ref={this.ref}
+        testID="popupMenuButton"
+        name="moreIcon"
+        buttonStyle={[styles.container, buttonProps.style]}
+        style={[styles.icon, iconProps.style]}
       />
     );
   };
@@ -76,16 +82,8 @@ PopupMenu.propTypes = {
   children: PropTypes.element,
   disabled: PropTypes.bool,
   triggerOnLongPress: PropTypes.bool,
-  containerStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array,
-  ]),
-  iconStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array,
-  ]),
+  buttonProps: PropTypes.object,
+  iconProps: PropTypes.object,
 };
 
 export default PopupMenu;

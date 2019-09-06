@@ -1,29 +1,58 @@
 import React from 'react';
-import { UIManager } from 'react-native';
-import { shallow } from 'enzyme';
+import { View } from 'react-native';
+import { fireEvent } from 'react-native-testing-library';
 
 import PopupMenu from '../index.android.js';
-import { testSnapshot } from '../../../../testUtils';
-import * as common from '../../../utils/common';
+import { renderWithContext } from '../../../../testUtils';
 
-const onPress = jest.fn();
-common.showMenu = jest.fn();
-const props = {
-  actions: [{ text: 'test', onPress }],
-};
+const action1 = { text: 'test', onPress: jest.fn() };
+const action2 = { text: 'testing', onPress: jest.fn() };
+const actions = [action1, action2];
+const buttonProps = { style: { margin: 10 } };
+const iconProps = { size: 24, style: { paddingVertical: 10 } };
 
 describe('PopupMenu Android', () => {
-  it('renders with 1 button', () => {
-    testSnapshot(<PopupMenu {...props} />);
-  });
-  it('renders with icon props', () => {
-    testSnapshot(<PopupMenu {...props} iconProps={{ size: 24 }} />);
+  it('renders correctly', () => {
+    renderWithContext(<PopupMenu actions={actions} />).snapshot();
   });
 
-  it('calls handle press', () => {
-    UIManager.showPopupMenu = jest.fn();
-    const instance = shallow(<PopupMenu {...props} />).instance();
-    instance.handlePress();
-    expect(common.showMenu).toHaveBeenCalledWith(props.actions, undefined);
+  it('renders with children', () => {
+    renderWithContext(
+      <PopupMenu actions={actions}>
+        <View />
+      </PopupMenu>,
+    ).snapshot();
   });
+
+  it('renders with button and icon props', () => {
+    renderWithContext(
+      <PopupMenu
+        actions={actions}
+        buttonProps={buttonProps}
+        iconProps={iconProps}
+      />,
+    ).snapshot();
+  });
+
+  it('renders disabled', () => {
+    renderWithContext(
+      <PopupMenu actions={actions} disabled={true} />,
+    ).snapshot();
+  });
+
+  it('renders for long press trigger', () => {
+    renderWithContext(
+      <PopupMenu actions={actions} triggerOnLongPress={true} />,
+    ).snapshot();
+  });
+
+  /*describe('press menu button', () => {
+    it('handles press', () => {
+      const { getByTestId } = renderWithContext(
+        <PopupMenu actions={actions} triggerOnLongPress={true} />,
+      );
+
+      fireEvent(getByTestId('popupMenuButton'), 'onPress');
+    });
+  });*/
 });

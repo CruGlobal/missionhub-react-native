@@ -37,28 +37,37 @@ class PopupMenu extends Component {
 
   render() {
     const {
-      containerStyle,
       children,
       disabled,
       triggerOnLongPress,
-      iconStyle,
+      buttonProps = {},
+      iconProps = {},
     } = this.props;
+
     return children ? (
       <Touchable
         disabled={disabled}
+        {...buttonProps}
         {...(triggerOnLongPress
           ? { onLongPress: this.showMenu }
           : { onPress: this.showMenu })}
+        testID="popupMenuButton"
       >
         {children}
       </Touchable>
     ) : (
       <IconButton
-        name="moreIcon"
         type="MissionHub"
-        buttonStyle={[styles.container, containerStyle]}
-        style={[styles.icon, iconStyle]}
         disabled={disabled}
+        {...buttonProps}
+        {...iconProps}
+        {...(triggerOnLongPress
+          ? { onLongPress: this.showMenu }
+          : { onPress: this.showMenu })}
+        name="moreIcon"
+        testID="popupMenuButton"
+        buttonStyle={[styles.container, buttonProps.style]}
+        style={[styles.icon, iconProps.style]}
         onPress={this.showMenu}
       />
     );
@@ -77,16 +86,8 @@ PopupMenu.propTypes = {
   disabled: PropTypes.bool,
   triggerOnLongPress: PropTypes.bool,
   title: PropTypes.string,
-  containerStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array,
-  ]),
-  iconStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array,
-  ]),
+  buttonProps: PropTypes.object,
+  iconProps: PropTypes.object,
 };
 
 export default PopupMenu;

@@ -85,7 +85,7 @@ class ImagePicker extends Component {
           { text: t('takePhoto'), onPress: this.takePhoto },
           { text: t('chooseFromLibrary'), onPress: this.chooseFromLibrary },
         ]}
-        containerStyle={{ activeOpacity: 0.75 }}
+        buttonProps={{ isAndroidOpacity: true, activeOpacity: 0.75 }}
         title={t('selectImage')}
       >
         {this.props.children}
