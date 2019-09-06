@@ -20,7 +20,7 @@ interface IconButtonProps extends IconProps {
 const IconButton = ({
   name,
   type,
-  buttonStyle = {},
+  buttonStyle,
   style = {},
   onPress,
   pressProps = [],
@@ -35,7 +35,7 @@ const IconButton = ({
   return (
     <Button
       type="transparent"
-      style={buttonStyle}
+      {...(buttonStyle ? { style: buttonStyle } : {})}
       {...rest}
       onPress={handlePress}
       testID="IconButton"

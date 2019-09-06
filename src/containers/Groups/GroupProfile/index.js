@@ -202,7 +202,7 @@ class GroupProfile extends Component {
                       destructive: true,
                     },
                   ]}
-                  iconStyle={styles.menu}
+                  iconProps={{ size: 20, style: styles.menu }}
                 />
               </Flex>
             ) : (

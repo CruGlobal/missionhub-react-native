@@ -19,7 +19,7 @@ const item = {
 
 const organization = { id: '7342342' };
 
-let onLongPress;
+const menuActions = [{ text: 'text', onPress: jest.fn() }];
 
 let screen;
 const me = { id: 'me' };
@@ -34,7 +34,7 @@ beforeEach(() => {
     <CommentItem
       item={item}
       organization={organization}
-      onLongPress={onLongPress}
+      menuActions={menuActions}
     />,
     store,
   );
@@ -43,18 +43,34 @@ beforeEach(() => {
 it('renders correctly', () => {
   expect(screen).toMatchSnapshot();
 });
+
+it('renders without menu actions', () => {
+  screen = renderShallow(
+    <CommentItem item={item} organization={organization} />,
+    store,
+  );
+
+  expect(screen).toMatchSnapshot();
+});
+
 it('renders reported comment', () => {
   screen = renderShallow(
-    <CommentItem item={item} isReported={false} organization={organization} />,
+    <CommentItem
+      item={item}
+      isReported={true}
+      organization={organization}
+      menuActions={menuActions}
+    />,
     store,
   );
   expect(screen).toMatchSnapshot();
 });
+
 it('renders my reported comment', () => {
   screen = renderShallow(
     <CommentItem
       item={{ ...item, person: { ...item.person, id: me.id } }}
-      isReported={false}
+      isReported={true}
       organization={organization}
     />,
     store,
@@ -71,7 +87,7 @@ it('renders editing correctly', () => {
     <CommentItem
       item={item}
       organization={organization}
-      onLongPress={onLongPress}
+      menuActions={menuActions}
     />,
     store,
   );
@@ -84,26 +100,10 @@ it('renders correctly as mine', () => {
       <CommentItem
         item={{ ...item, person: { ...item.person, ...me } }}
         organization={organization}
-        onLongPress={onLongPress}
+        menuActions={menuActions}
         isMine={true}
       />,
       store,
     ),
   ).toMatchSnapshot();
-});
-
-describe('onLongPress', () => {
-  beforeAll(() => {
-    onLongPress = jest.fn();
-  });
-
-  it('calls onLongPress', () => {
-    screen
-      .childAt(1)
-      .childAt(0)
-      .props()
-      .onLongPress();
-
-    expect(onLongPress).toHaveBeenCalledWith(item, undefined);
-  });
 });

@@ -12,24 +12,34 @@ import { DateConstants } from '../../components/DateComponent';
 import styles from './styles';
 
 class CommentItem extends Component {
+  renderContent = () => {
+    const {
+      item: { content, person },
+      me,
+      isReported,
+    } = this.props;
+    const { itemStyle, myStyle, text, myText } = styles;
+
+    const isMine = person.id === me.id;
+    const isMineNotReported = isMine && !isReported;
+
+    return (
+      <View style={[itemStyle, isMineNotReported ? myStyle : null]}>
+        <Text style={[text, isMineNotReported ? myText : null]}>{content}</Text>
+      </View>
+    );
+  };
+
   render() {
     const {
-      item: { content, created_at, person },
+      item: { created_at, person },
       organization,
       me,
       isEditing,
       isReported,
       menuActions,
     } = this.props;
-    const {
-      content: contentStyle,
-      editingStyle,
-      itemStyle,
-      myStyle,
-      text,
-      myText,
-      name: nameStyle,
-    } = styles;
+    const { content: contentStyle, editingStyle, name: nameStyle } = styles;
 
     const name = `${person.first_name} ${person.last_name}`;
     const isMine = person.id === me.id;
@@ -59,17 +69,17 @@ class CommentItem extends Component {
         </Flex>
         <Flex direction="row">
           {isMineNotReported ? <Flex value={1} /> : null}
-          <PopupMenu
-            actions={menuActions}
-            triggerOnLongPress={true}
-            disabled={isReported}
-          >
-            <View style={[itemStyle, isMineNotReported ? myStyle : null]}>
-              <Text style={[text, isMineNotReported ? myText : null]}>
-                {content}
-              </Text>
-            </View>
-          </PopupMenu>
+          {menuActions ? (
+            <PopupMenu
+              actions={menuActions}
+              triggerOnLongPress={true}
+              disabled={isReported}
+            >
+              {this.renderContent()}
+            </PopupMenu>
+          ) : (
+            this.renderContent()
+          )}
           {!isMineNotReported ? <Flex value={1} /> : null}
         </Flex>
       </View>

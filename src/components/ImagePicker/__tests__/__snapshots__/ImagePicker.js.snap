@@ -14,7 +14,12 @@ exports[`renders image picker 1`] = `
       },
     ]
   }
-  activeOpacity={0.75}
+  buttonProps={
+    Object {
+      "activeOpacity": 0.75,
+      "isAndroidOpacity": true,
+    }
+  }
   title="Select Image"
 >
   <View />
