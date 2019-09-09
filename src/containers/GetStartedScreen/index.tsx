@@ -4,7 +4,6 @@ import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { AndroidBackHandler } from 'react-navigation-backhandler';
-import { useNavigationState } from 'react-navigation-hooks';
 
 import { navigateBack } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
@@ -22,10 +21,7 @@ interface GetStartedScreenProps {
   next: (props: { id: string | null }) => ThunkAction<void, any, null, never>;
   id: string | null;
   name: string;
-}
-
-interface GetStartedNavParams {
-  enableBackButton: boolean;
+  enableBackButton?: boolean;
 }
 
 const GetStartedScreen = ({
@@ -33,9 +29,8 @@ const GetStartedScreen = ({
   next,
   id,
   name = '',
+  enableBackButton = true,
 }: GetStartedScreenProps) => {
-  const { enableBackButton = true } = useNavigationState()
-    .params as GetStartedNavParams;
   const enableBack = useDisableBack(enableBackButton);
   const { t } = useTranslation('getStarted');
 

@@ -92,7 +92,7 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "rollbar-react-native": "^0.5.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -107,7 +107,7 @@
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/faker": "^4.1.5",
     "@types/graphql": "^14.2.3",
-    "@types/jest": "^24.0.17",
+    "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.137",
     "@types/mockdate": "^2.0.0",
     "@types/react": "^16.9.2",
@@ -117,7 +117,7 @@
     "@types/react-redux": "^7.1.2",
     "@types/react-test-renderer": "^16.9.0",
     "@types/redux-mock-store": "^1.0.1",
-    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
     "@typescript-eslint/parser": "^2.0.0",
     "apollo": "^2.18.0",
     "apollo-client": "^2.6.4",
@@ -129,7 +129,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
-    "eslint": "^6.1.0",
+    "eslint": "^6.3.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.14.3",
