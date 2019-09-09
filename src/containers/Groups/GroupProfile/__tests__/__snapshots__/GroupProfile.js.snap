@@ -92,7 +92,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           underlineColorAndroid="transparent"
           value="Test Organization"
         />
-        <PopupMenu
+        <withI18nextTranslation(PopupMenu)
           actions={
             Array [
               Object {
@@ -104,13 +104,13 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           }
           iconProps={
             Object {
+              "size": 20,
               "style": Object {
                 "color": "#ffffff",
                 "marginLeft": 15,
               },
             }
           }
-          size={20}
         />
       </Flex>
       <Flex

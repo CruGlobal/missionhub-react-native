@@ -15,7 +15,6 @@ import {
   setCelebrateEditingComment,
 } from '../../../actions/celebrateComments';
 import { reportComment } from '../../../actions/reportComments';
-import * as common from '../../../utils/common';
 import { ORG_PERMISSIONS } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import Text from '../../../components/Text';
@@ -71,6 +70,7 @@ reportComment.mockReturnValue(dispatch => dispatch(reportCommentResult));
 Alert.alert = jest.fn();
 
 const me = { id: '1' };
+const otherPerson = { id: '2' };
 
 beforeEach(() => {
   store = mockStore({
@@ -157,33 +157,48 @@ describe('with comments', () => {
   });
 });
 
-function buildScreenWithComment(comment) {
-  common.showMenu = jest.fn();
-  store = mockStore({
-    auth: { person: me },
-    organizations,
-    celebrateComments: {
-      comments: [comment],
-      pagination: {},
-    },
-  });
+describe('determine comment menu actions', () => {
+  let screen;
+  let comment;
+  let permission_id;
 
-  screen = renderShallow(<CommentsList event={event} />, store);
-}
+  const buildScreenWithComment = () => {
+    orgPermissionSelector.mockReturnValue({ permission_id });
 
-describe('comments sets up actions as author', () => {
-  it('handleLongPress', () => {
-    const person = { id: '1' };
-    const comment = { id: 'comment1', person };
-
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.ADMIN,
+    store = mockStore({
+      auth: { person: me },
+      organizations,
+      celebrateComments: {
+        comments: [comment],
+        pagination: {},
+      },
     });
-    buildScreenWithComment(comment);
 
-    screen.instance().handleLongPress(comment, 'testRef');
-    expect(common.showMenu).toHaveBeenCalledWith(
-      [
+    screen = renderShallow(<CommentsList event={event} />, store);
+  };
+
+  const testActionArray = expectedActions => {
+    expect(
+      screen.props().renderItem({ item: comment }).props.menuActions,
+    ).toEqual(expectedActions);
+  };
+
+  const testFireAction = actionIndex => {
+    screen
+      .props()
+      .renderItem({ item: comment })
+      .props.menuActions[actionIndex].onPress(comment);
+  };
+
+  describe('author actions', () => {
+    beforeEach(() => {
+      comment = { id: 'comment1', person: me };
+      permission_id = ORG_PERMISSIONS.ADMIN;
+      buildScreenWithComment();
+    });
+
+    it('creates array', () => {
+      testActionArray([
         {
           text: i18n.t('commentsList:editPost'),
           onPress: expect.any(Function),
@@ -193,137 +208,121 @@ describe('comments sets up actions as author', () => {
           onPress: expect.any(Function),
           destructive: true,
         },
-      ],
-      'testRef',
-    );
-  });
-});
-
-describe('comments sets up actions as owner', () => {
-  it('handleLongPress', () => {
-    const person = { id: '2' };
-    const comment = { id: 'comment1', person };
-    buildScreenWithComment(comment);
-
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.OWNER,
+      ]);
     });
 
-    screen.instance().handleLongPress(comment, 'testRef');
-    expect(common.showMenu).toHaveBeenCalledWith(
-      [
+    it('handleEdit', () => {
+      testFireAction(0);
+      expect(setCelebrateEditingComment).toHaveBeenCalledWith(comment.id);
+    });
+
+    it('handleDelete', () => {
+      Alert.alert = jest.fn((a, b, c) => c[1].onPress());
+
+      testFireAction(1);
+
+      expect(deleteCelebrateComment).toHaveBeenCalledWith(
+        organizationId,
+        event,
+        comment,
+      );
+      expect(Alert.alert).toHaveBeenCalledWith(
+        i18n.t('commentsList:deletePostHeader'),
+        i18n.t('commentsList:deleteAreYouSure'),
+        [
+          {
+            text: i18n.t('cancel'),
+            style: 'cancel',
+          },
+          {
+            text: i18n.t('commentsList:deletePost'),
+            onPress: expect.any(Function),
+          },
+        ],
+      );
+    });
+  });
+
+  describe('owner actions', () => {
+    beforeEach(() => {
+      comment = { id: 'comment1', person: otherPerson };
+      permission_id = ORG_PERMISSIONS.OWNER;
+      buildScreenWithComment();
+    });
+
+    it('creates array', () => {
+      testActionArray([
         {
           text: i18n.t('commentsList:deletePost'),
           onPress: expect.any(Function),
           destructive: true,
         },
-      ],
-      'testRef',
-    );
-  });
-});
-
-describe('comments sets up actions as user', () => {
-  it('handleLongPress', () => {
-    const person = { id: '2' };
-    const comment = { id: 'comment1', person };
-    buildScreenWithComment(comment);
-
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.USER,
+      ]);
     });
 
-    const instance = screen.instance();
-    instance.handleReport = jest.fn();
+    it('handleDelete', () => {
+      Alert.alert = jest.fn((a, b, c) => c[1].onPress());
 
-    instance.handleLongPress(comment, 'testRef');
-    expect(common.showMenu).toHaveBeenCalledWith(
-      [
+      testFireAction(0);
+
+      expect(deleteCelebrateComment).toHaveBeenCalledWith(
+        organizationId,
+        event,
+        comment,
+      );
+      expect(Alert.alert).toHaveBeenCalledWith(
+        i18n.t('commentsList:deletePostHeader'),
+        i18n.t('commentsList:deleteAreYouSure'),
+        [
+          {
+            text: i18n.t('cancel'),
+            style: 'cancel',
+          },
+          {
+            text: i18n.t('commentsList:deletePost'),
+            onPress: expect.any(Function),
+          },
+        ],
+      );
+    });
+  });
+
+  describe('user actions', () => {
+    beforeEach(() => {
+      comment = { id: 'comment1', person: otherPerson };
+      permission_id = ORG_PERMISSIONS.USER;
+      buildScreenWithComment();
+    });
+
+    it('creates array', () => {
+      testActionArray([
         {
           text: i18n.t('commentsList:reportToOwner'),
           onPress: expect.any(Function),
         },
-      ],
-      'testRef',
-    );
-  });
-});
-
-describe('comment action for author', () => {
-  let instance;
-  const person = { id: '1' };
-  const comment = { id: 'comment1', person };
-  beforeEach(() => {
-    buildScreenWithComment(comment);
-
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.ADMIN,
+      ]);
     });
 
-    instance = screen.instance();
-  });
-  it('handleEdit', () => {
-    common.showMenu = jest.fn(a => a[0].onPress());
-    instance.handleLongPress(comment, 'testRef');
-    expect(setCelebrateEditingComment).toHaveBeenCalledWith(comment.id);
-  });
-  it('handleDelete', () => {
-    Alert.alert = jest.fn((a, b, c) => c[1].onPress());
-    common.showMenu = jest.fn(a => a[1].onPress());
-    instance.handleLongPress(comment, 'testRef');
-    expect(deleteCelebrateComment).toHaveBeenCalledWith(
-      organizationId,
-      event,
-      comment,
-    );
-    expect(Alert.alert).toHaveBeenCalledWith(
-      i18n.t('commentsList:deletePostHeader'),
-      i18n.t('commentsList:deleteAreYouSure'),
-      [
-        {
-          text: i18n.t('cancel'),
-          style: 'cancel',
-        },
-        {
-          text: i18n.t('commentsList:deletePost'),
-          onPress: expect.any(Function),
-        },
-      ],
-    );
-  });
-});
+    it('handleReport', () => {
+      Alert.alert = jest.fn((a, b, c) => c[1].onPress());
 
-describe('comment action for user', () => {
-  let instance;
-  const person = { id: '2' };
-  const comment = { id: 'comment1', person };
-  beforeEach(() => {
-    buildScreenWithComment(comment);
+      testFireAction(0);
 
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.USER,
+      expect(reportComment).toHaveBeenCalledWith(organizationId, comment);
+      expect(Alert.alert).toHaveBeenCalledWith(
+        i18n.t('commentsList:reportToOwnerHeader'),
+        i18n.t('commentsList:reportAreYouSure'),
+        [
+          {
+            text: i18n.t('cancel'),
+            style: 'cancel',
+          },
+          {
+            text: i18n.t('commentsList:reportPost'),
+            onPress: expect.any(Function),
+          },
+        ],
+      );
     });
-
-    instance = screen.instance();
-  });
-  it('handleReport', () => {
-    Alert.alert = jest.fn((a, b, c) => c[1].onPress());
-    common.showMenu = jest.fn(a => a[0].onPress());
-    instance.handleLongPress(comment, 'testRef');
-    expect(reportComment).toHaveBeenCalledWith(organizationId, comment);
-    expect(Alert.alert).toHaveBeenCalledWith(
-      i18n.t('commentsList:reportToOwnerHeader'),
-      i18n.t('commentsList:reportAreYouSure'),
-      [
-        {
-          text: i18n.t('cancel'),
-          style: 'cancel',
-        },
-        {
-          text: i18n.t('commentsList:reportPost'),
-          onPress: expect.any(Function),
-        },
-      ],
-    );
   });
 });

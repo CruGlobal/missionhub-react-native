@@ -14,7 +14,7 @@ import {
 } from '../../actions/celebrateComments';
 import { reportComment } from '../../actions/reportComments';
 import LoadMore from '../../components/LoadMore';
-import { showMenu, keyExtractorId, isOwner } from '../../utils/common';
+import { keyExtractorId, isOwner } from '../../utils/common';
 import CommentItem from '../CommentItem';
 import { orgPermissionSelector } from '../../selectors/people';
 
@@ -78,7 +78,7 @@ class CommentsList extends Component {
     });
   };
 
-  handleLongPress = (item, componentRef) => {
+  menuActions = item => {
     const {
       t,
       event: { organization },
@@ -114,13 +114,13 @@ class CommentsList extends Component {
       }
     }
 
-    showMenu(actions, componentRef);
+    return actions;
   };
 
   renderItem = ({ item }) => (
     <CommentItem
       item={item}
-      onLongPress={this.handleLongPress}
+      menuActions={this.menuActions(item)}
       organization={this.props.event.organization}
     />
   );
