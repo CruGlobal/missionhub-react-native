@@ -11,7 +11,7 @@ const actions = [action1, action2];
 const buttonProps = { style: { margin: 10 } };
 const iconProps = { size: 24, style: { paddingVertical: 10 } };
 
-describe('PopupMenu Android', () => {
+describe('PopupMenu iOS', () => {
   it('renders correctly', () => {
     renderWithContext(<PopupMenu actions={actions} />).snapshot();
   });

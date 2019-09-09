@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PopupMenu Android renders correctly 1`] = `
+exports[`PopupMenu iOS renders correctly 1`] = `
 <View
   accessible={true}
   clickable={true}
@@ -81,7 +81,7 @@ exports[`PopupMenu Android renders correctly 1`] = `
 </View>
 `;
 
-exports[`PopupMenu Android renders disabled 1`] = `
+exports[`PopupMenu iOS renders disabled 1`] = `
 <View
   accessible={true}
   clickable={true}
@@ -164,7 +164,7 @@ exports[`PopupMenu Android renders disabled 1`] = `
 </View>
 `;
 
-exports[`PopupMenu Android renders for long press trigger 1`] = `
+exports[`PopupMenu iOS renders for long press trigger 1`] = `
 <View
   accessible={true}
   clickable={true}
@@ -245,7 +245,7 @@ exports[`PopupMenu Android renders for long press trigger 1`] = `
 </View>
 `;
 
-exports[`PopupMenu Android renders with button and icon props 1`] = `
+exports[`PopupMenu iOS renders with button and icon props 1`] = `
 <View
   accessible={true}
   clickable={true}
@@ -330,7 +330,7 @@ exports[`PopupMenu Android renders with button and icon props 1`] = `
 </View>
 `;
 
-exports[`PopupMenu Android renders with children 1`] = `
+exports[`PopupMenu iOS renders with children 1`] = `
 <View
   accessible={true}
   clickable={true}

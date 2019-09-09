@@ -72,6 +72,7 @@ it('renders my reported comment', () => {
       item={{ ...item, person: { ...item.person, id: me.id } }}
       isReported={true}
       organization={organization}
+      menuActions={menuActions}
     />,
     store,
   );

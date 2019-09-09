@@ -334,33 +334,46 @@ exports[`renders my reported comment 1`] = `
   <Flex
     direction="row"
   >
-    <View
-      style={
+    <withI18nextTranslation(PopupMenu)
+      actions={
         Array [
           Object {
-            "backgroundColor": "#ffffff",
-            "borderRadius": 8,
-            "marginVertical": 5,
-            "paddingHorizontal": 13,
-            "paddingVertical": 8,
+            "onPress": [MockFunction],
+            "text": "text",
           },
-          null,
         ]
       }
+      disabled={true}
+      triggerOnLongPress={true}
     >
-      <MyText
+      <View
         style={
           Array [
             Object {
-              "paddingVertical": 3,
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "marginVertical": 5,
+              "paddingHorizontal": 13,
+              "paddingVertical": 8,
             },
             null,
           ]
         }
       >
-        hello roge
-      </MyText>
-    </View>
+        <MyText
+          style={
+            Array [
+              Object {
+                "paddingVertical": 3,
+              },
+              null,
+            ]
+          }
+        >
+          hello roge
+        </MyText>
+      </View>
+    </withI18nextTranslation(PopupMenu)>
     <Flex
       value={1}
     />
