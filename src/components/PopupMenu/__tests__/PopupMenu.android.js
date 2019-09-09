@@ -1,6 +1,5 @@
 import React from 'react';
 import { View } from 'react-native';
-import { fireEvent } from 'react-native-testing-library';
 
 import PopupMenu from '../index.android.js';
 import { renderWithContext } from '../../../../testUtils';
