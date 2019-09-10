@@ -3,6 +3,7 @@
 import Config from 'react-native-config';
 
 export const LOGOUT = 'app/LOGOUT';
+export type LogoutAction = { type: typeof LOGOUT };
 export const FIRST_TIME = 'app/FIRST_TIME';
 export const FIRST_NAME_CHANGED = 'app/FIRST_NAME_CHANGED';
 export const LAST_NAME_CHANGED = 'app/LAST_NAME_CHANGED';

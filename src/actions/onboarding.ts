@@ -28,6 +28,43 @@ import { navigatePush, navigateReset } from './navigation';
 import { showReminderOnLoad } from './notifications';
 import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
+import { AuthState } from 'src/reducers/auth';
+
+export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
+export const SET_ONBOARDING_COMMUNITY_ID = 'SET_ONBOARDING_COMMUNITY_ID';
+export const SKIP_ONBOARDING_ADD_PERSON = 'SKIP_ONBOARDING_ADD_PERSON';
+
+export interface SetOnboardingPersonIdAction {
+  type: typeof SET_ONBOARDING_PERSON_ID;
+  personId: string;
+}
+
+export interface SetOnboardingCommunityIdAction {
+  type: typeof SET_ONBOARDING_COMMUNITY_ID;
+  communityId: string;
+}
+
+export interface SkipOnboardingAddPersonAction {
+  type: typeof SKIP_ONBOARDING_ADD_PERSON;
+}
+
+export const setOnboardingPersonId = (
+  personId: string,
+): SetOnboardingPersonIdAction => ({
+  type: SET_ONBOARDING_PERSON_ID,
+  personId,
+});
+
+export const setOnboardingCommunityId = (
+  communityId: string,
+): SetOnboardingCommunityIdAction => ({
+  type: SET_ONBOARDING_COMMUNITY_ID,
+  communityId,
+});
+
+export const skipOnbardingAddPerson = (): SkipOnboardingAddPersonAction => ({
+  type: SKIP_ONBOARDING_ADD_PERSON,
+});
 
 /*
 A user is considered to have completed onboarding once they've:
