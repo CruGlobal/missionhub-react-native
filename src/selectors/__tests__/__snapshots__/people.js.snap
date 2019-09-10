@@ -120,25 +120,7 @@ Array [
 ]
 `;
 
-exports[`contactAssignmentSelector orgId is "personal" should get a person's contactAssignment for that is assigned to the current user's personal ministry 1`] = `
-Object {
-  "assigned_to": Object {
-    "id": "23",
-  },
-  "organization": null,
-}
-`;
-
-exports[`contactAssignmentSelector orgId is undefined should get a person's contactAssignment for that is assigned to the current user's personal ministry 1`] = `
-Object {
-  "assigned_to": Object {
-    "id": "23",
-  },
-  "organization": null,
-}
-`;
-
-exports[`contactAssignmentSelector orgId passed in should get a person's contactAssignment for that is assigned to the current user's org ministry 1`] = `
+exports[`contactAssignmentSelector should get a person's contactAssignment for that is assigned to the current user's org ministry 1`] = `
 Object {
   "assigned_to": Object {
     "id": "23",
@@ -146,6 +128,15 @@ Object {
   "organization": Object {
     "id": "100",
   },
+}
+`;
+
+exports[`contactAssignmentSelector should get a person's contactAssignment for that is assigned to the current user's personal ministry 1`] = `
+Object {
+  "assigned_to": Object {
+    "id": "23",
+  },
+  "organization": null,
 }
 `;
 
