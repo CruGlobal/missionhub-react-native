@@ -143,34 +143,26 @@ export const personSelector = createSelector(
 
 export const contactAssignmentSelector = createSelector(
   (_: { auth: AuthState }, { person }: { person: Person; orgId?: string }) =>
-    person.reverse_contact_assignments || [],
-  (_: { auth: AuthState }, { person }: { person: Person; orgId?: string }) =>
-    person.organizational_permissions || [],
+    person,
   (_: { auth: AuthState }, { orgId }: { person: Person; orgId?: string }) =>
     orgId,
   ({ auth }: { auth: AuthState }) => auth.person.id,
-  (reverseContactAssignments, orgPermissions, orgId, authUserId) =>
-    !orgId || orgId === 'personal'
-      ? reverseContactAssignments.find(
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (assignment: any) =>
-            assignment.assigned_to &&
-            assignment.assigned_to.id === authUserId &&
-            !assignment.organization,
-        )
-      : reverseContactAssignments.find(
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (assignment: any) =>
-            assignment.assigned_to &&
-            assignment.assigned_to.id === authUserId &&
-            assignment.organization &&
-            orgId === assignment.organization.id &&
-            orgPermissions.some(
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              (org_permission: any) =>
-                org_permission.organization_id === assignment.organization.id,
-            ),
-        ),
+  (person, orgId, authUserId) =>
+    person.reverse_contact_assignments &&
+    person.reverse_contact_assignments.find(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (assignment: any) =>
+        assignment.assigned_to &&
+        assignment.assigned_to.id === authUserId &&
+        (!assignment.organization || orgId === assignment.organization.id) &&
+        (!orgId ||
+          person.organizational_permissions.some(
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (org_permission: any) =>
+              assignment.organization &&
+              org_permission.organization_id === assignment.organization.id,
+          )),
+    ),
 );
 
 export const orgPermissionSelector = createSelector(
