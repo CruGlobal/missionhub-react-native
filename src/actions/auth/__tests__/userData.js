@@ -14,7 +14,7 @@ import {
 } from '../userData';
 import { FIRST_TIME, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { showReminderOnLoad } from '../../notifications';
-import { resetPerson } from '../../onboardingProfile';
+import { resetPerson } from '../../onboarding';
 import { getMyPeople } from '../../people';
 import { getMyCommunities } from '../../organizations';
 import { getMe } from '../../person';

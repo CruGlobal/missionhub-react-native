@@ -14,7 +14,7 @@ import { getMySteps } from '../steps';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { getMyCommunities } from '../organizations';
-import { resetPerson } from '../onboardingProfile';
+import { resetPerson } from '../onboarding';
 import { logInAnalytics } from '../analytics';
 import { rollbar } from '../../utils/rollbar.config';
 

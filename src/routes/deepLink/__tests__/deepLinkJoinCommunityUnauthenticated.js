@@ -13,7 +13,7 @@ import {
   stashCommunityToJoin,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
-} from '../../../actions/onboardingProfile';
+} from '../../../actions/onboarding';
 import { showReminderOnLoad } from '../../../actions/notifications';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
 import { SIGN_IN_SCREEN } from '../../../containers/Auth/SignInScreen';

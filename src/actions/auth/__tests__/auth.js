@@ -21,7 +21,7 @@ import { refreshAnonymousLogin } from '../anonymous';
 import { refreshMissionHubFacebookAccess } from '../facebook';
 import { deletePushToken } from '../../notifications';
 import { navigateReset, navigateToMainTabs } from '../../navigation';
-import { completeOnboarding } from '../../onboardingProfile';
+import { completeOnboarding } from '../../onboarding';
 
 jest.mock('react-native-fbsdk', () => ({
   AccessToken: { getCurrentAccessToken: jest.fn() },

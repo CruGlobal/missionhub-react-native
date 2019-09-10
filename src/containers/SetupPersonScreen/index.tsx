@@ -16,7 +16,7 @@ import {
   personLastNameChanged,
   createPerson,
   updateOnboardingPerson,
-} from '../../actions/onboardingProfile';
+} from '../../actions/onboarding';
 import { ACTIONS } from '../../constants';
 import { PersonProfileState } from '../../reducers/personProfile';
 import { AuthState } from '../../reducers/auth';

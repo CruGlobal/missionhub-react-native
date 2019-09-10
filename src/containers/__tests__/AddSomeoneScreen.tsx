@@ -4,8 +4,8 @@ import { fireEvent } from 'react-native-testing-library';
 
 import AddSomeoneScreen from '../AddSomeoneScreen';
 import { renderWithContext } from '../../../testUtils';
-import { skipOnboarding } from '../../actions/onboardingProfile';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
+import { skipOnboarding } from '../../actions/onboarding';
 
 jest.mock('../../actions/onboardingProfile');
 jest.mock('../../utils/hooks/useLogoutOnBack');

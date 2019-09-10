@@ -8,7 +8,7 @@ import {
   updateOnboardingPerson,
   personFirstNameChanged,
   personLastNameChanged,
-} from '../../../actions/onboardingProfile';
+} from '../../../actions/onboarding';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS } from '../../../constants';
 

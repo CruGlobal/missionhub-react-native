@@ -9,7 +9,7 @@ import {
   firstNameChanged,
   lastNameChanged,
   createMyPerson,
-} from '../../../actions/onboardingProfile';
+} from '../../../actions/onboarding';
 
 import SetupScreen from '..';
 

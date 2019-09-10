@@ -10,7 +10,7 @@ import {
   stashCommunityToJoin,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
-} from '../../actions/onboardingProfile';
+} from '../../actions/onboarding';
 import { showReminderOnLoad } from '../../actions/notifications';
 import DeepLinkConfirmJoinGroupScreen, {
   DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN,

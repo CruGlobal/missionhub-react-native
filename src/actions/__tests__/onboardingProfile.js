@@ -15,7 +15,7 @@ import {
   skipOnboardingComplete,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
-} from '../onboardingProfile';
+} from '../onboarding';
 import { showReminderOnLoad } from '../notifications';
 import { joinCommunity } from '../organizations';
 import { trackActionWithoutData } from '../analytics';

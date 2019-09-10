@@ -11,7 +11,7 @@ import {
   createMyPerson,
   firstNameChanged,
   lastNameChanged,
-} from '../../actions/onboardingProfile';
+} from '../../actions/onboarding';
 import TosPrivacy from '../../components/TosPrivacy';
 import { ProfileState } from '../../reducers/profile';
 import { AuthState } from '../../reducers/auth';

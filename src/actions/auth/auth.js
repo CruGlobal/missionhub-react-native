@@ -12,7 +12,7 @@ import {
   ADD_SOMEONE_ONBOARDING_FLOW,
   GET_STARTED_ONBOARDING_FLOW,
 } from '../../routes/constants';
-import { completeOnboarding } from '../onboardingProfile';
+import { completeOnboarding } from '../onboarding';
 import { navigateToMainTabs } from '../navigation';
 import { apolloClient } from '../../apolloClient';
 

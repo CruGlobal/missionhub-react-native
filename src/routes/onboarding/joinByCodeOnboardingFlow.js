@@ -8,7 +8,7 @@ import {
   stashCommunityToJoin,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
-} from '../../actions/onboardingProfile';
+} from '../../actions/onboarding';
 import { showReminderOnLoad } from '../../actions/notifications';
 import JoinGroupScreen, {
   JOIN_GROUP_SCREEN,

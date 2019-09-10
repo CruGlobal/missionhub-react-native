@@ -3,7 +3,7 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { createCustomStep } from '../../actions/steps';
-import { skipOnboarding } from '../../actions/onboardingProfile';
+import { skipOnboarding } from '../../actions/onboarding';
 import { showReminderOnLoad } from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
