@@ -1,10 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders image picker 1`] = `
-<TouchableOpacity
-  activeOpacity={0.75}
-  onPress={[Function]}
+<withI18nextTranslation(PopupMenu)
+  actions={
+    Array [
+      Object {
+        "onPress": [Function],
+        "text": "Take Photo",
+      },
+      Object {
+        "onPress": [Function],
+        "text": "Choose from Library...",
+      },
+    ]
+  }
+  buttonProps={
+    Object {
+      "activeOpacity": 0.75,
+      "isAndroidOpacity": true,
+    }
+  }
+  title="Select Image"
 >
   <View />
-</TouchableOpacity>
+</withI18nextTranslation(PopupMenu)>
 `;

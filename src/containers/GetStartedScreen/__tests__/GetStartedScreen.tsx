@@ -30,14 +30,12 @@ beforeEach(() => {
 it('renders correctly', () => {
   renderWithContext(<GetStartedScreen next={next} />, {
     initialState,
-    navParams: {},
   }).snapshot();
 });
 
 it('renders without back button correctly', () => {
-  renderWithContext(<GetStartedScreen next={next} />, {
+  renderWithContext(<GetStartedScreen next={next} enableBackButton={false} />, {
     initialState,
-    navParams: { enableBackButton: false },
   }).snapshot();
 });
 
@@ -46,7 +44,6 @@ it('navigates to next screen', () => {
     <GetStartedScreen next={next} />,
     {
       initialState,
-      navParams: {},
     },
   );
 

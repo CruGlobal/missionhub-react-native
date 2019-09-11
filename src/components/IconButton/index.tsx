@@ -9,6 +9,7 @@ import styles from './styles';
 interface IconButtonProps extends IconProps {
   name: string;
   type?: 'Material' | 'FontAwesome' | 'Ionicons' | 'MissionHub';
+  buttonStyle?: StyleProp<TextStyle>;
   style?: StyleProp<TextStyle>;
   pressProps?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   onPress?: Function;
@@ -20,6 +21,7 @@ interface IconButtonProps extends IconProps {
 const IconButton = ({
   name,
   type,
+  buttonStyle,
   style = {},
   onPress,
   pressProps = [],
@@ -34,6 +36,7 @@ const IconButton = ({
   return (
     <Button
       type="transparent"
+      {...(buttonStyle ? { style: buttonStyle } : {})}
       {...rest}
       onPress={handlePress}
       testID="IconButton"

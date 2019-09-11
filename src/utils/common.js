@@ -7,9 +7,6 @@ import {
   Platform,
   Keyboard,
   Clipboard,
-  findNodeHandle,
-  UIManager,
-  ActionSheetIOS,
 } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import DeviceInfo from 'react-native-device-info';
@@ -319,47 +316,6 @@ export function toast(text, duration) {
 export function copyText(string) {
   Clipboard.setString(string);
   toast(i18n.t('copyMessage'));
-}
-
-// Actions should be array of [{ text: '', onPress: fn, destructive: Bool (iOS) }]
-export function showMenu(actions, ref, title) {
-  const actionsText = actions.map(a => a.text);
-  const select = i => {
-    if (actions[i] && isFunction(actions[i].onPress)) {
-      actions[i].onPress();
-    }
-  };
-
-  if (isAndroid) {
-    // Android menu
-    const handleError = () => {};
-    const handleItemPress = (e, i) => select(i);
-    UIManager.showPopupMenu(
-      findNodeHandle(ref),
-      actionsText,
-      handleError,
-      handleItemPress,
-    );
-  } else {
-    // iOS menu
-    const options = actionsText.concat(i18n.t('cancel'));
-
-    let destructiveButtonIndex = actions.findIndex(o => o.destructive);
-    if (destructiveButtonIndex < 0) {
-      destructiveButtonIndex = undefined;
-    }
-
-    const params = {
-      options,
-      cancelButtonIndex: options.length - 1,
-      destructiveButtonIndex,
-      ...(title ? { title } : {}),
-    };
-
-    ActionSheetIOS.showActionSheetWithOptions(params, btnIndex =>
-      select(btnIndex),
-    );
-  }
 }
 
 export const keyExtractorId = item => item.id;

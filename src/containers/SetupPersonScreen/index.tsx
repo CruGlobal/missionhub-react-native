@@ -45,7 +45,7 @@ const SetupPersonScreen = ({
   myId,
   dispatch,
 }: SetupPersonScreenProps) => {
-  const { t } = useTranslation('profileLabels');
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const lastNameRef = useRef<TextInput>(null);
 
@@ -105,7 +105,7 @@ const SetupPersonScreen = ({
             returnKeyType="next"
             blurOnSubmit={false}
             onSubmitEditing={onFirstNameSubmitEditing}
-            placeholder={t('firstName')}
+            placeholder={t('profileLabels.firstName')}
             placeholderTextColor="white"
           />
         </View>
@@ -116,7 +116,7 @@ const SetupPersonScreen = ({
             onChangeText={updateLastName}
             value={lastName}
             returnKeyType="next"
-            placeholder={t('lastNameOptional')}
+            placeholder={t('profileLabels.lastNameOptional')}
             placeholderTextColor="white"
             blurOnSubmit={true}
             onSubmitEditing={savePerson}
@@ -129,7 +129,7 @@ const SetupPersonScreen = ({
         disabled={isLoading}
       />
       <AbsoluteSkip onSkip={skip} />
-      <BackButton absolute={true} />
+      <BackButton absolute={true} customNavigate={handleBack} />
       <AndroidBackHandler onBackPress={handleBack} />
     </SafeAreaView>
   );

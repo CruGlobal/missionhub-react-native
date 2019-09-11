@@ -25,9 +25,15 @@ it('renders correctly', () => {
   renderWithContext(<AddSomeoneScreen next={next} />).snapshot();
 });
 
-it('renders from null screen', () => {
+it('renders without skip button correctly', () => {
   renderWithContext(
     <AddSomeoneScreen next={next} hideSkipBtn={true} />,
+  ).snapshot();
+});
+
+it('renders without back button correctly', () => {
+  renderWithContext(
+    <AddSomeoneScreen next={next} enableBackButton={false} />,
   ).snapshot();
 });
 
