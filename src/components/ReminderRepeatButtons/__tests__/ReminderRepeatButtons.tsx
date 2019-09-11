@@ -9,7 +9,8 @@ const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
 const onRecurrenceChange = jest.fn();
 
-let component;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let component: any;
 
 const test = () => expect(component).toMatchSnapshot();
 

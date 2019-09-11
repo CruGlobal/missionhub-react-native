@@ -1,6 +1,7 @@
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 
-import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 
 import PersonListItem from '..';
 
@@ -13,55 +14,60 @@ const person = {
 };
 
 it('render assigned contact', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <PersonListItem
       onSelect={jest.fn()}
       organization={organization}
       person={person}
     />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('render unassigned contact', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <PersonListItem
       onSelect={jest.fn()}
       organization={organization}
       person={{ ...person, reverse_contact_assignments: [] }}
     />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('render without touchable', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <PersonListItem
       organization={organization}
       person={{ ...person, reverse_contact_assignments: [] }}
     />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('render without last name', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <PersonListItem
       organization={organization}
-      person={{ ...person, last_name: null }}
+      person={{ ...person, last_name: undefined }}
     />,
-  );
+    { noWrappers: true },
+  ).snapshot();
 });
 
 it('calls onSelect prop', () => {
   const onSelect = jest.fn();
 
-  renderShallow(
+  const { getByTestId } = renderWithContext(
     <PersonListItem
       onSelect={onSelect}
       organization={organization}
       person={person}
     />,
-  )
-    .instance()
-    .handleSelect();
+    { noWrappers: true },
+  );
+
+  fireEvent.press(getByTestId('PersonListItemButton'));
 
   expect(onSelect).toHaveBeenCalled();
 });

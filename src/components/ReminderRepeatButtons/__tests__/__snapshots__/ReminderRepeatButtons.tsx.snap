@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`none selected renders with none highlighted 1`] = `
-<View
+<_class
   style={
     Object {
       "flexDirection": "row",
@@ -41,6 +41,7 @@ exports[`none selected renders with none highlighted 1`] = `
         },
       ]
     }
+    testID="ReminderRepeatButtonDaily"
     text="Daily"
   />
   <Button
@@ -75,6 +76,7 @@ exports[`none selected renders with none highlighted 1`] = `
         },
       ]
     }
+    testID="ReminderRepeatButtonWeekly"
     text="Weekly"
   />
   <Button
@@ -109,13 +111,14 @@ exports[`none selected renders with none highlighted 1`] = `
         },
       ]
     }
+    testID="ReminderRepeatButtonMonthly"
     text="Monthly"
   />
-</View>
+</_class>
 `;
 
 exports[`starts with daily selected renders with daily highlighted 1`] = `
-<View
+<_class
   style={
     Object {
       "flexDirection": "row",
@@ -153,6 +156,7 @@ exports[`starts with daily selected renders with daily highlighted 1`] = `
         },
       ]
     }
+    testID="ReminderRepeatButtonDaily"
     text="Daily"
   />
   <Button
@@ -187,6 +191,7 @@ exports[`starts with daily selected renders with daily highlighted 1`] = `
         },
       ]
     }
+    testID="ReminderRepeatButtonWeekly"
     text="Weekly"
   />
   <Button
@@ -221,13 +226,14 @@ exports[`starts with daily selected renders with daily highlighted 1`] = `
         },
       ]
     }
+    testID="ReminderRepeatButtonMonthly"
     text="Monthly"
   />
-</View>
+</_class>
 `;
 
 exports[`starts with monthly selected renders with monthly highlighted 1`] = `
-<View
+<_class
   style={
     Object {
       "flexDirection": "row",
@@ -267,6 +273,7 @@ exports[`starts with monthly selected renders with monthly highlighted 1`] = `
         },
       ]
     }
+    testID="ReminderRepeatButtonDaily"
     text="Daily"
   />
   <Button
@@ -301,6 +308,7 @@ exports[`starts with monthly selected renders with monthly highlighted 1`] = `
         },
       ]
     }
+    testID="ReminderRepeatButtonWeekly"
     text="Weekly"
   />
   <Button
@@ -333,13 +341,14 @@ exports[`starts with monthly selected renders with monthly highlighted 1`] = `
         },
       ]
     }
+    testID="ReminderRepeatButtonMonthly"
     text="Monthly"
   />
-</View>
+</_class>
 `;
 
 exports[`starts with weekly selected renders with weekly highlighted 1`] = `
-<View
+<_class
   style={
     Object {
       "flexDirection": "row",
@@ -379,6 +388,7 @@ exports[`starts with weekly selected renders with weekly highlighted 1`] = `
         },
       ]
     }
+    testID="ReminderRepeatButtonDaily"
     text="Daily"
   />
   <Button
@@ -411,6 +421,7 @@ exports[`starts with weekly selected renders with weekly highlighted 1`] = `
         },
       ]
     }
+    testID="ReminderRepeatButtonWeekly"
     text="Weekly"
   />
   <Button
@@ -445,7 +456,8 @@ exports[`starts with weekly selected renders with weekly highlighted 1`] = `
         },
       ]
     }
+    testID="ReminderRepeatButtonMonthly"
     text="Monthly"
   />
-</View>
+</_class>
 `;

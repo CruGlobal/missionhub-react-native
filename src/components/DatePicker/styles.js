@@ -33,7 +33,6 @@ export default StyleSheet.create({
     alignSelf: 'stretch',
   },
   titleText: {
-    color: theme.darkText,
     flex: 1,
     textAlign: 'center',
     fontSize: 16,

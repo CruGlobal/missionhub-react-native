@@ -207,6 +207,7 @@ exports[`renders correctly 1`] = `
               "opacity": 1,
             }
           }
+          testID="ToSButton"
         >
           <View
             style={
@@ -291,6 +292,7 @@ exports[`renders correctly 1`] = `
               "opacity": 1,
             }
           }
+          testID="PrivacyButton"
         >
           <View
             style={

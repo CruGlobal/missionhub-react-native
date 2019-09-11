@@ -3,10 +3,7 @@ import { TimePickerAndroid, DatePickerAndroid, Text } from 'react-native';
 import MockDate from 'mockdate';
 import moment from 'moment';
 
-import {
-  testSnapshotShallow,
-  renderShallow,
-} from '../../../../testUtils/index';
+import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import DatePicker from '../index.android.js';
 
 TimePickerAndroid.open = jest.fn();

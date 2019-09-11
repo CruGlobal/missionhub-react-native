@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import MockDate from 'mockdate';
 
 import { NOTIFICATION_PROMPT_TYPES } from '../../../constants';
-import { renderShallow } from '../../../../testUtils/index';
+import { renderShallow } from '../../../../testUtils';
 import {
   requestNativePermissions,
   showNotificationPrompt,
