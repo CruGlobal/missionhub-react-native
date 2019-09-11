@@ -1,6 +1,6 @@
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
-import { ANALYTICS } from '../../constants';
+import { ANALYTICS, FACEBOOK_CANCELED_ERROR } from '../../constants';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { updateAnalyticsContext } from '../analytics';
@@ -14,7 +14,7 @@ export function facebookPromptLogin() {
   return async () => {
     const result = await LoginManager.logInWithPermissions(FACEBOOK_SCOPE);
     if (result.isCancelled) {
-      throw Error('Facebook login canceled by user');
+      throw Error(FACEBOOK_CANCELED_ERROR);
     }
   };
 }
@@ -65,11 +65,18 @@ const loginWithFacebookAccessToken = (fb_access_token, client_token) =>
 export function refreshMissionHubFacebookAccess() {
   return async dispatch => {
     try {
-      await AccessToken.refreshCurrentAccessTokenAsync();
-    } catch (error) {
-      await dispatch(facebookPromptLogin());
-    } finally {
+      try {
+        await AccessToken.refreshCurrentAccessTokenAsync();
+      } catch (error) {
+        await dispatch(facebookPromptLogin());
+      }
       await dispatch(facebookLoginWithAccessToken());
+    } catch (error) {
+      if (error.message === FACEBOOK_CANCELED_ERROR) {
+        LoginManager.logOut();
+      } else {
+        throw error;
+      }
     }
   };
 }

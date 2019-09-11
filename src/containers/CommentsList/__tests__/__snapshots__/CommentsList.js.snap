@@ -82,7 +82,19 @@ exports[`with comments with next page renders item correctly 1`] = `
       },
     }
   }
-  onLongPress={[Function]}
+  menuActions={
+    Array [
+      Object {
+        "onPress": [Function],
+        "text": "Edit Comment",
+      },
+      Object {
+        "destructive": true,
+        "onPress": [Function],
+        "text": "Delete Comment",
+      },
+    ]
+  }
   organization={
     Object {
       "id": "24234234",

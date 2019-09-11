@@ -16,6 +16,7 @@ interface FlexProps {
   self?: 'start' | 'center' | 'end' | 'stretch';
   children?: ReactNode;
   animation?: string;
+  duration?: number;
 }
 
 const Flex = forwardRef(

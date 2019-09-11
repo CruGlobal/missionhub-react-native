@@ -17,7 +17,7 @@ import { MFA_CODE_SCREEN } from '../../../containers/Auth/MFACodeScreen';
 jest.mock('../../../actions/auth/auth');
 jest.mock('../../../actions/navigation', () => ({
   get navigateNestedReset() {
-    return (...originalArgs) =>
+    return originalArgs =>
       this.innerNavigateNestedReset.mockImplementation(dispatch =>
         dispatch({
           type: 'navigateNestedReset test action',
@@ -58,7 +58,10 @@ describe('SignUpScreen next', () => {
     expect(store.getActions()).toEqual([
       {
         type: 'navigateNestedReset test action',
-        originalArgs: [MAIN_TABS, CREATE_GROUP_SCREEN],
+        originalArgs: [
+          { routeName: MAIN_TABS },
+          { routeName: CREATE_GROUP_SCREEN },
+        ],
       },
     ]);
   });
@@ -108,7 +111,10 @@ describe('SignInScreen next', () => {
     expect(store.getActions()).toEqual([
       {
         type: 'navigateNestedReset test action',
-        originalArgs: [MAIN_TABS, CREATE_GROUP_SCREEN],
+        originalArgs: [
+          { routeName: MAIN_TABS },
+          { routeName: CREATE_GROUP_SCREEN },
+        ],
       },
     ]);
   });
@@ -163,7 +169,10 @@ describe('MFACodeScreen next', () => {
     expect(store.getActions()).toEqual([
       {
         type: 'navigateNestedReset test action',
-        originalArgs: [MAIN_TABS, CREATE_GROUP_SCREEN],
+        originalArgs: [
+          { routeName: MAIN_TABS },
+          { routeName: CREATE_GROUP_SCREEN },
+        ],
       },
     ]);
   });

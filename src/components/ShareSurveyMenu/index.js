@@ -28,11 +28,9 @@ class ShareSurveyMenu extends Component {
         { text: t('shareSurvey'), onPress: this.shareSurvey },
         { text: t('takeSurvey'), onPress: this.takeSurvey },
       ],
-      iconProps: {},
+      ...(header ? { iconProps: { style: styles.headerIcon } } : {}),
     };
-    if (header) {
-      props.iconProps.style = styles.headerIcon;
-    }
+
     return <PopupMenu {...props} />;
   }
 }

@@ -12,10 +12,7 @@ import {
   INVALID_GRANT,
   UPDATE_TOKEN,
 } from '../../constants';
-import { refreshAnonymousLogin } from '../auth/anonymous';
-import { logout } from '../auth/auth';
-import { refreshMissionHubFacebookAccess } from '../auth/facebook';
-import { refreshAccessToken } from '../auth/key';
+import { logout, handleInvalidAccessToken } from '../auth/auth';
 
 jest.mock('../../api');
 jest.mock('../auth/anonymous');
@@ -74,76 +71,27 @@ async function test(
   }
 }
 
-it('should refresh key access token if user is logged in with TheKey with expired token', () => {
+it('should handle expired token', () => {
   return test(
     { refreshToken: 'refresh' },
     getMeRequest,
     expiredTokenError,
-    refreshAccessToken,
+    handleInvalidAccessToken,
     [],
-    { type: 'refreshed token' },
-    accessTokenQuery,
-    {},
-  );
-});
-it('should refresh key access token if user is logged in with TheKey with invalid token', () => {
-  return test(
-    { refreshToken: 'refresh' },
-    getMeRequest,
-    invalidTokenError,
-    refreshAccessToken,
-    [],
-    { type: 'refreshed token' },
+    { type: 'expired token' },
     accessTokenQuery,
     {},
   );
 });
 
-it('should refresh anonymous login if user is Try It Now with expired token', () => {
+it('should handle invalid token', () => {
   return test(
-    { isFirstTime: true },
-    getMeRequest,
-    expiredTokenError,
-    refreshAnonymousLogin,
-    [],
-    { type: 'refreshed anonymous token' },
-    accessTokenQuery,
-    {},
-  );
-});
-it('should refresh anonymous login if user is Try It Now with invalid token', () => {
-  return test(
-    { isFirstTime: true },
+    { refreshToken: 'refresh' },
     getMeRequest,
     invalidTokenError,
-    refreshAnonymousLogin,
+    handleInvalidAccessToken,
     [],
-    { type: 'refreshed anonymous token' },
-    accessTokenQuery,
-    {},
-  );
-});
-
-it('should refresh facebook login if user is not logged in with TheKey or Try It Now with expired token', () => {
-  return test(
-    {},
-    getMeRequest,
-    expiredTokenError,
-    refreshMissionHubFacebookAccess,
-    [],
-    { type: 'refreshed fb login' },
-    accessTokenQuery,
-    {},
-  );
-});
-it('should refresh facebook login if user is not logged in with TheKey or Try It Now with invalid token', () => {
-  return test(
-    {},
-    getMeRequest,
-    invalidTokenError,
-    refreshMissionHubFacebookAccess,
-    [],
-    { type: 'refreshed fb login' },
+    { type: 'invalid token' },
     accessTokenQuery,
     {},
   );

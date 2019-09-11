@@ -1,4 +1,3 @@
-import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
@@ -13,7 +12,6 @@ it('renders correctly', () => {
     <IconButton
       name="addContactIcon"
       type="MissionHub"
-      size={24}
       pressProps={['test']}
       onPress={onPress}
     />,
@@ -24,6 +22,33 @@ it('renders correctly', () => {
 });
 
 it('renders correctly without onpress', () => {
+  renderWithContext(
+    <IconButton
+      name="addContactIcon"
+      type="MissionHub"
+      style={{ padding: 10 }}
+    />,
+    {
+      noWrappers: true,
+    },
+  ).snapshot();
+});
+
+it('renders correctly with button styles', () => {
+  renderWithContext(
+    <IconButton
+      name="addContactIcon"
+      type="MissionHub"
+      buttonStyle={{ margin: 20 }}
+      style={{ padding: 10 }}
+    />,
+    {
+      noWrappers: true,
+    },
+  ).snapshot();
+});
+
+it('renders correctly with icon props', () => {
   renderWithContext(
     <IconButton
       name="addContactIcon"

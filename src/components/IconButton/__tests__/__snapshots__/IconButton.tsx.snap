@@ -44,13 +44,155 @@ exports[`renders correctly 1`] = `
               "color": "#ffffff",
             },
             Object {
-              "fontSize": 24,
+              "fontSize": 18,
             },
             Array [
               Object {
                 "margin": 10,
               },
               Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders correctly with button styles 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="IconButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        null,
+        Object {
+          "margin": 20,
+        },
+        null,
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 18,
+            },
+            Array [
+              Object {
+                "margin": 10,
+              },
+              Object {
+                "padding": 10,
+              },
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders correctly with icon props 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="IconButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        null,
+        Object {},
+        null,
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 24,
+            },
+            Array [
+              Object {
+                "margin": 10,
+              },
+              Object {
+                "padding": 10,
+              },
             ],
           ],
           Object {
@@ -112,7 +254,7 @@ exports[`renders correctly without onpress 1`] = `
               "color": "#ffffff",
             },
             Object {
-              "fontSize": 24,
+              "fontSize": 18,
             },
             Array [
               Object {

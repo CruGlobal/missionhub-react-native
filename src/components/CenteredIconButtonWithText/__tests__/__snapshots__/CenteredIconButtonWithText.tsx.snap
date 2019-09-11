@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with non-null onClick 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "backgroundColor": "#005A7F",
+            "borderRadius": 25,
+            "height": 48,
+            "margin": 10,
+            "width": 48,
+          },
+          Object {
+            "padding": 10,
+          },
+        ],
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 24,
+                    },
+                    Object {},
+                    Object {
+                      "padding": 10,
+                    },
+                  ],
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          ?
+        </Text>
+      </View>
+    </View>
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 11,
+        },
+      ]
+    }
+  >
+    Hello, MissionHub
+  </Text>
+</View>
+`;
+
+exports[`renders correctly with undefined onClick 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "backgroundColor": "#005A7F",
+            "borderRadius": 25,
+            "height": 48,
+            "margin": 10,
+            "width": 48,
+          },
+          undefined,
+        ],
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Object {
+              "opacity": 0.6,
+            },
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 24,
+                    },
+                    Object {
+                      "opacity": 0.5,
+                    },
+                    undefined,
+                  ],
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          ?
+        </Text>
+      </View>
+    </View>
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 11,
+        },
+      ]
+    }
+  >
+    Hello, MissionHub
+  </Text>
+</View>
+`;
