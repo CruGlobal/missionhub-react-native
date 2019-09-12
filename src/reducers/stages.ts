@@ -1,36 +1,59 @@
 import { REQUESTS } from '../api/routes';
-import { LOGOUT } from '../constants';
+import { LOGOUT, LogoutAction } from '../constants';
 import { getLocalizedStages } from '../utils/stages';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Stage = any;
+interface LocalizedPathwayStage {
+  locale: string;
+  name: string;
+  description: string;
+  self_followup_description: string;
+}
+
+export interface Stage {
+  id: string;
+  name: string;
+  description: string;
+  self_followup_description: string;
+  position: number;
+  name_i18n: string;
+  description_i18n: string;
+  icon_url: string;
+  localized_pathway_stages: LocalizedPathwayStage[];
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type LocalizedStage = any;
 
 export interface StagesState {
   stages: Stage[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  stagesObj: any;
+  stagesObj?: { [key: string]: Stage };
 }
 
 const initialStagesState: StagesState = {
   stages: [],
-  stagesObj: null,
+  stagesObj: undefined,
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function stagesReducer(state = initialStagesState, action: any) {
+function stagesReducer(
+  state = initialStagesState,
+  action:
+    | {
+        type: typeof REQUESTS.GET_STAGES.SUCCESS;
+        results: { response: Stage[] };
+      }
+    | LogoutAction,
+) {
   switch (action.type) {
     case REQUESTS.GET_STAGES.SUCCESS:
-      const stages = getLocalizedStages(
-        (action.results || []).findAll('pathway_stage'),
+      const stages = getLocalizedStages(action.results.response);
+      const stagesObj = stages.reduce(
+        (stagesObj, stage) => ({
+          ...stagesObj,
+          [stage.id]: stage,
+        }),
+        {},
       );
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const stagesObj = stages.reduce((p: any, n: Stage) => {
-        p[`${n.id}`] = n;
-        return p;
-      }, {});
       return {
         ...state,
         stages,

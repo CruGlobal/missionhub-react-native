@@ -2,11 +2,12 @@ import i18n from 'i18next';
 
 import { UPDATE_STAGES } from '../constants';
 import { REQUESTS } from '../api/routes';
+import { StagesState } from '../reducers/stages';
 
 import callApi from './api';
 
 export function getStagesIfNotExists() {
-  return (dispatch, getState) => {
+  return (dispatch, getState: () => { stages: StagesState }) => {
     const { stages } = getState().stages;
 
     const localeNotChanged =
