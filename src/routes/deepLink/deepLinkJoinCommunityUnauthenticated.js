@@ -7,9 +7,9 @@ import { navigatePush } from '../../actions/navigation';
 import { firstTime, loadHome } from '../../actions/auth/userData';
 import {
   completeOnboarding,
-  stashCommunityToJoin,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
+  setOnboardingCommunityId,
 } from '../../actions/onboarding';
 import { showReminderOnLoad } from '../../actions/notifications';
 import DeepLinkConfirmJoinGroupScreen, {
@@ -31,7 +31,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     wrapNextAction(
       DeepLinkConfirmJoinGroupScreen,
       ({ community }) => dispatch => {
-        dispatch(stashCommunityToJoin({ community }));
+        dispatch(setOnboardingCommunityId(community.id));
         dispatch(navigatePush(WELCOME_SCREEN, { allowSignIn: true }));
       },
     ),

@@ -29,6 +29,11 @@ import { showReminderOnLoad } from './notifications';
 import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
 import { AuthState } from 'src/reducers/auth';
+import { AuthState } from 'src/reducers/auth';
+import { Person } from 'src/reducers/people';
+import { organizationSelector } from 'src/selectors/organizations';
+import { OnboardingState } from 'src/reducers/onboarding';
+import { OrganizationsState } from 'src/reducers/organizations';
 
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
 export const SET_ONBOARDING_COMMUNITY_ID = 'SET_ONBOARDING_COMMUNITY_ID';
@@ -66,27 +71,7 @@ export const skipOnbardingAddPerson = (): SkipOnboardingAddPersonAction => ({
   type: SKIP_ONBOARDING_ADD_PERSON,
 });
 
-/*
-A user is considered to have completed onboarding once they've:
-1) selected a stage for themselves, and
-2) selected a stage for a contact assignment
- */
-
-export function firstNameChanged(firstName) {
-  return {
-    type: FIRST_NAME_CHANGED,
-    firstName: firstName,
-  };
-}
-
-export function lastNameChanged(lastName) {
-  return {
-    type: LAST_NAME_CHANGED,
-    lastName: lastName,
-  };
-}
-
-export function createMyPerson(firstName, lastName) {
+export function createMyPerson(firstName: string, lastName: string) {
   const data = {
     code: uuidv4(),
     first_name: firstName,
@@ -94,39 +79,27 @@ export function createMyPerson(firstName, lastName) {
   };
 
   return async dispatch => {
-    const me = await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
+    await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
+    const me = await dispatch(getMe());
 
-    rollbar.setPerson(me.person_id);
+    rollbar.setPerson(me.id);
 
     dispatch({
       type: LOAD_PERSON_DETAILS,
-      person: {
-        type: 'person',
-        id: me.person_id,
-        first_name: me.first_name,
-        last_name: me.last_name,
-      },
+      person: me,
     });
 
     return me;
   };
 }
 
-export function personFirstNameChanged(firstName) {
-  return {
-    type: PERSON_FIRST_NAME_CHANGED,
-    personFirstName: firstName,
-  };
-}
-
-export function personLastNameChanged(lastName) {
-  return {
-    type: PERSON_LAST_NAME_CHANGED,
-    personLastName: lastName,
-  };
-}
-
-export function createPerson(firstName, lastName, myId) {
+export const createPerson = (firstName: string, lastName: string) => async (
+  dispatch,
+  getState: () => { auth: AuthState },
+) => {
+  const {
+    person: { id: myId },
+  } = getState().auth;
   const data = {
     data: {
       type: 'person',
@@ -145,33 +118,23 @@ export function createPerson(firstName, lastName, myId) {
     ],
   };
 
-  return async dispatch => {
-    const results = await dispatch(callApi(REQUESTS.ADD_NEW_PERSON, {}, data));
+  const results = await dispatch(callApi(REQUESTS.ADD_NEW_PERSON, {}, data));
 
-    dispatch({
-      type: LOAD_PERSON_DETAILS,
-      person: results.response,
-    });
+  dispatch({
+    type: LOAD_PERSON_DETAILS,
+    person: results.response,
+  });
 
-    return results;
-  };
-}
+  return results;
+};
 
-export function updateOnboardingPerson(data) {
+export function updateOnboardingPerson(data: Person) {
   return dispatch => {
-    return dispatch(updatePerson(data)).then(r => {
+    return dispatch(updatePerson(data)).then((r: any) => {
       dispatch({ type: UPDATE_ONBOARDING_PERSON, results: r });
       return r;
     });
   };
-}
-
-export function resetPerson() {
-  return { type: RESET_ONBOARDING_PERSON };
-}
-
-export function stashCommunityToJoin({ community }) {
-  return { type: STASH_COMMUNITY_TO_JOIN, community };
 }
 
 export function skipOnboardingComplete() {
@@ -197,21 +160,47 @@ export function skipOnboarding() {
 }
 
 export function joinStashedCommunity() {
-  return async (dispatch, getState) => {
-    const { community } = getState().profile;
+  return async (
+    dispatch,
+    getState: () => {
+      onboarding: OnboardingState;
+      organizations: OrganizationsState;
+    },
+  ) => {
+    const {
+      organizations,
+      onboarding: { communityId },
+    } = getState();
+    const community = organizationSelector(
+      { organizations },
+      { orgId: communityId },
+    );
     await dispatch(
       joinCommunity(
-        community.id,
-        community.community_code,
-        community.community_url,
+        communityId,
+        community.communityCode,
+        community.communityUrl,
       ),
     );
   };
 }
 
 export function landOnStashedCommunityScreen() {
-  return (dispatch, getState) => {
-    const { community } = getState().profile;
+  return (
+    dispatch,
+    getState: () => {
+      onboarding: OnboardingState;
+      organizations: OrganizationsState;
+    },
+  ) => {
+    const {
+      organizations,
+      onboarding: { communityId },
+    } = getState();
+    const community = organizationSelector(
+      { organizations },
+      { orgId: communityId },
+    );
     dispatch(
       navigateReset(
         community.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN,

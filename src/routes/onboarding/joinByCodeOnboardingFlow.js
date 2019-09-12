@@ -8,6 +8,7 @@ import {
   stashCommunityToJoin,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
+  setOnboardingCommunityId,
 } from '../../actions/onboarding';
 import { showReminderOnLoad } from '../../actions/notifications';
 import JoinGroupScreen, {
@@ -23,7 +24,7 @@ import SetupScreen from '../../containers/SetupScreen';
 export const JoinByCodeOnboardingFlowScreens = {
   [JOIN_GROUP_SCREEN]: buildTrackedScreen(
     wrapNextAction(JoinGroupScreen, ({ community }) => dispatch => {
-      dispatch(stashCommunityToJoin({ community }));
+      dispatch(setOnboardingCommunityId(community.id));
       dispatch(navigatePush(WELCOME_SCREEN));
     }),
     buildTrackingObj('communities : join', 'communities', 'join'),
