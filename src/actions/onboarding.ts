@@ -23,7 +23,7 @@ import {
 import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
-import { updatePerson } from './person';
+import { updatePerson, getMe } from './person';
 import { navigatePush, navigateReset } from './navigation';
 import { showReminderOnLoad } from './notifications';
 import { trackActionWithoutData } from './analytics';
@@ -71,9 +71,6 @@ A user is considered to have completed onboarding once they've:
 1) selected a stage for themselves, and
 2) selected a stage for a contact assignment
  */
-export function completeOnboarding() {
-  return { type: COMPLETE_ONBOARDING };
-}
 
 export function firstNameChanged(firstName) {
   return {
@@ -180,7 +177,7 @@ export function stashCommunityToJoin({ community }) {
 export function skipOnboardingComplete() {
   return dispatch => {
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-    dispatch(completeOnboarding());
+    dispatch(skipOnbardingAddPerson());
     dispatch(
       navigatePush(CELEBRATION_SCREEN, {
         trackingObj: buildTrackingObj('onboarding : complete', 'onboarding'),

@@ -87,7 +87,7 @@ export const handleInvalidAccessToken = () => {
       return dispatch(refreshAccessToken());
     }
 
-    if (auth.isFirstTime) {
+    if (auth.upgradeToken) {
       return dispatch(refreshAnonymousLogin());
     }
 
