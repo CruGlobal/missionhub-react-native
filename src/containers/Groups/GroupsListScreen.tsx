@@ -40,6 +40,11 @@ export const COMMUNITIES_QUERY = gql`
         name
         unreadCommentsCount
         userCreated
+        communityPhotoUrl
+        people(permissions: [owner, no_permissions]) {
+          id
+          fullName
+        }
       }
     }
   }
