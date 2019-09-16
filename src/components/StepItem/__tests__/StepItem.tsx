@@ -6,6 +6,9 @@ import { renderWithContext } from '../../../../testUtils';
 import StepItem, { StepItemProps } from '..';
 
 const date = '2017-12-06T14:24:52Z';
+const owner = { id: '456' };
+const receiver = { id: '457', full_name: 'Receiver Name' };
+
 const mockStep = {
   id: '1',
   title: 'Test Step',
@@ -15,8 +18,8 @@ const mockStep = {
   updated_at: date,
   notified_at: date,
   note: 'Note',
-  owner: { id: '456' },
-  receiver: { id: '456', full_name: 'Receiver Name' },
+  owner,
+  receiver,
 };
 
 const initialState = {
@@ -115,7 +118,7 @@ describe('step item animations', () => {
   });
 });
 
-describe('step item methods', () => {
+describe('step item methods with no receiver', () => {
   const mockSelect = jest.fn();
   const mockAction = jest.fn();
   const step = { ...mockStep, receiver: undefined };
@@ -131,7 +134,7 @@ describe('step item methods', () => {
     );
   }
 
-  it('handles select with no receiver', () => {
+  it('handles select', () => {
     const { getByTestId } = getComponent();
     fireEvent.press(getByTestId('StepItemButton'));
     expect(mockSelect).toHaveBeenCalledTimes(0);
@@ -141,5 +144,33 @@ describe('step item methods', () => {
     const { getByTestId } = getComponent();
     fireEvent.press(getByTestId('StepItemIconButton'));
     expect(mockAction).toHaveBeenCalledWith(step);
+  });
+});
+
+describe('step item methods receiver', () => {
+  const mockSelect = jest.fn();
+  const mockAction = jest.fn();
+  function getComponent() {
+    return renderWithContext(
+      <StepItem
+        step={mockStep}
+        onSelect={mockSelect}
+        type="swipeable"
+        onAction={mockAction}
+      />,
+      { initialState },
+    );
+  }
+
+  it('handles select', () => {
+    const { getByTestId } = getComponent();
+    fireEvent.press(getByTestId('StepItemButton'));
+    expect(mockSelect).toHaveBeenCalledWith(mockStep);
+  });
+
+  it('handles action press', () => {
+    const { getByTestId } = getComponent();
+    fireEvent.press(getByTestId('StepItemIconButton'));
+    expect(mockAction).toHaveBeenCalledWith(mockStep);
   });
 });
