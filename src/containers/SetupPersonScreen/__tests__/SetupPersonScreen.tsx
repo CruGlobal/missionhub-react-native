@@ -37,7 +37,10 @@ const initialState = {
   },
 };
 
-const createPersonResult = { type: 'create person' };
+const createPersonResult = {
+  type: 'create person',
+  response: { id: personId },
+};
 const updateOnboardingPersonResult = { type: 'update person' };
 const trackActionResult = { type: 'tracked action' };
 const nextResult = { type: 'next' };
@@ -100,7 +103,7 @@ describe('setup person screen methods', () => {
       myId,
     );
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PERSON_ADDED);
-    expect(next).toHaveBeenCalledWith({ skip: false, personId: null });
+    expect(next).toHaveBeenCalledWith({ skip: false, personId });
     expect(store.getActions()).toEqual([
       createPersonResult,
       trackActionResult,
@@ -131,7 +134,7 @@ describe('setup person screen methods', () => {
       myId,
     );
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PERSON_ADDED);
-    expect(next).toHaveBeenCalledWith({ skip: false, personId: null });
+    expect(next).toHaveBeenCalledWith({ skip: false, personId });
     expect(store.getActions()).toEqual([
       createPersonResult,
       trackActionResult,
