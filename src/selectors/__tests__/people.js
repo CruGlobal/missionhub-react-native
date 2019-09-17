@@ -215,7 +215,7 @@ describe('contactAssignmentSelector', () => {
   const organizationTwo = { id: '101' };
 
   describe('orgId passed in', () => {
-    it("should get a person's contactAssignment for that is assigned to the current user's org ministry", () => {
+    it("should get a contactAssignment for a person that is assigned to the current user's org ministry", () => {
       expect(
         contactAssignmentSelector(
           { auth },
@@ -264,7 +264,7 @@ describe('contactAssignmentSelector', () => {
   });
 
   describe('orgId is undefined', () => {
-    it("should get a person's contactAssignment for that is assigned to the current user's personal ministry", () => {
+    it("should get a contactAssignment for a person that is assigned to the current user's personal ministry", () => {
       expect(
         contactAssignmentSelector(
           { auth },
@@ -288,7 +288,7 @@ describe('contactAssignmentSelector', () => {
   });
 
   describe('orgId is "personal"', () => {
-    it("should get a person's contactAssignment for that is assigned to the current user's personal ministry", () => {
+    it("should get a contactAssignment for a person that is assigned to the current user's personal ministry", () => {
       expect(
         contactAssignmentSelector(
           { auth },

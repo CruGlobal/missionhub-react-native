@@ -3,58 +3,55 @@ import i18n from 'i18next';
 import { REQUESTS } from '../../api/routes';
 import stages from '../stages';
 
-it('loads step suggestions for me', () => {
-  const newStages = [
-    {
-      id: '2',
-      name: 'English Name',
-      localized_pathway_stages: [
-        { id: '3', locale: 'no', name: 'Norwegian Name' },
-      ],
-    },
-  ];
+const localizedStage = {
+  id: '3',
+  locale: 'no',
+  name: 'Norwegian Name',
+  description: 'Norwegian Description',
+  self_followup_description: 'Norwegian Self Description',
+};
+const stage = {
+  id: '2',
+  name: 'English Name',
+  description: 'English Description',
+  self_followup_description: 'English Self Description',
+  localized_pathway_stages: [localizedStage],
+};
 
+const newStages = [stage];
+
+it('loads stages', () => {
   const state = stages(undefined, {
     type: REQUESTS.GET_STAGES.SUCCESS,
     results: { findAll: () => newStages },
   });
 
-  expect(state.stages).toEqual(newStages);
-  expect(state.stagesObj).toEqual({
-    '2': newStages[0],
+  expect(state).toEqual({
+    stageLocale: 'en-US',
+    stages: newStages,
+    stagesObj: { '2': stage },
   });
 });
 
-it('loads step suggestions for me by language', () => {
+it('loads stages with different locale', () => {
   const locale = 'no';
   i18n.language = locale;
-  const newStages = [
-    {
-      id: '2',
-      name: 'English Name',
-      localized_pathway_stages: [
-        { id: '3', locale: 'no', name: 'Norwegian Name' },
-      ],
-    },
-  ];
-  const expectedStages = [
-    {
-      id: '3',
-      name: 'Norwegian Name',
-      locale: 'no',
-      localized_pathway_stages: [
-        { id: '3', locale: 'no', name: 'Norwegian Name' },
-      ],
-    },
-  ];
+
+  const modifiedStage = {
+    ...stage,
+    name: localizedStage.name,
+    description: localizedStage.description,
+    self_followup_description: localizedStage.self_followup_description,
+  };
 
   const state = stages(undefined, {
     type: REQUESTS.GET_STAGES.SUCCESS,
     results: { findAll: () => newStages },
   });
 
-  expect(state.stages).toEqual(expectedStages);
-  expect(state.stagesObj).toEqual({
-    '3': expectedStages[0],
+  expect(state).toEqual({
+    stageLocale: 'no',
+    stages: [modifiedStage],
+    stagesObj: { '2': modifiedStage },
   });
 });
