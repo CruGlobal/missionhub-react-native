@@ -1,25 +1,39 @@
 import { BackHandler } from 'react-native';
-import { useRef, useEffect } from 'react';
+import { useEffect } from 'react';
+import { NavigationEventSubscription } from 'react-navigation';
+import { useNavigation } from 'react-navigation-hooks';
 
-export const useDisableBack = (enableBackButton = false) => {
-  const disableBackPress = useRef(() => true);
-  const removeListener = () => {
-    !enableBackButton &&
-      BackHandler.removeEventListener(
-        'hardwareBackPress',
-        disableBackPress.current,
-      );
+export const useDisableBack = (
+  enableBackButton = false,
+  onBackPress: () => void,
+) => {
+  const navigation = useNavigation();
+
+  let willFocus: NavigationEventSubscription;
+  let willBlur: NavigationEventSubscription;
+
+  const handleBackPress = () => {
+    if (enableBackButton) {
+      return onBackPress();
+    }
+    return true;
+  };
+
+  const addListeners = () => {
+    willFocus = navigation.addListener('willFocus', () =>
+      BackHandler.addEventListener('hardwareBackPress', handleBackPress),
+    );
+    willBlur = navigation.addListener('willBlur', () =>
+      BackHandler.removeEventListener('hardwareBackPress', handleBackPress),
+    );
+  };
+  const removeListeners = () => {
+    willFocus && willFocus.remove();
+    willBlur && willBlur.remove();
   };
 
   useEffect(() => {
-    if (!enableBackButton) {
-      BackHandler.addEventListener(
-        'hardwareBackPress',
-        disableBackPress.current,
-      );
-      return removeListener;
-    }
+    addListeners();
+    return removeListeners();
   });
-
-  return removeListener;
 };

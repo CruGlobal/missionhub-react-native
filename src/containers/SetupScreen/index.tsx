@@ -21,6 +21,7 @@ import { BackButton } from '../BackButton';
 import { prompt } from '../../utils/prompt';
 import { logout } from '../../actions/auth/auth';
 import { navigateBack } from '../../actions/navigation';
+import { useDisableBack } from '../../utils/hooks/useDisableBack';
 
 import styles from './styles';
 
@@ -39,6 +40,26 @@ const SetupScreen = ({
   lastName,
   personId,
 }: SetupScreenProps) => {
+  const handleBack = () => {
+    // When id exists, try to logout
+    if (personId) {
+      prompt({
+        title: t('goBackAlert.title'),
+        description: t('goBackAlert.description'),
+        actionLabel: t('goBackAlert.action'),
+      }).then(isLoggingOut => {
+        if (isLoggingOut) {
+          dispatch(logout());
+        }
+      });
+    } else {
+      dispatch(navigateBack());
+    }
+    return true;
+  };
+
+  useDisableBack(false, handleBack);
+
   const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation('setup');
   const lastNameRef = useRef<TextInput>(null);
@@ -72,23 +93,6 @@ const SetupScreen = ({
   const onFirstNameSubmitEditing = () =>
     lastNameRef.current && lastNameRef.current.focus();
 
-  const handleBack = () => {
-    // When id exists, try to logout
-    if (personId) {
-      prompt({
-        title: t('goBackAlert.title'),
-        description: t('goBackAlert.description'),
-        actionLabel: t('goBackAlert.action'),
-      }).then(isLoggingOut => {
-        if (isLoggingOut) {
-          dispatch(logout());
-        }
-      });
-    } else {
-      dispatch(navigateBack());
-    }
-    return true;
-  };
   return (
     <SafeAreaView style={styles.container}>
       <Flex value={2} justify="end" align="center">
@@ -136,7 +140,6 @@ const SetupScreen = ({
         onPress={saveAndGoToGetStarted}
         text={t('next')}
       />
-      <AndroidBackHandler onBackPress={handleBack} />
       <BackButton
         absolute={true}
         customNavigate={handleBack}

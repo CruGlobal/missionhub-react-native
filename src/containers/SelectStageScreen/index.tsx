@@ -100,7 +100,13 @@ const SelectStageScreen = ({
     questionText,
   } = useNavigationState().params as SelectStageNavParams;
 
-  const enableBack = useDisableBack(enableBackButton);
+  const handleBack = () => {
+    enableBackButton && dispatch(navigateBack());
+
+    return true;
+  };
+
+  useDisableBack(enableBackButton, handleBack);
   const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -135,8 +141,6 @@ const SelectStageScreen = ({
   }, []);
 
   const setStage = async (stage: Stage, isAlreadySelected: boolean) => {
-    enableBack();
-
     !isAlreadySelected &&
       (await dispatch(
         isMe
@@ -169,12 +173,6 @@ const SelectStageScreen = ({
         [ACTIONS.STAGE_SELECTED.key]: null,
       }),
     );
-  };
-
-  const handleBack = () => {
-    enableBackButton && dispatch(navigateBack());
-
-    return true;
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -223,7 +221,6 @@ const SelectStageScreen = ({
           },
         ]}
       />
-      <AndroidBackHandler onBackPress={handleBack} />
       {enableBackButton ? <BackButton absolute={true} /> : null}
       <Text style={styles.title}>{headerText}</Text>
       {stages ? (

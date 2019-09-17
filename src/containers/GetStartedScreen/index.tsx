@@ -31,18 +31,15 @@ const GetStartedScreen = ({
   name = '',
   enableBackButton = true,
 }: GetStartedScreenProps) => {
-  const enableBack = useDisableBack(enableBackButton);
-  const { t } = useTranslation('getStarted');
-
   const handleBack = () => {
     enableBackButton && dispatch(navigateBack());
 
     return true;
   };
+  useDisableBack(enableBackButton, handleBack);
+  const { t } = useTranslation('getStarted');
 
   const navigateNext = () => {
-    enableBack();
-
     dispatch(next({ id }));
   };
 
@@ -56,7 +53,6 @@ const GetStartedScreen = ({
           <Text style={styles.text}>{t('tagline')}</Text>
         </Flex>
         <BottomButton onPress={navigateNext} text={t('getStarted')} />
-        <AndroidBackHandler onBackPress={handleBack} />
         {enableBackButton ? <BackButton absolute={true} /> : null}
       </Flex>
     </SafeAreaView>

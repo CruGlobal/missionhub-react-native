@@ -22,6 +22,7 @@ import {
 import { ACTIONS } from '../../constants';
 import { PersonProfileState } from '../../reducers/personProfile';
 import { AuthState } from '../../reducers/auth';
+import { useDisableBack } from '../../utils/hooks/useDisableBack';
 
 import styles from './styles';
 
@@ -45,6 +46,13 @@ const SetupPersonScreen = ({
   myId,
   dispatch,
 }: SetupPersonScreenProps) => {
+  const handleBack = () => {
+    dispatch(navigateBack());
+    return true;
+  };
+
+  useDisableBack(false, handleBack);
+
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const lastNameRef = useRef<TextInput>(null);
@@ -86,11 +94,6 @@ const SetupPersonScreen = ({
     dispatch(personLastNameChanged(name));
 
   const skip = () => navigateNext(true);
-
-  const handleBack = () => {
-    dispatch(navigateBack());
-    return true;
-  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -136,7 +139,6 @@ const SetupPersonScreen = ({
       />
       <AbsoluteSkip onSkip={skip} />
       <BackButton absolute={true} customNavigate={handleBack} />
-      <AndroidBackHandler onBackPress={handleBack} />
     </SafeAreaView>
   );
 };
