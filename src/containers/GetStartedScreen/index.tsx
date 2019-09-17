@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-import { AndroidBackHandler } from 'react-navigation-backhandler';
 
-import { navigateBack } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
@@ -31,12 +29,7 @@ const GetStartedScreen = ({
   name = '',
   enableBackButton = true,
 }: GetStartedScreenProps) => {
-  const handleBack = () => {
-    enableBackButton && dispatch(navigateBack());
-
-    return true;
-  };
-  useDisableBack(enableBackButton, handleBack);
+  useDisableBack(enableBackButton);
   const { t } = useTranslation('getStarted');
 
   const navigateNext = () => {

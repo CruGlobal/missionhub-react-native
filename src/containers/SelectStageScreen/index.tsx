@@ -6,7 +6,6 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useNavigationState } from 'react-navigation-hooks';
 import Carousel from 'react-native-snap-carousel';
-import { AndroidBackHandler } from 'react-navigation-backhandler';
 
 import { Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
@@ -24,7 +23,6 @@ import {
   updateUserStage,
 } from '../../actions/selectStage';
 import { trackAction, trackState } from '../../actions/analytics';
-import { navigateBack } from '../../actions/navigation';
 import { buildTrackingObj } from '../../utils/common';
 import {
   ACTIONS,
@@ -99,14 +97,7 @@ const SelectStageScreen = ({
     subsection,
     questionText,
   } = useNavigationState().params as SelectStageNavParams;
-
-  const handleBack = () => {
-    enableBackButton && dispatch(navigateBack());
-
-    return true;
-  };
-
-  useDisableBack(enableBackButton, handleBack);
+  useDisableBack(enableBackButton);
   const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -211,6 +202,7 @@ const SelectStageScreen = ({
 
   return (
     <View style={styles.container}>
+      {enableBackButton ? <BackButton absolute={true} /> : null}
       <Image
         source={LANDSCAPE}
         style={[
@@ -221,7 +213,6 @@ const SelectStageScreen = ({
           },
         ]}
       />
-      {enableBackButton ? <BackButton absolute={true} /> : null}
       <Text style={styles.title}>{headerText}</Text>
       {stages ? (
         <Carousel

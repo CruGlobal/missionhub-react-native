@@ -4,7 +4,6 @@ import { SafeAreaView, View, Keyboard, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import { AndroidBackHandler } from 'react-navigation-backhandler';
 
 import { Text, Flex, Input } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -95,6 +94,11 @@ const SetupScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
+      <BackButton
+        absolute={true}
+        customNavigate={handleBack}
+        testID="BackButton"
+      />
       <Flex value={2} justify="end" align="center">
         <Text header={true} style={styles.header}>
           {t('namePrompt')}
@@ -139,11 +143,6 @@ const SetupScreen = ({
         disabled={isLoading}
         onPress={saveAndGoToGetStarted}
         text={t('next')}
-      />
-      <BackButton
-        absolute={true}
-        customNavigate={handleBack}
-        testID="BackButton"
       />
     </SafeAreaView>
   );

@@ -3,9 +3,11 @@ import { useEffect } from 'react';
 import { NavigationEventSubscription } from 'react-navigation';
 import { useNavigation } from 'react-navigation-hooks';
 
+import { navigateBack } from '../../actions/navigation';
+
 export const useDisableBack = (
   enableBackButton = false,
-  onBackPress: () => void,
+  onBackPress?: () => void,
 ) => {
   const navigation = useNavigation();
 
@@ -14,7 +16,10 @@ export const useDisableBack = (
 
   const handleBackPress = () => {
     if (enableBackButton) {
-      return onBackPress();
+      if (onBackPress) {
+        return onBackPress();
+      }
+      return navigation.dispatch(navigateBack());
     }
     return true;
   };

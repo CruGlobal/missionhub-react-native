@@ -4,7 +4,6 @@ import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
-import { AndroidBackHandler } from 'react-navigation-backhandler';
 
 import { BackButton } from '../BackButton';
 import { Text } from '../../components/common';
@@ -46,12 +45,7 @@ const SetupPersonScreen = ({
   myId,
   dispatch,
 }: SetupPersonScreenProps) => {
-  const handleBack = () => {
-    dispatch(navigateBack());
-    return true;
-  };
-
-  useDisableBack(false, handleBack);
+  useDisableBack();
 
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
@@ -97,6 +91,8 @@ const SetupPersonScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
+      <AbsoluteSkip onSkip={skip} />
+      <BackButton absolute={true} />
       <View style={{ flex: 1 }} />
       <View style={styles.imageWrap}>
         <Image source={require('../../../assets/images/add_someone.png')} />
@@ -137,8 +133,6 @@ const SetupPersonScreen = ({
         text={t('next')}
         disabled={isLoading}
       />
-      <AbsoluteSkip onSkip={skip} />
-      <BackButton absolute={true} customNavigate={handleBack} />
     </SafeAreaView>
   );
 };

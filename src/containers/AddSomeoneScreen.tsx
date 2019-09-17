@@ -23,15 +23,15 @@ const AddSomeoneScreen = ({
   hideSkipBtn = false,
   enableBackButton = true,
 }: AddSomeoneScreenProps) => {
-  const skip = () => handleNavigate(true);
-  const back = () => dispatch(navigateBack());
-
-  useDisableBack(enableBackButton, back);
+  useDisableBack(enableBackButton);
   const { t } = useTranslation('addContact');
 
   const handleNavigate = (skip = false) => {
     dispatch(next({ skip }));
   };
+
+  const skip = () => handleNavigate(true);
+  const back = () => dispatch(navigateBack());
 
   return (
     <IconMessageScreen
