@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { isAndroid, hasNotch } from '../../utils/common';
+import { isAndroid } from '../../utils/common';
 
 export default StyleSheet.create({
   container: {
@@ -10,7 +10,7 @@ export default StyleSheet.create({
   },
   absoluteTopLeft: {
     position: 'absolute',
-    top: isAndroid ? 7 : hasNotch() ? 0 : 25,
+    top: isAndroid ? 7 : 25,
     left: 5,
   },
 });
