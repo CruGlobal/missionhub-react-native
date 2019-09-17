@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StepsScreen arrow functions should render item correctly 1`] = `
-<Connect(withI18nextTranslation(StepItem))
+<Connect(StepItem)
   hideAction={true}
   onAction={[Function]}
   onSelect={[Function]}
@@ -395,7 +395,7 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
           ]
         }
       >
-        <Connect(withI18nextTranslation(StepItem))
+        <Connect(StepItem)
           key="1"
           onAction={[Function]}
           onSelect={[Function]}
@@ -407,7 +407,7 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
           }
           type="reminder"
         />
-        <Connect(withI18nextTranslation(StepItem))
+        <Connect(StepItem)
           key="2"
           onAction={[Function]}
           onSelect={[Function]}
