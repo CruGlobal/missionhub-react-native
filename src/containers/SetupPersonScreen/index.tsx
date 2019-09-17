@@ -49,7 +49,10 @@ const SetupPersonScreen = ({
   const [isLoading, setIsLoading] = useState(false);
   const lastNameRef = useRef<TextInput>(null);
 
-  const navigateNext = (skip = false) => dispatch(next({ skip, personId: id }));
+  const navigateNext = (skip = false, newPersonId = null) => {
+    const personId = newPersonId || id;
+    dispatch(next({ skip, personId }));
+  };
 
   const savePerson = async () => {
     Keyboard.dismiss();
@@ -60,11 +63,14 @@ const SetupPersonScreen = ({
       setIsLoading(true);
       if (id) {
         await dispatch(updateOnboardingPerson({ id, firstName, lastName }));
+        navigateNext();
       } else {
-        await dispatch(createPerson(firstName, lastName, myId));
+        const {
+          response: { id: newPersonId },
+        } = await dispatch(createPerson(firstName, lastName, myId));
         dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
+        navigateNext(false, newPersonId);
       }
-      navigateNext();
     } finally {
       setIsLoading(false);
     }
