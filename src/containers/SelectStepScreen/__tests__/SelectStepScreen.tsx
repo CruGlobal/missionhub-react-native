@@ -14,7 +14,6 @@ const organization = { id: '4234234' };
 const contactStageId = '3';
 const receiverId = '252342354234';
 const contactName = 'roger';
-const contact = { id: receiverId };
 const state = {
   auth: { person: { id: '89123' } },
   steps: { suggestedForOthers: {} },
@@ -26,7 +25,6 @@ let enableSkipButton = false;
 beforeEach(() => {
   screen = renderWithContext(
     <SelectStepScreen
-      contact={contact}
       contactStageId={contactStageId}
       organization={organization}
       receiverId={receiverId}
