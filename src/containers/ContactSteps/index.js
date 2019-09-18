@@ -91,7 +91,6 @@ class ContactSteps extends Component {
           ...trackingParams,
           contactName: person.first_name,
           contactId: person.id,
-          contact: person,
           organization,
           createStepTracking: buildTrackingObj(
             `people : ${subsection} : steps : create`,

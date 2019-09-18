@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
-import { contactAssignmentSelector } from '../selectors/people';
+import { contactAssignmentSelector, personSelector } from '../selectors/people';
 
 import SelectStepScreen from './SelectStepScreen';
 
@@ -18,7 +18,6 @@ class PersonSelectStepScreen extends Component {
       contactAssignment,
       contactId,
       personId,
-      contact,
       organization,
       next,
       enableSkipButton,
@@ -35,7 +34,6 @@ class PersonSelectStepScreen extends Component {
         receiverId={contactId ? contactId : personId}
         contactName={name}
         headerText={t('personHeader', { name })}
-        contact={contact ? contact : null}
         organization={organization}
         enableSkipButton={enableSkipButton}
         next={next}
@@ -59,7 +57,7 @@ PersonSelectStepScreen.propTypes = {
 };
 
 const mapStateToProps = (
-  { personProfile, auth },
+  { personProfile, auth, people },
   {
     navigation: {
       state: {
@@ -67,7 +65,6 @@ const mapStateToProps = (
           contactName,
           contactId,
           contactStage,
-          contact,
           organization = {},
           enableSkipButton,
         },
@@ -75,23 +72,32 @@ const mapStateToProps = (
     },
     next,
   },
-) => ({
-  contactName,
-  contactId,
-  contactStage,
-  contact,
-  organization,
-  enableSkipButton,
-  next,
-  personFirstName: personProfile.personFirstName,
-  personId: personProfile.id,
-  contactAssignment:
-    contact &&
-    contactAssignmentSelector(
-      { auth },
-      { person: contact, orgId: organization.id },
-    ),
-});
+) => {
+  const person = personSelector(
+    { people },
+    { personId: contactId, orgId: organization.id },
+  );
+
+  return {
+    contactName,
+    contactId,
+    contactStage,
+    organization,
+    enableSkipButton,
+    next,
+    personFirstName: personProfile.personFirstName,
+    personId: personProfile.id,
+    contactAssignment:
+      person &&
+      contactAssignmentSelector(
+        { auth },
+        {
+          person,
+          orgId: organization.id,
+        },
+      ),
+  };
+};
 
 export default connect(mapStateToProps)(PersonSelectStepScreen);
 export const PERSON_SELECT_STEP_SCREEN = 'nav/PERSON_SELECT_STEP';

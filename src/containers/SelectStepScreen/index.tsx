@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
-import { navigateBack } from '../../actions/navigation';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
@@ -26,8 +25,6 @@ interface SelectStepScreenProps {
   receiverId: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   organization?: { [key: string]: any };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  contact: { [key: string]: any };
   contactName?: string;
   contactStageId: string;
   headerText: string;
@@ -46,7 +43,6 @@ interface SelectStepScreenProps {
 const SelectStepScreen = ({
   receiverId,
   organization,
-  contact,
   contactName,
   contactStageId,
   headerText,
@@ -78,8 +74,6 @@ const SelectStepScreen = ({
   const handleSkip = () => {
     navigateNext(undefined, true);
   };
-
-  const navigateBackTwoScreens = () => dispatch(navigateBack(2));
 
   const renderForeground = () => {
     return (
@@ -126,10 +120,7 @@ const SelectStepScreen = ({
       <SafeAreaView>
         <BottomButton onPress={navToCreateStep} text={t('createStep')} />
       </SafeAreaView>
-      <BackButton
-        customNavigate={contact ? undefined : navigateBackTwoScreens}
-        absolute={true}
-      />
+      <BackButton absolute={true} />
       {enableSkipButton && <AbsoluteSkip onSkip={handleSkip} />}
     </View>
   );
