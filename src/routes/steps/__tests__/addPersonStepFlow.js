@@ -35,6 +35,7 @@ const trackingObj = buildTrackingObj(
 const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
   personProfile: { id: '1', personFirstName: otherName },
+  people: { allByOrg: { [otherId]: { id: otherId } } },
 });
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
