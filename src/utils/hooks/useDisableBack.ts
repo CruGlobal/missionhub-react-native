@@ -17,14 +17,18 @@ export const useDisableBack = (
   const handleBackPress = () => {
     if (enableBackButton) {
       if (onBackPress) {
+        console.log('custom back');
         return onBackPress();
       }
+      console.log('nav back');
       return navigation.dispatch(navigateBack());
     }
+    console.log('no back');
     return true;
   };
 
   const addListeners = () => {
+    console.log('add listeners');
     willFocus = navigation.addListener('willFocus', () =>
       BackHandler.addEventListener('hardwareBackPress', handleBackPress),
     );
@@ -33,12 +37,14 @@ export const useDisableBack = (
     );
   };
   const removeListeners = () => {
+    console.log('remove listeners');
     willFocus && willFocus.remove();
     willBlur && willBlur.remove();
+    BackHandler.removeEventListener('hardwareBackPress', handleBackPress);
   };
 
   useEffect(() => {
     addListeners();
-    return removeListeners();
+    return removeListeners;
   });
 };
