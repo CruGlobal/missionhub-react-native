@@ -220,6 +220,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="ReminderRepeatButtonDaily"
             >
               <View
                 style={
@@ -308,6 +309,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="ReminderRepeatButtonWeekly"
             >
               <View
                 style={
@@ -396,6 +398,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="ReminderRepeatButtonMonthly"
             >
               <View
                 style={
@@ -559,7 +562,6 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                   },
                   Object {
-                    "color": undefined,
                     "flex": 1,
                     "fontSize": 16,
                     "textAlign": "center",

@@ -96,7 +96,6 @@ exports[`renders date only date picker 1`] = `
         <MyText
           style={
             Object {
-              "color": undefined,
               "flex": 1,
               "fontSize": 16,
               "textAlign": "center",
@@ -224,7 +223,6 @@ exports[`renders date only date picker with max date 1`] = `
         <MyText
           style={
             Object {
-              "color": undefined,
               "flex": 1,
               "fontSize": 16,
               "textAlign": "center",
@@ -352,7 +350,6 @@ exports[`renders date only date picker with min date 1`] = `
         <MyText
           style={
             Object {
-              "color": undefined,
               "flex": 1,
               "fontSize": 16,
               "textAlign": "center",
@@ -479,7 +476,6 @@ exports[`renders date with custom title 1`] = `
         <MyText
           style={
             Object {
-              "color": undefined,
               "flex": 1,
               "fontSize": 16,
               "textAlign": "center",
@@ -606,7 +602,6 @@ exports[`renders datetime only date picker 1`] = `
         <MyText
           style={
             Object {
-              "color": undefined,
               "flex": 1,
               "fontSize": 16,
               "textAlign": "center",
@@ -733,7 +728,6 @@ exports[`renders default date picker 1`] = `
         <MyText
           style={
             Object {
-              "color": undefined,
               "flex": 1,
               "fontSize": 16,
               "textAlign": "center",
@@ -860,7 +854,6 @@ exports[`renders time only date picker 1`] = `
         <MyText
           style={
             Object {
-              "color": undefined,
               "flex": 1,
               "fontSize": 16,
               "textAlign": "center",
@@ -990,7 +983,6 @@ exports[`renders with additional modal component 1`] = `
         <MyText
           style={
             Object {
-              "color": undefined,
               "flex": 1,
               "fontSize": 16,
               "textAlign": "center",
@@ -1121,7 +1113,6 @@ exports[`renders with child component 1`] = `
         <MyText
           style={
             Object {
-              "color": undefined,
               "flex": 1,
               "fontSize": 16,
               "textAlign": "center",

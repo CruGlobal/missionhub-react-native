@@ -62,7 +62,6 @@ exports[`should render empty correctly 1`] = `
     title="0 New Comments"
     titleStyle={
       Object {
-        "color": undefined,
         "fontWeight": "400",
       }
     }
@@ -154,7 +153,6 @@ exports[`should render items correctly 1`] = `
     title="0 New Comments"
     titleStyle={
       Object {
-        "color": undefined,
         "fontWeight": "400",
       }
     }
