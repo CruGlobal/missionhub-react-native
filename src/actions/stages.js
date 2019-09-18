@@ -7,12 +7,12 @@ import callApi from './api';
 
 export function getStagesIfNotExists() {
   return (dispatch, getState) => {
-    const { stageLocale, stages, stagesObj } = getState().stages;
+    const { stages } = getState().stages;
 
-    const stagesExist = !!stagesObj;
-    const localeNotChanged = i18n.language === stageLocale;
+    const localeNotChanged =
+      stages && stages[0] && i18n.language === stages[0].locale;
 
-    if (stagesExist && localeNotChanged) {
+    if (localeNotChanged) {
       dispatch({
         type: UPDATE_STAGES,
         stages,

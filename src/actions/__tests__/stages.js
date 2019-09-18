@@ -15,15 +15,13 @@ i18next.language = locale;
 const mockStore = configureStore([thunk]);
 let store;
 
-const stage = { id: '1', name: 'Name' };
+const stage = { id: '1', name: 'Name', locale };
 
 const stages = {
-  stageLocale: locale,
   stages: [stage],
   stagesObj: { [stage.id]: stage },
 };
 const emptyStages = {
-  stageLocale: '',
   stages: [],
   stagesObj: null,
 };

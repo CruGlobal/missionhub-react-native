@@ -27,7 +27,6 @@ it('loads stages', () => {
   });
 
   expect(state).toEqual({
-    stageLocale: 'en-US',
     stages: newStages,
     stagesObj: { '2': stage },
   });
@@ -50,7 +49,6 @@ it('loads stages with different locale', () => {
   });
 
   expect(state).toEqual({
-    stageLocale: 'no',
     stages: [modifiedStage],
     stagesObj: { '2': modifiedStage },
   });

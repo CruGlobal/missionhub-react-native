@@ -1,5 +1,3 @@
-import i18n from 'i18next';
-
 import { REQUESTS } from '../api/routes';
 import { LOGOUT } from '../constants';
 import { getLocalizedStages } from '../utils/stages';
@@ -11,14 +9,12 @@ export type Stage = any;
 export type LocalizedStage = any;
 
 export interface StagesState {
-  stageLocale: string;
   stages: Stage[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   stagesObj: any;
 }
 
 const initialStagesState: StagesState = {
-  stageLocale: '',
   stages: [],
   stagesObj: null,
 };
@@ -37,7 +33,6 @@ function stagesReducer(state = initialStagesState, action: any) {
       }, {});
       return {
         ...state,
-        stageLocale: i18n.language,
         stages,
         stagesObj,
       };
