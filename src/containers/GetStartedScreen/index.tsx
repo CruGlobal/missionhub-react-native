@@ -38,6 +38,7 @@ const GetStartedScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
+      {enableBackButton ? <BackButton absolute={true} /> : null}
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex align="start" justify="center" value={4}>
           <Text header={true} style={styles.headerTitle}>
@@ -46,7 +47,6 @@ const GetStartedScreen = ({
           <Text style={styles.text}>{t('tagline')}</Text>
         </Flex>
         <BottomButton onPress={navigateNext} text={t('getStarted')} />
-        {enableBackButton ? <BackButton absolute={true} /> : null}
       </Flex>
     </SafeAreaView>
   );

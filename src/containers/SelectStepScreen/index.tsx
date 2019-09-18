@@ -108,6 +108,11 @@ const SelectStepScreen = ({
 
   return (
     <View style={{ flex: 1 }}>
+      <BackButton
+        customNavigate={contact ? undefined : navigateBackTwoScreens}
+        absolute={true}
+      />
+      {enableSkipButton && <AbsoluteSkip onSkip={handleSkip} />}
       <ParallaxScrollView
         backgroundColor={theme.primaryColor}
         contentBackgroundColor={theme.extraLightGrey}
@@ -126,11 +131,6 @@ const SelectStepScreen = ({
       <SafeAreaView>
         <BottomButton onPress={navToCreateStep} text={t('createStep')} />
       </SafeAreaView>
-      <BackButton
-        customNavigate={contact ? undefined : navigateBackTwoScreens}
-        absolute={true}
-      />
-      {enableSkipButton && <AbsoluteSkip onSkip={handleSkip} />}
     </View>
   );
 };

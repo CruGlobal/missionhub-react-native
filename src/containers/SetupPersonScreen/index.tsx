@@ -11,7 +11,6 @@ import BottomButton from '../../components/BottomButton';
 import Input from '../../components/Input/index';
 import AbsoluteSkip from '../../components/AbsoluteSkip';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { navigateBack } from '../../actions/navigation';
 import {
   personFirstNameChanged,
   personLastNameChanged,
@@ -21,7 +20,6 @@ import {
 import { ACTIONS } from '../../constants';
 import { PersonProfileState } from '../../reducers/personProfile';
 import { AuthState } from '../../reducers/auth';
-import { useDisableBack } from '../../utils/hooks/useDisableBack';
 
 import styles from './styles';
 
@@ -45,8 +43,6 @@ const SetupPersonScreen = ({
   myId,
   dispatch,
 }: SetupPersonScreenProps) => {
-  useDisableBack();
-
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const lastNameRef = useRef<TextInput>(null);

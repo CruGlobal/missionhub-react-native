@@ -9,7 +9,6 @@ import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
-import { navigateBack } from '../../actions/navigation';
 import BackButton from '../BackButton';
 
 import styles from './styles';
@@ -34,13 +33,13 @@ const WelcomeScreen = ({
   const signIn = () => {
     navigateToNext(true);
   };
-  const goBack = () => dispatch(navigateBack());
 
   const allowSignIn = useNavigationParam('allowSignIn');
   const { t } = useTranslation('welcome');
 
   return (
     <SafeAreaView style={styles.container}>
+      <BackButton absolute={true} />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex value={3} align="start" justify="center">
           <Text header={true} style={styles.headerText}>
@@ -76,7 +75,6 @@ const WelcomeScreen = ({
           />
         )}
       </Flex>
-      <BackButton absolute={true} customNavigate={goBack} />
     </SafeAreaView>
   );
 };

@@ -128,6 +128,10 @@ class AddStepScreen extends Component {
     return (
       <SafeAreaView style={container}>
         <StatusBar {...theme.statusBar.darkContent} />
+        <BackButton absolute={true} iconStyle={backButtonStyle} />
+        {type === STEP_NOTE || (type === INTERACTION && !hideSkip) ? (
+          <AbsoluteSkip onSkip={this.skip} textStyle={skipBtnText} />
+        ) : null}
         <Flex value={1} align="stretch" justify="center" style={fieldWrap}>
           <Input
             testID="stepInput"
@@ -151,10 +155,6 @@ class AddStepScreen extends Component {
           text={this.getButtonText()}
           testID="saveStepButton"
         />
-        <BackButton absolute={true} iconStyle={backButtonStyle} />
-        {type === STEP_NOTE || (type === INTERACTION && !hideSkip) ? (
-          <AbsoluteSkip onSkip={this.skip} textStyle={skipBtnText} />
-        ) : null}
       </SafeAreaView>
     );
   }
