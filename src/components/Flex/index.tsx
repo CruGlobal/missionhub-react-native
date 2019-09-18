@@ -5,7 +5,7 @@ import * as Animatable from 'react-native-animatable';
 import { ReactNode } from 'react';
 import { Ref } from 'react';
 
-interface FlexProps {
+export interface FlexProps {
   style?: StyleProp<ViewStyle>;
   value?: number;
   grow?: number;

@@ -2,10 +2,10 @@
 
 exports[`renders correctly 1`] = `
 <View
-  flex={1}
   style={
     Object {
       "backgroundColor": "#ffffff",
+      "flex": 1,
     }
   }
 >
@@ -21,6 +21,7 @@ exports[`renders correctly 1`] = `
         },
         Object {
           "backgroundColor": "#ffffff",
+          "flex": 1,
         },
         null,
       ]
@@ -139,7 +140,11 @@ exports[`renders correctly 1`] = `
   </RCTSafeAreaView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
-    flex={1}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
   >
     <Text
       style={
@@ -172,7 +177,11 @@ exports[`renders correctly 1`] = `
       }
     />
     <View
-      flex={1}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
     >
       <RCTScrollView
         style={

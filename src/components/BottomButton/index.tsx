@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from '../../components/common';
 import theme from '../../theme';
 
-interface BottomButtonProps {
+export interface BottomButtonProps {
   text: string;
   onPress: Function;
   disabled?: boolean;

@@ -2,7 +2,7 @@ import React from 'react';
 import MockDate from 'mockdate';
 import moment from 'moment';
 
-import { renderWithContext } from '../../../../testUtils/index';
+import { renderWithContext } from '../../../../testUtils';
 import ReminderDateText, { ReminderType } from '../';
 import { REMINDER_RECURRENCES } from '../../../constants';
 import * as common from '../../../utils/common';
