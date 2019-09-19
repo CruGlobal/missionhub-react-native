@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 
-import { BackButton } from '../BackButton';
+import BackButton from '../BackButton';
 import { Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import Input from '../../components/Input/index';
