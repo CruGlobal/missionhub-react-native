@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { SafeAreaView, ViewStyle, TextStyle, StyleProp } from 'react-native';
+import { ViewStyle, TextStyle, StyleProp, View } from 'react-native';
 
 import { Flex, Text, Button } from '../common';
 
@@ -70,7 +70,7 @@ const Header = ({
   };
 
   return (
-    <SafeAreaView style={[styles.header, style, shadow ? styles.shadow : null]}>
+    <View style={[styles.header, style, shadow ? styles.shadow : null]}>
       <Flex value={1} align="start" justify="center" style={styles.left}>
         {left || null}
       </Flex>
@@ -78,7 +78,7 @@ const Header = ({
       <Flex value={1} align="end" justify="center" style={styles.right}>
         {right || null}
       </Flex>
-    </SafeAreaView>
+    </View>
   );
 };
 

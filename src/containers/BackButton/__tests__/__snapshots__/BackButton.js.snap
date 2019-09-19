@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`back button absolute renders with absolute 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<RCTView
   style={
     Array [
       Object {
@@ -11,11 +10,6 @@ exports[`back button absolute renders with absolute 1`] = `
         "justifyContent": "center",
       },
       undefined,
-      Object {
-        "left": 5,
-        "position": "absolute",
-        "top": 25,
-      },
     ]
   }
 >
@@ -25,7 +19,7 @@ exports[`back button absolute renders with absolute 1`] = `
     testID="BackButton"
     type="MissionHub"
   />
-</RCTSafeAreaView>
+</RCTView>
 `;
 
 exports[`back button renders normally 1`] = `
@@ -38,7 +32,6 @@ exports[`back button renders normally 1`] = `
         "justifyContent": "center",
       },
       undefined,
-      null,
     ]
   }
 >
