@@ -3,8 +3,10 @@ import { StyleSheet } from 'react-native';
 import theme from '../../../theme';
 
 export default StyleSheet.create({
-  wrap: {
+  container: {
     backgroundColor: theme.primaryColor,
+  },
+  wrap: {
     paddingVertical: 10,
   },
   name: {

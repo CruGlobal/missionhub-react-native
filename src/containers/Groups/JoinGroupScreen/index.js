@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import {
   ScrollView,
-  View,
   Keyboard,
   Image,
   KeyboardAvoidingView,
+  SafeAreaView,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Flex, Text, Input, IconButton } from '../../../components/common';
+import { Flex, Text, Input } from '../../../components/common';
 import GroupCardItem from '../../../components/GroupCardItem';
 import Header from '../../../components/Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
-import { navigateBack } from '../../../actions/navigation';
 import { lookupOrgCommunityCode } from '../../../actions/organizations';
+import BackButton from '../../../containers/BackButton';
 
 import styles from './styles';
 
@@ -89,8 +89,6 @@ class JoinGroupScreen extends Component {
     );
   };
 
-  navigateBack = () => this.props.dispatch(navigateBack());
-
   ref = c => (this.codeInput = c);
 
   renderStart() {
@@ -123,15 +121,9 @@ class JoinGroupScreen extends Component {
     const { code, errorMessage, community } = this.state;
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Header
-          left={
-            <IconButton
-              name="deleteIcon"
-              type="MissionHub"
-              onPress={this.navigateBack}
-            />
-          }
+          left={<BackButton customIcon="deleteIcon" />}
           shadow={false}
           title={t('joinCommunity')}
         />
@@ -161,7 +153,7 @@ class JoinGroupScreen extends Component {
             style={styles.flex}
           />
         </ScrollView>
-      </View>
+      </SafeAreaView>
     );
   }
 }

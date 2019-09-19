@@ -319,7 +319,13 @@ export class StepsScreen extends Component {
           }
           title={t('title').toUpperCase()}
         />
-        {steps ? this.renderSteps() : <LoadingGuy />}
+        {steps ? (
+          this.renderSteps()
+        ) : (
+          <View style={styles.contentContainer}>
+            <LoadingGuy />
+          </View>
+        )}
       </SafeAreaView>
     );
   }

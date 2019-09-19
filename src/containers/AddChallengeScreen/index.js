@@ -10,6 +10,7 @@ import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
+import Header from '../../components/Header';
 
 import styles from './styles';
 
@@ -109,21 +110,22 @@ class AddChallengeScreen extends Component {
     const { container, backButton } = styles;
 
     return (
-      <View style={{ flex: 1 }}>
-        <SafeAreaView style={container}>
-          <StatusBar {...theme.statusBar.darkContent} />
-          <View style={{ flex: 1 }}>
-            {this.renderTitleInput()}
-            {this.renderDateInput()}
-          </View>
-          <BottomButton
-            disabled={disableBtn}
-            onPress={this.saveChallenge}
-            text={t(isEdit ? 'save' : 'add')}
-          />
-        </SafeAreaView>
-        <BackButton iconStyle={backButton} absolute={true} />
-      </View>
+      <SafeAreaView style={container}>
+        <StatusBar {...theme.statusBar.darkContent} />
+        <Header
+          left={<BackButton iconStyle={backButton} />}
+          style={{ backgroundColor: undefined }}
+        />
+        <View style={{ flex: 1 }}>
+          {this.renderTitleInput()}
+          {this.renderDateInput()}
+        </View>
+        <BottomButton
+          disabled={disableBtn}
+          onPress={this.saveChallenge}
+          text={t(isEdit ? 'save' : 'add')}
+        />
+      </SafeAreaView>
     );
   }
 }

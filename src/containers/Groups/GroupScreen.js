@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import i18next from 'i18next';
 
@@ -12,6 +13,7 @@ import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../routes/constants';
 import { organizationSelector } from '../../selectors/organizations';
 import { buildTrackingObj, disableBack } from '../../utils/common';
 import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../constants';
+import theme from '../../theme';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
@@ -79,19 +81,21 @@ class GroupScreen extends Component {
     const { organization } = this.props;
 
     return (
-      <Header
-        left={
-          <IconButton
-            name="homeIcon"
-            type="MissionHub"
-            size={24}
-            onPress={this.back}
-          />
-        }
-        shadow={false}
-        title={organization.name}
-        right={this.renderAddContactIcon()}
-      />
+      <SafeAreaView style={{ backgroundColor: theme.primaryColor }}>
+        <Header
+          left={
+            <IconButton
+              name="homeIcon"
+              type="MissionHub"
+              size={24}
+              onPress={this.back}
+            />
+          }
+          shadow={false}
+          title={organization.name}
+          right={this.renderAddContactIcon()}
+        />
+      </SafeAreaView>
     );
   }
 }

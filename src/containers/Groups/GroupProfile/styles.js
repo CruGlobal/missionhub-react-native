@@ -3,18 +3,18 @@ import { StyleSheet } from 'react-native';
 import theme from '../../../theme';
 
 export default StyleSheet.create({
+  container: {
+    backgroundColor: theme.primaryColor,
+  },
+  content: { flex: 1, backgroundColor: theme.grey },
   flex: {
     flex: 1,
   },
-  container: {
-    flex: 1,
-    backgroundColor: theme.grey,
-  },
   topNav: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
+    // right: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.05)',
   },
   imageWrap: {

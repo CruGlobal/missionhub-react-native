@@ -92,9 +92,7 @@ const SetupScreen = ({
   };
   return (
     <SafeAreaView style={styles.container}>
-      <Header
-        left={<BackButton customNavigate={handleBack} testID="BackButton" />}
-      />
+      <Header left={<BackButton customNavigate={handleBack} />} />
       <Flex value={2} justify="end" align="center">
         <Text header={true} style={styles.header}>
           {t('namePrompt')}
