@@ -9,6 +9,8 @@ YellowBox.ignoreWarnings([
   'Module RCTImageLoader',
   'Class RCTCxxModule',
   'Remote debugger',
+  'Warning: componentWillUpdate is deprecated',
+  'Warning: componentWillReceiveProps is deprecated',
 ]);
 
 AppRegistry.registerComponent('MissionHub', () => App);
