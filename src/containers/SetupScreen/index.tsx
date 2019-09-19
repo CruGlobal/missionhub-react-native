@@ -17,7 +17,7 @@ import TosPrivacy from '../../components/TosPrivacy';
 import { ProfileState } from '../../reducers/profile';
 import { AuthState } from '../../reducers/auth';
 import { updatePerson } from '../../actions/person';
-import { BackButton } from '../BackButton';
+import BackButton from '../BackButton';
 import Header from '../../components/Header';
 import { prompt } from '../../utils/prompt';
 import { logout } from '../../actions/auth/auth';
