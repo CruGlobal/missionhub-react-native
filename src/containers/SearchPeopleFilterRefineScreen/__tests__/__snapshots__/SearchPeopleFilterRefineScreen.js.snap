@@ -9,15 +9,14 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Array [
         Object {
           "backgroundColor": "#007398",
           "flexDirection": "row",
-          "height": 65,
-          "paddingTop": 20,
+          "height": 56,
+          "paddingTop": 0,
         },
         undefined,
         Object {
@@ -49,7 +48,6 @@ exports[`renders correctly 1`] = `
               "justifyContent": "center",
             },
             undefined,
-            null,
           ]
         }
       >
@@ -170,7 +168,7 @@ exports[`renders correctly 1`] = `
         ]
       }
     />
-  </RCTSafeAreaView>
+  </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -458,15 +456,14 @@ exports[`renders title correctly 1`] = `
     }
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Array [
         Object {
           "backgroundColor": "#007398",
           "flexDirection": "row",
-          "height": 65,
-          "paddingTop": 20,
+          "height": 56,
+          "paddingTop": 0,
         },
         undefined,
         Object {
@@ -498,7 +495,6 @@ exports[`renders title correctly 1`] = `
               "justifyContent": "center",
             },
             undefined,
-            null,
           ]
         }
       >
@@ -619,7 +615,7 @@ exports[`renders title correctly 1`] = `
         ]
       }
     />
-  </RCTSafeAreaView>
+  </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={

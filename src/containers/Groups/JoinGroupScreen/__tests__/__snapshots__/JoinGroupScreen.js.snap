@@ -11,15 +11,14 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
     }
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Array [
         Object {
           "backgroundColor": "#007398",
           "flexDirection": "row",
-          "height": 65,
-          "paddingTop": 20,
+          "height": 56,
+          "paddingTop": 0,
         },
         undefined,
         null,
@@ -156,7 +155,7 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
         ]
       }
     />
-  </RCTSafeAreaView>
+  </View>
   <RCTScrollView
     keyboardShouldPersistTaps="handled"
     style={
@@ -293,15 +292,14 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
     }
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Array [
         Object {
           "backgroundColor": "#007398",
           "flexDirection": "row",
-          "height": 65,
-          "paddingTop": 20,
+          "height": 56,
+          "paddingTop": 0,
         },
         undefined,
         null,
@@ -438,7 +436,7 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
         ]
       }
     />
-  </RCTSafeAreaView>
+  </View>
   <RCTScrollView
     keyboardShouldPersistTaps="handled"
     style={
