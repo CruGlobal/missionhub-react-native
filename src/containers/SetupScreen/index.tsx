@@ -20,7 +20,7 @@ import { BackButton } from '../BackButton';
 import { prompt } from '../../utils/prompt';
 import { logout } from '../../actions/auth/auth';
 import { navigateBack } from '../../actions/navigation';
-import { useDisableBack } from '../../utils/hooks/useDisableBack';
+import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 
 import styles from './styles';
 
@@ -57,7 +57,7 @@ const SetupScreen = ({
     return true;
   };
 
-  useDisableBack(false, handleBack);
+  useAndroidBackButton(false, handleBack);
 
   const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation('setup');

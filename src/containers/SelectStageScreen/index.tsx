@@ -29,7 +29,7 @@ import {
   SELF_VIEWED_STAGE_CHANGED,
   PERSON_VIEWED_STAGE_CHANGED,
 } from '../../constants';
-import { useDisableBack } from '../../utils/hooks/useDisableBack';
+import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';
@@ -97,7 +97,7 @@ const SelectStageScreen = ({
     subsection,
     questionText,
   } = useNavigationState().params as SelectStageNavParams;
-  useDisableBack(enableBackButton);
+  useAndroidBackButton(enableBackButton);
   const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
 

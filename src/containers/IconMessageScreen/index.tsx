@@ -5,7 +5,7 @@ import { Flex, Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import AbsoluteSkip from '../../components/AbsoluteSkip';
 import { BackButton } from '../BackButton';
-import { useDisableBack } from '../../utils/hooks/useDisableBack';
+import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 
 import styles from './styles';
 
@@ -27,7 +27,7 @@ const IconMessageScreen = ({
   onSkip,
   onBack,
 }: IconMessageScreenProps) => {
-  useDisableBack(!!onBack);
+  useAndroidBackButton(!!onBack);
 
   return (
     <Flex align="center" justify="center" value={1} style={styles.container}>

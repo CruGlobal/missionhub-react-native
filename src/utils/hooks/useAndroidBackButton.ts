@@ -2,14 +2,17 @@ import { BackHandler } from 'react-native';
 import { useEffect } from 'react';
 import { NavigationEventSubscription } from 'react-navigation';
 import { useNavigation } from 'react-navigation-hooks';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { navigateBack } from '../../actions/navigation';
 
-export const useDisableBack = (
+export const useAndroidBackButton = (
   enableBackButton = false,
   onBackPress?: () => void,
 ) => {
   const navigation = useNavigation();
+  const dispatch = navigation.dispatch as ThunkDispatch<{}, {}, AnyAction>;
 
   let willFocus: NavigationEventSubscription;
   let willBlur: NavigationEventSubscription;
@@ -17,27 +20,22 @@ export const useDisableBack = (
   const handleBackPress = () => {
     if (enableBackButton) {
       if (onBackPress) {
-        console.log('custom back');
         return onBackPress();
       }
-      console.log('nav back');
-      return navigation.dispatch(navigateBack());
+      return dispatch(navigateBack());
     }
-    console.log('no back');
     return true;
   };
 
   const addListeners = () => {
-    console.log('add listeners');
-    willFocus = navigation.addListener('willFocus', () =>
-      BackHandler.addEventListener('hardwareBackPress', handleBackPress),
-    );
-    willBlur = navigation.addListener('willBlur', () =>
-      BackHandler.removeEventListener('hardwareBackPress', handleBackPress),
-    );
+    willFocus = navigation.addListener('willFocus', () => {
+      BackHandler.addEventListener('hardwareBackPress', handleBackPress);
+    });
+    willBlur = navigation.addListener('willBlur', () => {
+      BackHandler.removeEventListener('hardwareBackPress', handleBackPress);
+    });
   };
   const removeListeners = () => {
-    console.log('remove listeners');
     willFocus && willFocus.remove();
     willBlur && willBlur.remove();
     BackHandler.removeEventListener('hardwareBackPress', handleBackPress);
@@ -46,5 +44,5 @@ export const useDisableBack = (
   useEffect(() => {
     addListeners();
     return removeListeners;
-  });
+  }, []);
 };

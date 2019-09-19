@@ -7,7 +7,7 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { Flex, Text } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
-import { useDisableBack } from '../../utils/hooks/useDisableBack';
+import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { ProfileState } from '../../reducers/profile';
 
 import styles from './styles';
@@ -29,7 +29,7 @@ const GetStartedScreen = ({
   name = '',
   enableBackButton = true,
 }: GetStartedScreenProps) => {
-  useDisableBack(enableBackButton);
+  useAndroidBackButton(enableBackButton);
   const { t } = useTranslation('getStarted');
 
   const navigateNext = () => {
