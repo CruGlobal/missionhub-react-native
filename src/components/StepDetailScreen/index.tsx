@@ -29,31 +29,29 @@ const StepDetailScreen = ({
   CenterContent,
   bottomButtonProps,
 }: StepDetailScreenProps) => {
-  const { container, stepTitleText, backButton, flex1 } = styles;
+  const { stepTitleText, backButton, flex1, bgWhite } = styles;
 
   return (
-    <View style={container}>
+    <SafeAreaView style={flex1}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
         left={<BackButton iconStyle={backButton} />}
         center={CenterHeader}
         right={RightHeader}
         shadow={false}
-        style={container}
+        style={bgWhite}
       />
-      <SafeAreaView style={flex1}>
-        <Text style={stepTitleText}>{text}</Text>
-        {CenterContent}
-        <View style={flex1}>
-          {markdown ? (
-            <ScrollView style={styles.body}>
-              <Markdown style={markdownStyles}>{markdown}</Markdown>
-            </ScrollView>
-          ) : null}
-        </View>
-        {bottomButtonProps && <BottomButton {...bottomButtonProps} />}
-      </SafeAreaView>
-    </View>
+      <Text style={stepTitleText}>{text}</Text>
+      {CenterContent}
+      <View style={flex1}>
+        {markdown ? (
+          <ScrollView style={styles.body}>
+            <Markdown style={markdownStyles}>{markdown}</Markdown>
+          </ScrollView>
+        ) : null}
+      </View>
+      {bottomButtonProps && <BottomButton {...bottomButtonProps} />}
+    </SafeAreaView>
   );
 };
 

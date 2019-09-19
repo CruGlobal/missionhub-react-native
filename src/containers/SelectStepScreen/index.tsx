@@ -9,7 +9,7 @@ import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
-import AbsoluteSkip from '../../components/AbsoluteSkip';
+import Skip from '../../components/Skip';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
@@ -78,7 +78,7 @@ const SelectStepScreen = ({
   const renderForeground = () => {
     return (
       <View style={{ flex: 1, alignItems: 'center' }}>
-        <Header shadow={false} />
+        {renderHeader(false)}
         <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
         <Text header={true} style={styles.headerTitle}>
           {t('stepsOfFaith')}
@@ -88,27 +88,32 @@ const SelectStepScreen = ({
     );
   };
 
-  const renderStickyHeader = () => (
+  const renderHeader = (showTitle = true) => (
     <Header
+      left={<BackButton />}
       center={
-        <Text style={styles.collapsedHeaderTitle}>
-          {t('stepsOfFaith').toUpperCase()}
-        </Text>
+        showTitle && (
+          <Text style={styles.collapsedHeaderTitle}>
+            {t('stepsOfFaith').toUpperCase()}
+          </Text>
+        )
       }
+      right={enableSkipButton && <Skip onSkip={handleSkip} />}
     />
   );
 
   const { headerHeight, parallaxHeaderHeight } = theme;
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={styles.container}>
       <ParallaxScrollView
+        style={{ flex: 1 }}
         backgroundColor={theme.primaryColor}
         contentBackgroundColor={theme.extraLightGrey}
         parallaxHeaderHeight={parallaxHeaderHeight + theme.notchDifference}
         renderForeground={renderForeground}
         stickyHeaderHeight={headerHeight}
-        renderStickyHeader={renderStickyHeader}
+        renderStickyHeader={renderHeader}
       >
         <StepsList
           contactName={contactName}
@@ -117,12 +122,8 @@ const SelectStepScreen = ({
           onPressStep={navToSuggestedStep}
         />
       </ParallaxScrollView>
-      <SafeAreaView>
-        <BottomButton onPress={navToCreateStep} text={t('createStep')} />
-      </SafeAreaView>
-      <BackButton absolute={true} />
-      {enableSkipButton && <AbsoluteSkip onSkip={handleSkip} />}
-    </View>
+      <BottomButton onPress={navToCreateStep} text={t('createStep')} />
+    </SafeAreaView>
   );
 };
 
