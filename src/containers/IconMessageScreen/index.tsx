@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Image, ImageSourcePropType } from 'react-native';
+import { SafeAreaView, Image, ImageSourcePropType, View } from 'react-native';
 
 import { Flex, Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -37,9 +37,9 @@ const IconMessageScreen = ({
         <Image source={iconPath} style={styles.image} />
         <Text style={styles.text}>{mainText}</Text>
       </Flex>
-      <SafeAreaView style={{ flex: 1, justifyContent: 'flex-end' }}>
+      <View style={{ flex: 1, justifyContent: 'flex-end' }}>
         <BottomButton onPress={onComplete} text={buttonText} />
-      </SafeAreaView>
+      </View>
     </Flex>
   </SafeAreaView>
 );
