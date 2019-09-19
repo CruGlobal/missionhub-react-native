@@ -26,6 +26,7 @@ import {
   facebookLoginWithAccessToken,
 } from '../../../actions/auth/facebook';
 import TosPrivacy from '../../../components/TosPrivacy';
+import Header from '../../../components/Header';
 
 import styles from './styles';
 
@@ -118,7 +119,7 @@ const SignUpScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
-      <BackButton />
+      <Header left={<BackButton />} />
       <Flex value={1} align="center" justify="center">
         <Flex value={1} align="center" justify="center">
           {headerContent ? renderHeader(headerContent) : renderLogoHeader()}

@@ -2,8 +2,6 @@ import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
 
-const marginTop = 25;
-
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -35,14 +33,6 @@ export default StyleSheet.create({
     color: theme.white,
     lineHeight: 24,
     letterSpacing: 0.25,
-  },
-  backButton: {
-    marginLeft: 5,
-    marginTop,
-  },
-  doneButton: {
-    marginRight: 10,
-    marginTop,
   },
   doneButtonText: {
     fontSize: 14,
