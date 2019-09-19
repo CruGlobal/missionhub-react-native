@@ -21,7 +21,9 @@ exports[`renders create step correctly 1`] = `
           "height": 56,
           "paddingTop": 0,
         },
-        undefined,
+        Object {
+          "backgroundColor": undefined,
+        },
         Object {
           "elevation": 4,
         },
@@ -279,7 +281,9 @@ exports[`renders edit journey item correctly 1`] = `
           "height": 56,
           "paddingTop": 0,
         },
-        undefined,
+        Object {
+          "backgroundColor": undefined,
+        },
         Object {
           "elevation": 4,
         },
@@ -536,7 +540,9 @@ exports[`renders edit journey step correctly 1`] = `
           "height": 56,
           "paddingTop": 0,
         },
-        undefined,
+        Object {
+          "backgroundColor": undefined,
+        },
         Object {
           "elevation": 4,
         },
@@ -793,7 +799,9 @@ exports[`renders interaction with skip correctly 1`] = `
           "height": 56,
           "paddingTop": 0,
         },
-        undefined,
+        Object {
+          "backgroundColor": undefined,
+        },
         Object {
           "elevation": 4,
         },
@@ -1122,7 +1130,9 @@ exports[`renders interaction without skip correctly 1`] = `
           "height": 56,
           "paddingTop": 0,
         },
-        undefined,
+        Object {
+          "backgroundColor": undefined,
+        },
         Object {
           "elevation": 4,
         },
@@ -1379,7 +1389,9 @@ exports[`renders journey correctly 1`] = `
           "height": 56,
           "paddingTop": 0,
         },
-        undefined,
+        Object {
+          "backgroundColor": undefined,
+        },
         Object {
           "elevation": 4,
         },
@@ -1636,7 +1648,9 @@ exports[`renders step note correctly 1`] = `
           "height": 56,
           "paddingTop": 0,
         },
-        undefined,
+        Object {
+          "backgroundColor": undefined,
+        },
         Object {
           "elevation": 4,
         },
@@ -1965,7 +1979,9 @@ exports[`renders step note correctly for me 1`] = `
           "height": 56,
           "paddingTop": 0,
         },
-        undefined,
+        Object {
+          "backgroundColor": undefined,
+        },
         Object {
           "elevation": 4,
         },
@@ -2294,7 +2310,9 @@ exports[`renders step note edit correctly 1`] = `
           "height": 56,
           "paddingTop": 0,
         },
-        undefined,
+        Object {
+          "backgroundColor": undefined,
+        },
         Object {
           "elevation": 4,
         },
@@ -2623,7 +2641,9 @@ exports[`renders step note edit correctly for me 1`] = `
           "height": 56,
           "paddingTop": 0,
         },
-        undefined,
+        Object {
+          "backgroundColor": undefined,
+        },
         Object {
           "elevation": 4,
         },
@@ -2936,7 +2956,7 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -256,11 +256,11 @@
+@@ -258,11 +258,11 @@
           ]
         }
         testID=\\"stepInput\\"

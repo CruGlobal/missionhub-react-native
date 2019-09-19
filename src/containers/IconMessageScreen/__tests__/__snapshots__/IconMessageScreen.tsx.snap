@@ -199,8 +199,7 @@ exports[`renders back button correctly 1`] = `
         Hello, world!
       </Text>
     </View>
-    <RCTSafeAreaView
-      emulateUnlessSupported={true}
+    <View
       style={
         Object {
           "flex": 1,
@@ -270,7 +269,7 @@ exports[`renders back button correctly 1`] = `
           </Text>
         </View>
       </View>
-    </RCTSafeAreaView>
+    </View>
   </View>
 </RCTSafeAreaView>
 `;
@@ -395,8 +394,7 @@ exports[`renders correctly 1`] = `
         Hello, world!
       </Text>
     </View>
-    <RCTSafeAreaView
-      emulateUnlessSupported={true}
+    <View
       style={
         Object {
           "flex": 1,
@@ -466,7 +464,7 @@ exports[`renders correctly 1`] = `
           </Text>
         </View>
       </View>
-    </RCTSafeAreaView>
+    </View>
   </View>
 </RCTSafeAreaView>
 `;
@@ -659,8 +657,7 @@ exports[`renders skip button correctly 1`] = `
         Hello, world!
       </Text>
     </View>
-    <RCTSafeAreaView
-      emulateUnlessSupported={true}
+    <View
       style={
         Object {
           "flex": 1,
@@ -730,7 +727,7 @@ exports[`renders skip button correctly 1`] = `
           </Text>
         </View>
       </View>
-    </RCTSafeAreaView>
+    </View>
   </View>
 </RCTSafeAreaView>
 `;

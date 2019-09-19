@@ -1,122 +1,130 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render correctly 1`] = `
-<SafeAreaView
-  style={
-    Object {
-      "flex": 1,
+<Fragment>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
     }
-  }
->
-  <Connect(ChallengeFeed)
-    items={
-      Array [
+  >
+    <Connect(ChallengeFeed)
+      items={
+        Array [
+          Object {
+            "data": Array [
+              Object {
+                "accepted_count": 5,
+                "completed_count": 3,
+                "creator_id": "person1",
+                "end_date": "2018-10-06T14:13:21Z",
+                "id": "1",
+                "isPast": false,
+                "organization_id": "123",
+                "title": "Read \\"There and Back Again\\"",
+              },
+            ],
+            "title": "",
+          },
+          Object {
+            "data": Array [
+              Object {
+                "accepted_count": 5,
+                "completed_count": 3,
+                "creator_id": "person1",
+                "end_date": "2018-07-06T14:13:21Z",
+                "id": "2",
+                "isPast": true,
+                "organization_id": "123",
+                "title": "Past Challenge",
+              },
+            ],
+            "title": "Past Challenges",
+          },
+        ]
+      }
+      loadMoreItemsCallback={[Function]}
+      organization={
         Object {
-          "data": Array [
+          "challengeItems": Array [
             Object {
               "accepted_count": 5,
               "completed_count": 3,
               "creator_id": "person1",
               "end_date": "2018-10-06T14:13:21Z",
               "id": "1",
-              "isPast": false,
               "organization_id": "123",
               "title": "Read \\"There and Back Again\\"",
             },
-          ],
-          "title": "",
-        },
-        Object {
-          "data": Array [
             Object {
               "accepted_count": 5,
               "completed_count": 3,
               "creator_id": "person1",
               "end_date": "2018-07-06T14:13:21Z",
               "id": "2",
-              "isPast": true,
               "organization_id": "123",
               "title": "Past Challenge",
             },
           ],
-          "title": "Past Challenges",
-        },
-      ]
-    }
-    loadMoreItemsCallback={[Function]}
-    organization={
-      Object {
-        "challengeItems": Array [
-          Object {
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person1",
-            "end_date": "2018-10-06T14:13:21Z",
-            "id": "1",
-            "organization_id": "123",
-            "title": "Read \\"There and Back Again\\"",
+          "challengePagination": Object {
+            "hasNextPage": true,
+            "page": 1,
           },
-          Object {
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person1",
-            "end_date": "2018-07-06T14:13:21Z",
-            "id": "2",
-            "organization_id": "123",
-            "title": "Past Challenge",
-          },
-        ],
-        "challengePagination": Object {
-          "hasNextPage": true,
-          "page": 1,
-        },
-        "id": "123",
+          "id": "123",
+        }
       }
-    }
-    refreshCallback={[Function]}
-    refreshing={false}
-  />
-  <BottomButton
-    onPress={[Function]}
-    text="Create Challenge"
-  />
-</SafeAreaView>
+      refreshCallback={[Function]}
+      refreshing={false}
+    />
+  </View>
+  <SafeAreaView>
+    <BottomButton
+      onPress={[Function]}
+      text="Create Challenge"
+    />
+  </SafeAreaView>
+</Fragment>
 `;
 
 exports[`should render empty correctly 1`] = `
-<SafeAreaView
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <Connect(ChallengeFeed)
-    items={
-      Array [
-        Object {
-          "data": Array [],
-          "title": "",
-        },
-      ]
-    }
-    loadMoreItemsCallback={[Function]}
-    organization={
+<Fragment>
+  <View
+    style={
       Object {
-        "challengeItems": Array [],
-        "challengePagination": Object {
-          "hasNextPage": true,
-          "page": 1,
-        },
-        "id": "123",
+        "flex": 1,
       }
     }
-    refreshCallback={[Function]}
-    refreshing={false}
-  />
-  <BottomButton
-    onPress={[Function]}
-    text="Create Challenge"
-  />
-</SafeAreaView>
+  >
+    <Connect(ChallengeFeed)
+      items={
+        Array [
+          Object {
+            "data": Array [],
+            "title": "",
+          },
+        ]
+      }
+      loadMoreItemsCallback={[Function]}
+      organization={
+        Object {
+          "challengeItems": Array [],
+          "challengePagination": Object {
+            "hasNextPage": true,
+            "page": 1,
+          },
+          "id": "123",
+        }
+      }
+      refreshCallback={[Function]}
+      refreshing={false}
+    />
+  </View>
+  <SafeAreaView>
+    <BottomButton
+      onPress={[Function]}
+      text="Create Challenge"
+    />
+  </SafeAreaView>
+</Fragment>
 `;

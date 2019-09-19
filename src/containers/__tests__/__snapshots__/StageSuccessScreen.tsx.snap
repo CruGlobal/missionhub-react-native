@@ -199,8 +199,7 @@ exports[`renders correctly 1`] = `
         Friend test
       </Text>
     </View>
-    <RCTSafeAreaView
-      emulateUnlessSupported={true}
+    <View
       style={
         Object {
           "flex": 1,
@@ -270,7 +269,7 @@ exports[`renders correctly 1`] = `
           </Text>
         </View>
       </View>
-    </RCTSafeAreaView>
+    </View>
   </View>
 </RCTSafeAreaView>
 `;
@@ -474,8 +473,7 @@ exports[`renders correctly with default state 1`] = `
         We are glad you are here, Friend!
       </Text>
     </View>
-    <RCTSafeAreaView
-      emulateUnlessSupported={true}
+    <View
       style={
         Object {
           "flex": 1,
@@ -545,7 +543,7 @@ exports[`renders correctly with default state 1`] = `
           </Text>
         </View>
       </View>
-    </RCTSafeAreaView>
+    </View>
   </View>
 </RCTSafeAreaView>
 `;

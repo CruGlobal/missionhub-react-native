@@ -152,6 +152,14 @@ exports[`renders loading on Android correctly 1`] = `
     }
     title="STEPS OF FAITH"
   />
-  <LoadingGuy />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <LoadingGuy />
+  </View>
 </SafeAreaView>
 `;
