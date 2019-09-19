@@ -3,14 +3,13 @@ import { StyleSheet } from 'react-native';
 import theme from '../../../theme';
 
 export default StyleSheet.create({
+  topSafeArea: {
+    backgroundColor: theme.primaryColor,
+  },
   container: {
     flex: 1,
-    backgroundColor: theme.primaryColor,
+    backgroundColor: theme.white,
     justifyContent: 'space-between',
     flexDirection: 'column',
-  },
-  content: {
-    flex: 1,
-    backgroundColor: theme.lightGrey,
   },
 });
