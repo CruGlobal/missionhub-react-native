@@ -1,14 +1,13 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
-import { isAndroid } from '../../utils/common';
 
 export default StyleSheet.create({
   header: {
     flexDirection: 'row',
     height: theme.headerHeight,
     backgroundColor: theme.primaryColor,
-    paddingTop: isAndroid ? 0 : 20,
+    paddingTop: 0,
   },
   shadow: {
     elevation: 4,

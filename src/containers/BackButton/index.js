@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, SafeAreaView, Keyboard } from 'react-native';
+import { View, Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { navigateBack } from '../../actions/navigation';
@@ -17,16 +17,9 @@ export class BackButton extends Component {
   };
 
   render() {
-    const { absolute, style, customIcon, iconStyle } = this.props;
-    const Wrapper = absolute ? SafeAreaView : View;
+    const { style, customIcon, iconStyle } = this.props;
     return (
-      <Wrapper
-        style={[
-          styles.container,
-          style,
-          absolute ? styles.absoluteTopLeft : null,
-        ]}
-      >
+      <View style={[styles.container, style]}>
         <IconButton
           name={customIcon || 'backIcon'}
           type="MissionHub"
@@ -34,7 +27,7 @@ export class BackButton extends Component {
           style={iconStyle}
           testID="BackButton"
         />
-      </Wrapper>
+      </View>
     );
   }
 }
