@@ -6,8 +6,7 @@ export default StyleSheet.create({
   flex1: {
     flex: 1,
   },
-  container: {
-    flex: 1,
+  bgWhite: {
     backgroundColor: theme.white,
   },
   backButton: {
