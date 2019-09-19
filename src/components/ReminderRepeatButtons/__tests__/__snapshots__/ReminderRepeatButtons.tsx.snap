@@ -1,0 +1,463 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`none selected renders with none highlighted 1`] = `
+<_class
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    testID="ReminderRepeatButtonDaily"
+    text="Daily"
+  />
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    testID="ReminderRepeatButtonWeekly"
+    text="Weekly"
+  />
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    testID="ReminderRepeatButtonMonthly"
+    text="Monthly"
+  />
+</_class>
+`;
+
+exports[`starts with daily selected renders with daily highlighted 1`] = `
+<_class
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#ffffff",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#52C5DC",
+        },
+      ]
+    }
+    testID="ReminderRepeatButtonDaily"
+    text="Daily"
+  />
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    testID="ReminderRepeatButtonWeekly"
+    text="Weekly"
+  />
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    testID="ReminderRepeatButtonMonthly"
+    text="Monthly"
+  />
+</_class>
+`;
+
+exports[`starts with monthly selected renders with monthly highlighted 1`] = `
+<_class
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    testID="ReminderRepeatButtonDaily"
+    text="Daily"
+  />
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    testID="ReminderRepeatButtonWeekly"
+    text="Weekly"
+  />
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#ffffff",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#52C5DC",
+        },
+      ]
+    }
+    testID="ReminderRepeatButtonMonthly"
+    text="Monthly"
+  />
+</_class>
+`;
+
+exports[`starts with weekly selected renders with weekly highlighted 1`] = `
+<_class
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    testID="ReminderRepeatButtonDaily"
+    text="Daily"
+  />
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#ffffff",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#52C5DC",
+        },
+      ]
+    }
+    testID="ReminderRepeatButtonWeekly"
+    text="Weekly"
+  />
+  <Button
+    buttonTextStyle={
+      Array [
+        Object {
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 1,
+          "lineHeight": 16,
+        },
+        Object {
+          "color": "#B4B6BA",
+        },
+      ]
+    }
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 35,
+          "height": 70,
+          "margin": 8,
+          "paddingHorizontal": 0,
+          "paddingVertical": 0,
+          "width": 70,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B4B6BA",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    testID="ReminderRepeatButtonMonthly"
+    text="Monthly"
+  />
+</_class>
+`;

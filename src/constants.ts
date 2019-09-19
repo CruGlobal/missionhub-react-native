@@ -466,11 +466,18 @@ export const DAYS_OF_THE_WEEK = [
   'friday',
   'saturday',
 ];
+
+export enum REMINDER_RECURRENCES_ENUM {
+  ONCE = 'once',
+  DAILY = 'daily',
+  WEEKLY = 'weekly',
+  MONTHLY = 'monthly',
+}
 export const REMINDER_RECURRENCES = {
-  ONCE: 'once',
-  DAILY: 'daily',
-  WEEKLY: 'weekly',
-  MONTHLY: 'monthly',
+  ONCE: REMINDER_RECURRENCES_ENUM.ONCE,
+  DAILY: REMINDER_RECURRENCES_ENUM.DAILY,
+  WEEKLY: REMINDER_RECURRENCES_ENUM.WEEKLY,
+  MONTHLY: REMINDER_RECURRENCES_ENUM.MONTHLY,
 };
 
 export const NOTIFICATION_PROMPT_TYPES = {

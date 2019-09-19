@@ -12,7 +12,6 @@ class SelectMyStepScreen extends Component {
   render() {
     const {
       t,
-      me,
       personId,
       contactStage,
       organization,
@@ -28,7 +27,6 @@ class SelectMyStepScreen extends Component {
       <SelectStepScreen
         contactStageId={stageId}
         receiverId={personId}
-        contact={me}
         organization={organization}
         headerText={t('meHeader')}
         createStepTracking={buildTrackingObj(
@@ -64,7 +62,6 @@ const mapStateToProps = (
   organization,
   onboarding,
   next,
-  me: auth.person,
   myStageId: auth.person.user.pathway_stage_id,
   personId: auth.person.id,
 });
