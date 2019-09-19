@@ -5,14 +5,14 @@ exports[`facebook login button is pressed facebook button calls facebook login l
 - First value
 + Second value
 
-@@ -175,6 +175,7 @@
-            </Text>
-          </Flex>
-        </Button>
-      </Flex>
-    </RCTSafeAreaView>
+@@ -167,6 +167,7 @@
+            SIGN IN WITH FACEBOOK
+          </Text>
+        </Flex>
+      </Button>
+    </Flex>
 +   <LoadingWheel />
-  </View>"
+  </RCTSafeAreaView>"
 `;
 
 exports[`forgot password button is pressed should call forgot password logic 1`] = `
@@ -20,14 +20,14 @@ exports[`forgot password button is pressed should call forgot password logic 1`]
 - First value
 + Second value
 
-@@ -175,6 +175,7 @@
-            </Text>
-          </Flex>
-        </Button>
-      </Flex>
-    </RCTSafeAreaView>
+@@ -167,6 +167,7 @@
+            SIGN IN WITH FACEBOOK
+          </Text>
+        </Flex>
+      </Button>
+    </Flex>
 +   <LoadingWheel />
-  </View>"
+  </RCTSafeAreaView>"
 `;
 
 exports[`key login button is pressed key login is called 1`] = `
@@ -35,104 +35,103 @@ exports[`key login button is pressed key login is called 1`] = `
 - First value
 + Second value
 
-@@ -63,11 +63,11 @@
-            onSubmitEditing={[Function focusPassword]}
-            placeholder=\\"Email\\"
-            placeholderTextColor=\\"white\\"
-            returnKeyType=\\"next\\"
-            testID=\\"emailInput\\"
--           value=\\"\\"
-+           value=\\"klas&jflk@lkjasdf.com\\"
-          />
-        </View>
-        <View
-          style={
-            Object {
-@@ -91,11 +91,11 @@
-            placeholder=\\"Password\\"
-            placeholderTextColor=\\"white\\"
-            returnKeyType=\\"done\\"
-            secureTextEntry={true}
-            testID=\\"passwordInput\\"
--           value=\\"\\"
-+           value=\\"this&is=unsafe\\"
-          />
-          <Button
-            buttonTextStyle={
-              Object {
-                \\"color\\": \\"#52C5DC\\",
-@@ -117,64 +117,18 @@
-            type=\\"transparent\\"
-          />
-        </View>
-      </Flex>
-      <Flex
--       align=\\"center\\"
--       justify=\\"center\\"
--       value={1}
-+       align=\\"stretch\\"
-+       justify=\\"end\\"
-      >
-        <Button
--         buttonTextStyle={
--           Object {
--             \\"color\\": \\"#ffffff\\",
--             \\"fontSize\\": 14,
--             \\"fontWeight\\": \\"500\\",
--             \\"letterSpacing\\": 1.5,
--             \\"paddingTop\\": 2,
--           }
--         }
--         onPress={[Function facebookLogin]}
--         pill={true}
--         style={
--           Object {
--             \\"backgroundColor\\": \\"transparent\\",
--             \\"borderColor\\": \\"#52C5DC\\",
--             \\"borderWidth\\": 1,
--             \\"height\\": 48,
--             \\"margin\\": 8,
--             \\"width\\": 670,
--           }
--         }
--         testID=\\"facebookButton\\"
--       >
--         <Flex
--           direction=\\"row\\"
--         >
--           <Icon
--             name=\\"facebookIcon\\"
--             size={21}
--             style={
--               Object {
--                 \\"marginRight\\": 10,
--               }
--             }
--             type=\\"MissionHub\\"
-+         onPress={[Function login]}
-+         testID=\\"loginButton\\"
-+         text=\\"LOGIN\\"
-+         type=\\"secondary\\"
+@@ -56,11 +56,11 @@
+          onSubmitEditing={[Function focusPassword]}
+          placeholder=\\"Email\\"
+          placeholderTextColor=\\"white\\"
+          returnKeyType=\\"next\\"
+          testID=\\"emailInput\\"
+-         value=\\"\\"
++         value=\\"klas&jflk@lkjasdf.com\\"
         />
--           <Text
--             style={
--               Object {
--                 \\"color\\": \\"#ffffff\\",
--                 \\"fontSize\\": 14,
--                 \\"fontWeight\\": \\"500\\",
--                 \\"letterSpacing\\": 1.5,
--                 \\"paddingTop\\": 2,
--               }
+      </View>
+      <View
+        style={
+          Object {
+@@ -84,11 +84,11 @@
+          placeholder=\\"Password\\"
+          placeholderTextColor=\\"white\\"
+          returnKeyType=\\"done\\"
+          secureTextEntry={true}
+          testID=\\"passwordInput\\"
+-         value=\\"\\"
++         value=\\"this&is=unsafe\\"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              \\"color\\": \\"#52C5DC\\",
+@@ -110,63 +110,17 @@
+          type=\\"transparent\\"
+        />
+      </View>
+    </Flex>
+    <Flex
+-     align=\\"center\\"
+-     justify=\\"center\\"
+-     value={1}
++     align=\\"stretch\\"
++     justify=\\"end\\"
+    >
+      <Button
+-       buttonTextStyle={
+-         Object {
+-           \\"color\\": \\"#ffffff\\",
+-           \\"fontSize\\": 14,
+-           \\"fontWeight\\": \\"500\\",
+-           \\"letterSpacing\\": 1.5,
+-           \\"paddingTop\\": 2,
+-         }
+-       }
+-       onPress={[Function facebookLogin]}
+-       pill={true}
+-       style={
+-         Object {
+-           \\"backgroundColor\\": \\"transparent\\",
+-           \\"borderColor\\": \\"#52C5DC\\",
+-           \\"borderWidth\\": 1,
+-           \\"height\\": 48,
+-           \\"margin\\": 8,
+-           \\"width\\": 670,
+-         }
+-       }
+-       testID=\\"facebookButton\\"
+-     >
+-       <Flex
+-         direction=\\"row\\"
+-       >
+-         <Icon
+-           name=\\"facebookIcon\\"
+-           size={21}
+-           style={
+-             Object {
+-               \\"marginRight\\": 10,
 -             }
--           >
--             SIGN IN WITH FACEBOOK
--           </Text>
-      </Flex>
--       </Button>
--     </Flex>
-    </RCTSafeAreaView>
+-           }
+-           type=\\"MissionHub\\"
++       onPress={[Function login]}
++       testID=\\"loginButton\\"
++       text=\\"LOGIN\\"
++       type=\\"secondary\\"
+      />
+-         <Text
+-           style={
+-             Object {
+-               \\"color\\": \\"#ffffff\\",
+-               \\"fontSize\\": 14,
+-               \\"fontWeight\\": \\"500\\",
+-               \\"letterSpacing\\": 1.5,
+-               \\"paddingTop\\": 2,
+-             }
+-           }
+-         >
+-           SIGN IN WITH FACEBOOK
+-         </Text>
+    </Flex>
+-     </Button>
+-   </Flex>
 +   <LoadingWheel />
-  </View>"
+  </RCTSafeAreaView>"
 `;
 
 exports[`key login button is pressed mfa_required is returned from the Key should send user to MFA screen and clear credentials 1`] = `
@@ -145,14 +144,14 @@ exports[`key login button is pressed should fire login actions when inputs are s
 - First value
 + Second value
 
-@@ -128,6 +128,7 @@
-          text=\\"LOGIN\\"
-          type=\\"secondary\\"
-        />
-      </Flex>
-    </RCTSafeAreaView>
+@@ -120,6 +120,7 @@
+        testID=\\"loginButton\\"
+        text=\\"LOGIN\\"
+        type=\\"secondary\\"
+      />
+    </Flex>
 +   <LoadingWheel />
-  </View>"
+  </RCTSafeAreaView>"
 `;
 
 exports[`key login button is pressed shows email verification required message and tracks user error when email has not been verified 1`] = `
@@ -160,7 +159,7 @@ exports[`key login button is pressed shows email verification required message a
 - First value
 + Second value
 
-@@ -6,10 +6,32 @@
+@@ -7,10 +7,31 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
@@ -171,7 +170,7 @@ exports[`key login button is pressed shows email verification required message a
 +       Object {
 +         \\"alignItems\\": \\"center\\",
 +         \\"backgroundColor\\": \\"#FF5532\\",
-+         \\"height\\": 60,
++         \\"height\\": 48,
 +         \\"justifyContent\\": \\"center\\",
 +       }
 +     }
@@ -181,7 +180,6 @@ exports[`key login button is pressed shows email verification required message a
 +         Object {
 +           \\"color\\": \\"#ffffff\\",
 +           \\"fontSize\\": 16,
-+           \\"marginTop\\": 12,
 +         }
 +       }
 +     >
@@ -192,104 +190,103 @@ exports[`key login button is pressed shows email verification required message a
       left={<BackButton />}
       shadow={false}
     />
-    <RCTSafeAreaView
-@@ -63,11 +85,11 @@
-            onSubmitEditing={[Function focusPassword]}
-            placeholder=\\"Email\\"
-            placeholderTextColor=\\"white\\"
-            returnKeyType=\\"next\\"
-            testID=\\"emailInput\\"
--           value=\\"\\"
-+           value=\\"klas&jflk@lkjasdf.com\\"
-          />
-        </View>
-        <View
-          style={
-            Object {
-@@ -91,11 +113,11 @@
-            placeholder=\\"Password\\"
-            placeholderTextColor=\\"white\\"
-            returnKeyType=\\"done\\"
-            secureTextEntry={true}
-            testID=\\"passwordInput\\"
--           value=\\"\\"
-+           value=\\"this&is=unsafe\\"
-          />
-          <Button
-            buttonTextStyle={
-              Object {
-                \\"color\\": \\"#52C5DC\\",
-@@ -117,64 +139,17 @@
-            type=\\"transparent\\"
-          />
-        </View>
-      </Flex>
-      <Flex
--       align=\\"center\\"
--       justify=\\"center\\"
--       value={1}
-+       align=\\"stretch\\"
-+       justify=\\"end\\"
-      >
-        <Button
--         buttonTextStyle={
--           Object {
--             \\"color\\": \\"#ffffff\\",
--             \\"fontSize\\": 14,
--             \\"fontWeight\\": \\"500\\",
--             \\"letterSpacing\\": 1.5,
--             \\"paddingTop\\": 2,
--           }
--         }
--         onPress={[Function facebookLogin]}
--         pill={true}
--         style={
--           Object {
--             \\"backgroundColor\\": \\"transparent\\",
--             \\"borderColor\\": \\"#52C5DC\\",
--             \\"borderWidth\\": 1,
--             \\"height\\": 48,
--             \\"margin\\": 8,
--             \\"width\\": 670,
--           }
--         }
--         testID=\\"facebookButton\\"
--       >
--         <Flex
--           direction=\\"row\\"
--         >
--           <Icon
--             name=\\"facebookIcon\\"
--             size={21}
--             style={
--               Object {
--                 \\"marginRight\\": 10,
--               }
--             }
--             type=\\"MissionHub\\"
-+         onPress={[Function login]}
-+         testID=\\"loginButton\\"
-+         text=\\"LOGIN\\"
-+         type=\\"secondary\\"
+    <Flex
+@@ -56,11 +77,11 @@
+          onSubmitEditing={[Function focusPassword]}
+          placeholder=\\"Email\\"
+          placeholderTextColor=\\"white\\"
+          returnKeyType=\\"next\\"
+          testID=\\"emailInput\\"
+-         value=\\"\\"
++         value=\\"klas&jflk@lkjasdf.com\\"
         />
--           <Text
--             style={
--               Object {
--                 \\"color\\": \\"#ffffff\\",
--                 \\"fontSize\\": 14,
--                 \\"fontWeight\\": \\"500\\",
--                 \\"letterSpacing\\": 1.5,
--                 \\"paddingTop\\": 2,
--               }
+      </View>
+      <View
+        style={
+          Object {
+@@ -84,11 +105,11 @@
+          placeholder=\\"Password\\"
+          placeholderTextColor=\\"white\\"
+          returnKeyType=\\"done\\"
+          secureTextEntry={true}
+          testID=\\"passwordInput\\"
+-         value=\\"\\"
++         value=\\"this&is=unsafe\\"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              \\"color\\": \\"#52C5DC\\",
+@@ -110,63 +131,16 @@
+          type=\\"transparent\\"
+        />
+      </View>
+    </Flex>
+    <Flex
+-     align=\\"center\\"
+-     justify=\\"center\\"
+-     value={1}
++     align=\\"stretch\\"
++     justify=\\"end\\"
+    >
+      <Button
+-       buttonTextStyle={
+-         Object {
+-           \\"color\\": \\"#ffffff\\",
+-           \\"fontSize\\": 14,
+-           \\"fontWeight\\": \\"500\\",
+-           \\"letterSpacing\\": 1.5,
+-           \\"paddingTop\\": 2,
+-         }
+-       }
+-       onPress={[Function facebookLogin]}
+-       pill={true}
+-       style={
+-         Object {
+-           \\"backgroundColor\\": \\"transparent\\",
+-           \\"borderColor\\": \\"#52C5DC\\",
+-           \\"borderWidth\\": 1,
+-           \\"height\\": 48,
+-           \\"margin\\": 8,
+-           \\"width\\": 670,
+-         }
+-       }
+-       testID=\\"facebookButton\\"
+-     >
+-       <Flex
+-         direction=\\"row\\"
+-       >
+-         <Icon
+-           name=\\"facebookIcon\\"
+-           size={21}
+-           style={
+-             Object {
+-               \\"marginRight\\": 10,
 -             }
--           >
--             SIGN IN WITH FACEBOOK
--           </Text>
--         </Flex>
--       </Button>
-      </Flex>
-    </RCTSafeAreaView>
-  </View>"
+-           }
+-           type=\\"MissionHub\\"
++       onPress={[Function login]}
++       testID=\\"loginButton\\"
++       text=\\"LOGIN\\"
++       type=\\"secondary\\"
+      />
+-         <Text
+-           style={
+-             Object {
+-               \\"color\\": \\"#ffffff\\",
+-               \\"fontSize\\": 14,
+-               \\"fontWeight\\": \\"500\\",
+-               \\"letterSpacing\\": 1.5,
+-               \\"paddingTop\\": 2,
+-             }
+-           }
+-         >
+-           SIGN IN WITH FACEBOOK
+-         </Text>
+-       </Flex>
+-     </Button>
+    </Flex>
+  </RCTSafeAreaView>"
 `;
 
 exports[`key login button is pressed shows invalid credentials message and tracks user error when email or password is missing 1`] = `
@@ -297,7 +294,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 - First value
 + Second value
 
-@@ -6,10 +6,32 @@
+@@ -7,10 +7,31 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
@@ -308,7 +305,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 +       Object {
 +         \\"alignItems\\": \\"center\\",
 +         \\"backgroundColor\\": \\"#FF5532\\",
-+         \\"height\\": 60,
++         \\"height\\": 48,
 +         \\"justifyContent\\": \\"center\\",
 +       }
 +     }
@@ -318,7 +315,6 @@ exports[`key login button is pressed shows invalid credentials message and track
 +         Object {
 +           \\"color\\": \\"#ffffff\\",
 +           \\"fontSize\\": 16,
-+           \\"marginTop\\": 12,
 +         }
 +       }
 +     >
@@ -329,104 +325,103 @@ exports[`key login button is pressed shows invalid credentials message and track
       left={<BackButton />}
       shadow={false}
     />
-    <RCTSafeAreaView
-@@ -63,11 +85,11 @@
-            onSubmitEditing={[Function focusPassword]}
-            placeholder=\\"Email\\"
-            placeholderTextColor=\\"white\\"
-            returnKeyType=\\"next\\"
-            testID=\\"emailInput\\"
--           value=\\"\\"
-+           value=\\"klas&jflk@lkjasdf.com\\"
-          />
-        </View>
-        <View
-          style={
-            Object {
-@@ -91,11 +113,11 @@
-            placeholder=\\"Password\\"
-            placeholderTextColor=\\"white\\"
-            returnKeyType=\\"done\\"
-            secureTextEntry={true}
-            testID=\\"passwordInput\\"
--           value=\\"\\"
-+           value=\\"this&is=unsafe\\"
-          />
-          <Button
-            buttonTextStyle={
-              Object {
-                \\"color\\": \\"#52C5DC\\",
-@@ -117,64 +139,17 @@
-            type=\\"transparent\\"
-          />
-        </View>
-      </Flex>
-      <Flex
--       align=\\"center\\"
--       justify=\\"center\\"
--       value={1}
-+       align=\\"stretch\\"
-+       justify=\\"end\\"
-      >
-        <Button
--         buttonTextStyle={
--           Object {
--             \\"color\\": \\"#ffffff\\",
--             \\"fontSize\\": 14,
--             \\"fontWeight\\": \\"500\\",
--             \\"letterSpacing\\": 1.5,
--             \\"paddingTop\\": 2,
--           }
--         }
--         onPress={[Function facebookLogin]}
--         pill={true}
--         style={
--           Object {
--             \\"backgroundColor\\": \\"transparent\\",
--             \\"borderColor\\": \\"#52C5DC\\",
--             \\"borderWidth\\": 1,
--             \\"height\\": 48,
--             \\"margin\\": 8,
--             \\"width\\": 670,
--           }
--         }
--         testID=\\"facebookButton\\"
--       >
--         <Flex
--           direction=\\"row\\"
--         >
--           <Icon
--             name=\\"facebookIcon\\"
--             size={21}
--             style={
--               Object {
--                 \\"marginRight\\": 10,
--               }
--             }
--             type=\\"MissionHub\\"
-+         onPress={[Function login]}
-+         testID=\\"loginButton\\"
-+         text=\\"LOGIN\\"
-+         type=\\"secondary\\"
+    <Flex
+@@ -56,11 +77,11 @@
+          onSubmitEditing={[Function focusPassword]}
+          placeholder=\\"Email\\"
+          placeholderTextColor=\\"white\\"
+          returnKeyType=\\"next\\"
+          testID=\\"emailInput\\"
+-         value=\\"\\"
++         value=\\"klas&jflk@lkjasdf.com\\"
         />
--           <Text
--             style={
--               Object {
--                 \\"color\\": \\"#ffffff\\",
--                 \\"fontSize\\": 14,
--                 \\"fontWeight\\": \\"500\\",
--                 \\"letterSpacing\\": 1.5,
--                 \\"paddingTop\\": 2,
--               }
+      </View>
+      <View
+        style={
+          Object {
+@@ -84,11 +105,11 @@
+          placeholder=\\"Password\\"
+          placeholderTextColor=\\"white\\"
+          returnKeyType=\\"done\\"
+          secureTextEntry={true}
+          testID=\\"passwordInput\\"
+-         value=\\"\\"
++         value=\\"this&is=unsafe\\"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              \\"color\\": \\"#52C5DC\\",
+@@ -110,63 +131,16 @@
+          type=\\"transparent\\"
+        />
+      </View>
+    </Flex>
+    <Flex
+-     align=\\"center\\"
+-     justify=\\"center\\"
+-     value={1}
++     align=\\"stretch\\"
++     justify=\\"end\\"
+    >
+      <Button
+-       buttonTextStyle={
+-         Object {
+-           \\"color\\": \\"#ffffff\\",
+-           \\"fontSize\\": 14,
+-           \\"fontWeight\\": \\"500\\",
+-           \\"letterSpacing\\": 1.5,
+-           \\"paddingTop\\": 2,
+-         }
+-       }
+-       onPress={[Function facebookLogin]}
+-       pill={true}
+-       style={
+-         Object {
+-           \\"backgroundColor\\": \\"transparent\\",
+-           \\"borderColor\\": \\"#52C5DC\\",
+-           \\"borderWidth\\": 1,
+-           \\"height\\": 48,
+-           \\"margin\\": 8,
+-           \\"width\\": 670,
+-         }
+-       }
+-       testID=\\"facebookButton\\"
+-     >
+-       <Flex
+-         direction=\\"row\\"
+-       >
+-         <Icon
+-           name=\\"facebookIcon\\"
+-           size={21}
+-           style={
+-             Object {
+-               \\"marginRight\\": 10,
 -             }
--           >
--             SIGN IN WITH FACEBOOK
--           </Text>
--         </Flex>
--       </Button>
-      </Flex>
-    </RCTSafeAreaView>
-  </View>"
+-           }
+-           type=\\"MissionHub\\"
++       onPress={[Function login]}
++       testID=\\"loginButton\\"
++       text=\\"LOGIN\\"
++       type=\\"secondary\\"
+      />
+-         <Text
+-           style={
+-             Object {
+-               \\"color\\": \\"#ffffff\\",
+-               \\"fontSize\\": 14,
+-               \\"fontWeight\\": \\"500\\",
+-               \\"letterSpacing\\": 1.5,
+-               \\"paddingTop\\": 2,
+-             }
+-           }
+-         >
+-           SIGN IN WITH FACEBOOK
+-         </Text>
+-       </Flex>
+-     </Button>
+    </Flex>
+  </RCTSafeAreaView>"
 `;
 
 exports[`key login button is pressed shows invalid credentials message and tracks user error when invalid credentials are entered 1`] = `
@@ -434,7 +429,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 - First value
 + Second value
 
-@@ -6,10 +6,32 @@
+@@ -7,10 +7,31 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
@@ -445,7 +440,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 +       Object {
 +         \\"alignItems\\": \\"center\\",
 +         \\"backgroundColor\\": \\"#FF5532\\",
-+         \\"height\\": 60,
++         \\"height\\": 48,
 +         \\"justifyContent\\": \\"center\\",
 +       }
 +     }
@@ -455,7 +450,6 @@ exports[`key login button is pressed shows invalid credentials message and track
 +         Object {
 +           \\"color\\": \\"#ffffff\\",
 +           \\"fontSize\\": 16,
-+           \\"marginTop\\": 12,
 +         }
 +       }
 +     >
@@ -466,104 +460,103 @@ exports[`key login button is pressed shows invalid credentials message and track
       left={<BackButton />}
       shadow={false}
     />
-    <RCTSafeAreaView
-@@ -63,11 +85,11 @@
-            onSubmitEditing={[Function focusPassword]}
-            placeholder=\\"Email\\"
-            placeholderTextColor=\\"white\\"
-            returnKeyType=\\"next\\"
-            testID=\\"emailInput\\"
--           value=\\"\\"
-+           value=\\"klas&jflk@lkjasdf.com\\"
-          />
-        </View>
-        <View
-          style={
-            Object {
-@@ -91,11 +113,11 @@
-            placeholder=\\"Password\\"
-            placeholderTextColor=\\"white\\"
-            returnKeyType=\\"done\\"
-            secureTextEntry={true}
-            testID=\\"passwordInput\\"
--           value=\\"\\"
-+           value=\\"this&is=unsafe\\"
-          />
-          <Button
-            buttonTextStyle={
-              Object {
-                \\"color\\": \\"#52C5DC\\",
-@@ -117,64 +139,17 @@
-            type=\\"transparent\\"
-          />
-        </View>
-      </Flex>
-      <Flex
--       align=\\"center\\"
--       justify=\\"center\\"
--       value={1}
-+       align=\\"stretch\\"
-+       justify=\\"end\\"
-      >
-        <Button
--         buttonTextStyle={
--           Object {
--             \\"color\\": \\"#ffffff\\",
--             \\"fontSize\\": 14,
--             \\"fontWeight\\": \\"500\\",
--             \\"letterSpacing\\": 1.5,
--             \\"paddingTop\\": 2,
--           }
--         }
--         onPress={[Function facebookLogin]}
--         pill={true}
--         style={
--           Object {
--             \\"backgroundColor\\": \\"transparent\\",
--             \\"borderColor\\": \\"#52C5DC\\",
--             \\"borderWidth\\": 1,
--             \\"height\\": 48,
--             \\"margin\\": 8,
--             \\"width\\": 670,
--           }
--         }
--         testID=\\"facebookButton\\"
--       >
--         <Flex
--           direction=\\"row\\"
--         >
--           <Icon
--             name=\\"facebookIcon\\"
--             size={21}
--             style={
--               Object {
--                 \\"marginRight\\": 10,
--               }
--             }
--             type=\\"MissionHub\\"
-+         onPress={[Function login]}
-+         testID=\\"loginButton\\"
-+         text=\\"LOGIN\\"
-+         type=\\"secondary\\"
+    <Flex
+@@ -56,11 +77,11 @@
+          onSubmitEditing={[Function focusPassword]}
+          placeholder=\\"Email\\"
+          placeholderTextColor=\\"white\\"
+          returnKeyType=\\"next\\"
+          testID=\\"emailInput\\"
+-         value=\\"\\"
++         value=\\"klas&jflk@lkjasdf.com\\"
         />
--           <Text
--             style={
--               Object {
--                 \\"color\\": \\"#ffffff\\",
--                 \\"fontSize\\": 14,
--                 \\"fontWeight\\": \\"500\\",
--                 \\"letterSpacing\\": 1.5,
--                 \\"paddingTop\\": 2,
--               }
+      </View>
+      <View
+        style={
+          Object {
+@@ -84,11 +105,11 @@
+          placeholder=\\"Password\\"
+          placeholderTextColor=\\"white\\"
+          returnKeyType=\\"done\\"
+          secureTextEntry={true}
+          testID=\\"passwordInput\\"
+-         value=\\"\\"
++         value=\\"this&is=unsafe\\"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              \\"color\\": \\"#52C5DC\\",
+@@ -110,63 +131,16 @@
+          type=\\"transparent\\"
+        />
+      </View>
+    </Flex>
+    <Flex
+-     align=\\"center\\"
+-     justify=\\"center\\"
+-     value={1}
++     align=\\"stretch\\"
++     justify=\\"end\\"
+    >
+      <Button
+-       buttonTextStyle={
+-         Object {
+-           \\"color\\": \\"#ffffff\\",
+-           \\"fontSize\\": 14,
+-           \\"fontWeight\\": \\"500\\",
+-           \\"letterSpacing\\": 1.5,
+-           \\"paddingTop\\": 2,
+-         }
+-       }
+-       onPress={[Function facebookLogin]}
+-       pill={true}
+-       style={
+-         Object {
+-           \\"backgroundColor\\": \\"transparent\\",
+-           \\"borderColor\\": \\"#52C5DC\\",
+-           \\"borderWidth\\": 1,
+-           \\"height\\": 48,
+-           \\"margin\\": 8,
+-           \\"width\\": 670,
+-         }
+-       }
+-       testID=\\"facebookButton\\"
+-     >
+-       <Flex
+-         direction=\\"row\\"
+-       >
+-         <Icon
+-           name=\\"facebookIcon\\"
+-           size={21}
+-           style={
+-             Object {
+-               \\"marginRight\\": 10,
 -             }
--           >
--             SIGN IN WITH FACEBOOK
--           </Text>
--         </Flex>
--       </Button>
-      </Flex>
-    </RCTSafeAreaView>
-  </View>"
+-           }
+-           type=\\"MissionHub\\"
++       onPress={[Function login]}
++       testID=\\"loginButton\\"
++       text=\\"LOGIN\\"
++       type=\\"secondary\\"
+      />
+-         <Text
+-           style={
+-             Object {
+-               \\"color\\": \\"#ffffff\\",
+-               \\"fontSize\\": 14,
+-               \\"fontWeight\\": \\"500\\",
+-               \\"letterSpacing\\": 1.5,
+-               \\"paddingTop\\": 2,
+-             }
+-           }
+-         >
+-           SIGN IN WITH FACEBOOK
+-         </Text>
+-       </Flex>
+-     </Button>
+    </Flex>
+  </RCTSafeAreaView>"
 `;
 
 exports[`key login button is pressed tracks system error for unexpected error 1`] = `
@@ -571,103 +564,102 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 - First value
 + Second value
 
-@@ -63,11 +63,11 @@
-            onSubmitEditing={[Function focusPassword]}
-            placeholder=\\"Email\\"
-            placeholderTextColor=\\"white\\"
-            returnKeyType=\\"next\\"
-            testID=\\"emailInput\\"
--           value=\\"\\"
-+           value=\\"klas&jflk@lkjasdf.com\\"
-          />
-        </View>
-        <View
-          style={
-            Object {
-@@ -91,11 +91,11 @@
-            placeholder=\\"Password\\"
-            placeholderTextColor=\\"white\\"
-            returnKeyType=\\"done\\"
-            secureTextEntry={true}
-            testID=\\"passwordInput\\"
--           value=\\"\\"
-+           value=\\"this&is=unsafe\\"
-          />
-          <Button
-            buttonTextStyle={
-              Object {
-                \\"color\\": \\"#52C5DC\\",
-@@ -117,64 +117,17 @@
-            type=\\"transparent\\"
-          />
-        </View>
-      </Flex>
-      <Flex
--       align=\\"center\\"
--       justify=\\"center\\"
--       value={1}
-+       align=\\"stretch\\"
-+       justify=\\"end\\"
-      >
-        <Button
--         buttonTextStyle={
--           Object {
--             \\"color\\": \\"#ffffff\\",
--             \\"fontSize\\": 14,
--             \\"fontWeight\\": \\"500\\",
--             \\"letterSpacing\\": 1.5,
--             \\"paddingTop\\": 2,
--           }
--         }
--         onPress={[Function facebookLogin]}
--         pill={true}
--         style={
--           Object {
--             \\"backgroundColor\\": \\"transparent\\",
--             \\"borderColor\\": \\"#52C5DC\\",
--             \\"borderWidth\\": 1,
--             \\"height\\": 48,
--             \\"margin\\": 8,
--             \\"width\\": 670,
--           }
--         }
--         testID=\\"facebookButton\\"
--       >
--         <Flex
--           direction=\\"row\\"
--         >
--           <Icon
--             name=\\"facebookIcon\\"
--             size={21}
--             style={
--               Object {
--                 \\"marginRight\\": 10,
--               }
--             }
--             type=\\"MissionHub\\"
-+         onPress={[Function login]}
-+         testID=\\"loginButton\\"
-+         text=\\"LOGIN\\"
-+         type=\\"secondary\\"
+@@ -56,11 +56,11 @@
+          onSubmitEditing={[Function focusPassword]}
+          placeholder=\\"Email\\"
+          placeholderTextColor=\\"white\\"
+          returnKeyType=\\"next\\"
+          testID=\\"emailInput\\"
+-         value=\\"\\"
++         value=\\"klas&jflk@lkjasdf.com\\"
         />
--           <Text
--             style={
--               Object {
--                 \\"color\\": \\"#ffffff\\",
--                 \\"fontSize\\": 14,
--                 \\"fontWeight\\": \\"500\\",
--                 \\"letterSpacing\\": 1.5,
--                 \\"paddingTop\\": 2,
--               }
+      </View>
+      <View
+        style={
+          Object {
+@@ -84,11 +84,11 @@
+          placeholder=\\"Password\\"
+          placeholderTextColor=\\"white\\"
+          returnKeyType=\\"done\\"
+          secureTextEntry={true}
+          testID=\\"passwordInput\\"
+-         value=\\"\\"
++         value=\\"this&is=unsafe\\"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              \\"color\\": \\"#52C5DC\\",
+@@ -110,63 +110,16 @@
+          type=\\"transparent\\"
+        />
+      </View>
+    </Flex>
+    <Flex
+-     align=\\"center\\"
+-     justify=\\"center\\"
+-     value={1}
++     align=\\"stretch\\"
++     justify=\\"end\\"
+    >
+      <Button
+-       buttonTextStyle={
+-         Object {
+-           \\"color\\": \\"#ffffff\\",
+-           \\"fontSize\\": 14,
+-           \\"fontWeight\\": \\"500\\",
+-           \\"letterSpacing\\": 1.5,
+-           \\"paddingTop\\": 2,
+-         }
+-       }
+-       onPress={[Function facebookLogin]}
+-       pill={true}
+-       style={
+-         Object {
+-           \\"backgroundColor\\": \\"transparent\\",
+-           \\"borderColor\\": \\"#52C5DC\\",
+-           \\"borderWidth\\": 1,
+-           \\"height\\": 48,
+-           \\"margin\\": 8,
+-           \\"width\\": 670,
+-         }
+-       }
+-       testID=\\"facebookButton\\"
+-     >
+-       <Flex
+-         direction=\\"row\\"
+-       >
+-         <Icon
+-           name=\\"facebookIcon\\"
+-           size={21}
+-           style={
+-             Object {
+-               \\"marginRight\\": 10,
 -             }
--           >
--             SIGN IN WITH FACEBOOK
--           </Text>
--         </Flex>
--       </Button>
-      </Flex>
-    </RCTSafeAreaView>
-  </View>"
+-           }
+-           type=\\"MissionHub\\"
++       onPress={[Function login]}
++       testID=\\"loginButton\\"
++       text=\\"LOGIN\\"
++       type=\\"secondary\\"
+      />
+-         <Text
+-           style={
+-             Object {
+-               \\"color\\": \\"#ffffff\\",
+-               \\"fontSize\\": 14,
+-               \\"fontWeight\\": \\"500\\",
+-               \\"letterSpacing\\": 1.5,
+-               \\"paddingTop\\": 2,
+-             }
+-           }
+-         >
+-           SIGN IN WITH FACEBOOK
+-         </Text>
+-       </Flex>
+-     </Button>
+    </Flex>
+  </RCTSafeAreaView>"
 `;
 
 exports[`keyboard listeners should hide sign in logo when the keyboard is shown 1`] = `
@@ -675,33 +667,33 @@ exports[`keyboard listeners should hide sign in logo when the keyboard is shown 
 - First value
 + Second value
 
-@@ -19,26 +19,10 @@
-          \\"flex\\": 1,
-        }
-      }
-    >
-      <Flex
--       align=\\"center\\"
--       justify=\\"center\\"
--     >
--       <Text
--         header={true}
--         style={
--           Object {
--             \\"color\\": \\"#52C5DC\\",
--             \\"fontSize\\": 48,
--           }
+@@ -12,26 +12,10 @@
+    <Header
+      left={<BackButton />}
+      shadow={false}
+    />
+    <Flex
+-     align=\\"center\\"
+-     justify=\\"center\\"
+-   >
+-     <Text
+-       header={true}
+-       style={
+-         Object {
+-           \\"color\\": \\"#52C5DC\\",
+-           \\"fontSize\\": 48,
 -         }
--       >
--         Sign In
--       </Text>
--     </Flex>
--     <Flex
-        style={
-          Object {
-            \\"paddingHorizontal\\": 30,
-            \\"paddingVertical\\": 10,
-          }"
+-       }
+-     >
+-       Sign In
+-     </Text>
+-   </Flex>
+-   <Flex
+      style={
+        Object {
+          \\"paddingHorizontal\\": 30,
+          \\"paddingVertical\\": 10,
+        }"
 `;
 
 exports[`keyboard listeners should show sign in logo when the keyboard is hidden 1`] = `
@@ -709,37 +701,38 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 - First value
 + Second value
 
-@@ -19,10 +19,26 @@
-          \\"flex\\": 1,
-        }
-      }
-    >
-      <Flex
-+       align=\\"center\\"
-+       justify=\\"center\\"
-+     >
-+       <Text
-+         header={true}
-+         style={
-+           Object {
-+             \\"color\\": \\"#52C5DC\\",
-+             \\"fontSize\\": 48,
-+           }
+@@ -12,10 +12,26 @@
+    <Header
+      left={<BackButton />}
+      shadow={false}
+    />
+    <Flex
++     align=\\"center\\"
++     justify=\\"center\\"
++   >
++     <Text
++       header={true}
++       style={
++         Object {
++           \\"color\\": \\"#52C5DC\\",
++           \\"fontSize\\": 48,
 +         }
-+       >
-+         Sign In
-+       </Text>
-+     </Flex>
-+     <Flex
-        style={
-          Object {
-            \\"paddingHorizontal\\": 30,
-            \\"paddingVertical\\": 10,
-          }"
++       }
++     >
++       Sign In
++     </Text>
++   </Flex>
++   <Flex
+      style={
+        Object {
+          \\"paddingHorizontal\\": 30,
+          \\"paddingVertical\\": 10,
+        }"
 `;
 
 exports[`renders correctly 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -753,176 +746,168 @@ exports[`renders correctly 1`] = `
     left={<BackButton />}
     shadow={false}
   />
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <Flex
+    align="center"
+    justify="center"
+  >
+    <Text
+      header={true}
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 48,
+        }
+      }
+    >
+      Sign In
+    </Text>
+  </Flex>
+  <Flex
     style={
       Object {
-        "flex": 1,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
+    value={3}
   >
-    <Flex
-      align="center"
-      justify="center"
-    >
+    <View>
       <Text
-        header={true}
         style={
           Object {
             "color": "#52C5DC",
-            "fontSize": 48,
+            "fontSize": 12,
           }
         }
       >
-        Sign In
+        Email
       </Text>
-    </Flex>
-    <Flex
+      <Input
+        autoCapitalize="none"
+        keyboardType="email-address"
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Email"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        testID="emailInput"
+        value=""
+      />
+    </View>
+    <View
       style={
         Object {
-          "paddingHorizontal": 30,
-          "paddingVertical": 10,
+          "paddingVertical": 15,
         }
       }
-      value={3}
     >
-      <View>
-        <Text
-          style={
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 12,
-            }
-          }
-        >
-          Email
-        </Text>
-        <Input
-          autoCapitalize="none"
-          keyboardType="email-address"
-          onChangeText={[Function]}
-          onSubmitEditing={[Function]}
-          placeholder="Email"
-          placeholderTextColor="white"
-          returnKeyType="next"
-          testID="emailInput"
-          value=""
-        />
-      </View>
-      <View
+      <Text
         style={
           Object {
-            "paddingVertical": 15,
+            "color": "#52C5DC",
+            "fontSize": 12,
           }
         }
       >
-        <Text
-          style={
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 12,
-            }
-          }
-        >
-          Password
-        </Text>
-        <Input
-          onChangeText={[Function]}
-          onSubmitEditing={[Function]}
-          placeholder="Password"
-          placeholderTextColor="white"
-          returnKeyType="done"
-          secureTextEntry={true}
-          testID="passwordInput"
-          value=""
-        />
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 16,
-              "fontWeight": "normal",
-              "letterSpacing": 0,
-              "paddingVertical": 10,
-              "textAlign": "left",
-            }
-          }
-          onPress={[Function]}
-          style={
-            Object {
-              "width": 130,
-            }
-          }
-          testID="forgotPasswordButton"
-          text="Forgot Password?"
-          type="transparent"
-        />
-      </View>
-    </Flex>
-    <Flex
-      align="center"
-      justify="center"
-      value={1}
-    >
+        Password
+      </Text>
+      <Input
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Password"
+        placeholderTextColor="white"
+        returnKeyType="done"
+        secureTextEntry={true}
+        testID="passwordInput"
+        value=""
+      />
       <Button
         buttonTextStyle={
           Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "fontWeight": "500",
-            "letterSpacing": 1.5,
-            "paddingTop": 2,
+            "color": "#52C5DC",
+            "fontSize": 16,
+            "fontWeight": "normal",
+            "letterSpacing": 0,
+            "paddingVertical": 10,
+            "textAlign": "left",
           }
         }
         onPress={[Function]}
-        pill={true}
         style={
           Object {
-            "backgroundColor": "transparent",
-            "borderColor": "#52C5DC",
-            "borderWidth": 1,
-            "height": 48,
-            "margin": 8,
-            "width": 670,
+            "width": 130,
           }
         }
-        testID="facebookButton"
+        testID="forgotPasswordButton"
+        text="Forgot Password?"
+        type="transparent"
+      />
+    </View>
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Button
+      buttonTextStyle={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "letterSpacing": 1.5,
+          "paddingTop": 2,
+        }
+      }
+      onPress={[Function]}
+      pill={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderColor": "#52C5DC",
+          "borderWidth": 1,
+          "height": 48,
+          "margin": 8,
+          "width": 670,
+        }
+      }
+      testID="facebookButton"
+    >
+      <Flex
+        direction="row"
       >
-        <Flex
-          direction="row"
+        <Icon
+          name="facebookIcon"
+          size={21}
+          style={
+            Object {
+              "marginRight": 10,
+            }
+          }
+          type="MissionHub"
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
         >
-          <Icon
-            name="facebookIcon"
-            size={21}
-            style={
-              Object {
-                "marginRight": 10,
-              }
-            }
-            type="MissionHub"
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "paddingTop": 2,
-              }
-            }
-          >
-            SIGN IN WITH FACEBOOK
-          </Text>
-        </Flex>
-      </Button>
-    </Flex>
-  </RCTSafeAreaView>
-</View>
+          SIGN IN WITH FACEBOOK
+        </Text>
+      </Flex>
+    </Button>
+  </Flex>
+</RCTSafeAreaView>
 `;
 
 exports[`renders correctly for forced logout 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -936,174 +921,165 @@ exports[`renders correctly for forced logout 1`] = `
     left={null}
     shadow={false}
   />
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <Flex
+    align="center"
+    justify="center"
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "lineHeight": 32,
+          "paddingLeft": 30,
+          "paddingRight": 80,
+          "textAlign": "left",
+        }
+      }
+    >
+      It's been a while since you've signed in.
+Please sign in so we know it's you.
+    </Text>
+  </Flex>
+  <Flex
     style={
       Object {
-        "flex": 1,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
       }
     }
+    value={3}
   >
-    <Flex
-      align="center"
-      justify="center"
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Email
+      </Text>
+      <Input
+        autoCapitalize="none"
+        keyboardType="email-address"
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Email"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        testID="emailInput"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "paddingVertical": 15,
+        }
+      }
     >
       <Text
         style={
           Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "lineHeight": 32,
-            "paddingLeft": 30,
-            "paddingRight": 80,
-            "textAlign": "left",
+            "color": "#52C5DC",
+            "fontSize": 12,
           }
         }
       >
-        It's been a while since you've signed in.
-Please sign in so we know it's you.
+        Password
       </Text>
-    </Flex>
-    <Flex
-      style={
-        Object {
-          "paddingHorizontal": 30,
-          "paddingVertical": 10,
-        }
-      }
-      value={3}
-    >
-      <View>
-        <Text
-          style={
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 12,
-            }
-          }
-        >
-          Email
-        </Text>
-        <Input
-          autoCapitalize="none"
-          keyboardType="email-address"
-          onChangeText={[Function]}
-          onSubmitEditing={[Function]}
-          placeholder="Email"
-          placeholderTextColor="white"
-          returnKeyType="next"
-          testID="emailInput"
-          value=""
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "paddingVertical": 15,
-          }
-        }
-      >
-        <Text
-          style={
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 12,
-            }
-          }
-        >
-          Password
-        </Text>
-        <Input
-          onChangeText={[Function]}
-          onSubmitEditing={[Function]}
-          placeholder="Password"
-          placeholderTextColor="white"
-          returnKeyType="done"
-          secureTextEntry={true}
-          testID="passwordInput"
-          value=""
-        />
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 16,
-              "fontWeight": "normal",
-              "letterSpacing": 0,
-              "paddingVertical": 10,
-              "textAlign": "left",
-            }
-          }
-          onPress={[Function]}
-          style={
-            Object {
-              "width": 130,
-            }
-          }
-          testID="forgotPasswordButton"
-          text="Forgot Password?"
-          type="transparent"
-        />
-      </View>
-    </Flex>
-    <Flex
-      align="center"
-      justify="center"
-      value={1}
-    >
+      <Input
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Password"
+        placeholderTextColor="white"
+        returnKeyType="done"
+        secureTextEntry={true}
+        testID="passwordInput"
+        value=""
+      />
       <Button
         buttonTextStyle={
           Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "fontWeight": "500",
-            "letterSpacing": 1.5,
-            "paddingTop": 2,
+            "color": "#52C5DC",
+            "fontSize": 16,
+            "fontWeight": "normal",
+            "letterSpacing": 0,
+            "paddingVertical": 10,
+            "textAlign": "left",
           }
         }
         onPress={[Function]}
-        pill={true}
         style={
           Object {
-            "backgroundColor": "transparent",
-            "borderColor": "#52C5DC",
-            "borderWidth": 1,
-            "height": 48,
-            "margin": 8,
-            "width": 670,
+            "width": 130,
           }
         }
-        testID="facebookButton"
+        testID="forgotPasswordButton"
+        text="Forgot Password?"
+        type="transparent"
+      />
+    </View>
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Button
+      buttonTextStyle={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "letterSpacing": 1.5,
+          "paddingTop": 2,
+        }
+      }
+      onPress={[Function]}
+      pill={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderColor": "#52C5DC",
+          "borderWidth": 1,
+          "height": 48,
+          "margin": 8,
+          "width": 670,
+        }
+      }
+      testID="facebookButton"
+    >
+      <Flex
+        direction="row"
       >
-        <Flex
-          direction="row"
+        <Icon
+          name="facebookIcon"
+          size={21}
+          style={
+            Object {
+              "marginRight": 10,
+            }
+          }
+          type="MissionHub"
+        />
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
         >
-          <Icon
-            name="facebookIcon"
-            size={21}
-            style={
-              Object {
-                "marginRight": 10,
-              }
-            }
-            type="MissionHub"
-          />
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "paddingTop": 2,
-              }
-            }
-          >
-            SIGN IN WITH FACEBOOK
-          </Text>
-        </Flex>
-      </Button>
-    </Flex>
-  </RCTSafeAreaView>
-</View>
+          SIGN IN WITH FACEBOOK
+        </Text>
+      </Flex>
+    </Button>
+  </Flex>
+</RCTSafeAreaView>
 `;

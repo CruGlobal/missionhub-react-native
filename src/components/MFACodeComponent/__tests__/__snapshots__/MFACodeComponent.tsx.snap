@@ -5,7 +5,7 @@ exports[`should change loading state 1`] = `
 - First value
 + Second value
 
-@@ -104,6 +104,7 @@
+@@ -124,6 +124,7 @@
           testID=\\"mfaCodeInput\\"
           value=\\"Roge\\"
         />
@@ -20,7 +20,7 @@ exports[`should change loading state 2`] = `
 - First value
 + Second value
 
-@@ -104,7 +104,6 @@
+@@ -124,7 +124,6 @@
           testID=\\"mfaCodeInput\\"
           value=\\"Roge\\"
         />
@@ -42,38 +42,58 @@ exports[`should render correctly 1`] = `
     }
   }
 >
-  <Flex
-    align="center"
-    direction="row"
-    justify="between"
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "flexDirection": "row",
+          "height": 56,
+          "paddingTop": 0,
+        },
+        undefined,
+        Object {
+          "elevation": 4,
+        },
+      ]
+    }
   >
-    <BackButton
+    <Flex
+      align="start"
+      justify="center"
       style={
         Object {
-          "marginLeft": 5,
-          "marginTop": 25,
+          "paddingLeft": 5,
         }
       }
-    />
-    <Button
-      buttonTextStyle={
-        Object {
-          "fontSize": 14,
-          "letterSpacing": 2,
-        }
-      }
-      onPress={[MockFunction]}
+      value={1}
+    >
+      <BackButton />
+    </Flex>
+    <Flex
+      align="end"
+      justify="center"
       style={
         Object {
-          "marginRight": 10,
-          "marginTop": 25,
+          "paddingRight": 5,
         }
       }
-      testID="doneButton"
-      text="DONE"
-      type="transparent"
-    />
-  </Flex>
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "fontSize": 14,
+            "letterSpacing": 2,
+          }
+        }
+        onPress={[MockFunction]}
+        testID="doneButton"
+        text="DONE"
+        type="transparent"
+      />
+    </Flex>
+  </View>
   <Flex
     justify="center"
     style={
