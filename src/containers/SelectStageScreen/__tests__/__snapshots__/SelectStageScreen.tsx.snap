@@ -4,10 +4,8 @@ exports[`renders for me renders correctly 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
       "backgroundColor": "#66D9F0",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -31,401 +29,425 @@ exports[`renders for me renders correctly 1`] = `
       ]
     }
   />
-  <BackButton
-    absolute={true}
-  />
-  <Text
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
-        "color": "#007398",
-        "fontFamily": "SourceSansPro-Regular",
-        "fontSize": 18,
-        "fontWeight": "500",
-        "paddingBottom": 25,
-        "paddingHorizontal": 30,
-        "paddingTop": 45,
-        "textAlign": "center",
-        "width": 650,
+        "flex": 1,
       }
     }
   >
-    Me, which stage best describes where you are on your journey?
-  </Text>
-  <RCTScrollView
-    activeAnimationOptions={null}
-    activeAnimationType="timing"
-    activeSlideAlignment="center"
-    activeSlideOffset={20}
-    apparitionDelay={0}
-    automaticallyAdjustContentInsets={false}
-    autoplay={false}
-    autoplayDelay={1000}
-    autoplayInterval={3000}
-    callbackOffsetMargin={5}
-    containerCustomStyle={
-      Object {
-        "flex": 0,
-        "flexGrow": 0,
-        "height": 400,
+    <Header
+      left={<BackButton />}
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
       }
-    }
-    contentContainerCustomStyle={Object {}}
-    contentContainerStyle={
-      Array [
+    />
+    <View
+      style={
         Object {
-          "paddingLeft": 72.5,
-          "paddingRight": 72.5,
-        },
-        Object {},
-      ]
-    }
-    data={
-      Array [
-        Object {
-          "description": "Stage 1 description",
-          "id": 1,
-          "name": "Stage 1",
-        },
-        Object {
-          "description": "Stage 2 description",
-          "id": 2,
-          "name": "Stage 2",
-        },
-        Object {
-          "description": "Stage 3 description",
-          "id": 3,
-          "name": "Stage 3",
-        },
-      ]
-    }
-    decelerationRate="fast"
-    directionalLockEnabled={true}
-    disableVirtualization={false}
-    enableMomentum={false}
-    enableSnap={true}
-    firstItem={0}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    hasParallaxImages={false}
-    horizontal={true}
-    inactiveSlideOpacity={1}
-    inactiveSlideScale={1}
-    inactiveSlideShift={0}
-    initialNumToRender={7}
-    invertStickyHeaders={false}
-    inverted={false}
-    itemWidth={680}
-    keyExtractor={[Function]}
-    layout="default"
-    lockScrollTimeoutDuration={1000}
-    lockScrollWhileSnapping={false}
-    loop={false}
-    loopClonesPerSide={3}
-    maxToRenderPerBatch={15}
-    numColumns={1}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onResponderRelease={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    onSnapToItem={[Function]}
-    onStartShouldSetResponderCapture={[Function]}
-    onTouchEnd={[Function]}
-    onTouchStart={[Function]}
-    overScrollMode="never"
-    pinchGestureEnabled={false}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEnabled={true}
-    scrollEventThrottle={1}
-    scrollsToTop={false}
-    shouldOptimizeUpdates={true}
-    showsHorizontalScrollIndicator={false}
-    showsVerticalScrollIndicator={false}
-    slideStyle={Object {}}
-    sliderWidth={825}
-    stickyHeaderIndices={Array []}
-    style={
-      Object {
-        "flex": 0,
-        "flexDirection": "row",
-        "flexGrow": 0,
-        "height": 400,
-        "opacity": 0,
-        "width": 825,
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
       }
-    }
-    swipeThreshold={20}
-    updateCellsBatchingPeriod={50}
-    useScrollView={false}
-    vertical={false}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={15}
-  >
-    <View>
-      <View
-        onLayout={[Function]}
+    >
+      <Text
         style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
+          Object {
+            "color": "#007398",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 18,
+            "fontWeight": "500",
+            "paddingBottom": 25,
+            "paddingHorizontal": 30,
+            "paddingTop": 45,
+            "textAlign": "center",
+            "width": 650,
+          }
         }
       >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
+        Me, which stage best describes where you are on your journey?
+      </Text>
+      <RCTScrollView
+        activeAnimationOptions={null}
+        activeAnimationType="timing"
+        activeSlideAlignment="center"
+        activeSlideOffset={20}
+        apparitionDelay={0}
+        automaticallyAdjustContentInsets={false}
+        autoplay={false}
+        autoplayDelay={1000}
+        autoplayInterval={3000}
+        callbackOffsetMargin={5}
+        containerCustomStyle={
+          Object {
+            "flex": 0,
+            "flexGrow": 0,
+            "height": 400,
           }
-        >
+        }
+        contentContainerCustomStyle={Object {}}
+        contentContainerStyle={
+          Array [
+            Object {
+              "paddingLeft": 72.5,
+              "paddingRight": 72.5,
+            },
+            Object {},
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "description": "Stage 1 description",
+              "id": 1,
+              "name": "Stage 1",
+            },
+            Object {
+              "description": "Stage 2 description",
+              "id": 2,
+              "name": "Stage 2",
+            },
+            Object {
+              "description": "Stage 3 description",
+              "id": 3,
+              "name": "Stage 3",
+            },
+          ]
+        }
+        decelerationRate="fast"
+        directionalLockEnabled={true}
+        disableVirtualization={false}
+        enableMomentum={false}
+        enableSnap={true}
+        firstItem={0}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        hasParallaxImages={false}
+        horizontal={true}
+        inactiveSlideOpacity={1}
+        inactiveSlideScale={1}
+        inactiveSlideShift={0}
+        initialNumToRender={7}
+        invertStickyHeaders={false}
+        inverted={false}
+        itemWidth={680}
+        keyExtractor={[Function]}
+        layout="default"
+        lockScrollTimeoutDuration={1000}
+        lockScrollWhileSnapping={false}
+        loop={false}
+        loopClonesPerSide={3}
+        maxToRenderPerBatch={15}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onResponderRelease={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        onSnapToItem={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        overScrollMode="never"
+        pinchGestureEnabled={false}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={true}
+        scrollEventThrottle={1}
+        scrollsToTop={false}
+        shouldOptimizeUpdates={true}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        slideStyle={Object {}}
+        sliderWidth={825}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "flex": 0,
+            "flexDirection": "row",
+            "flexGrow": 0,
+            "height": 400,
+            "opacity": 0,
+            "width": 825,
+          }
+        }
+        swipeThreshold={20}
+        updateCellsBatchingPeriod={50}
+        useScrollView={false}
+        vertical={false}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={15}
+      >
+        <View>
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/uninterestedIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 1
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 1 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/uninterestedIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 1
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 1 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="I AM HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="I AM HERE"
-              type="primary"
-            />
           </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/curiousIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 2
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 2 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/curiousIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 2
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 2 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="I AM HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="I AM HERE"
-              type="primary"
-            />
           </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/forgivenIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 3
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 3 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/forgivenIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 3
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 3 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="I AM HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="I AM HERE"
-              type="primary"
-            />
           </View>
         </View>
-      </View>
+      </RCTScrollView>
     </View>
-  </RCTScrollView>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -433,10 +455,8 @@ exports[`renders for me renders firstItem correctly 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
       "backgroundColor": "#66D9F0",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -460,401 +480,425 @@ exports[`renders for me renders firstItem correctly 1`] = `
       ]
     }
   />
-  <BackButton
-    absolute={true}
-  />
-  <Text
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
-        "color": "#007398",
-        "fontFamily": "SourceSansPro-Regular",
-        "fontSize": 18,
-        "fontWeight": "500",
-        "paddingBottom": 25,
-        "paddingHorizontal": 30,
-        "paddingTop": 45,
-        "textAlign": "center",
-        "width": 650,
+        "flex": 1,
       }
     }
   >
-    Me, which stage best describes where you are on your journey?
-  </Text>
-  <RCTScrollView
-    activeAnimationOptions={null}
-    activeAnimationType="timing"
-    activeSlideAlignment="center"
-    activeSlideOffset={20}
-    apparitionDelay={0}
-    automaticallyAdjustContentInsets={false}
-    autoplay={false}
-    autoplayDelay={1000}
-    autoplayInterval={3000}
-    callbackOffsetMargin={5}
-    containerCustomStyle={
-      Object {
-        "flex": 0,
-        "flexGrow": 0,
-        "height": 400,
+    <Header
+      left={<BackButton />}
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
       }
-    }
-    contentContainerCustomStyle={Object {}}
-    contentContainerStyle={
-      Array [
+    />
+    <View
+      style={
         Object {
-          "paddingLeft": 72.5,
-          "paddingRight": 72.5,
-        },
-        Object {},
-      ]
-    }
-    data={
-      Array [
-        Object {
-          "description": "Stage 1 description",
-          "id": 1,
-          "name": "Stage 1",
-        },
-        Object {
-          "description": "Stage 2 description",
-          "id": 2,
-          "name": "Stage 2",
-        },
-        Object {
-          "description": "Stage 3 description",
-          "id": 3,
-          "name": "Stage 3",
-        },
-      ]
-    }
-    decelerationRate="fast"
-    directionalLockEnabled={true}
-    disableVirtualization={false}
-    enableMomentum={false}
-    enableSnap={true}
-    firstItem={1}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    hasParallaxImages={false}
-    horizontal={true}
-    inactiveSlideOpacity={1}
-    inactiveSlideScale={1}
-    inactiveSlideShift={0}
-    initialNumToRender={7}
-    invertStickyHeaders={false}
-    inverted={false}
-    itemWidth={680}
-    keyExtractor={[Function]}
-    layout="default"
-    lockScrollTimeoutDuration={1000}
-    lockScrollWhileSnapping={false}
-    loop={false}
-    loopClonesPerSide={3}
-    maxToRenderPerBatch={15}
-    numColumns={1}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onResponderRelease={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    onSnapToItem={[Function]}
-    onStartShouldSetResponderCapture={[Function]}
-    onTouchEnd={[Function]}
-    onTouchStart={[Function]}
-    overScrollMode="never"
-    pinchGestureEnabled={false}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEnabled={true}
-    scrollEventThrottle={1}
-    scrollsToTop={false}
-    shouldOptimizeUpdates={true}
-    showsHorizontalScrollIndicator={false}
-    showsVerticalScrollIndicator={false}
-    slideStyle={Object {}}
-    sliderWidth={825}
-    stickyHeaderIndices={Array []}
-    style={
-      Object {
-        "flex": 0,
-        "flexDirection": "row",
-        "flexGrow": 0,
-        "height": 400,
-        "opacity": 0,
-        "width": 825,
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
       }
-    }
-    swipeThreshold={20}
-    updateCellsBatchingPeriod={50}
-    useScrollView={false}
-    vertical={false}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={15}
-  >
-    <View>
-      <View
-        onLayout={[Function]}
+    >
+      <Text
         style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
+          Object {
+            "color": "#007398",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 18,
+            "fontWeight": "500",
+            "paddingBottom": 25,
+            "paddingHorizontal": 30,
+            "paddingTop": 45,
+            "textAlign": "center",
+            "width": 650,
+          }
         }
       >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
+        Me, which stage best describes where you are on your journey?
+      </Text>
+      <RCTScrollView
+        activeAnimationOptions={null}
+        activeAnimationType="timing"
+        activeSlideAlignment="center"
+        activeSlideOffset={20}
+        apparitionDelay={0}
+        automaticallyAdjustContentInsets={false}
+        autoplay={false}
+        autoplayDelay={1000}
+        autoplayInterval={3000}
+        callbackOffsetMargin={5}
+        containerCustomStyle={
+          Object {
+            "flex": 0,
+            "flexGrow": 0,
+            "height": 400,
           }
-        >
+        }
+        contentContainerCustomStyle={Object {}}
+        contentContainerStyle={
+          Array [
+            Object {
+              "paddingLeft": 72.5,
+              "paddingRight": 72.5,
+            },
+            Object {},
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "description": "Stage 1 description",
+              "id": 1,
+              "name": "Stage 1",
+            },
+            Object {
+              "description": "Stage 2 description",
+              "id": 2,
+              "name": "Stage 2",
+            },
+            Object {
+              "description": "Stage 3 description",
+              "id": 3,
+              "name": "Stage 3",
+            },
+          ]
+        }
+        decelerationRate="fast"
+        directionalLockEnabled={true}
+        disableVirtualization={false}
+        enableMomentum={false}
+        enableSnap={true}
+        firstItem={1}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        hasParallaxImages={false}
+        horizontal={true}
+        inactiveSlideOpacity={1}
+        inactiveSlideScale={1}
+        inactiveSlideShift={0}
+        initialNumToRender={7}
+        invertStickyHeaders={false}
+        inverted={false}
+        itemWidth={680}
+        keyExtractor={[Function]}
+        layout="default"
+        lockScrollTimeoutDuration={1000}
+        lockScrollWhileSnapping={false}
+        loop={false}
+        loopClonesPerSide={3}
+        maxToRenderPerBatch={15}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onResponderRelease={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        onSnapToItem={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        overScrollMode="never"
+        pinchGestureEnabled={false}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={true}
+        scrollEventThrottle={1}
+        scrollsToTop={false}
+        shouldOptimizeUpdates={true}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        slideStyle={Object {}}
+        sliderWidth={825}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "flex": 0,
+            "flexDirection": "row",
+            "flexGrow": 0,
+            "height": 400,
+            "opacity": 0,
+            "width": 825,
+          }
+        }
+        swipeThreshold={20}
+        updateCellsBatchingPeriod={50}
+        useScrollView={false}
+        vertical={false}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={15}
+      >
+        <View>
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/uninterestedIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 1
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 1 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/uninterestedIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 1
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 1 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="I AM HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="I AM HERE"
-              type="primary"
-            />
           </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/curiousIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 2
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 2 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/curiousIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 2
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 2 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="STILL HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="STILL HERE"
-              type="primary"
-            />
           </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/forgivenIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 3
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 3 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/forgivenIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 3
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 3 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="I AM HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="I AM HERE"
-              type="primary"
-            />
           </View>
         </View>
-      </View>
+      </RCTScrollView>
     </View>
-  </RCTScrollView>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -862,10 +906,8 @@ exports[`renders for other renders correctly 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
       "backgroundColor": "#66D9F0",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -889,401 +931,425 @@ exports[`renders for other renders correctly 1`] = `
       ]
     }
   />
-  <BackButton
-    absolute={true}
-  />
-  <Text
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
-        "color": "#007398",
-        "fontFamily": "SourceSansPro-Regular",
-        "fontSize": 18,
-        "fontWeight": "500",
-        "paddingBottom": 25,
-        "paddingHorizontal": 30,
-        "paddingTop": 45,
-        "textAlign": "center",
-        "width": 650,
+        "flex": 1,
       }
     }
   >
-    Which stage best describes where Person is on their journey?
-  </Text>
-  <RCTScrollView
-    activeAnimationOptions={null}
-    activeAnimationType="timing"
-    activeSlideAlignment="center"
-    activeSlideOffset={20}
-    apparitionDelay={0}
-    automaticallyAdjustContentInsets={false}
-    autoplay={false}
-    autoplayDelay={1000}
-    autoplayInterval={3000}
-    callbackOffsetMargin={5}
-    containerCustomStyle={
-      Object {
-        "flex": 0,
-        "flexGrow": 0,
-        "height": 400,
+    <Header
+      left={<BackButton />}
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
       }
-    }
-    contentContainerCustomStyle={Object {}}
-    contentContainerStyle={
-      Array [
+    />
+    <View
+      style={
         Object {
-          "paddingLeft": 72.5,
-          "paddingRight": 72.5,
-        },
-        Object {},
-      ]
-    }
-    data={
-      Array [
-        Object {
-          "description": "Stage 1 description",
-          "id": 1,
-          "name": "Stage 1",
-        },
-        Object {
-          "description": "Stage 2 description",
-          "id": 2,
-          "name": "Stage 2",
-        },
-        Object {
-          "description": "Stage 3 description",
-          "id": 3,
-          "name": "Stage 3",
-        },
-      ]
-    }
-    decelerationRate="fast"
-    directionalLockEnabled={true}
-    disableVirtualization={false}
-    enableMomentum={false}
-    enableSnap={true}
-    firstItem={0}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    hasParallaxImages={false}
-    horizontal={true}
-    inactiveSlideOpacity={1}
-    inactiveSlideScale={1}
-    inactiveSlideShift={0}
-    initialNumToRender={7}
-    invertStickyHeaders={false}
-    inverted={false}
-    itemWidth={680}
-    keyExtractor={[Function]}
-    layout="default"
-    lockScrollTimeoutDuration={1000}
-    lockScrollWhileSnapping={false}
-    loop={false}
-    loopClonesPerSide={3}
-    maxToRenderPerBatch={15}
-    numColumns={1}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onResponderRelease={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    onSnapToItem={[Function]}
-    onStartShouldSetResponderCapture={[Function]}
-    onTouchEnd={[Function]}
-    onTouchStart={[Function]}
-    overScrollMode="never"
-    pinchGestureEnabled={false}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEnabled={true}
-    scrollEventThrottle={1}
-    scrollsToTop={false}
-    shouldOptimizeUpdates={true}
-    showsHorizontalScrollIndicator={false}
-    showsVerticalScrollIndicator={false}
-    slideStyle={Object {}}
-    sliderWidth={825}
-    stickyHeaderIndices={Array []}
-    style={
-      Object {
-        "flex": 0,
-        "flexDirection": "row",
-        "flexGrow": 0,
-        "height": 400,
-        "opacity": 0,
-        "width": 825,
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
       }
-    }
-    swipeThreshold={20}
-    updateCellsBatchingPeriod={50}
-    useScrollView={false}
-    vertical={false}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={15}
-  >
-    <View>
-      <View
-        onLayout={[Function]}
+    >
+      <Text
         style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
+          Object {
+            "color": "#007398",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 18,
+            "fontWeight": "500",
+            "paddingBottom": 25,
+            "paddingHorizontal": 30,
+            "paddingTop": 45,
+            "textAlign": "center",
+            "width": 650,
+          }
         }
       >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
+        Which stage best describes where Person is on their journey?
+      </Text>
+      <RCTScrollView
+        activeAnimationOptions={null}
+        activeAnimationType="timing"
+        activeSlideAlignment="center"
+        activeSlideOffset={20}
+        apparitionDelay={0}
+        automaticallyAdjustContentInsets={false}
+        autoplay={false}
+        autoplayDelay={1000}
+        autoplayInterval={3000}
+        callbackOffsetMargin={5}
+        containerCustomStyle={
+          Object {
+            "flex": 0,
+            "flexGrow": 0,
+            "height": 400,
           }
-        >
+        }
+        contentContainerCustomStyle={Object {}}
+        contentContainerStyle={
+          Array [
+            Object {
+              "paddingLeft": 72.5,
+              "paddingRight": 72.5,
+            },
+            Object {},
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "description": "Stage 1 description",
+              "id": 1,
+              "name": "Stage 1",
+            },
+            Object {
+              "description": "Stage 2 description",
+              "id": 2,
+              "name": "Stage 2",
+            },
+            Object {
+              "description": "Stage 3 description",
+              "id": 3,
+              "name": "Stage 3",
+            },
+          ]
+        }
+        decelerationRate="fast"
+        directionalLockEnabled={true}
+        disableVirtualization={false}
+        enableMomentum={false}
+        enableSnap={true}
+        firstItem={0}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        hasParallaxImages={false}
+        horizontal={true}
+        inactiveSlideOpacity={1}
+        inactiveSlideScale={1}
+        inactiveSlideShift={0}
+        initialNumToRender={7}
+        invertStickyHeaders={false}
+        inverted={false}
+        itemWidth={680}
+        keyExtractor={[Function]}
+        layout="default"
+        lockScrollTimeoutDuration={1000}
+        lockScrollWhileSnapping={false}
+        loop={false}
+        loopClonesPerSide={3}
+        maxToRenderPerBatch={15}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onResponderRelease={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        onSnapToItem={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        overScrollMode="never"
+        pinchGestureEnabled={false}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={true}
+        scrollEventThrottle={1}
+        scrollsToTop={false}
+        shouldOptimizeUpdates={true}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        slideStyle={Object {}}
+        sliderWidth={825}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "flex": 0,
+            "flexDirection": "row",
+            "flexGrow": 0,
+            "height": 400,
+            "opacity": 0,
+            "width": 825,
+          }
+        }
+        swipeThreshold={20}
+        updateCellsBatchingPeriod={50}
+        useScrollView={false}
+        vertical={false}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={15}
+      >
+        <View>
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/uninterestedIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 1
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 1 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/uninterestedIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 1
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 1 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="HERE"
-              type="primary"
-            />
           </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/curiousIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 2
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 2 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/curiousIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 2
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 2 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="HERE"
-              type="primary"
-            />
           </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/forgivenIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 3
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 3 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/forgivenIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 3
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 3 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="HERE"
-              type="primary"
-            />
           </View>
         </View>
-      </View>
+      </RCTScrollView>
     </View>
-  </RCTScrollView>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -1291,10 +1357,8 @@ exports[`renders for other renders firstItem correctly 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
       "backgroundColor": "#66D9F0",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -1318,401 +1382,425 @@ exports[`renders for other renders firstItem correctly 1`] = `
       ]
     }
   />
-  <BackButton
-    absolute={true}
-  />
-  <Text
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
-        "color": "#007398",
-        "fontFamily": "SourceSansPro-Regular",
-        "fontSize": 18,
-        "fontWeight": "500",
-        "paddingBottom": 25,
-        "paddingHorizontal": 30,
-        "paddingTop": 45,
-        "textAlign": "center",
-        "width": 650,
+        "flex": 1,
       }
     }
   >
-    Which stage best describes where Person is on their journey?
-  </Text>
-  <RCTScrollView
-    activeAnimationOptions={null}
-    activeAnimationType="timing"
-    activeSlideAlignment="center"
-    activeSlideOffset={20}
-    apparitionDelay={0}
-    automaticallyAdjustContentInsets={false}
-    autoplay={false}
-    autoplayDelay={1000}
-    autoplayInterval={3000}
-    callbackOffsetMargin={5}
-    containerCustomStyle={
-      Object {
-        "flex": 0,
-        "flexGrow": 0,
-        "height": 400,
+    <Header
+      left={<BackButton />}
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
       }
-    }
-    contentContainerCustomStyle={Object {}}
-    contentContainerStyle={
-      Array [
+    />
+    <View
+      style={
         Object {
-          "paddingLeft": 72.5,
-          "paddingRight": 72.5,
-        },
-        Object {},
-      ]
-    }
-    data={
-      Array [
-        Object {
-          "description": "Stage 1 description",
-          "id": 1,
-          "name": "Stage 1",
-        },
-        Object {
-          "description": "Stage 2 description",
-          "id": 2,
-          "name": "Stage 2",
-        },
-        Object {
-          "description": "Stage 3 description",
-          "id": 3,
-          "name": "Stage 3",
-        },
-      ]
-    }
-    decelerationRate="fast"
-    directionalLockEnabled={true}
-    disableVirtualization={false}
-    enableMomentum={false}
-    enableSnap={true}
-    firstItem={1}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    hasParallaxImages={false}
-    horizontal={true}
-    inactiveSlideOpacity={1}
-    inactiveSlideScale={1}
-    inactiveSlideShift={0}
-    initialNumToRender={7}
-    invertStickyHeaders={false}
-    inverted={false}
-    itemWidth={680}
-    keyExtractor={[Function]}
-    layout="default"
-    lockScrollTimeoutDuration={1000}
-    lockScrollWhileSnapping={false}
-    loop={false}
-    loopClonesPerSide={3}
-    maxToRenderPerBatch={15}
-    numColumns={1}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onResponderRelease={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    onSnapToItem={[Function]}
-    onStartShouldSetResponderCapture={[Function]}
-    onTouchEnd={[Function]}
-    onTouchStart={[Function]}
-    overScrollMode="never"
-    pinchGestureEnabled={false}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEnabled={true}
-    scrollEventThrottle={1}
-    scrollsToTop={false}
-    shouldOptimizeUpdates={true}
-    showsHorizontalScrollIndicator={false}
-    showsVerticalScrollIndicator={false}
-    slideStyle={Object {}}
-    sliderWidth={825}
-    stickyHeaderIndices={Array []}
-    style={
-      Object {
-        "flex": 0,
-        "flexDirection": "row",
-        "flexGrow": 0,
-        "height": 400,
-        "opacity": 0,
-        "width": 825,
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
       }
-    }
-    swipeThreshold={20}
-    updateCellsBatchingPeriod={50}
-    useScrollView={false}
-    vertical={false}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={15}
-  >
-    <View>
-      <View
-        onLayout={[Function]}
+    >
+      <Text
         style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
+          Object {
+            "color": "#007398",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 18,
+            "fontWeight": "500",
+            "paddingBottom": 25,
+            "paddingHorizontal": 30,
+            "paddingTop": 45,
+            "textAlign": "center",
+            "width": 650,
+          }
         }
       >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
+        Which stage best describes where Person is on their journey?
+      </Text>
+      <RCTScrollView
+        activeAnimationOptions={null}
+        activeAnimationType="timing"
+        activeSlideAlignment="center"
+        activeSlideOffset={20}
+        apparitionDelay={0}
+        automaticallyAdjustContentInsets={false}
+        autoplay={false}
+        autoplayDelay={1000}
+        autoplayInterval={3000}
+        callbackOffsetMargin={5}
+        containerCustomStyle={
+          Object {
+            "flex": 0,
+            "flexGrow": 0,
+            "height": 400,
           }
-        >
+        }
+        contentContainerCustomStyle={Object {}}
+        contentContainerStyle={
+          Array [
+            Object {
+              "paddingLeft": 72.5,
+              "paddingRight": 72.5,
+            },
+            Object {},
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "description": "Stage 1 description",
+              "id": 1,
+              "name": "Stage 1",
+            },
+            Object {
+              "description": "Stage 2 description",
+              "id": 2,
+              "name": "Stage 2",
+            },
+            Object {
+              "description": "Stage 3 description",
+              "id": 3,
+              "name": "Stage 3",
+            },
+          ]
+        }
+        decelerationRate="fast"
+        directionalLockEnabled={true}
+        disableVirtualization={false}
+        enableMomentum={false}
+        enableSnap={true}
+        firstItem={1}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        hasParallaxImages={false}
+        horizontal={true}
+        inactiveSlideOpacity={1}
+        inactiveSlideScale={1}
+        inactiveSlideShift={0}
+        initialNumToRender={7}
+        invertStickyHeaders={false}
+        inverted={false}
+        itemWidth={680}
+        keyExtractor={[Function]}
+        layout="default"
+        lockScrollTimeoutDuration={1000}
+        lockScrollWhileSnapping={false}
+        loop={false}
+        loopClonesPerSide={3}
+        maxToRenderPerBatch={15}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onResponderRelease={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        onSnapToItem={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        overScrollMode="never"
+        pinchGestureEnabled={false}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={true}
+        scrollEventThrottle={1}
+        scrollsToTop={false}
+        shouldOptimizeUpdates={true}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        slideStyle={Object {}}
+        sliderWidth={825}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "flex": 0,
+            "flexDirection": "row",
+            "flexGrow": 0,
+            "height": 400,
+            "opacity": 0,
+            "width": 825,
+          }
+        }
+        swipeThreshold={20}
+        updateCellsBatchingPeriod={50}
+        useScrollView={false}
+        vertical={false}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={15}
+      >
+        <View>
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/uninterestedIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 1
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 1 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/uninterestedIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 1
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 1 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="HERE"
-              type="primary"
-            />
           </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/curiousIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 2
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 2 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/curiousIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 2
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 2 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="STILL HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="STILL HERE"
-              type="primary"
-            />
           </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/forgivenIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 3
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 3 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/forgivenIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 3
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 3 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="HERE"
-              type="primary"
-            />
           </View>
         </View>
-      </View>
+      </RCTScrollView>
     </View>
-  </RCTScrollView>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -1720,10 +1808,8 @@ exports[`renders renders correctly with question text 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
       "backgroundColor": "#66D9F0",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -1747,401 +1833,425 @@ exports[`renders renders correctly with question text 1`] = `
       ]
     }
   />
-  <BackButton
-    absolute={true}
-  />
-  <Text
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
-        "color": "#007398",
-        "fontFamily": "SourceSansPro-Regular",
-        "fontSize": 18,
-        "fontWeight": "500",
-        "paddingBottom": 25,
-        "paddingHorizontal": 30,
-        "paddingTop": 45,
-        "textAlign": "center",
-        "width": 650,
+        "flex": 1,
       }
     }
   >
-    Question?
-  </Text>
-  <RCTScrollView
-    activeAnimationOptions={null}
-    activeAnimationType="timing"
-    activeSlideAlignment="center"
-    activeSlideOffset={20}
-    apparitionDelay={0}
-    automaticallyAdjustContentInsets={false}
-    autoplay={false}
-    autoplayDelay={1000}
-    autoplayInterval={3000}
-    callbackOffsetMargin={5}
-    containerCustomStyle={
-      Object {
-        "flex": 0,
-        "flexGrow": 0,
-        "height": 400,
+    <Header
+      left={<BackButton />}
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
       }
-    }
-    contentContainerCustomStyle={Object {}}
-    contentContainerStyle={
-      Array [
+    />
+    <View
+      style={
         Object {
-          "paddingLeft": 72.5,
-          "paddingRight": 72.5,
-        },
-        Object {},
-      ]
-    }
-    data={
-      Array [
-        Object {
-          "description": "Stage 1 description",
-          "id": 1,
-          "name": "Stage 1",
-        },
-        Object {
-          "description": "Stage 2 description",
-          "id": 2,
-          "name": "Stage 2",
-        },
-        Object {
-          "description": "Stage 3 description",
-          "id": 3,
-          "name": "Stage 3",
-        },
-      ]
-    }
-    decelerationRate="fast"
-    directionalLockEnabled={true}
-    disableVirtualization={false}
-    enableMomentum={false}
-    enableSnap={true}
-    firstItem={0}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    hasParallaxImages={false}
-    horizontal={true}
-    inactiveSlideOpacity={1}
-    inactiveSlideScale={1}
-    inactiveSlideShift={0}
-    initialNumToRender={7}
-    invertStickyHeaders={false}
-    inverted={false}
-    itemWidth={680}
-    keyExtractor={[Function]}
-    layout="default"
-    lockScrollTimeoutDuration={1000}
-    lockScrollWhileSnapping={false}
-    loop={false}
-    loopClonesPerSide={3}
-    maxToRenderPerBatch={15}
-    numColumns={1}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onResponderRelease={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    onSnapToItem={[Function]}
-    onStartShouldSetResponderCapture={[Function]}
-    onTouchEnd={[Function]}
-    onTouchStart={[Function]}
-    overScrollMode="never"
-    pinchGestureEnabled={false}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEnabled={true}
-    scrollEventThrottle={1}
-    scrollsToTop={false}
-    shouldOptimizeUpdates={true}
-    showsHorizontalScrollIndicator={false}
-    showsVerticalScrollIndicator={false}
-    slideStyle={Object {}}
-    sliderWidth={825}
-    stickyHeaderIndices={Array []}
-    style={
-      Object {
-        "flex": 0,
-        "flexDirection": "row",
-        "flexGrow": 0,
-        "height": 400,
-        "opacity": 0,
-        "width": 825,
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
       }
-    }
-    swipeThreshold={20}
-    updateCellsBatchingPeriod={50}
-    useScrollView={false}
-    vertical={false}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={15}
-  >
-    <View>
-      <View
-        onLayout={[Function]}
+    >
+      <Text
         style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
+          Object {
+            "color": "#007398",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 18,
+            "fontWeight": "500",
+            "paddingBottom": 25,
+            "paddingHorizontal": 30,
+            "paddingTop": 45,
+            "textAlign": "center",
+            "width": 650,
+          }
         }
       >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
+        Question?
+      </Text>
+      <RCTScrollView
+        activeAnimationOptions={null}
+        activeAnimationType="timing"
+        activeSlideAlignment="center"
+        activeSlideOffset={20}
+        apparitionDelay={0}
+        automaticallyAdjustContentInsets={false}
+        autoplay={false}
+        autoplayDelay={1000}
+        autoplayInterval={3000}
+        callbackOffsetMargin={5}
+        containerCustomStyle={
+          Object {
+            "flex": 0,
+            "flexGrow": 0,
+            "height": 400,
           }
-        >
+        }
+        contentContainerCustomStyle={Object {}}
+        contentContainerStyle={
+          Array [
+            Object {
+              "paddingLeft": 72.5,
+              "paddingRight": 72.5,
+            },
+            Object {},
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "description": "Stage 1 description",
+              "id": 1,
+              "name": "Stage 1",
+            },
+            Object {
+              "description": "Stage 2 description",
+              "id": 2,
+              "name": "Stage 2",
+            },
+            Object {
+              "description": "Stage 3 description",
+              "id": 3,
+              "name": "Stage 3",
+            },
+          ]
+        }
+        decelerationRate="fast"
+        directionalLockEnabled={true}
+        disableVirtualization={false}
+        enableMomentum={false}
+        enableSnap={true}
+        firstItem={0}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        hasParallaxImages={false}
+        horizontal={true}
+        inactiveSlideOpacity={1}
+        inactiveSlideScale={1}
+        inactiveSlideShift={0}
+        initialNumToRender={7}
+        invertStickyHeaders={false}
+        inverted={false}
+        itemWidth={680}
+        keyExtractor={[Function]}
+        layout="default"
+        lockScrollTimeoutDuration={1000}
+        lockScrollWhileSnapping={false}
+        loop={false}
+        loopClonesPerSide={3}
+        maxToRenderPerBatch={15}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onResponderRelease={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        onSnapToItem={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        overScrollMode="never"
+        pinchGestureEnabled={false}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={true}
+        scrollEventThrottle={1}
+        scrollsToTop={false}
+        shouldOptimizeUpdates={true}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        slideStyle={Object {}}
+        sliderWidth={825}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "flex": 0,
+            "flexDirection": "row",
+            "flexGrow": 0,
+            "height": 400,
+            "opacity": 0,
+            "width": 825,
+          }
+        }
+        swipeThreshold={20}
+        updateCellsBatchingPeriod={50}
+        useScrollView={false}
+        vertical={false}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={15}
+      >
+        <View>
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/uninterestedIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 1
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 1 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/uninterestedIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 1
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 1 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="HERE"
-              type="primary"
-            />
           </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/curiousIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 2
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 2 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/curiousIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 2
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 2 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="HERE"
-              type="primary"
-            />
           </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/forgivenIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 3
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 3 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/forgivenIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 3
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 3 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="HERE"
-              type="primary"
-            />
           </View>
         </View>
-      </View>
+      </RCTScrollView>
     </View>
-  </RCTScrollView>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -2149,10 +2259,8 @@ exports[`renders renders correctly without back button 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
       "backgroundColor": "#66D9F0",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -2176,398 +2284,425 @@ exports[`renders renders correctly without back button 1`] = `
       ]
     }
   />
-  <Text
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
-        "color": "#007398",
-        "fontFamily": "SourceSansPro-Regular",
-        "fontSize": 18,
-        "fontWeight": "500",
-        "paddingBottom": 25,
-        "paddingHorizontal": 30,
-        "paddingTop": 45,
-        "textAlign": "center",
-        "width": 650,
+        "flex": 1,
       }
     }
   >
-    Which stage best describes where Person is on their journey?
-  </Text>
-  <RCTScrollView
-    activeAnimationOptions={null}
-    activeAnimationType="timing"
-    activeSlideAlignment="center"
-    activeSlideOffset={20}
-    apparitionDelay={0}
-    automaticallyAdjustContentInsets={false}
-    autoplay={false}
-    autoplayDelay={1000}
-    autoplayInterval={3000}
-    callbackOffsetMargin={5}
-    containerCustomStyle={
-      Object {
-        "flex": 0,
-        "flexGrow": 0,
-        "height": 400,
+    <Header
+      left={<BackButton />}
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
       }
-    }
-    contentContainerCustomStyle={Object {}}
-    contentContainerStyle={
-      Array [
+    />
+    <View
+      style={
         Object {
-          "paddingLeft": 72.5,
-          "paddingRight": 72.5,
-        },
-        Object {},
-      ]
-    }
-    data={
-      Array [
-        Object {
-          "description": "Stage 1 description",
-          "id": 1,
-          "name": "Stage 1",
-        },
-        Object {
-          "description": "Stage 2 description",
-          "id": 2,
-          "name": "Stage 2",
-        },
-        Object {
-          "description": "Stage 3 description",
-          "id": 3,
-          "name": "Stage 3",
-        },
-      ]
-    }
-    decelerationRate="fast"
-    directionalLockEnabled={true}
-    disableVirtualization={false}
-    enableMomentum={false}
-    enableSnap={true}
-    firstItem={0}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    hasParallaxImages={false}
-    horizontal={true}
-    inactiveSlideOpacity={1}
-    inactiveSlideScale={1}
-    inactiveSlideShift={0}
-    initialNumToRender={7}
-    invertStickyHeaders={false}
-    inverted={false}
-    itemWidth={680}
-    keyExtractor={[Function]}
-    layout="default"
-    lockScrollTimeoutDuration={1000}
-    lockScrollWhileSnapping={false}
-    loop={false}
-    loopClonesPerSide={3}
-    maxToRenderPerBatch={15}
-    numColumns={1}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onResponderRelease={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    onSnapToItem={[Function]}
-    onStartShouldSetResponderCapture={[Function]}
-    onTouchEnd={[Function]}
-    onTouchStart={[Function]}
-    overScrollMode="never"
-    pinchGestureEnabled={false}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEnabled={true}
-    scrollEventThrottle={1}
-    scrollsToTop={false}
-    shouldOptimizeUpdates={true}
-    showsHorizontalScrollIndicator={false}
-    showsVerticalScrollIndicator={false}
-    slideStyle={Object {}}
-    sliderWidth={825}
-    stickyHeaderIndices={Array []}
-    style={
-      Object {
-        "flex": 0,
-        "flexDirection": "row",
-        "flexGrow": 0,
-        "height": 400,
-        "opacity": 0,
-        "width": 825,
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
       }
-    }
-    swipeThreshold={20}
-    updateCellsBatchingPeriod={50}
-    useScrollView={false}
-    vertical={false}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={15}
-  >
-    <View>
-      <View
-        onLayout={[Function]}
+    >
+      <Text
         style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
+          Object {
+            "color": "#007398",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 18,
+            "fontWeight": "500",
+            "paddingBottom": 25,
+            "paddingHorizontal": 30,
+            "paddingTop": 45,
+            "textAlign": "center",
+            "width": 650,
+          }
         }
       >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
+        Which stage best describes where Person is on their journey?
+      </Text>
+      <RCTScrollView
+        activeAnimationOptions={null}
+        activeAnimationType="timing"
+        activeSlideAlignment="center"
+        activeSlideOffset={20}
+        apparitionDelay={0}
+        automaticallyAdjustContentInsets={false}
+        autoplay={false}
+        autoplayDelay={1000}
+        autoplayInterval={3000}
+        callbackOffsetMargin={5}
+        containerCustomStyle={
+          Object {
+            "flex": 0,
+            "flexGrow": 0,
+            "height": 400,
           }
-        >
+        }
+        contentContainerCustomStyle={Object {}}
+        contentContainerStyle={
+          Array [
+            Object {
+              "paddingLeft": 72.5,
+              "paddingRight": 72.5,
+            },
+            Object {},
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "description": "Stage 1 description",
+              "id": 1,
+              "name": "Stage 1",
+            },
+            Object {
+              "description": "Stage 2 description",
+              "id": 2,
+              "name": "Stage 2",
+            },
+            Object {
+              "description": "Stage 3 description",
+              "id": 3,
+              "name": "Stage 3",
+            },
+          ]
+        }
+        decelerationRate="fast"
+        directionalLockEnabled={true}
+        disableVirtualization={false}
+        enableMomentum={false}
+        enableSnap={true}
+        firstItem={0}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        hasParallaxImages={false}
+        horizontal={true}
+        inactiveSlideOpacity={1}
+        inactiveSlideScale={1}
+        inactiveSlideShift={0}
+        initialNumToRender={7}
+        invertStickyHeaders={false}
+        inverted={false}
+        itemWidth={680}
+        keyExtractor={[Function]}
+        layout="default"
+        lockScrollTimeoutDuration={1000}
+        lockScrollWhileSnapping={false}
+        loop={false}
+        loopClonesPerSide={3}
+        maxToRenderPerBatch={15}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onResponderRelease={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        onSnapToItem={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        overScrollMode="never"
+        pinchGestureEnabled={false}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={true}
+        scrollEventThrottle={1}
+        scrollsToTop={false}
+        shouldOptimizeUpdates={true}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        slideStyle={Object {}}
+        sliderWidth={825}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "flex": 0,
+            "flexDirection": "row",
+            "flexGrow": 0,
+            "height": 400,
+            "opacity": 0,
+            "width": 825,
+          }
+        }
+        swipeThreshold={20}
+        updateCellsBatchingPeriod={50}
+        useScrollView={false}
+        vertical={false}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={15}
+      >
+        <View>
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/uninterestedIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 1
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 1 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/uninterestedIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 1
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 1 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="HERE"
-              type="primary"
-            />
           </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/curiousIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 2
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 2 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/curiousIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 2
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 2 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="HERE"
-              type="primary"
-            />
           </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View
-          pointerEvents="box-none"
-          style={
-            Array [
-              Object {
-                "width": 680,
-              },
-              Object {},
-              Object {},
-            ]
-          }
-        >
           <View
+            onLayout={[Function]}
             style={
-              Object {
-                "backgroundColor": "#ffffff",
-                "height": 320,
-                "justifyContent": "space-between",
-                "marginHorizontal": 25,
-                "width": 630,
-              }
+              Array [
+                Object {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
             }
           >
             <View
+              pointerEvents="box-none"
               style={
-                Object {
-                  "alignItems": "center",
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 30,
-                }
+                Array [
+                  Object {
+                    "width": 680,
+                  },
+                  Object {},
+                  Object {},
+                ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/forgivenIcon.png",
-                  }
-                }
-              />
-              <Text
-                header={true}
+              <View
                 style={
                   Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "padding": 5,
-                    "textAlign": "center",
+                    "backgroundColor": "#ffffff",
+                    "height": 320,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 25,
+                    "width": 630,
                   }
                 }
               >
-                stage 3
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "padding": 5,
-                    "textAlign": "center",
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "paddingLeft": 15,
+                      "paddingRight": 15,
+                      "paddingTop": 30,
+                    }
                   }
-                }
-              >
-                Stage 3 description
-              </Text>
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/forgivenIcon.png",
+                      }
+                    }
+                  />
+                  <Text
+                    header={true}
+                    style={
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    stage 3
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "padding": 5,
+                        "textAlign": "center",
+                      }
+                    }
+                  >
+                    Stage 3 description
+                  </Text>
+                </View>
+                <Button
+                  onPress={[Function]}
+                  testID="stageSelectButton"
+                  text="HERE"
+                  type="primary"
+                />
+              </View>
             </View>
-            <Button
-              onPress={[Function]}
-              testID="stageSelectButton"
-              text="HERE"
-              type="primary"
-            />
           </View>
         </View>
-      </View>
+      </RCTScrollView>
     </View>
-  </RCTScrollView>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -2575,10 +2710,8 @@ exports[`renders renders correctly without stages 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
       "backgroundColor": "#66D9F0",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -2602,25 +2735,49 @@ exports[`renders renders correctly without stages 1`] = `
       ]
     }
   />
-  <BackButton
-    absolute={true}
-  />
-  <Text
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
-        "color": "#007398",
-        "fontFamily": "SourceSansPro-Regular",
-        "fontSize": 18,
-        "fontWeight": "500",
-        "paddingBottom": 25,
-        "paddingHorizontal": 30,
-        "paddingTop": 45,
-        "textAlign": "center",
-        "width": 650,
+        "flex": 1,
       }
     }
   >
-    Which stage best describes where Person is on their journey?
-  </Text>
+    <Header
+      left={<BackButton />}
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#007398",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 18,
+            "fontWeight": "500",
+            "paddingBottom": 25,
+            "paddingHorizontal": 30,
+            "paddingTop": 45,
+            "textAlign": "center",
+            "width": 650,
+          }
+        }
+      >
+        Which stage best describes where Person is on their journey?
+      </Text>
+    </View>
+  </RCTSafeAreaView>
 </View>
 `;
