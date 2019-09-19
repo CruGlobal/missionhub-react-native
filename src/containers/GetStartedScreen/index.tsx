@@ -49,7 +49,7 @@ const GetStartedScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header left={<BackButton />} />
+      <Header left={enableBackButton ? <BackButton /> : null} />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex align="start" justify="center" value={4}>
           <Text header={true} style={styles.headerTitle}>

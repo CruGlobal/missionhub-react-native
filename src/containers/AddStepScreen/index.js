@@ -135,6 +135,7 @@ class AddStepScreen extends Component {
               <Skip onSkip={this.skip} textStyle={skipBtnText} />
             ) : null
           }
+          style={{ backgroundColor: undefined }}
         />
         <StatusBar {...theme.statusBar.darkContent} />
         <Flex value={1} align="stretch" justify="center" style={fieldWrap}>
