@@ -1,235 +1,235 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
+      "flexDirection": "column",
     }
   }
 >
-  <SafeAreaView
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
+  <Header
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#B4B6BA",
+            "fontSize": 16,
+          }
+        }
+      />
+    }
     style={
       Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
-        "flexDirection": "column",
-      }
-    }
-  >
-    <StatusBar
-      animated={true}
-      backgroundColor="#006789"
-      barStyle="dark-content"
-      showHideTransition="fade"
-    />
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <Input
-        autoCorrect={true}
-        autoFocus={false}
-        blurOnSubmit={true}
-        multiline={true}
-        onChangeText={[Function]}
-        placeholder="New Challenge"
-        placeholderTextColor="#B4B6BA"
-        returnKeyType="done"
-        selectionColor="#52C5DC"
-        style={
-          Object {
-            "borderBottomWidth": 0,
-            "color": "#B4B6BA",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "marginBottom": 26,
-            "marginTop": 64,
-            "paddingHorizontal": 32,
-          }
-        }
-        value=""
-      />
-      <withI18nextTranslation(MyDatePickerIOS)
-        customStyles={Object {}}
-        date=""
-        disabled={false}
-        duration={300}
-        height={259}
-        minDate={2018-09-01T00:00:00.000Z}
-        mode="date"
-        onDateChange={[Function]}
-      >
-        <View
-          style={
-            Object {
-              "borderBottomWidth": 1,
-              "borderColor": "#ECEEF2",
-              "borderTopWidth": 1,
-              "paddingHorizontal": 32,
-              "paddingVertical": 16,
-            }
-          }
-        >
-          <MyText
-            style={
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 10,
-              }
-            }
-          >
-            End Date
-          </MyText>
-          <MyText
-            style={
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 16,
-                "lineHeight": 22,
-              }
-            }
-          >
-            End Date (Required)
-          </MyText>
-        </View>
-      </withI18nextTranslation(MyDatePickerIOS)>
-    </View>
-    <BottomButton
-      disabled={true}
-      onPress={[Function]}
-      text="Create Challenge"
-    />
-  </SafeAreaView>
-  <Connect(BackButton)
-    absolute={true}
-    iconStyle={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 16,
+        "backgroundColor": undefined,
       }
     }
   />
-</View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Input
+      autoCorrect={true}
+      autoFocus={false}
+      blurOnSubmit={true}
+      multiline={true}
+      onChangeText={[Function]}
+      placeholder="New Challenge"
+      placeholderTextColor="#B4B6BA"
+      returnKeyType="done"
+      selectionColor="#52C5DC"
+      style={
+        Object {
+          "borderBottomWidth": 0,
+          "color": "#B4B6BA",
+          "fontSize": 32,
+          "fontWeight": "300",
+          "lineHeight": 38,
+          "marginBottom": 26,
+          "marginTop": 64,
+          "paddingHorizontal": 32,
+        }
+      }
+      value=""
+    />
+    <withI18nextTranslation(MyDatePickerIOS)
+      customStyles={Object {}}
+      date=""
+      disabled={false}
+      duration={300}
+      height={259}
+      minDate={2018-09-01T00:00:00.000Z}
+      mode="date"
+      onDateChange={[Function]}
+    >
+      <View
+        style={
+          Object {
+            "borderBottomWidth": 1,
+            "borderColor": "#ECEEF2",
+            "borderTopWidth": 1,
+            "paddingHorizontal": 32,
+            "paddingVertical": 16,
+          }
+        }
+      >
+        <MyText
+          style={
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 10,
+            }
+          }
+        >
+          End Date
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 16,
+              "lineHeight": 22,
+            }
+          }
+        >
+          End Date (Required)
+        </MyText>
+      </View>
+    </withI18nextTranslation(MyDatePickerIOS)>
+  </View>
+  <BottomButton
+    disabled={true}
+    onPress={[Function]}
+    text="Create Challenge"
+  />
+</SafeAreaView>
 `;
 
 exports[`renders edit challenge correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
+      "flexDirection": "column",
     }
   }
 >
-  <SafeAreaView
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
+  <Header
+    left={
+      <Connect(BackButton)
+        iconStyle={
+          Object {
+            "color": "#B4B6BA",
+            "fontSize": 16,
+          }
+        }
+      />
+    }
     style={
       Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
-        "flexDirection": "column",
-      }
-    }
-  >
-    <StatusBar
-      animated={true}
-      backgroundColor="#006789"
-      barStyle="dark-content"
-      showHideTransition="fade"
-    />
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <Input
-        autoCorrect={true}
-        autoFocus={false}
-        blurOnSubmit={true}
-        multiline={true}
-        onChangeText={[Function]}
-        placeholder="Edit Challenge"
-        placeholderTextColor="#B4B6BA"
-        returnKeyType="done"
-        selectionColor="#52C5DC"
-        style={
-          Object {
-            "borderBottomWidth": 0,
-            "color": "#B4B6BA",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "marginBottom": 26,
-            "marginTop": 64,
-            "paddingHorizontal": 32,
-          }
-        }
-        value="Test Title"
-      />
-      <withI18nextTranslation(MyDatePickerIOS)
-        customStyles={Object {}}
-        date="2018-09-30 23:59:59"
-        disabled={false}
-        duration={300}
-        height={259}
-        minDate={2018-09-01T00:00:00.000Z}
-        mode="date"
-        onDateChange={[Function]}
-      >
-        <View
-          style={
-            Object {
-              "borderBottomWidth": 1,
-              "borderColor": "#ECEEF2",
-              "borderTopWidth": 1,
-              "paddingHorizontal": 32,
-              "paddingVertical": 16,
-            }
-          }
-        >
-          <MyText
-            style={
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 10,
-              }
-            }
-          >
-            End Date
-          </MyText>
-          <MyText
-            style={
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 16,
-                "lineHeight": 22,
-              }
-            }
-          >
-            September 30, 2018
-          </MyText>
-        </View>
-      </withI18nextTranslation(MyDatePickerIOS)>
-    </View>
-    <BottomButton
-      disabled={true}
-      onPress={[Function]}
-      text="Save Changes"
-    />
-  </SafeAreaView>
-  <Connect(BackButton)
-    absolute={true}
-    iconStyle={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 16,
+        "backgroundColor": undefined,
       }
     }
   />
-</View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Input
+      autoCorrect={true}
+      autoFocus={false}
+      blurOnSubmit={true}
+      multiline={true}
+      onChangeText={[Function]}
+      placeholder="Edit Challenge"
+      placeholderTextColor="#B4B6BA"
+      returnKeyType="done"
+      selectionColor="#52C5DC"
+      style={
+        Object {
+          "borderBottomWidth": 0,
+          "color": "#B4B6BA",
+          "fontSize": 32,
+          "fontWeight": "300",
+          "lineHeight": 38,
+          "marginBottom": 26,
+          "marginTop": 64,
+          "paddingHorizontal": 32,
+        }
+      }
+      value="Test Title"
+    />
+    <withI18nextTranslation(MyDatePickerIOS)
+      customStyles={Object {}}
+      date="2018-09-30 23:59:59"
+      disabled={false}
+      duration={300}
+      height={259}
+      minDate={2018-09-01T00:00:00.000Z}
+      mode="date"
+      onDateChange={[Function]}
+    >
+      <View
+        style={
+          Object {
+            "borderBottomWidth": 1,
+            "borderColor": "#ECEEF2",
+            "borderTopWidth": 1,
+            "paddingHorizontal": 32,
+            "paddingVertical": 16,
+          }
+        }
+      >
+        <MyText
+          style={
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 10,
+            }
+          }
+        >
+          End Date
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 16,
+              "lineHeight": 22,
+            }
+          }
+        >
+          September 30, 2018
+        </MyText>
+      </View>
+    </withI18nextTranslation(MyDatePickerIOS)>
+  </View>
+  <BottomButton
+    disabled={true}
+    onPress={[Function]}
+    text="Save Changes"
+  />
+</SafeAreaView>
 `;

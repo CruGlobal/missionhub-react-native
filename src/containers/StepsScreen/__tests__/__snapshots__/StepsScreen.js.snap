@@ -174,7 +174,15 @@ exports[`StepsScreen renders loading screen correctly 1`] = `
     }
     title="STEPS OF FAITH"
   />
-  <LoadingGuy />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <LoadingGuy />
+  </View>
 </SafeAreaView>
 `;
 

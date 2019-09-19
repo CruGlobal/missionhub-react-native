@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contact hides the header when the keyboard is shown 1`] = `
-<View>
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#007398",
+    }
+  }
+>
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -28,7 +34,6 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "paddingVertical": 10,
         },
         Object {
@@ -99,11 +104,18 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
       }
     />
   </Flex>
-</View>
+</SafeAreaView>
 `;
 
 exports[`Contact should render AssignedPersonScreen correctly with stage for User-Created Community 1`] = `
-<_class>
+<_class
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#007398",
+    }
+  }
+>
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -129,7 +141,6 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for Use
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "paddingVertical": 10,
         },
         undefined,
@@ -192,7 +203,14 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for Use
 `;
 
 exports[`Contact should render AssignedPersonScreen correctly with stage for cru community 1`] = `
-<_class>
+<_class
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#007398",
+    }
+  }
+>
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -218,7 +236,6 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for cru
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "paddingVertical": 10,
         },
         undefined,
@@ -290,7 +307,14 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for cru
 `;
 
 exports[`Contact should render AssignedPersonScreen correctly without stage 1`] = `
-<_class>
+<_class
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#007398",
+    }
+  }
+>
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -316,7 +340,6 @@ exports[`Contact should render AssignedPersonScreen correctly without stage 1`] 
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "paddingVertical": 10,
         },
         undefined,
