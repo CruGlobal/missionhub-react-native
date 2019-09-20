@@ -166,7 +166,6 @@ class AddContactScreen extends Component {
               onPress={this.completeWithoutSave}
             />
           }
-          shadow={false}
           title={
             person
               ? t('editPerson').toUpperCase()

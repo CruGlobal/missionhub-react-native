@@ -6,9 +6,6 @@ export default StyleSheet.create({
   flex1: {
     flex: 1,
   },
-  bgWhite: {
-    backgroundColor: theme.white,
-  },
   backButton: {
     color: theme.inactiveColor,
   },

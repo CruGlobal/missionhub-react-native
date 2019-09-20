@@ -10,9 +10,6 @@ export default StyleSheet.create({
   flex: {
     flex: 1,
   },
-  topNav: {
-    backgroundColor: 'rgba(0, 0, 0, 0.05)',
-  },
   imageWrap: {
     position: 'relative',
     borderRadius: 4,

@@ -121,7 +121,6 @@ const GroupsListScreen = ({
           />
         }
         title={t('header').toUpperCase()}
-        shadow={false}
       />
       <Flex direction="row">
         <Flex value={1}>

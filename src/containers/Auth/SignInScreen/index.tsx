@@ -145,7 +145,7 @@ const SignInScreen = ({
   return (
     <SafeAreaView style={styles.container}>
       {renderErrorMessage()}
-      <Header left={forcedLogout ? null : <BackButton />} shadow={false} />
+      <Header left={forcedLogout ? null : <BackButton />} />
       {showLogo ? (
         <Flex align="center" justify="center">
           {forcedLogout ? (

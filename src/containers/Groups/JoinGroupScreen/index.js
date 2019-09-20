@@ -124,7 +124,6 @@ class JoinGroupScreen extends Component {
       <SafeAreaView style={styles.container}>
         <Header
           left={<BackButton customIcon="deleteIcon" />}
-          shadow={false}
           title={t('joinCommunity')}
         />
         <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
