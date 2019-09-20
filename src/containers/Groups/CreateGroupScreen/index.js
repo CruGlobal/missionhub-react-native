@@ -110,7 +110,7 @@ class CreateGroupScreen extends Component {
     const { name, isCreatingCommunity } = this.state;
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Header
           left={
             <IconButton
@@ -122,7 +122,7 @@ class CreateGroupScreen extends Component {
           shadow={false}
           title={t('createCommunity')}
         />
-        <SafeAreaView style={{ flex: 1 }}>
+        <View style={{ flex: 1 }}>
           <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
             <ImagePicker onSelectImage={this.handleImageChange}>
               <Flex align="center" justify="center" style={styles.imageWrap}>
@@ -159,8 +159,8 @@ class CreateGroupScreen extends Component {
             onPress={this.createCommunity}
             text={t('createCommunity')}
           />
-        </SafeAreaView>
-      </View>
+        </View>
+      </SafeAreaView>
     );
   }
 }

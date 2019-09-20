@@ -11,10 +11,6 @@ export default StyleSheet.create({
     flex: 1,
   },
   topNav: {
-    // position: 'absolute',
-    // top: 0,
-    // left: 0,
-    // right: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.05)',
   },
   imageWrap: {

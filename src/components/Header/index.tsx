@@ -30,7 +30,7 @@ const Header = ({
   title2,
   titleStyle,
   style,
-  shadow = true,
+  shadow = false,
 }: HeaderProps) => {
   const renderCenter = () => {
     if (title && title2) {
