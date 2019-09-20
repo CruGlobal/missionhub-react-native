@@ -56,3 +56,4 @@ Components to convert to TS+Hooks
 - RefreshControl
 - ReminderDateText
 - Separator
+- TrackTabChange
