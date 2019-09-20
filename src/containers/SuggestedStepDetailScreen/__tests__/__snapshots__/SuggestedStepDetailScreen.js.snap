@@ -13,14 +13,11 @@ exports[`renders correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": "#ffffff",
-        },
+        undefined,
         null,
       ]
     }

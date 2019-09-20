@@ -16,17 +16,12 @@ exports[`renders create step correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": undefined,
-        },
-        Object {
-          "elevation": 4,
-        },
+        undefined,
+        null,
       ]
     }
   >
@@ -276,17 +271,12 @@ exports[`renders edit journey item correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": undefined,
-        },
-        Object {
-          "elevation": 4,
-        },
+        undefined,
+        null,
       ]
     }
   >
@@ -535,17 +525,12 @@ exports[`renders edit journey step correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": undefined,
-        },
-        Object {
-          "elevation": 4,
-        },
+        undefined,
+        null,
       ]
     }
   >
@@ -794,17 +779,12 @@ exports[`renders interaction with skip correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": undefined,
-        },
-        Object {
-          "elevation": 4,
-        },
+        undefined,
+        null,
       ]
     }
   >
@@ -1125,17 +1105,12 @@ exports[`renders interaction without skip correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": undefined,
-        },
-        Object {
-          "elevation": 4,
-        },
+        undefined,
+        null,
       ]
     }
   >
@@ -1384,17 +1359,12 @@ exports[`renders journey correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": undefined,
-        },
-        Object {
-          "elevation": 4,
-        },
+        undefined,
+        null,
       ]
     }
   >
@@ -1643,17 +1613,12 @@ exports[`renders step note correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": undefined,
-        },
-        Object {
-          "elevation": 4,
-        },
+        undefined,
+        null,
       ]
     }
   >
@@ -1974,17 +1939,12 @@ exports[`renders step note correctly for me 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": undefined,
-        },
-        Object {
-          "elevation": 4,
-        },
+        undefined,
+        null,
       ]
     }
   >
@@ -2305,17 +2265,12 @@ exports[`renders step note edit correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": undefined,
-        },
-        Object {
-          "elevation": 4,
-        },
+        undefined,
+        null,
       ]
     }
   >
@@ -2636,17 +2591,12 @@ exports[`renders step note edit correctly for me 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": undefined,
-        },
-        Object {
-          "elevation": 4,
-        },
+        undefined,
+        null,
       ]
     }
   >
@@ -2956,7 +2906,7 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -258,11 +258,11 @@
+@@ -253,11 +253,11 @@
           ]
         }
         testID=\\"stepInput\\"

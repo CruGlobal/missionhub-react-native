@@ -21,7 +21,6 @@ exports[`GroupsListScreen should render correctly 1`] = `
         type="MissionHub"
       />
     }
-    shadow={false}
     title="COMMUNITIES"
   />
   <Flex
@@ -150,7 +149,6 @@ exports[`should render null state 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,

@@ -16,7 +16,6 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
@@ -311,7 +310,6 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
@@ -607,7 +605,6 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
         customIcon="deleteIcon"
       />
     }
-    shadow={false}
     title="Join a Community"
   />
   <ScrollViewMock
@@ -711,7 +708,6 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
         customIcon="deleteIcon"
       />
     }
-    shadow={false}
     title="Join a Community"
   />
   <ScrollViewMock
@@ -806,7 +802,6 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
         customIcon="deleteIcon"
       />
     }
-    shadow={false}
     title="Join a Community"
   />
   <ScrollViewMock

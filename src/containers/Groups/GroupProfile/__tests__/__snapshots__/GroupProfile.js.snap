@@ -46,12 +46,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           type="transparent"
         />
       }
-      shadow={false}
-      style={
-        Object {
-          "backgroundColor": "rgba(0, 0, 0, 0.05)",
-        }
-      }
     />
   </SafeAreaView>
   <View
@@ -471,12 +465,6 @@ exports[`GroupProfile renders correctly 1`] = `
           type="transparent"
         />
       }
-      shadow={false}
-      style={
-        Object {
-          "backgroundColor": "rgba(0, 0, 0, 0.05)",
-        }
-      }
     />
   </SafeAreaView>
   <View
@@ -832,12 +820,6 @@ exports[`GroupProfile renders with image 1`] = `
           type="transparent"
         />
       }
-      shadow={false}
-      style={
-        Object {
-          "backgroundColor": "rgba(0, 0, 0, 0.05)",
-        }
-      }
     />
   </SafeAreaView>
   <View
@@ -1175,12 +1157,6 @@ exports[`GroupProfile renders without edit button 1`] = `
         />
       }
       right={null}
-      shadow={false}
-      style={
-        Object {
-          "backgroundColor": "rgba(0, 0, 0, 0.05)",
-        }
-      }
     />
   </SafeAreaView>
   <View

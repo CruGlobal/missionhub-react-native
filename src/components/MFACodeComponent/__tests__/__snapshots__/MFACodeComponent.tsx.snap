@@ -5,7 +5,7 @@ exports[`should change loading state 1`] = `
 - First value
 + Second value
 
-@@ -124,6 +124,7 @@
+@@ -121,6 +121,7 @@
           testID=\\"mfaCodeInput\\"
           value=\\"Roge\\"
         />
@@ -20,7 +20,7 @@ exports[`should change loading state 2`] = `
 - First value
 + Second value
 
-@@ -124,7 +124,6 @@
+@@ -121,7 +121,6 @@
           testID=\\"mfaCodeInput\\"
           value=\\"Roge\\"
         />
@@ -46,15 +46,12 @@ exports[`should render correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
         undefined,
-        Object {
-          "elevation": 4,
-        },
+        null,
       ]
     }
   >

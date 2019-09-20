@@ -21,7 +21,6 @@ exports[`Contact should render correctly 1`] = `
   >
     <Header
       left={<Connect(BackButton) />}
-      shadow={false}
       title="Test Org"
     />
     <GroupsContactList
