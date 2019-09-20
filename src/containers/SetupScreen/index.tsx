@@ -57,7 +57,7 @@ const SetupScreen = ({
     return true;
   };
 
-  useAndroidBackButton(false, handleBack);
+  useAndroidBackButton(true, handleBack);
 
   const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation('setup');

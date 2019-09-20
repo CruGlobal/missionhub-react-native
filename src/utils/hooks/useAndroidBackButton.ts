@@ -20,9 +20,11 @@ export const useAndroidBackButton = (
   const handleBackPress = () => {
     if (enableBackButton) {
       if (onBackPress) {
-        return onBackPress();
+        onBackPress();
+        return true;
+      } else {
+        dispatch(navigateBack());
       }
-      return dispatch(navigateBack());
     }
     return true;
   };
@@ -44,5 +46,5 @@ export const useAndroidBackButton = (
   useEffect(() => {
     addListeners();
     return removeListeners;
-  }, []);
+  });
 };
