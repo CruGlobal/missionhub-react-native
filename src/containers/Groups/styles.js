@@ -90,7 +90,6 @@ export default StyleSheet.create({
     shadowRadius: 2,
   },
   unreadTitle: {
-    color: theme.darkText,
     fontWeight: '400',
   },
   reportHeader: {

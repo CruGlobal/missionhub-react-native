@@ -3,7 +3,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { renderShallow } from '../../../../testUtils/index';
+import { renderShallow } from '../../../../testUtils';
 import { personSelector } from '../../../selectors/people';
 import { SelectPersonStageFlowScreens } from '../selectPersonStageFlow';
 import {

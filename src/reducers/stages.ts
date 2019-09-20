@@ -1,12 +1,14 @@
 import { REQUESTS } from '../api/routes';
 import { LOGOUT } from '../constants';
-import { getLocalizedStages } from '../utils/common';
+import { getLocalizedStages } from '../utils/stages';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Stage = any;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type LocalizedStage = any;
+
 export interface StagesState {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   stages: Stage[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   stagesObj: any;
