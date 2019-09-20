@@ -21,11 +21,9 @@
 		C94332D1FCF94D2F8593997B /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7072D8285274B48B52A3361 /* SourceSansPro-Italic.ttf */; };
 		D151858121E94E760052EF4C /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D151858021E94E760052EF4C /* icomoon.ttf */; };
 		D151858221E94E760052EF4C /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D151858021E94E760052EF4C /* icomoon.ttf */; };
-		D1835D2C205BFA5800DDB80A /* ADBMobileConfig_debug.json in Resources */ = {isa = PBXBuildFile; fileRef = D1835D2B205BFA5800DDB80A /* ADBMobileConfig_debug.json */; };
 		D3D4E35331C34B429DE06476 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C23C5D26FAD84794B4657E73 /* AmaticSC-Bold.ttf */; };
 		E9C86B0837B54AF5A72E3354 /* SourceSansPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2960542B760438B8F59CE0A /* SourceSansPro-ExtraLight.ttf */; };
 		EF1863CAC1DC4A5DA93AB5C5 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05632B7B95D04A408E9EEE6D /* SourceSansPro-Bold.ttf */; };
-		FA45FFEB1FFE7DD100153E56 /* ADBMobileConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = FA45FFBF1FFE7D9600153E56 /* ADBMobileConfig.json */; };
 		FA45FFED1FFE7DFD00153E56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA45FFEC1FFE7DFD00153E56 /* SystemConfiguration.framework */; };
 		FA45FFEF1FFE7E0900153E56 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA45FFEE1FFE7E0900153E56 /* libsqlite3.0.tbd */; };
 		FD487B586E344F67806CD6AD /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 965575DE5A994FE09AA10EC4 /* SourceSansPro-Regular.ttf */; };
@@ -362,9 +360,7 @@
 				D3D4E35331C34B429DE06476 /* AmaticSC-Bold.ttf in Resources */,
 				EF1863CAC1DC4A5DA93AB5C5 /* SourceSansPro-Bold.ttf in Resources */,
 				93DE339021B196A10057B6A7 /* GoogleService-Info.plist in Resources */,
-				D1835D2C205BFA5800DDB80A /* ADBMobileConfig_debug.json in Resources */,
 				FD487B586E344F67806CD6AD /* SourceSansPro-Regular.ttf in Resources */,
-				FA45FFEB1FFE7DD100153E56 /* ADBMobileConfig.json in Resources */,
 				E9C86B0837B54AF5A72E3354 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				5CAB4F9E946B4554BF76FDE1 /* SourceSansPro-Light.ttf in Resources */,
 				C94332D1FCF94D2F8593997B /* SourceSansPro-Italic.ttf in Resources */,
