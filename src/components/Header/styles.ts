@@ -6,7 +6,6 @@ export default StyleSheet.create({
   header: {
     flexDirection: 'row',
     height: theme.headerHeight,
-    backgroundColor: theme.primaryColor,
     paddingTop: 0,
   },
   shadow: {

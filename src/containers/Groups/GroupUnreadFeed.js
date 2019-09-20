@@ -66,6 +66,7 @@ class GroupUnreadFeed extends Component {
     return (
       <View style={styles.pageContainer}>
         <StatusBar {...theme.statusBar.darkContent} />
+        <SafeAreaView>
         <Header
           left={
             <IconButton
@@ -89,7 +90,8 @@ class GroupUnreadFeed extends Component {
           titleStyle={styles.unreadTitle}
           shadow={true}
         />
-        <SafeAreaView style={styles.cardList}>
+        </SafeAreaView>
+        <View style={styles.cardList}>
           <CelebrateFeed
             organization={organization}
             items={items}
@@ -99,7 +101,7 @@ class GroupUnreadFeed extends Component {
             noHeader={true}
             onClearNotification={this.clearNotification}
           />
-        </SafeAreaView>
+        </View>
       </View>
     );
   }

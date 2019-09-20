@@ -32,6 +32,7 @@ class UnassignedPersonScreen extends Component {
 
     return (
       <>
+        {/* Duplicate SafeAreaViews allow the top to be a different color than the bottom. https://medium.com/reactbrasil/react-native-set-different-colors-on-top-and-bottom-in-safeareaview-component-f008823483f3#1346 */}
         <SafeAreaView style={styles.topSafeArea} />
         <SafeAreaView style={styles.container}>
           <Header
