@@ -227,7 +227,6 @@ export class AssignedPersonScreen extends Component {
               onPress={this.openDrawer}
             />
           }
-          shadow={false}
           title={keyboardVisible ? name : organization.name}
           title2={keyboardVisible ? organization.name : undefined}
         />

@@ -226,7 +226,7 @@ const SelectStageScreen = ({
         ]}
       />
       <SafeAreaView style={styles.container}>
-        <Header left={<BackButton />} style={{ backgroundColor: undefined }} />
+        <Header left={<BackButton />} />
         <View style={styles.content}>
           <Text style={styles.title}>{headerText}</Text>
           {stages ? (

@@ -91,7 +91,6 @@ class GroupScreen extends Component {
               onPress={this.back}
             />
           }
-          shadow={false}
           title={organization.name}
           right={this.renderAddContactIcon()}
         />

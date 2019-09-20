@@ -67,29 +67,28 @@ class GroupUnreadFeed extends Component {
       <View style={styles.pageContainer}>
         <StatusBar {...theme.statusBar.darkContent} />
         <SafeAreaView>
-        <Header
-          left={
-            <IconButton
-              name="backIcon"
-              type="MissionHub"
-              style={styles.backIcon}
-              onPress={this.back}
-            />
-          }
-          right={
-            <Button
-              type="transparent"
-              text={t('clearAll').toUpperCase()}
-              style={styles.clearAllButton}
-              buttonTextStyle={styles.clearAllButtonText}
-              onPress={this.markRead}
-            />
-          }
-          style={styles.unreadHeader}
-          title={t('title', { count })}
-          titleStyle={styles.unreadTitle}
-          shadow={true}
-        />
+          <Header
+            left={
+              <IconButton
+                name="backIcon"
+                type="MissionHub"
+                style={styles.backIcon}
+                onPress={this.back}
+              />
+            }
+            right={
+              <Button
+                type="transparent"
+                text={t('clearAll').toUpperCase()}
+                style={styles.clearAllButton}
+                buttonTextStyle={styles.clearAllButtonText}
+                onPress={this.markRead}
+              />
+            }
+            shadow={true}
+            title={t('title', { count })}
+            titleStyle={styles.unreadTitle}
+          />
         </SafeAreaView>
         <View style={styles.cardList}>
           <CelebrateFeed

@@ -180,8 +180,6 @@ class GroupProfile extends Component {
       <>
         <SafeAreaView style={styles.container} forceInset={{ bottom: 'never' }}>
           <Header
-            shadow={false}
-            style={styles.topNav}
             left={
               <IconButton
                 name="deleteIcon"

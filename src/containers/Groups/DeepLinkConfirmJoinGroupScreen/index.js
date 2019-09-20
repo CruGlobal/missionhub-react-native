@@ -93,7 +93,6 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
               onPress={this.navigateBack}
             />
           }
-          shadow={false}
           title={t('joinCommunity')}
         />
         <Flex

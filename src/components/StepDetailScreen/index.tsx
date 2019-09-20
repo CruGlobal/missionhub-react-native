@@ -29,7 +29,7 @@ const StepDetailScreen = ({
   CenterContent,
   bottomButtonProps,
 }: StepDetailScreenProps) => {
-  const { stepTitleText, backButton, flex1, bgWhite } = styles;
+  const { stepTitleText, backButton, flex1 } = styles;
 
   return (
     <SafeAreaView style={flex1}>
@@ -38,8 +38,6 @@ const StepDetailScreen = ({
         left={<BackButton iconStyle={backButton} />}
         center={CenterHeader}
         right={RightHeader}
-        shadow={false}
-        style={bgWhite}
       />
       <Text style={stepTitleText}>{text}</Text>
       {CenterContent}

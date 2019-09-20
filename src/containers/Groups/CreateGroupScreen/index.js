@@ -119,7 +119,6 @@ class CreateGroupScreen extends Component {
               onPress={this.navigateBack}
             />
           }
-          shadow={false}
           title={t('createCommunity')}
         />
         <View style={{ flex: 1 }}>

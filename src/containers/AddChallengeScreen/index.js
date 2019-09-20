@@ -112,10 +112,7 @@ class AddChallengeScreen extends Component {
     return (
       <SafeAreaView style={container}>
         <StatusBar {...theme.statusBar.darkContent} />
-        <Header
-          left={<BackButton iconStyle={backButton} />}
-          style={{ backgroundColor: undefined }}
-        />
+        <Header left={<BackButton iconStyle={backButton} />} />
         <View style={{ flex: 1 }}>
           {this.renderTitleInput()}
           {this.renderDateInput()}
