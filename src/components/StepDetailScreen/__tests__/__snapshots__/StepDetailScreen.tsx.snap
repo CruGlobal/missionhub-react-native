@@ -13,14 +13,11 @@ exports[`markdown is empty string renders correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": "#ffffff",
-        },
+        undefined,
         null,
       ]
     }
@@ -199,14 +196,11 @@ exports[`markdown is not null renders correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": "#ffffff",
-        },
+        undefined,
         null,
       ]
     }
@@ -424,14 +418,11 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": "#ffffff",
-        },
+        undefined,
         null,
       ]
     }
@@ -672,14 +663,11 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": "#ffffff",
-        },
+        undefined,
         null,
       ]
     }

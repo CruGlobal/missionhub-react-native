@@ -27,11 +27,6 @@ exports[`renders correctly 1`] = `
         }
       />
     }
-    style={
-      Object {
-        "backgroundColor": undefined,
-      }
-    }
   />
   <View
     style={
@@ -143,11 +138,6 @@ exports[`renders edit challenge correctly 1`] = `
           }
         }
       />
-    }
-    style={
-      Object {
-        "backgroundColor": undefined,
-      }
     }
   />
   <View

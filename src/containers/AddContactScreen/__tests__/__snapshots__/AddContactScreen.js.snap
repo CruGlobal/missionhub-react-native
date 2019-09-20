@@ -17,7 +17,6 @@ exports[`renders correctly 1`] = `
         type="MissionHub"
       />
     }
-    shadow={false}
     title="ADD SOMEONE"
   />
   <View

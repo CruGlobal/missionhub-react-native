@@ -85,7 +85,6 @@ exports[`GroupScreen should render header correctly for cru community 1`] = `
         type="MissionHub"
       />
     }
-    shadow={false}
     title="Test  Org"
   />
 </SafeAreaView>
@@ -109,7 +108,6 @@ exports[`GroupScreen should render header correctly for global community 1`] = `
       />
     }
     right={null}
-    shadow={false}
     title="MissionHub Community"
   />
 </SafeAreaView>
@@ -139,7 +137,6 @@ exports[`GroupScreen should render header correctly for user_created community 1
         type="MissionHub"
       />
     }
-    shadow={false}
     title="Test  Org"
   />
 </SafeAreaView>

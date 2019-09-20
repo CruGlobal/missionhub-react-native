@@ -17,7 +17,6 @@ exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
         type="MissionHub"
       />
     }
-    shadow={false}
     title="Join a Community"
   />
   <Flex
@@ -70,7 +69,6 @@ exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
         type="MissionHub"
       />
     }
-    shadow={false}
     title="Join a Community"
   />
   <Flex
@@ -123,7 +121,6 @@ exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
         type="MissionHub"
       />
     }
-    shadow={false}
     title="Join a Community"
   />
   <Flex

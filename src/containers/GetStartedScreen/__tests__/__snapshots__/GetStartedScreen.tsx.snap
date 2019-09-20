@@ -14,15 +14,12 @@ exports[`renders correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
         undefined,
-        Object {
-          "elevation": 4,
-        },
+        null,
       ]
     }
   >
@@ -295,15 +292,12 @@ exports[`renders without back button correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
         undefined,
-        Object {
-          "elevation": 4,
-        },
+        null,
       ]
     }
   >

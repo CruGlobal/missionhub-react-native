@@ -23,7 +23,6 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
         type="MissionHub"
       />
     }
-    shadow={false}
     title="TEST PERSON"
     title2="Test Org"
   />
@@ -131,7 +130,6 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for Use
         type="MissionHub"
       />
     }
-    shadow={false}
     title="Test Org"
   />
   <Flex
@@ -226,7 +224,6 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for cru
         type="MissionHub"
       />
     }
-    shadow={false}
     title="Test Org"
   />
   <Flex
@@ -330,7 +327,6 @@ exports[`Contact should render AssignedPersonScreen correctly without stage 1`] 
         type="MissionHub"
       />
     }
-    shadow={false}
     title="Test Org"
   />
   <Flex

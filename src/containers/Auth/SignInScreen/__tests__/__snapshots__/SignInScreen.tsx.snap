@@ -5,7 +5,7 @@ exports[`facebook login button is pressed facebook button calls facebook login l
 - First value
 + Second value
 
-@@ -167,6 +167,7 @@
+@@ -166,6 +166,7 @@
             SIGN IN WITH FACEBOOK
           </Text>
         </Flex>
@@ -20,7 +20,7 @@ exports[`forgot password button is pressed should call forgot password logic 1`]
 - First value
 + Second value
 
-@@ -167,6 +167,7 @@
+@@ -166,6 +166,7 @@
             SIGN IN WITH FACEBOOK
           </Text>
         </Flex>
@@ -35,7 +35,7 @@ exports[`key login button is pressed key login is called 1`] = `
 - First value
 + Second value
 
-@@ -56,11 +56,11 @@
+@@ -55,11 +55,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -48,7 +48,7 @@ exports[`key login button is pressed key login is called 1`] = `
       <View
         style={
           Object {
-@@ -84,11 +84,11 @@
+@@ -83,11 +83,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -61,7 +61,7 @@ exports[`key login button is pressed key login is called 1`] = `
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -110,63 +110,17 @@
+@@ -109,63 +109,17 @@
           type=\\"transparent\\"
         />
       </View>
@@ -144,7 +144,7 @@ exports[`key login button is pressed should fire login actions when inputs are s
 - First value
 + Second value
 
-@@ -120,6 +120,7 @@
+@@ -119,6 +119,7 @@
         testID=\\"loginButton\\"
         text=\\"LOGIN\\"
         type=\\"secondary\\"
@@ -188,10 +188,10 @@ exports[`key login button is pressed shows email verification required message a
 +   </View>
     <Header
       left={<BackButton />}
-      shadow={false}
     />
     <Flex
-@@ -56,11 +77,11 @@
+      align=\\"center\\"
+@@ -55,11 +76,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -204,7 +204,7 @@ exports[`key login button is pressed shows email verification required message a
       <View
         style={
           Object {
-@@ -84,11 +105,11 @@
+@@ -83,11 +104,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -217,7 +217,7 @@ exports[`key login button is pressed shows email verification required message a
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -110,63 +131,16 @@
+@@ -109,63 +130,16 @@
           type=\\"transparent\\"
         />
       </View>
@@ -323,10 +323,10 @@ exports[`key login button is pressed shows invalid credentials message and track
 +   </View>
     <Header
       left={<BackButton />}
-      shadow={false}
     />
     <Flex
-@@ -56,11 +77,11 @@
+      align=\\"center\\"
+@@ -55,11 +76,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -339,7 +339,7 @@ exports[`key login button is pressed shows invalid credentials message and track
       <View
         style={
           Object {
-@@ -84,11 +105,11 @@
+@@ -83,11 +104,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -352,7 +352,7 @@ exports[`key login button is pressed shows invalid credentials message and track
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -110,63 +131,16 @@
+@@ -109,63 +130,16 @@
           type=\\"transparent\\"
         />
       </View>
@@ -458,10 +458,10 @@ exports[`key login button is pressed shows invalid credentials message and track
 +   </View>
     <Header
       left={<BackButton />}
-      shadow={false}
     />
     <Flex
-@@ -56,11 +77,11 @@
+      align=\\"center\\"
+@@ -55,11 +76,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -474,7 +474,7 @@ exports[`key login button is pressed shows invalid credentials message and track
       <View
         style={
           Object {
-@@ -84,11 +105,11 @@
+@@ -83,11 +104,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -487,7 +487,7 @@ exports[`key login button is pressed shows invalid credentials message and track
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -110,63 +131,16 @@
+@@ -109,63 +130,16 @@
           type=\\"transparent\\"
         />
       </View>
@@ -564,7 +564,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 - First value
 + Second value
 
-@@ -56,11 +56,11 @@
+@@ -55,11 +55,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -577,7 +577,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
       <View
         style={
           Object {
-@@ -84,11 +84,11 @@
+@@ -83,11 +83,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -590,7 +590,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -110,63 +110,16 @@
+@@ -109,63 +109,16 @@
           type=\\"transparent\\"
         />
       </View>
@@ -667,10 +667,10 @@ exports[`keyboard listeners should hide sign in logo when the keyboard is shown 
 - First value
 + Second value
 
-@@ -12,26 +12,10 @@
+@@ -11,26 +11,10 @@
+  >
     <Header
       left={<BackButton />}
-      shadow={false}
     />
     <Flex
 -     align=\\"center\\"
@@ -701,10 +701,10 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 - First value
 + Second value
 
-@@ -12,10 +12,26 @@
+@@ -11,10 +11,26 @@
+  >
     <Header
       left={<BackButton />}
-      shadow={false}
     />
     <Flex
 +     align=\\"center\\"
@@ -744,7 +744,6 @@ exports[`renders correctly 1`] = `
 >
   <Header
     left={<BackButton />}
-    shadow={false}
   />
   <Flex
     align="center"
@@ -919,7 +918,6 @@ exports[`renders correctly for forced logout 1`] = `
 >
   <Header
     left={null}
-    shadow={false}
   />
   <Flex
     align="center"

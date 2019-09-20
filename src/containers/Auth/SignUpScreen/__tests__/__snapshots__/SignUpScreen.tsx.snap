@@ -5,7 +5,7 @@ exports[`a login button is clicked email signup button is pressed key sign in bu
 - First value
 + Second value
 
-@@ -299,6 +299,7 @@
+@@ -296,6 +296,7 @@
             type=\\"transparent\\"
           />
         </Flex>
@@ -20,7 +20,7 @@ exports[`a login button is clicked facebook signup button is pressed facebook bu
 - First value
 + Second value
 
-@@ -299,6 +299,7 @@
+@@ -296,6 +296,7 @@
             type=\\"transparent\\"
           />
         </Flex>
@@ -35,7 +35,7 @@ exports[`renders correctly for Create Community 1`] = `
 - First value
 + Second value
 
-@@ -55,17 +55,53 @@
+@@ -52,17 +52,53 @@
       <Flex
         align=\\"center\\"
         justify=\\"center\\"
@@ -107,15 +107,12 @@ exports[`renders correctly with logo 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
           "height": 56,
           "paddingTop": 0,
         },
         undefined,
-        Object {
-          "elevation": 4,
-        },
+        null,
       ]
     }
   >

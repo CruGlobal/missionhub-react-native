@@ -24,12 +24,6 @@ exports[`should render completed challenge correctly 1`] = `
       />
     }
     right={null}
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
   />
   <ChallengeDetailHeader
     canEditChallenges={true}
@@ -95,12 +89,6 @@ exports[`should render joined challenge correctly 1`] = `
         text="I DID IT"
         type="transparent"
       />
-    }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
     }
   />
   <ChallengeDetailHeader
@@ -183,12 +171,6 @@ exports[`should render unjoined challenge correctly 1`] = `
         type="transparent"
       />
     }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
   />
   <ChallengeDetailHeader
     canEditChallenges={true}
@@ -254,12 +236,6 @@ exports[`should render without edit correctly 1`] = `
         text="JOIN"
         type="transparent"
       />
-    }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
     }
   />
   <ChallengeDetailHeader
