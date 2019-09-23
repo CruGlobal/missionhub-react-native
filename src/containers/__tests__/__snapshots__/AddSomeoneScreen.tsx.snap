@@ -1,757 +1,877 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-        "paddingHorizontal": 60,
-      },
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-    ]
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "position": "absolute",
-        "right": 10,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="skipButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Array [
-              Object {
-                "padding": 15,
-              },
-              undefined,
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          SKIP
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Array [
-        Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
-        },
-        undefined,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
-      ]
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {},
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
   <View
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "flex-start",
-          "flex": 4,
-          "justifyContent": "center",
+          "flexDirection": "row",
+          "height": 56,
+          "paddingTop": 0,
         },
+        undefined,
+        null,
       ]
     }
   >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/add_someone.png",
-        }
-      }
-      style={
-        Object {
-          "height": 80,
-          "resizeMode": "contain",
-          "width": 80,
-        }
-      }
-    />
-    <Text
+    <View
       style={
         Array [
           Object {
-            "color": "#505256",
+            "paddingLeft": 5,
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "lineHeight": 32,
-            "paddingVertical": 10,
-            "textAlign": "left",
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
           },
         ]
       }
     >
-      Growing closer to God involves helping others experience Him.
-
-Take a moment and pray. Who do you want to take steps of faith with?
-    </Text>
-  </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "flex": 1,
-        "justifyContent": "flex-end",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bottomButton"
-    >
       <View
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
               "justifyContent": "center",
             },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
+            undefined,
           ]
         }
       >
-        <Text
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="skipButton"
+      >
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "backgroundColor": "transparent",
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
+              null,
               Array [
                 Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
+                  "padding": 15,
                 },
-                Object {},
+                undefined,
               ],
+              null,
             ]
           }
         >
-          ADD SOMEONE
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            SKIP
+          </Text>
+        </View>
       </View>
     </View>
-  </RCTSafeAreaView>
-</View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+          "paddingHorizontal": 60,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "flex-start",
+            "flex": 4,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/add_someone.png",
+          }
+        }
+        style={
+          Object {
+            "height": 80,
+            "resizeMode": "contain",
+            "width": 80,
+          }
+        }
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "lineHeight": 32,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            },
+          ]
+        }
+      >
+        Growing closer to God involves helping others experience Him.
+
+Take a moment and pray. Who do you want to take steps of faith with?
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bottomButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "width": 750,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            ADD SOMEONE
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
 `;
 
 exports[`renders without back button correctly 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-        "paddingHorizontal": 60,
-      },
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-    ]
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "position": "absolute",
-        "right": 10,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="skipButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Array [
-              Object {
-                "padding": 15,
-              },
-              undefined,
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          SKIP
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
   <View
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "flex-start",
-          "flex": 4,
-          "justifyContent": "center",
+          "flexDirection": "row",
+          "height": 56,
+          "paddingTop": 0,
         },
+        undefined,
+        null,
       ]
     }
   >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/add_someone.png",
-        }
-      }
-      style={
-        Object {
-          "height": 80,
-          "resizeMode": "contain",
-          "width": 80,
-        }
-      }
-    />
-    <Text
+    <View
       style={
         Array [
           Object {
-            "color": "#505256",
+            "paddingLeft": 5,
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "paddingRight": 5,
           },
           Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "lineHeight": 32,
-            "paddingVertical": 10,
-            "textAlign": "left",
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
           },
         ]
       }
     >
-      Growing closer to God involves helping others experience Him.
-
-Take a moment and pray. Who do you want to take steps of faith with?
-    </Text>
-  </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "flex": 1,
-        "justifyContent": "flex-end",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bottomButton"
-    >
       <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
-          ]
+          Object {
+            "opacity": 1,
+          }
         }
+        testID="skipButton"
       >
-        <Text
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "backgroundColor": "transparent",
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
+              null,
               Array [
                 Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
+                  "padding": 15,
                 },
-                Object {},
+                undefined,
               ],
+              null,
             ]
           }
         >
-          ADD SOMEONE
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            SKIP
+          </Text>
+        </View>
       </View>
     </View>
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`renders without skip button correctly 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "justifyContent": "center",
-        "paddingHorizontal": 60,
-      },
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-    ]
-  }
->
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  </View>
+  <View
     style={
       Array [
         Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
+          "alignItems": "center",
+          "flex": 1,
           "justifyContent": "center",
+          "paddingHorizontal": 60,
         },
-        undefined,
         Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
         },
       ]
     }
   >
     <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {},
+          Object {
+            "alignItems": "flex-start",
+            "flex": 4,
+            "justifyContent": "center",
+          },
+        ]
       }
-      testID="IconButton"
     >
-      <View
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/add_someone.png",
+          }
+        }
+        style={
+          Object {
+            "height": 80,
+            "resizeMode": "contain",
+            "width": 80,
+          }
+        }
+      />
+      <Text
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "color": "#505256",
             },
-            null,
-            Object {},
-            null,
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "lineHeight": 32,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            },
           ]
         }
       >
-        <Text
-          allowFontScaling={false}
+        Growing closer to God involves helping others experience Him.
+
+Take a moment and pray. Who do you want to take steps of faith with?
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bottomButton"
+      >
+        <View
           style={
             Array [
               Object {
-                "color": undefined,
-                "fontSize": 12,
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
               },
+              null,
+              Object {
+                "width": 750,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#505256",
                 },
                 Object {
-                  "fontSize": 18,
+                  "fontFamily": "SourceSansPro-Regular",
                 },
                 Array [
                   Object {
-                    "margin": 10,
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
                   },
                   Object {},
                 ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
+              ]
+            }
+          >
+            ADD SOMEONE
+          </Text>
+        </View>
       </View>
     </View>
-  </RCTSafeAreaView>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders without skip button correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
   <View
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "flex-start",
-          "flex": 4,
-          "justifyContent": "center",
+          "flexDirection": "row",
+          "height": 56,
+          "paddingTop": 0,
         },
+        undefined,
+        null,
       ]
     }
   >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/add_someone.png",
-        }
-      }
-      style={
-        Object {
-          "height": 80,
-          "resizeMode": "contain",
-          "width": 80,
-        }
-      }
-    />
-    <Text
+    <View
       style={
         Array [
           Object {
-            "color": "#505256",
+            "paddingLeft": 5,
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "lineHeight": 32,
-            "paddingVertical": 10,
-            "textAlign": "left",
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
           },
         ]
       }
-    >
-      Growing closer to God involves helping others experience Him.
-
-Take a moment and pray. Who do you want to take steps of faith with?
-    </Text>
-  </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "flex": 1,
-        "justifyContent": "flex-end",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bottomButton"
     >
       <View
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
               "justifyContent": "center",
             },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
+            undefined,
           ]
         }
       >
-        <Text
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+          "paddingHorizontal": 60,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "flex-start",
+            "flex": 4,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/add_someone.png",
+          }
+        }
+        style={
+          Object {
+            "height": 80,
+            "resizeMode": "contain",
+            "width": 80,
+          }
+        }
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "lineHeight": 32,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            },
+          ]
+        }
+      >
+        Growing closer to God involves helping others experience Him.
+
+Take a moment and pray. Who do you want to take steps of faith with?
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bottomButton"
+      >
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
               },
+              null,
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "width": 750,
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
+              null,
             ]
           }
         >
-          ADD SOMEONE
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            ADD SOMEONE
+          </Text>
+        </View>
       </View>
     </View>
-  </RCTSafeAreaView>
-</View>
+  </View>
+</RCTSafeAreaView>
 `;

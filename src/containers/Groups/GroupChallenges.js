@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 
@@ -63,18 +63,22 @@ class GroupChallenges extends Component {
     const { t, challengeItems, organization, myOrgPermissions } = this.props;
 
     return (
-      <SafeAreaView style={{ flex: 1 }}>
-        <ChallengeFeed
-          organization={organization}
-          items={challengeItems}
-          loadMoreItemsCallback={this.loadItems}
-          refreshCallback={this.refreshItems}
-          refreshing={refreshing}
-        />
+      <>
+        <View style={{ flex: 1 }}>
+          <ChallengeFeed
+            organization={organization}
+            items={challengeItems}
+            loadMoreItemsCallback={this.loadItems}
+            refreshCallback={this.refreshItems}
+            refreshing={refreshing}
+          />
+        </View>
         {isAdminOrOwner(myOrgPermissions) ? (
-          <BottomButton onPress={this.create} text={t('create')} />
+          <SafeAreaView>
+            <BottomButton onPress={this.create} text={t('create')} />
+          </SafeAreaView>
         ) : null}
-      </SafeAreaView>
+      </>
     );
   }
 }

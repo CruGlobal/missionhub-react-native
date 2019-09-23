@@ -83,7 +83,6 @@ const SECONDARY = COLORS.BLUE;
 const BACKGROUND = COLORS.LIGHT_BLUE;
 const ACCENT = COLORS.ACCENT_BLUE;
 
-const iPhoneHeaderHeight = 65;
 const notchDifference = hasNotch() ? 22 : 0;
 
 const statusBar = {
@@ -137,7 +136,7 @@ export default {
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
 
   notchDifference,
-  headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + notchDifference,
+  headerHeight: 56,
   parallaxHeaderHeight: 215,
   swipeTabHeight: 48,
   communityImageAspectRatio: 9 / 16,

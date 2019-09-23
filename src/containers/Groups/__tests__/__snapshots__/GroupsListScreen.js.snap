@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GroupsListScreen should render correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -20,7 +21,6 @@ exports[`GroupsListScreen should render correctly 1`] = `
         type="MissionHub"
       />
     }
-    shadow={false}
     title="COMMUNITIES"
   />
   <Flex
@@ -132,26 +132,26 @@ exports[`GroupsListScreen should render correctly 1`] = `
       windowSize={21}
     />
   </ScrollViewMock>
-</View>
+</SafeAreaView>
 `;
 
 exports[`should render null state 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
-          "height": 65,
-          "paddingTop": 20,
+          "height": 56,
+          "paddingTop": 0,
         },
         undefined,
         null,
@@ -288,7 +288,7 @@ exports[`should render null state 1`] = `
         ]
       }
     />
-  </RCTSafeAreaView>
+  </View>
   <View
     style={
       Array [
@@ -918,5 +918,5 @@ exports[`should render null state 1`] = `
       </RCTScrollView>
     </View>
   </RCTScrollView>
-</View>
+</RCTSafeAreaView>
 `;

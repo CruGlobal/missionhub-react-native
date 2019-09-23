@@ -16,8 +16,9 @@ import {
 } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
-import AbsoluteSkip from '../../components/AbsoluteSkip';
+import Skip from '../../components/Skip';
 import BottomButton from '../../components/BottomButton';
+import Header from '../../components/Header';
 
 import styles from './styles';
 
@@ -127,11 +128,15 @@ class AddStepScreen extends Component {
 
     return (
       <SafeAreaView style={container}>
+        <Header
+          left={<BackButton iconStyle={backButtonStyle} />}
+          right={
+            type === STEP_NOTE || (type === INTERACTION && !hideSkip) ? (
+              <Skip onSkip={this.skip} textStyle={skipBtnText} />
+            ) : null
+          }
+        />
         <StatusBar {...theme.statusBar.darkContent} />
-        <BackButton absolute={true} iconStyle={backButtonStyle} />
-        {type === STEP_NOTE || (type === INTERACTION && !hideSkip) ? (
-          <AbsoluteSkip onSkip={this.skip} textStyle={skipBtnText} />
-        ) : null}
         <Flex value={1} align="stretch" justify="center" style={fieldWrap}>
           <Input
             testID="stepInput"

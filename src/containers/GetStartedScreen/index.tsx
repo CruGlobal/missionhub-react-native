@@ -9,6 +9,7 @@ import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { ProfileState } from '../../reducers/profile';
+import Header from '../../components/Header';
 
 import styles from './styles';
 
@@ -38,7 +39,7 @@ const GetStartedScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
-      {enableBackButton ? <BackButton absolute={true} /> : null}
+      <Header left={enableBackButton ? <BackButton /> : null} />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex align="start" justify="center" value={4}>
           <Text header={true} style={styles.headerTitle}>

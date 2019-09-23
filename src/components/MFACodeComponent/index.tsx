@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Flex, Text, Input, Button } from '../../components/common';
 import LoadingWheel from '../../components/LoadingWheel';
 import BackButton from '../../containers/BackButton';
+import Header from '../Header';
 
 import styles from './styles';
 
@@ -23,8 +24,6 @@ export const MFACodeComponent = ({
   const { t } = useTranslation('mfaLogin');
 
   const {
-    backButton,
-    doneButton,
     doneButtonText,
     container,
     content,
@@ -35,18 +34,18 @@ export const MFACodeComponent = ({
 
   return (
     <SafeAreaView style={container}>
-      <Flex direction="row" justify="between" align="center">
-        <BackButton style={backButton} />
-
-        <Button
-          testID="doneButton"
-          text={t('done').toUpperCase()}
-          type="transparent"
-          onPress={onSubmit}
-          style={doneButton}
-          buttonTextStyle={doneButtonText}
-        />
-      </Flex>
+      <Header
+        left={<BackButton />}
+        right={
+          <Button
+            testID="doneButton"
+            text={t('done').toUpperCase()}
+            type="transparent"
+            onPress={onSubmit}
+            buttonTextStyle={doneButtonText}
+          />
+        }
+      />
 
       <Flex justify="center" value={1} style={content}>
         <Text header={true} style={mfaHeader}>

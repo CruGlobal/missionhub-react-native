@@ -7,6 +7,10 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
+  redPageContainer: {
+    flex: 1,
+    backgroundColor: theme.red,
+  },
   flatList: {
     flex: 1,
     backgroundColor: theme.white,
@@ -77,18 +81,8 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: theme.white,
   },
-  unreadHeader: {
-    backgroundColor: theme.white,
-    shadowColor: theme.black,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 2,
-  },
   unreadTitle: {
     fontWeight: '400',
-  },
-  reportHeader: {
-    backgroundColor: theme.red,
   },
   reportList: {
     paddingVertical: 15,

@@ -9,6 +9,7 @@ import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+import Header from '../../components/Header';
 import BackButton from '../BackButton';
 
 import styles from './styles';
@@ -39,7 +40,7 @@ const WelcomeScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
-      <BackButton absolute={true} />
+      <Header left={<BackButton />} />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex value={3} align="start" justify="center">
           <Text header={true} style={styles.headerText}>

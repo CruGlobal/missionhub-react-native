@@ -12,168 +12,195 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "position": "absolute",
-        "right": 10,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="skipButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Array [
-              Object {
-                "padding": 15,
-              },
-              undefined,
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          SKIP
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Array [
         Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
+          "flexDirection": "row",
+          "height": 56,
+          "paddingTop": 0,
         },
         undefined,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
+        null,
       ]
     }
   >
     <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {
+            "paddingLeft": 5,
+          },
+          Object {
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
       }
-      testID="IconButton"
     >
       <View
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
             },
-            null,
-            Object {},
-            null,
+            undefined,
           ]
         }
       >
-        <Text
-          allowFontScaling={false}
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="skipButton"
+      >
+        <View
           style={
             Array [
               Object {
-                "color": undefined,
-                "fontSize": 12,
+                "backgroundColor": "transparent",
               },
+              null,
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "padding": 15,
                 },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {},
-                ],
+                undefined,
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
+              null,
             ]
           }
         >
-          
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            SKIP
+          </Text>
+        </View>
       </View>
     </View>
-  </RCTSafeAreaView>
+  </View>
   <View
     style={
       Object {
@@ -375,168 +402,195 @@ exports[`renders with first and last name 1`] = `
     }
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "position": "absolute",
-        "right": 10,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="skipButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Array [
-              Object {
-                "padding": 15,
-              },
-              undefined,
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          SKIP
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Array [
         Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
+          "flexDirection": "row",
+          "height": 56,
+          "paddingTop": 0,
         },
         undefined,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
+        null,
       ]
     }
   >
     <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {
+            "paddingLeft": 5,
+          },
+          Object {
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
       }
-      testID="IconButton"
     >
       <View
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
             },
-            null,
-            Object {},
-            null,
+            undefined,
           ]
         }
       >
-        <Text
-          allowFontScaling={false}
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="skipButton"
+      >
+        <View
           style={
             Array [
               Object {
-                "color": undefined,
-                "fontSize": 12,
+                "backgroundColor": "transparent",
               },
+              null,
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "padding": 15,
                 },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {},
-                ],
+                undefined,
               ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
+              null,
             ]
           }
         >
-          
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            SKIP
+          </Text>
+        </View>
       </View>
     </View>
-  </RCTSafeAreaView>
+  </View>
   <View
     style={
       Object {

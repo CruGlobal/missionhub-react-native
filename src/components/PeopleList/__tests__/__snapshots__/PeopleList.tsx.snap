@@ -5,7 +5,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 - First value
 + Second value
 
-@@ -58,11 +58,11 @@
+@@ -59,11 +59,11 @@
               size={24}
               testID=\\"addContactBtn\\"
               type=\\"MissionHub\\"
@@ -18,7 +18,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
                 Array [
                   \\"personal\\",
                 ]
-@@ -71,159 +71,10 @@
+@@ -72,167 +72,10 @@
               testID=\\"toggleSectionBtn\\"
               type=\\"MissionHub\\"
             />
@@ -61,6 +61,14 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -         scrollEnabled={false}
 -         scrollEventThrottle={50}
 -         stickyHeaderIndices={Array []}
+-         style={
+-           Object {
+-             \\"backgroundColor\\": \\"#ffffff\\",
+-             \\"borderTopColor\\": \\"#ffffff\\",
+-             \\"borderTopWidth\\": 1,
+-             \\"flex\\": 1,
+-           }
+-         }
 -         updateCellsBatchingPeriod={50}
 -         viewabilityConfigCallbackPairs={Array []}
 -         windowSize={21}
@@ -224,6 +232,14 @@ exports[`renders correctly as Casey 1`] = `
   scrollEnabled={true}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderTopColor": "#ffffff",
+      "borderTopWidth": 1,
+      "flex": 1,
+    }
+  }
   updateCellsBatchingPeriod={50}
   viewabilityConfigCallbackPairs={Array []}
   windowSize={21}
@@ -289,6 +305,7 @@ exports[`renders correctly as Jean 1`] = `
   }
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "borderTopColor": "#ffffff",
       "borderTopWidth": 1,
       "flex": 1,
@@ -392,6 +409,14 @@ exports[`renders correctly as Jean 1`] = `
         scrollEnabled={false}
         scrollEventThrottle={50}
         stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderTopColor": "#ffffff",
+            "borderTopWidth": 1,
+            "flex": 1,
+          }
+        }
         updateCellsBatchingPeriod={50}
         viewabilityConfigCallbackPairs={Array []}
         windowSize={21}
@@ -601,6 +626,14 @@ exports[`renders correctly as Jean 1`] = `
         scrollEnabled={false}
         scrollEventThrottle={50}
         stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderTopColor": "#ffffff",
+            "borderTopWidth": 1,
+            "flex": 1,
+          }
+        }
         updateCellsBatchingPeriod={50}
         viewabilityConfigCallbackPairs={Array []}
         windowSize={21}
@@ -710,6 +743,14 @@ exports[`renders correctly as Jean 1`] = `
         scrollEnabled={false}
         scrollEventThrottle={50}
         stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderTopColor": "#ffffff",
+            "borderTopWidth": 1,
+            "flex": 1,
+          }
+        }
         updateCellsBatchingPeriod={50}
         viewabilityConfigCallbackPairs={Array []}
         windowSize={21}

@@ -61,62 +61,83 @@ Array [
 `;
 
 exports[`GroupScreen should render header correctly for cru community 1`] = `
-<Header
-  left={
-    <IconButton
-      name="homeIcon"
-      onPress={[Function]}
-      size={24}
-      type="MissionHub"
-    />
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#007398",
+    }
   }
-  right={
-    <IconButton
-      name="addContactIcon"
-      onPress={[Function]}
-      size={24}
-      type="MissionHub"
-    />
-  }
-  shadow={false}
-  title="Test  Org"
-/>
+>
+  <Header
+    left={
+      <IconButton
+        name="homeIcon"
+        onPress={[Function]}
+        size={24}
+        type="MissionHub"
+      />
+    }
+    right={
+      <IconButton
+        name="addContactIcon"
+        onPress={[Function]}
+        size={24}
+        type="MissionHub"
+      />
+    }
+    title="Test  Org"
+  />
+</SafeAreaView>
 `;
 
 exports[`GroupScreen should render header correctly for global community 1`] = `
-<Header
-  left={
-    <IconButton
-      name="homeIcon"
-      onPress={[Function]}
-      size={24}
-      type="MissionHub"
-    />
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#007398",
+    }
   }
-  right={null}
-  shadow={false}
-  title="MissionHub Community"
-/>
+>
+  <Header
+    left={
+      <IconButton
+        name="homeIcon"
+        onPress={[Function]}
+        size={24}
+        type="MissionHub"
+      />
+    }
+    right={null}
+    title="MissionHub Community"
+  />
+</SafeAreaView>
 `;
 
 exports[`GroupScreen should render header correctly for user_created community 1`] = `
-<Header
-  left={
-    <IconButton
-      name="homeIcon"
-      onPress={[Function]}
-      size={24}
-      type="MissionHub"
-    />
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#007398",
+    }
   }
-  right={
-    <IconButton
-      name="moreIcon"
-      onPress={[Function]}
-      type="MissionHub"
-    />
-  }
-  shadow={false}
-  title="Test  Org"
-/>
+>
+  <Header
+    left={
+      <IconButton
+        name="homeIcon"
+        onPress={[Function]}
+        size={24}
+        type="MissionHub"
+      />
+    }
+    right={
+      <IconButton
+        name="moreIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="Test  Org"
+  />
+</SafeAreaView>
 `;

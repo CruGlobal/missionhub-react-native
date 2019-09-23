@@ -16,7 +16,8 @@ import TosPrivacy from '../../components/TosPrivacy';
 import { ProfileState } from '../../reducers/profile';
 import { AuthState } from '../../reducers/auth';
 import { updatePerson } from '../../actions/person';
-import { BackButton } from '../BackButton';
+import BackButton from '../BackButton';
+import Header from '../../components/Header';
 import { prompt } from '../../utils/prompt';
 import { logout } from '../../actions/auth/auth';
 import { navigateBack } from '../../actions/navigation';
@@ -94,11 +95,7 @@ const SetupScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
-      <BackButton
-        absolute={true}
-        customNavigate={handleBack}
-        testID="BackButton"
-      />
+      <Header left={<BackButton customNavigate={handleBack} />} />
       <Flex value={2} justify="end" align="center">
         <Text header={true} style={styles.header}>
           {t('namePrompt')}

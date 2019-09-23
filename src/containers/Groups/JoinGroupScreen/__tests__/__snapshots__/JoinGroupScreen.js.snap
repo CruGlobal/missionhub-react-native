@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`JoinGroupScreen onSearch should set community after entering 6th digit 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -11,15 +12,13 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
     }
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
-          "height": 65,
-          "paddingTop": 20,
+          "height": 56,
+          "paddingTop": 0,
         },
         undefined,
         null,
@@ -41,68 +40,81 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
       }
     >
       <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
+            },
+            undefined,
+          ]
         }
-        testID="IconButton"
       >
         <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              null,
-              Object {},
-              null,
-            ]
+            Object {
+              "opacity": 1,
+            }
           }
+          testID="IconButton"
         >
-          <Text
-            allowFontScaling={false}
+          <View
             style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "backgroundColor": "transparent",
                 },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {},
-                  ],
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
+                null,
                 Object {},
+                null,
               ]
             }
           >
-            
-          </Text>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
         </View>
       </View>
     </View>
@@ -156,7 +168,7 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
         ]
       }
     />
-  </RCTSafeAreaView>
+  </View>
   <RCTScrollView
     keyboardShouldPersistTaps="handled"
     style={
@@ -279,11 +291,12 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
       />
     </View>
   </RCTScrollView>
-</View>
+</RCTSafeAreaView>
 `;
 
 exports[`JoinGroupScreen onSearch should set input without calling serach has < 6 digits 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -293,15 +306,13 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
     }
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
-          "height": 65,
-          "paddingTop": 20,
+          "height": 56,
+          "paddingTop": 0,
         },
         undefined,
         null,
@@ -323,68 +334,81 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
       }
     >
       <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
+            },
+            undefined,
+          ]
         }
-        testID="IconButton"
       >
         <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              null,
-              Object {},
-              null,
-            ]
+            Object {
+              "opacity": 1,
+            }
           }
+          testID="IconButton"
         >
-          <Text
-            allowFontScaling={false}
+          <View
             style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "backgroundColor": "transparent",
                 },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {},
-                  ],
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
+                null,
                 Object {},
+                null,
               ]
             }
           >
-            
-          </Text>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
         </View>
       </View>
     </View>
@@ -438,7 +462,7 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
         ]
       }
     />
-  </RCTSafeAreaView>
+  </View>
   <RCTScrollView
     keyboardShouldPersistTaps="handled"
     style={
@@ -561,11 +585,11 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
       />
     </View>
   </RCTScrollView>
-</View>
+</RCTSafeAreaView>
 `;
 
 exports[`JoinGroupScreen renders error correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -577,13 +601,10 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
 >
   <Header
     left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        type="MissionHub"
+      <Connect(BackButton)
+        customIcon="deleteIcon"
       />
     }
-    shadow={false}
     title="Join a Community"
   />
   <ScrollViewMock
@@ -667,11 +688,11 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
       }
     />
   </ScrollViewMock>
-</View>
+</SafeAreaView>
 `;
 
 exports[`JoinGroupScreen renders group card correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -683,13 +704,10 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
 >
   <Header
     left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        type="MissionHub"
+      <Connect(BackButton)
+        customIcon="deleteIcon"
       />
     }
-    shadow={false}
     title="Join a Community"
   />
   <ScrollViewMock
@@ -764,11 +782,11 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
       }
     />
   </ScrollViewMock>
-</View>
+</SafeAreaView>
 `;
 
 exports[`JoinGroupScreen renders start correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -780,13 +798,10 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
 >
   <Header
     left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        type="MissionHub"
+      <Connect(BackButton)
+        customIcon="deleteIcon"
       />
     }
-    shadow={false}
     title="Join a Community"
   />
   <ScrollViewMock
@@ -870,5 +885,5 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
       }
     />
   </ScrollViewMock>
-</View>
+</SafeAreaView>
 `;

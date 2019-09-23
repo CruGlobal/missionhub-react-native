@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
-import { View, Image } from 'react-native';
+import { View, Image, SafeAreaView } from 'react-native';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useNavigationState } from 'react-navigation-hooks';
@@ -37,6 +37,7 @@ import {
   personSelector,
   contactAssignmentSelector,
 } from '../../selectors/people';
+import Header from '../../components/Header';
 
 import styles, {
   sliderWidth,
@@ -201,8 +202,8 @@ const SelectStageScreen = ({
     t(isMe ? 'meQuestion' : 'personQuestion', { name: firstName });
 
   return (
-    <View style={styles.container}>
-      {enableBackButton ? <BackButton absolute={true} /> : null}
+    <View style={styles.backgroundWrapper}>
+      {enableBackButton ? <BackButton /> : null}
       <Image
         source={LANDSCAPE}
         style={[
@@ -213,23 +214,28 @@ const SelectStageScreen = ({
           },
         ]}
       />
-      <Text style={styles.title}>{headerText}</Text>
-      {stages ? (
-        <Carousel
-          firstItem={startIndex}
-          data={stages}
-          inactiveSlideOpacity={1}
-          inactiveSlideScale={1}
-          renderItem={renderStage}
-          sliderWidth={sliderWidth + 75}
-          itemWidth={stageWidth + stageMargin * 2}
-          onScroll={handleScroll}
-          scrollEventThrottle={5}
-          onSnapToItem={handleSnapToItem}
-          removeClippedSubviews={false}
-          containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
-        />
-      ) : null}
+      <SafeAreaView style={styles.container}>
+        <Header left={<BackButton />} />
+        <View style={styles.content}>
+          <Text style={styles.title}>{headerText}</Text>
+          {stages ? (
+            <Carousel
+              firstItem={startIndex}
+              data={stages}
+              inactiveSlideOpacity={1}
+              inactiveSlideScale={1}
+              renderItem={renderStage}
+              sliderWidth={sliderWidth + 75}
+              itemWidth={stageWidth + stageMargin * 2}
+              onScroll={handleScroll}
+              scrollEventThrottle={5}
+              onSnapToItem={handleSnapToItem}
+              removeClippedSubviews={false}
+              containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
+            />
+          ) : null}
+        </View>
+      </SafeAreaView>
     </View>
   );
 };

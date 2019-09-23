@@ -48,12 +48,10 @@ class StepReminderScreen extends Component {
   };
 
   renderHeader() {
-    const { header, backButton, headerText } = styles;
+    const { backButton, headerText } = styles;
 
     return (
       <Header
-        style={header}
-        shadow={false}
         left={<BackButton iconStyle={backButton} />}
         center={<Text style={headerText}>{this.props.t('setReminder')}</Text>}
       />

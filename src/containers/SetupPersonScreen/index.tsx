@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 
-import { BackButton } from '../BackButton';
+import BackButton from '../BackButton';
 import { Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import Input from '../../components/Input/index';
-import AbsoluteSkip from '../../components/AbsoluteSkip';
+import Skip from '../../components/Skip';
 import { trackActionWithoutData } from '../../actions/analytics';
 import {
   personFirstNameChanged,
@@ -20,6 +20,7 @@ import {
 import { ACTIONS } from '../../constants';
 import { PersonProfileState } from '../../reducers/personProfile';
 import { AuthState } from '../../reducers/auth';
+import Header from '../../components/Header';
 
 import styles from './styles';
 
@@ -87,8 +88,7 @@ const SetupPersonScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
-      <AbsoluteSkip onSkip={skip} />
-      <BackButton absolute={true} />
+      <Header left={<BackButton />} right={<Skip onSkip={skip} />} />
       <View style={{ flex: 1 }} />
       <View style={styles.imageWrap}>
         <Image source={require('../../../assets/images/add_someone.png')} />
