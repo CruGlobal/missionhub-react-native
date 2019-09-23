@@ -12,6 +12,92 @@ exports[`renders create step correctly 1`] = `
     }
   }
 >
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                  },
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
   <View
     style={
       Array [
@@ -129,92 +215,6 @@ exports[`renders create step correctly 1`] = `
       </Text>
     </View>
   </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Array [
-        Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
-        },
-        undefined,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
-      ]
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                  },
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -230,6 +230,92 @@ exports[`renders edit journey item correctly 1`] = `
     }
   }
 >
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                  },
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
   <View
     style={
       Array [
@@ -346,92 +432,6 @@ exports[`renders edit journey item correctly 1`] = `
       </Text>
     </View>
   </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Array [
-        Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
-        },
-        undefined,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
-      ]
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                  },
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -447,6 +447,92 @@ exports[`renders edit journey step correctly 1`] = `
     }
   }
 >
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                  },
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
   <View
     style={
       Array [
@@ -563,92 +649,6 @@ exports[`renders edit journey step correctly 1`] = `
       </Text>
     </View>
   </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Array [
-        Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
-        },
-        undefined,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
-      ]
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                  },
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -664,122 +664,6 @@ exports[`renders interaction with skip correctly 1`] = `
     }
   }
 >
-  <View
-    style={
-      Array [
-        Object {
-          "paddingTop": 10,
-        },
-        Object {
-          "alignItems": "stretch",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={true}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="What did you see God do?"
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#005A7F"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "minHeight": 90.5,
-            "paddingHorizontal": 45,
-          },
-        ]
-      }
-      testID="stepInput"
-      textAlignVertical="top"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
-    />
-  </View>
-  <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID="bottomButton"
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#52C5DC",
-            "height": 60,
-            "justifyContent": "center",
-          },
-          null,
-          Object {
-            "width": 750,
-          },
-          null,
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#ffffff",
-                "fontSize": 18,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "textAlign": "center",
-              },
-              Object {},
-            ],
-          ]
-        }
-      >
-        ADD TO OUR JOURNEY
-      </Text>
-    </View>
-  </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -948,6 +832,122 @@ exports[`renders interaction with skip correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingTop": 10,
+        },
+        Object {
+          "alignItems": "stretch",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={true}
+      autoFocus={true}
+      blurOnSubmit={true}
+      multiline={true}
+      onChangeText={[Function]}
+      placeholder="What did you see God do?"
+      placeholderTextColor="#B4B6BA"
+      rejectResponderTermination={true}
+      returnKeyType="done"
+      selectionColor="#005A7F"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "letterSpacing": 0.25,
+            "paddingVertical": 5,
+          },
+          Object {
+            "borderBottomColor": "transparent",
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "minHeight": 90.5,
+            "paddingHorizontal": 45,
+          },
+        ]
+      }
+      testID="stepInput"
+      textAlignVertical="top"
+      underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
+    />
+  </View>
+  <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="bottomButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#52C5DC",
+            "height": 60,
+            "justifyContent": "center",
+          },
+          null,
+          Object {
+            "width": 750,
+          },
+          null,
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "color": "#ffffff",
+                "fontSize": 18,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ]
+        }
+      >
+        ADD TO OUR JOURNEY
+      </Text>
+    </View>
+  </View>
 </RCTSafeAreaView>
 `;
 
@@ -963,6 +963,92 @@ exports[`renders interaction without skip correctly 1`] = `
     }
   }
 >
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                  },
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
   <View
     style={
       Array [
@@ -1079,92 +1165,6 @@ exports[`renders interaction without skip correctly 1`] = `
       </Text>
     </View>
   </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Array [
-        Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
-        },
-        undefined,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
-      ]
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                  },
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -1180,6 +1180,92 @@ exports[`renders journey correctly 1`] = `
     }
   }
 >
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                  },
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
   <View
     style={
       Array [
@@ -1296,92 +1382,6 @@ exports[`renders journey correctly 1`] = `
       </Text>
     </View>
   </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Array [
-        Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
-        },
-        undefined,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
-      ]
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                  },
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -1397,122 +1397,6 @@ exports[`renders step note correctly 1`] = `
     }
   }
 >
-  <View
-    style={
-      Array [
-        Object {
-          "paddingTop": 10,
-        },
-        Object {
-          "alignItems": "stretch",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={true}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="What did you see God do?"
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#005A7F"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "minHeight": 90.5,
-            "paddingHorizontal": 45,
-          },
-        ]
-      }
-      testID="stepInput"
-      textAlignVertical="top"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
-    />
-  </View>
-  <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID="bottomButton"
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#52C5DC",
-            "height": 60,
-            "justifyContent": "center",
-          },
-          null,
-          Object {
-            "width": 750,
-          },
-          null,
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#ffffff",
-                "fontSize": 18,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "textAlign": "center",
-              },
-              Object {},
-            ],
-          ]
-        }
-      >
-        ADD TO OUR JOURNEY
-      </Text>
-    </View>
-  </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -1681,6 +1565,122 @@ exports[`renders step note correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingTop": 10,
+        },
+        Object {
+          "alignItems": "stretch",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={true}
+      autoFocus={true}
+      blurOnSubmit={true}
+      multiline={true}
+      onChangeText={[Function]}
+      placeholder="What did you see God do?"
+      placeholderTextColor="#B4B6BA"
+      rejectResponderTermination={true}
+      returnKeyType="done"
+      selectionColor="#005A7F"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "letterSpacing": 0.25,
+            "paddingVertical": 5,
+          },
+          Object {
+            "borderBottomColor": "transparent",
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "minHeight": 90.5,
+            "paddingHorizontal": 45,
+          },
+        ]
+      }
+      testID="stepInput"
+      textAlignVertical="top"
+      underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
+    />
+  </View>
+  <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="bottomButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#52C5DC",
+            "height": 60,
+            "justifyContent": "center",
+          },
+          null,
+          Object {
+            "width": 750,
+          },
+          null,
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "color": "#ffffff",
+                "fontSize": 18,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ]
+        }
+      >
+        ADD TO OUR JOURNEY
+      </Text>
+    </View>
+  </View>
 </RCTSafeAreaView>
 `;
 
@@ -1696,6 +1696,174 @@ exports[`renders step note correctly for me 1`] = `
     }
   }
 >
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+        undefined,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                  },
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="skipButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Array [
+              Object {
+                "padding": 15,
+              },
+              undefined,
+            ],
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  },
+                ],
+              ],
+            ]
+          }
+        >
+          SKIP
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
   <View
     style={
       Array [
@@ -1812,6 +1980,21 @@ exports[`renders step note correctly for me 1`] = `
       </Text>
     </View>
   </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders step note edit correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -1980,21 +2163,6 @@ exports[`renders step note correctly for me 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
-`;
-
-exports[`renders step note edit correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
-    }
-  }
->
   <View
     style={
       Array [
@@ -2111,6 +2279,21 @@ exports[`renders step note edit correctly 1`] = `
       </Text>
     </View>
   </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders step note edit correctly for me 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -2279,21 +2462,6 @@ exports[`renders step note edit correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
-`;
-
-exports[`renders step note edit correctly for me 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
-    }
-  }
->
   <View
     style={
       Array [
@@ -2410,174 +2578,6 @@ exports[`renders step note edit correctly for me 1`] = `
       </Text>
     </View>
   </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Array [
-        Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
-        },
-        undefined,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
-      ]
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                  },
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "position": "absolute",
-        "right": 10,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="skipButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Array [
-              Object {
-                "padding": 15,
-              },
-              undefined,
-            ],
-            null,
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 14,
-                    "fontWeight": "bold",
-                  },
-                ],
-              ],
-            ]
-          }
-        >
-          SKIP
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -2586,7 +2586,7 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -58,11 +58,11 @@
+@@ -226,11 +226,11 @@
           ]
         }
         testID=\\"stepInput\\"

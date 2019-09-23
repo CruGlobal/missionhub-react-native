@@ -11,6 +11,9 @@ exports[`renders for me renders correctly 1`] = `
     }
   }
 >
+  <BackButton
+    absolute={true}
+  />
   <Image
     source={
       Object {
@@ -30,9 +33,6 @@ exports[`renders for me renders correctly 1`] = `
         },
       ]
     }
-  />
-  <BackButton
-    absolute={true}
   />
   <Text
     style={
@@ -440,6 +440,9 @@ exports[`renders for me renders firstItem correctly 1`] = `
     }
   }
 >
+  <BackButton
+    absolute={true}
+  />
   <Image
     source={
       Object {
@@ -459,9 +462,6 @@ exports[`renders for me renders firstItem correctly 1`] = `
         },
       ]
     }
-  />
-  <BackButton
-    absolute={true}
   />
   <Text
     style={
@@ -869,6 +869,9 @@ exports[`renders for other renders correctly 1`] = `
     }
   }
 >
+  <BackButton
+    absolute={true}
+  />
   <Image
     source={
       Object {
@@ -888,9 +891,6 @@ exports[`renders for other renders correctly 1`] = `
         },
       ]
     }
-  />
-  <BackButton
-    absolute={true}
   />
   <Text
     style={
@@ -1298,6 +1298,9 @@ exports[`renders for other renders firstItem correctly 1`] = `
     }
   }
 >
+  <BackButton
+    absolute={true}
+  />
   <Image
     source={
       Object {
@@ -1317,9 +1320,6 @@ exports[`renders for other renders firstItem correctly 1`] = `
         },
       ]
     }
-  />
-  <BackButton
-    absolute={true}
   />
   <Text
     style={
@@ -1727,6 +1727,9 @@ exports[`renders renders correctly with question text 1`] = `
     }
   }
 >
+  <BackButton
+    absolute={true}
+  />
   <Image
     source={
       Object {
@@ -1746,9 +1749,6 @@ exports[`renders renders correctly with question text 1`] = `
         },
       ]
     }
-  />
-  <BackButton
-    absolute={true}
   />
   <Text
     style={
@@ -2582,6 +2582,9 @@ exports[`renders renders correctly without stages 1`] = `
     }
   }
 >
+  <BackButton
+    absolute={true}
+  />
   <Image
     source={
       Object {
@@ -2601,9 +2604,6 @@ exports[`renders renders correctly without stages 1`] = `
         },
       ]
     }
-  />
-  <BackButton
-    absolute={true}
   />
   <Text
     style={

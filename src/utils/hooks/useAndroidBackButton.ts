@@ -2,17 +2,12 @@ import { BackHandler } from 'react-native';
 import { useEffect } from 'react';
 import { NavigationEventSubscription } from 'react-navigation';
 import { useNavigation } from 'react-navigation-hooks';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
-
-import { navigateBack } from '../../actions/navigation';
 
 export const useAndroidBackButton = (
   enableBackButton = false,
   onBackPress?: () => void,
 ) => {
   const navigation = useNavigation();
-  const dispatch = navigation.dispatch as ThunkDispatch<{}, {}, AnyAction>;
 
   let willFocus: NavigationEventSubscription;
   let willBlur: NavigationEventSubscription;
@@ -21,9 +16,8 @@ export const useAndroidBackButton = (
     if (enableBackButton) {
       if (onBackPress) {
         onBackPress();
-        return true;
       } else {
-        dispatch(navigateBack());
+        return false;
       }
     }
     return true;
