@@ -177,8 +177,31 @@ class GroupProfile extends Component {
     const { t, organization, membersLength, owner, canEdit } = this.props;
     const { editing, name } = this.state;
     return (
-      <View style={styles.container}>
-        <SafeAreaView style={styles.flex}>
+      <>
+        <SafeAreaView style={styles.container} forceInset={{ bottom: 'never' }}>
+          <Header
+            left={
+              <IconButton
+                name="deleteIcon"
+                type="MissionHub"
+                style={styles.closeButton}
+                onPress={this.navigateBack}
+              />
+            }
+            right={
+              !canEdit ? null : (
+                <Button
+                  style={styles.editBtn}
+                  buttonTextStyle={styles.btnText}
+                  onPress={this.handleEdit}
+                  text={(editing ? t('done') : t('edit')).toUpperCase()}
+                  type="transparent"
+                />
+              )
+            }
+          />
+        </SafeAreaView>
+        <View style={styles.content}>
           {this.renderImage()}
           <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
             {editing ? (
@@ -202,8 +225,7 @@ class GroupProfile extends Component {
                       destructive: true,
                     },
                   ]}
-                  size={20}
-                  iconProps={{ style: styles.menu }}
+                  iconProps={{ size: 20, style: styles.menu }}
                 />
               </Flex>
             ) : (
@@ -288,31 +310,8 @@ class GroupProfile extends Component {
               <Text style={styles.info}>{t('info')}</Text>
             </Flex>
           </ScrollView>
-        </SafeAreaView>
-        <Header
-          shadow={false}
-          style={styles.topNav}
-          left={
-            <IconButton
-              name="deleteIcon"
-              type="MissionHub"
-              style={styles.closeButton}
-              onPress={this.navigateBack}
-            />
-          }
-          right={
-            !canEdit ? null : (
-              <Button
-                style={styles.editBtn}
-                buttonTextStyle={styles.btnText}
-                onPress={this.handleEdit}
-                text={(editing ? t('done') : t('edit')).toUpperCase()}
-                type="transparent"
-              />
-            )
-          }
-        />
-      </View>
+        </View>
+      </>
     );
   }
 }

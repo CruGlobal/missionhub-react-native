@@ -2,10 +2,7 @@ import React from 'react';
 import { Animated, Text } from 'react-native';
 import MockDate from 'mockdate';
 
-import {
-  testSnapshotShallow,
-  renderShallow,
-} from '../../../../testUtils/index';
+import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import DatePicker from '../index.ios.js';
 
 const mockDate = '2018-09-12 12:00:00 PM GMT+0';

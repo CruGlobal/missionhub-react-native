@@ -6,6 +6,9 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.primaryColor,
+  },
+  content: {
+    flex: 1,
     paddingHorizontal: 60,
     alignItems: 'center',
     justifyContent: 'center',

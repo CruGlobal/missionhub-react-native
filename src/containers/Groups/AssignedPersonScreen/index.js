@@ -1,7 +1,7 @@
 /* eslint max-lines: 0 */
 
 import React, { Component } from 'react';
-import { StatusBar, View } from 'react-native';
+import { StatusBar, SafeAreaView } from 'react-native';
 import i18next from 'i18next';
 import { connect } from 'react-redux';
 import { DrawerActions } from 'react-navigation';
@@ -216,7 +216,7 @@ export class AssignedPersonScreen extends Component {
     const name = (person.first_name || '').toUpperCase();
 
     return (
-      <View>
+      <SafeAreaView style={styles.container}>
         <StatusBar {...theme.statusBar.lightContent} />
         <Header
           left={<BackButton />}
@@ -227,7 +227,6 @@ export class AssignedPersonScreen extends Component {
               onPress={this.openDrawer}
             />
           }
-          shadow={false}
           title={keyboardVisible ? name : organization.name}
           title2={keyboardVisible ? organization.name : undefined}
         />
@@ -258,7 +257,7 @@ export class AssignedPersonScreen extends Component {
             isCruOrg={isCruOrg}
           />
         </Flex>
-      </View>
+      </SafeAreaView>
     );
   }
 }

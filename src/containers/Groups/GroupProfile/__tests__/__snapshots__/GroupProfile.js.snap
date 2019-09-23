@@ -1,17 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GroupProfile edit screen renders editing state 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#505256",
-      "flex": 1,
-    }
-  }
->
+<Fragment>
   <SafeAreaView
+    forceInset={
+      Object {
+        "bottom": "never",
+      }
+    }
     style={
       Object {
+        "backgroundColor": "#007398",
+      }
+    }
+  >
+    <Header
+      left={
+        <IconButton
+          name="deleteIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "paddingLeft": 10,
+            }
+          }
+          type="MissionHub"
+        />
+      }
+      right={
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
+          }
+          onPress={[Function]}
+          style={
+            Object {
+              "paddingRight": 15,
+            }
+          }
+          text="DONE"
+          type="transparent"
+        />
+      }
+    />
+  </SafeAreaView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#505256",
         "flex": 1,
       }
     }
@@ -92,7 +132,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           underlineColorAndroid="transparent"
           value="Test Organization"
         />
-        <PopupMenu
+        <withI18nextTranslation(PopupMenu)
           actions={
             Array [
               Object {
@@ -104,13 +144,13 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           }
           iconProps={
             Object {
+              "size": 20,
               "style": Object {
                 "color": "#ffffff",
                 "marginLeft": 15,
               },
             }
           }
-          size={20}
         />
       </Flex>
       <Flex
@@ -375,65 +415,62 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
         </MyText>
       </Flex>
     </ScrollViewMock>
-  </SafeAreaView>
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        style={
-          Object {
-            "paddingLeft": 10,
-          }
-        }
-        type="MissionHub"
-      />
-    }
-    right={
-      <Button
-        buttonTextStyle={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "fontWeight": "bold",
-          }
-        }
-        onPress={[Function]}
-        style={
-          Object {
-            "paddingRight": 15,
-          }
-        }
-        text="DONE"
-        type="transparent"
-      />
-    }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "rgba(0, 0, 0, 0.05)",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  />
-</View>
+  </View>
+</Fragment>
 `;
 
 exports[`GroupProfile renders correctly 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#505256",
-      "flex": 1,
-    }
-  }
->
+<Fragment>
   <SafeAreaView
+    forceInset={
+      Object {
+        "bottom": "never",
+      }
+    }
     style={
       Object {
+        "backgroundColor": "#007398",
+      }
+    }
+  >
+    <Header
+      left={
+        <IconButton
+          name="deleteIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "paddingLeft": 10,
+            }
+          }
+          type="MissionHub"
+        />
+      }
+      right={
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
+          }
+          onPress={[Function]}
+          style={
+            Object {
+              "paddingRight": 15,
+            }
+          }
+          text="EDIT"
+          type="transparent"
+        />
+      }
+    />
+  </SafeAreaView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#505256",
         "flex": 1,
       }
     }
@@ -733,65 +770,62 @@ exports[`GroupProfile renders correctly 1`] = `
         </MyText>
       </Flex>
     </ScrollViewMock>
-  </SafeAreaView>
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        style={
-          Object {
-            "paddingLeft": 10,
-          }
-        }
-        type="MissionHub"
-      />
-    }
-    right={
-      <Button
-        buttonTextStyle={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "fontWeight": "bold",
-          }
-        }
-        onPress={[Function]}
-        style={
-          Object {
-            "paddingRight": 15,
-          }
-        }
-        text="EDIT"
-        type="transparent"
-      />
-    }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "rgba(0, 0, 0, 0.05)",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  />
-</View>
+  </View>
+</Fragment>
 `;
 
 exports[`GroupProfile renders with image 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#505256",
-      "flex": 1,
-    }
-  }
->
+<Fragment>
   <SafeAreaView
+    forceInset={
+      Object {
+        "bottom": "never",
+      }
+    }
     style={
       Object {
+        "backgroundColor": "#007398",
+      }
+    }
+  >
+    <Header
+      left={
+        <IconButton
+          name="deleteIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "paddingLeft": 10,
+            }
+          }
+          type="MissionHub"
+        />
+      }
+      right={
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            }
+          }
+          onPress={[Function]}
+          style={
+            Object {
+              "paddingRight": 15,
+            }
+          }
+          text="EDIT"
+          type="transparent"
+        />
+      }
+    />
+  </SafeAreaView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#505256",
         "flex": 1,
       }
     }
@@ -1091,65 +1125,44 @@ exports[`GroupProfile renders with image 1`] = `
         </MyText>
       </Flex>
     </ScrollViewMock>
-  </SafeAreaView>
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        style={
-          Object {
-            "paddingLeft": 10,
-          }
-        }
-        type="MissionHub"
-      />
-    }
-    right={
-      <Button
-        buttonTextStyle={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "fontWeight": "bold",
-          }
-        }
-        onPress={[Function]}
-        style={
-          Object {
-            "paddingRight": 15,
-          }
-        }
-        text="EDIT"
-        type="transparent"
-      />
-    }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "rgba(0, 0, 0, 0.05)",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  />
-</View>
+  </View>
+</Fragment>
 `;
 
 exports[`GroupProfile renders without edit button 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#505256",
-      "flex": 1,
-    }
-  }
->
+<Fragment>
   <SafeAreaView
+    forceInset={
+      Object {
+        "bottom": "never",
+      }
+    }
     style={
       Object {
+        "backgroundColor": "#007398",
+      }
+    }
+  >
+    <Header
+      left={
+        <IconButton
+          name="deleteIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "paddingLeft": 10,
+            }
+          }
+          type="MissionHub"
+        />
+      }
+      right={null}
+    />
+  </SafeAreaView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#505256",
         "flex": 1,
       }
     }
@@ -1449,31 +1462,6 @@ exports[`GroupProfile renders without edit button 1`] = `
         </MyText>
       </Flex>
     </ScrollViewMock>
-  </SafeAreaView>
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        style={
-          Object {
-            "paddingLeft": 10,
-          }
-        }
-        type="MissionHub"
-      />
-    }
-    right={null}
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "rgba(0, 0, 0, 0.05)",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  />
-</View>
+  </View>
+</Fragment>
 `;

@@ -157,7 +157,7 @@ class AddContactScreen extends Component {
     const orgName = organization ? organization.name : undefined;
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Header
           right={
             <IconButton
@@ -166,7 +166,6 @@ class AddContactScreen extends Component {
               onPress={this.completeWithoutSave}
             />
           }
-          shadow={false}
           title={
             person
               ? t('editPerson').toUpperCase()
@@ -175,7 +174,7 @@ class AddContactScreen extends Component {
               : t('addSomeone').toUpperCase()
           }
         />
-        <SafeAreaView style={{ flex: 1 }}>
+        <View style={{ flex: 1 }}>
           <ScrollView style={styles.scrollView}>
             <AddContactFields
               person={person}
@@ -186,8 +185,8 @@ class AddContactScreen extends Component {
             />
           </ScrollView>
           <BottomButton onPress={this.savePerson} text={t('done')} />
-        </SafeAreaView>
-      </View>
+        </View>
+      </SafeAreaView>
     );
   }
 }

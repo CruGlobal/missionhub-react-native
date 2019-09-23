@@ -171,9 +171,9 @@ class MemberOptionsMenu extends Component {
           ? this.createOption('removeMember', this.removeFromCommunity)
           : []),
       ],
-      iconProps: {},
-      style: styles.container,
+      buttonProps: { style: styles.container },
     };
+
     return <PopupMenu {...props} />;
   }
 }

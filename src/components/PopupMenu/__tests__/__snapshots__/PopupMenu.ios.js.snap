@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PopupMenu iOS renders with 1 button 1`] = `
+exports[`PopupMenu iOS renders correctly 1`] = `
 <View
   accessible={true}
   clickable={true}
@@ -14,50 +14,74 @@ exports[`PopupMenu iOS renders with 1 button 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "alignItems": "center",
-      "justifyContent": "center",
       "opacity": 1,
     }
   }
+  testID="IconButton"
 >
-  <Text
-    allowFontScaling={false}
+  <View
     style={
       Array [
         Object {
-          "color": undefined,
-          "fontSize": 12,
+          "backgroundColor": "transparent",
         },
+        null,
         Array [
           Object {
-            "color": "#ffffff",
+            "alignItems": "center",
+            "justifyContent": "center",
           },
-          Object {
-            "fontSize": 18,
-          },
-          Array [
-            Object {
-              "color": "#B2B0B2",
-              "paddingHorizontal": 10,
-            },
-            undefined,
-          ],
+          undefined,
         ],
-        Object {
-          "fontFamily": "icomoon",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
-        },
-        Object {},
+        null,
       ]
     }
   >
-    
-  </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 18,
+            },
+            Array [
+              Object {
+                "margin": 10,
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "margin": 0,
+                  "paddingHorizontal": 10,
+                },
+                undefined,
+              ],
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
 </View>
 `;
 
-exports[`PopupMenu iOS renders with icon props 1`] = `
+exports[`PopupMenu iOS renders disabled 1`] = `
 <View
   accessible={true}
   clickable={true}
@@ -71,45 +95,260 @@ exports[`PopupMenu iOS renders with icon props 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "alignItems": "center",
-      "justifyContent": "center",
       "opacity": 1,
     }
   }
+  testID="IconButton"
 >
-  <Text
-    allowFontScaling={false}
+  <View
     style={
       Array [
         Object {
-          "color": undefined,
-          "fontSize": 12,
+          "backgroundColor": "transparent",
+        },
+        Object {
+          "opacity": 0.6,
         },
         Array [
           Object {
-            "color": "#ffffff",
+            "alignItems": "center",
+            "justifyContent": "center",
           },
-          Object {
-            "fontSize": 24,
-          },
-          Array [
-            Object {
-              "color": "#B2B0B2",
-              "paddingHorizontal": 10,
-            },
-            undefined,
-          ],
+          undefined,
         ],
-        Object {
-          "fontFamily": "icomoon",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
-        },
-        Object {},
+        null,
       ]
     }
   >
-    
-  </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 18,
+            },
+            Array [
+              Object {
+                "margin": 10,
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "margin": 0,
+                  "paddingHorizontal": 10,
+                },
+                undefined,
+              ],
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`PopupMenu iOS renders for long press trigger 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="IconButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        null,
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          undefined,
+        ],
+        null,
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 18,
+            },
+            Array [
+              Object {
+                "margin": 10,
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "margin": 0,
+                  "paddingHorizontal": 10,
+                },
+                undefined,
+              ],
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`PopupMenu iOS renders with button and icon props 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="IconButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        null,
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          Object {
+            "margin": 10,
+          },
+        ],
+        null,
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 24,
+            },
+            Array [
+              Object {
+                "margin": 10,
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "margin": 0,
+                  "paddingHorizontal": 10,
+                },
+                Object {
+                  "paddingVertical": 10,
+                },
+              ],
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`PopupMenu iOS renders with children 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="popupMenuButton"
+>
+  <View />
 </View>
 `;

@@ -29,76 +29,65 @@ exports[`should render correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#FF5532",
       "flex": 1,
     }
   }
 >
-  <Header
-    right={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        type="MissionHub"
-      />
-    }
-    style={
-      Object {
-        "backgroundColor": "#FF5532",
-      }
-    }
-    title="Reported Comment"
-  />
-  <SafeAreaView
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
-    <FlatList
-      contentContainerStyle={
-        Object {
-          "paddingVertical": 15,
-        }
-      }
-      data={
-        Array [
-          Object {
-            "comment": Object {
-              "id": "comment1",
-              "organization_celebration_item": Object {
-                "id": "eventId",
-              },
-            },
-            "id": "report1",
-            "person": Object {
-              "full_name": "person full name",
-              "id": "person1",
-            },
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={false}
+  <SafeAreaView>
+    <Header
+      right={
+        <IconButton
+          name="deleteIcon"
+          onPress={[Function]}
+          type="MissionHub"
         />
       }
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={50}
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
+      title="Reported Comments"
     />
   </SafeAreaView>
+  <FlatList
+    contentContainerStyle={
+      Object {
+        "paddingVertical": 15,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "comment": Object {
+            "id": "comment1",
+            "organization_celebration_item": Object {
+              "id": "eventId",
+            },
+          },
+          "id": "report1",
+          "person": Object {
+            "full_name": "person full name",
+            "id": "person1",
+          },
+        },
+      ]
+    }
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
 </View>
 `;
 
@@ -106,42 +95,31 @@ exports[`should render empty correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#FF5532",
       "flex": 1,
     }
   }
 >
-  <Header
-    right={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        type="MissionHub"
-      />
-    }
-    style={
-      Object {
-        "backgroundColor": "#FF5532",
+  <SafeAreaView>
+    <Header
+      right={
+        <IconButton
+          name="deleteIcon"
+          onPress={[Function]}
+          type="MissionHub"
+        />
       }
-    }
-    title="Reported Comment"
-  />
-  <SafeAreaView
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
-    <NullStateComponent
-      descriptionText="No comments have been reported."
-      headerText="NO REPORTED COMMENTS"
-      imageSource={
-        Object {
-          "testUri": "../../../assets/images/curiousIcon.png",
-        }
-      }
+      title="Reported Comments"
     />
   </SafeAreaView>
+  <NullStateComponent
+    descriptionText="No comments have been reported."
+    headerText="NO REPORTED COMMENTS"
+    imageSource={
+      Object {
+        "testUri": "../../../assets/images/curiousIcon.png",
+      }
+    }
+  />
 </View>
 `;

@@ -107,6 +107,7 @@ it('should refresh items properly', () => {
   common.refresh = jest.fn();
   component
     .childAt(0)
+    .childAt(0)
     .props()
     .refreshCallback();
 
@@ -125,6 +126,7 @@ it('should call create', () => {
 
   component
     .childAt(1)
+    .childAt(0)
     .props()
     .onPress();
 

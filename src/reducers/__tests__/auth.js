@@ -163,7 +163,7 @@ describe('updates a users stage with localized stages', () => {
       {
         person: {
           user: {
-            pathway_stage_id: '3',
+            pathway_stage_id: '2',
           },
         },
       },

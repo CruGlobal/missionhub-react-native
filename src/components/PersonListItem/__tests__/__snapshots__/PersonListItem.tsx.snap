@@ -1,0 +1,346 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render assigned contact 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={null}
+  testID="PersonListItemButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#ECEEF2",
+          "borderBottomWidth": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 16,
+          "width": 750,
+        },
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "fontSize": 13,
+              },
+              Object {},
+            ],
+          ]
+        }
+      >
+        First
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "fontSize": 13,
+              },
+              Object {},
+              Object {},
+            ],
+          ]
+        }
+      >
+         Last
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`render unassigned contact 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={null}
+  testID="PersonListItemButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#ECEEF2",
+          "borderBottomWidth": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 16,
+          "width": 750,
+        },
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "fontSize": 13,
+              },
+              Object {},
+            ],
+          ]
+        }
+      >
+        First
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "fontSize": 13,
+              },
+              Object {},
+              Object {},
+            ],
+          ]
+        }
+      >
+         Last
+      </Text>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#FF5532",
+            "fontSize": 13,
+          },
+        ]
+      }
+    >
+      Unassigned
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`render without last name 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderBottomColor": "#ECEEF2",
+        "borderBottomWidth": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "fontSize": 13,
+            },
+            Object {},
+          ],
+        ]
+      }
+    >
+      First
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`render without touchable 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderBottomColor": "#ECEEF2",
+        "borderBottomWidth": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "fontSize": 13,
+            },
+            Object {},
+          ],
+        ]
+      }
+    >
+      First
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "fontSize": 13,
+            },
+            Object {},
+            Object {},
+          ],
+        ]
+      }
+    >
+       Last
+    </Text>
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#FF5532",
+          "fontSize": 13,
+        },
+      ]
+    }
+  >
+    Unassigned
+  </Text>
+</View>
+`;

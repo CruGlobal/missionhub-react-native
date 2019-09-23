@@ -782,7 +782,7 @@ export default {
     clearAll: 'Clear All',
   },
   groupsReport: {
-    title: 'Reported Comment',
+    title: 'Reported Comments',
     header: 'No Reported Comments',
     reportNull: 'No comments have been reported.',
   },

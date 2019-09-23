@@ -65,19 +65,21 @@ export class GroupReport extends Component {
     const { t } = this.props;
 
     return (
-      <View style={styles.pageContainer}>
-        <Header
-          right={
-            <IconButton
-              name="deleteIcon"
-              type="MissionHub"
-              onPress={this.navigateBack}
-            />
-          }
-          style={styles.reportHeader}
-          title={t('title')}
-        />
-        <SafeAreaView style={{ flex: 1 }}>{this.renderList()}</SafeAreaView>
+      <View style={styles.redPageContainer}>
+        <SafeAreaView>
+          <Header
+            right={
+              <IconButton
+                name="deleteIcon"
+                type="MissionHub"
+                onPress={this.navigateBack}
+              />
+            }
+            style={styles.reportHeader}
+            title={t('title')}
+          />
+        </SafeAreaView>
+        {this.renderList()}
       </View>
     );
   }

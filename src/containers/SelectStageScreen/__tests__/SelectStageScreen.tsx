@@ -28,6 +28,7 @@ jest.mock('../../../components/common', () => ({
   Button: 'Button',
 }));
 jest.mock('../../BackButton', () => 'BackButton');
+jest.mock('../../../components/Header', () => 'Header');
 
 const stages = [
   { id: 1, name: 'Stage 1', description: 'Stage 1 description' },

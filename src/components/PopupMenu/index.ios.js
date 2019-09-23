@@ -1,28 +1,75 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
+import { ActionSheetIOS } from 'react-native';
 
-import { Touchable, Icon } from '../common';
-import { showMenu } from '../../utils/common';
+import { IconButton, Touchable } from '../common';
+import { isFunction } from '../../utils/common';
 
 import styles from './styles';
 
 // iOS only component
+@withTranslation()
 class PopupMenu extends Component {
-  open = () => {
-    showMenu(this.props.actions);
+  showMenu = () => {
+    const { actions, t, title } = this.props;
+
+    const options = actions.map(a => a.text).concat(t('cancel'));
+    const select = i =>
+      actions[i] && isFunction(actions[i].onPress) && actions[i].onPress();
+
+    let destructiveButtonIndex = actions.findIndex(o => o.destructive);
+    if (destructiveButtonIndex < 0) {
+      destructiveButtonIndex = undefined;
+    }
+
+    const params = {
+      options,
+      cancelButtonIndex: options.length - 1,
+      destructiveButtonIndex,
+      ...(title ? { title } : {}),
+    };
+
+    ActionSheetIOS.showActionSheetWithOptions(params, btnIndex =>
+      select(btnIndex),
+    );
   };
 
   render() {
-    const { iconProps = {}, style } = this.props;
-    return (
-      <Touchable onPress={this.open} style={[styles.container, style]}>
-        <Icon
-          name="moreIcon"
-          type="MissionHub"
-          {...iconProps}
-          style={[styles.icon, iconProps.style]}
-        />
+    const {
+      children,
+      disabled,
+      triggerOnLongPress,
+      buttonProps = {},
+      iconProps = {},
+    } = this.props;
+
+    return children ? (
+      <Touchable
+        disabled={disabled}
+        {...buttonProps}
+        {...(triggerOnLongPress
+          ? { onLongPress: this.showMenu }
+          : { onPress: this.showMenu })}
+        testID="popupMenuButton"
+      >
+        {children}
       </Touchable>
+    ) : (
+      <IconButton
+        type="MissionHub"
+        disabled={disabled}
+        {...buttonProps}
+        {...iconProps}
+        {...(triggerOnLongPress
+          ? { onLongPress: this.showMenu }
+          : { onPress: this.showMenu })}
+        name="moreIcon"
+        testID="popupMenuButton"
+        buttonStyle={[styles.container, buttonProps.style]}
+        style={[styles.icon, iconProps.style]}
+        onPress={this.showMenu}
+      />
     );
   }
 }
@@ -35,12 +82,12 @@ PopupMenu.propTypes = {
       destructive: PropTypes.bool,
     }),
   ).isRequired,
+  children: PropTypes.element,
+  disabled: PropTypes.bool,
+  triggerOnLongPress: PropTypes.bool,
+  title: PropTypes.string,
+  buttonProps: PropTypes.object,
   iconProps: PropTypes.object,
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array,
-  ]),
 };
 
 export default PopupMenu;

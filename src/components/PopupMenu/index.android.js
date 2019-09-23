@@ -1,35 +1,73 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Menu, { MenuItem } from 'react-native-material-menu';
 
-import { showMenu } from '../../utils/common';
-import { Touchable, Icon } from '../common';
+import { IconButton, Touchable } from '../common';
 
 import styles from './styles';
 
 // Android only component
 class PopupMenu extends Component {
-  handlePress = () => {
-    showMenu(this.props.actions, this.menu);
-  };
-
   ref = c => (this.menu = c);
 
-  render() {
-    const { iconProps = {}, style } = this.props;
-    return (
+  showMenu = () => this.menu.show();
+
+  hideMenu = () => this.menu.hide();
+
+  renderItem = ({ text, onPress }) => {
+    const handlePress = () => {
+      this.hideMenu();
+      onPress();
+    };
+
+    return <MenuItem onPress={handlePress}>{text}</MenuItem>;
+  };
+
+  renderMenuTrigger = () => {
+    const {
+      children,
+      disabled,
+      triggerOnLongPress,
+      buttonProps = {},
+      iconProps = {},
+    } = this.props;
+
+    return children ? (
       <Touchable
-        onPress={this.handlePress}
-        borderless={true}
-        style={[styles.container, style]}
+        disabled={disabled}
+        {...buttonProps}
+        {...(triggerOnLongPress
+          ? { onLongPress: this.showMenu }
+          : { onPress: this.showMenu })}
+        testID="popupMenuButton"
       >
-        <Icon
-          ref={this.ref}
-          name="moreIcon"
-          type="MissionHub"
-          {...iconProps}
-          style={[styles.icon, iconProps.style]}
-        />
+        {children}
       </Touchable>
+    ) : (
+      <IconButton
+        type="MissionHub"
+        disabled={disabled}
+        {...buttonProps}
+        {...iconProps}
+        {...(triggerOnLongPress
+          ? { onLongPress: this.showMenu }
+          : { onPress: this.showMenu })}
+        ref={this.ref}
+        testID="popupMenuButton"
+        name="moreIcon"
+        buttonStyle={[styles.container, buttonProps.style]}
+        style={[styles.icon, iconProps.style]}
+      />
+    );
+  };
+
+  render() {
+    const { actions } = this.props;
+
+    return (
+      <Menu ref={this.ref} button={this.renderMenuTrigger()}>
+        {actions.map(this.renderItem)}
+      </Menu>
     );
   }
 }
@@ -41,12 +79,11 @@ PopupMenu.propTypes = {
       onPress: PropTypes.func.isRequired,
     }),
   ).isRequired,
+  children: PropTypes.element,
+  disabled: PropTypes.bool,
+  triggerOnLongPress: PropTypes.bool,
+  buttonProps: PropTypes.object,
   iconProps: PropTypes.object,
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array,
-  ]),
 };
 
 export default PopupMenu;

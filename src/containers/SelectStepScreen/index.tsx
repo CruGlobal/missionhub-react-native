@@ -6,11 +6,10 @@ import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
-import { navigateBack } from '../../actions/navigation';
 import { Text, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
-import AbsoluteSkip from '../../components/AbsoluteSkip';
+import Skip from '../../components/Skip';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
@@ -26,8 +25,6 @@ interface SelectStepScreenProps {
   receiverId: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   organization?: { [key: string]: any };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  contact: { [key: string]: any };
   contactName?: string;
   contactStageId: string;
   headerText: string;
@@ -46,7 +43,6 @@ interface SelectStepScreenProps {
 const SelectStepScreen = ({
   receiverId,
   organization,
-  contact,
   contactName,
   contactStageId,
   headerText,
@@ -79,12 +75,10 @@ const SelectStepScreen = ({
     navigateNext(undefined, true);
   };
 
-  const navigateBackTwoScreens = () => dispatch(navigateBack(2));
-
   const renderForeground = () => {
     return (
       <View style={{ flex: 1, alignItems: 'center' }}>
-        <Header shadow={false} />
+        {renderHeader(false)}
         <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
         <Text header={true} style={styles.headerTitle}>
           {t('stepsOfFaith')}
@@ -94,27 +88,32 @@ const SelectStepScreen = ({
     );
   };
 
-  const renderStickyHeader = () => (
+  const renderHeader = (showTitle = true) => (
     <Header
+      left={<BackButton />}
       center={
-        <Text style={styles.collapsedHeaderTitle}>
-          {t('stepsOfFaith').toUpperCase()}
-        </Text>
+        showTitle && (
+          <Text style={styles.collapsedHeaderTitle}>
+            {t('stepsOfFaith').toUpperCase()}
+          </Text>
+        )
       }
+      right={enableSkipButton && <Skip onSkip={handleSkip} />}
     />
   );
 
   const { headerHeight, parallaxHeaderHeight } = theme;
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={styles.container}>
       <ParallaxScrollView
+        style={{ flex: 1 }}
         backgroundColor={theme.primaryColor}
         contentBackgroundColor={theme.extraLightGrey}
         parallaxHeaderHeight={parallaxHeaderHeight + theme.notchDifference}
         renderForeground={renderForeground}
         stickyHeaderHeight={headerHeight}
-        renderStickyHeader={renderStickyHeader}
+        renderStickyHeader={renderHeader}
       >
         <StepsList
           contactName={contactName}
@@ -123,15 +122,8 @@ const SelectStepScreen = ({
           onPressStep={navToSuggestedStep}
         />
       </ParallaxScrollView>
-      <SafeAreaView>
-        <BottomButton onPress={navToCreateStep} text={t('createStep')} />
-      </SafeAreaView>
-      <BackButton
-        customNavigate={contact ? undefined : navigateBackTwoScreens}
-        absolute={true}
-      />
-      {enableSkipButton && <AbsoluteSkip onSkip={handleSkip} />}
-    </View>
+      <BottomButton onPress={navToCreateStep} text={t('createStep')} />
+    </SafeAreaView>
   );
 };
 
