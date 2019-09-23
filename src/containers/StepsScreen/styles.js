@@ -15,6 +15,7 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
   },
   contentContainer: {
+    flex: 1,
     backgroundColor: theme.white,
   },
   top: {
