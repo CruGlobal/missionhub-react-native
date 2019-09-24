@@ -203,7 +203,6 @@ const SelectStageScreen = ({
 
   return (
     <View style={styles.backgroundWrapper}>
-      {enableBackButton ? <BackButton /> : null}
       <Image
         source={LANDSCAPE}
         style={[

@@ -12,33 +12,34 @@ export const useAndroidBackButton = (
   let willFocus: NavigationEventSubscription;
   let willBlur: NavigationEventSubscription;
 
-  const handleBackPress = () => {
-    if (enableBackButton) {
-      if (onBackPress) {
-        onBackPress();
-      } else {
-        return false;
-      }
-    }
-    return true;
-  };
-
-  const addListeners = () => {
-    willFocus = navigation.addListener('willFocus', () => {
-      BackHandler.addEventListener('hardwareBackPress', handleBackPress);
-    });
-    willBlur = navigation.addListener('willBlur', () => {
-      BackHandler.removeEventListener('hardwareBackPress', handleBackPress);
-    });
-  };
-  const removeListeners = () => {
-    willFocus && willFocus.remove();
-    willBlur && willBlur.remove();
-    BackHandler.removeEventListener('hardwareBackPress', handleBackPress);
-  };
-
   useEffect(() => {
+    console.log('hook');
+    const handleBackPress = () => {
+      if (enableBackButton) {
+        if (onBackPress) {
+          onBackPress();
+        } else {
+          return false;
+        }
+      }
+      return true;
+    };
+
+    const addListeners = () => {
+      willFocus = navigation.addListener('willFocus', () => {
+        BackHandler.addEventListener('hardwareBackPress', handleBackPress);
+      });
+      willBlur = navigation.addListener('willBlur', () => {
+        BackHandler.removeEventListener('hardwareBackPress', handleBackPress);
+      });
+    };
+    const removeListeners = () => {
+      willFocus && willFocus.remove();
+      willBlur && willBlur.remove();
+      BackHandler.removeEventListener('hardwareBackPress', handleBackPress);
+    };
+
     addListeners();
     return removeListeners;
-  });
+  }, [enableBackButton, onBackPress]);
 };
