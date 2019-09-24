@@ -1,6 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
-import { FlatList, ScrollView, LayoutAnimation, UIManager } from 'react-native';
+import {
+  FlatList,
+  ScrollView,
+  LayoutAnimation,
+  UIManager,
+  View,
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 // For Android to work with the Layout Animation
@@ -112,5 +118,5 @@ export default ({
       </ScrollView>
     );
   }
-  return renderList(items);
+  return <View style={styles.sectionWrap}>{renderList(items)}</View>;
 };
