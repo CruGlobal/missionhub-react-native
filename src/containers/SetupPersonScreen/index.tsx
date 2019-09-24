@@ -34,7 +34,7 @@ interface SetupPersonScreenProps {
   lastName: string;
   myId: string;
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  hideSkipBtn: boolean;
+  hideSkipBtn?: boolean;
 }
 
 const SetupPersonScreen = ({
