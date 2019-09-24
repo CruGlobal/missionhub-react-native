@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { navigateBack } from '../actions/navigation';
-import { useDisableBack } from '../utils/hooks/useDisableBack';
+import { useAndroidBackButton } from '../utils/hooks/useAndroidBackButton';
 
 import IconMessageScreen from './IconMessageScreen';
 
@@ -23,11 +23,10 @@ const AddSomeoneScreen = ({
   hideSkipBtn = false,
   enableBackButton = true,
 }: AddSomeoneScreenProps) => {
-  const enableBack = useDisableBack(enableBackButton);
+  useAndroidBackButton(enableBackButton);
   const { t } = useTranslation('addContact');
 
   const handleNavigate = (skip = false) => {
-    enableBack();
     dispatch(next({ skip }));
   };
 
