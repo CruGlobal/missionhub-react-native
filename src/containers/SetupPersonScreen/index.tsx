@@ -34,6 +34,7 @@ interface SetupPersonScreenProps {
   lastName: string;
   myId: string;
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  hideSkipBtn: boolean;
 }
 
 const SetupPersonScreen = ({
@@ -43,6 +44,7 @@ const SetupPersonScreen = ({
   lastName,
   myId,
   dispatch,
+  hideSkipBtn = false,
 }: SetupPersonScreenProps) => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
@@ -88,7 +90,10 @@ const SetupPersonScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header left={<BackButton />} right={<Skip onSkip={skip} />} />
+      <Header
+        left={<BackButton />}
+        right={hideSkipBtn ? null : <Skip onSkip={skip} />}
+      />
       <View style={{ flex: 1 }} />
       <View style={styles.imageWrap}>
         <Image source={require('../../../assets/images/add_someone.png')} />
