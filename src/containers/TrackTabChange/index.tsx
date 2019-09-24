@@ -9,11 +9,18 @@ interface TrackTabChangeProps {
   dispatch: ThunkDispatch<any, any, any>;
   screen: string;
 }
+interface Payload {
+  action: {
+    routeName?: string;
+    type?: string;
+  };
+}
+
 export const TrackTabChange = ({ dispatch, screen }: TrackTabChangeProps) => {
   useEffect(() => {
     tabFocused({ action: { routeName: screen } });
   }, []);
-  const tabFocused = (payload: any) => {
+  const tabFocused = (payload: Payload): void => {
     dispatch({ type: TRACK_TAB, routeName: payload.action.routeName });
     dispatch(checkForUnreadComments());
   };
