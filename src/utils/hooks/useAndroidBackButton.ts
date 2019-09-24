@@ -13,7 +13,6 @@ export const useAndroidBackButton = (
   let willBlur: NavigationEventSubscription;
 
   useEffect(() => {
-    console.log('hook');
     const handleBackPress = () => {
       if (enableBackButton) {
         if (onBackPress) {
