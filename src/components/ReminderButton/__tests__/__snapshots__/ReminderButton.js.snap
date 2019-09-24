@@ -8,7 +8,7 @@ exports[`reminder not passed in renders correctly 1`] = `
   duration={300}
   height={378}
   iOSModalContent={
-    <withI18nextTranslation(ReminderRepeatButtons)
+    <ReminderRepeatButtons
       onRecurrenceChange={[Function]}
     />
   }
@@ -28,7 +28,7 @@ exports[`reminder passed in renders correctly 1`] = `
   duration={300}
   height={378}
   iOSModalContent={
-    <withI18nextTranslation(ReminderRepeatButtons)
+    <ReminderRepeatButtons
       onRecurrenceChange={[Function]}
     />
   }

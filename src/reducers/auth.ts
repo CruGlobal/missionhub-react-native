@@ -7,7 +7,8 @@ import {
   UPDATE_STAGES,
   UPDATE_TOKEN,
 } from '../constants';
-import { userIsJean, getLocalizedStages } from '../utils/common';
+import { userIsJean } from '../utils/common';
+import { getLocalizedStages } from '../utils/stages';
 import { REQUESTS } from '../api/routes';
 
 export interface AuthState {

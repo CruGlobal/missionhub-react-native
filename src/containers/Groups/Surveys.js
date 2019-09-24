@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -63,7 +63,7 @@ class Surveys extends Component {
   render() {
     const { surveys, pagination } = this.props;
     return (
-      <SafeAreaView style={styles.pageContainer}>
+      <View style={styles.pageContainer}>
         <FlatList
           data={surveys}
           ListHeaderComponent={this.renderHeader}
@@ -84,7 +84,7 @@ class Surveys extends Component {
             )
           }
         />
-      </SafeAreaView>
+      </View>
     );
   }
 }

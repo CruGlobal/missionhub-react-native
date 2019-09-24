@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#FF5532",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 0,
+      "marginVertical": 0,
+      "opacity": 1,
+      "paddingHorizontal": 15,
+      "paddingVertical": 10,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="ReportCommentHeaderCardButton"
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 20,
+          },
+          Object {
+            "color": "#ffffff",
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "marginLeft": 15,
+        },
+      ]
+    }
+  >
+    12 new reported comments
+  </Text>
+</View>
+`;

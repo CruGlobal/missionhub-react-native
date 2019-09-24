@@ -277,7 +277,6 @@ describe('handleCreateStep', () => {
       expect(navigatePush).toHaveBeenCalledWith(ADD_PERSON_STEP_FLOW, {
         contactName: mockPerson.first_name,
         contactId: mockPerson.id,
-        contact: mockPerson,
         organization: undefined,
         createStepTracking: buildTrackingObj(
           'people : person : steps : create',

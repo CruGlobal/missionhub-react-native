@@ -145,8 +145,6 @@ export class ChallengeDetailScreen extends Component {
               />
             ) : null
           }
-          shadow={false}
-          style={styles.header}
         />
         <ChallengeDetailHeader
           challenge={challenge}

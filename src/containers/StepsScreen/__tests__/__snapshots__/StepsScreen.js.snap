@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StepsScreen arrow functions should render item correctly 1`] = `
-<Connect(withI18nextTranslation(StepItem))
+<Connect(StepItem)
   hideAction={true}
   onAction={[Function]}
   onSelect={[Function]}
@@ -42,9 +42,10 @@ Object {
 `;
 
 exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -65,6 +66,7 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
   <View
     style={
       Object {
+        "backgroundColor": "#007398",
         "flex": 1,
       }
     }
@@ -90,9 +92,6 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
       scrollEventThrottle={16}
       style={
         Array [
-          Object {
-            "flex": 1,
-          },
           Object {
             "backgroundColor": "#ffffff",
           },
@@ -150,38 +149,14 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
       </Flex>
     </ScrollViewMock>
   </View>
-</View>
+</SafeAreaView>
 `;
 
 exports[`StepsScreen renders loading screen correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
-      "flex": 1,
-    }
-  }
->
-  <Component
-    screen="StepsTab"
-  />
-  <Header
-    left={
-      <IconButton
-        name="menuIcon"
-        onPress={[Function]}
-        type="MissionHub"
-      />
-    }
-    title="STEPS OF FAITH"
-  />
-  <LoadingGuy />
-</View>
-`;
-
-exports[`StepsScreen renders screen with some focused and unfocused steps correctly 1`] = `
-<View
-  style={
-    Object {
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -202,6 +177,41 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
   <View
     style={
       Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <LoadingGuy />
+  </View>
+</SafeAreaView>
+`;
+
+exports[`StepsScreen renders screen with some focused and unfocused steps correctly 1`] = `
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <Component
+    screen="StepsTab"
+  />
+  <Header
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="STEPS OF FAITH"
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#007398",
         "flex": 1,
       }
     }
@@ -227,9 +237,6 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
       scrollEventThrottle={16}
       style={
         Array [
-          Object {
-            "flex": 1,
-          },
           Object {
             "backgroundColor": "#ffffff",
           },
@@ -323,13 +330,14 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
       />
     </ScrollViewMock>
   </View>
-</View>
+</SafeAreaView>
 `;
 
 exports[`StepsScreen renders with max reminders correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -350,6 +358,7 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
   <View
     style={
       Object {
+        "backgroundColor": "#007398",
         "flex": 1,
       }
     }
@@ -376,9 +385,6 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
       style={
         Array [
           Object {
-            "flex": 1,
-          },
-          Object {
             "backgroundColor": "#ffffff",
           },
         ]
@@ -395,7 +401,7 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
           ]
         }
       >
-        <Connect(withI18nextTranslation(StepItem))
+        <Connect(StepItem)
           key="1"
           onAction={[Function]}
           onSelect={[Function]}
@@ -407,7 +413,7 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
           }
           type="reminder"
         />
-        <Connect(withI18nextTranslation(StepItem))
+        <Connect(StepItem)
           key="2"
           onAction={[Function]}
           onSelect={[Function]}
@@ -496,13 +502,14 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
       />
     </ScrollViewMock>
   </View>
-</View>
+</SafeAreaView>
 `;
 
 exports[`StepsScreen renders with no focused steps and less than 4 unfocused steps correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -523,6 +530,7 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
   <View
     style={
       Object {
+        "backgroundColor": "#007398",
         "flex": 1,
       }
     }
@@ -548,9 +556,6 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
       scrollEventThrottle={16}
       style={
         Array [
-          Object {
-            "flex": 1,
-          },
           Object {
             "backgroundColor": "#ffffff",
           },
@@ -624,13 +629,14 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
       />
     </ScrollViewMock>
   </View>
-</View>
+</SafeAreaView>
 `;
 
 exports[`StepsScreen renders with no focused steps correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -651,6 +657,7 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
   <View
     style={
       Object {
+        "backgroundColor": "#007398",
         "flex": 1,
       }
     }
@@ -720,9 +727,6 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
       scrollEventThrottle={16}
       style={
         Array [
-          Object {
-            "flex": 1,
-          },
           Object {
             "backgroundColor": "#ffffff",
           },
@@ -805,13 +809,14 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
       />
     </ScrollViewMock>
   </View>
-</View>
+</SafeAreaView>
 `;
 
 exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -832,6 +837,7 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
   <View
     style={
       Object {
+        "backgroundColor": "#007398",
         "flex": 1,
       }
     }
@@ -857,9 +863,6 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
       scrollEventThrottle={16}
       style={
         Array [
-          Object {
-            "flex": 1,
-          },
           Object {
             "backgroundColor": "#ffffff",
           },
@@ -908,5 +911,5 @@ Choose a person to view and add some new steps.
     </ScrollViewMock>
     <Connect(TakeAStepWithSomeoneButton) />
   </View>
-</View>
+</SafeAreaView>
 `;

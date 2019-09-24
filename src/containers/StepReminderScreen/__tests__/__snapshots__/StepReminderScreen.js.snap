@@ -32,12 +32,6 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
         }
       />
     }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
   />
   <View
     style={
@@ -109,7 +103,7 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
         </View>
       </withI18nextTranslation(MyDatePickerIOS)>
     </View>
-    <withI18nextTranslation(ReminderRepeatButtons)
+    <ReminderRepeatButtons
       onRecurrenceChange={[Function]}
       recurrence={null}
     />
@@ -154,12 +148,6 @@ exports[`handleRecurrenceChange renders correctly 1`] = `
         }
       />
     }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
   />
   <View
     style={
@@ -224,7 +212,7 @@ exports[`handleRecurrenceChange renders correctly 1`] = `
         </View>
       </withI18nextTranslation(MyDatePickerIOS)>
     </View>
-    <withI18nextTranslation(ReminderRepeatButtons)
+    <ReminderRepeatButtons
       onRecurrenceChange={[Function]}
       recurrence="once"
     />
@@ -269,12 +257,6 @@ exports[`render no reminder in props renders correctly 1`] = `
         }
       />
     }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
   />
   <View
     style={
@@ -339,7 +321,7 @@ exports[`render no reminder in props renders correctly 1`] = `
         </View>
       </withI18nextTranslation(MyDatePickerIOS)>
     </View>
-    <withI18nextTranslation(ReminderRepeatButtons)
+    <ReminderRepeatButtons
       onRecurrenceChange={[Function]}
       recurrence={null}
     />
@@ -383,12 +365,6 @@ exports[`render reminder in props renders correctly 1`] = `
           }
         }
       />
-    }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
     }
   />
   <View
@@ -461,7 +437,7 @@ exports[`render reminder in props renders correctly 1`] = `
         </View>
       </withI18nextTranslation(MyDatePickerIOS)>
     </View>
-    <withI18nextTranslation(ReminderRepeatButtons)
+    <ReminderRepeatButtons
       onRecurrenceChange={[Function]}
       recurrence="once"
     />

@@ -34,7 +34,7 @@ exports[`renders a list 1`] = `
 `;
 
 exports[`renders an item 1`] = `
-<withI18nextTranslation(PersonListItem)
+<PersonListItem
   organization={
     Object {
       "id": "100",

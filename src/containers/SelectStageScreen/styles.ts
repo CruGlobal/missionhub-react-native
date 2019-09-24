@@ -16,11 +16,15 @@ export const getLandscapeWidth = (stages: number) =>
 const landscapeHeight = 275;
 
 export default StyleSheet.create({
-  container: {
+  backgroundWrapper: {
+    flex: 1,
+    backgroundColor: theme.backgroundColor,
+  },
+  container: { flex: 1 },
+  content: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.backgroundColor,
   },
   title: {
     color: theme.primaryColor,

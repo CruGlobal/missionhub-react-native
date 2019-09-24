@@ -1,27 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
-  flex={1}
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "flex": 1,
     }
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Array [
         Object {
-          "backgroundColor": "#007398",
           "flexDirection": "row",
-          "height": 65,
-          "paddingTop": 20,
+          "height": 56,
+          "paddingTop": 0,
         },
-        Object {
-          "backgroundColor": "#ffffff",
-        },
+        undefined,
         null,
       ]
     }
@@ -49,7 +45,6 @@ exports[`renders correctly 1`] = `
               "justifyContent": "center",
             },
             undefined,
-            null,
           ]
         }
       >
@@ -136,145 +131,144 @@ exports[`renders correctly 1`] = `
         ]
       }
     />
-  </RCTSafeAreaView>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    flex={1}
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 32,
+          "fontWeight": "300",
+          "lineHeight": 38,
+          "marginHorizontal": 32,
+          "marginVertical": 16,
+        },
+      ]
+    }
   >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "marginHorizontal": 32,
-            "marginVertical": 16,
-          },
-        ]
+    do this step
+  </Text>
+  <View
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "#ECEEF2",
       }
-    >
-      do this step
-    </Text>
-    <View
+    }
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
       style={
         Object {
-          "borderBottomWidth": 1,
-          "borderColor": "#ECEEF2",
+          "paddingBottom": 14,
+          "paddingHorizontal": 32,
+          "paddingTop": 26,
         }
       }
-    />
-    <View
-      flex={1}
     >
-      <RCTScrollView
-        style={
-          Object {
-            "paddingBottom": 14,
-            "paddingHorizontal": 32,
-            "paddingTop": 26,
-          }
-        }
-      >
-        <View>
+      <View>
+        <View
+          style={Object {}}
+        >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "marginVertical": 10,
+              }
+            }
           >
-            <View
+            <Text
               style={
                 Object {
-                  "marginVertical": 10,
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 24,
                 }
               }
             >
-              <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "lineHeight": 24,
-                  }
-                }
-              >
-                <Text>
-                  some markdown
-                </Text>
+              <Text>
+                some markdown
               </Text>
-            </View>
+            </Text>
           </View>
         </View>
-      </RCTScrollView>
-    </View>
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
+      </View>
+    </RCTScrollView>
+  </View>
+  <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
       }
-      testID="bottomButton"
+    }
+    testID="bottomButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#52C5DC",
+            "height": 60,
+            "justifyContent": "center",
+          },
+          null,
+          Object {
+            "width": 750,
+          },
+          null,
+        ]
+      }
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#505256",
             },
-            null,
             Object {
-              "width": 750,
+              "fontFamily": "SourceSansPro-Regular",
             },
-            null,
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "color": "#ffffff",
+                "fontSize": 18,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          ADD TO MY STEPS
-        </Text>
-      </View>
+        ADD TO MY STEPS
+      </Text>
     </View>
-  </RCTSafeAreaView>
-</View>
+  </View>
+</RCTSafeAreaView>
 `;

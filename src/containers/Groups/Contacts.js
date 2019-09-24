@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -110,7 +110,7 @@ class Contacts extends Component {
     const { t } = this.props;
     const { filters, defaultResults } = this.state;
     return (
-      <SafeAreaView style={styles.pageContainer}>
+      <View style={styles.pageContainer}>
         <SearchList
           setSearch={this.setSearch}
           defaultData={defaultResults}
@@ -124,7 +124,7 @@ class Contacts extends Component {
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />
-      </SafeAreaView>
+      </View>
     );
   }
 }

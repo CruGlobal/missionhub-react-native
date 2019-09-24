@@ -11,29 +11,17 @@ Components to convert to TS+Hooks
 - JourneyCommentBox
 - JourneyItem
 - MemberOptionsMenu
-- NullStateComponent
-- PersonListItem
 - PersonSideMenu
-- PillButton
 - PlatformKeyboardAvoidingView
 - PopupMenu
 - ReminderButton
-- ReminderRepeatButtons
-- ReportCommentHeaderCard
-- ReportCommentLabel
 - RowSwipeable
 - SearchList
 - SearchPeopleItem
 - SettingsMenu
 - ShareSurveyMenu
 - SideMenu
-- StepDetailScreen
-- StepItem
-- StepItemDraggable
 - SwipeTabMenu
-- TosPrivacy
-- Touchable
-- UnreadCommentsCard
 - common.js
 
 #### Finished
@@ -52,8 +40,22 @@ Components to convert to TS+Hooks
 - FilterList
 - GroupsContactItem
 - GroupsContactList
+- NullStateComponent
+- PersonListItem
 - RadioButton
 - RefreshControl
 - ReminderDateText
+- ReminderRepeatButtons
+- ReportCommentHeaderCard
+- ReportCommentLabel
+- StepDetailScreen
 - Separator
-- TrackTabChange
+- StepItem
+- TosPrivacy
+- Touchable
+- UnreadCommentsCard
+
+#### Removed
+
+- PillButton
+- StepItemDraggable

@@ -61,6 +61,7 @@ export default ({
             undefined
           )
         }
+        style={styles.sectionWrap}
       />
     );
   };

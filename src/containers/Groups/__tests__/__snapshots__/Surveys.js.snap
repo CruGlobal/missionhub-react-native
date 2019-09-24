@@ -23,7 +23,7 @@ exports[`Surveys renders item 1`] = `
 `;
 
 exports[`Surveys should render correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -91,5 +91,5 @@ exports[`Surveys should render correctly 1`] = `
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />
-</SafeAreaView>
+</View>
 `;

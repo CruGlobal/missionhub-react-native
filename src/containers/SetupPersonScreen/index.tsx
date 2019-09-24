@@ -4,15 +4,13 @@ import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
-import { AndroidBackHandler } from 'react-navigation-backhandler';
 
-import { BackButton } from '../BackButton';
+import BackButton from '../BackButton';
 import { Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import Input from '../../components/Input/index';
-import AbsoluteSkip from '../../components/AbsoluteSkip';
+import Skip from '../../components/Skip';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { navigateBack } from '../../actions/navigation';
 import {
   personFirstNameChanged,
   personLastNameChanged,
@@ -22,6 +20,7 @@ import {
 import { ACTIONS } from '../../constants';
 import { PersonProfileState } from '../../reducers/personProfile';
 import { AuthState } from '../../reducers/auth';
+import Header from '../../components/Header';
 
 import styles from './styles';
 
@@ -87,13 +86,9 @@ const SetupPersonScreen = ({
 
   const skip = () => navigateNext(true);
 
-  const handleBack = () => {
-    dispatch(navigateBack());
-    return true;
-  };
-
   return (
     <SafeAreaView style={styles.container}>
+      <Header left={<BackButton />} right={<Skip onSkip={skip} />} />
       <View style={{ flex: 1 }} />
       <View style={styles.imageWrap}>
         <Image source={require('../../../assets/images/add_someone.png')} />
@@ -134,9 +129,6 @@ const SetupPersonScreen = ({
         text={t('next')}
         disabled={isLoading}
       />
-      <AbsoluteSkip onSkip={skip} />
-      <BackButton absolute={true} customNavigate={handleBack} />
-      <AndroidBackHandler onBackPress={handleBack} />
     </SafeAreaView>
   );
 };
