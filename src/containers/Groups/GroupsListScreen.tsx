@@ -31,8 +31,16 @@ import theme from '../../theme';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
+import { MissionhubMembersCount } from './__generated__/MissionhubMembersCount';
 import { CommunitiesList } from './__generated__/CommunitiesList';
 
+export const MISSIONHUB_MEMBERS_QUERY = gql`
+  query MissionhubMembersCount {
+    usersReport {
+      usersCount
+    }
+  }
+`;
 export const COMMUNITIES_QUERY = gql`
   query CommunitiesList {
     communities(ministryActivitiesOnly: true, sortBy: name_ASC) {
@@ -42,9 +50,11 @@ export const COMMUNITIES_QUERY = gql`
         unreadCommentsCount
         userCreated
         communityPhotoUrl
-        people(permissions: [owner, no_permissions]) {
-          id
-          fullName
+        people(permissions: [owner]) {
+          nodes {
+            id
+            fullName
+          }
         }
       }
     }
@@ -65,17 +75,22 @@ const GroupsListScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
 
-  const globalCommunity = {
-    id: GLOBAL_COMMUNITY_ID,
-    name: t('globalCommunity'),
-    community: true,
-    user_created: true,
-  };
-
+  const { data: { usersReport: { usersCount = 0 } = {} } = {} } = useQuery<
+    MissionhubMembersCount
+  >(MISSIONHUB_MEMBERS_QUERY);
   const { data: { communities: { nodes = [] } = {} } = {}, refetch } = useQuery<
     CommunitiesList
   >(COMMUNITIES_QUERY);
-  const communities = [globalCommunity, ...nodes];
+
+  const communities = [
+    {
+      id: GLOBAL_COMMUNITY_ID,
+      name: t('globalCommunity'),
+      userCreated: true,
+      memberCount: usersCount,
+    },
+    ...nodes,
+  ];
 
   useEffect(() => {
     refetch();
