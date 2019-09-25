@@ -143,99 +143,97 @@ const SignInScreen = ({
     passwordRef.current && passwordRef.current.focus();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {renderErrorMessage()}
-      <Header left={forcedLogout ? null : <BackButton />} shadow={false} />
-      <SafeAreaView style={{ flex: 1 }}>
-        {showLogo ? (
-          <Flex align="center" justify="center">
-            {forcedLogout ? (
-              <Text style={styles.forcedLogoutHeader}>
-                {t('forcedLogout:message')}
-              </Text>
-            ) : (
-              <Text header={true} style={styles.header}>
-                {t('signIn')}
-              </Text>
-            )}
-          </Flex>
-        ) : null}
-
-        <Flex value={3} style={{ paddingVertical: 10, paddingHorizontal: 30 }}>
-          <View>
-            <Text style={styles.label}>{t('emailLabel')}</Text>
-            <Input
-              testID="emailInput"
-              autoCapitalize="none"
-              onChangeText={setEmail}
-              value={email}
-              keyboardType="email-address"
-              onSubmitEditing={focusPassword}
-              placeholder={t('emailLabel')}
-              returnKeyType="next"
-              placeholderTextColor="white"
-            />
-          </View>
-
-          <View style={{ paddingVertical: 15 }}>
-            <Text style={styles.label}>{t('passwordLabel')}</Text>
-            <Input
-              testID="passwordInput"
-              ref={passwordRef}
-              secureTextEntry={true}
-              onChangeText={setPassword}
-              value={password}
-              placeholder={t('passwordLabel')}
-              placeholderTextColor="white"
-              returnKeyType="done"
-              onSubmitEditing={login}
-            />
-            <Button
-              testID="forgotPasswordButton"
-              text={t('forgotPassword')}
-              type="transparent"
-              style={styles.forgotPasswordButton}
-              buttonTextStyle={styles.forgotPasswordText}
-              onPress={handleForgotPassword}
-            />
-          </View>
+      <Header left={forcedLogout ? null : <BackButton />} />
+      {showLogo ? (
+        <Flex align="center" justify="center">
+          {forcedLogout ? (
+            <Text style={styles.forcedLogoutHeader}>
+              {t('forcedLogout:message')}
+            </Text>
+          ) : (
+            <Text header={true} style={styles.header}>
+              {t('signIn')}
+            </Text>
+          )}
         </Flex>
+      ) : null}
 
-        {email || password ? (
-          <Flex align="stretch" justify="end">
-            <Button
-              testID="loginButton"
-              type="secondary"
-              onPress={login}
-              text={t('login').toUpperCase()}
-            />
-          </Flex>
-        ) : (
-          <Flex value={1} justify="center" align="center">
-            <Button
-              testID="facebookButton"
-              pill={true}
-              onPress={facebookLogin}
-              style={styles.facebookButton}
-              buttonTextStyle={styles.buttonText}
-            >
-              <Flex direction="row">
-                <Icon
-                  name="facebookIcon"
-                  size={21}
-                  type="MissionHub"
-                  style={styles.icon}
-                />
-                <Text style={styles.buttonText}>
-                  {t('facebookLogin').toUpperCase()}
-                </Text>
-              </Flex>
-            </Button>
-          </Flex>
-        )}
-      </SafeAreaView>
+      <Flex value={3} style={{ paddingVertical: 10, paddingHorizontal: 30 }}>
+        <View>
+          <Text style={styles.label}>{t('emailLabel')}</Text>
+          <Input
+            testID="emailInput"
+            autoCapitalize="none"
+            onChangeText={setEmail}
+            value={email}
+            keyboardType="email-address"
+            onSubmitEditing={focusPassword}
+            placeholder={t('emailLabel')}
+            returnKeyType="next"
+            placeholderTextColor="white"
+          />
+        </View>
+
+        <View style={{ paddingVertical: 15 }}>
+          <Text style={styles.label}>{t('passwordLabel')}</Text>
+          <Input
+            testID="passwordInput"
+            ref={passwordRef}
+            secureTextEntry={true}
+            onChangeText={setPassword}
+            value={password}
+            placeholder={t('passwordLabel')}
+            placeholderTextColor="white"
+            returnKeyType="done"
+            onSubmitEditing={login}
+          />
+          <Button
+            testID="forgotPasswordButton"
+            text={t('forgotPassword')}
+            type="transparent"
+            style={styles.forgotPasswordButton}
+            buttonTextStyle={styles.forgotPasswordText}
+            onPress={handleForgotPassword}
+          />
+        </View>
+      </Flex>
+
+      {email || password ? (
+        <Flex align="stretch" justify="end">
+          <Button
+            testID="loginButton"
+            type="secondary"
+            onPress={login}
+            text={t('login').toUpperCase()}
+          />
+        </Flex>
+      ) : (
+        <Flex value={1} justify="center" align="center">
+          <Button
+            testID="facebookButton"
+            pill={true}
+            onPress={facebookLogin}
+            style={styles.facebookButton}
+            buttonTextStyle={styles.buttonText}
+          >
+            <Flex direction="row">
+              <Icon
+                name="facebookIcon"
+                size={21}
+                type="MissionHub"
+                style={styles.icon}
+              />
+              <Text style={styles.buttonText}>
+                {t('facebookLogin').toUpperCase()}
+              </Text>
+            </Flex>
+          </Button>
+        </Flex>
+      )}
       {isLoading ? <LoadingWheel /> : null}
-    </View>
+    </SafeAreaView>
   );
 };
 

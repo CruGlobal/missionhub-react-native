@@ -32,12 +32,6 @@ exports[`handleChangeDate date passed in renders correctly 1`] = `
         }
       />
     }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
   />
   <View
     style={
@@ -154,12 +148,6 @@ exports[`handleRecurrenceChange renders correctly 1`] = `
         }
       />
     }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
   />
   <View
     style={
@@ -269,12 +257,6 @@ exports[`render no reminder in props renders correctly 1`] = `
         }
       />
     }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
   />
   <View
     style={
@@ -383,12 +365,6 @@ exports[`render reminder in props renders correctly 1`] = `
           }
         }
       />
-    }
-    shadow={false}
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
     }
   />
   <View

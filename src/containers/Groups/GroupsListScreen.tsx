@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ScrollView, View, FlatList } from 'react-native';
+import { ScrollView, FlatList, SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
@@ -27,6 +27,7 @@ import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { Organization } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
+import theme from '../../theme';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -129,7 +130,7 @@ const GroupsListScreen = ({
   );
 
   return (
-    <View style={styles.tabContainer}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.primaryColor }}>
       <TrackTabChange screen={GROUPS_TAB} />
       <Header
         left={
@@ -141,7 +142,6 @@ const GroupsListScreen = ({
           />
         }
         title={t('header').toUpperCase()}
-        shadow={false}
       />
       <View style={{ flexDirection: 'row' }}>
         <View style={{ flex: 1 }}>
@@ -186,7 +186,7 @@ const GroupsListScreen = ({
           />
         )}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

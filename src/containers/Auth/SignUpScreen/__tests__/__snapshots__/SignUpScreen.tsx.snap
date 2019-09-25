@@ -5,7 +5,7 @@ exports[`a login button is clicked email signup button is pressed key sign in bu
 - First value
 + Second value
 
-@@ -261,6 +261,7 @@
+@@ -296,6 +296,7 @@
             type=\\"transparent\\"
           />
         </Flex>
@@ -20,7 +20,7 @@ exports[`a login button is clicked facebook signup button is pressed facebook bu
 - First value
 + Second value
 
-@@ -261,6 +261,7 @@
+@@ -296,6 +296,7 @@
             type=\\"transparent\\"
           />
         </Flex>
@@ -35,7 +35,7 @@ exports[`renders correctly for Create Community 1`] = `
 - First value
 + Second value
 
-@@ -17,17 +17,53 @@
+@@ -52,17 +52,53 @@
       <Flex
         align=\\"center\\"
         justify=\\"center\\"
@@ -103,7 +103,42 @@ exports[`renders correctly with logo 1`] = `
     }
   }
 >
-  <BackButton />
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "height": 56,
+          "paddingTop": 0,
+        },
+        undefined,
+        null,
+      ]
+    }
+  >
+    <Flex
+      align="start"
+      justify="center"
+      style={
+        Object {
+          "paddingLeft": 5,
+        }
+      }
+      value={1}
+    >
+      <BackButton />
+    </Flex>
+    <Flex
+      align="end"
+      justify="center"
+      style={
+        Object {
+          "paddingRight": 5,
+        }
+      }
+      value={1}
+    />
+  </View>
   <Flex
     align="center"
     justify="center"

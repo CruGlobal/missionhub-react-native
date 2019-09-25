@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { StatusBar, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import moment from 'moment';
@@ -14,7 +13,6 @@ import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
 import { momentUtc, refresh, orgIsGlobal } from '../../utils/common';
 import { getReportedComments } from '../../actions/reportComments';
-import theme from '../../theme';
 
 @withTranslation('groupsCelebrate')
 class GroupCelebrate extends Component {
@@ -58,17 +56,14 @@ class GroupCelebrate extends Component {
     const { celebrateItems, organization } = this.props;
 
     return (
-      <SafeAreaView style={{ flex: 1 }}>
-        <StatusBar {...theme.statusBar.lightContent} />
-        <CelebrateFeed
-          organization={organization}
-          items={celebrateItems}
-          loadMoreItemsCallback={this.loadItems}
-          refreshCallback={this.refreshItems}
-          refreshing={refreshing}
-          itemNamePressable={!orgIsGlobal(organization)}
-        />
-      </SafeAreaView>
+      <CelebrateFeed
+        organization={organization}
+        items={celebrateItems}
+        loadMoreItemsCallback={this.loadItems}
+        refreshCallback={this.refreshItems}
+        refreshing={refreshing}
+        itemNamePressable={!orgIsGlobal(organization)}
+      />
     );
   }
 }

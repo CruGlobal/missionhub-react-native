@@ -7,6 +7,7 @@ export default StyleSheet.create({
     flex: 1,
     borderTopWidth: 1,
     borderTopColor: theme.white,
+    backgroundColor: theme.white,
   },
   header: {
     height: 50,

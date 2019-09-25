@@ -9,7 +9,6 @@ import {
   testSnapshotShallow,
   renderWithContext,
 } from '../../../../../testUtils';
-import { navigateBack } from '../../../../actions/navigation';
 import { lookupOrgCommunityCode } from '../../../../actions/organizations';
 
 import JoinGroupScreen from '..';
@@ -137,14 +136,6 @@ describe('JoinGroupScreen', () => {
       .onJoin();
 
     expect(mockNext).toHaveBeenCalledWith({ community: mockCommunity });
-  });
-
-  it('should call navigate back', () => {
-    const component = buildScreen();
-    const backButton = component.childAt(0).props().left;
-    backButton.props.onPress();
-
-    expect(navigateBack).toHaveBeenCalled();
   });
 
   it('should call ref', () => {

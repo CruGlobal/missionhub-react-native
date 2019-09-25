@@ -78,7 +78,10 @@ describe('GroupScreen', () => {
       />,
     );
 
-    component.props().right.props.onPress();
+    component
+      .childAt(0)
+      .props()
+      .right.props.onPress();
 
     expect(navigatePush).toHaveBeenCalledWith(
       ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW,
@@ -96,7 +99,10 @@ describe('GroupScreen', () => {
       />,
     );
 
-    component.props().right.props.onPress();
+    component
+      .childAt(0)
+      .props()
+      .right.props.onPress();
 
     expect(navigatePush).toHaveBeenCalledWith(GROUP_PROFILE, {
       organization: userOrg,
@@ -111,7 +117,10 @@ describe('GroupScreen', () => {
       />,
     );
 
-    component.props().left.props.onPress();
+    component
+      .childAt(0)
+      .props()
+      .left.props.onPress();
 
     expect(navigateToMainTabs).toHaveBeenCalledWith(GROUPS_TAB);
   });

@@ -10,6 +10,93 @@ exports[`WelcomeScreen should render correctly 1`] = `
     }
   }
 >
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "height": 56,
+          "paddingTop": 0,
+        },
+        undefined,
+        null,
+      ]
+    }
+  >
+    <Flex
+      align="start"
+      justify="center"
+      style={
+        Object {
+          "paddingLeft": 5,
+        }
+      }
+      value={1}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
+            },
+            undefined,
+          ]
+        }
+      >
+        <Button
+          onPress={[Function]}
+          testID="IconButton"
+          type="transparent"
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </Button>
+      </View>
+    </Flex>
+    <Flex
+      align="end"
+      justify="center"
+      style={
+        Object {
+          "paddingRight": 5,
+        }
+      }
+      value={1}
+    />
+  </View>
   <Flex
     align="center"
     justify="center"
@@ -56,64 +143,6 @@ exports[`WelcomeScreen should render correctly 1`] = `
       text="Let's Get Started"
     />
   </Flex>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Array [
-        Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
-        },
-        undefined,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
-      ]
-    }
-  >
-    <Button
-      onPress={[Function]}
-      testID="IconButton"
-      type="transparent"
-    >
-      <Text
-        allowFontScaling={false}
-        style={
-          Array [
-            Object {
-              "color": undefined,
-              "fontSize": 12,
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 18,
-              },
-              Array [
-                Object {
-                  "margin": 10,
-                },
-                Object {},
-              ],
-            ],
-            Object {
-              "fontFamily": "icomoon",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-    </Button>
-  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -127,6 +156,93 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
     }
   }
 >
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "height": 56,
+          "paddingTop": 0,
+        },
+        undefined,
+        null,
+      ]
+    }
+  >
+    <Flex
+      align="start"
+      justify="center"
+      style={
+        Object {
+          "paddingLeft": 5,
+        }
+      }
+      value={1}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
+            },
+            undefined,
+          ]
+        }
+      >
+        <Button
+          onPress={[Function]}
+          testID="IconButton"
+          type="transparent"
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </Button>
+      </View>
+    </Flex>
+    <Flex
+      align="end"
+      justify="center"
+      style={
+        Object {
+          "paddingRight": 5,
+        }
+      }
+      value={1}
+    />
+  </View>
   <Flex
     align="center"
     justify="center"
@@ -222,63 +338,5 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
       />
     </Flex>
   </Flex>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Array [
-        Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
-        },
-        undefined,
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
-      ]
-    }
-  >
-    <Button
-      onPress={[Function]}
-      testID="IconButton"
-      type="transparent"
-    >
-      <Text
-        allowFontScaling={false}
-        style={
-          Array [
-            Object {
-              "color": undefined,
-              "fontSize": 12,
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 18,
-              },
-              Array [
-                Object {
-                  "margin": 10,
-                },
-                Object {},
-              ],
-            ],
-            Object {
-              "fontFamily": "icomoon",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-    </Button>
-  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;

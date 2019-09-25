@@ -82,10 +82,7 @@ it('should refresh correctly', async () => {
     store,
   );
 
-  await component
-    .childAt(1)
-    .props()
-    .refreshCallback();
+  await component.props().refreshCallback();
 
   expect(refreshCommunity).toHaveBeenCalledWith(org.id);
   expect(getReportedComments).toHaveBeenCalledWith(org.id);

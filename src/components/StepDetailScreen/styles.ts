@@ -6,10 +6,6 @@ export default StyleSheet.create({
   flex1: {
     flex: 1,
   },
-  container: {
-    flex: 1,
-    backgroundColor: theme.white,
-  },
   backButton: {
     color: theme.inactiveColor,
   },

@@ -40,7 +40,7 @@ class StatusCompleteScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Header left={<BackButton />} shadow={false} />
+        <Header left={<BackButton />} />
 
         <Flex value={1} align="stretch" style={styles.content}>
           <Text style={styles.text}>

@@ -1,7 +1,7 @@
 /* eslint max-lines: 0 */
 
 import React, { Component } from 'react';
-import { View, Image, ScrollView, FlatList } from 'react-native';
+import { View, Image, ScrollView, FlatList, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import debounce from 'lodash/debounce';
@@ -270,10 +270,10 @@ export class StepsScreen extends Component {
     const { steps, reminders } = this.props;
 
     return (
-      <View style={{ flex: 1 }}>
+      <View style={styles.container}>
         {this.renderFocusPrompt()}
         <ScrollView
-          style={[styles.container, this.handleBackgroundColor()]}
+          style={[this.handleBackgroundColor()]}
           refreshControl={
             <RefreshControl
               refreshing={this.state.refreshing}
@@ -307,7 +307,7 @@ export class StepsScreen extends Component {
     const { t, steps } = this.props;
 
     return (
-      <View style={{ flex: 1 }}>
+      <SafeAreaView style={styles.container}>
         <TrackTabChange screen={STEPS_TAB} />
         <Header
           left={
@@ -319,8 +319,14 @@ export class StepsScreen extends Component {
           }
           title={t('title').toUpperCase()}
         />
-        {steps ? this.renderSteps() : <LoadingGuy />}
-      </View>
+        {steps ? (
+          this.renderSteps()
+        ) : (
+          <View style={styles.contentContainer}>
+            <LoadingGuy />
+          </View>
+        )}
+      </SafeAreaView>
     );
   }
 }

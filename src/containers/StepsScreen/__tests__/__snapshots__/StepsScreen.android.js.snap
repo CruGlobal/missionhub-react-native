@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders android correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -24,6 +25,7 @@ exports[`renders android correctly 1`] = `
   <View
     style={
       Object {
+        "backgroundColor": "#007398",
         "flex": 1,
       }
     }
@@ -33,6 +35,7 @@ exports[`renders android correctly 1`] = `
         Array [
           Object {
             "backgroundColor": "#ffffff",
+            "flex": 1,
           },
           Object {
             "flex": 1,
@@ -49,9 +52,6 @@ exports[`renders android correctly 1`] = `
       scrollEventThrottle={16}
       style={
         Array [
-          Object {
-            "flex": 1,
-          },
           Object {
             "backgroundColor": "#ffffff",
           },
@@ -128,13 +128,14 @@ exports[`renders android correctly 1`] = `
       />
     </ScrollViewMock>
   </View>
-</View>
+</SafeAreaView>
 `;
 
 exports[`renders loading on Android correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -152,6 +153,15 @@ exports[`renders loading on Android correctly 1`] = `
     }
     title="STEPS OF FAITH"
   />
-  <LoadingGuy />
-</View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+  >
+    <LoadingGuy />
+  </View>
+</SafeAreaView>
 `;

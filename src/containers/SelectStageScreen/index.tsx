@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
-import { View, Image } from 'react-native';
+import { View, Image, SafeAreaView } from 'react-native';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useNavigationState } from 'react-navigation-hooks';
 import Carousel from 'react-native-snap-carousel';
-import { AndroidBackHandler } from 'react-navigation-backhandler';
 
 import { Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
@@ -24,14 +23,13 @@ import {
   updateUserStage,
 } from '../../actions/selectStage';
 import { trackAction, trackState } from '../../actions/analytics';
-import { navigateBack } from '../../actions/navigation';
 import { buildTrackingObj } from '../../utils/common';
 import {
   ACTIONS,
   SELF_VIEWED_STAGE_CHANGED,
   PERSON_VIEWED_STAGE_CHANGED,
 } from '../../constants';
-import { useDisableBack } from '../../utils/hooks/useDisableBack';
+import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';
@@ -39,6 +37,7 @@ import {
   personSelector,
   contactAssignmentSelector,
 } from '../../selectors/people';
+import Header from '../../components/Header';
 
 import styles, {
   sliderWidth,
@@ -99,8 +98,7 @@ const SelectStageScreen = ({
     subsection,
     questionText,
   } = useNavigationState().params as SelectStageNavParams;
-
-  const enableBack = useDisableBack(enableBackButton);
+  useAndroidBackButton(enableBackButton);
   const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -135,8 +133,6 @@ const SelectStageScreen = ({
   }, []);
 
   const setStage = async (stage: Stage, isAlreadySelected: boolean) => {
-    enableBack();
-
     !isAlreadySelected &&
       (await dispatch(
         isMe
@@ -169,12 +165,6 @@ const SelectStageScreen = ({
         [ACTIONS.STAGE_SELECTED.key]: null,
       }),
     );
-  };
-
-  const handleBack = () => {
-    enableBackButton && dispatch(navigateBack());
-
-    return true;
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -212,7 +202,7 @@ const SelectStageScreen = ({
     t(isMe ? 'meQuestion' : 'personQuestion', { name: firstName });
 
   return (
-    <View style={styles.container}>
+    <View style={styles.backgroundWrapper}>
       <Image
         source={LANDSCAPE}
         style={[
@@ -223,25 +213,28 @@ const SelectStageScreen = ({
           },
         ]}
       />
-      <AndroidBackHandler onBackPress={handleBack} />
-      {enableBackButton ? <BackButton absolute={true} /> : null}
-      <Text style={styles.title}>{headerText}</Text>
-      {stages ? (
-        <Carousel
-          firstItem={startIndex}
-          data={stages}
-          inactiveSlideOpacity={1}
-          inactiveSlideScale={1}
-          renderItem={renderStage}
-          sliderWidth={sliderWidth + 75}
-          itemWidth={stageWidth + stageMargin * 2}
-          onScroll={handleScroll}
-          scrollEventThrottle={5}
-          onSnapToItem={handleSnapToItem}
-          removeClippedSubviews={false}
-          containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
-        />
-      ) : null}
+      <SafeAreaView style={styles.container}>
+        <Header left={<BackButton />} />
+        <View style={styles.content}>
+          <Text style={styles.title}>{headerText}</Text>
+          {stages ? (
+            <Carousel
+              firstItem={startIndex}
+              data={stages}
+              inactiveSlideOpacity={1}
+              inactiveSlideScale={1}
+              renderItem={renderStage}
+              sliderWidth={sliderWidth + 75}
+              itemWidth={stageWidth + stageMargin * 2}
+              onScroll={handleScroll}
+              scrollEventThrottle={5}
+              onSnapToItem={handleSnapToItem}
+              removeClippedSubviews={false}
+              containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
+            />
+          ) : null}
+        </View>
+      </SafeAreaView>
     </View>
   );
 };

@@ -58,7 +58,6 @@ class StatusReasonScreen extends Component {
               buttonTextStyle={styles.headerButtonText}
             />
           }
-          shadow={false}
         />
 
         <Flex value={1} align="stretch" style={styles.content}>
