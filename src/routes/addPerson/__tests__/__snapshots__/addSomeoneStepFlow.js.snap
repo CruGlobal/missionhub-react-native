@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddSomeoneScreen next renders without skip button correctly 1`] = `
+<AddSomeoneScreen
+  dispatch={[Function]}
+  hideSkipBtn={true}
+  next={[Function]}
+/>
+`;
+
+exports[`AddStepScreen next renders correctly 1`] = `
+<withI18nextTranslation(AddStepScreen)
+  dispatch={[Function]}
+  myId="123"
+  navigation={
+    Object {
+      "state": Object {
+        "params": Object {
+          "personId": "321",
+          "trackingObj": Object {
+            "level3": "steps",
+            "level4": undefined,
+            "name": "onboarding : person : steps : create",
+            "section": "onboarding",
+            "subsection": "person",
+          },
+          "type": "createStep",
+        },
+      },
+    }
+  }
+  next={[Function]}
+  personId="321"
+  type="createStep"
+/>
+`;
+
+exports[`CelebrationScreen next renders correctly 1`] = `
+<CelebrationScreen
+  dispatch={[Function]}
+  navigation={
+    Object {
+      "state": Object {
+        "params": Object {},
+      },
+    }
+  }
+  next={[Function]}
+/>
+`;
+
+exports[`PersonSelectStepScreen next renders correctly 1`] = `
+<withI18nextTranslation(PersonSelectStepScreen)
+  contactId="321"
+  contactName="Someone"
+  contactStage={
+    Object {
+      "id": "3",
+    }
+  }
+  dispatch={[Function]}
+  enableSkipButton={false}
+  navigation={
+    Object {
+      "state": Object {
+        "params": Object {
+          "contactId": "321",
+          "contactName": "Someone",
+          "contactStage": Object {
+            "id": "3",
+          },
+        },
+      },
+    }
+  }
+  next={[Function]}
+  organization={Object {}}
+/>
+`;
+
+exports[`SelectStageScreen renders correctly 1`] = `
+<SelectStageScreen
+  dispatch={[Function]}
+  isMe={false}
+  myId="123"
+  navigation={
+    Object {
+      "state": Object {
+        "params": Object {
+          "section": "onboarding",
+          "subsection": "add person",
+        },
+      },
+    }
+  }
+  next={[Function]}
+/>
+`;
+
+exports[`SetupPersonScreen next renders without skip button correctly 1`] = `
+<SetupPersonScreen
+  dispatch={[Function]}
+  hideSkipBtn={true}
+  myId="123"
+  next={[Function]}
+/>
+`;
+
+exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
+<withI18nextTranslation(SuggestedStepDetailScreen)
+  dispatch={[Function]}
+  navigation={
+    Object {
+      "state": Object {
+        "params": Object {
+          "receiverId": "123",
+          "step": Object {
+            "id": "111",
+          },
+        },
+      },
+    }
+  }
+  next={[Function]}
+  receiverId="123"
+  step={
+    Object {
+      "id": "111",
+    }
+  }
+/>
+`;
