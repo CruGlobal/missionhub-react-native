@@ -1,7 +1,11 @@
 import i18next from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
 
-import { FIRST_TIME, NOTIFICATION_PROMPT_TYPES } from '../../constants';
+import {
+  FIRST_TIME,
+  NOTIFICATION_PROMPT_TYPES,
+  LOAD_PERSON_DETAILS,
+} from '../../constants';
 import { getMe } from '../person';
 import { getMyPeople } from '../people';
 import { showReminderOnLoad } from '../notifications';
@@ -56,6 +60,11 @@ export function authSuccess() {
 
     const mePerson = await dispatch(getMe('contact_assignments'));
     RNOmniture.syncIdentifier(mePerson.global_registry_mdm_id);
+
+    dispatch({
+      type: LOAD_PERSON_DETAILS,
+      person: mePerson,
+    });
   };
 }
 

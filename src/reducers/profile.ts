@@ -46,12 +46,14 @@ function profileReducer(state = initialProfileState, action: any) {
     case REQUESTS.TICKET_LOGIN.SUCCESS:
       return {
         ...state,
+        id: results.person_id,
         firstName: results.first_name,
         lastName: results.last_name,
       };
     case REQUESTS.FACEBOOK_LOGIN.SUCCESS:
       return {
         ...state,
+        id: results.person_id,
         firstName: results.first_name,
         lastName: results.last_name,
       };
