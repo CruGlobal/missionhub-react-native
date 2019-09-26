@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -46,7 +46,7 @@ class StatusReasonScreen extends Component {
     const { t, organization } = this.props;
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Header
           left={<BackButton />}
           right={
@@ -74,7 +74,7 @@ class StatusReasonScreen extends Component {
             autoCorrect={true}
           />
         </Flex>
-      </View>
+      </SafeAreaView>
     );
   }
 }

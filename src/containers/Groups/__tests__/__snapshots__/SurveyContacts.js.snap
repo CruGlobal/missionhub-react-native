@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SurveyContacts should render correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -23,43 +23,35 @@ exports[`SurveyContacts should render correctly 1`] = `
     }
     title="Test Org"
   />
-  <SafeAreaView
-    style={
+  <withI18nextTranslation(SearchList)
+    defaultData={Array []}
+    filters={
       Object {
-        "flex": 1,
+        "time": Object {
+          "id": "time30",
+          "text": "Last 30 days",
+          "value": 30,
+        },
+        "unassigned": Object {
+          "id": "unassigned",
+          "selected": true,
+          "text": "Unassigned",
+        },
       }
     }
-  >
-    <withI18nextTranslation(SearchList)
-      defaultData={Array []}
-      filters={
-        Object {
-          "time": Object {
-            "id": "time30",
-            "text": "Last 30 days",
-            "value": 30,
-          },
-          "unassigned": Object {
-            "id": "unassigned",
-            "selected": true,
-            "text": "Unassigned",
-          },
-        }
+    listProps={
+      Object {
+        "renderItem": [Function],
       }
-      listProps={
-        Object {
-          "renderItem": [Function],
-        }
-      }
-      onFilterPress={[Function]}
-      onLoadMore={[Function]}
-      onRemoveFilter={[Function]}
-      onSearch={[Function]}
-      placeholder="Search Contacts"
-      setSearch={[Function]}
-    />
-  </SafeAreaView>
-</View>
+    }
+    onFilterPress={[Function]}
+    onLoadMore={[Function]}
+    onRemoveFilter={[Function]}
+    onSearch={[Function]}
+    placeholder="Search Contacts"
+    setSearch={[Function]}
+  />
+</SafeAreaView>
 `;
 
 exports[`SurveyContacts should render item correctly 1`] = `
