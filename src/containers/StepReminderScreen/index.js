@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import { withTranslation } from 'react-i18next';
 
 import BackButton from '../BackButton';
@@ -109,7 +109,7 @@ class StepReminderScreen extends Component {
     const { container, inputContainer } = styles;
 
     return (
-      <View style={container}>
+      <SafeAreaView style={container}>
         {this.renderHeader()}
         <View style={inputContainer}>
           {this.renderDateInput()}
@@ -123,7 +123,7 @@ class StepReminderScreen extends Component {
           text={t('done')}
           onPress={this.handleSetReminder}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }

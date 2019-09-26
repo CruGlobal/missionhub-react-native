@@ -5,7 +5,7 @@ import theme from '../../theme';
 export default StyleSheet.create({
   pageContainer: {
     flex: 1,
-    backgroundColor: theme.white,
+    backgroundColor: theme.primaryColor,
   },
   searchWrap: {
     borderBottomWidth: 1,
@@ -26,10 +26,12 @@ export default StyleSheet.create({
   list: {
     borderTopWidth: theme.separatorHeight,
     borderTopColor: theme.separatorColor,
+    backgroundColor: theme.white,
   },
   emptyWrap: {
     alignItems: 'center',
     paddingTop: 15,
+    backgroundColor: theme.white,
   },
   nullText: {
     fontSize: 16,
