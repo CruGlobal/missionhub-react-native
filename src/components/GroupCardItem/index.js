@@ -24,10 +24,9 @@ export default class GroupCardItem extends Component {
 
   renderInfo() {
     const { t, group, onJoin } = this.props;
-    const { owner, contactReport, userCreated } = group;
+    const { owner, report, userCreated } = group;
 
-    const { contactsCount = 0, unassignedCount = 0, memberCount = 0 } =
-      contactReport || {};
+    const { contactCount, unassignedCount, memberCount } = report;
 
     if (onJoin) {
       return (
@@ -35,8 +34,8 @@ export default class GroupCardItem extends Component {
           {owner
             ? t('owner', {
                 name: getFirstNameAndLastInitial(
-                  owner.first_name,
-                  owner.last_name,
+                  owner.firstName,
+                  owner.lastName,
                 ),
               })
             : userCreated
@@ -54,7 +53,7 @@ export default class GroupCardItem extends Component {
     }
     return (
       <Text style={styles.groupNumber}>
-        {t('numContacts', { count: contactsCount })}
+        {t('numContacts', { count: contactCount })}
         <Dot />
         {t('numUnassigned', { count: unassignedCount })}
       </Text>
@@ -63,10 +62,10 @@ export default class GroupCardItem extends Component {
 
   getSource() {
     const { group } = this.props;
-    const { community_photo_url, userCreated } = this.props;
+    const { communityPhotoUrl, userCreated } = group;
 
-    if (community_photo_url) {
-      return { uri: community_photo_url };
+    if (communityPhotoUrl) {
+      return { uri: communityPhotoUrl };
     } else if (orgIsGlobal(group)) {
       return GLOBAL_COMMUNITY_IMAGE;
     } else if (userCreated) {

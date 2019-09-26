@@ -32,7 +32,10 @@ import theme from '../../theme';
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
 import { MissionhubMembersCount } from './__generated__/MissionhubMembersCount';
-import { CommunitiesList } from './__generated__/CommunitiesList';
+import {
+  CommunitiesList,
+  CommunitiesList_communities_nodes,
+} from './__generated__/CommunitiesList';
 
 export const MISSIONHUB_MEMBERS_QUERY = gql`
   query MissionhubMembersCount {
@@ -53,8 +56,14 @@ export const COMMUNITIES_QUERY = gql`
         people(permissions: [owner]) {
           nodes {
             id
-            fullName
+            firstName
+            lastName
           }
+        }
+        report(period: "P1W") {
+          contactCount
+          memberCount
+          unassignedCount
         }
       }
     }
@@ -87,11 +96,13 @@ const GroupsListScreen = ({
       id: GLOBAL_COMMUNITY_ID,
       name: t('globalCommunity'),
       userCreated: true,
-      memberCount: usersCount,
+      report: {
+        memberCount: usersCount,
+      },
     },
     ...nodes,
   ];
-
+  console.log(communities);
   useEffect(() => {
     refetch();
   }, []);
@@ -120,8 +131,8 @@ const GroupsListScreen = ({
 
   const { isRefreshing, refresh } = useRefreshing(refetch);
 
-  const handlePress = (organization: Organization) => {
-    dispatch(navigateToOrg(organization.id));
+  const handlePress = (community: CommunitiesList_communities_nodes) => {
+    dispatch(navigateToOrg(community.id));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
   const dispatchOpenMainMenu = () => {
@@ -140,9 +151,11 @@ const GroupsListScreen = ({
     );
   };
 
-  const renderItem = ({ item }: { item: object }) => (
-    <GroupCardItem group={item} onPress={handlePress} />
-  );
+  const renderItem = ({
+    item,
+  }: {
+    item: CommunitiesList_communities_nodes;
+  }) => <GroupCardItem group={item} onPress={handlePress} />;
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: theme.primaryColor }}>
