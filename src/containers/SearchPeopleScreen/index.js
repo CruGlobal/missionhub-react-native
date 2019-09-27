@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { SafeAreaView, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import debounce from 'lodash/debounce';
 import { withTranslation } from 'react-i18next';
@@ -225,7 +225,7 @@ export class SearchPeopleScreen extends Component {
 
   render() {
     return (
-      <View style={styles.pageContainer}>
+      <SafeAreaView style={styles.pageContainer}>
         <Header
           left={<BackButton />}
           right={
@@ -239,7 +239,7 @@ export class SearchPeopleScreen extends Component {
         />
         {this.renderFilters()}
         {this.renderContent()}
-      </View>
+      </SafeAreaView>
     );
   }
 }

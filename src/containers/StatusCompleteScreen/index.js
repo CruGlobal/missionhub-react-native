@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -39,9 +39,8 @@ class StatusCompleteScreen extends Component {
     const { t, me, person } = this.props;
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Header left={<BackButton />} />
-
         <Flex value={1} align="stretch" style={styles.content}>
           <Text style={styles.text}>
             {t('continue', {
@@ -64,7 +63,7 @@ class StatusCompleteScreen extends Component {
             buttonTextStyle={styles.buttonText}
           />
         </Flex>
-      </View>
+      </SafeAreaView>
     );
   }
 }

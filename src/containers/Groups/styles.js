@@ -7,6 +7,10 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.extraLightGrey,
   },
+  container: {
+    flex: 1,
+    backgroundColor: theme.primaryColor,
+  },
   pageContainer: {
     flex: 1,
     backgroundColor: theme.white,

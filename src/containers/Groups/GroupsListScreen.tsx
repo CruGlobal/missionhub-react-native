@@ -35,6 +35,7 @@ import { MissionhubMembersCount } from './__generated__/MissionhubMembersCount';
 import {
   CommunitiesList,
   CommunitiesList_communities_nodes,
+  CommunitiesList_communities_nodes_people,
 } from './__generated__/CommunitiesList';
 
 export const MISSIONHUB_MEMBERS_QUERY = gql`
@@ -91,15 +92,26 @@ const GroupsListScreen = ({
     CommunitiesList
   >(COMMUNITIES_QUERY);
 
-  const communities = [
-    {
+  const buildGlobalCommunity = () => {
+    return {
+      __typename: 'Community',
       id: GLOBAL_COMMUNITY_ID,
       name: t('globalCommunity'),
+      unreadCommentsCount: 0,
       userCreated: true,
+      communityPhotoUrl: null,
+      people: { __typename: 'PersonConnection', nodes: [] },
       report: {
+        __typename: 'CommunitiesReport',
+        contactCount: 0,
+        unassignedCount: 0,
         memberCount: usersCount,
       },
-    },
+    } as CommunitiesList_communities_nodes;
+  };
+
+  const communities: CommunitiesList_communities_nodes[] = [
+    buildGlobalCommunity(),
     ...nodes,
   ];
   console.log(communities);
@@ -158,7 +170,7 @@ const GroupsListScreen = ({
   }) => <GroupCardItem group={item} onPress={handlePress} />;
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: theme.primaryColor }}>
+    <SafeAreaView style={styles.container}>
       <TrackTabChange screen={GROUPS_TAB} />
       <Header
         left={
@@ -192,7 +204,7 @@ const GroupsListScreen = ({
         </View>
       </View>
       <ScrollView
-        style={{ flex: 1 }}
+        style={styles.tabContainer}
         refreshControl={
           <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
         }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, FlatList } from 'react-native';
+import { SafeAreaView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -90,18 +90,16 @@ export class SearchPeopleFilterRefineScreen extends Component {
   render() {
     const { t, title } = this.props;
     return (
-      <View style={styles.pageContainer}>
+      <SafeAreaView style={styles.pageContainer}>
         <Header left={<BackButton />} title={title || t('title')} />
-        <SafeAreaView style={{ flex: 1 }}>
-          <FlatList
-            style={styles.list}
-            data={this.state.options}
-            keyExtractor={keyExtractorId}
-            initialNumToRender={15}
-            renderItem={this.renderItem}
-          />
-        </SafeAreaView>
-      </View>
+        <FlatList
+          style={styles.list}
+          data={this.state.options}
+          keyExtractor={keyExtractorId}
+          initialNumToRender={15}
+          renderItem={this.renderItem}
+        />
+      </SafeAreaView>
     );
   }
 }

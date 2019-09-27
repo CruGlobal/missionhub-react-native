@@ -79,6 +79,12 @@ it('renders with first and last name', () => {
   }).snapshot();
 });
 
+it('renders without skip button', () => {
+  renderWithContext(<SetupPersonScreen next={next} hideSkipBtn={true} />, {
+    initialState,
+  }).snapshot();
+});
+
 describe('setup person screen methods', () => {
   it('saves and creates person, then calls next', async () => {
     const { getByTestId, store } = renderWithContext(
