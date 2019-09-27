@@ -79,7 +79,7 @@ const GroupsListScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   isFirstTime?: boolean;
-  scrollToId?: string | number | null;
+  scrollToId?: string | null;
 }) => {
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -94,26 +94,24 @@ const GroupsListScreen = ({
     refetch: refetchCommunitiesList,
   } = useQuery<CommunitiesList>(COMMUNITIES_QUERY);
 
-  const buildGlobalCommunity = () => {
-    return {
-      __typename: 'Community',
-      id: GLOBAL_COMMUNITY_ID,
-      name: t('globalCommunity'),
-      unreadCommentsCount: 0,
-      userCreated: true,
-      communityPhotoUrl: null,
-      people: { __typename: 'PersonConnection', nodes: [] },
-      report: {
-        __typename: 'CommunitiesReport',
-        contactCount: 0,
-        unassignedCount: 0,
-        memberCount: usersCount,
-      },
-    } as CommunitiesList_communities_nodes;
+  const globalCommunity: CommunitiesList_communities_nodes = {
+    __typename: 'Community',
+    id: GLOBAL_COMMUNITY_ID,
+    name: t('globalCommunity'),
+    unreadCommentsCount: 0,
+    userCreated: true,
+    communityPhotoUrl: null,
+    people: { __typename: 'PersonConnection', nodes: [] },
+    report: {
+      __typename: 'CommunitiesReport',
+      contactCount: 0,
+      unassignedCount: 0,
+      memberCount: usersCount,
+    },
   };
 
   const communities: CommunitiesList_communities_nodes[] = [
-    buildGlobalCommunity(),
+    globalCommunity,
     ...nodes,
   ];
   console.log(communities);
