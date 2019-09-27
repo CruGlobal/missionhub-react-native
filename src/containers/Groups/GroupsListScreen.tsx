@@ -85,12 +85,14 @@ const GroupsListScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
 
-  const { data: { usersReport: { usersCount = 0 } = {} } = {} } = useQuery<
-    MissionhubMembersCount
-  >(MISSIONHUB_MEMBERS_QUERY);
-  const { data: { communities: { nodes = [] } = {} } = {}, refetch } = useQuery<
-    CommunitiesList
-  >(COMMUNITIES_QUERY);
+  const {
+    data: { usersReport: { usersCount = 0 } = {} } = {},
+    refetch: refetchMembersCount,
+  } = useQuery<MissionhubMembersCount>(MISSIONHUB_MEMBERS_QUERY);
+  const {
+    data: { communities: { nodes = [] } = {} } = {},
+    refetch: refetchCommunitiesList,
+  } = useQuery<CommunitiesList>(COMMUNITIES_QUERY);
 
   const buildGlobalCommunity = () => {
     return {
@@ -115,9 +117,6 @@ const GroupsListScreen = ({
     ...nodes,
   ];
   console.log(communities);
-  useEffect(() => {
-    refetch();
-  }, []);
 
   useEffect(() => {
     function loadGroupsAndScrollToId() {
@@ -141,7 +140,10 @@ const GroupsListScreen = ({
     loadGroupsAndScrollToId();
   }, [communities, scrollToId, flatList]);
 
-  const { isRefreshing, refresh } = useRefreshing(refetch);
+  const { isRefreshing, refresh } = useRefreshing(() => {
+    refetchMembersCount();
+    refetchCommunitiesList();
+  });
 
   const handlePress = (community: CommunitiesList_communities_nodes) => {
     dispatch(navigateToOrg(community.id));
