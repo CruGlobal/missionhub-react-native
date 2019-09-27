@@ -1,10 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -166,289 +167,281 @@ exports[`renders correctly 1`] = `
       }
     />
   </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "id": "any",
+          "selected": true,
+          "text": "Any",
+        },
+        Object {
+          "id": "test1",
+          "options": Array [],
+          "text": "Test 1",
+        },
+        Object {
+          "id": "test10",
+          "options": Array [
+            Object {
+              "id": "test2",
+              "text": "Test 2",
+            },
+            Object {
+              "id": "test3",
+              "text": "Test 3",
+            },
+          ],
+          "text": "Test 10",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={15}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
     style={
       Object {
+        "backgroundColor": "#ffffff",
         "flex": 1,
       }
     }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
   >
-    <RCTScrollView
-      data={
-        Array [
-          Object {
-            "id": "any",
-            "selected": true,
-            "text": "Any",
-          },
-          Object {
-            "id": "test1",
-            "options": Array [],
-            "text": "Test 1",
-          },
-          Object {
-            "id": "test10",
-            "options": Array [
-              Object {
-                "id": "test2",
-                "text": "Test 2",
-              },
-              Object {
-                "id": "test3",
-                "text": "Test 3",
-              },
-            ],
-            "text": "Test 10",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      horizontal={false}
-      initialNumToRender={15}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReachedThreshold={2}
-      onLayout={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={50}
-      stickyHeaderIndices={Array []}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "flex": 1,
-        }
-      }
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
-    >
-      <View>
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
         <View
-          onLayout={[Function]}
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={null}
+          testID="FilterItemTouchable"
         >
           <View
-            accessible={true}
-            clickable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={null}
-            testID="FilterItemTouchable"
+            style={
+              Array [
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderBottomColor": "#ECEEF2",
+                    "borderBottomWidth": 1,
+                    "padding": 13,
+                  },
+                  null,
+                ],
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                },
+              ]
+            }
           >
-            <View
+            <Text
               style={
                 Array [
-                  Array [
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderBottomColor": "#ECEEF2",
-                      "borderBottomWidth": 1,
-                      "padding": 13,
-                    },
-                    null,
-                  ],
                   Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "flex": 1,
+                    "fontSize": 14,
                   },
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "flex": 1,
-                      "fontSize": 14,
-                    },
-                  ]
-                }
-              >
-                Any
-              </Text>
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 18,
-                      },
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            accessible={true}
-            clickable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={null}
-            testID="FilterItemTouchable"
-          >
-            <View
+              Any
+            </Text>
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
                   Array [
                     Object {
-                      "backgroundColor": "#ffffff",
-                      "borderBottomColor": "#ECEEF2",
-                      "borderBottomWidth": 1,
-                      "padding": 13,
+                      "color": "#ffffff",
                     },
-                    null,
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 18,
+                    },
                   ],
                   Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                   },
+                  Object {},
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "flex": 1,
-                      "fontSize": 14,
-                    },
-                  ]
-                }
-              >
-                Test 1
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            accessible={true}
-            clickable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={null}
-            testID="FilterItemTouchable"
-          >
-            <View
-              style={
-                Array [
-                  Array [
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderBottomColor": "#ECEEF2",
-                      "borderBottomWidth": 1,
-                      "padding": 13,
-                    },
-                    null,
-                  ],
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                  },
-                ]
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "flex": 1,
-                      "fontSize": 14,
-                    },
-                  ]
-                }
-              >
-                Test 10
-              </Text>
-            </View>
+              
+            </Text>
           </View>
         </View>
       </View>
-    </RCTScrollView>
-  </RCTSafeAreaView>
-</View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
+          testID="FilterItemTouchable"
+        >
+          <View
+            style={
+              Array [
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderBottomColor": "#ECEEF2",
+                    "borderBottomWidth": 1,
+                    "padding": 13,
+                  },
+                  null,
+                ],
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "flex": 1,
+                    "fontSize": 14,
+                  },
+                ]
+              }
+            >
+              Test 1
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
+          testID="FilterItemTouchable"
+        >
+          <View
+            style={
+              Array [
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderBottomColor": "#ECEEF2",
+                    "borderBottomWidth": 1,
+                    "padding": 13,
+                  },
+                  null,
+                ],
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "flex": 1,
+                    "fontSize": 14,
+                  },
+                ]
+              }
+            >
+              Test 10
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
 `;
 
 exports[`renders title correctly 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -610,280 +603,271 @@ exports[`renders title correctly 1`] = `
       }
     />
   </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "id": "any",
+          "selected": true,
+          "text": "Any",
+        },
+        Object {
+          "id": "test1",
+          "options": Array [],
+          "text": "Test 1",
+        },
+        Object {
+          "id": "test10",
+          "options": Array [
+            Object {
+              "id": "test2",
+              "text": "Test 2",
+            },
+            Object {
+              "id": "test3",
+              "text": "Test 3",
+            },
+          ],
+          "text": "Test 10",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={15}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
     style={
       Object {
+        "backgroundColor": "#ffffff",
         "flex": 1,
       }
     }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
   >
-    <RCTScrollView
-      data={
-        Array [
-          Object {
-            "id": "any",
-            "selected": true,
-            "text": "Any",
-          },
-          Object {
-            "id": "test1",
-            "options": Array [],
-            "text": "Test 1",
-          },
-          Object {
-            "id": "test10",
-            "options": Array [
-              Object {
-                "id": "test2",
-                "text": "Test 2",
-              },
-              Object {
-                "id": "test3",
-                "text": "Test 3",
-              },
-            ],
-            "text": "Test 10",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      horizontal={false}
-      initialNumToRender={15}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReachedThreshold={2}
-      onLayout={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={50}
-      stickyHeaderIndices={Array []}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "flex": 1,
-        }
-      }
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
-    >
-      <View>
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
         <View
-          onLayout={[Function]}
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={null}
+          testID="FilterItemTouchable"
         >
           <View
-            accessible={true}
-            clickable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={null}
-            testID="FilterItemTouchable"
+            style={
+              Array [
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderBottomColor": "#ECEEF2",
+                    "borderBottomWidth": 1,
+                    "padding": 13,
+                  },
+                  null,
+                ],
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                },
+              ]
+            }
           >
-            <View
+            <Text
               style={
                 Array [
-                  Array [
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderBottomColor": "#ECEEF2",
-                      "borderBottomWidth": 1,
-                      "padding": 13,
-                    },
-                    null,
-                  ],
                   Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "flex": 1,
+                    "fontSize": 14,
                   },
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "flex": 1,
-                      "fontSize": 14,
-                    },
-                  ]
-                }
-              >
-                Any
-              </Text>
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 18,
-                      },
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            accessible={true}
-            clickable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={null}
-            testID="FilterItemTouchable"
-          >
-            <View
+              Any
+            </Text>
+            <Text
+              allowFontScaling={false}
               style={
                 Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
                   Array [
                     Object {
-                      "backgroundColor": "#ffffff",
-                      "borderBottomColor": "#ECEEF2",
-                      "borderBottomWidth": 1,
-                      "padding": 13,
+                      "color": "#ffffff",
                     },
-                    null,
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 18,
+                    },
                   ],
                   Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                   },
+                  Object {},
                 ]
               }
             >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "flex": 1,
-                      "fontSize": 14,
-                    },
-                  ]
-                }
-              >
-                Test 1
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            accessible={true}
-            clickable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={null}
-            testID="FilterItemTouchable"
-          >
-            <View
-              style={
-                Array [
-                  Array [
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderBottomColor": "#ECEEF2",
-                      "borderBottomWidth": 1,
-                      "padding": 13,
-                    },
-                    null,
-                  ],
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                  },
-                ]
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "flex": 1,
-                      "fontSize": 14,
-                    },
-                  ]
-                }
-              >
-                Test 10
-              </Text>
-            </View>
+              
+            </Text>
           </View>
         </View>
       </View>
-    </RCTScrollView>
-  </RCTSafeAreaView>
-</View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
+          testID="FilterItemTouchable"
+        >
+          <View
+            style={
+              Array [
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderBottomColor": "#ECEEF2",
+                    "borderBottomWidth": 1,
+                    "padding": 13,
+                  },
+                  null,
+                ],
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "flex": 1,
+                    "fontSize": 14,
+                  },
+                ]
+              }
+            >
+              Test 1
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
+          testID="FilterItemTouchable"
+        >
+          <View
+            style={
+              Array [
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderBottomColor": "#ECEEF2",
+                    "borderBottomWidth": 1,
+                    "padding": 13,
+                  },
+                  null,
+                ],
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "flex": 1,
+                    "fontSize": 14,
+                  },
+                ]
+              }
+            >
+              Test 10
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
 `;

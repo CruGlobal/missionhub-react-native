@@ -16,10 +16,11 @@ exports[`calls methods calls render item 1`] = `
 `;
 
 exports[`renders correctly 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -340,14 +341,14 @@ exports[`renders correctly 1`] = `
       Search results will appear here.
     </Text>
   </View>
-</View>
+</RCTSafeAreaView>
 `;
 
 exports[`renders with no results state 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -411,6 +412,7 @@ exports[`renders with no results state 1`] = `
     style={
       Object {
         "alignItems": "center",
+        "backgroundColor": "#ffffff",
         "paddingTop": 15,
       }
     }
@@ -425,14 +427,14 @@ exports[`renders with no results state 1`] = `
       No Results.
     </MyText>
   </View>
-</View>
+</SafeAreaView>
 `;
 
 exports[`renders with results state 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -519,6 +521,7 @@ exports[`renders with results state 1`] = `
     scrollEventThrottle={50}
     style={
       Object {
+        "backgroundColor": "#ffffff",
         "borderTopColor": "#ECEEF2",
         "borderTopWidth": 1,
       }
@@ -526,14 +529,14 @@ exports[`renders with results state 1`] = `
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />
-</View>
+</SafeAreaView>
 `;
 
 exports[`renders with searching state 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -586,6 +589,7 @@ exports[`renders with searching state 1`] = `
     style={
       Object {
         "alignItems": "center",
+        "backgroundColor": "#ffffff",
         "paddingTop": 15,
       }
     }
@@ -600,5 +604,5 @@ exports[`renders with searching state 1`] = `
       Loading
     </MyText>
   </View>
-</View>
+</SafeAreaView>
 `;

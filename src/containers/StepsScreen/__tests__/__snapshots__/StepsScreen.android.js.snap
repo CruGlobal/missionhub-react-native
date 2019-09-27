@@ -35,6 +35,7 @@ exports[`renders android correctly 1`] = `
         Array [
           Object {
             "backgroundColor": "#ffffff",
+            "flex": 1,
           },
           Object {
             "flex": 1,
@@ -156,6 +157,7 @@ exports[`renders loading on Android correctly 1`] = `
     style={
       Object {
         "backgroundColor": "#ffffff",
+        "flex": 1,
       }
     }
   >

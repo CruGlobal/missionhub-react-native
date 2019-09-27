@@ -5,10 +5,10 @@ import theme from '../../theme';
 export default StyleSheet.create({
   pageContainer: {
     flex: 1,
-    backgroundColor: theme.white,
+    backgroundColor: theme.primaryColor,
   },
   list: {
     flex: 1,
-    backgroundColor: theme.transparent,
+    backgroundColor: theme.white,
   },
 });

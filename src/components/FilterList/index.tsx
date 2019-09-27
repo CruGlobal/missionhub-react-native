@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
 
 import Header from '../Header';
 import BackButton from '../../containers/BackButton';
@@ -38,9 +38,9 @@ const FilterList = ({
     onToggle(item);
   };
   return (
-    <View style={styles.pageContainer}>
+    <SafeAreaView style={styles.pageContainer}>
       <Header left={<BackButton />} title={title} />
-      <ScrollView style={{ flex: 1 }}>
+      <ScrollView style={styles.list}>
         {options &&
           options.map((o, i) => (
             <FilterItem
@@ -63,7 +63,7 @@ const FilterList = ({
             />
           ))}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

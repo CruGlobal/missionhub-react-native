@@ -25,7 +25,7 @@ interface TouchableAndroidProps extends TouchableHighlightProps {
 const TouchableAndroid = ({
   pressProps = [],
   onPress,
-  borderless = true,
+  borderless = false,
   isAndroidOpacity,
   children,
   style,

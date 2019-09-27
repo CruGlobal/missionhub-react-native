@@ -6,7 +6,6 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useNavigationState } from 'react-navigation-hooks';
 import Carousel from 'react-native-snap-carousel';
-import { AndroidBackHandler } from 'react-navigation-backhandler';
 
 import { Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
@@ -24,14 +23,13 @@ import {
   updateUserStage,
 } from '../../actions/selectStage';
 import { trackAction, trackState } from '../../actions/analytics';
-import { navigateBack } from '../../actions/navigation';
 import { buildTrackingObj } from '../../utils/common';
 import {
   ACTIONS,
   SELF_VIEWED_STAGE_CHANGED,
   PERSON_VIEWED_STAGE_CHANGED,
 } from '../../constants';
-import { useDisableBack } from '../../utils/hooks/useDisableBack';
+import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';
@@ -100,8 +98,7 @@ const SelectStageScreen = ({
     subsection,
     questionText,
   } = useNavigationState().params as SelectStageNavParams;
-
-  const enableBack = useDisableBack(enableBackButton);
+  useAndroidBackButton(enableBackButton);
   const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -136,8 +133,6 @@ const SelectStageScreen = ({
   }, []);
 
   const setStage = async (stage: Stage, isAlreadySelected: boolean) => {
-    enableBack();
-
     !isAlreadySelected &&
       (await dispatch(
         isMe
@@ -170,12 +165,6 @@ const SelectStageScreen = ({
         [ACTIONS.STAGE_SELECTED.key]: null,
       }),
     );
-  };
-
-  const handleBack = () => {
-    enableBackButton && dispatch(navigateBack());
-
-    return true;
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -214,7 +203,6 @@ const SelectStageScreen = ({
 
   return (
     <View style={styles.backgroundWrapper}>
-      <AndroidBackHandler onBackPress={handleBack} />
       <Image
         source={LANDSCAPE}
         style={[

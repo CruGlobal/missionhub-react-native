@@ -5,7 +5,7 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.white,
+    backgroundColor: theme.primaryColor,
   },
   headerButton: {
     width: 80,
@@ -22,6 +22,9 @@ export default StyleSheet.create({
   },
   headerButtonTextDone: {
     textAlign: 'right',
+  },
+  listWrap: {
+    backgroundColor: theme.white,
   },
   row: {
     paddingHorizontal: 20,
