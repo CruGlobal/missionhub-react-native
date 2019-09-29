@@ -1,9 +1,7 @@
 Components to convert to TS+Hooks
 
-- Button
 - CommentBox
 - DatePicker
-- GroupCardItem
 - GroupMemberItem
 - GroupsPersonHeader
 - GroupSurveyItem
@@ -29,6 +27,7 @@ Components to convert to TS+Hooks
 - AcceptedStepItem
 - AssignStageButton
 - AssignToMeButton
+- Button
 - CelebrateCommentBox
 - CelebrateItem
 - CelebrateItemContent
@@ -38,6 +37,7 @@ Components to convert to TS+Hooks
 - ChallengeStats
 - FilterItem
 - FilterList
+- GroupCardItem
 - GroupsContactItem
 - GroupsContactList
 - NullStateComponent
