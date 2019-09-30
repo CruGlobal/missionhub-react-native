@@ -25,9 +25,7 @@ import {
 import TrackTabChange from '../TrackTabChange';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
-import { Organization } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
-import theme from '../../theme';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -35,7 +33,6 @@ import { MissionhubMembersCount } from './__generated__/MissionhubMembersCount';
 import {
   CommunitiesList,
   CommunitiesList_communities_nodes,
-  CommunitiesList_communities_nodes_people,
 } from './__generated__/CommunitiesList';
 
 export const MISSIONHUB_MEMBERS_QUERY = gql`
@@ -204,7 +201,7 @@ const GroupsListScreen = ({
         </View>
       </View>
       <ScrollView
-        style={styles.tabContainer}
+        style={styles.scrollView}
         refreshControl={
           <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
         }
@@ -213,7 +210,6 @@ const GroupsListScreen = ({
           <FlatList
             testID="FlatList"
             ref={flatList}
-            style={styles.cardList}
             data={communities}
             keyExtractor={keyExtractorId}
             renderItem={renderItem}

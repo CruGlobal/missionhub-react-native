@@ -21,7 +21,6 @@ import {
   JOIN_BY_CODE_FLOW,
 } from '../../../routes/constants';
 
-jest.mock('../../../selectors/organizations');
 jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
@@ -33,31 +32,15 @@ jest.mock('../../../actions/swipe', () => ({
 jest.mock('../../../actions/analytics');
 jest.mock('../../TrackTabChange', () => () => null);
 
-const mockStore = configureStore();
-const organizations = {
-  all: [
-    {
-      id: '1',
-      name: 'Test Org 1',
-    },
-    {
-      id: '2',
-      name: 'Test Org 2',
-      user_created: true,
-    },
-  ],
-};
 const auth = { isFirstTime: false };
-const swipe = {};
-const initialState = { organizations, auth, swipe };
-const store = mockStore(initialState);
+const swipe = { groupScrollToId: null };
+const initialState = { auth, swipe };
 
 beforeEach(() => {
   navigatePush.mockReturnValue({ type: 'test' });
   getMyCommunities.mockReturnValue({ type: 'test' });
   navigateToOrg.mockReturnValue({ type: 'test' });
   trackActionWithoutData.mockReturnValue({ type: 'test' });
-  communitiesSelector.mockReturnValue(organizations.all);
   checkForUnreadComments.mockReturnValue({
     type: 'check for unread comments',
   });
@@ -67,7 +50,7 @@ beforeEach(() => {
 
 it('should render null state', () => {
   renderWithContext(<GroupsListScreen />, {
-    initialState: { organizations: { all: [] }, auth, swipe },
+    initialState,
   }).snapshot();
 });
 

@@ -3,10 +3,6 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  tabContainer: {
-    flex: 1,
-    backgroundColor: theme.extraLightGrey,
-  },
   container: {
     flex: 1,
     backgroundColor: theme.primaryColor,
@@ -25,12 +21,12 @@ export default StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    backgroundColor: theme.lightGrey,
+    paddingVertical: 8,
+    backgroundColor: theme.extraLightGrey,
   },
   cardList: {
     flex: 1,
-    marginVertical: 8,
-    backgroundColor: theme.transparent,
+    backgroundColor: theme.extraLightGrey,
   },
   cardSectionHeader: {
     marginVertical: 8,
