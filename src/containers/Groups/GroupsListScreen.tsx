@@ -13,8 +13,6 @@ import { IconButton, RefreshControl, Button } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
-import NullMemberImage from '../../../assets/images/MemberContacts.png';
-import NullStateComponent from '../../components/NullStateComponent';
 import { navigateToOrg } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GROUPS_TAB, GLOBAL_COMMUNITY_ID } from '../../constants';
@@ -111,7 +109,6 @@ const GroupsListScreen = ({
     globalCommunity,
     ...nodes,
   ];
-  console.log(communities);
 
   useEffect(() => {
     function loadGroupsAndScrollToId() {
@@ -206,21 +203,13 @@ const GroupsListScreen = ({
           <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
         }
       >
-        {communities.length > 0 ? (
-          <FlatList
-            testID="FlatList"
-            ref={flatList}
-            data={communities}
-            keyExtractor={keyExtractorId}
-            renderItem={renderItem}
-          />
-        ) : (
-          <NullStateComponent
-            imageSource={NullMemberImage}
-            headerText={t('header').toUpperCase()}
-            descriptionText={t('groupsNull')}
-          />
-        )}
+        <FlatList
+          testID="FlatList"
+          ref={flatList}
+          data={communities}
+          keyExtractor={keyExtractorId}
+          renderItem={renderItem}
+        />
       </ScrollView>
     </SafeAreaView>
   );

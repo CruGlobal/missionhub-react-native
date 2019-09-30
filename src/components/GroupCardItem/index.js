@@ -82,7 +82,7 @@ export default class GroupCardItem extends Component {
 
     const isGlobal = orgIsGlobal(group);
     const hasNotification = !isGlobal && unreadCommentsCount !== 0;
-
+    console.log(source);
     //not passing a value for onPress to Card makes the card unclickable.
     //In some cases we want to prevent clicking on GroupCardItem.
     return (

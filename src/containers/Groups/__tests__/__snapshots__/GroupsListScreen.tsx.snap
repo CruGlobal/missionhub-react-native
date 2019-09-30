@@ -1,0 +1,1008 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupsListScreen renders with communities 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "height": 56,
+          "paddingTop": 0,
+        },
+        undefined,
+        null,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "paddingLeft": 5,
+          },
+          Object {
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "center",
+            "flex": 4,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 14,
+                "fontWeight": "500",
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        COMMUNITIES
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "alignSelf": "stretch",
+                  "backgroundColor": "#005A7F",
+                  "justifyContent": "center",
+                  "paddingVertical": 13,
+                },
+                Object {
+                  "borderRightColor": "#007398",
+                  "borderRightWidth": 1,
+                },
+              ],
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                    "fontWeight": "bold",
+                  },
+                ],
+              ]
+            }
+          >
+            JOIN A COMMUNITY
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "backgroundColor": "#005A7F",
+                "justifyContent": "center",
+                "paddingVertical": 13,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                    "fontWeight": "bold",
+                  },
+                ],
+              ]
+            }
+          >
+            CREATE A COMMUNITY
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+        "flex": 1,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <RCTRefreshControl />
+    <View>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": null,
+              "id": "_global_community_id",
+              "name": "MissionHub Community",
+              "people": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 0,
+                "memberCount": 1123,
+                "unassignedCount": 0,
+              },
+              "unreadCommentsCount": 0,
+              "userCreated": true,
+            },
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "image.jpg",
+              "id": "1",
+              "name": "Community 1",
+              "people": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Owner",
+                    "id": "11",
+                    "lastName": "First",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 0,
+                "memberCount": 123,
+                "unassignedCount": 0,
+              },
+              "unreadCommentsCount": 0,
+              "userCreated": true,
+            },
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "photo.jpg",
+              "id": "2",
+              "name": "Community 2",
+              "people": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Owner",
+                    "id": "22",
+                    "lastName": "Second",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 222,
+                "memberCount": 234,
+                "unassignedCount": 333,
+              },
+              "unreadCommentsCount": 2,
+              "userCreated": false,
+            },
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        testID="FlatList"
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <GroupCardItem
+              group={
+                Object {
+                  "__typename": "Community",
+                  "communityPhotoUrl": null,
+                  "id": "_global_community_id",
+                  "name": "MissionHub Community",
+                  "people": Object {
+                    "__typename": "PersonConnection",
+                    "nodes": Array [],
+                  },
+                  "report": Object {
+                    "__typename": "CommunitiesReport",
+                    "contactCount": 0,
+                    "memberCount": 1123,
+                    "unassignedCount": 0,
+                  },
+                  "unreadCommentsCount": 0,
+                  "userCreated": true,
+                }
+              }
+              onPress={[Function]}
+            />
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <GroupCardItem
+              group={
+                Object {
+                  "__typename": "Community",
+                  "communityPhotoUrl": "image.jpg",
+                  "id": "1",
+                  "name": "Community 1",
+                  "people": Object {
+                    "__typename": "PersonConnection",
+                    "nodes": Array [
+                      Object {
+                        "__typename": "Person",
+                        "firstName": "Owner",
+                        "id": "11",
+                        "lastName": "First",
+                      },
+                    ],
+                  },
+                  "report": Object {
+                    "__typename": "CommunitiesReport",
+                    "contactCount": 0,
+                    "memberCount": 123,
+                    "unassignedCount": 0,
+                  },
+                  "unreadCommentsCount": 0,
+                  "userCreated": true,
+                }
+              }
+              onPress={[Function]}
+            />
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <GroupCardItem
+              group={
+                Object {
+                  "__typename": "Community",
+                  "communityPhotoUrl": "photo.jpg",
+                  "id": "2",
+                  "name": "Community 2",
+                  "people": Object {
+                    "__typename": "PersonConnection",
+                    "nodes": Array [
+                      Object {
+                        "__typename": "Person",
+                        "firstName": "Owner",
+                        "id": "22",
+                        "lastName": "Second",
+                      },
+                    ],
+                  },
+                  "report": Object {
+                    "__typename": "CommunitiesReport",
+                    "contactCount": 222,
+                    "memberCount": 234,
+                    "unassignedCount": 333,
+                  },
+                  "unreadCommentsCount": 2,
+                  "userCreated": false,
+                }
+              }
+              onPress={[Function]}
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "height": 0,
+              }
+            }
+          />
+        </View>
+      </RCTScrollView>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;
+
+exports[`GroupsListScreen renders with only global community 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "height": 56,
+          "paddingTop": 0,
+        },
+        undefined,
+        null,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "paddingLeft": 5,
+          },
+          Object {
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "center",
+            "flex": 4,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 14,
+                "fontWeight": "500",
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        COMMUNITIES
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "alignSelf": "stretch",
+                  "backgroundColor": "#005A7F",
+                  "justifyContent": "center",
+                  "paddingVertical": 13,
+                },
+                Object {
+                  "borderRightColor": "#007398",
+                  "borderRightWidth": 1,
+                },
+              ],
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                    "fontWeight": "bold",
+                  },
+                ],
+              ]
+            }
+          >
+            JOIN A COMMUNITY
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "backgroundColor": "#005A7F",
+                "justifyContent": "center",
+                "paddingVertical": 13,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                    "fontWeight": "bold",
+                  },
+                ],
+              ]
+            }
+          >
+            CREATE A COMMUNITY
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+        "flex": 1,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <RCTRefreshControl />
+    <View>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": null,
+              "id": "_global_community_id",
+              "name": "MissionHub Community",
+              "people": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 0,
+                "memberCount": 0,
+                "unassignedCount": 0,
+              },
+              "unreadCommentsCount": 0,
+              "userCreated": true,
+            },
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        testID="FlatList"
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <GroupCardItem
+              group={
+                Object {
+                  "__typename": "Community",
+                  "communityPhotoUrl": null,
+                  "id": "_global_community_id",
+                  "name": "MissionHub Community",
+                  "people": Object {
+                    "__typename": "PersonConnection",
+                    "nodes": Array [],
+                  },
+                  "report": Object {
+                    "__typename": "CommunitiesReport",
+                    "contactCount": 0,
+                    "memberCount": 0,
+                    "unassignedCount": 0,
+                  },
+                  "unreadCommentsCount": 0,
+                  "userCreated": true,
+                }
+              }
+              onPress={[Function]}
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;
