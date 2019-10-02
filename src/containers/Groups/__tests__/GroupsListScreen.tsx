@@ -1,9 +1,8 @@
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
-import { MockList } from 'graphql-tools';
 
 import GroupsListScreen from '../GroupsListScreen';
-import { renderShallow, renderWithContext } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import { navigateToOrg } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
@@ -33,13 +32,13 @@ const usersReport = {
   usersCount: 1123,
 };
 const community1 = {
-  id: 1,
+  id: '1',
   name: 'Community 1',
   unreadCommentsCount: 0,
   userCreated: true,
   communityPhotoUrl: 'image.jpg',
   people: () => ({
-    nodes: [{ id: 11, firstName: 'Owner', lastName: 'First' }],
+    nodes: [{ id: '11', firstName: 'Owner', lastName: 'First' }],
   }),
   report: () => ({
     contactCount: 0,
@@ -48,13 +47,13 @@ const community1 = {
   }),
 };
 const community2 = {
-  id: 2,
+  id: '2',
   name: 'Community 2',
   unreadCommentsCount: 2,
   userCreated: false,
   communityPhotoUrl: 'photo.jpg',
   people: () => ({
-    nodes: [{ id: 22, firstName: 'Owner', lastName: 'Second' }],
+    nodes: [{ id: '22', firstName: 'Owner', lastName: 'Second' }],
   }),
   report: () => ({
     contactCount: 222,
@@ -62,11 +61,12 @@ const community2 = {
     unassignedCount: 333,
   }),
 };
+const communities = [community1, community2];
 
 const Query = () => ({
   usersReport: () => usersReport,
   communities: () => ({
-    nodes: [community1, community2],
+    nodes: communities,
   }),
 });
 
@@ -75,6 +75,7 @@ const navigateToOrgResponse = { type: 'navigate to org' };
 const trackActionResponse = { type: 'track action' };
 const openMainMenuResponse = { type: 'open main menu' };
 const keyExtractorResponse = { type: 'key extractor' };
+const resetScrollGroupsResponse = { type: 'reset scroll groups' };
 
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
@@ -82,6 +83,7 @@ beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
   (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResponse);
   (keyExtractorId as jest.Mock).mockReturnValue(keyExtractorResponse);
+  (resetScrollGroups as jest.Mock).mockReturnValue(resetScrollGroupsResponse);
 });
 
 describe('GroupsListScreen', () => {
@@ -101,134 +103,116 @@ describe('GroupsListScreen', () => {
     snapshot();
   });
 
-  describe('handlePress', () => {});
-});
+  describe('card item press', () => {
+    it('navigates to group screen', async () => {
+      const { getAllByTestId, store } = renderWithContext(
+        <GroupsListScreen />,
+        {
+          initialState,
+          mocks: {
+            Query,
+          },
+        },
+      );
 
-/*
+      await flushMicrotasksQueue();
+      const groupCard = getAllByTestId('GroupCard')[1];
 
-describe('handlePress', () => {
-  it('navigates to groups screen', () => {
-    const organization = organizations.all[0];
-    const item = component
-      .childAt(3)
-      .childAt(0)
-      .props()
-      .renderItem({ item: organization });
-    item.props.onPress(organization);
+      fireEvent(groupCard, 'onPress', groupCard.props.group);
 
-    expect(navigateToOrg).toHaveBeenCalledWith(organization.id);
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.SELECT_COMMUNITY,
-    );
-  });
-});
-
-it('should open main menu', () => {
-  const { getByTestId } = renderWithContext(<GroupsListScreen />, {
-    initialState,
-  });
-  expect(getMyCommunities).toHaveBeenCalled();
-  fireEvent.press(getByTestId('IconButton'));
-  expect(common.openMainMenu).toHaveBeenCalled();
-});
-
-it('should load groups on mount', () => {
-  renderWithContext(<GroupsListScreen />, { initialState });
-  expect(getMyCommunities).toHaveBeenCalled();
-});
-
-it('should load groups and scroll to index 0', async () => {
-  renderWithContext(<GroupsListScreen />, {
-    initialState: { ...initialState, swipe: { groupScrollToId: '1' } },
-  });
-  await flushMicrotasksQueue();
-  expect(getMyCommunities).toHaveBeenCalled();
-  // TODO: Not sure how to test ref
-  // expect(flatList.scrollToIndex).toHaveBeenCalledWith({
-  //   animated: true,
-  //   index: 1,
-  //   viewPosition: 0.5,
-  // });
-  expect(resetScrollGroups).toHaveBeenCalled();
-});
-
-it('should load groups and scroll to index 1', async () => {
-  renderWithContext(<GroupsListScreen />, {
-    initialState: { ...initialState, swipe: { groupScrollToId: '2' } },
-  });
-  await flushMicrotasksQueue();
-  expect(getMyCommunities).toHaveBeenCalled();
-  // TODO: Not sure how to test ref
-  // expect(flatList.scrollToIndex).toHaveBeenCalledWith({
-  //   animated: true,
-  //   index: 1,
-  //   viewPosition: 0.5,
-  // });
-  expect(resetScrollGroups).toHaveBeenCalled();
-});
-
-it('should load groups and not scroll to index', async () => {
-  renderWithContext(<GroupsListScreen />, {
-    initialState: {
-      ...initialState,
-      swipe: { groupScrollToId: 'doesnt exist' },
-    },
-  });
-  await flushMicrotasksQueue();
-  expect(getMyCommunities).toHaveBeenCalled();
-  expect(resetScrollGroups).toHaveBeenCalled();
-});
-
-it('should refresh the list', () => {
-  component
-    .childAt(3)
-    .props()
-    .refreshControl.props.onRefresh();
-
-  expect(checkForUnreadComments).toHaveBeenCalled();
-  expect(getMyCommunities).toHaveBeenCalled();
-});
-
-it('navigates to join group screen', () => {
-  component
-    .childAt(2)
-    .childAt(0)
-    .childAt(0)
-    .props()
-    .onPress();
-
-  expect(navigatePush).toHaveBeenCalledWith(JOIN_BY_CODE_FLOW);
-});
-
-it('navigates to create group screen', () => {
-  component
-    .childAt(2)
-    .childAt(1)
-    .childAt(0)
-    .props()
-    .onPress();
-
-  expect(navigatePush).toHaveBeenCalledWith(CREATE_GROUP_SCREEN);
-});
-
-it('navigates to Upgrade Account Screen if not signed in', () => {
-  const store = mockStore({
-    organizations,
-    auth: { isFirstTime: true },
-    swipe,
+      expect(navigateToOrg).toHaveBeenCalledWith(communities[0].id);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.SELECT_COMMUNITY,
+      );
+      expect(store.getActions()).toEqual([
+        navigateToOrgResponse,
+        trackActionResponse,
+      ]);
+    });
   });
 
-  component = renderShallow(<GroupsListScreen />, store);
+  describe('main menu icon press', () => {
+    it('should open main menu', () => {
+      const { getByTestId, store } = renderWithContext(<GroupsListScreen />, {
+        initialState,
+      });
 
-  component
-    .childAt(2)
-    .childAt(1)
-    .childAt(0)
-    .props()
-    .onPress();
+      fireEvent.press(getByTestId('IconButton'));
+      expect(openMainMenu).toHaveBeenCalled();
+      expect(store.getActions()).toEqual([openMainMenuResponse]);
+    });
+  });
 
-  expect(navigatePush).toHaveBeenCalledWith(
-    CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
-  );
+  describe('mounts with scrollToIndex', () => {
+    it('should scroll to index 0', async () => {
+      renderWithContext(<GroupsListScreen />, {
+        initialState: { ...initialState, swipe: { groupScrollToId: '1' } },
+      });
+
+      await flushMicrotasksQueue();
+      // TODO: Not sure how to test ref
+      // expect(flatList.scrollToIndex).toHaveBeenCalledWith({
+      //   animated: true,
+      //   index: 1,
+      //   viewPosition: 0.5,
+      // });
+      expect(resetScrollGroups).toHaveBeenCalledWith();
+    });
+
+    it('should not scroll to index', async () => {
+      renderWithContext(<GroupsListScreen />, {
+        initialState: {
+          ...initialState,
+          swipe: { groupScrollToId: 'doesnt exist' },
+        },
+      });
+
+      await flushMicrotasksQueue();
+      // TODO: Not sure how to test ref
+      // expect(flatList.scrollToIndex).not.toHaveBeenCalled();
+      expect(resetScrollGroups).toHaveBeenCalledWith();
+    });
+  });
+
+  describe('join community button press', () => {
+    it('navigates to join community screen', () => {
+      const { getByTestId, store } = renderWithContext(<GroupsListScreen />, {
+        initialState,
+      });
+
+      fireEvent.press(getByTestId('joinCommunity'));
+
+      expect(navigatePush).toHaveBeenCalledWith(JOIN_BY_CODE_FLOW);
+      expect(store.getActions()).toEqual([navigatePushResponse]);
+    });
+  });
+
+  describe('create community button press', () => {
+    it('navigates to create community screen if signed', () => {
+      const { getByTestId, store } = renderWithContext(<GroupsListScreen />, {
+        initialState,
+      });
+
+      fireEvent.press(getByTestId('createCommunity'));
+
+      expect(navigatePush).toHaveBeenCalledWith(CREATE_GROUP_SCREEN);
+      expect(store.getActions()).toEqual([navigatePushResponse]);
+    });
+
+    it('navigates to Upgrade Account Screen if not signed in', () => {
+      const { getByTestId, store } = renderWithContext(<GroupsListScreen />, {
+        initialState: {
+          ...initialState,
+          auth: { isFirstTime: true },
+        },
+      });
+
+      fireEvent.press(getByTestId('createCommunity'));
+
+      expect(navigatePush).toHaveBeenCalledWith(
+        CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
+      );
+      expect(store.getActions()).toEqual([navigatePushResponse]);
+    });
+  });
 });
-*/

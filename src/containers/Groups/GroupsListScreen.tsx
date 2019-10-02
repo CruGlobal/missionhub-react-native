@@ -123,7 +123,9 @@ const GroupsListScreen = ({
               // Put the new org in the top of the list if already there or the center
               viewPosition: index === 0 ? 0 : 0.5,
             });
-          } catch (e) {}
+          } catch (e) {
+            console.log(e);
+          }
         }
         dispatch(resetScrollGroups());
       }
@@ -161,7 +163,7 @@ const GroupsListScreen = ({
     item,
   }: {
     item: CommunitiesList_communities_nodes;
-  }) => <GroupCardItem group={item} onPress={handlePress} />;
+  }) => <GroupCardItem testID="GroupCard" group={item} onPress={handlePress} />;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -180,6 +182,7 @@ const GroupsListScreen = ({
       <View style={{ flexDirection: 'row' }}>
         <View style={{ flex: 1 }}>
           <Button
+            testID="joinCommunity"
             type="transparent"
             style={[styles.blockBtn, styles.blockBtnBorderRight]}
             buttonTextStyle={styles.blockBtnText}
@@ -189,6 +192,7 @@ const GroupsListScreen = ({
         </View>
         <View style={{ flex: 1 }}>
           <Button
+            testID="createCommunity"
             type="transparent"
             style={styles.blockBtn}
             buttonTextStyle={styles.blockBtnText}

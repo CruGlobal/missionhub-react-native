@@ -192,6 +192,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
             "opacity": 1,
           }
         }
+        testID="joinCommunity"
       >
         <View
           style={
@@ -280,6 +281,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
             "opacity": 1,
           }
         }
+        testID="createCommunity"
       >
         <View
           style={
@@ -481,6 +483,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                 }
               }
               onPress={[Function]}
+              testID="GroupCard"
             />
           </View>
           <View
@@ -516,6 +519,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                 }
               }
               onPress={[Function]}
+              testID="GroupCard"
             />
           </View>
           <View
@@ -551,6 +555,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                 }
               }
               onPress={[Function]}
+              testID="GroupCard"
             />
           </View>
           <View
@@ -759,6 +764,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
             "opacity": 1,
           }
         }
+        testID="joinCommunity"
       >
         <View
           style={
@@ -847,6 +853,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
             "opacity": 1,
           }
         }
+        testID="createCommunity"
       >
         <View
           style={
@@ -998,6 +1005,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                 }
               }
               onPress={[Function]}
+              testID="GroupCard"
             />
           </View>
         </View>
