@@ -10,7 +10,6 @@ Components to convert to TS+Hooks
 - JourneyItem
 - MemberOptionsMenu
 - PersonSideMenu
-- PlatformKeyboardAvoidingView
 - PopupMenu
 - ReminderButton
 - RowSwipeable
@@ -42,6 +41,7 @@ Components to convert to TS+Hooks
 - GroupsContactList
 - NullStateComponent
 - PersonListItem
+- PlatformKeyboardAvoidingView
 - RadioButton
 - RefreshControl
 - ReminderDateText
