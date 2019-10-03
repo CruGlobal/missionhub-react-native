@@ -1,9 +1,9 @@
 import { createStackNavigator } from 'react-navigation';
 
 import { CREATE_STEP } from '../../constants';
-import { createCustomStep, addStep } from '../../actions/steps';
+import { createCustomStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
-import { wrapNextAction } from '../helpers';
+import { wrapNextScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import SelectMyStepScreen, {
   SELECT_MY_STEP_SCREEN,
@@ -37,12 +37,9 @@ export const AddMyStepFlowScreens = {
             ),
           }),
   ),
-  [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextAction(
+  [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextScreen(
     SuggestedStepDetailScreen,
-    ({ step, contactId, orgId }) => dispatch => {
-      dispatch(addStep(step, contactId, orgId));
-      dispatch(navigatePush(CELEBRATION_SCREEN));
-    },
+    CELEBRATION_SCREEN,
   ),
   [ADD_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,

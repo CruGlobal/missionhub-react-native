@@ -4,6 +4,7 @@ import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
+import { addStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 
 import styles from './styles';
@@ -13,7 +14,9 @@ class SuggestedStepDetailScreen extends Component {
   addStep = () => {
     const { dispatch, step, receiverId, orgId, next } = this.props;
 
-    dispatch(next({ step, contactId: receiverId, orgId }));
+    dispatch(addStep(step, receiverId, orgId));
+
+    dispatch(next({ contactId: receiverId, orgId }));
   };
 
   render() {
