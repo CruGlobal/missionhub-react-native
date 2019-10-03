@@ -123,9 +123,7 @@ const GroupsListScreen = ({
               // Put the new org in the top of the list if already there or the center
               viewPosition: index === 0 ? 0 : 0.5,
             });
-          } catch (e) {
-            console.log(e);
-          }
+          } catch (e) {}
         }
         dispatch(resetScrollGroups());
       }
