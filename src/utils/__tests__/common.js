@@ -104,8 +104,11 @@ describe('orgIsUserCreated', () => {
   it('returns false for personal ministry', () => {
     expect(orgIsUserCreated({ id: 'personal' })).toEqual(false);
   });
-  it('returns true for user-created community', () => {
+  it('returns true for user_created community', () => {
     expect(orgIsUserCreated({ id: '1', user_created: true })).toEqual(true);
+  });
+  it('returns true for userCreated community', () => {
+    expect(orgIsUserCreated({ id: '1', userCreated: true })).toEqual(true);
   });
   it('returns false for cru community', () => {
     expect(orgIsUserCreated({ id: '1', user_created: false })).toEqual(false);
