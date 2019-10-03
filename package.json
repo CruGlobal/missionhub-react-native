@@ -41,7 +41,6 @@
     "@react-navigation/native": "^3.5.0",
     "@ringierag/snowplow-reactjs-native-tracker": "^0.0.4",
     "@types/qs": "^6.5.3",
-    "apollo-boost": "^0.4.4",
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-cache-persist": "^0.1.1",
     "apollo-link": "^1.2.12",

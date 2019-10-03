@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
@@ -27,21 +27,16 @@ import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
-import { MissionhubMembersCount } from './__generated__/MissionhubMembersCount';
 import {
-  CommunitiesList,
-  CommunitiesList_communities_nodes,
-} from './__generated__/CommunitiesList';
+  GetCommunities,
+  GetCommunities_communities_nodes,
+} from './__generated__/GetCommunities';
 
-export const MISSIONHUB_MEMBERS_QUERY = gql`
-  query MissionhubMembersCount {
+export const GET_COMMUNITIES_QUERY = gql`
+  query GetCommunities {
     usersReport {
       usersCount
     }
-  }
-`;
-export const COMMUNITIES_QUERY = gql`
-  query CommunitiesList {
     communities(ministryActivitiesOnly: true, sortBy: name_ASC) {
       nodes {
         id
@@ -81,15 +76,14 @@ const GroupsListScreen = ({
   const flatList = useRef<FlatList<any>>(null);
 
   const {
-    data: { usersReport: { usersCount = 0 } = {} } = {},
-    refetch: refetchMembersCount,
-  } = useQuery<MissionhubMembersCount>(MISSIONHUB_MEMBERS_QUERY);
-  const {
-    data: { communities: { nodes = [] } = {} } = {},
-    refetch: refetchCommunitiesList,
-  } = useQuery<CommunitiesList>(COMMUNITIES_QUERY);
+    data: {
+      usersReport: { usersCount = 0 } = {},
+      communities: { nodes = [] } = {},
+    } = {},
+    refetch: refetchCommunities,
+  } = useQuery<GetCommunities>(GET_COMMUNITIES_QUERY);
 
-  const globalCommunity: CommunitiesList_communities_nodes = {
+  const globalCommunity: GetCommunities_communities_nodes = {
     __typename: 'Community',
     id: GLOBAL_COMMUNITY_ID,
     name: t('globalCommunity'),
@@ -105,7 +99,7 @@ const GroupsListScreen = ({
     },
   };
 
-  const communities: CommunitiesList_communities_nodes[] = [
+  const communities: GetCommunities_communities_nodes[] = [
     globalCommunity,
     ...nodes,
   ];
@@ -133,11 +127,10 @@ const GroupsListScreen = ({
   }, [communities, scrollToId, flatList]);
 
   const { isRefreshing, refresh } = useRefreshing(() => {
-    refetchMembersCount();
-    refetchCommunitiesList();
+    refetchCommunities();
   });
 
-  const handlePress = (community: CommunitiesList_communities_nodes) => {
+  const handlePress = (community: GetCommunities_communities_nodes) => {
     dispatch(navigateToOrg(community.id));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
@@ -157,11 +150,9 @@ const GroupsListScreen = ({
     );
   };
 
-  const renderItem = ({
-    item,
-  }: {
-    item: CommunitiesList_communities_nodes;
-  }) => <GroupCardItem testID="GroupCard" group={item} onPress={handlePress} />;
+  const renderItem = ({ item }: { item: GetCommunities_communities_nodes }) => (
+    <GroupCardItem testID="GroupCard" group={item} onPress={handlePress} />
+  );
 
   return (
     <SafeAreaView style={styles.container}>
