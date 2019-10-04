@@ -20,6 +20,8 @@ import { getScreenForOrg } from '../containers/Groups/GroupScreen';
 import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
 import { REQUESTS } from '../api/routes';
+import { apolloClient } from '../apolloClient';
+import { GET_COMMUNITIES_QUERY } from '../containers/Groups/GroupsListScreen';
 
 import { getMe, getPersonDetails } from './person';
 import callApi from './api';
@@ -37,10 +39,18 @@ const getOrganizationsQuery = {
 
 export function getMyCommunities() {
   return async dispatch => {
+    getCommunities();
     await dispatch(getMyOrganizations());
     dispatch(getUsersReport());
     return dispatch(getOrganizationsContactReports());
   };
+}
+
+function getCommunities() {
+  apolloClient.query({
+    query: GET_COMMUNITIES_QUERY,
+    fetchPolicy: 'network-only',
+  });
 }
 
 export function getMyOrganizations() {
@@ -378,7 +388,7 @@ export function addNewPerson(data) {
 }
 
 export function updateOrganization(orgId, data) {
-  return dispatch => {
+  return async dispatch => {
     if (!data) {
       return Promise.reject(
         'Invalid Data from updateOrganization: no data passed in',
@@ -393,12 +403,14 @@ export function updateOrganization(orgId, data) {
       },
     };
     const query = { orgId };
-    return dispatch(callApi(REQUESTS.UPDATE_ORGANIZATION, query, bodyData));
+
+    await dispatch(callApi(REQUESTS.UPDATE_ORGANIZATION, query, bodyData));
+    getCommunities();
   };
 }
 
 export function updateOrganizationImage(orgId, imageData) {
-  return dispatch => {
+  return async dispatch => {
     if (!imageData) {
       return Promise.reject(
         'Invalid Data from updateOrganizationImage: no image data passed in',
@@ -412,9 +424,11 @@ export function updateOrganizationImage(orgId, imageData) {
       type: imageData.fileType,
       name: imageData.fileName,
     });
-    return dispatch(
+
+    await dispatch(
       callApi(REQUESTS.UPDATE_ORGANIZATION_IMAGE, { orgId }, data),
     );
+    getCommunities();
   };
 }
 
@@ -480,12 +494,9 @@ export function addNewOrganization(name, imageData) {
 export function deleteOrganization(orgId) {
   return async dispatch => {
     const query = { orgId };
-    const results = await dispatch(
-      callApi(REQUESTS.DELETE_ORGANIZATION, query),
-    );
+    await dispatch(callApi(REQUESTS.DELETE_ORGANIZATION, query));
     dispatch(trackActionWithoutData(ACTIONS.COMMUNITY_DELETE));
-
-    return results;
+    getCommunities();
   };
 }
 
@@ -611,6 +622,7 @@ export function joinCommunity(orgId, code, url) {
     }
 
     dispatch(trackActionWithoutData(ACTIONS.JOIN_COMMUNITY_WITH_CODE));
+    getCommunities();
   };
 }
 
