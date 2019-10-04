@@ -77,10 +77,10 @@ export function loadHome() {
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
     dispatch(getMe());
     dispatch(getMyPeople());
-    dispatch(getMyCommunities());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
     dispatch(resetPerson());
+    dispatch(getMyCommunities());
     await dispatch(getMySteps());
     dispatch(showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.LOGIN));
   };

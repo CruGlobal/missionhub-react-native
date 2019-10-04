@@ -1,7 +1,6 @@
 /* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0, max-params: 0 */
 
 import {
-  GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
   GET_ORGANIZATION_PEOPLE,
   DEFAULT_PAGE_LIMIT,
@@ -14,7 +13,6 @@ import {
   LOAD_PERSON_DETAILS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
-import { removeHiddenOrgs } from '../selectors/selectorUtils';
 import { organizationSelector } from '../selectors/organizations';
 import { getScreenForOrg } from '../containers/Groups/GroupScreen';
 import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
@@ -38,19 +36,13 @@ const getOrganizationsQuery = {
 };
 
 export function getMyCommunities() {
-  return async dispatch => {
-    getCommunities();
-    await dispatch(getMyOrganizations());
-    dispatch(getUsersReport());
-    return dispatch(getOrganizationsContactReports());
+  return dispatch => {
+    apolloClient.query({
+      query: GET_COMMUNITIES_QUERY,
+      fetchPolicy: 'network-only',
+    });
+    dispatch(getMyOrganizations());
   };
-}
-
-function getCommunities() {
-  apolloClient.query({
-    query: GET_COMMUNITIES_QUERY,
-    fetchPolicy: 'network-only',
-  });
 }
 
 export function getMyOrganizations() {
@@ -103,49 +95,6 @@ export function refreshCommunity(orgId) {
 
     return response;
   };
-}
-
-export function getOrganizationsContactReports() {
-  return async (dispatch, getState) => {
-    const {
-      organizations,
-      auth: { person },
-    } = getState();
-
-    const visibleOrgs = removeHiddenOrgs(organizations.all, person);
-
-    if (visibleOrgs.length === 0) {
-      return;
-    }
-
-    const organization_ids = visibleOrgs
-      .filter(org => org.community && org.id !== GLOBAL_COMMUNITY_ID)
-      .map(org => org.id)
-      .join(',');
-
-    const { response } = await dispatch(
-      callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, {
-        period: 'P1W',
-        organization_ids,
-      }),
-    );
-
-    dispatch({
-      type: GET_ORGANIZATIONS_CONTACTS_REPORT,
-      reports: response.map(r => ({
-        id: `${r.organization_id}`,
-        contactsCount: r.contact_count,
-        unassignedCount: r.unassigned_count,
-        uncontactedCount: r.uncontacted_count,
-        memberCount: r.member_count,
-      })),
-    });
-    return response;
-  };
-}
-
-export function getUsersReport() {
-  return dispatch => dispatch(callApi(REQUESTS.GET_USERS_REPORT));
 }
 
 export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
@@ -405,7 +354,7 @@ export function updateOrganization(orgId, data) {
     const query = { orgId };
 
     await dispatch(callApi(REQUESTS.UPDATE_ORGANIZATION, query, bodyData));
-    getCommunities();
+    dispatch(getMyCommunities());
   };
 }
 
@@ -428,7 +377,7 @@ export function updateOrganizationImage(orgId, imageData) {
     await dispatch(
       callApi(REQUESTS.UPDATE_ORGANIZATION_IMAGE, { orgId }, data),
     );
-    getCommunities();
+    dispatch(getMyCommunities());
   };
 }
 
@@ -496,7 +445,7 @@ export function deleteOrganization(orgId) {
     const query = { orgId };
     await dispatch(callApi(REQUESTS.DELETE_ORGANIZATION, query));
     dispatch(trackActionWithoutData(ACTIONS.COMMUNITY_DELETE));
-    getCommunities();
+    dispatch(getMyCommunities());
   };
 }
 
@@ -622,7 +571,7 @@ export function joinCommunity(orgId, code, url) {
     }
 
     dispatch(trackActionWithoutData(ACTIONS.JOIN_COMMUNITY_WITH_CODE));
-    getCommunities();
+    dispatch(getMyCommunities());
   };
 }
 

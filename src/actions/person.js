@@ -25,12 +25,11 @@ import {
 } from '../selectors/people';
 import { organizationSelector } from '../selectors/organizations';
 import { REQUESTS } from '../api/routes';
-import { apolloClient } from '../apolloClient';
-import { GET_COMMUNITIES_QUERY } from '../containers/Groups/GroupsListScreen';
 
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
+import { getMyCommunities } from './organizations';
 import { getMySteps } from './steps';
 
 export function getMe(extraInclude) {
@@ -320,10 +319,7 @@ export function archiveOrgPermission(personId, orgPermissionId) {
           : ACTIONS.MANAGE_REMOVE_MEMBER,
       ),
     );
-    apolloClient.query({
-      query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'network-only',
-    });
+    dispatch(getMyCommunities());
 
     return results;
   };
