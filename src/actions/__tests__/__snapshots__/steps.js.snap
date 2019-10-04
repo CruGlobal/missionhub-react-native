@@ -1,0 +1,283 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addStep creates step with custom step suggestion 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "FETCH": "ADD_CHALLENGE_FETCH",
+        "SUCCESS": "ADD_CHALLENGE_SUCCESS",
+        "endpoint": "undefined/apis/v4/challenges",
+        "method": "post",
+        "name": "ADD_CHALLENGE",
+      },
+      Object {},
+      Object {
+        "data": Object {
+          "attributes": Object {
+            "title": "Hello world",
+          },
+          "relationships": Object {
+            "challenge_suggestion": Object {
+              "data": Object {
+                "id": null,
+                "type": "challenge_suggestion",
+              },
+            },
+            "receiver": Object {
+              "data": Object {
+                "id": "983547",
+                "type": "person",
+              },
+            },
+          },
+          "type": "accepted_challenge",
+        },
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": [Function],
+    },
+  ],
+}
+`;
+
+exports[`addStep creates step with org 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "FETCH": "ADD_CHALLENGE_FETCH",
+        "SUCCESS": "ADD_CHALLENGE_SUCCESS",
+        "endpoint": "undefined/apis/v4/challenges",
+        "method": "post",
+        "name": "ADD_CHALLENGE",
+      },
+      Object {},
+      Object {
+        "data": Object {
+          "attributes": Object {
+            "title": "System generated step",
+          },
+          "relationships": Object {
+            "challenge_suggestion": Object {
+              "data": Object {
+                "id": "100",
+                "type": "challenge_suggestion",
+              },
+            },
+            "organization": Object {
+              "data": Object {
+                "id": "123",
+                "type": "organization",
+              },
+            },
+            "receiver": Object {
+              "data": Object {
+                "id": "983547",
+                "type": "person",
+              },
+            },
+          },
+          "type": "accepted_challenge",
+        },
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": [Function],
+    },
+  ],
+}
+`;
+
+exports[`addStep creates step without org 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "FETCH": "ADD_CHALLENGE_FETCH",
+        "SUCCESS": "ADD_CHALLENGE_SUCCESS",
+        "endpoint": "undefined/apis/v4/challenges",
+        "method": "post",
+        "name": "ADD_CHALLENGE",
+      },
+      Object {},
+      Object {
+        "data": Object {
+          "attributes": Object {
+            "title": "System generated step",
+          },
+          "relationships": Object {
+            "challenge_suggestion": Object {
+              "data": Object {
+                "id": "100",
+                "type": "challenge_suggestion",
+              },
+            },
+            "receiver": Object {
+              "data": Object {
+                "id": "983547",
+                "type": "person",
+              },
+            },
+          },
+          "type": "accepted_challenge",
+        },
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": [Function],
+    },
+  ],
+}
+`;
+
+exports[`create custom step creates custom step for me 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "FETCH": "ADD_CHALLENGE_FETCH",
+        "SUCCESS": "ADD_CHALLENGE_SUCCESS",
+        "endpoint": "undefined/apis/v4/challenges",
+        "method": "post",
+        "name": "ADD_CHALLENGE",
+      },
+      Object {},
+      Object {
+        "data": Object {
+          "attributes": Object {
+            "title": "Custom Step",
+          },
+          "relationships": Object {
+            "challenge_suggestion": Object {
+              "data": Object {
+                "id": null,
+                "type": "challenge_suggestion",
+              },
+            },
+            "receiver": Object {
+              "data": Object {
+                "id": "111",
+                "type": "person",
+              },
+            },
+          },
+          "type": "accepted_challenge",
+        },
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": [Function],
+    },
+  ],
+}
+`;
+
+exports[`create custom step creates custom step for other person 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "FETCH": "ADD_CHALLENGE_FETCH",
+        "SUCCESS": "ADD_CHALLENGE_SUCCESS",
+        "endpoint": "undefined/apis/v4/challenges",
+        "method": "post",
+        "name": "ADD_CHALLENGE",
+      },
+      Object {},
+      Object {
+        "data": Object {
+          "attributes": Object {
+            "title": "Custom Step",
+          },
+          "relationships": Object {
+            "challenge_suggestion": Object {
+              "data": Object {
+                "id": null,
+                "type": "challenge_suggestion",
+              },
+            },
+            "receiver": Object {
+              "data": Object {
+                "id": "983547",
+                "type": "person",
+              },
+            },
+          },
+          "type": "accepted_challenge",
+        },
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": [Function],
+    },
+  ],
+}
+`;
+
+exports[`create custom step creates custom step for other person in org 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "FETCH": "ADD_CHALLENGE_FETCH",
+        "SUCCESS": "ADD_CHALLENGE_SUCCESS",
+        "endpoint": "undefined/apis/v4/challenges",
+        "method": "post",
+        "name": "ADD_CHALLENGE",
+      },
+      Object {},
+      Object {
+        "data": Object {
+          "attributes": Object {
+            "title": "Custom Step",
+          },
+          "relationships": Object {
+            "challenge_suggestion": Object {
+              "data": Object {
+                "id": null,
+                "type": "challenge_suggestion",
+              },
+            },
+            "organization": Object {
+              "data": Object {
+                "id": "123",
+                "type": "organization",
+              },
+            },
+            "receiver": Object {
+              "data": Object {
+                "id": "983547",
+                "type": "person",
+              },
+            },
+          },
+          "type": "accepted_challenge",
+        },
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": [Function],
+    },
+  ],
+}
+`;

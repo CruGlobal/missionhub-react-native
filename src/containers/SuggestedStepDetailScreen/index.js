@@ -11,10 +11,10 @@ import styles from './styles';
 
 @withTranslation('suggestedStepDetail')
 class SuggestedStepDetailScreen extends Component {
-  addStep = () => {
+  addStep = async () => {
     const { dispatch, step, receiverId, orgId, next } = this.props;
 
-    dispatch(addStep(step, receiverId, orgId));
+    await dispatch(addStep(step, receiverId, orgId));
 
     dispatch(next({ contactId: receiverId, orgId }));
   };

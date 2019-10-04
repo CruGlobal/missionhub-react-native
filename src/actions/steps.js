@@ -132,8 +132,6 @@ export function addStep(stepSuggestion, receiverId, orgId) {
 
     await dispatch(callApi(REQUESTS.ADD_CHALLENGE, {}, payload));
     dispatch(trackStepAdded(stepSuggestion));
-    dispatch(getMySteps());
-    dispatch(getContactSteps(receiverId, orgId));
   };
 }
 

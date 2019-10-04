@@ -30,7 +30,7 @@ it('renders correctly', () => {
 });
 
 describe('bottomButtonProps', () => {
-  it('adds step', () => {
+  it('adds step', async () => {
     const { getByTestId, store } = renderWithContext(
       <SuggestedStepDetailScreen next={next} />,
       {
@@ -38,7 +38,7 @@ describe('bottomButtonProps', () => {
       },
     );
 
-    fireEvent.press(getByTestId('bottomButton'));
+    await fireEvent.press(getByTestId('bottomButton'));
 
     expect(addStep).toHaveBeenCalledWith(step, receiverId, orgId);
     expect(store.getActions()).toEqual([addStepResponse, nextResponse]);
