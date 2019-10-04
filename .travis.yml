@@ -8,7 +8,8 @@ matrix:
         - ENVFILE=.env.production
       before_script:
         - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
-      script: yarn gql:codegen
+      script:
+        - yarn gql:codegen
         - yarn gql:schema
         - yarn test:coverage --maxWorkers=4
         - yarn lint
