@@ -12,10 +12,7 @@ import {
   navigatePush,
   navigateToMainTabs,
 } from '../../../../actions/navigation';
-import {
-  getMyCommunities,
-  addNewOrganization,
-} from '../../../../actions/organizations';
+import { addNewOrganization } from '../../../../actions/organizations';
 import { trackActionWithoutData } from '../../../../actions/analytics';
 import * as organizations from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
@@ -38,7 +35,6 @@ jest.mock('../../../../actions/navigation', () => ({
 }));
 jest.mock('../../../../actions/organizations', () => ({
   addNewOrganization: jest.fn(() => mockAddNewOrg),
-  getMyCommunities: jest.fn(() => ({ type: 'get my communities' })),
 }));
 jest.mock('../../../../selectors/organizations');
 
@@ -149,7 +145,6 @@ describe('CreateGroupScreen', () => {
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, null);
-    expect(getMyCommunities).toHaveBeenCalled();
     expect(navigateToMainTabs).toHaveBeenCalledWith(GROUPS_TAB);
   });
 
@@ -170,7 +165,6 @@ describe('CreateGroupScreen', () => {
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, null);
-    expect(getMyCommunities).toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
       organization: org,
       initialTab: GROUP_MEMBERS,
@@ -199,7 +193,6 @@ describe('CreateGroupScreen', () => {
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, data);
-    expect(getMyCommunities).toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
       organization: org,
       initialTab: GROUP_MEMBERS,

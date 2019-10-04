@@ -432,6 +432,8 @@ export function addNewOrganization(name, imageData) {
       const newOrgId = results.response.id;
       await dispatch(updateOrganizationImage(newOrgId, imageData));
       dispatch(trackActionWithoutData(ACTIONS.ADD_COMMUNITY_PHOTO));
+    } else {
+      dispatch(getMyCommunities());
     }
     // After the org is created, update auth person with new org permissions
     dispatch(getMe());
