@@ -21,8 +21,7 @@ export default StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    paddingVertical: 8,
-    backgroundColor: theme.extraLightGrey,
+    backgroundColor: theme.lightGrey,
   },
   cardList: {
     flex: 1,

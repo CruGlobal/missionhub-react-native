@@ -5,19 +5,15 @@ import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 import GroupCardItem from '..';
 
-const contactCount = 768;
+const contactsCount = 768;
 const unassignedCount = 13;
 const memberCount = 5;
 
 const group = {
   name: 'Group Name',
-  report: {
-    contactCount: 0,
-    unassignedCount: 0,
-    memberCount: 0,
-  },
-  userCreated: false,
-  unreadCommentsCount: 0,
+  contactReport: {},
+  user_created: false,
+  unread_comments_count: 0,
 };
 
 let props = {
@@ -41,7 +37,7 @@ describe('GroupCardItem', () => {
       group: {
         ...group,
         id: GLOBAL_COMMUNITY_ID,
-        userCreated: true,
+        user_created: true,
       },
     };
 
@@ -53,12 +49,11 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        report: {
-          ...group.report,
-          contactCount,
+        contactReport: {
+          contactsCount,
           unassignedCount,
         },
-        userCreated: true,
+        user_created: true,
       },
     };
 
@@ -70,12 +65,11 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        report: {
-          ...group.report,
-          contactCount,
+        contactReport: {
+          contactsCount,
           unassignedCount,
         },
-        userCreated: false,
+        user_created: false,
       },
     };
 
@@ -87,11 +81,10 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        report: {
-          ...group.report,
+        contactReport: {
           unassignedCount,
         },
-        userCreated: false,
+        user_created: false,
       },
     };
 
@@ -103,11 +96,10 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        report: {
-          ...group.report,
-          contactCount,
+        contactReport: {
+          contactsCount,
         },
-        userCreated: false,
+        user_created: false,
       },
     };
 
@@ -119,7 +111,7 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        userCreated: true,
+        user_created: true,
       },
     };
 
@@ -131,11 +123,10 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        report: {
-          ...group.report,
+        contactReport: {
           memberCount,
         },
-        userCreated: true,
+        user_created: true,
       },
     };
 
@@ -147,11 +138,10 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        report: {
-          ...group.report,
+        contactReport: {
           memberCount: 1,
         },
-        userCreated: true,
+        user_created: true,
       },
     };
 
@@ -163,7 +153,7 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        communityPhotoUrl:
+        community_photo_url:
           'https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg',
       },
     };
@@ -176,7 +166,7 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        unreadCommentsCount: 11,
+        unread_comments_count: 11,
       },
     };
 
@@ -188,11 +178,10 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        report: {
-          ...group.report,
+        contactReport: {
           memberCount,
         },
-        owner: { firstName: 'Roge', lastName: 'Egor' },
+        owner: { first_name: 'Roge' },
       },
       onJoin: jest.fn(),
     };

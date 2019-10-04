@@ -12,7 +12,7 @@ export interface SwipeState {
   journey: boolean;
   groupOnboarding: { [key in string]: boolean };
   groupInviteInfo: boolean;
-  groupScrollToId: string | null;
+  groupScrollToId: string | number | null;
 }
 
 const initialState: SwipeState = {
