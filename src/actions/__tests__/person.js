@@ -457,10 +457,10 @@ describe('archiveOrgPermission', () => {
         },
         included: [
           {
-            type: 'organizational_permission',
             id: orgPermissionId,
+            type: 'organizational_permission',
             attributes: {
-              archive_date: Date(date).toISOString(),
+              archive_date: new Date(date).toISOString(),
             },
           },
         ],
