@@ -76,7 +76,34 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
   renderGroupCard() {
     const { community } = this.state;
 
-    return <GroupCardItem group={community} onJoin={this.navigateNext} />;
+    const {
+      id,
+      name,
+      owner,
+      contactReport = {},
+      user_created,
+      community_photo_url,
+      unread_comments_count,
+    } = community;
+
+    const group = {
+      id,
+      name,
+      owner: {
+        firstName: owner.first_name,
+        lastName: owner.last_name,
+      },
+      report: {
+        contactCount: contactReport.contactsCount || 0,
+        unassignedCount: contactReport.unassignedCount || 0,
+        memberCount: contactReport.memberCount || 0,
+      },
+      userCreated: user_created,
+      communityPhotoUrl: community_photo_url,
+      unreadCommentsCount: unread_comments_count,
+    };
+
+    return <GroupCardItem group={group} onJoin={this.navigateNext} />;
   }
 
   render() {
