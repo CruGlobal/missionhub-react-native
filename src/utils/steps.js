@@ -12,8 +12,20 @@ export function buildCustomStep(text, self_step) {
 }
 
 export function insertName(steps, name) {
-  return steps.map(step => ({
-    ...step,
-    body: step.body.replace('<<name>>', name),
-  }));
+  return steps.map(step => {
+    if (step.description_markdown) {
+      return {
+        ...step,
+        body: step.body.replace('<<name>>', name),
+        description_markdown: step.description_markdown.replace(
+          /<<name>>/g,
+          name,
+        ),
+      };
+    }
+    return {
+      ...step,
+      body: step.body.replace('<<name>>', name),
+    };
+  });
 }
