@@ -20,10 +20,7 @@ import {
   navigateToMainTabs,
 } from '../../../actions/navigation';
 import ImagePicker from '../../../components/ImagePicker';
-import {
-  addNewOrganization,
-  getMyCommunities,
-} from '../../../actions/organizations';
+import { addNewOrganization } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
 import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../GroupScreen';
@@ -57,8 +54,6 @@ class CreateGroupScreen extends Component {
 
       const results = await dispatch(addNewOrganization(text, imageData));
       const newOrgId = results.response.id;
-      // Load the list of communities
-      await dispatch(getMyCommunities());
       this.getNewOrg(newOrgId);
       // The button never gets enabled again when successful because we are navigating away
     } catch (error) {

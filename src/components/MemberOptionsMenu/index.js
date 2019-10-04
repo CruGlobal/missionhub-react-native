@@ -14,10 +14,7 @@ import {
   archiveOrgPermission,
 } from '../../actions/person';
 import { navigateBack } from '../../actions/navigation';
-import {
-  getMyCommunities,
-  removeOrganizationMember,
-} from '../../actions/organizations';
+import { removeOrganizationMember } from '../../actions/organizations';
 
 import styles from './styles';
 
@@ -31,7 +28,6 @@ class MemberOptionsMenu extends Component {
       const { dispatch, person, personOrgPermission } = this.props;
 
       await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
-      dispatch(getMyCommunities());
     }
   }
 
