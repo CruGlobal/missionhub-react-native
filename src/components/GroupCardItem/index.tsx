@@ -12,19 +12,21 @@ import { TouchablePress } from '../Touchable/index.ios';
 import styles from './styles';
 
 export interface GroupCardItemProps {
-  group: {
-    id?: string;
-    name: string;
-    unread_comments_count: number;
-    owner?: { first_name?: string; last_name?: string };
-    contactReport?: {
-      contactsCount?: number;
-      unassignedCount?: number;
-      memberCount?: number;
-    };
-    user_created?: boolean;
-    community_photo_url?: string;
-  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  group: any;
+  // group: { // This should be an org type once that is set up
+  //   id?: string;
+  //   name: string;
+  //   unread_comments_count: number;
+  //   owner?: { first_name?: string; last_name?: string };
+  //   contactReport?: {
+  //     contactsCount?: number;
+  //     unassignedCount?: number;
+  //     memberCount?: number;
+  //   };
+  //   user_created?: boolean;
+  //   community_photo_url?: string;
+  // };
   onPress?: TouchablePress;
   onJoin?: TouchablePress;
 }
