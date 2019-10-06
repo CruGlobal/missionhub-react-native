@@ -138,32 +138,162 @@ describe('addStep', () => {
     challenge_type: CUSTOM_STEP_TYPE,
   };
 
+  const callApiResult = { type: 'call API' };
   const stepAddedResult = { type: 'added steps tracked' };
 
   beforeEach(() => {
-    callApi.mockReturnValue(() => Promise.resolve());
+    callApi.mockReturnValue(callApiResult);
     trackStepAdded.mockReturnValue(stepAddedResult);
   });
 
   it('creates step without org', async () => {
     await store.dispatch(addStep(stepSuggestion, receiverId));
 
-    expect(callApi).toMatchSnapshot();
-    expect(store.getActions()).toEqual([stepAddedResult]);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ADD_CHALLENGE,
+      {},
+      {
+        data: {
+          type: ACCEPTED_STEP,
+          attributes: {
+            title: stepSuggestion.body,
+          },
+          relationships: {
+            receiver: {
+              data: {
+                type: 'person',
+                id: receiverId,
+              },
+            },
+            challenge_suggestion: {
+              data: {
+                type: 'challenge_suggestion',
+                id: stepSuggestion.id,
+              },
+            },
+          },
+        },
+      },
+    );
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
+      order: '-focused_at,-accepted_at',
+      filters: { completed: false },
+      include:
+        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
+      filters: { receiver_ids: receiverId, organization_ids: 'personal' },
+      include: 'receiver,challenge_suggestion,reminder',
+      page: { limit: 1000 },
+    });
+    expect(store.getActions()).toEqual([
+      callApiResult,
+      stepAddedResult,
+      callApiResult,
+      callApiResult,
+    ]);
   });
 
   it('creates step with org', async () => {
     await store.dispatch(addStep(stepSuggestion, receiverId, orgId));
 
-    expect(callApi).toMatchSnapshot();
-    expect(store.getActions()).toEqual([stepAddedResult]);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ADD_CHALLENGE,
+      {},
+      {
+        data: {
+          type: ACCEPTED_STEP,
+          attributes: {
+            title: stepSuggestion.body,
+          },
+          relationships: {
+            receiver: {
+              data: {
+                type: 'person',
+                id: receiverId,
+              },
+            },
+            challenge_suggestion: {
+              data: {
+                type: 'challenge_suggestion',
+                id: stepSuggestion.id,
+              },
+            },
+            organization: {
+              data: {
+                type: 'organization',
+                id: orgId,
+              },
+            },
+          },
+        },
+      },
+    );
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
+      order: '-focused_at,-accepted_at',
+      filters: { completed: false },
+      include:
+        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
+      filters: { receiver_ids: receiverId, organization_ids: orgId },
+      include: 'receiver,challenge_suggestion,reminder',
+      page: { limit: 1000 },
+    });
+    expect(store.getActions()).toEqual([
+      callApiResult,
+      stepAddedResult,
+      callApiResult,
+      callApiResult,
+    ]);
   });
 
   it('creates step with custom step suggestion', async () => {
     await store.dispatch(addStep(customStepSuggestion, receiverId));
 
-    expect(callApi).toMatchSnapshot();
-    expect(store.getActions()).toEqual([stepAddedResult]);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ADD_CHALLENGE,
+      {},
+      {
+        data: {
+          type: ACCEPTED_STEP,
+          attributes: {
+            title: customStepSuggestion.body,
+          },
+          relationships: {
+            receiver: {
+              data: {
+                type: 'person',
+                id: receiverId,
+              },
+            },
+            challenge_suggestion: {
+              data: {
+                type: 'challenge_suggestion',
+                id: null,
+              },
+            },
+          },
+        },
+      },
+    );
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
+      order: '-focused_at,-accepted_at',
+      filters: { completed: false },
+      include:
+        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
+      filters: { receiver_ids: receiverId, organization_ids: 'personal' },
+      include: 'receiver,challenge_suggestion,reminder',
+      page: { limit: 1000 },
+    });
+    expect(store.getActions()).toEqual([
+      callApiResult,
+      stepAddedResult,
+      callApiResult,
+      callApiResult,
+    ]);
   });
 });
 
@@ -171,34 +301,164 @@ describe('create custom step', () => {
   const stepText = 'Custom Step';
   const myId = '111';
 
+  const callApiResult = { type: 'call API' };
   const stepAddedResult = { type: 'added steps tracked' };
 
   beforeEach(() => {
     store = mockStore({ auth: { person: { id: myId } } });
 
-    callApi.mockReturnValue(() => Promise.resolve());
+    callApi.mockReturnValue(callApiResult);
     trackStepAdded.mockReturnValue(stepAddedResult);
   });
 
   it('creates custom step for other person', async () => {
     await store.dispatch(createCustomStep(stepText, receiverId));
 
-    expect(callApi).toMatchSnapshot();
-    expect(store.getActions()).toEqual([stepAddedResult]);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ADD_CHALLENGE,
+      {},
+      {
+        data: {
+          type: ACCEPTED_STEP,
+          attributes: {
+            title: stepText,
+          },
+          relationships: {
+            receiver: {
+              data: {
+                type: 'person',
+                id: receiverId,
+              },
+            },
+            challenge_suggestion: {
+              data: {
+                type: 'challenge_suggestion',
+                id: null,
+              },
+            },
+          },
+        },
+      },
+    );
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
+      order: '-focused_at,-accepted_at',
+      filters: { completed: false },
+      include:
+        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
+      filters: { receiver_ids: receiverId, organization_ids: 'personal' },
+      include: 'receiver,challenge_suggestion,reminder',
+      page: { limit: 1000 },
+    });
+    expect(store.getActions()).toEqual([
+      callApiResult,
+      stepAddedResult,
+      callApiResult,
+      callApiResult,
+    ]);
   });
 
   it('creates custom step for me', async () => {
     await store.dispatch(createCustomStep(stepText, myId));
 
-    expect(callApi).toMatchSnapshot();
-    expect(store.getActions()).toEqual([stepAddedResult]);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ADD_CHALLENGE,
+      {},
+      {
+        data: {
+          type: ACCEPTED_STEP,
+          attributes: {
+            title: stepText,
+          },
+          relationships: {
+            receiver: {
+              data: {
+                type: 'person',
+                id: myId,
+              },
+            },
+            challenge_suggestion: {
+              data: {
+                type: 'challenge_suggestion',
+                id: null,
+              },
+            },
+          },
+        },
+      },
+    );
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
+      order: '-focused_at,-accepted_at',
+      filters: { completed: false },
+      include:
+        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
+      filters: { receiver_ids: myId, organization_ids: 'personal' },
+      include: 'receiver,challenge_suggestion,reminder',
+      page: { limit: 1000 },
+    });
+    expect(store.getActions()).toEqual([
+      callApiResult,
+      stepAddedResult,
+      callApiResult,
+      callApiResult,
+    ]);
   });
 
   it('creates custom step for other person in org', async () => {
     await store.dispatch(createCustomStep(stepText, receiverId, orgId));
 
-    expect(callApi).toMatchSnapshot();
-    expect(store.getActions()).toEqual([stepAddedResult]);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ADD_CHALLENGE,
+      {},
+      {
+        data: {
+          type: ACCEPTED_STEP,
+          attributes: {
+            title: stepText,
+          },
+          relationships: {
+            receiver: {
+              data: {
+                type: 'person',
+                id: receiverId,
+              },
+            },
+            challenge_suggestion: {
+              data: {
+                type: 'challenge_suggestion',
+                id: null,
+              },
+            },
+            organization: {
+              data: {
+                type: 'organization',
+                id: orgId,
+              },
+            },
+          },
+        },
+      },
+    );
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
+      order: '-focused_at,-accepted_at',
+      filters: { completed: false },
+      include:
+        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
+      filters: { receiver_ids: receiverId, organization_ids: orgId },
+      include: 'receiver,challenge_suggestion,reminder',
+      page: { limit: 1000 },
+    });
+    expect(store.getActions()).toEqual([
+      callApiResult,
+      stepAddedResult,
+      callApiResult,
+      callApiResult,
+    ]);
   });
 });
 
