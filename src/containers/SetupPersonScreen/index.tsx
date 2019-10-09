@@ -11,14 +11,8 @@ import BottomButton from '../../components/BottomButton';
 import Input from '../../components/Input/index';
 import Skip from '../../components/Skip';
 import { trackActionWithoutData } from '../../actions/analytics';
-import {
-  personFirstNameChanged,
-  personLastNameChanged,
-  createPerson,
-  updateOnboardingPerson,
-} from '../../actions/onboarding';
+import { createPerson, updateOnboardingPerson } from '../../actions/onboarding';
 import { ACTIONS } from '../../constants';
-import { PersonProfileState } from '../../reducers/personProfile';
 import { AuthState } from '../../reducers/auth';
 import Header from '../../components/Header';
 

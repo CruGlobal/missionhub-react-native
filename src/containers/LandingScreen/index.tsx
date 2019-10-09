@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { navigatePush } from '../../actions/navigation';
-import { firstTime } from '../../actions/auth/userData';
 import { Button, Text } from '../../components/common';
 import {
   FULL_ONBOARDING_FLOW,
@@ -37,7 +36,6 @@ const LandingScreen = ({
   const { t } = useTranslation('landing');
 
   const tryItNow = () => {
-    dispatch(firstTime());
     dispatch(navigatePush(FULL_ONBOARDING_FLOW));
   };
 

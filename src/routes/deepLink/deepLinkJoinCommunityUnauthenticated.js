@@ -4,12 +4,12 @@ import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
-import { firstTime, loadHome } from '../../actions/auth/userData';
+import { loadHome } from '../../actions/auth/userData';
 import {
-  completeOnboarding,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
   setOnboardingCommunityId,
+  skipOnbardingAddPerson,
 } from '../../actions/onboarding';
 import { showReminderOnLoad } from '../../actions/notifications';
 import DeepLinkConfirmJoinGroupScreen, {
@@ -44,14 +44,19 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     buildTrackingObj('onboarding : welcome', 'onboarding'),
   ),
   [SETUP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SetupScreen, () => async dispatch => {
-      dispatch(firstTime());
-      dispatch(completeOnboarding());
-      await dispatch(
-        showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
-      );
-      dispatch(finishAuth());
-    }),
+    wrapNextAction(
+      SetupScreen,
+      () => async dispatch => {
+        dispatch(skipOnbardingAddPerson());
+        await dispatch(
+          showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
+        );
+        dispatch(finishAuth());
+      },
+      {
+        isMe: true,
+      },
+    ),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   ...authFlowGenerator({

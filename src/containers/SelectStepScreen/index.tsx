@@ -16,7 +16,7 @@ import Header from '../../components/Header';
 
 import styles from './styles';
 
-interface Step {
+export interface Step {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }

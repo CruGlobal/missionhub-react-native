@@ -181,7 +181,7 @@ export default {
     welcomeDescription:
       'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
   },
-  setup: {
+  onboardingCreatePerson: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
   },

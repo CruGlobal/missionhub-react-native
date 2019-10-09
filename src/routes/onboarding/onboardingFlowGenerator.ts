@@ -1,9 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ThunkDispatch } from 'redux-thunk';
 
+import { AuthState } from '../../reducers/auth';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { createCustomStep } from '../../actions/steps';
-import { skipOnboarding } from '../../actions/onboarding';
+import {
+  skipOnboarding,
+  setOnboardingPersonId,
+} from '../../actions/onboarding';
 import { showReminderOnLoad } from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
@@ -30,9 +34,7 @@ import SelectMyStepScreen, {
 import AddSomeoneScreen, {
   ADD_SOMEONE_SCREEN,
 } from '../../containers/AddSomeoneScreen';
-import SetupPersonScreen, {
-  SETUP_PERSON_SCREEN,
-} from '../../containers/SetupPersonScreen';
+import { SETUP_PERSON_SCREEN } from '../../containers/SetupPersonScreen';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
@@ -43,6 +45,7 @@ import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
+import { OnboardingState } from '../../reducers/onboarding';
 
 const showNotificationAndCompleteOnboarding = async (
   dispatch: ThunkDispatch<any, null, any>,
@@ -50,6 +53,7 @@ const showNotificationAndCompleteOnboarding = async (
   await dispatch(
     showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
   );
+  dispatch(setOnboardingPersonId(''));
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
 
   dispatch(navigatePush(CELEBRATION_SCREEN));
@@ -69,7 +73,9 @@ export const onboardingFlowGenerator = ({
           buildTrackingObj('onboarding : welcome', 'onboarding'),
         ),
         [SETUP_SCREEN]: buildTrackedScreen(
-          wrapNextScreen(SetupScreen, GET_STARTED_SCREEN),
+          wrapNextScreen(SetupScreen, GET_STARTED_SCREEN, {
+            isMe: true,
+          }),
           buildTrackingObj('onboarding : name', 'onboarding'),
         ),
       }
@@ -79,12 +85,14 @@ export const onboardingFlowGenerator = ({
         [GET_STARTED_SCREEN]: buildTrackedScreen(
           wrapNextAction(
             GetStartedScreen,
-            ({ id }: { id: string }) =>
-              navigatePush(SELECT_STAGE_SCREEN, {
-                section: 'onboarding',
-                subsection: 'self',
-                personId: id,
-              }),
+            () => (dispatch, getState: () => { auth: AuthState }) =>
+              dispatch(
+                navigatePush(SELECT_STAGE_SCREEN, {
+                  section: 'onboarding',
+                  subsection: 'self',
+                  personId: getState().auth.person.id,
+                }),
+              ),
             {
               logoutOnBack: startScreen === GET_STARTED_SCREEN,
             },
@@ -92,13 +100,7 @@ export const onboardingFlowGenerator = ({
           buildTrackingObj('onboarding : get started', 'onboarding'),
         ),
         [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
-          wrapNextAction(
-            StageSuccessScreen,
-            ({ selectedStage }: { selectedStage: object }) =>
-              navigatePush(SELECT_MY_STEP_SCREEN, {
-                contactStage: selectedStage,
-              }),
-          ),
+          wrapNextScreen(StageSuccessScreen, SELECT_MY_STEP_SCREEN),
           buildTrackingObj(
             'onboarding : self : choose my steps',
             'onboarding',
@@ -148,16 +150,23 @@ export const onboardingFlowGenerator = ({
   ),
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(
     wrapNextAction(
-      SetupPersonScreen,
-      ({ skip, personId }: { skip: boolean; personId: string }) =>
-        skip
-          ? skipOnboarding()
-          : navigatePush(SELECT_STAGE_SCREEN, {
-              section: 'onboarding',
-              subsection: 'add person',
-              personId,
-            }),
-      { hideSkipBtn },
+      SetupScreen,
+      ({ skip, personId }: { skip?: boolean; personId?: string } = {}) => (
+        dispatch,
+        getState: () => { onboarding: OnboardingState },
+      ) => {
+        personId && dispatch(setOnboardingPersonId(personId));
+        dispatch(
+          skip
+            ? skipOnboarding()
+            : navigatePush(SELECT_STAGE_SCREEN, {
+                section: 'onboarding',
+                subsection: 'add person',
+                personId: getState().onboarding.personId,
+              }),
+        );
+      },
+      { isMe: false, hideSkipBtn },
     ),
     buildTrackingObj(
       'onboarding : add person : name',
@@ -168,24 +177,17 @@ export const onboardingFlowGenerator = ({
   [SELECT_STAGE_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       SelectStageScreen,
-      ({
-        stage,
-        firstName,
-        personId,
-        isMe,
-      }: {
-        stage: object;
-        firstName: string;
-        personId: string;
-        isMe: boolean;
-      }) =>
-        isMe
-          ? navigatePush(STAGE_SUCCESS_SCREEN, { selectedStage: stage })
-          : navigatePush(PERSON_SELECT_STEP_SCREEN, {
-              contactStage: stage,
-              contactName: firstName,
-              contactId: personId,
-            }),
+      ({ isMe }: { isMe: boolean }) => (
+        dispatch,
+        getState: () => { onboarding: OnboardingState },
+      ) =>
+        dispatch(
+          isMe
+            ? navigatePush(STAGE_SUCCESS_SCREEN)
+            : navigatePush(PERSON_SELECT_STEP_SCREEN, {
+                personId: getState().onboarding.personId,
+              }),
+        ),
     ),
   ),
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(

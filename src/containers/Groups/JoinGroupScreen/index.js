@@ -65,13 +65,13 @@ class JoinGroupScreen extends Component {
     }
 
     try {
-      const org = await dispatch(lookupOrgCommunityCode(text));
+      const community = await dispatch(lookupOrgCommunityCode(text));
 
-      if (!org) {
+      if (!community) {
         this.setState(errorState);
         return;
       }
-      this.setState({ errorMessage: '', community: org });
+      this.setState({ errorMessage: '', community });
     } catch (e) {
       this.setState(errorState);
     }
