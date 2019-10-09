@@ -64,8 +64,8 @@ class CelebrateDetailScreen extends Component {
     const { refreshing } = this.state;
 
     return (
-      <SafeAreaView style={styles.safeAreaContainer}>
-        <View style={styles.container}>
+      <>
+        <SafeAreaView style={styles.safeAreaContainer}>
           <StatusBar {...theme.statusBar.darkContent} />
           <View style={styles.header}>
             <View flexDirection="row">
@@ -86,7 +86,7 @@ class CelebrateDetailScreen extends Component {
               />
             </View>
           </View>
-          <View flex={1}>
+          <View style={styles.container}>
             <Image source={TRAILS1} style={styles.trailsTop} />
             <Image source={TRAILS2} style={styles.trailsBottom} />
             <CommentsList
@@ -109,13 +109,10 @@ class CelebrateDetailScreen extends Component {
                 ),
               }}
             />
-            <CelebrateCommentBox
-              event={event}
-              onAddComplete={this.scrollToEnd}
-            />
           </View>
-        </View>
-      </SafeAreaView>
+        </SafeAreaView>
+        <CelebrateCommentBox event={event} onAddComplete={this.scrollToEnd} />
+      </>
     );
   }
 }

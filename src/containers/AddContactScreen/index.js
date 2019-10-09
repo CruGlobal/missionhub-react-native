@@ -174,18 +174,16 @@ class AddContactScreen extends Component {
               : t('addSomeone').toUpperCase()
           }
         />
-        <View style={{ flex: 1 }}>
-          <ScrollView style={styles.scrollView}>
-            <AddContactFields
-              person={person}
-              organization={organization}
-              isJean={isJean}
-              isGroupInvite={false}
-              onUpdateData={this.handleUpdateData}
-            />
-          </ScrollView>
-          <BottomButton onPress={this.savePerson} text={t('done')} />
-        </View>
+        <ScrollView style={styles.scrollView}>
+          <AddContactFields
+            person={person}
+            organization={organization}
+            isJean={isJean}
+            isGroupInvite={false}
+            onUpdateData={this.handleUpdateData}
+          />
+        </ScrollView>
+        <BottomButton onPress={this.savePerson} text={t('done')} />
       </SafeAreaView>
     );
   }

@@ -159,7 +159,6 @@ const SignInScreen = ({
           )}
         </Flex>
       ) : null}
-
       <Flex value={3} style={{ paddingVertical: 10, paddingHorizontal: 30 }}>
         <View>
           <Text style={styles.label}>{t('emailLabel')}</Text>
@@ -175,7 +174,6 @@ const SignInScreen = ({
             placeholderTextColor="white"
           />
         </View>
-
         <View style={{ paddingVertical: 15 }}>
           <Text style={styles.label}>{t('passwordLabel')}</Text>
           <Input

@@ -46,17 +46,13 @@ export const MFACodeComponent = ({
           />
         }
       />
-
       <Flex justify="center" value={1} style={content}>
         <Text header={true} style={mfaHeader}>
           {t('mfaHeader').toLowerCase()}
         </Text>
-
         <Text style={mfaDescription}>{t('mfaDescription')}</Text>
-
         <View>
           <Text style={label}>{t('mfaLabel')}</Text>
-
           <Input
             testID="mfaCodeInput"
             onChangeText={onChangeText}
@@ -71,7 +67,6 @@ export const MFACodeComponent = ({
           />
         </View>
       </Flex>
-
       {isLoading ? <LoadingWheel /> : null}
     </SafeAreaView>
   );
