@@ -90,8 +90,10 @@ export class SearchPeopleFilterRefineScreen extends Component {
   render() {
     const { t, title } = this.props;
     return (
-      <SafeAreaView style={styles.pageContainer}>
-        <Header left={<BackButton />} title={title || t('title')} />
+      <>
+        <SafeAreaView style={styles.pageContainer}>
+          <Header left={<BackButton />} title={title || t('title')} />
+        </SafeAreaView>
         <FlatList
           style={styles.list}
           data={this.state.options}
@@ -99,7 +101,7 @@ export class SearchPeopleFilterRefineScreen extends Component {
           initialNumToRender={15}
           renderItem={this.renderItem}
         />
-      </SafeAreaView>
+      </>
     );
   }
 }

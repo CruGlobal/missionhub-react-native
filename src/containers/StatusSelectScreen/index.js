@@ -82,34 +82,36 @@ class StatusSelectScreen extends Component {
     const { t } = this.props;
 
     return (
-      <SafeAreaView style={styles.container}>
-        <Header
-          left={
-            <Button
-              text={t('cancel').toUpperCase()}
-              type="transparent"
-              onPress={this.navigateBack}
-              style={styles.headerButton}
-              buttonTextStyle={[
-                styles.headerButtonText,
-                styles.headerButtonTextCancel,
-              ]}
-            />
-          }
-          right={
-            <Button
-              text={t('done').toUpperCase()}
-              type="transparent"
-              onPress={this.submit}
-              style={styles.headerButton}
-              buttonTextStyle={[
-                styles.headerButtonText,
-                styles.headerButtonTextDone,
-              ]}
-            />
-          }
-          title={t('header')}
-        />
+      <>
+        <SafeAreaView style={styles.container}>
+          <Header
+            left={
+              <Button
+                text={t('cancel').toUpperCase()}
+                type="transparent"
+                onPress={this.navigateBack}
+                style={styles.headerButton}
+                buttonTextStyle={[
+                  styles.headerButtonText,
+                  styles.headerButtonTextCancel,
+                ]}
+              />
+            }
+            right={
+              <Button
+                text={t('done').toUpperCase()}
+                type="transparent"
+                onPress={this.submit}
+                style={styles.headerButton}
+                buttonTextStyle={[
+                  styles.headerButtonText,
+                  styles.headerButtonTextDone,
+                ]}
+              />
+            }
+            title={t('header')}
+          />
+        </SafeAreaView>
         <Flex value={1} align="stretch" style={styles.listWrap}>
           {this.renderItem('uncontacted')}
           {this.renderItem('attempted_contact')}
@@ -117,7 +119,7 @@ class StatusSelectScreen extends Component {
           {this.renderItem('completed')}
           {this.renderItem('do_not_contact')}
         </Flex>
-      </SafeAreaView>
+      </>
     );
   }
 }

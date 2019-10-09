@@ -38,8 +38,10 @@ const FilterList = ({
     onToggle(item);
   };
   return (
-    <SafeAreaView style={styles.pageContainer}>
-      <Header left={<BackButton />} title={title} />
+    <>
+      <SafeAreaView style={styles.pageContainer}>
+        <Header left={<BackButton />} title={title} />
+      </SafeAreaView>
       <ScrollView style={styles.list}>
         {options &&
           options.map((o, i) => (
@@ -63,7 +65,7 @@ const FilterList = ({
             />
           ))}
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
 

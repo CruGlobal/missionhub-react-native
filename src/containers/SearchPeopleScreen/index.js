@@ -225,21 +225,23 @@ export class SearchPeopleScreen extends Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.pageContainer}>
-        <Header
-          left={<BackButton />}
-          right={
-            <IconButton
-              name="filterIcon"
-              type="MissionHub"
-              onPress={this.handleFilter}
-            />
-          }
-          center={this.renderCenter()}
-        />
+      <>
+        <SafeAreaView style={styles.pageContainer}>
+          <Header
+            left={<BackButton />}
+            right={
+              <IconButton
+                name="filterIcon"
+                type="MissionHub"
+                onPress={this.handleFilter}
+              />
+            }
+            center={this.renderCenter()}
+          />
+        </SafeAreaView>
         {this.renderFilters()}
         {this.renderContent()}
-      </SafeAreaView>
+      </>
     );
   }
 }

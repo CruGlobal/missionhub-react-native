@@ -104,8 +104,10 @@ export class ContactsFilter extends Component {
     const { t } = this.props;
     const { options, toggleOptions } = this.state;
     return (
-      <SafeAreaView style={styles.pageContainer}>
-        <Header left={<BackButton />} title={t('title')} />
+      <>
+        <SafeAreaView style={styles.pageContainer}>
+          <Header left={<BackButton />} title={t('title')} />
+        </SafeAreaView>
         <ScrollView style={styles.list}>
           {options.map(o => (
             <FilterItem
@@ -125,7 +127,7 @@ export class ContactsFilter extends Component {
             />
           ))}
         </ScrollView>
-      </SafeAreaView>
+      </>
     );
   }
 }
