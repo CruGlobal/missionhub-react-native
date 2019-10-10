@@ -45,7 +45,9 @@ const GetStartedScreen = ({
           <Text header={true} style={styles.headerTitle}>
             {t('hi', { name: name.toLowerCase() })}
           </Text>
-          <Text style={styles.text}>{t('tagline')}</Text>
+          <Text style={styles.text}>
+            {t('tagline', { returnObjects: true })}
+          </Text>
         </Flex>
         <BottomButton onPress={navigateNext} text={t('getStarted')} />
       </Flex>
