@@ -97,7 +97,7 @@ const personJourney = {
   }) => <ContactJourney organization={organization} person={person} />,
 };
 const memberImpact = {
-  name: i18next.t('personTabs:Impact'),
+  name: i18next.t('personTabs:impact'),
   navigationAction: MEMBER_IMPACT,
   component: ({
     navigation: {
