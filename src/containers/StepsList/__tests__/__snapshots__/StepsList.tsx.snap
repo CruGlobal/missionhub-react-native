@@ -19,19 +19,21 @@ exports[`for another person with steps loadMore should show more steps and hide 
       Array [
         Object {
           \\"body\\": \\"Step with Bill\\",
-          \\"id\\": \\"7\\",
-@@ -22,10 +16,18 @@
-        },
+          \\"description_markdown\\": \\"\\",
+@@ -26,10 +20,20 @@
         Object {
           \\"body\\": \\"Step with Bill\\",
+          \\"description_markdown\\": \\"\\",
           \\"id\\": \\"10\\",
         },
 +       Object {
 +         \\"body\\": \\"Step with Bill\\",
++         \\"description_markdown\\": \\"\\",
 +         \\"id\\": \\"11\\",
 +       },
 +       Object {
 +         \\"body\\": \\"Step with Bill\\",
++         \\"description_markdown\\": \\"\\",
 +         \\"id\\": \\"12\\",
 +       },
       ]
@@ -39,7 +41,7 @@ exports[`for another person with steps loadMore should show more steps and hide 
     disableVirtualization={false}
     getItem={[Function anonymous]}
     getItemCount={[Function anonymous]}
-@@ -284,15 +286,127 @@
+@@ -288,15 +292,127 @@
             Step with Bill
           </Text>
         </View>
@@ -48,12 +50,7 @@ exports[`for another person with steps loadMore should show more steps and hide 
 -       onLayout={[Function anonymous]}
 +       onLayout={[Function onLayout]}
 +       style={null}
-      >
--       <LoadMore
--         onPress={[Function handleLoadSteps]}
--         testID=\\"loadMore\\"
--         text=\\"SHOW MORE STEPS\\"
--       />
++     >
 +       <View
 +         accessible={true}
 +         clickable={true}
@@ -86,7 +83,12 @@ exports[`for another person with steps loadMore should show more steps and hide 
 +           }
 +         }
 +         testID=\\"stepSuggestionCard\\"
-+       >
+        >
+-       <LoadMore
+-         onPress={[Function handleLoadSteps]}
+-         testID=\\"loadMore\\"
+-         text=\\"SHOW MORE STEPS\\"
+-       />
 +         <Text
 +           style={
 +             Array [
@@ -106,7 +108,7 @@ exports[`for another person with steps loadMore should show more steps and hide 
 +           Step with Bill
 +         </Text>
 +       </View>
-      </View>
++     </View>
 +     <View
 +       onLayout={[Function onLayout]}
 +       style={null}
@@ -163,7 +165,7 @@ exports[`for another person with steps loadMore should show more steps and hide 
 +           Step with Bill
 +         </Text>
 +       </View>
-+     </View>
+      </View>
 +     <View
 +       style={
 +         Object {
@@ -188,18 +190,22 @@ exports[`for another person with steps renders correctly 1`] = `
     Array [
       Object {
         "body": "Step with Bill",
+        "description_markdown": "",
         "id": "7",
       },
       Object {
         "body": "Step with Bill",
+        "description_markdown": "",
         "id": "8",
       },
       Object {
         "body": "Step with Bill",
+        "description_markdown": "",
         "id": "9",
       },
       Object {
         "body": "Step with Bill",
+        "description_markdown": "",
         "id": "10",
       },
     ]
