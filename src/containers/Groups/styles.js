@@ -75,6 +75,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 13,
     backgroundColor: theme.accentColor,
+    flexBasis: 40,
   },
   blockBtnBorderRight: {
     borderRightWidth: 1,
