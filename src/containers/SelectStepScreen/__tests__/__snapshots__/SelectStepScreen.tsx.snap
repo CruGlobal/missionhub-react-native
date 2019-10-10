@@ -693,6 +693,8 @@ exports[`with enableSkipButton renders correctly 1`] = `
           },
           null,
           Object {
+            "alignItems": "stretch",
+            "flex": 0,
             "width": 750,
           },
           null,
@@ -1286,6 +1288,8 @@ exports[`without enableSkipButton renders correctly 1`] = `
           },
           null,
           Object {
+            "alignItems": "stretch",
+            "flex": 0,
             "width": 750,
           },
           null,

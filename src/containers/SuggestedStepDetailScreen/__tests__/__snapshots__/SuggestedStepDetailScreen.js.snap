@@ -237,6 +237,8 @@ exports[`renders correctly 1`] = `
           },
           null,
           Object {
+            "alignItems": "stretch",
+            "flex": 0,
             "width": 750,
           },
           null,

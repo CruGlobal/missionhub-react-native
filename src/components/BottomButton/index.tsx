@@ -25,7 +25,6 @@ const BottomButton = ({ text, disabled, onPress }: BottomButtonProps) => {
       style={{
         flex: 0,
         alignItems: 'stretch',
-        justifyContent: 'flex-end',
         width: theme.fullWidth,
       }}
     />

@@ -233,6 +233,8 @@ exports[`renders back button correctly 1`] = `
               },
               null,
               Object {
+                "alignItems": "stretch",
+                "flex": 0,
                 "width": 750,
               },
               null,
@@ -425,6 +427,8 @@ exports[`renders correctly 1`] = `
               },
               null,
               Object {
+                "alignItems": "stretch",
+                "flex": 0,
                 "width": 750,
               },
               null,
@@ -685,6 +689,8 @@ exports[`renders skip button correctly 1`] = `
               },
               null,
               Object {
+                "alignItems": "stretch",
+                "flex": 0,
                 "width": 750,
               },
               null,
