@@ -10,7 +10,11 @@ import {
 
 const initialState = {
   personId: '',
-  communityId: '',
+  community: {
+    id: '',
+    community_code: '',
+    community_url: '',
+  },
   skippedAddingPerson: false,
 };
 

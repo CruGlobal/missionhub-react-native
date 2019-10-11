@@ -7,7 +7,7 @@ import { DeepLinkJoinCommunityUnauthenticatedScreens } from '../deepLinkJoinComm
 import { renderShallow } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import * as common from '../../../utils/common';
-import { firstTime, loadHome } from '../../../actions/auth/userData';
+import { loadHome } from '../../../actions/auth/userData';
 import {
   completeOnboarding,
   stashCommunityToJoin,
@@ -126,7 +126,6 @@ describe('WelcomeScreen next', () => {
 
 describe('SetupScreen next', () => {
   it('should fire required next actions', async () => {
-    firstTime.mockReturnValue(() => Promise.resolve());
     completeOnboarding.mockReturnValue(() => Promise.resolve());
     joinStashedCommunity.mockReturnValue(() => Promise.resolve());
     showReminderOnLoad.mockReturnValue(() => Promise.resolve());
@@ -149,7 +148,6 @@ describe('SetupScreen next', () => {
         .props.next(),
     );
 
-    expect(firstTime).toHaveBeenCalled();
     expect(completeOnboarding).toHaveBeenCalled();
     expect(joinStashedCommunity).toHaveBeenCalled();
     expect(showReminderOnLoad).toHaveBeenCalledWith(

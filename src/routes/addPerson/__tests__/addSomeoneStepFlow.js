@@ -10,7 +10,7 @@ import {
 import { renderShallow } from '../../../../testUtils';
 import { buildTrackingObj } from '../../../utils/common';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
-import { SETUP_PERSON_SCREEN } from '../../../containers/SetupPersonScreen';
+import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
@@ -18,7 +18,7 @@ import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { AddSomeoneStepFlowScreens } from '../addSomeoneStepFlow';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
-import { skipOnboarding } from '../../../actions/onboardingProfile';
+import { skipOnboarding } from '../../../actions/onboarding';
 import { showReminderOnLoad } from '../../../actions/notifications';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { createCustomStep } from '../../../actions/steps';

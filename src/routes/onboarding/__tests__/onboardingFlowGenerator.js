@@ -17,7 +17,7 @@ import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
 import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
-import { SETUP_PERSON_SCREEN } from '../../../containers/SetupPersonScreen';
+import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';

@@ -1,4 +1,12 @@
 import uuidv4 from 'uuid/v4';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
+import { AuthState } from 'src/reducers/auth';
+import { AuthState } from 'src/reducers/auth';
+import { Person } from 'src/reducers/people';
+import { organizationSelector } from 'src/selectors/organizations';
+import { OnboardingState } from 'src/reducers/onboarding';
+import { OrganizationsState } from 'src/reducers/organizations';
 
 import {
   COMPLETE_ONBOARDING,
@@ -28,12 +36,6 @@ import { navigatePush, navigateReset } from './navigation';
 import { showReminderOnLoad } from './notifications';
 import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
-import { AuthState } from 'src/reducers/auth';
-import { AuthState } from 'src/reducers/auth';
-import { Person } from 'src/reducers/people';
-import { organizationSelector } from 'src/selectors/organizations';
-import { OnboardingState } from 'src/reducers/onboarding';
-import { OrganizationsState } from 'src/reducers/organizations';
 
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
 export const SET_ONBOARDING_COMMUNITY_ID = 'SET_ONBOARDING_COMMUNITY_ID';
@@ -78,9 +80,10 @@ export function createMyPerson(firstName: string, lastName: string) {
     last_name: lastName,
   };
 
-  return async dispatch => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return async (dispatch: ThunkDispatch<{}, {}, any>) => {
     await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
-    const me = await dispatch(getMe());
+    const me = ((await dispatch(getMe())) as unknown) as Person;
 
     rollbar.setPerson(me.id);
 
@@ -94,7 +97,8 @@ export function createMyPerson(firstName: string, lastName: string) {
 }
 
 export const createPerson = (firstName: string, lastName: string) => async (
-  dispatch,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<{}, {}, any>,
   getState: () => { auth: AuthState },
 ) => {
   const {
@@ -118,27 +122,34 @@ export const createPerson = (firstName: string, lastName: string) => async (
     ],
   };
 
-  const results = await dispatch(callApi(REQUESTS.ADD_NEW_PERSON, {}, data));
+  const results = (await dispatch(
+    callApi(REQUESTS.ADD_NEW_PERSON, {}, data),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  )) as any;
 
   dispatch({
     type: LOAD_PERSON_DETAILS,
-    person: results.response,
+    person: results.response as Person,
   });
 
   return results;
 };
 
 export function updateOnboardingPerson(data: Person) {
-  return dispatch => {
+  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return dispatch(updatePerson(data)).then((r: any) => {
-      dispatch({ type: UPDATE_ONBOARDING_PERSON, results: r });
+      dispatch({
+        type: UPDATE_ONBOARDING_PERSON,
+        results: r,
+      });
       return r;
     });
   };
 }
 
 export function skipOnboardingComplete() {
-  return dispatch => {
+  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
     dispatch(skipOnbardingAddPerson());
     dispatch(
@@ -150,7 +161,7 @@ export function skipOnboardingComplete() {
 }
 
 export function skipOnboarding() {
-  return async dispatch => {
+  return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     await dispatch(
       showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
     );
@@ -161,7 +172,7 @@ export function skipOnboarding() {
 
 export function joinStashedCommunity() {
   return async (
-    dispatch,
+    dispatch: ThunkDispatch<{}, {}, AnyAction>,
     getState: () => {
       onboarding: OnboardingState;
       organizations: OrganizationsState;
@@ -187,7 +198,7 @@ export function joinStashedCommunity() {
 
 export function landOnStashedCommunityScreen() {
   return (
-    dispatch,
+    dispatch: ThunkDispatch<{}, {}, AnyAction>,
     getState: () => {
       onboarding: OnboardingState;
       organizations: OrganizationsState;
@@ -195,12 +206,11 @@ export function landOnStashedCommunityScreen() {
   ) => {
     const {
       organizations,
-      onboarding: { communityId },
+      onboarding: {
+        community: { id },
+      },
     } = getState();
-    const community = organizationSelector(
-      { organizations },
-      { orgId: communityId },
-    );
+    const community = organizationSelector({ organizations }, { orgId: id });
     dispatch(
       navigateReset(
         community.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN,

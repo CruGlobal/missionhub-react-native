@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { AuthState } from '../../reducers/auth';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
@@ -18,7 +19,10 @@ import {
   NOTIFICATION_PROMPT_TYPES,
 } from '../../constants';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
-import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
+import SetupScreen, {
+  SETUP_SCREEN,
+  SETUP_PERSON_SCREEN,
+} from '../../containers/SetupScreen';
 import GetStartedScreen, {
   GET_STARTED_SCREEN,
 } from '../../containers/GetStartedScreen';
@@ -34,7 +38,6 @@ import SelectMyStepScreen, {
 import AddSomeoneScreen, {
   ADD_SOMEONE_SCREEN,
 } from '../../containers/AddSomeoneScreen';
-import { SETUP_PERSON_SCREEN } from '../../containers/SetupPersonScreen';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
@@ -85,7 +88,10 @@ export const onboardingFlowGenerator = ({
         [GET_STARTED_SCREEN]: buildTrackedScreen(
           wrapNextAction(
             GetStartedScreen,
-            () => (dispatch, getState: () => { auth: AuthState }) =>
+            () => (
+              dispatch: ThunkDispatch<{}, {}, AnyAction>,
+              getState: () => { auth: AuthState },
+            ) =>
               dispatch(
                 navigatePush(SELECT_STAGE_SCREEN, {
                   section: 'onboarding',
@@ -152,7 +158,7 @@ export const onboardingFlowGenerator = ({
     wrapNextAction(
       SetupScreen,
       ({ skip, personId }: { skip?: boolean; personId?: string } = {}) => (
-        dispatch,
+        dispatch: ThunkDispatch<{}, {}, AnyAction>,
         getState: () => { onboarding: OnboardingState },
       ) => {
         personId && dispatch(setOnboardingPersonId(personId));
@@ -178,7 +184,7 @@ export const onboardingFlowGenerator = ({
     wrapNextAction(
       SelectStageScreen,
       ({ isMe }: { isMe: boolean }) => (
-        dispatch,
+        dispatch: ThunkDispatch<{}, {}, AnyAction>,
         getState: () => { onboarding: OnboardingState },
       ) =>
         dispatch(

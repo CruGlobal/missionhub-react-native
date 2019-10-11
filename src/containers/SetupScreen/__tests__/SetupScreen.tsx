@@ -5,11 +5,7 @@ import { fireEvent } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { updatePerson } from '../../../actions/person';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
-import {
-  firstNameChanged,
-  lastNameChanged,
-  createMyPerson,
-} from '../../../actions/onboarding';
+import { createMyPerson } from '../../../actions/onboarding';
 
 import SetupScreen from '..';
 
@@ -28,8 +24,6 @@ jest.mock('../../../utils/hooks/useLogoutOnBack');
 Keyboard.dismiss = jest.fn();
 
 beforeEach(() => {
-  (firstNameChanged as jest.Mock).mockReturnValue({ type: 'firstNameChanged' });
-  (lastNameChanged as jest.Mock).mockReturnValue({ type: 'lastNameChanged' });
   (createMyPerson as jest.Mock).mockReturnValue({
     type: 'createMyPerson',
   });
@@ -38,31 +32,37 @@ beforeEach(() => {
 });
 
 it('renders correctly', () => {
-  renderWithContext(<SetupScreen next={next} />, {
+  renderWithContext(<SetupScreen next={next} isMe={false} />, {
     initialState: mockState,
   }).snapshot();
 });
 
 describe('setup screen methods', () => {
-  const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
-    initialState: mockState,
-  });
+  const { getByTestId } = renderWithContext(
+    <SetupScreen next={next} isMe={false} />,
+    {
+      initialState: mockState,
+    },
+  );
 
   it('calls first name changed', () => {
     fireEvent(getByTestId('InputFirstName'), 'onChangeText', firstName);
-    expect(firstNameChanged).toHaveBeenCalledWith(firstName);
+    throw 'TODO';
   });
 
   it('calls last name changed', () => {
     fireEvent(getByTestId('InputLastName'), 'onChangeText', lastName);
-    expect(lastNameChanged).toHaveBeenCalledWith(lastName);
+    throw 'TODO';
   });
 });
 
 describe('saveAndGoToGetStarted', () => {
-  const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
-    initialState: { profile: { firstName }, auth: { person: {} } },
-  });
+  const { getByTestId } = renderWithContext(
+    <SetupScreen next={next} isMe={false} />,
+    {
+      initialState: { profile: { firstName }, auth: { person: {} } },
+    },
+  );
   it('creates person and calls next', async () => {
     await fireEvent.press(getByTestId('SaveBottomButton'));
 
@@ -81,12 +81,15 @@ describe('saveAndGoToGetStarted', () => {
 describe('saveAndGoToGetStarted with person id', () => {
   const personId = '1';
   it('updates person and calls next', async () => {
-    const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
-      initialState: {
-        profile: { firstName },
-        auth: { person: { id: personId } },
+    const { getByTestId } = renderWithContext(
+      <SetupScreen next={next} isMe={false} />,
+      {
+        initialState: {
+          profile: { firstName },
+          auth: { person: { id: personId } },
+        },
       },
-    });
+    );
     await fireEvent.press(getByTestId('SaveBottomButton'));
 
     expect(updatePerson).toHaveBeenCalled();
@@ -94,12 +97,15 @@ describe('saveAndGoToGetStarted with person id', () => {
   });
 
   it('calls callback from useLogoutOnBack', () => {
-    const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
-      initialState: {
-        profile: { firstName },
-        auth: { person: { id: personId } },
+    const { getByTestId } = renderWithContext(
+      <SetupScreen next={next} isMe={false} />,
+      {
+        initialState: {
+          profile: { firstName },
+          auth: { person: { id: personId } },
+        },
       },
-    });
+    );
 
     // With the "id" set, press the back button
     fireEvent(getByTestId('BackButton'), 'customNavigate');
@@ -111,9 +117,12 @@ describe('saveAndGoToGetStarted with person id', () => {
 
 describe('saveAndGoToGetStarted without first name', () => {
   it('does nothing if first name is not entered', async () => {
-    const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
-      initialState: mockState,
-    });
+    const { getByTestId } = renderWithContext(
+      <SetupScreen next={next} isMe={false} />,
+      {
+        initialState: mockState,
+      },
+    );
     await fireEvent.press(getByTestId('SaveBottomButton'));
 
     expect(next).not.toHaveBeenCalled();
@@ -122,9 +131,12 @@ describe('saveAndGoToGetStarted without first name', () => {
 
 describe('calls back without creating a person', () => {
   it('calls callback from useLogoutOnBack', () => {
-    const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
-      initialState: mockState,
-    });
+    const { getByTestId } = renderWithContext(
+      <SetupScreen next={next} isMe={false} />,
+      {
+        initialState: mockState,
+      },
+    );
 
     fireEvent(getByTestId('BackButton'), 'customNavigate');
 

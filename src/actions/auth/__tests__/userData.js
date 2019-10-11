@@ -6,13 +6,8 @@ import * as RNOmniture from 'react-native-omniture';
 
 import * as callApi from '../../api';
 import { REQUESTS } from '../../../api/routes';
-import {
-  updateLocaleAndTimezone,
-  firstTime,
-  authSuccess,
-  loadHome,
-} from '../userData';
-import { FIRST_TIME, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
+import { updateLocaleAndTimezone, authSuccess, loadHome } from '../userData';
+import { NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { showReminderOnLoad } from '../../notifications';
 import { resetPerson } from '../../onboarding';
 import { getMyPeople } from '../../people';
@@ -57,13 +52,6 @@ beforeEach(() => {
         user: {},
       },
     },
-  });
-});
-
-describe('firstTime', () => {
-  it('should dispatch FIRST_TIME', () => {
-    store.dispatch(firstTime());
-    expect(store.getActions()).toEqual([{ type: FIRST_TIME }]);
   });
 });
 

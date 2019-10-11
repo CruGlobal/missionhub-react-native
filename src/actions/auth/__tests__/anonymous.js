@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 import callApi from '../../api';
 import { REQUESTS } from '../../../api/routes';
-import { firstTime, authSuccess } from '../userData';
+import { authSuccess } from '../userData';
 import { codeLogin, refreshAnonymousLogin } from '../anonymous';
 
 jest.mock('../../api');
@@ -15,7 +15,6 @@ const mockStore = configureStore([thunk]);
 let store;
 
 beforeEach(() => {
-  firstTime.mockReturnValue({ type: 'test' });
   authSuccess.mockReturnValue({ type: 'test' });
   store = mockStore({
     auth: {
@@ -35,7 +34,6 @@ describe('codeLogin', () => {
       {},
       { code: '123' },
     );
-    expect(firstTime).toHaveBeenCalledTimes(1);
     expect(authSuccess).toHaveBeenCalledTimes(1);
   });
 
@@ -53,7 +51,6 @@ describe('codeLogin', () => {
       {},
       { code: '123' },
     );
-    expect(firstTime).not.toHaveBeenCalled();
     expect(authSuccess).not.toHaveBeenCalled();
   });
 });

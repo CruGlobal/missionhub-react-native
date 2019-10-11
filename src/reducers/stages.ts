@@ -19,6 +19,7 @@ export interface Stage {
   description_i18n: string;
   icon_url: string;
   localized_pathway_stages: LocalizedPathwayStage[];
+  locale: string; // Spread from current localized_pathway_stages. Could be updated to a selector instead.
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -11,9 +11,14 @@ export function getLocalizedStages(stages: Stage[]) {
     );
 
     if (localizedStage) {
-      const { name, description, self_followup_description } = localizedStage;
+      const {
+        name,
+        description,
+        self_followup_description,
+        locale,
+      } = localizedStage;
 
-      return { ...s, name, description, self_followup_description };
+      return { ...s, name, description, self_followup_description, locale };
     }
     return s;
   });

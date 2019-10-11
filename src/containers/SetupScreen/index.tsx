@@ -23,6 +23,7 @@ import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { personSelector } from '../../selectors/people';
 import { OnboardingState } from '../../reducers/onboarding';
+import Skip from '../../components/Skip';
 
 import styles from './styles';
 
@@ -37,6 +38,7 @@ interface SetupScreenProps {
   personId?: string;
   loadedFirstName?: string;
   loadedLastName?: string;
+  hideSkipBtn?: boolean;
 }
 
 const SetupScreen = ({
@@ -46,6 +48,7 @@ const SetupScreen = ({
   personId,
   loadedFirstName = '',
   loadedLastName = '',
+  hideSkipBtn = false,
 }: SetupScreenProps) => {
   const { t } = useTranslation('onboardingCreatePerson');
   const [firstName, setFirstName] = useState(loadedFirstName);
@@ -73,16 +76,16 @@ const SetupScreen = ({
         );
         dispatch(next({ personId }));
       } else if (isMe) {
-        const { id }: { id: string } = (await dispatch(
+        const { id } = ((await dispatch(
           createMyPerson(firstName, lastName),
-        )) as any;
+        )) as unknown) as { id: string };
         dispatch(next({ personId: id }));
       } else {
         const {
           response: { id },
-        }: { response: { id: string } } = (await dispatch(
+        } = ((await dispatch(
           createPerson(firstName, lastName),
-        )) as any;
+        )) as unknown) as { response: { id: string } };
         dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
         dispatch(next({ personId: id }));
       }
@@ -94,9 +97,16 @@ const SetupScreen = ({
   const onFirstNameSubmitEditing = () =>
     lastNameRef.current && lastNameRef.current.focus();
 
+  const skip = () => {
+    dispatch(next({ skip: true }));
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <Header left={<BackButton customNavigate={handleBack} />} />
+      <Header
+        left={<BackButton customNavigate={isMe ? handleBack : undefined} />}
+        right={isMe || hideSkipBtn ? null : <Skip onSkip={skip} />}
+      />
       <Flex value={2} justify="end" align="center">
         {isMe ? (
           <Text header={true} style={styles.header}>
@@ -185,3 +195,4 @@ const mapStateToProps = (
 });
 export default connect(mapStateToProps)(SetupScreen);
 export const SETUP_SCREEN = 'nav/SETUP';
+export const SETUP_PERSON_SCREEN = 'nav/SETUP_PERSON_SCREEN';
