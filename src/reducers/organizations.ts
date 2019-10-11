@@ -227,15 +227,6 @@ function organizationsReducer(state = initialState, action: any) {
           : state.all,
         membersPagination: getPagination(action, allMembers.length),
       };
-    case REQUESTS.ADD_NEW_ORGANIZATION.SUCCESS:
-      const {
-        results: { response: newOrg },
-      } = action;
-
-      return {
-        ...state,
-        all: [...state.all, newOrg],
-      };
     case REQUESTS.UPDATE_ORGANIZATION.SUCCESS:
     case REQUESTS.UPDATE_ORGANIZATION_IMAGE.SUCCESS:
     case REQUESTS.ORGANIZATION_NEW_CODE.SUCCESS:
