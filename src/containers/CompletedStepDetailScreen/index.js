@@ -8,14 +8,14 @@ import moment from 'moment';
 import { Text } from '../../components/common';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
-
+import { insertNameToDetailScreen } from '../../utils/steps';
 import styles from './styles';
 
 @withTranslation('completedStepDetail')
 class CompletedStepDetailScreen extends Component {
   render() {
     const { t, step } = this.props;
-    const { challenge_suggestion, completed_at } = step;
+    const { challenge_suggestion, completed_at, receiver } = step;
     const { reminderButton, completedText, completedIcon } = styles;
 
     return (
@@ -40,7 +40,11 @@ class CompletedStepDetailScreen extends Component {
           </View>
         }
         markdown={
-          challenge_suggestion && challenge_suggestion.description_markdown
+          challenge_suggestion &&
+          insertNameToDetailScreen(
+            challenge_suggestion.description_markdown,
+            receiver.first_name,
+          )
         }
         text={step.title}
         bottomButtonProps={null}

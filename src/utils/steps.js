@@ -23,3 +23,8 @@ export function insertName(steps, name) {
     };
   });
 }
+
+export function insertNameToDetailScreen(step, name) {
+  const replaceMarkDown = (step || '').replace(/<<name>>/g, name);
+  return replaceMarkDown;
+}

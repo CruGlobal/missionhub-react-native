@@ -12,7 +12,7 @@ import { navigateBack } from '../../actions/navigation';
 import ReminderButton from '../../components/ReminderButton';
 import ReminderDateText from '../../components/ReminderDateText';
 import { reminderSelector } from '../../selectors/stepReminders';
-
+import { insertNameToDetailScreen } from '../../utils/steps';
 import styles from './styles';
 
 @withTranslation('acceptedStepDetail')
@@ -77,7 +77,7 @@ class AcceptedStepDetailScreen extends Component {
 
   render() {
     const { t, step } = this.props;
-    const { challenge_suggestion, title } = step;
+    const { challenge_suggestion, title, receiver } = step;
     const { removeStepButton, removeStepButtonText } = styles;
 
     return (
@@ -94,7 +94,11 @@ class AcceptedStepDetailScreen extends Component {
         }
         CenterContent={this.renderReminderButton()}
         markdown={
-          challenge_suggestion && challenge_suggestion.description_markdown
+          challenge_suggestion &&
+          insertNameToDetailScreen(
+            challenge_suggestion.description_markdown,
+            receiver.first_name,
+          )
         }
         text={title}
         bottomButtonProps={{
