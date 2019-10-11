@@ -13,6 +13,7 @@ import ReminderButton from '../../components/ReminderButton';
 import ReminderDateText from '../../components/ReminderDateText';
 import { reminderSelector } from '../../selectors/stepReminders';
 import { insertNameToDetailScreen } from '../../utils/steps';
+
 import styles from './styles';
 
 @withTranslation('acceptedStepDetail')

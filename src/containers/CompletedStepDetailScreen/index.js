@@ -9,6 +9,7 @@ import { Text } from '../../components/common';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import { insertNameToDetailScreen } from '../../utils/steps';
+
 import styles from './styles';
 
 @withTranslation('completedStepDetail')
