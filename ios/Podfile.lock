@@ -251,7 +251,7 @@ DEPENDENCIES:
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/specs.git:
+  https://github.com/cocoapods/specs.git:
     - Base64
     - boost-for-react-native
     - Crashlytics
