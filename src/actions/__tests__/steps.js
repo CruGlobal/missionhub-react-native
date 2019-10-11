@@ -47,6 +47,10 @@ jest.mock('../impact');
 jest.mock('../celebration');
 jest.mock('../analytics');
 
+const getMyChallengesIncludes =
+  'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder';
+const getChallengesByFilterIncludes = 'receiver,challenge_suggestion,reminder';
+
 beforeEach(() => {
   store = mockStore();
 });
@@ -75,8 +79,7 @@ describe('get steps page', () => {
     order: '-focused_at,-accepted_at',
     page: { limit: 25, offset: 25 },
     filters: { completed: false },
-    include:
-      'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+    include: getMyChallengesIncludes,
   };
   const apiResult = { type: 'done' };
 
@@ -121,7 +124,7 @@ describe('getContactSteps', () => {
         organization_ids: orgId,
       },
       page: { limit: 1000 },
-      include: 'receiver,challenge_suggestion,reminder',
+      include: getChallengesByFilterIncludes,
     });
     expect(store.getActions()).toEqual([apiResult]);
   });
@@ -178,12 +181,11 @@ describe('addStep', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
       order: '-focused_at,-accepted_at',
       filters: { completed: false },
-      include:
-        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+      include: getMyChallengesIncludes,
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: { receiver_ids: receiverId, organization_ids: 'personal' },
-      include: 'receiver,challenge_suggestion,reminder',
+      include: getChallengesByFilterIncludes,
       page: { limit: 1000 },
     });
     expect(store.getActions()).toEqual([
@@ -232,12 +234,11 @@ describe('addStep', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
       order: '-focused_at,-accepted_at',
       filters: { completed: false },
-      include:
-        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+      include: getMyChallengesIncludes,
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: { receiver_ids: receiverId, organization_ids: orgId },
-      include: 'receiver,challenge_suggestion,reminder',
+      include: getChallengesByFilterIncludes,
       page: { limit: 1000 },
     });
     expect(store.getActions()).toEqual([
@@ -280,12 +281,11 @@ describe('addStep', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
       order: '-focused_at,-accepted_at',
       filters: { completed: false },
-      include:
-        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+      include: getMyChallengesIncludes,
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: { receiver_ids: receiverId, organization_ids: 'personal' },
-      include: 'receiver,challenge_suggestion,reminder',
+      include: getChallengesByFilterIncludes,
       page: { limit: 1000 },
     });
     expect(store.getActions()).toEqual([
@@ -343,12 +343,11 @@ describe('create custom step', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
       order: '-focused_at,-accepted_at',
       filters: { completed: false },
-      include:
-        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+      include: getMyChallengesIncludes,
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: { receiver_ids: receiverId, organization_ids: 'personal' },
-      include: 'receiver,challenge_suggestion,reminder',
+      include: getChallengesByFilterIncludes,
       page: { limit: 1000 },
     });
     expect(store.getActions()).toEqual([
@@ -391,12 +390,11 @@ describe('create custom step', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
       order: '-focused_at,-accepted_at',
       filters: { completed: false },
-      include:
-        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+      include: getMyChallengesIncludes,
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: { receiver_ids: myId, organization_ids: 'personal' },
-      include: 'receiver,challenge_suggestion,reminder',
+      include: getChallengesByFilterIncludes,
       page: { limit: 1000 },
     });
     expect(store.getActions()).toEqual([
@@ -445,12 +443,11 @@ describe('create custom step', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
       order: '-focused_at,-accepted_at',
       filters: { completed: false },
-      include:
-        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+      include: getMyChallengesIncludes,
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: { receiver_ids: receiverId, organization_ids: orgId },
-      include: 'receiver,challenge_suggestion,reminder',
+      include: getChallengesByFilterIncludes,
       page: { limit: 1000 },
     });
     expect(store.getActions()).toEqual([
@@ -475,8 +472,7 @@ describe('complete challenge', () => {
   const stepsQuery = {
     order: '-focused_at,-accepted_at',
     filters: { completed: false },
-    include:
-      'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+    include: getMyChallengesIncludes,
   };
   const data = {
     data: {
