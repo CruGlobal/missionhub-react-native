@@ -20,10 +20,7 @@ import {
   navigateToMainTabs,
 } from '../../../actions/navigation';
 import ImagePicker from '../../../components/ImagePicker';
-import {
-  addNewOrganization,
-  getMyCommunities,
-} from '../../../actions/organizations';
+import { addNewOrganization } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
 import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../GroupScreen';
