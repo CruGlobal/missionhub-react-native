@@ -25,9 +25,6 @@ const BottomButton = ({ text, disabled, onPress }: BottomButtonProps) => {
     >
       <Button
         testID="bottomButton"
-        flex={0}
-        alignItems="stretch"
-        justifyContent="flex-end"
         type="secondary"
         disabled={disabled}
         onPress={handlePress}
