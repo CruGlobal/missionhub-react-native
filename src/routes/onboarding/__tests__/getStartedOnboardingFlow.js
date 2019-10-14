@@ -9,14 +9,17 @@ import {
 } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
 import { buildTrackingObj } from '../../../utils/common';
+import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
+import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
+import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupPersonScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
-import { AddSomeoneOnboardingFlowScreens } from '../addSomeoneOnboardingFlow';
+import { GetStartedOnboardingFlowScreens } from '../getStartedOnboardingFlow';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import { skipOnboarding } from '../../../actions/onboardingProfile';
 import { showReminderOnLoad } from '../../../actions/notifications';
@@ -40,6 +43,7 @@ const text = 'Step Text';
 
 const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
+  profile: { id: myId },
   personProfile: { firstName: personFirstName, lastName: personLastName },
   people: {
     allByOrg: {
@@ -64,10 +68,10 @@ beforeEach(() => {
 let screen;
 let next;
 
-describe('AddSomeoneScreen next', () => {
+describe('GetStartedScreen', () => {
   beforeEach(() => {
     const Component =
-      AddSomeoneOnboardingFlowScreens[ADD_SOMEONE_SCREEN].screen;
+      GetStartedOnboardingFlowScreens[GET_STARTED_SCREEN].screen;
 
     screen = renderShallow(
       <Component navigation={{ state: { params: {} } }} />,
@@ -77,6 +81,101 @@ describe('AddSomeoneScreen next', () => {
   });
 
   it('renders without back button correctly', () => {
+    expect(screen).toMatchSnapshot();
+  });
+
+  it('should fire required next actions', async () => {
+    await store.dispatch(next({ id: myId }));
+
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
+      section: 'onboarding',
+      subsection: 'self',
+      personId: myId,
+    });
+  });
+});
+
+describe('StageSuccessScreen', () => {
+  beforeEach(() => {
+    const Component =
+      GetStartedOnboardingFlowScreens[STAGE_SUCCESS_SCREEN].screen;
+
+    screen = renderShallow(
+      <Component
+        navigation={{ state: { params: { selectedStage: stage } } }}
+      />,
+      store,
+    );
+    next = screen.instance().props.next;
+  });
+
+  it('renders correctly', () => {
+    expect(screen).toMatchSnapshot();
+  });
+
+  it('should fire required next actions', async () => {
+    await store.dispatch(next({ selectedStage: stage }));
+
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
+      contactStage: stage,
+    });
+  });
+});
+
+describe('SelectMyStepScreen', () => {
+  beforeEach(() => {
+    const Component =
+      GetStartedOnboardingFlowScreens[SELECT_MY_STEP_SCREEN].screen;
+
+    screen = renderShallow(
+      <Component navigation={{ state: { params: { contactStage: stage } } }} />,
+      store,
+    );
+    next = screen.instance().props.next;
+  });
+
+  it('renders correctly', () => {
+    expect(screen).toMatchSnapshot();
+  });
+
+  it('should fire required next actions for suggested step', async () => {
+    await store.dispatch(next({ receiverId: myId, step }));
+
+    expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
+      step,
+      receiverId: myId,
+    });
+  });
+
+  it('should fire required next actions for create step', async () => {
+    await store.dispatch(next({ receiverId: myId, step: undefined }));
+
+    expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
+      type: CREATE_STEP,
+      personId: myId,
+      trackingObj: buildTrackingObj(
+        'onboarding : self : steps : create',
+        'onboarding',
+        'self',
+        'steps',
+      ),
+    });
+  });
+});
+
+describe('AddSomeoneScreen next', () => {
+  beforeEach(() => {
+    const Component =
+      GetStartedOnboardingFlowScreens[ADD_SOMEONE_SCREEN].screen;
+
+    screen = renderShallow(
+      <Component navigation={{ state: { params: {} } }} />,
+      store,
+    );
+    next = screen.instance().props.next;
+  });
+
+  it('renders with back button correctly', () => {
     expect(screen).toMatchSnapshot();
   });
 
@@ -96,12 +195,9 @@ describe('AddSomeoneScreen next', () => {
 describe('SetupPersonScreen next', () => {
   beforeEach(() => {
     const Component =
-      AddSomeoneOnboardingFlowScreens[SETUP_PERSON_SCREEN].screen;
+      GetStartedOnboardingFlowScreens[SETUP_PERSON_SCREEN].screen;
 
-    screen = renderShallow(
-      <Component navigation={{ state: { params: {} } }} />,
-      store,
-    );
+    screen = renderShallow(<Component />, store);
     next = screen.instance().props.next;
   });
 
@@ -127,41 +223,82 @@ describe('SetupPersonScreen next', () => {
 });
 
 describe('SelectStageScreen', () => {
-  beforeEach(() => {
-    const Component =
-      AddSomeoneOnboardingFlowScreens[SELECT_STAGE_SCREEN].screen;
+  describe('person is me', () => {
+    beforeEach(() => {
+      const Component =
+        GetStartedOnboardingFlowScreens[SELECT_STAGE_SCREEN].screen;
 
-    screen = renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: { section: 'onboarding', subsection: 'add person' },
-          },
-        }}
-      />,
-      store,
-    );
-    next = screen.instance().props.next;
+      screen = renderShallow(
+        <Component
+          navigation={{
+            state: {
+              params: {
+                section: 'onboarding',
+                subsection: 'self',
+                personId: myId,
+              },
+            },
+          }}
+        />,
+        store,
+      );
+      next = screen.instance().props.next;
+    });
+
+    it('renders correctly', () => {
+      expect(screen).toMatchSnapshot();
+    });
+
+    it('should fire required next actions', async () => {
+      await store.dispatch(next({ stage, isMe: true }));
+
+      expect(navigatePush).toHaveBeenCalledWith(STAGE_SUCCESS_SCREEN, {
+        selectedStage: stage,
+      });
+    });
   });
 
-  it('renders correctly', () => {
-    expect(screen).toMatchSnapshot();
-  });
+  describe('person is other', () => {
+    beforeEach(() => {
+      const Component =
+        GetStartedOnboardingFlowScreens[SELECT_STAGE_SCREEN].screen;
 
-  it('should fire required next actions', async () => {
-    await store.dispatch(
-      next({
-        stage: stage,
-        personId,
-        firstName: personFirstName,
-        isMe: false,
-      }),
-    );
+      screen = renderShallow(
+        <Component
+          navigation={{
+            state: {
+              params: {
+                section: 'onboarding',
+                subsection: 'add person',
+                personId,
+              },
+            },
+          }}
+        />,
+        store,
+      );
+      next = screen.instance().props.next;
+    });
 
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
-      contactStage: stage,
-      contactName: personFirstName,
-      contactId: personId,
+    it('renders correctly', () => {
+      expect(screen).toMatchSnapshot();
+    });
+
+    it('should fire required next actions', async () => {
+      await store.dispatch(
+        next({
+          stage: stage,
+          personId,
+          firstName: personFirstName,
+          isMe: false,
+        }),
+      );
+
+      expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+        contactStage: stage,
+        contactName: personFirstName,
+        contactId: personId,
+      });
     });
   });
 });
@@ -169,7 +306,7 @@ describe('SelectStageScreen', () => {
 describe('PersonSelectStepScreen next', () => {
   beforeEach(() => {
     const Component =
-      AddSomeoneOnboardingFlowScreens[PERSON_SELECT_STEP_SCREEN].screen;
+      GetStartedOnboardingFlowScreens[PERSON_SELECT_STEP_SCREEN].screen;
 
     screen = renderShallow(
       <Component
@@ -220,7 +357,7 @@ describe('PersonSelectStepScreen next', () => {
 describe('SuggestedStepDetailScreen next', () => {
   beforeEach(() => {
     const Component =
-      AddSomeoneOnboardingFlowScreens[SUGGESTED_STEP_DETAIL_SCREEN].screen;
+      GetStartedOnboardingFlowScreens[SUGGESTED_STEP_DETAIL_SCREEN].screen;
 
     screen = renderShallow(
       <Component
@@ -258,7 +395,7 @@ describe('SuggestedStepDetailScreen next', () => {
 
 describe('AddStepScreen next', () => {
   beforeEach(() => {
-    const Component = AddSomeoneOnboardingFlowScreens[ADD_STEP_SCREEN].screen;
+    const Component = GetStartedOnboardingFlowScreens[ADD_STEP_SCREEN].screen;
 
     screen = renderShallow(
       <Component
@@ -305,7 +442,7 @@ describe('AddStepScreen next', () => {
 describe('CelebrationScreen next', () => {
   beforeEach(() => {
     const Component =
-      AddSomeoneOnboardingFlowScreens[CELEBRATION_SCREEN].screen;
+      GetStartedOnboardingFlowScreens[CELEBRATION_SCREEN].screen;
 
     screen = renderShallow(
       <Component navigation={{ state: { params: {} } }} />,

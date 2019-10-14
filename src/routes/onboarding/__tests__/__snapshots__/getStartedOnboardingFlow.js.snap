@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddSomeoneScreen next renders without back button correctly 1`] = `
+exports[`AddSomeoneScreen next renders with back button correctly 1`] = `
 <AddSomeoneScreen
   dispatch={[Function]}
-  enableBackButton={false}
+  enableBackButton={true}
   navigation={
     Object {
       "state": Object {
@@ -56,6 +56,22 @@ exports[`CelebrationScreen next renders correctly 1`] = `
 />
 `;
 
+exports[`GetStartedScreen renders without back button correctly 1`] = `
+<GetStartedScreen
+  dispatch={[Function]}
+  enableBackButton={false}
+  id="123"
+  navigation={
+    Object {
+      "state": Object {
+        "params": Object {},
+      },
+    }
+  }
+  next={[Function]}
+/>
+`;
+
 exports[`PersonSelectStepScreen next renders correctly 1`] = `
 <withI18nextTranslation(PersonSelectStepScreen)
   contactId="321"
@@ -85,15 +101,62 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
 />
 `;
 
-exports[`SelectStageScreen renders correctly 1`] = `
+exports[`SelectMyStepScreen renders correctly 1`] = `
+<withI18nextTranslation(SelectMyStepScreen)
+  contactStage={
+    Object {
+      "id": "3",
+    }
+  }
+  dispatch={[Function]}
+  myStageId="3"
+  navigation={
+    Object {
+      "state": Object {
+        "params": Object {
+          "contactStage": Object {
+            "id": "3",
+          },
+        },
+      },
+    }
+  }
+  next={[Function]}
+  personId="123"
+/>
+`;
+
+exports[`SelectStageScreen person is me renders correctly 1`] = `
 <SelectStageScreen
   dispatch={[Function]}
+  isMe={true}
+  myId="123"
+  navigation={
+    Object {
+      "state": Object {
+        "params": Object {
+          "personId": "123",
+          "section": "onboarding",
+          "subsection": "self",
+        },
+      },
+    }
+  }
+  next={[Function]}
+/>
+`;
+
+exports[`SelectStageScreen person is other renders correctly 1`] = `
+<SelectStageScreen
+  dispatch={[Function]}
+  firstName="Someone"
   isMe={false}
   myId="123"
   navigation={
     Object {
       "state": Object {
         "params": Object {
+          "personId": "321",
           "section": "onboarding",
           "subsection": "add person",
         },
@@ -108,10 +171,21 @@ exports[`SetupPersonScreen next renders correctly 1`] = `
 <SetupPersonScreen
   dispatch={[Function]}
   myId="123"
+  next={[Function]}
+/>
+`;
+
+exports[`StageSuccessScreen renders correctly 1`] = `
+<StageSuccessScreen
+  dispatch={[Function]}
   navigation={
     Object {
       "state": Object {
-        "params": Object {},
+        "params": Object {
+          "selectedStage": Object {
+            "id": "3",
+          },
+        },
       },
     }
   }
