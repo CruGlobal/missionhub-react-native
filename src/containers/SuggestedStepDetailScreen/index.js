@@ -27,7 +27,6 @@ class SuggestedStepDetailScreen extends Component {
 
     return (
       <StepDetailScreen
-        receiver={''}
         CenterHeader={null}
         RightHeader={null}
         CenterContent={<View style={centerContent} />}

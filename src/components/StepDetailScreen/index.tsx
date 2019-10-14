@@ -14,7 +14,9 @@ import styles from './styles';
 
 interface StepDetailScreenProps {
   text: string;
-  receiver: any;
+  receiver?: {
+    first_name: string;
+  };
   markdown?: string;
   CenterHeader?: React.ReactNode;
   RightHeader?: React.ReactNode;
@@ -47,7 +49,10 @@ const StepDetailScreen = ({
         {markdown ? (
           <ScrollView style={styles.body}>
             <Markdown style={markdownStyles}>
-              {markdown.replace(/<<name>>/g, receiver.first_name)}
+              {markdown.replace(
+                /<<name>>/g,
+                receiver ? receiver.first_name : '',
+              )}
             </Markdown>
           </ScrollView>
         ) : null}
