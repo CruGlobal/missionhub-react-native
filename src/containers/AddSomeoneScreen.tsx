@@ -31,6 +31,7 @@ const AddSomeoneScreen = ({
   };
 
   const skip = () => handleNavigate(true);
+
   const back = () => dispatch(navigateBack());
 
   return (

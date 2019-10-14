@@ -4,7 +4,7 @@ import { AccessToken } from 'react-native-fbsdk';
 import { ACTIONS, CLEAR_UPGRADE_TOKEN, LOGOUT } from '../../constants';
 import { LANDING_SCREEN } from '../../containers/LandingScreen';
 import { rollbar } from '../../utils/rollbar.config';
-import { navigateReset } from '../navigation';
+import { navigateReset, navigatePush } from '../navigation';
 import { deletePushToken } from '../notifications';
 import { trackActionWithoutData } from '../analytics';
 import {
@@ -64,13 +64,13 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
   const { person } = getState().auth;
 
   if (!person.user.pathway_stage_id) {
-    dispatch(navigateReset(GET_STARTED_ONBOARDING_FLOW));
+    dispatch(navigatePush(GET_STARTED_ONBOARDING_FLOW));
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   } else if (hasPersonWithStageSelected(person)) {
     dispatch(navigateToMainTabs());
     dispatch(completeOnboarding());
   } else {
-    dispatch(navigateReset(ADD_SOMEONE_ONBOARDING_FLOW));
+    dispatch(navigatePush(ADD_SOMEONE_ONBOARDING_FLOW));
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   }
 };
