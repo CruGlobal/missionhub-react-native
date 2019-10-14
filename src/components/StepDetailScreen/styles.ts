@@ -22,4 +22,7 @@ export default StyleSheet.create({
     marginVertical: 16,
     marginHorizontal: 32,
   },
+  bodyContainer: {
+    paddingBottom: 32,
+  },
 });

@@ -47,7 +47,10 @@ const StepDetailScreen = ({
       {CenterContent}
       <View style={flex1}>
         {markdown ? (
-          <ScrollView style={styles.body}>
+          <ScrollView
+            style={styles.body}
+            contentContainerStyle={styles.bodyContainer}
+          >
             <Markdown style={markdownStyles}>
               {markdown.replace(
                 /<<name>>/g,
