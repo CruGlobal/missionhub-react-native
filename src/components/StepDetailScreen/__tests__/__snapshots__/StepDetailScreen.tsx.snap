@@ -1019,6 +1019,11 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
     }
   >
     <RCTScrollView
+      contentContainerStyle={
+        Object {
+          "paddingBottom": 32,
+        }
+      }
       style={
         Object {
           "paddingBottom": 14,
