@@ -18,7 +18,6 @@ class SuggestedStepDetailScreen extends Component {
 
     dispatch(next({ contactId: receiverId, orgId }));
   };
-
   render() {
     const {
       t,
