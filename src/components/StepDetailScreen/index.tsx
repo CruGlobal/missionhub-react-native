@@ -14,6 +14,7 @@ import styles from './styles';
 
 interface StepDetailScreenProps {
   text: string;
+  receiver: any;
   markdown?: string;
   CenterHeader?: React.ReactNode;
   RightHeader?: React.ReactNode;
@@ -28,6 +29,7 @@ const StepDetailScreen = ({
   RightHeader,
   CenterContent,
   bottomButtonProps,
+  receiver,
 }: StepDetailScreenProps) => {
   const { stepTitleText, backButton, flex1 } = styles;
 
@@ -44,7 +46,9 @@ const StepDetailScreen = ({
       <View style={flex1}>
         {markdown ? (
           <ScrollView style={styles.body}>
-            <Markdown style={markdownStyles}>{markdown}</Markdown>
+            <Markdown style={markdownStyles}>
+              {markdown.replace(/<<name>>/g, receiver.first_name)}
+            </Markdown>
           </ScrollView>
         ) : null}
       </View>

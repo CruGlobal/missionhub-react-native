@@ -12,7 +12,6 @@ import { navigateBack } from '../../actions/navigation';
 import ReminderButton from '../../components/ReminderButton';
 import ReminderDateText from '../../components/ReminderDateText';
 import { reminderSelector } from '../../selectors/stepReminders';
-import { insertNameToDetailScreen } from '../../utils/steps';
 
 import styles from './styles';
 
@@ -83,6 +82,7 @@ class AcceptedStepDetailScreen extends Component {
 
     return (
       <StepDetailScreen
+        receiver={receiver}
         CenterHeader={null}
         RightHeader={
           <Button
@@ -95,11 +95,7 @@ class AcceptedStepDetailScreen extends Component {
         }
         CenterContent={this.renderReminderButton()}
         markdown={
-          challenge_suggestion &&
-          insertNameToDetailScreen(
-            challenge_suggestion.description_markdown,
-            receiver.first_name,
-          )
+          challenge_suggestion && challenge_suggestion.description_markdown
         }
         text={title}
         bottomButtonProps={{

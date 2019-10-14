@@ -8,7 +8,6 @@ import moment from 'moment';
 import { Text } from '../../components/common';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
-import { insertNameToDetailScreen } from '../../utils/steps';
 
 import styles from './styles';
 
@@ -21,6 +20,7 @@ class CompletedStepDetailScreen extends Component {
 
     return (
       <StepDetailScreen
+        receiver={receiver}
         CenterHeader={<Text>{t('completedStep')}</Text>}
         RightHeader={null}
         CenterContent={
@@ -41,11 +41,7 @@ class CompletedStepDetailScreen extends Component {
           </View>
         }
         markdown={
-          challenge_suggestion &&
-          insertNameToDetailScreen(
-            challenge_suggestion.description_markdown,
-            receiver.first_name,
-          )
+          challenge_suggestion && challenge_suggestion.description_markdown
         }
         text={step.title}
         bottomButtonProps={null}

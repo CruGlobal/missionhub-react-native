@@ -18,7 +18,6 @@ class SuggestedStepDetailScreen extends Component {
 
     dispatch(next({ contactId: receiverId, orgId }));
   };
-
   render() {
     const {
       t,
@@ -28,6 +27,7 @@ class SuggestedStepDetailScreen extends Component {
 
     return (
       <StepDetailScreen
+        receiver={''}
         CenterHeader={null}
         RightHeader={null}
         CenterContent={<View style={centerContent} />}
