@@ -58,6 +58,11 @@ exports[`with challenge suggestion renders correctly 1`] = `
   RightHeader={null}
   bottomButtonProps={null}
   markdown="roge rules"
+  receiver={
+    Object {
+      "first_name": "Christian",
+    }
+  }
   text="SCOTTY"
 />
 `;
@@ -120,6 +125,11 @@ exports[`without challenge suggestion renders correctly 1`] = `
   RightHeader={null}
   bottomButtonProps={null}
   markdown={null}
+  receiver={
+    Object {
+      "first_name": "Christian",
+    }
+  }
   text="SCOTTY"
 />
 `;
