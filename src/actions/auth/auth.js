@@ -64,13 +64,13 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
   const { person } = getState().auth;
 
   if (!person.user.pathway_stage_id) {
-    dispatch(navigatePush(GET_STARTED_ONBOARDING_FLOW));
+    dispatch(navigatePush(GET_STARTED_ONBOARDING_FLOW, { logoutOnBack: true }));
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   } else if (hasPersonWithStageSelected(person)) {
     dispatch(navigateToMainTabs());
     dispatch(completeOnboarding());
   } else {
-    dispatch(navigatePush(ADD_SOMEONE_ONBOARDING_FLOW));
+    dispatch(navigatePush(ADD_SOMEONE_ONBOARDING_FLOW, { logoutOnBack: true }));
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   }
 };
