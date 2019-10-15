@@ -10,7 +10,7 @@ import { navigateBack } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
-import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
+import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { prompt } from '../../utils/prompt';
 import { ProfileState } from '../../reducers/profile';
 import Header from '../../components/Header';
@@ -35,27 +35,9 @@ const GetStartedScreen = ({
   enableBackButton = true,
 }: GetStartedScreenProps) => {
   const { t } = useTranslation('getStarted');
-  const { t: goBackT } = useTranslation('goBackT');
-  const logoutOnBack = useNavigationParam('logoutOnBack');
+  const logoutOnBack = useNavigationParam('logoutOnBack') || false;
 
-  const back = () => {
-    if (logoutOnBack) {
-      prompt({
-        title: goBackT('title'),
-        description: goBackT('description'),
-        actionLabel: goBackT('action'),
-      }).then(isLoggingOut => {
-        if (isLoggingOut) {
-          dispatch(logout());
-        }
-      });
-    } else {
-      dispatch(navigateBack());
-    }
-    return true;
-  };
-
-  useAndroidBackButton(enableBackButton, back);
+  const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);
 
   const navigateNext = () => {
     dispatch(next({ id }));
@@ -66,7 +48,7 @@ const GetStartedScreen = ({
       <Header
         left={
           enableBackButton || logoutOnBack ? (
-            <BackButton customNavigate={back} />
+            <BackButton customNavigate={handleBack} />
           ) : null
         }
       />

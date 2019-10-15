@@ -18,10 +18,7 @@ import { AuthState } from '../../reducers/auth';
 import { updatePerson } from '../../actions/person';
 import BackButton from '../BackButton';
 import Header from '../../components/Header';
-import { prompt } from '../../utils/prompt';
-import { logout } from '../../actions/auth/auth';
-import { navigateBack } from '../../actions/navigation';
-import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
+import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 
 import styles from './styles';
 
@@ -41,27 +38,8 @@ const SetupScreen = ({
   personId,
 }: SetupScreenProps) => {
   const { t } = useTranslation('setup');
-  const { t: goBackT } = useTranslation('goBackAlert');
 
-  const handleBack = () => {
-    // When id exists, try to logout
-    if (personId) {
-      prompt({
-        title: goBackT('title'),
-        description: goBackT('description'),
-        actionLabel: goBackT('action'),
-      }).then(isLoggingOut => {
-        if (isLoggingOut) {
-          dispatch(logout());
-        }
-      });
-    } else {
-      dispatch(navigateBack());
-    }
-    return true;
-  };
-
-  useAndroidBackButton(true, handleBack);
+  const handleBack = useLogoutOnBack();
 
   const [isLoading, setIsLoading] = useState(false);
   const lastNameRef = useRef<TextInput>(null);
