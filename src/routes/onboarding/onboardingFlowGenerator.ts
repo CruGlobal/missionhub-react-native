@@ -58,9 +58,11 @@ const showNotificationAndCompleteOnboarding = async (
 export const onboardingFlowGenerator = ({
   startScreen = WELCOME_SCREEN,
   hideSkipBtn,
+  startScreenEnableBack = false,
 }: {
   startScreen?: string;
   hideSkipBtn?: boolean;
+  startScreenEnableBack?: boolean;
 }) => ({
   ...(startScreen === WELCOME_SCREEN
     ? {
@@ -85,7 +87,10 @@ export const onboardingFlowGenerator = ({
                 subsection: 'self',
                 personId: id,
               }),
-            { enableBackButton: startScreen != GET_STARTED_SCREEN },
+            {
+              enableBackButton:
+                startScreen !== GET_STARTED_SCREEN || startScreenEnableBack,
+            },
           ),
           buildTrackingObj('onboarding : get started', 'onboarding'),
         ),
@@ -137,7 +142,11 @@ export const onboardingFlowGenerator = ({
       AddSomeoneScreen,
       ({ skip }: { skip: boolean }) =>
         skip ? skipOnboarding() : navigatePush(SETUP_PERSON_SCREEN),
-      { hideSkipBtn, enableBackButton: startScreen != ADD_SOMEONE_SCREEN },
+      {
+        hideSkipBtn,
+        enableBackButton:
+          startScreen !== ADD_SOMEONE_SCREEN || startScreenEnableBack,
+      },
     ),
     buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
   ),
