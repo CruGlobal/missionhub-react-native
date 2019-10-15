@@ -50,6 +50,9 @@ beforeEach(() => {
     id: stepId,
     title: 'ROBERT',
     challenge_suggestion,
+    receiver: {
+      first_name: 'Christian',
+    },
   };
 
   store = mockStore({

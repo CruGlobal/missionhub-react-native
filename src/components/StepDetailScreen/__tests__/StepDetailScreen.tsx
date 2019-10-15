@@ -4,9 +4,14 @@ import { Text, View } from 'react-native';
 import { renderWithContext } from '../../../../testUtils';
 import StepDetailScreen from '../index';
 
+const receiver = {
+  first_name: 'Christian',
+};
+
 function snapshot(props = {}) {
   renderWithContext(
     <StepDetailScreen
+      receiver={receiver}
       text="Roge is well behaved"
       CenterHeader={<View />}
       RightHeader={<View />}
@@ -19,6 +24,12 @@ function snapshot(props = {}) {
 describe('markdown is not null', () => {
   it('renders correctly', () => {
     snapshot({ markdown: 'ROBERT ROBERT ROBERT' });
+  });
+});
+
+describe('markdown with <<name>> to change', () => {
+  it('renders correctly', () => {
+    snapshot({ markdown: '<<name>> <<name>> <<name>>' });
   });
 });
 
