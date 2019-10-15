@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -31,6 +32,7 @@ export interface StepItemProps {
   step: StepType;
   onSelect?: (step: StepType) => void;
   onAction?: (step: StepType) => void;
+  onPressName?: (step: StepType) => void;
   hideAction?: boolean;
   type?: 'swipeable' | 'contact' | 'reminder';
   myId?: string;
@@ -39,6 +41,7 @@ const StepItem = ({
   step,
   onSelect,
   onAction,
+  onPressName,
   hideAction,
   type,
   myId,
@@ -67,6 +70,34 @@ const StepItem = ({
     }
   };
 
+  const handlePressName = () => {
+    onPressName && onPressName(step);
+  };
+
+  const renderPersonName = () => {
+    if (type === 'contact') {
+      return null;
+    }
+
+    if (onPressName) {
+      return (
+        <Touchable
+          testID="StepItemPersonButton"
+          onPress={handlePressName}
+          style={{ alignSelf: 'flex-start' }}
+        >
+          <ItemHeaderText text={ownerName} />
+        </Touchable>
+      );
+    }
+
+    return (
+      <View style={{ alignSelf: 'flex-start' }}>
+        <ItemHeaderText text={ownerName} />
+      </View>
+    );
+  };
+
   const renderIcon = () => {
     // Don't show on the initial render if `hideAction` is true or there is no `onAction`
     if (!onAction || !animation) {
@@ -82,6 +113,7 @@ const StepItem = ({
         onPress={handleAction}
         onPressIn={onHover}
         onPressOut={onBlur}
+        style={{ flex: 0, borderWidth: 1 }}
       >
         <Flex align="center" justify="center" animation={animation}>
           <Icon
@@ -112,13 +144,20 @@ const StepItem = ({
         lighten: 0.5,
       })}
     >
-      <Flex align="center" direction="row" style={styles.row}>
-        <Flex value={1} justify="center" direction="column">
-          {type === 'contact' ? null : <ItemHeaderText text={ownerName} />}
+      <View style={styles.contentWrap}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            flexDirection: 'column',
+            borderWidth: 1,
+          }}
+        >
+          {renderPersonName()}
           <Text style={styles.description}>{step.title}</Text>
-        </Flex>
+        </View>
         {renderIcon()}
-      </Flex>
+      </View>
     </Touchable>
   );
 };
