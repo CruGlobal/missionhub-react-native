@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import { logout } from '../../actions/auth/auth';
 import { navigateBack } from '../../actions/navigation';
@@ -24,7 +25,6 @@ interface GetStartedScreenProps {
   id: string | null;
   name: string;
   enableBackButton?: boolean;
-  logoutOnBack?: boolean;
 }
 
 const GetStartedScreen = ({
@@ -33,16 +33,17 @@ const GetStartedScreen = ({
   id,
   name = '',
   enableBackButton = true,
-  logoutOnBack = false,
 }: GetStartedScreenProps) => {
   const { t } = useTranslation('getStarted');
+  const { t: goBackT } = useTranslation('goBackT');
+  const logoutOnBack = useNavigationParam('logoutOnBack');
 
   const back = () => {
     if (logoutOnBack) {
       prompt({
-        title: t('goBackAlert.title'),
-        description: t('goBackAlert.description'),
-        actionLabel: t('goBackAlert.action'),
+        title: goBackT('title'),
+        description: goBackT('description'),
+        actionLabel: goBackT('action'),
       }).then(isLoggingOut => {
         if (isLoggingOut) {
           dispatch(logout());
@@ -84,20 +85,9 @@ const GetStartedScreen = ({
   );
 };
 
-const mapStateToProps = (
-  { profile }: { profile: ProfileState },
-  {
-    navigation: {
-      state: {
-        params: { logoutOnBack },
-      },
-    },
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
-) => ({
+const mapStateToProps = ({ profile }: { profile: ProfileState }) => ({
   id: profile.id,
   name: profile.firstName,
-  logoutOnBack,
 });
 
 export default connect(mapStateToProps)(GetStartedScreen);

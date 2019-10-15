@@ -40,13 +40,16 @@ const SetupScreen = ({
   lastName,
   personId,
 }: SetupScreenProps) => {
+  const { t } = useTranslation('setup');
+  const { t: goBackT } = useTranslation('goBackAlert');
+
   const handleBack = () => {
     // When id exists, try to logout
     if (personId) {
       prompt({
-        title: t('goBackAlert.title'),
-        description: t('goBackAlert.description'),
-        actionLabel: t('goBackAlert.action'),
+        title: goBackT('title'),
+        description: goBackT('description'),
+        actionLabel: goBackT('action'),
       }).then(isLoggingOut => {
         if (isLoggingOut) {
           dispatch(logout());
@@ -61,7 +64,6 @@ const SetupScreen = ({
   useAndroidBackButton(true, handleBack);
 
   const [isLoading, setIsLoading] = useState(false);
-  const { t } = useTranslation('setup');
   const lastNameRef = useRef<TextInput>(null);
 
   const saveAndGoToGetStarted = async () => {

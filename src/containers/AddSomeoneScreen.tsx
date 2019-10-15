@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import { logout } from '../actions/auth/auth';
 import { navigateBack } from '../actions/navigation';
@@ -17,7 +18,6 @@ interface AddSomeoneScreenProps {
   next: (props?: { skip: boolean }) => ThunkAction<void, any, null, never>;
   hideSkipBtn?: boolean;
   enableBackButton?: boolean;
-  logoutOnBack?: boolean;
 }
 
 const AddSomeoneScreen = ({
@@ -25,16 +25,17 @@ const AddSomeoneScreen = ({
   next,
   hideSkipBtn = false,
   enableBackButton = true,
-  logoutOnBack = false,
 }: AddSomeoneScreenProps) => {
   const { t } = useTranslation('addContact');
+  const { t: goBackT } = useTranslation('goBackAlert');
+  const logoutOnBack = useNavigationParam('logoutOnBack');
 
   const back = () => {
     if (logoutOnBack) {
       prompt({
-        title: t('goBackAlert.title'),
-        description: t('goBackAlert.description'),
-        actionLabel: t('goBackAlert.action'),
+        title: goBackT('title'),
+        description: goBackT('description'),
+        actionLabel: goBackT('action'),
       }).then(isLoggingOut => {
         if (isLoggingOut) {
           dispatch(logout());
@@ -66,19 +67,5 @@ const AddSomeoneScreen = ({
   );
 };
 
-const mapStateToProps = (
-  {},
-  {
-    navigation: {
-      state: {
-        params: { logoutOnBack },
-      },
-    },
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
-) => ({
-  logoutOnBack,
-});
-
-export default connect(mapStateToProps)(AddSomeoneScreen);
+export default connect()(AddSomeoneScreen);
 export const ADD_SOMEONE_SCREEN = 'nav/ADD_SOMEONE';

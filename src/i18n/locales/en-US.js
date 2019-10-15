@@ -126,6 +126,11 @@ export default {
     message:
       "It's been a while since you've signed in.\nPlease sign in so we know it's you.",
   },
+  goBackAlert: {
+    title: 'Go back?',
+    description: 'You will lose any info you have entered and be logged out',
+    action: 'Go Back',
+  },
   settingsMenu: {
     about: 'About',
     help: 'Help',
@@ -179,11 +184,6 @@ export default {
   setup: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
-    goBackAlert: {
-      title: 'Go back?',
-      description: 'You will lose any info you have entered and be logged out',
-      action: 'Go Back',
-    },
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
@@ -197,11 +197,6 @@ export default {
     alertSorry: 'Sorry',
     alertCannotEditFirstName:
       'You are not allowed to edit first names of other MissionHub users',
-    goBackAlert: {
-      title: 'Go back?',
-      description: 'You will lose any info you have entered and be logged out',
-      action: 'Go Back',
-    },
   },
   addStep: {
     header: 'Create your own step',
@@ -305,11 +300,6 @@ export default {
     tagline:
       "While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.\n\nLet's figure out where you are on your journey.",
     getStarted: "Let's get started",
-    goBackAlert: {
-      title: 'Go back?',
-      description: 'You will lose any info you have entered and be logged out',
-      action: 'Go Back',
-    },
   },
   history: {
     header: 'History',
