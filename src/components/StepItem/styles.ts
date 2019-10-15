@@ -30,8 +30,19 @@ export default StyleSheet.create({
     borderBottomWidth: theme.separatorHeight,
     borderBottomColor: theme.separatorColor,
   },
+  textWrap: {
+    flex: 1,
+    justifyContent: 'center',
+    flexDirection: 'column',
+  },
+  nameWrap: {
+    alignSelf: 'flex-start',
+  },
   description: {
     fontSize: 14,
+  },
+  iconWrap: {
+    flex: 0,
   },
   icon: {
     padding: 10,

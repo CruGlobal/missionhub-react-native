@@ -84,7 +84,7 @@ const StepItem = ({
         <Touchable
           testID="StepItemPersonButton"
           onPress={handlePressName}
-          style={{ alignSelf: 'flex-start' }}
+          style={styles.nameWrap}
         >
           <ItemHeaderText text={ownerName} />
         </Touchable>
@@ -92,7 +92,7 @@ const StepItem = ({
     }
 
     return (
-      <View style={{ alignSelf: 'flex-start' }}>
+      <View style={styles.nameWrap}>
         <ItemHeaderText text={ownerName} />
       </View>
     );
@@ -113,7 +113,7 @@ const StepItem = ({
         onPress={handleAction}
         onPressIn={onHover}
         onPressOut={onBlur}
-        style={{ flex: 0, borderWidth: 1 }}
+        style={styles.iconWrap}
       >
         <Flex align="center" justify="center" animation={animation}>
           <Icon
@@ -145,14 +145,7 @@ const StepItem = ({
       })}
     >
       <View style={styles.contentWrap}>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            flexDirection: 'column',
-            borderWidth: 1,
-          }}
-        >
+        <View style={styles.textWrap}>
           {renderPersonName()}
           <Text style={styles.description}>{step.title}</Text>
         </View>
