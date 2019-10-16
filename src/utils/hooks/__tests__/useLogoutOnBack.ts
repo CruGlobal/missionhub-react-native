@@ -18,7 +18,7 @@ jest.mock('react-navigation-hooks', () => ({
 
 let navigation: { dispatch: jest.Mock };
 
-let handleBack: (() => boolean) | null;
+let handleBack: (() => void) | undefined;
 
 beforeEach(() => {
   navigation = {
@@ -79,19 +79,11 @@ describe('useLogoutOnBack', () => {
     });
 
     it('useAndroidBackButton called', () => {
-      expect(useAndroidBackButton).toHaveBeenCalledWith(true, handleBack);
+      expect(useAndroidBackButton).toHaveBeenCalledWith(false, undefined);
     });
 
-    it('logs out', async () => {
-      handleBack && (await handleBack());
-
-      expect(prompt).toHaveBeenCalledWith({
-        title: i18n.t('goBackAlert:title'),
-        description: i18n.t('goBackAlert:description'),
-        actionLabel: i18n.t('goBackAlert:action'),
-      });
-      expect(logout).toHaveBeenCalledWith();
-      expect(navigateBack).not.toHaveBeenCalled();
+    it('returns undefined', () => {
+      expect(handleBack).toEqual(undefined);
     });
   });
 
@@ -103,14 +95,47 @@ describe('useLogoutOnBack', () => {
     });
 
     it('useAndroidBackButton called', () => {
-      expect(useAndroidBackButton).toHaveBeenCalledWith(
-        false,
-        expect.any(Function),
-      );
+      expect(useAndroidBackButton).toHaveBeenCalledWith(false, undefined);
     });
 
-    it('returns null', () => {
-      expect(handleBack).toEqual(null);
+    it('returns undefined', () => {
+      expect(handleBack).toEqual(undefined);
+    });
+  });
+
+  describe('logoutOnBack value changes', () => {
+    beforeEach(() => {
+      (prompt as jest.Mock).mockReturnValue(Promise.resolve(true));
+    });
+
+    describe('logoutOnBack starts false, then true', () => {
+      it('first callback calls navigateBack, then logout', async () => {
+        const testHook = async ({
+          enableBackButton,
+          logoutOnBack,
+        }: {
+          enableBackButton: boolean;
+          logoutOnBack: boolean;
+        }) => {
+          const result = useLogoutOnBack(enableBackButton, logoutOnBack);
+          result && (await result());
+        };
+
+        const { rerender } = await renderHook(testHook, {
+          initialProps: { enableBackButton: true, logoutOnBack: false },
+        });
+        expect(prompt).not.toHaveBeenCalled();
+        expect(logout).not.toHaveBeenCalled();
+        expect(navigateBack).toHaveBeenCalledWith();
+
+        await rerender({ enableBackButton: true, logoutOnBack: true });
+        expect(prompt).toHaveBeenCalledWith({
+          title: i18n.t('goBackAlert:title'),
+          description: i18n.t('goBackAlert:description'),
+          actionLabel: i18n.t('goBackAlert:action'),
+        });
+        expect(logout).toHaveBeenCalledWith();
+      });
     });
   });
 });

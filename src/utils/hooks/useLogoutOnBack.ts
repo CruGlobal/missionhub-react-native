@@ -15,28 +15,33 @@ export const useLogoutOnBack = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { dispatch }: { dispatch: any } = useNavigation();
 
-  const handleBack = useRef(undefined as (() => void) | undefined);
+  const createCallback = (
+    _enableBackButton: boolean,
+    _logoutOnBack: boolean,
+  ) => {
+    return _enableBackButton
+      ? () => {
+          if (_logoutOnBack) {
+            prompt({
+              title: t('title'),
+              description: t('description'),
+              actionLabel: t('action'),
+            }).then(isLoggingOut => {
+              if (isLoggingOut) {
+                dispatch(logout());
+              }
+            });
+          } else {
+            dispatch(navigateBack());
+          }
+        }
+      : undefined;
+  };
+
+  const handleBack = useRef(createCallback(enableBackButton, logoutOnBack));
 
   useEffect(() => {
-    if (enableBackButton) {
-      handleBack.current = () => {
-        if (logoutOnBack) {
-          prompt({
-            title: t('title'),
-            description: t('description'),
-            actionLabel: t('action'),
-          }).then(isLoggingOut => {
-            if (isLoggingOut) {
-              dispatch(logout());
-            }
-          });
-        } else {
-          dispatch(navigateBack());
-        }
-      };
-    } else {
-      handleBack.current = undefined;
-    }
+    handleBack.current = createCallback(enableBackButton, logoutOnBack);
   }, [enableBackButton, logoutOnBack]);
 
   useAndroidBackButton(enableBackButton, handleBack.current);
