@@ -4,65 +4,45 @@ import { fireEvent } from 'react-native-testing-library';
 
 import AddSomeoneScreen from '../AddSomeoneScreen';
 import { renderWithContext } from '../../../testUtils';
-import { logout } from '../../actions/auth/auth';
-import { navigateBack } from '../../actions/navigation';
 import { skipOnboarding } from '../../actions/onboardingProfile';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 
-jest.mock('../../actions/auth/auth');
-jest.mock('../../actions/navigation');
 jest.mock('../../actions/onboardingProfile');
-jest.mock('../../utils/prompt');
 jest.mock('../../utils/hooks/useLogoutOnBack');
 
 const next = jest.fn();
 const back = jest.fn();
-const navigateBackResult = { type: 'navigate back' };
-const logoutResult = { type: 'logout' };
 const nextResult = { type: 'next' };
 const skipOnboardingResult = { type: 'skip onboarding' };
 
 beforeEach(() => {
-  (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
-  (logout as jest.Mock).mockReturnValue(logoutResult);
   (next as jest.Mock).mockReturnValue(nextResult);
   (skipOnboarding as jest.Mock).mockReturnValue(skipOnboardingResult);
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
 });
 
 it('renders correctly', () => {
-  renderWithContext(<AddSomeoneScreen next={next} />, {
-    navParams: {},
-  }).snapshot();
+  renderWithContext(<AddSomeoneScreen next={next} />).snapshot();
 });
 
 it('renders without skip button correctly', () => {
-  renderWithContext(<AddSomeoneScreen next={next} hideSkipBtn={true} />, {
-    navParams: {},
-  }).snapshot();
+  renderWithContext(
+    <AddSomeoneScreen next={next} hideSkipBtn={true} />,
+  ).snapshot();
 });
 
 it('renders without back button correctly', () => {
   (useLogoutOnBack as jest.Mock).mockReturnValue(null);
 
-  renderWithContext(<AddSomeoneScreen next={next} enableBackButton={false} />, {
-    navParams: {},
-  }).snapshot();
-});
-
-it('renders with back button correctly if logoutOnBack', () => {
-  renderWithContext(<AddSomeoneScreen next={next} enableBackButton={false} />, {
-    navParams: { logoutOnBack: true },
-  }).snapshot();
+  renderWithContext(
+    <AddSomeoneScreen next={next} enableBackButton={false} />,
+  ).snapshot();
 });
 
 describe('onComplete', () => {
   it('calls next', () => {
     const { getByTestId, store } = renderWithContext(
       <AddSomeoneScreen next={next} />,
-      {
-        navParams: {},
-      },
     );
 
     fireEvent.press(getByTestId('bottomButton'));
@@ -76,9 +56,6 @@ describe('onSkip prop', () => {
   it('calls next', () => {
     const { getByTestId, store } = renderWithContext(
       <AddSomeoneScreen next={next} />,
-      {
-        navParams: {},
-      },
     );
 
     fireEvent.press(getByTestId('skipButton'));
@@ -93,9 +70,6 @@ describe('onBack prop', () => {
     it('calls callback from useLogoutOnBack', () => {
       const { getByTestId } = renderWithContext(
         <AddSomeoneScreen next={next} />,
-        {
-          navParams: {},
-        },
       );
 
       fireEvent.press(getByTestId('BackButton'));
@@ -108,10 +82,7 @@ describe('onBack prop', () => {
   describe('logoutOnBack', () => {
     it('calls callback from useLogoutOnBack', async () => {
       const { getByTestId } = renderWithContext(
-        <AddSomeoneScreen next={next} />,
-        {
-          navParams: { logoutOnBack: true },
-        },
+        <AddSomeoneScreen next={next} logoutOnBack={true} />,
       );
 
       await fireEvent.press(getByTestId('BackButton'));

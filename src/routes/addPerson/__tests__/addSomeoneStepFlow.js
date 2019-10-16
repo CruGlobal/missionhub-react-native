@@ -68,10 +68,7 @@ describe('AddSomeoneScreen next', () => {
   beforeEach(() => {
     const Component = AddSomeoneStepFlowScreens[ADD_SOMEONE_SCREEN].screen;
 
-    screen = renderShallow(
-      <Component navigation={{ state: { params: {} } }} />,
-      store,
-    );
+    screen = renderShallow(<Component />, store);
     next = screen.instance().props.next;
   });
 

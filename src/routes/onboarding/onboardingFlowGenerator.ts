@@ -86,7 +86,6 @@ export const onboardingFlowGenerator = ({
                 personId: id,
               }),
             {
-              enableBackButton: true,
               logoutOnBack: startScreen === GET_STARTED_SCREEN,
             },
           ),

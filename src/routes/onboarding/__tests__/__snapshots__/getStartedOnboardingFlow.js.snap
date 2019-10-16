@@ -3,7 +3,7 @@
 exports[`AddSomeoneScreen next renders with back button correctly 1`] = `
 <AddSomeoneScreen
   dispatch={[Function]}
-  enableBackButton={true}
+  logoutOnBack={false}
   navigation={
     Object {
       "state": Object {
@@ -59,8 +59,8 @@ exports[`CelebrationScreen next renders correctly 1`] = `
 exports[`GetStartedScreen renders without back button correctly 1`] = `
 <GetStartedScreen
   dispatch={[Function]}
-  enableBackButton={false}
   id="123"
+  logoutOnBack={true}
   navigation={
     Object {
       "state": Object {

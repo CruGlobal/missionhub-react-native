@@ -69,10 +69,7 @@ describe('AddSomeoneScreen next', () => {
     const Component =
       AddSomeoneOnboardingFlowScreens[ADD_SOMEONE_SCREEN].screen;
 
-    screen = renderShallow(
-      <Component navigation={{ state: { params: {} } }} />,
-      store,
-    );
+    screen = renderShallow(<Component />, store);
     next = screen.instance().props.next;
   });
 
@@ -98,10 +95,7 @@ describe('SetupPersonScreen next', () => {
     const Component =
       AddSomeoneOnboardingFlowScreens[SETUP_PERSON_SCREEN].screen;
 
-    screen = renderShallow(
-      <Component navigation={{ state: { params: {} } }} />,
-      store,
-    );
+    screen = renderShallow(<Component />, store);
     next = screen.instance().props.next;
   });
 

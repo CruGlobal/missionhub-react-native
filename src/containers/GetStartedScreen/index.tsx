@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-import { useNavigationParam } from 'react-navigation-hooks';
 
 import { Flex, Text } from '../../components/common';
 import BackButton from '../BackButton';

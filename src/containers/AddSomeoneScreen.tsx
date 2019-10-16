@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-import { useNavigationParam } from 'react-navigation-hooks';
 
 import { useLogoutOnBack } from '../utils/hooks/useLogoutOnBack';
 

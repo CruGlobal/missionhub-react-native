@@ -3,15 +3,8 @@
 exports[`AddSomeoneScreen next renders without skip button correctly 1`] = `
 <AddSomeoneScreen
   dispatch={[Function]}
-  enableBackButton={true}
   hideSkipBtn={true}
-  navigation={
-    Object {
-      "state": Object {
-        "params": Object {},
-      },
-    }
-  }
+  logoutOnBack={true}
   next={[Function]}
 />
 `;

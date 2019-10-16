@@ -20,11 +20,7 @@ import { refreshAccessToken } from '../key';
 import { refreshAnonymousLogin } from '../anonymous';
 import { refreshMissionHubFacebookAccess } from '../facebook';
 import { deletePushToken } from '../../notifications';
-import {
-  navigateReset,
-  navigatePush,
-  navigateToMainTabs,
-} from '../../navigation';
+import { navigateReset, navigateToMainTabs } from '../../navigation';
 import { completeOnboarding } from '../../onboardingProfile';
 
 jest.mock('react-native-fbsdk', () => ({
@@ -44,7 +40,6 @@ let store;
 
 const deletePushTokenResult = { type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS };
 const navigateResetResult = { type: 'navigate reset' };
-const navigatePushResult = { type: 'navigate push' };
 const navigateToMainTabsResult = { type: 'navigate to main tabs' };
 const completeOnboardingResult = { type: COMPLETE_ONBOARDING };
 
@@ -53,7 +48,6 @@ beforeEach(() => {
 
   deletePushToken.mockReturnValue(deletePushTokenResult);
   navigateReset.mockReturnValue(navigateResetResult);
-  navigatePush.mockReturnValue(navigatePushResult);
   navigateToMainTabs.mockReturnValue(navigateToMainTabsResult);
   completeOnboarding.mockReturnValue(completeOnboardingResult);
 });
@@ -113,10 +107,8 @@ describe('navigateToPostAuthScreen', () => {
 
     store.dispatch(navigateToPostAuthScreen());
 
-    expect(navigatePush).toHaveBeenCalledWith(GET_STARTED_ONBOARDING_FLOW, {
-      logoutOnBack: true,
-    });
-    expect(store.getActions()).toEqual([navigatePushResult]);
+    expect(navigateReset).toHaveBeenCalledWith(GET_STARTED_ONBOARDING_FLOW);
+    expect(store.getActions()).toEqual([navigateResetResult]);
   });
 
   it('should navigate to main tabs if user has pathway_stage_id and contact assignments', () => {
@@ -155,10 +147,8 @@ describe('navigateToPostAuthScreen', () => {
 
     store.dispatch(navigateToPostAuthScreen());
 
-    expect(navigatePush).toHaveBeenCalledWith(ADD_SOMEONE_ONBOARDING_FLOW, {
-      logoutOnBack: true,
-    });
-    expect(store.getActions()).toEqual([navigatePushResult]);
+    expect(navigateReset).toHaveBeenCalledWith(ADD_SOMEONE_ONBOARDING_FLOW);
+    expect(store.getActions()).toEqual([navigateResetResult]);
   });
 });
 

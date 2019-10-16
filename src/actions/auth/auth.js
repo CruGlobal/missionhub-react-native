@@ -4,7 +4,7 @@ import { AccessToken } from 'react-native-fbsdk';
 import { ACTIONS, CLEAR_UPGRADE_TOKEN, LOGOUT } from '../../constants';
 import { LANDING_SCREEN } from '../../containers/LandingScreen';
 import { rollbar } from '../../utils/rollbar.config';
-import { navigateReset, navigatePush } from '../navigation';
+import { navigateReset } from '../navigation';
 import { deletePushToken } from '../notifications';
 import { trackActionWithoutData } from '../analytics';
 import {

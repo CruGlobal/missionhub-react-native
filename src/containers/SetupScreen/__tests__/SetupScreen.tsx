@@ -3,10 +3,7 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import { navigateBack } from '../../../actions/navigation';
 import { updatePerson } from '../../../actions/person';
-import { logout } from '../../../actions/auth/auth';
-import { prompt } from '../../../utils/prompt';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
 import {
   firstNameChanged,
@@ -25,18 +22,12 @@ const firstName = 'TestFname';
 const lastName = 'TestLname';
 
 jest.mock('../../../actions/api');
-jest.mock('../../../actions/navigation');
-jest.mock('../../../actions/auth/auth');
-jest.mock('../../../utils/prompt');
 jest.mock('../../../actions/onboardingProfile');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/hooks/useLogoutOnBack');
 Keyboard.dismiss = jest.fn();
 
 beforeEach(() => {
-  (prompt as jest.Mock).mockReturnValue(Promise.resolve());
-  (navigateBack as jest.Mock).mockReturnValue({ type: 'navigateBack' });
-  (logout as jest.Mock).mockReturnValue({ type: 'logout' });
   (firstNameChanged as jest.Mock).mockReturnValue({ type: 'firstNameChanged' });
   (lastNameChanged as jest.Mock).mockReturnValue({ type: 'lastNameChanged' });
   (createMyPerson as jest.Mock).mockReturnValue({
@@ -102,7 +93,7 @@ describe('saveAndGoToGetStarted with person id', () => {
     expect(next).toHaveBeenCalled();
   });
 
-  it('calls callback from useLogoutOnBack', async () => {
+  it('calls callback from useLogoutOnBack', () => {
     const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
       initialState: {
         profile: { firstName },
@@ -111,9 +102,9 @@ describe('saveAndGoToGetStarted with person id', () => {
     });
 
     // With the "id" set, press the back button
-    await fireEvent(getByTestId('BackButton'), 'customNavigate');
+    fireEvent(getByTestId('BackButton'), 'customNavigate');
 
-    expect(useLogoutOnBack).toHaveBeenCalledWith();
+    expect(useLogoutOnBack).toHaveBeenCalledWith(true, true);
     expect(back).toHaveBeenCalledWith();
   });
 });
@@ -130,14 +121,14 @@ describe('saveAndGoToGetStarted without first name', () => {
 });
 
 describe('calls back without creating a person', () => {
-  it('calls callback from useLogoutOnBack', async () => {
+  it('calls callback from useLogoutOnBack', () => {
     const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
       initialState: mockState,
     });
 
-    await fireEvent(getByTestId('BackButton'), 'customNavigate');
+    fireEvent(getByTestId('BackButton'), 'customNavigate');
 
-    expect(useLogoutOnBack).toHaveBeenCalledWith();
+    expect(useLogoutOnBack).toHaveBeenCalledWith(true, false);
     expect(back).toHaveBeenCalledWith();
   });
 });

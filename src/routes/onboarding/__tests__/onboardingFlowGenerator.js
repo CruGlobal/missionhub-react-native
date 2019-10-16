@@ -256,16 +256,7 @@ describe('AddSomeoneScreen next', () => {
   beforeEach(() => {
     const Component = testFlow[ADD_SOMEONE_SCREEN].screen;
 
-    next = renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: {},
-          },
-        }}
-      />,
-      store,
-    ).instance().props.next;
+    next = renderShallow(<Component />, store).instance().props.next;
   });
 
   it('should fire required next actions without skip', async () => {
@@ -292,16 +283,7 @@ describe('AddSomeoneScreen with extra props', () => {
   beforeEach(() => {
     const Component = testExtraPropsFlow[ADD_SOMEONE_SCREEN].screen;
 
-    component = renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: {},
-          },
-        }}
-      />,
-      store,
-    );
+    component = renderShallow(<Component />, store);
     next = component.instance().props.next;
   });
 
