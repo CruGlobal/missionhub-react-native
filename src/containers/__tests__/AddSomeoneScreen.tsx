@@ -7,14 +7,16 @@ import { renderWithContext } from '../../../testUtils';
 import { logout } from '../../actions/auth/auth';
 import { navigateBack } from '../../actions/navigation';
 import { skipOnboarding } from '../../actions/onboardingProfile';
-import { prompt } from '../../utils/prompt';
+import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 
 jest.mock('../../actions/auth/auth');
 jest.mock('../../actions/navigation');
 jest.mock('../../actions/onboardingProfile');
 jest.mock('../../utils/prompt');
+jest.mock('../../utils/hooks/useLogoutOnBack');
 
 const next = jest.fn();
+const back = jest.fn();
 const navigateBackResult = { type: 'navigate back' };
 const logoutResult = { type: 'logout' };
 const nextResult = { type: 'next' };
@@ -25,6 +27,7 @@ beforeEach(() => {
   (logout as jest.Mock).mockReturnValue(logoutResult);
   (next as jest.Mock).mockReturnValue(nextResult);
   (skipOnboarding as jest.Mock).mockReturnValue(skipOnboardingResult);
+  (useLogoutOnBack as jest.Mock).mockReturnValue(back);
 });
 
 it('renders correctly', () => {
@@ -40,6 +43,8 @@ it('renders without skip button correctly', () => {
 });
 
 it('renders without back button correctly', () => {
+  (useLogoutOnBack as jest.Mock).mockReturnValue(null);
+
   renderWithContext(<AddSomeoneScreen next={next} enableBackButton={false} />, {
     navParams: {},
   }).snapshot();
@@ -85,8 +90,8 @@ describe('onSkip prop', () => {
 
 describe('onBack prop', () => {
   describe('enableBackButton', () => {
-    it('calls navigateBack', () => {
-      const { getByTestId, store } = renderWithContext(
+    it('calls callback from useLogoutOnBack', () => {
+      const { getByTestId } = renderWithContext(
         <AddSomeoneScreen next={next} />,
         {
           navParams: {},
@@ -95,16 +100,14 @@ describe('onBack prop', () => {
 
       fireEvent.press(getByTestId('BackButton'));
 
-      expect(navigateBack).toHaveBeenCalledWith();
-      expect(store.getActions()).toEqual([navigateBackResult]);
+      expect(useLogoutOnBack).toHaveBeenCalledWith(true, false);
+      expect(back).toHaveBeenCalledWith();
     });
   });
 
   describe('logoutOnBack', () => {
-    it('calls logout', async () => {
-      (prompt as jest.Mock).mockReturnValue(Promise.resolve(true));
-
-      const { getByTestId, store } = renderWithContext(
+    it('calls callback from useLogoutOnBack', async () => {
+      const { getByTestId } = renderWithContext(
         <AddSomeoneScreen next={next} />,
         {
           navParams: { logoutOnBack: true },
@@ -113,24 +116,8 @@ describe('onBack prop', () => {
 
       await fireEvent.press(getByTestId('BackButton'));
 
-      expect(logout).toHaveBeenCalledWith();
-      expect(store.getActions()).toEqual([logoutResult]);
-    });
-
-    it('does not call logout', async () => {
-      (prompt as jest.Mock).mockReturnValue(Promise.resolve(false));
-
-      const { getByTestId, store } = renderWithContext(
-        <AddSomeoneScreen next={next} />,
-        {
-          navParams: { logoutOnBack: true },
-        },
-      );
-
-      await fireEvent.press(getByTestId('BackButton'));
-
-      expect(logout).not.toHaveBeenCalled();
-      expect(store.getActions()).toEqual([]);
+      expect(useLogoutOnBack).toHaveBeenCalledWith(true, true);
+      expect(back).toHaveBeenCalledWith();
     });
   });
 });

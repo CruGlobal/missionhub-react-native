@@ -31,7 +31,9 @@ export const useLogoutOnBack = (
     return true;
   };
 
-  useAndroidBackButton(enableBackButton || logoutOnBack, back);
+  const backEnabled = enableBackButton || logoutOnBack;
 
-  return back;
+  useAndroidBackButton(backEnabled, back);
+
+  return backEnabled ? back : null;
 };

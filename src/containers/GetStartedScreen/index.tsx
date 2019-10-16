@@ -5,13 +5,10 @@ import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import { logout } from '../../actions/auth/auth';
-import { navigateBack } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
-import { prompt } from '../../utils/prompt';
 import { ProfileState } from '../../reducers/profile';
 import Header from '../../components/Header';
 
@@ -46,11 +43,7 @@ const GetStartedScreen = ({
   return (
     <SafeAreaView style={styles.container}>
       <Header
-        left={
-          enableBackButton || logoutOnBack ? (
-            <BackButton customNavigate={handleBack} />
-          ) : null
-        }
+        left={handleBack ? <BackButton customNavigate={handleBack} /> : null}
       />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex align="start" justify="center" value={4}>

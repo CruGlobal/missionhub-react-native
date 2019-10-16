@@ -41,7 +41,7 @@ const AddSomeoneScreen = ({
       buttonText={t('addSomeone')}
       iconPath={require('../../assets/images/add_someone.png')}
       onSkip={hideSkipBtn ? undefined : skip}
-      onBack={enableBackButton || logoutOnBack ? handleBack : undefined}
+      onBack={handleBack || undefined}
     />
   );
 };
