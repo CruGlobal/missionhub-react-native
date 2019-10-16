@@ -22,6 +22,7 @@ interface GetStartedScreenProps {
   id: string | null;
   name: string;
   enableBackButton?: boolean;
+  logoutOnBack?: boolean;
 }
 
 const GetStartedScreen = ({
@@ -30,9 +31,9 @@ const GetStartedScreen = ({
   id,
   name = '',
   enableBackButton = true,
+  logoutOnBack = false,
 }: GetStartedScreenProps) => {
   const { t } = useTranslation('getStarted');
-  const logoutOnBack = useNavigationParam('logoutOnBack') || false;
 
   const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);
 

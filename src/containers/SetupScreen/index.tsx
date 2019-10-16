@@ -39,7 +39,7 @@ const SetupScreen = ({
 }: SetupScreenProps) => {
   const { t } = useTranslation('setup');
 
-  const handleBack = useLogoutOnBack();
+  const handleBack = useLogoutOnBack(true, !!personId);
 
   const [isLoading, setIsLoading] = useState(false);
   const lastNameRef = useRef<TextInput>(null);
@@ -75,7 +75,7 @@ const SetupScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header left={<BackButton customNavigate={handleBack || undefined} />} />
+      <Header left={<BackButton customNavigate={handleBack} />} />
       <Flex value={2} justify="end" align="center">
         <Text header={true} style={styles.header}>
           {t('namePrompt')}

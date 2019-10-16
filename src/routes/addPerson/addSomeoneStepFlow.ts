@@ -6,7 +6,6 @@ import { onboardingFlowGenerator } from '../onboarding/onboardingFlowGenerator';
 export const AddSomeoneStepFlowScreens = onboardingFlowGenerator({
   startScreen: ADD_SOMEONE_SCREEN,
   hideSkipBtn: true,
-  startScreenEnableBack: true,
 });
 
 export const AddSomeoneStepFlowNavigator = createStackNavigator(

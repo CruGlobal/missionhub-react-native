@@ -6,7 +6,6 @@ import { onboardingFlowGenerator } from './onboardingFlowGenerator';
 
 export const GetStartedOnboardingFlowScreens = onboardingFlowGenerator({
   startScreen: GET_STARTED_SCREEN,
-  startScreenEnableBack: false,
 });
 
 export const GetStartedOnboardingFlowNavigator = createStackNavigator(

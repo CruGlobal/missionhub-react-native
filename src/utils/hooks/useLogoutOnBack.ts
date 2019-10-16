@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import { useNavigation } from 'react-navigation-hooks';
 import { useTranslation } from 'react-i18next';
 
@@ -14,26 +15,31 @@ export const useLogoutOnBack = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { dispatch }: { dispatch: any } = useNavigation();
 
-  const back = () => {
-    if (logoutOnBack) {
-      prompt({
-        title: t('title'),
-        description: t('description'),
-        actionLabel: t('action'),
-      }).then(isLoggingOut => {
-        if (isLoggingOut) {
-          dispatch(logout());
+  const handleBack = useRef(undefined as (() => void) | undefined);
+
+  useEffect(() => {
+    if (enableBackButton) {
+      handleBack.current = () => {
+        if (logoutOnBack) {
+          prompt({
+            title: t('title'),
+            description: t('description'),
+            actionLabel: t('action'),
+          }).then(isLoggingOut => {
+            if (isLoggingOut) {
+              dispatch(logout());
+            }
+          });
+        } else {
+          dispatch(navigateBack());
         }
-      });
+      };
     } else {
-      dispatch(navigateBack());
+      handleBack.current = undefined;
     }
-    return true;
-  };
+  }, [enableBackButton, logoutOnBack]);
 
-  const backEnabled = enableBackButton || logoutOnBack;
+  useAndroidBackButton(enableBackButton, handleBack.current);
 
-  useAndroidBackButton(backEnabled, back);
-
-  return backEnabled ? back : null;
+  return handleBack.current;
 };

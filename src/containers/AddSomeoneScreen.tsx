@@ -15,6 +15,7 @@ interface AddSomeoneScreenProps {
   next: (props?: { skip: boolean }) => ThunkAction<void, any, null, never>;
   hideSkipBtn?: boolean;
   enableBackButton?: boolean;
+  logoutOnBack?: boolean;
 }
 
 const AddSomeoneScreen = ({
@@ -22,9 +23,9 @@ const AddSomeoneScreen = ({
   next,
   hideSkipBtn = false,
   enableBackButton = true,
+  logoutOnBack = false,
 }: AddSomeoneScreenProps) => {
   const { t } = useTranslation('addContact');
-  const logoutOnBack = useNavigationParam('logoutOnBack') || false;
 
   const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);
 
@@ -41,7 +42,7 @@ const AddSomeoneScreen = ({
       buttonText={t('addSomeone')}
       iconPath={require('../../assets/images/add_someone.png')}
       onSkip={hideSkipBtn ? undefined : skip}
-      onBack={handleBack || undefined}
+      onBack={handleBack}
     />
   );
 };
