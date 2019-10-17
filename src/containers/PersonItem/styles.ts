@@ -3,16 +3,20 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  row: {
-    paddingVertical: 15,
-    paddingHorizontal: 24,
-    backgroundColor: theme.white,
-    width: theme.fullWidth,
-    borderBottomWidth: theme.separatorHeight,
-    borderBottomColor: theme.separatorColor,
+  card: {
+    flex: 1,
+    height: 70,
+    paddingHorizontal: 16,
+    flexDirection: 'row',
+  },
+  textWrapper: {
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   stage: {
-    fontSize: 14,
+    paddingTop: 6,
+    fontSize: 12,
+    lineHeight: 14,
     color: theme.inactiveColor,
   },
   uncontacted: {

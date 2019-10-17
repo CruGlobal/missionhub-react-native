@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, complexity */
 
 import React from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 
-import { Flex, Text, Touchable, Icon } from '../../components/common';
+import { Flex, Text, Touchable, Icon, Card } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { hasOrgPermissions, orgIsCru } from '../../utils/common';
 import ItemHeaderText from '../../components/ItemHeaderText';
@@ -54,7 +55,7 @@ const PersonItem = ({
   };
 
   const newPerson = isMe ? me : person;
-  const personName = (isMe ? t('me') : newPerson.full_name || '').toUpperCase();
+  const personName = isMe ? t('me') : newPerson.full_name || '';
 
   const stage = isMe
     ? (me as any).stage
@@ -76,36 +77,26 @@ const PersonItem = ({
 
   const isUncontacted = status === 'uncontacted';
 
-  return (
-    <Touchable highlight={true} onPress={handleSelect}>
-      <Flex direction="row" align="center" style={styles.row}>
-        <Flex justify="center" value={1}>
-          <ItemHeaderText text={personName} />
-          <Flex direction="row" align="center">
-            <Text style={styles.stage}>{stage ? stage.name : ''}</Text>
-            <Text style={styles.stage}>{stage && status ? '  >  ' : null}</Text>
-            <Text
-              style={[styles.stage, isUncontacted ? styles.uncontacted : null]}
-            >
-              {status ? t(`followupStatus.${status.toLowerCase()}`) : null}
-            </Text>
-          </Flex>
-        </Flex>
-        {!isPersonal && !stage && !isMe ? (
-          <Touchable
-            testID="setStageButton"
-            isAndroidOpacity={true}
-            onPress={handleChangeStage}
+  const renderNameAndStage = () => {
+    return (
+      <View style={styles.textWrapper}>
+        <ItemHeaderText text={personName} />
+        <Text style={styles.stage}>{stage ? stage.name : ''}</Text>
+        {status ? (
+          <Text
+            style={[styles.stage, isUncontacted ? styles.uncontacted : null]}
           >
-            <Icon
-              name="journeyIcon"
-              type="MissionHub"
-              style={styles.uncontactedIcon}
-            />
-          </Touchable>
+            {t(`followupStatus.${status.toLowerCase()}`)}
+          </Text>
         ) : null}
-      </Flex>
-    </Touchable>
+      </View>
+    );
+  };
+
+  return (
+    <Card onPress={handleSelect} style={styles.card}>
+      {renderNameAndStage()}
+    </Card>
   );
 };
 
