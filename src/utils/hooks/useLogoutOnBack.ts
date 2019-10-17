@@ -1,7 +1,7 @@
-import { useRef, useEffect } from 'react';
-import { useNavigation } from 'react-navigation-hooks';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { store } from '../../store';
 import { logout } from '../../actions/auth/auth';
 import { navigateBack } from '../../actions/navigation';
 import { prompt } from '../../utils/prompt';
@@ -12,39 +12,28 @@ export const useLogoutOnBack = (
   logoutOnBack = true,
 ) => {
   const { t } = useTranslation('goBackAlert');
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { dispatch }: { dispatch: any } = useNavigation();
 
-  const createCallback = (
-    _enableBackButton: boolean,
-    _logoutOnBack: boolean,
-  ) => {
-    return _enableBackButton
+  const handleBack = useMemo(() => {
+    return enableBackButton
       ? () => {
-          if (_logoutOnBack) {
+          if (logoutOnBack) {
             prompt({
               title: t('title'),
               description: t('description'),
               actionLabel: t('action'),
             }).then(isLoggingOut => {
               if (isLoggingOut) {
-                dispatch(logout());
+                store.dispatch(logout());
               }
             });
           } else {
-            dispatch(navigateBack());
+            store.dispatch(navigateBack());
           }
         }
       : undefined;
-  };
-
-  const handleBack = useRef(createCallback(enableBackButton, logoutOnBack));
-
-  useEffect(() => {
-    handleBack.current = createCallback(enableBackButton, logoutOnBack);
   }, [enableBackButton, logoutOnBack]);
 
-  useAndroidBackButton(enableBackButton, handleBack.current);
+  useAndroidBackButton(enableBackButton, handleBack);
 
-  return handleBack.current;
+  return handleBack;
 };

@@ -1,5 +1,4 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { useNavigation } from 'react-navigation-hooks';
 import i18n from 'i18next';
 
 import { prompt } from '../../prompt';
@@ -8,29 +7,30 @@ import { navigateBack } from '../../../actions/navigation';
 import { useLogoutOnBack } from '../useLogoutOnBack';
 import { useAndroidBackButton } from '../useAndroidBackButton';
 
+jest.mock('../../../store', () => ({
+  store: {
+    dispatch: jest.fn(),
+  },
+}));
 jest.mock('../../prompt');
 jest.mock('../../../actions/auth/auth');
 jest.mock('../../../actions/navigation');
 jest.mock('../useAndroidBackButton');
-jest.mock('react-navigation-hooks', () => ({
-  useNavigation: jest.fn(),
-}));
-
-let navigation: { dispatch: jest.Mock };
 
 let handleBack: (() => void) | undefined;
 
+const logoutResult = { type: 'logout' };
+const navigateBackResult = { type: 'navigate back' };
+
 beforeEach(() => {
-  navigation = {
-    dispatch: jest.fn(),
-  };
-  (useNavigation as jest.Mock).mockReturnValue(navigation);
+  (prompt as jest.Mock).mockReturnValue(Promise.resolve(true));
+  (logout as jest.Mock).mockReturnValue(logoutResult);
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
 });
 
 describe('useLogoutOnBack', () => {
   describe('enableBackButton = true, logoutOnBack = true', () => {
     beforeEach(() => {
-      (prompt as jest.Mock).mockReturnValue(Promise.resolve(true));
       handleBack = renderHook(() => useLogoutOnBack(true, true)).result.current;
     });
 
@@ -53,7 +53,6 @@ describe('useLogoutOnBack', () => {
 
   describe('enableBackButton = true, logoutOnBack = false', () => {
     beforeEach(() => {
-      (prompt as jest.Mock).mockReturnValue(Promise.resolve(true));
       handleBack = renderHook(() => useLogoutOnBack(true, false)).result
         .current;
     });
@@ -73,7 +72,6 @@ describe('useLogoutOnBack', () => {
 
   describe('enableBackButton = false, logoutOnBack = true', () => {
     beforeEach(() => {
-      (prompt as jest.Mock).mockReturnValue(Promise.resolve(true));
       handleBack = renderHook(() => useLogoutOnBack(false, true)).result
         .current;
     });
@@ -89,7 +87,6 @@ describe('useLogoutOnBack', () => {
 
   describe('enableBackButton = false, logoutOnBack = false', () => {
     beforeEach(() => {
-      (prompt as jest.Mock).mockReturnValue(Promise.resolve(true));
       handleBack = renderHook(() => useLogoutOnBack(false, false)).result
         .current;
     });
@@ -103,38 +100,81 @@ describe('useLogoutOnBack', () => {
     });
   });
 
-  describe('logoutOnBack value changes', () => {
+  describe('user cancels prompt', () => {
     beforeEach(() => {
-      (prompt as jest.Mock).mockReturnValue(Promise.resolve(true));
+      (prompt as jest.Mock).mockReturnValue(Promise.resolve(false));
+      handleBack = renderHook(() => useLogoutOnBack(true, true)).result.current;
     });
 
+    it('does not logout or navigate back', async () => {
+      handleBack && (await handleBack());
+
+      expect(prompt).toHaveBeenCalledWith({
+        title: i18n.t('goBackAlert:title'),
+        description: i18n.t('goBackAlert:description'),
+        actionLabel: i18n.t('goBackAlert:action'),
+      });
+      expect(logout).not.toHaveBeenCalled();
+      expect(navigateBack).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('logoutOnBack value changes', () => {
     describe('logoutOnBack starts false, then true', () => {
       it('first callback calls navigateBack, then logout', async () => {
-        const testHook = async ({
-          enableBackButton,
-          logoutOnBack,
-        }: {
-          enableBackButton: boolean;
-          logoutOnBack: boolean;
-        }) => {
-          const result = useLogoutOnBack(enableBackButton, logoutOnBack);
-          result && (await result());
-        };
+        const { result, rerender } = renderHook(
+          ({ enableBackButton, logoutOnBack }) =>
+            useLogoutOnBack(enableBackButton, logoutOnBack),
+          {
+            initialProps: { enableBackButton: true, logoutOnBack: false },
+          },
+        );
+        result.current && (await result.current());
 
-        const { rerender } = await renderHook(testHook, {
-          initialProps: { enableBackButton: true, logoutOnBack: false },
-        });
         expect(prompt).not.toHaveBeenCalled();
         expect(logout).not.toHaveBeenCalled();
         expect(navigateBack).toHaveBeenCalledWith();
 
-        await rerender({ enableBackButton: true, logoutOnBack: true });
+        jest.clearAllMocks();
+        rerender({ enableBackButton: true, logoutOnBack: true });
+        result.current && (await result.current());
+
         expect(prompt).toHaveBeenCalledWith({
           title: i18n.t('goBackAlert:title'),
           description: i18n.t('goBackAlert:description'),
           actionLabel: i18n.t('goBackAlert:action'),
         });
         expect(logout).toHaveBeenCalledWith();
+        expect(navigateBack).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('logoutOnBack starts true, then false', () => {
+      it('first callback calls navigateBack, then logout', async () => {
+        const { result, rerender } = renderHook(
+          ({ enableBackButton, logoutOnBack }) =>
+            useLogoutOnBack(enableBackButton, logoutOnBack),
+          {
+            initialProps: { enableBackButton: true, logoutOnBack: true },
+          },
+        );
+        result.current && (await result.current());
+
+        expect(prompt).toHaveBeenCalledWith({
+          title: i18n.t('goBackAlert:title'),
+          description: i18n.t('goBackAlert:description'),
+          actionLabel: i18n.t('goBackAlert:action'),
+        });
+        expect(logout).toHaveBeenCalledWith();
+        expect(navigateBack).not.toHaveBeenCalled();
+
+        jest.clearAllMocks();
+        rerender({ enableBackButton: true, logoutOnBack: false });
+        result.current && (await result.current());
+
+        expect(prompt).not.toHaveBeenCalled();
+        expect(logout).not.toHaveBeenCalled();
+        expect(navigateBack).toHaveBeenCalledWith();
       });
     });
   });
