@@ -63,15 +63,11 @@ const StepItem = ({
   };
 
   const handleSelect = () => {
-    if (!step.receiver) {
-      return;
-    } else {
-      onSelect && onSelect(step);
-    }
+    step.receiver && onSelect && onSelect(step);
   };
 
   const handlePressName = () => {
-    onPressName && onPressName(step);
+    step.receiver && onPressName && onPressName(step);
   };
 
   const renderPersonName = () => {
