@@ -15,11 +15,12 @@ import styles from './styles';
 class CompletedStepDetailScreen extends Component {
   render() {
     const { t, step } = this.props;
-    const { challenge_suggestion, completed_at } = step;
+    const { challenge_suggestion, completed_at, receiver } = step;
     const { reminderButton, completedText, completedIcon } = styles;
 
     return (
       <StepDetailScreen
+        receiver={receiver}
         CenterHeader={<Text>{t('completedStep')}</Text>}
         RightHeader={null}
         CenterContent={
