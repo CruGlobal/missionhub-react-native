@@ -72,6 +72,7 @@ exports[`renders android correctly 1`] = `
         <Connect(StepItem)
           key="1"
           onAction={[Function]}
+          onPressName={[Function]}
           onSelect={[Function]}
           step={
             Object {

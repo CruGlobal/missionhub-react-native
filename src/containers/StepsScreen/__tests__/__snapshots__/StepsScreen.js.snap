@@ -4,6 +4,7 @@ exports[`StepsScreen arrow functions should render item correctly 1`] = `
 <Connect(StepItem)
   hideAction={true}
   onAction={[Function]}
+  onPressName={[Function]}
   onSelect={[Function]}
   step={
     Object {
@@ -408,6 +409,7 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
         <Connect(StepItem)
           key="1"
           onAction={[Function]}
+          onPressName={[Function]}
           onSelect={[Function]}
           step={
             Object {
@@ -420,6 +422,7 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
         <Connect(StepItem)
           key="2"
           onAction={[Function]}
+          onPressName={[Function]}
           onSelect={[Function]}
           step={
             Object {

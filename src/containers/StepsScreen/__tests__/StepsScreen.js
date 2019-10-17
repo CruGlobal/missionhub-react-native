@@ -17,6 +17,7 @@ import {
 } from '../../../actions/notifications';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { setStepFocus, getMySteps } from '../../../actions/steps';
+import { navToPersonScreen } from '../../../actions/person';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
@@ -353,7 +354,7 @@ describe('StepsScreen', () => {
   });
 
   describe('handleRowSelect', () => {
-    it('should navigate to person screen', () => {
+    it('should navigate to step detail screen', () => {
       const step = baseProps.steps[0];
       const screen = createComponent(baseProps);
       const listItem = screen
@@ -368,6 +369,32 @@ describe('StepsScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
         step,
       });
+    });
+  });
+
+  describe('handleNavToPerson', () => {
+    const navToPersonResult = { type: 'nav to person screen' };
+
+    beforeEach(() => {
+      navToPersonScreen.mockReturnValue(navToPersonResult);
+    });
+
+    it('should navigate to person screen', () => {
+      const step = baseProps.steps[0];
+      const screen = createComponent(baseProps);
+      const listItem = screen
+        .childAt(2)
+        .childAt(0)
+        .childAt(1)
+        .props()
+        .renderItem({ item: step });
+
+      listItem.props.onPressName(step);
+
+      expect(navToPersonScreen).toHaveBeenCalledWith(
+        step.receiver,
+        step.organization,
+      );
     });
   });
 

@@ -70,7 +70,6 @@ export class StepsScreen extends Component {
     };
 
     this.getSteps = this.getSteps.bind(this);
-    this.handleNavToPerson = this.handleNavToPerson.bind(this);
     this.handleSetReminder = this.handleSetReminder.bind(this);
     this.handleRemoveReminder = this.handleRemoveReminder.bind(this);
     this.handleRowSelect = this.handleRowSelect.bind(this);
@@ -125,10 +124,10 @@ export class StepsScreen extends Component {
     dispatch(showWelcomeNotification());
   }
 
-  handleNavToPerson(step) {
+  handleNavToPerson = step => {
     const { receiver, organization } = step;
     this.props.dispatch(navToPersonScreen(receiver, organization));
-  }
+  };
 
   handleRemoveReminder(step) {
     const { dispatch } = this.props;
