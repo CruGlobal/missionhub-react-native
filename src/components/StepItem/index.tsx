@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
+import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Flex, Text, Touchable, Icon } from '../common';
-import theme from '../../theme';
+import { Card } from '../common';
+import { Text, Icon } from '../common';
 import ItemHeaderText from '../ItemHeaderText';
 import { AuthState } from '../../reducers/auth';
-import { useIsMount } from '../../utils/hooks/useIsMount';
+import ReminderButton from '../ReminderButton';
+import ReminderDateText from '../ReminderDateText';
+import { StepReminderState, ReminderType } from '../../reducers/stepReminders';
+import { reminderSelector } from '../../selectors/stepReminders';
 
 import styles from './styles';
-
-function getAnimation(isHiding = false, isInitialMount = false): string {
-  return isHiding ? (isInitialMount ? '' : 'fadeOutRight') : 'fadeInRight';
-}
 
 type StepType = {
   id: string;
@@ -34,30 +34,10 @@ export interface StepItemProps {
   hideAction?: boolean;
   type?: 'swipeable' | 'contact' | 'reminder';
   myId?: string;
+  reminder?: ReminderType;
 }
-const StepItem = ({
-  step,
-  onSelect,
-  onAction,
-  hideAction,
-  type,
-  myId,
-}: StepItemProps) => {
+const StepItem = ({ step, onSelect, type, myId, reminder }: StepItemProps) => {
   const { t } = useTranslation();
-  const isMount = useIsMount();
-  const [hovering, setHovering] = useState(false);
-  const [animation, setAnimation] = useState('');
-
-  useEffect(() => {
-    setAnimation(getAnimation(hideAction, isMount));
-  }, [hideAction]);
-
-  const onHover = () => setHovering(true);
-  const onBlur = () => setHovering(false);
-
-  const handleAction = () => {
-    onAction && onAction(step);
-  };
 
   const handleSelect = () => {
     if (!step.receiver) {
@@ -67,63 +47,41 @@ const StepItem = ({
     }
   };
 
-  const renderIcon = () => {
-    // Don't show on the initial render if `hideAction` is true or there is no `onAction`
-    if (!onAction || !animation) {
-      return null;
-    }
-    let iconName = 'starIcon';
-    if (hovering || type === 'reminder') {
-      iconName = 'starIconFilled';
-    }
-    return (
-      <Touchable
-        testID="StepItemIconButton"
-        onPress={handleAction}
-        onPressIn={onHover}
-        onPressOut={onBlur}
-      >
-        <Flex align="center" justify="center" animation={animation}>
-          <Icon
-            name={iconName}
-            type="MissionHub"
-            style={[
-              styles.icon,
-              type === 'reminder' ? styles.iconReminder : undefined,
-            ]}
-          />
-        </Flex>
-      </Touchable>
-    );
-  };
-
   const isMe = step.receiver && step.receiver.id === myId;
   let ownerName = isMe ? t('me') : step.receiver ? step.receiver.full_name : '';
   ownerName = (ownerName || '').toUpperCase();
+  const { bellIcon, reminderButton } = styles;
   return (
-    <Touchable
-      testID="StepItemButton"
-      highlight={type !== 'reminder'}
-      style={type && styles[type] ? styles[type] : undefined}
-      onPress={handleSelect}
-      activeOpacity={1}
-      underlayColor={theme.convert({
-        color: theme.secondaryColor,
-        lighten: 0.5,
-      })}
-    >
-      <Flex align="center" direction="row" style={styles.row}>
-        <Flex value={1} justify="center" direction="column">
-          {type === 'contact' ? null : <ItemHeaderText text={ownerName} />}
-          <Text style={styles.description}>{step.title}</Text>
-        </Flex>
-        {renderIcon()}
-      </Flex>
-    </Touchable>
+    <Card testID="StepItemCard" onPress={handleSelect} style={styles.card}>
+      <View style={styles.flex1}>
+        <ReminderButton
+          testID="StepReminderButton"
+          stepId={step.id}
+          reminder={reminder}
+        >
+          <View style={reminderButton}>
+            {type === 'contact' ? null : (
+              <ItemHeaderText style={styles.stepUserName} text={ownerName} />
+            )}
+            <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
+            <ReminderDateText reminder={reminder} />
+          </View>
+        </ReminderButton>
+        <Text style={styles.description}>{step.title}</Text>
+      </View>
+    </Card>
   );
 };
 
-const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
+const mapStateToProps = (
+  {
+    auth,
+    stepReminders,
+  }: { auth: AuthState; stepReminders: StepReminderState },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  { step }: any,
+) => ({
   myId: auth.person.id,
+  reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
 });
 export default connect(mapStateToProps)(StepItem);

@@ -580,6 +580,8 @@ export default {
     contactsDescription: 'Stay engaged with contacts in your community.',
     surveysHeader: 'Grow Together',
     surveysDescription: 'Learn about one another through survey responses.',
+    stepsHeader: 'Steps of Faith',
+    stepsDescription: 'Choose a person in People view to add a new step',
   },
   groupsMembers: {
     invite: 'Send Invite',

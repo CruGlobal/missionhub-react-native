@@ -207,8 +207,8 @@ describe('StepsScreen', () => {
         }).backgroundColor;
     };
 
-    it('Starts with white background', () => {
-      expect(getBackgroundColor(component)).toBe(theme.white);
+    it('Starts with extraLightGrey background', () => {
+      expect(getBackgroundColor(component)).toBe(theme.extraLightGrey);
     });
 
     it('Background is blue when overscrolling up', () => {
@@ -223,7 +223,7 @@ describe('StepsScreen', () => {
       expect(getBackgroundColor(component)).toBe(theme.backgroundColor);
     });
 
-    it('Background is white when scrolling back down', () => {
+    it('Background is extraLightGrey when scrolling back down', () => {
       component.instance().handleScroll({
         nativeEvent: {
           contentOffset: { y: -1 },
@@ -240,7 +240,7 @@ describe('StepsScreen', () => {
         },
       });
       component.update();
-      expect(getBackgroundColor(component)).toBe(theme.white);
+      expect(getBackgroundColor(component)).toBe(theme.extraLightGrey);
     });
 
     it('runs handle next', () => {
@@ -358,6 +358,7 @@ describe('StepsScreen', () => {
       const screen = createComponent(baseProps);
       const listItem = screen
         .childAt(2)
+        .childAt(1)
         .childAt(0)
         .childAt(1)
         .props()

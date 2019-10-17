@@ -44,6 +44,9 @@ import { ACTIONS, STEPS_TAB, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 import TrackTabChange from '../TrackTabChange';
+import OnboardingCard, {
+  GROUP_ONBOARDING_TYPES,
+} from '../../containers/Groups/OnboardingCard';
 
 import styles from './styles';
 
@@ -271,7 +274,6 @@ export class StepsScreen extends Component {
 
     return (
       <View style={styles.container}>
-        {this.renderFocusPrompt()}
         <ScrollView
           style={[this.handleBackgroundColor()]}
           refreshControl={
@@ -320,7 +322,10 @@ export class StepsScreen extends Component {
           title={t('title').toUpperCase()}
         />
         {steps ? (
-          this.renderSteps()
+          <View style={styles.contentContainer}>
+            <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
+            {this.renderSteps()}
+          </View>
         ) : (
           <View style={styles.contentContainer}>
             <LoadingGuy />

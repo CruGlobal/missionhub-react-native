@@ -1,33 +1,44 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
+import MockDate from 'mockdate';
 
 import { renderWithContext } from '../../../../testUtils';
 
-import StepItem, { StepItemProps } from '..';
+import StepItem from '..';
 
-const date = '2017-12-06T14:24:52Z';
+jest.mock('../../ReminderButton', () => 'ReminderButton');
 const owner = { id: '456' };
 const receiver = { id: '457', full_name: 'Receiver Name' };
+const mockDate = '2019-10-17 12:00:00 PM GMT+0';
+MockDate.set(mockDate);
 
 const mockStep = {
   id: '1',
   title: 'Test Step',
-  accepted_at: date,
-  completed_at: date,
-  created_at: date,
-  updated_at: date,
-  notified_at: date,
+  accepted_at: mockDate,
+  completed_at: mockDate,
+  created_at: mockDate,
+  updated_at: mockDate,
+  notified_at: mockDate,
   note: 'Note',
   owner,
   receiver,
 };
-
+const stepId = '1';
+const reminderId = '11';
+const reminder = { id: reminderId };
+const stepReminders = {
+  allByStep: {
+    [stepId]: reminder,
+  },
+};
 const initialState = {
   auth: {
     person: {
       id: '1',
     },
   },
+  stepReminders: stepReminders,
 };
 
 it('renders me correctly', () => {
@@ -46,131 +57,34 @@ it('renders not me correctly', () => {
   ).snapshot();
 });
 
-it('renders type swipeable correctly', () => {
-  renderWithContext(<StepItem step={mockStep} type="swipeable" />, {
-    initialState,
-  }).snapshot();
-});
-
-it('renders type contact correctly', () => {
-  renderWithContext(<StepItem step={mockStep} type="contact" />, {
-    initialState,
-  }).snapshot();
-});
-
-it('renders type reminder correctly', () => {
-  renderWithContext(<StepItem step={mockStep} type="reminder" />, {
-    initialState,
-  }).snapshot();
-});
-
-it('renders type action correctly', () => {
-  renderWithContext(
-    <StepItem step={mockStep} type="swipeable" onAction={jest.fn()} />,
-    { initialState },
-  ).snapshot();
-});
-
-it('renders hover for step', () => {
-  const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
-    <StepItem step={mockStep} type="swipeable" onAction={jest.fn()} />,
-    { initialState },
-  );
-  recordSnapshot();
-  fireEvent(getByTestId('StepItemIconButton'), 'onPressIn');
-  diffSnapshot();
-});
-
-describe('step item animations', () => {
-  const props: StepItemProps = {
-    step: mockStep,
-    type: 'swipeable',
-    onAction: jest.fn(),
-  };
-  function getComponent(moreProps = {}) {
-    return renderWithContext(<StepItem {...props} {...moreProps} />, {
+describe('step item methods with no receiver', () => {
+  const mockSelect = jest.fn();
+  const step = { ...mockStep, receiver: undefined };
+  function getComponent() {
+    return renderWithContext(<StepItem step={step} onSelect={mockSelect} />, {
       initialState,
     });
   }
 
-  it('renders animation fade in', () => {
-    const component = getComponent({ hideAction: true });
-    component.recordSnapshot();
-    component.rerender(<StepItem {...props} hideAction={false} />);
-    component.diffSnapshot();
-  });
-  it('renders animation fade out', () => {
-    // Doesn't render animation on first mount, must change props and rerender
-    const component = getComponent({ hideAction: true });
-    component.recordSnapshot();
-    component.rerender(<StepItem {...props} hideAction={false} />);
-    component.rerender(<StepItem {...props} hideAction={true} />);
-    component.diffSnapshot();
-  });
-  it('renders no animation', () => {
-    getComponent({ hideAction: false }).snapshot();
-  });
-  it('changes animation to fade out', () => {
-    const component = getComponent({ hideAction: false });
-    component.recordSnapshot();
-    component.rerender(<StepItem {...props} hideAction={true} />);
-    component.diffSnapshot();
-  });
-});
-
-describe('step item methods with no receiver', () => {
-  const mockSelect = jest.fn();
-  const mockAction = jest.fn();
-  const step = { ...mockStep, receiver: undefined };
-  function getComponent() {
-    return renderWithContext(
-      <StepItem
-        step={step}
-        onSelect={mockSelect}
-        type="swipeable"
-        onAction={mockAction}
-      />,
-      { initialState },
-    );
-  }
-
   it('handles select', () => {
     const { getByTestId } = getComponent();
-    fireEvent.press(getByTestId('StepItemButton'));
+    fireEvent.press(getByTestId('StepItemCard'));
     expect(mockSelect).toHaveBeenCalledTimes(0);
-  });
-
-  it('handles action press', () => {
-    const { getByTestId } = getComponent();
-    fireEvent.press(getByTestId('StepItemIconButton'));
-    expect(mockAction).toHaveBeenCalledWith(step);
   });
 });
 
 describe('step item methods receiver', () => {
   const mockSelect = jest.fn();
-  const mockAction = jest.fn();
   function getComponent() {
     return renderWithContext(
-      <StepItem
-        step={mockStep}
-        onSelect={mockSelect}
-        type="swipeable"
-        onAction={mockAction}
-      />,
+      <StepItem step={mockStep} onSelect={mockSelect} />,
       { initialState },
     );
   }
 
   it('handles select', () => {
     const { getByTestId } = getComponent();
-    fireEvent.press(getByTestId('StepItemButton'));
+    fireEvent.press(getByTestId('StepItemCard'));
     expect(mockSelect).toHaveBeenCalledWith(mockStep);
-  });
-
-  it('handles action press', () => {
-    const { getByTestId } = getComponent();
-    fireEvent.press(getByTestId('StepItemIconButton'));
-    expect(mockAction).toHaveBeenCalledWith(mockStep);
   });
 });
