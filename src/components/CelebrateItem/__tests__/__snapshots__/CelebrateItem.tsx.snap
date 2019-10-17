@@ -83,7 +83,7 @@ exports[`CelebrateItem renders event with card style 1`] = `
               ]
             }
           >
-            JOHN SMITH
+            John Smith
           </Text>
           <Text
             style={
@@ -314,7 +314,7 @@ exports[`CelebrateItem renders event with fixed height 1`] = `
               ]
             }
           >
-            JOHN SMITH
+            John Smith
           </Text>
           <Text
             style={
@@ -576,7 +576,7 @@ exports[`CelebrateItem renders event with name pressable 1`] = `
                   ]
                 }
               >
-                JOHN SMITH
+                John Smith
               </Text>
             </View>
           </View>
@@ -809,7 +809,7 @@ exports[`clear notification button renders clear notification button 1`] = `
               ]
             }
           >
-            JOHN SMITH
+            John Smith
           </Text>
           <Text
             style={

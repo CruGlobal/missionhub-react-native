@@ -222,7 +222,7 @@ describe('item selected', () => {
       { initialState: mockState },
     );
 
-    fireEvent.press(getByText('JOHN DOE'));
+    fireEvent.press(getByText('John Doe'));
 
     expect(onSelect).toHaveBeenCalledWith(mockPerson, mockOrganization);
   });
