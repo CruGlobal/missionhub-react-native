@@ -120,62 +120,58 @@ describe('useLogoutOnBack', () => {
   });
 
   describe('logoutOnBack value changes', () => {
-    describe('logoutOnBack starts false, then true', () => {
-      it('first callback calls navigateBack, then logout', async () => {
-        const { result, rerender } = renderHook(
-          ({ enableBackButton, logoutOnBack }) =>
-            useLogoutOnBack(enableBackButton, logoutOnBack),
-          {
-            initialProps: { enableBackButton: true, logoutOnBack: false },
-          },
-        );
-        result.current && (await result.current());
+    it('first callback calls navigateBack, then logout', async () => {
+      const { result, rerender } = renderHook(
+        ({ enableBackButton, logoutOnBack }) =>
+          useLogoutOnBack(enableBackButton, logoutOnBack),
+        {
+          initialProps: { enableBackButton: true, logoutOnBack: false },
+        },
+      );
+      result.current && (await result.current());
 
-        expect(prompt).not.toHaveBeenCalled();
-        expect(logout).not.toHaveBeenCalled();
-        expect(navigateBack).toHaveBeenCalledWith();
+      expect(prompt).not.toHaveBeenCalled();
+      expect(logout).not.toHaveBeenCalled();
+      expect(navigateBack).toHaveBeenCalledWith();
 
-        jest.clearAllMocks();
-        rerender({ enableBackButton: true, logoutOnBack: true });
-        result.current && (await result.current());
+      jest.clearAllMocks();
+      rerender({ enableBackButton: true, logoutOnBack: true });
+      result.current && (await result.current());
 
-        expect(prompt).toHaveBeenCalledWith({
-          title: i18n.t('goBackAlert:title'),
-          description: i18n.t('goBackAlert:description'),
-          actionLabel: i18n.t('goBackAlert:action'),
-        });
-        expect(logout).toHaveBeenCalledWith();
-        expect(navigateBack).not.toHaveBeenCalled();
+      expect(prompt).toHaveBeenCalledWith({
+        title: i18n.t('goBackAlert:title'),
+        description: i18n.t('goBackAlert:description'),
+        actionLabel: i18n.t('goBackAlert:action'),
       });
+      expect(logout).toHaveBeenCalledWith();
+      expect(navigateBack).not.toHaveBeenCalled();
     });
 
-    describe('logoutOnBack starts true, then false', () => {
-      it('first callback calls navigateBack, then logout', async () => {
-        const { result, rerender } = renderHook(
-          ({ enableBackButton, logoutOnBack }) =>
-            useLogoutOnBack(enableBackButton, logoutOnBack),
-          {
-            initialProps: { enableBackButton: true, logoutOnBack: true },
-          },
-        );
-        result.current && (await result.current());
+    it('first callback calls navigateBack, then logout', async () => {
+      const { result, rerender } = renderHook(
+        ({ enableBackButton, logoutOnBack }) =>
+          useLogoutOnBack(enableBackButton, logoutOnBack),
+        {
+          initialProps: { enableBackButton: true, logoutOnBack: true },
+        },
+      );
+      result.current && (await result.current());
 
-        expect(prompt).toHaveBeenCalledWith({
-          title: i18n.t('goBackAlert:title'),
-          description: i18n.t('goBackAlert:description'),
-          actionLabel: i18n.t('goBackAlert:action'),
-        });
-        expect(logout).toHaveBeenCalledWith();
-        expect(navigateBack).not.toHaveBeenCalled();
-
-        jest.clearAllMocks();
-        rerender({ enableBackButton: true, logoutOnBack: false });
-        result.current && (await result.current());
-
-        expect(prompt).not.toHaveBeenCalled();
-        expect(logout).not.toHaveBeenCalled();
-        expect(navigateBack).toHaveBeenCalledWith();
+      expect(prompt).toHaveBeenCalledWith({
+        title: i18n.t('goBackAlert:title'),
+        description: i18n.t('goBackAlert:description'),
+        actionLabel: i18n.t('goBackAlert:action'),
       });
+      expect(logout).toHaveBeenCalledWith();
+      expect(navigateBack).not.toHaveBeenCalled();
+
+      jest.clearAllMocks();
+      rerender({ enableBackButton: true, logoutOnBack: false });
+      result.current && (await result.current());
+
+      expect(prompt).not.toHaveBeenCalled();
+      expect(logout).not.toHaveBeenCalled();
+      expect(navigateBack).toHaveBeenCalledWith();
     });
   });
 });

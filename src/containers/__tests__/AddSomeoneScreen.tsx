@@ -80,12 +80,12 @@ describe('onBack prop', () => {
   });
 
   describe('logoutOnBack', () => {
-    it('calls callback from useLogoutOnBack', async () => {
+    it('calls callback from useLogoutOnBack', () => {
       const { getByTestId } = renderWithContext(
         <AddSomeoneScreen next={next} logoutOnBack={true} />,
       );
 
-      await fireEvent.press(getByTestId('BackButton'));
+      fireEvent.press(getByTestId('BackButton'));
 
       expect(useLogoutOnBack).toHaveBeenCalledWith(true, true);
       expect(back).toHaveBeenCalledWith();
