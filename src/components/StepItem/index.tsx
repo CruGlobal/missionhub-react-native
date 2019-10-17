@@ -99,7 +99,7 @@ const StepItem = ({
 
   const isMe = step.receiver && step.receiver.id === myId;
   let ownerName = isMe ? t('me') : step.receiver ? step.receiver.full_name : '';
-  ownerName = (ownerName || '').toUpperCase();
+  ownerName = ownerName || '';
   return (
     <Touchable
       testID="StepItemButton"
