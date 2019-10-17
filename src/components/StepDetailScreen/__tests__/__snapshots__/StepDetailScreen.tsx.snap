@@ -364,6 +364,11 @@ exports[`markdown is not null renders correctly 1`] = `
     }
   >
     <RCTScrollView
+      contentContainerStyle={
+        Object {
+          "paddingBottom": 32,
+        }
+      }
       style={
         Object {
           "paddingBottom": 14,
@@ -830,5 +835,232 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
       }
     }
   />
+</RCTSafeAreaView>
+`;
+
+exports[`markdown with <<name>> to change renders correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "height": 56,
+          "paddingTop": 0,
+        },
+        undefined,
+        null,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "paddingLeft": 5,
+          },
+          Object {
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {
+                        "color": "#A0A2A6",
+                      },
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "center",
+            "flex": 5,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View />
+    </View>
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Light",
+          "fontSize": 32,
+          "fontWeight": "300",
+          "lineHeight": 38,
+          "marginHorizontal": 32,
+          "marginVertical": 16,
+        },
+      ]
+    }
+  >
+    Roge is well behaved
+  </Text>
+  <Text>
+    Center content
+  </Text>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Object {
+          "paddingBottom": 32,
+        }
+      }
+      style={
+        Object {
+          "paddingBottom": 14,
+          "paddingHorizontal": 32,
+          "paddingTop": 26,
+        }
+      }
+    >
+      <View>
+        <View
+          style={Object {}}
+        >
+          <View
+            style={
+              Object {
+                "marginVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                }
+              }
+            >
+              <Text>
+                Christian Christian Christian
+              </Text>
+            </Text>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
 </RCTSafeAreaView>
 `;
