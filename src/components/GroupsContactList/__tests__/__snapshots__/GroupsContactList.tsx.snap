@@ -43,7 +43,7 @@ exports[`renders activity list 1`] = `
         ]
       }
     >
-      FULL NAME
+      Full Name
     </Text>
     <View
       accessible={true}
@@ -941,7 +941,7 @@ exports[`renders empty list 1`] = `
         ]
       }
     >
-      FULL NAME
+      Full Name
     </Text>
     <View
       accessible={true}
@@ -1129,7 +1129,7 @@ exports[`renders person without full name 1`] = `
         ]
       }
     >
-      FIRST LAST
+      First Last
     </Text>
     <View
       accessible={true}
@@ -2027,7 +2027,7 @@ exports[`renders person without last name 1`] = `
         ]
       }
     >
-      FIRST
+      First
     </Text>
     <View
       accessible={true}
