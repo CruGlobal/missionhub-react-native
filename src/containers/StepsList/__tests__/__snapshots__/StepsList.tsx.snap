@@ -5,7 +5,7 @@ exports[`for another person with steps loadMore should show more steps and hide 
 - First value
 + Second value
 
-@@ -81,17 +81,11 @@
+@@ -85,17 +85,11 @@
       >
         
       </Text>
@@ -24,7 +24,7 @@ exports[`for another person with steps loadMore should show more steps and hide 
           Object {
             \\"body\\": \\"Step with Bill\\",
             \\"description_markdown\\": \\"\\",
-@@ -110,10 +104,20 @@
+@@ -114,10 +108,20 @@
           Object {
             \\"body\\": \\"Step with Bill\\",
             \\"description_markdown\\": \\"\\",
@@ -45,7 +45,7 @@ exports[`for another person with steps loadMore should show more steps and hide 
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -372,16 +376,128 @@
+@@ -376,16 +380,128 @@
               Step with Bill
             </Text>
           </View>
@@ -185,35 +185,39 @@ exports[`for another person with steps loadMore should show more steps and hide 
 exports[`for another person with steps renders correctly 1`] = `
 Array [
   <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#ffffff",
-          "borderRadius": 8,
-          "elevation": 4,
-          "flexDirection": "row",
-          "marginHorizontal": 16,
-          "marginVertical": 8,
-          "shadowColor": "#000000",
-          "shadowOffset": Object {
-            "height": 2,
-            "width": 0,
-          },
-          "shadowOpacity": 0.3,
-          "shadowRadius": 2,
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
+        "elevation": 4,
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginBottom": 4,
+        "marginHorizontal": 20,
+        "marginTop": 16,
+        "marginVertical": 8,
+        "opacity": 1,
+        "padding": 16,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
         },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-          "marginBottom": 4,
-          "marginHorizontal": 20,
-          "marginTop": 16,
-          "padding": 16,
-        },
-      ]
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      }
     }
   >
     <Text
@@ -575,35 +579,39 @@ Array [
 exports[`for another person without steps renders correctly 1`] = `
 Array [
   <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#ffffff",
-          "borderRadius": 8,
-          "elevation": 4,
-          "flexDirection": "row",
-          "marginHorizontal": 16,
-          "marginVertical": 8,
-          "shadowColor": "#000000",
-          "shadowOffset": Object {
-            "height": 2,
-            "width": 0,
-          },
-          "shadowOpacity": 0.3,
-          "shadowRadius": 2,
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
+        "elevation": 4,
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginBottom": 4,
+        "marginHorizontal": 20,
+        "marginTop": 16,
+        "marginVertical": 8,
+        "opacity": 1,
+        "padding": 16,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
         },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-          "marginBottom": 4,
-          "marginHorizontal": 20,
-          "marginTop": 16,
-          "padding": 16,
-        },
-      ]
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      }
     }
   >
     <Text
@@ -700,7 +708,7 @@ exports[`for me with steps loadMore should show more steps and hide button 1`] =
 - First value
 + Second value
 
-@@ -81,17 +81,11 @@
+@@ -85,17 +85,11 @@
       >
         
       </Text>
@@ -719,7 +727,7 @@ exports[`for me with steps loadMore should show more steps and hide button 1`] =
           Object {
             \\"body\\": \\"Step for me\\",
             \\"id\\": \\"1\\",
-@@ -106,10 +100,18 @@
+@@ -110,10 +104,18 @@
           },
           Object {
             \\"body\\": \\"Step for me\\",
@@ -738,7 +746,7 @@ exports[`for me with steps loadMore should show more steps and hide button 1`] =
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -368,16 +370,128 @@
+@@ -372,16 +374,128 @@
               Step for me
             </Text>
           </View>
@@ -878,35 +886,39 @@ exports[`for me with steps loadMore should show more steps and hide button 1`] =
 exports[`for me with steps renders correctly 1`] = `
 Array [
   <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#ffffff",
-          "borderRadius": 8,
-          "elevation": 4,
-          "flexDirection": "row",
-          "marginHorizontal": 16,
-          "marginVertical": 8,
-          "shadowColor": "#000000",
-          "shadowOffset": Object {
-            "height": 2,
-            "width": 0,
-          },
-          "shadowOpacity": 0.3,
-          "shadowRadius": 2,
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
+        "elevation": 4,
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginBottom": 4,
+        "marginHorizontal": 20,
+        "marginTop": 16,
+        "marginVertical": 8,
+        "opacity": 1,
+        "padding": 16,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
         },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-          "marginBottom": 4,
-          "marginHorizontal": 20,
-          "marginTop": 16,
-          "padding": 16,
-        },
-      ]
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      }
     }
   >
     <Text
@@ -1264,35 +1276,39 @@ Array [
 exports[`for me without steps renders correctly 1`] = `
 Array [
   <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#ffffff",
-          "borderRadius": 8,
-          "elevation": 4,
-          "flexDirection": "row",
-          "marginHorizontal": 16,
-          "marginVertical": 8,
-          "shadowColor": "#000000",
-          "shadowOffset": Object {
-            "height": 2,
-            "width": 0,
-          },
-          "shadowOpacity": 0.3,
-          "shadowRadius": 2,
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
+        "elevation": 4,
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginBottom": 4,
+        "marginHorizontal": 20,
+        "marginTop": 16,
+        "marginVertical": 8,
+        "opacity": 1,
+        "padding": 16,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
         },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-          "marginBottom": 4,
-          "marginHorizontal": 20,
-          "marginTop": 16,
-          "padding": 16,
-        },
-      ]
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      }
     }
   >
     <Text
