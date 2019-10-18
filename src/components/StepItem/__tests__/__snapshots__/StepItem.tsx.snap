@@ -63,7 +63,7 @@ exports[`renders not me correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "alignSelf": "flex-start",
+            "alignSelf": "center",
             "opacity": 1,
           }
         }
@@ -250,7 +250,7 @@ exports[`renders with pressable name correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "alignSelf": "flex-start",
+            "alignSelf": "center",
             "opacity": 1,
           }
         }

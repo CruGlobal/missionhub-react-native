@@ -49,7 +49,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
   },
   nameWrap: {
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
   },
   description: {
     fontSize: 14,
