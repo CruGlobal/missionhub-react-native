@@ -58,12 +58,6 @@ export const PeopleScreen = ({
     dispatch(navigatePush(SEARCH_SCREEN));
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleRowSelect = (person: any, org: any) => {
-    const organization = org && org.id !== 'personal' ? org : undefined;
-    dispatch(navToPersonScreen(person, organization));
-  };
-
   const handleRefresh = () => {
     dispatch(checkForUnreadComments());
     return dispatch(getMyPeople());
@@ -106,7 +100,6 @@ export const PeopleScreen = ({
         testID="peopleList"
         sections={isJean}
         items={items}
-        onSelect={handleRowSelect}
         onAddContact={handleAddContact}
         onRefresh={refresh}
         refreshing={isRefreshing}

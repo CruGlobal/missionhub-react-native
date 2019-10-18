@@ -14,6 +14,7 @@ export default StyleSheet.create({
     height: 32,
   },
   textWrapper: {
+    flex: 1,
     paddingLeft: 10,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -31,8 +32,29 @@ export default StyleSheet.create({
   uncontacted: {
     color: theme.red,
   },
-  uncontactedIcon: {
-    fontSize: 24,
-    color: theme.red,
+  stepIcon: {
+    color: theme.secondaryColor,
+  },
+  badge: {
+    position: 'absolute',
+    bottom: -3,
+    right: -3,
+    backgroundColor: theme.red,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  badgeText: {
+    fontSize: 13,
+    fontWeight: 'bold',
+    color: theme.white,
+  },
+  stepPlusIcon: {
+    position: 'absolute',
+    bottom: -3,
+    right: -3,
+    color: theme.secondaryColor,
   },
 });

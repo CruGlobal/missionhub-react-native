@@ -10,11 +10,21 @@ import FORGIVEN from '../../../assets/images/forgivenIcon.png';
 import GROWING from '../../../assets/images/growingIcon.png';
 import GUIDING from '../../../assets/images/guidingIcon.png';
 import NOTSURE from '../../../assets/images/notsureIcon.png';
-import { Flex, Text, Touchable, Icon, Card } from '../../components/common';
+import { Text, Touchable, Icon, Card } from '../../components/common';
+import { navToPersonScreen } from '../../actions/person';
 import { navigatePush } from '../../actions/navigation';
-import { hasOrgPermissions, orgIsCru } from '../../utils/common';
+import {
+  hasOrgPermissions,
+  orgIsCru,
+  buildTrackingObj,
+  getAnalyticsSubsection,
+} from '../../utils/common';
 import ItemHeaderText from '../../components/ItemHeaderText';
-import { SELECT_PERSON_STAGE_FLOW } from '../../routes/constants';
+import {
+  SELECT_PERSON_STAGE_FLOW,
+  ADD_MY_STEP_FLOW,
+  ADD_PERSON_STEP_FLOW,
+} from '../../routes/constants';
 
 import styles from './styles';
 
@@ -25,7 +35,6 @@ interface PersonItemProps {
   organization?: { [key: string]: any };
   me: PersonAttributes;
   stagesObj: any;
-  onSelect: (person: PersonAttributes, org?: any) => void;
   dispatch: ThunkDispatch<any, null, never>;
 }
 
@@ -34,7 +43,6 @@ const PersonItem = ({
   organization,
   me,
   stagesObj,
-  onSelect,
   dispatch,
 }: PersonItemProps) => {
   const { t } = useTranslation();
@@ -46,8 +54,6 @@ const PersonItem = ({
     contactAssignments.find(
       (a: any) => a.assigned_to && a.assigned_to.id === me.id,
     ) || {};
-
-  const handleSelect = () => onSelect(person, organization);
 
   const newPerson = isMe ? me : person;
   const personName = isMe ? t('me') : newPerson.full_name || '';
@@ -72,6 +78,15 @@ const PersonItem = ({
 
   const isUncontacted = status === 'uncontacted';
 
+  const handleSelect = () => {
+    dispatch(
+      navToPersonScreen(
+        person,
+        organization && !isPersonal ? organization : undefined,
+      ),
+    );
+  };
+
   const handleChangeStage = () => {
     dispatch(
       navigatePush(SELECT_PERSON_STAGE_FLOW, {
@@ -82,6 +97,42 @@ const PersonItem = ({
         selectedStageId: stage && stage.id - 1,
       }),
     );
+  };
+
+  const handleAddStep = () => {
+    const subsection = getAnalyticsSubsection(person.id, me.id);
+    const trackingParams = {
+      trackingObj: buildTrackingObj(
+        'people : person : steps : add',
+        'people',
+        'person',
+        'steps',
+      ),
+    };
+
+    if (isMe) {
+      dispatch(
+        navigatePush(ADD_MY_STEP_FLOW, {
+          ...trackingParams,
+          organization,
+        }),
+      );
+    } else {
+      dispatch(
+        navigatePush(ADD_PERSON_STEP_FLOW, {
+          ...trackingParams,
+          contactName: person.first_name,
+          contactId: person.id,
+          organization,
+          createStepTracking: buildTrackingObj(
+            `people : ${subsection} : steps : create`,
+            'people',
+            subsection,
+            'steps',
+          ),
+        }),
+      );
+    }
   };
 
   const renderStageIcon = () => {
@@ -122,10 +173,42 @@ const PersonItem = ({
     );
   };
 
+  const renderStepIcon = () => {
+    //TODO: get count of steps for each contact
+    const stepsCount = Math.round(Math.random());
+
+    return (
+      <Touchable
+        style={{ alignItems: 'center', justifyContent: 'center' }}
+        onPress={handleAddStep}
+      >
+        <Icon
+          type="MissionHub"
+          name="stepsIcon"
+          size={30}
+          style={styles.stepIcon}
+        />
+        {stepsCount > 0 ? (
+          <View style={styles.badge}>
+            <Text style={styles.badgeText}>{stepsCount}</Text>
+          </View>
+        ) : (
+          <Icon
+            type="MissionHub"
+            name="plusIcon"
+            size={14}
+            style={styles.stepPlusIcon}
+          />
+        )}
+      </Touchable>
+    );
+  };
+
   return (
     <Card onPress={handleSelect} style={styles.card}>
       {renderStageIcon()}
       {renderNameAndStage()}
+      {renderStepIcon()}
     </Card>
   );
 };
