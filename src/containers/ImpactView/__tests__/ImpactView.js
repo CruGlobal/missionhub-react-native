@@ -53,64 +53,6 @@ const globalImpact = {
   step_owners_count: 200,
   pathway_moved_count: 50,
 };
-const interactions = {
-  P1W: [
-    {
-      id: '100',
-      requestFieldName: 'contact_count',
-      iconName: 'peopleIcon',
-      translationKey: 'interactionAssignedContacts',
-      num: 1,
-    },
-    {
-      id: '101',
-      requestFieldName: 'uncontacted_count',
-      iconName: 'uncontactedIcon',
-      translationKey: 'interactionUncontacted',
-      num: 0,
-    },
-    {
-      id: '2',
-      iconName: 'spiritualConversationIcon',
-      translationKey: 'interactionSpiritualConversation',
-      isOnAction: true,
-      tracking: 'cru.initiatinggospelconversations',
-      num: 0,
-    },
-    {
-      id: '3',
-      iconName: 'gospelIcon',
-      translationKey: 'interactionGospel',
-      isOnAction: true,
-      tracking: 'cru.presentingthegospel',
-      num: 0,
-    },
-    {
-      id: '4',
-      iconName: 'decisionIcon',
-      translationKey: 'interactionDecision',
-      isOnAction: true,
-      tracking: 'cru.newprofessingbelievers',
-      num: 0,
-    },
-    {
-      id: '5',
-      iconName: 'spiritIcon',
-      translationKey: 'interactionSpirit',
-      isOnAction: true,
-      tracking: 'cru.presentingtheholyspirit',
-      num: 0,
-    },
-    {
-      id: '9',
-      iconName: 'discipleshipConversationIcon',
-      translationKey: 'interactionDiscipleshipConversation',
-      isOnAction: true,
-      tracking: 'cru.discipleshipconversation',
-      num: 0,
-    },
-  ],
-};
 const globalOrg = {
   id: GLOBAL_COMMUNITY_ID,
   name: 'Global Community',
@@ -136,10 +78,6 @@ const state = {
       [`-${cruOrgId}`]: cruOrgImpact,
       [`-${userCreatedOrgId}`]: userCreatedOrgImpact,
       '-': globalImpact,
-    },
-    interactions: {
-      [`${me.id}-${cruOrgId}`]: interactions,
-      [`${person.id}-${cruOrgId}`]: interactions,
     },
   },
   organizations: {

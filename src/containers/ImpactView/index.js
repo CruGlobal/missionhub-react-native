@@ -6,65 +6,24 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
-import {
-  getPeopleInteractionsReport,
-  getImpactSummary,
-} from '../../actions/impact';
-import { Flex, Text, Button, Icon } from '../../components/common';
-import { INTERACTION_TYPES, GLOBAL_COMMUNITY_ID } from '../../constants';
-import {
-  impactInteractionsSelector,
-  impactSummarySelector,
-} from '../../selectors/impact';
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
+import { getImpactSummary } from '../../actions/impact';
+import { Flex, Text } from '../../components/common';
+import { impactSummarySelector } from '../../selectors/impact';
 import { organizationSelector } from '../../selectors/organizations';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
-import { orgIsPersonalMinistry } from '../../utils/common';
 
 import styles from './styles';
 
-const reportPeriods = [
-  {
-    id: 1,
-    text: '1w',
-    period: 'P1W',
-  },
-  {
-    id: 2,
-    text: '1m',
-    period: 'P1M',
-  },
-  {
-    id: 3,
-    text: '3m',
-    period: 'P3M',
-  },
-  {
-    id: 4,
-    text: '6m',
-    period: 'P6M',
-  },
-  {
-    id: 5,
-    text: '1y',
-    period: 'P1Y',
-  },
-];
-
 @withTranslation('impact')
 export class ImpactView extends Component {
-  state = {
-    period: 'P1W',
-  };
-
   componentDidMount() {
     const {
       dispatch,
       person = {},
       organization,
-      isPersonalMinistryMe,
-      isUserCreatedOrg,
       myId,
       isGlobalCommunity,
     } = this.props;
@@ -77,30 +36,8 @@ export class ImpactView extends Component {
         person.id || isGlobalCommunity ? undefined : organization.id,
       ),
     );
-    if (isPersonalMinistryMe || isUserCreatedOrg) {
-      dispatch(getImpactSummary()); // Get global impact by calling without person or org
-    } else {
-      this.getInteractionReport();
-    }
+    dispatch(getImpactSummary()); // Get global impact by calling without person or org
   }
-
-  getInteractionReport() {
-    const { dispatch, person = {}, organization } = this.props;
-
-    dispatch(
-      getPeopleInteractionsReport(
-        person.id,
-        organization.id,
-        this.state.period,
-      ),
-    );
-  }
-
-  handleChangePeriod = period => {
-    this.setState({ period }, () => {
-      this.getInteractionReport();
-    });
-  };
 
   buildImpactSentence(
     {
@@ -164,80 +101,8 @@ export class ImpactView extends Component {
     }`;
   }
 
-  renderContactReport() {
-    const { t, interactions } = this.props;
-
-    const interactionsReport =
-      interactions[this.state.period] ||
-      Object.values(INTERACTION_TYPES).filter(type => !type.hideReport);
-
-    return (
-      <Flex style={styles.interactionsWrap} direction="column">
-        <Flex
-          style={{ paddingBottom: 30 }}
-          align="center"
-          justify="center"
-          direction="row"
-        >
-          {reportPeriods.map(p => {
-            return (
-              <Button
-                key={p.id}
-                text={p.text}
-                pressProps={[p.period]}
-                onPress={this.handleChangePeriod}
-                style={
-                  this.state.period === p.period
-                    ? styles.activeButton
-                    : styles.periodButton
-                }
-                buttonTextStyle={styles.buttonText}
-              />
-            );
-          })}
-        </Flex>
-        {interactionsReport.map(i => {
-          return (
-            <Flex
-              align="center"
-              style={styles.interactionRow}
-              key={i.id}
-              direction="row"
-            >
-              <Flex value={1}>
-                <Icon type="MissionHub" style={styles.icon} name={i.iconName} />
-              </Flex>
-              <Flex value={4}>
-                <Text style={styles.interactionText}>
-                  {t(i.translationKey)}
-                </Text>
-              </Flex>
-              <Flex value={1} justify="center" align="end">
-                <Text style={styles.interactionNumber}>{i.num || '-'}</Text>
-              </Flex>
-            </Flex>
-          );
-        })}
-      </Flex>
-    );
-  }
-
   render() {
-    const {
-      globalImpact,
-      impact,
-      isPersonalMinistryMe,
-      isUserCreatedOrg,
-      isOrgImpact,
-      organization,
-      isGlobalCommunity,
-    } = this.props;
-
-    const showGlobalImpact =
-      isPersonalMinistryMe ||
-      (isUserCreatedOrg && isOrgImpact) ||
-      isGlobalCommunity;
-    const showInteractionReport = !isPersonalMinistryMe && !isUserCreatedOrg;
+    const { globalImpact, impact, organization } = this.props;
 
     return (
       <ScrollView style={styles.container} bounces={false}>
@@ -251,18 +116,10 @@ export class ImpactView extends Component {
           style={styles.image}
           source={require('../../../assets/images/impactBackground.png')}
         />
-        <Flex
-          style={
-            showGlobalImpact ? styles.bottomSection : styles.interactionSection
-          }
-        >
-          {showGlobalImpact ? (
-            <Text style={styles.text}>
-              {this.buildImpactSentence(globalImpact, true)}
-            </Text>
-          ) : showInteractionReport ? (
-            this.renderContactReport()
-          ) : null}
+        <Flex style={styles.bottomSection}>
+          <Text style={styles.text}>
+            {this.buildImpactSentence(globalImpact, true)}
+          </Text>
         </Flex>
       </ScrollView>
     );
@@ -287,9 +144,7 @@ export const mapStateToProps = (
 
   return {
     isMe,
-    isPersonalMinistryMe: isMe && orgIsPersonalMinistry(organization),
     isOrgImpact: !personId,
-    isUserCreatedOrg: organization.user_created,
     // Impact summary isn't scoped by org unless showing org summary. See above comment
     impact: impactSummarySelector(
       { impact },
@@ -297,10 +152,6 @@ export const mapStateToProps = (
         person: isGlobalCommunity ? { id: myId } : person,
         organization: personId || isGlobalCommunity ? undefined : organization,
       },
-    ),
-    interactions: impactInteractionsSelector(
-      { impact },
-      { person, organization },
     ),
     globalImpact: impactSummarySelector({ impact }),
     isGlobalCommunity,
