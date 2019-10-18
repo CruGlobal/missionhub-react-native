@@ -665,65 +665,79 @@ exports[`with enableSkipButton renders correctly 1`] = `
     </View>
   </View>
   <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "opacity": 1,
+        "alignItems": "center",
+        "flex": 0,
+        "width": 750,
       }
     }
-    testID="bottomButton"
   >
     <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#52C5DC",
-            "height": 60,
-            "justifyContent": "center",
-          },
-          null,
-          Object {
-            "width": 750,
-          },
-          null,
-        ]
+        Object {
+          "opacity": 1,
+        }
       }
+      testID="bottomButton"
     >
-      <Text
+      <View
         style={
           Array [
             Object {
-              "color": "#505256",
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "height": 48,
+              "marginBottom": 20,
+              "width": 650,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "borderRadius": 50,
             },
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#ffffff",
-                "fontSize": 18,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "textAlign": "center",
-              },
-              Object {},
-            ],
           ]
         }
       >
-        CREATE YOUR OWN STEP
-      </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          CREATE YOUR OWN STEP
+        </Text>
+      </View>
     </View>
   </View>
 </RCTSafeAreaView>
@@ -1258,65 +1272,79 @@ exports[`without enableSkipButton renders correctly 1`] = `
     </View>
   </View>
   <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "opacity": 1,
+        "alignItems": "center",
+        "flex": 0,
+        "width": 750,
       }
     }
-    testID="bottomButton"
   >
     <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#52C5DC",
-            "height": 60,
-            "justifyContent": "center",
-          },
-          null,
-          Object {
-            "width": 750,
-          },
-          null,
-        ]
+        Object {
+          "opacity": 1,
+        }
       }
+      testID="bottomButton"
     >
-      <Text
+      <View
         style={
           Array [
             Object {
-              "color": "#505256",
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "height": 48,
+              "marginBottom": 20,
+              "width": 650,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "borderRadius": 50,
             },
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#ffffff",
-                "fontSize": 18,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "textAlign": "center",
-              },
-              Object {},
-            ],
           ]
         }
       >
-        CREATE YOUR OWN STEP
-      </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          CREATE YOUR OWN STEP
+        </Text>
+      </View>
     </View>
   </View>
 </RCTSafeAreaView>

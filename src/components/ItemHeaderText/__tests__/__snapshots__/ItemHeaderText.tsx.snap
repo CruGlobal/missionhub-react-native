@@ -23,6 +23,6 @@ exports[`renders correctly 1`] = `
     ]
   }
 >
-  ROGE GOERS
+  Roge Goers
 </Text>
 `;

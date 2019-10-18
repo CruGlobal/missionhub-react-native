@@ -84,7 +84,7 @@ exports[`renders not me correctly 1`] = `
             ]
           }
         >
-          RECEIVER NAME
+          Receiver Name
         </Text>
       </View>
       <Text
@@ -179,7 +179,7 @@ exports[`renders type action correctly 1`] = `
             ]
           }
         >
-          RECEIVER NAME
+          Receiver Name
         </Text>
       </View>
       <Text
@@ -410,7 +410,7 @@ exports[`renders type reminder correctly 1`] = `
             ]
           }
         >
-          RECEIVER NAME
+          Receiver Name
         </Text>
       </View>
       <Text
@@ -901,7 +901,7 @@ exports[`step item animations renders no animation 1`] = `
             ]
           }
         >
-          RECEIVER NAME
+          Receiver Name
         </Text>
       </View>
       <Text
