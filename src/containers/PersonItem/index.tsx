@@ -11,6 +11,10 @@ import GROWING from '../../../assets/images/growingIcon.png';
 import GUIDING from '../../../assets/images/guidingIcon.png';
 import NOTSURE from '../../../assets/images/notsureIcon.png';
 import { Text, Touchable, Icon, Card } from '../../components/common';
+import {
+  navigateToStageScreen,
+  navigateToAddStepFlow,
+} from '../../actions/misc';
 import { navToPersonScreen } from '../../actions/person';
 import { navigatePush } from '../../actions/navigation';
 import {
@@ -78,66 +82,35 @@ const PersonItem = ({
 
   const isUncontacted = status === 'uncontacted';
 
-  const handleSelect = () => {
+  const handleSelect = () =>
     dispatch(
       navToPersonScreen(
         person,
         organization && !isPersonal ? organization : undefined,
       ),
     );
-  };
 
-  const handleChangeStage = () => {
+  const handleChangeStage = () =>
     dispatch(
-      navigatePush(SELECT_PERSON_STAGE_FLOW, {
-        personId: person.id,
-        section: 'people',
-        subsection: 'person',
-        orgId,
-        selectedStageId: stage && stage.id - 1,
-      }),
-    );
-  };
-
-  const handleAddStep = () => {
-    const subsection = getAnalyticsSubsection(person.id, me.id);
-    const trackingParams = {
-      trackingObj: buildTrackingObj(
-        'people : person : steps : add',
-        'people',
-        'person',
-        'steps',
+      navigateToStageScreen(
+        isMe,
+        person,
+        contactAssignment,
+        organization,
+        stage && stage.id,
       ),
-    };
+    );
 
-    if (isMe) {
-      dispatch(
-        navigatePush(ADD_MY_STEP_FLOW, {
-          ...trackingParams,
-          organization,
-        }),
-      );
-    } else {
-      dispatch(
-        navigatePush(ADD_PERSON_STEP_FLOW, {
-          ...trackingParams,
-          contactName: person.first_name,
-          contactId: person.id,
-          organization,
-          createStepTracking: buildTrackingObj(
-            `people : ${subsection} : steps : create`,
-            'people',
-            subsection,
-            'steps',
-          ),
-        }),
-      );
-    }
-  };
+  const handleAddStep = () =>
+    dispatch(navigateToAddStepFlow(isMe, person, organization));
 
   const renderStageIcon = () => {
     return stage ? (
-      <Touchable style={styles.image} onPress={handleChangeStage}>
+      <Touchable
+        testID="stageIcon"
+        style={styles.image}
+        onPress={handleChangeStage}
+      >
         {stage ? (
           <Image
             style={styles.image}
@@ -156,7 +129,7 @@ const PersonItem = ({
       <View style={styles.textWrapper}>
         <ItemHeaderText text={personName} />
         {
-          <Touchable onPress={handleChangeStage}>
+          <Touchable testID="stageText" onPress={handleChangeStage}>
             <Text style={[styles.stage, stage ? {} : styles.addStage]}>
               {stage ? stage.name : t('peopleScreen:addStage')}
             </Text>
@@ -175,10 +148,11 @@ const PersonItem = ({
 
   const renderStepIcon = () => {
     //TODO: get count of steps for each contact
-    const stepsCount = Math.round(Math.random());
+    const stepsCount = 0;
 
     return (
       <Touchable
+        testId="stepIcon"
         style={{ alignItems: 'center', justifyContent: 'center' }}
         onPress={handleAddStep}
       >
@@ -205,7 +179,7 @@ const PersonItem = ({
   };
 
   return (
-    <Card onPress={handleSelect} style={styles.card}>
+    <Card testID="personCard" onPress={handleSelect} style={styles.card}>
       {renderStageIcon()}
       {renderNameAndStage()}
       {renderStepIcon()}
