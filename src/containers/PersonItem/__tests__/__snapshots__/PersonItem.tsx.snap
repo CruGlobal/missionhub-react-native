@@ -63,7 +63,7 @@ exports[`renders cru org contact correctly 1`] = `
           ]
         }
       >
-        JOHN DOE
+        John Doe
       </Text>
       <View
         style={
@@ -202,7 +202,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
           ]
         }
       >
-        JOHN DOE
+        John Doe
       </Text>
       <View
         style={
@@ -389,7 +389,7 @@ exports[`renders cru org member correctly 1`] = `
           ]
         }
       >
-        JOHN DOE
+        John Doe
       </Text>
       <View
         style={
@@ -524,7 +524,7 @@ exports[`renders me correctly 1`] = `
           ]
         }
       >
-        ME
+        Me
       </Text>
       <View
         style={
@@ -659,7 +659,7 @@ exports[`renders personal ministry contact correctly 1`] = `
           ]
         }
       >
-        JOHN DOE
+        John Doe
       </Text>
       <View
         style={
@@ -794,7 +794,7 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
           ]
         }
       >
-        JOHN DOE
+        John Doe
       </Text>
       <View
         style={

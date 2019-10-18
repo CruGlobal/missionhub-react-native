@@ -11,5 +11,5 @@ interface ItemHeaderText {
 }
 
 export default function ItemHeaderText({ text, style }: ItemHeaderText) {
-  return <Text style={[styles.name, style]}>{text.toUpperCase()}</Text>;
+  return <Text style={[styles.name, style]}>{text}</Text>;
 }

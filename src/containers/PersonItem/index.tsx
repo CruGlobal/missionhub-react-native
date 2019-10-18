@@ -54,7 +54,7 @@ const PersonItem = ({
   };
 
   const newPerson = isMe ? me : person;
-  const personName = (isMe ? t('me') : newPerson.full_name || '').toUpperCase();
+  const personName = isMe ? t('me') : newPerson.full_name || '';
 
   const stage = isMe
     ? (me as any).stage

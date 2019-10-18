@@ -46,8 +46,9 @@ const StepItem = ({ step, onSelect, myId, reminder }: StepItemProps) => {
   };
 
   const isMe = step.receiver && step.receiver.id === myId;
-  let ownerName = isMe ? t('me') : step.receiver ? step.receiver.full_name : '';
-  ownerName = (ownerName || '').toUpperCase();
+  const ownerName = isMe
+    ? t('me')
+    : (step.receiver && step.receiver.full_name) || '';
   const { bellIcon, reminderButton } = styles;
   return (
     <Card testID="StepItemCard" onPress={handleSelect} style={styles.card}>

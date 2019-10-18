@@ -73,7 +73,7 @@ exports[`renders not me correctly 1`] = `
           ]
         }
       >
-        RECEIVER NAME
+        Receiver Name
       </Text>
       <ReminderButton
         stepId="2"
