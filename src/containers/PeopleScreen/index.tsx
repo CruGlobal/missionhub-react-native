@@ -16,7 +16,6 @@ import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
 import { openMainMenu } from '../../utils/common';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
-import { navToPersonScreen } from '../../actions/person';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 import TrackTabChange from '../TrackTabChange';
 import { PEOPLE_TAB } from '../../constants';

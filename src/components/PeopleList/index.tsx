@@ -55,6 +55,7 @@ export default ({
     return (
       <FlatList
         data={items}
+        style={styles.list}
         keyExtractor={keyExtractorId}
         scrollEnabled={!sections}
         renderItem={renderItem(organization)}
