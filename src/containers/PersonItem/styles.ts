@@ -9,15 +9,24 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
     flexDirection: 'row',
   },
+  image: {
+    width: 32,
+    height: 32,
+  },
   textWrapper: {
+    paddingLeft: 10,
     flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'flex-start',
   },
   stage: {
     paddingTop: 6,
     fontSize: 12,
     lineHeight: 14,
     color: theme.inactiveColor,
+  },
+  addStage: {
+    color: theme.secondaryColor,
   },
   uncontacted: {
     color: theme.red,
