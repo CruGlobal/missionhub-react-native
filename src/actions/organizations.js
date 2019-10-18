@@ -470,6 +470,7 @@ export function addNewOrganization(name, imageData) {
       await dispatch(updateOrganizationImage(newOrgId, imageData));
       dispatch(trackActionWithoutData(ACTIONS.ADD_COMMUNITY_PHOTO));
     }
+    await dispatch(getMyOrganizations());
     // After the org is created, update auth person with new org permissions
     dispatch(getMe());
 

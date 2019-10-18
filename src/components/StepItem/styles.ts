@@ -3,13 +3,14 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  row: {
+  contentWrap: {
     paddingVertical: 16,
     paddingLeft: 24,
     paddingRight: 13,
-    width: theme.fullWidth,
     marginTop: 1,
     minHeight: 80,
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   swipeable: {
     backgroundColor: theme.white,
@@ -29,8 +30,19 @@ export default StyleSheet.create({
     borderBottomWidth: theme.separatorHeight,
     borderBottomColor: theme.separatorColor,
   },
+  textWrap: {
+    flex: 1,
+    justifyContent: 'center',
+    flexDirection: 'column',
+  },
+  nameWrap: {
+    alignSelf: 'flex-start',
+  },
   description: {
     fontSize: 14,
+  },
+  iconWrap: {
+    flex: 0,
   },
   icon: {
     padding: 10,

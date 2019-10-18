@@ -5,7 +5,7 @@ exports[`renders hover for step 1`] = `
 - First value
 + Second value
 
-@@ -151,11 +151,11 @@
+@@ -152,11 +152,11 @@
                 },
                 Object {},
               ]
@@ -37,56 +37,56 @@ exports[`renders not me correctly 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
-          "marginTop": 1,
-          "minHeight": 80,
-          "paddingLeft": 24,
-          "paddingRight": 13,
-          "paddingVertical": 16,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
     }
   >
     <View
       style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
       }
     >
-      <Text
+      <View
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#007398",
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-              undefined,
-            ],
-          ]
+          Object {
+            "alignSelf": "flex-start",
+          }
         }
       >
-        Receiver Name
-      </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          Receiver Name
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -132,56 +132,56 @@ exports[`renders type action correctly 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
-          "marginTop": 1,
-          "minHeight": 80,
-          "paddingLeft": 24,
-          "paddingRight": 13,
-          "paddingVertical": 16,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
     }
   >
     <View
       style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
       }
     >
-      <Text
+      <View
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#007398",
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-              undefined,
-            ],
-          ]
+          Object {
+            "alignSelf": "flex-start",
+          }
         }
       >
-        Receiver Name
-      </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          Receiver Name
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -213,6 +213,7 @@ exports[`renders type action correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "flex": 0,
           "opacity": 1,
         }
       }
@@ -296,32 +297,24 @@ exports[`renders type contact correctly 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
-          "marginTop": 1,
-          "minHeight": 80,
-          "paddingLeft": 24,
-          "paddingRight": 13,
-          "paddingVertical": 16,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
     }
   >
     <View
       style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
       }
     >
       <Text
@@ -370,56 +363,56 @@ exports[`renders type reminder correctly 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
-          "marginTop": 1,
-          "minHeight": 80,
-          "paddingLeft": 24,
-          "paddingRight": 13,
-          "paddingVertical": 16,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
     }
   >
     <View
       style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
       }
     >
-      <Text
+      <View
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#007398",
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-              undefined,
-            ],
-          ]
+          Object {
+            "alignSelf": "flex-start",
+          }
         }
       >
-        Receiver Name
-      </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          Receiver Name
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -465,34 +458,56 @@ exports[`renders type swipeable correctly 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
-          "marginTop": 1,
-          "minHeight": 80,
-          "paddingLeft": 24,
-          "paddingRight": 13,
-          "paddingVertical": 16,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
     }
   >
     <View
       style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
       }
     >
+      <View
+        style={
+          Object {
+            "alignSelf": "flex-start",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          Receiver Name
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -502,19 +517,104 @@ exports[`renders type swipeable correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Array [
-              Object {
-                "color": "#007398",
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-              undefined,
-            ],
+            Object {
+              "fontSize": 14,
+            },
           ]
         }
       >
-        Receiver Name
+        Test Step
       </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders with pressable name correctly 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+    }
+  }
+  testID="StepItemButton"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "opacity": 1,
+          }
+        }
+        testID="StepItemPersonButton"
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          Receiver Name
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -542,7 +642,7 @@ exports[`step item animations changes animation to fade out 1`] = `
 - First value
 + Second value
 
-@@ -109,14 +109,14 @@
+@@ -110,14 +110,14 @@
         <View
           style={
             Object {
@@ -566,7 +666,7 @@ exports[`step item animations renders animation fade in 1`] = `
 - First value
 + Second value
 
-@@ -86,7 +86,76 @@
+@@ -86,7 +86,77 @@
           }
         >
           Test Step
@@ -585,6 +685,7 @@ exports[`step item animations renders animation fade in 1`] = `
 +       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
 +       style={
 +         Object {
++           \\"flex\\": 0,
 +           \\"opacity\\": 1,
 +         }
 +       }
@@ -650,7 +751,7 @@ exports[`step item animations renders animation fade out 1`] = `
 - First value
 + Second value
 
-@@ -86,7 +86,76 @@
+@@ -86,7 +86,77 @@
           }
         >
           Test Step
@@ -669,6 +770,7 @@ exports[`step item animations renders animation fade out 1`] = `
 +       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
 +       style={
 +         Object {
++           \\"flex\\": 0,
 +           \\"opacity\\": 1,
 +         }
 +       }
@@ -752,56 +854,56 @@ exports[`step item animations renders no animation 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
-          "marginTop": 1,
-          "minHeight": 80,
-          "paddingLeft": 24,
-          "paddingRight": 13,
-          "paddingVertical": 16,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
     }
   >
     <View
       style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
       }
     >
-      <Text
+      <View
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#007398",
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-              undefined,
-            ],
-          ]
+          Object {
+            "alignSelf": "flex-start",
+          }
         }
       >
-        Receiver Name
-      </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          Receiver Name
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -833,6 +935,7 @@ exports[`step item animations renders no animation 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "flex": 0,
           "opacity": 1,
         }
       }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -31,6 +32,7 @@ export interface StepItemProps {
   step: StepType;
   onSelect?: (step: StepType) => void;
   onAction?: (step: StepType) => void;
+  onPressName?: (step: StepType) => void;
   hideAction?: boolean;
   type?: 'swipeable' | 'contact' | 'reminder';
   myId?: string;
@@ -39,6 +41,7 @@ const StepItem = ({
   step,
   onSelect,
   onAction,
+  onPressName,
   hideAction,
   type,
   myId,
@@ -60,11 +63,35 @@ const StepItem = ({
   };
 
   const handleSelect = () => {
-    if (!step.receiver) {
-      return;
-    } else {
-      onSelect && onSelect(step);
+    step.receiver && onSelect && onSelect(step);
+  };
+
+  const handlePressName = () => {
+    step.receiver && onPressName && onPressName(step);
+  };
+
+  const renderPersonName = () => {
+    if (type === 'contact') {
+      return null;
     }
+
+    if (onPressName) {
+      return (
+        <Touchable
+          testID="StepItemPersonButton"
+          onPress={handlePressName}
+          style={styles.nameWrap}
+        >
+          <ItemHeaderText text={ownerName} />
+        </Touchable>
+      );
+    }
+
+    return (
+      <View style={styles.nameWrap}>
+        <ItemHeaderText text={ownerName} />
+      </View>
+    );
   };
 
   const renderIcon = () => {
@@ -82,6 +109,7 @@ const StepItem = ({
         onPress={handleAction}
         onPressIn={onHover}
         onPressOut={onBlur}
+        style={styles.iconWrap}
       >
         <Flex align="center" justify="center" animation={animation}>
           <Icon
@@ -113,13 +141,13 @@ const StepItem = ({
         lighten: 0.5,
       })}
     >
-      <Flex align="center" direction="row" style={styles.row}>
-        <Flex value={1} justify="center" direction="column">
-          {type === 'contact' ? null : <ItemHeaderText text={ownerName} />}
+      <View style={styles.contentWrap}>
+        <View style={styles.textWrap}>
+          {renderPersonName()}
           <Text style={styles.description}>{step.title}</Text>
-        </Flex>
+        </View>
         {renderIcon()}
-      </Flex>
+      </View>
     </Touchable>
   );
 };
