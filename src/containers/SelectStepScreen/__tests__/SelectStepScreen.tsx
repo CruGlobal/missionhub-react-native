@@ -87,18 +87,3 @@ xdescribe('skip button', () => {
     });
   });
 });
-
-describe('BottomButton', () => {
-  beforeEach(() => {
-    fireEvent.press(screen.getByTestId('bottomButton'));
-  });
-
-  it('navigates to add step screen', () => {
-    expect(next).toHaveBeenCalledWith({
-      receiverId,
-      step: undefined,
-      skip: false,
-      orgId: organization.id,
-    });
-  });
-});

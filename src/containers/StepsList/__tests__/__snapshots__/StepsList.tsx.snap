@@ -5,519 +5,694 @@ exports[`for another person with steps loadMore should show more steps and hide 
 - First value
 + Second value
 
-@@ -1,13 +1,7 @@
-  <RCTScrollView
--   ListFooterComponent={
--     <LoadMore
--       onPress={[Function handleLoadSteps]}
--       testID=\\"loadMore\\"
--       text=\\"SHOW MORE STEPS\\"
--     />
--   }
-+   ListFooterComponent={null}
-    data={
-      Array [
-        Object {
-          \\"body\\": \\"Step with Bill\\",
-          \\"description_markdown\\": \\"\\",
-@@ -26,10 +20,20 @@
-        Object {
-          \\"body\\": \\"Step with Bill\\",
-          \\"description_markdown\\": \\"\\",
-          \\"id\\": \\"10\\",
-        },
-+       Object {
-+         \\"body\\": \\"Step with Bill\\",
-+         \\"description_markdown\\": \\"\\",
-+         \\"id\\": \\"11\\",
-+       },
-+       Object {
-+         \\"body\\": \\"Step with Bill\\",
-+         \\"description_markdown\\": \\"\\",
-+         \\"id\\": \\"12\\",
-+       },
-      ]
-    }
-    disableVirtualization={false}
-    getItem={[Function anonymous]}
-    getItemCount={[Function anonymous]}
-@@ -288,15 +292,127 @@
-            Step with Bill
-          </Text>
-        </View>
-      </View>
-      <View
--       onLayout={[Function anonymous]}
-+       onLayout={[Function onLayout]}
-+       style={null}
-+     >
-+       <View
-+         accessible={true}
-+         clickable={true}
-+         isTVSelectable={true}
-+         onClick={[Function bound touchableHandlePress]}
-+         onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+         onResponderMove={[Function bound touchableHandleResponderMove]}
-+         onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-+         style={
-+           Object {
-+             \\"alignItems\\": \\"center\\",
-+             \\"backgroundColor\\": \\"#ffffff\\",
-+             \\"borderRadius\\": 8,
-+             \\"elevation\\": 4,
-+             \\"flexDirection\\": \\"row\\",
-+             \\"marginHorizontal\\": 20,
-+             \\"marginVertical\\": 4,
-+             \\"opacity\\": 1,
-+             \\"padding\\": 20,
-+             \\"shadowColor\\": \\"#000000\\",
-+             \\"shadowOffset\\": Object {
-+               \\"height\\": 2,
-+               \\"width\\": 0,
-+             },
-+             \\"shadowOpacity\\": 0.3,
-+             \\"shadowRadius\\": 2,
-+           }
-+         }
-+         testID=\\"stepSuggestionCard\\"
-        >
+@@ -81,17 +81,11 @@
+      >
+        
+      </Text>
+    </View>,
+    <RCTScrollView
+-     ListFooterComponent={
 -       <LoadMore
 -         onPress={[Function handleLoadSteps]}
 -         testID=\\"loadMore\\"
 -         text=\\"SHOW MORE STEPS\\"
 -       />
-+         <Text
+-     }
++     ListFooterComponent={null}
+      data={
+        Array [
+          Object {
+            \\"body\\": \\"Step with Bill\\",
+            \\"description_markdown\\": \\"\\",
+@@ -110,10 +104,20 @@
+          Object {
+            \\"body\\": \\"Step with Bill\\",
+            \\"description_markdown\\": \\"\\",
+            \\"id\\": \\"10\\",
+          },
++         Object {
++           \\"body\\": \\"Step with Bill\\",
++           \\"description_markdown\\": \\"\\",
++           \\"id\\": \\"11\\",
++         },
++         Object {
++           \\"body\\": \\"Step with Bill\\",
++           \\"description_markdown\\": \\"\\",
++           \\"id\\": \\"12\\",
++         },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function anonymous]}
+      getItemCount={[Function anonymous]}
+@@ -372,16 +376,128 @@
+              Step with Bill
+            </Text>
+          </View>
+        </View>
+        <View
+-         onLayout={[Function anonymous]}
++         onLayout={[Function onLayout]}
++         style={null}
++       >
++         <View
++           accessible={true}
++           clickable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
 +           style={
-+             Array [
-+               Object {
-+                 \\"color\\": \\"#505256\\",
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#ffffff\\",
++               \\"borderRadius\\": 8,
++               \\"elevation\\": 4,
++               \\"flexDirection\\": \\"row\\",
++               \\"marginHorizontal\\": 20,
++               \\"marginVertical\\": 4,
++               \\"opacity\\": 1,
++               \\"padding\\": 20,
++               \\"shadowColor\\": \\"#000000\\",
++               \\"shadowOffset\\": Object {
++                 \\"height\\": 2,
++                 \\"width\\": 0,
 +               },
-+               Object {
-+                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+               },
-+               Object {
-+                 \\"fontSize\\": 16,
-+                 \\"lineHeight\\": 22,
-+               },
-+             ]
++               \\"shadowOpacity\\": 0.3,
++               \\"shadowRadius\\": 2,
++             }
 +           }
-+         >
-+           Step with Bill
-+         </Text>
++           testID=\\"stepSuggestionCard\\"
+          >
+-         <LoadMore
+-           onPress={[Function handleLoadSteps]}
+-           testID=\\"loadMore\\"
+-           text=\\"SHOW MORE STEPS\\"
+-         />
++           <Text
++             style={
++               Array [
++                 Object {
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                   \\"lineHeight\\": 22,
++                 },
++               ]
++             }
++           >
++             Step with Bill
++           </Text>
++         </View>
 +       </View>
-+     </View>
-+     <View
-+       onLayout={[Function onLayout]}
-+       style={null}
-+     >
 +       <View
-+         accessible={true}
-+         clickable={true}
-+         isTVSelectable={true}
-+         onClick={[Function bound touchableHandlePress]}
-+         onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+         onResponderMove={[Function bound touchableHandleResponderMove]}
-+         onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++         onLayout={[Function onLayout]}
++         style={null}
++       >
++         <View
++           accessible={true}
++           clickable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#ffffff\\",
++               \\"borderRadius\\": 8,
++               \\"elevation\\": 4,
++               \\"flexDirection\\": \\"row\\",
++               \\"marginHorizontal\\": 20,
++               \\"marginVertical\\": 4,
++               \\"opacity\\": 1,
++               \\"padding\\": 20,
++               \\"shadowColor\\": \\"#000000\\",
++               \\"shadowOffset\\": Object {
++                 \\"height\\": 2,
++                 \\"width\\": 0,
++               },
++               \\"shadowOpacity\\": 0.3,
++               \\"shadowRadius\\": 2,
++             }
++           }
++           testID=\\"stepSuggestionCard\\"
++         >
++           <Text
++             style={
++               Array [
++                 Object {
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                   \\"lineHeight\\": 22,
++                 },
++               ]
++             }
++           >
++             Step with Bill
++           </Text>
++         </View>
+        </View>
++       <View
 +         style={
 +           Object {
-+             \\"alignItems\\": \\"center\\",
-+             \\"backgroundColor\\": \\"#ffffff\\",
-+             \\"borderRadius\\": 8,
-+             \\"elevation\\": 4,
-+             \\"flexDirection\\": \\"row\\",
-+             \\"marginHorizontal\\": 20,
-+             \\"marginVertical\\": 4,
-+             \\"opacity\\": 1,
-+             \\"padding\\": 20,
-+             \\"shadowColor\\": \\"#000000\\",
-+             \\"shadowOffset\\": Object {
-+               \\"height\\": 2,
-+               \\"width\\": 0,
-+             },
-+             \\"shadowOpacity\\": 0.3,
-+             \\"shadowRadius\\": 2,
++             \\"height\\": 0,
 +           }
 +         }
-+         testID=\\"stepSuggestionCard\\"
-+       >
-+         <Text
-+           style={
-+             Array [
-+               Object {
-+                 \\"color\\": \\"#505256\\",
-+               },
-+               Object {
-+                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+               },
-+               Object {
-+                 \\"fontSize\\": 16,
-+                 \\"lineHeight\\": 22,
-+               },
-+             ]
-+           }
-+         >
-+           Step with Bill
-+         </Text>
-+       </View>
++       />
       </View>
-+     <View
-+       style={
-+         Object {
-+           \\"height\\": 0,
-+         }
-+       }
-+     />
-    </View>
-  </RCTScrollView>"
+    </RCTScrollView>,
+  ]"
 `;
 
 exports[`for another person with steps renders correctly 1`] = `
-<RCTScrollView
-  ListFooterComponent={
-    <LoadMore
-      onPress={[Function]}
-      testID="loadMore"
-      text="SHOW MORE STEPS"
-    />
-  }
-  data={
-    Array [
-      Object {
-        "body": "Step with Bill",
-        "description_markdown": "",
-        "id": "7",
-      },
-      Object {
-        "body": "Step with Bill",
-        "description_markdown": "",
-        "id": "8",
-      },
-      Object {
-        "body": "Step with Bill",
-        "description_markdown": "",
-        "id": "9",
-      },
-      Object {
-        "body": "Step with Bill",
-        "description_markdown": "",
-        "id": "10",
-      },
-    ]
-  }
-  disableVirtualization={false}
-  getItem={[Function]}
-  getItemCount={[Function]}
-  horizontal={false}
-  initialNumToRender={10}
-  keyExtractor={[Function]}
-  maxToRenderPerBatch={10}
-  numColumns={1}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={2}
-  onLayout={[Function]}
-  onMomentumScrollEnd={[Function]}
-  onScroll={[Function]}
-  onScrollBeginDrag={[Function]}
-  onScrollEndDrag={[Function]}
-  removeClippedSubviews={false}
-  renderItem={[Function]}
-  scrollEnabled={true}
-  scrollEventThrottle={50}
-  stickyHeaderIndices={Array []}
-  style={
-    Object {
-      "backgroundColor": "transparent",
-      "paddingVertical": 16,
+Array [
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginBottom": 4,
+          "marginHorizontal": 20,
+          "marginTop": 16,
+          "padding": 16,
+        },
+      ]
     }
-  }
-  updateCellsBatchingPeriod={50}
-  viewabilityConfigCallbackPairs={Array []}
-  windowSize={21}
->
-  <View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+  >
+    <Text
+      style={
+        Array [
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 8,
-            "elevation": 4,
-            "flexDirection": "row",
-            "marginHorizontal": 20,
-            "marginVertical": 4,
-            "opacity": 1,
-            "padding": 20,
-            "shadowColor": "#000000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.3,
-            "shadowRadius": 2,
-          }
-        }
-        testID="stepSuggestionCard"
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 22,
-              },
-            ]
-          }
-        >
-          Step with Bill
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+            "color": "#505256",
+          },
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 8,
-            "elevation": 4,
-            "flexDirection": "row",
-            "marginHorizontal": 20,
-            "marginVertical": 4,
-            "opacity": 1,
-            "padding": 20,
-            "shadowColor": "#000000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.3,
-            "shadowRadius": 2,
-          }
-        }
-        testID="stepSuggestionCard"
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 22,
-              },
-            ]
-          }
-        >
-          Step with Bill
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+            "fontFamily": "SourceSansPro-Regular",
+          },
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 8,
-            "elevation": 4,
-            "flexDirection": "row",
-            "marginHorizontal": 20,
-            "marginVertical": 4,
-            "opacity": 1,
-            "padding": 20,
-            "shadowColor": "#000000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.3,
-            "shadowRadius": 2,
-          }
-        }
-        testID="stepSuggestionCard"
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 22,
-              },
-            ]
-          }
-        >
-          Step with Bill
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
+            "color": "#66D9F0",
+            "fontSize": 16,
+            "fontWeight": "normal",
+          },
+        ]
+      }
     >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+      Create a Custom Step
+    </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 8,
-            "elevation": 4,
-            "flexDirection": "row",
-            "marginHorizontal": 20,
-            "marginVertical": 4,
-            "opacity": 1,
-            "padding": 20,
-            "shadowColor": "#000000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
             },
-            "shadowOpacity": 0.3,
-            "shadowRadius": 2,
-          }
-        }
-        testID="stepSuggestionCard"
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 22,
-              },
-            ]
-          }
-        >
-          Step with Bill
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
+            Object {
+              "fontSize": 10,
+            },
+            Object {
+              "color": "#66D9F0",
+              "fontSize": 25,
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
     >
+      
+    </Text>
+  </View>,
+  <RCTScrollView
+    ListFooterComponent={
       <LoadMore
         onPress={[Function]}
         testID="loadMore"
         text="SHOW MORE STEPS"
       />
+    }
+    data={
+      Array [
+        Object {
+          "body": "Step with Bill",
+          "description_markdown": "",
+          "id": "7",
+        },
+        Object {
+          "body": "Step with Bill",
+          "description_markdown": "",
+          "id": "8",
+        },
+        Object {
+          "body": "Step with Bill",
+          "description_markdown": "",
+          "id": "9",
+        },
+        Object {
+          "body": "Step with Bill",
+          "description_markdown": "",
+          "id": "10",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEnabled={true}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "paddingBottom": 16,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "marginHorizontal": 20,
+              "marginVertical": 4,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+          testID="stepSuggestionCard"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            Step with Bill
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "marginHorizontal": 20,
+              "marginVertical": 4,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+          testID="stepSuggestionCard"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            Step with Bill
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "marginHorizontal": 20,
+              "marginVertical": 4,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+          testID="stepSuggestionCard"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            Step with Bill
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "marginHorizontal": 20,
+              "marginVertical": 4,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+          testID="stepSuggestionCard"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            Step with Bill
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <LoadMore
+          onPress={[Function]}
+          testID="loadMore"
+          text="SHOW MORE STEPS"
+        />
+      </View>
     </View>
-  </View>
-</RCTScrollView>
+  </RCTScrollView>,
+]
 `;
 
 exports[`for another person without steps renders correctly 1`] = `
-<RCTScrollView
-  ListFooterComponent={null}
-  data={Array []}
-  disableVirtualization={false}
-  getItem={[Function]}
-  getItemCount={[Function]}
-  horizontal={false}
-  initialNumToRender={10}
-  keyExtractor={[Function]}
-  maxToRenderPerBatch={10}
-  numColumns={1}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={2}
-  onLayout={[Function]}
-  onMomentumScrollEnd={[Function]}
-  onScroll={[Function]}
-  onScrollBeginDrag={[Function]}
-  onScrollEndDrag={[Function]}
-  removeClippedSubviews={false}
-  renderItem={[Function]}
-  scrollEnabled={true}
-  scrollEventThrottle={50}
-  stickyHeaderIndices={Array []}
-  style={
-    Object {
-      "backgroundColor": "transparent",
-      "paddingVertical": 16,
+Array [
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginBottom": 4,
+          "marginHorizontal": 20,
+          "marginTop": 16,
+          "padding": 16,
+        },
+      ]
     }
-  }
-  updateCellsBatchingPeriod={50}
-  viewabilityConfigCallbackPairs={Array []}
-  windowSize={21}
->
-  <View />
-</RCTScrollView>
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#66D9F0",
+            "fontSize": 16,
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      Create a Custom Step
+    </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 10,
+            },
+            Object {
+              "color": "#66D9F0",
+              "fontSize": 25,
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>,
+  <RCTScrollView
+    ListFooterComponent={null}
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEnabled={true}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "paddingBottom": 16,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View />
+  </RCTScrollView>,
+]
 `;
 
 exports[`for me with steps loadMore should show more steps and hide button 1`] = `
@@ -525,511 +700,686 @@ exports[`for me with steps loadMore should show more steps and hide button 1`] =
 - First value
 + Second value
 
-@@ -1,13 +1,7 @@
-  <RCTScrollView
--   ListFooterComponent={
--     <LoadMore
--       onPress={[Function handleLoadSteps]}
--       testID=\\"loadMore\\"
--       text=\\"SHOW MORE STEPS\\"
--     />
--   }
-+   ListFooterComponent={null}
-    data={
-      Array [
-        Object {
-          \\"body\\": \\"Step for me\\",
-          \\"id\\": \\"1\\",
-@@ -22,10 +16,18 @@
-        },
-        Object {
-          \\"body\\": \\"Step for me\\",
-          \\"id\\": \\"4\\",
-        },
-+       Object {
-+         \\"body\\": \\"Step for me\\",
-+         \\"id\\": \\"5\\",
-+       },
-+       Object {
-+         \\"body\\": \\"Step for me\\",
-+         \\"id\\": \\"6\\",
-+       },
-      ]
-    }
-    disableVirtualization={false}
-    getItem={[Function anonymous]}
-    getItemCount={[Function anonymous]}
-@@ -284,15 +286,127 @@
-            Step for me
-          </Text>
-        </View>
-      </View>
-      <View
--       onLayout={[Function anonymous]}
-+       onLayout={[Function onLayout]}
-+       style={null}
+@@ -81,17 +81,11 @@
       >
+        
+      </Text>
+    </View>,
+    <RCTScrollView
+-     ListFooterComponent={
 -       <LoadMore
 -         onPress={[Function handleLoadSteps]}
 -         testID=\\"loadMore\\"
 -         text=\\"SHOW MORE STEPS\\"
 -       />
-+       <View
-+         accessible={true}
-+         clickable={true}
-+         isTVSelectable={true}
-+         onClick={[Function bound touchableHandlePress]}
-+         onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+         onResponderMove={[Function bound touchableHandleResponderMove]}
-+         onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-+         style={
-+           Object {
-+             \\"alignItems\\": \\"center\\",
-+             \\"backgroundColor\\": \\"#ffffff\\",
-+             \\"borderRadius\\": 8,
-+             \\"elevation\\": 4,
-+             \\"flexDirection\\": \\"row\\",
-+             \\"marginHorizontal\\": 20,
-+             \\"marginVertical\\": 4,
-+             \\"opacity\\": 1,
-+             \\"padding\\": 20,
-+             \\"shadowColor\\": \\"#000000\\",
-+             \\"shadowOffset\\": Object {
-+               \\"height\\": 2,
-+               \\"width\\": 0,
-+             },
-+             \\"shadowOpacity\\": 0.3,
-+             \\"shadowRadius\\": 2,
-+           }
-+         }
-+         testID=\\"stepSuggestionCard\\"
-+       >
-+         <Text
-+           style={
-+             Array [
-+               Object {
-+                 \\"color\\": \\"#505256\\",
-+               },
-+               Object {
-+                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+               },
-+               Object {
-+                 \\"fontSize\\": 16,
-+                 \\"lineHeight\\": 22,
-+               },
-+             ]
-+           }
-+         >
-+           Step for me
-+         </Text>
-+       </View>
-      </View>
-+     <View
-+       onLayout={[Function onLayout]}
-+       style={null}
-+     >
-+       <View
-+         accessible={true}
-+         clickable={true}
-+         isTVSelectable={true}
-+         onClick={[Function bound touchableHandlePress]}
-+         onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+         onResponderMove={[Function bound touchableHandleResponderMove]}
-+         onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-+         style={
-+           Object {
-+             \\"alignItems\\": \\"center\\",
-+             \\"backgroundColor\\": \\"#ffffff\\",
-+             \\"borderRadius\\": 8,
-+             \\"elevation\\": 4,
-+             \\"flexDirection\\": \\"row\\",
-+             \\"marginHorizontal\\": 20,
-+             \\"marginVertical\\": 4,
-+             \\"opacity\\": 1,
-+             \\"padding\\": 20,
-+             \\"shadowColor\\": \\"#000000\\",
-+             \\"shadowOffset\\": Object {
-+               \\"height\\": 2,
-+               \\"width\\": 0,
-+             },
-+             \\"shadowOpacity\\": 0.3,
-+             \\"shadowRadius\\": 2,
-+           }
-+         }
-+         testID=\\"stepSuggestionCard\\"
-+       >
-+         <Text
-+           style={
-+             Array [
-+               Object {
-+                 \\"color\\": \\"#505256\\",
-+               },
-+               Object {
-+                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+               },
-+               Object {
-+                 \\"fontSize\\": 16,
-+                 \\"lineHeight\\": 22,
-+               },
-+             ]
-+           }
-+         >
-+           Step for me
-+         </Text>
-+       </View>
-+     </View>
-+     <View
-+       style={
+-     }
++     ListFooterComponent={null}
+      data={
+        Array [
+          Object {
+            \\"body\\": \\"Step for me\\",
+            \\"id\\": \\"1\\",
+@@ -106,10 +100,18 @@
+          },
+          Object {
+            \\"body\\": \\"Step for me\\",
+            \\"id\\": \\"4\\",
+          },
 +         Object {
-+           \\"height\\": 0,
++           \\"body\\": \\"Step for me\\",
++           \\"id\\": \\"5\\",
++         },
++         Object {
++           \\"body\\": \\"Step for me\\",
++           \\"id\\": \\"6\\",
++         },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function anonymous]}
+      getItemCount={[Function anonymous]}
+@@ -368,16 +370,128 @@
+              Step for me
+            </Text>
+          </View>
+        </View>
+        <View
+-         onLayout={[Function anonymous]}
++         onLayout={[Function onLayout]}
++         style={null}
+        >
+-         <LoadMore
+-           onPress={[Function handleLoadSteps]}
+-           testID=\\"loadMore\\"
+-           text=\\"SHOW MORE STEPS\\"
+-         />
++         <View
++           accessible={true}
++           clickable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#ffffff\\",
++               \\"borderRadius\\": 8,
++               \\"elevation\\": 4,
++               \\"flexDirection\\": \\"row\\",
++               \\"marginHorizontal\\": 20,
++               \\"marginVertical\\": 4,
++               \\"opacity\\": 1,
++               \\"padding\\": 20,
++               \\"shadowColor\\": \\"#000000\\",
++               \\"shadowOffset\\": Object {
++                 \\"height\\": 2,
++                 \\"width\\": 0,
++               },
++               \\"shadowOpacity\\": 0.3,
++               \\"shadowRadius\\": 2,
++             }
++           }
++           testID=\\"stepSuggestionCard\\"
++         >
++           <Text
++             style={
++               Array [
++                 Object {
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                   \\"lineHeight\\": 22,
++                 },
++               ]
++             }
++           >
++             Step for me
++           </Text>
++         </View>
+        </View>
++       <View
++         onLayout={[Function onLayout]}
++         style={null}
++       >
++         <View
++           accessible={true}
++           clickable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#ffffff\\",
++               \\"borderRadius\\": 8,
++               \\"elevation\\": 4,
++               \\"flexDirection\\": \\"row\\",
++               \\"marginHorizontal\\": 20,
++               \\"marginVertical\\": 4,
++               \\"opacity\\": 1,
++               \\"padding\\": 20,
++               \\"shadowColor\\": \\"#000000\\",
++               \\"shadowOffset\\": Object {
++                 \\"height\\": 2,
++                 \\"width\\": 0,
++               },
++               \\"shadowOpacity\\": 0.3,
++               \\"shadowRadius\\": 2,
++             }
++           }
++           testID=\\"stepSuggestionCard\\"
++         >
++           <Text
++             style={
++               Array [
++                 Object {
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                   \\"lineHeight\\": 22,
++                 },
++               ]
++             }
++           >
++             Step for me
++           </Text>
++         </View>
++       </View>
++       <View
++         style={
++           Object {
++             \\"height\\": 0,
++           }
 +         }
-+       }
-+     />
-    </View>
-  </RCTScrollView>"
++       />
+      </View>
+    </RCTScrollView>,
+  ]"
 `;
 
 exports[`for me with steps renders correctly 1`] = `
-<RCTScrollView
-  ListFooterComponent={
-    <LoadMore
-      onPress={[Function]}
-      testID="loadMore"
-      text="SHOW MORE STEPS"
-    />
-  }
-  data={
-    Array [
-      Object {
-        "body": "Step for me",
-        "id": "1",
-      },
-      Object {
-        "body": "Step for me",
-        "id": "2",
-      },
-      Object {
-        "body": "Step for me",
-        "id": "3",
-      },
-      Object {
-        "body": "Step for me",
-        "id": "4",
-      },
-    ]
-  }
-  disableVirtualization={false}
-  getItem={[Function]}
-  getItemCount={[Function]}
-  horizontal={false}
-  initialNumToRender={10}
-  keyExtractor={[Function]}
-  maxToRenderPerBatch={10}
-  numColumns={1}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={2}
-  onLayout={[Function]}
-  onMomentumScrollEnd={[Function]}
-  onScroll={[Function]}
-  onScrollBeginDrag={[Function]}
-  onScrollEndDrag={[Function]}
-  removeClippedSubviews={false}
-  renderItem={[Function]}
-  scrollEnabled={true}
-  scrollEventThrottle={50}
-  stickyHeaderIndices={Array []}
-  style={
-    Object {
-      "backgroundColor": "transparent",
-      "paddingVertical": 16,
+Array [
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginBottom": 4,
+          "marginHorizontal": 20,
+          "marginTop": 16,
+          "padding": 16,
+        },
+      ]
     }
-  }
-  updateCellsBatchingPeriod={50}
-  viewabilityConfigCallbackPairs={Array []}
-  windowSize={21}
->
-  <View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+  >
+    <Text
+      style={
+        Array [
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 8,
-            "elevation": 4,
-            "flexDirection": "row",
-            "marginHorizontal": 20,
-            "marginVertical": 4,
-            "opacity": 1,
-            "padding": 20,
-            "shadowColor": "#000000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.3,
-            "shadowRadius": 2,
-          }
-        }
-        testID="stepSuggestionCard"
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 22,
-              },
-            ]
-          }
-        >
-          Step for me
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+            "color": "#505256",
+          },
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 8,
-            "elevation": 4,
-            "flexDirection": "row",
-            "marginHorizontal": 20,
-            "marginVertical": 4,
-            "opacity": 1,
-            "padding": 20,
-            "shadowColor": "#000000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.3,
-            "shadowRadius": 2,
-          }
-        }
-        testID="stepSuggestionCard"
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 22,
-              },
-            ]
-          }
-        >
-          Step for me
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+            "fontFamily": "SourceSansPro-Regular",
+          },
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 8,
-            "elevation": 4,
-            "flexDirection": "row",
-            "marginHorizontal": 20,
-            "marginVertical": 4,
-            "opacity": 1,
-            "padding": 20,
-            "shadowColor": "#000000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.3,
-            "shadowRadius": 2,
-          }
-        }
-        testID="stepSuggestionCard"
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 22,
-              },
-            ]
-          }
-        >
-          Step for me
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
+            "color": "#66D9F0",
+            "fontSize": 16,
+            "fontWeight": "normal",
+          },
+        ]
+      }
     >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+      Create a Custom Step
+    </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 8,
-            "elevation": 4,
-            "flexDirection": "row",
-            "marginHorizontal": 20,
-            "marginVertical": 4,
-            "opacity": 1,
-            "padding": 20,
-            "shadowColor": "#000000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
             },
-            "shadowOpacity": 0.3,
-            "shadowRadius": 2,
-          }
-        }
-        testID="stepSuggestionCard"
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 22,
-              },
-            ]
-          }
-        >
-          Step for me
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
+            Object {
+              "fontSize": 10,
+            },
+            Object {
+              "color": "#66D9F0",
+              "fontSize": 25,
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
     >
+      
+    </Text>
+  </View>,
+  <RCTScrollView
+    ListFooterComponent={
       <LoadMore
         onPress={[Function]}
         testID="loadMore"
         text="SHOW MORE STEPS"
       />
+    }
+    data={
+      Array [
+        Object {
+          "body": "Step for me",
+          "id": "1",
+        },
+        Object {
+          "body": "Step for me",
+          "id": "2",
+        },
+        Object {
+          "body": "Step for me",
+          "id": "3",
+        },
+        Object {
+          "body": "Step for me",
+          "id": "4",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEnabled={true}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "paddingBottom": 16,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "marginHorizontal": 20,
+              "marginVertical": 4,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+          testID="stepSuggestionCard"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            Step for me
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "marginHorizontal": 20,
+              "marginVertical": 4,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+          testID="stepSuggestionCard"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            Step for me
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "marginHorizontal": 20,
+              "marginVertical": 4,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+          testID="stepSuggestionCard"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            Step for me
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "marginHorizontal": 20,
+              "marginVertical": 4,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+          testID="stepSuggestionCard"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            Step for me
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <LoadMore
+          onPress={[Function]}
+          testID="loadMore"
+          text="SHOW MORE STEPS"
+        />
+      </View>
     </View>
-  </View>
-</RCTScrollView>
+  </RCTScrollView>,
+]
 `;
 
 exports[`for me without steps renders correctly 1`] = `
-<RCTScrollView
-  ListFooterComponent={null}
-  data={Array []}
-  disableVirtualization={false}
-  getItem={[Function]}
-  getItemCount={[Function]}
-  horizontal={false}
-  initialNumToRender={10}
-  keyExtractor={[Function]}
-  maxToRenderPerBatch={10}
-  numColumns={1}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={2}
-  onLayout={[Function]}
-  onMomentumScrollEnd={[Function]}
-  onScroll={[Function]}
-  onScrollBeginDrag={[Function]}
-  onScrollEndDrag={[Function]}
-  removeClippedSubviews={false}
-  renderItem={[Function]}
-  scrollEnabled={true}
-  scrollEventThrottle={50}
-  stickyHeaderIndices={Array []}
-  style={
-    Object {
-      "backgroundColor": "transparent",
-      "paddingVertical": 16,
+Array [
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginBottom": 4,
+          "marginHorizontal": 20,
+          "marginTop": 16,
+          "padding": 16,
+        },
+      ]
     }
-  }
-  updateCellsBatchingPeriod={50}
-  viewabilityConfigCallbackPairs={Array []}
-  windowSize={21}
->
-  <View />
-</RCTScrollView>
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#66D9F0",
+            "fontSize": 16,
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      Create a Custom Step
+    </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 10,
+            },
+            Object {
+              "color": "#66D9F0",
+              "fontSize": 25,
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>,
+  <RCTScrollView
+    ListFooterComponent={null}
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEnabled={true}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "paddingBottom": 16,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View />
+  </RCTScrollView>,
+]
 `;

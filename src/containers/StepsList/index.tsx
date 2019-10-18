@@ -35,6 +35,7 @@ interface StepsListOwnProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
   }) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onPressCreateStep: any;
 }
 
