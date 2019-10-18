@@ -1,10 +1,10 @@
 /* eslint complexity: 0, max-lines: 0 */
 
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { ScrollView, Image } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { getImpactSummary } from '../../actions/impact';
@@ -17,17 +17,19 @@ import OnboardingCard, {
 
 import styles from './styles';
 
-@withTranslation('impact')
-export class ImpactView extends Component {
-  componentDidMount() {
-    const {
-      dispatch,
-      person = {},
-      organization,
-      myId,
-      isGlobalCommunity,
-    } = this.props;
-
+const ImpactView = ({
+  dispatch,
+  person = {},
+  organization,
+  myId,
+  globalImpact,
+  impact,
+  isGlobalCommunity,
+  isMe,
+  isUserCreatedOrg,
+}) => {
+  const { t } = useTranslation('impact');
+  useEffect(() => {
     // We don't scope summary sentence by org unless we are only scoping by org (person is not specified)
     // The summary sentence should include what the user has done in all of their orgs
     dispatch(
@@ -37,9 +39,9 @@ export class ImpactView extends Component {
       ),
     );
     dispatch(getImpactSummary()); // Get global impact by calling without person or org
-  }
+  }, []);
 
-  buildImpactSentence(
+  const buildImpactSentence = (
     {
       steps_count = 0,
       receivers_count = 0,
@@ -47,14 +49,7 @@ export class ImpactView extends Component {
       pathway_moved_count = 0,
     },
     paramGlobal = false,
-  ) {
-    const {
-      t,
-      person = {},
-      isMe,
-      isUserCreatedOrg,
-      isGlobalCommunity,
-    } = this.props;
+  ) => {
     const initiator = paramGlobal
       ? '$t(users)'
       : isMe || isGlobalCommunity
@@ -99,32 +94,28 @@ export class ImpactView extends Component {
     return `${stepsStr[0].toUpperCase() + stepsStr.slice(1)}${
       hideStageSentence ? '' : `\n\n${t('stageSentence', stageSentenceOptions)}`
     }`;
-  }
+  };
 
-  render() {
-    const { globalImpact, impact, organization } = this.props;
-
-    return (
-      <ScrollView style={styles.container} bounces={false}>
-        {organization.id !== 'person' ? (
-          <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
-        ) : null}
-        <Flex style={styles.topSection}>
-          <Text style={styles.text}>{this.buildImpactSentence(impact)}</Text>
-        </Flex>
-        <Image
-          style={styles.image}
-          source={require('../../../assets/images/impactBackground.png')}
-        />
-        <Flex style={styles.bottomSection}>
-          <Text style={styles.text}>
-            {this.buildImpactSentence(globalImpact, true)}
-          </Text>
-        </Flex>
-      </ScrollView>
-    );
-  }
-}
+  return (
+    <ScrollView style={styles.container} bounces={false}>
+      {organization.id !== 'person' ? (
+        <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
+      ) : null}
+      <Flex style={styles.topSection}>
+        <Text style={styles.text}>{buildImpactSentence(impact)}</Text>
+      </Flex>
+      <Image
+        style={styles.image}
+        source={require('../../../assets/images/impactBackground.png')}
+      />
+      <Flex style={styles.bottomSection}>
+        <Text style={styles.text}>
+          {buildImpactSentence(globalImpact, true)}
+        </Text>
+      </Flex>
+    </ScrollView>
+  );
+};
 
 ImpactView.propTypes = {
   person: PropTypes.object,
