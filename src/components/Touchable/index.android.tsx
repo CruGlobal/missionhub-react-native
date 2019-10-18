@@ -10,15 +10,14 @@ import {
 
 import theme from '../../theme';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type PressPropsType = any[];
+import { TouchablePress, PressPropsType } from './index.ios';
 
 interface TouchableAndroidProps extends TouchableHighlightProps {
   borderless?: boolean;
   withoutFeedback?: boolean;
   isAndroidOpacity?: boolean;
   pressProps?: PressPropsType;
-  onPress?: (...args: PressPropsType) => void;
+  onPress?: TouchablePress;
   children?: React.ReactNode;
 }
 

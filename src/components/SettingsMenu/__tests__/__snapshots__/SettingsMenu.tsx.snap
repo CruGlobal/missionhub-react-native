@@ -119,6 +119,7 @@ exports[`renders correctly for authenticated user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -206,6 +207,7 @@ exports[`renders correctly for authenticated user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -293,6 +295,7 @@ exports[`renders correctly for authenticated user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -380,6 +383,7 @@ exports[`renders correctly for authenticated user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -467,6 +471,7 @@ exports[`renders correctly for authenticated user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -554,6 +559,7 @@ exports[`renders correctly for authenticated user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -641,6 +647,7 @@ exports[`renders correctly for authenticated user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -823,6 +830,7 @@ exports[`renders correctly for try it now user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -910,6 +918,7 @@ exports[`renders correctly for try it now user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -997,6 +1006,7 @@ exports[`renders correctly for try it now user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -1084,6 +1094,7 @@ exports[`renders correctly for try it now user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -1171,6 +1182,7 @@ exports[`renders correctly for try it now user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -1258,6 +1270,7 @@ exports[`renders correctly for try it now user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -1345,6 +1358,7 @@ exports[`renders correctly for try it now user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={
@@ -1432,6 +1446,7 @@ exports[`renders correctly for try it now user 1`] = `
           "opacity": 1,
         }
       }
+      testID="Button"
     >
       <View
         style={

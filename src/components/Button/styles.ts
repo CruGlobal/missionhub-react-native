@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, StyleProp, ViewStyle } from 'react-native';
 
 import theme from '../../theme';
 
-const common = {
+const common: StyleProp<ViewStyle> = {
   height: theme.buttonHeight,
   justifyContent: 'center',
   alignItems: 'center',

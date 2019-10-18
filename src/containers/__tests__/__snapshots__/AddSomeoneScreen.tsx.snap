@@ -303,6 +303,8 @@ Take a moment and pray. Who do you want to take steps of faith with?
               },
               null,
               Object {
+                "alignItems": "stretch",
+                "flex": 0,
                 "width": 750,
               },
               null,
@@ -565,6 +567,8 @@ Take a moment and pray. Who do you want to take steps of faith with?
               },
               null,
               Object {
+                "alignItems": "stretch",
+                "flex": 0,
                 "width": 750,
               },
               null,
@@ -838,6 +842,8 @@ Take a moment and pray. Who do you want to take steps of faith with?
               },
               null,
               Object {
+                "alignItems": "stretch",
+                "flex": 0,
                 "width": 750,
               },
               null,
