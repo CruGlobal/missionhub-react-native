@@ -40,7 +40,6 @@ it('should migrate swipe groupOnBoarding reducer to use steps', () => {
           impact: true,
           contacts: true,
           surveys: true,
-          steps: true,
         },
       },
     }),
