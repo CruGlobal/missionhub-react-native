@@ -50,20 +50,18 @@ exports[`renders not me correctly 1`] = `
         }
       }
     >
-      <Text
+      <View
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
+          Object {
+            "alignSelf": "flex-start",
+          }
+        }
+      >
+        <Text
+          style={
             Array [
               Object {
-                "color": "#007398",
-                "fontSize": 16,
-                "fontWeight": "bold",
+                "color": "#505256",
               },
               Object {
                 "fontSize": 16,
@@ -73,7 +71,7 @@ exports[`renders not me correctly 1`] = `
           ]
         }
       >
-        Receiver Name
+        Test Step
       </Text>
       <ReminderButton
         stepId="2"

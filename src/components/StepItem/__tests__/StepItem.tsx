@@ -57,13 +57,26 @@ it('renders not me correctly', () => {
   ).snapshot();
 });
 
+it('renders with pressable name correctly', () => {
+  renderWithContext(
+    <StepItem step={mockStep} type="swipeable" onPressName={jest.fn()} />,
+    { initialState },
+  ).snapshot();
+});
+
 describe('step item methods with no receiver', () => {
   const mockSelect = jest.fn();
+  const mockPressName = jest.fn();
   const step = { ...mockStep, receiver: undefined };
   function getComponent() {
-    return renderWithContext(<StepItem step={step} onSelect={mockSelect} />, {
-      initialState,
-    });
+    return renderWithContext(
+      <StepItem
+        step={step}
+        onSelect={mockSelect}
+        onPressName={mockPressName}
+      />,
+      { initialState },
+    );
   }
 
   it('handles select', () => {
@@ -71,13 +84,24 @@ describe('step item methods with no receiver', () => {
     fireEvent.press(getByTestId('StepItemCard'));
     expect(mockSelect).toHaveBeenCalledTimes(0);
   });
+
+  it('handles press name', () => {
+    const { getByTestId } = getComponent();
+    fireEvent.press(getByTestId('StepItemPersonButton'));
+    expect(mockPressName).not.toHaveBeenCalled();
+  });
 });
 
 describe('step item methods receiver', () => {
   const mockSelect = jest.fn();
+  const mockPressName = jest.fn();
   function getComponent() {
     return renderWithContext(
-      <StepItem step={mockStep} onSelect={mockSelect} />,
+      <StepItem
+        step={mockStep}
+        onSelect={mockSelect}
+        onPressName={mockPressName}
+      />,
       { initialState },
     );
   }
@@ -86,5 +110,10 @@ describe('step item methods receiver', () => {
     const { getByTestId } = getComponent();
     fireEvent.press(getByTestId('StepItemCard'));
     expect(mockSelect).toHaveBeenCalledWith(mockStep);
+  });
+  it('handles press name', () => {
+    const { getByTestId } = getComponent();
+    fireEvent.press(getByTestId('StepItemPersonButton'));
+    expect(mockPressName).toHaveBeenCalledWith(mockStep);
   });
 });

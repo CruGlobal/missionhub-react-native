@@ -4,6 +4,7 @@ exports[`StepsScreen arrow functions should render item correctly 1`] = `
 <Connect(StepItem)
   hideAction={true}
   onAction={[Function]}
+  onPressName={[Function]}
   onSelect={[Function]}
   step={
     Object {

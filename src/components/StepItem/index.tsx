@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Card } from '../common';
-import { Text, Icon } from '../common';
+import { Text, Icon, Card, Touchable } from '../common';
 import ItemHeaderText from '../ItemHeaderText';
 import { AuthState } from '../../reducers/auth';
 import ReminderButton from '../ReminderButton';
@@ -30,19 +29,27 @@ type StepType = {
 export interface StepItemProps {
   step: StepType;
   onSelect?: (step: StepType) => void;
-
+  onPressName?: (step: StepType) => void;
   myId?: string;
+  type?: string;
   reminder?: ReminderType;
 }
-const StepItem = ({ step, onSelect, myId, reminder }: StepItemProps) => {
+const StepItem = ({
+  step,
+  onSelect,
+  myId,
+  reminder,
+  onPressName,
+  type,
+}: StepItemProps) => {
   const { t } = useTranslation();
 
   const handleSelect = () => {
-    if (!step.receiver) {
-      return;
-    } else {
-      onSelect && onSelect(step);
-    }
+    step.receiver && onSelect && onSelect(step);
+  };
+
+  const handlePressName = () => {
+    step.receiver && onPressName && onPressName(step);
   };
 
   const isMe = step.receiver && step.receiver.id === myId;
@@ -54,7 +61,13 @@ const StepItem = ({ step, onSelect, myId, reminder }: StepItemProps) => {
     <Card testID="StepItemCard" onPress={handleSelect} style={styles.card}>
       <View style={styles.flex1}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <ItemHeaderText style={styles.stepUserName} text={ownerName} />
+          <Touchable
+            testID="StepItemPersonButton"
+            onPress={handlePressName}
+            style={styles.nameWrap}
+          >
+            <ItemHeaderText style={styles.stepUserName} text={ownerName} />
+          </Touchable>
           <ReminderButton
             testID="StepReminderButton"
             stepId={step.id}

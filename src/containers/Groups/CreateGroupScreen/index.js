@@ -20,10 +20,7 @@ import {
   navigateToMainTabs,
 } from '../../../actions/navigation';
 import ImagePicker from '../../../components/ImagePicker';
-import {
-  addNewOrganization,
-  getMyCommunities,
-} from '../../../actions/organizations';
+import { addNewOrganization } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
 import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../GroupScreen';
@@ -55,10 +52,10 @@ class CreateGroupScreen extends Component {
         return Promise.resolve();
       }
 
-      const results = await dispatch(addNewOrganization(text, imageData));
-      const newOrgId = results.response.id;
-      // Load the list of communities
-      await dispatch(getMyCommunities());
+      const { response: { id: newOrgId = undefined } = {} } = await dispatch(
+        addNewOrganization(text, imageData),
+      );
+
       this.getNewOrg(newOrgId);
       // The button never gets enabled again when successful because we are navigating away
     } catch (error) {
@@ -68,21 +65,26 @@ class CreateGroupScreen extends Component {
 
   getNewOrg = orgId => {
     const { organizations, dispatch } = this.props;
-    const organization = organizationSelector({ organizations }, { orgId });
+
+    if (orgId) {
+      const organization = organizationSelector({ organizations }, { orgId });
+
+      if (organization) {
+        dispatch(
+          navigatePush(USER_CREATED_GROUP_SCREEN, {
+            orgId,
+            initialTab: GROUP_MEMBERS,
+          }),
+        );
+        return dispatch(
+          trackActionWithoutData(ACTIONS.SELECT_CREATED_COMMUNITY),
+        );
+      }
+    }
 
     // If for some reason the organization was not created and put in redux properly,
     // reset the user back to the communities tab
-    if (!organization) {
-      dispatch(navigateToMainTabs(GROUPS_TAB));
-    } else {
-      dispatch(
-        navigatePush(USER_CREATED_GROUP_SCREEN, {
-          organization,
-          initialTab: GROUP_MEMBERS,
-        }),
-      );
-      dispatch(trackActionWithoutData(ACTIONS.SELECT_CREATED_COMMUNITY));
-    }
+    dispatch(navigateToMainTabs(GROUPS_TAB));
   };
 
   handleImageChange = data => this.setState({ imageData: data });
