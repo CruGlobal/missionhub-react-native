@@ -30,13 +30,11 @@ type StepType = {
 export interface StepItemProps {
   step: StepType;
   onSelect?: (step: StepType) => void;
-  onAction?: (step: StepType) => void;
-  hideAction?: boolean;
-  type?: 'swipeable' | 'contact' | 'reminder';
+
   myId?: string;
   reminder?: ReminderType;
 }
-const StepItem = ({ step, onSelect, type, myId, reminder }: StepItemProps) => {
+const StepItem = ({ step, onSelect, myId, reminder }: StepItemProps) => {
   const { t } = useTranslation();
 
   const handleSelect = () => {
@@ -54,19 +52,19 @@ const StepItem = ({ step, onSelect, type, myId, reminder }: StepItemProps) => {
   return (
     <Card testID="StepItemCard" onPress={handleSelect} style={styles.card}>
       <View style={styles.flex1}>
-        <ReminderButton
-          testID="StepReminderButton"
-          stepId={step.id}
-          reminder={reminder}
-        >
-          <View style={reminderButton}>
-            {type === 'contact' ? null : (
-              <ItemHeaderText style={styles.stepUserName} text={ownerName} />
-            )}
-            <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-            <ReminderDateText reminder={reminder} />
-          </View>
-        </ReminderButton>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <ItemHeaderText style={styles.stepUserName} text={ownerName} />
+          <ReminderButton
+            testID="StepReminderButton"
+            stepId={step.id}
+            reminder={reminder}
+          >
+            <View style={reminderButton}>
+              <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
+              <ReminderDateText reminder={reminder} />
+            </View>
+          </ReminderButton>
+        </View>
         <Text style={styles.description}>{step.title}</Text>
       </View>
     </Card>

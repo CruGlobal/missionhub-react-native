@@ -42,101 +42,110 @@ exports[`renders not me correctly 1`] = `
       }
     }
   >
-    <ReminderButton
-      stepId="2"
-      testID="StepReminderButton"
-    >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-            "justifyContent": "flex-start",
-            "padding": 4,
-          }
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
         }
-      >
-        <Text
-          style={
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontSize": 16,
+                "fontWeight": "bold",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                },
-              ],
-            ]
-          }
-        >
-          RECEIVER NAME
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Object {
-                  "color": "#52C5DC",
-                  "fontSize": 18,
-                  "paddingLeft": 8,
-                  "paddingRight": 8,
-                },
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
+                "fontSize": 16,
                 "fontWeight": "normal",
               },
-              Object {},
-            ]
+            ],
+          ]
+        }
+      >
+        RECEIVER NAME
+      </Text>
+      <ReminderButton
+        stepId="2"
+        testID="StepReminderButton"
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 4,
+            }
           }
         >
-          
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
+          <Text
+            allowFontScaling={false}
+            style={
               Array [
                 Object {
-                  "color": "#52C5DC",
-                  "fontSize": 14,
-                  "lineHeight": 18,
+                  "color": undefined,
+                  "fontSize": 12,
                 },
-                undefined,
-              ],
-            ]
-          }
-        >
-          Set a Reminder
-        </Text>
-      </View>
-    </ReminderButton>
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Object {
+                    "color": "#52C5DC",
+                    "fontSize": 18,
+                    "paddingLeft": 8,
+                    "paddingRight": 8,
+                  },
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#52C5DC",
+                    "fontSize": 14,
+                    "lineHeight": 18,
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Set a Reminder
+          </Text>
+        </View>
+      </ReminderButton>
+    </View>
     <Text
       style={
         Array [
