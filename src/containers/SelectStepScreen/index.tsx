@@ -77,32 +77,21 @@ const SelectStepScreen = ({
 
   const renderForeground = () => {
     return (
-      <View style={{ flex: 1, alignItems: 'center' }}>
-        {renderHeader(false)}
-        <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
-        <Text header={true} style={styles.headerTitle}>
-          {t('stepsOfFaith')}
-        </Text>
+      <View style={{ flex: 0, alignItems: 'center' }}>
+        {renderHeader()}
         <Text style={styles.headerText}>{headerText}</Text>
       </View>
     );
   };
 
-  const renderHeader = (showTitle = true) => (
+  const renderHeader = () => (
     <Header
       left={<BackButton />}
-      center={
-        showTitle && (
-          <Text style={styles.collapsedHeaderTitle}>
-            {t('stepsOfFaith').toUpperCase()}
-          </Text>
-        )
-      }
       right={enableSkipButton && <Skip onSkip={handleSkip} />}
     />
   );
 
-  const { headerHeight, parallaxHeaderHeight } = theme;
+  const { headerHeight } = theme;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -110,19 +99,19 @@ const SelectStepScreen = ({
         style={{ flex: 1 }}
         backgroundColor={theme.primaryColor}
         contentBackgroundColor={theme.extraLightGrey}
-        parallaxHeaderHeight={parallaxHeaderHeight + theme.notchDifference}
+        parallaxHeaderHeight={150 + theme.notchDifference}
         renderForeground={renderForeground}
         stickyHeaderHeight={headerHeight}
         renderStickyHeader={renderHeader}
       >
         <StepsList
+          onPressCreateStep={navToCreateStep}
           contactName={contactName}
           receiverId={receiverId}
           contactStageId={contactStageId}
           onPressStep={navToSuggestedStep}
         />
       </ParallaxScrollView>
-      <BottomButton onPress={navToCreateStep} text={t('createStep')} />
     </SafeAreaView>
   );
 };
