@@ -353,7 +353,7 @@ describe('StepsScreen', () => {
     });
   });
 
-  describe('handleRowSelect', () => {
+  describe('handle card select', () => {
     it('should navigate to step detail screen', () => {
       const step = baseProps.steps[0];
       const screen = createComponent(baseProps);
@@ -385,6 +385,7 @@ describe('StepsScreen', () => {
       const screen = createComponent(baseProps);
       const listItem = screen
         .childAt(2)
+        .childAt(1)
         .childAt(0)
         .childAt(1)
         .props()

@@ -31,7 +31,6 @@ export interface StepItemProps {
   onSelect?: (step: StepType) => void;
   onPressName?: (step: StepType) => void;
   myId?: string;
-  type?: string;
   reminder?: ReminderType;
 }
 const StepItem = ({
@@ -40,7 +39,6 @@ const StepItem = ({
   myId,
   reminder,
   onPressName,
-  type,
 }: StepItemProps) => {
   const { t } = useTranslation();
 

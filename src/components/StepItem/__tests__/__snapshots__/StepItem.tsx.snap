@@ -51,11 +51,23 @@ exports[`renders not me correctly 1`] = `
       }
     >
       <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
             "alignSelf": "flex-start",
+            "opacity": 1,
           }
         }
+        testID="StepItemPersonButton"
       >
         <Text
           style={
@@ -64,17 +76,219 @@ exports[`renders not me correctly 1`] = `
                 "color": "#505256",
               },
               Object {
-                "fontSize": 16,
-                "fontWeight": "normal",
+                "fontFamily": "SourceSansPro-Regular",
               },
-            ],
-          ]
-        }
-      >
-        Test Step
-      </Text>
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "normal",
+                },
+              ],
+            ]
+          }
+        >
+          Receiver Name
+        </Text>
+      </View>
       <ReminderButton
         stepId="2"
+        testID="StepReminderButton"
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 4,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Object {
+                    "color": "#52C5DC",
+                    "fontSize": 18,
+                    "paddingLeft": 8,
+                    "paddingRight": 8,
+                  },
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#52C5DC",
+                    "fontSize": 14,
+                    "lineHeight": 18,
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Set a Reminder
+          </Text>
+        </View>
+      </ReminderButton>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Step
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders with pressable name correctly 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 4,
+      "opacity": 1,
+      "padding": 16,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="StepItemCard"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "opacity": 1,
+          }
+        }
+        testID="StepItemPersonButton"
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "normal",
+                },
+              ],
+            ]
+          }
+        >
+          Receiver Name
+        </Text>
+      </View>
+      <ReminderButton
+        reminder={
+          Object {
+            "id": "11",
+          }
+        }
+        stepId="1"
         testID="StepReminderButton"
       >
         <View
