@@ -728,7 +728,7 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
         }
       }
     >
-      <withI18nextTranslation(GroupCardItem)
+      <GroupCardItem
         group={
           Object {
             "community_code": "123456",

@@ -1,0 +1,1826 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupCardItem renders for global community 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="CardButton"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "borderRadius": 4,
+            "height": 403.875,
+          },
+          undefined,
+        ],
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "testUri": "../../../assets/images/globalCommunityImage.png",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.6)",
+            "borderBottomLeftRadius": 4,
+            "borderBottomRightRadius": 4,
+            "bottom": 0,
+            "left": 0,
+            "padding": 13,
+            "position": "absolute",
+            "right": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          GROUP NAME
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          0 Members
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCardItem renders for join screen 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="CardButton"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "borderRadius": 4,
+            "height": 403.875,
+          },
+          undefined,
+        ],
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "testUri": "../../../assets/images/impactBackground.png",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.6)",
+            "borderBottomLeftRadius": 4,
+            "borderBottomRightRadius": 4,
+            "bottom": 0,
+            "left": 0,
+            "padding": 13,
+            "position": "absolute",
+            "right": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          GROUP NAME
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          Roge (Owner)
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flexDirection": "column",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="JoinButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Array [
+                  Object {
+                    "backgroundColor": "#FF5532",
+                    "borderRadius": 12,
+                    "margin": 5,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 5,
+                  },
+                ],
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 18,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                    },
+                  ],
+                ]
+              }
+            >
+              JOIN
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCardItem renders user created group 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="CardButton"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "borderRadius": 4,
+            "height": 403.875,
+          },
+          Object {
+            "backgroundColor": "#005A7F",
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.6)",
+            "borderBottomLeftRadius": 4,
+            "borderBottomRightRadius": 4,
+            "bottom": 0,
+            "left": 0,
+            "padding": 13,
+            "position": "absolute",
+            "right": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          GROUP NAME
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          0 Members
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCardItem renders user created group with member count 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="CardButton"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "borderRadius": 4,
+            "height": 403.875,
+          },
+          Object {
+            "backgroundColor": "#005A7F",
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.6)",
+            "borderBottomLeftRadius": 4,
+            "borderBottomRightRadius": 4,
+            "bottom": 0,
+            "left": 0,
+            "padding": 13,
+            "position": "absolute",
+            "right": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          GROUP NAME
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          5 Members
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCardItem renders user created group with singular member count 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="CardButton"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "borderRadius": 4,
+            "height": 403.875,
+          },
+          Object {
+            "backgroundColor": "#005A7F",
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.6)",
+            "borderBottomLeftRadius": 4,
+            "borderBottomRightRadius": 4,
+            "bottom": 0,
+            "left": 0,
+            "padding": 13,
+            "position": "absolute",
+            "right": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          GROUP NAME
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          1 Member
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCardItem renders with all report counts 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="CardButton"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "borderRadius": 4,
+            "height": 403.875,
+          },
+          undefined,
+        ],
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "testUri": "../../../assets/images/impactBackground.png",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.6)",
+            "borderBottomLeftRadius": 4,
+            "borderBottomRightRadius": 4,
+            "bottom": 0,
+            "left": 0,
+            "padding": 13,
+            "position": "absolute",
+            "right": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          GROUP NAME
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          768 Contacts
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {},
+              ]
+            }
+          >
+              ·  
+          </Text>
+          13 Unassigned
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="CardButton"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "borderRadius": 4,
+            "height": 403.875,
+          },
+          undefined,
+        ],
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "testUri": "../../../assets/images/impactBackground.png",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.6)",
+            "borderBottomLeftRadius": 4,
+            "borderBottomRightRadius": 4,
+            "bottom": 0,
+            "left": 0,
+            "padding": 13,
+            "position": "absolute",
+            "right": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          GROUP NAME
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          768 Contacts
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {},
+              ]
+            }
+          >
+              ·  
+          </Text>
+          0 Unassigned
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCardItem renders with image url 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="CardButton"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "borderRadius": 4,
+            "height": 403.875,
+          },
+          undefined,
+        ],
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.6)",
+            "borderBottomLeftRadius": 4,
+            "borderBottomRightRadius": 4,
+            "bottom": 0,
+            "left": 0,
+            "padding": 13,
+            "position": "absolute",
+            "right": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          GROUP NAME
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          0 Contacts
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {},
+              ]
+            }
+          >
+              ·  
+          </Text>
+          0 Unassigned
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCardItem renders with no report counts 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="CardButton"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "borderRadius": 4,
+            "height": 403.875,
+          },
+          undefined,
+        ],
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "testUri": "../../../assets/images/impactBackground.png",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.6)",
+            "borderBottomLeftRadius": 4,
+            "borderBottomRightRadius": 4,
+            "bottom": 0,
+            "left": 0,
+            "padding": 13,
+            "position": "absolute",
+            "right": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          GROUP NAME
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          0 Contacts
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {},
+              ]
+            }
+          >
+              ·  
+          </Text>
+          0 Unassigned
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCardItem renders with no report counts for user created org 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="CardButton"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "borderRadius": 4,
+            "height": 403.875,
+          },
+          Object {
+            "backgroundColor": "#005A7F",
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.6)",
+            "borderBottomLeftRadius": 4,
+            "borderBottomRightRadius": 4,
+            "bottom": 0,
+            "left": 0,
+            "padding": 13,
+            "position": "absolute",
+            "right": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          GROUP NAME
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          0 Members
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCardItem renders with notification 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="CardButton"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "borderRadius": 4,
+            "height": 403.875,
+          },
+          undefined,
+        ],
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "testUri": "../../../assets/images/impactBackground.png",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.6)",
+            "borderBottomLeftRadius": 4,
+            "borderBottomRightRadius": 4,
+            "bottom": 0,
+            "left": 0,
+            "padding": 13,
+            "position": "absolute",
+            "right": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          GROUP NAME
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          0 Contacts
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {},
+              ]
+            }
+          >
+              ·  
+          </Text>
+          0 Unassigned
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 20,
+                },
+                Object {
+                  "color": "#ffffff",
+                },
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FF5532",
+              "borderColor": "#260C06",
+              "borderRadius": 8,
+              "borderWidth": 2,
+              "height": 16,
+              "position": "absolute",
+              "right": -5,
+              "top": 0,
+              "width": 16,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="CardButton"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "borderRadius": 4,
+            "height": 403.875,
+          },
+          undefined,
+        ],
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "testUri": "../../../assets/images/impactBackground.png",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.6)",
+            "borderBottomLeftRadius": 4,
+            "borderBottomRightRadius": 4,
+            "bottom": 0,
+            "left": 0,
+            "padding": 13,
+            "position": "absolute",
+            "right": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          GROUP NAME
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          0 Contacts
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {},
+              ]
+            }
+          >
+              ·  
+          </Text>
+          13 Unassigned
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
