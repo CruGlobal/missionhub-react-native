@@ -153,6 +153,7 @@
   "jest": {
     "preset": "react-native",
     "setupFiles": [
+      "<rootDir>/__mock__/react-native.ts",
       "<rootDir>/__mock__/react-native-device-info.js",
       "<rootDir>/__mock__/react-native-code-push.js",
       "<rootDir>/__mock__/react-native-firebase.js",

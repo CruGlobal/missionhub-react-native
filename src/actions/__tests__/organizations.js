@@ -61,7 +61,7 @@ jest.mock('../challenges');
 jest.mock('../navigation');
 jest.mock('../../selectors/selectorUtils');
 
-global.FormData = require('FormData');
+global.FormData = require('react-native/Libraries/Network/FormData');
 
 const myId = '1';
 
