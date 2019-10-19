@@ -3,7 +3,7 @@
 exports[`renders cru org contact correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -142,7 +142,7 @@ exports[`renders cru org contact correctly 1`] = `
 exports[`renders cru org contact without stage correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -274,7 +274,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
@@ -329,7 +329,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
 exports[`renders cru org member correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -464,7 +464,7 @@ exports[`renders cru org member correctly 1`] = `
 exports[`renders me correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -599,7 +599,7 @@ exports[`renders me correctly 1`] = `
 exports[`renders personal ministry contact correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -734,7 +734,7 @@ exports[`renders personal ministry contact correctly 1`] = `
 exports[`renders uncontacted cru org contact correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}

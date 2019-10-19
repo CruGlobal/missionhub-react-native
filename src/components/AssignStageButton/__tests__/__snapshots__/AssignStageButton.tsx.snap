@@ -3,7 +3,7 @@
 exports[`renders correctly for me 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -84,7 +84,7 @@ exports[`renders correctly for me 1`] = `
 exports[`renders correctly without organization 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -165,7 +165,7 @@ exports[`renders correctly without organization 1`] = `
 exports[`renders correctly without person 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -246,7 +246,7 @@ exports[`renders correctly without person 1`] = `
 exports[`renders correctly without stage 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}

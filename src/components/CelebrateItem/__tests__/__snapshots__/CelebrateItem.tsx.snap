@@ -3,7 +3,7 @@
 exports[`CelebrateItem renders event with card style 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -187,7 +187,7 @@ exports[`CelebrateItem renders event with card style 1`] = `
         />
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -236,7 +236,7 @@ exports[`CelebrateItem renders event with card style 1`] = `
 exports[`CelebrateItem renders event with fixed height 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -421,7 +421,7 @@ exports[`CelebrateItem renders event with fixed height 1`] = `
         />
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -470,7 +470,7 @@ exports[`CelebrateItem renders event with fixed height 1`] = `
 exports[`CelebrateItem renders event with name pressable 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -531,7 +531,7 @@ exports[`CelebrateItem renders event with name pressable 1`] = `
         >
           <View
             accessible={true}
-            clickable={true}
+            focusable={true}
             isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
@@ -685,7 +685,7 @@ exports[`CelebrateItem renders event with name pressable 1`] = `
         />
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -734,7 +734,7 @@ exports[`CelebrateItem renders event with name pressable 1`] = `
 exports[`clear notification button renders clear notification button 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -917,7 +917,7 @@ exports[`clear notification button renders clear notification button 1`] = `
         />
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -971,7 +971,7 @@ exports[`clear notification button renders clear notification button 1`] = `
   >
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}

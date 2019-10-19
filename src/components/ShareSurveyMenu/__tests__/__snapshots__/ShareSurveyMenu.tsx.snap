@@ -3,7 +3,7 @@
 exports[`ShareSurveyMenu renders share survey menu 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -84,7 +84,7 @@ exports[`ShareSurveyMenu renders share survey menu 1`] = `
 exports[`ShareSurveyMenu renders share survey menu in header 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}

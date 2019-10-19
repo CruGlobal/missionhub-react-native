@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render card 1`] = `
-<_class
+<View
   style={
     Array [
       Object {
@@ -27,7 +27,7 @@ exports[`render card 1`] = `
 `;
 
 exports[`render card with children 1`] = `
-<_class
+<View
   style={
     Array [
       Object {
@@ -55,7 +55,7 @@ exports[`render card with children 1`] = `
       Testing
     </MyText>
   </View>
-</_class>
+</View>
 `;
 
 exports[`render touchable card 1`] = `
