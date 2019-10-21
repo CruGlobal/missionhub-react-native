@@ -2,12 +2,13 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '../common';
+import { TouchablePress } from '../Touchable/index.ios';
 
 import styles from './styles';
 
 interface LoadMoreProps {
   testID?: string;
-  onPress: Function;
+  onPress: TouchablePress;
   text?: string;
 }
 

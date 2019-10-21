@@ -17,6 +17,7 @@ exports[`renders correctly 1`] = `
       "opacity": 1,
     }
   }
+  testID="Button"
 >
   <View
     style={
@@ -58,6 +59,7 @@ exports[`renders pill correctly 1`] = `
       "opacity": 1,
     }
   }
+  testID="Button"
 >
   <View
     style={
@@ -101,6 +103,7 @@ exports[`renders primary correctly 1`] = `
       "opacity": 1,
     }
   }
+  testID="Button"
 >
   <View
     style={
@@ -137,6 +140,7 @@ exports[`renders secondary correctly 1`] = `
       "opacity": 1,
     }
   }
+  testID="Button"
 >
   <View
     style={
@@ -173,6 +177,7 @@ exports[`renders transparent correctly 1`] = `
       "opacity": 1,
     }
   }
+  testID="Button"
 >
   <View
     style={
