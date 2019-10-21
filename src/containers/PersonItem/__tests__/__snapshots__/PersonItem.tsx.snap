@@ -188,6 +188,7 @@ exports[`renders cru org contact correctly 1`] = `
         "opacity": 1,
       }
     }
+    testID="stepIcon"
   >
     <Text
       allowFontScaling={false}
@@ -419,6 +420,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
         "opacity": 1,
       }
     }
+    testID="stepIcon"
   >
     <Text
       allowFontScaling={false}
@@ -652,6 +654,7 @@ exports[`renders cru org member correctly 1`] = `
         "opacity": 1,
       }
     }
+    testID="stepIcon"
   >
     <Text
       allowFontScaling={false}
@@ -885,6 +888,7 @@ exports[`renders me correctly 1`] = `
         "opacity": 1,
       }
     }
+    testID="stepIcon"
   >
     <Text
       allowFontScaling={false}
@@ -1118,6 +1122,7 @@ exports[`renders personal ministry contact correctly 1`] = `
         "opacity": 1,
       }
     }
+    testID="stepIcon"
   >
     <Text
       allowFontScaling={false}
@@ -1376,6 +1381,7 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
         "opacity": 1,
       }
     }
+    testID="stepIcon"
   >
     <Text
       allowFontScaling={false}

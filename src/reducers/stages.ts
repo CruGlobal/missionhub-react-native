@@ -8,10 +8,13 @@ export type Stage = any;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type LocalizedStage = any;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type StagesObj = any;
+
 export interface StagesState {
   stages: Stage[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  stagesObj: any;
+  stagesObj: StagesObj;
 }
 
 const initialStagesState: StagesState = {

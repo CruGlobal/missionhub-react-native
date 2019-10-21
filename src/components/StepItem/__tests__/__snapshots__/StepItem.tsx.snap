@@ -78,7 +78,7 @@ exports[`renders not me correctly 1`] = `
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "fontWeight": "bold",
+                "lineHeight": 20,
               },
               undefined,
             ],
@@ -173,7 +173,7 @@ exports[`renders type action correctly 1`] = `
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "fontWeight": "bold",
+                "lineHeight": 20,
               },
               undefined,
             ],
@@ -411,7 +411,7 @@ exports[`renders type reminder correctly 1`] = `
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "fontWeight": "bold",
+                "lineHeight": 20,
               },
               undefined,
             ],
@@ -506,7 +506,7 @@ exports[`renders type swipeable correctly 1`] = `
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "fontWeight": "bold",
+                "lineHeight": 20,
               },
               undefined,
             ],
@@ -793,7 +793,7 @@ exports[`step item animations renders no animation 1`] = `
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "fontWeight": "bold",
+                "lineHeight": 20,
               },
               undefined,
             ],

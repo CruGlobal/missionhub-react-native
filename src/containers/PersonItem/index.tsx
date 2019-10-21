@@ -1,3 +1,4 @@
+/* eslint complexity: 0 */
 import React from 'react';
 import { View, Image } from 'react-native';
 import { connect } from 'react-redux';
@@ -10,25 +11,17 @@ import FORGIVEN from '../../../assets/images/forgivenIcon.png';
 import GROWING from '../../../assets/images/growingIcon.png';
 import GUIDING from '../../../assets/images/guidingIcon.png';
 import NOTSURE from '../../../assets/images/notsureIcon.png';
+import ItemHeaderText from '../../components/ItemHeaderText';
 import { Text, Touchable, Icon, Card } from '../../components/common';
 import {
   navigateToStageScreen,
   navigateToAddStepFlow,
 } from '../../actions/misc';
 import { navToPersonScreen } from '../../actions/person';
-import { navigatePush } from '../../actions/navigation';
-import {
-  hasOrgPermissions,
-  orgIsCru,
-  buildTrackingObj,
-  getAnalyticsSubsection,
-} from '../../utils/common';
-import ItemHeaderText from '../../components/ItemHeaderText';
-import {
-  SELECT_PERSON_STAGE_FLOW,
-  ADD_MY_STEP_FLOW,
-  ADD_PERSON_STEP_FLOW,
-} from '../../routes/constants';
+import { hasOrgPermissions, orgIsCru } from '../../utils/common';
+import { Organization } from '../../reducers/organizations';
+import { AuthPerson, AuthState } from '../../reducers/auth';
+import { StagesObj, StagesState } from '../../reducers/stages';
 
 import styles from './styles';
 
@@ -36,9 +29,10 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
 interface PersonItemProps {
   person: PersonAttributes;
-  organization?: { [key: string]: any };
-  me: PersonAttributes;
-  stagesObj: any;
+  organization?: Organization;
+  me: AuthPerson;
+  stagesObj: StagesObj;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
 }
 
@@ -53,23 +47,22 @@ const PersonItem = ({
   const orgId = organization && organization.id;
   const isMe = person.id === me.id;
   const isPersonal = orgId === 'personal';
-  const contactAssignments = (person as any).reverse_contact_assignments || [];
   const contactAssignment =
-    contactAssignments.find(
+    (person.reverse_contact_assignments || []).find(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (a: any) => a.assigned_to && a.assigned_to.id === me.id,
     ) || {};
 
-  const newPerson = isMe ? me : person;
-  const personName = isMe ? t('me') : newPerson.full_name || '';
+  const personName = isMe ? t('me') : person.full_name || '';
 
   const stage = isMe
-    ? (me as any).stage
+    ? me.stage
     : stagesObj[`${contactAssignment.pathway_stage_id}`];
 
   const isCruOrg = orgIsCru(organization);
 
-  const orgPermissions = (person as any).organizational_permissions || [];
-  const personOrgPermissions = orgPermissions.find(
+  const personOrgPermissions = (person.organizational_permissions || []).find(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (orgPermission: any) => orgPermission.organization_id === orgId,
   );
 
@@ -97,7 +90,7 @@ const PersonItem = ({
         person,
         contactAssignment,
         organization,
-        stage && stage.id,
+        stage && stage.id - 1,
       ),
     );
 
@@ -152,7 +145,7 @@ const PersonItem = ({
 
     return (
       <Touchable
-        testId="stepIcon"
+        testID="stepIcon"
         style={{ alignItems: 'center', justifyContent: 'center' }}
         onPress={handleAddStep}
       >
@@ -187,7 +180,13 @@ const PersonItem = ({
   );
 };
 
-const mapStateToProps = ({ auth, stages }: { auth: any; stages: any }) => ({
+const mapStateToProps = ({
+  auth,
+  stages,
+}: {
+  auth: AuthState;
+  stages: StagesState;
+}) => ({
   me: auth.person,
   stagesObj: stages.stagesObj || {},
 });
