@@ -17,6 +17,7 @@ import {
 } from '../../actions/steps';
 import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigatePush } from '../../actions/navigation';
+import { navToPersonScreen } from '../../actions/person';
 import {
   reminderStepsSelector,
   nonReminderStepsSelector,
@@ -123,6 +124,11 @@ export class StepsScreen extends Component {
     dispatch(showWelcomeNotification());
   }
 
+  handleNavToPerson = step => {
+    const { receiver, organization } = step;
+    this.props.dispatch(navToPersonScreen(receiver, organization));
+  };
+
   handleRemoveReminder(step) {
     const { dispatch } = this.props;
     dispatch(trackActionWithoutData(ACTIONS.STEP_DEPRIORITIZED));
@@ -210,6 +216,7 @@ export class StepsScreen extends Component {
               type="reminder"
               onSelect={this.handleRowSelect}
               onAction={this.handleRemoveReminder}
+              onPressName={this.handleNavToPerson}
             />
           ))}
         </Flex>
@@ -227,6 +234,7 @@ export class StepsScreen extends Component {
         hideAction={this.canHideStars()}
         onSelect={this.handleRowSelect}
         onAction={this.handleSetReminder}
+        onPressName={this.handleNavToPerson}
       />
     );
   };

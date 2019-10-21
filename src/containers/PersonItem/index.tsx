@@ -104,13 +104,11 @@ const PersonItem = ({
         style={styles.image}
         onPress={handleChangeStage}
       >
-        {stage ? (
-          <Image
-            style={styles.image}
-            resizeMode={'contain'}
-            source={stageIcons[stage.id - 1]}
-          />
-        ) : null}
+        <Image
+          style={styles.image}
+          resizeMode={'contain'}
+          source={stageIcons[stage.id - 1]}
+        />
       </Touchable>
     ) : (
       <View style={styles.image} />
