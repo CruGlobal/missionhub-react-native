@@ -32,6 +32,9 @@ jest.mock('../../../actions/onboardingProfile');
 jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/steps');
+jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
+  useLogoutOnBack: jest.fn(),
+}));
 
 const myId = '123';
 const personId = '321';
