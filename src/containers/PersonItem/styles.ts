@@ -21,6 +21,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-start',
   },
+  textRow: {
+    flexDirection: 'row',
+  },
   stage: {
     paddingTop: 6,
     fontSize: 12,

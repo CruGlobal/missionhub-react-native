@@ -12,7 +12,7 @@ import GROWING from '../../../assets/images/growingIcon.png';
 import GUIDING from '../../../assets/images/guidingIcon.png';
 import NOTSURE from '../../../assets/images/notsureIcon.png';
 import ItemHeaderText from '../../components/ItemHeaderText';
-import { Text, Touchable, Icon, Card } from '../../components/common';
+import { Text, Touchable, Icon, Card, Dot } from '../../components/common';
 import {
   navigateToStageScreen,
   navigateToAddStepFlow,
@@ -119,20 +119,21 @@ const PersonItem = ({
     return (
       <View style={styles.textWrapper}>
         <ItemHeaderText text={personName} />
-        {
+        <View style={styles.textRow}>
           <Touchable testID="stageText" onPress={handleChangeStage}>
             <Text style={[styles.stage, stage ? {} : styles.addStage]}>
               {stage ? stage.name : t('peopleScreen:addStage')}
             </Text>
           </Touchable>
-        }
-        {status ? (
-          <Text
-            style={[styles.stage, isUncontacted ? styles.uncontacted : null]}
-          >
-            {t(`followupStatus.${status.toLowerCase()}`)}
-          </Text>
-        ) : null}
+          {status ? (
+            <View style={styles.textRow}>
+              <Dot style={styles.stage} />
+              <Text style={[styles.stage]}>
+                {t(`followupStatus.${status.toLowerCase()}`)}
+              </Text>
+            </View>
+          ) : null}
+        </View>
       </View>
     );
   };
