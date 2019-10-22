@@ -73,8 +73,6 @@ const PersonItem = ({
       ? personOrgPermissions.followup_status || ''
       : 'uncontacted';
 
-  const isUncontacted = status === 'uncontacted';
-
   const handleSelect = () =>
     dispatch(
       navToPersonScreen(

@@ -105,70 +105,110 @@ exports[`renders cru org contact correctly 1`] = `
       John Doe
     </Text>
     <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "flexDirection": "row",
         }
       }
-      testID="stageText"
     >
-      <Text
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="stageText"
+      >
+        <Text
+          style={
             Array [
               Object {
-                "color": "#A0A2A6",
-                "fontSize": 12,
-                "lineHeight": 14,
-                "paddingTop": 6,
+                "color": "#505256",
               },
-              Object {},
-            ],
-          ]
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          Stage 1
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
         }
       >
-        Stage 1
-      </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+              ],
+            ]
+          }
+        >
+           · 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+              ],
+            ]
+          }
+        >
+          Contacted
+        </Text>
+      </View>
     </View>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 12,
-              "lineHeight": 14,
-              "paddingTop": 6,
-            },
-            null,
-          ],
-        ]
-      }
-    >
-      Contacted
-    </Text>
   </View>
   <View
     accessible={true}
@@ -335,72 +375,112 @@ exports[`renders cru org contact without stage correctly 1`] = `
       John Doe
     </Text>
     <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "flexDirection": "row",
         }
       }
-      testID="stageText"
     >
-      <Text
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="stageText"
+      >
+        <Text
+          style={
             Array [
               Object {
-                "color": "#A0A2A6",
-                "fontSize": 12,
-                "lineHeight": 14,
-                "paddingTop": 6,
+                "color": "#505256",
               },
               Object {
-                "color": "#52C5DC",
+                "fontFamily": "SourceSansPro-Regular",
               },
-            ],
-          ]
+              Array [
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+                Object {
+                  "color": "#52C5DC",
+                },
+              ],
+            ]
+          }
+        >
+          Add Stage
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
         }
       >
-        Add Stage
-      </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+              ],
+            ]
+          }
+        >
+           · 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+              ],
+            ]
+          }
+        >
+          Contacted
+        </Text>
+      </View>
     </View>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 12,
-              "lineHeight": 14,
-              "paddingTop": 6,
-            },
-            null,
-          ],
-        ]
-      }
-    >
-      Contacted
-    </Text>
   </View>
   <View
     accessible={true}
@@ -594,46 +674,54 @@ exports[`renders cru org member correctly 1`] = `
       John Doe
     </Text>
     <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "flexDirection": "row",
         }
       }
-      testID="stageText"
     >
-      <Text
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="stageText"
+      >
+        <Text
+          style={
             Array [
               Object {
-                "color": "#A0A2A6",
-                "fontSize": 12,
-                "lineHeight": 14,
-                "paddingTop": 6,
+                "color": "#505256",
               },
-              Object {},
-            ],
-          ]
-        }
-      >
-        Stage 1
-      </Text>
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          Stage 1
+        </Text>
+      </View>
     </View>
   </View>
   <View
@@ -828,46 +916,54 @@ exports[`renders me correctly 1`] = `
       Me
     </Text>
     <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "flexDirection": "row",
         }
       }
-      testID="stageText"
     >
-      <Text
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="stageText"
+      >
+        <Text
+          style={
             Array [
               Object {
-                "color": "#A0A2A6",
-                "fontSize": 12,
-                "lineHeight": 14,
-                "paddingTop": 6,
+                "color": "#505256",
               },
-              Object {},
-            ],
-          ]
-        }
-      >
-        Stage 1
-      </Text>
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          Stage 1
+        </Text>
+      </View>
     </View>
   </View>
   <View
@@ -1062,46 +1158,54 @@ exports[`renders personal ministry contact correctly 1`] = `
       John Doe
     </Text>
     <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "flexDirection": "row",
         }
       }
-      testID="stageText"
     >
-      <Text
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="stageText"
+      >
+        <Text
+          style={
             Array [
               Object {
-                "color": "#A0A2A6",
-                "fontSize": 12,
-                "lineHeight": 14,
-                "paddingTop": 6,
+                "color": "#505256",
               },
-              Object {},
-            ],
-          ]
-        }
-      >
-        Stage 1
-      </Text>
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          Stage 1
+        </Text>
+      </View>
     </View>
   </View>
   <View
@@ -1296,72 +1400,110 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
       John Doe
     </Text>
     <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "flexDirection": "row",
         }
       }
-      testID="stageText"
     >
-      <Text
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="stageText"
+      >
+        <Text
+          style={
             Array [
               Object {
-                "color": "#A0A2A6",
-                "fontSize": 12,
-                "lineHeight": 14,
-                "paddingTop": 6,
+                "color": "#505256",
               },
-              Object {},
-            ],
-          ]
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          Stage 1
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
         }
       >
-        Stage 1
-      </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+              ],
+            ]
+          }
+        >
+           · 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+              ],
+            ]
+          }
+        >
+          Uncontacted
+        </Text>
+      </View>
     </View>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Array [
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 12,
-              "lineHeight": 14,
-              "paddingTop": 6,
-            },
-            Object {
-              "color": "#FF5532",
-            },
-          ],
-        ]
-      }
-    >
-      Uncontacted
-    </Text>
   </View>
   <View
     accessible={true}
