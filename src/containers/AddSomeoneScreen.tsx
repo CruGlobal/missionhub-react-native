@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
-import { navigateBack } from '../actions/navigation';
-import { useAndroidBackButton } from '../utils/hooks/useAndroidBackButton';
+import { useLogoutOnBack } from '../utils/hooks/useLogoutOnBack';
 
 import IconMessageScreen from './IconMessageScreen';
 
@@ -15,6 +14,7 @@ interface AddSomeoneScreenProps {
   next: (props?: { skip: boolean }) => ThunkAction<void, any, null, never>;
   hideSkipBtn?: boolean;
   enableBackButton?: boolean;
+  logoutOnBack?: boolean;
 }
 
 const AddSomeoneScreen = ({
@@ -22,16 +22,17 @@ const AddSomeoneScreen = ({
   next,
   hideSkipBtn = false,
   enableBackButton = true,
+  logoutOnBack = false,
 }: AddSomeoneScreenProps) => {
-  useAndroidBackButton(enableBackButton);
   const { t } = useTranslation('addContact');
+
+  const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);
 
   const handleNavigate = (skip = false) => {
     dispatch(next({ skip }));
   };
 
   const skip = () => handleNavigate(true);
-  const back = () => dispatch(navigateBack());
 
   return (
     <IconMessageScreen
@@ -40,7 +41,7 @@ const AddSomeoneScreen = ({
       buttonText={t('addSomeone')}
       iconPath={require('../../assets/images/add_someone.png')}
       onSkip={hideSkipBtn ? undefined : skip}
-      onBack={enableBackButton ? back : undefined}
+      onBack={handleBack}
     />
   );
 };
