@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 
-import { ADD_SOMEONE_STEP_FLOW } from '../../routes/constants';
 import BottomButton from '../../components/BottomButton';
-import { navigatePush } from '../../actions/navigation';
+import { navigateToMainTabs } from '../../actions/navigation';
+import { PEOPLE_TAB } from '../../constants';
 
 interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -15,7 +15,7 @@ interface Props {
 const TakeAStepWithSomeoneButton = (props: Props) => {
   const { t } = useTranslation();
   function navigateToAddSomeoneScreen() {
-    props.dispatch(navigatePush(ADD_SOMEONE_STEP_FLOW));
+    props.dispatch(navigateToMainTabs(PEOPLE_TAB));
   }
   return (
     <BottomButton
