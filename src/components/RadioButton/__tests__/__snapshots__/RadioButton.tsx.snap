@@ -3,7 +3,7 @@
 exports[`renders correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -93,7 +93,7 @@ exports[`renders correctly 1`] = `
 exports[`renders not checked correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -165,7 +165,7 @@ exports[`renders not checked correctly 1`] = `
 exports[`renders overriding default props 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}

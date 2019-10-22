@@ -53,7 +53,7 @@ exports[`renders create step correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -192,7 +192,7 @@ exports[`renders create step correctly 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -310,7 +310,7 @@ exports[`renders edit journey item correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -448,7 +448,7 @@ exports[`renders edit journey item correctly 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -566,7 +566,7 @@ exports[`renders edit journey step correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -704,7 +704,7 @@ exports[`renders edit journey step correctly 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -822,7 +822,7 @@ exports[`renders interaction with skip correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -905,7 +905,7 @@ exports[`renders interaction with skip correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -1032,7 +1032,7 @@ exports[`renders interaction with skip correctly 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -1150,7 +1150,7 @@ exports[`renders interaction without skip correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -1288,7 +1288,7 @@ exports[`renders interaction without skip correctly 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -1406,7 +1406,7 @@ exports[`renders journey correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -1544,7 +1544,7 @@ exports[`renders journey correctly 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -1662,7 +1662,7 @@ exports[`renders step note correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -1745,7 +1745,7 @@ exports[`renders step note correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -1872,7 +1872,7 @@ exports[`renders step note correctly 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -1990,7 +1990,7 @@ exports[`renders step note correctly for me 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -2073,7 +2073,7 @@ exports[`renders step note correctly for me 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -2200,7 +2200,7 @@ exports[`renders step note correctly for me 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -2318,7 +2318,7 @@ exports[`renders step note edit correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -2401,7 +2401,7 @@ exports[`renders step note edit correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -2528,7 +2528,7 @@ exports[`renders step note edit correctly 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -2646,7 +2646,7 @@ exports[`renders step note edit correctly for me 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -2729,7 +2729,7 @@ exports[`renders step note edit correctly for me 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -2856,7 +2856,7 @@ exports[`renders step note edit correctly for me 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -2938,5 +2938,5 @@ exports[`updates text 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}"
+      focusable={true}"
 `;

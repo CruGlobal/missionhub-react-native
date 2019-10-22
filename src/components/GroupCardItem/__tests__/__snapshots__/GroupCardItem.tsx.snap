@@ -3,7 +3,7 @@
 exports[`GroupCardItem renders for global community 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -140,7 +140,7 @@ exports[`GroupCardItem renders for global community 1`] = `
 exports[`GroupCardItem renders for join screen 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -282,7 +282,7 @@ exports[`GroupCardItem renders for join screen 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -357,7 +357,7 @@ exports[`GroupCardItem renders for join screen 1`] = `
 exports[`GroupCardItem renders user created group 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -481,7 +481,7 @@ exports[`GroupCardItem renders user created group 1`] = `
 exports[`GroupCardItem renders user created group with member count 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -605,7 +605,7 @@ exports[`GroupCardItem renders user created group with member count 1`] = `
 exports[`GroupCardItem renders user created group with singular member count 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -729,7 +729,7 @@ exports[`GroupCardItem renders user created group with singular member count 1`]
 exports[`GroupCardItem renders with all report counts 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -882,7 +882,7 @@ exports[`GroupCardItem renders with all report counts 1`] = `
 exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -1035,7 +1035,7 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
 exports[`GroupCardItem renders with image url 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -1188,7 +1188,7 @@ exports[`GroupCardItem renders with image url 1`] = `
 exports[`GroupCardItem renders with no report counts 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -1341,7 +1341,7 @@ exports[`GroupCardItem renders with no report counts 1`] = `
 exports[`GroupCardItem renders with no report counts for user created org 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -1465,7 +1465,7 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
 exports[`GroupCardItem renders with notification 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -1675,7 +1675,7 @@ exports[`GroupCardItem renders with notification 1`] = `
 exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}

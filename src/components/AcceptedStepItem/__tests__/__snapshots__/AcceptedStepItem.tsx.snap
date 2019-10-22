@@ -3,7 +3,7 @@
 exports[`AcceptedStepItem renders accepted correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -45,7 +45,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
     <View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -141,7 +141,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -206,7 +206,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
           >
             <View
               accessible={true}
-              clickable={true}
+              focusable={true}
               isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
@@ -295,7 +295,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
             </View>
             <View
               accessible={true}
-              clickable={true}
+              focusable={true}
               isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
@@ -384,7 +384,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
             </View>
             <View
               accessible={true}
-              clickable={true}
+              focusable={true}
               isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
@@ -488,7 +488,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
           >
             <View
               accessible={true}
-              clickable={true}
+              focusable={true}
               isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
@@ -574,7 +574,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
             </Text>
             <View
               accessible={true}
-              clickable={true}
+              focusable={true}
               isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
@@ -665,7 +665,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -725,7 +725,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
 exports[`AcceptedStepItem renders completed correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}

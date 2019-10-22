@@ -23,7 +23,7 @@ exports[`renders hover for step 1`] = `
 exports[`renders not me correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -112,7 +112,7 @@ exports[`renders not me correctly 1`] = `
 exports[`renders type action correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -202,7 +202,7 @@ exports[`renders type action correctly 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
@@ -276,7 +276,7 @@ exports[`renders type action correctly 1`] = `
 exports[`renders type contact correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -349,7 +349,7 @@ exports[`renders type contact correctly 1`] = `
 exports[`renders type reminder correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -445,7 +445,7 @@ exports[`renders type reminder correctly 1`] = `
 exports[`renders type swipeable correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -574,7 +574,7 @@ exports[`step item animations renders animation fade in 1`] = `
       </View>
 +     <View
 +       accessible={true}
-+       clickable={true}
++       focusable={true}
 +       isTVSelectable={true}
 +       onClick={[Function bound touchableHandlePress]}
 +       onResponderGrant={[Function bound touchableHandleResponderGrant]}
@@ -658,7 +658,7 @@ exports[`step item animations renders animation fade out 1`] = `
       </View>
 +     <View
 +       accessible={true}
-+       clickable={true}
++       focusable={true}
 +       isTVSelectable={true}
 +       onClick={[Function bound touchableHandlePress]}
 +       onResponderGrant={[Function bound touchableHandleResponderGrant]}
@@ -732,7 +732,7 @@ exports[`step item animations renders animation fade out 1`] = `
 exports[`step item animations renders no animation 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -822,7 +822,7 @@ exports[`step item animations renders no animation 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
