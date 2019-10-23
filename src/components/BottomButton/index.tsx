@@ -29,7 +29,11 @@ const BottomButton = ({ text, disabled, onPress }: BottomButtonProps) => {
         disabled={disabled}
         onPress={handlePress}
         text={text.toUpperCase()}
-        style={{ width: theme.fullWidth - 100, height: 48, marginBottom: 20 }}
+        style={{
+          width: 300,
+          height: 48,
+          marginBottom: 20,
+        }}
         pill={true}
       />
     </View>

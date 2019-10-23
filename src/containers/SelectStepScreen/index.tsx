@@ -2,13 +2,11 @@ import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
-import { Text, Icon } from '../../components/common';
+import { Text } from '../../components/common';
 import BackButton from '../BackButton';
-import BottomButton from '../../components/BottomButton';
 import Skip from '../../components/Skip';
 import theme from '../../theme';
 import StepsList from '../StepsList';
@@ -50,8 +48,6 @@ const SelectStepScreen = ({
   dispatch,
   next,
 }: SelectStepScreenProps) => {
-  const { t } = useTranslation('selectStep');
-
   const navigateNext = (step?: Step, skip = false) => {
     dispatch(
       next({
@@ -77,32 +73,22 @@ const SelectStepScreen = ({
 
   const renderForeground = () => {
     return (
-      <View style={{ flex: 1, alignItems: 'center' }}>
-        {renderHeader(false)}
-        <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
-        <Text header={true} style={styles.headerTitle}>
-          {t('stepsOfFaith')}
-        </Text>
-        <Text style={styles.headerText}>{headerText}</Text>
+      <View style={{ flex: 0, alignItems: 'center' }}>
+        {renderHeader()}
+        <Text style={styles.headerText}>{headerText[0]}</Text>
+        <Text style={styles.headerText}>{headerText[1]}</Text>
       </View>
     );
   };
 
-  const renderHeader = (showTitle = true) => (
+  const renderHeader = () => (
     <Header
       left={<BackButton />}
-      center={
-        showTitle && (
-          <Text style={styles.collapsedHeaderTitle}>
-            {t('stepsOfFaith').toUpperCase()}
-          </Text>
-        )
-      }
       right={enableSkipButton && <Skip onSkip={handleSkip} />}
     />
   );
 
-  const { headerHeight, parallaxHeaderHeight } = theme;
+  const { headerHeight } = theme;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -110,19 +96,19 @@ const SelectStepScreen = ({
         style={{ flex: 1 }}
         backgroundColor={theme.primaryColor}
         contentBackgroundColor={theme.extraLightGrey}
-        parallaxHeaderHeight={parallaxHeaderHeight + theme.notchDifference}
+        parallaxHeaderHeight={150}
         renderForeground={renderForeground}
         stickyHeaderHeight={headerHeight}
         renderStickyHeader={renderHeader}
       >
         <StepsList
+          onPressCreateStep={navToCreateStep}
           contactName={contactName}
           receiverId={receiverId}
           contactStageId={contactStageId}
           onPressStep={navToSuggestedStep}
         />
       </ParallaxScrollView>
-      <BottomButton onPress={navToCreateStep} text={t('createStep')} />
     </SafeAreaView>
   );
 };

@@ -218,9 +218,12 @@ export default {
   },
   selectStep: {
     meHeader: 'How do you want to move forward on your spiritual journey?',
-    personHeader: 'What will you do to help {{name}} experience God?',
+    personHeader: {
+      part1: 'Choose a step of faith',
+      part2: ' to take with {{name}} this week...',
+    },
     addStep: 'ADD TO MY STEPS',
-    createStep: 'CREATE YOUR OWN STEP',
+    createStep: 'Create a Custom Step',
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
   },
