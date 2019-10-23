@@ -15,10 +15,6 @@ import { updatePerson } from '../../actions/person';
 import BackButton from '../BackButton';
 import Header from '../../components/Header';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
-import { prompt } from '../../utils/prompt';
-import { logout } from '../../actions/auth/auth';
-import { navigateBack } from '../../actions/navigation';
-import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { personSelector } from '../../selectors/people';
@@ -55,7 +51,6 @@ const SetupScreen = ({
   const [lastName, setLastName] = useState(loadedLastName);
   const [isLoading, setIsLoading] = useState(false);
   const lastNameRef = useRef<TextInput>(null);
-
 
   const handleBack = useLogoutOnBack(true, !!personId);
 
@@ -127,7 +122,9 @@ const SetupScreen = ({
       <View style={styles.inputWrap}>
         <View>
           <Text style={styles.label}>
-            {t('profileLabels.firstNameRequired')}
+            {isMe
+              ? t('profileLabels.firstNameRequired')
+              : t('profileLabels.firstNameNickname')}
           </Text>
           <Input
             onChangeText={(firstName: string) => setFirstName(firstName)}
@@ -148,14 +145,18 @@ const SetupScreen = ({
             onChangeText={(lastName: string) => setLastName(lastName)}
             value={lastName}
             returnKeyType="done"
-            placeholder={t('profileLabels.lastName')}
+            placeholder={
+              isMe
+                ? t('profileLabels.lastName')
+                : t('profileLabels.lastNameOptional')
+            }
             placeholderTextColor="white"
             blurOnSubmit={true}
             onSubmitEditing={saveAndNavigateNext}
             testID="InputLastName"
           />
         </View>
-        <TosPrivacy trial={true} />
+        {isMe ? <TosPrivacy trial={true} /> : null}
       </View>
       <BottomButton
         testID="SaveBottomButton"
