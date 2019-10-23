@@ -18,4 +18,14 @@ export const migrations = {
       },
     },
   }),
+  1: state => ({
+    ...state,
+    swipe: {
+      ...state.swipe,
+      groupOnBoarding: {
+        ...state.swipe.groupOnBoarding,
+        steps: true,
+      },
+    },
+  }),
 };

@@ -17,3 +17,30 @@ Object {
   },
 }
 `;
+
+exports[`should migrate swipe groupOnBoarding reducer to use steps 1`] = `
+Object {
+  "auth": Object {},
+  "impact": Object {
+    "global": "globalImpact",
+    "interactions": Object {
+      "123": Object {},
+    },
+    "people": Object {
+      "123": "personImpact1",
+      "456": "personImpact2",
+    },
+  },
+  "swipe": Object {
+    "groupOnBoarding": Object {
+      "celebrate": true,
+      "challenges": true,
+      "contacts": true,
+      "impact": true,
+      "members": true,
+      "steps": true,
+      "surveys": true,
+    },
+  },
+}
+`;

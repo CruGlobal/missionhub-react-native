@@ -67,89 +67,101 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "#007398",
+        "backgroundColor": "#ECEEF2",
         "flex": 1,
       }
     }
   >
-    <ScrollViewMock
-      contentContainerStyle={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "flex": 1,
-          },
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-      onScroll={[Function]}
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={false}
-        />
-      }
-      scrollEventThrottle={16}
+    <Connect(withI18nextTranslation(OnboardingCard))
+      type="steps"
+    />
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-          },
-        ]
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+        }
       }
     >
-      <Flex
-        align="center"
-        style={
+      <ScrollViewMock
+        contentContainerStyle={
           Array [
             Object {
-              "backgroundColor": "#66D9F0",
-              "width": 750,
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+            },
+            Object {
+              "flex": 1,
             },
           ]
         }
-      />
-      <Flex
-        align="center"
-        justify="center"
-        value={1}
-      >
-        <Image
-          source={
+        onScroll={[Function]}
+        refreshControl={
+          <MyRefreshControl
+            onRefresh={[Function]}
+            refreshing={false}
+          />
+        }
+        scrollEventThrottle={16}
+        style={
+          Array [
             Object {
-              "testUri": "../../../assets/images/footprints.png",
-            }
+              "backgroundColor": "#ECEEF2",
+            },
+          ]
+        }
+      >
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+            ]
           }
         />
-        <MyText
-          header={true}
-          style={
-            Object {
-              "color": "#007398",
-              "fontSize": 42,
-              "paddingTop": 10,
-            }
-          }
+        <Flex
+          align="center"
+          justify="center"
+          value={1}
         >
-          STEPS OF FAITH
-        </MyText>
-        <MyText
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "paddingHorizontal": 70,
-              "paddingVertical": 10,
-              "textAlign": "center",
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/footprints.png",
+              }
             }
-          }
-        >
-          Choose a person in People view and add some new steps.
-        </MyText>
-      </Flex>
-    </ScrollViewMock>
+          />
+          <MyText
+            header={true}
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 42,
+                "paddingTop": 10,
+              }
+            }
+          >
+            STEPS OF FAITH
+          </MyText>
+          <MyText
+            style={
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "paddingHorizontal": 70,
+                "paddingVertical": 10,
+                "textAlign": "center",
+              }
+            }
+          >
+            Choose a person in People view and add some new steps.
+          </MyText>
+        </Flex>
+      </ScrollViewMock>
+    </View>
   </View>
 </SafeAreaView>
 `;
@@ -179,7 +191,7 @@ exports[`StepsScreen renders loading screen correctly 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "#ECEEF2",
         "flex": 1,
       }
     }
@@ -214,125 +226,137 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
   <View
     style={
       Object {
-        "backgroundColor": "#007398",
+        "backgroundColor": "#ECEEF2",
         "flex": 1,
       }
     }
   >
-    <ScrollViewMock
-      contentContainerStyle={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "flex": 1,
-          },
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-      onScroll={[Function]}
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={false}
-        />
-      }
-      scrollEventThrottle={16}
+    <Connect(withI18nextTranslation(OnboardingCard))
+      type="steps"
+    />
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-          },
-        ]
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+        }
       }
     >
-      <Flex
-        align="center"
+      <ScrollViewMock
+        contentContainerStyle={
+          Array [
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+            },
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+        onScroll={[Function]}
+        refreshControl={
+          <MyRefreshControl
+            onRefresh={[Function]}
+            refreshing={false}
+          />
+        }
+        scrollEventThrottle={16}
         style={
           Array [
             Object {
-              "backgroundColor": "#66D9F0",
-              "width": 750,
+              "backgroundColor": "#ECEEF2",
             },
           ]
         }
-      />
-      <FlatList
-        ListFooterComponent={null}
-        bounces={false}
-        data={
-          Array [
-            Object {
-              "id": 0,
-              "organization": Object {
-                "id": "000",
+      >
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
               },
-              "receiver": Object {
-                "id": "00",
-              },
-            },
-            Object {
-              "id": 1,
-              "organization": Object {
-                "id": "111",
-              },
-              "receiver": Object {
-                "id": "11",
-              },
-            },
-            Object {
-              "id": 2,
-              "organization": Object {
-                "id": "222",
-              },
-              "receiver": Object {
-                "id": "22",
-              },
-            },
-            Object {
-              "id": 3,
-              "organization": Object {
-                "id": "333",
-              },
-              "receiver": Object {
-                "id": "33",
-              },
-            },
-          ]
-        }
-        disableVirtualization={false}
-        extraData={
-          Object {
-            "hideStars": false,
+            ]
           }
-        }
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onEndReachedThreshold={2}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        style={
-          Array [
+        />
+        <FlatList
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "id": 0,
+                "organization": Object {
+                  "id": "000",
+                },
+                "receiver": Object {
+                  "id": "00",
+                },
+              },
+              Object {
+                "id": 1,
+                "organization": Object {
+                  "id": "111",
+                },
+                "receiver": Object {
+                  "id": "11",
+                },
+              },
+              Object {
+                "id": 2,
+                "organization": Object {
+                  "id": "222",
+                },
+                "receiver": Object {
+                  "id": "22",
+                },
+              },
+              Object {
+                "id": 3,
+                "organization": Object {
+                  "id": "333",
+                },
+                "receiver": Object {
+                  "id": "33",
+                },
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
             Object {
-              "backgroundColor": "#ffffff",
-              "overflow": "scroll",
-              "paddingBottom": undefined,
-            },
-            Object {
-              "paddingBottom": 40,
-            },
-          ]
-        }
-        updateCellsBatchingPeriod={50}
-        windowSize={21}
-      />
-    </ScrollViewMock>
+              "hideStars": false,
+            }
+          }
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onEndReachedThreshold={2}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ECEEF2",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": 40,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          windowSize={21}
+        />
+      </ScrollViewMock>
+    </View>
   </View>
 </SafeAreaView>
 `;
@@ -362,152 +386,164 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "#007398",
+        "backgroundColor": "#ECEEF2",
         "flex": 1,
       }
     }
   >
-    <ScrollViewMock
-      contentContainerStyle={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "flex": 1,
-          },
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-      onScroll={[Function]}
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={false}
-        />
-      }
-      scrollEventThrottle={16}
+    <Connect(withI18nextTranslation(OnboardingCard))
+      type="steps"
+    />
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-          },
-        ]
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+        }
       }
     >
-      <Flex
-        align="center"
+      <ScrollViewMock
+        contentContainerStyle={
+          Array [
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+            },
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+        onScroll={[Function]}
+        refreshControl={
+          <MyRefreshControl
+            onRefresh={[Function]}
+            refreshing={false}
+          />
+        }
+        scrollEventThrottle={16}
         style={
           Array [
             Object {
-              "backgroundColor": "#66D9F0",
-              "width": 750,
+              "backgroundColor": "#ECEEF2",
             },
           ]
         }
       >
-        <Connect(StepItem)
-          key="1"
-          onAction={[Function]}
-          onPressName={[Function]}
-          onSelect={[Function]}
-          step={
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Connect(StepItem)
+            key="1"
+            onAction={[Function]}
+            onPressName={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "id": 1,
+                "reminder": true,
+              }
+            }
+            type="reminder"
+          />
+          <Connect(StepItem)
+            key="2"
+            onAction={[Function]}
+            onPressName={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "id": 2,
+                "reminder": true,
+              }
+            }
+            type="reminder"
+          />
+        </Flex>
+        <FlatList
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "id": 0,
+                "organization": Object {
+                  "id": "000",
+                },
+                "receiver": Object {
+                  "id": "00",
+                },
+              },
+              Object {
+                "id": 1,
+                "organization": Object {
+                  "id": "111",
+                },
+                "receiver": Object {
+                  "id": "11",
+                },
+              },
+              Object {
+                "id": 2,
+                "organization": Object {
+                  "id": "222",
+                },
+                "receiver": Object {
+                  "id": "22",
+                },
+              },
+              Object {
+                "id": 3,
+                "organization": Object {
+                  "id": "333",
+                },
+                "receiver": Object {
+                  "id": "33",
+                },
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
             Object {
-              "id": 1,
-              "reminder": true,
+              "hideStars": true,
             }
           }
-          type="reminder"
-        />
-        <Connect(StepItem)
-          key="2"
-          onAction={[Function]}
-          onPressName={[Function]}
-          onSelect={[Function]}
-          step={
-            Object {
-              "id": 2,
-              "reminder": true,
-            }
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onEndReachedThreshold={2}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ECEEF2",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": 40,
+              },
+            ]
           }
-          type="reminder"
+          updateCellsBatchingPeriod={50}
+          windowSize={21}
         />
-      </Flex>
-      <FlatList
-        ListFooterComponent={null}
-        bounces={false}
-        data={
-          Array [
-            Object {
-              "id": 0,
-              "organization": Object {
-                "id": "000",
-              },
-              "receiver": Object {
-                "id": "00",
-              },
-            },
-            Object {
-              "id": 1,
-              "organization": Object {
-                "id": "111",
-              },
-              "receiver": Object {
-                "id": "11",
-              },
-            },
-            Object {
-              "id": 2,
-              "organization": Object {
-                "id": "222",
-              },
-              "receiver": Object {
-                "id": "22",
-              },
-            },
-            Object {
-              "id": 3,
-              "organization": Object {
-                "id": "333",
-              },
-              "receiver": Object {
-                "id": "33",
-              },
-            },
-          ]
-        }
-        disableVirtualization={false}
-        extraData={
-          Object {
-            "hideStars": true,
-          }
-        }
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onEndReachedThreshold={2}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#ffffff",
-              "overflow": "scroll",
-              "paddingBottom": undefined,
-            },
-            Object {
-              "paddingBottom": 40,
-            },
-          ]
-        }
-        updateCellsBatchingPeriod={50}
-        windowSize={21}
-      />
-    </ScrollViewMock>
+      </ScrollViewMock>
+    </View>
   </View>
 </SafeAreaView>
 `;
@@ -537,105 +573,117 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
   <View
     style={
       Object {
-        "backgroundColor": "#007398",
+        "backgroundColor": "#ECEEF2",
         "flex": 1,
       }
     }
   >
-    <ScrollViewMock
-      contentContainerStyle={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "flex": 1,
-          },
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-      onScroll={[Function]}
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={false}
-        />
-      }
-      scrollEventThrottle={16}
+    <Connect(withI18nextTranslation(OnboardingCard))
+      type="steps"
+    />
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-          },
-        ]
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+        }
       }
     >
-      <FlatList
-        ListFooterComponent={null}
-        bounces={false}
-        data={
+      <ScrollViewMock
+        contentContainerStyle={
           Array [
             Object {
-              "id": 0,
-              "organization": Object {
-                "id": "000",
-              },
-              "receiver": Object {
-                "id": "00",
-              },
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
             },
             Object {
-              "id": 1,
-              "organization": Object {
-                "id": "111",
-              },
-              "receiver": Object {
-                "id": "11",
-              },
-            },
-            Object {
-              "id": 2,
-              "organization": Object {
-                "id": "222",
-              },
-              "receiver": Object {
-                "id": "22",
-              },
+              "flex": 1,
             },
           ]
         }
-        disableVirtualization={false}
-        extraData={
-          Object {
-            "hideStars": true,
-          }
+        onScroll={[Function]}
+        refreshControl={
+          <MyRefreshControl
+            onRefresh={[Function]}
+            refreshing={false}
+          />
         }
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onEndReachedThreshold={2}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
+        scrollEventThrottle={16}
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
-              "overflow": "scroll",
-              "paddingBottom": undefined,
-            },
-            Object {
-              "paddingBottom": 40,
+              "backgroundColor": "#ECEEF2",
             },
           ]
         }
-        updateCellsBatchingPeriod={50}
-        windowSize={21}
-      />
-    </ScrollViewMock>
+      >
+        <FlatList
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "id": 0,
+                "organization": Object {
+                  "id": "000",
+                },
+                "receiver": Object {
+                  "id": "00",
+                },
+              },
+              Object {
+                "id": 1,
+                "organization": Object {
+                  "id": "111",
+                },
+                "receiver": Object {
+                  "id": "11",
+                },
+              },
+              Object {
+                "id": 2,
+                "organization": Object {
+                  "id": "222",
+                },
+                "receiver": Object {
+                  "id": "22",
+                },
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
+            Object {
+              "hideStars": true,
+            }
+          }
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onEndReachedThreshold={2}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ECEEF2",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": 40,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          windowSize={21}
+        />
+      </ScrollViewMock>
+    </View>
   </View>
 </SafeAreaView>
 `;
@@ -665,158 +713,126 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "#007398",
+        "backgroundColor": "#ECEEF2",
         "flex": 1,
       }
     }
   >
-    <Flex
-      align="center"
-      justify="center"
+    <Connect(withI18nextTranslation(OnboardingCard))
+      type="steps"
+    />
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#66D9F0",
-            "width": 750,
-          },
-          Object {
-            "paddingHorizontal": 27,
-            "paddingVertical": 32,
-          },
-        ]
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+        }
       }
     >
-      <Icon
-        name="starGroupIcon"
-        size={45}
-        type="MissionHub"
-      />
-      <MyText
-        header={true}
+      <ScrollViewMock
+        contentContainerStyle={
+          Array [
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+            },
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+        onScroll={[Function]}
+        refreshControl={
+          <MyRefreshControl
+            onRefresh={[Function]}
+            refreshing={false}
+          />
+        }
+        scrollEventThrottle={16}
         style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 36,
-            "textAlign": "center",
-          }
+          Array [
+            Object {
+              "backgroundColor": "#ECEEF2",
+            },
+          ]
         }
       >
-        FOCUS YOUR WEEK
-      </MyText>
-      <MyText
-        style={
-          Object {
-            "fontSize": 16,
-            "textAlign": "center",
+        <FlatList
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "id": 0,
+                "organization": Object {
+                  "id": "000",
+                },
+                "receiver": Object {
+                  "id": "00",
+                },
+              },
+              Object {
+                "id": 1,
+                "organization": Object {
+                  "id": "111",
+                },
+                "receiver": Object {
+                  "id": "11",
+                },
+              },
+              Object {
+                "id": 2,
+                "organization": Object {
+                  "id": "222",
+                },
+                "receiver": Object {
+                  "id": "22",
+                },
+              },
+              Object {
+                "id": 3,
+                "organization": Object {
+                  "id": "333",
+                },
+                "receiver": Object {
+                  "id": "33",
+                },
+              },
+            ]
           }
-        }
-      >
-        Star up to three steps and get weekly handcrafted reminders.
-      </MyText>
-    </Flex>
-    <ScrollViewMock
-      contentContainerStyle={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "flex": 1,
-          },
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-      onScroll={[Function]}
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={false}
+          disableVirtualization={false}
+          extraData={
+            Object {
+              "hideStars": false,
+            }
+          }
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onEndReachedThreshold={2}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ECEEF2",
+                "overflow": "scroll",
+                "paddingBottom": undefined,
+              },
+              Object {
+                "paddingBottom": 40,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          windowSize={21}
         />
-      }
-      scrollEventThrottle={16}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-          },
-        ]
-      }
-    >
-      <FlatList
-        ListFooterComponent={null}
-        bounces={false}
-        data={
-          Array [
-            Object {
-              "id": 0,
-              "organization": Object {
-                "id": "000",
-              },
-              "receiver": Object {
-                "id": "00",
-              },
-            },
-            Object {
-              "id": 1,
-              "organization": Object {
-                "id": "111",
-              },
-              "receiver": Object {
-                "id": "11",
-              },
-            },
-            Object {
-              "id": 2,
-              "organization": Object {
-                "id": "222",
-              },
-              "receiver": Object {
-                "id": "22",
-              },
-            },
-            Object {
-              "id": 3,
-              "organization": Object {
-                "id": "333",
-              },
-              "receiver": Object {
-                "id": "33",
-              },
-            },
-          ]
-        }
-        disableVirtualization={false}
-        extraData={
-          Object {
-            "hideStars": false,
-          }
-        }
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onEndReachedThreshold={2}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#ffffff",
-              "overflow": "scroll",
-              "paddingBottom": undefined,
-            },
-            Object {
-              "paddingBottom": 40,
-            },
-          ]
-        }
-        updateCellsBatchingPeriod={50}
-        windowSize={21}
-      />
-    </ScrollViewMock>
+      </ScrollViewMock>
+    </View>
   </View>
 </SafeAreaView>
 `;
@@ -846,80 +862,92 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
   <View
     style={
       Object {
-        "backgroundColor": "#007398",
+        "backgroundColor": "#ECEEF2",
         "flex": 1,
       }
     }
   >
-    <ScrollViewMock
-      contentContainerStyle={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "flex": 1,
-          },
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-      onScroll={[Function]}
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={false}
-        />
-      }
-      scrollEventThrottle={16}
+    <Connect(withI18nextTranslation(OnboardingCard))
+      type="steps"
+    />
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-          },
-        ]
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+        }
       }
     >
-      <Flex
-        align="center"
-        justify="center"
-        value={1}
+      <ScrollViewMock
+        contentContainerStyle={
+          Array [
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+            },
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+        onScroll={[Function]}
+        refreshControl={
+          <MyRefreshControl
+            onRefresh={[Function]}
+            refreshing={false}
+          />
+        }
+        scrollEventThrottle={16}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ECEEF2",
+            },
+          ]
+        }
       >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/footprints.png",
-            }
-          }
-        />
-        <MyText
-          header={true}
-          style={
-            Object {
-              "color": "#007398",
-              "fontSize": 42,
-              "paddingTop": 10,
-            }
-          }
+        <Flex
+          align="center"
+          justify="center"
+          value={1}
         >
-          STEPS OF FAITH
-        </MyText>
-        <MyText
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "paddingHorizontal": 70,
-              "paddingVertical": 10,
-              "textAlign": "center",
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/footprints.png",
+              }
             }
-          }
-        >
-          You don't have any Steps of Faith.
+          />
+          <MyText
+            header={true}
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 42,
+                "paddingTop": 10,
+              }
+            }
+          >
+            STEPS OF FAITH
+          </MyText>
+          <MyText
+            style={
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "paddingHorizontal": 70,
+                "paddingVertical": 10,
+                "textAlign": "center",
+              }
+            }
+          >
+            You don't have any Steps of Faith.
 Choose a person to view and add some new steps.
-        </MyText>
-      </Flex>
-    </ScrollViewMock>
-    <Connect(TakeAStepWithSomeoneButton) />
+          </MyText>
+        </Flex>
+      </ScrollViewMock>
+      <Connect(TakeAStepWithSomeoneButton) />
+    </View>
   </View>
 </SafeAreaView>
 `;
