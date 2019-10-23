@@ -666,11 +666,16 @@ exports[`should render null state 1`] = `
                             Object {
                               "fontFamily": "SourceSansPro-Regular",
                             },
-                            Object {},
+                            Array [
+                              Object {
+                                "fontWeight": "bold",
+                              },
+                              undefined,
+                            ],
                           ]
                         }
                       >
-                          ·  
+                         · 
                       </Text>
                       0 Unassigned
                     </Text>

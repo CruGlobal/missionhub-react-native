@@ -16,7 +16,6 @@ import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
 import { openMainMenu } from '../../utils/common';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
-import { navToPersonScreen } from '../../actions/person';
 import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
 import TrackTabChange from '../TrackTabChange';
 import { PEOPLE_TAB } from '../../constants';
@@ -56,12 +55,6 @@ export const PeopleScreen = ({
 
   const handleSearch = () => {
     dispatch(navigatePush(SEARCH_SCREEN));
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleRowSelect = (person: any, org: any) => {
-    const organization = org && org.id !== 'personal' ? org : undefined;
-    dispatch(navToPersonScreen(person, organization));
   };
 
   const handleRefresh = () => {
@@ -106,7 +99,6 @@ export const PeopleScreen = ({
         testID="peopleList"
         sections={isJean}
         items={items}
-        onSelect={handleRowSelect}
         onAddContact={handleAddContact}
         onRefresh={refresh}
         refreshing={isRefreshing}

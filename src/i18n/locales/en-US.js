@@ -464,6 +464,7 @@ export default {
     header: 'PEOPLE',
     personalMinistry: 'Personal Ministry',
     personal: 'personal',
+    addStage: 'Add Stage',
   },
   appRoutes: {
     steps: 'Steps',

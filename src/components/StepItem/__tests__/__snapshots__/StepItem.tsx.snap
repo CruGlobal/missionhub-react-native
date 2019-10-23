@@ -82,7 +82,7 @@ exports[`renders not me correctly 1`] = `
                 Object {
                   "color": "#007398",
                   "fontSize": 16,
-                  "fontWeight": "bold",
+                  "lineHeight": 20,
                 },
                 Object {
                   "fontSize": 16,
@@ -269,7 +269,7 @@ exports[`renders with pressable name correctly 1`] = `
                 Object {
                   "color": "#007398",
                   "fontSize": 16,
-                  "fontWeight": "bold",
+                  "lineHeight": 20,
                 },
                 Object {
                   "fontSize": 16,
