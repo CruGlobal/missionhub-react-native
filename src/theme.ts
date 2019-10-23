@@ -1,7 +1,7 @@
 import { Dimensions, StatusBarStyle } from 'react-native';
 import Color from 'color';
 
-import { isAndroid, hasNotch } from './utils/common';
+import { isAndroid } from './utils/common';
 
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window');
 

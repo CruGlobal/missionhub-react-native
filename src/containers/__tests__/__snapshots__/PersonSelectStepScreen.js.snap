@@ -235,7 +235,28 @@ exports[`allows for undefined organization 1`] = `
                   }
                 >
                   Choose a step of faith
- to take with Ron this week...
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "lineHeight": 30,
+                        "paddingHorizontal": 50,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                   to take with Ron this week...
                 </Text>
               </View>
             </View>
@@ -801,7 +822,28 @@ exports[`renders correctly 1`] = `
                   }
                 >
                   Choose a step of faith
- to take with Ron this week...
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "lineHeight": 30,
+                        "paddingHorizontal": 50,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                   to take with Ron this week...
                 </Text>
               </View>
             </View>

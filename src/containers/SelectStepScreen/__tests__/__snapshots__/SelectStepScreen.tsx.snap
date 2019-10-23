@@ -302,7 +302,29 @@ exports[`with enableSkipButton renders correctly 1`] = `
                     ]
                   }
                 >
-                  Header Text
+                  H
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "lineHeight": 30,
+                        "paddingHorizontal": 50,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  e
                 </Text>
               </View>
             </View>
@@ -820,7 +842,29 @@ exports[`without enableSkipButton renders correctly 1`] = `
                     ]
                   }
                 >
-                  Header Text
+                  H
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "lineHeight": 30,
+                        "paddingHorizontal": 50,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  e
                 </Text>
               </View>
             </View>
