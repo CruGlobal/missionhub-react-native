@@ -75,7 +75,8 @@ const SelectStepScreen = ({
     return (
       <View style={{ flex: 0, alignItems: 'center' }}>
         {renderHeader()}
-        <Text style={styles.headerText}>{headerText}</Text>
+        <Text style={styles.headerText}>{headerText[0]}</Text>
+        <Text style={styles.headerText}>{headerText[1]}</Text>
       </View>
     );
   };
@@ -95,7 +96,7 @@ const SelectStepScreen = ({
         style={{ flex: 1 }}
         backgroundColor={theme.primaryColor}
         contentBackgroundColor={theme.extraLightGrey}
-        parallaxHeaderHeight={150 + theme.notchDifference}
+        parallaxHeaderHeight={150}
         renderForeground={renderForeground}
         stickyHeaderHeight={headerHeight}
         renderStickyHeader={renderHeader}

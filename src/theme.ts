@@ -83,8 +83,6 @@ const SECONDARY = COLORS.BLUE;
 const BACKGROUND = COLORS.LIGHT_BLUE;
 const ACCENT = COLORS.ACCENT_BLUE;
 
-const notchDifference = hasNotch() ? 22 : 0;
-
 const statusBar = {
   backgroundColor: colorConvert({
     color: COLORS.DARK_BLUE,
@@ -135,9 +133,7 @@ export default {
   contactHeaderIconActiveColor: 'rgba(255,255,255,1)',
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
 
-  notchDifference,
   headerHeight: 56,
-  parallaxHeaderHeight: 215,
   swipeTabHeight: 48,
   communityImageAspectRatio: 9 / 16,
   statusBar: {
