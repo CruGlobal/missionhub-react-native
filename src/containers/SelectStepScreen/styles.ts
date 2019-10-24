@@ -14,5 +14,7 @@ export default StyleSheet.create({
     color: theme.white,
     paddingHorizontal: 50,
     textAlign: 'center',
+    letterSpacing: 1,
+    width: 500,
   },
 });
