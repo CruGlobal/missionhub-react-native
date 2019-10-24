@@ -1,15 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contact should render correctly 1`] = `
-<Fragment>
-  <SafeAreaView
-    style={
-      Object {
-        "backgroundColor": "#007398",
-      }
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
     }
+  }
+>
+  <Header
+    left={<Connect(BackButton) />}
+    title="Test Org"
   />
-  <SafeAreaView
+  <View
     style={
       Object {
         "backgroundColor": "#ffffff",
@@ -19,10 +23,6 @@ exports[`Contact should render correctly 1`] = `
       }
     }
   >
-    <Header
-      left={<Connect(BackButton) />}
-      title="Test Org"
-    />
     <GroupsContactList
       activity={Array []}
       myId="me"
@@ -40,21 +40,23 @@ exports[`Contact should render correctly 1`] = `
         }
       }
     />
-    <Connect(JourneyCommentBox)
-      onSubmit={[Function]}
-      organization={
-        Object {
-          "id": "1",
-          "name": "Test Org",
+    <SafeAreaView>
+      <Connect(JourneyCommentBox)
+        onSubmit={[Function]}
+        organization={
+          Object {
+            "id": "1",
+            "name": "Test Org",
+          }
         }
-      }
-      person={
-        Object {
-          "full_name": "Test Person",
-          "id": "1",
+        person={
+          Object {
+            "full_name": "Test Person",
+            "id": "1",
+          }
         }
-      }
-    />
-  </SafeAreaView>
-</Fragment>
+      />
+    </SafeAreaView>
+  </View>
+</View>
 `;

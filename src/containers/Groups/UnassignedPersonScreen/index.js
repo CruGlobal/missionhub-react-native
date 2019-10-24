@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -31,12 +31,9 @@ class UnassignedPersonScreen extends Component {
     const { activity } = this.state;
 
     return (
-      <>
-        {/* Duplicate SafeAreaViews allow the top to be a different color than the bottom. https://medium.com/reactbrasil/react-native-set-different-colors-on-top-and-bottom-in-safeareaview-component-f008823483f3#1346 */}
-        <SafeAreaView style={styles.topSafeArea} />
-        <SafeAreaView style={styles.container}>
-          <Header left={<BackButton />} title={organization.name} />
-
+      <View style={styles.pageContainer}>
+        <Header left={<BackButton />} title={organization.name} />
+        <View style={styles.container}>
           <GroupsContactList
             activity={activity}
             person={person}
@@ -44,13 +41,15 @@ class UnassignedPersonScreen extends Component {
             myId={me.id}
             onAssign={onAssign}
           />
-          <JourneyCommentBox
-            onSubmit={this.loadFeed}
-            person={person}
-            organization={organization}
-          />
-        </SafeAreaView>
-      </>
+          <SafeAreaView>
+            <JourneyCommentBox
+              onSubmit={this.loadFeed}
+              person={person}
+              organization={organization}
+            />
+          </SafeAreaView>
+        </View>
+      </View>
     );
   }
 }

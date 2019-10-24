@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, ScrollView, Keyboard } from 'react-native';
+import { View, ScrollView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -154,13 +154,13 @@ export class ContactNotes extends Component {
   render() {
     const { text, editing } = this.state;
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         {text || editing ? this.renderNotes() : this.renderEmpty()}
         <BottomButton
           onPress={this.onButtonPress}
           text={this.getButtonText()}
         />
-      </SafeAreaView>
+      </View>
     );
   }
 }

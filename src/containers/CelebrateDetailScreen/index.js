@@ -59,63 +59,83 @@ class CelebrateDetailScreen extends Component {
 
   handleRefresh = () => refresh(this, this.refreshComments);
 
-  render() {
+  renderHeader = () => {
     const { event, organization } = this.props;
-    const { refreshing } = this.state;
-
     return (
-      <SafeAreaView style={styles.safeAreaContainer}>
-        <View style={styles.container}>
-          <StatusBar {...theme.statusBar.darkContent} />
-          <View style={styles.header}>
-            <View flexDirection="row">
-              <View flex={1}>
-                <CelebrateItemName
-                  name={event.subject_person_name}
-                  person={event.subject_person}
-                  organization={organization}
-                  pressable={true}
-                />
-                <CardTime date={event.changed_attribute_value} />
-              </View>
-              <CommentLikeComponent event={event} />
-              <BackButton
-                style={styles.backButtonStyle}
-                iconStyle={styles.backButtonIconStyle}
-                customIcon="deleteIcon"
+      <SafeAreaView>
+        <StatusBar {...theme.statusBar.darkContent} />
+        <View style={styles.header}>
+          <View flexDirection="row">
+            <View flex={1}>
+              <CelebrateItemName
+                name={event.subject_person_name}
+                person={event.subject_person}
+                organization={organization}
+                pressable={true}
               />
+              <CardTime date={event.changed_attribute_value} />
             </View>
-          </View>
-          <View flex={1}>
-            <Image source={TRAILS1} style={styles.trailsTop} />
-            <Image source={TRAILS2} style={styles.trailsBottom} />
-            <CommentsList
-              event={event}
-              listProps={{
-                ref: c => (this.listRef = c),
-                refreshControl: (
-                  <RefreshControl
-                    refreshing={refreshing}
-                    onRefresh={this.handleRefresh}
-                  />
-                ),
-                ListHeaderComponent: () => (
-                  <CelebrateItemContent
-                    event={event}
-                    organization={organization}
-                    fixedHeight={false}
-                    style={styles.itemContent}
-                  />
-                ),
-              }}
-            />
-            <CelebrateCommentBox
-              event={event}
-              onAddComplete={this.scrollToEnd}
+            <CommentLikeComponent event={event} />
+            <BackButton
+              style={styles.backButtonStyle}
+              iconStyle={styles.backButtonIconStyle}
+              customIcon="deleteIcon"
             />
           </View>
         </View>
       </SafeAreaView>
+    );
+  };
+
+  renderCommentsList = () => {
+    const { event, organization } = this.props;
+    const { refreshing } = this.state;
+    return (
+      <View style={styles.contentContainer}>
+        <Image source={TRAILS1} style={styles.trailsTop} />
+        <Image source={TRAILS2} style={styles.trailsBottom} />
+        <CommentsList
+          event={event}
+          listProps={{
+            ref: c => (this.listRef = c),
+            refreshControl: (
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={this.handleRefresh}
+              />
+            ),
+            ListHeaderComponent: () => (
+              <CelebrateItemContent
+                event={event}
+                organization={organization}
+                fixedHeight={false}
+                style={styles.itemContent}
+              />
+            ),
+          }}
+        />
+      </View>
+    );
+  };
+
+  renderCommentBox = () => {
+    const { event } = this.props;
+    return (
+      <View style={styles.commentBoxWrapper}>
+        <SafeAreaView>
+          <CelebrateCommentBox event={event} onAddComplete={this.scrollToEnd} />
+        </SafeAreaView>
+      </View>
+    );
+  };
+
+  render() {
+    return (
+      <View style={styles.pageContainer}>
+        {this.renderHeader()}
+        {this.renderCommentsList()}
+        {this.renderCommentBox()}
+      </View>
     );
   }
 }

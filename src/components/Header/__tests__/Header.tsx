@@ -5,8 +5,6 @@ import { renderWithContext } from '../../../../testUtils';
 
 import Header from '..';
 
-const bonusContent = <Text>'Bonus'</Text>;
-
 it('renders with no props', () => {
   renderWithContext(<Header />).snapshot();
 });
