@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux';
-import { SafeAreaView, View, Keyboard, TextInput } from 'react-native';
+import { View, Keyboard, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -94,14 +94,13 @@ const SetupScreen = ({
     lastNameRef.current && lastNameRef.current.focus();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Header left={<BackButton customNavigate={handleBack} />} />
       <Flex value={2} justify="end" align="center">
         <Text header={true} style={styles.header}>
           {t('namePrompt')}
         </Text>
       </Flex>
-
       <Flex value={3} style={{ padding: 30 }}>
         <View>
           <Text style={styles.label}>
@@ -119,7 +118,6 @@ const SetupScreen = ({
             testID="InputFirstName"
           />
         </View>
-
         <View style={{ paddingVertical: 30 }}>
           <Input
             ref={lastNameRef}
@@ -141,7 +139,7 @@ const SetupScreen = ({
         onPress={saveAndGoToGetStarted}
         text={t('next')}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 const mapStateToProps = ({

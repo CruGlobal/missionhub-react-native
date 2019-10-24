@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GroupProfile edit screen renders editing state 1`] = `
-<Fragment>
-  <SafeAreaView
+<View
+  flex={1}
+>
+  <View
     forceInset={
       Object {
         "bottom": "never",
@@ -47,7 +49,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
         />
       }
     />
-  </SafeAreaView>
+  </View>
   <View
     style={
       Object {
@@ -416,12 +418,14 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
       </Flex>
     </ScrollViewMock>
   </View>
-</Fragment>
+</View>
 `;
 
 exports[`GroupProfile renders correctly 1`] = `
-<Fragment>
-  <SafeAreaView
+<View
+  flex={1}
+>
+  <View
     forceInset={
       Object {
         "bottom": "never",
@@ -466,7 +470,7 @@ exports[`GroupProfile renders correctly 1`] = `
         />
       }
     />
-  </SafeAreaView>
+  </View>
   <View
     style={
       Object {
@@ -771,12 +775,14 @@ exports[`GroupProfile renders correctly 1`] = `
       </Flex>
     </ScrollViewMock>
   </View>
-</Fragment>
+</View>
 `;
 
 exports[`GroupProfile renders with image 1`] = `
-<Fragment>
-  <SafeAreaView
+<View
+  flex={1}
+>
+  <View
     forceInset={
       Object {
         "bottom": "never",
@@ -821,7 +827,7 @@ exports[`GroupProfile renders with image 1`] = `
         />
       }
     />
-  </SafeAreaView>
+  </View>
   <View
     style={
       Object {
@@ -1126,12 +1132,14 @@ exports[`GroupProfile renders with image 1`] = `
       </Flex>
     </ScrollViewMock>
   </View>
-</Fragment>
+</View>
 `;
 
 exports[`GroupProfile renders without edit button 1`] = `
-<Fragment>
-  <SafeAreaView
+<View
+  flex={1}
+>
+  <View
     forceInset={
       Object {
         "bottom": "never",
@@ -1158,7 +1166,7 @@ exports[`GroupProfile renders without edit button 1`] = `
       }
       right={null}
     />
-  </SafeAreaView>
+  </View>
   <View
     style={
       Object {
@@ -1463,5 +1471,5 @@ exports[`GroupProfile renders without edit button 1`] = `
       </Flex>
     </ScrollViewMock>
   </View>
-</Fragment>
+</View>
 `;

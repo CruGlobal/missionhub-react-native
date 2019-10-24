@@ -77,13 +77,19 @@ const SelectStepScreen = ({
 
   const renderForeground = () => {
     return (
-      <View style={{ flex: 1, alignItems: 'center' }}>
+      <View style={{ flex: 1 }}>
         {renderHeader(false)}
-        <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
-        <Text header={true} style={styles.headerTitle}>
-          {t('stepsOfFaith')}
-        </Text>
-        <Text style={styles.headerText}>{headerText}</Text>
+        <View style={{ alignItems: 'center' }}>
+          <Icon
+            name="addStepIcon"
+            type="MissionHub"
+            style={styles.headerIcon}
+          />
+          <Text header={true} style={styles.headerTitle}>
+            {t('stepsOfFaith')}
+          </Text>
+          <Text style={styles.headerText}>{headerText}</Text>
+        </View>
       </View>
     );
   };
@@ -105,7 +111,8 @@ const SelectStepScreen = ({
   const { headerHeight, parallaxHeaderHeight } = theme;
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+      <SafeAreaView style={{ backgroundColor: theme.primaryColor }} />
       <ParallaxScrollView
         style={{ flex: 1 }}
         backgroundColor={theme.primaryColor}
@@ -123,7 +130,7 @@ const SelectStepScreen = ({
         />
       </ParallaxScrollView>
       <BottomButton onPress={navToCreateStep} text={t('createStep')} />
-    </SafeAreaView>
+    </View>
   );
 };
 

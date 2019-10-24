@@ -1,7 +1,7 @@
 /* eslint max-lines-per-function: 0 */
 
 import React, { useState } from 'react';
-import { SafeAreaView, Image, ImageSourcePropType } from 'react-native';
+import { SafeAreaView, View, Image, ImageSourcePropType } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import i18Next from 'i18next';
 import { connect } from 'react-redux';
@@ -118,7 +118,7 @@ const SignUpScreen = ({
   const headerContent = signUpType ? headerContentOptions[signUpType] : null;
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Header left={<BackButton />} />
       <Flex value={1} align="center" justify="center">
         <Flex value={1} align="center" justify="center">
@@ -172,7 +172,9 @@ const SignUpScreen = ({
             </Button>
             <TosPrivacy />
           </Flex>
-          <Flex value={1} align="end" direction="row">
+          <SafeAreaView
+            style={{ flex: 1, alignItems: 'flex-end', flexDirection: 'row' }}
+          >
             <Text style={styles.signInText}>{t('member').toUpperCase()}</Text>
             <Button
               testID="loginButton"
@@ -181,11 +183,11 @@ const SignUpScreen = ({
               onPress={login}
               buttonTextStyle={styles.signInBtnText}
             />
-          </Flex>
+          </SafeAreaView>
         </Flex>
       </Flex>
       {isLoading ? <LoadingWheel /> : null}
-    </SafeAreaView>
+    </View>
   );
 };
 

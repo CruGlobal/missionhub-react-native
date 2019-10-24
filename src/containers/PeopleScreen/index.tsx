@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
@@ -72,7 +72,7 @@ export const PeopleScreen = ({
   const { isRefreshing, refresh } = useRefreshing(handleRefresh);
 
   return (
-    <SafeAreaView style={styles.pageContainer}>
+    <View style={styles.pageContainer}>
       <TrackTabChange screen={PEOPLE_TAB} />
       <Header
         testID="header"
@@ -112,7 +112,7 @@ export const PeopleScreen = ({
         refreshing={isRefreshing}
       />
       {hasNoContacts ? <TakeAStepWithSomeoneButton /> : null}
-    </SafeAreaView>
+    </View>
   );
 };
 

@@ -5,14 +5,14 @@ exports[`a login button is clicked email signup button is pressed key sign in bu
 - First value
 + Second value
 
-@@ -296,6 +296,7 @@
+@@ -309,6 +309,7 @@
             type=\\"transparent\\"
           />
-        </Flex>
+        </RCTSafeAreaView>
       </Flex>
     </Flex>
 +   <LoadingWheel />
-  </RCTSafeAreaView>"
+  </View>"
 `;
 
 exports[`a login button is clicked facebook signup button is pressed facebook button fires fb sign in actions 1`] = `
@@ -20,14 +20,14 @@ exports[`a login button is clicked facebook signup button is pressed facebook bu
 - First value
 + Second value
 
-@@ -296,6 +296,7 @@
+@@ -309,6 +309,7 @@
             type=\\"transparent\\"
           />
-        </Flex>
+        </RCTSafeAreaView>
       </Flex>
     </Flex>
 +   <LoadingWheel />
-  </RCTSafeAreaView>"
+  </View>"
 `;
 
 exports[`renders correctly for Create Community 1`] = `
@@ -35,7 +35,7 @@ exports[`renders correctly for Create Community 1`] = `
 - First value
 + Second value
 
-@@ -52,17 +52,53 @@
+@@ -60,17 +60,53 @@
       <Flex
         align=\\"center\\"
         justify=\\"center\\"
@@ -93,8 +93,7 @@ exports[`renders correctly for Create Community 1`] = `
 `;
 
 exports[`renders correctly with logo 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -103,42 +102,51 @@ exports[`renders correctly with logo 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
-      Array [
-        Object {
-          "flexDirection": "row",
-          "height": 56,
-          "paddingTop": 0,
-        },
-        undefined,
-        null,
-      ]
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
   >
-    <Flex
-      align="start"
-      justify="center"
+    <View
       style={
-        Object {
-          "paddingLeft": 5,
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
       }
-      value={1}
     >
-      <BackButton />
-    </Flex>
-    <Flex
-      align="end"
-      justify="center"
-      style={
-        Object {
-          "paddingRight": 5,
+      <Flex
+        align="start"
+        justify="center"
+        style={
+          Object {
+            "paddingLeft": 5,
+          }
         }
-      }
-      value={1}
-    />
-  </View>
+        value={1}
+      >
+        <BackButton />
+      </Flex>
+      <Flex
+        align="end"
+        justify="center"
+        style={
+          Object {
+            "paddingRight": 5,
+          }
+        }
+        value={1}
+      />
+    </View>
+  </RCTSafeAreaView>
   <Flex
     align="center"
     justify="center"
@@ -354,10 +362,15 @@ exports[`renders correctly with logo 1`] = `
           </Flex>
         </Flex>
       </Flex>
-      <Flex
-        align="end"
-        direction="row"
-        value={1}
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
+        style={
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "flexDirection": "row",
+          }
+        }
       >
         <Text
           style={
@@ -390,8 +403,8 @@ exports[`renders correctly with logo 1`] = `
           text="SIGN IN"
           type="transparent"
         />
-      </Flex>
+      </RCTSafeAreaView>
     </Flex>
   </Flex>
-</RCTSafeAreaView>
+</View>
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Flex, Text, Input, Button } from '../../components/common';
@@ -33,7 +33,7 @@ export const MFACodeComponent = ({
   } = styles;
 
   return (
-    <SafeAreaView style={container}>
+    <View style={container}>
       <Header
         left={<BackButton />}
         right={
@@ -46,7 +46,6 @@ export const MFACodeComponent = ({
           />
         }
       />
-
       <Flex justify="center" value={1} style={content}>
         <Text header={true} style={mfaHeader}>
           {t('mfaHeader').toLowerCase()}
@@ -71,8 +70,7 @@ export const MFACodeComponent = ({
           />
         </View>
       </Flex>
-
       {isLoading ? <LoadingWheel /> : null}
-    </SafeAreaView>
+    </View>
   );
 };

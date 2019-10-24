@@ -16,6 +16,7 @@ import {
   LoadingWheel,
   Input,
 } from '../../../components/common';
+import BottomButton from '../../../components/BottomButton';
 import BackButton from '../../BackButton';
 import Header from '../../../components/Header';
 import {
@@ -131,9 +132,9 @@ const SignInScreen = ({
 
   const renderErrorMessage = () => {
     return errorMessage ? (
-      <View style={styles.errorBar}>
+      <SafeAreaView style={styles.errorBar}>
         <Text style={styles.errorMessage}>{errorMessage}</Text>
-      </View>
+      </SafeAreaView>
     ) : null;
   };
 
@@ -143,7 +144,7 @@ const SignInScreen = ({
     passwordRef.current && passwordRef.current.focus();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       {renderErrorMessage()}
       <Header left={forcedLogout ? null : <BackButton />} />
       {showLogo ? (
@@ -159,7 +160,6 @@ const SignInScreen = ({
           )}
         </Flex>
       ) : null}
-
       <Flex value={3} style={{ paddingVertical: 10, paddingHorizontal: 30 }}>
         <View>
           <Text style={styles.label}>{t('emailLabel')}</Text>
@@ -175,7 +175,6 @@ const SignInScreen = ({
             placeholderTextColor="white"
           />
         </View>
-
         <View style={{ paddingVertical: 15 }}>
           <Text style={styles.label}>{t('passwordLabel')}</Text>
           <Input
@@ -199,18 +198,12 @@ const SignInScreen = ({
           />
         </View>
       </Flex>
-
       {email || password ? (
-        <Flex align="stretch" justify="end">
-          <Button
-            testID="loginButton"
-            type="secondary"
-            onPress={login}
-            text={t('login').toUpperCase()}
-          />
-        </Flex>
+        <BottomButton testID="loginButton" onPress={login} text={t('login')} />
       ) : (
-        <Flex value={1} justify="center" align="center">
+        <SafeAreaView
+          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+        >
           <Button
             testID="facebookButton"
             pill={true}
@@ -230,10 +223,10 @@ const SignInScreen = ({
               </Text>
             </Flex>
           </Button>
-        </Flex>
+        </SafeAreaView>
       )}
       {isLoading ? <LoadingWheel /> : null}
-    </SafeAreaView>
+    </View>
   );
 };
 
