@@ -89,7 +89,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "flex": 0,
+                    "flex": 1,
                   }
                 }
               >
@@ -295,9 +295,11 @@ exports[`with enableSkipButton renders correctly 1`] = `
                         "color": "#ffffff",
                         "fontSize": 24,
                         "fontWeight": "300",
+                        "letterSpacing": 1,
                         "lineHeight": 30,
                         "paddingHorizontal": 50,
                         "textAlign": "center",
+                        "width": 500,
                       },
                     ]
                   }
@@ -317,9 +319,11 @@ exports[`with enableSkipButton renders correctly 1`] = `
                         "color": "#ffffff",
                         "fontSize": 24,
                         "fontWeight": "300",
+                        "letterSpacing": 1,
                         "lineHeight": 30,
                         "paddingHorizontal": 50,
                         "textAlign": "center",
+                        "width": 500,
                       },
                     ]
                   }
@@ -697,7 +701,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "flex": 0,
+                    "flex": 1,
                   }
                 }
               >
@@ -835,9 +839,11 @@ exports[`without enableSkipButton renders correctly 1`] = `
                         "color": "#ffffff",
                         "fontSize": 24,
                         "fontWeight": "300",
+                        "letterSpacing": 1,
                         "lineHeight": 30,
                         "paddingHorizontal": 50,
                         "textAlign": "center",
+                        "width": 500,
                       },
                     ]
                   }
@@ -857,9 +863,11 @@ exports[`without enableSkipButton renders correctly 1`] = `
                         "color": "#ffffff",
                         "fontSize": 24,
                         "fontWeight": "300",
+                        "letterSpacing": 1,
                         "lineHeight": 30,
                         "paddingHorizontal": 50,
                         "textAlign": "center",
+                        "width": 500,
                       },
                     ]
                   }

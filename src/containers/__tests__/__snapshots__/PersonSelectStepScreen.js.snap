@@ -89,7 +89,7 @@ exports[`allows for undefined organization 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "flex": 0,
+                    "flex": 1,
                   }
                 }
               >
@@ -227,9 +227,11 @@ exports[`allows for undefined organization 1`] = `
                         "color": "#ffffff",
                         "fontSize": 24,
                         "fontWeight": "300",
+                        "letterSpacing": 1,
                         "lineHeight": 30,
                         "paddingHorizontal": 50,
                         "textAlign": "center",
+                        "width": 500,
                       },
                     ]
                   }
@@ -249,9 +251,11 @@ exports[`allows for undefined organization 1`] = `
                         "color": "#ffffff",
                         "fontSize": 24,
                         "fontWeight": "300",
+                        "letterSpacing": 1,
                         "lineHeight": 30,
                         "paddingHorizontal": 50,
                         "textAlign": "center",
+                        "width": 500,
                       },
                     ]
                   }
@@ -676,7 +680,7 @@ exports[`renders correctly 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "flex": 0,
+                    "flex": 1,
                   }
                 }
               >
@@ -814,9 +818,11 @@ exports[`renders correctly 1`] = `
                         "color": "#ffffff",
                         "fontSize": 24,
                         "fontWeight": "300",
+                        "letterSpacing": 1,
                         "lineHeight": 30,
                         "paddingHorizontal": 50,
                         "textAlign": "center",
+                        "width": 500,
                       },
                     ]
                   }
@@ -836,9 +842,11 @@ exports[`renders correctly 1`] = `
                         "color": "#ffffff",
                         "fontSize": 24,
                         "fontWeight": "300",
+                        "letterSpacing": 1,
                         "lineHeight": 30,
                         "paddingHorizontal": 50,
                         "textAlign": "center",
+                        "width": 500,
                       },
                     ]
                   }
