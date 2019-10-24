@@ -24,7 +24,12 @@ export const migrations = {
     onboarding: {
       ...state.onboarding,
       personId: personProfile.id,
-      communityId: (profile.community || {}).id,
+      community: {
+        id: '',
+        community_code: '',
+        community_url: '',
+        ...(profile.community || {}),
+      },
       skippedAddingPerson: personProfile.hasCompletedOnboarding,
     },
   }),

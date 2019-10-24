@@ -29,7 +29,7 @@ describe('initialRoute', () => {
           token,
           person: { id: myId },
         },
-        personProfile: { hasCompletedOnboarding: false },
+        onboarding: { skippedAddingPerson: false },
         people: {
           allByOrg: {
             personal: {
@@ -57,12 +57,12 @@ describe('initialRoute', () => {
       });
     });
 
-    it('has completed onboarding but does not have contact with pathway stage should go to MainTabs', () => {
+    it('has skipped adding person but does not have contact with pathway stage should go to MainTabs', () => {
       test({
         auth: {
           token,
         },
-        personProfile: { hasCompletedOnboarding: true },
+        onboarding: { skippedAddingPerson: true },
       });
     });
 
@@ -76,7 +76,7 @@ describe('initialRoute', () => {
               user: { pathway_stage_id: '3' },
             },
           },
-          personProfile: { hasCompletedOnboarding: false },
+          onboarding: { skippedAddingPerson: false },
           people: {
             allByOrg: {
               personal: { people: {} },
@@ -110,7 +110,7 @@ describe('initialRoute', () => {
               user: { pathway_stage_id: null },
             },
           },
-          personProfile: { hasCompletedOnboarding: false },
+          onboarding: { skippedAddingPerson: false },
           people: {
             allByOrg: {
               personal: {
@@ -140,7 +140,7 @@ describe('initialRoute', () => {
               user: { pathway_stage_id: null },
             },
           },
-          personProfile: { hasCompletedOnboarding: false },
+          onboarding: { skippedAddingPerson: false },
           people: {
             allByOrg: {
               personal: {

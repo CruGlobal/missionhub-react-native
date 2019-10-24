@@ -242,7 +242,7 @@ export const onboardingFlowGenerator = ({
   [ADD_STEP_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       AddStepScreen,
-      ({ text, personId }: { text: string; personId: string }) => (
+      ({ text, personId }: { text: string; personId: string }) => async (
         dispatch: ThunkDispatch<any, null, any>,
         getState: () => any,
       ) => {
@@ -253,7 +253,7 @@ export const onboardingFlowGenerator = ({
         if (isMe) {
           return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
         }
-        showNotificationAndCompleteOnboarding(dispatch);
+        await showNotificationAndCompleteOnboarding(dispatch);
       },
     ),
   ),

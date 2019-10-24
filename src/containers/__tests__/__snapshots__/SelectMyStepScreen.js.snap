@@ -2,16 +2,6 @@
 
 exports[`renders correctly for onboarding 1`] = `
 <Connect(SelectStepScreen)
-  contactStageId={4}
-  createStepTracking={
-    Object {
-      "level3": "steps",
-      "level4": undefined,
-      "name": "onboarding : self : steps : create",
-      "section": "onboarding",
-      "subsection": "self",
-    }
-  }
   headerText="How do you want to move forward on your spiritual journey?"
   next={[MockFunction]}
   receiverId="1234"
@@ -20,16 +10,6 @@ exports[`renders correctly for onboarding 1`] = `
 
 exports[`renders correctly with back button 1`] = `
 <Connect(SelectStepScreen)
-  contactStageId={4}
-  createStepTracking={
-    Object {
-      "level3": "steps",
-      "level4": undefined,
-      "name": "people : self : steps : create",
-      "section": "people",
-      "subsection": "self",
-    }
-  }
   headerText="How do you want to move forward on your spiritual journey?"
   next={[MockFunction]}
   receiverId="1234"
@@ -38,16 +18,6 @@ exports[`renders correctly with back button 1`] = `
 
 exports[`renders correctly without back button 1`] = `
 <Connect(SelectStepScreen)
-  contactStageId={4}
-  createStepTracking={
-    Object {
-      "level3": "steps",
-      "level4": undefined,
-      "name": "people : self : steps : create",
-      "section": "people",
-      "subsection": "self",
-    }
-  }
   headerText="How do you want to move forward on your spiritual journey?"
   next={[MockFunction]}
   receiverId="1234"

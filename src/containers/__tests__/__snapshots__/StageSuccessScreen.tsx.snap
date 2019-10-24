@@ -193,7 +193,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        Friend test
+        We are glad you are here, Test Fname!
       </Text>
     </View>
     <View
@@ -466,7 +466,7 @@ exports[`renders correctly with default state 1`] = `
           ]
         }
       >
-        We are glad you are here, Friend!
+        We are glad you are here, Test Fname!
       </Text>
     </View>
     <View

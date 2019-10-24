@@ -1,22 +1,13 @@
 import uuidv4 from 'uuid/v4';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import { AuthState } from 'src/reducers/auth';
-import { AuthState } from 'src/reducers/auth';
-import { Person } from 'src/reducers/people';
-import { organizationSelector } from 'src/selectors/organizations';
-import { OnboardingState } from 'src/reducers/onboarding';
-import { OrganizationsState } from 'src/reducers/organizations';
 
+import { AuthState } from '../reducers/auth';
+import { Person } from '../reducers/people';
+import { organizationSelector } from '../selectors/organizations';
+import { OnboardingState } from '../reducers/onboarding';
+import { OrganizationsState } from '../reducers/organizations';
 import {
-  COMPLETE_ONBOARDING,
-  FIRST_NAME_CHANGED,
-  LAST_NAME_CHANGED,
-  PERSON_FIRST_NAME_CHANGED,
-  PERSON_LAST_NAME_CHANGED,
-  RESET_ONBOARDING_PERSON,
-  STASH_COMMUNITY_TO_JOIN,
-  UPDATE_ONBOARDING_PERSON,
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
   LOAD_PERSON_DETAILS,
@@ -31,14 +22,14 @@ import {
 import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
-import { updatePerson, getMe } from './person';
+import { getMe } from './person';
 import { navigatePush, navigateReset } from './navigation';
 import { showReminderOnLoad } from './notifications';
 import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
 
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
-export const SET_ONBOARDING_COMMUNITY_ID = 'SET_ONBOARDING_COMMUNITY_ID';
+export const SET_ONBOARDING_COMMUNITY = 'SET_ONBOARDING_COMMUNITY_ID';
 export const SKIP_ONBOARDING_ADD_PERSON = 'SKIP_ONBOARDING_ADD_PERSON';
 
 export interface SetOnboardingPersonIdAction {
@@ -46,9 +37,13 @@ export interface SetOnboardingPersonIdAction {
   personId: string;
 }
 
-export interface SetOnboardingCommunityIdAction {
-  type: typeof SET_ONBOARDING_COMMUNITY_ID;
-  communityId: string;
+export interface SetOnboardingCommunityAction {
+  type: typeof SET_ONBOARDING_COMMUNITY;
+  community: {
+    id: string;
+    community_code: string;
+    community_url: string;
+  };
 }
 
 export interface SkipOnboardingAddPersonAction {
@@ -62,11 +57,13 @@ export const setOnboardingPersonId = (
   personId,
 });
 
-export const setOnboardingCommunityId = (
-  communityId: string,
-): SetOnboardingCommunityIdAction => ({
-  type: SET_ONBOARDING_COMMUNITY_ID,
-  communityId,
+export const setOnboardingCommunity = (community: {
+  id: string;
+  community_code: string;
+  community_url: string;
+}): SetOnboardingCommunityAction => ({
+  type: SET_ONBOARDING_COMMUNITY,
+  community,
 });
 
 export const skipOnbardingAddPerson = (): SkipOnboardingAddPersonAction => ({
@@ -135,19 +132,6 @@ export const createPerson = (firstName: string, lastName: string) => async (
   return results;
 };
 
-export function updateOnboardingPerson(data: Person) {
-  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return dispatch(updatePerson(data)).then((r: any) => {
-      dispatch({
-        type: UPDATE_ONBOARDING_PERSON,
-        results: r,
-      });
-      return r;
-    });
-  };
-}
-
 export function skipOnboardingComplete() {
   return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
@@ -175,22 +159,16 @@ export function joinStashedCommunity() {
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
     getState: () => {
       onboarding: OnboardingState;
-      organizations: OrganizationsState;
     },
   ) => {
     const {
-      organizations,
-      onboarding: { communityId },
+      onboarding: { community },
     } = getState();
-    const community = organizationSelector(
-      { organizations },
-      { orgId: communityId },
-    );
     await dispatch(
       joinCommunity(
-        communityId,
-        community.communityCode,
-        community.communityUrl,
+        community.id,
+        community.community_code,
+        community.community_url,
       ),
     );
   };

@@ -8,7 +8,7 @@ import { loadHome } from '../../actions/auth/userData';
 import {
   joinStashedCommunity,
   landOnStashedCommunityScreen,
-  setOnboardingCommunityId,
+  setOnboardingCommunity,
   skipOnbardingAddPerson,
 } from '../../actions/onboarding';
 import { showReminderOnLoad } from '../../actions/notifications';
@@ -31,7 +31,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     wrapNextAction(
       DeepLinkConfirmJoinGroupScreen,
       ({ community }) => dispatch => {
-        dispatch(setOnboardingCommunityId(community.id));
+        dispatch(setOnboardingCommunity(community));
         dispatch(navigatePush(WELCOME_SCREEN, { allowSignIn: true }));
       },
     ),

@@ -12,7 +12,6 @@ import {
   ADD_SOMEONE_ONBOARDING_FLOW,
   GET_STARTED_ONBOARDING_FLOW,
 } from '../../routes/constants';
-import { completeOnboarding } from '../onboarding';
 import { navigateToMainTabs } from '../navigation';
 import { apolloClient } from '../../apolloClient';
 
@@ -68,7 +67,6 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   } else if (hasPersonWithStageSelected(person)) {
     dispatch(navigateToMainTabs());
-    dispatch(completeOnboarding());
   } else {
     dispatch(navigateReset(ADD_SOMEONE_ONBOARDING_FLOW));
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));

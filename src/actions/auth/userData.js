@@ -2,7 +2,6 @@ import i18next from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
 
 import {
-  FIRST_TIME,
   NOTIFICATION_PROMPT_TYPES,
   LOAD_PERSON_DETAILS,
 } from '../../constants';
@@ -14,15 +13,8 @@ import { getMySteps } from '../steps';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { getMyCommunities } from '../organizations';
-import { resetPerson } from '../onboarding';
 import { logInAnalytics } from '../analytics';
 import { rollbar } from '../../utils/rollbar.config';
-
-export function firstTime() {
-  return dispatch => {
-    dispatch({ type: FIRST_TIME });
-  };
-}
 
 function getTimezoneString() {
   return `${(new Date().getTimezoneOffset() / 60) * -1}`;
@@ -80,7 +72,6 @@ export function loadHome() {
     dispatch(getMyCommunities());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
-    dispatch(resetPerson());
     await dispatch(getMySteps());
     dispatch(showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.LOGIN));
   };

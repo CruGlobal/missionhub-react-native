@@ -9,7 +9,6 @@ import { REQUESTS } from '../../../api/routes';
 import { updateLocaleAndTimezone, authSuccess, loadHome } from '../userData';
 import { NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { showReminderOnLoad } from '../../notifications';
-import { resetPerson } from '../../onboarding';
 import { getMyPeople } from '../../people';
 import { getMyCommunities } from '../../organizations';
 import { getMe } from '../../person';
@@ -18,7 +17,6 @@ import { getMySteps } from '../../steps';
 import { rollbar } from '../../../utils/rollbar.config';
 
 const notificationsResult = { type: 'show notification reminder' };
-const resetOnboardingPersonResult = { type: 'onboarding data cleared' };
 const getMyCommunitiesResult = { type: 'got communities' };
 const getMeResult = { type: 'got me successfully' };
 const getPeopleResult = { type: 'get my people' };
@@ -28,7 +26,7 @@ const updateUserResult = { type: 'updated locale and TZ' };
 
 jest.mock('react-native-omniture');
 jest.mock('../../notifications');
-jest.mock('../../onboardingProfile');
+jest.mock('../../onboarding');
 jest.mock('../../organizations');
 jest.mock('../../person');
 jest.mock('../../people');
@@ -141,7 +139,6 @@ describe('loadHome', () => {
     getMyCommunities.mockReturnValue(getMyCommunitiesResult);
     getStagesIfNotExists.mockReturnValue(getStagesResult);
     showReminderOnLoad.mockReturnValue(notificationsResult);
-    resetPerson.mockReturnValue(resetOnboardingPersonResult);
     callApi.default.mockReturnValue(updateUserResult);
 
     await store.dispatch(loadHome());
@@ -161,7 +158,6 @@ describe('loadHome', () => {
       getMyCommunitiesResult,
       getStagesResult,
       updateUserResult,
-      resetOnboardingPersonResult,
       getStepsResult,
       notificationsResult,
     ]);

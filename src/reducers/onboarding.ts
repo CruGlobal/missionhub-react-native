@@ -1,10 +1,10 @@
 import { LOGOUT, LogoutAction } from '../constants';
 import {
   SET_ONBOARDING_PERSON_ID,
-  SET_ONBOARDING_COMMUNITY_ID,
+  SET_ONBOARDING_COMMUNITY,
   SKIP_ONBOARDING_ADD_PERSON,
   SetOnboardingPersonIdAction,
-  SetOnboardingCommunityIdAction,
+  SetOnboardingCommunityAction,
   SkipOnboardingAddPersonAction,
 } from '../actions/onboarding';
 
@@ -22,7 +22,7 @@ export type OnboardingState = typeof initialState;
 
 type OnboardingActionTypes =
   | SetOnboardingPersonIdAction
-  | SetOnboardingCommunityIdAction
+  | SetOnboardingCommunityAction
   | SkipOnboardingAddPersonAction
   | LogoutAction;
 
@@ -33,10 +33,10 @@ export const onboardingReducer = (
   switch (action.type) {
     case SET_ONBOARDING_PERSON_ID:
       return { ...state, personId: action.personId };
-    case SET_ONBOARDING_COMMUNITY_ID:
+    case SET_ONBOARDING_COMMUNITY:
       return {
         ...state,
-        communityId: action.communityId,
+        community: action.community,
       };
     case SKIP_ONBOARDING_ADD_PERSON:
       return {

@@ -237,10 +237,8 @@ describe('SelectStageScreen next', () => {
 
       it('should navigate to PersonSelectStepScreen', () => {
         expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
-          contactStage: stage,
-          contactId: otherId,
-          organization: { id: orgId },
-          contactName: otherName,
+          personId: otherId,
+          orgId,
         });
       });
 
@@ -293,10 +291,8 @@ describe('SelectStageScreen next', () => {
 
       it('should navigate to PersonSelectStepScreen', () => {
         expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
-          contactStage: stage,
-          contactId: otherId,
-          organization: { id: orgId },
-          contactName: otherName,
+          personId: otherId,
+          orgId,
         });
       });
 

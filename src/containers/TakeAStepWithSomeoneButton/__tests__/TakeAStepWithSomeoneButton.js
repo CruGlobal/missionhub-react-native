@@ -1,7 +1,5 @@
 import 'react-native';
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
@@ -12,19 +10,14 @@ import TakeAStepWithSomeoneButton from '..';
 
 jest.mock('../../../actions/navigation');
 
-const mockStore = configureStore([thunk]);
 navigatePush.mockReturnValue({ type: 'navigate push' });
 
 it('renders correctly', () => {
-  renderWithContext(<TakeAStepWithSomeoneButton />, {
-    store: mockStore({ personProfile: { hasNotCreatedStep: false } }),
-  }).snapshot();
+  renderWithContext(<TakeAStepWithSomeoneButton />).snapshot();
 });
 
 it('calls navigate push', () => {
-  const { getByTestId } = renderWithContext(<TakeAStepWithSomeoneButton />, {
-    store: mockStore({ personProfile: { hasNotCreatedStep: false } }),
-  });
+  const { getByTestId } = renderWithContext(<TakeAStepWithSomeoneButton />);
   fireEvent.press(getByTestId('TakeAStepWithSomeoneButton'));
 
   expect(navigatePush).toHaveBeenCalledWith(ADD_SOMEONE_STEP_FLOW);

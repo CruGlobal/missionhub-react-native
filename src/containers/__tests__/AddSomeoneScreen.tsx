@@ -7,7 +7,7 @@ import { renderWithContext } from '../../../testUtils';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { skipOnboarding } from '../../actions/onboarding';
 
-jest.mock('../../actions/onboardingProfile');
+jest.mock('../../actions/onboarding');
 jest.mock('../../utils/hooks/useLogoutOnBack');
 
 const next = jest.fn();

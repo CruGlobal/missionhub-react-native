@@ -45,6 +45,7 @@ it('replaces stage text data with localized text', () => {
       name: localizedStage1.name,
       description: localizedStage1.description,
       self_followup_description: localizedStage1.self_followup_description,
+      locale,
       localized_pathway_stages: stage1.localized_pathway_stages,
     },
     {
@@ -52,6 +53,7 @@ it('replaces stage text data with localized text', () => {
       name: localizedStage2.name,
       description: localizedStage2.description,
       self_followup_description: localizedStage2.self_followup_description,
+      locale,
       localized_pathway_stages: stage2.localized_pathway_stages,
     },
   ]);

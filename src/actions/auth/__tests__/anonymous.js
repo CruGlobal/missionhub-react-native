@@ -24,7 +24,7 @@ beforeEach(() => {
 });
 
 describe('codeLogin', () => {
-  it('should login with code, set first time, and track person', async () => {
+  it('should login with code, and track person', async () => {
     callApi.mockReturnValue({ type: 'test' });
 
     await store.dispatch(codeLogin('123'));
@@ -37,7 +37,7 @@ describe('codeLogin', () => {
     expect(authSuccess).toHaveBeenCalledTimes(1);
   });
 
-  it('should not set first time or track person on error', async () => {
+  it('should not track person on error', async () => {
     callApi.mockReturnValue(() => {
       throw 'some error';
     });

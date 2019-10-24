@@ -8,8 +8,8 @@ import { JoinByCodeOnboardingFlowScreens } from '../joinByCodeOnboardingFlow';
 import { renderShallow } from '../../../../testUtils';
 import { loadHome } from '../../../actions/auth/userData';
 import {
-  completeOnboarding,
-  stashCommunityToJoin,
+  setOnboardingCommunity,
+  skipOnbardingAddPerson,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
 } from '../../../actions/onboarding';
@@ -20,7 +20,7 @@ import * as navigationActions from '../../../actions/navigation';
 
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/auth/userData');
-jest.mock('../../../actions/onboardingProfile');
+jest.mock('../../../actions/onboarding');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/notifications');
 jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
@@ -31,8 +31,7 @@ const community = { id: '1', community_code: '123456' };
 
 const store = configureStore([thunk])({
   auth: { person: { id: '1' } },
-  profile: {
-    firstName: 'Test',
+  onboarding: {
     community,
   },
 });
@@ -44,7 +43,7 @@ beforeEach(() => {
 
 describe('JoinGroupScreen next', () => {
   it('should fire required next actions', async () => {
-    stashCommunityToJoin.mockReturnValue(() => Promise.resolve());
+    setOnboardingCommunity.mockReturnValue(() => Promise.resolve());
 
     const Component = JoinByCodeOnboardingFlowScreens[JOIN_GROUP_SCREEN].screen;
 
@@ -56,7 +55,7 @@ describe('JoinGroupScreen next', () => {
         }),
     );
 
-    expect(stashCommunityToJoin).toHaveBeenCalledWith({ community });
+    expect(setOnboardingCommunity).toHaveBeenCalledWith(community);
     expect(navigationActions.navigatePush).toHaveBeenCalledWith(WELCOME_SCREEN);
   });
 });
@@ -80,7 +79,7 @@ describe('WelcomeScreen next', () => {
 
 describe('SetupScreen next', () => {
   it('should fire required next actions', async () => {
-    completeOnboarding.mockReturnValue(() => Promise.resolve());
+    skipOnbardingAddPerson.mockReturnValue(() => Promise.resolve());
     joinStashedCommunity.mockReturnValue(() => Promise.resolve());
     showReminderOnLoad.mockReturnValue(() => Promise.resolve());
     loadHome.mockReturnValue(() => Promise.resolve());
@@ -94,7 +93,7 @@ describe('SetupScreen next', () => {
         .props.next(),
     );
 
-    expect(completeOnboarding).toHaveBeenCalled();
+    expect(skipOnbardingAddPerson).toHaveBeenCalled();
     expect(joinStashedCommunity).toHaveBeenCalled();
     expect(showReminderOnLoad).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.ONBOARDING,
