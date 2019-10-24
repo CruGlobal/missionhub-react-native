@@ -229,9 +229,8 @@ exports[`allows for undefined organization 1`] = `
                         "fontWeight": "300",
                         "letterSpacing": 1,
                         "lineHeight": 30,
-                        "paddingHorizontal": 50,
+                        "paddingHorizontal": 30,
                         "textAlign": "center",
-                        "width": 500,
                       },
                     ]
                   }
@@ -253,9 +252,8 @@ exports[`allows for undefined organization 1`] = `
                         "fontWeight": "300",
                         "letterSpacing": 1,
                         "lineHeight": 30,
-                        "paddingHorizontal": 50,
+                        "paddingHorizontal": 30,
                         "textAlign": "center",
-                        "width": 500,
                       },
                     ]
                   }
@@ -820,9 +818,8 @@ exports[`renders correctly 1`] = `
                         "fontWeight": "300",
                         "letterSpacing": 1,
                         "lineHeight": 30,
-                        "paddingHorizontal": 50,
+                        "paddingHorizontal": 30,
                         "textAlign": "center",
-                        "width": 500,
                       },
                     ]
                   }
@@ -844,9 +841,8 @@ exports[`renders correctly 1`] = `
                         "fontWeight": "300",
                         "letterSpacing": 1,
                         "lineHeight": 30,
-                        "paddingHorizontal": 50,
+                        "paddingHorizontal": 30,
                         "textAlign": "center",
-                        "width": 500,
                       },
                     ]
                   }
