@@ -73,7 +73,7 @@ const SelectStepScreen = ({
 
   const renderForeground = () => {
     return (
-      <View style={{ flex: 0, alignItems: 'center' }}>
+      <View style={{ flex: 1, alignItems: 'center' }}>
         {renderHeader()}
         <Text style={styles.headerText}>{headerText[0]}</Text>
         <Text style={styles.headerText}>{headerText[1]}</Text>
