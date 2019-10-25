@@ -192,6 +192,29 @@ exports[`renders empty correctly 1`] = `
     sections={false}
     testID="peopleList"
   />
-  <TakeAStepWithSomeoneButton />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 0,
+        "width": 750,
+      }
+    }
+  >
+    <Button
+      onPress={[Function]}
+      pill={true}
+      style={
+        Object {
+          "height": 48,
+          "marginBottom": 20,
+          "width": 300,
+        }
+      }
+      testID="bottomButton"
+      text="TAKE A STEP WITH SOMEONE"
+      type="secondary"
+    />
+  </View>
 </RCTSafeAreaView>
 `;

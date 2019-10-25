@@ -105,7 +105,6 @@ export const PeopleScreen = ({
       />
       {hasNoContacts ? (
         <BottomButton
-          testID="TakeAStepWithSomeoneButton"
           text={t('mainTabs:takeAStepWithSomeone')}
           onPress={handleAddContact}
         />

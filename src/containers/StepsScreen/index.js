@@ -16,7 +16,7 @@ import {
   getMyStepsNextPage,
 } from '../../actions/steps';
 import { checkForUnreadComments } from '../../actions/unreadComments';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { navToPersonScreen } from '../../actions/person';
 import {
   reminderStepsSelector,
@@ -41,7 +41,6 @@ import {
   keyExtractorId,
 } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { navigateToMainTabs } from '../../actions/navigation';
 import {
   ACTIONS,
   STEPS_TAB,
@@ -318,7 +317,6 @@ export class StepsScreen extends Component {
         </ScrollView>
         {steps.length > 0 || reminders.length > 0 ? null : (
           <BottomButton
-            testID="TakeAStepWithSomeoneButton"
             text={t('mainTabs:takeAStepWithSomeone')}
             onPress={this.navToPersonScreen}
           />

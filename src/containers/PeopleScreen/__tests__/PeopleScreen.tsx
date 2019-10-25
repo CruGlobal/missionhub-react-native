@@ -12,14 +12,13 @@ import { SEARCH_SCREEN } from '../../../containers/SearchPeopleScreen';
 
 import { PeopleScreen } from '..';
 
-jest.mock('../../../components/common', () => ({ IconButton: 'IconButton' }));
+jest.mock('../../../components/common', () => ({
+  IconButton: 'IconButton',
+  Button: 'Button',
+}));
 jest.mock('../../../components/PeopleList', () => 'PeopleList');
 jest.mock('../../../components/Header', () => 'Header');
 jest.mock('../../TrackTabChange', () => 'TrackTabChange');
-jest.mock(
-  '../../TakeAStepWithSomeoneButton',
-  () => 'TakeAStepWithSomeoneButton',
-);
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/people');
@@ -136,40 +135,76 @@ describe('handleAddContact', () => {
   const organization = orgs[0];
 
   describe('not isJean', () => {
-    it('should navigate to add person flow', () => {
-      const { getByTestId } = renderWithContext(
-        <PeopleScreen {...props} isJean={false} />,
-      );
+    describe('press header button', () => {
+      it('should navigate to add person flow', () => {
+        const { getByTestId } = renderWithContext(
+          <PeopleScreen {...props} isJean={false} />,
+        );
 
-      fireEvent.press(getByTestId('header').props.right);
+        fireEvent.press(getByTestId('header').props.right);
 
-      expect(navigatePush).toHaveBeenCalledWith(
-        ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
-        { organization: undefined },
-      );
+        expect(navigatePush).toHaveBeenCalledWith(
+          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
+          { organization: undefined },
+        );
+      });
+    });
+
+    describe('press bottom button', () => {
+      it('should navigate to add person flow', () => {
+        const { getByTestId } = renderWithContext(
+          <PeopleScreen {...props} isJean={false} hasNoContacts={true} />,
+        );
+
+        fireEvent.press(getByTestId('bottomButton'));
+
+        expect(navigatePush).toHaveBeenCalledWith(
+          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
+          { organization: undefined },
+        );
+      });
     });
   });
 
   describe('isJean', () => {
-    it('should replace top right icon with search', () => {
-      const { getByTestId } = renderWithContext(
-        <PeopleScreen {...props} isJean={true} />,
-      );
+    describe('press header button', () => {
+      it('should replace top right icon with search', () => {
+        const { getByTestId } = renderWithContext(
+          <PeopleScreen {...props} isJean={true} />,
+        );
 
-      fireEvent.press(getByTestId('header').props.right);
-      expect(navigatePush).toHaveBeenCalledWith(SEARCH_SCREEN);
+        fireEvent.press(getByTestId('header').props.right);
+        expect(navigatePush).toHaveBeenCalledWith(SEARCH_SCREEN);
+      });
     });
 
-    it('should navigate to add person flow', () => {
-      const { getByTestId } = renderWithContext(
-        <PeopleScreen {...props} isJean={true} />,
-      );
-      fireEvent(getByTestId('peopleList'), 'addContact', organization);
+    describe('press section header button', () => {
+      it('should navigate to add person flow', () => {
+        const { getByTestId } = renderWithContext(
+          <PeopleScreen {...props} isJean={true} />,
+        );
+        fireEvent(getByTestId('peopleList'), 'addContact', organization);
 
-      expect(navigatePush).toHaveBeenCalledWith(
-        ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
-        { organization },
-      );
+        expect(navigatePush).toHaveBeenCalledWith(
+          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
+          { organization },
+        );
+      });
+    });
+
+    describe('press bottom button', () => {
+      it('should navigate to add person flow', () => {
+        const { getByTestId } = renderWithContext(
+          <PeopleScreen {...props} isJean={true} hasNoContacts={true} />,
+        );
+
+        fireEvent.press(getByTestId('bottomButton'));
+
+        expect(navigatePush).toHaveBeenCalledWith(
+          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
+          { organization: undefined },
+        );
+      });
     });
   });
 });
