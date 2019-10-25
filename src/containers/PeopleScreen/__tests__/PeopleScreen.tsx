@@ -6,7 +6,6 @@ import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { getMyPeople } from '../../../actions/people';
-import { navToPersonScreen } from '../../../actions/person';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../../routes/constants';
 import { SEARCH_SCREEN } from '../../../containers/SearchPeopleScreen';
@@ -172,26 +171,6 @@ describe('handleAddContact', () => {
         { organization },
       );
     });
-  });
-});
-
-describe('handleRowSelect', () => {
-  it('should navigate to person screen in personal ministry', () => {
-    const org = orgs[0];
-    const person = org.people[0];
-    const { getByTestId } = renderWithContext(<PeopleScreen {...props} />);
-    getByTestId('peopleList').props.onSelect(person, org);
-
-    expect(navToPersonScreen).toHaveBeenCalledWith(person, undefined);
-  });
-
-  it('should navigate to person screen in org', () => {
-    const org = orgs[1];
-    const person = org.people[0];
-    const { getByTestId } = renderWithContext(<PeopleScreen {...props} />);
-    getByTestId('peopleList').props.onSelect(person, org);
-
-    expect(navToPersonScreen).toHaveBeenCalledWith(person, org);
   });
 });
 

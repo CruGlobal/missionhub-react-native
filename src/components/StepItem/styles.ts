@@ -3,6 +3,31 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
+  card: {
+    marginVertical: 4,
+    padding: 16,
+    alignItems: 'center',
+    flexDirection: 'row',
+    flex: 1,
+  },
+  stepUserName: {
+    fontSize: 16,
+    fontWeight: 'normal',
+  },
+  flex1: {
+    flex: 1,
+  },
+  reminderButton: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    padding: 4,
+  },
+  bellIcon: {
+    fontSize: 18,
+    paddingRight: 8,
+    paddingLeft: 8,
+    color: theme.secondaryColor,
+  },
   contentWrap: {
     paddingVertical: 16,
     paddingLeft: 24,
@@ -12,19 +37,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
   },
-  swipeable: {
-    backgroundColor: theme.white,
-    borderBottomWidth: theme.separatorHeight,
-    borderBottomColor: theme.separatorColor,
-  },
-  reminder: {
-    backgroundColor: theme.convert({
-      color: theme.secondaryColor,
-      lighten: 0.4,
-    }),
-    borderBottomWidth: theme.separatorHeight,
-    borderBottomColor: theme.separatorColor,
-  },
+
   contact: {
     backgroundColor: theme.white,
     borderBottomWidth: theme.separatorHeight,
@@ -36,7 +49,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
   },
   nameWrap: {
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
   },
   description: {
     fontSize: 14,

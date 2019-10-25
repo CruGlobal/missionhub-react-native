@@ -28,7 +28,7 @@ exports[`allows for undefined organization 1`] = `
       style={
         Object {
           "backgroundColor": "#007398",
-          "height": 215,
+          "height": 150,
           "opacity": 1,
           "overflow": "hidden",
           "position": "absolute",
@@ -72,7 +72,7 @@ exports[`allows for undefined organization 1`] = `
             style={
               Object {
                 "backgroundColor": "transparent",
-                "height": 215,
+                "height": 150,
                 "opacity": 1,
                 "overflow": "hidden",
               }
@@ -81,7 +81,7 @@ exports[`allows for undefined organization 1`] = `
             <View
               style={
                 Object {
-                  "height": 215,
+                  "height": 150,
                 }
               }
             >
@@ -224,55 +224,27 @@ exports[`allows for undefined organization 1`] = `
                   </View>
                 </RCTSafeAreaView>
                 <Text
-                  allowFontScaling={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": undefined,
-                        "fontSize": 12,
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                        },
-                        Object {
-                          "fontSize": 18,
-                        },
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 40,
-                        },
-                      ],
-                      Object {
-                        "fontFamily": "icomoon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-                <Text
                   style={
                     Array [
                       Object {
                         "color": "#505256",
                       },
                       Object {
-                        "fontFamily": "AmaticSC-Bold",
+                        "fontFamily": "SourceSansPro-Regular",
                       },
                       Object {
-                        "color": "#52C5DC",
-                        "fontSize": 36,
-                        "letterSpacing": 2,
-                        "lineHeight": 48,
+                        "color": "#ffffff",
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "letterSpacing": 1,
+                        "lineHeight": 30,
+                        "paddingHorizontal": 30,
+                        "textAlign": "center",
                       },
                     ]
                   }
                 >
-                  add steps of faith
+                  Choose a step of faith
                 </Text>
                 <Text
                   style={
@@ -285,16 +257,17 @@ exports[`allows for undefined organization 1`] = `
                       },
                       Object {
                         "color": "#ffffff",
-                        "fontSize": 16,
-                        "lineHeight": 24,
-                        "paddingBottom": 36,
-                        "paddingHorizontal": 50,
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "letterSpacing": 1,
+                        "lineHeight": 30,
+                        "paddingHorizontal": 30,
                         "textAlign": "center",
                       },
                     ]
                   }
                 >
-                  What will you do to help Ron experience God?
+                   to take with Ron this week...
                 </Text>
               </View>
             </View>
@@ -322,6 +295,93 @@ exports[`allows for undefined organization 1`] = `
               }
             }
           />
+          <View
+            accessible={true}
+            clickable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderRadius": 8,
+                "elevation": 4,
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginBottom": 4,
+                "marginHorizontal": 20,
+                "marginTop": 16,
+                "marginVertical": 8,
+                "opacity": 1,
+                "padding": 16,
+                "shadowColor": "#000000",
+                "shadowOffset": Object {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#66D9F0",
+                    "fontSize": 16,
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              Create a Custom Step
+            </Text>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 10,
+                    },
+                    Object {
+                      "color": "#66D9F0",
+                      "fontSize": 25,
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
           <RCTScrollView
             ListFooterComponent={null}
             data={Array []}
@@ -348,7 +408,7 @@ exports[`allows for undefined organization 1`] = `
             style={
               Object {
                 "backgroundColor": "transparent",
-                "paddingVertical": 16,
+                "paddingBottom": 16,
               }
             }
             updateCellsBatchingPeriod={50}
@@ -527,37 +587,6 @@ exports[`allows for undefined organization 1`] = `
               <View
                 style={
                   Array [
-                    Object {},
-                    Object {
-                      "alignItems": "center",
-                      "flex": 5,
-                      "justifyContent": "center",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                      },
-                    ]
-                  }
-                >
-                  ADD STEPS OF FAITH
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
                     Object {
                       "paddingRight": 5,
                     },
@@ -575,83 +604,6 @@ exports[`allows for undefined organization 1`] = `
       </View>
     </View>
   </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "bottom": 20,
-        "left": 50,
-        "position": "absolute",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bottomButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
-            Object {
-              "borderRadius": 50,
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          CREATE YOUR OWN STEP
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;
 
@@ -683,7 +635,7 @@ exports[`renders correctly 1`] = `
       style={
         Object {
           "backgroundColor": "#007398",
-          "height": 215,
+          "height": 150,
           "opacity": 1,
           "overflow": "hidden",
           "position": "absolute",
@@ -727,7 +679,7 @@ exports[`renders correctly 1`] = `
             style={
               Object {
                 "backgroundColor": "transparent",
-                "height": 215,
+                "height": 150,
                 "opacity": 1,
                 "overflow": "hidden",
               }
@@ -736,7 +688,7 @@ exports[`renders correctly 1`] = `
             <View
               style={
                 Object {
-                  "height": 215,
+                  "height": 150,
                 }
               }
             >
@@ -879,55 +831,27 @@ exports[`renders correctly 1`] = `
                   </View>
                 </RCTSafeAreaView>
                 <Text
-                  allowFontScaling={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": undefined,
-                        "fontSize": 12,
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                        },
-                        Object {
-                          "fontSize": 18,
-                        },
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 40,
-                        },
-                      ],
-                      Object {
-                        "fontFamily": "icomoon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-                <Text
                   style={
                     Array [
                       Object {
                         "color": "#505256",
                       },
                       Object {
-                        "fontFamily": "AmaticSC-Bold",
+                        "fontFamily": "SourceSansPro-Regular",
                       },
                       Object {
-                        "color": "#52C5DC",
-                        "fontSize": 36,
-                        "letterSpacing": 2,
-                        "lineHeight": 48,
+                        "color": "#ffffff",
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "letterSpacing": 1,
+                        "lineHeight": 30,
+                        "paddingHorizontal": 30,
+                        "textAlign": "center",
                       },
                     ]
                   }
                 >
-                  add steps of faith
+                  Choose a step of faith
                 </Text>
                 <Text
                   style={
@@ -940,16 +864,17 @@ exports[`renders correctly 1`] = `
                       },
                       Object {
                         "color": "#ffffff",
-                        "fontSize": 16,
-                        "lineHeight": 24,
-                        "paddingBottom": 36,
-                        "paddingHorizontal": 50,
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "letterSpacing": 1,
+                        "lineHeight": 30,
+                        "paddingHorizontal": 30,
                         "textAlign": "center",
                       },
                     ]
                   }
                 >
-                  What will you do to help Ron experience God?
+                   to take with Ron this week...
                 </Text>
               </View>
             </View>
@@ -977,6 +902,93 @@ exports[`renders correctly 1`] = `
               }
             }
           />
+          <View
+            accessible={true}
+            clickable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderRadius": 8,
+                "elevation": 4,
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginBottom": 4,
+                "marginHorizontal": 20,
+                "marginTop": 16,
+                "marginVertical": 8,
+                "opacity": 1,
+                "padding": 16,
+                "shadowColor": "#000000",
+                "shadowOffset": Object {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#66D9F0",
+                    "fontSize": 16,
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              Create a Custom Step
+            </Text>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 10,
+                    },
+                    Object {
+                      "color": "#66D9F0",
+                      "fontSize": 25,
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
           <RCTScrollView
             ListFooterComponent={null}
             data={Array []}
@@ -1003,7 +1015,7 @@ exports[`renders correctly 1`] = `
             style={
               Object {
                 "backgroundColor": "transparent",
-                "paddingVertical": 16,
+                "paddingBottom": 16,
               }
             }
             updateCellsBatchingPeriod={50}
@@ -1182,37 +1194,6 @@ exports[`renders correctly 1`] = `
               <View
                 style={
                   Array [
-                    Object {},
-                    Object {
-                      "alignItems": "center",
-                      "flex": 5,
-                      "justifyContent": "center",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                      },
-                    ]
-                  }
-                >
-                  ADD STEPS OF FAITH
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
                     Object {
                       "paddingRight": 5,
                     },
@@ -1230,82 +1211,5 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "bottom": 20,
-        "left": 50,
-        "position": "absolute",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bottomButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
-            Object {
-              "borderRadius": 50,
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          CREATE YOUR OWN STEP
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;

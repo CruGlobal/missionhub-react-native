@@ -186,7 +186,7 @@ exports[`renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -345,7 +345,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -472,7 +472,7 @@ exports[`renders without back button correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -631,7 +631,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -928,7 +928,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",

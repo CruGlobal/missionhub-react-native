@@ -188,7 +188,7 @@ exports[`renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -396,7 +396,7 @@ exports[`renders correctly 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -602,7 +602,7 @@ exports[`renders with first and last name 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -810,7 +810,7 @@ exports[`renders with first and last name 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -1156,7 +1156,7 @@ exports[`renders without skip button 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
