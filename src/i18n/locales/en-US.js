@@ -218,9 +218,12 @@ export default {
   },
   selectStep: {
     meHeader: 'How do you want to move forward on your spiritual journey?',
-    personHeader: 'What will you do to help {{name}} experience God?',
+    personHeader: {
+      part1: 'Choose a step of faith',
+      part2: ' to take with {{name}} this week...',
+    },
     addStep: 'ADD TO MY STEPS',
-    createStep: 'CREATE YOUR OWN STEP',
+    createStep: 'Create a Custom Step',
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
   },
@@ -464,6 +467,7 @@ export default {
     header: 'PEOPLE',
     personalMinistry: 'Personal Ministry',
     personal: 'personal',
+    addStage: 'Add Stage',
   },
   appRoutes: {
     steps: 'Steps',
@@ -580,6 +584,8 @@ export default {
     contactsDescription: 'Stay engaged with contacts in your community.',
     surveysHeader: 'Grow Together',
     surveysDescription: 'Learn about one another through survey responses.',
+    stepsHeader: 'Steps of Faith',
+    stepsDescription: 'Choose a person in People view to add a new step',
   },
   groupsMembers: {
     invite: 'Send Invite',

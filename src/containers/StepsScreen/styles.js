@@ -12,11 +12,11 @@ export default StyleSheet.create({
     backgroundColor: theme.backgroundColor,
   },
   backgroundBottom: {
-    backgroundColor: theme.white,
+    backgroundColor: theme.extraLightGrey,
   },
   contentContainer: {
     flex: 1,
-    backgroundColor: theme.white,
+    backgroundColor: theme.extraLightGrey,
   },
   top: {
     width: theme.fullWidth,
@@ -37,7 +37,7 @@ export default StyleSheet.create({
   },
   list: {
     overflow: 'scroll',
-    backgroundColor: theme.white,
+    backgroundColor: theme.extraLightGrey,
     paddingBottom: isAndroid ? 50 : undefined,
   },
   nullHeader: {

@@ -10,6 +10,7 @@ import GLOBE from '../../../assets/images/globe.png';
 import JOURNEY from '../../../assets/images/ourJourney.png';
 import CONTACTS from '../../../assets/images/MemberContacts.png';
 import SURVEY from '../../../assets/images/curiousIcon.png';
+import STEPS from '../../../assets/images/footprints.png';
 import { Flex, Text, Card, IconButton } from '../../components/common';
 import { removeGroupOnboardingCard } from '../../actions/swipe';
 import theme from '../../theme';
@@ -32,6 +33,8 @@ class OnboardingCard extends Component {
         return CONTACTS;
       case GROUP_ONBOARDING_TYPES.surveys:
         return SURVEY;
+      case GROUP_ONBOARDING_TYPES.steps:
+        return STEPS;
       default:
         return null;
     }
@@ -88,6 +91,7 @@ export const GROUP_ONBOARDING_TYPES = {
   impact: 'impact',
   contacts: 'contacts',
   surveys: 'surveys',
+  steps: 'steps',
 };
 
 OnboardingCard.propTypes = {

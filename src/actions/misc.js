@@ -6,8 +6,11 @@ import { contactAssignmentSelector } from '../selectors/people';
 import {
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
+  ADD_MY_STEP_FLOW,
+  ADD_PERSON_STEP_FLOW,
 } from '../routes/constants';
 import { WARN } from '../utils/logging';
+import { buildTrackingObj } from '../utils/common';
 
 import { trackActionWithoutData } from './analytics';
 import { getContactSteps } from './steps';
@@ -116,6 +119,47 @@ export function navigateToStageScreen(
           orgId: organization.id,
           section: 'people',
           subsection: 'person',
+        }),
+      );
+    }
+  };
+}
+
+export function navigateToAddStepFlow(
+  personIsCurrentUser,
+  person,
+  organization,
+) {
+  return dispatch => {
+    const trackingParams = {
+      trackingObj: buildTrackingObj(
+        'people : person : steps : add',
+        'people',
+        'person',
+        'steps',
+      ),
+    };
+
+    if (personIsCurrentUser) {
+      dispatch(
+        navigatePush(ADD_MY_STEP_FLOW, {
+          ...trackingParams,
+          organization,
+        }),
+      );
+    } else {
+      dispatch(
+        navigatePush(ADD_PERSON_STEP_FLOW, {
+          ...trackingParams,
+          contactName: person.first_name,
+          contactId: person.id,
+          organization,
+          createStepTracking: buildTrackingObj(
+            'people : person : steps : create',
+            'people',
+            'person',
+            'steps',
+          ),
         }),
       );
     }

@@ -244,7 +244,7 @@ exports[`renders back button correctly 1`] = `
                 Object {
                   "height": 48,
                   "marginBottom": 20,
-                  "width": 650,
+                  "width": 300,
                 },
                 Object {
                   "borderRadius": 50,
@@ -265,7 +265,7 @@ exports[`renders back button correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -450,7 +450,7 @@ exports[`renders correctly 1`] = `
                 Object {
                   "height": 48,
                   "marginBottom": 20,
-                  "width": 650,
+                  "width": 300,
                 },
                 Object {
                   "borderRadius": 50,
@@ -471,7 +471,7 @@ exports[`renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -590,7 +590,7 @@ exports[`renders skip button correctly 1`] = `
                   Object {
                     "backgroundColor": "rgba(0,0,0,0)",
                     "color": "#ffffff",
-                    "fontSize": 18,
+                    "fontSize": 14,
                     "fontWeight": "500",
                     "letterSpacing": 1.5,
                     "textAlign": "center",
@@ -724,7 +724,7 @@ exports[`renders skip button correctly 1`] = `
                 Object {
                   "height": 48,
                   "marginBottom": 20,
-                  "width": 650,
+                  "width": 300,
                 },
                 Object {
                   "borderRadius": 50,
@@ -745,7 +745,7 @@ exports[`renders skip button correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",

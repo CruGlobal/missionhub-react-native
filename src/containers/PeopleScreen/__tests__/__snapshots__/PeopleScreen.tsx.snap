@@ -52,7 +52,6 @@ exports[`renders correctly as Casey 1`] = `
     }
     onAddContact={[Function]}
     onRefresh={[Function]}
-    onSelect={[Function]}
     refreshing={false}
     sections={false}
     testID="peopleList"
@@ -139,7 +138,6 @@ exports[`renders correctly as Jean 1`] = `
     }
     onAddContact={[Function]}
     onRefresh={[Function]}
-    onSelect={[Function]}
     refreshing={false}
     sections={true}
     testID="peopleList"
@@ -190,7 +188,6 @@ exports[`renders empty correctly 1`] = `
     }
     onAddContact={[Function]}
     onRefresh={[Function]}
-    onSelect={[Function]}
     refreshing={false}
     sections={false}
     testID="peopleList"

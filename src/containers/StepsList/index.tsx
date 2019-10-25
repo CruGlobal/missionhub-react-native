@@ -10,6 +10,8 @@ import StepSuggestionItem from '../../components/StepSuggestionItem';
 import LoadMore from '../../components/LoadMore';
 import { keyExtractorId } from '../../utils/common';
 import { AuthState } from '../../reducers/auth';
+import { Text, Icon } from '../../components/common';
+import { Card } from '../../components/common';
 
 import styles from './styles';
 
@@ -33,6 +35,8 @@ interface StepsListOwnProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
   }) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onPressCreateStep: any;
 }
 
 type StepsListProps = StepsListOwnProps & StepsComputedProps;
@@ -43,6 +47,7 @@ const StepsList = ({
   suggestions,
   contactName,
   onPressStep,
+  onPressCreateStep,
   dispatch,
 }: StepsListProps) => {
   const { t } = useTranslation('selectStep');
@@ -69,22 +74,33 @@ const StepsList = ({
   const { list } = styles;
 
   return (
-    <FlatList
-      keyExtractor={keyExtractorId}
-      data={getSuggestionSubset()}
-      renderItem={renderItem}
-      scrollEnabled={true}
-      style={list}
-      ListFooterComponent={
-        suggestions.length > suggestionIndex ? (
-          <LoadMore
-            testID="loadMore"
-            onPress={handleLoadSteps}
-            text={t('loadMoreSteps').toUpperCase()}
-          />
-        ) : null
-      }
-    />
+    <>
+      <Card style={styles.card} onPress={onPressCreateStep}>
+        <Text style={styles.createStepText}>{t('createStep')}</Text>
+        <Icon
+          style={styles.createStepIcon}
+          name="createStepIcon"
+          type="MissionHub"
+          size={10}
+        />
+      </Card>
+      <FlatList
+        keyExtractor={keyExtractorId}
+        data={getSuggestionSubset()}
+        renderItem={renderItem}
+        scrollEnabled={true}
+        style={list}
+        ListFooterComponent={
+          suggestions.length > suggestionIndex ? (
+            <LoadMore
+              testID="loadMore"
+              onPress={handleLoadSteps}
+              text={t('loadMoreSteps').toUpperCase()}
+            />
+          ) : null
+        }
+      />
+    </>
   );
 };
 

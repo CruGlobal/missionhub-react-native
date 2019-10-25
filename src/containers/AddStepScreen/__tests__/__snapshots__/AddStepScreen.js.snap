@@ -230,7 +230,7 @@ exports[`renders create step correctly 1`] = `
             Object {
               "height": 48,
               "marginBottom": 20,
-              "width": 650,
+              "width": 300,
             },
             Object {
               "borderRadius": 50,
@@ -251,7 +251,7 @@ exports[`renders create step correctly 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -498,7 +498,7 @@ exports[`renders edit journey item correctly 1`] = `
             Object {
               "height": 48,
               "marginBottom": 20,
-              "width": 650,
+              "width": 300,
             },
             Object {
               "borderRadius": 50,
@@ -519,7 +519,7 @@ exports[`renders edit journey item correctly 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -766,7 +766,7 @@ exports[`renders edit journey step correctly 1`] = `
             Object {
               "height": 48,
               "marginBottom": 20,
-              "width": 650,
+              "width": 300,
             },
             Object {
               "borderRadius": 50,
@@ -787,7 +787,7 @@ exports[`renders edit journey step correctly 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -987,7 +987,7 @@ exports[`renders interaction with skip correctly 1`] = `
                   Object {
                     "backgroundColor": "rgba(0,0,0,0)",
                     "color": "#ffffff",
-                    "fontSize": 18,
+                    "fontSize": 14,
                     "fontWeight": "500",
                     "letterSpacing": 1.5,
                     "textAlign": "center",
@@ -1106,7 +1106,7 @@ exports[`renders interaction with skip correctly 1`] = `
             Object {
               "height": 48,
               "marginBottom": 20,
-              "width": 650,
+              "width": 300,
             },
             Object {
               "borderRadius": 50,
@@ -1127,7 +1127,7 @@ exports[`renders interaction with skip correctly 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -1374,7 +1374,7 @@ exports[`renders interaction without skip correctly 1`] = `
             Object {
               "height": 48,
               "marginBottom": 20,
-              "width": 650,
+              "width": 300,
             },
             Object {
               "borderRadius": 50,
@@ -1395,7 +1395,7 @@ exports[`renders interaction without skip correctly 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -1642,7 +1642,7 @@ exports[`renders journey correctly 1`] = `
             Object {
               "height": 48,
               "marginBottom": 20,
-              "width": 650,
+              "width": 300,
             },
             Object {
               "borderRadius": 50,
@@ -1663,7 +1663,7 @@ exports[`renders journey correctly 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -1863,7 +1863,7 @@ exports[`renders step note correctly 1`] = `
                   Object {
                     "backgroundColor": "rgba(0,0,0,0)",
                     "color": "#ffffff",
-                    "fontSize": 18,
+                    "fontSize": 14,
                     "fontWeight": "500",
                     "letterSpacing": 1.5,
                     "textAlign": "center",
@@ -1982,7 +1982,7 @@ exports[`renders step note correctly 1`] = `
             Object {
               "height": 48,
               "marginBottom": 20,
-              "width": 650,
+              "width": 300,
             },
             Object {
               "borderRadius": 50,
@@ -2003,7 +2003,7 @@ exports[`renders step note correctly 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -2203,7 +2203,7 @@ exports[`renders step note correctly for me 1`] = `
                   Object {
                     "backgroundColor": "rgba(0,0,0,0)",
                     "color": "#ffffff",
-                    "fontSize": 18,
+                    "fontSize": 14,
                     "fontWeight": "500",
                     "letterSpacing": 1.5,
                     "textAlign": "center",
@@ -2322,7 +2322,7 @@ exports[`renders step note correctly for me 1`] = `
             Object {
               "height": 48,
               "marginBottom": 20,
-              "width": 650,
+              "width": 300,
             },
             Object {
               "borderRadius": 50,
@@ -2343,7 +2343,7 @@ exports[`renders step note correctly for me 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -2543,7 +2543,7 @@ exports[`renders step note edit correctly 1`] = `
                   Object {
                     "backgroundColor": "rgba(0,0,0,0)",
                     "color": "#ffffff",
-                    "fontSize": 18,
+                    "fontSize": 14,
                     "fontWeight": "500",
                     "letterSpacing": 1.5,
                     "textAlign": "center",
@@ -2662,7 +2662,7 @@ exports[`renders step note edit correctly 1`] = `
             Object {
               "height": 48,
               "marginBottom": 20,
-              "width": 650,
+              "width": 300,
             },
             Object {
               "borderRadius": 50,
@@ -2683,7 +2683,7 @@ exports[`renders step note edit correctly 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -2883,7 +2883,7 @@ exports[`renders step note edit correctly for me 1`] = `
                   Object {
                     "backgroundColor": "rgba(0,0,0,0)",
                     "color": "#ffffff",
-                    "fontSize": 18,
+                    "fontSize": 14,
                     "fontWeight": "500",
                     "letterSpacing": 1.5,
                     "textAlign": "center",
@@ -3002,7 +3002,7 @@ exports[`renders step note edit correctly for me 1`] = `
             Object {
               "height": 48,
               "marginBottom": 20,
-              "width": 650,
+              "width": 300,
             },
             Object {
               "borderRadius": 50,
@@ -3023,7 +3023,7 @@ exports[`renders step note edit correctly for me 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",

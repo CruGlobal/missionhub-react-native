@@ -3,23 +3,62 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  row: {
-    paddingVertical: 15,
-    paddingHorizontal: 24,
-    backgroundColor: theme.white,
-    width: theme.fullWidth,
-    borderBottomWidth: theme.separatorHeight,
-    borderBottomColor: theme.separatorColor,
+  card: {
+    flex: 1,
+    height: 70,
+    paddingHorizontal: 16,
+    marginVertical: 6,
+    flexDirection: 'row',
+  },
+  image: {
+    width: 32,
+    height: 32,
+  },
+  textWrapper: {
+    flex: 1,
+    paddingLeft: 10,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  textRow: {
+    flexDirection: 'row',
   },
   stage: {
-    fontSize: 14,
+    paddingTop: 6,
+    fontSize: 12,
+    lineHeight: 14,
     color: theme.inactiveColor,
+  },
+  addStage: {
+    color: theme.secondaryColor,
   },
   uncontacted: {
     color: theme.red,
   },
-  uncontactedIcon: {
-    fontSize: 24,
-    color: theme.red,
+  stepIcon: {
+    color: theme.secondaryColor,
+  },
+  badge: {
+    position: 'absolute',
+    bottom: -3,
+    right: -3,
+    backgroundColor: theme.red,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  badgeText: {
+    fontSize: 13,
+    fontWeight: 'bold',
+    color: theme.white,
+  },
+  stepPlusIcon: {
+    position: 'absolute',
+    bottom: -3,
+    right: -3,
+    color: theme.secondaryColor,
   },
 });

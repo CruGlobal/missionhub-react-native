@@ -26,7 +26,6 @@ interface PeopleListProps {
   sections: boolean;
   refreshing: boolean;
   onRefresh: () => Promise<void>;
-  onSelect: (person: PersonAttributes, org: any) => void;
   onAddContact: (org: any) => void;
   testID?: string;
 }
@@ -36,7 +35,6 @@ export default ({
   sections,
   refreshing,
   onRefresh,
-  onSelect,
   onAddContact,
 }: PeopleListProps) => {
   const { t } = useTranslation('peopleScreen');
@@ -50,13 +48,14 @@ export default ({
   };
 
   const renderItem = (organization: any) => ({ item }: { item: any }) => (
-    <PersonItem onSelect={onSelect} person={item} organization={organization} />
+    <PersonItem person={item} organization={organization} />
   );
 
   const renderList = (items: any, organization?: any) => {
     return (
       <FlatList
         data={items}
+        style={styles.list}
         keyExtractor={keyExtractorId}
         scrollEnabled={!sections}
         renderItem={renderItem(organization)}
