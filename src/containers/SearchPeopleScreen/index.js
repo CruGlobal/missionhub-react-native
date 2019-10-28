@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import debounce from 'lodash/debounce';
 import { withTranslation } from 'react-i18next';

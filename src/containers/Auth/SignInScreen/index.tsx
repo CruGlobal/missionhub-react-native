@@ -17,6 +17,7 @@ import {
   Input,
 } from '../../../components/common';
 import BackButton from '../../BackButton';
+import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
 import {
   keyLoginWithAuthorizationCode,
@@ -143,7 +144,7 @@ const SignInScreen = ({
     passwordRef.current && passwordRef.current.focus();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       {renderErrorMessage()}
       <Header left={forcedLogout ? null : <BackButton />} />
       {showLogo ? (
@@ -200,15 +201,16 @@ const SignInScreen = ({
 
       {email || password ? (
         <Flex align="stretch" justify="end">
-          <Button
+          <BottomButton
             testID="loginButton"
-            type="secondary"
             onPress={login}
-            text={t('login').toUpperCase()}
+            text={t('login')}
           />
         </Flex>
       ) : (
-        <Flex value={1} justify="center" align="center">
+        <SafeAreaView
+          style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+        >
           <Button
             testID="facebookButton"
             pill={true}
@@ -228,10 +230,10 @@ const SignInScreen = ({
               </Text>
             </Flex>
           </Button>
-        </Flex>
+        </SafeAreaView>
       )}
       {isLoading ? <LoadingWheel /> : null}
-    </SafeAreaView>
+    </View>
   );
 };
 

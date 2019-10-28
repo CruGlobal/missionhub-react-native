@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContactJourney renders loading screen correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -40,11 +40,11 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
       }
     />
   </Flex>
-</SafeAreaView>
+</View>
 `;
 
 exports[`ContactJourney renders null screen correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -91,11 +91,11 @@ exports[`ContactJourney renders null screen correctly 1`] = `
       }
     />
   </Flex>
-</SafeAreaView>
+</View>
 `;
 
 exports[`ContactJourney renders screen as personal ministry 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -171,11 +171,11 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
       }
     />
   </Flex>
-</SafeAreaView>
+</View>
 `;
 
 exports[`ContactJourney renders screen with steps correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -246,7 +246,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
       }
     />
   </Flex>
-</SafeAreaView>
+</View>
 `;
 
 exports[`journey methods renders a stage change row 1`] = `
@@ -335,8 +335,7 @@ exports[`journey methods renders an interaction row 1`] = `
 exports[`journey methods should render item separator 1`] = `<Separator />`;
 
 exports[`renders with an organization correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -655,5 +654,5 @@ exports[`renders with an organization correctly 1`] = `
       </RCTSafeAreaView>
     </View>
   </View>
-</RCTSafeAreaView>
+</View>
 `;
