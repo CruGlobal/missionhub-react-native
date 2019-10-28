@@ -1,7 +1,7 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
 
 import React, { Component } from 'react';
-import { SafeAreaView, View, ScrollView, Alert } from 'react-native';
+import { SafeAreaView, ScrollView, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';

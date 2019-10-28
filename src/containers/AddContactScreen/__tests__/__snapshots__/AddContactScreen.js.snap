@@ -19,29 +19,21 @@ exports[`renders correctly 1`] = `
     }
     title="ADD SOMEONE"
   />
-  <View
+  <ScrollViewMock
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <ScrollViewMock
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <Connect(withI18nextTranslation(AddContactFields))
-        isGroupInvite={false}
-        onUpdateData={[Function]}
-      />
-    </ScrollViewMock>
-    <BottomButton
-      onPress={[Function]}
-      text="Done"
+    <Connect(withI18nextTranslation(AddContactFields))
+      isGroupInvite={false}
+      onUpdateData={[Function]}
     />
-  </View>
+  </ScrollViewMock>
+  <BottomButton
+    onPress={[Function]}
+    text="Done"
+  />
 </SafeAreaView>
 `;

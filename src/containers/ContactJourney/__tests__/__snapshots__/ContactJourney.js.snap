@@ -462,197 +462,197 @@ exports[`renders with an organization correctly 1`] = `
     <View
       style={
         Array [
-          Array [
-            Object {
-              "backgroundColor": "#ffffff",
-              "borderTopColor": "#B2B0B2",
-              "borderTopWidth": 1,
-              "paddingBottom": 5,
-              "paddingTop": 5,
-              "width": 750,
-            },
-            undefined,
-          ],
           Object {
+            "backgroundColor": "#ffffff",
+            "borderTopColor": "#B2B0B2",
+            "borderTopWidth": 1,
             "flexDirection": "column",
+            "paddingBottom": 5,
+            "paddingTop": 5,
+            "width": 750,
           },
+          undefined,
         ]
       }
     >
-      <View
-        style={
-          Array [
-            Object {
-              "marginBottom": 5,
-              "marginHorizontal": 10,
-              "paddingHorizontal": 5,
-            },
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "center",
-            },
-          ]
-        }
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
       >
         <View
           style={
             Array [
-              Array [
-                Object {
-                  "backgroundColor": "#007398",
-                  "borderRadius": 25,
-                  "marginRight": 15,
-                },
-                null,
-              ],
+              Object {
+                "marginBottom": 5,
+                "marginHorizontal": 10,
+                "paddingHorizontal": 5,
+              },
               Object {
                 "alignItems": "center",
+                "flexDirection": "row",
                 "justifyContent": "center",
               },
             ]
           }
         >
           <View
-            accessible={true}
-            clickable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
+              Array [
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "backgroundColor": "#007398",
+                    "borderRadius": 25,
+                    "marginRight": 15,
                   },
                   null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 13,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {},
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#ffffff",
-                "borderColor": "#B2B0B2",
-                "borderRadius": 20,
-                "borderWidth": 1,
-              },
-              Object {
-                "alignItems": "center",
-                "alignSelf": "stretch",
-                "flex": 1,
-                "flexDirection": "column",
-                "justifyContent": "center",
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "paddingLeft": 13,
-                },
+                ],
                 Object {
                   "alignItems": "center",
-                  "alignSelf": "stretch",
-                  "flexDirection": "row",
                   "justifyContent": "center",
                 },
               ]
             }
           >
-            <TextInput
-              allowFontScaling={true}
-              autoCorrect={true}
-              autoFocus={false}
-              blurOnSubmit={true}
-              multiline={false}
-              onChangeText={[Function]}
-              placeholder="Share something to be remembered..."
-              placeholderTextColor="#B2B0B2"
-              rejectResponderTermination={true}
-              returnKeyType="done"
-              selectionColor="#005A7F"
+            <View
+              accessible={true}
+              clickable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="IconButton"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                        },
+                        Object {
+                          "fontSize": 13,
+                        },
+                        Array [
+                          Object {
+                            "margin": 10,
+                          },
+                          Object {},
+                        ],
+                      ],
+                      Object {
+                        "fontFamily": "icomoon",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#ffffff",
+                  "borderColor": "#B2B0B2",
+                  "borderRadius": 20,
+                  "borderWidth": 1,
+                },
+                Object {
+                  "alignItems": "center",
+                  "alignSelf": "stretch",
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <View
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
-                    "borderBottomColor": "#52C5DC",
-                    "borderBottomWidth": 1,
-                    "color": "#ffffff",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "letterSpacing": 0.25,
-                    "paddingVertical": 5,
+                    "paddingLeft": 13,
                   },
                   Object {
-                    "borderBottomWidth": 0,
-                    "color": "#4E4C4E",
-                    "flex": 1,
-                    "fontSize": 16,
-                    "paddingLeft": 5,
-                    "paddingVertical": 7,
+                    "alignItems": "center",
+                    "alignSelf": "stretch",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
                   },
                 ]
               }
-              underlineColorAndroid="rgba(0,0,0,0)"
-              value=""
-            />
+            >
+              <TextInput
+                allowFontScaling={true}
+                autoCorrect={true}
+                autoFocus={false}
+                blurOnSubmit={true}
+                multiline={false}
+                onChangeText={[Function]}
+                placeholder="Share something to be remembered..."
+                placeholderTextColor="#B2B0B2"
+                rejectResponderTermination={true}
+                returnKeyType="done"
+                selectionColor="#005A7F"
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderBottomColor": "#52C5DC",
+                      "borderBottomWidth": 1,
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "letterSpacing": 0.25,
+                      "paddingVertical": 5,
+                    },
+                    Object {
+                      "borderBottomWidth": 0,
+                      "color": "#4E4C4E",
+                      "flex": 1,
+                      "fontSize": 16,
+                      "paddingLeft": 5,
+                      "paddingVertical": 7,
+                    },
+                  ]
+                }
+                underlineColorAndroid="rgba(0,0,0,0)"
+                value=""
+              />
+            </View>
           </View>
         </View>
-      </View>
+      </RCTSafeAreaView>
     </View>
   </View>
 </RCTSafeAreaView>
