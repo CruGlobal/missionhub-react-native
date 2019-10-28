@@ -118,11 +118,15 @@ const PersonItem = ({
       <View style={styles.textWrapper}>
         <ItemHeaderText text={personName} />
         <View style={styles.textRow}>
-          <Touchable testID="stageText" onPress={handleChangeStage}>
-            <Text style={[styles.stage, stage ? {} : styles.addStage]}>
-              {stage ? stage.name : t('peopleScreen:addStage')}
-            </Text>
-          </Touchable>
+          {stage ? (
+            <Text style={styles.stage}>{stage.name}</Text>
+          ) : (
+            <Touchable testID="stageText" onPress={handleChangeStage}>
+              <Text style={[styles.stage, styles.addStage]}>
+                {t('peopleScreen:addStage')}
+              </Text>
+            </Touchable>
+          )}
           {status ? (
             <View style={styles.textRow}>
               <Dot style={styles.stage} />
