@@ -1,46 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, useTranslation } from 'react-i18next';
 
 import { contactAssignmentSelector, personSelector } from '../selectors/people';
 
 import SelectStepScreen from './SelectStepScreen';
 
-@withTranslation('selectStep')
-class PersonSelectStepScreen extends Component {
-  render() {
-    const {
-      t,
-      contactName,
-      personFirstName,
-      contactStage,
-      contactAssignment,
-      contactId,
-      personId,
-      organization,
-      next,
-      enableSkipButton,
-    } = this.props;
+const PersonSelectStepScreen = ({
+  contactName,
+  contactId,
+  contactStage,
+  contactAssignment,
+  personFirstName,
+  personId,
+  organization,
+  next,
+  enableSkipButton,
+}) => {
+  const { t } = useTranslation('selectStep');
+  const name = contactName ? contactName : personFirstName;
+  const stageId = contactAssignment
+    ? contactAssignment.pathway_stage_id
+    : contactStage.id;
 
-    const name = contactName ? contactName : personFirstName;
-    const stageId = contactAssignment
-      ? contactAssignment.pathway_stage_id
-      : contactStage.id;
-
-    return (
-      <SelectStepScreen
-        contactStageId={stageId}
-        receiverId={contactId ? contactId : personId}
-        contactName={name}
-        headerText={t('personHeader', { name })}
-        organization={organization}
-        enableSkipButton={enableSkipButton}
-        next={next}
-      />
-    );
-  }
-}
+  return (
+    <SelectStepScreen
+      contactStageId={stageId}
+      receiverId={contactId ? contactId : personId}
+      contactName={name}
+      headerText={t('personHeader', { name })}
+      organization={organization}
+      enableSkipButton={enableSkipButton}
+      next={next}
+    />
+  );
+};
 
 PersonSelectStepScreen.defaultProps = {
   enableSkipButton: false,
