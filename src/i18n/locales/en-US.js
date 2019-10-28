@@ -217,7 +217,10 @@ export default {
     monthly: 'Monthly',
   },
   selectStep: {
-    meHeader: 'How do you want to move forward on your spiritual journey?',
+    meHeader: {
+      part1: 'How do you want to move',
+      part2: 'forward on your spiritual journey?',
+    },
     personHeader: {
       part1: 'Choose a step of faith',
       part2: ' to take with {{name}} this week...',
