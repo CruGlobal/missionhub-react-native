@@ -16,7 +16,7 @@ import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
 import { openMainMenu } from '../../utils/common';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
-import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
+import BottomButton from '../../components/BottomButton';
 import TrackTabChange from '../TrackTabChange';
 import { PEOPLE_TAB } from '../../constants';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
@@ -103,7 +103,12 @@ export const PeopleScreen = ({
         onRefresh={refresh}
         refreshing={isRefreshing}
       />
-      {hasNoContacts ? <TakeAStepWithSomeoneButton /> : null}
+      {hasNoContacts ? (
+        <BottomButton
+          text={t('mainTabs:takeAStepWithSomeone')}
+          onPress={handleAddContact}
+        />
+      ) : null}
     </SafeAreaView>
   );
 };

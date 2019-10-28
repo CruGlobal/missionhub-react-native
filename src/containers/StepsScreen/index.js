@@ -16,7 +16,7 @@ import {
   getMyStepsNextPage,
 } from '../../actions/steps';
 import { checkForUnreadComments } from '../../actions/unreadComments';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { navToPersonScreen } from '../../actions/person';
 import {
   reminderStepsSelector,
@@ -41,8 +41,13 @@ import {
   keyExtractorId,
 } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS, STEPS_TAB, NOTIFICATION_PROMPT_TYPES } from '../../constants';
-import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
+import {
+  ACTIONS,
+  STEPS_TAB,
+  PEOPLE_TAB,
+  NOTIFICATION_PROMPT_TYPES,
+} from '../../constants';
+import BottomButton from '../../components/BottomButton';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 import TrackTabChange from '../TrackTabChange';
 import OnboardingCard, {
@@ -183,6 +188,12 @@ export class StepsScreen extends Component {
       });
   }
 
+  navToPersonScreen = () => {
+    const { dispatch } = this.props;
+
+    dispatch(navigateToMainTabs(PEOPLE_TAB));
+  };
+
   renderFocusPrompt() {
     const { t } = this.props;
 
@@ -278,7 +289,7 @@ export class StepsScreen extends Component {
   }
 
   renderSteps() {
-    const { steps, reminders } = this.props;
+    const { steps, reminders, t } = this.props;
 
     return (
       <View style={styles.container}>
@@ -305,7 +316,10 @@ export class StepsScreen extends Component {
           {this.renderList()}
         </ScrollView>
         {steps.length > 0 || reminders.length > 0 ? null : (
-          <TakeAStepWithSomeoneButton />
+          <BottomButton
+            text={t('mainTabs:takeAStepWithSomeone')}
+            onPress={this.navToPersonScreen}
+          />
         )}
       </View>
     );
