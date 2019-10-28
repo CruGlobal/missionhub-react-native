@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { ThunkDispatch } from 'redux-thunk';
 
 import { Button, Icon } from '../../components/common';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
@@ -14,8 +15,23 @@ import { reminderSelector } from '../../selectors/stepReminders';
 
 import styles from './styles';
 
-const AcceptedStepDetailScreen = ({ dispatch, step, reminder }) => {
+interface AcceptedStepDetailScreenProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<any, null, never>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  step?: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  reminder?: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  navigation?: any;
+}
+
+const AcceptedStepDetailScreen: FunctionComponent<
+  AcceptedStepDetailScreenProps
+> = ({ dispatch, step, reminder }) => {
   const { t } = useTranslation('acceptedStepDetail');
+  const { challenge_suggestion, title, receiver } = step;
+  const { removeStepButton, removeStepButtonText } = styles;
 
   const completeSteps = () => {
     dispatch(completeStep(step, 'Step Detail', true));
@@ -62,9 +78,6 @@ const AcceptedStepDetailScreen = ({ dispatch, step, reminder }) => {
     );
   };
 
-  const { challenge_suggestion, title, receiver } = step;
-  const { removeStepButton, removeStepButtonText } = styles;
-
   return (
     <StepDetailScreen
       receiver={receiver}
@@ -91,15 +104,27 @@ const AcceptedStepDetailScreen = ({ dispatch, step, reminder }) => {
   );
 };
 
+interface PropsInterface {
+  navigation: {
+    state: {
+      params: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        step: any;
+      };
+    };
+  };
+}
+
 const mapStateToProps = (
-  { stepReminders },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  { stepReminders }: any,
   {
     navigation: {
       state: {
         params: { step },
       },
     },
-  },
+  }: PropsInterface,
 ) => ({
   step,
   reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
