@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { NavigationEvents } from 'react-navigation';
+
 import { ThunkDispatch } from 'redux-thunk';
 import { TRACK_TAB } from '../../constants';
 import { checkForUnreadComments } from '../../actions/unreadComments';
+
 interface TrackTabChangeProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, any, any>;
