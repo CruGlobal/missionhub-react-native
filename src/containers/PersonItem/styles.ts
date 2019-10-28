@@ -6,8 +6,6 @@ export default StyleSheet.create({
   card: {
     flex: 1,
     height: 70,
-    paddingHorizontal: 16,
-    marginVertical: 6,
     flexDirection: 'row',
   },
   image: {
@@ -16,7 +14,7 @@ export default StyleSheet.create({
   },
   textWrapper: {
     flex: 1,
-    paddingLeft: 10,
+    paddingLeft: 4,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
@@ -35,6 +33,20 @@ export default StyleSheet.create({
   },
   uncontacted: {
     color: theme.red,
+  },
+  stageButtonWrapper: {
+    height: 70,
+    paddingLeft: 16,
+    paddingRight: 6,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  stepButtonWrapper: {
+    height: 70,
+    paddingLeft: 6,
+    paddingRight: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   stepIcon: {
     color: theme.secondaryColor,
@@ -57,8 +69,8 @@ export default StyleSheet.create({
   },
   stepPlusIcon: {
     position: 'absolute',
-    bottom: -3,
-    right: -3,
+    bottom: 16,
+    left: 24,
     color: theme.secondaryColor,
   },
 });

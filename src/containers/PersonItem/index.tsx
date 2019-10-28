@@ -99,7 +99,7 @@ const PersonItem = ({
     return stage ? (
       <Touchable
         testID="stageIcon"
-        style={styles.image}
+        style={styles.stageButtonWrapper}
         onPress={handleChangeStage}
       >
         <Image
@@ -147,7 +147,7 @@ const PersonItem = ({
     return (
       <Touchable
         testID="stepIcon"
-        style={{ alignItems: 'center', justifyContent: 'center' }}
+        style={styles.stepButtonWrapper}
         onPress={handleAddStep}
       >
         <Icon
