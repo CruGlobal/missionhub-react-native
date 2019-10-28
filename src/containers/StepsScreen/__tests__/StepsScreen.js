@@ -10,7 +10,11 @@ import {
 } from '../../../selectors/steps';
 import theme from '../../../theme';
 import { trackActionWithoutData } from '../../../actions/analytics';
-import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
+import {
+  ACTIONS,
+  NOTIFICATION_PROMPT_TYPES,
+  PEOPLE_TAB,
+} from '../../../constants';
 import {
   showNotificationPrompt,
   showWelcomeNotification,
@@ -19,7 +23,7 @@ import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { setStepFocus, getMySteps } from '../../../actions/steps';
 import { navToPersonScreen } from '../../../actions/person';
 import * as common from '../../../utils/common';
-import { navigatePush } from '../../../actions/navigation';
+import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
 
 import { StepsScreen, mapStateToProps } from '..';
@@ -427,6 +431,31 @@ describe('StepsScreen', () => {
 
     it('should get steps', () => {
       expect(getMySteps).toHaveBeenCalled();
+    });
+  });
+
+  describe('navToPersonScreen', () => {
+    let screen;
+
+    beforeEach(() => {
+      navigateToMainTabs.mockReturnValue({ type: 'nav to main tabs' });
+
+      screen = createComponent({
+        ...baseProps,
+        reminders: [],
+        steps: [],
+      });
+    });
+
+    it('navigates to people screen', () => {
+      screen
+        .childAt(2)
+        .childAt(1)
+        .childAt(1)
+        .props()
+        .onPress();
+
+      expect(navigateToMainTabs).toHaveBeenCalledWith(PEOPLE_TAB);
     });
   });
 });

@@ -946,7 +946,10 @@ Choose a person to view and add some new steps.
           </MyText>
         </Flex>
       </ScrollViewMock>
-      <Connect(TakeAStepWithSomeoneButton) />
+      <BottomButton
+        onPress={[Function]}
+        text="Take a Step With Someone"
+      />
     </View>
   </View>
 </SafeAreaView>
