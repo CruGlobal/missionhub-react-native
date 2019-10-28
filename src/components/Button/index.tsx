@@ -1,26 +1,42 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { View, StyleProp, ViewStyle, TextStyle } from 'react-native';
 import debounce from 'lodash/debounce';
 
 import { Touchable, Text } from '../common';
 import { exists } from '../../utils/common';
+import { PressPropsType, TouchablePress } from '../Touchable/index.ios';
 
 import styles from './styles';
 
-const TYPES = ['transparent', 'primary', 'secondary'];
 // Return the styles.TYPE if it exists or just the default button style
-const getTypeStyle = type =>
-  exists(styles[type]) ? styles[type] : styles.button;
+const getTypeStyle = (type: ButtonProps['type']) =>
+  type && exists(styles[type]) ? styles[type] : styles.button;
 
-export default class Button extends Component {
+export interface ButtonProps {
+  onPress: TouchablePress;
+  type?: 'transparent' | 'primary' | 'secondary';
+  text?: string;
+  pill?: boolean;
+  disabled?: boolean;
+  style?: StyleProp<ViewStyle>;
+  buttonTextStyle?: StyleProp<TextStyle>;
+  pressProps?: PressPropsType;
+  testID?: string;
+}
+interface ButtonState {
+  clickedDisabled: boolean;
+}
+export default class Button extends Component<ButtonProps, ButtonState> {
   state = {
     clickedDisabled: false,
   };
+  clickDisableTimeout: ReturnType<typeof setTimeout> | null = null;
 
   componentWillUnmount() {
     // Make sure to clear the timeout when the Button unmounts
-    clearTimeout(this.clickDisableTimeout);
+    if (this.clickDisableTimeout) {
+      clearTimeout(this.clickDisableTimeout);
+    }
     this.setClickDisableTimeout = () => {};
   }
 
@@ -31,11 +47,10 @@ export default class Button extends Component {
     );
   };
 
-  handlePress = async (...args) => {
+  handlePress = async (...args: PressPropsType) => {
     const { pressProps, onPress } = this.props;
     // Prevent the user from being able to click twice
     this.setState({ clickedDisabled: true });
-
     try {
       // If pressProps are passed in, use those when calling the `onPress` method
       if (pressProps) {
@@ -49,10 +64,8 @@ export default class Button extends Component {
       this.setClickDisableTimeout();
     }
   };
-
   // Debounce this function so it doesn't get called too quickly in succession
   handlePressDb = debounce(this.handlePress, 25);
-
   render() {
     const {
       type,
@@ -75,7 +88,12 @@ export default class Button extends Component {
     }
     const isDisabled = disabled || this.state.clickedDisabled;
     return (
-      <Touchable {...rest} disabled={isDisabled} onPress={this.handlePressDb}>
+      <Touchable
+        testID="Button"
+        {...rest}
+        disabled={isDisabled}
+        onPress={this.handlePressDb}
+      >
         <View
           style={[
             getTypeStyle(type),
@@ -90,16 +108,3 @@ export default class Button extends Component {
     );
   }
 }
-
-const styleTypes = [PropTypes.array, PropTypes.object, PropTypes.number];
-Button.propTypes = {
-  onPress: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(TYPES),
-  text: PropTypes.string,
-  pill: PropTypes.bool,
-  children: PropTypes.element,
-  disabled: PropTypes.bool,
-  style: PropTypes.oneOfType(styleTypes),
-  buttonTextStyle: PropTypes.oneOfType(styleTypes),
-  pressProps: PropTypes.array,
-};

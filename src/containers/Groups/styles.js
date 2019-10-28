@@ -3,6 +3,10 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: theme.primaryColor,
+  },
   pageContainer: {
     flex: 1,
     backgroundColor: theme.white,
@@ -71,6 +75,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 13,
     backgroundColor: theme.accentColor,
+    flexBasis: 40,
   },
   blockBtnBorderRight: {
     borderRightWidth: 1,

@@ -77,11 +77,12 @@ class AcceptedStepDetailScreen extends Component {
 
   render() {
     const { t, step } = this.props;
-    const { challenge_suggestion, title } = step;
+    const { challenge_suggestion, title, receiver } = step;
     const { removeStepButton, removeStepButtonText } = styles;
 
     return (
       <StepDetailScreen
+        receiver={receiver}
         CenterHeader={null}
         RightHeader={
           <Button

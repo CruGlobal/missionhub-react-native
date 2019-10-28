@@ -4,7 +4,6 @@ import { SafeAreaView, View, Keyboard, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import { AndroidBackHandler } from 'react-navigation-backhandler';
 
 import { Text, Flex, Input } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -19,9 +18,7 @@ import { AuthState } from '../../reducers/auth';
 import { updatePerson } from '../../actions/person';
 import BackButton from '../BackButton';
 import Header from '../../components/Header';
-import { prompt } from '../../utils/prompt';
-import { logout } from '../../actions/auth/auth';
-import { navigateBack } from '../../actions/navigation';
+import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 
 import styles from './styles';
 
@@ -40,8 +37,11 @@ const SetupScreen = ({
   lastName,
   personId,
 }: SetupScreenProps) => {
-  const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation('setup');
+
+  const handleBack = useLogoutOnBack(true, !!personId);
+
+  const [isLoading, setIsLoading] = useState(false);
   const lastNameRef = useRef<TextInput>(null);
 
   const saveAndGoToGetStarted = async () => {
@@ -73,23 +73,6 @@ const SetupScreen = ({
   const onFirstNameSubmitEditing = () =>
     lastNameRef.current && lastNameRef.current.focus();
 
-  const handleBack = () => {
-    // When id exists, try to logout
-    if (personId) {
-      prompt({
-        title: t('goBackAlert.title'),
-        description: t('goBackAlert.description'),
-        actionLabel: t('goBackAlert.action'),
-      }).then(isLoggingOut => {
-        if (isLoggingOut) {
-          dispatch(logout());
-        }
-      });
-    } else {
-      dispatch(navigateBack());
-    }
-    return true;
-  };
   return (
     <SafeAreaView style={styles.container}>
       <Header left={<BackButton customNavigate={handleBack} />} />
@@ -138,7 +121,6 @@ const SetupScreen = ({
         onPress={saveAndGoToGetStarted}
         text={t('next')}
       />
-      <AndroidBackHandler onBackPress={handleBack} />
     </SafeAreaView>
   );
 };

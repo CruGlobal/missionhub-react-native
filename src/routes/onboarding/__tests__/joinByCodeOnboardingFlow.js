@@ -23,6 +23,9 @@ jest.mock('../../../actions/auth/userData');
 jest.mock('../../../actions/onboardingProfile');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/notifications');
+jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
+  useLogoutOnBack: jest.fn(),
+}));
 
 const community = { id: '1', community_code: '123456' };
 

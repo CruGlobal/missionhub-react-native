@@ -54,7 +54,7 @@ export function getMySteps(query = {}) {
         completed: false,
       },
       include:
-        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion',
+        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder',
     };
     return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
   };
@@ -132,6 +132,8 @@ export function addStep(stepSuggestion, receiverId, orgId) {
 
     await dispatch(callApi(REQUESTS.ADD_CHALLENGE, {}, payload));
     dispatch(trackStepAdded(stepSuggestion));
+    dispatch(getMySteps());
+    dispatch(getContactSteps(receiverId, orgId));
   };
 }
 

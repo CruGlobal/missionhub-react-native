@@ -130,6 +130,11 @@ exports[`with challenge suggestion renders correctly 1`] = `
     }
   }
   markdown="roge rules"
+  receiver={
+    Object {
+      "first_name": "Christian",
+    }
+  }
   text="ROBERT"
 />
 `;
@@ -264,6 +269,11 @@ exports[`without challenge suggestion renders correctly 1`] = `
     }
   }
   markdown={null}
+  receiver={
+    Object {
+      "first_name": "Christian",
+    }
+  }
   text="ROBERT"
 />
 `;
@@ -358,6 +368,11 @@ exports[`without reminder renders correctly 1`] = `
     Object {
       "onPress": [Function],
       "text": "I Did It!",
+    }
+  }
+  receiver={
+    Object {
+      "first_name": "Christian",
     }
   }
   text="ROBERT"

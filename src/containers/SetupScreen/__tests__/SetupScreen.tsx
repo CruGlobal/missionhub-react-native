@@ -1,13 +1,10 @@
 import { Keyboard } from 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
-import i18next from 'i18next';
 
 import { renderWithContext } from '../../../../testUtils';
-import { navigateBack } from '../../../actions/navigation';
 import { updatePerson } from '../../../actions/person';
-import { logout } from '../../../actions/auth/auth';
-import { prompt } from '../../../utils/prompt';
+import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
 import {
   firstNameChanged,
   lastNameChanged,
@@ -19,28 +16,25 @@ import SetupScreen from '..';
 const mockState = { profile: {}, auth: { person: {} } };
 const nextResult = { type: 'testNext' };
 const next = jest.fn().mockReturnValue(nextResult);
+const back = jest.fn();
 
 const firstName = 'TestFname';
 const lastName = 'TestLname';
 
 jest.mock('../../../actions/api');
-jest.mock('../../../actions/navigation');
-jest.mock('../../../actions/auth/auth');
-jest.mock('../../../utils/prompt');
 jest.mock('../../../actions/onboardingProfile');
 jest.mock('../../../actions/person');
+jest.mock('../../../utils/hooks/useLogoutOnBack');
 Keyboard.dismiss = jest.fn();
 
 beforeEach(() => {
-  (prompt as jest.Mock).mockReturnValue(Promise.resolve());
-  (navigateBack as jest.Mock).mockReturnValue({ type: 'navigateBack' });
-  (logout as jest.Mock).mockReturnValue({ type: 'logout' });
   (firstNameChanged as jest.Mock).mockReturnValue({ type: 'firstNameChanged' });
   (lastNameChanged as jest.Mock).mockReturnValue({ type: 'lastNameChanged' });
   (createMyPerson as jest.Mock).mockReturnValue({
     type: 'createMyPerson',
   });
   (updatePerson as jest.Mock).mockReturnValue({ type: 'updatePerson' });
+  (useLogoutOnBack as jest.Mock).mockReturnValue(back);
 });
 
 it('renders correctly', () => {
@@ -99,8 +93,7 @@ describe('saveAndGoToGetStarted with person id', () => {
     expect(next).toHaveBeenCalled();
   });
 
-  it('logs out', async () => {
-    (prompt as jest.Mock).mockReturnValue(Promise.resolve(true));
+  it('calls callback from useLogoutOnBack', () => {
     const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
       initialState: {
         profile: { firstName },
@@ -109,32 +102,10 @@ describe('saveAndGoToGetStarted with person id', () => {
     });
 
     // With the "id" set, press the back button
-    await fireEvent(getByTestId('BackButton'), 'customNavigate');
-    expect(prompt).toHaveBeenCalledWith({
-      title: i18next.t('setup:goBackAlert.title'),
-      description: i18next.t('setup:goBackAlert.description'),
-      actionLabel: i18next.t('setup:goBackAlert.action'),
-    });
-    expect(logout).toHaveBeenCalled();
-  });
+    fireEvent(getByTestId('BackButton'), 'customNavigate');
 
-  it('cancels logs out', async () => {
-    (prompt as jest.Mock).mockReturnValue(Promise.resolve(false));
-    const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
-      initialState: {
-        profile: { firstName },
-        auth: { person: { id: personId } },
-      },
-    });
-
-    // With the "id" set, press the back button
-    await fireEvent(getByTestId('BackButton'), 'customNavigate');
-    expect(prompt).toHaveBeenCalledWith({
-      title: i18next.t('setup:goBackAlert.title'),
-      description: i18next.t('setup:goBackAlert.description'),
-      actionLabel: i18next.t('setup:goBackAlert.action'),
-    });
-    expect(logout).not.toHaveBeenCalled();
+    expect(useLogoutOnBack).toHaveBeenCalledWith(true, true);
+    expect(back).toHaveBeenCalledWith();
   });
 });
 
@@ -150,11 +121,14 @@ describe('saveAndGoToGetStarted without first name', () => {
 });
 
 describe('calls back without creating a person', () => {
-  it('navigates back', async () => {
+  it('calls callback from useLogoutOnBack', () => {
     const { getByTestId } = renderWithContext(<SetupScreen next={next} />, {
       initialState: mockState,
     });
-    await fireEvent(getByTestId('BackButton'), 'customNavigate');
-    expect(navigateBack).toHaveBeenCalled();
+
+    fireEvent(getByTestId('BackButton'), 'customNavigate');
+
+    expect(useLogoutOnBack).toHaveBeenCalledWith(true, false);
+    expect(back).toHaveBeenCalledWith();
   });
 });

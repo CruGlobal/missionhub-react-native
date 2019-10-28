@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StatusCompleteScreen should render correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
       "backgroundColor": "#007398",
@@ -75,5 +75,5 @@ Would you like to continue journeying with Person?
       type="transparent"
     />
   </Flex>
-</View>
+</SafeAreaView>
 `;

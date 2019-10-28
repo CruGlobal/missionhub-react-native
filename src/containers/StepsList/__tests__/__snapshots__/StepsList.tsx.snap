@@ -19,19 +19,21 @@ exports[`for another person with steps loadMore should show more steps and hide 
       Array [
         Object {
           \\"body\\": \\"Step with Bill\\",
-          \\"id\\": \\"7\\",
-@@ -22,10 +16,18 @@
-        },
+          \\"description_markdown\\": \\"\\",
+@@ -26,10 +20,20 @@
         Object {
           \\"body\\": \\"Step with Bill\\",
+          \\"description_markdown\\": \\"\\",
           \\"id\\": \\"10\\",
         },
 +       Object {
 +         \\"body\\": \\"Step with Bill\\",
++         \\"description_markdown\\": \\"\\",
 +         \\"id\\": \\"11\\",
 +       },
 +       Object {
 +         \\"body\\": \\"Step with Bill\\",
++         \\"description_markdown\\": \\"\\",
 +         \\"id\\": \\"12\\",
 +       },
       ]
@@ -39,7 +41,7 @@ exports[`for another person with steps loadMore should show more steps and hide 
     disableVirtualization={false}
     getItem={[Function anonymous]}
     getItemCount={[Function anonymous]}
-@@ -284,15 +286,127 @@
+@@ -288,15 +292,127 @@
             Step with Bill
           </Text>
         </View>
@@ -48,102 +50,45 @@ exports[`for another person with steps loadMore should show more steps and hide 
 -       onLayout={[Function anonymous]}
 +       onLayout={[Function onLayout]}
 +       style={null}
-      >
++     >
++       <View
++         accessible={true}
++         focusable={true}
++         isTVSelectable={true}
++         onClick={[Function bound touchableHandlePress]}
++         onResponderGrant={[Function bound touchableHandleResponderGrant]}
++         onResponderMove={[Function bound touchableHandleResponderMove]}
++         onResponderRelease={[Function bound touchableHandleResponderRelease]}
++         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++         style={
++           Object {
++             \\"alignItems\\": \\"center\\",
++             \\"backgroundColor\\": \\"#ffffff\\",
++             \\"borderRadius\\": 8,
++             \\"elevation\\": 4,
++             \\"flexDirection\\": \\"row\\",
++             \\"marginHorizontal\\": 20,
++             \\"marginVertical\\": 4,
++             \\"opacity\\": 1,
++             \\"padding\\": 20,
++             \\"shadowColor\\": \\"#000000\\",
++             \\"shadowOffset\\": Object {
++               \\"height\\": 2,
++               \\"width\\": 0,
++             },
++             \\"shadowOpacity\\": 0.3,
++             \\"shadowRadius\\": 2,
++           }
++         }
++         testID=\\"stepSuggestionCard\\"
+        >
 -       <LoadMore
 -         onPress={[Function handleLoadSteps]}
 -         testID=\\"loadMore\\"
 -         text=\\"SHOW MORE STEPS\\"
 -       />
-+       <View
-+         accessible={true}
-+         clickable={true}
-+         isTVSelectable={true}
-+         onClick={[Function bound touchableHandlePress]}
-+         onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+         onResponderMove={[Function bound touchableHandleResponderMove]}
-+         onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-+         style={
-+           Object {
-+             \\"alignItems\\": \\"center\\",
-+             \\"backgroundColor\\": \\"#ffffff\\",
-+             \\"borderRadius\\": 8,
-+             \\"elevation\\": 4,
-+             \\"flexDirection\\": \\"row\\",
-+             \\"marginHorizontal\\": 20,
-+             \\"marginVertical\\": 4,
-+             \\"opacity\\": 1,
-+             \\"padding\\": 20,
-+             \\"shadowColor\\": \\"#000000\\",
-+             \\"shadowOffset\\": Object {
-+               \\"height\\": 2,
-+               \\"width\\": 0,
-+             },
-+             \\"shadowOpacity\\": 0.3,
-+             \\"shadowRadius\\": 2,
-+           }
-+         }
-+         testID=\\"stepSuggestionCard\\"
-+       >
-+         <Text
-+           style={
-+             Array [
-+               Object {
-+                 \\"color\\": \\"#505256\\",
-+               },
-+               Object {
-+                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+               },
-+               Object {
-+                 \\"fontSize\\": 16,
-+                 \\"lineHeight\\": 22,
-+               },
-+             ]
-+           }
-+         >
-+           Step with Bill
-+         </Text>
-+       </View>
-      </View>
-+     <View
-+       onLayout={[Function onLayout]}
-+       style={null}
-+     >
-+       <View
-+         accessible={true}
-+         clickable={true}
-+         isTVSelectable={true}
-+         onClick={[Function bound touchableHandlePress]}
-+         onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+         onResponderMove={[Function bound touchableHandleResponderMove]}
-+         onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-+         style={
-+           Object {
-+             \\"alignItems\\": \\"center\\",
-+             \\"backgroundColor\\": \\"#ffffff\\",
-+             \\"borderRadius\\": 8,
-+             \\"elevation\\": 4,
-+             \\"flexDirection\\": \\"row\\",
-+             \\"marginHorizontal\\": 20,
-+             \\"marginVertical\\": 4,
-+             \\"opacity\\": 1,
-+             \\"padding\\": 20,
-+             \\"shadowColor\\": \\"#000000\\",
-+             \\"shadowOffset\\": Object {
-+               \\"height\\": 2,
-+               \\"width\\": 0,
-+             },
-+             \\"shadowOpacity\\": 0.3,
-+             \\"shadowRadius\\": 2,
-+           }
-+         }
-+         testID=\\"stepSuggestionCard\\"
-+       >
 +         <Text
 +           style={
 +             Array [
@@ -164,6 +109,63 @@ exports[`for another person with steps loadMore should show more steps and hide 
 +         </Text>
 +       </View>
 +     </View>
++     <View
++       onLayout={[Function onLayout]}
++       style={null}
++     >
++       <View
++         accessible={true}
++         focusable={true}
++         isTVSelectable={true}
++         onClick={[Function bound touchableHandlePress]}
++         onResponderGrant={[Function bound touchableHandleResponderGrant]}
++         onResponderMove={[Function bound touchableHandleResponderMove]}
++         onResponderRelease={[Function bound touchableHandleResponderRelease]}
++         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++         style={
++           Object {
++             \\"alignItems\\": \\"center\\",
++             \\"backgroundColor\\": \\"#ffffff\\",
++             \\"borderRadius\\": 8,
++             \\"elevation\\": 4,
++             \\"flexDirection\\": \\"row\\",
++             \\"marginHorizontal\\": 20,
++             \\"marginVertical\\": 4,
++             \\"opacity\\": 1,
++             \\"padding\\": 20,
++             \\"shadowColor\\": \\"#000000\\",
++             \\"shadowOffset\\": Object {
++               \\"height\\": 2,
++               \\"width\\": 0,
++             },
++             \\"shadowOpacity\\": 0.3,
++             \\"shadowRadius\\": 2,
++           }
++         }
++         testID=\\"stepSuggestionCard\\"
++       >
++         <Text
++           style={
++             Array [
++               Object {
++                 \\"color\\": \\"#505256\\",
++               },
++               Object {
++                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++               },
++               Object {
++                 \\"fontSize\\": 16,
++                 \\"lineHeight\\": 22,
++               },
++             ]
++           }
++         >
++           Step with Bill
++         </Text>
++       </View>
+      </View>
 +     <View
 +       style={
 +         Object {
@@ -188,18 +190,22 @@ exports[`for another person with steps renders correctly 1`] = `
     Array [
       Object {
         "body": "Step with Bill",
+        "description_markdown": "",
         "id": "7",
       },
       Object {
         "body": "Step with Bill",
+        "description_markdown": "",
         "id": "8",
       },
       Object {
         "body": "Step with Bill",
+        "description_markdown": "",
         "id": "9",
       },
       Object {
         "body": "Step with Bill",
+        "description_markdown": "",
         "id": "10",
       },
     ]
@@ -241,7 +247,7 @@ exports[`for another person with steps renders correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -298,7 +304,7 @@ exports[`for another person with steps renders correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -355,7 +361,7 @@ exports[`for another person with steps renders correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -412,7 +418,7 @@ exports[`for another person with steps renders correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -570,7 +576,7 @@ exports[`for me with steps loadMore should show more steps and hide button 1`] =
 -       />
 +       <View
 +         accessible={true}
-+         clickable={true}
++         focusable={true}
 +         isTVSelectable={true}
 +         onClick={[Function bound touchableHandlePress]}
 +         onResponderGrant={[Function bound touchableHandleResponderGrant]}
@@ -627,7 +633,7 @@ exports[`for me with steps loadMore should show more steps and hide button 1`] =
 +     >
 +       <View
 +         accessible={true}
-+         clickable={true}
++         focusable={true}
 +         isTVSelectable={true}
 +         onClick={[Function bound touchableHandlePress]}
 +         onResponderGrant={[Function bound touchableHandleResponderGrant]}
@@ -755,7 +761,7 @@ exports[`for me with steps renders correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -812,7 +818,7 @@ exports[`for me with steps renders correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -869,7 +875,7 @@ exports[`for me with steps renders correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -926,7 +932,7 @@ exports[`for me with steps renders correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}

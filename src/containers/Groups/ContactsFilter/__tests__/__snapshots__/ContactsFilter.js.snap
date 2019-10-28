@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContactsFilter should render correctly 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -16,6 +16,7 @@ exports[`ContactsFilter should render correctly 1`] = `
   <ScrollViewMock
     style={
       Object {
+        "backgroundColor": "#ffffff",
         "flex": 1,
       }
     }
@@ -99,5 +100,5 @@ exports[`ContactsFilter should render correctly 1`] = `
       type="switch"
     />
   </ScrollViewMock>
-</View>
+</SafeAreaView>
 `;

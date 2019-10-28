@@ -3,13 +3,11 @@ import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-import { AndroidBackHandler } from 'react-navigation-backhandler';
 
-import { navigateBack } from '../../actions/navigation';
 import { Flex, Text } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
-import { useDisableBack } from '../../utils/hooks/useDisableBack';
+import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { ProfileState } from '../../reducers/profile';
 import Header from '../../components/Header';
 
@@ -23,6 +21,7 @@ interface GetStartedScreenProps {
   id: string | null;
   name: string;
   enableBackButton?: boolean;
+  logoutOnBack?: boolean;
 }
 
 const GetStartedScreen = ({
@@ -31,34 +30,31 @@ const GetStartedScreen = ({
   id,
   name = '',
   enableBackButton = true,
+  logoutOnBack = false,
 }: GetStartedScreenProps) => {
-  const enableBack = useDisableBack(enableBackButton);
   const { t } = useTranslation('getStarted');
 
-  const handleBack = () => {
-    enableBackButton && dispatch(navigateBack());
-
-    return true;
-  };
+  const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);
 
   const navigateNext = () => {
-    enableBack();
-
     dispatch(next({ id }));
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header left={enableBackButton ? <BackButton /> : null} />
+      <Header
+        left={handleBack ? <BackButton customNavigate={handleBack} /> : null}
+      />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex align="start" justify="center" value={4}>
           <Text header={true} style={styles.headerTitle}>
             {t('hi', { name: name.toLowerCase() })}
           </Text>
-          <Text style={styles.text}>{t('tagline')}</Text>
+          <Text style={styles.text}>
+            {t('tagline', { returnObjects: true })}
+          </Text>
         </Flex>
         <BottomButton onPress={navigateNext} text={t('getStarted')} />
-        <AndroidBackHandler onBackPress={handleBack} />
       </Flex>
     </SafeAreaView>
   );

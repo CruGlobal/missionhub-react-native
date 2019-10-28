@@ -126,6 +126,11 @@ export default {
     message:
       "It's been a while since you've signed in.\nPlease sign in so we know it's you.",
   },
+  goBackAlert: {
+    title: 'Go back?',
+    description: 'You will lose any info you have entered and be logged out',
+    action: 'Go Back',
+  },
   settingsMenu: {
     about: 'About',
     help: 'Help',
@@ -179,11 +184,6 @@ export default {
   setup: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
-    goBackAlert: {
-      title: 'Go back?',
-      description: 'You will lose any info you have entered and be logged out',
-      action: 'Go Back',
-    },
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',

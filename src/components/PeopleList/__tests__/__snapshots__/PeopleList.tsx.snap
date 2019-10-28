@@ -18,7 +18,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
                 Array [
                   \\"personal\\",
                 ]
-@@ -72,167 +72,10 @@
+@@ -72,159 +72,10 @@
               testID=\\"toggleSectionBtn\\"
               type=\\"MissionHub\\"
             />
@@ -61,14 +61,6 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -         scrollEnabled={false}
 -         scrollEventThrottle={50}
 -         stickyHeaderIndices={Array []}
--         style={
--           Object {
--             \\"backgroundColor\\": \\"#ffffff\\",
--             \\"borderTopColor\\": \\"#ffffff\\",
--             \\"borderTopWidth\\": 1,
--             \\"flex\\": 1,
--           }
--         }
 -         updateCellsBatchingPeriod={50}
 -         viewabilityConfigCallbackPairs={Array []}
 -         windowSize={21}
@@ -189,49 +181,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 `;
 
 exports[`renders correctly as Casey 1`] = `
-<RCTScrollView
-  data={
-    Array [
-      Object {
-        "id": "1",
-        "type": "person",
-      },
-      Object {
-        "id": "2",
-        "type": "person",
-      },
-      Object {
-        "id": "3",
-        "type": "person",
-      },
-    ]
-  }
-  disableVirtualization={false}
-  getItem={[Function]}
-  getItemCount={[Function]}
-  horizontal={false}
-  initialNumToRender={10}
-  keyExtractor={[Function]}
-  maxToRenderPerBatch={10}
-  numColumns={1}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={2}
-  onLayout={[Function]}
-  onMomentumScrollEnd={[Function]}
-  onScroll={[Function]}
-  onScrollBeginDrag={[Function]}
-  onScrollEndDrag={[Function]}
-  refreshControl={
-    <RefreshControl
-      onRefresh={[MockFunction]}
-      refreshing={false}
-    />
-  }
-  removeClippedSubviews={false}
-  renderItem={[Function]}
-  scrollEnabled={true}
-  scrollEventThrottle={50}
-  stickyHeaderIndices={Array []}
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -240,59 +190,104 @@ exports[`renders correctly as Casey 1`] = `
       "flex": 1,
     }
   }
-  updateCellsBatchingPeriod={50}
-  viewabilityConfigCallbackPairs={Array []}
-  windowSize={21}
 >
-  <RefreshControl
-    onRefresh={[MockFunction]}
-    refreshing={false}
-  />
-  <View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <PersonItem
-        onSelect={[MockFunction]}
-        person={
-          Object {
-            "id": "1",
-            "type": "person",
-          }
-        }
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "id": "1",
+          "type": "person",
+        },
+        Object {
+          "id": "2",
+          "type": "person",
+        },
+        Object {
+          "id": "3",
+          "type": "person",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControl
+        onRefresh={[MockFunction]}
+        refreshing={false}
       />
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <PersonItem
-        onSelect={[MockFunction]}
-        person={
-          Object {
-            "id": "2",
-            "type": "person",
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEnabled={true}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RefreshControl
+      onRefresh={[MockFunction]}
+      refreshing={false}
+    />
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          onSelect={[MockFunction]}
+          person={
+            Object {
+              "id": "1",
+              "type": "person",
+            }
           }
-        }
-      />
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <PersonItem
-        onSelect={[MockFunction]}
-        person={
-          Object {
-            "id": "3",
-            "type": "person",
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          onSelect={[MockFunction]}
+          person={
+            Object {
+              "id": "2",
+              "type": "person",
+            }
           }
-        }
-      />
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          onSelect={[MockFunction]}
+          person={
+            Object {
+              "id": "3",
+              "type": "person",
+            }
+          }
+        />
+      </View>
     </View>
-  </View>
-</RCTScrollView>
+  </RCTScrollView>
+</View>
 `;
 
 exports[`renders correctly as Jean 1`] = `
@@ -409,14 +404,6 @@ exports[`renders correctly as Jean 1`] = `
         scrollEnabled={false}
         scrollEventThrottle={50}
         stickyHeaderIndices={Array []}
-        style={
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderTopColor": "#ffffff",
-            "borderTopWidth": 1,
-            "flex": 1,
-          }
-        }
         updateCellsBatchingPeriod={50}
         viewabilityConfigCallbackPairs={Array []}
         windowSize={21}
@@ -626,14 +613,6 @@ exports[`renders correctly as Jean 1`] = `
         scrollEnabled={false}
         scrollEventThrottle={50}
         stickyHeaderIndices={Array []}
-        style={
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderTopColor": "#ffffff",
-            "borderTopWidth": 1,
-            "flex": 1,
-          }
-        }
         updateCellsBatchingPeriod={50}
         viewabilityConfigCallbackPairs={Array []}
         windowSize={21}
@@ -743,14 +722,6 @@ exports[`renders correctly as Jean 1`] = `
         scrollEnabled={false}
         scrollEventThrottle={50}
         stickyHeaderIndices={Array []}
-        style={
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderTopColor": "#ffffff",
-            "borderTopWidth": 1,
-            "flex": 1,
-          }
-        }
         updateCellsBatchingPeriod={50}
         viewabilityConfigCallbackPairs={Array []}
         windowSize={21}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Keyboard } from 'react-native';
+import { SafeAreaView, ScrollView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -104,9 +104,9 @@ export class ContactsFilter extends Component {
     const { t } = this.props;
     const { options, toggleOptions } = this.state;
     return (
-      <View style={styles.pageContainer}>
+      <SafeAreaView style={styles.pageContainer}>
         <Header left={<BackButton />} title={t('title')} />
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={styles.list}>
           {options.map(o => (
             <FilterItem
               key={o.id}
@@ -125,7 +125,7 @@ export class ContactsFilter extends Component {
             />
           ))}
         </ScrollView>
-      </View>
+      </SafeAreaView>
     );
   }
 }

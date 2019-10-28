@@ -51,7 +51,7 @@ exports[`renders back button correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -206,7 +206,7 @@ exports[`renders back button correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -233,6 +233,8 @@ exports[`renders back button correctly 1`] = `
               },
               null,
               Object {
+                "alignItems": "stretch",
+                "flex": 0,
                 "width": 750,
               },
               null,
@@ -398,7 +400,7 @@ exports[`renders correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -425,6 +427,8 @@ exports[`renders correctly 1`] = `
               },
               null,
               Object {
+                "alignItems": "stretch",
+                "flex": 0,
                 "width": 750,
               },
               null,
@@ -516,7 +520,7 @@ exports[`renders skip button correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -658,7 +662,7 @@ exports[`renders skip button correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -685,6 +689,8 @@ exports[`renders skip button correctly 1`] = `
               },
               null,
               Object {
+                "alignItems": "stretch",
+                "flex": 0,
                 "width": 750,
               },
               null,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatusBar, View } from 'react-native';
+import { StatusBar, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -123,7 +123,7 @@ export class ChallengeDetailScreen extends Component {
     const completed = !!(acceptedChallenge && acceptedChallenge.completed_at);
 
     return (
-      <View>
+      <SafeAreaView>
         <StatusBar {...theme.statusBar.darkContent} />
         <Header
           left={
@@ -151,7 +151,7 @@ export class ChallengeDetailScreen extends Component {
           canEditChallenges={canEditChallenges}
           onEdit={this.handleEdit}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }

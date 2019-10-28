@@ -51,7 +51,7 @@ exports[`renders correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -209,7 +209,7 @@ Let's figure out where you are on your journey.
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
@@ -241,6 +241,8 @@ Let's figure out where you are on your journey.
             },
             null,
             Object {
+              "alignItems": "stretch",
+              "flex": 0,
               "width": 750,
             },
             null,
@@ -400,7 +402,7 @@ Let's figure out where you are on your journey.
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
@@ -432,6 +434,8 @@ Let's figure out where you are on your journey.
             },
             null,
             Object {
+              "alignItems": "stretch",
+              "flex": 0,
               "width": 750,
             },
             null,

@@ -1,10 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#007398",
       "flex": 1,
     }
   }
@@ -50,7 +51,7 @@ exports[`renders correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -133,6 +134,7 @@ exports[`renders correctly 1`] = `
   <RCTScrollView
     style={
       Object {
+        "backgroundColor": "#ffffff",
         "flex": 1,
       }
     }
@@ -140,7 +142,7 @@ exports[`renders correctly 1`] = `
     <View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -259,7 +261,7 @@ exports[`renders correctly 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -484,5 +486,5 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </RCTScrollView>
-</View>
+</RCTSafeAreaView>
 `;

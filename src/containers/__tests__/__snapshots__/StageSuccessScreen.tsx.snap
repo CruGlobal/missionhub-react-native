@@ -51,7 +51,7 @@ exports[`renders correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -206,7 +206,7 @@ exports[`renders correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -233,6 +233,8 @@ exports[`renders correctly 1`] = `
               },
               null,
               Object {
+                "alignItems": "stretch",
+                "flex": 0,
                 "width": 750,
               },
               null,
@@ -322,7 +324,7 @@ exports[`renders correctly with default state 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -477,7 +479,7 @@ exports[`renders correctly with default state 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -504,6 +506,8 @@ exports[`renders correctly with default state 1`] = `
               },
               null,
               Object {
+                "alignItems": "stretch",
+                "flex": 0,
                 "width": 750,
               },
               null,

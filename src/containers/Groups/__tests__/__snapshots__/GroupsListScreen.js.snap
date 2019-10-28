@@ -44,6 +44,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
               "alignItems": "center",
               "alignSelf": "stretch",
               "backgroundColor": "#005A7F",
+              "flexBasis": 40,
               "justifyContent": "center",
               "paddingVertical": 13,
             },
@@ -74,6 +75,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
             "alignItems": "center",
             "alignSelf": "stretch",
             "backgroundColor": "#005A7F",
+            "flexBasis": 40,
             "justifyContent": "center",
             "paddingVertical": 13,
           }
@@ -174,7 +176,7 @@ exports[`should render null state 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -311,7 +313,7 @@ exports[`should render null state 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -325,6 +327,7 @@ exports[`should render null state 1`] = `
             "opacity": 1,
           }
         }
+        testID="Button"
       >
         <View
           style={
@@ -338,6 +341,7 @@ exports[`should render null state 1`] = `
                   "alignItems": "center",
                   "alignSelf": "stretch",
                   "backgroundColor": "#005A7F",
+                  "flexBasis": 40,
                   "justifyContent": "center",
                   "paddingVertical": 13,
                 },
@@ -394,7 +398,7 @@ exports[`should render null state 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -408,6 +412,7 @@ exports[`should render null state 1`] = `
             "opacity": 1,
           }
         }
+        testID="Button"
       >
         <View
           style={
@@ -420,6 +425,7 @@ exports[`should render null state 1`] = `
                 "alignItems": "center",
                 "alignSelf": "stretch",
                 "backgroundColor": "#005A7F",
+                "flexBasis": 40,
                 "justifyContent": "center",
                 "paddingVertical": 13,
               },
@@ -527,7 +533,7 @@ exports[`should render null state 1`] = `
           >
             <View
               accessible={true}
-              clickable={true}
+              focusable={true}
               isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
@@ -555,6 +561,7 @@ exports[`should render null state 1`] = `
                   "shadowRadius": 2,
                 }
               }
+              testID="CardButton"
             >
               <View
                 style={
@@ -738,7 +745,7 @@ exports[`should render null state 1`] = `
           >
             <View
               accessible={true}
-              clickable={true}
+              focusable={true}
               isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
@@ -766,6 +773,7 @@ exports[`should render null state 1`] = `
                   "shadowRadius": 2,
                 }
               }
+              testID="CardButton"
             >
               <View
                 style={
