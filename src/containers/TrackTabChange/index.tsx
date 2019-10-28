@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { NavigationEvents } from 'react-navigation';
-
 import { ThunkDispatch } from 'redux-thunk';
 import { TRACK_TAB } from '../../constants';
+
 import { checkForUnreadComments } from '../../actions/unreadComments';
 
 interface TrackTabChangeProps {
