@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { FunctionComponent } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import { Button, Icon } from '../../components/common';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
@@ -15,34 +14,25 @@ import { reminderSelector } from '../../selectors/stepReminders';
 
 import styles from './styles';
 
-@withTranslation('acceptedStepDetail')
-class AcceptedStepDetailScreen extends Component {
-  completeStep = () => {
-    const { dispatch, step } = this.props;
+const AcceptedStepDetailScreen = ({ dispatch, step, reminder }) => {
+  const { t } = useTranslation('acceptedStepDetail');
 
+  const completeSteps = () => {
     dispatch(completeStep(step, 'Step Detail', true));
   };
 
-  removeStep = () => {
-    const { dispatch, step } = this.props;
-
+  const removeStep = () => {
     dispatch(deleteStepWithTracking(step, 'Step Detail'));
     dispatch(navigateBack());
   };
 
-  handleRemoveReminder = () => {
-    const {
-      dispatch,
-      step: { id },
-    } = this.props;
+  const handleRemoveReminder = () => {
+    const { id } = step;
     dispatch(removeStepReminder(id));
   };
 
-  renderReminderButton() {
-    const {
-      step: { id },
-      reminder,
-    } = this.props;
+  const renderReminderButton = () => {
+    const { id } = step;
     const {
       reminderButton,
       reminderContainer,
@@ -63,51 +53,43 @@ class AcceptedStepDetailScreen extends Component {
             <ReminderDateText style={reminderText} reminder={reminder} />
           </View>
           {reminder ? (
-            <Button
-              onPress={this.handleRemoveReminder}
-              style={cancelIconButton}
-            >
+            <Button onPress={handleRemoveReminder} style={cancelIconButton}>
               <Icon name="close" type="Material" style={cancelIcon} />
             </Button>
           ) : null}
         </View>
       </ReminderButton>
     );
-  }
+  };
 
-  render() {
-    const { t, step } = this.props;
-    const { challenge_suggestion, title, receiver } = step;
-    const { removeStepButton, removeStepButtonText } = styles;
+  const { challenge_suggestion, title, receiver } = step;
+  const { removeStepButton, removeStepButtonText } = styles;
 
-    return (
-      <StepDetailScreen
-        receiver={receiver}
-        CenterHeader={null}
-        RightHeader={
-          <Button
-            type="transparent"
-            text={t('removeStep').toUpperCase()}
-            onPress={this.removeStep}
-            style={removeStepButton}
-            buttonTextStyle={removeStepButtonText}
-          />
-        }
-        CenterContent={this.renderReminderButton()}
-        markdown={
-          challenge_suggestion && challenge_suggestion.description_markdown
-        }
-        text={title}
-        bottomButtonProps={{
-          onPress: this.completeStep,
-          text: t('iDidIt'),
-        }}
-      />
-    );
-  }
-}
-
-AcceptedStepDetailScreen.propTypes = { step: PropTypes.object.isRequired };
+  return (
+    <StepDetailScreen
+      receiver={receiver}
+      CenterHeader={null}
+      RightHeader={
+        <Button
+          type="transparent"
+          text={t('removeStep').toUpperCase()}
+          onPress={removeStep}
+          style={removeStepButton}
+          buttonTextStyle={removeStepButtonText}
+        />
+      }
+      CenterContent={renderReminderButton()}
+      markdown={
+        challenge_suggestion && challenge_suggestion.description_markdown
+      }
+      text={title}
+      bottomButtonProps={{
+        onPress: completeSteps,
+        text: t('iDidIt'),
+      }}
+    />
+  );
+};
 
 const mapStateToProps = (
   { stepReminders },
