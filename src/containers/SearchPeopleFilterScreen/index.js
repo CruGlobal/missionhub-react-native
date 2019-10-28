@@ -205,8 +205,10 @@ export class SearchPeopleFilterScreen extends Component {
   render() {
     const { t } = this.props;
     return (
-      <SafeAreaView style={styles.pageContainer}>
-        <Header left={<BackButton />} title={t('title')} />
+      <>
+        <SafeAreaView style={styles.pageContainer}>
+          <Header left={<BackButton />} title={t('title')} />
+        </SafeAreaView>
         <ScrollView
           style={styles.list}
           refreshControl={
@@ -234,7 +236,7 @@ export class SearchPeopleFilterScreen extends Component {
             />
           ))}
         </ScrollView>
-      </SafeAreaView>
+      </>
     );
   }
 }

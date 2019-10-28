@@ -19,9 +19,9 @@ import { navToPersonScreen } from '../../actions/person';
 import { buildUpdatedPagination } from '../../utils/pagination';
 import ShareSurveyMenu from '../../components/ShareSurveyMenu';
 import { getOrganizationContacts } from '../../actions/organizations';
+import theme from '../../theme';
 
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
-import styles from './styles';
 
 @withTranslation('groupsSurveyContacts')
 class SurveyContacts extends Component {
@@ -132,12 +132,14 @@ class SurveyContacts extends Component {
     const { filters, defaultResults } = this.state;
     const orgName = organization ? organization.name : undefined;
     return (
-      <SafeAreaView style={styles.container}>
-        <Header
-          left={<BackButton />}
-          title={orgName}
-          right={<ShareSurveyMenu survey={survey} header={true} />}
-        />
+      <>
+        <SafeAreaView style={{ backgroundColor: theme.primaryColor }}>
+          <Header
+            left={<BackButton />}
+            title={orgName}
+            right={<ShareSurveyMenu survey={survey} header={true} />}
+          />
+        </SafeAreaView>
         <SearchList
           setSearch={this.setSearch}
           defaultData={defaultResults}
@@ -151,7 +153,7 @@ class SurveyContacts extends Component {
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />
-      </SafeAreaView>
+      </>
     );
   }
 }
