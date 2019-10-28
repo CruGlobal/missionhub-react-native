@@ -29,11 +29,15 @@ const stepReminders = {
   },
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let step: any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let challenge_suggestion: any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let screen: any;
 
 const mockStore = configureStore([thunk]);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let store: any;
 
 ((completeStep as unknown) as jest.Mock).mockReturnValue(completeStepResult);
