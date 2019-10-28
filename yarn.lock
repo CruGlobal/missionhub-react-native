@@ -8724,9 +8724,10 @@ react-native-scrollable-tab-view@^0.10.0:
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.3"
 
-react-native-snap-carousel@^3.8.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-3.8.0.tgz#9372222d61d37d0a8a3bec423d135d0caa1b7595"
+react-native-snap-carousel@^3.8.3:
+  version "3.8.3"
+  resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-3.8.3.tgz#4a9992048a54fe69b046bee431591e32e94a648a"
+  integrity sha512-ibZGXGwB5KxKB1P/H0Q4xO/A+CoOb03ycRYVW88k0NrTLwzkLlqqLA4g4hJD9p38VPg5nMkPmifd5BGnVMK1SQ==
   dependencies:
     prop-types "^15.6.1"
     react-addons-shallow-compare "15.6.2"

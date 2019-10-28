@@ -79,7 +79,7 @@
     "react-native-parallax-scroll-view": "https://github.com/nicotroia/react-native-parallax-scroll-view.git#fix/sticky-header-position-when-hidden",
     "react-native-push-notification": "https://github.com/CruGlobal/react-native-push-notification",
     "react-native-scrollable-tab-view": "^0.10.0",
-    "react-native-snap-carousel": "^3.8.0",
+    "react-native-snap-carousel": "^3.8.3",
     "react-native-vector-icons": "^6.6.0",
     "react-native-view-overflow": "^0.0.4",
     "react-navigation": "3.11.1",
