@@ -192,12 +192,13 @@ exports[`renders empty correctly 1`] = `
     sections={false}
     testID="peopleList"
   />
-  <View
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
-        "alignItems": "center",
-        "flex": 0,
-        "width": 750,
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
       }
     }
   >
@@ -206,15 +207,15 @@ exports[`renders empty correctly 1`] = `
       pill={true}
       style={
         Object {
+          "alignItems": "center",
           "height": 48,
-          "marginBottom": 20,
-          "width": 300,
+          "width": 650,
         }
       }
       testID="bottomButton"
       text="TAKE A STEP WITH SOMEONE"
       type="secondary"
     />
-  </View>
+  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;

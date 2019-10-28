@@ -93,30 +93,24 @@ exports[`allows for undefined organization 1`] = `
                   }
                 }
               >
-                <View
+                <RCTSafeAreaView
+                  emulateUnlessSupported={true}
                   style={
-                    Array [
-                      Object {
-                        "flexDirection": "row",
-                        "height": 56,
-                        "paddingTop": 0,
-                      },
-                      undefined,
-                      null,
-                    ]
+                    Object {
+                      "backgroundColor": "transparent",
+                    }
                   }
                 >
                   <View
                     style={
                       Array [
                         Object {
-                          "paddingLeft": 5,
+                          "flexDirection": "row",
+                          "height": 56,
+                          "paddingTop": 0,
                         },
-                        Object {
-                          "alignItems": "flex-start",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
+                        undefined,
+                        null,
                       ]
                     }
                   >
@@ -124,96 +118,111 @@ exports[`allows for undefined organization 1`] = `
                       style={
                         Array [
                           Object {
+                            "paddingLeft": 5,
+                          },
+                          Object {
                             "alignItems": "flex-start",
-                            "alignSelf": "flex-start",
+                            "flex": 1,
                             "justifyContent": "center",
                           },
-                          undefined,
                         ]
                       }
                     >
                       <View
-                        accessible={true}
-                        clickable={true}
-                        isTVSelectable={true}
-                        onClick={[Function]}
-                        onResponderGrant={[Function]}
-                        onResponderMove={[Function]}
-                        onResponderRelease={[Function]}
-                        onResponderTerminate={[Function]}
-                        onResponderTerminationRequest={[Function]}
-                        onStartShouldSetResponder={[Function]}
                         style={
-                          Object {
-                            "opacity": 1,
-                          }
+                          Array [
+                            Object {
+                              "alignItems": "flex-start",
+                              "alignSelf": "flex-start",
+                              "justifyContent": "center",
+                            },
+                            undefined,
+                          ]
                         }
-                        testID="IconButton"
                       >
                         <View
+                          accessible={true}
+                          clickable={true}
+                          isTVSelectable={true}
+                          onClick={[Function]}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
                           style={
-                            Array [
-                              Object {
-                                "backgroundColor": "transparent",
-                              },
-                              null,
-                              Object {},
-                              null,
-                            ]
+                            Object {
+                              "opacity": 1,
+                            }
                           }
+                          testID="IconButton"
                         >
-                          <Text
-                            allowFontScaling={false}
+                          <View
                             style={
                               Array [
                                 Object {
-                                  "color": undefined,
-                                  "fontSize": 12,
+                                  "backgroundColor": "transparent",
                                 },
-                                Array [
-                                  Object {
-                                    "color": "#ffffff",
-                                  },
-                                  Object {
-                                    "fontSize": 18,
-                                  },
-                                  Array [
-                                    Object {
-                                      "margin": 10,
-                                    },
-                                    Object {},
-                                  ],
-                                ],
-                                Object {
-                                  "fontFamily": "icomoon",
-                                  "fontStyle": "normal",
-                                  "fontWeight": "normal",
-                                },
+                                null,
                                 Object {},
+                                null,
                               ]
                             }
                           >
-                            
-                          </Text>
+                            <Text
+                              allowFontScaling={false}
+                              style={
+                                Array [
+                                  Object {
+                                    "color": undefined,
+                                    "fontSize": 12,
+                                  },
+                                  Array [
+                                    Object {
+                                      "color": "#ffffff",
+                                    },
+                                    Object {
+                                      "fontSize": 18,
+                                    },
+                                    Array [
+                                      Object {
+                                        "margin": 10,
+                                      },
+                                      Object {},
+                                    ],
+                                  ],
+                                  Object {
+                                    "fontFamily": "icomoon",
+                                    "fontStyle": "normal",
+                                    "fontWeight": "normal",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                            >
+                              
+                            </Text>
+                          </View>
                         </View>
                       </View>
                     </View>
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "paddingRight": 5,
+                          },
+                          Object {
+                            "alignItems": "flex-end",
+                            "flex": 1,
+                            "justifyContent": "center",
+                          },
+                        ]
+                      }
+                    />
                   </View>
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "paddingRight": 5,
-                        },
-                        Object {
-                          "alignItems": "flex-end",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  />
-                </View>
+                </RCTSafeAreaView>
                 <Text
                   style={
                     Array [
@@ -461,30 +470,24 @@ exports[`allows for undefined organization 1`] = `
             }
           }
         >
-          <View
+          <RCTSafeAreaView
+            emulateUnlessSupported={true}
             style={
-              Array [
-                Object {
-                  "flexDirection": "row",
-                  "height": 56,
-                  "paddingTop": 0,
-                },
-                undefined,
-                null,
-              ]
+              Object {
+                "backgroundColor": "transparent",
+              }
             }
           >
             <View
               style={
                 Array [
                   Object {
-                    "paddingLeft": 5,
+                    "flexDirection": "row",
+                    "height": 56,
+                    "paddingTop": 0,
                   },
-                  Object {
-                    "alignItems": "flex-start",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
+                  undefined,
+                  null,
                 ]
               }
             >
@@ -492,96 +495,111 @@ exports[`allows for undefined organization 1`] = `
                 style={
                   Array [
                     Object {
+                      "paddingLeft": 5,
+                    },
+                    Object {
                       "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
+                      "flex": 1,
                       "justifyContent": "center",
                     },
-                    undefined,
                   ]
                 }
               >
                 <View
-                  accessible={true}
-                  clickable={true}
-                  isTVSelectable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
                   style={
-                    Object {
-                      "opacity": 1,
-                    }
+                    Array [
+                      Object {
+                        "alignItems": "flex-start",
+                        "alignSelf": "flex-start",
+                        "justifyContent": "center",
+                      },
+                      undefined,
+                    ]
                   }
-                  testID="IconButton"
                 >
                   <View
+                    accessible={true}
+                    clickable={true}
+                    isTVSelectable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
                     style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
+                      Object {
+                        "opacity": 1,
+                      }
                     }
+                    testID="IconButton"
                   >
-                    <Text
-                      allowFontScaling={false}
+                    <View
                       style={
                         Array [
                           Object {
-                            "color": undefined,
-                            "fontSize": 12,
+                            "backgroundColor": "transparent",
                           },
-                          Array [
-                            Object {
-                              "color": "#ffffff",
-                            },
-                            Object {
-                              "fontSize": 18,
-                            },
-                            Array [
-                              Object {
-                                "margin": 10,
-                              },
-                              Object {},
-                            ],
-                          ],
-                          Object {
-                            "fontFamily": "icomoon",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                          },
+                          null,
                           Object {},
+                          null,
                         ]
                       }
                     >
-                      
-                    </Text>
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": undefined,
+                              "fontSize": 12,
+                            },
+                            Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                              Object {
+                                "fontSize": 18,
+                              },
+                              Array [
+                                Object {
+                                  "margin": 10,
+                                },
+                                Object {},
+                              ],
+                            ],
+                            Object {
+                              "fontFamily": "icomoon",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                    </View>
                   </View>
                 </View>
               </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "paddingRight": 5,
+                    },
+                    Object {
+                      "alignItems": "flex-end",
+                      "flex": 1,
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              />
             </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "paddingRight": 5,
-                  },
-                  Object {
-                    "alignItems": "flex-end",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
+          </RCTSafeAreaView>
         </View>
       </View>
     </View>
@@ -682,30 +700,24 @@ exports[`renders correctly 1`] = `
                   }
                 }
               >
-                <View
+                <RCTSafeAreaView
+                  emulateUnlessSupported={true}
                   style={
-                    Array [
-                      Object {
-                        "flexDirection": "row",
-                        "height": 56,
-                        "paddingTop": 0,
-                      },
-                      undefined,
-                      null,
-                    ]
+                    Object {
+                      "backgroundColor": "transparent",
+                    }
                   }
                 >
                   <View
                     style={
                       Array [
                         Object {
-                          "paddingLeft": 5,
+                          "flexDirection": "row",
+                          "height": 56,
+                          "paddingTop": 0,
                         },
-                        Object {
-                          "alignItems": "flex-start",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
+                        undefined,
+                        null,
                       ]
                     }
                   >
@@ -713,96 +725,111 @@ exports[`renders correctly 1`] = `
                       style={
                         Array [
                           Object {
+                            "paddingLeft": 5,
+                          },
+                          Object {
                             "alignItems": "flex-start",
-                            "alignSelf": "flex-start",
+                            "flex": 1,
                             "justifyContent": "center",
                           },
-                          undefined,
                         ]
                       }
                     >
                       <View
-                        accessible={true}
-                        clickable={true}
-                        isTVSelectable={true}
-                        onClick={[Function]}
-                        onResponderGrant={[Function]}
-                        onResponderMove={[Function]}
-                        onResponderRelease={[Function]}
-                        onResponderTerminate={[Function]}
-                        onResponderTerminationRequest={[Function]}
-                        onStartShouldSetResponder={[Function]}
                         style={
-                          Object {
-                            "opacity": 1,
-                          }
+                          Array [
+                            Object {
+                              "alignItems": "flex-start",
+                              "alignSelf": "flex-start",
+                              "justifyContent": "center",
+                            },
+                            undefined,
+                          ]
                         }
-                        testID="IconButton"
                       >
                         <View
+                          accessible={true}
+                          clickable={true}
+                          isTVSelectable={true}
+                          onClick={[Function]}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
                           style={
-                            Array [
-                              Object {
-                                "backgroundColor": "transparent",
-                              },
-                              null,
-                              Object {},
-                              null,
-                            ]
+                            Object {
+                              "opacity": 1,
+                            }
                           }
+                          testID="IconButton"
                         >
-                          <Text
-                            allowFontScaling={false}
+                          <View
                             style={
                               Array [
                                 Object {
-                                  "color": undefined,
-                                  "fontSize": 12,
+                                  "backgroundColor": "transparent",
                                 },
-                                Array [
-                                  Object {
-                                    "color": "#ffffff",
-                                  },
-                                  Object {
-                                    "fontSize": 18,
-                                  },
-                                  Array [
-                                    Object {
-                                      "margin": 10,
-                                    },
-                                    Object {},
-                                  ],
-                                ],
-                                Object {
-                                  "fontFamily": "icomoon",
-                                  "fontStyle": "normal",
-                                  "fontWeight": "normal",
-                                },
+                                null,
                                 Object {},
+                                null,
                               ]
                             }
                           >
-                            
-                          </Text>
+                            <Text
+                              allowFontScaling={false}
+                              style={
+                                Array [
+                                  Object {
+                                    "color": undefined,
+                                    "fontSize": 12,
+                                  },
+                                  Array [
+                                    Object {
+                                      "color": "#ffffff",
+                                    },
+                                    Object {
+                                      "fontSize": 18,
+                                    },
+                                    Array [
+                                      Object {
+                                        "margin": 10,
+                                      },
+                                      Object {},
+                                    ],
+                                  ],
+                                  Object {
+                                    "fontFamily": "icomoon",
+                                    "fontStyle": "normal",
+                                    "fontWeight": "normal",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                            >
+                              
+                            </Text>
+                          </View>
                         </View>
                       </View>
                     </View>
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "paddingRight": 5,
+                          },
+                          Object {
+                            "alignItems": "flex-end",
+                            "flex": 1,
+                            "justifyContent": "center",
+                          },
+                        ]
+                      }
+                    />
                   </View>
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "paddingRight": 5,
-                        },
-                        Object {
-                          "alignItems": "flex-end",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  />
-                </View>
+                </RCTSafeAreaView>
                 <Text
                   style={
                     Array [
@@ -1050,30 +1077,24 @@ exports[`renders correctly 1`] = `
             }
           }
         >
-          <View
+          <RCTSafeAreaView
+            emulateUnlessSupported={true}
             style={
-              Array [
-                Object {
-                  "flexDirection": "row",
-                  "height": 56,
-                  "paddingTop": 0,
-                },
-                undefined,
-                null,
-              ]
+              Object {
+                "backgroundColor": "transparent",
+              }
             }
           >
             <View
               style={
                 Array [
                   Object {
-                    "paddingLeft": 5,
+                    "flexDirection": "row",
+                    "height": 56,
+                    "paddingTop": 0,
                   },
-                  Object {
-                    "alignItems": "flex-start",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
+                  undefined,
+                  null,
                 ]
               }
             >
@@ -1081,96 +1102,111 @@ exports[`renders correctly 1`] = `
                 style={
                   Array [
                     Object {
+                      "paddingLeft": 5,
+                    },
+                    Object {
                       "alignItems": "flex-start",
-                      "alignSelf": "flex-start",
+                      "flex": 1,
                       "justifyContent": "center",
                     },
-                    undefined,
                   ]
                 }
               >
                 <View
-                  accessible={true}
-                  clickable={true}
-                  isTVSelectable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
                   style={
-                    Object {
-                      "opacity": 1,
-                    }
+                    Array [
+                      Object {
+                        "alignItems": "flex-start",
+                        "alignSelf": "flex-start",
+                        "justifyContent": "center",
+                      },
+                      undefined,
+                    ]
                   }
-                  testID="IconButton"
                 >
                   <View
+                    accessible={true}
+                    clickable={true}
+                    isTVSelectable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
                     style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
+                      Object {
+                        "opacity": 1,
+                      }
                     }
+                    testID="IconButton"
                   >
-                    <Text
-                      allowFontScaling={false}
+                    <View
                       style={
                         Array [
                           Object {
-                            "color": undefined,
-                            "fontSize": 12,
+                            "backgroundColor": "transparent",
                           },
-                          Array [
-                            Object {
-                              "color": "#ffffff",
-                            },
-                            Object {
-                              "fontSize": 18,
-                            },
-                            Array [
-                              Object {
-                                "margin": 10,
-                              },
-                              Object {},
-                            ],
-                          ],
-                          Object {
-                            "fontFamily": "icomoon",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                          },
+                          null,
                           Object {},
+                          null,
                         ]
                       }
                     >
-                      
-                    </Text>
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": undefined,
+                              "fontSize": 12,
+                            },
+                            Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                              Object {
+                                "fontSize": 18,
+                              },
+                              Array [
+                                Object {
+                                  "margin": 10,
+                                },
+                                Object {},
+                              ],
+                            ],
+                            Object {
+                              "fontFamily": "icomoon",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                    </View>
                   </View>
                 </View>
               </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "paddingRight": 5,
+                    },
+                    Object {
+                      "alignItems": "flex-end",
+                      "flex": 1,
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              />
             </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "paddingRight": 5,
-                  },
-                  Object {
-                    "alignItems": "flex-end",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
+          </RCTSafeAreaView>
         </View>
       </View>
     </View>

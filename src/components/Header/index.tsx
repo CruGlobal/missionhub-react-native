@@ -1,5 +1,11 @@
 import React, { ReactNode } from 'react';
-import { ViewStyle, TextStyle, StyleProp, View } from 'react-native';
+import {
+  ViewStyle,
+  TextStyle,
+  StyleProp,
+  View,
+  SafeAreaView,
+} from 'react-native';
 
 import { Flex, Text, Button } from '../common';
 
@@ -70,15 +76,17 @@ const Header = ({
   };
 
   return (
-    <View style={[styles.header, style, shadow ? styles.shadow : null]}>
-      <Flex value={1} align="start" justify="center" style={styles.left}>
-        {left || null}
-      </Flex>
-      {renderCenter()}
-      <Flex value={1} align="end" justify="center" style={styles.right}>
-        {right || null}
-      </Flex>
-    </View>
+    <SafeAreaView style={styles.safeAreaContainer}>
+      <View style={[styles.header, style, shadow ? styles.shadow : null]}>
+        <Flex value={1} align="start" justify="center" style={styles.left}>
+          {left || null}
+        </Flex>
+        {renderCenter()}
+        <Flex value={1} align="end" justify="center" style={styles.right}>
+          {right || null}
+        </Flex>
+      </View>
+    </SafeAreaView>
   );
 };
 
