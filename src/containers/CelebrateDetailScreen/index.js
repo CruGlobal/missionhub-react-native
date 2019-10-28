@@ -64,7 +64,7 @@ class CelebrateDetailScreen extends Component {
     const { refreshing } = this.state;
 
     return (
-      <View style={styles.safeAreaContainer}>
+      <View style={styles.pageContainer}>
         <SafeAreaView>
           <StatusBar {...theme.statusBar.darkContent} />
           <View style={styles.header}>

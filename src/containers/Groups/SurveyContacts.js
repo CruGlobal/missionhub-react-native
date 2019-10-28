@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -19,8 +19,8 @@ import { navToPersonScreen } from '../../actions/person';
 import { buildUpdatedPagination } from '../../utils/pagination';
 import ShareSurveyMenu from '../../components/ShareSurveyMenu';
 import { getOrganizationContacts } from '../../actions/organizations';
-import theme from '../../theme';
 
+import styles from './styles';
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
 @withTranslation('groupsSurveyContacts')
@@ -132,14 +132,12 @@ class SurveyContacts extends Component {
     const { filters, defaultResults } = this.state;
     const orgName = organization ? organization.name : undefined;
     return (
-      <>
-        <SafeAreaView style={{ backgroundColor: theme.primaryColor }}>
-          <Header
-            left={<BackButton />}
-            title={orgName}
-            right={<ShareSurveyMenu survey={survey} header={true} />}
-          />
-        </SafeAreaView>
+      <View style={styles.container}>
+        <Header
+          left={<BackButton />}
+          title={orgName}
+          right={<ShareSurveyMenu survey={survey} header={true} />}
+        />
         <SearchList
           setSearch={this.setSearch}
           defaultData={defaultResults}
@@ -153,7 +151,7 @@ class SurveyContacts extends Component {
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />
-      </>
+      </View>
     );
   }
 }

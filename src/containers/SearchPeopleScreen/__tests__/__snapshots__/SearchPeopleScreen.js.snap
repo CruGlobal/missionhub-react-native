@@ -16,8 +16,7 @@ exports[`calls methods calls render item 1`] = `
 `;
 
 exports[`renders correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -350,11 +349,11 @@ exports[`renders correctly 1`] = `
       Search results will appear here.
     </Text>
   </View>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders with no results state 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -436,11 +435,11 @@ exports[`renders with no results state 1`] = `
       No Results.
     </MyText>
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`renders with results state 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -538,11 +537,11 @@ exports[`renders with results state 1`] = `
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />
-</SafeAreaView>
+</View>
 `;
 
 exports[`renders with searching state 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -613,5 +612,5 @@ exports[`renders with searching state 1`] = `
       Loading
     </MyText>
   </View>
-</SafeAreaView>
+</View>
 `;

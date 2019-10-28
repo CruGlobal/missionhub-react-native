@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contact hides the header when the keyboard is shown 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -103,12 +103,11 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
       }
     />
   </Flex>
-</SafeAreaView>
+</View>
 `;
 
 exports[`Contact should render AssignedPersonScreen correctly with stage for User-Created Community 1`] = `
 <_class
-  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -202,7 +201,6 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for Use
 
 exports[`Contact should render AssignedPersonScreen correctly with stage for cru community 1`] = `
 <_class
-  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -305,7 +303,6 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for cru
 
 exports[`Contact should render AssignedPersonScreen correctly without stage 1`] = `
 <_class
-  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#007398",

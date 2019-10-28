@@ -4,6 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   pageContainer: {
+    flex: 1,
     backgroundColor: theme.primaryColor,
   },
   list: {

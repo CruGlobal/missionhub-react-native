@@ -4,10 +4,10 @@ exports[`renders activity list 1`] = `
 <View
   style={
     Array [
-      Object {},
       Object {
         "flex": 1,
       },
+      Object {},
     ]
   }
 >
@@ -116,6 +116,7 @@ exports[`renders activity list 1`] = `
     style={
       Array [
         Object {
+          "backgroundColor": "#ffffff",
           "borderLeftColor": "#ECEEF2",
           "borderLeftWidth": 1,
         },
@@ -902,10 +903,10 @@ exports[`renders empty list 1`] = `
 <View
   style={
     Array [
-      Object {},
       Object {
         "flex": 1,
       },
+      Object {},
     ]
   }
 >
@@ -1014,6 +1015,7 @@ exports[`renders empty list 1`] = `
     style={
       Array [
         Object {
+          "backgroundColor": "#ffffff",
           "borderLeftColor": "#ECEEF2",
           "borderLeftWidth": 1,
         },
@@ -1090,10 +1092,10 @@ exports[`renders person without full name 1`] = `
 <View
   style={
     Array [
-      Object {},
       Object {
         "flex": 1,
       },
+      Object {},
     ]
   }
 >
@@ -1202,6 +1204,7 @@ exports[`renders person without full name 1`] = `
     style={
       Array [
         Object {
+          "backgroundColor": "#ffffff",
           "borderLeftColor": "#ECEEF2",
           "borderLeftWidth": 1,
         },
@@ -1988,10 +1991,10 @@ exports[`renders person without last name 1`] = `
 <View
   style={
     Array [
-      Object {},
       Object {
         "flex": 1,
       },
+      Object {},
     ]
   }
 >
@@ -2100,6 +2103,7 @@ exports[`renders person without last name 1`] = `
     style={
       Array [
         Object {
+          "backgroundColor": "#ffffff",
           "borderLeftColor": "#ECEEF2",
           "borderLeftWidth": 1,
         },

@@ -1,7 +1,7 @@
 /* eslint max-lines-per-function: 0 */
 
 import React, { Component } from 'react';
-import { SafeAreaView, ScrollView, Keyboard } from 'react-native';
+import { View, ScrollView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -205,10 +205,8 @@ export class SearchPeopleFilterScreen extends Component {
   render() {
     const { t } = this.props;
     return (
-      <>
-        <SafeAreaView style={styles.pageContainer}>
-          <Header left={<BackButton />} title={t('title')} />
-        </SafeAreaView>
+      <View style={styles.pageContainer}>
+        <Header left={<BackButton />} title={t('title')} />
         <ScrollView
           style={styles.list}
           refreshControl={
@@ -236,7 +234,7 @@ export class SearchPeopleFilterScreen extends Component {
             />
           ))}
         </ScrollView>
-      </>
+      </View>
     );
   }
 }
