@@ -1,11 +1,28 @@
-import React, { Component } from 'react';
+import React, { FunctionComponent } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { withTranslation, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { contactAssignmentSelector, personSelector } from '../selectors/people';
-
+import { AuthState } from '../reducers/auth';
+import { PeopleState } from '../reducers/people';
+import { PersonProfileState } from '../reducers/personProfile';
 import SelectStepScreen from './SelectStepScreen';
+
+interface PersonSelectStepScreenProps {
+  contactName: string;
+  contactId: string;
+  contactStage: {
+    id: string;
+  };
+  contactAssignment: {
+    pathway_stage_id: string;
+  };
+  personFirstName?: string;
+  personId: any;
+  organization: any;
+  next: any;
+  enableSkipButton: boolean;
+}
 
 const PersonSelectStepScreen = ({
   contactName,
@@ -17,7 +34,7 @@ const PersonSelectStepScreen = ({
   organization,
   next,
   enableSkipButton,
-}) => {
+}: PersonSelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
   const name = contactName ? contactName : personFirstName;
   const stageId = contactAssignment
@@ -37,22 +54,16 @@ const PersonSelectStepScreen = ({
   );
 };
 
-PersonSelectStepScreen.defaultProps = {
-  enableSkipButton: false,
-};
-
-PersonSelectStepScreen.propTypes = {
-  contactName: PropTypes.string,
-  contactId: PropTypes.string,
-  contactStage: PropTypes.object,
-  contact: PropTypes.object,
-  organization: PropTypes.object,
-  enableSkipButton: PropTypes.bool,
-  next: PropTypes.func.isRequired,
-};
-
 const mapStateToProps = (
-  { personProfile, auth, people },
+  {
+    personProfile,
+    auth,
+    people,
+  }: {
+    personProfile: PersonProfileState;
+    auth: AuthState;
+    people: PeopleState;
+  },
   {
     navigation: {
       state: {
@@ -66,7 +77,7 @@ const mapStateToProps = (
       },
     },
     next,
-  },
+  }: any,
 ) => {
   const person = personSelector(
     { people },

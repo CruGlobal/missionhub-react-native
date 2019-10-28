@@ -51,7 +51,7 @@ exports[`CelebrationScreen next renders correctly 1`] = `
 `;
 
 exports[`PersonSelectStepScreen next renders correctly 1`] = `
-<withI18nextTranslation(PersonSelectStepScreen)
+<PersonSelectStepScreen
   contactId="321"
   contactName="Someone"
   contactStage={
@@ -60,7 +60,6 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     }
   }
   dispatch={[Function]}
-  enableSkipButton={false}
   navigation={
     Object {
       "state": Object {

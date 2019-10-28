@@ -36,7 +36,9 @@ const navParams = {
 };
 
 it('renders correctly', () => {
-  contactAssignmentSelector.mockReturnValue(contactAssignment);
+  ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
+    contactAssignment,
+  );
   renderWithContext(<PersonSelectStepScreen next={jest.fn()} />, {
     initialState,
     navParams,
@@ -44,7 +46,9 @@ it('renders correctly', () => {
 });
 
 it('allows for undefined organization', () => {
-  contactAssignmentSelector.mockReturnValue(contactAssignment);
+  ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
+    contactAssignment,
+  );
   renderWithContext(<PersonSelectStepScreen next={jest.fn()} />, {
     initialState,
     navParams: { ...navParams, organization: undefined },
