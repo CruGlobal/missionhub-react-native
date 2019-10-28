@@ -109,7 +109,7 @@ const PersonItem = ({
         />
       </Touchable>
     ) : (
-      <View style={styles.image} />
+      <View style={styles.stageEmptyWrapper} />
     );
   };
 
@@ -144,7 +144,19 @@ const PersonItem = ({
     //TODO: get count of steps for each contact
     const stepsCount = 0;
 
-    return (
+    return stepsCount > 0 ? (
+      <View style={styles.stepButtonWrapper}>
+        <Icon
+          type="MissionHub"
+          name="stepsIcon"
+          size={30}
+          style={styles.stepIcon}
+        />
+        <View style={styles.badge}>
+          <Text style={styles.badgeText}>{stepsCount}</Text>
+        </View>
+      </View>
+    ) : (
       <Touchable
         testID="stepIcon"
         style={styles.stepButtonWrapper}
@@ -156,18 +168,12 @@ const PersonItem = ({
           size={30}
           style={styles.stepIcon}
         />
-        {stepsCount > 0 ? (
-          <View style={styles.badge}>
-            <Text style={styles.badgeText}>{stepsCount}</Text>
-          </View>
-        ) : (
-          <Icon
-            type="MissionHub"
-            name="plusIcon"
-            size={14}
-            style={styles.stepPlusIcon}
-          />
-        )}
+        <Icon
+          type="MissionHub"
+          name="plusIcon"
+          size={14}
+          style={styles.stepPlusIcon}
+        />
       </Touchable>
     );
   };

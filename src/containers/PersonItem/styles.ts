@@ -41,6 +41,10 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  stageEmptyWrapper: {
+    height: 70,
+    width: 54,
+  },
   stepButtonWrapper: {
     height: 70,
     paddingLeft: 6,
@@ -53,8 +57,8 @@ export default StyleSheet.create({
   },
   badge: {
     position: 'absolute',
-    bottom: -3,
-    right: -3,
+    bottom: 16,
+    left: 20,
     backgroundColor: theme.red,
     width: 20,
     height: 20,
