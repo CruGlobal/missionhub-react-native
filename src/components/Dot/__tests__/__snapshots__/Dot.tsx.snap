@@ -10,11 +10,16 @@ exports[`render dot 1`] = `
       Object {
         "fontFamily": "SourceSansPro-Regular",
       },
-      Object {},
+      Array [
+        Object {
+          "fontWeight": "bold",
+        },
+        undefined,
+      ],
     ]
   }
 >
-    ·  
+   · 
 </Text>
 `;
 
@@ -28,12 +33,17 @@ exports[`render dot with style 1`] = `
       Object {
         "fontFamily": "SourceSansPro-Regular",
       },
-      Object {
-        "color": "blue",
-      },
+      Array [
+        Object {
+          "fontWeight": "bold",
+        },
+        Object {
+          "color": "blue",
+        },
+      ],
     ]
   }
 >
-    ·  
+   · 
 </Text>
 `;

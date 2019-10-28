@@ -18,7 +18,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
                 Array [
                   \\"personal\\",
                 ]
-@@ -72,159 +72,10 @@
+@@ -72,161 +72,10 @@
               testID=\\"toggleSectionBtn\\"
               type=\\"MissionHub\\"
             />
@@ -61,6 +61,11 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -         scrollEnabled={false}
 -         scrollEventThrottle={50}
 -         stickyHeaderIndices={Array []}
+-         style={
+-           Object {
+-             \\"paddingVertical\\": 6,
+-           }
+-         }
 -         updateCellsBatchingPeriod={50}
 -         viewabilityConfigCallbackPairs={Array []}
 -         windowSize={21}
@@ -71,7 +76,6 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -             style={null}
 -           >
 -             <PersonItem
--               onSelect={[Function mockConstructor]}
 -               organization={
 -                 Object {
 -                   \\"expanded\\": false,
@@ -106,7 +110,6 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -             style={null}
 -           >
 -             <PersonItem
--               onSelect={[Function mockConstructor]}
 -               organization={
 -                 Object {
 -                   \\"expanded\\": false,
@@ -141,7 +144,6 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -             style={null}
 -           >
 -             <PersonItem
--               onSelect={[Function mockConstructor]}
 -               organization={
 -                 Object {
 -                   \\"expanded\\": false,
@@ -184,8 +186,8 @@ exports[`renders correctly as Casey 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#ffffff",
-      "borderTopColor": "#ffffff",
+      "backgroundColor": "#ECEEF2",
+      "borderTopColor": "#ECEEF2",
       "borderTopWidth": 1,
       "flex": 1,
     }
@@ -234,6 +236,11 @@ exports[`renders correctly as Casey 1`] = `
     scrollEnabled={true}
     scrollEventThrottle={50}
     stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "paddingVertical": 6,
+      }
+    }
     updateCellsBatchingPeriod={50}
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}
@@ -248,7 +255,6 @@ exports[`renders correctly as Casey 1`] = `
         style={null}
       >
         <PersonItem
-          onSelect={[MockFunction]}
           person={
             Object {
               "id": "1",
@@ -262,7 +268,6 @@ exports[`renders correctly as Casey 1`] = `
         style={null}
       >
         <PersonItem
-          onSelect={[MockFunction]}
           person={
             Object {
               "id": "2",
@@ -276,7 +281,6 @@ exports[`renders correctly as Casey 1`] = `
         style={null}
       >
         <PersonItem
-          onSelect={[MockFunction]}
           person={
             Object {
               "id": "3",
@@ -300,8 +304,8 @@ exports[`renders correctly as Jean 1`] = `
   }
   style={
     Object {
-      "backgroundColor": "#ffffff",
-      "borderTopColor": "#ffffff",
+      "backgroundColor": "#ECEEF2",
+      "borderTopColor": "#ECEEF2",
       "borderTopWidth": 1,
       "flex": 1,
     }
@@ -404,6 +408,11 @@ exports[`renders correctly as Jean 1`] = `
         scrollEnabled={false}
         scrollEventThrottle={50}
         stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "paddingVertical": 6,
+          }
+        }
         updateCellsBatchingPeriod={50}
         viewabilityConfigCallbackPairs={Array []}
         windowSize={21}
@@ -414,7 +423,6 @@ exports[`renders correctly as Jean 1`] = `
             style={null}
           >
             <PersonItem
-              onSelect={[MockFunction]}
               organization={
                 Object {
                   "expanded": false,
@@ -449,7 +457,6 @@ exports[`renders correctly as Jean 1`] = `
             style={null}
           >
             <PersonItem
-              onSelect={[MockFunction]}
               organization={
                 Object {
                   "expanded": false,
@@ -484,7 +491,6 @@ exports[`renders correctly as Jean 1`] = `
             style={null}
           >
             <PersonItem
-              onSelect={[MockFunction]}
               organization={
                 Object {
                   "expanded": false,
@@ -613,6 +619,11 @@ exports[`renders correctly as Jean 1`] = `
         scrollEnabled={false}
         scrollEventThrottle={50}
         stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "paddingVertical": 6,
+          }
+        }
         updateCellsBatchingPeriod={50}
         viewabilityConfigCallbackPairs={Array []}
         windowSize={21}
@@ -623,7 +634,6 @@ exports[`renders correctly as Jean 1`] = `
             style={null}
           >
             <PersonItem
-              onSelect={[MockFunction]}
               organization={
                 Object {
                   "expanded": false,
@@ -722,6 +732,11 @@ exports[`renders correctly as Jean 1`] = `
         scrollEnabled={false}
         scrollEventThrottle={50}
         stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "paddingVertical": 6,
+          }
+        }
         updateCellsBatchingPeriod={50}
         viewabilityConfigCallbackPairs={Array []}
         windowSize={21}
@@ -732,7 +747,6 @@ exports[`renders correctly as Jean 1`] = `
             style={null}
           >
             <PersonItem
-              onSelect={[MockFunction]}
               organization={
                 Object {
                   "expanded": false,

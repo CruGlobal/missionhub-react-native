@@ -14,7 +14,7 @@ exports[`renders correctly 1`] = `
         Object {
           "color": "#007398",
           "fontSize": 16,
-          "fontWeight": "bold",
+          "lineHeight": 20,
         },
         Object {
           "fontSize": 12,
@@ -23,6 +23,6 @@ exports[`renders correctly 1`] = `
     ]
   }
 >
-  ROGE GOERS
+  Roge Goers
 </Text>
 `;
