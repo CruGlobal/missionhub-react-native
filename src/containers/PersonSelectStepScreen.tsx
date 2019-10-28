@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -6,6 +6,7 @@ import { contactAssignmentSelector, personSelector } from '../selectors/people';
 import { AuthState } from '../reducers/auth';
 import { PeopleState } from '../reducers/people';
 import { PersonProfileState } from '../reducers/personProfile';
+
 import SelectStepScreen from './SelectStepScreen';
 
 interface PersonSelectStepScreenProps {
@@ -18,8 +19,11 @@ interface PersonSelectStepScreenProps {
     pathway_stage_id: string;
   };
   personFirstName?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   personId: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   organization: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: any;
   enableSkipButton: boolean;
 }
@@ -77,7 +81,8 @@ const mapStateToProps = (
       },
     },
     next,
-  }: any,
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
 ) => {
   const person = personSelector(
     { people },
