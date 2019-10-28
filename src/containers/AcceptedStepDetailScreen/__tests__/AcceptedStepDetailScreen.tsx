@@ -29,18 +29,22 @@ const stepReminders = {
   },
 };
 
-let step;
-let challenge_suggestion;
-let screen;
+let step: any;
+let challenge_suggestion: any;
+let screen: any;
 
 const mockStore = configureStore([thunk]);
-let store;
+let store: any;
 
-completeStep.mockReturnValue(completeStepResult);
-deleteStepWithTracking.mockReturnValue(deleteStepResult);
-removeStepReminder.mockReturnValue(removeReminderResult);
-navigateBack.mockReturnValue(navigateBackResult);
-reminderSelector.mockReturnValue(reminder);
+((completeStep as unknown) as jest.Mock).mockReturnValue(completeStepResult);
+((deleteStepWithTracking as unknown) as jest.Mock).mockReturnValue(
+  deleteStepResult,
+);
+((removeStepReminder as unknown) as jest.Mock).mockReturnValue(
+  removeReminderResult,
+);
+((navigateBack as unknown) as jest.Mock).mockReturnValue(navigateBackResult);
+((reminderSelector as unknown) as jest.Mock).mockReturnValue(reminder);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -71,7 +75,7 @@ it('selects reminder from Redux', () => {
 
 describe('without reminder', () => {
   beforeAll(() => {
-    reminderSelector.mockReturnValue(undefined);
+    ((reminderSelector as unknown) as jest.Mock).mockReturnValue(undefined);
   });
 
   it('renders correctly', () => {
@@ -81,7 +85,7 @@ describe('without reminder', () => {
 
 describe('with challenge suggestion', () => {
   beforeAll(() => {
-    reminderSelector.mockReturnValue(reminder);
+    ((reminderSelector as unknown) as jest.Mock).mockReturnValue(reminder);
     challenge_suggestion = { description_markdown: 'roge rules' };
   });
 
@@ -114,7 +118,7 @@ describe('with challenge suggestion', () => {
 
 describe('without challenge suggestion', () => {
   beforeAll(() => {
-    reminderSelector.mockReturnValue(reminder);
+    ((reminderSelector as unknown) as jest.Mock).mockReturnValue(reminder);
     challenge_suggestion = null;
   });
 
@@ -127,7 +131,7 @@ describe('handleRemoveReminder', () => {
   let centerContent;
 
   beforeAll(() => {
-    reminderSelector.mockReturnValue(reminder);
+    ((reminderSelector as unknown) as jest.Mock).mockReturnValue(reminder);
   });
 
   beforeEach(() => {
