@@ -26,9 +26,11 @@ interface AcceptedStepDetailScreenProps {
   navigation?: any;
 }
 
-const AcceptedStepDetailScreen: FunctionComponent<
-  AcceptedStepDetailScreenProps
-> = ({ dispatch, step, reminder }) => {
+const AcceptedStepDetailScreen = ({
+  dispatch,
+  step,
+  reminder,
+}: AcceptedStepDetailScreenProps) => {
   const { t } = useTranslation('acceptedStepDetail');
   const { challenge_suggestion, title, receiver } = step;
   const { removeStepButton, removeStepButtonText } = styles;
