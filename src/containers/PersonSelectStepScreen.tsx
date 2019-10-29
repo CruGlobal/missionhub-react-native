@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { ThunkAction } from 'redux-thunk';
 
 import { contactAssignmentSelector, personSelector } from '../selectors/people';
 import { AuthState } from '../reducers/auth';
 import { PeopleState } from '../reducers/people';
 import { PersonProfileState } from '../reducers/personProfile';
+import { OrganizationsState } from '../reducers/organizations';
 
 import SelectStepScreen from './SelectStepScreen';
 
@@ -20,11 +22,16 @@ interface PersonSelectStepScreenProps {
   };
   personFirstName?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  personId: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  organization: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: any;
+  personId: string | null;
+  organization: OrganizationsState;
+  next: (nextProps: {
+    receiverId: string | null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    step?: any | undefined;
+    skip: boolean;
+    orgId: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }) => ThunkAction<void, any, any, never>;
   enableSkipButton: boolean;
 }
 

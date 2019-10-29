@@ -26,7 +26,7 @@ interface StepsComputedProps {
 }
 
 interface StepsListOwnProps {
-  receiverId: string;
+  receiverId: string | null;
   contactStageId: string;
   contactName?: string;
   onPressStep: (step: {
