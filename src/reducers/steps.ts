@@ -9,7 +9,23 @@ import {
 } from '../constants';
 import { getPagination, shuffleArray } from '../utils/common';
 
-const initialState = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Step = any;
+
+export interface StepsState {
+  mine: Step[] | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  suggestedForMe: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  suggestedForOthers: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  userStepCount: any;
+  pagination: { hasNextPage: boolean; page: number };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  contactSteps: any;
+}
+
+const initialState: StepsState = {
   mine: null, // null indicates user has never loaded. [] indicates loaded but user doesn't have any
   suggestedForMe: {},
   suggestedForOthers: {},
@@ -21,7 +37,8 @@ const initialState = {
   contactSteps: {},
 };
 
-export default function stepsReducer(state = initialState, action) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function stepsReducer(state = initialState, action: any) {
   switch (action.type) {
     case REQUESTS.GET_CHALLENGE_SUGGESTIONS.SUCCESS:
       const contactStageId = action.query.filters.pathway_stage_id;
@@ -68,9 +85,9 @@ export default function stepsReducer(state = initialState, action) {
         contactSteps: {
           ...state.contactSteps,
           [`${personId}-${orgId}`]: {
-            steps: allStepsFilter.filter(s => !s.completed_at),
+            steps: allStepsFilter.filter((s: Step) => !s.completed_at),
             completedSteps: sortByCompleted(
-              allStepsFilter.filter(s => s.completed_at),
+              allStepsFilter.filter((s: Step) => s.completed_at),
             ),
           },
         },
@@ -105,7 +122,7 @@ export default function stepsReducer(state = initialState, action) {
     case REQUESTS.DELETE_CHALLENGE.SUCCESS:
       const { challenge_id: stepId } = action.query;
 
-      const removeStepById = (stepId, steps) =>
+      const removeStepById = (stepId: string, steps: Step[]) =>
         steps.filter(({ id }) => id !== stepId);
 
       return {
@@ -116,7 +133,8 @@ export default function stepsReducer(state = initialState, action) {
             ...acc,
             [personOrgId]: {
               ...combinedSteps,
-              steps: removeStepById(stepId, combinedSteps.steps),
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              steps: removeStepById(stepId, (combinedSteps as any).steps),
             },
           }),
           {},
@@ -125,7 +143,7 @@ export default function stepsReducer(state = initialState, action) {
     case TOGGLE_STEP_FOCUS:
       return {
         ...state,
-        mine: toggleStepReminder(state.mine, action.step),
+        mine: toggleStepReminder(state.mine || [], action.step),
       };
     case COMPLETED_STEP_COUNT:
       const currentCount = state.userStepCount[action.userId] || 0;
@@ -151,13 +169,13 @@ export default function stepsReducer(state = initialState, action) {
   }
 }
 
-const toggleStepReminder = (steps, step) =>
-  steps.map(s => ({
+const toggleStepReminder = (steps: Step[], step: Step) =>
+  steps.map((s: Step) => ({
     ...s,
     focus: s && s.id === step.id ? !s.focus : s.focus,
   }));
 
-function sortByCompleted(arr) {
+function sortByCompleted(arr: Step[]) {
   // Sort by most recent date first
   arr.sort((a, b) => {
     const aDate = new Date(a.completed_at);

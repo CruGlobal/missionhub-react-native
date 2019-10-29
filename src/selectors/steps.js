@@ -21,6 +21,11 @@ const replaceStepReceiver = (step, orgs) => {
   };
 };
 
+export const myStepsSelector = createSelector(
+  ({ steps }) => steps.mine,
+  mySteps => mySteps && mySteps.filter(s => s.receiver && s.receiver.id),
+);
+
 export const hasReminderStepsSelector = createSelector(
   ({ steps }) => filterFocus(steps, true),
   steps => filterOutMissingReceivers(steps).length > 0,

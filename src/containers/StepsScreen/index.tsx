@@ -1,5 +1,3 @@
-/* eslint max-lines: 0 */
-
 import React, { Component } from 'react';
 import { View, Image, ScrollView, FlatList, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
@@ -18,10 +16,7 @@ import {
 import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { navToPersonScreen } from '../../actions/person';
-import {
-  reminderStepsSelector,
-  nonReminderStepsSelector,
-} from '../../selectors/steps';
+import { myStepsSelector } from '../../selectors/steps';
 import {
   Flex,
   Text,
@@ -53,6 +48,7 @@ import TrackTabChange from '../TrackTabChange';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../../containers/Groups/OnboardingCard';
+import { StepsState } from '../../reducers/steps';
 
 import styles from './styles';
 
@@ -162,14 +158,6 @@ export class StepsScreen extends Component {
     }
   }
 
-  handleBackgroundColor() {
-    if (this.state.overscrollUp) {
-      return styles.backgroundTop;
-    }
-
-    return styles.backgroundBottom;
-  }
-
   handleNextPage() {
     const { hasMoreSteps, dispatch } = this.props;
 
@@ -194,57 +182,25 @@ export class StepsScreen extends Component {
     dispatch(navigateToMainTabs(PEOPLE_TAB));
   };
 
-  renderFocusPrompt() {
+  renderNull = () => {
     const { t } = this.props;
-
-    if (this.hasReminders() || this.hasFewSteps()) {
-      return null;
-    }
-
     return (
-      <Flex
-        align="center"
-        justify="center"
-        style={[styles.top, styles.topEmpty]}
-      >
-        <Icon name="starGroupIcon" type="MissionHub" size={45} />
-        <Text header={true} style={styles.title}>
-          {t('reminderTitle').toUpperCase()}
+      <Flex value={1} align="center" justify="center">
+        <Image source={NULL} />
+        <Text header={true} style={styles.nullHeader}>
+          {t('nullHeader')}
         </Text>
-        <Text style={styles.description}>{t('reminderDescription')}</Text>
+        <Text style={styles.nullText}>
+          {this.hasReminders() ? t('nullWithReminders') : t('nullNoReminders')}
+        </Text>
       </Flex>
     );
-  }
-
-  renderReminders() {
-    const { reminders } = this.props;
-    const focusedSteps = reminders.filter(r => r && r.id);
-
-    if (this.hasReminders()) {
-      return (
-        <Flex align="center" style={[styles.top]}>
-          {focusedSteps.map(s => (
-            <StepItem
-              step={s}
-              key={s.id}
-              type="reminder"
-              onSelect={this.handleRowSelect}
-              onAction={this.handleRemoveReminder}
-              onPressName={this.handleNavToPerson}
-            />
-          ))}
-        </Flex>
-      );
-    }
-  }
-
-  listRef = c => (this.list = c);
+  };
 
   renderItem = ({ item }) => {
     return (
       <StepItem
         step={item}
-        type="swipeable"
         hideAction={this.canHideStars()}
         onSelect={this.handleRowSelect}
         onAction={this.handleSetReminder}
@@ -253,30 +209,13 @@ export class StepsScreen extends Component {
     );
   };
 
-  renderList() {
+  renderSteps() {
     const { steps, t, hasMoreSteps } = this.props;
-    if (steps.length === 0) {
-      return (
-        <Flex value={1} align="center" justify="center">
-          <Image source={NULL} />
-          <Text header={true} style={styles.nullHeader}>
-            {t('nullHeader')}
-          </Text>
-          <Text style={styles.nullText}>
-            {this.hasReminders()
-              ? t('nullWithReminders')
-              : t('nullNoReminders')}
-          </Text>
-        </Flex>
-      );
-    }
 
     return (
       <FlatList
-        ref={this.listRef}
         style={[styles.list, { paddingBottom: hasMoreSteps ? 40 : undefined }]}
         data={steps}
-        extraData={{ hideStars: this.canHideStars() }}
         keyExtractor={keyExtractorId}
         renderItem={this.renderItem}
         removeClippedSubviews={false}
@@ -288,13 +227,13 @@ export class StepsScreen extends Component {
     );
   }
 
-  renderSteps() {
-    const { steps, reminders, t } = this.props;
+  renderContent() {
+    const { steps, t } = this.props;
 
     return (
-      <View style={styles.container}>
+      <View style={styles.contentContainer}>
         <ScrollView
-          style={[this.handleBackgroundColor()]}
+          style={{ flex: 1 }}
           refreshControl={
             <RefreshControl
               refreshing={this.state.refreshing}
@@ -312,10 +251,9 @@ export class StepsScreen extends Component {
             },
           ]}
         >
-          {this.renderReminders()}
-          {this.renderList()}
+          {steps.length > 0 ? this.renderSteps() : this.renderNull()}
         </ScrollView>
-        {steps.length > 0 || reminders.length > 0 ? null : (
+        {steps.length > 0 ? null : (
           <BottomButton
             text={t('mainTabs:takeAStepWithSomeone')}
             onPress={this.navToPersonScreen}
@@ -330,8 +268,10 @@ export class StepsScreen extends Component {
   render() {
     const { t, steps } = this.props;
 
+    const firstTimeLoading = !steps;
+
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <TrackTabChange screen={STEPS_TAB} />
         <Header
           left={
@@ -343,24 +283,26 @@ export class StepsScreen extends Component {
           }
           title={t('title').toUpperCase()}
         />
-        {steps ? (
-          <View style={styles.contentContainer}>
-            <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
-            {this.renderSteps()}
-          </View>
+        {firstTimeLoading ? (
+          <LoadingGuy />
         ) : (
           <View style={styles.contentContainer}>
-            <LoadingGuy />
+            <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
+            {this.renderContent()}
           </View>
         )}
-      </SafeAreaView>
+      </View>
     );
   }
 }
 
-export const mapStateToProps = ({ steps, people, notifications }) => ({
-  steps: nonReminderStepsSelector({ steps, people }),
-  reminders: reminderStepsSelector({ steps, people }),
+export const mapStateToProps = ({
+  steps,
+  notifications,
+}: {
+  steps: StepsState;
+}) => ({
+  steps: myStepsSelector,
   hasMoreSteps: steps.pagination.hasNextPage,
   pushtoken: notifications.token,
 });
