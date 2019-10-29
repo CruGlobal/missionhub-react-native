@@ -11,7 +11,7 @@ import styles from './styles';
 type menuItemsType = {
   label: string;
   action: () => void;
-  selected: boolean;
+  selected?: boolean;
 };
 
 interface SideMenuProps {
