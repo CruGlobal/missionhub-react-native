@@ -8,21 +8,25 @@ import { Flex, Button, IconButton } from '../common';
 
 import styles from './styles';
 
+type menuItemsType = {
+  label: string;
+  action: () => void;
+  selected: boolean;
+};
+
 interface SideMenuProps {
   isOpen: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, any>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  menuItems: any;
+  menuItems: menuItemsType[];
   testID: string;
 }
 
 const SideMenu = ({ isOpen, dispatch, menuItems }: SideMenuProps) => {
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', onBackPress);
-  }, []);
 
-  useEffect(() => {
     return () => {
       BackHandler.removeEventListener('hardwareBackPress', onBackPress);
     };
@@ -50,29 +54,19 @@ const SideMenu = ({ isOpen, dispatch, menuItems }: SideMenuProps) => {
           size={20}
         />
       </Flex>
-      {menuItems.map(
-        ({
-          label,
-          action,
-          selected,
-        }: {
-          label: string;
-          action: () => void;
-          selected: boolean;
-        }) => (
-          <Flex key={label} style={styles.buttonContainer}>
-            <Button
-              style={styles.button}
-              buttonTextStyle={[
-                styles.buttonText,
-                selected && styles.buttonTextSelected,
-              ]}
-              text={label.toUpperCase()}
-              onPress={action}
-            />
-          </Flex>
-        ),
-      )}
+      {menuItems.map(({ label, action, selected }) => (
+        <Flex key={label} style={styles.buttonContainer}>
+          <Button
+            style={styles.button}
+            buttonTextStyle={[
+              styles.buttonText,
+              selected && styles.buttonTextSelected,
+            ]}
+            text={label.toUpperCase()}
+            onPress={action}
+          />
+        </Flex>
+      ))}
     </SafeAreaView>
   );
 };
