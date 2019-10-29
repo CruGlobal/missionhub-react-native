@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`markdown is empty string renders correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -189,14 +189,14 @@ exports[`markdown is empty string renders correctly 1`] = `
       }
     }
   />
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`markdown is not null renders correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -425,14 +425,14 @@ exports[`markdown is not null renders correctly 1`] = `
       </View>
     </RCTScrollView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`markdown is null bottomButtonProps are not null renders correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -694,14 +694,14 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -886,14 +886,14 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
       }
     }
   />
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`markdown with <<name>> to change renders correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
+      "backgroundColor": "#ffffff",
       "flex": 1,
     }
   }
@@ -1122,5 +1122,5 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
       </View>
     </RCTScrollView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;

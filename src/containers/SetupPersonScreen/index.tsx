@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { SafeAreaView, View, Keyboard, Image, TextInput } from 'react-native';
+import { View, Keyboard, Image, TextInput } from 'react-native';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
@@ -89,7 +89,7 @@ const SetupPersonScreen = ({
   const skip = () => navigateNext(true);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Header
         left={<BackButton />}
         right={hideSkipBtn ? null : <Skip onSkip={skip} />}
@@ -134,7 +134,7 @@ const SetupPersonScreen = ({
         text={t('next')}
         disabled={isLoading}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 

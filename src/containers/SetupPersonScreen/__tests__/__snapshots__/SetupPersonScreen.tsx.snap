@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -411,12 +410,11 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders with first and last name 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -825,12 +823,11 @@ exports[`renders with first and last name 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders without skip button 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -1171,5 +1168,5 @@ exports[`renders without skip button 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;

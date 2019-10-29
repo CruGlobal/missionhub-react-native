@@ -132,9 +132,9 @@ const SignInScreen = ({
 
   const renderErrorMessage = () => {
     return errorMessage ? (
-      <View style={styles.errorBar}>
+      <SafeAreaView style={styles.errorBar}>
         <Text style={styles.errorMessage}>{errorMessage}</Text>
-      </View>
+      </SafeAreaView>
     ) : null;
   };
 
@@ -198,7 +198,6 @@ const SignInScreen = ({
           />
         </View>
       </Flex>
-
       {email || password ? (
         <Flex align="stretch" justify="end">
           <BottomButton

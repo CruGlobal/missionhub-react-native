@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render completed challenge correctly 1`] = `
-<SafeAreaView>
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -45,11 +51,17 @@ exports[`should render completed challenge correctly 1`] = `
     }
     onEdit={[Function]}
   />
-</SafeAreaView>
+</View>
 `;
 
 exports[`should render joined challenge correctly 1`] = `
-<SafeAreaView>
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -111,7 +123,7 @@ exports[`should render joined challenge correctly 1`] = `
     }
     onEdit={[Function]}
   />
-</SafeAreaView>
+</View>
 `;
 
 exports[`should render tabs correctly 1`] = `
@@ -130,7 +142,13 @@ Array [
 `;
 
 exports[`should render unjoined challenge correctly 1`] = `
-<SafeAreaView>
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -192,11 +210,17 @@ exports[`should render unjoined challenge correctly 1`] = `
     }
     onEdit={[Function]}
   />
-</SafeAreaView>
+</View>
 `;
 
 exports[`should render without edit correctly 1`] = `
-<SafeAreaView>
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -258,5 +282,5 @@ exports[`should render without edit correctly 1`] = `
     }
     onEdit={[Function]}
   />
-</SafeAreaView>
+</View>
 `;

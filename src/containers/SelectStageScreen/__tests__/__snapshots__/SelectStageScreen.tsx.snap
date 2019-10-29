@@ -29,8 +29,7 @@ exports[`renders for me renders correctly 1`] = `
       ]
     }
   />
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Object {
         "flex": 1,
@@ -442,7 +441,7 @@ exports[`renders for me renders correctly 1`] = `
         </View>
       </RCTScrollView>
     </View>
-  </RCTSafeAreaView>
+  </View>
 </View>
 `;
 
@@ -475,8 +474,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
       ]
     }
   />
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Object {
         "flex": 1,
@@ -888,7 +886,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
         </View>
       </RCTScrollView>
     </View>
-  </RCTSafeAreaView>
+  </View>
 </View>
 `;
 
@@ -921,8 +919,7 @@ exports[`renders for other renders correctly 1`] = `
       ]
     }
   />
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Object {
         "flex": 1,
@@ -1334,7 +1331,7 @@ exports[`renders for other renders correctly 1`] = `
         </View>
       </RCTScrollView>
     </View>
-  </RCTSafeAreaView>
+  </View>
 </View>
 `;
 
@@ -1367,8 +1364,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
       ]
     }
   />
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Object {
         "flex": 1,
@@ -1780,7 +1776,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
         </View>
       </RCTScrollView>
     </View>
-  </RCTSafeAreaView>
+  </View>
 </View>
 `;
 
@@ -1813,8 +1809,7 @@ exports[`renders renders correctly with question text 1`] = `
       ]
     }
   />
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Object {
         "flex": 1,
@@ -2226,7 +2221,7 @@ exports[`renders renders correctly with question text 1`] = `
         </View>
       </RCTScrollView>
     </View>
-  </RCTSafeAreaView>
+  </View>
 </View>
 `;
 
@@ -2259,8 +2254,7 @@ exports[`renders renders correctly without back button 1`] = `
       ]
     }
   />
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Object {
         "flex": 1,
@@ -2672,7 +2666,7 @@ exports[`renders renders correctly without back button 1`] = `
         </View>
       </RCTScrollView>
     </View>
-  </RCTSafeAreaView>
+  </View>
 </View>
 `;
 
@@ -2705,8 +2699,7 @@ exports[`renders renders correctly without stages 1`] = `
       ]
     }
   />
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
     style={
       Object {
         "flex": 1,
@@ -2743,6 +2736,6 @@ exports[`renders renders correctly without stages 1`] = `
         Which stage best describes where Person is on their journey?
       </Text>
     </View>
-  </RCTSafeAreaView>
+  </View>
 </View>
 `;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GroupsListScreen should render correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -134,12 +134,11 @@ exports[`GroupsListScreen should render correctly 1`] = `
       windowSize={21}
     />
   </ScrollViewMock>
-</SafeAreaView>
+</View>
 `;
 
 exports[`should render null state 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -936,5 +935,5 @@ exports[`should render null state 1`] = `
       </RCTScrollView>
     </View>
   </RCTScrollView>
-</RCTSafeAreaView>
+</View>
 `;

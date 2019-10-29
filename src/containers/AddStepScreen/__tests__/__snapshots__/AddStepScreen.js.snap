@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders create step correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -276,12 +275,11 @@ exports[`renders create step correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders edit journey item correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -554,12 +552,11 @@ exports[`renders edit journey item correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders edit journey step correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -832,12 +829,11 @@ exports[`renders edit journey step correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders interaction with skip correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -1182,12 +1178,11 @@ exports[`renders interaction with skip correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders interaction without skip correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -1460,12 +1455,11 @@ exports[`renders interaction without skip correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders journey correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -1738,12 +1732,11 @@ exports[`renders journey correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders step note correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -2088,12 +2081,11 @@ exports[`renders step note correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders step note correctly for me 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -2438,12 +2430,11 @@ exports[`renders step note correctly for me 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders step note edit correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -2788,12 +2779,11 @@ exports[`renders step note edit correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders step note edit correctly for me 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -3138,7 +3128,7 @@ exports[`renders step note edit correctly for me 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`updates text 1`] = `
@@ -3146,7 +3136,7 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -262,11 +262,11 @@
+@@ -261,11 +261,11 @@
           ]
         }
         testID=\\"stepInput\\"
