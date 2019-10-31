@@ -3,7 +3,7 @@
 exports[`renders drilldown item correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -162,13 +162,28 @@ exports[`renders selected switch item correctly 1`] = `
   >
     Test Step
   </Text>
+  <RCTSwitch
+    accessibilityRole="button"
+    onChange={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onTintColor="#007398"
+    style={
+      Object {
+        "height": 31,
+        "width": 51,
+      }
+    }
+    tintColor=""
+    value={true}
+  />
 </View>
 `;
 
 exports[`renders single item correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -261,5 +276,20 @@ exports[`renders switch item correctly 1`] = `
   >
     Test Step
   </Text>
+  <RCTSwitch
+    accessibilityRole="button"
+    onChange={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onTintColor="#007398"
+    style={
+      Object {
+        "height": 31,
+        "width": 51,
+      }
+    }
+    tintColor=""
+    value={false}
+  />
 </View>
 `;

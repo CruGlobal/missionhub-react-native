@@ -26,6 +26,9 @@ jest.mock('../../../actions/auth/userData');
 jest.mock('../../../actions/onboardingProfile');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/notifications');
+jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
+  useLogoutOnBack: jest.fn(),
+}));
 
 common.isAndroid = false;
 

@@ -3,7 +3,7 @@
 exports[`render assigned contact 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -93,7 +93,7 @@ exports[`render assigned contact 1`] = `
 exports[`render unassigned contact 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}

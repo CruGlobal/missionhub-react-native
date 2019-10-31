@@ -107,7 +107,7 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
 `;
 
 exports[`Contact should render AssignedPersonScreen correctly with stage for User-Created Community 1`] = `
-<_class
+<RCTSafeAreaView
   emulateUnlessSupported={true}
   style={
     Object {
@@ -197,11 +197,11 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for Use
       }
     />
   </Flex>
-</_class>
+</RCTSafeAreaView>
 `;
 
 exports[`Contact should render AssignedPersonScreen correctly with stage for cru community 1`] = `
-<_class
+<RCTSafeAreaView
   emulateUnlessSupported={true}
   style={
     Object {
@@ -300,11 +300,11 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for cru
       }
     />
   </Flex>
-</_class>
+</RCTSafeAreaView>
 `;
 
 exports[`Contact should render AssignedPersonScreen correctly without stage 1`] = `
-<_class
+<RCTSafeAreaView
   emulateUnlessSupported={true}
   style={
     Object {
@@ -403,7 +403,7 @@ exports[`Contact should render AssignedPersonScreen correctly without stage 1`] 
       }
     />
   </Flex>
-</_class>
+</RCTSafeAreaView>
 `;
 
 exports[`Contact should render contact tabs correctly 1`] = `

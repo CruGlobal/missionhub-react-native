@@ -3,10 +3,11 @@ import { SafeAreaView } from 'react-native';
 
 import { Button } from '../../components/common';
 import theme from '../../theme';
+import { TouchablePress } from '../Touchable/index.ios';
 
 export interface BottomButtonProps {
   text: string;
-  onPress: Function;
+  onPress: TouchablePress;
   disabled?: boolean;
   testID?: string;
 }

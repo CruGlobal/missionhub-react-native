@@ -1,29 +1,32 @@
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
-import GroupCardItem from '..';
+import GroupCardItem, { GroupCardItemProps } from '..';
 
 const contactsCount = 768;
 const unassignedCount = 13;
 const memberCount = 5;
 
-const group = {
+const group: GroupCardItemProps['group'] = {
   name: 'Group Name',
   contactReport: {},
   user_created: false,
   unread_comments_count: 0,
 };
 
-let props = {
+let props: GroupCardItemProps = {
   group,
   onPress: jest.fn(),
   onJoin: undefined,
 };
 
 const test = () => {
-  testSnapshotShallow(<GroupCardItem {...props} />);
+  renderWithContext(<GroupCardItem {...props} />, {
+    noWrappers: true,
+  }).snapshot();
 };
 
 describe('GroupCardItem', () => {
@@ -191,27 +194,22 @@ describe('GroupCardItem', () => {
 
   it('calls props.onPress when pressed', () => {
     const onPress = jest.fn();
-    const component = renderShallow(
+    const { getByTestId } = renderWithContext(
       <GroupCardItem group={group} onPress={onPress} />,
+      { noWrappers: true },
     );
-
-    component.simulate('press');
+    fireEvent.press(getByTestId('CardButton'));
 
     expect(onPress).toHaveBeenCalled();
   });
 
   it('calls props.onJoin when pressed', () => {
     const onJoin = jest.fn();
-    const component = renderShallow(
+    const { getByTestId } = renderWithContext(
       <GroupCardItem group={group} onJoin={onJoin} />,
+      { noWrappers: true },
     );
-
-    component
-      .childAt(0)
-      .childAt(1)
-      .childAt(1)
-      .childAt(0)
-      .simulate('press');
+    fireEvent.press(getByTestId('JoinButton'));
 
     expect(onJoin).toHaveBeenCalled();
   });

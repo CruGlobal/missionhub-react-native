@@ -59,7 +59,7 @@ exports[`renders correctly 1`] = `
         >
           <View
             accessible={true}
-            clickable={true}
+            focusable={true}
             isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
@@ -194,7 +194,7 @@ exports[`renders correctly 1`] = `
     <View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -313,7 +313,7 @@ exports[`renders correctly 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -432,7 +432,7 @@ exports[`renders correctly 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -551,7 +551,7 @@ exports[`renders correctly 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -670,7 +670,7 @@ exports[`renders correctly 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -826,6 +826,21 @@ exports[`renders correctly 1`] = `
         >
           Unassigned
         </Text>
+        <RCTSwitch
+          accessibilityRole="button"
+          onChange={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onTintColor="#007398"
+          style={
+            Object {
+              "height": 31,
+              "width": 51,
+            }
+          }
+          tintColor=""
+          value={true}
+        />
       </View>
       <View
         style={
@@ -866,6 +881,21 @@ exports[`renders correctly 1`] = `
         >
           Include Archived Contacts
         </Text>
+        <RCTSwitch
+          accessibilityRole="button"
+          onChange={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onTintColor="#007398"
+          style={
+            Object {
+              "height": 31,
+              "width": 51,
+            }
+          }
+          tintColor=""
+          value={true}
+        />
       </View>
     </View>
   </RCTScrollView>

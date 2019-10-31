@@ -7,6 +7,7 @@ const events: { [key: string]: () => void } = {};
 
 Keyboard.addListener = ((eventName: string, listener: () => void) => {
   events[eventName] = listener;
+  return { remove: jest.fn() };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }) as any;
 

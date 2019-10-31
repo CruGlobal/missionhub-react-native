@@ -1,18 +1,17 @@
 package com.missionhub;
 
 import android.app.Application;
-import android.util.Log;
+import android.content.Context;
 
 import androidx.multidex.MultiDex;
 import android.content.Context;
 
 import com.facebook.react.PackageList;
-import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
-import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+import java.lang.reflect.InvocationTargetException;
 
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.links.RNFirebaseLinksPackage;
@@ -64,9 +63,36 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
 
     SoLoader.init(this, /* native exopackage */ false);
+    initializeFlipper(this); // Remove this line if you don't want Flipper enabled
 
     // TODO: figure out how to distinguish between the beta and production release tracks
     RollbarReactNative.init(this, BuildConfig.ROLLBAR_ACCESS_TOKEN, BuildConfig.DEBUG ? "development" : "production");
+  }
+
+  /**
+   * Loads Flipper in React Native templates.
+   *
+   * @param context
+   */
+  private static void initializeFlipper(Context context) {
+    if (BuildConfig.DEBUG) {
+      try {
+        /*
+         We use reflection here to pick up the class that initializes Flipper,
+        since Flipper library is not available in release mode
+        */
+        Class<?> aClass = Class.forName("com.facebook.flipper.ReactNativeFlipper");
+        aClass.getMethod("initializeFlipper", Context.class).invoke(null, context);
+      } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+      } catch (NoSuchMethodException e) {
+        e.printStackTrace();
+      } catch (IllegalAccessException e) {
+        e.printStackTrace();
+      } catch (InvocationTargetException e) {
+        e.printStackTrace();
+      }
+    }
   }
 
   // Need to do this for Android versions <5.0

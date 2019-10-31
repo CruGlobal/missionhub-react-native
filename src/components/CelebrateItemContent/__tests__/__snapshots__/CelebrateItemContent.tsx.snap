@@ -41,7 +41,7 @@ exports[`CelebrateItemContent message renders accepted challenge event 1`] = `
   >
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
@@ -141,7 +141,7 @@ exports[`CelebrateItemContent message renders completed challenge event 1`] = `
   >
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
