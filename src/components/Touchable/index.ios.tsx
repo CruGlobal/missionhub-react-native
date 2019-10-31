@@ -9,13 +9,14 @@ import {
 import theme from '../../theme';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type PressPropsType = any[];
+export type PressPropsType = any[];
+export type TouchablePress = (...args: PressPropsType) => void;
 
 interface TouchableIOSProps extends TouchableHighlightProps {
   highlight?: boolean;
   withoutFeedback?: boolean;
   pressProps?: PressPropsType;
-  onPress?: (...args: PressPropsType) => void;
+  onPress?: TouchablePress;
   children?: React.ReactNode;
 }
 

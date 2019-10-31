@@ -1,7 +1,7 @@
 import React from 'react';
 import { Share, Linking } from 'react-native';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 
 import ShareSurveyMenu from '..';
 
@@ -11,23 +11,23 @@ const props = {
 
 describe('ShareSurveyMenu', () => {
   it('renders share survey menu', () => {
-    testSnapshotShallow(<ShareSurveyMenu {...props} />);
+    renderWithContext(<ShareSurveyMenu {...props} />).snapshot();
   });
   it('renders share survey menu in header', () => {
-    testSnapshotShallow(<ShareSurveyMenu {...props} header={true} />);
+    renderWithContext(<ShareSurveyMenu {...props} header={true} />).snapshot();
   });
 
   it('calls take survey', () => {
     Linking.openURL = jest.fn();
-    const instance = renderShallow(<ShareSurveyMenu {...props} />).instance();
-    instance.takeSurvey();
+    const { getByTestId } = renderWithContext(<ShareSurveyMenu {...props} />);
+    getByTestId('ShareSurveyMenu').props.actions[1].onPress();
     expect(Linking.openURL).toHaveBeenCalled();
   });
 
   it('calls share survey', () => {
     Share.share = jest.fn();
-    const instance = renderShallow(<ShareSurveyMenu {...props} />).instance();
-    instance.shareSurvey();
+    const { getByTestId } = renderWithContext(<ShareSurveyMenu {...props} />);
+    getByTestId('ShareSurveyMenu').props.actions[0].onPress();
     expect(Share.share).toHaveBeenCalled();
   });
 });

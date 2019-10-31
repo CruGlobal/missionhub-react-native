@@ -12,8 +12,6 @@ const mockItem = {
 };
 const onSelect = jest.fn();
 
-jest.mock('Switch');
-
 it('renders single item correctly', () => {
   renderWithContext(
     <FilterItem item={mockItem} onSelect={onSelect} type="single" />,

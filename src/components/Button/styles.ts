@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, StyleProp, ViewStyle } from 'react-native';
 
 import theme from '../../theme';
 
-const common = {
+const common: StyleProp<ViewStyle> = {
   height: theme.buttonHeight,
   justifyContent: 'center',
   alignItems: 'center',
@@ -36,7 +36,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: theme.buttonTextColor,
-    fontSize: 18,
+    fontSize: 14,
     textAlign: 'center',
     fontWeight: '500',
     letterSpacing: 1.5,

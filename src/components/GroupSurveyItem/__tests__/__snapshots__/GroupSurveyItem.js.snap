@@ -49,7 +49,7 @@ exports[`render 0 contacts 1`] = `
         value={1}
       >
         <ItemHeaderText
-          text="Winter Conference 2018"
+          text="WINTER CONFERENCE 2018"
         />
         <MyText
           align="center"
@@ -103,7 +103,7 @@ exports[`render 0 contacts 1`] = `
           </MyText>
         </MyText>
       </Flex>
-      <withI18nextTranslation(ShareSurveyMenu)
+      <ShareSurveyMenu
         survey={
           Object {
             "contacts_count": 0,
@@ -169,7 +169,7 @@ exports[`render 0 unassigned 1`] = `
         value={1}
       >
         <ItemHeaderText
-          text="Winter Conference 2018"
+          text="WINTER CONFERENCE 2018"
         />
         <MyText
           align="center"
@@ -212,7 +212,7 @@ exports[`render 0 unassigned 1`] = `
           </MyText>
         </MyText>
       </Flex>
-      <withI18nextTranslation(ShareSurveyMenu)
+      <ShareSurveyMenu
         survey={
           Object {
             "contacts_count": 50,
@@ -278,7 +278,7 @@ exports[`render 0 unassigned and 0 uncontacted 1`] = `
         value={1}
       >
         <ItemHeaderText
-          text="Winter Conference 2018"
+          text="WINTER CONFERENCE 2018"
         />
         <MyText
           align="center"
@@ -298,7 +298,7 @@ exports[`render 0 unassigned and 0 uncontacted 1`] = `
           </MyText>
         </MyText>
       </Flex>
-      <withI18nextTranslation(ShareSurveyMenu)
+      <ShareSurveyMenu
         survey={
           Object {
             "contacts_count": 50,
@@ -364,7 +364,7 @@ exports[`render 0 uncontacted 1`] = `
         value={1}
       >
         <ItemHeaderText
-          text="Winter Conference 2018"
+          text="WINTER CONFERENCE 2018"
         />
         <MyText
           align="center"
@@ -407,7 +407,7 @@ exports[`render 0 uncontacted 1`] = `
           </MyText>
         </MyText>
       </Flex>
-      <withI18nextTranslation(ShareSurveyMenu)
+      <ShareSurveyMenu
         survey={
           Object {
             "contacts_count": 50,
@@ -473,7 +473,7 @@ exports[`render survey 1`] = `
         value={1}
       >
         <ItemHeaderText
-          text="Winter Conference 2018"
+          text="WINTER CONFERENCE 2018"
         />
         <MyText
           align="center"
@@ -539,7 +539,7 @@ exports[`render survey 1`] = `
           </MyText>
         </MyText>
       </Flex>
-      <withI18nextTranslation(ShareSurveyMenu)
+      <ShareSurveyMenu
         survey={
           Object {
             "contacts_count": 50,

@@ -61,7 +61,7 @@ jest.mock('../challenges');
 jest.mock('../navigation');
 jest.mock('../../selectors/selectorUtils');
 
-global.FormData = require('FormData');
+global.FormData = require('react-native/Libraries/Network/FormData');
 
 const myId = '1';
 
@@ -616,12 +616,39 @@ describe('addNewOrganization', () => {
       },
     },
   };
-  const apiResponse = { type: 'api response', response: { id: orgId } };
+  const getOrgsQuery = {
+    limit: 100,
+    include: '',
+    filters: {
+      descendants: false,
+    },
+    sort: 'name',
+  };
+  const org = {
+    id: orgId,
+  };
+  const orgs = [org];
+
+  const addOrgApiResponse = { type: 'add org api response', response: org };
+  const updateOrgApiResponse = {
+    type: 'update org  api response',
+    response: org,
+  };
+  const getOrgsApiResponse = { type: 'get orgs api response', response: orgs };
   const getMeResponse = { type: 'get me response' };
   const trackActionResponse = { type: 'track action' };
 
   beforeEach(() => {
-    callApi.mockReturnValue(apiResponse);
+    callApi.mockImplementation(type => {
+      switch (type) {
+        case REQUESTS.ADD_NEW_ORGANIZATION:
+          return addOrgApiResponse;
+        case REQUESTS.UPDATE_ORGANIZATION_IMAGE:
+          return updateOrgApiResponse;
+        case REQUESTS.GET_ORGANIZATIONS:
+          return getOrgsApiResponse;
+      }
+    });
     getMe.mockReturnValue(getMeResponse);
     trackActionWithoutData.mockReturnValue(trackActionResponse);
   });
@@ -629,21 +656,28 @@ describe('addNewOrganization', () => {
   it('adds organization with name', async () => {
     await store.dispatch(addNewOrganization(name));
 
-    expect(callApi).toHaveBeenCalledTimes(1);
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.ADD_NEW_ORGANIZATION,
       {},
       bodyData,
     );
-    expect(trackActionWithoutData).toHaveBeenCalledTimes(1);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_ORGANIZATIONS,
+      getOrgsQuery,
+    );
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CREATE_COMMUNITY,
     );
     expect(getMe).toHaveBeenCalledWith();
 
     expect(store.getActions()).toEqual([
-      apiResponse,
+      addOrgApiResponse,
       trackActionResponse,
+      getOrgsApiResponse,
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs,
+      },
       getMeResponse,
     ]);
   });
@@ -663,7 +697,6 @@ describe('addNewOrganization', () => {
 
     await store.dispatch(addNewOrganization(name, testImageData));
 
-    expect(callApi).toHaveBeenCalledTimes(2);
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.ADD_NEW_ORGANIZATION,
       {},
@@ -674,7 +707,10 @@ describe('addNewOrganization', () => {
       { orgId },
       imageBodyData,
     );
-    expect(trackActionWithoutData).toHaveBeenCalledTimes(2);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_ORGANIZATIONS,
+      getOrgsQuery,
+    );
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CREATE_COMMUNITY,
     );
@@ -684,10 +720,15 @@ describe('addNewOrganization', () => {
     expect(getMe).toHaveBeenCalledWith();
 
     expect(store.getActions()).toEqual([
-      apiResponse,
+      addOrgApiResponse,
       trackActionResponse,
-      apiResponse,
+      updateOrgApiResponse,
       trackActionResponse,
+      getOrgsApiResponse,
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs,
+      },
       getMeResponse,
     ]);
   });

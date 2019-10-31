@@ -213,7 +213,7 @@ export class AssignedPersonScreen extends Component {
     } = this.props;
 
     // If the keyboard is up, show the person's name and the organization
-    const name = (person.first_name || '').toUpperCase();
+    const name = person.first_name || '';
 
     return (
       <SafeAreaView style={styles.container}>

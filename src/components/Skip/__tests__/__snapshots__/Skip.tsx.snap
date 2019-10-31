@@ -3,7 +3,7 @@
 exports[`render skip 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -49,7 +49,7 @@ exports[`render skip 1`] = `
             Object {
               "backgroundColor": "rgba(0,0,0,0)",
               "color": "#ffffff",
-              "fontSize": 18,
+              "fontSize": 14,
               "fontWeight": "500",
               "letterSpacing": 1.5,
               "textAlign": "center",
@@ -73,7 +73,7 @@ exports[`render skip 1`] = `
 exports[`renders skip with style 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -121,7 +121,7 @@ exports[`renders skip with style 1`] = `
             Object {
               "backgroundColor": "rgba(0,0,0,0)",
               "color": "#ffffff",
-              "fontSize": 18,
+              "fontSize": 14,
               "fontWeight": "500",
               "letterSpacing": 1.5,
               "textAlign": "center",
@@ -145,7 +145,7 @@ exports[`renders skip with style 1`] = `
 exports[`renders skip with text style 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -191,7 +191,7 @@ exports[`renders skip with text style 1`] = `
             Object {
               "backgroundColor": "rgba(0,0,0,0)",
               "color": "#ffffff",
-              "fontSize": 18,
+              "fontSize": 14,
               "fontWeight": "500",
               "letterSpacing": 1.5,
               "textAlign": "center",
