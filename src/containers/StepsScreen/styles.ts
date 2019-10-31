@@ -8,12 +8,6 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.primaryColor,
   },
-  backgroundTop: {
-    backgroundColor: theme.backgroundColor,
-  },
-  backgroundBottom: {
-    backgroundColor: theme.extraLightGrey,
-  },
   contentContainer: {
     flex: 1,
     backgroundColor: theme.extraLightGrey,
@@ -39,6 +33,11 @@ export default StyleSheet.create({
     overflow: 'scroll',
     backgroundColor: theme.extraLightGrey,
     paddingBottom: isAndroid ? 50 : undefined,
+  },
+  nullWrap: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   nullHeader: {
     fontSize: 42,
