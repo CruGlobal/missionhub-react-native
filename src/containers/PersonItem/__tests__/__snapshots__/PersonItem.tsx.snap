@@ -12,35 +12,105 @@ exports[`renders cru org contact correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "row",
+      "height": 70,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="personCard"
 >
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingLeft": 16,
+        "paddingRight": 6,
+      }
+    }
+    testID="stageIcon"
+  >
+    <Image
+      resizeMode="contain"
+      source={
         Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingHorizontal": 24,
-          "paddingVertical": 15,
-          "width": 750,
-        },
+          "testUri": "../../../assets/images/forgivenIcon.png",
+        }
+      }
+      style={
         Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+          "height": 32,
+          "width": 32,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "paddingLeft": 4,
+      }
     }
   >
-    <View
+    <Text
       style={
         Array [
-          Object {},
           Object {
-            "flex": 1,
-            "justifyContent": "center",
+            "color": "#505256",
           },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+            undefined,
+          ],
         ]
+      }
+    >
+      John Doe
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
       }
     >
       <Text
@@ -52,30 +122,24 @@ exports[`renders cru org contact correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Array [
-              Object {
-                "color": "#007398",
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-              undefined,
-            ],
-          ]
-        }
-      >
-        JOHN DOE
-      </Text>
-      <View
-        style={
-          Array [
-            Object {},
             Object {
-              "alignItems": "center",
-              "flexDirection": "row",
+              "color": "#A0A2A6",
+              "fontSize": 12,
+              "lineHeight": 14,
+              "paddingTop": 6,
             },
           ]
         }
       >
+        Stage 1
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
         <Text
           style={
             Array [
@@ -85,32 +149,21 @@ exports[`renders cru org contact correctly 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+              ],
             ]
           }
         >
-          Stage 1
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-            &gt;  
+           · 
         </Text>
         <Text
           style={
@@ -124,9 +177,10 @@ exports[`renders cru org contact correctly 1`] = `
               Array [
                 Object {
                   "color": "#A0A2A6",
-                  "fontSize": 14,
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
                 },
-                null,
               ],
             ]
           }
@@ -135,6 +189,93 @@ exports[`renders cru org contact correctly 1`] = `
         </Text>
       </View>
     </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingLeft": 6,
+        "paddingRight": 16,
+      }
+    }
+    testID="stepIcon"
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 30,
+            },
+            Object {
+              "color": "#52C5DC",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 14,
+            },
+            Object {
+              "bottom": 16,
+              "color": "#52C5DC",
+              "left": 24,
+              "position": "absolute",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
   </View>
 </View>
 `;
@@ -151,104 +292,95 @@ exports[`renders cru org contact without stage correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "row",
+      "height": 70,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="personCard"
 >
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingHorizontal": 24,
-          "paddingVertical": 15,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "height": 70,
+        "width": 54,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "paddingLeft": 4,
+      }
     }
   >
-    <View
+    <Text
       style={
         Array [
-          Object {},
           Object {
-            "flex": 1,
-            "justifyContent": "center",
+            "color": "#505256",
           },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+            undefined,
+          ],
         ]
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#007398",
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-              undefined,
-            ],
-          ]
+      John Doe
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
         }
-      >
-        JOHN DOE
-      </Text>
+      }
+    >
       <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {},
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-            },
-          ]
+          Object {
+            "opacity": 1,
+          }
         }
+        testID="stageText"
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
-            ]
-          }
-        />
         <Text
           style={
             Array [
@@ -261,9 +393,68 @@ exports[`renders cru org contact without stage correctly 1`] = `
               Array [
                 Object {
                   "color": "#A0A2A6",
-                  "fontSize": 14,
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
                 },
-                null,
+                Object {
+                  "color": "#52C5DC",
+                },
+              ],
+            ]
+          }
+        >
+          Add Stage
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+              ],
+            ]
+          }
+        >
+           · 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
               ],
             ]
           }
@@ -272,56 +463,93 @@ exports[`renders cru org contact without stage correctly 1`] = `
         </Text>
       </View>
     </View>
-    <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingLeft": 6,
+        "paddingRight": 16,
       }
-      testID="setStageButton"
-    >
-      <Text
-        allowFontScaling={false}
-        style={
+    }
+    testID="stepIcon"
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
           Array [
             Object {
-              "color": undefined,
-              "fontSize": 12,
+              "color": "#ffffff",
             },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 18,
-              },
-              Object {
-                "color": "#FF5532",
-                "fontSize": 24,
-              },
-            ],
             Object {
-              "fontFamily": "icomoon",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
+              "fontSize": 30,
             },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-    </View>
+            Object {
+              "color": "#52C5DC",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 14,
+            },
+            Object {
+              "bottom": 16,
+              "color": "#52C5DC",
+              "left": 24,
+              "position": "absolute",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
   </View>
 </View>
 `;
@@ -338,35 +566,105 @@ exports[`renders cru org member correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "row",
+      "height": 70,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="personCard"
 >
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingLeft": 16,
+        "paddingRight": 6,
+      }
+    }
+    testID="stageIcon"
+  >
+    <Image
+      resizeMode="contain"
+      source={
         Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingHorizontal": 24,
-          "paddingVertical": 15,
-          "width": 750,
-        },
+          "testUri": "../../../assets/images/forgivenIcon.png",
+        }
+      }
+      style={
         Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+          "height": 32,
+          "width": 32,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "paddingLeft": 4,
+      }
     }
   >
-    <View
+    <Text
       style={
         Array [
-          Object {},
           Object {
-            "flex": 1,
-            "justifyContent": "center",
+            "color": "#505256",
           },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+            undefined,
+          ],
         ]
+      }
+    >
+      John Doe
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
       }
     >
       <Text
@@ -378,85 +676,105 @@ exports[`renders cru org member correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Array [
-              Object {
-                "color": "#007398",
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-              undefined,
-            ],
-          ]
-        }
-      >
-        JOHN DOE
-      </Text>
-      <View
-        style={
-          Array [
-            Object {},
             Object {
-              "alignItems": "center",
-              "flexDirection": "row",
+              "color": "#A0A2A6",
+              "fontSize": 12,
+              "lineHeight": 14,
+              "paddingTop": 6,
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          Stage 1
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
-            ]
-          }
-        />
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#A0A2A6",
-                  "fontSize": 14,
-                },
-                null,
-              ],
-            ]
-          }
-        />
-      </View>
+        Stage 1
+      </Text>
     </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingLeft": 6,
+        "paddingRight": 16,
+      }
+    }
+    testID="stepIcon"
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 30,
+            },
+            Object {
+              "color": "#52C5DC",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 14,
+            },
+            Object {
+              "bottom": 16,
+              "color": "#52C5DC",
+              "left": 24,
+              "position": "absolute",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
   </View>
 </View>
 `;
@@ -473,35 +791,105 @@ exports[`renders me correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "row",
+      "height": 70,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="personCard"
 >
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingLeft": 16,
+        "paddingRight": 6,
+      }
+    }
+    testID="stageIcon"
+  >
+    <Image
+      resizeMode="contain"
+      source={
         Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingHorizontal": 24,
-          "paddingVertical": 15,
-          "width": 750,
-        },
+          "testUri": "../../../assets/images/forgivenIcon.png",
+        }
+      }
+      style={
         Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+          "height": 32,
+          "width": 32,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "paddingLeft": 4,
+      }
     }
   >
-    <View
+    <Text
       style={
         Array [
-          Object {},
           Object {
-            "flex": 1,
-            "justifyContent": "center",
+            "color": "#505256",
           },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+            undefined,
+          ],
         ]
+      }
+    >
+      Me
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
       }
     >
       <Text
@@ -513,85 +901,105 @@ exports[`renders me correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Array [
-              Object {
-                "color": "#007398",
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-              undefined,
-            ],
-          ]
-        }
-      >
-        ME
-      </Text>
-      <View
-        style={
-          Array [
-            Object {},
             Object {
-              "alignItems": "center",
-              "flexDirection": "row",
+              "color": "#A0A2A6",
+              "fontSize": 12,
+              "lineHeight": 14,
+              "paddingTop": 6,
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          Stage 1
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
-            ]
-          }
-        />
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#A0A2A6",
-                  "fontSize": 14,
-                },
-                null,
-              ],
-            ]
-          }
-        />
-      </View>
+        Stage 1
+      </Text>
     </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingLeft": 6,
+        "paddingRight": 16,
+      }
+    }
+    testID="stepIcon"
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 30,
+            },
+            Object {
+              "color": "#52C5DC",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 14,
+            },
+            Object {
+              "bottom": 16,
+              "color": "#52C5DC",
+              "left": 24,
+              "position": "absolute",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
   </View>
 </View>
 `;
@@ -608,35 +1016,105 @@ exports[`renders personal ministry contact correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "row",
+      "height": 70,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="personCard"
 >
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingLeft": 16,
+        "paddingRight": 6,
+      }
+    }
+    testID="stageIcon"
+  >
+    <Image
+      resizeMode="contain"
+      source={
         Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingHorizontal": 24,
-          "paddingVertical": 15,
-          "width": 750,
-        },
+          "testUri": "../../../assets/images/forgivenIcon.png",
+        }
+      }
+      style={
         Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+          "height": 32,
+          "width": 32,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "paddingLeft": 4,
+      }
     }
   >
-    <View
+    <Text
       style={
         Array [
-          Object {},
           Object {
-            "flex": 1,
-            "justifyContent": "center",
+            "color": "#505256",
           },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+            undefined,
+          ],
         ]
+      }
+    >
+      John Doe
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
       }
     >
       <Text
@@ -648,85 +1126,105 @@ exports[`renders personal ministry contact correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Array [
-              Object {
-                "color": "#007398",
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-              undefined,
-            ],
-          ]
-        }
-      >
-        JOHN DOE
-      </Text>
-      <View
-        style={
-          Array [
-            Object {},
             Object {
-              "alignItems": "center",
-              "flexDirection": "row",
+              "color": "#A0A2A6",
+              "fontSize": 12,
+              "lineHeight": 14,
+              "paddingTop": 6,
             },
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          Stage 1
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
-            ]
-          }
-        />
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#A0A2A6",
-                  "fontSize": 14,
-                },
-                null,
-              ],
-            ]
-          }
-        />
-      </View>
+        Stage 1
+      </Text>
     </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingLeft": 6,
+        "paddingRight": 16,
+      }
+    }
+    testID="stepIcon"
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 30,
+            },
+            Object {
+              "color": "#52C5DC",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 14,
+            },
+            Object {
+              "bottom": 16,
+              "color": "#52C5DC",
+              "left": 24,
+              "position": "absolute",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
   </View>
 </View>
 `;
@@ -743,35 +1241,105 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "row",
+      "height": 70,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="personCard"
 >
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingLeft": 16,
+        "paddingRight": 6,
+      }
+    }
+    testID="stageIcon"
+  >
+    <Image
+      resizeMode="contain"
+      source={
         Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingHorizontal": 24,
-          "paddingVertical": 15,
-          "width": 750,
-        },
+          "testUri": "../../../assets/images/forgivenIcon.png",
+        }
+      }
+      style={
         Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+          "height": 32,
+          "width": 32,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "paddingLeft": 4,
+      }
     }
   >
-    <View
+    <Text
       style={
         Array [
-          Object {},
           Object {
-            "flex": 1,
-            "justifyContent": "center",
+            "color": "#505256",
           },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+            undefined,
+          ],
         ]
+      }
+    >
+      John Doe
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
       }
     >
       <Text
@@ -783,30 +1351,24 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Array [
-              Object {
-                "color": "#007398",
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-              undefined,
-            ],
-          ]
-        }
-      >
-        JOHN DOE
-      </Text>
-      <View
-        style={
-          Array [
-            Object {},
             Object {
-              "alignItems": "center",
-              "flexDirection": "row",
+              "color": "#A0A2A6",
+              "fontSize": 12,
+              "lineHeight": 14,
+              "paddingTop": 6,
             },
           ]
         }
       >
+        Stage 1
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
         <Text
           style={
             Array [
@@ -816,32 +1378,21 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
+                },
+              ],
             ]
           }
         >
-          Stage 1
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-            &gt;  
+           · 
         </Text>
         <Text
           style={
@@ -855,10 +1406,9 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
               Array [
                 Object {
                   "color": "#A0A2A6",
-                  "fontSize": 14,
-                },
-                Object {
-                  "color": "#FF5532",
+                  "fontSize": 12,
+                  "lineHeight": 14,
+                  "paddingTop": 6,
                 },
               ],
             ]
@@ -868,6 +1418,93 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
         </Text>
       </View>
     </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingLeft": 6,
+        "paddingRight": 16,
+      }
+    }
+    testID="stepIcon"
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 30,
+            },
+            Object {
+              "color": "#52C5DC",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 14,
+            },
+            Object {
+              "bottom": 16,
+              "color": "#52C5DC",
+              "left": 24,
+              "position": "absolute",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
   </View>
 </View>
 `;

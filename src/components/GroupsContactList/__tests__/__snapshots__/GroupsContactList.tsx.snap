@@ -43,7 +43,7 @@ exports[`renders activity list 1`] = `
         ]
       }
     >
-      FULL NAME
+      Full Name
     </Text>
     <View
       accessible={true}
@@ -95,7 +95,7 @@ exports[`renders activity list 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -941,7 +941,7 @@ exports[`renders empty list 1`] = `
         ]
       }
     >
-      FULL NAME
+      Full Name
     </Text>
     <View
       accessible={true}
@@ -993,7 +993,7 @@ exports[`renders empty list 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -1129,7 +1129,7 @@ exports[`renders person without full name 1`] = `
         ]
       }
     >
-      FIRST LAST
+      First Last
     </Text>
     <View
       accessible={true}
@@ -1181,7 +1181,7 @@ exports[`renders person without full name 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -2027,7 +2027,7 @@ exports[`renders person without last name 1`] = `
         ]
       }
     >
-      FIRST
+      First
     </Text>
     <View
       accessible={true}
@@ -2079,7 +2079,7 @@ exports[`renders person without last name 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",

@@ -217,10 +217,16 @@ export default {
     monthly: 'Monthly',
   },
   selectStep: {
-    meHeader: 'How do you want to move forward on your spiritual journey?',
-    personHeader: 'What will you do to help {{name}} experience God?',
+    meHeader: {
+      part1: 'How do you want to move',
+      part2: 'forward on your spiritual journey?',
+    },
+    personHeader: {
+      part1: 'Choose a step of faith',
+      part2: ' to take with {{name}} this week...',
+    },
     addStep: 'ADD TO MY STEPS',
-    createStep: 'CREATE YOUR OWN STEP',
+    createStep: 'Create a Custom Step',
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
   },
@@ -431,7 +437,7 @@ export default {
     nullHeader: 'STEPS OF FAITH',
     nullWithReminders: 'Choose a person in People view and add some new steps.',
     nullNoReminders:
-      "You don't have any Steps of Faith.\nChoose a person to view and add some new steps.",
+      "You don't have any Steps of Faith.\nChoose a person and add some new steps.",
     title: 'Steps of Faith',
     reminderTitle: 'Focus your week',
     reminderDescription:
@@ -464,6 +470,7 @@ export default {
     header: 'PEOPLE',
     personalMinistry: 'Personal Ministry',
     personal: 'personal',
+    addStage: 'Add Stage',
   },
   appRoutes: {
     steps: 'Steps',
@@ -580,6 +587,8 @@ export default {
     contactsDescription: 'Stay engaged with contacts in your community.',
     surveysHeader: 'Grow Together',
     surveysDescription: 'Learn about one another through survey responses.',
+    stepsHeader: 'Steps of Faith',
+    stepsDescription: 'Choose a person in People view to add a new step',
   },
   groupsMembers: {
     invite: 'Send Invite',

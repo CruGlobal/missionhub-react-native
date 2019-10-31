@@ -159,7 +159,7 @@ exports[`renders correctly for authenticated user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -247,7 +247,7 @@ exports[`renders correctly for authenticated user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -335,7 +335,7 @@ exports[`renders correctly for authenticated user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -423,7 +423,7 @@ exports[`renders correctly for authenticated user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -511,7 +511,7 @@ exports[`renders correctly for authenticated user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -599,7 +599,7 @@ exports[`renders correctly for authenticated user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -687,7 +687,7 @@ exports[`renders correctly for authenticated user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -870,7 +870,7 @@ exports[`renders correctly for try it now user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -958,7 +958,7 @@ exports[`renders correctly for try it now user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -1046,7 +1046,7 @@ exports[`renders correctly for try it now user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -1134,7 +1134,7 @@ exports[`renders correctly for try it now user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -1222,7 +1222,7 @@ exports[`renders correctly for try it now user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -1310,7 +1310,7 @@ exports[`renders correctly for try it now user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -1398,7 +1398,7 @@ exports[`renders correctly for try it now user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
@@ -1486,7 +1486,7 @@ exports[`renders correctly for try it now user 1`] = `
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#ffffff",
-                  "fontSize": 18,
+                  "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 1.5,
                   "textAlign": "center",
