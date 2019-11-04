@@ -7,11 +7,12 @@ import {
 } from 'react-native';
 
 import { Touchable } from '../common';
+import { TouchablePress } from '../Touchable/index.ios';
 
 import styles from './styles';
 
 interface CardProps {
-  onPress?: Function;
+  onPress?: TouchablePress;
   children?: ReactNode;
 }
 

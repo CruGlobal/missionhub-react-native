@@ -59,7 +59,7 @@ exports[`renders correctly 1`] = `
         >
           <View
             accessible={true}
-            clickable={true}
+            focusable={true}
             isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
@@ -140,7 +140,7 @@ exports[`renders correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -295,7 +295,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -426,7 +426,7 @@ exports[`renders without back button correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -581,7 +581,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -710,7 +710,7 @@ exports[`renders without skip button correctly 1`] = `
         >
           <View
             accessible={true}
-            clickable={true}
+            focusable={true}
             isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
@@ -878,7 +878,7 @@ Take a moment and pray. Who do you want to take steps of faith with?
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}

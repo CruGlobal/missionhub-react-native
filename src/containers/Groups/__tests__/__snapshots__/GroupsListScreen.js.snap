@@ -184,7 +184,7 @@ exports[`should render null state 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -322,7 +322,7 @@ exports[`should render null state 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -336,6 +336,7 @@ exports[`should render null state 1`] = `
             "opacity": 1,
           }
         }
+        testID="Button"
       >
         <View
           style={
@@ -406,7 +407,7 @@ exports[`should render null state 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -420,6 +421,7 @@ exports[`should render null state 1`] = `
             "opacity": 1,
           }
         }
+        testID="Button"
       >
         <View
           style={
@@ -540,7 +542,7 @@ exports[`should render null state 1`] = `
           >
             <View
               accessible={true}
-              clickable={true}
+              focusable={true}
               isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
@@ -568,6 +570,7 @@ exports[`should render null state 1`] = `
                   "shadowRadius": 2,
                 }
               }
+              testID="CardButton"
             >
               <View
                 style={
@@ -756,7 +759,7 @@ exports[`should render null state 1`] = `
           >
             <View
               accessible={true}
-              clickable={true}
+              focusable={true}
               isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
@@ -784,6 +787,7 @@ exports[`should render null state 1`] = `
                   "shadowRadius": 2,
                 }
               }
+              testID="CardButton"
             >
               <View
                 style={

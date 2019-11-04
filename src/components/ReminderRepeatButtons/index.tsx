@@ -7,6 +7,7 @@ import {
   REMINDER_RECURRENCES,
   REMINDER_RECURRENCES_ENUM,
 } from '../../constants';
+import { TouchablePress } from '../Touchable/index.ios';
 
 import styles from './styles';
 
@@ -32,7 +33,7 @@ const ReminderRepeatButtons = ({
   const handleSetMonthly = () => setButtonState(MONTHLY);
   function renderReminderButton(
     recurrence: REMINDER_RECURRENCES_ENUM,
-    onPress: Function,
+    onPress: TouchablePress,
   ) {
     const {
       button,

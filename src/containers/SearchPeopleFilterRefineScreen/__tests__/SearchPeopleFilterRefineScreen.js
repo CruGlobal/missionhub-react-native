@@ -10,7 +10,6 @@ import SearchPeopleFilterRefineScreen from '..';
 const store = createThunkStore();
 
 jest.mock('react-native-device-info');
-jest.mock('Switch');
 
 const options = [
   {
