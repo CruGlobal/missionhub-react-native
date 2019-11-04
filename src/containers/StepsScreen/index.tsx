@@ -186,20 +186,22 @@ export const StepsScreen = ({
         }
         title={t('title').toUpperCase()}
       />
-      {firstTimeLoading ? (
-        <LoadingGuy />
-      ) : (
-        <View style={styles.contentContainer}>
-          <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
-          {renderContent()}
-        </View>
-      )}
+      <View style={styles.contentContainer}>
+        {firstTimeLoading ? (
+          <LoadingGuy />
+        ) : (
+          <>
+            <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
+            {renderContent()}
+          </>
+        )}
+      </View>
     </View>
   );
 };
 
 export const mapStateToProps = ({ steps }: { steps: StepsState }) => ({
-  steps: myStepsSelector,
+  steps: myStepsSelector({ steps }),
   hasMoreSteps: steps.pagination.hasNextPage,
 });
 
