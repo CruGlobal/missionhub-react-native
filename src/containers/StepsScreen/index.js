@@ -262,11 +262,20 @@ export class StepsScreen extends Component {
           <Text header={true} style={styles.nullHeader}>
             {t('nullHeader')}
           </Text>
-          <Text style={styles.nullText}>
-            {this.hasReminders()
-              ? t('nullWithReminders')
-              : t('nullNoReminders')}
-          </Text>
+          <View style={styles.nulltextWrapper}>
+            {this.hasReminders() ? (
+              <Text style={styles.nullText}>{t('nullWithReminders')}</Text>
+            ) : (
+              <>
+                <Text style={styles.nullText}>
+                  {t('nullNoReminders.part1')}
+                </Text>
+                <Text style={styles.nullText}>
+                  {t('nullNoReminders.part2')}
+                </Text>
+              </>
+            )}
+          </View>
         </Flex>
       );
     }
