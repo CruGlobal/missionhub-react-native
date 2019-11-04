@@ -34,16 +34,13 @@ export default StyleSheet.create({
   uncontacted: {
     color: theme.red,
   },
-  stageButtonWrapper: {
+  stageIconWrapper: {
     height: 70,
+    width: 54,
     paddingLeft: 16,
     paddingRight: 6,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  stageEmptyWrapper: {
-    height: 70,
-    width: 54,
   },
   stepButtonWrapper: {
     height: 70,
