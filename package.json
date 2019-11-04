@@ -37,6 +37,7 @@
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",
     "@babel/runtime": "^7.6.3",
+    "@react-native-community/viewpager": "^2.0.1",
     "@react-navigation/core": "3.4.1",
     "@react-navigation/native": "^3.5.0",
     "@ringierag/snowplow-reactjs-native-tracker": "^0.0.4",
@@ -78,7 +79,7 @@
     "react-native-omniture": "https://github.com/CruGlobal/react-native-omniture",
     "react-native-parallax-scroll-view": "https://github.com/nicotroia/react-native-parallax-scroll-view.git#fix/sticky-header-position-when-hidden",
     "react-native-push-notification": "https://github.com/CruGlobal/react-native-push-notification",
-    "react-native-scrollable-tab-view": "^0.10.0",
+    "react-native-scrollable-tab-view": "^1.0.0",
     "react-native-snap-carousel": "^3.8.0",
     "react-native-vector-icons": "^6.6.0",
     "react-native-view-overflow": "^0.0.4",
