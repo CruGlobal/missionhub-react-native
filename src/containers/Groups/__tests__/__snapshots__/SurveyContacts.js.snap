@@ -12,7 +12,7 @@ exports[`SurveyContacts should render correctly 1`] = `
   <Header
     left={<Connect(BackButton) />}
     right={
-      <withI18nextTranslation(ShareSurveyMenu)
+      <ShareSurveyMenu
         header={true}
         survey={
           Object {

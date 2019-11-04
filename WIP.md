@@ -1,9 +1,7 @@
 Components to convert to TS+Hooks
 
-- Button
 - CommentBox
 - DatePicker
-- GroupCardItem
 - GroupMemberItem
 - GroupsPersonHeader
 - GroupSurveyItem
@@ -12,14 +10,10 @@ Components to convert to TS+Hooks
 - JourneyItem
 - MemberOptionsMenu
 - PersonSideMenu
-- PlatformKeyboardAvoidingView
 - PopupMenu
-- ReminderButton
 - RowSwipeable
 - SearchList
 - SearchPeopleItem
-- SettingsMenu
-- ShareSurveyMenu
 - SideMenu
 - SwipeTabMenu
 - common.js
@@ -29,6 +23,7 @@ Components to convert to TS+Hooks
 - AcceptedStepItem
 - AssignStageButton
 - AssignToMeButton
+- Button
 - CelebrateCommentBox
 - CelebrateItem
 - CelebrateItemContent
@@ -38,18 +33,23 @@ Components to convert to TS+Hooks
 - ChallengeStats
 - FilterItem
 - FilterList
+- GroupCardItem
 - GroupsContactItem
 - GroupsContactList
 - NullStateComponent
 - PersonListItem
+- PlatformKeyboardAvoidingView
 - RadioButton
 - RefreshControl
+- ReminderButton
 - ReminderDateText
 - ReminderRepeatButtons
 - ReportCommentHeaderCard
 - ReportCommentLabel
+- ShareSurveyMenu
 - StepDetailScreen
 - Separator
+- SettingsMenu
 - StepItem
 - TosPrivacy
 - Touchable

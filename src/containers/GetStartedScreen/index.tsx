@@ -7,7 +7,7 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { Flex, Text } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
-import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
+import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { ProfileState } from '../../reducers/profile';
 import Header from '../../components/Header';
 
@@ -21,6 +21,7 @@ interface GetStartedScreenProps {
   id: string | null;
   name: string;
   enableBackButton?: boolean;
+  logoutOnBack?: boolean;
 }
 
 const GetStartedScreen = ({
@@ -29,9 +30,11 @@ const GetStartedScreen = ({
   id,
   name = '',
   enableBackButton = true,
+  logoutOnBack = false,
 }: GetStartedScreenProps) => {
-  useAndroidBackButton(enableBackButton);
   const { t } = useTranslation('getStarted');
+
+  const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);
 
   const navigateNext = () => {
     dispatch(next({ id }));
@@ -39,7 +42,9 @@ const GetStartedScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header left={enableBackButton ? <BackButton /> : null} />
+      <Header
+        left={handleBack ? <BackButton customNavigate={handleBack} /> : null}
+      />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex align="start" justify="center" value={4}>
           <Text header={true} style={styles.headerTitle}>
