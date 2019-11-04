@@ -37,7 +37,6 @@
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",
     "@babel/runtime": "^7.6.3",
-    "@react-native-community/viewpager": "^2.0.1",
     "@react-navigation/core": "3.4.1",
     "@react-navigation/native": "^3.5.0",
     "@ringierag/snowplow-reactjs-native-tracker": "^0.0.4",
