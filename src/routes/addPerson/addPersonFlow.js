@@ -1,6 +1,6 @@
 /*  eslint max-lines-per-function: 0 */
 
-import { createStackNavigator, StackActions } from 'react-navigation';
+import { createStackNavigator, StackActions } from 'react-navigation-stack';
 
 import { CREATE_STEP, PEOPLE_TAB } from '../../constants';
 import {

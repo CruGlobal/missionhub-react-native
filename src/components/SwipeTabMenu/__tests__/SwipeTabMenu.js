@@ -1,9 +1,7 @@
 import React from 'react';
 import { Text, ScrollView } from 'react-native';
-import {
-  createMaterialTopTabNavigator,
-  NavigationActions,
-} from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
 import { Touchable } from '../../../../src/components/common';
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
@@ -12,8 +10,10 @@ import * as common from '../../../utils/common';
 import { SwipeTabMenu, generateSwipeTabMenuNavigator } from '..';
 
 jest.mock('react-navigation', () => ({
-  createMaterialTopTabNavigator: jest.fn(),
   NavigationActions: { navigate: jest.fn(() => ({ type: 'navigated' })) },
+}));
+jest.mock('react-navigation-tabs', () => ({
+  createMaterialTopTabNavigator: jest.fn(),
 }));
 
 jest.mock('../../../actions/navigation', () => ({

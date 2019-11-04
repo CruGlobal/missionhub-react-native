@@ -1,4 +1,4 @@
-import { createStackNavigator, StackActions } from 'react-navigation';
+import { createStackNavigator, StackActions } from 'react-navigation-stack';
 
 import { wrapNextAction } from '../helpers';
 import { navigatePush } from '../../actions/navigation';

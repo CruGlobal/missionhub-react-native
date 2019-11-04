@@ -2,11 +2,11 @@
 
 import React from 'react';
 import {
-  createBottomTabNavigator,
-  createDrawerNavigator,
   createStackNavigator,
   StackViewTransitionConfigs,
-} from 'react-navigation';
+} from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
 import StepsScreen from './containers/StepsScreen';
