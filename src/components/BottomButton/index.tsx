@@ -1,4 +1,5 @@
 import React from 'react';
+import { SafeAreaView } from 'react-native';
 
 import { Button } from '../../components/common';
 import theme from '../../theme';
@@ -16,18 +17,21 @@ const BottomButton = ({ text, disabled, onPress }: BottomButtonProps) => {
     onPress();
   };
   return (
-    <Button
-      testID="bottomButton"
-      type="secondary"
-      disabled={disabled}
-      onPress={handlePress}
-      text={text.toUpperCase()}
-      style={{
-        flex: 0,
-        alignItems: 'stretch',
-        width: theme.fullWidth,
-      }}
-    />
+    <SafeAreaView style={{ position: 'absolute', bottom: 20, left: 50 }}>
+      <Button
+        testID="bottomButton"
+        type="secondary"
+        disabled={disabled}
+        onPress={handlePress}
+        text={text.toUpperCase()}
+        style={{
+          width: theme.fullWidth - 100,
+          height: 48,
+          alignItems: 'center',
+        }}
+        pill={true}
+      />
+    </SafeAreaView>
   );
 };
 

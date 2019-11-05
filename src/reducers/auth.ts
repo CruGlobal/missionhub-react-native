@@ -11,12 +11,15 @@ import { userIsJean } from '../utils/common';
 import { getLocalizedStages } from '../utils/stages';
 import { REQUESTS } from '../api/routes';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type AuthPerson = any;
+
 export interface AuthState {
   isFirstTime: boolean;
   token: string;
   refreshToken: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  person: any; // TODO: use GraphQL type
+  person: AuthPerson; // TODO: use GraphQL type
   isJean: boolean;
   upgradeToken: boolean | null;
 }

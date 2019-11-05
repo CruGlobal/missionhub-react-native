@@ -16,6 +16,7 @@ let personId: string;
 let contactStageId: string;
 let screen: ReturnType<typeof renderWithContext>;
 
+const navToCreateStep = jest.fn();
 const stageIdWithSteps = '3';
 const receiverId = '252342354234';
 const contactName = 'Bill';
@@ -45,6 +46,7 @@ const onPressStep = jest.fn();
 beforeEach(() => {
   screen = renderWithContext(
     <StepsList
+      onPressCreateStep={navToCreateStep}
       contactStageId={contactStageId}
       receiverId={receiverId}
       contactName={contactName}

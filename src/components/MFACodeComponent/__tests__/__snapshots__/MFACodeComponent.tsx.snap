@@ -5,7 +5,7 @@ exports[`should change loading state 1`] = `
 - First value
 + Second value
 
-@@ -121,6 +121,7 @@
+@@ -130,6 +130,7 @@
           testID=\\"mfaCodeInput\\"
           value=\\"Roge\\"
         />
@@ -20,7 +20,7 @@ exports[`should change loading state 2`] = `
 - First value
 + Second value
 
-@@ -121,7 +121,6 @@
+@@ -130,7 +130,6 @@
           testID=\\"mfaCodeInput\\"
           value=\\"Roge\\"
         />
@@ -42,55 +42,64 @@ exports[`should render correctly 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
-      Array [
-        Object {
-          "flexDirection": "row",
-          "height": 56,
-          "paddingTop": 0,
-        },
-        undefined,
-        null,
-      ]
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
   >
-    <Flex
-      align="start"
-      justify="center"
+    <View
       style={
-        Object {
-          "paddingLeft": 5,
-        }
-      }
-      value={1}
-    >
-      <BackButton />
-    </Flex>
-    <Flex
-      align="end"
-      justify="center"
-      style={
-        Object {
-          "paddingRight": 5,
-        }
-      }
-      value={1}
-    >
-      <Button
-        buttonTextStyle={
+        Array [
           Object {
-            "fontSize": 14,
-            "letterSpacing": 2,
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <Flex
+        align="start"
+        justify="center"
+        style={
+          Object {
+            "paddingLeft": 5,
           }
         }
-        onPress={[MockFunction]}
-        testID="doneButton"
-        text="DONE"
-        type="transparent"
-      />
-    </Flex>
-  </View>
+        value={1}
+      >
+        <BackButton />
+      </Flex>
+      <Flex
+        align="end"
+        justify="center"
+        style={
+          Object {
+            "paddingRight": 5,
+          }
+        }
+        value={1}
+      >
+        <Button
+          buttonTextStyle={
+            Object {
+              "fontSize": 14,
+              "letterSpacing": 2,
+            }
+          }
+          onPress={[MockFunction]}
+          testID="doneButton"
+          text="DONE"
+          type="transparent"
+        />
+      </Flex>
+    </View>
+  </RCTSafeAreaView>
   <Flex
     justify="center"
     style={
