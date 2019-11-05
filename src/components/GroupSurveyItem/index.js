@@ -29,7 +29,7 @@ class GroupSurveyItem extends Component {
           </Flex>
           <Flex value={3.5} direction="row" style={styles.content}>
             <Flex value={1}>
-              <ItemHeaderText text={survey.title || ''} />
+              <ItemHeaderText text={(survey.title || '').toUpperCase()} />
               <Text direction="row" align="center">
                 {survey.contacts_count ? (
                   <Text style={[styles.text, styles.contacts]}>

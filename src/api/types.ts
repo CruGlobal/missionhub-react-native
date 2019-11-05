@@ -15,4 +15,8 @@ interface PersonAttributes {
   picture?: string;
   created_at: string;
   updated_at: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  reverse_contact_assignments: any[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  organizational_permissions: any[];
 }

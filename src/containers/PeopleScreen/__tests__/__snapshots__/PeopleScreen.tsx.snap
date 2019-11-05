@@ -52,7 +52,6 @@ exports[`renders correctly as Casey 1`] = `
     }
     onAddContact={[Function]}
     onRefresh={[Function]}
-    onSelect={[Function]}
     refreshing={false}
     sections={false}
     testID="peopleList"
@@ -139,7 +138,6 @@ exports[`renders correctly as Jean 1`] = `
     }
     onAddContact={[Function]}
     onRefresh={[Function]}
-    onSelect={[Function]}
     refreshing={false}
     sections={true}
     testID="peopleList"
@@ -190,11 +188,34 @@ exports[`renders empty correctly 1`] = `
     }
     onAddContact={[Function]}
     onRefresh={[Function]}
-    onSelect={[Function]}
     refreshing={false}
     sections={false}
     testID="peopleList"
   />
-  <TakeAStepWithSomeoneButton />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <Button
+      onPress={[Function]}
+      pill={true}
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 48,
+          "width": 650,
+        }
+      }
+      testID="bottomButton"
+      text="TAKE A STEP WITH SOMEONE"
+      type="secondary"
+    />
+  </RCTSafeAreaView>
 </RCTSafeAreaView>
 `;

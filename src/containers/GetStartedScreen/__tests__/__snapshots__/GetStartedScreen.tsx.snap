@@ -10,30 +10,24 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
-      Array [
-        Object {
-          "flexDirection": "row",
-          "height": 56,
-          "paddingTop": 0,
-        },
-        undefined,
-        null,
-      ]
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
   >
     <View
       style={
         Array [
           Object {
-            "paddingLeft": 5,
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
           },
-          Object {
-            "alignItems": "flex-start",
-            "flex": 1,
-            "justifyContent": "center",
-          },
+          undefined,
+          null,
         ]
       }
     >
@@ -41,104 +35,119 @@ exports[`renders correctly 1`] = `
         style={
           Array [
             Object {
+              "paddingLeft": 5,
+            },
+            Object {
               "alignItems": "flex-start",
-              "alignSelf": "flex-start",
+              "flex": 1,
               "justifyContent": "center",
             },
-            undefined,
           ]
         }
       >
         <View
-          accessible={true}
-          clickable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }
-          testID="IconButton"
         >
           <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {},
-                null,
-              ]
+              Object {
+                "opacity": 1,
+              }
             }
+            testID="IconButton"
           >
-            <Text
-              allowFontScaling={false}
+            <View
               style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "borderRadius": 0,
+                    "borderWidth": 0,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": 0,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
                   },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
+                  null,
                   Object {},
+                  null,
                 ]
               }
             >
-              
-            </Text>
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {},
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
           </View>
         </View>
       </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
     </View>
-    <View
-      style={
-        Array [
-          Object {
-            "paddingRight": 5,
-          },
-          Object {
-            "alignItems": "flex-end",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    />
-  </View>
+  </RCTSafeAreaView>
   <View
     style={
       Array [
@@ -207,73 +216,88 @@ exports[`renders correctly 1`] = `
 Let's figure out where you are on your journey.
       </Text>
     </View>
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
       style={
         Object {
-          "opacity": 1,
+          "bottom": 20,
+          "left": 50,
+          "position": "absolute",
         }
       }
-      testID="bottomButton"
     >
       <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
-            },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
-          ]
+          Object {
+            "opacity": 1,
+          }
         }
+        testID="bottomButton"
       >
-        <Text
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "borderRadius": 50,
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
             ]
           }
         >
-          LET'S GET STARTED
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            LET'S GET STARTED
+          </Text>
+        </View>
       </View>
-    </View>
+    </RCTSafeAreaView>
   </View>
 </RCTSafeAreaView>
 `;
@@ -288,48 +312,57 @@ exports[`renders without back button correctly 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
-      Array [
-        Object {
-          "flexDirection": "row",
-          "height": 56,
-          "paddingTop": 0,
-        },
-        undefined,
-        null,
-      ]
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
   >
     <View
       style={
         Array [
           Object {
-            "paddingLeft": 5,
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
           },
-          Object {
-            "alignItems": "flex-start",
-            "flex": 1,
-            "justifyContent": "center",
-          },
+          undefined,
+          null,
         ]
       }
-    />
-    <View
-      style={
-        Array [
-          Object {
-            "paddingRight": 5,
-          },
-          Object {
-            "alignItems": "flex-end",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    />
-  </View>
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
   <View
     style={
       Array [
@@ -398,73 +431,88 @@ exports[`renders without back button correctly 1`] = `
 Let's figure out where you are on your journey.
       </Text>
     </View>
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
       style={
         Object {
-          "opacity": 1,
+          "bottom": 20,
+          "left": 50,
+          "position": "absolute",
         }
       }
-      testID="bottomButton"
     >
       <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderRadius": 0,
-              "borderWidth": 0,
-              "height": 60,
-              "justifyContent": "center",
-              "margin": 0,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
-            },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
-          ]
+          Object {
+            "opacity": 1,
+          }
         }
+        testID="bottomButton"
       >
-        <Text
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "borderRadius": 50,
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
             ]
           }
         >
-          LET'S GET STARTED
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            LET'S GET STARTED
+          </Text>
+        </View>
       </View>
-    </View>
+    </RCTSafeAreaView>
   </View>
 </RCTSafeAreaView>
 `;

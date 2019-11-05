@@ -166,7 +166,7 @@ describe('CreateGroupScreen', () => {
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, null);
     expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
-      organization: org,
+      orgId: mockNewId,
       initialTab: GROUP_MEMBERS,
     });
     expect(trackActionWithoutData).toHaveBeenCalledWith(
@@ -194,7 +194,7 @@ describe('CreateGroupScreen', () => {
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, data);
     expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
-      organization: org,
+      orgId: mockNewId,
       initialTab: GROUP_MEMBERS,
     });
     expect(trackActionWithoutData).toHaveBeenCalledWith(

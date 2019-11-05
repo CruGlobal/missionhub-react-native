@@ -3,7 +3,7 @@
 exports[`CelebrateItem renders event with card style 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -76,14 +76,14 @@ exports[`CelebrateItem renders event with card style 1`] = `
                   Object {
                     "color": "#007398",
                     "fontSize": 16,
-                    "fontWeight": "bold",
+                    "lineHeight": 20,
                   },
                   undefined,
                 ],
               ]
             }
           >
-            JOHN SMITH
+            John Smith
           </Text>
           <Text
             style={
@@ -187,7 +187,7 @@ exports[`CelebrateItem renders event with card style 1`] = `
         />
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -201,6 +201,7 @@ exports[`CelebrateItem renders event with card style 1`] = `
               "opacity": 1,
             }
           }
+          testID="Button"
         >
           <View
             style={
@@ -235,7 +236,7 @@ exports[`CelebrateItem renders event with card style 1`] = `
 exports[`CelebrateItem renders event with fixed height 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -307,14 +308,14 @@ exports[`CelebrateItem renders event with fixed height 1`] = `
                   Object {
                     "color": "#007398",
                     "fontSize": 16,
-                    "fontWeight": "bold",
+                    "lineHeight": 20,
                   },
                   undefined,
                 ],
               ]
             }
           >
-            JOHN SMITH
+            John Smith
           </Text>
           <Text
             style={
@@ -420,7 +421,7 @@ exports[`CelebrateItem renders event with fixed height 1`] = `
         />
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -434,6 +435,7 @@ exports[`CelebrateItem renders event with fixed height 1`] = `
               "opacity": 1,
             }
           }
+          testID="Button"
         >
           <View
             style={
@@ -468,7 +470,7 @@ exports[`CelebrateItem renders event with fixed height 1`] = `
 exports[`CelebrateItem renders event with name pressable 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -529,7 +531,7 @@ exports[`CelebrateItem renders event with name pressable 1`] = `
         >
           <View
             accessible={true}
-            clickable={true}
+            focusable={true}
             isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
@@ -543,6 +545,7 @@ exports[`CelebrateItem renders event with name pressable 1`] = `
                 "opacity": 1,
               }
             }
+            testID="Button"
           >
             <View
               style={
@@ -569,14 +572,14 @@ exports[`CelebrateItem renders event with name pressable 1`] = `
                       Object {
                         "color": "#007398",
                         "fontSize": 16,
-                        "fontWeight": "bold",
+                        "lineHeight": 20,
                       },
                       undefined,
                     ],
                   ]
                 }
               >
-                JOHN SMITH
+                John Smith
               </Text>
             </View>
           </View>
@@ -682,7 +685,7 @@ exports[`CelebrateItem renders event with name pressable 1`] = `
         />
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -696,6 +699,7 @@ exports[`CelebrateItem renders event with name pressable 1`] = `
               "opacity": 1,
             }
           }
+          testID="Button"
         >
           <View
             style={
@@ -730,7 +734,7 @@ exports[`CelebrateItem renders event with name pressable 1`] = `
 exports[`clear notification button renders clear notification button 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -802,14 +806,14 @@ exports[`clear notification button renders clear notification button 1`] = `
                   Object {
                     "color": "#007398",
                     "fontSize": 16,
-                    "fontWeight": "bold",
+                    "lineHeight": 20,
                   },
                   undefined,
                 ],
               ]
             }
           >
-            JOHN SMITH
+            John Smith
           </Text>
           <Text
             style={
@@ -913,7 +917,7 @@ exports[`clear notification button renders clear notification button 1`] = `
         />
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -927,6 +931,7 @@ exports[`clear notification button renders clear notification button 1`] = `
               "opacity": 1,
             }
           }
+          testID="Button"
         >
           <View
             style={
@@ -966,7 +971,7 @@ exports[`clear notification button renders clear notification button 1`] = `
   >
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}

@@ -17,7 +17,6 @@ const mockStore = {
 const store = createThunkStore(mockStore);
 
 jest.mock('react-native-device-info');
-jest.mock('Switch');
 
 const mockFilters = {
   ministry: { id: 'test1', text: 'Test 1' },

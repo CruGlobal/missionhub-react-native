@@ -28,7 +28,7 @@ class SelectMyStepScreen extends Component {
         contactStageId={stageId}
         receiverId={personId}
         organization={organization}
-        headerText={t('meHeader')}
+        headerText={[t('meHeader.part1'), t('meHeader.part2')]}
         createStepTracking={buildTrackingObj(
           `${section} : self : steps : create`,
           section,

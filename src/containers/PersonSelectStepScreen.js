@@ -33,7 +33,10 @@ class PersonSelectStepScreen extends Component {
         contactStageId={stageId}
         receiverId={contactId ? contactId : personId}
         contactName={name}
-        headerText={t('personHeader', { name })}
+        headerText={[
+          t('personHeader.part1'),
+          t('personHeader.part2', { name }),
+        ]}
         organization={organization}
         enableSkipButton={enableSkipButton}
         next={next}
