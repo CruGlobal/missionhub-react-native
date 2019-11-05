@@ -8,18 +8,18 @@ import { Flex, Button, IconButton } from '../common';
 
 import styles from './styles';
 
-type menuItemsType = {
+interface MenuItemsType {
   label: string;
   action: () => void;
   selected?: boolean;
-};
+}
 
 interface SideMenuProps {
   isOpen: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, any>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  menuItems: menuItemsType[];
+  menuItems: MenuItemsType[];
   testID: string;
 }
 
