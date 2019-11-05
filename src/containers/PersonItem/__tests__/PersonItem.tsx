@@ -223,33 +223,33 @@ describe('handleChangeStage', () => {
       );
       expect(store.getActions()).toEqual([navigateToStageScreenResult]);
     });
+  });
 
-    describe('not isMe', () => {
-      it('navigates to person stage screen without stage', () => {
-        const mockPersonNoStage = {
-          ...mockPerson,
-          reverse_contact_assignments: [mockContactAssignmentNoStage],
-        };
+  describe('not isMe', () => {
+    it('navigates to person stage screen without stage', () => {
+      const mockPersonNoStage = {
+        ...mockPerson,
+        reverse_contact_assignments: [mockContactAssignmentNoStage],
+      };
 
-        const { getByTestId, store } = renderWithContext(
-          <PersonItem
-            person={(mockPersonNoStage as unknown) as PersonAttributes}
-            organization={mockOrganization}
-          />,
-          { initialState: mockState },
-        );
+      const { getByTestId, store } = renderWithContext(
+        <PersonItem
+          person={(mockPersonNoStage as unknown) as PersonAttributes}
+          organization={mockOrganization}
+        />,
+        { initialState: mockState },
+      );
 
-        fireEvent.press(getByTestId('stageText'));
+      fireEvent.press(getByTestId('stageText'));
 
-        expect(navigateToStageScreen).toHaveBeenCalledWith(
-          false,
-          mockPersonNoStage,
-          mockContactAssignmentNoStage,
-          mockOrganization,
-          undefined,
-        );
-        expect(store.getActions()).toEqual([navigateToStageScreenResult]);
-      });
+      expect(navigateToStageScreen).toHaveBeenCalledWith(
+        false,
+        mockPersonNoStage,
+        mockContactAssignmentNoStage,
+        mockOrganization,
+        undefined,
+      );
+      expect(store.getActions()).toEqual([navigateToStageScreenResult]);
     });
   });
 });
