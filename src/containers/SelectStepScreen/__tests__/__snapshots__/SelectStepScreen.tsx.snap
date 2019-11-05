@@ -312,7 +312,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
                     ]
                   }
                 >
-                  H
+                  Header Text
                 </Text>
                 <Text
                   style={
@@ -334,9 +334,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
                       },
                     ]
                   }
-                >
-                  e
-                </Text>
+                />
               </View>
             </View>
           </View>
@@ -872,7 +870,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
                     ]
                   }
                 >
-                  H
+                  Header Text
                 </Text>
                 <Text
                   style={
@@ -894,9 +892,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
                       },
                     ]
                   }
-                >
-                  e
-                </Text>
+                />
               </View>
             </View>
           </View>
