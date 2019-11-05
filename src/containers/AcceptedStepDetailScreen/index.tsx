@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
