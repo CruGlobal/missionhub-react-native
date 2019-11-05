@@ -158,7 +158,6 @@ export const StepsScreen = ({
         }
         onScroll={handleScroll}
         scrollEventThrottle={16}
-        contentContainerStyle={styles.contentContainer}
       >
         {steps.length > 0 ? renderSteps() : renderNull()}
       </ScrollView>
