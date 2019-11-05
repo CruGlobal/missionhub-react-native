@@ -96,20 +96,16 @@ const PersonItem = ({
     dispatch(navigateToAddStepFlow(isMe, person, organization));
 
   const renderStageIcon = () => {
-    return stage ? (
-      <Touchable
-        testID="stageIcon"
-        style={styles.stageButtonWrapper}
-        onPress={handleChangeStage}
-      >
-        <Image
-          style={styles.image}
-          resizeMode={'contain'}
-          source={stageIcons[stage.id - 1]}
-        />
-      </Touchable>
-    ) : (
-      <View style={styles.stageEmptyWrapper} />
+    return (
+      <View style={styles.stageIconWrapper}>
+        {stage ? (
+          <Image
+            style={styles.image}
+            resizeMode={'contain'}
+            source={stageIcons[stage.id - 1]}
+          />
+        ) : null}
+      </View>
     );
   };
 
