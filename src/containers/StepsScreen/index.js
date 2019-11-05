@@ -16,7 +16,8 @@ import {
   getMyStepsNextPage,
 } from '../../actions/steps';
 import { checkForUnreadComments } from '../../actions/unreadComments';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
+import { navToPersonScreen } from '../../actions/person';
 import {
   reminderStepsSelector,
   nonReminderStepsSelector,
@@ -40,10 +41,18 @@ import {
   keyExtractorId,
 } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS, STEPS_TAB, NOTIFICATION_PROMPT_TYPES } from '../../constants';
-import TakeAStepWithSomeoneButton from '../TakeAStepWithSomeoneButton';
+import {
+  ACTIONS,
+  STEPS_TAB,
+  PEOPLE_TAB,
+  NOTIFICATION_PROMPT_TYPES,
+} from '../../constants';
+import BottomButton from '../../components/BottomButton';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 import TrackTabChange from '../TrackTabChange';
+import OnboardingCard, {
+  GROUP_ONBOARDING_TYPES,
+} from '../../containers/Groups/OnboardingCard';
 
 import styles from './styles';
 
@@ -123,6 +132,11 @@ export class StepsScreen extends Component {
     dispatch(showWelcomeNotification());
   }
 
+  handleNavToPerson = step => {
+    const { receiver, organization } = step;
+    this.props.dispatch(navToPersonScreen(receiver, organization));
+  };
+
   handleRemoveReminder(step) {
     const { dispatch } = this.props;
     dispatch(trackActionWithoutData(ACTIONS.STEP_DEPRIORITIZED));
@@ -174,6 +188,12 @@ export class StepsScreen extends Component {
       });
   }
 
+  navToPersonScreen = () => {
+    const { dispatch } = this.props;
+
+    dispatch(navigateToMainTabs(PEOPLE_TAB));
+  };
+
   renderFocusPrompt() {
     const { t } = this.props;
 
@@ -210,6 +230,7 @@ export class StepsScreen extends Component {
               type="reminder"
               onSelect={this.handleRowSelect}
               onAction={this.handleRemoveReminder}
+              onPressName={this.handleNavToPerson}
             />
           ))}
         </Flex>
@@ -227,6 +248,7 @@ export class StepsScreen extends Component {
         hideAction={this.canHideStars()}
         onSelect={this.handleRowSelect}
         onAction={this.handleSetReminder}
+        onPressName={this.handleNavToPerson}
       />
     );
   };
@@ -240,11 +262,20 @@ export class StepsScreen extends Component {
           <Text header={true} style={styles.nullHeader}>
             {t('nullHeader')}
           </Text>
-          <Text style={styles.nullText}>
-            {this.hasReminders()
-              ? t('nullWithReminders')
-              : t('nullNoReminders')}
-          </Text>
+          <View style={styles.nulltextWrapper}>
+            {this.hasReminders() ? (
+              <Text style={styles.nullText}>{t('nullWithReminders')}</Text>
+            ) : (
+              <>
+                <Text style={styles.nullText}>
+                  {t('nullNoReminders.part1')}
+                </Text>
+                <Text style={styles.nullText}>
+                  {t('nullNoReminders.part2')}
+                </Text>
+              </>
+            )}
+          </View>
         </Flex>
       );
     }
@@ -267,11 +298,10 @@ export class StepsScreen extends Component {
   }
 
   renderSteps() {
-    const { steps, reminders } = this.props;
+    const { steps, reminders, t } = this.props;
 
     return (
       <View style={styles.container}>
-        {this.renderFocusPrompt()}
         <ScrollView
           style={[this.handleBackgroundColor()]}
           refreshControl={
@@ -295,7 +325,10 @@ export class StepsScreen extends Component {
           {this.renderList()}
         </ScrollView>
         {steps.length > 0 || reminders.length > 0 ? null : (
-          <TakeAStepWithSomeoneButton />
+          <BottomButton
+            text={t('mainTabs:takeAStepWithSomeone')}
+            onPress={this.navToPersonScreen}
+          />
         )}
       </View>
     );
@@ -320,7 +353,10 @@ export class StepsScreen extends Component {
           title={t('title').toUpperCase()}
         />
         {steps ? (
-          this.renderSteps()
+          <View style={styles.contentContainer}>
+            <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
+            {this.renderSteps()}
+          </View>
         ) : (
           <View style={styles.contentContainer}>
             <LoadingGuy />

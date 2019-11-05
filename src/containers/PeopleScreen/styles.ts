@@ -7,8 +7,4 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.primaryColor,
   },
-  list: {
-    flex: 1,
-    backgroundColor: theme.transparent,
-  },
 });

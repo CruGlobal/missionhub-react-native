@@ -25,108 +25,121 @@ exports[`renders android correctly 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "#007398",
+        "backgroundColor": "#ECEEF2",
         "flex": 1,
       }
     }
   >
-    <ScrollViewMock
-      contentContainerStyle={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "flex": 1,
-          },
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-      onScroll={[Function]}
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={false}
-        />
-      }
-      scrollEventThrottle={16}
+    <Connect(withI18nextTranslation(OnboardingCard))
+      type="steps"
+    />
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-          },
-        ]
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+        }
       }
     >
-      <Flex
-        align="center"
+      <ScrollViewMock
+        contentContainerStyle={
+          Array [
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+            },
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+        onScroll={[Function]}
+        refreshControl={
+          <MyRefreshControl
+            onRefresh={[Function]}
+            refreshing={false}
+          />
+        }
+        scrollEventThrottle={16}
         style={
           Array [
             Object {
-              "backgroundColor": "#66D9F0",
-              "width": 750,
+              "backgroundColor": "#ECEEF2",
             },
           ]
         }
       >
-        <Connect(StepItem)
-          key="1"
-          onAction={[Function]}
-          onSelect={[Function]}
-          step={
+        <Flex
+          align="center"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Connect(StepItem)
+            key="1"
+            onAction={[Function]}
+            onPressName={[Function]}
+            onSelect={[Function]}
+            step={
+              Object {
+                "id": 1,
+                "reminder": true,
+              }
+            }
+            type="reminder"
+          />
+        </Flex>
+        <FlatList
+          ListFooterComponent={null}
+          bounces={false}
+          data={
+            Array [
+              Object {
+                "id": 2,
+              },
+              Object {
+                "id": 3,
+              },
+            ]
+          }
+          disableVirtualization={false}
+          extraData={
             Object {
-              "id": 1,
-              "reminder": true,
+              "hideStars": false,
             }
           }
-          type="reminder"
-        />
-      </Flex>
-      <FlatList
-        ListFooterComponent={null}
-        bounces={false}
-        data={
-          Array [
-            Object {
-              "id": 2,
-            },
-            Object {
-              "id": 3,
-            },
-          ]
-        }
-        disableVirtualization={false}
-        extraData={
-          Object {
-            "hideStars": false,
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onEndReachedThreshold={2}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ECEEF2",
+                "overflow": "scroll",
+                "paddingBottom": 50,
+              },
+              Object {
+                "paddingBottom": 40,
+              },
+            ]
           }
-        }
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onEndReachedThreshold={2}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#ffffff",
-              "overflow": "scroll",
-              "paddingBottom": 50,
-            },
-            Object {
-              "paddingBottom": 40,
-            },
-          ]
-        }
-        updateCellsBatchingPeriod={50}
-        windowSize={21}
-      />
-    </ScrollViewMock>
+          updateCellsBatchingPeriod={50}
+          windowSize={21}
+        />
+      </ScrollViewMock>
+    </View>
   </View>
 </SafeAreaView>
 `;
@@ -156,7 +169,7 @@ exports[`renders loading on Android correctly 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "#ECEEF2",
         "flex": 1,
       }
     }
