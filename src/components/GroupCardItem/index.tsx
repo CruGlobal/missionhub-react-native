@@ -43,7 +43,6 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
     unreadCommentsCount,
     name,
   } = group;
-
   const handlePress = () => {
     onPress && onPress(group);
   };
