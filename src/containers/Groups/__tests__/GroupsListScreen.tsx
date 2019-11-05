@@ -27,9 +27,11 @@ const auth = { isFirstTime: false };
 const swipe = { groupScrollToId: null };
 const initialState = { auth, swipe };
 
-const usersReport = {
-  id: 4,
-  usersCount: 1123,
+const globalCommunity = {
+  usersReport: {
+    id: 4,
+    usersCount: 1123,
+  },
 };
 const community1 = {
   id: '1',
@@ -64,7 +66,7 @@ const community2 = {
 const communities = [community1, community2];
 
 const Query = () => ({
-  usersReport: () => usersReport,
+  globalCommunity: () => globalCommunity,
   communities: () => ({
     nodes: communities,
   }),
