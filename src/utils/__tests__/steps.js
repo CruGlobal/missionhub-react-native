@@ -10,7 +10,11 @@ const self_step = true;
 const locale = 'es';
 
 const step1 = { id: '1', body: 'blah <<name>> blah blah' };
-const step2 = { id: '2', body: '<<name>> hello world' };
+const step2 = {
+  id: '2',
+  body: '<<name>> hello world',
+  description_markdown: 'blah <<name>> is really cool',
+};
 
 const name = 'roge';
 
@@ -30,8 +34,19 @@ describe('buildCustomStep', () => {
 describe('insertName', () => {
   it('inserts name', () => {
     expect(insertName([step1, step2], name)).toEqual([
-      { ...step1, body: step1.body.replace('<<name>>', name) },
-      { ...step2, body: step2.body.replace('<<name>>', name) },
+      {
+        ...step1,
+        body: step1.body.replace('<<name>>', name),
+        description_markdown: '',
+      },
+      {
+        ...step2,
+        body: step2.body.replace('<<name>>', name),
+        description_markdown: step2.description_markdown.replace(
+          '<<name>>',
+          name,
+        ),
+      },
     ]);
   });
 });

@@ -10,158 +10,167 @@ exports[`GroupsListScreen renders with communities 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
-      Array [
-        Object {
-          "flexDirection": "row",
-          "height": 56,
-          "paddingTop": 0,
-        },
-        undefined,
-        null,
-      ]
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
   >
     <View
       style={
         Array [
           Object {
-            "paddingLeft": 5,
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
           },
-          Object {
-            "alignItems": "flex-start",
-            "flex": 1,
-            "justifyContent": "center",
-          },
+          undefined,
+          null,
         ]
       }
     >
       <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="IconButton"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {},
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {},
-                  ],
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 4,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <Text
-        numberOfLines={1}
         style={
           Array [
             Object {
-              "color": "#505256",
+              "paddingLeft": 5,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
             },
-            Array [
-              Object {
-                "color": "white",
-                "fontSize": 14,
-                "fontWeight": "500",
-              },
-              undefined,
-            ],
           ]
         }
       >
-        COMMUNITIES
-      </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          COMMUNITIES
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
     </View>
-    <View
-      style={
-        Array [
-          Object {
-            "paddingRight": 5,
-          },
-          Object {
-            "alignItems": "flex-end",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    />
-  </View>
+  </RCTSafeAreaView>
   <View
     style={
       Object {
@@ -178,7 +187,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -214,6 +223,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   "alignItems": "center",
                   "alignSelf": "stretch",
                   "backgroundColor": "#005A7F",
+                  "flexBasis": 40,
                   "justifyContent": "center",
                   "paddingVertical": 13,
                 },
@@ -239,7 +249,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "backgroundColor": "rgba(0,0,0,0)",
                     "color": "#ffffff",
-                    "fontSize": 18,
+                    "fontSize": 14,
                     "fontWeight": "500",
                     "letterSpacing": 1.5,
                     "textAlign": "center",
@@ -267,7 +277,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -302,6 +312,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                 "alignItems": "center",
                 "alignSelf": "stretch",
                 "backgroundColor": "#005A7F",
+                "flexBasis": 40,
                 "justifyContent": "center",
                 "paddingVertical": 13,
               },
@@ -322,7 +333,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "backgroundColor": "rgba(0,0,0,0)",
                     "color": "#ffffff",
-                    "fontSize": 18,
+                    "fontSize": 14,
                     "fontWeight": "500",
                     "letterSpacing": 1.5,
                     "textAlign": "center",
@@ -582,158 +593,167 @@ exports[`GroupsListScreen renders with only global community 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
-      Array [
-        Object {
-          "flexDirection": "row",
-          "height": 56,
-          "paddingTop": 0,
-        },
-        undefined,
-        null,
-      ]
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
   >
     <View
       style={
         Array [
           Object {
-            "paddingLeft": 5,
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
           },
-          Object {
-            "alignItems": "flex-start",
-            "flex": 1,
-            "justifyContent": "center",
-          },
+          undefined,
+          null,
         ]
       }
     >
       <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="IconButton"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {},
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {},
-                  ],
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 4,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <Text
-        numberOfLines={1}
         style={
           Array [
             Object {
-              "color": "#505256",
+              "paddingLeft": 5,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
             },
-            Array [
-              Object {
-                "color": "white",
-                "fontSize": 14,
-                "fontWeight": "500",
-              },
-              undefined,
-            ],
           ]
         }
       >
-        COMMUNITIES
-      </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          COMMUNITIES
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
     </View>
-    <View
-      style={
-        Array [
-          Object {
-            "paddingRight": 5,
-          },
-          Object {
-            "alignItems": "flex-end",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    />
-  </View>
+  </RCTSafeAreaView>
   <View
     style={
       Object {
@@ -750,7 +770,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -786,6 +806,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                   "alignItems": "center",
                   "alignSelf": "stretch",
                   "backgroundColor": "#005A7F",
+                  "flexBasis": 40,
                   "justifyContent": "center",
                   "paddingVertical": 13,
                 },
@@ -811,7 +832,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                   Object {
                     "backgroundColor": "rgba(0,0,0,0)",
                     "color": "#ffffff",
-                    "fontSize": 18,
+                    "fontSize": 14,
                     "fontWeight": "500",
                     "letterSpacing": 1.5,
                     "textAlign": "center",
@@ -839,7 +860,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -874,6 +895,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                 "alignItems": "center",
                 "alignSelf": "stretch",
                 "backgroundColor": "#005A7F",
+                "flexBasis": 40,
                 "justifyContent": "center",
                 "paddingVertical": 13,
               },
@@ -894,7 +916,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                   Object {
                     "backgroundColor": "rgba(0,0,0,0)",
                     "color": "#ffffff",
-                    "fontSize": 18,
+                    "fontSize": 14,
                     "fontWeight": "500",
                     "letterSpacing": 1.5,
                     "textAlign": "center",

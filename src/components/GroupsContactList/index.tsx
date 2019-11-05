@@ -59,7 +59,7 @@ const GroupsContactList = ({
   return (
     <Flex value={1}>
       <Flex style={styles.header} align="center" justify="center">
-        <Text style={styles.name}>{name.toUpperCase()}</Text>
+        <Text style={styles.name}>{name}</Text>
         <AssignToMeButton
           person={person}
           organization={organization}

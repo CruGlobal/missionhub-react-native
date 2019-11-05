@@ -24,6 +24,7 @@ const initialState: SwipeState = {
     [GROUP_ONBOARDING_TYPES.impact]: true,
     [GROUP_ONBOARDING_TYPES.contacts]: true,
     [GROUP_ONBOARDING_TYPES.surveys]: true,
+    [GROUP_ONBOARDING_TYPES.steps]: true,
   },
   groupInviteInfo: true,
   groupScrollToId: null,

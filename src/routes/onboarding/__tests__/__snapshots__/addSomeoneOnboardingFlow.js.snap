@@ -3,7 +3,7 @@
 exports[`AddSomeoneScreen next renders without back button correctly 1`] = `
 <AddSomeoneScreen
   dispatch={[Function]}
-  enableBackButton={false}
+  logoutOnBack={true}
   next={[Function]}
 />
 `;
