@@ -33,6 +33,16 @@ export interface GroupCardItemProps {
 
 const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
   const { t } = useTranslation('groupItem');
+
+  const {
+    report: { contactCount = 0, unassignedCount = 0, memberCount = 0 } = {},
+    owner,
+    userCreated,
+    communityPhotoUrl,
+    unreadCommentsCount,
+    name,
+  } = group;
+
   const handlePress = () => {
     onPress && onPress(group);
   };
@@ -40,26 +50,23 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
     onJoin && onJoin(group);
   };
   function renderInfo() {
-    const owner = group.owner;
-    const { contactsCount = 0, unassignedCount = 0, memberCount = 0 } =
-      group.contactReport || {};
     if (onJoin) {
       return (
         <Text style={styles.groupNumber}>
           {owner
             ? t('owner', {
                 name: getFirstNameAndLastInitial(
-                  owner.first_name,
-                  owner.last_name,
+                  owner.firstName,
+                  owner.lastName,
                 ),
               })
-            : group.user_created
+            : userCreated
             ? t('privateGroup')
             : ''}
         </Text>
       );
     }
-    if (group.user_created) {
+    if (userCreated) {
       return (
         <Text style={styles.groupNumber}>
           {t('numMembers', { count: memberCount })}
@@ -68,18 +75,18 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
     }
     return (
       <Text style={styles.groupNumber}>
-        {t('numContacts', { count: contactsCount })}
+        {t('numContacts', { count: contactCount })}
         <Dot />
         {t('numUnassigned', { count: unassignedCount })}
       </Text>
     );
   }
   function getSource() {
-    if (group.community_photo_url) {
-      return { uri: group.community_photo_url };
+    if (communityPhotoUrl) {
+      return { uri: communityPhotoUrl };
     } else if (orgIsGlobal(group)) {
       return GLOBAL_COMMUNITY_IMAGE;
-    } else if (group.user_created) {
+    } else if (userCreated) {
       return undefined;
     } else {
       return DEFAULT_MISSIONHUB_IMAGE;
@@ -87,7 +94,8 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
   }
   const source = getSource();
   const isGlobal = orgIsGlobal(group);
-  const hasNotification = !isGlobal && group.unread_comments_count !== 0;
+  const hasNotification = !isGlobal && unreadCommentsCount !== 0;
+
   //not passing a value for onPress to Card makes the card unclickable.
   //In some cases we want to prevent clicking on GroupCardItem.
   return (
@@ -100,9 +108,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
         value={1}
         style={[
           styles.content,
-          group.user_created && !isGlobal
-            ? styles.userCreatedContent
-            : undefined,
+          userCreated && !isGlobal ? styles.userCreatedContent : undefined,
         ]}
       >
         {source ? (
@@ -110,7 +116,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
         ) : null}
         <Flex justify="center" direction="row" style={styles.infoWrap}>
           <Flex value={1}>
-            <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
+            <Text style={styles.groupName}>{name.toUpperCase()}</Text>
             {renderInfo()}
           </Flex>
           {onJoin ? (

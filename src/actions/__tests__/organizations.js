@@ -675,8 +675,8 @@ describe('addNewOrganization', () => {
     });
     expect(store.getActions()).toEqual([
       addOrgApiResponse,
-      updateOrgApiResponse,
       trackActionResponse,
+      updateOrgApiResponse,
       getOrgsApiResponse,
       {
         type: LOAD_ORGANIZATIONS,
