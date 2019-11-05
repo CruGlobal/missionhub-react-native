@@ -8,6 +8,7 @@ import {
   loadStepsAndJourney,
   navigateToStageScreen,
   assignContactAndPickStage,
+  navigateToAddStepFlow,
 } from '../misc';
 import {
   createContactAssignment,
@@ -22,10 +23,12 @@ import {
   contactAssignmentSelector,
   orgPermissionSelector,
 } from '../../selectors/people';
-import { hasOrgPermissions } from '../../utils/common';
+import { hasOrgPermissions, buildTrackingObj } from '../../utils/common';
 import {
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
+  ADD_MY_STEP_FLOW,
+  ADD_PERSON_STEP_FLOW,
 } from '../../routes/constants';
 
 jest.mock('../analytics');
@@ -47,6 +50,7 @@ const navigateReplaceResult = { type: 'route replaced' };
 const updatePersonAttributesResult = { type: 'updated person' };
 const createContactAssignmentResult = () => Promise.resolve({ person });
 const hasOrgPermissionsResult = false;
+const buildTrackingObjResult = { tracking: 'tracking' };
 
 const groups_feature = true;
 const myId = '111';
@@ -60,7 +64,7 @@ const orgId = '26';
 const personId = '100';
 const url = 'url';
 const action = { type: 'link action' };
-const person = { id: personId };
+const person = { id: personId, first_name: 'Fred' };
 const organization = { id: orgId };
 const contactAssignment = { id: '1908' };
 const orgPermission = { id: '1234' };
@@ -83,6 +87,7 @@ beforeEach(() => {
   getPersonScreenRoute.mockReturnValue(CONTACT_PERSON_SCREEN);
   orgPermissionSelector.mockReturnValue(orgPermission);
   hasOrgPermissions.mockReturnValue(hasOrgPermissionsResult);
+  buildTrackingObj.mockReturnValue(buildTrackingObjResult);
 
   navigatePush.mockImplementation((_, { onComplete }) => {
     onComplete && onComplete(stage);
@@ -204,6 +209,51 @@ describe('navigateToStageScreen', () => {
       orgId: organization.id,
       section: 'people',
       subsection: 'person',
+    });
+    expect(store.getActions()).toEqual([navigatePushResult]);
+  });
+});
+
+describe('navigateToAddStepFlow', () => {
+  beforeEach(() => {});
+
+  it('navigates to add my step flow', async () => {
+    await store.dispatch(navigateToAddStepFlow(true, mePerson, organization));
+
+    expect(buildTrackingObj).toHaveBeenCalledWith(
+      'people : person : steps : add',
+      'people',
+      'person',
+      'steps',
+    );
+    expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW, {
+      trackingObj: buildTrackingObjResult,
+      organization,
+    });
+    expect(store.getActions()).toEqual([navigatePushResult]);
+  });
+
+  it('navigates to add person step flow', async () => {
+    await store.dispatch(navigateToAddStepFlow(false, person, organization));
+
+    expect(buildTrackingObj).toHaveBeenCalledWith(
+      'people : person : steps : add',
+      'people',
+      'person',
+      'steps',
+    );
+    expect(buildTrackingObj).toHaveBeenCalledWith(
+      'people : person : steps : create',
+      'people',
+      'person',
+      'steps',
+    );
+    expect(navigatePush).toHaveBeenCalledWith(ADD_PERSON_STEP_FLOW, {
+      trackingObj: buildTrackingObjResult,
+      contactName: person.first_name,
+      contactId: person.id,
+      organization,
+      createStepTracking: buildTrackingObjResult,
     });
     expect(store.getActions()).toEqual([navigatePushResult]);
   });

@@ -165,7 +165,7 @@ exports[`reminder not passed in renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -254,7 +254,7 @@ exports[`reminder not passed in renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -343,7 +343,7 @@ exports[`reminder not passed in renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -425,7 +425,7 @@ exports[`reminder not passed in renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -511,7 +511,7 @@ exports[`reminder not passed in renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -704,7 +704,7 @@ exports[`reminder passed in renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -793,7 +793,7 @@ exports[`reminder passed in renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -882,7 +882,7 @@ exports[`reminder passed in renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -964,7 +964,7 @@ exports[`reminder passed in renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",
@@ -1050,7 +1050,7 @@ exports[`reminder passed in renders correctly 1`] = `
                     Object {
                       "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "fontWeight": "500",
                       "letterSpacing": 1.5,
                       "textAlign": "center",

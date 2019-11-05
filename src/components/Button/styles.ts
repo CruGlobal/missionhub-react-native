@@ -36,7 +36,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: theme.buttonTextColor,
-    fontSize: 18,
+    fontSize: 14,
     textAlign: 'center',
     fontWeight: '500',
     letterSpacing: 1.5,
