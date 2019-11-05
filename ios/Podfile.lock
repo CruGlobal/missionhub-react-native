@@ -345,6 +345,8 @@ PODS:
     - RSKImageCropper
   - RNOmniture (0.0.1):
     - React
+  - RNReanimated (1.4.0):
+    - React
   - RNVectorIcons (6.6.0):
     - React
   - Rollbar (1.5.2)
@@ -399,6 +401,7 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNOmniture (from `../node_modules/react-native-omniture`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - RollbarReactNative (from `../node_modules/rollbar-react-native`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -498,6 +501,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-image-crop-picker"
   RNOmniture:
     :path: "../node_modules/react-native-omniture"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   RollbarReactNative:
@@ -559,6 +564,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: a4ddde1ffc6e590c8127b8b7eabfdade45475c74
   RNImageCropPicker: 0a731d984e64ee4c28bddaa7ce52262e4b80979f
   RNOmniture: 04a549b9f6c28b0ab9e6fb00d8f47fa3d08585a0
+  RNReanimated: b2ab0b693dddd2339bd2f300e770f6302d2e960c
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Rollbar: 5060e3fc9fa28ae75e70c61e95b1b31b2b22710c
   RollbarReactNative: 90812f66d5ecbfd7cdccbb2f0b666c0888b7ee47
