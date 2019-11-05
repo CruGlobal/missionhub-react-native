@@ -29,6 +29,7 @@ export interface GroupCardItemProps {
   // };
   onPress?: TouchablePress;
   onJoin?: TouchablePress;
+  testID?: string;
 }
 
 const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {

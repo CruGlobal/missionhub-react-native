@@ -34,8 +34,10 @@ import {
 
 export const GET_COMMUNITIES_QUERY = gql`
   query GetCommunities {
-    usersReport {
-      usersCount
+    globalCommunity {
+      usersReport {
+        usersCount
+      }
     }
     communities(ministryActivitiesOnly: true, sortBy: name_ASC) {
       nodes {
@@ -61,23 +63,24 @@ export const GET_COMMUNITIES_QUERY = gql`
   }
 `;
 
+interface GroupsListScreenProps {
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  isFirstTime?: boolean;
+  scrollToId?: string | null;
+}
+
 const GroupsListScreen = ({
   dispatch,
   isFirstTime,
   scrollToId,
-}: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  isFirstTime?: boolean;
-  scrollToId?: string | null;
-}) => {
+}: GroupsListScreenProps) => {
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
 
   const {
     data: {
-      usersReport: { usersCount = 0 } = {},
+      globalCommunity: { usersReport: { usersCount = 0 } = {} } = {},
       communities: { nodes = [] } = {},
     } = {},
     refetch: refetchCommunities,
