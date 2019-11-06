@@ -17,6 +17,7 @@ const groupOnboarding = {
   [GROUP_ONBOARDING_TYPES.impact]: true,
   [GROUP_ONBOARDING_TYPES.contacts]: true,
   [GROUP_ONBOARDING_TYPES.surveys]: true,
+  [GROUP_ONBOARDING_TYPES.steps]: true,
 };
 
 removeGroupOnboardingCard.mockReturnValue({
@@ -170,6 +171,30 @@ describe('OnboardingCard', () => {
     });
     testSnapshotShallow(
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.surveys} />,
+      store,
+    );
+  });
+
+  it('render steps card', () => {
+    const store = createThunkStore({
+      swipe: { groupOnboarding },
+    });
+    testSnapshotShallow(
+      <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />,
+      store,
+    );
+  });
+  it('render steps card hidden', () => {
+    const store = createThunkStore({
+      swipe: {
+        groupOnboarding: {
+          ...groupOnboarding,
+          [GROUP_ONBOARDING_TYPES.steps]: false,
+        },
+      },
+    });
+    testSnapshotShallow(
+      <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />,
       store,
     );
   });
