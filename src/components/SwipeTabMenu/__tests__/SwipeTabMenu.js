@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, ScrollView } from 'react-native';
+// eslint-disable-next-line import/named
 import { NavigationActions } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
