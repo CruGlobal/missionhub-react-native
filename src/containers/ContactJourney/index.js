@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -154,7 +154,7 @@ class ContactJourney extends Component {
     const { isPersonalMinistry } = this.state;
     const { person, organization, isUserCreatedOrg } = this.props;
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         {this.renderContent()}
         <Flex justify="end">
           <JourneyCommentBox
@@ -163,7 +163,7 @@ class ContactJourney extends Component {
             hideActions={isPersonalMinistry || isUserCreatedOrg}
           />
         </Flex>
-      </SafeAreaView>
+      </View>
     );
   }
 }

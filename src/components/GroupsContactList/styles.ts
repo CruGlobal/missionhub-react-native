@@ -31,5 +31,6 @@ export default StyleSheet.create({
   content: {
     borderLeftColor: theme.separatorColor,
     borderLeftWidth: 1,
+    backgroundColor: theme.white,
   },
 });

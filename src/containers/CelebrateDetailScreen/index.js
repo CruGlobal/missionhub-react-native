@@ -64,8 +64,8 @@ class CelebrateDetailScreen extends Component {
     const { refreshing } = this.state;
 
     return (
-      <SafeAreaView style={styles.safeAreaContainer}>
-        <View style={styles.container}>
+      <View style={styles.pageContainer}>
+        <SafeAreaView>
           <StatusBar {...theme.statusBar.darkContent} />
           <View style={styles.header}>
             <View flexDirection="row">
@@ -86,36 +86,33 @@ class CelebrateDetailScreen extends Component {
               />
             </View>
           </View>
-          <View flex={1}>
-            <Image source={TRAILS1} style={styles.trailsTop} />
-            <Image source={TRAILS2} style={styles.trailsBottom} />
-            <CommentsList
-              event={event}
-              listProps={{
-                ref: c => (this.listRef = c),
-                refreshControl: (
-                  <RefreshControl
-                    refreshing={refreshing}
-                    onRefresh={this.handleRefresh}
-                  />
-                ),
-                ListHeaderComponent: () => (
-                  <CelebrateItemContent
-                    event={event}
-                    organization={organization}
-                    fixedHeight={false}
-                    style={styles.itemContent}
-                  />
-                ),
-              }}
-            />
-            <CelebrateCommentBox
-              event={event}
-              onAddComplete={this.scrollToEnd}
-            />
-          </View>
+        </SafeAreaView>
+        <View style={styles.container}>
+          <Image source={TRAILS1} style={styles.trailsTop} />
+          <Image source={TRAILS2} style={styles.trailsBottom} />
+          <CommentsList
+            event={event}
+            listProps={{
+              ref: c => (this.listRef = c),
+              refreshControl: (
+                <RefreshControl
+                  refreshing={refreshing}
+                  onRefresh={this.handleRefresh}
+                />
+              ),
+              ListHeaderComponent: () => (
+                <CelebrateItemContent
+                  event={event}
+                  organization={organization}
+                  fixedHeight={false}
+                  style={styles.itemContent}
+                />
+              ),
+            }}
+          />
         </View>
-      </SafeAreaView>
+        <CelebrateCommentBox event={event} onAddComplete={this.scrollToEnd} />
+      </View>
     );
   }
 }
