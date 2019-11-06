@@ -3,7 +3,7 @@
 exports[`renders correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -17,6 +17,7 @@ exports[`renders correctly 1`] = `
       "opacity": 1,
     }
   }
+  testID="Button"
 >
   <View
     style={
@@ -44,7 +45,7 @@ exports[`renders correctly 1`] = `
 exports[`renders pill correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -58,6 +59,7 @@ exports[`renders pill correctly 1`] = `
       "opacity": 1,
     }
   }
+  testID="Button"
 >
   <View
     style={
@@ -87,7 +89,7 @@ exports[`renders pill correctly 1`] = `
 exports[`renders primary correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -101,6 +103,7 @@ exports[`renders primary correctly 1`] = `
       "opacity": 1,
     }
   }
+  testID="Button"
 >
   <View
     style={
@@ -123,7 +126,7 @@ exports[`renders primary correctly 1`] = `
 exports[`renders secondary correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -137,6 +140,7 @@ exports[`renders secondary correctly 1`] = `
       "opacity": 1,
     }
   }
+  testID="Button"
 >
   <View
     style={
@@ -159,7 +163,7 @@ exports[`renders secondary correctly 1`] = `
 exports[`renders transparent correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -173,6 +177,7 @@ exports[`renders transparent correctly 1`] = `
       "opacity": 1,
     }
   }
+  testID="Button"
 >
   <View
     style={

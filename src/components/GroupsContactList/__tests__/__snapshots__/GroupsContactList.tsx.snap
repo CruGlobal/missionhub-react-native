@@ -47,7 +47,7 @@ exports[`renders activity list 1`] = `
     </Text>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
@@ -946,7 +946,7 @@ exports[`renders empty list 1`] = `
     </Text>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
@@ -1135,7 +1135,7 @@ exports[`renders person without full name 1`] = `
     </Text>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
@@ -2034,7 +2034,7 @@ exports[`renders person without last name 1`] = `
     </Text>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}

@@ -3,11 +3,12 @@ import { ViewStyle, TextStyle, StyleProp } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '../common';
+import { TouchablePress } from '../Touchable/index.ios';
 
 import styles from './styles';
 
 interface SkipProps {
-  onSkip: Function;
+  onSkip: TouchablePress;
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
   testID?: string;

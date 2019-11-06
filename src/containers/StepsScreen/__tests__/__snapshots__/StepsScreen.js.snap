@@ -942,7 +942,7 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
             }
           >
             You don't have any Steps of Faith.
-Choose a person to view and add some new steps.
+Choose a person and add some new steps.
           </MyText>
         </Flex>
       </ScrollViewMock>
