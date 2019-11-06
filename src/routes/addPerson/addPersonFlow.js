@@ -1,6 +1,8 @@
 /*  eslint max-lines-per-function: 0 */
 
-import { createStackNavigator, StackActions } from 'react-navigation-stack';
+// eslint-disable-next-line import/named
+import { StackActions } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { CREATE_STEP, PEOPLE_TAB } from '../../constants';
 import {

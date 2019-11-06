@@ -37,7 +37,7 @@ import {
   GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 
-jest.mock('react-navigation', () => ({
+jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
     openDrawer: jest.fn(),
   },

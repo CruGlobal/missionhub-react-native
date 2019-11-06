@@ -12,6 +12,7 @@ import { SwipeTabMenu, generateSwipeTabMenuNavigator } from '..';
 
 jest.mock('react-navigation', () => ({
   NavigationActions: { navigate: jest.fn(() => ({ type: 'navigated' })) },
+  ThemeColors: { light: {}, dark: {} },
 }));
 jest.mock('react-navigation-tabs', () => ({
   createMaterialTopTabNavigator: jest.fn(),
