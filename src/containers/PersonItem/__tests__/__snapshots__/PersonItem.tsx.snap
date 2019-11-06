@@ -36,27 +36,16 @@ exports[`renders cru org contact correctly 1`] = `
   testID="personCard"
 >
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "alignItems": "center",
         "height": 70,
         "justifyContent": "center",
-        "opacity": 1,
         "paddingLeft": 16,
         "paddingRight": 6,
+        "width": 54,
       }
     }
-    testID="stageIcon"
   >
     <Image
       resizeMode="contain"
@@ -318,7 +307,11 @@ exports[`renders cru org contact without stage correctly 1`] = `
   <View
     style={
       Object {
+        "alignItems": "center",
         "height": 70,
+        "justifyContent": "center",
+        "paddingLeft": 16,
+        "paddingRight": 6,
         "width": 54,
       }
     }
@@ -590,27 +583,16 @@ exports[`renders cru org member correctly 1`] = `
   testID="personCard"
 >
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "alignItems": "center",
         "height": 70,
         "justifyContent": "center",
-        "opacity": 1,
         "paddingLeft": 16,
         "paddingRight": 6,
+        "width": 54,
       }
     }
-    testID="stageIcon"
   >
     <Image
       resizeMode="contain"
@@ -815,27 +797,16 @@ exports[`renders me correctly 1`] = `
   testID="personCard"
 >
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "alignItems": "center",
         "height": 70,
         "justifyContent": "center",
-        "opacity": 1,
         "paddingLeft": 16,
         "paddingRight": 6,
+        "width": 54,
       }
     }
-    testID="stageIcon"
   >
     <Image
       resizeMode="contain"
@@ -1040,27 +1011,16 @@ exports[`renders personal ministry contact correctly 1`] = `
   testID="personCard"
 >
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "alignItems": "center",
         "height": 70,
         "justifyContent": "center",
-        "opacity": 1,
         "paddingLeft": 16,
         "paddingRight": 6,
+        "width": 54,
       }
     }
-    testID="stageIcon"
   >
     <Image
       resizeMode="contain"
@@ -1265,27 +1225,16 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
   testID="personCard"
 >
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "alignItems": "center",
         "height": 70,
         "justifyContent": "center",
-        "opacity": 1,
         "paddingLeft": 16,
         "paddingRight": 6,
+        "width": 54,
       }
     }
-    testID="stageIcon"
   >
     <Image
       resizeMode="contain"

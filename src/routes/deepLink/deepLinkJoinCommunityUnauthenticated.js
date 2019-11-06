@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { buildTrackedScreen, wrapNextAction } from '../helpers';

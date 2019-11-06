@@ -45,11 +45,13 @@ export default StyleSheet.create({
     color: theme.primaryColor,
     paddingTop: 10,
   },
+  nulltextWrapper: {
+    paddingHorizontal: 70,
+    paddingVertical: 10,
+  },
   nullText: {
     fontSize: 16,
     color: theme.textColor,
-    paddingHorizontal: 70,
     textAlign: 'center',
-    paddingVertical: 10,
   },
 });

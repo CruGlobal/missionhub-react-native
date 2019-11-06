@@ -1,8 +1,12 @@
 import React from 'react';
 import {
+  // eslint-disable-next-line import/named
   createAppContainer,
+  // eslint-disable-next-line import/named
   createSwitchNavigator,
+  // eslint-disable-next-line import/named
   NavigationParams,
+  // eslint-disable-next-line import/named
   NavigationScreenProp,
 } from 'react-navigation';
 import { render } from 'react-native-testing-library';

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { StatusBar, SafeAreaView } from 'react-native';
 import i18next from 'i18next';
 import { connect } from 'react-redux';
-import { DrawerActions } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 import PropTypes from 'prop-types';
 
 import Header from '../../../components/Header';
