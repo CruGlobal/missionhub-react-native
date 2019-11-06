@@ -180,6 +180,7 @@ describe('click submit button', () => {
   const setText = text => {
     component
       .childAt(0)
+      .childAt(0)
       .childAt(1)
       .childAt(0)
       .childAt(0)
@@ -190,6 +191,7 @@ describe('click submit button', () => {
 
   const clickSubmit = () =>
     component
+      .childAt(0)
       .childAt(0)
       .childAt(1)
       .childAt(0)
