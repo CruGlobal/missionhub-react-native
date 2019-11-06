@@ -291,7 +291,6 @@ export const MAIN_TABS_SCREEN = createDrawerNavigator(
   },
   {
     contentComponent: SettingsMenu,
-    defaultNavigationOptions: { drawerLockMode: 'locked-closed' },
     backBehavior: 'none', // We're handling it on our own
   },
 );
@@ -305,7 +304,6 @@ const buildPersonScreenRoute = screen =>
       {
         contentComponent: PersonSideMenu,
         drawerPosition: 'right',
-        defaultNavigationOptions: { drawerLockMode: 'locked-closed' },
         backBehavior: 'none', // We're handling it on our own
       },
     ),
