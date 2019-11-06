@@ -25,10 +25,12 @@ jest.mock('../../../actions/person');
 jest.mock('../../../actions/steps');
 jest.mock('../../../selectors/people');
 jest.mock('../../../actions/misc');
-jest.mock('react-navigation', () => ({
+jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
     closeDrawer: jest.fn(),
   },
+}));
+jest.mock('react-navigation-tabs', () => ({
   createMaterialTopTabNavigator: jest.fn((_, component) => component),
 }));
 

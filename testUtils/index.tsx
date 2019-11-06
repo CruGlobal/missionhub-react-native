@@ -3,8 +3,8 @@ import 'react-native';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore, { MockStore } from 'redux-mock-store';
-import { NavigationParams } from 'react-navigation';
-import { NavigationProvider } from '@react-navigation/core';
+// eslint-disable-next-line import/named
+import { NavigationParams, NavigationProvider } from 'react-navigation';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { ReactTestRendererJSON } from 'react-test-renderer';
 import { render, RenderAPI } from 'react-native-testing-library';
