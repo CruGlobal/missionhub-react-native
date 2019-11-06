@@ -1,9 +1,9 @@
 /* eslint complexity: 0 */
 
-import React, { Fragment, Component } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { ORG_PERMISSIONS } from '../../constants';
 import { Flex, Text, Dot, Card } from '../common';
@@ -14,16 +14,26 @@ import ItemHeaderText from '../ItemHeaderText';
 
 import styles from './styles';
 
-@withTranslation('groupItem')
-class GroupMemberItem extends Component {
-  handleSelect = () => {
-    const { onSelect, person } = this.props;
+const GroupMemberItem = ({
+  onSelect,
+  person,
+  personOrgPermission,
+  stagesObj,
+  me,
+  organization,
+  iAmAdmin,
+  iAmOwner,
+  personIsOwner,
+  personIsAdmin,
+  isUserCreatedOrg,
+}) => {
+  const { t } = useTranslation('groupItem');
+
+  const handleSelect = () => {
     onSelect && onSelect(person);
   };
 
-  orgPermissionText = () => {
-    const { t, personOrgPermission } = this.props;
-
+  const orgPermissionText = () => {
     if (!personOrgPermission) {
       return '';
     }
@@ -38,9 +48,7 @@ class GroupMemberItem extends Component {
     }
   };
 
-  renderUserCreatedDetails = isMe => {
-    const { stagesObj, me, person } = this.props;
-
+  const renderUserCreatedDetails = isMe => {
     let stage = null;
 
     const contactAssignments = person.reverse_contact_assignments || [];
@@ -66,15 +74,13 @@ class GroupMemberItem extends Component {
         {stage ? <Text style={styles.detailText}>{stage.name}</Text> : null}
         {stage && permissionText ? <Dot style={styles.detailText} /> : null}
         {permissionText ? (
-          <Text style={styles.detailText}>{this.orgPermissionText()}</Text>
+          <Text style={styles.detailText}>{orgPermissionText()}</Text>
         ) : null}
       </Fragment>
     );
   };
-
-  renderCruDetails = () => {
-    const { t, person } = this.props;
-
+  // REMOVE_IN_SPLIT
+  const renderCruDetails = () => {
     return (
       <Fragment>
         <Text style={styles.detailText}>
@@ -94,55 +100,41 @@ class GroupMemberItem extends Component {
     );
   };
 
-  render() {
-    const {
-      me,
-      person,
-      organization,
-      iAmAdmin,
-      iAmOwner,
-      personIsAdmin,
-      personIsOwner,
-      isUserCreatedOrg,
-      personOrgPermission,
-    } = this.props;
+  const isMe = person.id === me.id;
+  const showOptionsMenu = isMe || (iAmAdmin && !personIsOwner);
 
-    const isMe = person.id === me.id;
-    const showOptionsMenu = isMe || (iAmAdmin && !personIsOwner);
-
-    return (
-      <Card onPress={this.handleSelect}>
-        <Flex
-          value={1}
-          justify="center"
-          align="center"
-          direction="row"
-          style={styles.content}
-        >
-          <Flex value={1} direction="column">
-            <ItemHeaderText text={person.full_name} />
-            <Flex align="center" direction="row">
-              {isUserCreatedOrg
-                ? this.renderUserCreatedDetails(isMe)
-                : this.renderCruDetails()}
-            </Flex>
+  return (
+    <Card onPress={handleSelect}>
+      <Flex
+        value={1}
+        justify="center"
+        align="center"
+        direction="row"
+        style={styles.content}
+      >
+        <Flex value={1} direction="column">
+          <ItemHeaderText text={person.full_name} />
+          <Flex align="center" direction="row">
+            {isUserCreatedOrg
+              ? renderUserCreatedDetails(isMe)
+              : renderCruDetails()}
           </Flex>
-          {showOptionsMenu ? (
-            <MemberOptionsMenu
-              myId={me.id}
-              person={person}
-              organization={organization}
-              personOrgPermission={personOrgPermission}
-              iAmAdmin={iAmAdmin}
-              iAmOwner={iAmOwner}
-              personIsAdmin={personIsAdmin}
-            />
-          ) : null}
         </Flex>
-      </Card>
-    );
-  }
-}
+        {showOptionsMenu ? (
+          <MemberOptionsMenu
+            myId={me.id}
+            person={person}
+            organization={organization}
+            personOrgPermission={personOrgPermission}
+            iAmAdmin={iAmAdmin}
+            iAmOwner={iAmOwner}
+            personIsAdmin={personIsAdmin}
+          />
+        ) : null}
+      </Flex>
+    </Card>
+  );
+};
 
 GroupMemberItem.propTypes = {
   person: PropTypes.shape({
