@@ -23,7 +23,7 @@ const newStages = [stage];
 it('loads stages', () => {
   const state = stages(undefined, {
     type: REQUESTS.GET_STAGES.SUCCESS,
-    results: { findAll: () => newStages },
+    results: { response: newStages },
   });
 
   expect(state).toEqual({
@@ -38,6 +38,7 @@ it('loads stages with different locale', () => {
 
   const modifiedStage = {
     ...stage,
+    locale,
     name: localizedStage.name,
     description: localizedStage.description,
     self_followup_description: localizedStage.self_followup_description,
@@ -45,7 +46,7 @@ it('loads stages with different locale', () => {
 
   const state = stages(undefined, {
     type: REQUESTS.GET_STAGES.SUCCESS,
-    results: { findAll: () => newStages },
+    results: { response: newStages },
   });
 
   expect(state).toEqual({

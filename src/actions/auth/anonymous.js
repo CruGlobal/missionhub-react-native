@@ -2,13 +2,10 @@ import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 
 import { authSuccess } from './userData';
-import { firstTime } from './userData';
 
 export function codeLogin(code) {
   return async dispatch => {
     await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, { code }));
-    // Make sure this is set to FIRST_TIME so we know we're in the tryItNow flow
-    dispatch(firstTime());
     dispatch(authSuccess());
   };
 }

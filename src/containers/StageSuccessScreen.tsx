@@ -1,11 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
-import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { navigateBack } from '../actions/navigation';
-import { ProfileState } from '../reducers/profile';
+import { AuthState } from '../reducers/auth';
+import { Stage, StagesState } from '../reducers/stages';
+import { stageSelector } from '../selectors/stages';
 
 import IconMessageScreen from './IconMessageScreen/index';
 
@@ -19,25 +20,25 @@ interface StageSuccessScreenProps {
     selectedStage: SelectedStage;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>; // TODO: make next
-  selectedStage?: object;
   firstName?: string;
+  stage?: Stage;
 }
 
 const StageSuccessScreen = ({
   dispatch,
   next,
   firstName,
+  stage,
 }: StageSuccessScreenProps) => {
-  const selectedStage: SelectedStage = useNavigationParam('selectedStage');
   const { t } = useTranslation('stageSuccess');
 
-  const handleNavigateToStep = () => dispatch(next({ selectedStage }));
+  const handleNavigateToStep = () => dispatch(next());
   const back = () => dispatch(navigateBack());
 
   // Build out message
   let message =
-    selectedStage && selectedStage.self_followup_description
-      ? selectedStage.self_followup_description
+    stage && stage.self_followup_description
+      ? stage.self_followup_description
       : t('backupMessage');
   message = message.replace('<<user>>', firstName ? firstName : t('friend'));
   return (
@@ -52,8 +53,18 @@ const StageSuccessScreen = ({
   );
 };
 
-const mapStateToProps = ({ profile }: { profile: ProfileState }) => ({
-  firstName: profile.firstName,
+const mapStateToProps = ({
+  auth,
+  stages,
+}: {
+  auth: AuthState;
+  stages: StagesState;
+}) => ({
+  firstName: auth.person.first_name,
+  stage: stageSelector(
+    { stages },
+    { stageId: auth.person.user.pathway_stage_id },
+  ),
 });
 export default connect(mapStateToProps)(StageSuccessScreen);
 export const STAGE_SUCCESS_SCREEN = 'nav/STAGE_SUCCESS';

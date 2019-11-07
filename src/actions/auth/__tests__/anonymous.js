@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 import callApi from '../../api';
 import { REQUESTS } from '../../../api/routes';
-import { firstTime, authSuccess } from '../userData';
+import { authSuccess } from '../userData';
 import { codeLogin, refreshAnonymousLogin } from '../anonymous';
 
 jest.mock('../../api');
@@ -15,7 +15,6 @@ const mockStore = configureStore([thunk]);
 let store;
 
 beforeEach(() => {
-  firstTime.mockReturnValue({ type: 'test' });
   authSuccess.mockReturnValue({ type: 'test' });
   store = mockStore({
     auth: {
@@ -25,7 +24,7 @@ beforeEach(() => {
 });
 
 describe('codeLogin', () => {
-  it('should login with code, set first time, and track person', async () => {
+  it('should login with code, and track person', async () => {
     callApi.mockReturnValue({ type: 'test' });
 
     await store.dispatch(codeLogin('123'));
@@ -35,11 +34,10 @@ describe('codeLogin', () => {
       {},
       { code: '123' },
     );
-    expect(firstTime).toHaveBeenCalledTimes(1);
     expect(authSuccess).toHaveBeenCalledTimes(1);
   });
 
-  it('should not set first time or track person on error', async () => {
+  it('should not track person on error', async () => {
     callApi.mockReturnValue(() => {
       throw 'some error';
     });
@@ -53,7 +51,6 @@ describe('codeLogin', () => {
       {},
       { code: '123' },
     );
-    expect(firstTime).not.toHaveBeenCalled();
     expect(authSuccess).not.toHaveBeenCalled();
   });
 });
