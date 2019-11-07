@@ -1,6 +1,6 @@
 /* eslint complexity: 0 */
 
-import { DrawerActions } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 
 import { trackState } from '../actions/analytics';
 import { trackableScreens } from '../AppRoutes';

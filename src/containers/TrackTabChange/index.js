@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// eslint-disable-next-line import/named
 import { NavigationEvents } from 'react-navigation';
 
 import { TRACK_TAB } from '../../constants';

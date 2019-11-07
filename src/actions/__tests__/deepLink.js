@@ -1,6 +1,7 @@
 import firebase from 'react-native-firebase';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+// eslint-disable-next-line import/named
 import { NavigationActions, StackActions } from 'react-navigation';
 
 import { setupFirebaseDynamicLinks } from '../deepLink';
