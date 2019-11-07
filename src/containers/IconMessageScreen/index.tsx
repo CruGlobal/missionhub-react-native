@@ -37,9 +37,8 @@ const IconMessageScreen = ({
         <Image source={iconPath} style={styles.image} />
         <Text style={styles.text}>{mainText}</Text>
       </Flex>
-      <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-        <BottomButton onPress={onComplete} text={buttonText} />
-      </View>
+
+      <BottomButton onPress={onComplete} text={buttonText} />
     </Flex>
   </SafeAreaView>
 );
