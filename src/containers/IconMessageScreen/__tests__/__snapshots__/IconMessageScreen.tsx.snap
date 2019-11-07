@@ -205,92 +205,83 @@ exports[`renders back button correctly 1`] = `
         Hello, world!
       </Text>
     </View>
-    <View
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
       style={
         Object {
-          "flex": 1,
-          "justifyContent": "flex-end",
+          "bottom": 20,
+          "left": 50,
+          "position": "absolute",
         }
       }
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "bottom": 20,
-            "left": 50,
-            "position": "absolute",
+            "opacity": 1,
           }
         }
+        testID="bottomButton"
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              Object {
+                "borderRadius": 50,
+              },
+            ]
           }
-          testID="bottomButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#52C5DC",
-                  "height": 60,
-                  "justifyContent": "center",
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
+                  "color": "#505256",
                 },
                 Object {
-                  "borderRadius": 50,
+                  "fontFamily": "SourceSansPro-Regular",
                 },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              CLICK ME
-            </Text>
-          </View>
+            CLICK ME
+          </Text>
         </View>
-      </RCTSafeAreaView>
-    </View>
+      </View>
+    </RCTSafeAreaView>
   </View>
 </RCTSafeAreaView>
 `;
@@ -421,92 +412,83 @@ exports[`renders correctly 1`] = `
         Hello, world!
       </Text>
     </View>
-    <View
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
       style={
         Object {
-          "flex": 1,
-          "justifyContent": "flex-end",
+          "bottom": 20,
+          "left": 50,
+          "position": "absolute",
         }
       }
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "bottom": 20,
-            "left": 50,
-            "position": "absolute",
+            "opacity": 1,
           }
         }
+        testID="bottomButton"
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              Object {
+                "borderRadius": 50,
+              },
+            ]
           }
-          testID="bottomButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#52C5DC",
-                  "height": 60,
-                  "justifyContent": "center",
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
+                  "color": "#505256",
                 },
                 Object {
-                  "borderRadius": 50,
+                  "fontFamily": "SourceSansPro-Regular",
                 },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              CLICK ME
-            </Text>
-          </View>
+            CLICK ME
+          </Text>
         </View>
-      </RCTSafeAreaView>
-    </View>
+      </View>
+    </RCTSafeAreaView>
   </View>
 </RCTSafeAreaView>
 `;
@@ -705,92 +687,83 @@ exports[`renders skip button correctly 1`] = `
         Hello, world!
       </Text>
     </View>
-    <View
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
       style={
         Object {
-          "flex": 1,
-          "justifyContent": "flex-end",
+          "bottom": 20,
+          "left": 50,
+          "position": "absolute",
         }
       }
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "bottom": 20,
-            "left": 50,
-            "position": "absolute",
+            "opacity": 1,
           }
         }
+        testID="bottomButton"
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              Object {
+                "borderRadius": 50,
+              },
+            ]
           }
-          testID="bottomButton"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#52C5DC",
-                  "height": 60,
-                  "justifyContent": "center",
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
+                  "color": "#505256",
                 },
                 Object {
-                  "borderRadius": 50,
+                  "fontFamily": "SourceSansPro-Regular",
                 },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              CLICK ME
-            </Text>
-          </View>
+            CLICK ME
+          </Text>
         </View>
-      </RCTSafeAreaView>
-    </View>
+      </View>
+    </RCTSafeAreaView>
   </View>
 </RCTSafeAreaView>
 `;

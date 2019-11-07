@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Image, ImageSourcePropType, View } from 'react-native';
+import { SafeAreaView, Image, ImageSourcePropType } from 'react-native';
 
 import { Flex, Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
