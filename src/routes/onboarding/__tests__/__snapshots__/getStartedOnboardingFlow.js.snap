@@ -59,7 +59,6 @@ exports[`CelebrationScreen next renders correctly 1`] = `
 exports[`GetStartedScreen renders without back button correctly 1`] = `
 <GetStartedScreen
   dispatch={[Function]}
-  id="123"
   logoutOnBack={true}
   navigation={
     Object {
@@ -74,13 +73,6 @@ exports[`GetStartedScreen renders without back button correctly 1`] = `
 
 exports[`PersonSelectStepScreen next renders correctly 1`] = `
 <withI18nextTranslation(PersonSelectStepScreen)
-  contactId="321"
-  contactName="Someone"
-  contactStage={
-    Object {
-      "id": "3",
-    }
-  }
   dispatch={[Function]}
   enableSkipButton={false}
   navigation={
@@ -97,19 +89,25 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     }
   }
   next={[Function]}
-  organization={Object {}}
+  organization={
+    Object {
+      "id": undefined,
+    }
+  }
 />
 `;
 
 exports[`SelectMyStepScreen renders correctly 1`] = `
-<withI18nextTranslation(SelectMyStepScreen)
-  contactStage={
+<SelectMyStepScreen
+  dispatch={[Function]}
+  me={
     Object {
-      "id": "3",
+      "id": "123",
+      "user": Object {
+        "pathway_stage_id": "3",
+      },
     }
   }
-  dispatch={[Function]}
-  myStageId="3"
   navigation={
     Object {
       "state": Object {
@@ -122,7 +120,7 @@ exports[`SelectMyStepScreen renders correctly 1`] = `
     }
   }
   next={[Function]}
-  personId="123"
+  stageId="3"
 />
 `;
 
@@ -143,6 +141,7 @@ exports[`SelectStageScreen person is me renders correctly 1`] = `
     }
   }
   next={[Function]}
+  stages={Array []}
 />
 `;
 
@@ -164,14 +163,17 @@ exports[`SelectStageScreen person is other renders correctly 1`] = `
     }
   }
   next={[Function]}
+  stages={Array []}
 />
 `;
 
 exports[`SetupPersonScreen next renders correctly 1`] = `
-<SetupPersonScreen
+<SetupScreen
   dispatch={[Function]}
-  myId="123"
+  isMe={false}
+  loadedFirstName="Someone"
   next={[Function]}
+  personId="321"
 />
 `;
 

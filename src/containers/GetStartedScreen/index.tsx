@@ -8,8 +8,8 @@ import { Flex, Text } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
-import { ProfileState } from '../../reducers/profile';
 import Header from '../../components/Header';
+import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
 
@@ -17,8 +17,7 @@ interface GetStartedScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: (props: { id: string | null }) => ThunkAction<void, any, null, never>;
-  id: string | null;
+  next: () => ThunkAction<void, any, null, never>;
   name: string;
   enableBackButton?: boolean;
   logoutOnBack?: boolean;
@@ -27,7 +26,6 @@ interface GetStartedScreenProps {
 const GetStartedScreen = ({
   dispatch,
   next,
-  id,
   name = '',
   enableBackButton = true,
   logoutOnBack = false,
@@ -37,7 +35,7 @@ const GetStartedScreen = ({
   const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);
 
   const navigateNext = () => {
-    dispatch(next({ id }));
+    dispatch(next());
   };
 
   return (
@@ -60,9 +58,8 @@ const GetStartedScreen = ({
   );
 };
 
-const mapStateToProps = ({ profile }: { profile: ProfileState }) => ({
-  id: profile.id,
-  name: profile.firstName,
+const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
+  name: auth.person.first_name,
 });
 
 export default connect(mapStateToProps)(GetStartedScreen);

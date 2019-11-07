@@ -4,7 +4,7 @@ import PushNotification from 'react-native-push-notification';
 import { AccessToken } from 'react-native-fbsdk';
 
 import { REQUESTS } from '../../../api/routes';
-import { LOGOUT, COMPLETE_ONBOARDING } from '../../../constants';
+import { LOGOUT } from '../../../constants';
 import {
   SIGN_IN_FLOW,
   GET_STARTED_ONBOARDING_FLOW,
@@ -21,7 +21,6 @@ import { refreshAnonymousLogin } from '../anonymous';
 import { refreshMissionHubFacebookAccess } from '../facebook';
 import { deletePushToken } from '../../notifications';
 import { navigateReset, navigateToMainTabs } from '../../navigation';
-import { completeOnboarding } from '../../onboardingProfile';
 
 jest.mock('react-native-fbsdk', () => ({
   AccessToken: { getCurrentAccessToken: jest.fn() },
@@ -29,7 +28,7 @@ jest.mock('react-native-fbsdk', () => ({
 jest.mock('react-native-push-notification');
 jest.mock('../../notifications');
 jest.mock('../../navigation');
-jest.mock('../../onboardingProfile');
+jest.mock('../../onboarding');
 jest.mock('../key');
 jest.mock('../anonymous');
 jest.mock('../facebook');
@@ -41,7 +40,6 @@ let store;
 const deletePushTokenResult = { type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS };
 const navigateResetResult = { type: 'navigate reset' };
 const navigateToMainTabsResult = { type: 'navigate to main tabs' };
-const completeOnboardingResult = { type: COMPLETE_ONBOARDING };
 
 beforeEach(() => {
   store = mockStore();
@@ -49,7 +47,6 @@ beforeEach(() => {
   deletePushToken.mockReturnValue(deletePushTokenResult);
   navigateReset.mockReturnValue(navigateResetResult);
   navigateToMainTabs.mockReturnValue(navigateToMainTabsResult);
-  completeOnboarding.mockReturnValue(completeOnboardingResult);
 });
 
 describe('logout', () => {
@@ -126,11 +123,7 @@ describe('navigateToPostAuthScreen', () => {
     store.dispatch(navigateToPostAuthScreen());
 
     expect(navigateToMainTabs).toHaveBeenCalledWith();
-    expect(completeOnboarding).toHaveBeenCalledWith();
-    expect(store.getActions()).toEqual([
-      navigateToMainTabsResult,
-      completeOnboardingResult,
-    ]);
+    expect(store.getActions()).toEqual([navigateToMainTabsResult]);
   });
 
   it('should navigate to add someone if user has pathway_stage_id and no contact assignments', () => {
@@ -182,7 +175,7 @@ describe('handleInvalidAccessToken', () => {
   it('should refresh anonymous login if user is Try It Now', async () => {
     store = mockStore({
       auth: {
-        isFirstTime: true,
+        upgradeToken: 'some-upgrade-token',
       },
     });
 
