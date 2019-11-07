@@ -4,6 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   reminderButton: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
