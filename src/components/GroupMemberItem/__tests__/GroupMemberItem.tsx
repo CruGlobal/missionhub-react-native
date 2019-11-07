@@ -6,7 +6,6 @@ import {
   renderShallow,
   testSnapshotShallow,
   createThunkStore,
-  renderWithContext,
 } from '../../../../testUtils';
 
 import GroupMemberItem from '..';
@@ -229,7 +228,7 @@ describe('render MemberOptionsMenu', () => {
 
 describe('onSelect', () => {
   it('calls onSelect prop', () => {
-    const onSelect = jest.fn();
+    // const onSelect = jest.fn();
     // renderShallow(<GroupMemberItem {...{ ...props, onSelect }} />, store)
     //   .instance()
     //   .handleSelect();

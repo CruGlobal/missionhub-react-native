@@ -10,22 +10,30 @@ import MemberOptionsMenu from '../MemberOptionsMenu';
 import { orgPermissionSelector } from '../../selectors/people';
 import { orgIsUserCreated, isAdminOrOwner, isOwner } from '../../utils/common';
 import ItemHeaderText from '../ItemHeaderText';
-
 import { AuthState } from '../../reducers/auth';
-import { StagesState } from '../../reducers/stages';
-import { PersonProfileState } from '../../reducers/personProfile';
+import { StagesState, StagesObj } from '../../reducers/stages';
 import { Person } from '../../reducers/people';
-import { OrganizationsState } from '../../reducers/organizations';
+import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
+
+interface PersonOrgPermissionInterface {
+  archive_date: string | null;
+  cru_status: string;
+  followup_status: string | null;
+  id: string;
+  organization: Organization;
+  organization_id: string;
+  permission_id: 1;
+}
 
 interface GroupMemberItemProps {
   onSelect: (person: Person) => void;
   person: Person;
-  personOrgPermission: any;
-  stagesObj: any;
-  me: any;
-  organization: any;
+  personOrgPermission: PersonOrgPermissionInterface;
+  stagesObj?: StagesObj;
+  me: Person;
+  organization: Organization;
   iAmAdmin: boolean;
   iAmOwner: boolean;
   personIsOwner: boolean;
@@ -75,7 +83,7 @@ const GroupMemberItem = ({
       stage = me.stage;
     } else if (stagesObj) {
       const contactAssignment = contactAssignments.find(
-        (a: any) => a.assigned_to.id === me.id,
+        (a: Person) => a.assigned_to.id === me.id,
       );
       if (
         contactAssignment &&
@@ -162,8 +170,9 @@ const mapStateToProps = (
     organization,
     myOrgPermission,
   }: {
-    person: PersonProfileState;
-    organization: OrganizationsState;
+    person: Person;
+    organization: Organization;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     myOrgPermission: any;
   },
 ) => {
