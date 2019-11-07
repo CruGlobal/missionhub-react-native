@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { CREATE_STEP } from '../../constants';
 import { createCustomStep } from '../../actions/steps';

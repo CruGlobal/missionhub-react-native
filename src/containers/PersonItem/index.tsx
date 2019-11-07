@@ -1,24 +1,39 @@
-/* eslint-disable @typescript-eslint/no-explicit-any, complexity */
-
+/* eslint complexity: 0 */
 import React from 'react';
+import { View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 
-import { Flex, Text, Touchable, Icon } from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
-import { hasOrgPermissions, orgIsCru } from '../../utils/common';
+import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
+import CURIOUS from '../../../assets/images/curiousIcon.png';
+import FORGIVEN from '../../../assets/images/forgivenIcon.png';
+import GROWING from '../../../assets/images/growingIcon.png';
+import GUIDING from '../../../assets/images/guidingIcon.png';
+import NOTSURE from '../../../assets/images/notsureIcon.png';
 import ItemHeaderText from '../../components/ItemHeaderText';
-import { SELECT_PERSON_STAGE_FLOW } from '../../routes/constants';
+import { Text, Touchable, Icon, Card, Dot } from '../../components/common';
+import {
+  navigateToStageScreen,
+  navigateToAddStepFlow,
+} from '../../actions/misc';
+import { navToPersonScreen } from '../../actions/person';
+import { hasOrgPermissions, orgIsCru } from '../../utils/common';
+import { Organization } from '../../reducers/organizations';
+import { AuthState } from '../../reducers/auth';
+import { StagesObj, StagesState } from '../../reducers/stages';
+import { Person } from '../../reducers/people';
 
 import styles from './styles';
 
+const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
+
 interface PersonItemProps {
   person: PersonAttributes;
-  organization?: { [key: string]: any };
-  me: PersonAttributes;
-  stagesObj: any;
-  onSelect: (person: PersonAttributes, org?: any) => void;
+  organization?: Organization;
+  me: Person;
+  stagesObj: StagesObj;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
 }
 
@@ -27,43 +42,28 @@ const PersonItem = ({
   organization,
   me,
   stagesObj,
-  onSelect,
   dispatch,
 }: PersonItemProps) => {
   const { t } = useTranslation();
   const orgId = organization && organization.id;
   const isMe = person.id === me.id;
   const isPersonal = orgId === 'personal';
-  const contactAssignments = (person as any).reverse_contact_assignments || [];
   const contactAssignment =
-    contactAssignments.find(
+    (person.reverse_contact_assignments || []).find(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (a: any) => a.assigned_to && a.assigned_to.id === me.id,
     ) || {};
 
-  const handleSelect = () => onSelect(person, organization);
-
-  const handleChangeStage = () => {
-    dispatch(
-      navigatePush(SELECT_PERSON_STAGE_FLOW, {
-        personId: person.id,
-        section: 'people',
-        subsection: 'person',
-        orgId,
-      }),
-    );
-  };
-
-  const newPerson = isMe ? me : person;
-  const personName = (isMe ? t('me') : newPerson.full_name || '').toUpperCase();
+  const personName = isMe ? t('me') : person.full_name || '';
 
   const stage = isMe
-    ? (me as any).stage
+    ? me.stage
     : stagesObj[`${contactAssignment.pathway_stage_id}`];
 
   const isCruOrg = orgIsCru(organization);
 
-  const orgPermissions = (person as any).organizational_permissions || [];
-  const personOrgPermissions = orgPermissions.find(
+  const personOrgPermissions = (person.organizational_permissions || []).find(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (orgPermission: any) => orgPermission.organization_id === orgId,
   );
 
@@ -74,42 +74,123 @@ const PersonItem = ({
       ? personOrgPermissions.followup_status || ''
       : 'uncontacted';
 
-  const isUncontacted = status === 'uncontacted';
+  const handleSelect = () =>
+    dispatch(
+      navToPersonScreen(
+        person,
+        organization && !isPersonal ? organization : undefined,
+      ),
+    );
+
+  const handleChangeStage = () =>
+    dispatch(
+      navigateToStageScreen(
+        isMe,
+        person,
+        contactAssignment,
+        organization,
+        stage && stage.id - 1,
+      ),
+    );
+
+  const handleAddStep = () =>
+    dispatch(navigateToAddStepFlow(isMe, person, organization));
+
+  const renderStageIcon = () => {
+    return (
+      <View style={styles.stageIconWrapper}>
+        {stage ? (
+          <Image
+            style={styles.image}
+            resizeMode={'contain'}
+            source={stageIcons[stage.id - 1]}
+          />
+        ) : null}
+      </View>
+    );
+  };
+
+  const renderNameAndStage = () => {
+    return (
+      <View style={styles.textWrapper}>
+        <ItemHeaderText text={personName} />
+        <View style={styles.textRow}>
+          {stage ? (
+            <Text style={styles.stage}>{stage.name}</Text>
+          ) : (
+            <Touchable testID="stageText" onPress={handleChangeStage}>
+              <Text style={[styles.stage, styles.addStage]}>
+                {t('peopleScreen:addStage')}
+              </Text>
+            </Touchable>
+          )}
+          {status ? (
+            <View style={styles.textRow}>
+              <Dot style={styles.stage} />
+              <Text style={[styles.stage]}>
+                {t(`followupStatus.${status.toLowerCase()}`)}
+              </Text>
+            </View>
+          ) : null}
+        </View>
+      </View>
+    );
+  };
+
+  const renderStepIcon = () => {
+    //TODO: get count of steps for each contact
+    const stepsCount = 0;
+
+    return stepsCount > 0 ? (
+      <View style={styles.stepButtonWrapper}>
+        <Icon
+          type="MissionHub"
+          name="stepsIcon"
+          size={30}
+          style={styles.stepIcon}
+        />
+        <View style={styles.badge}>
+          <Text style={styles.badgeText}>{stepsCount}</Text>
+        </View>
+      </View>
+    ) : (
+      <Touchable
+        testID="stepIcon"
+        style={styles.stepButtonWrapper}
+        onPress={handleAddStep}
+      >
+        <Icon
+          type="MissionHub"
+          name="stepsIcon"
+          size={30}
+          style={styles.stepIcon}
+        />
+        <Icon
+          type="MissionHub"
+          name="plusIcon"
+          size={14}
+          style={styles.stepPlusIcon}
+        />
+      </Touchable>
+    );
+  };
 
   return (
-    <Touchable highlight={true} onPress={handleSelect}>
-      <Flex direction="row" align="center" style={styles.row}>
-        <Flex justify="center" value={1}>
-          <ItemHeaderText text={personName} />
-          <Flex direction="row" align="center">
-            <Text style={styles.stage}>{stage ? stage.name : ''}</Text>
-            <Text style={styles.stage}>{stage && status ? '  >  ' : null}</Text>
-            <Text
-              style={[styles.stage, isUncontacted ? styles.uncontacted : null]}
-            >
-              {status ? t(`followupStatus.${status.toLowerCase()}`) : null}
-            </Text>
-          </Flex>
-        </Flex>
-        {!isPersonal && !stage && !isMe ? (
-          <Touchable
-            testID="setStageButton"
-            isAndroidOpacity={true}
-            onPress={handleChangeStage}
-          >
-            <Icon
-              name="journeyIcon"
-              type="MissionHub"
-              style={styles.uncontactedIcon}
-            />
-          </Touchable>
-        ) : null}
-      </Flex>
-    </Touchable>
+    <Card testID="personCard" onPress={handleSelect} style={styles.card}>
+      {renderStageIcon()}
+      {renderNameAndStage()}
+      {renderStepIcon()}
+    </Card>
   );
 };
 
-const mapStateToProps = ({ auth, stages }: { auth: any; stages: any }) => ({
+const mapStateToProps = ({
+  auth,
+  stages,
+}: {
+  auth: AuthState;
+  stages: StagesState;
+}) => ({
   me: auth.person,
   stagesObj: stages.stagesObj || {},
 });

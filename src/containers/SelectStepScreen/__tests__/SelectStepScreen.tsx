@@ -29,7 +29,7 @@ beforeEach(() => {
       organization={organization}
       receiverId={receiverId}
       enableSkipButton={enableSkipButton}
-      headerText="Header Text"
+      headerText={['Header Text 1', 'Header Text 2']}
       contactName={contactName}
       next={next}
     />,
@@ -83,21 +83,6 @@ xdescribe('skip button', () => {
       receiverId,
       step: undefined,
       skip: true,
-      orgId: organization.id,
-    });
-  });
-});
-
-describe('BottomButton', () => {
-  beforeEach(() => {
-    fireEvent.press(screen.getByTestId('bottomButton'));
-  });
-
-  it('navigates to add step screen', () => {
-    expect(next).toHaveBeenCalledWith({
-      receiverId,
-      step: undefined,
-      skip: false,
       orgId: organization.id,
     });
   });

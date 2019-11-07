@@ -18,8 +18,18 @@ export const migrations = {
       },
     },
   }),
+  1: state => ({
+    ...state,
+    swipe: {
+      ...state.swipe,
+      groupOnBoarding: {
+        ...state.swipe.groupOnBoarding,
+        steps: true,
+      },
+    },
+  }),
   //  Move data from profile and personProfile to new onboarding reducer and remove them
-  1: ({ profile = {}, personProfile = {}, ...state }) => ({
+  2: ({ profile = {}, personProfile = {}, ...state }) => ({
     ...state,
     onboarding: {
       ...state.onboarding,

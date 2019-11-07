@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { StatusBar, SafeAreaView } from 'react-native';
 import i18next from 'i18next';
 import { connect } from 'react-redux';
-import { DrawerActions } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 import PropTypes from 'prop-types';
 
 import Header from '../../../components/Header';
@@ -213,7 +213,7 @@ export class AssignedPersonScreen extends Component {
     } = this.props;
 
     // If the keyboard is up, show the person's name and the organization
-    const name = (person.first_name || '').toUpperCase();
+    const name = person.first_name || '';
 
     return (
       <SafeAreaView style={styles.container}>

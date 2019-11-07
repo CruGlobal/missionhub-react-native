@@ -26,6 +26,7 @@ export interface ReminderButtonProps {
   children: ReactNode;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
+  testID?: string;
 }
 const ReminderButton = ({
   dispatch,

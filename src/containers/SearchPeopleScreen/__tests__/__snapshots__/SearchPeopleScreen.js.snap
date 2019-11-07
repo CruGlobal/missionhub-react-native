@@ -25,30 +25,24 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <View
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
-      Array [
-        Object {
-          "flexDirection": "row",
-          "height": 56,
-          "paddingTop": 0,
-        },
-        undefined,
-        null,
-      ]
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
   >
     <View
       style={
         Array [
           Object {
-            "paddingLeft": 5,
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
           },
-          Object {
-            "alignItems": "flex-start",
-            "flex": 1,
-            "justifyContent": "center",
-          },
+          undefined,
+          null,
         ]
       }
     >
@@ -56,11 +50,167 @@ exports[`renders correctly 1`] = `
         style={
           Array [
             Object {
+              "paddingLeft": 5,
+            },
+            Object {
               "alignItems": "flex-start",
-              "alignSelf": "flex-start",
+              "flex": 1,
               "justifyContent": "center",
             },
-            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {},
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 5,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          alignItems="center"
+          flexDirection="row"
+          style={
+            Object {
+              "alignSelf": "stretch",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+            }
+          }
+        >
+          <TextInput
+            allowFontScaling={true}
+            autoCorrect={false}
+            autoFocus={true}
+            blurOnSubmit={true}
+            multiline={false}
+            onChangeText={[Function]}
+            placeholder="Search"
+            placeholderTextColor="#ffffff"
+            rejectResponderTermination={true}
+            returnKeyType="done"
+            selectionColor="white"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderBottomColor": "#52C5DC",
+                  "borderBottomWidth": 1,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "letterSpacing": 0.25,
+                  "paddingVertical": 5,
+                },
+                Object {
+                  "borderBottomWidth": 0,
+                  "color": "#ffffff",
+                  "flex": 1,
+                  "fontSize": 16,
+                  "paddingVertical": 5,
+                },
+              ]
+            }
+            underlineColorAndroid="rgba(0,0,0,0)"
+            value=""
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
           ]
         }
       >
@@ -125,154 +275,13 @@ exports[`renders correctly 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>
       </View>
     </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 5,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <View
-        alignItems="center"
-        flexDirection="row"
-        style={
-          Object {
-            "alignSelf": "stretch",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-          }
-        }
-      >
-        <TextInput
-          allowFontScaling={true}
-          autoCorrect={false}
-          autoFocus={true}
-          blurOnSubmit={true}
-          multiline={false}
-          onChangeText={[Function]}
-          placeholder="Search"
-          placeholderTextColor="#ffffff"
-          rejectResponderTermination={true}
-          returnKeyType="done"
-          selectionColor="white"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
-                "borderBottomWidth": 1,
-                "color": "#ffffff",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 16,
-                "letterSpacing": 0.25,
-                "paddingVertical": 5,
-              },
-              Object {
-                "borderBottomWidth": 0,
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 16,
-                "paddingVertical": 5,
-              },
-            ]
-          }
-          underlineColorAndroid="rgba(0,0,0,0)"
-          value=""
-        />
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "paddingRight": 5,
-          },
-          Object {
-            "alignItems": "flex-end",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="IconButton"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              null,
-              Object {},
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {},
-                  ],
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
+  </RCTSafeAreaView>
   <View
     style={
       Array [

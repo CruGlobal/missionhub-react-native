@@ -18,9 +18,37 @@ it('should migrate impact reducer to use summary key', () => {
   ).toMatchSnapshot();
 });
 
-it('should migrate onboarding state', () => {
+it('should migrate swipe groupOnBoarding reducer to use steps', () => {
   expect(
     migrations[1]({
+      auth: {},
+      impact: {
+        interactions: {
+          '123': {},
+        },
+        people: {
+          '123': 'personImpact1',
+          '456': 'personImpact2',
+        },
+        global: 'globalImpact',
+      },
+      swipe: {
+        groupOnBoarding: {
+          celebrate: true,
+          challenges: true,
+          members: true,
+          impact: true,
+          contacts: true,
+          surveys: true,
+        },
+      },
+    }),
+  ).toMatchSnapshot();
+});
+
+it('should migrate onboarding state', () => {
+  expect(
+    migrations[2]({
       auth: {},
       profile: {
         community: {

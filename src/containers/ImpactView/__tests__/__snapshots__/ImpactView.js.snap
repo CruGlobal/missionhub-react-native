@@ -156,7 +156,7 @@ See what God has done through you below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -234,7 +234,7 @@ See what God has done through you below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -312,7 +312,7 @@ See what God has done through you below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -390,7 +390,7 @@ See what God has done through you below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -468,7 +468,7 @@ See what God has done through you below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -1468,7 +1468,7 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -1546,7 +1546,7 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -1624,7 +1624,7 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -1702,7 +1702,7 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -1780,7 +1780,7 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -2780,7 +2780,7 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -2858,7 +2858,7 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -2936,7 +2936,7 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -3014,7 +3014,7 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -3092,7 +3092,7 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -4609,7 +4609,7 @@ See what God has done through Test Fname below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -4687,7 +4687,7 @@ See what God has done through Test Fname below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -4765,7 +4765,7 @@ See what God has done through Test Fname below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -4843,7 +4843,7 @@ See what God has done through Test Fname below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -4921,7 +4921,7 @@ See what God has done through Test Fname below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -5921,7 +5921,7 @@ exports[`ImpactView contact impact renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -5999,7 +5999,7 @@ exports[`ImpactView contact impact renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -6077,7 +6077,7 @@ exports[`ImpactView contact impact renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -6155,7 +6155,7 @@ exports[`ImpactView contact impact renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -6233,7 +6233,7 @@ exports[`ImpactView contact impact renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -7233,7 +7233,7 @@ exports[`ImpactView contact impact renders singular state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -7311,7 +7311,7 @@ exports[`ImpactView contact impact renders singular state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -7389,7 +7389,7 @@ exports[`ImpactView contact impact renders singular state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -7467,7 +7467,7 @@ exports[`ImpactView contact impact renders singular state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -7545,7 +7545,7 @@ exports[`ImpactView contact impact renders singular state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -8545,7 +8545,7 @@ See what God has done through all of us below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -8623,7 +8623,7 @@ See what God has done through all of us below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -8701,7 +8701,7 @@ See what God has done through all of us below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -8779,7 +8779,7 @@ See what God has done through all of us below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -8857,7 +8857,7 @@ See what God has done through all of us below.
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -9857,7 +9857,7 @@ exports[`ImpactView cru community impact renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -9935,7 +9935,7 @@ exports[`ImpactView cru community impact renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -10013,7 +10013,7 @@ exports[`ImpactView cru community impact renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -10091,7 +10091,7 @@ exports[`ImpactView cru community impact renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -10169,7 +10169,7 @@ exports[`ImpactView cru community impact renders plural state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -11169,7 +11169,7 @@ exports[`ImpactView cru community impact renders singular state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -11247,7 +11247,7 @@ exports[`ImpactView cru community impact renders singular state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -11325,7 +11325,7 @@ exports[`ImpactView cru community impact renders singular state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -11403,7 +11403,7 @@ exports[`ImpactView cru community impact renders singular state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",
@@ -11481,7 +11481,7 @@ exports[`ImpactView cru community impact renders singular state 1`] = `
                       Object {
                         "backgroundColor": "rgba(0,0,0,0)",
                         "color": "#ffffff",
-                        "fontSize": 18,
+                        "fontSize": 14,
                         "fontWeight": "500",
                         "letterSpacing": 1.5,
                         "textAlign": "center",

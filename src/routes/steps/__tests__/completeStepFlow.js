@@ -2,7 +2,8 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import * as reactNavigation from 'react-navigation';
+// eslint-disable-next-line import/named
+import { StackActions } from 'react-navigation';
 
 import { RESET_STEP_COUNT, STEP_NOTE, ACTIONS } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
@@ -62,10 +63,8 @@ const trackActionResponse = { type: 'tracked action' };
 beforeEach(() => {
   store.clearActions();
   navigatePush.mockReturnValue(navigatePushResponse);
-  reactNavigation.StackActions.popToTop = jest
-    .fn()
-    .mockReturnValue(popToTopResponse);
-  reactNavigation.StackActions.pop = jest.fn().mockReturnValue(popResponse);
+  StackActions.popToTop = jest.fn().mockReturnValue(popToTopResponse);
+  StackActions.pop = jest.fn().mockReturnValue(popResponse);
   reloadJourney.mockReturnValue(reloadJourneyResponse);
   updateChallengeNote.mockReturnValue(updateChallengeNoteResponse);
   trackAction.mockReturnValue(trackActionResponse);
@@ -331,11 +330,11 @@ describe('CelebrationScreen next', () => {
     });
 
     it('should return to top of stack', () => {
-      expect(reactNavigation.StackActions.popToTop).toHaveBeenCalledTimes(1);
+      expect(StackActions.popToTop).toHaveBeenCalledTimes(1);
     });
 
     it('should navigate back', () => {
-      expect(reactNavigation.StackActions.pop).toHaveBeenCalledWith({
+      expect(StackActions.pop).toHaveBeenCalledWith({
         immediate: true,
       });
     });
@@ -371,11 +370,11 @@ describe('CelebrationScreen next', () => {
     });
 
     it('should return to top of stack', () => {
-      expect(reactNavigation.StackActions.popToTop).toHaveBeenCalledTimes(1);
+      expect(StackActions.popToTop).toHaveBeenCalledTimes(1);
     });
 
     it('should navigate back', () => {
-      expect(reactNavigation.StackActions.pop).toHaveBeenCalledWith({
+      expect(StackActions.pop).toHaveBeenCalledWith({
         immediate: true,
       });
     });

@@ -2,11 +2,11 @@
 
 import React from 'react';
 import {
-  createBottomTabNavigator,
-  createDrawerNavigator,
   createStackNavigator,
   StackViewTransitionConfigs,
-} from 'react-navigation';
+} from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
 import StepsScreen from './containers/StepsScreen';
@@ -280,7 +280,6 @@ export const MAIN_TABS_SCREEN = createDrawerNavigator(
   },
   {
     contentComponent: SettingsMenu,
-    defaultNavigationOptions: { drawerLockMode: 'locked-closed' },
     backBehavior: 'none', // We're handling it on our own
   },
 );
@@ -294,7 +293,6 @@ const buildPersonScreenRoute = screen =>
       {
         contentComponent: PersonSideMenu,
         drawerPosition: 'right',
-        defaultNavigationOptions: { drawerLockMode: 'locked-closed' },
         backBehavior: 'none', // We're handling it on our own
       },
     ),

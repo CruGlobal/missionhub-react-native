@@ -22,9 +22,13 @@ export interface Stage {
   locale: string; // Spread from current localized_pathway_stages. Could be updated to a selector instead.
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type StagesObj = { [key: string]: Stage };
+
 export interface StagesState {
   stages: Stage[];
-  stagesObj?: { [key: string]: Stage };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  stagesObj?: StagesObj;
 }
 
 const initialStagesState: StagesState = {

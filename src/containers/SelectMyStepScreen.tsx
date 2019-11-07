@@ -25,7 +25,7 @@ const SelectMyStepScreen = ({ me, stageId, next }: SelectMyStepScreenProps) => {
     <SelectStepScreen
       contactStageId={stageId}
       receiverId={me.id}
-      headerText={t('meHeader')}
+      headerText={[t('meHeader.part1'), t('meHeader.part2')]}
       next={next}
     />
   );

@@ -7,26 +7,13 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.primaryColor,
   },
-  headerIcon: {
-    fontSize: 40,
-    color: theme.secondaryColor,
-  },
-  headerTitle: {
-    fontSize: 36,
-    lineHeight: 48,
-    letterSpacing: 2,
-    color: theme.secondaryColor,
-  },
   headerText: {
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: 24,
+    lineHeight: 30,
+    fontWeight: '300',
     color: theme.white,
-    paddingHorizontal: 50,
-    paddingBottom: 36,
+    paddingHorizontal: 30,
     textAlign: 'center',
-  },
-  collapsedHeaderTitle: {
-    fontSize: 14,
-    color: theme.white,
+    letterSpacing: 1,
   },
 });
